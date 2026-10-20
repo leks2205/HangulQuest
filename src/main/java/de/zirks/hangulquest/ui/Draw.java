@@ -67,13 +67,19 @@ public final class Draw {
 
 	public static void truncated(GuiGraphicsExtractor graphics, Font font, Component text, int x, int y,
 								 int maxWidth, int color) {
+		truncated(graphics, font, text, x, y, maxWidth, color, SHADOW);
+	}
+
+	/** Same, but with an explicit shadow flag — HUD text without a panel needs the vanilla shadow. */
+	public static void truncated(GuiGraphicsExtractor graphics, Font font, Component text, int x, int y,
+								 int maxWidth, int color, boolean shadow) {
 		if (font.width(text) <= maxWidth) {
-			graphics.text(font, text, x, y, color, SHADOW);
+			graphics.text(font, text, x, y, color, shadow);
 			return;
 		}
 		String plain = text.getString();
 		String cut = TextClean.truncate(plain, Math.max(3, plain.length() * maxWidth / Math.max(1, font.width(text))));
-		graphics.text(font, Component.literal(cut), x, y, color, SHADOW);
+		graphics.text(font, Component.literal(cut), x, y, color, shadow);
 	}
 
 	/** A neutral "?" tile shown instead of an item icon until the answer is revealed. */

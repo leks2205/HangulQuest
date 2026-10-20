@@ -4,6 +4,20 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [1.3.0] — 2026-10-20
+
+### Changed
+
+- **The quest log lost its panel.** Quests are drawn straight onto the world as shadowed text: two
+  tight lines per quest, no background box, no header or footer — the log now takes roughly a third of
+  the screen space it used to.
+- **Counts are inline instead of a bar.** A counting goal shows its number right after the objective
+  (`회색 돌을 세 개 캐요. 1/3`); condition messages follow after a dot (` · 밤 필요`) when they fit.
+- The highlighted quest keeps a gold title; everything else is white/grey, so the focus is visible
+  without a box.
+
+[1.3.0]: https://github.com/leks2205/HangulQuest/releases/tag/v1.3.0
+
 ## [1.2.0] — 2026-10-20
 
 ### Added

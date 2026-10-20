@@ -64,7 +64,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 **Quest trails**
 - **414 questlines**, one JSON file each: a tree **22 levels deep**, 1,505 steps in total, 38 roots, branches that merge again before they continue.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
-- **A quest log, not a single tracker.** Tick quests in the journal and the HUD lists them: title, current Korean objective, live status line (`지금 낮 · 밤 필요`, `Y 62 / 140 위`) and a progress bar where the goal counts something. Up to six, one of them highlighted; `V` cycles the highlight.
+- **A quest log, not a single tracker.** Tick quests in the journal and they appear top-left as a short, background-free list: title, current Korean objective, the count right after it (`1/3`) and a status line when a condition is missing. Up to six, one of them highlighted; `V` cycles the highlight.
 - **Only checked quests advance.** An unticked quest keeps its saved progress but is paused, so nothing completes behind your back while you are reading something else. The highlighted quest is the one the hint key and the sidequest work on.
 - Finishing a trail chains onward automatically: the only unlocked child starts, or a HUD card offers up to five follow-ups (`1`–`5`, the first one after 60 s). Leaving a trail pauses it mid-step; coming back resumes that exact step, counter and sidequest state.
 
@@ -111,7 +111,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
     <td><img src="docs/screenshots/journal-translations.webp" alt="Journal with translations switched on" /></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/quest-log.webp" alt="Quest log with four tracked quests and their progress" /></td>
+    <td><img src="docs/screenshots/quest-log.webp" alt="Background-free quest log with three quests" /></td>
     <td><img src="docs/screenshots/celebration-trail.webp" alt="Trail completed celebration" /></td>
   </tr>
   <tr>

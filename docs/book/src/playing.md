@@ -2,26 +2,28 @@
 
 ## The quest log
 
-When a quest is tracked, the top-left corner shows a **quest log**: every open quest with its Korean
-objective, the live status of that objective and a progress bar for goals that count something.
+When quests are tracked, the top-left corner shows a **quest log**: no panel, just shadowed text on the
+world, two short lines per quest.
 
-<img src="screenshots/quest-log.webp" alt="Quest log with four quests, their objectives and progress bars" />
+<img src="screenshots/quest-log.webp" alt="Background-free quest log with three quests and their counts" />
 
-Each row reads:
+Each quest reads:
 
 | Part | Example | Meaning |
 |---|---|---|
-| title | **돌의 길** | the trail's Korean title; the highlighted quest is gold and marked with a bar |
+| title | **돌의 길** | the trail's Korean title; the highlighted quest is gold |
 | step | `1/4` | which step of the trail you are on, finales included |
-| objective | `회색 돌을 세 개 캐요.` | the current Korean sentence |
-| progress | `1/3` with a gold bar | blocks broken, items collected, things placed or mobs defeated so far |
-| status | `지금 낮 · 밤 필요` | why it is not done yet — time, weather, altitude, biome, dimension, a mob nearby |
+| objective | `회색 돌을 세 개 캐요. 1/3` | the current Korean sentence, with the count of the goal right after it |
+| status | `지금 낮 · 밤 필요` | only when a condition is missing — time, weather, biome, dimension, a mob nearby |
+
+Counts are inline (`1/3`) instead of a bar, and there is no background box, so the log stays small even
+with several quests open.
 
 The status line is generated from the goal, so it always answers the question the sentence raises:
 
 | What you see | What it means |
 |---|---|
-| `돌 1/3` | one of three stone broken, collected or placed — depending on the goal |
+| `1/3` | one of three stone broken, collected or placed — depending on the goal |
 | `지금 낮 · 밤 필요` | it is day; the step needs night |
 | `Y 62 / 140 위` | you are at Y 62 and the goal wants Y 140 or higher |
 | `지금 평원 지형 · 산 지형 필요` | you are standing in plains, the step wants a mountain biome |
