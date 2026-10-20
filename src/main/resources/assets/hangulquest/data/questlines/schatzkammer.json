@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 147,
  "concepts": [
-  "chest",
-  "gold_block",
-  "anvil",
-  "diamond"
+  "gen_polished_deepslate",
+  "gen_waxed_exposed_copper_chest",
+  "gen_stripped_birch_wood",
+  "gen_mossy_cobblestone_slab"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,54 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "chest"
+    "gen_polished_deepslate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:polished_deepslate",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Truhen."
-   },
-   "hint": {
-    "ko": "상자는 나무 판자로 만들어요.",
-    "de": "Truhen bestehen aus Holzbrettern."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gold_block"
+    "gen_waxed_exposed_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:waxed_exposed_copper_chest",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Goldblöcke."
-   },
-   "hint": {
-    "ko": "금 블록은 금 아홉 개로 만들어요.",
-    "de": "Goldblöcke bestehen aus neun Goldbarren."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "anvil"
+    "gen_stripped_birch_wood"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
-   },
-   "clue": {
-    "de": "Benutz einen Amboss."
-   },
-   "hint": {
-    "ko": "모루는 철 블록과 철 조각으로 만들어요.",
-    "de": "Ein Amboss besteht aus Eisenblöcken und -barren."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stripped_birch_wood",
+    "count": 3
    }
   }
  ],
@@ -79,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "diamond"
+    "gen_mossy_cobblestone_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:mossy_cobblestone_slab",
     "count": 5
    },
-   "conditions": [],
-   "hint": {
-    "ko": "다이아몬드는 철 곡괭이로 캐요.",
-    "de": "Diamanten baust du mit einer Eisenspitzhacke ab."
-   }
+   "conditions": []
   },
-  "textKo": "다이아몬드를 보물방에 모아요.",
-  "textDe": "Diamanten für die Schatzkammer."
+  "textKo": "이끼 낀 조약돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schatzkammer",

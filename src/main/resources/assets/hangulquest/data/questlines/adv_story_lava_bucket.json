@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 318,
  "concepts": [
-  "iron",
-  "bucket",
-  "lava"
+  "gen_dark_oak_planks",
+  "gen_birch_wall_hanging_sign",
+  "lava",
+  "gen_bamboo_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,33 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_dark_oak_planks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:dark_oak_planks",
     "count": 3
-   },
-   "clue": {
-    "de": "Schmelze drei Eisenbarren für den Eimer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bucket"
+    "gen_birch_wall_hanging_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bucket",
+    "item": "minecraft:birch_wall_hanging_sign",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue aus drei Eisenbarren einen Eimer."
-   },
-   "hint": {
-    "ko": "양동이는 철 주괴 세 개로 만들어요.",
-    "de": "Ein Eimer braucht drei Eisenbarren."
    }
   },
   {
@@ -70,24 +61,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lava"
+    "gen_bamboo_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
+    "item": "minecraft:bamboo_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Schöpfe mit dem Eimer einen Lavaeimer voll."
-   },
-   "hint": {
-    "ko": "용암 가까이서 양동이를 쓰면 용암이 담겨요.",
-    "de": "Mit dem Eimer am Lavasee schöpfen."
    },
    "conditions": []
   },
-  "textKo": "화끈한 화제 — 뜨거운 용암을 양동이에 담았어요.",
-  "textDe": "Manche mögen’s heiß — Ein Eimer Lava blubbert im Rucksack."
+  "textKo": "대나무 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambusblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_lava_bucket",

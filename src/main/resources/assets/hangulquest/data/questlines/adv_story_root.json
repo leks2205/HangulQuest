@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 322,
  "concepts": [
-  "log",
-  "planks",
-  "stick",
-  "crafting_table"
+  "gen_purpur_pillar",
+  "gen_diamond_hoe",
+  "gate",
+  "gen_dark_oak_wood"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,51 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "log"
+    "gen_purpur_pillar"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_log",
+    "block": "minecraft:purpur_pillar",
     "count": 4
-   },
-   "clue": {
-    "de": "Fälle vier Baumstämme mit der bloßen Hand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "planks"
+    "gen_diamond_hoe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_planks",
+    "item": "minecraft:diamond_hoe",
     "count": 8
-   },
-   "clue": {
-    "de": "Zerlege das Holz in acht Holzbretter."
-   },
-   "hint": {
-    "ko": "통나무 하나를 판자 네 개로 만들 수 있어요.",
-    "de": "Ein Stamm ergibt vier Holzbretter."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "stick"
+    "gate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stick",
+    "item": "minecraft:oak_fence_gate",
     "count": 4
-   },
-   "clue": {
-    "de": "Schnitze vier Stöcke aus Holzbrettern."
-   },
-   "hint": {
-    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
-    "de": "Zwei Holzbretter ergeben vier Stöcke."
    }
   }
  ],
@@ -75,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "crafting_table"
+    "gen_dark_oak_wood"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crafting_table",
+    "item": "minecraft:dark_oak_wood",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue aus vier Holzbrettern eine Werkbank."
-   },
-   "hint": {
-    "ko": "작업대는 판자 네 개로 만들어요.",
-    "de": "Eine Werkbank braucht vier Holzbretter."
    },
    "conditions": []
   },
-  "textKo": "마인크래프트 — 작업대를 만들었어요. 이제 진짜 시작이에요.",
-  "textDe": "Minecraft — Die Werkbank steht. Jetzt geht es richtig los."
+  "textKo": "짙은 참나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzeichenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_root",

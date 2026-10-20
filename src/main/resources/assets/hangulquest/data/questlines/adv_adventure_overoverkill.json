@@ -8,7 +8,7 @@
  "order": 219,
  "concepts": [
   "adv_item_mace",
-  "height",
+  "gravel",
   "iron_golem"
  ],
  "requires": {
@@ -39,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "height"
+    "gravel"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Kletter über Y 120 hinaus auf einen hohen Gipfel."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gravel",
+    "count": 1
    }
   }
  ],

@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 240,
  "concepts": [
-  "adv_item_trial_key",
-  "adv_item_ominous_trial_key",
+  "gen_birch_button",
+  "gen_mangrove_wall_hanging_sign",
   "adv_item_enchanted_book"
  ],
  "requires": {
@@ -22,29 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_trial_key"
+    "gen_birch_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:trial_key",
+    "item": "minecraft:birch_button",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege die Gegner an einem Prüfungsgenerator und nimm den Schlüssel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_ominous_trial_key"
+    "gen_mangrove_wall_hanging_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ominous_trial_key",
+    "item": "minecraft:mangrove_wall_hanging_sign",
     "count": 1
-   },
-   "clue": {
-    "de": "Trink die ominöse Flasche und besiege die Gegner am unheilvollen Prüfungsgenerator."
    }
   }
  ],

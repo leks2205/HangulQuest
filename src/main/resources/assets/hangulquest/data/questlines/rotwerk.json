@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "rotwerk",
+ "titleKo": "붉은 실의 길",
+ "titleDe": "Der rote Faden",
+ "topic": "색",
+ "tier": 2,
+ "order": 1130,
+ "koreanLevel": 6,
+ "concepts": [
+  "gen_beetroot",
+  "gen_beetroots",
+  "gen_red_wool"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gen_beetroot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:beetroot",
+    "count": 2
+   },
+   "clue": {
+    "ko": "비트를 만들어요.",
+    "de": "Stelle Rote Bete her."
+   },
+   "hint": {
+    "ko": "비트를 만들어요.",
+    "de": "Stelle Rote Bete her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_beetroots"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:beetroots",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "비트를 봐요.",
+    "de": "Sieh dir Rote Bete an."
+   },
+   "hint": {
+    "ko": "비트를 봐요.",
+    "de": "Sieh dir Rote Bete an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_red_wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_wool",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
+  },
+  "textKo": "저녁에 붉은 천을 펼쳤어요.",
+  "textDe": "Die Zeremonie ist vollendet."
+ },
+ "reward": {
+  "badge": "rotwerk",
+  "words": [
+   "gen_beetroot",
+   "gen_beetroots",
+   "gen_red_wool"
+  ]
+ }
+}

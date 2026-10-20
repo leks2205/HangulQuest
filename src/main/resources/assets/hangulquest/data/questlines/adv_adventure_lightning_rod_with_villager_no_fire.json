@@ -8,7 +8,7 @@
  "order": 216,
  "concepts": [
   "lightning_rod",
-  "villager"
+  "rabbit"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -38,14 +38,11 @@
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "rabbit"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Handel mit einem Dorfbewohner, damit er im Freien am Dorfplatz stehen bleibt."
+    "entity": "minecraft:rabbit"
    }
   }
  ],

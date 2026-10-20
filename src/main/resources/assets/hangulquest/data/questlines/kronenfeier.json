@@ -8,9 +8,8 @@
  "order": 74,
  "concepts": [
   "cake",
-  "bell",
-  "campfire",
-  "ritual"
+  "gen_yellow_concrete",
+  "gen_infested_mossy_stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -45,38 +44,30 @@
   {
    "id": "s2",
    "teach": [
-    "bell",
-    "ritual"
+    "gen_yellow_concrete"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute die Festglocke.",
-    "ko": "의식의 종을 울려요."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:yellow_concrete",
+    "count": 3
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "hint": {
-    "ko": "의식은 특별한 날에 하는 것이에요. 낮에 종을 울려요.",
-    "de": "Ein Ritual macht man an besonderen Tagen; läute am Tag die Glocke."
-   }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_infested_mossy_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:infested_mossy_stone_bricks",
     "count": 1
    },
    "conditions": [
@@ -86,8 +77,8 @@
     }
    ]
   },
-  "textKo": "밤에 왕관의 잔치에서 불을 피워요.",
-  "textDe": "Beim Kronenfest brennt das Feuer."
+  "textKo": "밤에 벌레 먹은 이끼 낀 석재 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Befallene bemooste Steinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenfeier",

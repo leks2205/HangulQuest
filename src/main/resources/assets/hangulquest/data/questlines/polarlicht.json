@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 91,
  "concepts": [
-  "bucket",
-  "lava_bucket",
-  "furnace",
+  "gen_cod_bucket",
+  "gen_gold_nugget",
+  "gen_weeping_vines_plant",
   "magma"
  ],
  "requires": {
@@ -23,42 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "bucket"
+    "gen_cod_bucket"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bucket",
+    "item": "minecraft:cod_bucket",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Eimer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "lava_bucket"
+    "gen_gold_nugget"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
+    "item": "minecraft:gold_nugget",
     "count": 1
-   },
-   "clue": {
-    "de": "Fülle einen Lavaeimer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "furnace"
+    "gen_weeping_vines_plant"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Benutz einen Ofen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:weeping_vines_plant",
+    "count": 3
    }
   }
  ],

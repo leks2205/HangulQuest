@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 323,
  "concepts": [
-  "diamond",
+  "gen_gray_wool_slab",
   "adv2_item_diamond_helmet",
-  "adv_item_diamond_boots",
-  "adv_block_diamond_chestplate"
+  "gen_sulfur_slab",
+  "gen_yellow_wool_stairs"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,15 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "diamond"
+    "gen_gray_wool_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:gray_wool_slab",
     "count": 17
-   },
-   "clue": {
-    "de": "Baue siebzehn Diamanten für die Rüstung ab."
    }
   },
   {
@@ -55,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "adv_item_diamond_boots"
+    "gen_sulfur_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_boots",
+    "item": "minecraft:sulfur_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue ein Paar Diamantstiefel."
-   },
-   "hint": {
-    "ko": "다이아몬드 부츠는 다이아몬드 네 개로 만들어요.",
-    "de": "Diamantstiefel brauchen vier Diamanten."
    }
   }
  ],
@@ -75,24 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_diamond_chestplate"
+    "gen_yellow_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_chestplate",
+    "item": "minecraft:yellow_wool_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Lege den Diamantharnisch an."
-   },
-   "hint": {
-    "ko": "다이아몬드 흉갑은 다이아몬드 여덟 개로 만들어요.",
-    "de": "Ein Diamantharnisch braucht acht Diamanten."
    },
    "conditions": []
   },
-  "textKo": "다이아몬드로 날 감싸줘 — 다이아몬드 갑옷이 반짝여요.",
-  "textDe": "Bedeck mich mit Diamanten — Die Diamantrüstung glänzt."
+  "textKo": "노란색 양털 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelbe Wolltreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_shiny_gear",

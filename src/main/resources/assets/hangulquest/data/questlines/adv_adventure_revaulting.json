@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 222,
  "concepts": [
-  "skeleton",
+  "gen_elder_guardian",
   "adv_item_trial_key",
   "adv_item_ominous_trial_key"
  ],
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "skeleton"
+    "gen_elder_guardian"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:elder_guardian",
     "count": 3
-   },
-   "clue": {
-    "de": "Übersteh die Wellen des Prüfungs-Spawners in der Kammer."
    }
   },
   {

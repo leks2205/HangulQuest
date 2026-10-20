@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 280,
  "concepts": [
-  "fishing_rod",
-  "bucket",
+  "gen_crimson_stem",
+  "beehive",
   "adv_item_pufferfish_bucket"
  ],
  "requires": {
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "fishing_rod"
+    "gen_crimson_stem"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fishing_rod",
+    "item": "minecraft:crimson_stem",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue zuerst eine Angel aus Stöcken und Fäden."
-   },
-   "hint": {
-    "ko": "막대기와 실로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bucket"
+    "beehive"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bucket",
+    "item": "minecraft:beehive",
     "count": 1
-   },
-   "clue": {
-    "de": "Dann schmiede einen Eimer aus drei Eisenbarren."
-   },
-   "hint": {
-    "ko": "철 주괴 세 개로 만들어요."
    }
   }
  ],

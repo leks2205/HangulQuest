@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1032,
  "concepts": [
-  "door",
-  "bread",
-  "bed",
-  "chest"
+  "gen_andesite_slab",
+  "gen_cooked_mutton",
+  "gen_black_concrete",
+  "gen_piston"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "door"
+    "gen_andesite_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_door",
+    "block": "minecraft:andesite_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Tür in das Nachbarhaus."
-   },
-   "hint": {
-    "ko": "이웃집에 문을 세워요.",
-    "de": "Baue eine Tür am Haus des Nachbarn."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "gen_cooked_mutton"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:cooked_mutton",
     "count": 1
-   },
-   "clue": {
-    "de": "Teile das Brot und iss ein Stück."
-   },
-   "hint": {
-    "ko": "빵을 먹어요.",
-    "de": "Iss ein Brot."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_black_concrete"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf im Gästebett des Nachbarn."
-   },
-   "hint": {
-    "ko": "침대에서 자요.",
-    "de": "Schlaf im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:black_concrete",
+    "count": 3
    }
   }
  ],
@@ -78,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_piston"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:piston",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "이웃의 문이 열리고 빵을 나눠요. 함께 먹고 함께 자요.",
-  "textDe": "Die Tür des Nachbarn steht offen, das Brot ist geteilt. Zusammen essen, zusammen schlafen."
+  "textKo": "피스톤라는 길의 의식을 마쳤어요.",
+  "textDe": "Kolben — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_02",

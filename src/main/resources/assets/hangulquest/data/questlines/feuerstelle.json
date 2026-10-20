@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 47,
  "concepts": [
-  "campfire",
-  "torch",
-  "bed"
+  "gen_cherry_shelf",
+  "gen_polished_andesite",
+  "gen_damaged_anvil"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "campfire"
+    "gen_cherry_shelf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:cherry_shelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_polished_andesite"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:polished_andesite",
     "dwellMs": 400
-   },
-   "clue": {
-    "de": "Schau eine Fackel an."
    },
    "conditions": [
     {
@@ -59,11 +53,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_damaged_anvil"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:damaged_anvil"
    },
    "conditions": [
     {
@@ -72,8 +66,8 @@
     }
    ]
   },
-  "textKo": "밤에 불 곁에서 자요.",
-  "textDe": "Nachts schläfst du am Feuer."
+  "textKo": "밤에 손상된 모루라는 길의 의식을 마쳤어요.",
+  "textDe": "Beschädigter Amboss — Zeremonie vollendet."
  },
  "reward": {
   "badge": "feuerstelle",

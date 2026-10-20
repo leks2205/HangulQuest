@@ -5,9 +5,10 @@
  "titleDe": "Der tiefe Steinpfad",
  "tier": 3,
  "concepts": [
-  "iron",
-  "cave",
-  "torch"
+  "gen_black_wool_slab",
+  "gen_chiseled_sandstone",
+  "gen_pink_concrete_powder",
+  "gen_orange_banner"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -21,43 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_black_wool_slab"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:iron_ore",
+    "block": "minecraft:black_wool_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Ein glitzernder Stein im grauen Gestein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cave"
+    "gen_chiseled_sandstone"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": -64,
-    "maxY": 0
-   },
-   "clue": {
-    "de": "Geh unter die Erde."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_sandstone",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_pink_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:pink_concrete_powder",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Lichter in die Dunkelheit."
    }
   }
  ],
@@ -65,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_orange_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:orange_banner",
     "count": 1
    },
    "conditions": [
@@ -80,8 +72,8 @@
     }
    ]
   },
-  "textKo": "높이 0 이하의 깊은 곳에서 빛을 만들었어요. 돌의 길이 이어졌어요.",
-  "textDe": "Tief unten hast du Licht gemacht. Der Steinpfad geht weiter."
+  "textKo": "높이 0 이하에서 주황색 현수막라는 길의 의식을 마쳤어요.",
+  "textDe": "Oranges Banner — Zeremonie vollendet."
  },
  "reward": {
   "badge": "steintiefe",

@@ -7,7 +7,8 @@
  "tier": 2,
  "order": 262,
  "concepts": [
-  "cat"
+  "cat",
+  "gen_beetroot_seeds"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -34,19 +35,12 @@
   {
    "id": "s2",
    "teach": [
-    "cat"
+    "gen_beetroot_seeds"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:beetroot_seeds",
     "count": 2
-   },
-   "clue": {
-    "de": "Fange zwei rohe Kabeljau für die Katze."
-   },
-   "hint": {
-    "ko": "낚싯대를 들고 물에서 대구를 잡아요.",
-    "de": "Mit einer Angel ziehst du den Kabeljau aus dem Wasser."
    }
   }
  ],

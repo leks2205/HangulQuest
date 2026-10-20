@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 161,
  "concepts": [
-  "leaves",
-  "flower_pot",
-  "flower",
-  "lantern"
+  "gen_acacia_sapling",
+  "gen_jungle_button",
+  "gen_sandstone_wall",
+  "gen_oak_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,47 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "leaves"
+    "gen_acacia_sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_leaves",
+    "block": "minecraft:acacia_sapling",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Blätter."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "flower_pot"
+    "gen_jungle_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:flower_pot",
+    "block": "minecraft:jungle_button",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Blumentöpfe."
-   },
-   "hint": {
-    "ko": "화분은 벽돌로 만들어요.",
-    "de": "Blumentöpfe bestehen aus Ziegeln."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "flower"
+    "gen_sandstone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:sandstone_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Mohnblumen."
    }
   }
  ],
@@ -72,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_oak_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:oak_hanging_sign",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "정원 예술로 랜턴을 밝혀요.",
-  "textDe": "Laternen für den Garten."
+  "textKo": "참나무 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Eichenholzhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gartenkunst",

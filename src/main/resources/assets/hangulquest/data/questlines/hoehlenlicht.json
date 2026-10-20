@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 42,
  "concepts": [
-  "stone",
-  "torch",
-  "coal"
+  "gen_red_sand",
+  "gen_polished_cinnabar",
+  "gen_piglin_head"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,29 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "stone"
+    "gen_red_sand"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone",
+    "block": "minecraft:red_sand",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Stein ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_polished_cinnabar"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:polished_cinnabar",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    }
   }
  ],
@@ -52,11 +46,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "coal"
+    "gen_piglin_head"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:piglin_head",
     "count": 1
    },
    "conditions": [
@@ -66,8 +60,8 @@
     }
    ]
   },
-  "textKo": "밤에 동굴에서 석탄을 캐요.",
-  "textDe": "Nachts baust du in der Höhle Kohle ab."
+  "textKo": "밤에 피글린 머리라는 길의 의식을 마쳤어요.",
+  "textDe": "Piglinkopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "hoehlenlicht",

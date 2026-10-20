@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 302,
  "concepts": [
-  "adv_dimension_the_nether",
-  "bow",
-  "adv_item_blaze_rod"
+  "gen_dead_bubble_coral_wall_fan",
+  "gen_howl_pottery_sherd",
+  "gen_prismarine"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,31 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_dead_bubble_coral_wall_fan"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Geh durch das Portal in den Nether, dort steht die Festung mit den Lohen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dead_bubble_coral_wall_fan",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bow"
+    "gen_howl_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bow",
+    "item": "minecraft:howl_pottery_sherd",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm einen Bogen mit, Lohen kämpfen aus der Ferne."
-   },
-   "hint": {
-    "ko": "실 세 개와 막대기 세 개로 활을 만들어요."
    }
   }
  ],
@@ -54,20 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_blaze_rod"
+    "gen_prismarine"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blaze_rod",
+    "item": "minecraft:prismarine",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Erlege eine Lohe und nimm ihre Rute an dich."
-   }
+   "conditions": []
   },
-  "textKo": "포화 속으로 — 블레이즈를 물리치고 막대기를 얻었어요.",
-  "textDe": "Spiel mit dem Feuer — eine Lohenrute aus der Festung."
+  "textKo": "프리즈머린라는 길의 의식을 마쳤어요.",
+  "textDe": "Prismarin — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_obtain_blaze_rod",

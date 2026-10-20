@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 305,
  "concepts": [
-  "adv_dimension_the_nether",
+  "gen_stripped_cherry_wood",
   "saddle",
   "adv_item_warped_fungus_on_a_stick"
  ],
@@ -22,14 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_stripped_cherry_wood"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Geh in den Nether, dort schwimmen die Striders im Lavasee."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stripped_cherry_wood",
+    "count": 3
    }
   },
   {

@@ -7,9 +7,10 @@
  "tier": 1,
  "order": 1017,
  "concepts": [
-  "amethyst_shard",
+  "gen_blue_bundle",
+  "gen_cut_red_sandstone",
   "amethyst_block",
-  "glass_bottle"
+  "gen_tall_grass"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,37 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "amethyst_shard"
+    "gen_blue_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_shard",
+    "item": "minecraft:blue_bundle",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Amethystsplitter."
-   },
-   "hint": {
-    "ko": "자수정 조각은 동굴에서 나와요.",
-    "de": "Amethystsplitter findest du in Amethysthöhlen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "amethyst_block"
+    "gen_cut_red_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:amethyst_block",
+    "block": "minecraft:cut_red_sandstone",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Amethystblöcke auf den Boden."
-   },
-   "hint": {
-    "ko": "자수정 블록은 조각 네 개로 만들어요.",
-    "de": "Ein Amethystblock besteht aus vier Splittern."
    }
   },
   {
@@ -76,17 +63,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "glass_bottle"
+    "gen_tall_grass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass_bottle",
+    "item": "minecraft:tall_grass",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "자수정 빛을 유리병에 담아요.",
-  "textDe": "Du fängst das Amethystlicht in einer Glasflasche ein."
+  "textKo": "키 큰 잔디라는 길의 의식을 마쳤어요.",
+  "textDe": "Hohes Gras — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_07",

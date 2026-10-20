@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 520,
  "concepts": [
-  "iron",
-  "coal",
+  "gen_chiseled_copper",
+  "gen_pink_tulip",
   "ice",
-  "torch"
+  "gen_granite_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_chiseled_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:iron_ore",
+    "block": "minecraft:chiseled_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Eisenerz ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "coal"
+    "gen_pink_tulip"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:pink_tulip",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Kohle ab."
    }
   },
   {
@@ -67,11 +61,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_granite_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:granite_slab",
     "count": 1
    },
    "conditions": [
@@ -82,8 +76,8 @@
     }
    ]
   },
-  "textKo": "높이 0 이하의 광산 아래에서 불을 밝혀요.",
-  "textDe": "Tief im Bergwerk brennt dein Licht."
+  "textKo": "높이 0 이하에서 화강암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Granitstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bergwerk",

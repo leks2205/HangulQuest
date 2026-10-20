@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1062,
  "concepts": [
-  "flower",
+  "gen_spore_blossom",
   "dandelion",
   "mushroom",
-  "flower_pot"
+  "gen_cobbled_deepslate_slab"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "flower"
+    "gen_spore_blossom"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poppy",
+    "item": "minecraft:spore_blossom",
     "count": 3
-   },
-   "clue": {
-    "de": "Pflück drei Mohnblumen am Waldrand."
-   },
-   "hint": {
-    "ko": "꽃은 숲 가장자리에서 자라요.",
-    "de": "Blumen wachsen gern am Waldrand."
    }
   },
   {
@@ -79,20 +72,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower_pot"
+    "gen_cobbled_deepslate_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:flower_pot",
+    "block": "minecraft:cobbled_deepslate_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Blumentopf für die gesammelten Kräuter auf."
    },
    "conditions": []
   },
-  "textKo": "숲의 약초를 화분에 심어요.",
-  "textDe": "Pflanze die Waldkräuter in einen Topf."
+  "textKo": "심층암 조약돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bruchtiefenschieferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_02",

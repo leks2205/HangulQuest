@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1076,
  "concepts": [
-  "lava_bucket",
-  "netherrack",
-  "magma",
-  "ghast"
+  "gen_deepslate",
+  "gen_orange_wool",
+  "gen_pointed_dripstone",
+  "gen_suspicious_sand"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "lava_bucket"
+    "gen_deepslate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
+    "item": "minecraft:deepslate",
     "count": 1
-   },
-   "clue": {
-    "de": "Fülle einen Lavaeimer."
-   },
-   "hint": {
-    "ko": "용암 양동이는 빈 양동이로 용암을 떠서 만들어요.",
-    "de": "Einen Lavaeimer füllst du mit einem leeren Eimer in Lava."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "netherrack"
+    "gen_orange_wool"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:netherrack",
+    "block": "minecraft:orange_wool",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue acht Netherrack ab."
-   },
-   "hint": {
-    "ko": "네더랙은 지옥 어디서나 캘 수 있어요.",
-    "de": "Netherrack kannst du überall im Nether abbauen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "magma"
+    "gen_pointed_dripstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magma_block",
+    "block": "minecraft:pointed_dripstone",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Magmablöcke."
-   },
-   "hint": {
-    "ko": "마그마 블록은 마그마 크림과 네더랙으로 만들어요.",
-    "de": "Magmablöcke bestehen aus Magmacreme und Netherrack."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "ghast"
+    "gen_suspicious_sand"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ghast",
-    "count": 1
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:suspicious_sand",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "마그마 길을 건너 가스트를 물리쳐요.",
-  "textDe": "Über den Magmaweg besiegt du einen Ghast."
+  "textKo": "수상한 모래라는 길의 의식을 마쳤어요.",
+  "textDe": "Seltsamer Sand — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_06",

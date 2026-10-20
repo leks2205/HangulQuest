@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 281,
  "concepts": [
-  "bucket",
+  "gen_mossy_stone_bricks",
   "frog",
-  "adv_item_tadpole_bucket"
+  "gen_blue_concrete_powder"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,18 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "bucket"
+    "gen_mossy_stone_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bucket",
+    "item": "minecraft:mossy_stone_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede einen Eimer und nimm ihn mit in den Sumpf."
-   },
-   "hint": {
-    "ko": "철 주괴 세 개로 만들어요."
    }
   },
   {
@@ -55,17 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_tadpole_bucket"
+    "gen_blue_concrete_powder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tadpole_bucket",
+    "item": "minecraft:blue_concrete_powder",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "양동이에 올챙이 한 마리 — 물속 올챙이를 양동이로 떠요.",
-  "textDe": "Im Eimer — Du fängst eine Kaulquappe mit dem Eimer."
+  "textKo": "파란색 콘크리트 가루라는 길의 의식을 마쳤어요.",
+  "textDe": "Blauer Trockenbeton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_tadpole_in_a_bucket",

@@ -7,10 +7,10 @@
  "tier": 5,
  "order": 72,
  "concepts": [
-  "mountain",
+  "gen_stony_peaks",
   "diamond",
-  "bell",
-  "crown"
+  "crown",
+  "gen_tinted_glass"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -30,15 +30,12 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_stony_peaks"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:stony_peaks",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
@@ -66,11 +63,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_tinted_glass"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:tinted_glass",
+    "count": 1
    },
    "conditions": [
     {
@@ -79,8 +77,8 @@
     }
    ]
   },
-  "textKo": "낮에 산 위에서 왕관의 종을 울려요.",
-  "textDe": "Auf dem Berg läutet die Krone."
+  "textKo": "낮에 차광 유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Getöntes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenpfad",

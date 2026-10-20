@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 306,
  "concepts": [
-  "saddle",
-  "adv_item_warped_fungus_on_a_stick",
+  "gen_lime_glazed_terracotta",
+  "gen_diamond_horse_armor",
   "lava_bucket"
  ],
  "requires": {
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "saddle"
+    "gen_lime_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:saddle",
+    "item": "minecraft:lime_glazed_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm den Sattel mit, den du für den Strider brauchst."
-   },
-   "hint": {
-    "ko": "안장은 요새 상자나 낚시로 얻어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_warped_fungus_on_a_stick"
+    "gen_diamond_horse_armor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_fungus_on_a_stick",
+    "item": "minecraft:diamond_horse_armor",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue die Wirrpilzrute, mit der du den Strider lenkst."
-   },
-   "hint": {
-    "ko": "낚싯대와 뒤틀린 균으로 만들어요."
    }
   }
  ],

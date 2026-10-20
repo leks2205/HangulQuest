@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 380,
  "concepts": [
-  "emerald",
-  "bread",
-  "carrot"
+  "gen_cyan_wool_slab",
+  "gen_lime_terracotta",
+  "gen_mycelium",
+  "gen_purple_bed"
  ],
  "requires": {
   "minWordsKnown": 9,
@@ -21,43 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_cyan_wool_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:cyan_wool_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei grüne Edelsteine."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "gen_lime_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:lime_terracotta",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Brote."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "carrot"
+    "gen_mycelium"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:carrot",
+    "item": "minecraft:mycelium",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Karotten."
    }
   }
  ],
@@ -65,11 +57,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_purple_bed"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:purple_bed",
+    "count": 3
    },
    "conditions": [
     {
@@ -78,8 +71,8 @@
     }
    ]
   },
-  "textKo": "낮에 시장의 종을 울려요.",
-  "textDe": "Am Tag läutet die Glocke auf dem Markt."
+  "textKo": "낮에 보라색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Violettes Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "marktpfad",

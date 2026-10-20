@@ -8,9 +8,9 @@
  "order": 1056,
  "concepts": [
   "gold",
-  "emerald",
-  "amethyst_shard",
-  "diamond"
+  "goat",
+  "gen_dead_horn_coral_block",
+  "gen_birch_leaves"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "emerald"
+    "goat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:goat_horn",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "amethyst_shard"
+    "gen_dead_horn_coral_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_shard",
+    "item": "minecraft:dead_horn_coral_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Amethystsplitter."
-   },
-   "hint": {
-    "ko": "자수정은 동굴의 군집에서 캐요.",
-    "de": "Amethyst wächst in Höhlengruppen."
    }
   }
  ],
@@ -79,24 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "diamond"
+    "gen_birch_leaves"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:diamond_ore",
+    "block": "minecraft:birch_leaves",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Diamanterz ab."
-   },
-   "hint": {
-    "ko": "다이아몬드는 철 곡괭이로 캐요.",
-    "de": "Diamanten brauchen eine Eisenspitzhacke."
    },
    "conditions": []
   },
-  "textKo": "땅속의 보석을 캐서 세상에 보여 줘요.",
-  "textDe": "Juwelen aus der Tiefe zeigst du der Welt."
+  "textKo": "자작나무 잎라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenlaub — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_06",

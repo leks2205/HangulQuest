@@ -8,9 +8,9 @@
  "order": 1058,
  "concepts": [
   "dirt",
-  "cobblestone",
-  "skeleton",
-  "lantern"
+  "gen_mangrove_log",
+  "gen_sulfur_bricks",
+  "gen_waxed_oxidized_copper"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "cobblestone"
+    "gen_mangrove_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cobblestone",
+    "block": "minecraft:mangrove_log",
     "count": 12
-   },
-   "clue": {
-    "de": "Setz zwölf Bruchsteine."
-   },
-   "hint": {
-    "ko": "조약돌은 돌을 캐면 나와요.",
-    "de": "Bruchstein entsteht beim Abbau von Stein."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "skeleton"
+    "gen_sulfur_bricks"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
-    "count": 2
-   },
-   "clue": {
-    "de": "Besiege zwei Skelette."
-   },
-   "hint": {
-    "ko": "스켈레톤은 검으로 물리쳐요.",
-    "de": "Skelette besiegst du mit dem Schwert."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sulfur_bricks",
+    "count": 1
    }
   }
  ],
@@ -79,19 +65,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_waxed_oxidized_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:waxed_oxidized_copper",
     "count": 2
-   },
-   "clue": {
-    "de": "Häng zwei Laternen unter der Erde auf."
-   },
-   "hint": {
-    "ko": "높이 0 이하에서 랜턴을 놓아요.",
-    "de": "Unter Höhe 0 setzt du Laternen."
    },
    "conditions": [
     {
@@ -101,8 +80,8 @@
     }
    ]
   },
-  "textKo": "높이 0 이하의 굴에서 뿌리 등불을 밝혀요.",
-  "textDe": "Unter Höhe 0 brennt unter den Wurzeln ein Licht."
+  "textKo": "높이 0 이하에서 밀랍칠한 산화된 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster oxidierter Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_08",

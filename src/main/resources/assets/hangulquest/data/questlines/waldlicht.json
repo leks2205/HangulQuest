@@ -7,9 +7,10 @@
  "tier": 3,
  "order": 46,
  "concepts": [
-  "log",
-  "flower",
-  "torch"
+  "glass",
+  "gen_lime_stained_glass_pane",
+  "gen_resin_brick_wall",
+  "gen_yellow_carpet"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "log"
+    "glass"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_log",
+    "block": "minecraft:glass",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Baumstämme ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "flower"
+    "gen_lime_stained_glass_pane"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:lime_stained_glass_pane",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Blume an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_resin_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:resin_brick_wall",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    },
    "conditions": [
     {
@@ -73,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_yellow_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:yellow_carpet",
     "count": 1
    },
    "conditions": [
@@ -87,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤 숲에 불빛을 놓아요.",
-  "textDe": "Nachts leuchtet der Wald."
+  "textKo": "밤에 노란색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelber Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "waldlicht",

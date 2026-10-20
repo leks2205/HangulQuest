@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 544,
  "concepts": [
-  "planks",
-  "fence",
-  "crafting_table",
-  "iron"
+  "gen_cherry_planks",
+  "gen_sulfur_spike",
+  "beehive",
+  "gen_pink_dye"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,42 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "planks"
+    "gen_cherry_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_planks",
+    "block": "minecraft:cherry_planks",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Holzbretter."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fence"
+    "gen_sulfur_spike"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
+    "block": "minecraft:sulfur_spike",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Zäune."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "crafting_table"
+    "beehive"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Benutz eine Werkbank."
+    "block": "minecraft:beehive"
    }
   }
  ],
@@ -66,17 +57,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron"
+    "gen_pink_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:pink_dye",
     "count": 6
    },
    "conditions": []
   },
-  "textKo": "조선소에서 철을 모아요.",
-  "textDe": "Eisen für die Werft sammeln."
+  "textKo": "분홍색 염료라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Farbstoff — Zeremonie vollendet."
  },
  "reward": {
   "badge": "hafenwacht",

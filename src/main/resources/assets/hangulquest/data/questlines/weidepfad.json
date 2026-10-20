@@ -6,9 +6,10 @@
  "tier": 3,
  "order": 340,
  "concepts": [
-  "horse",
-  "cow",
-  "leather"
+  "gen_stone_slab",
+  "gen_mangrove_roots",
+  "gen_dead_fire_coral_wall_fan",
+  "gen_mossy_stone_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -22,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_stone_slab"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Pferd an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_slab",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cow"
+    "gen_mangrove_roots"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Kuh an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mangrove_roots",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "leather"
+    "gen_dead_fire_coral_wall_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather",
+    "item": "minecraft:dead_fire_coral_wall_fan",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle ein Stück Leder."
    }
   }
  ],
@@ -66,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_mossy_stone_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:mossy_stone_brick_slab",
     "count": 1
    },
    "conditions": [
@@ -80,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 목장에서 불을 피워요.",
-  "textDe": "In der Nacht brennt das Feuer auf der Weide."
+  "textKo": "밤에 이끼 낀 석재 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooste Steinziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weidepfad",

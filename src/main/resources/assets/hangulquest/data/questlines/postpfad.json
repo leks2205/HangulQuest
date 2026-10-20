@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 165,
  "concepts": [
-  "paper",
-  "cartography_table",
-  "chest",
-  "compass"
+  "gen_mangrove_planks",
+  "gen_mangrove_fence_gate",
+  "gen_black_concrete_powder",
+  "gen_pottery_shard_archer"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "paper"
+    "gen_mangrove_planks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:paper",
+    "item": "minecraft:mangrove_planks",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Papier."
-   },
-   "hint": {
-    "ko": "종이는 사탕수수로 만들어요.",
-    "de": "Papier wird aus Zuckerrohr gemacht."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cartography_table"
+    "gen_mangrove_fence_gate"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:cartography_table"
-   },
-   "clue": {
-    "de": "Benutz einen Kartentisch."
-   },
-   "hint": {
-    "ko": "지도 제작대는 나무 판자와 종이로 만들어요.",
-    "de": "Ein Kartentisch besteht aus Holzbrettern und Papier."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mangrove_fence_gate",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_black_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:black_concrete_powder",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Truhe."
    }
   }
  ],
@@ -75,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "compass"
+    "gen_pottery_shard_archer"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:compass",
+    "item": "minecraft:pottery_shard_archer",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "나침반은 철 조각과 레드스톤으로 만들어요.",
-    "de": "Ein Kompass besteht aus Eisen und Redstone."
-   }
+   "conditions": []
   },
-  "textKo": "나침반으로 편지를 보내요.",
-  "textDe": "Mit dem Kompass Briefe senden."
+  "textKo": "궁수 도자기 조각라는 길의 의식을 마쳤어요.",
+  "textDe": "Schützen-Töpferscherbe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "postpfad",

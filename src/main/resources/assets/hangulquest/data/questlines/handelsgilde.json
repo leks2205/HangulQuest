@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 162,
  "concepts": [
-  "emerald",
-  "chest",
-  "bell",
-  "gold_block"
+  "gen_chainmail_boots",
+  "gen_pink_petals",
+  "gen_shulker_box",
+  "gen_polished_blackstone_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,46 +24,33 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_chainmail_boots"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:chainmail_boots",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chest"
+    "gen_pink_petals"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:pink_petals",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Truhen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_shulker_box"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "block": "minecraft:shulker_box"
    }
   }
  ],
@@ -71,21 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "gen_polished_blackstone_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:polished_blackstone_pressure_plate",
     "count": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "금 블록은 금 아홉 개로 만들어요.",
-    "de": "Goldblöcke bestehen aus neun Goldbarren."
-   }
+   "conditions": []
   },
-  "textKo": "금 블록으로 길드를 장식해요.",
-  "textDe": "Goldblöcke schmücken die Gilde."
+  "textKo": "윤나는 흑암 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Schwarzsteindruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "handelsgilde",

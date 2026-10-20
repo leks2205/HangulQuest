@@ -7,8 +7,9 @@
  "tier": 2,
  "order": 301,
  "concepts": [
-  "height",
-  "adv_item_ancient_debris"
+  "gen_tall_grass",
+  "adv_item_ancient_debris",
+  "gen_jungle_sign"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,18 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "height"
+    "gen_tall_grass"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 8,
-    "maxY": 22
-   },
-   "clue": {
-    "de": "Grabe dich im Nether auf Höhe 8 bis 22 hinunter, dort liegt der Schrott."
-   },
-   "hint": {
-    "ko": "높이 8에서 22 사이, 용암 아래를 파요. 다이아몬드 곡괭이로 캐요."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:tall_grass",
+    "count": 3
    }
   },
   {
@@ -54,20 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ancient_debris"
+    "gen_jungle_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ancient_debris",
+    "item": "minecraft:jungle_sign",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Der uralte Schrott liegt in deiner Hand."
-   }
+   "conditions": []
   },
-  "textKo": "깊이 파묻힌 잔해 — 용암 아래에서 고대 잔해를 캐냈어요.",
-  "textDe": "Verborgen in den Tiefen — unter der Lava lag der uralte Schrott."
+  "textKo": "정글나무 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_obtain_ancient_debris",

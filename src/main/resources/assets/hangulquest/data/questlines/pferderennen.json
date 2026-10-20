@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 156,
  "concepts": [
-  "horse",
-  "saddle",
-  "fence",
-  "carrot"
+  "gen_magma_cube",
+  "gen_polished_blackstone_pressure_plate",
+  "gen_lime_concrete_slab",
+  "gen_gray_terracotta"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,51 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_magma_cube"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
+    "entity": "minecraft:magma_cube",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Pferd an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "saddle"
+    "gen_polished_blackstone_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:saddle",
+    "item": "minecraft:polished_blackstone_pressure_plate",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Sattel."
-   },
-   "hint": {
-    "ko": "안장은 상자나 낚시에서 얻어요.",
-    "de": "Sättel findest du in Truhen oder beim Angeln."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fence"
+    "gen_lime_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
+    "block": "minecraft:lime_concrete_slab",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Zäune."
-   },
-   "hint": {
-    "ko": "울타리는 막대기로 만들어요.",
-    "de": "Zäune bestehen aus Stöcken."
    }
   }
  ],
@@ -76,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "carrot"
+    "gen_gray_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:carrot",
+    "item": "minecraft:gray_terracotta",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "당근을 모아 말을 달래요.",
-  "textDe": "Karotten für das Pferd."
+  "textKo": "회색 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Graue Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "pferderennen",

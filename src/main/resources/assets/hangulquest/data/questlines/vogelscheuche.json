@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 154,
  "concepts": [
-  "hay_block",
-  "carved_pumpkin",
-  "torch",
-  "wheat"
+  "gen_comparator",
+  "gen_blue_wool",
+  "gen_warped_trapdoor",
+  "gen_exposed_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,51 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "hay_block"
+    "gen_comparator"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:hay_block",
+    "block": "minecraft:comparator",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Heuballen."
-   },
-   "hint": {
-    "ko": "건초 더미는 밀 아홉 개로 만들어요.",
-    "de": "Heuballen bestehen aus neun Weizen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "carved_pumpkin"
+    "gen_blue_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:carved_pumpkin",
+    "block": "minecraft:blue_wool",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz einen geschnitzten Kürbis."
-   },
-   "hint": {
-    "ko": "조각된 호박은 가위로 호박을 깎아요.",
-    "de": "Geschnitzte Kürbisse entstehen mit einer Schere."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_warped_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:warped_trapdoor",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    }
   }
  ],
@@ -75,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wheat"
+    "gen_exposed_copper_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wheat",
+    "item": "minecraft:exposed_copper_trapdoor",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "밀을 모아 허수아비를 만들어요.",
-  "textDe": "Weizen für die Vogelscheuche."
+  "textKo": "약간 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Angelaufene Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vogelscheuche",

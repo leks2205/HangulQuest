@@ -5,10 +5,10 @@
  "titleDe": "Der Tierpfad",
  "tier": 1,
  "concepts": [
-  "cow",
+  "gen_allay",
   "pig",
   "sheep",
-  "zombie"
+  "gen_bamboo_sapling"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -18,20 +18,12 @@
   {
    "id": "s1",
    "teach": [
-    "cow"
+    "gen_allay"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
+    "entity": "minecraft:allay",
     "dwellMs": 800
-   },
-   "clue": {
-    "ko": "우유를 주는 소를 1초 동안 바라봐요.",
-    "de": "Finde das Tier, das Milch gibt."
-   },
-   "hint": {
-    "ko": "소를 봐요.",
-    "de": "Schau eine Kuh an."
    }
   },
   {
@@ -77,12 +69,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_bamboo_sapling"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 1
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bamboo_sapling",
+    "count": 2
    },
    "conditions": [
     {
@@ -91,8 +83,8 @@
     }
    ]
   },
-  "textKo": "밤에 동물을 지켰어요. 길이 끝났어요.",
-  "textDe": "Du hast die Tiere in der Nacht beschützt. Der Pfad endet hier."
+  "textKo": "밤에 죽순라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambussprössling — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tierpfad",

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 279,
  "concepts": [
-  "enchanting_table",
+  "gen_iron_door",
   "bee",
   "adv_item_bee_nest"
  ],
@@ -22,17 +22,11 @@
   {
    "id": "s1",
    "teach": [
-    "enchanting_table"
+    "gen_iron_door"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
-   },
-   "clue": {
-    "de": "Verzaubere eine Axt am Zaubertisch mit Behutsamkeit."
-   },
-   "hint": {
-    "ko": "책과 다이아몬드와 흑요석으로 만들어요."
+    "block": "minecraft:iron_door"
    }
   },
   {

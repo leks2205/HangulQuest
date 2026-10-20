@@ -8,7 +8,7 @@
  "order": 265,
  "concepts": [
   "magma",
-  "frog",
+  "gen_llama",
   "adv_item_ochre_froglight"
  ],
  "requires": {
@@ -40,14 +40,11 @@
   {
    "id": "s2",
    "teach": [
-    "frog"
+    "gen_llama"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:frog"
-   },
-   "clue": {
-    "de": "Nimm einen Frosch mit in den Nether."
+    "entity": "minecraft:llama"
    }
   }
  ],

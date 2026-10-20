@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 166,
  "concepts": [
-  "wolf",
-  "bone",
-  "chest",
-  "wolf_armor"
+  "gen_packed_mud",
+  "gen_purple_concrete_slab",
+  "gen_orange_terracotta",
+  "gen_green_harness"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,47 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "wolf"
+    "gen_packed_mud"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wolf",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Wolf an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:packed_mud",
+    "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bone"
+    "gen_purple_concrete_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bone",
+    "item": "minecraft:purple_concrete_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Knochen."
-   },
-   "hint": {
-    "ko": "뼈는 해골을 물리치면 얻어요.",
-    "de": "Knochen bekommst du von Skeletten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_orange_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:orange_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Truhe."
    }
   }
  ],
@@ -72,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wolf_armor"
+    "gen_green_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wolf_armor",
+    "item": "minecraft:green_harness",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "늑대 갑옷은 갑옷 조각으로 만들어요.",
-    "de": "Wolfsrüstung entsteht aus Rüstungsteilen."
-   }
+   "conditions": []
   },
-  "textKo": "늑대 갑옷을 만들어요.",
-  "textDe": "Eine Wolfsrüstung herstellen."
+  "textKo": "초록색 하네스라는 길의 의식을 마쳤어요.",
+  "textDe": "Grünes Geschirr — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wolfpfad",

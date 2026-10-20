@@ -9,8 +9,8 @@
  "concepts": [
   "moon",
   "night",
-  "desert",
-  "candle"
+  "gen_cherry_grove",
+  "gen_warped_planks"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -61,19 +61,12 @@
   {
    "id": "s3",
    "teach": [
-    "desert"
+    "gen_cherry_grove"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:desert",
+    "biome": "minecraft:cherry_grove",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in die Wüste, wo der Himmel klar ist."
-   },
-   "hint": {
-    "ko": "사막은 모래가 많은 마른 땅이에요.",
-    "de": "In der Wüste ist der Nachthimmel am klarsten."
    }
   }
  ],
@@ -81,24 +74,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "candle"
+    "gen_warped_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
+    "block": "minecraft:warped_planks",
     "count": 4
-   },
-   "clue": {
-    "de": "Stell vier Kerzen in den Wüstensand."
-   },
-   "hint": {
-    "ko": "초는 실과 벌집 조각으로 만들어요.",
-    "de": "Kerzen machst du aus Faden und Honigwabe."
    },
    "conditions": []
   },
-  "textKo": "달빛을 따라 걷고 촛불로 밤을 밝혀요.",
-  "textDe": "Du folgst dem Mondlicht und erhellst die Nacht mit Kerzen."
+  "textKo": "뒤틀린 판자라는 길의 의식을 마쳤어요.",
+  "textDe": "Wirrbretter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_02",

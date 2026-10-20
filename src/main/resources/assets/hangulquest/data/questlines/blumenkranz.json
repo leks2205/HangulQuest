@@ -7,6 +7,7 @@
  "tier": 3,
  "order": 150,
  "concepts": [
+  "gen_grindstone",
   "flower",
   "wool"
  ],
@@ -22,15 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "flower"
+    "gen_grindstone"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:grindstone",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Mohnblume an."
    }
   },
   {

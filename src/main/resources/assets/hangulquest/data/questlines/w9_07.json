@@ -8,8 +8,8 @@
  "order": 1097,
  "concepts": [
   "anvil",
-  "crown",
-  "iron"
+  "iron",
+  "bell"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -61,17 +61,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "crown"
+    "bell"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_helmet",
+    "item": "minecraft:bell",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "모루로 벼린 왕관을 갖지 않고서는 공방의 일을 끝낼 수 없어요.",
-  "textDe": "Ohne die auf dem Amboss geschmiedete Krone ist die Arbeit der Werkstatt nicht getan."
+  "textKo": "종라는 길의 의식을 마쳤어요.",
+  "textDe": "Glocke — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_07",

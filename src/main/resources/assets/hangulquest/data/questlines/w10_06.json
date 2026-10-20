@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 1106,
  "concepts": [
-  "adv_item_brush",
+  "gen_cut_sandstone",
   "clay",
   "brick",
   "adv_item_decorated_pot"
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_brush"
+    "gen_cut_sandstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brush",
+    "item": "minecraft:cut_sandstone",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Bürste für die Ausgrabung."
-   },
-   "hint": {
-    "ko": "솔은 깃털과 구리, 막대기로 만들어요.",
-    "de": "Eine Bürste braucht eine Feder, Kupfer und einen Stock."
    }
   },
   {

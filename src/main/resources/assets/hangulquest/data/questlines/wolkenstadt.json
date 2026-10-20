@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 167,
  "concepts": [
-  "height",
-  "wool",
-  "glass",
-  "lantern"
+  "gen_blue_shulker_box",
+  "gen_bubble_coral_block",
+  "gen_bamboo_pressure_plate",
+  "gen_oxidized_cut_copper"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,51 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "height"
+    "gen_blue_shulker_box"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 180,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Geh auf eine hohe Stelle."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:blue_shulker_box",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wool"
+    "gen_bubble_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool",
+    "block": "minecraft:bubble_coral_block",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Wollblöcke."
-   },
-   "hint": {
-    "ko": "양털은 가위로 양을 깎아요.",
-    "de": "Wolle bekommst du mit einer Schere vom Schaf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "glass"
+    "gen_bamboo_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass",
+    "block": "minecraft:bamboo_pressure_plate",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Glasblöcke."
-   },
-   "hint": {
-    "ko": "유리는 모래를 화로에 구워 만들어요.",
-    "de": "Glas entsteht aus Sand im Ofen."
    }
   }
  ],
@@ -76,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_oxidized_cut_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:oxidized_cut_copper",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "구름 도시에 랜턴을 걸어요.",
-  "textDe": "Laternen in der Wolkenstadt."
+  "textKo": "산화된 깎인 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierter geschnittener Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wolkenstadt",

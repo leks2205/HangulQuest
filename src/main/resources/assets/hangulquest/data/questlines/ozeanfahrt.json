@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 523,
  "concepts": [
-  "ocean",
-  "beach",
-  "fish",
-  "campfire"
+  "gen_snowy_beach",
+  "gen_windswept_savanna",
+  "gen_diamond_block",
+  "gen_brown_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_snowy_beach"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:snowy_beach",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ins Meer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "beach"
+    "gen_windswept_savanna"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:windswept_savanna",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Strand."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fish"
+    "gen_diamond_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:diamond_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Fisch."
    }
   }
  ],
@@ -67,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_brown_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:brown_stained_glass",
     "count": 1
    },
    "conditions": [
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "해변에서 불을 피워요. 대양 항해가 끝났어요.",
-  "textDe": "Am Strand brennt das Feuer. Die Ozeanfahrt ist zu Ende."
+  "textKo": "해변에서 갈색 색유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Braunes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "ozeanfahrt",

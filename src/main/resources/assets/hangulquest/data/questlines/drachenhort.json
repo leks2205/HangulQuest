@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 113,
  "concepts": [
-  "obsidian",
-  "gold",
-  "chest",
+  "gen_stripped_poplar_wood",
+  "gen_polished_tuff_slab",
+  "gen_pink_candle",
   "lantern"
  ],
  "requires": {
@@ -24,47 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "obsidian"
+    "gen_stripped_poplar_wood"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:stripped_poplar_wood",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Obsidian ab."
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gold"
+    "gen_polished_tuff_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:polished_tuff_slab",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Goldbarren."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_pink_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:pink_candle",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Truhe."
    }
   }
  ],

@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "gelbwerk",
+ "titleKo": "노란 실의 길",
+ "titleDe": "Der gelbe Faden",
+ "topic": "색",
+ "tier": 2,
+ "order": 1132,
+ "koreanLevel": 6,
+ "concepts": [
+  "gen_yellow_dye",
+  "gold_block",
+  "gen_yellow_bed"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gen_yellow_dye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:yellow_dye",
+    "count": 2
+   },
+   "clue": {
+    "ko": "노란색 염료를 만들어요.",
+    "de": "Stelle Gelber Farbstoff her."
+   },
+   "hint": {
+    "ko": "노란색 염료를 만들어요.",
+    "de": "Stelle Gelber Farbstoff her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:gold_block",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "금 블록을 봐요.",
+    "de": "Sieh dir Goldblock an."
+   },
+   "hint": {
+    "ko": "금 블록을 봐요.",
+    "de": "Sieh dir Goldblock an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_yellow_bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:yellow_bed",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 노란 천을 펼쳤어요.",
+  "textDe": "Die Zeremonie ist vollendet."
+ },
+ "reward": {
+  "badge": "gelbwerk",
+  "words": [
+   "gen_yellow_dye",
+   "gold_block",
+   "gen_yellow_bed"
+  ]
+ }
+}

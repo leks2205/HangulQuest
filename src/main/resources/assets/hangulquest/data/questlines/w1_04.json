@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1014,
  "concepts": [
-  "moon",
-  "night",
-  "sky",
-  "torch"
+  "gen_waxed_copper_bulb",
+  "gen_packed_ice",
+  "gen_weathered_cut_copper_slab",
+  "gen_dead_brain_coral_fan"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,39 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "moon"
+    "gen_waxed_copper_bulb"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:waxed_copper_bulb",
     "count": 1
-   },
-   "clue": {
-    "ko": "달을 보려면 시계를 만들어요.",
-    "de": "Bau dir eine Uhr für den Mond."
-   },
-   "hint": {
-    "ko": "시계는 금과 레드스톤으로 만들어요.",
-    "de": "Eine Uhr braucht Gold und Redstone."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch",
-    "night"
+    "gen_packed_ice"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:packed_ice",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau nachts eine Fackel an."
-   },
-   "hint": {
-    "ko": "밤에 횃불을 봐요.",
-    "de": "Schau in der Nacht auf eine Fackel."
    },
    "conditions": [
     {
@@ -65,19 +49,12 @@
   {
    "id": "s3",
    "teach": [
-    "sky"
+    "gen_weathered_cut_copper_slab"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig über 120 Blöcke hoch."
-   },
-   "hint": {
-    "ko": "높은 곳에서 하늘을 봐요.",
-    "de": "Von oben siehst du den ganzen Himmel."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:weathered_cut_copper_slab",
+    "count": 1
    }
   }
  ],
@@ -85,17 +62,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_dead_brain_coral_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:dead_brain_coral_fan",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "달빛 아래에서 횃불을 놓고 하늘을 봐요.",
-  "textDe": "Unter dem Mond stellst du Fackeln auf und schaust in den Himmel."
+  "textKo": "죽은 부채형 뇌 산호라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Hirnkorallenfächer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_04",

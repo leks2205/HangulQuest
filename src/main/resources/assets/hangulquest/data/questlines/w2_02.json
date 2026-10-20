@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1022,
  "concepts": [
-  "snow",
-  "snowball",
-  "ice",
-  "campfire"
+  "gen_brown_carpet",
+  "gen_short_grass",
+  "gen_white_terracotta",
+  "gen_mossy_stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,55 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "snow"
+    "gen_brown_carpet"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:brown_carpet",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Schneeblöcke ab."
-   },
-   "hint": {
-    "ko": "눈은 하얗고 차가워요.",
-    "de": "Schnee ist weiß und kalt."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snowball"
+    "gen_short_grass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:snowball",
+    "item": "minecraft:short_grass",
     "count": 8
-   },
-   "clue": {
-    "de": "Forme acht Schneebälle."
-   },
-   "hint": {
-    "ko": "눈덩이는 눈으로 만들어요.",
-    "de": "Schneebälle formst du aus Schnee."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "ice"
+    "gen_white_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:white_terracotta",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Eisblöcke in den Hof."
-   },
-   "hint": {
-    "ko": "얼음은 미끄러워요.",
-    "de": "Eis ist glatt und kalt."
    }
   }
  ],
@@ -77,11 +56,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_mossy_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:mossy_stone_bricks",
     "count": 1
    },
    "conditions": [
@@ -89,14 +68,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "밤에 모닥불을 피워요.",
-    "de": "Entzünde in der Nacht ein Lagerfeuer."
-   }
+   ]
   },
-  "textKo": "밤에 눈 내리는 마당에서 모닥불을 피워요.",
-  "textDe": "Nachts brennt im verschneiten Hof ein Lagerfeuer."
+  "textKo": "밤에 이끼 낀 석재 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooste Steinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_02",

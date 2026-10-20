@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 158,
  "concepts": [
-  "glass_bottle",
-  "brewing_stand",
-  "nether_wart",
-  "sugar"
+  "gen_waxed_weathered_chiseled_copper",
+  "gen_hopper",
+  "gen_stripped_bamboo_block",
+  "gen_cinnabar_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,54 +24,33 @@
   {
    "id": "s1",
    "teach": [
-    "glass_bottle"
+    "gen_waxed_weathered_chiseled_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass_bottle",
+    "item": "minecraft:waxed_weathered_chiseled_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Glasflaschen."
-   },
-   "hint": {
-    "ko": "유리병은 유리 블록으로 만들어요.",
-    "de": "Glasflaschen entstehen aus Glas."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "brewing_stand"
+    "gen_hopper"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:brewing_stand"
-   },
-   "clue": {
-    "de": "Benutz einen Braustand."
-   },
-   "hint": {
-    "ko": "양조기는 블레이즈 막대와 조약돌로 만들어요.",
-    "de": "Ein Braustand braucht Blaze-Rute und Bruchstein."
+    "block": "minecraft:hopper"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "nether_wart"
+    "gen_stripped_bamboo_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_wart",
+    "item": "minecraft:stripped_bamboo_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Netherwarzen."
-   },
-   "hint": {
-    "ko": "네더 사마귀는 네더의 영혼 모래에서 자라요.",
-    "de": "Netherwarzen wachsen auf Seelensand im Nether."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sugar"
+    "gen_cinnabar_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sugar",
+    "item": "minecraft:cinnabar_slab",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "설탕으로 양조를 마쳐요.",
-  "textDe": "Mit Zucker den Brau abschließen."
+  "textKo": "진사 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Zinnoberstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "brauerei",

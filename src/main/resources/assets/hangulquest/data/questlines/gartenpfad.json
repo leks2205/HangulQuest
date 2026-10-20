@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 501,
  "concepts": [
-  "wheat",
+  "gen_mangrove_planks",
   "carrot",
-  "flower",
-  "bread"
+  "gen_deepslate",
+  "gen_rabbit_stew"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -26,15 +26,12 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "gen_mangrove_planks"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:wheat",
+    "block": "minecraft:mangrove_planks",
     "count": 2
-   },
-   "clue": {
-    "de": "Ernte zwei Weizen."
    }
   },
   {
@@ -54,15 +51,12 @@
   {
    "id": "s3",
    "teach": [
-    "flower"
+    "gen_deepslate"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:deepslate",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Blume an."
    }
   }
  ],
@@ -70,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bread"
+    "gen_rabbit_stew"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:rabbit_stew",
     "count": 1
    },
    "conditions": [
@@ -84,8 +78,8 @@
     }
    ]
   },
-  "textKo": "밤에 정원에서 빵을 먹어요.",
-  "textDe": "Im Garten schmeckt das Brot bei Nacht."
+  "textKo": "밤에 토끼 스튜라는 길의 의식을 마쳤어요.",
+  "textDe": "Kaninchenragout — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gartenpfad",

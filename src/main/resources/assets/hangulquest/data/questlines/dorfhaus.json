@@ -7,8 +7,9 @@
  "order": 320,
  "concepts": [
   "door",
-  "bed",
-  "villager"
+  "gen_oxidized_copper_trapdoor",
+  "gen_snow_golem",
+  "flower_pot"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -37,29 +38,23 @@
   {
    "id": "s2",
    "teach": [
-    "bed"
+    "gen_oxidized_copper_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_bed",
+    "block": "minecraft:oxidized_copper_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell ein Bett ins Dorf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "villager"
+    "gen_snow_golem"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:villager",
+    "entity": "minecraft:snow_golem",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Dorfbewohner an."
    }
   }
  ],
@@ -67,11 +62,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "flower_pot"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:flower_pot"
    },
    "conditions": [
     {
@@ -80,8 +75,8 @@
     }
    ]
   },
-  "textKo": "마을 집에서 밤에 자요.",
-  "textDe": "Im Dorfhaus schläfst du in der Nacht."
+  "textKo": "밤에 화분라는 길의 의식을 마쳤어요.",
+  "textDe": "Blumentopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "dorfhaus",

@@ -7,8 +7,9 @@
  "tier": 2,
  "order": 286,
  "concepts": [
-  "wolf",
-  "wolf_armor"
+  "gen_blue_concrete",
+  "gen_ender_chest",
+  "gen_mule"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "wolf"
+    "gen_blue_concrete"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bone",
+    "item": "minecraft:blue_concrete",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Knochen – damit gewinnst du das Vertrauen der Wölfe."
-   },
-   "hint": {
-    "ko": "스켈레톤을 물리치면 뼈를 얻어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wolf_armor"
+    "gen_ender_chest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wolf_armor",
+    "item": "minecraft:ender_chest",
     "count": 1
-   },
-   "clue": {
-    "de": "Eine Wolfsrüstung schützt den treuesten Freund im Rudel."
-   },
-   "hint": {
-    "ko": "늑대 갑옷을 만들어요."
    }
   }
  ],
@@ -57,22 +46,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wolf"
+    "gen_mule"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:wolf"
+    "entity": "minecraft:mule"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Füttere den ersten Wolf mit den Knochen und zähme ihn für das Rudel."
-   },
-   "hint": {
-    "ko": "늑대에게 뼈를 줘요."
-   }
+   "conditions": []
   },
-  "textKo": "늑대들이 나를 따라와요. 이제 우리는 한 가족이에요!",
-  "textDe": "Das ganze Rudel läuft hinter dir her – eine Familie."
+  "textKo": "노새라는 길의 의식을 마쳤어요.",
+  "textDe": "Maultier — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_whole_pack",

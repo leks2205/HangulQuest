@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 83,
  "concepts": [
-  "coal",
-  "iron",
-  "furnace"
+  "gen_oak_trapdoor",
+  "gen_bubble_coral_wall_fan",
+  "gen_moss_carpet"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_oak_trapdoor"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:oak_trapdoor",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Kohle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "iron"
+    "gen_bubble_coral_wall_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:bubble_coral_wall_fan",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Eisen."
    }
   }
  ],
@@ -53,16 +47,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "furnace"
+    "gen_moss_carpet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:moss_carpet",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "돌심장의 화로를 열어요.",
-  "textDe": "Im Steinherz öffnest du den Ofen."
+  "textKo": "이끼 바닥라는 길의 의식을 마쳤어요.",
+  "textDe": "Moosteppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "steinherz",

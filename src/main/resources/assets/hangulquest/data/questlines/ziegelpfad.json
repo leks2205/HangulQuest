@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 157,
  "concepts": [
-  "clay",
-  "furnace",
+  "gen_cinnabar_stairs",
+  "gen_crimson_fence",
   "brick",
-  "stone_bricks"
+  "gen_jack_o_lantern"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,32 +24,23 @@
   {
    "id": "s1",
    "teach": [
-    "clay"
+    "gen_cinnabar_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clay_ball",
+    "item": "minecraft:cinnabar_stairs",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Ton."
-   },
-   "hint": {
-    "ko": "점토는 물가의 점토 블록에서 캐요.",
-    "de": "Ton findest du an Tonblöcken am Wasser."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_crimson_fence"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Benutz einen Ofen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:crimson_fence",
+    "count": 1
    }
   },
   {
@@ -75,21 +66,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "stone_bricks"
+    "gen_jack_o_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:jack_o_lantern",
     "count": 4
    },
-   "conditions": [],
-   "hint": {
-    "ko": "석재 벽돌은 돌을 구워 만들어요.",
-    "de": "Steinziegel entstehen aus gebranntem Stein."
-   }
+   "conditions": []
   },
-  "textKo": "석재 벽돌로 집을 지어요.",
-  "textDe": "Steinziegel für das Haus."
+  "textKo": "잭오랜턴라는 길의 의식을 마쳤어요.",
+  "textDe": "Kürbislaterne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "ziegelpfad",

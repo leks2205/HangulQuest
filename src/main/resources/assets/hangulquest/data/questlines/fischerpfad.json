@@ -5,10 +5,10 @@
  "titleDe": "Der Fischerpfad",
  "tier": 2,
  "concepts": [
-  "fishing_rod",
-  "fish",
+  "gen_heart_pottery_shard",
+  "gen_firework_rocket",
   "beach",
-  "bed"
+  "gen_blue_bed"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -21,29 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "fishing_rod"
+    "gen_heart_pottery_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fishing_rod",
+    "item": "minecraft:heart_pottery_shard",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau eine Angel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fish"
+    "gen_firework_rocket"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:firework_rocket",
     "count": 1
-   },
-   "clue": {
-    "de": "Fang einen Fisch."
    }
   },
   {
@@ -65,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_blue_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:blue_bed"
    },
    "conditions": [
     {
@@ -82,8 +76,8 @@
     }
    ]
   },
-  "textKo": "해변의 밤에 침대에서 자요.",
-  "textDe": "Am Strand schläfst du nachts im Bett."
+  "textKo": "밤에 해변에서 파란색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Blaues Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "fischerpfad",

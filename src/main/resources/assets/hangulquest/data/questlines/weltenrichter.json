@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 126,
  "concepts": [
-  "zombie",
-  "bell",
-  "gold_block",
-  "nether_star"
+  "gen_stripped_warped_hyphae",
+  "gen_bamboo_block",
+  "gen_set_spawn",
+  "gen_quartz_stairs"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,46 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "zombie"
+    "gen_stripped_warped_hyphae"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 5
-   },
-   "clue": {
-    "de": "Besiege fünf Zombies."
-   },
-   "hint": {
-    "ko": "좀비는 검으로 물리쳐요.",
-    "de": "Zombies besiegst du mit einem Schwert."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stripped_warped_hyphae",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "gen_bamboo_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bamboo_block",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gold_block"
+    "gen_set_spawn"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:set_spawn",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Goldblöcke."
    }
   }
  ],
@@ -71,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "nether_star"
+    "gen_quartz_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
+    "item": "minecraft:quartz_stairs",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "네더의 별은 위더를 물리치면 얻어요.",
-    "de": "Der Netherstern kommt vom Wither."
-   }
+   "conditions": []
   },
-  "textKo": "네더의 별을 모아요.",
-  "textDe": "Den Netherstern sammeln."
+  "textKo": "석영 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Quarztreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltenrichter",

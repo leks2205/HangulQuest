@@ -8,7 +8,8 @@
  "order": 324,
  "concepts": [
   "iron",
-  "furnace"
+  "furnace",
+  "gen_pink_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -76,24 +77,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron"
+    "gen_pink_stained_glass_pane"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:pink_stained_glass_pane",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm den fertig geschmolzenen Eisenbarren aus dem Ofen."
-   },
-   "hint": {
-    "ko": "석탄으로 철 원석을 구우면 철 주괴가 돼요.",
-    "de": "Mit Kohle geschmolzenes Erz wird zum Eisenbarren."
    },
    "conditions": []
   },
-  "textKo": "철이 철철 넘쳐 — 화로에서 첫 철 주괴를 얻었어요.",
-  "textDe": "Metallurgie — Der erste Eisenbarren kommt aus dem Ofen."
+  "textKo": "분홍색 색유리 판라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Glasscheibe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_smelt_iron",

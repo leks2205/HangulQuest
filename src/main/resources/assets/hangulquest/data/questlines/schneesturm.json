@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 88,
  "concepts": [
-  "ice",
-  "snow",
-  "campfire"
+  "gen_red_carpet",
+  "gen_purple_concrete_slab",
+  "gen_shelf_mushroom"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,33 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "gen_red_carpet"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:red_carpet",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Eis ab."
-   },
-   "hint": {
-    "ko": "얼음은 곡괭이로 캐요.",
-    "de": "Eis baust du mit einer Spitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_purple_concrete_slab"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:purple_concrete_slab",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee."
    }
   }
  ],
@@ -57,11 +47,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_shelf_mushroom"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:shelf_mushroom",
     "count": 1
    },
    "conditions": [
@@ -71,8 +61,8 @@
     }
    ]
   },
-  "textKo": "밤에 눈보라 속에서 모닥불을 피워요.",
-  "textDe": "Nachts brennt im Schneesturm ein Feuer."
+  "textKo": "밤에 선반 버섯라는 길의 의식을 마쳤어요.",
+  "textDe": "Baumpilz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schneesturm",

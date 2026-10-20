@@ -8,7 +8,7 @@
  "order": 214,
  "concepts": [
   "adv_item_sculk_catalyst",
-  "zombie"
+  "gen_piglin_brute"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -54,20 +54,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_piglin_brute"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:piglin_brute",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Erlege einen Zombie direkt neben dem Katalysator, damit der Sculk sich ausbreitet."
-   }
+   "conditions": []
   },
-  "textKo": "퍼져간다 — 촉매 옆에서 몬스터를 물리쳐요.",
-  "textDe": "Es verbreitet sich — Erlege eine Kreatur direkt am Sculk-Katalysator."
+  "textKo": "난폭한 피글린라는 길의 의식을 마쳤어요.",
+  "textDe": "Piglin-Barbar — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_kill_mob_near_sculk_catalyst",

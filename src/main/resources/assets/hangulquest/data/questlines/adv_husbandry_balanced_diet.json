@@ -8,7 +8,7 @@
  "order": 259,
  "concepts": [
   "apple",
-  "bread",
+  "carrot",
   "adv_item_golden_carrot"
  ],
  "requires": {
@@ -36,19 +36,12 @@
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "carrot"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:carrot",
     "count": 1
-   },
-   "clue": {
-    "de": "Backe aus drei Weizen ein Brot und iss es."
-   },
-   "hint": {
-    "ko": "빵은 밀 세 개로 만들어요.",
-    "de": "Brot backst du aus drei Weizen."
    }
   }
  ],

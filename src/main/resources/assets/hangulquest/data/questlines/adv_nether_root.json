@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_flint_and_steel",
   "obsidian",
-  "adv_dimension_the_nether"
+  "loom"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -58,19 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_dimension_the_nether"
+    "loom"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:loom",
+    "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Zünde den Rahmen an und geh durch das Portal."
-   }
+   "conditions": []
   },
-  "textKo": "네더 — 흑요석 문을 지나 지옥에 도착했어요.",
-  "textDe": "Nether — durch das Obsidiantor in die Unterwelt."
+  "textKo": "베틀라는 길의 의식을 마쳤어요.",
+  "textDe": "Webstuhl — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_root",

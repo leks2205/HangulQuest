@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 139,
  "concepts": [
-  "frog",
+  "gen_husk",
   "lily_pad",
   "slime"
  ],
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "frog"
+    "gen_husk"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:frog",
+    "entity": "minecraft:husk",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Frosch an."
    }
   },
   {

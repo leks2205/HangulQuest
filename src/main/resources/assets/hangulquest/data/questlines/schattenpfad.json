@@ -9,7 +9,7 @@
  "concepts": [
   "bat",
   "soul_torch",
-  "bed",
+  "gen_quartz_block",
   "coal"
  ],
  "requires": {
@@ -56,14 +56,12 @@
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_quartz_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf nachts im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:quartz_block",
+    "count": 1
    },
    "conditions": [
     {

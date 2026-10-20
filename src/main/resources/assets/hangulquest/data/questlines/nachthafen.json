@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 63,
  "concepts": [
-  "beach",
-  "squid",
-  "torch",
-  "bed"
+  "gen_sparse_jungle",
+  "gen_wither_skeleton",
+  "gen_chiseled_deepslate",
+  "gen_mud"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_sparse_jungle"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:sparse_jungle",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Strand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "squid"
+    "gen_wither_skeleton"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:squid",
+    "entity": "minecraft:wither_skeleton",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Tintenfisch an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_chiseled_deepslate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:chiseled_deepslate",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -74,11 +65,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_mud"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mud",
+    "count": 3
    },
    "conditions": [
     {
@@ -87,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤 항구에서 잠들어요.",
-  "textDe": "Im Nachthafen schläfst du ein."
+  "textKo": "밤에 진흙라는 길의 의식을 마쳤어요.",
+  "textDe": "Schlamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "nachthafen",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1072,
  "concepts": [
-  "adv_item_blaze_rod",
-  "adv_item_fire_charge",
-  "gold_block",
-  "sword"
+  "gen_golden_dandelion",
+  "gen_chorus_fruit",
+  "gen_white_concrete_slab",
+  "gen_mossy_cobblestone"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_blaze_rod"
+    "gen_golden_dandelion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blaze_rod",
+    "item": "minecraft:golden_dandelion",
     "count": 2
-   },
-   "clue": {
-    "de": "Erbeute zwei Lohenruten."
-   },
-   "hint": {
-    "ko": "블레이즈 막대기는 블레이즈를 물리치면 나와요.",
-    "de": "Ein Blaze lässt beim Besiegen eine Lohenrute fallen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_fire_charge"
+    "gen_chorus_fruit"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fire_charge",
+    "item": "minecraft:chorus_fruit",
     "count": 2
-   },
-   "clue": {
-    "de": "Stelle zwei Feuerkugeln her."
-   },
-   "hint": {
-    "ko": "화염구는 블레이즈 가루, 화약, 석탄으로 만들어요.",
-    "de": "Feuerkugeln bestehen aus Lohenstaub, Schießpulver und Kohle."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gold_block"
+    "gen_white_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:white_concrete_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz einen Goldblock als Zeichen des Wohlstands."
-   },
-   "hint": {
-    "ko": "금 블록은 금 주괴 아홉 개로 만들어요.",
-    "de": "Ein Goldblock besteht aus neun Goldbarren."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sword"
+    "gen_mossy_cobblestone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_sword",
+    "item": "minecraft:mossy_cobblestone",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "블레이즈의 불꽃으로 강한 검을 벼려요.",
-  "textDe": "Aus Lohenglut wird eine scharfe Klinge geschmiedet."
+  "textKo": "이끼 낀 조약돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooster Bruchstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_02",

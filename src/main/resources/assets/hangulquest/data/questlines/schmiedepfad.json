@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 410,
  "concepts": [
-  "pickaxe",
-  "crafting_table",
-  "emerald",
-  "furnace"
+  "gen_dead_brain_coral_fan",
+  "gen_mossy_cobblestone",
+  "gen_bubble_column",
+  "gen_pale_oak_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 14,
@@ -26,42 +26,34 @@
   {
    "id": "s1",
    "teach": [
-    "pickaxe"
+    "gen_dead_brain_coral_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_pickaxe",
+    "item": "minecraft:dead_brain_coral_fan",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede eine Eisenspitzhacke."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "crafting_table"
+    "gen_mossy_cobblestone"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Öffne die Werkbank."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mossy_cobblestone",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "gen_bubble_column"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:bubble_column",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei grüne Edelsteine."
    }
   }
  ],
@@ -69,11 +61,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "furnace"
+    "gen_pale_oak_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:pale_oak_trapdoor",
+    "count": 3
    },
    "conditions": [
     {
@@ -82,8 +75,8 @@
     }
    ]
   },
-  "textKo": "밤에 대장간의 화로를 열어요.",
-  "textDe": "Nachts öffnest du den Schmiedeofen."
+  "textKo": "밤에 창백한 참나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmiedepfad",

@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1114,
  "concepts": [
-  "adv_item_ender_eye",
-  "end",
-  "adv_item_elytra",
+  "gen_jungle_boat",
+  "gen_deepslate_brick_wall",
+  "gen_piston",
   "adv_block_purpur_block"
  ],
  "requires": {
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_ender_eye"
+    "gen_jungle_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_eye",
+    "item": "minecraft:jungle_boat",
     "count": 4
-   },
-   "clue": {
-    "de": "Stell vier Enderaugen her, die den Weg zeigen."
-   },
-   "hint": {
-    "ko": "엔더의 눈은 엔더 진주와 블레이즈 가루로 만들어요.",
-    "de": "Ein Enderauge braucht eine Enderperle und Lohenstaub."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "end"
+    "gen_deepslate_brick_wall"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
-   },
-   "clue": {
-    "de": "Reise in das Ende."
-   },
-   "hint": {
-    "ko": "엔드로 가려면 엔드 차원문이 필요해요.",
-    "de": "Durch das Endportal kommst du in das Ende."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:deepslate_brick_wall",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_elytra"
+    "gen_piston"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:elytra",
+    "item": "minecraft:piston",
     "count": 1
-   },
-   "clue": {
-    "de": "Hol dir ein Paar Elytren aus dem Endschiff."
-   },
-   "hint": {
-    "ko": "겉날개는 엔드 배에서 찾아요.",
-    "de": "Elytren liegen in einem Endschiff."
    }
   }
  ],

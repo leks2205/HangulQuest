@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1047,
  "concepts": [
-  "fish",
-  "villager",
-  "emerald",
-  "chest"
+  "gen_waxed_exposed_copper",
+  "gen_sniffer",
+  "gen_shulker_box",
+  "gen_blackstone_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,54 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "fish"
+    "gen_waxed_exposed_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:waxed_exposed_copper",
     "count": 4
-   },
-   "clue": {
-    "de": "Bring vier Kabeljau zum Markt."
-   },
-   "hint": {
-    "ko": "물고기는 낚싯대로 잡아요.",
-    "de": "Fische fängst du mit einer Angel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "gen_sniffer"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Sprich mit einem Dorfbewohner am Hafen."
-   },
-   "hint": {
-    "ko": "주민과 이야기하면 물건을 바꿔요.",
-    "de": "Mit einem Dorfbewohner tauschst du Waren."
+    "entity": "minecraft:sniffer"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "gen_shulker_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:shulker_box",
     "count": 2
-   },
-   "clue": {
-    "de": "Verdien zwei Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 주민과 바꿔요.",
-    "de": "Smaragde bekommst du im Tausch."
    }
   }
  ],
@@ -78,23 +57,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_blackstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:blackstone_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell deine Markttruhe auf den Kai."
-   },
-   "hint": {
-    "ko": "상자에 물고기를 담아요.",
-    "de": "In der Truhe lagerst du den Fisch."
    }
   },
-  "textKo": "시장 좌판에 상자를 놓아요.",
-  "textDe": "Auf dem Markt steht deine Truhe."
+  "textKo": "흑암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_07",

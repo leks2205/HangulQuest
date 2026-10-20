@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 82,
  "concepts": [
-  "log",
-  "torch",
-  "flower"
+  "gen_pink_candle",
+  "gen_diorite_slab",
+  "gen_mossy_stone_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -20,29 +20,23 @@
   {
    "id": "s1",
    "teach": [
-    "log"
+    "gen_pink_candle"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_log",
+    "block": "minecraft:pink_candle",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Baumstämme ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_diorite_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:diorite_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    }
   }
  ],
@@ -50,17 +44,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower"
+    "gen_mossy_stone_brick_wall"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:mossy_stone_brick_wall",
     "dwellMs": 600
    },
    "conditions": []
   },
-  "textKo": "뿌리 곁의 꽃을 바라봐요.",
-  "textDe": "Am Wurzelpfad blüht eine Blume."
+  "textKo": "이끼 낀 석재 벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooste Steinziegelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wurzelpfad",

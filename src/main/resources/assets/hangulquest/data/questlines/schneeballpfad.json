@@ -8,6 +8,8 @@
  "order": 101,
  "concepts": [
   "snowball",
+  "gen_cherry_shelf",
+  "gen_cherry_leaves",
   "snow"
  ],
  "requires": {
@@ -39,29 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_cherry_shelf"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:cherry_shelf",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf Schnee."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "gen_cherry_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:cherry_leaves",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Schneeblöcke."
    }
   }
  ],

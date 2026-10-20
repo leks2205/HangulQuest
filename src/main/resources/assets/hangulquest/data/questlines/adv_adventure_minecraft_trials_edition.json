@@ -8,8 +8,8 @@
  "order": 217,
  "concepts": [
   "adv_item_chiseled_tuff",
-  "skeleton",
-  "height"
+  "gen_vindicator",
+  "gen_gray_banner"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "skeleton"
+    "gen_vindicator"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:vindicator",
     "count": 2
-   },
-   "clue": {
-    "de": "Übersteh zwei Wellen Skelette aus dem Prüfungs-Spawner."
    }
   }
  ],
@@ -55,20 +52,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "height"
+    "gen_gray_banner"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": -64,
-    "maxY": -20
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gray_banner",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Wage dich unter Y -20 hinab – dort wartet die Prüfungskammer."
-   }
+   "conditions": []
   },
-  "textKo": "인생은 시련의 연속 — 시련의 방에 들어가요.",
-  "textDe": "Prüfungs-Edition — Wage dich in eine Prüfungskammer."
+  "textKo": "회색 현수막라는 길의 의식을 마쳤어요.",
+  "textDe": "Graues Banner — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_minecraft_trials_edition",

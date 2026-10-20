@@ -6,11 +6,10 @@
  "tier": 3,
  "order": 507,
  "concepts": [
-  "emerald",
-  "bread",
-  "carrot",
-  "bell",
-  "bed"
+  "gen_purple_carpet",
+  "gen_melon",
+  "gen_fern",
+  "gen_chain"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_purple_carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:purple_carpet",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Smaragde."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "gen_melon"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:melon",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Brote."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "carrot"
+    "gen_fern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:carrot",
+    "item": "minecraft:fern",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Karotten."
    }
   }
  ],
@@ -68,11 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_chain"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chain",
+    "count": 1
    },
    "conditions": [
     {
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 대상단의 침대에서 자요.",
-  "textDe": "Nachts schläfst du bei der Karawane."
+  "textKo": "밤에 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Kette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "karawanepfad",

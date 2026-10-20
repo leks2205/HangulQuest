@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 31,
  "concepts": [
-  "cow",
-  "chicken",
-  "sheep"
+  "gen_piglin_brute",
+  "gen_vex",
+  "gen_axolotl"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,29 +20,23 @@
   {
    "id": "s1",
    "teach": [
-    "cow"
+    "gen_piglin_brute"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
+    "entity": "minecraft:piglin_brute",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Kuh an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chicken"
+    "gen_vex"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
+    "entity": "minecraft:vex",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Huhn an."
    }
   }
  ],
@@ -50,17 +44,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sheep"
+    "gen_axolotl"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sheep",
+    "entity": "minecraft:axolotl",
     "dwellMs": 800
    },
    "conditions": []
   },
-  "textKo": "양을 바라보며 친구가 돼요.",
-  "textDe": "Mit dem Schaf freundest du dich an."
+  "textKo": "아홀로틀라는 길의 의식을 마쳤어요.",
+  "textDe": "Axolotl — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tierfreund",

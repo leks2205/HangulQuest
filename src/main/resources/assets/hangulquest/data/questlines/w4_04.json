@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1044,
  "concepts": [
-  "adv_item_oak_boat",
-  "chest",
-  "bell",
-  "water"
+  "gen_poplar_fence_gate",
+  "gen_iron_trapdoor",
+  "gen_deepslate_tiles",
+  "gen_dead_fire_coral_fan"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_oak_boat"
+    "gen_poplar_fence_gate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_boat",
+    "item": "minecraft:poplar_fence_gate",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau ein Eichenholzboot."
-   },
-   "hint": {
-    "ko": "보트는 나무 판자로 만들어요.",
-    "de": "Ein Boot baust du aus Holzplanken."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chest"
+    "gen_iron_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:iron_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell eine Truhe auf den Kai."
-   },
-   "hint": {
-    "ko": "상자에는 물건을 담아요.",
-    "de": "In die Truhe legst du deine Sachen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_deepslate_tiles"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute die Glocke am Hafen."
-   },
-   "hint": {
-    "ko": "종을 치면 소리가 나요.",
-    "de": "Die Glocke läutet laut."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:deepslate_tiles",
+    "count": 2
    }
   }
  ],
@@ -78,19 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "water"
+    "gen_dead_fire_coral_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:water_bucket",
+    "item": "minecraft:dead_fire_coral_fan",
     "count": 1
-   },
-   "clue": {
-    "de": "Füll am Meer Wasser in den Eimer."
-   },
-   "hint": {
-    "ko": "물은 양동이에 담아요.",
-    "de": "Das Wasser füllst du in den Eimer."
    },
    "conditions": [
     {
@@ -99,8 +72,8 @@
     }
    ]
   },
-  "textKo": "바다에서 양동이에 물을 담아요.",
-  "textDe": "Am Meer füllst du Wasser in den Eimer."
+  "textKo": "죽은 부채형 불 산호라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Feuerkorallenfächer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_04",

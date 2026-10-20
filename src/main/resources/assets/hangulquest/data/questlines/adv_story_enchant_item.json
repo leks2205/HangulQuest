@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 312,
  "concepts": [
-  "obsidian",
+  "gen_red_concrete_stairs",
   "enchanting_table",
-  "adv_item_enchanted_book"
+  "gen_ender_chest",
+  "adv_block_end_stone"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "obsidian"
+    "gen_red_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:obsidian",
+    "item": "minecraft:red_concrete_stairs",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Obsidianblöcke für den Zaubertisch ab."
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian braucht eine Diamantspitzhacke."
    }
   },
   {
@@ -58,18 +52,11 @@
   {
    "id": "s3",
    "teach": [
-    "enchanting_table"
+    "gen_ender_chest"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
-   },
-   "clue": {
-    "de": "Lege ein Buch auf den Zaubertisch und bezahle mit Lapislazuli."
-   },
-   "hint": {
-    "ko": "마법 부여대에서 청금석을 쓰면 물건에 마법이 붙어요.",
-    "de": "Am Zaubertisch mit Lapislazuli verzaubern."
+    "block": "minecraft:ender_chest"
    }
   }
  ],
@@ -77,24 +64,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_enchanted_book"
+    "adv_block_end_stone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:enchanted_book",
+    "item": "minecraft:end_stone",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm das verzauberte Buch aus dem Zaubertisch."
-   },
-   "hint": {
-    "ko": "책에 마법을 붙이면 마법이 부여된 책이 돼요.",
-    "de": "Ein verzaubertes Buch kommt aus dem Zaubertisch."
    },
    "conditions": []
   },
-  "textKo": "마법 부여자 — 마법 부여대에서 첫 마법을 붙였어요.",
-  "textDe": "Verzauberer — Das erste verzauberte Buch ist fertig."
+  "textKo": "엔드 돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Endstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_enchant_item",

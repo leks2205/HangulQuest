@@ -121,24 +121,50 @@ class WaveQaTest {
 	}
 
 	@Test
-	void toolStepsHaveHelpfulHintText() {
-		java.util.Map<String, String> expected = java.util.Map.of(
-				"flusslicht/s2", "낚싯대", "wollpfad/s2", "가위", "bogenpfad/s1", "활",
-				"bogenpfad/s2", "화살", "kronenpfad/s2", "곡괭이",
-				"kronenglanz/s1", "곡괭이", "kronenfeier/s1", "케이크");
+	void generatedHintsNameTheTaughtWord() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		SentenceBuilder.Namer namer = new SentenceBuilder.Namer() {
+			@Override
+			public String biome(String id) {
+				return "강";
+			}
+
+			@Override
+			public String entity(String id) {
+				return "동물";
+			}
+
+			@Override
+			public String block(String id) {
+				return "블록";
+			}
+		};
+		int checked = 0;
 		for (Questline trail : QuestLoader.loadAll()) {
 			for (var step : trail.allSteps()) {
-				String key = trail.id() + "/" + step.id();
-				String word = expected.get(key);
+				if (step.hintKo() != null || step.teach().isEmpty()) {
+					continue; // authored hints are hand written; this guards the generated ones
+				}
+				Word word = catalog.byConceptId(step.teach().get(0)).orElse(null);
 				if (word == null) {
 					continue;
 				}
-				assertTrue(step.hintKo() != null && step.hintKo().contains(word),
-						key + " needs a hint containing " + word);
+				if (step.goal() instanceof de.zirks.hangulquest.quest.Goal.ReachHeight) {
+					continue; // "climb above Y 120" never names a noun
+				}
+				String hint = SentenceBuilder.hint(step.goal(), word, step.conditions(), namer);
+				assertFalse(hint.isBlank(), trail.id() + "/" + step.id() + " has no hint");
+				if (step.goal() instanceof de.zirks.hangulquest.quest.Goal.UseBlock
+						|| step.goal() instanceof de.zirks.hangulquest.quest.Goal.InteractEntity) {
+					continue; // "open the chest" does not repeat the noun twice
+				}
+				assertTrue(hint.contains(word.ko), trail.id() + "/" + step.id()
+						+ " hint omits " + word.ko + ": " + hint);
+				checked++;
 			}
 		}
+		assertTrue(checked >= 500, "expected the generated hints to be checked, got " + checked);
 	}
-
 
 	@Test
 	void multiWordHintsExplainTheExtraNouns() {

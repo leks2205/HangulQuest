@@ -8,8 +8,8 @@
  "order": 320,
  "concepts": [
   "adv_item_wooden_pickaxe",
-  "stone",
-  "coal",
+  "gen_exposed_chiseled_copper",
+  "gen_lime_candle",
   "cobblestone"
  ],
  "requires": {
@@ -41,29 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "stone"
+    "gen_exposed_chiseled_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone",
+    "block": "minecraft:exposed_chiseled_copper",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue acht Steinblöcke mit der Spitzhacke ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "coal"
+    "gen_lime_candle"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:lime_candle",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue dabei zwei Kohleerze ab."
    }
   }
  ],

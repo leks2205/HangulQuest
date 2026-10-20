@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 316,
  "concepts": [
-  "lava",
-  "water",
-  "obsidian"
+  "gen_purple_banner",
+  "gen_red_nether_brick_slab",
+  "obsidian",
+  "note_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "lava"
+    "gen_purple_banner"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
+    "item": "minecraft:purple_banner",
     "count": 1
-   },
-   "clue": {
-    "de": "Fülle einen Eimer mit Lava aus dem Höhlensee."
-   },
-   "hint": {
-    "ko": "양동이는 철 주괴 세 개로 만들어요.",
-    "de": "Ein Eimer braucht drei Eisenbarren."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "water"
+    "gen_red_nether_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:water_bucket",
+    "item": "minecraft:red_nether_brick_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Fülle einen zweiten Eimer mit Wasser."
-   },
-   "hint": {
-    "ko": "물 근처에서 양동이를 쓰면 물이 담겨요.",
-    "de": "Am Wasser füllt sich der Eimer von selbst."
    }
   },
   {
@@ -78,24 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "obsidian"
+    "note_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:obsidian",
+    "item": "minecraft:note_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm den entstandenen Obsidianblock an dich."
-   },
-   "hint": {
-    "ko": "물과 용암이 만나면 흑요석이 만들어져요.",
-    "de": "Wasser auf Lava ergibt Obsidian."
    },
    "conditions": []
   },
-  "textKo": "아이스 버킷 챌린지 — 물과 용암으로 흑요석을 만들었어요.",
-  "textDe": "Ice Bucket Challenge — Aus Wasser und Lava wurde Obsidian."
+  "textKo": "소리 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Notenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_form_obsidian",

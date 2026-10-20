@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 124,
  "concepts": [
-  "emerald",
-  "enchanting_table",
-  "bookshelf",
-  "anvil"
+  "gen_netherite_leggings",
+  "gen_chiseled_tuff_bricks",
+  "gen_rail",
+  "gen_cornflower"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_netherite_leggings"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:netherite_leggings",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Smaragde."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "enchanting_table"
+    "gen_chiseled_tuff_bricks"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
-   },
-   "clue": {
-    "de": "Benutz einen Zaubertisch."
-   },
-   "hint": {
-    "ko": "마법 부여대는 흑요석, 다이아몬드, 책으로 만들어요.",
-    "de": "Ein Zaubertisch besteht aus Obsidian, Diamant und Buch."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_tuff_bricks",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bookshelf"
+    "gen_rail"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bookshelf",
+    "block": "minecraft:rail",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Bücherregale."
-   },
-   "hint": {
-    "ko": "책장은 나무 판자와 책으로 만들어요.",
-    "de": "Bücherregale bestehen aus Holzbrettern und Büchern."
    }
   }
  ],
@@ -75,16 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "anvil"
+    "gen_cornflower"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cornflower",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "모루에서 룬을 만들어요.",
-  "textDe": "Runen entstehen am Amboss."
+  "textKo": "수레국화라는 길의 의식을 마쳤어요.",
+  "textDe": "Kornblume — Zeremonie vollendet."
  },
  "reward": {
   "badge": "runenpfad",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1105,
  "concepts": [
-  "sandstone",
-  "stone_bricks",
-  "height",
-  "bell"
+  "gen_dark_oak_fence_gate",
+  "gen_mangrove_button",
+  "gen_cyan_wool_slab",
+  "gen_oak_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "sandstone"
+    "gen_dark_oak_fence_gate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:sandstone",
+    "block": "minecraft:dark_oak_fence_gate",
     "count": 16
-   },
-   "clue": {
-    "de": "Brich sechzehn Sandsteinblöcke aus der alten Mauer."
-   },
-   "hint": {
-    "ko": "사암은 모래 네 개로 만들어요.",
-    "de": "Sandstein fertigst du aus vier Sandblöcken."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "stone_bricks"
+    "gen_mangrove_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:mangrove_button",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Steinziegel zu einer Wachtmauer."
-   },
-   "hint": {
-    "ko": "석재 벽돌은 돌 네 개로 만들어요.",
-    "de": "Steinziegel fertigst du aus vier Steinblöcken."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "height"
+    "gen_cyan_wool_slab"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 100,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig über hundert Blöcke hoch auf den Wachturm."
-   },
-   "hint": {
-    "ko": "높은 탑까지 블록을 쌓고 올라가요.",
-    "de": "Stapel Blöcke und klettere hinauf."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cyan_wool_slab",
+    "count": 3
    }
   }
  ],
@@ -79,16 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_oak_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_trapdoor",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "높은 탑에서 종을 울려 사막을 지켜요.",
-  "textDe": "Die Glocke auf dem Turm ruft die Wächter der Wüste."
+  "textKo": "참나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Eichenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_05",

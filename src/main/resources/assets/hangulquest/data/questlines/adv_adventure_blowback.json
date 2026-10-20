@@ -7,6 +7,7 @@
  "tier": 2,
  "order": 203,
  "concepts": [
+  "gen_copper_chain",
   "adv_item_wind_charge"
  ],
  "requires": {
@@ -20,15 +21,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_wind_charge"
+    "gen_copper_chain"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": -64,
-    "maxY": 0
-   },
-   "clue": {
-    "de": "Steige hinab in die Prüfungskammer tief unter der Erde."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:copper_chain",
+    "count": 3
    }
   },
   {

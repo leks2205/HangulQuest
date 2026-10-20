@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 440,
  "concepts": [
-  "bed",
-  "torch",
-  "climb",
-  "mountain"
+  "gen_cracked_deepslate_tiles",
+  "gen_green_candle_cake",
+  "gen_lukewarm_ocean",
+  "gen_polished_tuff"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "bed"
+    "gen_cracked_deepslate_tiles"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_bed",
+    "block": "minecraft:cracked_deepslate_tiles",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell ein Bett auf."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_green_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:green_candle_cake",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz in der Nacht drei Fackeln."
    },
    "conditions": [
     {
@@ -57,20 +51,12 @@
   {
    "id": "s3",
    "teach": [
-    "mountain",
-    "climb"
+    "gen_lukewarm_ocean"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:lukewarm_ocean",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
-   },
-   "hint": {
-    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
    }
   }
  ],
@@ -78,11 +64,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_polished_tuff"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:polished_tuff",
+    "count": 3
    },
    "conditions": [
     {
@@ -91,8 +78,8 @@
     }
    ]
   },
-  "textKo": "밤에 별의 집에서 자요.",
-  "textDe": "In der Nacht schläfst du im Sternenhaus."
+  "textKo": "밤에 윤나는 응회암라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Tuffstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "sternenhaus",

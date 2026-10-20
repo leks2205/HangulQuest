@@ -7,10 +7,9 @@
  "tier": 5,
  "order": 70,
  "concepts": [
-  "mountain",
-  "torch",
-  "bed",
-  "crown"
+  "gen_end_highlands",
+  "redstone",
+  "gen_brown_glazed_terracotta"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -29,35 +28,23 @@
   {
    "id": "s1",
    "teach": [
-    "mountain",
-    "crown"
+    "gen_end_highlands"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:end_highlands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom.",
-    "ko": "왕관을 찾아 산으로 가요."
-   },
-   "hint": {
-    "ko": "왕관은 머리에 쓰는 것이에요. 산에서 찾아요.",
-    "de": "Eine Krone trägt man auf dem Kopf; du findest sie im Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "redstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:redstone_ore",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -71,11 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_brown_glazed_terracotta"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brown_glazed_terracotta",
+    "count": 3
    },
    "conditions": [
     {
@@ -84,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 왕관의 빛 아래에서 자요.",
-  "textDe": "Unter dem Kronenlicht schläfst du."
+  "textKo": "밤에 갈색 유광 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Braune glasierte Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenlicht",

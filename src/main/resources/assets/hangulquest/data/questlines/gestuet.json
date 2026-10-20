@@ -7,9 +7,9 @@
  "order": 522,
  "concepts": [
   "horse",
-  "leather",
-  "planks",
-  "campfire"
+  "gen_written_book",
+  "enchanting_table",
+  "gen_exposed_copper_chest"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -37,29 +37,23 @@
   {
    "id": "s2",
    "teach": [
-    "leather"
+    "gen_written_book"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather",
+    "item": "minecraft:written_book",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Leder."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "planks"
+    "enchanting_table"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_planks",
+    "block": "minecraft:enchanting_table",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Bretter."
    }
   }
  ],
@@ -67,11 +61,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_exposed_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:exposed_copper_chest",
     "count": 1
    },
    "conditions": [
@@ -81,8 +75,8 @@
     }
    ]
   },
-  "textKo": "밤에 마구간에서 불을 피워요.",
-  "textDe": "Im Gestüt brennt das Feuer."
+  "textKo": "밤에 약간 녹슨 구리 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Angelaufene Kupfertruhe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gestuet",

@@ -7,9 +7,10 @@
  "tier": 1,
  "order": 1015,
  "concepts": [
-  "lily_pad",
+  "gen_breeze_rod",
+  "gen_chiseled_cinnabar",
   "seagrass",
-  "water"
+  "adv_item_golden_carrot"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,37 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "lily_pad"
+    "gen_breeze_rod"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lily_pad",
+    "item": "minecraft:breeze_rod",
     "count": 2
-   },
-   "clue": {
-    "de": "Hol zwei Seerosenblätter."
-   },
-   "hint": {
-    "ko": "수련잎은 강과 늪에서 자라요.",
-    "de": "Seerosen wachsen auf ruhigem Wasser."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "lily_pad"
+    "gen_chiseled_cinnabar"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lily_pad",
+    "block": "minecraft:chiseled_cinnabar",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Seerosenblätter aufs Wasser."
-   },
-   "hint": {
-    "ko": "수련잎을 물 위에 놓아요.",
-    "de": "Lege die Blätter auf die Wasserfläche."
    }
   },
   {
@@ -76,17 +63,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "water"
+    "adv_item_golden_carrot"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:water_bucket",
+    "item": "minecraft:golden_carrot",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "물빛이 수련잎과 해초를 비춰요.",
-  "textDe": "Das Wasser lässt Seerosen und Seegras leuchten."
+  "textKo": "황금 당근라는 길의 의식을 마쳤어요.",
+  "textDe": "Goldene Karotte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_05",

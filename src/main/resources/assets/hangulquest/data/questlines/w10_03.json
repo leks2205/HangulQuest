@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1103,
  "concepts": [
-  "stone_bricks",
-  "chiseled_stone_bricks",
-  "adv_item_decorated_pot",
-  "gold"
+  "gen_dark_oak_leaves",
+  "gen_spruce_pressure_plate",
+  "gen_cyan_concrete_stairs",
+  "turtle"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "stone_bricks"
+    "gen_dark_oak_leaves"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:dark_oak_leaves",
     "count": 10
-   },
-   "clue": {
-    "de": "Brich zehn Steinziegel aus der Tempelwand."
-   },
-   "hint": {
-    "ko": "석재 벽돌은 곡괭이로 캐요.",
-    "de": "Steinziegel baust du mit einer Spitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chiseled_stone_bricks"
+    "gen_spruce_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_stone_bricks",
+    "block": "minecraft:spruce_pressure_plate",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier gemeißelte Steinziegel in die Mauer."
-   },
-   "hint": {
-    "ko": "조각된 석재 벽돌은 유적에서 찾아요.",
-    "de": "Gemeißelte Steinziegel liegen in alten Ruinen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_decorated_pot"
+    "gen_cyan_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:decorated_pot",
+    "item": "minecraft:cyan_concrete_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Finde im Tempel die Scherben für einen verzierten Krug."
-   },
-   "hint": {
-    "ko": "장식된 도자기는 도자기 조각 네 개로 만들어요.",
-    "de": "Vier Tonscherben ergeben einen verzierten Krug."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold"
+    "turtle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:raw_gold",
+    "item": "minecraft:scute",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "땅속 깊은 곳에서 금을 찾아요.",
-  "textDe": "Tief unter dem Tempel wartet das verborgene Gold."
+  "textKo": "인갑라는 길의 의식을 마쳤어요.",
+  "textDe": "Hornschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_03",

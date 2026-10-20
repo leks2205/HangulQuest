@@ -8,9 +8,9 @@
  "order": 1028,
  "concepts": [
   "ladder",
-  "glass",
-  "height",
-  "torch"
+  "gen_poplar_sign",
+  "gen_weathered_copper_trapdoor",
+  "gen_tall_seagrass"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,37 +39,23 @@
   {
    "id": "s2",
    "teach": [
-    "glass"
+    "gen_poplar_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass",
+    "block": "minecraft:poplar_sign",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Glasblöcke als Fenster in den Turm."
-   },
-   "hint": {
-    "ko": "유리는 투명해요.",
-    "de": "Glas ist durchsichtig."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "height"
+    "gen_weathered_copper_trapdoor"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig bis auf Höhe 120 hinauf."
-   },
-   "hint": {
-    "ko": "구름 위로 올라가요.",
-    "de": "Steig über die Wolken hinauf."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:weathered_copper_trapdoor",
+    "count": 1
    }
   }
  ],
@@ -77,11 +63,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_tall_seagrass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:tall_seagrass",
     "count": 8
    },
    "conditions": [
@@ -89,14 +75,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "밤에 횃불을 여덟 개 놓아요.",
-    "de": "Setze in der Nacht acht Fackeln."
-   }
+   ]
   },
-  "textKo": "밤에 구름 위 탑에 횃불 여덟 개를 밝혀요.",
-  "textDe": "Nachts brennen auf dem Turm über den Wolken acht Fackeln."
+  "textKo": "밤에 키 큰 해초라는 길의 의식을 마쳤어요.",
+  "textDe": "Hohes Seegras — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_08",

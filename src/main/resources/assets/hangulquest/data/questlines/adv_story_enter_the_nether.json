@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 314,
  "concepts": [
-  "obsidian",
-  "adv_item_flint_and_steel",
-  "adv_dimension_the_nether"
+  "gen_blue_concrete_slab",
+  "gen_mushroom_stew",
+  "gen_acacia_fence_gate",
+  "gen_polished_andesite"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,51 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "obsidian"
+    "gen_blue_concrete_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:obsidian",
+    "item": "minecraft:blue_concrete_slab",
     "count": 10
-   },
-   "clue": {
-    "de": "Baue zehn Obsidianblöcke für den Portalrahmen ab."
-   },
-   "hint": {
-    "ko": "포털에는 흑요석 열 개가 필요하고, 흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Zehn Obsidian für den Rahmen, abgebaut mit der Diamantspitzhacke."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_flint_and_steel"
+    "gen_mushroom_stew"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flint_and_steel",
+    "item": "minecraft:mushroom_stew",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue ein Feuerzeug aus Flint und Eisen."
-   },
-   "hint": {
-    "ko": "부싯돌과 철 주괴로 불을 붙이는 도구를 만들어요.",
-    "de": "Feuerzeug: Feuerstein und ein Eisenbarren."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "obsidian"
+    "gen_acacia_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:acacia_fence_gate",
     "count": 10
-   },
-   "clue": {
-    "de": "Stelle aus zehn Obsidian einen Portalrahmen auf."
    }
   }
  ],
@@ -74,19 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_polished_andesite"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Zünde den Rahmen an und gehe durch das Portal."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:polished_andesite",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "더 깊은 곳으로 — 불타는 지옥에 첫발을 디뎠어요.",
-  "textDe": "Wir müssen noch tiefer — Der Nether ist erreicht."
+  "textKo": "윤나는 안산암라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Andesit — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_enter_the_nether",

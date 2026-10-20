@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 500,
  "concepts": [
-  "coal",
-  "torch",
-  "furnace",
-  "bed"
+  "gen_melon",
+  "gen_black_candle_cake",
+  "gen_spruce_leaves",
+  "gen_black_shulker_box"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,42 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_melon"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:melon",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Kohle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_black_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:black_candle_cake",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "furnace"
+    "gen_spruce_leaves"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Öffne den Ofen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:spruce_leaves",
+    "count": 2
    }
   }
  ],
@@ -65,11 +57,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_black_shulker_box"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:black_shulker_box",
+    "count": 2
    },
    "conditions": [
     {
@@ -78,8 +71,8 @@
     }
    ]
   },
-  "textKo": "밤에 침대에서 쉬어요. 석탄의 불이 남았어요.",
-  "textDe": "Nachts ruhst du im Bett. Die Kohle glüht nach."
+  "textKo": "밤에 검은색 셜커 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarze Shulker-Kiste — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kohlenpfad",

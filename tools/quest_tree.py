@@ -123,7 +123,7 @@ def build() -> str:
     lines.append(f"| Roots | {roots} |")
     lines.append(f"| Merges (more than one parent) | {merges} |")
     lines.append(
-        "| Vocabulary | 293 curated concepts plus generated vanilla names and the Lute import |"
+        "| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |"
     )
     lines.append("")
     lines.append(

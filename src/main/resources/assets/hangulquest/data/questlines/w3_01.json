@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 1031,
  "concepts": [
-  "villager",
-  "emerald",
-  "bell"
+  "gen_polar_bear",
+  "gen_mossy_stone_brick_slab",
+  "gen_cherry_log",
+  "gen_waxed_exposed_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,54 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "villager"
+    "gen_polar_bear"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Sprich mit einem Dorfbewohner."
-   },
-   "hint": {
-    "ko": "마을 사람과 이야기해요.",
-    "de": "Rede mit einem Bewohner im Dorf."
+    "entity": "minecraft:polar_bear"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "emerald"
+    "gen_mossy_stone_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:mossy_stone_brick_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Smaragde für den Handel."
-   },
-   "hint": {
-    "ko": "에메랄드를 모아요.",
-    "de": "Sammle Smaragde."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_cherry_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bell",
+    "block": "minecraft:cherry_log",
     "count": 1
-   },
-   "clue": {
-    "de": "Häng eine Glocke über dem Markt auf."
-   },
-   "hint": {
-    "ko": "종을 하나 놓아요.",
-    "de": "Stell eine Glocke auf."
    }
   }
  ],
@@ -77,16 +57,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_waxed_exposed_copper_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_exposed_copper_trapdoor",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "종소리가 장터에 울려요. 장터의 길이 끝났어요.",
-  "textDe": "Die Glocke läutet über den Markt. Der Marktweg ist zu Ende."
+  "textKo": "밀랍칠한 약간 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste angelaufene Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_01",

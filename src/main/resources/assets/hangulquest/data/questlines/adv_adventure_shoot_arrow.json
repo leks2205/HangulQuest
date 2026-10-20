@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 225,
  "concepts": [
-  "bow",
-  "arrow",
-  "zombie"
+  "gen_dark_oak_door",
+  "gen_prismarine_crystals",
+  "gen_wither_skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "bow"
+    "gen_dark_oak_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bow",
+    "item": "minecraft:dark_oak_door",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue einen Bogen aus drei Stöcken und drei Fäden."
-   },
-   "hint": {
-    "ko": "막대기 세 개와 실 세 개로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "arrow"
+    "gen_prismarine_crystals"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arrow",
+    "item": "minecraft:prismarine_crystals",
     "count": 8
-   },
-   "clue": {
-    "de": "Fertige acht Pfeile aus Feuerstein, Stöcken und Federn."
-   },
-   "hint": {
-    "ko": "부싯돌, 막대기, 깃털로 화살을 만들어요."
    }
   }
  ],
@@ -58,20 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_wither_skeleton"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:wither_skeleton",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Zieh den Bogen auf und triff einen Zombie mit einem Pfeil."
-   }
+   "conditions": []
   },
-  "textKo": "정조준 — 활로 좀비를 맞혀요.",
-  "textDe": "Zielübungen — Triff einen Zombie mit einem Pfeil."
+  "textKo": "위더 스켈레톤라는 길의 의식을 마쳤어요.",
+  "textDe": "Wither-Skelett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_shoot_arrow",

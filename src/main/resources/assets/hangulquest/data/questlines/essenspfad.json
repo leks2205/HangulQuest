@@ -8,7 +8,7 @@
   "apple",
   "bread",
   "cow",
-  "bed"
+  "gen_chipped_anvil"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -77,11 +77,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_chipped_anvil"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:chipped_anvil"
    },
    "conditions": [
     {
@@ -90,8 +90,8 @@
     }
    ]
   },
-  "textKo": "배부르고 밤이에요. 침대에서 자요.",
-  "textDe": "Satt und müde: Schlaf im Bett."
+  "textKo": "밤에 금 간 모루라는 길의 의식을 마쳤어요.",
+  "textDe": "Angeschlagener Amboss — Zeremonie vollendet."
  },
  "reward": {
   "badge": "essenspfad",

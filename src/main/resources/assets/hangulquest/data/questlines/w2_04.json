@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1024,
  "concepts": [
-  "thunder",
-  "height",
+  "gen_red_concrete_powder",
+  "gen_tuff_brick_slab",
   "lightning_rod",
-  "torch"
+  "gen_coarse_dirt"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,20 +21,12 @@
   {
    "id": "s1",
    "teach": [
-    "lightning_rod",
-    "thunder"
+    "gen_red_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lightning_rod",
+    "block": "minecraft:red_concrete_powder",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell bei Gewitter einen Blitzableiter auf."
-   },
-   "hint": {
-    "ko": "천둥이 칠 때 피뢰침을 놓아요.",
-    "de": "Bei Gewitter stellst du den Blitzableiter auf."
    },
    "conditions": [
     {
@@ -46,19 +38,12 @@
   {
    "id": "s2",
    "teach": [
-    "height"
+    "gen_tuff_brick_slab"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 90,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig bis auf Höhe 90 hinauf."
-   },
-   "hint": {
-    "ko": "언덕 위로 올라가요.",
-    "de": "Steig auf den Hügel hinauf."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:tuff_brick_slab",
+    "count": 2
    }
   },
   {
@@ -90,11 +75,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_coarse_dirt"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:coarse_dirt",
     "count": 5
    },
    "conditions": [
@@ -102,14 +87,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "밤에 횃불을 다섯 개 놓아요.",
-    "de": "Setze in der Nacht fünf Fackeln."
-   }
+   ]
   },
-  "textKo": "천둥이 지나간 밤에 횃불 다섯 개를 밝혀요.",
-  "textDe": "In der Nacht nach dem Donner brennen fünf Fackeln."
+  "textKo": "밤에 거친 흙라는 길의 의식을 마쳤어요.",
+  "textDe": "Grobe Erde — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_04",

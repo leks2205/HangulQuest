@@ -8,7 +8,7 @@
   "river",
   "sand",
   "bucket",
-  "campfire"
+  "gen_waxed_exposed_copper_grate"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -77,11 +77,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_waxed_exposed_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:waxed_exposed_copper_grate",
     "count": 1
    },
    "conditions": [
@@ -91,8 +91,8 @@
     }
    ]
   },
-  "textKo": "해변에서 불을 피웠어요. 물의 길이 끝났어요.",
-  "textDe": "Am Strand brennt dein Feuer. Der Wasserpfad endet hier."
+  "textKo": "해변에서 밀랍칠한 약간 녹슨 구리 격자라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster angelaufener Kupferrost — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wasserpfad",

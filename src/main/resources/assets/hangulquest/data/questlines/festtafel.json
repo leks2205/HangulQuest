@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 521,
  "concepts": [
-  "cake",
-  "bread",
-  "chicken",
-  "campfire"
+  "cat",
+  "gen_zombie_wall_head",
+  "gen_camel",
+  "gen_polished_sulfur"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "cake"
+    "cat"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:cod",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Kuchen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "gen_zombie_wall_head"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:zombie_wall_head",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Brote."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chicken"
+    "gen_camel"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
+    "entity": "minecraft:camel",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Huhn an."
    }
   }
  ],
@@ -67,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_polished_sulfur"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:polished_sulfur",
     "count": 1
    },
    "conditions": [
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 잔칫상을 차려요.",
-  "textDe": "Bei Nacht ist die Tafel gedeckt."
+  "textKo": "밤에 윤나는 유황라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Schwefel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "festtafel",

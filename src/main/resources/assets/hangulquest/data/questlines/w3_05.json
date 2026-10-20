@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1035,
  "concepts": [
-  "lantern",
-  "bed",
-  "zombie",
+  "gen_sulfur_brick_slab",
+  "gen_sculk_vein",
+  "gen_poplar_leaves",
   "door"
  ],
  "requires": {
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "lantern"
+    "gen_sulfur_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:sulfur_brick_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Häng zwei Laternen an den Weg im Dorf."
-   },
-   "hint": {
-    "ko": "랜턴을 걸어요.",
-    "de": "Häng eine Laterne auf."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bed"
+    "gen_sculk_vein"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf im Bett der Nachbarn."
-   },
-   "hint": {
-    "ko": "침대에서 자요.",
-    "de": "Schlaf im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sculk_vein",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "zombie"
+    "gen_poplar_leaves"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 1
-   },
-   "clue": {
-    "de": "Vertreib einen Zombie vom Dorfplatz."
-   },
-   "hint": {
-    "ko": "좀비를 물리쳐요.",
-    "de": "Besiege einen Zombie."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poplar_leaves",
+    "count": 2
    }
   }
  ],

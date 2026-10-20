@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 127,
  "concepts": [
-  "golden_apple",
-  "anvil",
-  "beacon",
-  "enchanting_table"
+  "gen_glowstone_dust",
+  "gen_waxed_exposed_copper_chain",
+  "gen_infested_cracked_stone_bricks",
+  "gen_brown_concrete_slab"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,46 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "golden_apple"
+    "gen_glowstone_dust"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_apple",
+    "item": "minecraft:glowstone_dust",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen goldenen Apfel."
-   },
-   "hint": {
-    "ko": "황금 사과는 사과와 금 조각으로 만들어요.",
-    "de": "Goldene Äpfel bestehen aus Apfel und Gold."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "anvil"
+    "gen_waxed_exposed_copper_chain"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
-   },
-   "clue": {
-    "de": "Benutz einen Amboss."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_exposed_copper_chain",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "beacon"
+    "gen_infested_cracked_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:beacon",
+    "block": "minecraft:infested_cracked_stone_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Leuchtfeuer."
    }
   }
  ],
@@ -71,16 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "enchanting_table"
+    "gen_brown_concrete_slab"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brown_concrete_slab",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "마법 부여대에서 불멸을 빌어요.",
-  "textDe": "Am Zaubertisch um Unsterblichkeit bitten."
+  "textKo": "갈색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Braune Betonstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "unsterblichkeit",

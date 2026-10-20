@@ -5,11 +5,10 @@
  "titleDe": "Der Sternenpfad",
  "tier": 2,
  "concepts": [
-  "climb",
-  "torch",
-  "night",
-  "mountain",
-  "bed"
+  "gen_river",
+  "gen_deepslate_tile_wall",
+  "gen_exposed_copper_grate",
+  "gen_copper_bars"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -22,48 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain",
-    "climb"
+    "gen_river"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:river",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
-   },
-   "hint": {
-    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_deepslate_tile_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:torch",
+    "item": "minecraft:deepslate_tile_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Fackeln."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_exposed_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:exposed_copper_grate",
     "count": 5
-   },
-   "clue": {
-    "de": "Setz in der Nacht fünf Fackeln."
    }
   }
  ],
@@ -71,11 +56,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_copper_bars"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:copper_bars",
+    "count": 1
    },
    "conditions": [
     {
@@ -84,8 +70,8 @@
     }
    ]
   },
-  "textKo": "밤에 침대에서 자요. 별의 길이 끝났어요.",
-  "textDe": "Nachts schläfst du im Bett. Der Sternenpfad ist zu Ende."
+  "textKo": "밤에 구리 창살라는 길의 의식을 마쳤어요.",
+  "textDe": "Kupfergitter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "sternenpfad",

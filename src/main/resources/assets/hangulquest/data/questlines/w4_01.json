@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1041,
  "concepts": [
-  "ocean",
-  "seagrass",
-  "prismarine",
-  "shell"
+  "gen_grove",
+  "gen_red_nether_brick_wall",
+  "gen_green_dye",
+  "grass"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_grove"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:grove",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh hinunter ins Meer."
-   },
-   "hint": {
-    "ko": "바닷물은 아주 깊어요.",
-    "de": "Im Ozean ist das Wasser tief."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "seagrass"
+    "gen_red_nether_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:seagrass",
+    "block": "minecraft:red_nether_brick_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Seegras auf den Meeresboden."
-   },
-   "hint": {
-    "ko": "해초는 물속 바닥에 놓아요.",
-    "de": "Seegras wächst nur unter Wasser auf dem Grund."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "prismarine"
+    "gen_green_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_shard",
+    "item": "minecraft:green_dye",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Prismarinscherben."
-   },
-   "hint": {
-    "ko": "프리즈머린은 바다 신전에서 나와요.",
-    "de": "Prismarin findest du im Ozeanmonument."
    }
   }
  ],
@@ -79,23 +58,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "shell"
+    "grass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nautilus_shell",
+    "item": "minecraft:grass_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Finde eine Muschel am Riff."
-   },
-   "hint": {
-    "ko": "조개는 바다 밑에서 주워요.",
-    "de": "Muscheln liegen auf dem Meeresgrund."
    }
   },
-  "textKo": "산호초에서 조개를 주워요. 길이 끝났어요.",
-  "textDe": "Am Riff sammelst du eine Muschel. Der Pfad ist zu Ende."
+  "textKo": "잔디 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Grasblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_01",

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 300,
  "concepts": [
-  "adv_item_ancient_debris",
+  "gen_cinnabar_brick_slab",
   "adv_item_netherite_helmet",
   "adv_block_netherite_chestplate"
  ],
@@ -22,18 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_ancient_debris"
+    "gen_cinnabar_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ancient_debris",
+    "item": "minecraft:cinnabar_brick_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Fördere vier antike Schrottblöcke für den ersten Netheritbarren."
-   },
-   "hint": {
-    "ko": "고대 잔해는 다이아몬드 곡괭이로 캐요."
    }
   },
   {

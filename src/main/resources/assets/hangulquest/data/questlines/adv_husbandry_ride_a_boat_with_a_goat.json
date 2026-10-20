@@ -8,7 +8,7 @@
  "order": 276,
  "concepts": [
   "adv_item_oak_boat",
-  "adv_item_lead",
+  "gen_pink_shulker_box",
   "goat"
  ],
  "requires": {
@@ -39,18 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "adv_item_lead"
+    "gen_pink_shulker_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lead",
+    "item": "minecraft:pink_shulker_box",
     "count": 1
-   },
-   "clue": {
-    "de": "Knote eine Leine aus fünf Fäden."
-   },
-   "hint": {
-    "ko": "실 다섯 개로 만들어요."
    }
   }
  ],

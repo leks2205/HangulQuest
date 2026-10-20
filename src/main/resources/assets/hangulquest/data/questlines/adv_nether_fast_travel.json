@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 295,
  "concepts": [
-  "map",
-  "adv_dimension_the_nether",
-  "height"
+  "gen_magenta_concrete",
+  "gen_cinnabar_brick_wall",
+  "gen_orange_wool"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,34 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "map"
+    "gen_magenta_concrete"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:map",
+    "item": "minecraft:magenta_concrete",
     "count": 1
-   },
-   "clue": {
-    "de": "Zeichne eine Karte, damit du auf dem langen Weg nicht die Richtung verlierst."
-   },
-   "hint": {
-    "ko": "지도를 만들어요. 종이 아홉 개와 나침반이 필요해요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_cinnabar_brick_wall"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Geh durch das Portal: Im Nether zählt jeder Block acht Mal."
-   },
-   "hint": {
-    "ko": "포털로 지옥에 가요."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cinnabar_brick_wall",
+    "count": 3
    }
   }
  ],
@@ -57,23 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "height"
+    "gen_orange_wool"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 320
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_wool",
+    "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Kletter auf das Netherdach über Y 120 – von dort läuft die weite Reise schnell."
-   },
-   "hint": {
-    "ko": "높이 120블록 위로 올라가요."
-   }
+   "conditions": []
   },
-  "textKo": "천 리 길도 한 걸음이에요! 지옥 위를 달려서 순식간에 도착했어요.",
-  "textDe": "Tausend Meilen in einem Schritt – der Nether macht es möglich."
+  "textKo": "주황색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Orange Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_fast_travel",

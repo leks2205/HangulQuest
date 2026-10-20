@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1113,
  "concepts": [
-  "eternity",
-  "amethyst_shard",
-  "amethyst_block",
-  "glass"
+  "gen_cave_vines",
+  "gen_sulfur_spike",
+  "gen_weathered_chiseled_copper",
+  "stone"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,56 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "eternity"
+    "gen_cave_vines"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:cave_vines",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm eine Uhr in die Hand, die die Ewigkeit misst.",
-    "ko": "영원을 새기는 시계를 만들어요."
-   },
-   "hint": {
-    "ko": "시계는 시간을 보여 줘요.",
-    "de": "Eine Uhr zeigt dir die Zeit."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "amethyst_shard"
+    "gen_sulfur_spike"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_shard",
+    "item": "minecraft:sulfur_spike",
     "count": 18
-   },
-   "clue": {
-    "de": "Sammle achtzehn Amethystsplitter."
-   },
-   "hint": {
-    "ko": "자수정 조각은 수정 동굴에서 나와요.",
-    "de": "Amethyst findest du in Amethystgeoden."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "amethyst_block"
+    "gen_weathered_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:amethyst_block",
+    "block": "minecraft:weathered_chiseled_copper",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Amethystblöcke als Zeitkristall."
-   },
-   "hint": {
-    "ko": "자수정 조각 아홉 개를 모으면 자수정 블록이 돼요.",
-    "de": "Neun Splitter ergeben einen Amethystblock."
    }
   }
  ],
@@ -80,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "glass"
+    "stone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass",
+    "block": "minecraft:stone",
     "count": 16
-   },
-   "clue": {
-    "de": "Bau die Sanduhr aus sechzehn Glasblöcken."
-   },
-   "hint": {
-    "ko": "유리는 모래를 구우면 나와요.",
-    "de": "Glas entsteht, wenn du Sand im Ofen brennst."
    },
    "conditions": []
   },
-  "textKo": "영원의 시간을 모래시계에 담아요.",
-  "textDe": "Du füllst die Zeit der Ewigkeit in eine Sanduhr."
+  "textKo": "돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Stein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_03",

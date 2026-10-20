@@ -8,8 +8,8 @@
  "order": 234,
  "concepts": [
   "adv_item_totem_of_undying",
-  "creeper",
-  "witch"
+  "gen_husk",
+  "gen_pillager"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -40,15 +40,12 @@
   {
    "id": "s2",
    "teach": [
-    "creeper"
+    "gen_husk"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:creeper",
+    "entity": "minecraft:husk",
     "count": 1
-   },
-   "clue": {
-    "de": "Stelle dich einem Creeper, das Totem steckt schon in der Hand."
    }
   }
  ],
@@ -56,17 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "witch"
+    "gen_pillager"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:witch",
+    "entity": "minecraft:pillager",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "죽음을 초월한 자 — 마녀와 싸우다 죽어도 토템이 살려 줘요.",
-  "textDe": "Post mortem — Die Hexe bringt dich fast um, doch das Totem hält dich am Leben."
+  "textKo": "약탈자라는 길의 의식을 마쳤어요.",
+  "textDe": "Plünderer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_totem_of_undying",

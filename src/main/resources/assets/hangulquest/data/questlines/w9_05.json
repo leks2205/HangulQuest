@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1095,
  "concepts": [
-  "clock",
+  "gen_miner_pottery_shard",
   "enchanting_table",
-  "nether_star"
+  "gen_oxidized_copper_door"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,20 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "clock"
+    "gen_miner_pottery_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:miner_pottery_shard",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau eine Uhr, um die Ewigkeit zu messen.",
-    "ko": "영원을 재려고 시계를 만들어요."
-   },
-   "hint": {
-    "ko": "시계는 금 조각과 레드스톤으로 만들어요.",
-    "de": "Eine Uhr entsteht aus Gold und Redstone."
    }
   },
   {
@@ -61,17 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "nether_star"
+    "gen_oxidized_copper_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
+    "item": "minecraft:oxidized_copper_door",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "네더의 별을 얻지 않고서는 영원을 이룰 수 없어요.",
-  "textDe": "Ohne den Netherstern bleibt die Ewigkeit unerreicht."
+  "textKo": "산화된 구리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierte Kupfertür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_05",

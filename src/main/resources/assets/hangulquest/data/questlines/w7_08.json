@@ -10,7 +10,7 @@
   "adv_block_nether_bricks",
   "adv_block_red_nether_bricks",
   "adv_block_polished_blackstone_bricks",
-  "chiseled_stone_bricks"
+  "gen_magenta_candle_cake"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -79,17 +79,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chiseled_stone_bricks"
+    "gen_magenta_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_stone_bricks",
+    "block": "minecraft:magenta_candle_cake",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "붉은 벽돌로 지옥의 도서관을 지어요.",
-  "textDe": "Aus roten Ziegeln entsteht eine Bibliothek im Nether."
+  "textKo": "자홍색 초를 꽂은 케이크라는 길의 의식을 마쳤어요.",
+  "textDe": "Kuchen mit magenta Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_08",

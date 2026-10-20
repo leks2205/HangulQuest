@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 224,
  "concepts": [
-  "adv_item_brush",
-  "desert",
-  "sand"
+  "gen_kelp",
+  "gen_eroded_badlands",
+  "gen_cave_vines_plant"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,32 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_brush"
+    "gen_kelp"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brush",
+    "item": "minecraft:kelp",
     "count": 1
-   },
-   "clue": {
-    "de": "Fertige einen Pinsel aus einer Feder, einem Kupferbarren und einem Stock."
-   },
-   "hint": {
-    "ko": "깃털, 구리 주괴, 막대기로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "desert"
+    "gen_eroded_badlands"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:desert",
+    "biome": "minecraft:eroded_badlands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Reis in die Wüste zu einer Tempelruine mit seltsamem Sand."
    }
   }
  ],
@@ -55,20 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sand"
+    "gen_cave_vines_plant"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:sand",
+    "block": "minecraft:cave_vines_plant",
     "count": 6
    },
-   "conditions": [],
-   "clue": {
-    "de": "Grab im Wüstentempel den Sand beiseite und pinsle den seltsamen Block ab."
-   }
+   "conditions": []
   },
-  "textKo": "소중한 잔해 — 모래를 털어 도자기 조각을 찾아요.",
-  "textDe": "Achtung vor dem Alten — Pinsle im Wüstentempel eine Töpferscherbe frei."
+  "textKo": "동굴 덩굴 식물라는 길의 의식을 마쳤어요.",
+  "textDe": "Höhlenrankenpflanze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_salvage_sherd",

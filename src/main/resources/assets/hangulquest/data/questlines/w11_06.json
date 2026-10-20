@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1116,
  "concepts": [
-  "ender_dragon",
-  "dragon_egg",
-  "adv_item_dragon_breath",
+  "gen_waxed_oxidized_copper_trapdoor",
+  "gen_oak_chest_boat",
+  "gen_waxed_exposed_cut_copper_slab",
   "adv_item_dragon_head"
  ],
  "requires": {
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ender_dragon"
+    "gen_waxed_oxidized_copper_trapdoor"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ender_dragon",
-    "count": 1
-   },
-   "clue": {
-    "de": "Besiege den Enderdrachen."
-   },
-   "hint": {
-    "ko": "엔더 드래곤은 엔드 수정을 먼저 부숴야 해요.",
-    "de": "Zerstöre zuerst die Enderkristalle auf den Türmen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_oxidized_copper_trapdoor",
+    "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "dragon_egg"
+    "gen_oak_chest_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dragon_egg",
+    "item": "minecraft:oak_chest_boat",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm das Drachenei an dich."
-   },
-   "hint": {
-    "ko": "드래곤 알은 드래곤이 죽은 자리에 남아요.",
-    "de": "Das Drachenei bleibt zurück, wo der Drache fiel."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_dragon_breath"
+    "gen_waxed_exposed_cut_copper_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dragon_breath",
+    "item": "minecraft:waxed_exposed_cut_copper_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Fang drei Drachenatem in Glasflaschen."
-   },
-   "hint": {
-    "ko": "드래곤의 숨결은 유리병으로 모아요.",
-    "de": "Drachenatem sammelst du mit Glasflaschen."
    }
   }
  ],

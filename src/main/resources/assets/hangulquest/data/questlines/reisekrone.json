@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 570,
  "concepts": [
-  "mountain",
-  "diamond",
-  "bell",
-  "bed"
+  "gen_old_growth_birch_forest",
+  "gen_diorite",
+  "gen_exposed_copper_door",
+  "gen_blue_carpet"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -26,42 +26,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_old_growth_birch_forest"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:old_growth_birch_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "diamond"
+    "gen_diorite"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:diorite",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Diamanten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_exposed_copper_door"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute die Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:exposed_copper_door",
+    "count": 1
    }
   }
  ],
@@ -69,11 +61,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_blue_carpet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:blue_carpet",
+    "count": 3
    },
    "conditions": [
     {
@@ -86,8 +79,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 밤에 왕관을 내려놓고 자요.",
-  "textDe": "Im Bergbiom legst du nachts die Krone ab."
+  "textKo": "밤에 산 지형에서 파란색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Blauer Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "reisekrone",

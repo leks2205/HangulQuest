@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1117,
  "concepts": [
-  "crown",
+  "gen_bone_meal",
   "ritual",
-  "soul_lantern",
-  "adv_item_totem_of_undying"
+  "gen_small_dripleaf",
+  "door"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "crown"
+    "gen_bone_meal"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_helmet",
+    "item": "minecraft:bone_meal",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede eine goldene Krone."
-   },
-   "hint": {
-    "ko": "금 투구는 금 조각 다섯 개로 만들어요.",
-    "de": "Ein Goldhelm braucht fünf Goldbarren."
    }
   },
   {
@@ -59,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "soul_lantern"
+    "gen_small_dripleaf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_lantern",
+    "block": "minecraft:small_dripleaf",
     "count": 4
-   },
-   "clue": {
-    "de": "Häng vier Seelenlaternen um den Altar."
-   },
-   "hint": {
-    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
-    "de": "Eine Seelenlaterne braucht eine Seelenfackel und Eisennuggets."
    }
   }
  ],
@@ -79,24 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_totem_of_undying"
+    "door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:totem_of_undying",
+    "item": "minecraft:oak_door",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm einen Totem der Unsterblichkeit mit."
-   },
-   "hint": {
-    "ko": "불사의 토템은 숲 저택에서 얻어요.",
-    "de": "Ein Totem der Unsterblichkeit findest du im Waldanwesen."
    },
    "conditions": []
   },
-  "textKo": "영원의 왕관을 쓰고 별의 의식을 올려요.",
-  "textDe": "Du trägst die Krone der Ewigkeit und vollendest das Ritual der Sterne."
+  "textKo": "참나무 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Eichenholztür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_07",

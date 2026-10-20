@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 533,
  "concepts": [
-  "ocean",
-  "squid",
-  "campfire",
-  "bed"
+  "gen_warm_ocean",
+  "gen_shulker",
+  "gen_chiseled_nether_bricks",
+  "gen_oxidized_copper_chain"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,43 +25,34 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_warm_ocean"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:warm_ocean",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ins Meer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "squid"
+    "gen_shulker"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:squid",
+    "entity": "minecraft:shulker",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Tintenfisch an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_chiseled_nether_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:chiseled_nether_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   }
  ],
@@ -69,11 +60,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_oxidized_copper_chain"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oxidized_copper_chain",
+    "count": 1
    },
    "conditions": [
     {
@@ -82,8 +74,8 @@
     }
    ]
   },
-  "textKo": "밤에 항구에서 잠들어요.",
-  "textDe": "Nachts schläfst du im Hafen."
+  "textKo": "밤에 산화된 구리 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierte Kupferkette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tiefseehafen",

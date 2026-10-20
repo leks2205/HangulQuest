@@ -6,9 +6,10 @@
  "tier": 3,
  "order": 512,
  "concepts": [
-  "mountain",
-  "snow",
-  "torch"
+  "gen_sulfur_caves",
+  "gen_acacia_slab",
+  "gen_oxidized_copper_chest",
+  "gen_jungle_fence"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_sulfur_caves"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:sulfur_caves",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_acacia_slab"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:acacia_slab",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_oxidized_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:oxidized_copper_chest",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -72,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_jungle_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:jungle_fence",
     "count": 1
    },
    "conditions": [
@@ -90,8 +82,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 정상에서 밤의 전망을 밝혀요.",
-  "textDe": "Vom Gipfel leuchtet die Nacht."
+  "textKo": "산 지형에서 밤에 정글나무 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzzaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gipfelblick",

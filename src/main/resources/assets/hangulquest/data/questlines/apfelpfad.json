@@ -7,7 +7,8 @@
  "tier": 1,
  "order": 138,
  "concepts": [
-  "apple",
+  "gen_cracked_stone_bricks",
+  "gen_spider_eye",
   "leaves",
   "sapling"
  ],
@@ -20,33 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "apple"
+    "gen_cracked_stone_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:apple",
+    "item": "minecraft:cracked_stone_bricks",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Äpfel."
-   },
-   "hint": {
-    "ko": "사과는 참나무 잎에서 떨어져요.",
-    "de": "Äpfel fallen von Eichenblättern."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "apple"
+    "gen_spider_eye"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:apple",
+    "item": "minecraft:spider_eye",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Apfel."
    }
   },
   {

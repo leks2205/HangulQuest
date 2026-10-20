@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1052,
  "concepts": [
-  "iron",
-  "anvil",
-  "iron_block",
-  "iron_chestplate"
+  "gen_poplar_sapling",
+  "gen_blue_candle_cake",
+  "gen_red_nether_brick_slab",
+  "zombie"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_poplar_sapling"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:poplar_sapling",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Eisenbarren."
-   },
-   "hint": {
-    "ko": "철은 돌 곡괭이로 캐요.",
-    "de": "Eisen baust du mit einer Steinspitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "anvil"
+    "gen_blue_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:anvil",
+    "block": "minecraft:blue_candle_cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Amboss auf."
-   },
-   "hint": {
-    "ko": "모루는 철 블록과 철괴로 만들어요.",
-    "de": "Ein Amboss braucht Eisenblöcke und Barren."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron_block"
+    "gen_red_nether_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_block",
+    "block": "minecraft:red_nether_brick_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Eisenblöcke."
-   },
-   "hint": {
-    "ko": "철 블록은 철괴 아홉 개로 만들어요.",
-    "de": "Ein Eisenblock braucht neun Barren."
    }
   }
  ],
@@ -79,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron_chestplate"
+    "zombie"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_chestplate",
+    "item": "minecraft:rotten_flesh",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede einen Eisenharnisch."
-   },
-   "hint": {
-    "ko": "철 흉갑은 철괴 여덟 개로 만들어요.",
-    "de": "Ein Eisenharnisch braucht acht Barren."
    },
    "conditions": []
   },
-  "textKo": "모루 위에서 쇠를 두드려 갑옷을 완성해요.",
-  "textDe": "Auf dem Amboss wird aus Eisen ein Harnisch."
+  "textKo": "썩은 살점라는 길의 의식을 마쳤어요.",
+  "textDe": "Verrottetes Fleisch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_02",

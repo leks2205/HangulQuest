@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 325,
  "concepts": [
-  "cobblestone",
-  "crafting_table",
-  "stick",
+  "gen_deepslate_tile_stairs",
+  "adv_item_decorated_pot",
+  "chicken_meat",
   "adv_block_stone_pickaxe"
  ],
  "requires": {
@@ -23,46 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "cobblestone"
+    "gen_deepslate_tile_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cobblestone",
+    "item": "minecraft:deepslate_tile_stairs",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Bruchstein aus dem Stein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "crafting_table"
+    "adv_item_decorated_pot"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Nutze deine Werkbank für die neue Spitzhacke."
+    "block": "minecraft:decorated_pot"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "stick"
+    "chicken_meat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stick",
+    "item": "minecraft:cooked_chicken",
     "count": 2
-   },
-   "clue": {
-    "de": "Schnitze zwei Stöcke als Griff."
-   },
-   "hint": {
-    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
-    "de": "Zwei Holzbretter ergeben vier Stöcke."
    }
   }
  ],

@@ -7,8 +7,9 @@
  "tier": 3,
  "order": 96,
  "concepts": [
-  "wool",
-  "flower"
+  "gen_crimson_fence_gate",
+  "gen_red_stained_glass_pane",
+  "gen_coal_block"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,33 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "wool"
+    "gen_crimson_fence_gate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_wool",
+    "item": "minecraft:crimson_fence_gate",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Wolle."
-   },
-   "hint": {
-    "ko": "가위로 양을 오른쪽 버튼으로 깎아요.",
-    "de": "Scher das Schaf mit einer Schere per Rechtsklick."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wool"
+    "gen_red_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool",
+    "block": "minecraft:red_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Wollblöcke."
    }
   }
  ],
@@ -56,17 +47,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower"
+    "gen_coal_block"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:coal_block",
     "dwellMs": 600
    },
    "conditions": []
   },
-  "textKo": "색색의 양털과 꽃을 바라봐요.",
-  "textDe": "Bunte Wolle und Blumen."
+  "textKo": "석탄 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Kohleblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "farbenpfad",

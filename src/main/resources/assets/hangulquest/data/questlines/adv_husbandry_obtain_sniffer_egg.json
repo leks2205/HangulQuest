@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 270,
  "concepts": [
-  "adv_item_brush",
+  "gen_weathered_copper",
   "sand",
-  "adv_item_sniffer_egg"
+  "gen_spruce_fence"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,18 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_brush"
+    "gen_weathered_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brush",
+    "item": "minecraft:weathered_copper",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue eine Bürste aus einer Feder, einem Kupferbarren und einem Stock."
-   },
-   "hint": {
-    "ko": "깃털과 구리 주괴와 막대기로 만들어요."
    }
   },
   {
@@ -55,17 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_sniffer_egg"
+    "gen_spruce_fence"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sniffer_egg",
+    "item": "minecraft:spruce_fence",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "흥미로운 냄새 — 따뜻한 바다 유적에서 스니퍼 알을 얻어요.",
-  "textDe": "Ein ungewöhnlicher Geruch — In der warmen Ozeanruine findest du das Schnüffler-Ei."
+  "textKo": "가문비나무 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Fichtenholzzaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_sniffer_egg",

@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_tadpole_bucket",
   "adv_item_lead",
-  "frog"
+  "turtle"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -60,16 +60,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "frog"
+    "turtle"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:frog"
+    "entity": "minecraft:turtle"
    },
    "conditions": []
   },
-  "textKo": "개구리 삼총사 출동! — 세 가지 개구리를 모두 끈으로 묶어요.",
-  "textDe": "Wenn die Kerle um die Häuser ziehen: Alle drei Froschfarben kommen an die Leine."
+  "textKo": "거북라는 길의 의식을 마쳤어요.",
+  "textDe": "Schildkröte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_leash_all_frog_variants",

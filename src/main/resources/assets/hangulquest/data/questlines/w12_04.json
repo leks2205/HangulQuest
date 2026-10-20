@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1124,
  "concepts": [
-  "nether",
-  "netherrack",
+  "gen_waxed_copper_trapdoor",
+  "gen_polished_cinnabar_wall",
   "ghast",
-  "magma"
+  "gen_crimson_hyphae"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,36 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "nether"
+    "gen_waxed_copper_trapdoor"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Reise durch ein Obsidianportal in den Nether."
-   },
-   "hint": {
-    "ko": "지옥 차원으로 가려면 흑요석 문에 불을 붙여요.",
-    "de": "Ins Nether kommt man durch ein brennendes Obsidianportal."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_trapdoor",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "netherrack"
+    "gen_polished_cinnabar_wall"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:netherrack",
+    "block": "minecraft:polished_cinnabar_wall",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue acht Netherrack ab und brich dir einen Weg."
-   },
-   "hint": {
-    "ko": "네더랙은 곡괭이로 아주 빨리 캐져요.",
-    "de": "Netherrack bricht mit jeder Spitzhacke sehr schnell."
    }
   },
   {
@@ -78,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "magma"
+    "gen_crimson_hyphae"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magma_block",
+    "block": "minecraft:crimson_hyphae",
     "count": 8
    },
    "conditions": [
@@ -90,14 +77,10 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_nether"
     }
-   ],
-   "hint": {
-    "ko": "마그마 블록은 마그마 크림으로 만들어요. 지옥 차원에서 놓아요.",
-    "de": "Magmablöcke entstehen aus Magmacreme; setz sie im Nether."
-   }
+   ]
   },
-  "textKo": "지옥 차원에서 마그마 블록 여덟 개로 종말의 문을 세워요.",
-  "textDe": "Im Nether entsteht aus acht Magmablöcken das Tor des Endes."
+  "textKo": "지옥에서 진홍빛 균사라는 길의 의식을 마쳤어요.",
+  "textDe": "Karmesinhyphen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_04",

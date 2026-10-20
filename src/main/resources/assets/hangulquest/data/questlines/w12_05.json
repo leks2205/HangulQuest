@@ -8,9 +8,9 @@
  "order": 1125,
  "concepts": [
   "soul_sand",
-  "soul_lantern",
-  "ender_pearl",
-  "end"
+  "gen_cinnabar_bricks",
+  "gen_wooden_hoe",
+  "gen_exposed_cut_copper_slab"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "soul_lantern"
+    "gen_cinnabar_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_lantern",
+    "block": "minecraft:cinnabar_bricks",
     "count": 2
-   },
-   "clue": {
-    "de": "Stell zwei Seelenlaternen links und rechts an das Tor."
-   },
-   "hint": {
-    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
-    "de": "Seelenlaternen macht man aus Seelenfackel und Eisen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "ender_pearl"
+    "gen_wooden_hoe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_pearl",
+    "item": "minecraft:wooden_hoe",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Enderperle für den Schlüssel des Tores."
-   },
-   "hint": {
-    "ko": "엔더 진주는 엔더맨을 물리치면 얻어요.",
-    "de": "Enderperlen bekommt man von besiegten Endermen."
    }
   }
  ],
@@ -79,20 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "end"
+    "gen_exposed_cut_copper_slab"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:exposed_cut_copper_slab",
+    "count": 3
    },
-   "conditions": [],
-   "hint": {
-    "ko": "엔드로 가려면 엔더의 눈으로 차원문을 열어요.",
-    "de": "Ins Ende öffnet man das Portal mit Enderaugen."
-   }
+   "conditions": []
   },
-  "textKo": "영혼의 문을 지나 엔드 차원으로 걸어가요.",
-  "textDe": "Durch das Tor der Seelen führt der Weg ins Ende."
+  "textKo": "약간 녹슨 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Angelaufene geschnittene Kupferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_05",

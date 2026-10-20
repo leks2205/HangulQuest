@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 61,
  "concepts": [
-  "wheat",
-  "flower",
-  "bread"
+  "gen_waxed_exposed_cut_copper_stairs",
+  "gen_flowering_azalea_leaves",
+  "beef"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,29 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "gen_waxed_exposed_cut_copper_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wheat",
+    "item": "minecraft:waxed_exposed_cut_copper_stairs",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle fünf Weizen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "flower"
+    "gen_flowering_azalea_leaves"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:flowering_azalea_leaves",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Blume an."
    }
   }
  ],
@@ -52,17 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bread"
+    "beef"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:cooked_beef",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "빵으로 밭의 결실을 맛봐요.",
-  "textDe": "Mit Brot schmeckst du die Ernte."
+  "textKo": "스테이크라는 길의 의식을 마쳤어요.",
+  "textDe": "Steak — Zeremonie vollendet."
  },
  "reward": {
   "badge": "saatfeld",

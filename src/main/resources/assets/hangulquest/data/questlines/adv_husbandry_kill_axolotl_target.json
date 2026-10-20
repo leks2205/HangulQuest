@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 266,
  "concepts": [
-  "adv_item_axolotl_bucket",
-  "sword",
-  "zombie"
+  "coal",
+  "gen_jungle_shelf",
+  "gen_phantom"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_axolotl_bucket"
+    "coal"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:axolotl_bucket",
+    "item": "minecraft:deepslate_coal_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Fang einen Axolotl im Wasser mit dem Eimer."
-   },
-   "hint": {
-    "ko": "아홀로틀은 물에서 빈 양동이를 쓰면 잡혀요.",
-    "de": "Ein leerer Eimer fängt den Axolotl im Wasser."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sword"
+    "gen_jungle_shelf"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_sword",
+    "item": "minecraft:jungle_shelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede ein Eisenschwert für den Kampf."
-   },
-   "hint": {
-    "ko": "검은 철괴 두 개와 막대기 하나로 만들어요.",
-    "de": "Ein Eisenschwert braucht zwei Eisenbarren und einen Stock."
    }
   }
  ],
@@ -60,17 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_phantom"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:phantom",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "우정의 치유력! — 아홀로틀이 함께 싸워 준 좀비를 물리쳐요.",
-  "textDe": "Die heilende Kraft der Freundschaft: Mit dem Axolotl besiegst du den Zombie."
+  "textKo": "팬텀라는 길의 의식을 마쳤어요.",
+  "textDe": "Phantom — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_kill_axolotl_target",

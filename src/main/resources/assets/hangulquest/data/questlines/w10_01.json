@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1101,
  "concepts": [
-  "sand",
-  "sandstone",
+  "gen_crimson_hyphae",
+  "nether",
   "chiseled_stone_bricks",
-  "torch"
+  "gen_prismarine_slab"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "sand"
+    "gen_crimson_hyphae"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:sand",
+    "block": "minecraft:crimson_hyphae",
     "count": 12
-   },
-   "clue": {
-    "de": "Grab zwölf Sandblöcke aus der Düne."
-   },
-   "hint": {
-    "ko": "모래는 삽으로 빨리 캘 수 있어요.",
-    "de": "Mit einer Schaufel geht Sand am schnellsten."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sandstone"
+    "nether"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sandstone",
+    "block": "minecraft:netherrack",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Sandsteinblöcke als Schwelle vor die Ruine."
-   },
-   "hint": {
-    "ko": "사암은 모래를 굳혀서 만들어요.",
-    "de": "Sandstein entsteht aus gepresstem Sand."
    }
   },
   {
@@ -79,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_prismarine_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:prismarine_slab",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "모래 아래 어두운 방에 횃불을 밝혀요.",
-  "textDe": "Vier Fackeln erhellen die verborgene Kammer unter dem Sand."
+  "textKo": "프리즈머린 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Prismarinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_01",

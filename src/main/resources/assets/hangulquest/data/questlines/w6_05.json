@@ -8,8 +8,9 @@
  "order": 1065,
  "concepts": [
   "mushroom",
-  "mushroom_block",
-  "bowl"
+  "gen_red_sandstone_stairs",
+  "gen_brown_banner",
+  "ladder"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -40,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "mushroom"
+    "gen_red_sandstone_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_mushroom",
+    "item": "minecraft:red_sandstone_stairs",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei braune Pilze für die Suppe."
-   },
-   "hint": {
-    "ko": "갈색 버섯은 동굴에도 있어요.",
-    "de": "Braune Pilze findest du auch in Höhlen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "mushroom_block"
+    "gen_brown_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_mushroom_block",
+    "block": "minecraft:brown_banner",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Pilzblöcke als Schattenspender."
-   },
-   "hint": {
-    "ko": "버섯 블록은 큰 버섯에서 나와요.",
-    "de": "Pilzblöcke stammen von großen Pilzen."
    }
   }
  ],
@@ -78,20 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bowl"
+    "ladder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bowl",
+    "item": "minecraft:ladder",
     "count": 1
-   },
-   "clue": {
-    "de": "Schnitze eine Schüssel für die Pilzsuppe."
    },
    "conditions": []
   },
-  "textKo": "버섯을 모아 그릇에 담아요.",
-  "textDe": "Sammle die Pilze und füll sie in eine Schüssel."
+  "textKo": "사다리라는 길의 의식을 마쳤어요.",
+  "textDe": "Leiter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_05",

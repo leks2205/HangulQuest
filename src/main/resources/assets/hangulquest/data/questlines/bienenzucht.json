@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 159,
  "concepts": [
-  "bee",
-  "honeycomb",
-  "honey_block",
-  "honey_bottle"
+  "gen_black_stained_glass",
+  "honey_bottle",
+  "gen_panda",
+  "gen_leather_leggings"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,19 +24,12 @@
   {
    "id": "s1",
    "teach": [
-    "honey_block"
+    "gen_black_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:honey_block",
+    "block": "minecraft:black_stained_glass",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Honigblöcke."
-   },
-   "hint": {
-    "ko": "꿀 블록은 꿀병 네 개로 만들어요.",
-    "de": "Honigblöcke bestehen aus vier Honigflaschen."
    }
   },
   {
@@ -60,15 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "bee"
+    "gen_panda"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:bee",
+    "entity": "minecraft:panda",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Biene an."
    }
   }
  ],
@@ -76,21 +66,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "honeycomb"
+    "gen_leather_leggings"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honeycomb",
+    "item": "minecraft:leather_leggings",
     "count": 3
    },
-   "conditions": [],
-   "hint": {
-    "ko": "벌집 조각은 가위로 벌집을 깎아요.",
-    "de": "Honigwaben bekommst du mit einer Schere."
-   }
+   "conditions": []
   },
-  "textKo": "벌집 조각을 모아요.",
-  "textDe": "Honigwaben sammeln."
+  "textKo": "가죽 바지라는 길의 의식을 마쳤어요.",
+  "textDe": "Lederhose — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bienenzucht",

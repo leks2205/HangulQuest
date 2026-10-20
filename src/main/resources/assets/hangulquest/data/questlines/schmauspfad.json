@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 502,
  "concepts": [
-  "fish",
-  "furnace",
-  "bread",
-  "cake"
+  "gen_cherry_log",
+  "gen_end_rod",
+  "fox",
+  "gen_glow_berries"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,42 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "fish"
+    "gen_cherry_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:cherry_log",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Fisch."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_end_rod"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Öffne den Ofen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:end_rod",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bread"
+    "fox"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:sweet_berries",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss ein Brot."
    }
   }
  ],
@@ -65,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cake"
+    "gen_glow_berries"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:glow_berries",
     "count": 1
    },
    "conditions": [
@@ -79,8 +71,8 @@
     }
    ]
   },
-  "textKo": "밤에 케이크로 잔치를 해요.",
-  "textDe": "Kuchen macht die Nacht zum Fest."
+  "textKo": "밤에 발광 열매라는 길의 의식을 마쳤어요.",
+  "textDe": "Leuchtbeeren — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmauspfad",

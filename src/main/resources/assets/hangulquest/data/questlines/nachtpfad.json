@@ -6,9 +6,10 @@
  "tier": 1,
  "concepts": [
   "torch",
-  "bed",
   "moon",
-  "night"
+  "night",
+  "bed",
+  "gen_orange_candle_cake"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -85,11 +86,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_orange_candle_cake"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_candle_cake",
+    "count": 1
    },
    "conditions": [
     {
@@ -98,8 +100,8 @@
     }
    ]
   },
-  "textKo": "밤이 왔어요. 이제 자요. 밤의 길이 끝났어요.",
-  "textDe": "Die Nacht ist da. Jetzt schläfst du. Der Nachtpfad endet hier."
+  "textKo": "밤에 주황색 초를 꽂은 케이크라는 길의 의식을 마쳤어요.",
+  "textDe": "Kuchen mit oranger Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "nachtpfad",

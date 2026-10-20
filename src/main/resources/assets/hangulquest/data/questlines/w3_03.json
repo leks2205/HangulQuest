@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1033,
  "concepts": [
-  "emerald",
-  "villager",
-  "map",
-  "campfire"
+  "gen_prismarine_stairs",
+  "gen_armadillo",
+  "gen_golden_sword",
+  "gen_orange_tulip"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,54 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_prismarine_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:prismarine_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Verdiene einen Smaragd für die Reise."
-   },
-   "hint": {
-    "ko": "에메랄드를 하나 모아요.",
-    "de": "Sammle einen Smaragd."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "gen_armadillo"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Frag einen Dorfbewohner nach dem Weg."
-   },
-   "hint": {
-    "ko": "주민과 이야기해요.",
-    "de": "Sprich mit einem Dorfbewohner."
+    "entity": "minecraft:armadillo"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "map"
+    "gen_golden_sword"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:map",
+    "item": "minecraft:golden_sword",
     "count": 1
-   },
-   "clue": {
-    "de": "Kauf eine Karte für den Weiterweg."
-   },
-   "hint": {
-    "ko": "지도를 챙겨요.",
-    "de": "Nimm eine Karte mit."
    }
   }
  ],
@@ -78,17 +57,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_orange_tulip"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:orange_tulip",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "지도와 불빛을 챙겨요. 나그네의 길은 계속돼요.",
-  "textDe": "Karte und Feuer im Gepäck. Der Weg des Wanderers geht weiter."
+  "textKo": "주황색 튤립라는 길의 의식을 마쳤어요.",
+  "textDe": "Orange Tulpe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_03",

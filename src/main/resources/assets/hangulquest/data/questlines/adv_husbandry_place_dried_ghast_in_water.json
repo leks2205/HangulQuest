@@ -8,7 +8,7 @@
  "order": 271,
  "concepts": [
   "adv_item_dried_ghast",
-  "bucket"
+  "gen_glow_berries"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -35,18 +35,12 @@
   {
    "id": "s2",
    "teach": [
-    "bucket"
+    "gen_glow_berries"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:water_bucket",
+    "item": "minecraft:glow_berries",
     "count": 1
-   },
-   "clue": {
-    "de": "Fülle einen Eimer mit Wasser."
-   },
-   "hint": {
-    "ko": "철 주괴 세 개로 양동이를 만들어요."
    }
   }
  ],

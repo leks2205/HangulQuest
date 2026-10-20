@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 223,
  "concepts": [
-  "zombie",
-  "skeleton",
-  "creeper"
+  "spider",
+  "gen_wither",
+  "gen_vex"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,29 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "zombie"
+    "spider"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:spider",
     "count": 1
-   },
-   "clue": {
-    "de": "Erschlage einen Zombie, der dir im Weg steht."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "skeleton"
+    "gen_wither"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:wither",
     "count": 2
-   },
-   "clue": {
-    "de": "Erschieße zwei Skelette, bevor ihre Pfeile dich treffen."
    }
   }
  ],
@@ -52,20 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "creeper"
+    "gen_vex"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:creeper",
+    "entity": "minecraft:vex",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Erledige einen Creeper aus sicherer Entfernung – dein erster echter Kampf."
-   }
+   "conditions": []
   },
-  "textKo": "모험 — 첫 몬스터를 물리치고 모험을 시작해요.",
-  "textDe": "Abenteuer — Erlege dein erstes Monster und beginne das Abenteuer."
+  "textKo": "벡스라는 길의 의식을 마쳤어요.",
+  "textDe": "Plagegeist — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_root",

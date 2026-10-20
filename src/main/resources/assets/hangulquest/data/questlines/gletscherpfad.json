@@ -6,11 +6,10 @@
  "tier": 3,
  "order": 516,
  "concepts": [
-  "ice",
-  "snow",
-  "goat",
-  "torch",
-  "mountain"
+  "gen_diorite",
+  "gen_heavy_core",
+  "gen_warden",
+  "gen_stripped_cherry_log"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "gen_diorite"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:diorite",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Eis ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_heavy_core"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:heavy_core",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "goat"
+    "gen_warden"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
+    "entity": "minecraft:warden",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
    }
   }
  ],
@@ -68,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_stripped_cherry_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:stripped_cherry_log",
     "count": 1
    },
    "conditions": [
@@ -86,8 +76,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 밤에 빙하 위에서 불을 밝혀요.",
-  "textDe": "Auf dem Gletscher brennt ein Licht."
+  "textKo": "밤에 산 지형에서 껍질 벗긴 벚나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindeter Kirschstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gletscherpfad",

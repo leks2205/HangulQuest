@@ -5,11 +5,11 @@
  "titleDe": "Der Dorfpfad",
  "tier": 1,
  "concepts": [
-  "village",
   "villager",
+  "village",
   "bell",
   "emerald",
-  "bed"
+  "gen_blast_furnace"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -78,11 +78,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_blast_furnace"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:blast_furnace"
    },
    "conditions": [
     {
@@ -91,8 +91,8 @@
     }
    ]
   },
-  "textKo": "마을의 밤에 잠들어요.",
-  "textDe": "Im Dorf schläfst du nachts ein."
+  "textKo": "밤에 용광로라는 길의 의식을 마쳤어요.",
+  "textDe": "Schmelzofen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "dorfpfad",

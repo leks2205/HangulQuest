@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 532,
  "concepts": [
-  "horse",
-  "emerald",
-  "bread",
-  "bell"
+  "gen_stray",
+  "gen_oxidized_copper_golem_statue",
+  "gen_smoker",
+  "gen_hopper"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_stray"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
+    "entity": "minecraft:stray",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Pferd an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "emerald"
+    "gen_oxidized_copper_golem_statue"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:oxidized_copper_golem_statue",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Smaragde."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bread"
+    "gen_smoker"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:smoker",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Brote."
    }
   }
  ],
@@ -68,11 +59,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_hopper"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:hopper",
+    "count": 3
    },
    "conditions": [
     {
@@ -81,8 +73,8 @@
     }
    ]
   },
-  "textKo": "낮에 대상단의 종을 울려요.",
-  "textDe": "Am Tag zieht die Karawane weiter."
+  "textKo": "낮에 호퍼라는 길의 의식을 마쳤어요.",
+  "textDe": "Trichter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "karawane",

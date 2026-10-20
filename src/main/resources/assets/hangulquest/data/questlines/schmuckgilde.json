@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 170,
  "concepts": [
-  "gold",
-  "emerald",
-  "anvil",
-  "chest"
+  "gen_nether_brick_fence",
+  "gen_brown_candle",
+  "gen_yellow_poplar_leaves",
+  "gen_test_instance_block"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "gold"
+    "gen_nether_brick_fence"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:nether_brick_fence",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Goldbarren."
-   },
-   "hint": {
-    "ko": "금은 철 곡괭이로 캐요.",
-    "de": "Gold baust du mit einer Eisenspitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "emerald"
+    "gen_brown_candle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:brown_candle",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "anvil"
+    "gen_yellow_poplar_leaves"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
-   },
-   "clue": {
-    "de": "Benutz einen Amboss."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:yellow_poplar_leaves",
+    "count": 2
    }
   }
  ],
@@ -75,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_test_instance_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:test_instance_block",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "길드의 보석을 상자에 넣어요.",
-  "textDe": "Schmuck in die Truhe."
+  "textKo": "테스트 인스턴스 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Testinstanzblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmuckgilde",

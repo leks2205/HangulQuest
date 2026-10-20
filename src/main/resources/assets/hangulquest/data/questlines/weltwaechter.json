@@ -7,10 +7,10 @@
  "tier": 4,
  "order": 86,
  "concepts": [
-  "goat",
-  "torch",
-  "zombie",
-  "bell"
+  "gen_diamond_block",
+  "gen_exposed_copper",
+  "iron",
+  "gen_dead_bubble_coral_block"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -25,29 +25,23 @@
   {
    "id": "s1",
    "teach": [
-    "goat"
+    "gen_diamond_block"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:diamond_block",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_exposed_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:exposed_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -59,15 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "zombie"
+    "iron"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege einen Zombie."
    }
   }
  ],
@@ -75,11 +66,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_dead_bubble_coral_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dead_bubble_coral_block",
+    "count": 2
    },
    "conditions": [
     {
@@ -92,8 +84,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 낮에 세계의 종을 울려요.",
-  "textDe": "Im Bergbiom läutet am Tag die Weltglocke."
+  "textKo": "낮에 산 지형에서 죽은 거품 산호 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Blasenkorallenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltwaechter",

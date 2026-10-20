@@ -7,9 +7,10 @@
  "tier": 2,
  "order": 131,
  "concepts": [
+  "gen_dropper",
   "bell",
-  "gold",
-  "gold_block"
+  "snow",
+  "gen_green_concrete"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -22,14 +23,11 @@
   {
    "id": "s1",
    "teach": [
-    "bell"
+    "gen_dropper"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "block": "minecraft:dropper"
    }
   },
   {
@@ -53,19 +51,12 @@
   {
    "id": "s3",
    "teach": [
-    "gold"
+    "snow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:snow_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Goldbarren."
-   },
-   "hint": {
-    "ko": "금은 철 곡괭이로 캐요.",
-    "de": "Gold baust du mit einer Eisenspitzhacke ab."
    }
   }
  ],
@@ -73,17 +64,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "gen_green_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:green_concrete",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "금 블록으로 종을 장식해요.",
-  "textDe": "Ein Goldblock schmückt die Glocke."
+  "textKo": "초록색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüner Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "glockenpfad",

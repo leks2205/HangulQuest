@@ -7,8 +7,9 @@
  "tier": 2,
  "order": 235,
  "concepts": [
-  "emerald",
-  "villager"
+  "redstone_torch",
+  "gen_guardian",
+  "gen_dolphin"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,29 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "redstone_torch"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:redstone_torch",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Smaragde als Bezahlung."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "gen_guardian"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:villager",
+    "entity": "minecraft:guardian",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Suche einen Dorfbewohner mit einem Beruf."
    }
   }
  ],
@@ -51,16 +46,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "villager"
+    "gen_dolphin"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
+    "entity": "minecraft:dolphin"
    },
    "conditions": []
   },
-  "textKo": "훌륭한 거래군요! — 주민과 물건을 바꿔요. 에메랄드를 주고 물건을 받아요.",
-  "textDe": "Was für ein Geschäft! — Du handelst mit einem Dorfbewohner und tauschst Smaragde gegen Ware."
+  "textKo": "돌고래라는 길의 의식을 마쳤어요.",
+  "textDe": "Delfin — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_trade",

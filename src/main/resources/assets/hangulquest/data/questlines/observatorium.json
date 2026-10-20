@@ -6,8 +6,8 @@
  "tier": 3,
  "order": 524,
  "concepts": [
-  "lantern",
-  "bell",
+  "gen_moss_block",
+  "gen_orange_carpet",
   "amethyst_shard",
   "amethyst_block"
  ],
@@ -23,28 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "lantern"
+    "gen_moss_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:moss_block",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Laternen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "gen_orange_carpet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_carpet",
+    "count": 1
    }
   },
   {

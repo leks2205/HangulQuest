@@ -7,9 +7,10 @@
  "tier": 3,
  "order": 168,
  "concepts": [
-  "sapling",
-  "leaves",
-  "apple"
+  "gen_blackstone_wall",
+  "gen_orange_glazed_terracotta",
+  "gen_guster_pottery_sherd",
+  "gen_deepslate_brick_stairs"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "sapling"
+    "gen_blackstone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_sapling",
+    "block": "minecraft:blackstone_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Setzlinge."
-   },
-   "hint": {
-    "ko": "묘목은 나뭇잎을 깨면 나와요.",
-    "de": "Setzlinge bekommst du von Blättern."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "leaves"
+    "gen_orange_glazed_terracotta"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:oak_leaves",
+    "block": "minecraft:orange_glazed_terracotta",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf Blätter."
-   },
-   "hint": {
-    "ko": "묘목이 자라면 나뭇잎이 돼요. 근처 나무를 봐도 돼요.",
-    "de": "Setzlinge werden zu Blättern; du kannst auch einen nahen Baum ansehen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "apple"
+    "gen_guster_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:apple",
+    "item": "minecraft:guster_pottery_sherd",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Äpfel."
-   },
-   "hint": {
-    "ko": "사과는 참나무 잎에서 떨어져요.",
-    "de": "Äpfel fallen von Eichenblättern."
    }
   }
  ],
@@ -79,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "apple"
+    "gen_deepslate_brick_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:apple",
+    "item": "minecraft:deepslate_brick_stairs",
     "count": 6
    },
    "conditions": []
   },
-  "textKo": "과수원에서 사과를 모아요.",
-  "textDe": "Äpfel im Obstgarten sammeln."
+  "textKo": "심층암 벽돌 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschieferziegeltreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "obstgarten",

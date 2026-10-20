@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 511,
  "concepts": [
-  "pickaxe",
-  "coal",
-  "torch",
-  "furnace"
+  "gen_conduit",
+  "gen_chiseled_sandstone",
+  "gen_lime_terracotta",
+  "gen_brain_coral_fan"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -24,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "pickaxe"
+    "gen_conduit"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_pickaxe",
+    "item": "minecraft:conduit",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau eine Eisenspitzhacke."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "coal"
+    "gen_chiseled_sandstone"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:chiseled_sandstone",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Kohle ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_lime_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:lime_terracotta",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -74,11 +65,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "furnace"
+    "gen_brain_coral_fan"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brain_coral_fan",
+    "count": 2
    },
    "conditions": [
     {
@@ -87,8 +79,8 @@
     }
    ]
   },
-  "textKo": "대장간의 불을 밤까지 지켜요.",
-  "textDe": "Das Schmiedefeuer brennt bis in die Nacht."
+  "textKo": "밤에 부채형 뇌 산호라는 길의 의식을 마쳤어요.",
+  "textDe": "Hirnkorallenfächer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmiedefeuer",

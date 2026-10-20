@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 142,
  "concepts": [
-  "stone_bricks",
-  "chest",
-  "torch",
-  "iron"
+  "gen_warped_sign",
+  "adv_item_crafter",
+  "gen_crimson_planks",
+  "gen_lapis_lazuli"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,46 +24,33 @@
   {
    "id": "s1",
    "teach": [
-    "stone_bricks"
+    "gen_warped_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:warped_sign",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Steinziegel."
-   },
-   "hint": {
-    "ko": "석재 벽돌은 돌을 구워 만들어요.",
-    "de": "Steinziegel entstehen aus gebranntem Stein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chest"
+    "adv_item_crafter"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "block": "minecraft:crafter"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_crimson_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:crimson_planks",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Fackeln."
    },
    "conditions": [
     {
@@ -77,21 +64,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron"
+    "gen_lapis_lazuli"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:lapis_lazuli",
     "count": 8
    },
-   "conditions": [],
-   "hint": {
-    "ko": "철은 철 광석을 구워 만들어요.",
-    "de": "Eisen entsteht aus Eisenenz im Ofen."
-   }
+   "conditions": []
   },
-  "textKo": "철을 모아 요새를 지켜요.",
-  "textDe": "Eisen für die Festung sammeln."
+  "textKo": "청금석라는 길의 의식을 마쳤어요.",
+  "textDe": "Lapislazuli — Zeremonie vollendet."
  },
  "reward": {
   "badge": "festungpfad",

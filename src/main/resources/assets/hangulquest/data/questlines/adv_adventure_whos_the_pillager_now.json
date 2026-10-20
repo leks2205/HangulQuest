@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 246,
  "concepts": [
-  "adv_item_crossbow",
-  "arrow",
-  "witch"
+  "gen_archer_pottery_shard",
+  "gen_magenta_wool_slab",
+  "gen_blaze"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_crossbow"
+    "gen_archer_pottery_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crossbow",
+    "item": "minecraft:archer_pottery_shard",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue eine Armbrust aus Stöcken, Faden und Eisen."
-   },
-   "hint": {
-    "ko": "막대기와 실, 철 조각으로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "arrow"
+    "gen_magenta_wool_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arrow",
+    "item": "minecraft:magenta_wool_slab",
     "count": 16
-   },
-   "clue": {
-    "de": "Fülle deinen Köcher mit Pfeilen für die Armbrust."
-   },
-   "hint": {
-    "ko": "부싯돌과 깃털로 화살을 만들어요."
    }
   }
  ],
@@ -58,17 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "witch"
+    "gen_blaze"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:witch",
+    "entity": "minecraft:blaze",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "이제 누가 약탈자지? — 빼앗은 쇠뇌로 습격자를 물리쳐요.",
-  "textDe": "Wer ist jetzt der Plünderer? — Erlege einen Räuber mit der Armbrust."
+  "textKo": "블레이즈라는 길의 의식을 마쳤어요.",
+  "textDe": "Lohe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_whos_the_pillager_now",

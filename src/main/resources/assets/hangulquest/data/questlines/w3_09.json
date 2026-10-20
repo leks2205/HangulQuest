@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1039,
  "concepts": [
-  "candle",
+  "gen_mangrove_propagule",
   "cookie",
-  "lectern",
-  "bell"
+  "gen_magenta_terracotta",
+  "gen_kelp"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "candle"
+    "gen_mangrove_propagule"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
+    "block": "minecraft:mangrove_propagule",
     "count": 2
-   },
-   "clue": {
-    "de": "Stell zwei Kerzen für die Nachbarn ins Fenster."
-   },
-   "hint": {
-    "ko": "초를 놓아요.",
-    "de": "Stell eine Kerze auf."
    }
   },
   {
@@ -59,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "lectern"
+    "gen_magenta_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lectern",
+    "block": "minecraft:magenta_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell ein Lesepult mit Neuigkeiten auf."
-   },
-   "hint": {
-    "ko": "독서대를 놓아요.",
-    "de": "Stell ein Lesepult auf."
    }
   }
  ],
@@ -79,16 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_kelp"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:kelp",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "촛불과 종소리가 밤을 밝혀요. 이웃들이 웃어요.",
-  "textDe": "Kerzenlicht und Glockenklang erhellen die Nacht. Die Nachbarn lachen."
+  "textKo": "켈프라는 길의 의식을 마쳤어요.",
+  "textDe": "Seetang — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_09",

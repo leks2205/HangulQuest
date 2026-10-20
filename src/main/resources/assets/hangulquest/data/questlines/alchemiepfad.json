@@ -8,7 +8,7 @@
  "order": 103,
  "concepts": [
   "cauldron",
-  "glass_bottle",
+  "gen_crimson_door",
   "sugar"
  ],
  "requires": {
@@ -36,19 +36,12 @@
   {
    "id": "s2",
    "teach": [
-    "glass_bottle"
+    "gen_crimson_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass_bottle",
+    "item": "minecraft:crimson_door",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Glasflaschen."
-   },
-   "hint": {
-    "ko": "유리병은 모래를 화로에 구워 만들어요.",
-    "de": "Glasflaschen entstehen aus Sand im Ofen."
    }
   },
   {

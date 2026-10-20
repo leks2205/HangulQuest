@@ -8,8 +8,8 @@
  "order": 1098,
  "concepts": [
   "bookshelf",
-  "item_frame",
-  "lectern"
+  "lectern",
+  "gen_stripped_acacia_log"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -61,17 +61,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "item_frame"
+    "gen_stripped_acacia_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:item_frame",
+    "item": "minecraft:stripped_acacia_log",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "아이템 액자를 갖추지 않고서는 왕관의 유산을 남길 수 없어요.",
-  "textDe": "Ohne drei Rahmen lässt sich das Erbe der Krone nicht aufhängen."
+  "textKo": "껍질 벗긴 아카시아나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_08",

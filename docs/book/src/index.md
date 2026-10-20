@@ -14,7 +14,7 @@ works in single-player and on any server, with or without other players.
 
 ## What is in it
 
-- **414 questlines** and 1,505 steps, arranged in a tree 22 levels deep. The Korean gets harder as you
+- **420 questlines** and 1,524 steps, arranged in a tree 22 levels deep. Every action is used once: The Korean gets harder as you
   go deeper: polite sentences at the top, obligation, emphatic forms, double negatives and finally
   literary Korean near the crown.
 - **A quest log** instead of a single tracker: tick the quests you want in the journal and the HUD
@@ -24,7 +24,7 @@ works in single-player and on any server, with or without other players.
   then starts a two-question sidequest on it. The original quest waits until you have answered both.
 - **A journal** (`K`) drawn as a worn notebook: your dictionary, due words, achievements, the trail
   tree and the options.
-- **Vocabulary from three places**: 293 curated concepts, the game's own Korean/German names, and your
+- **Vocabulary from three places**: 293 hand-written concepts, one generated entry per rarer object, the game's own Korean/German names, and your
   own words imported from [Lute](https://github.com/LuteOrg/lute-v3).
 - **Content as data.** Questlines are JSON files, re-read every two seconds, so you can write your own
   without touching Java or restarting the game.

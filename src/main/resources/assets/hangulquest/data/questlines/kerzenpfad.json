@@ -8,7 +8,8 @@
  "order": 128,
  "concepts": [
   "candle",
-  "bed",
+  "gen_sticky_piston",
+  "gen_cyan_candle",
   "campfire"
  ],
  "requires": {
@@ -38,28 +39,23 @@
   {
    "id": "s2",
    "teach": [
-    "candle"
+    "gen_sticky_piston"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
+    "block": "minecraft:sticky_piston",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Kerzen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_cyan_candle"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf nachts im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cyan_candle",
+    "count": 3
    },
    "conditions": [
     {

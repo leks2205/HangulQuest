@@ -8,7 +8,7 @@
  "order": 263,
  "concepts": [
   "adv_item_sniffer_egg",
-  "adv_block_torchflower_seeds"
+  "gen_sulfur_wall"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -51,17 +51,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_torchflower_seeds"
+    "gen_sulfur_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:torchflower_seeds",
+    "item": "minecraft:sulfur_wall",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "조그만 킁킁이 — 아기 스니퍼가 캔 씨앗을 먹여요.",
-  "textDe": "Schnupperkurs: Der kleine Schnüffler gräbt einen Fackelliliensamen aus, den du ihm reichst."
+  "textKo": "유황 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwefelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_feed_snifflet",

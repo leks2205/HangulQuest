@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 120,
  "concepts": [
-  "soul_sand",
-  "soul_lantern",
-  "bed",
-  "soul_torch"
+  "gen_pitcher_crop",
+  "gen_dark_oak_log",
+  "gen_acacia_sign",
+  "gen_cut_red_sandstone_slab"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "soul_sand"
+    "gen_pitcher_crop"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:soul_sand",
+    "item": "minecraft:pitcher_crop",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Seelensand."
-   },
-   "hint": {
-    "ko": "영혼 모래는 영혼 계곡에서 캐요.",
-    "de": "Seelensand findest du im Seelensandtal."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "soul_lantern"
+    "gen_dark_oak_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_lantern",
+    "block": "minecraft:dark_oak_log",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Seelenlaternen."
-   },
-   "hint": {
-    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
-    "de": "Seelenlaternen bestehen aus einer Seelenfackel und Eisennuggets."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_acacia_sign"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf nachts im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:acacia_sign",
+    "count": 1
    },
    "conditions": [
     {
@@ -81,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "soul_torch"
+    "gen_cut_red_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_torch",
+    "block": "minecraft:cut_red_sandstone_slab",
     "count": 4
    },
    "conditions": [
@@ -95,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤에 영혼 횃불을 4개 놓아요.",
-  "textDe": "Nachts leuchten vier Seelenfackeln."
+  "textKo": "밤에 깎인 붉은 사암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Geschnittene rote Sandsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "seelenpfad",

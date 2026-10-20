@@ -7,9 +7,10 @@
  "tier": 1,
  "order": 133,
  "concepts": [
-  "snow",
-  "carved_pumpkin",
-  "snowball"
+  "gen_oxidized_cut_copper_slab",
+  "gen_waxed_weathered_copper_lantern",
+  "gen_polished_andesite_slab",
+  "gen_music_disc_cat"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,51 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "snow"
+    "gen_oxidized_cut_copper_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:oxidized_cut_copper_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Schneeblöcke."
-   },
-   "hint": {
-    "ko": "눈 블록은 삽으로 눈을 캐서 만들어요.",
-    "de": "Schneeblöcke entstehen mit einer Schaufel aus Schnee."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "carved_pumpkin"
+    "gen_waxed_weathered_copper_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:carved_pumpkin",
+    "block": "minecraft:waxed_weathered_copper_lantern",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz einen geschnitzten Kürbis."
-   },
-   "hint": {
-    "ko": "조각된 호박은 가위로 호박을 깎아요.",
-    "de": "Geschnitzte Kürbisse entstehen mit einer Schere."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "gen_polished_andesite_slab"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:polished_andesite_slab",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee."
    }
   }
  ],
@@ -72,17 +56,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "snowball"
+    "gen_music_disc_cat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:snowball",
+    "item": "minecraft:music_disc_cat",
     "count": 8
    },
    "conditions": []
   },
-  "textKo": "눈사람을 만들고 눈덩이를 모아요.",
-  "textDe": "Schneemann bauen und Schneebälle sammeln."
+  "textKo": "음반라는 길의 의식을 마쳤어요.",
+  "textDe": "Schallplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schneemannpfad",

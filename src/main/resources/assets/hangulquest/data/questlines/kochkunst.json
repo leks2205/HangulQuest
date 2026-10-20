@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 512,
  "concepts": [
-  "bread",
-  "fish",
-  "cake",
-  "campfire"
+  "gen_fermented_spider_eye",
+  "gen_chain",
+  "gen_cooked_salmon",
+  "gen_clay"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "bread"
+    "gen_fermented_spider_eye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:fermented_spider_eye",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Brote."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fish"
+    "gen_chain"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:chain",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Fisch."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "cake"
+    "gen_cooked_salmon"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:cooked_salmon",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Kuchen."
    }
   }
  ],
@@ -67,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_clay"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:clay",
     "count": 1
    },
    "conditions": [
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 모닥불에서 요리를 해요.",
-  "textDe": "Nachts kochst du am Feuer."
+  "textKo": "밤에 점토라는 길의 의식을 마쳤어요.",
+  "textDe": "Ton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kochkunst",

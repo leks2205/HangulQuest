@@ -7,11 +7,10 @@
  "tier": 1,
  "order": 1026,
  "concepts": [
-  "night",
-  "moon",
-  "sky",
-  "campfire",
-  "torch"
+  "gen_pink_carpet",
+  "gen_white_cushion",
+  "gen_magenta_bed",
+  "gen_lime_carpet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,20 +21,12 @@
   {
    "id": "s1",
    "teach": [
-    "torch",
-    "night"
+    "gen_pink_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:pink_carpet",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz nachts drei Fackeln."
-   },
-   "hint": {
-    "ko": "밤에는 횃불이 필요해요.",
-    "de": "In der Nacht ist es dunkel."
    },
    "conditions": [
     {
@@ -47,38 +38,23 @@
   {
    "id": "s2",
    "teach": [
-    "moon"
+    "gen_white_cushion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:white_cushion",
     "count": 1
-   },
-   "clue": {
-    "ko": "달이 뜨는 밤에 쓸 시계를 모아요.",
-    "de": "Hol dir eine Uhr für die Nacht."
-   },
-   "hint": {
-    "ko": "달은 밤에 떠요.",
-    "de": "Der Mond steht in der Nacht."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sky"
+    "gen_magenta_bed"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 150,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig bis auf Höhe 150 hinauf."
-   },
-   "hint": {
-    "ko": "하늘은 위에 있어요.",
-    "de": "Der Himmel ist oben."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:magenta_bed",
+    "count": 3
    }
   }
  ],
@@ -86,11 +62,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_lime_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:lime_carpet",
     "count": 2
    },
    "conditions": [
@@ -98,14 +74,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "밤에 모닥불을 두 개 피워요.",
-    "de": "Entzünde in der Nacht zwei Lagerfeuer."
-   }
+   ]
   },
-  "textKo": "밤에 높은 탑 위에서 모닥불 두 개를 피워요.",
-  "textDe": "Nachts brennen auf dem hohen Turm zwei Lagerfeuer."
+  "textKo": "밤에 연두색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüner Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_06",

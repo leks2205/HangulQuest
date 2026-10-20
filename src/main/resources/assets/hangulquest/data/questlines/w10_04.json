@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1104,
  "concepts": [
-  "bone",
-  "skeleton",
-  "zombie",
-  "candle"
+  "adv_block_polished_blackstone_bricks",
+  "gen_stone_brick_slab",
+  "gen_gray_glazed_terracotta",
+  "gen_deepslate_lapis_ore"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "bone"
+    "adv_block_polished_blackstone_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bone",
+    "item": "minecraft:polished_blackstone_bricks",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Knochen aus dem Sand."
-   },
-   "hint": {
-    "ko": "뼈는 스켈레톤을 물리치면 나와요.",
-    "de": "Knochen lassen Skelette fallen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "skeleton"
+    "gen_stone_brick_slab"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
-    "count": 3
-   },
-   "clue": {
-    "de": "Besiege drei Skelette in der Ruine."
-   },
-   "hint": {
-    "ko": "스켈레톤은 햇빛을 받으면 타요.",
-    "de": "Skelette brennen im Sonnenlicht."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_brick_slab",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "zombie"
+    "gen_gray_glazed_terracotta"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 3
-   },
-   "clue": {
-    "de": "Besiege drei Zombies am Tempeltor."
-   },
-   "hint": {
-    "ko": "좀비는 밤에 나타나요.",
-    "de": "Zombies erscheinen in der Nacht."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gray_glazed_terracotta",
+    "count": 1
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "candle"
+    "gen_deepslate_lapis_ore"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
+    "block": "minecraft:deepslate_lapis_ore",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "초를 밝혀 잠든 수호자를 기려요.",
-  "textDe": "Zwei Kerzen ehren den schlafenden Wächter der Ruine."
+  "textKo": "심층암 청금석 광석라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschiefer-Lapislazulierz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_04",

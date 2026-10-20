@@ -7,9 +7,10 @@
  "tier": 3,
  "order": 160,
  "concepts": [
-  "stone_bricks",
+  "gen_magenta_concrete_slab",
   "chiseled_stone_bricks",
-  "chest"
+  "gen_exposed_chiseled_copper",
+  "stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,15 +24,12 @@
   {
    "id": "s1",
    "teach": [
-    "stone_bricks"
+    "gen_magenta_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:magenta_concrete_slab",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Steinziegel."
    }
   },
   {
@@ -55,14 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_exposed_chiseled_copper"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:exposed_chiseled_copper",
+    "count": 1
    }
   }
  ],

@@ -8,7 +8,7 @@
  "order": 278,
  "concepts": [
   "campfire",
-  "glass_bottle",
+  "gen_mangrove_button",
   "adv_item_bee_nest"
  ],
  "requires": {
@@ -39,18 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "glass_bottle"
+    "gen_mangrove_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass_bottle",
+    "item": "minecraft:mangrove_button",
     "count": 1
-   },
-   "clue": {
-    "de": "Blase Glasflaschen aus Glas."
-   },
-   "hint": {
-    "ko": "유리로 만들어요."
    }
   }
  ],

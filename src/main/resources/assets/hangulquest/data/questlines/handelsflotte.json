@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 116,
  "concepts": [
-  "ocean",
-  "chest",
-  "emerald",
+  "gen_bamboo_jungle",
+  "gen_oak_button",
+  "gen_black_carpet",
   "sea_lantern"
  ],
  "requires": {
@@ -24,46 +24,33 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_bamboo_jungle"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:bamboo_jungle",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ans Meer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chest"
+    "gen_oak_button"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "block": "minecraft:oak_button"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "gen_black_carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:black_carpet",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   }
  ],

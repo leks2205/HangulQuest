@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 313,
  "concepts": [
-  "adv_item_ender_eye",
+  "gen_smooth_sandstone",
   "stone_bricks",
-  "adv_dimension_the_end"
+  "gen_peony"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,19 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_ender_eye"
+    "gen_smooth_sandstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_eye",
+    "item": "minecraft:smooth_sandstone",
     "count": 12
-   },
-   "clue": {
-    "de": "Sammle zwölf Enderaugen für den Portalrahmen."
-   },
-   "hint": {
-    "ko": "엔드 포털 틀에는 엔더의 눈이 열두 개 필요해요.",
-    "de": "Der Endportalrahmen braucht zwölf Enderaugen."
    }
   },
   {
@@ -60,19 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_dimension_the_end"
+    "gen_peony"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
-   },
-   "clue": {
-    "de": "Setze die Augen ein und spring in das Endportal."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:peony",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "이걸로 끝이야? — 엔드 포털을 지나 엔드에 도착했어요.",
-  "textDe": "Das Ende? — Durch das Portal ins Ende gereist."
+  "textKo": "모란라는 길의 의식을 마쳤어요.",
+  "textDe": "Pfingstrose — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_enter_the_end",

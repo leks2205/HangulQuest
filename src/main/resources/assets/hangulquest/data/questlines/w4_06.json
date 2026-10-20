@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1046,
  "concepts": [
-  "ice",
-  "clay",
-  "bucket",
-  "campfire"
+  "gen_iron_trapdoor",
+  "gen_lilac",
+  "gen_blade_pottery_shard",
+  "gen_dirt_path"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "gen_iron_trapdoor"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:iron_trapdoor",
     "count": 4
-   },
-   "clue": {
-    "de": "Schlag vier Eisblöcke aus dem Bergsee."
-   },
-   "hint": {
-    "ko": "얼음은 호수 위에 있어요.",
-    "de": "Das Eis liegt auf dem See."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "clay"
+    "gen_lilac"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clay_ball",
+    "item": "minecraft:lilac",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Tonklumpen vom Seegrund."
-   },
-   "hint": {
-    "ko": "점토는 물속 바닥에서 나와요.",
-    "de": "Ton findest du auf dem Grund des Sees."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bucket"
+    "gen_blade_pottery_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bucket",
+    "item": "minecraft:blade_pottery_shard",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Eimer her."
-   },
-   "hint": {
-    "ko": "양동이는 철로 만들어요.",
-    "de": "Einen Eimer machst du aus Eisen."
    }
   }
  ],
@@ -79,19 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_dirt_path"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:dirt_path",
     "count": 1
-   },
-   "clue": {
-    "de": "Mach auf über 90 Blöcken Höhe am Ufer ein Lagerfeuer."
-   },
-   "hint": {
-    "ko": "모닥불은 높은 호숫가에서 피워요.",
-    "de": "Das Lagerfeuer brennt hoch am Ufer."
    },
    "conditions": [
     {
@@ -101,8 +73,8 @@
     }
    ]
   },
-  "textKo": "높은 호숫가에서 모닥불을 피워요.",
-  "textDe": "Hoch am Bergsee brennt das Lagerfeuer."
+  "textKo": "흙 길라는 길의 의식을 마쳤어요.",
+  "textDe": "Trampelpfad — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_06",

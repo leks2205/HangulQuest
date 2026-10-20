@@ -7,8 +7,9 @@
  "tier": 4,
  "order": 80,
  "concepts": [
-  "end",
-  "ender_dragon",
+  "gen_flowering_azalea_leaves",
+  "gen_ravager",
+  "gen_ward_armor_trim_smithing_template",
   "dragon_egg"
  ],
  "requires": {
@@ -24,42 +25,34 @@
   {
    "id": "s1",
    "teach": [
-    "end"
+    "gen_flowering_azalea_leaves"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
-   },
-   "clue": {
-    "de": "Geh in das Ende."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:flowering_azalea_leaves",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ender_dragon"
+    "gen_ravager"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "entity": "minecraft:ravager",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege den Enderdrachen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "dragon_egg"
+    "gen_ward_armor_trim_smithing_template"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dragon_egg",
+    "item": "minecraft:ward_armor_trim_smithing_template",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm das Drachenei."
    }
   }
  ],

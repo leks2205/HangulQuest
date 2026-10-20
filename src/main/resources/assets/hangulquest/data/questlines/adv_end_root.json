@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_blaze_rod",
   "adv_item_ender_eye",
-  "adv_dimension_the_end"
+  "gen_poplar_door"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -55,16 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_dimension_the_end"
+    "gen_poplar_door"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poplar_door",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "엔드 — 엔더의 눈을 모두 꽂고 엔드로 걸어 들어가요.",
-  "textDe": "Das Ende — Setze die Augen in den Rahmen und betritt die Dimension."
+  "textKo": "포플러나무 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelholztür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_end_root",

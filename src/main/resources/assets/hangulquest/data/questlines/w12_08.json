@@ -8,9 +8,9 @@
  "order": 1128,
  "concepts": [
   "world",
-  "crown",
+  "gen_orange_bed",
   "iron_golem",
-  "height"
+  "gen_waxed_copper_golem_statue"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -41,19 +41,12 @@
   {
    "id": "s2",
    "teach": [
-    "crown"
+    "gen_orange_bed"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_helmet",
+    "item": "minecraft:orange_bed",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen goldenen Helm als Krone der Welt."
-   },
-   "hint": {
-    "ko": "왕관은 금 조각 다섯 개로 만들어 머리에 써요.",
-    "de": "Eine Krone schmiedet man aus fünf Goldbarren."
    }
   },
   {
@@ -78,26 +71,22 @@
   "step": {
    "id": "finale",
    "teach": [
-    "height"
+    "gen_waxed_copper_golem_statue"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 180,
-    "maxY": 320
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_golem_statue",
+    "count": 3
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "높이 180블록은 산 꼭대기보다 높아요. 밤에 올라가요.",
-    "de": "180 Blöcke liegen über den meisten Gipfeln; steig nachts hinauf."
-   }
+   ]
   },
-  "textKo": "밤에 높이 180블록 위에서 세계의 왕관을 봐요.",
-  "textDe": "Nachts schaut man auf 180 Blöcken Höhe die Krone der Welt."
+  "textKo": "밤에 밀랍칠한 구리 골렘 동상라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste Kupfergolemstatue — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_08",

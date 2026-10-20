@@ -7,9 +7,10 @@
  "tier": 3,
  "order": 132,
  "concepts": [
-  "height",
+  "gen_blue_wool_slab",
+  "gen_slime_block",
   "wool",
-  "campfire"
+  "gen_deepslate_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,33 +24,23 @@
   {
    "id": "s1",
    "teach": [
-    "height"
+    "gen_blue_wool_slab"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Geh auf eine hohe Stelle."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:blue_wool_slab",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wool"
+    "gen_slime_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool",
+    "block": "minecraft:slime_block",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Wollblöcke."
-   },
-   "hint": {
-    "ko": "양털은 가위로 양을 깎아요.",
-    "de": "Wolle bekommst du mit einer Schere vom Schaf."
    }
   },
   {
@@ -71,11 +62,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_deepslate_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:deepslate_brick_slab",
     "count": 1
    },
    "conditions": [
@@ -85,8 +76,8 @@
     }
    ]
   },
-  "textKo": "밤에 바람 속에서 모닥불을 피워요.",
-  "textDe": "Nachts brennt im Wind ein Feuer."
+  "textKo": "밤에 심층암 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschieferziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "windpfad",

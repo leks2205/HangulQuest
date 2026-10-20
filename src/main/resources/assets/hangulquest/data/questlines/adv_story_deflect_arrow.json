@@ -8,7 +8,8 @@
  "order": 311,
  "concepts": [
   "shield",
-  "skeleton"
+  "skeleton",
+  "gen_silverfish"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -54,20 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "skeleton"
+    "gen_silverfish"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:silverfish",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Halt den Schild hoch, wehr den Pfeil ab und streck den Schützen nieder."
-   }
+   "conditions": []
   },
-  "textKo": "저희는 그런 것 받지 않습니다 — 방패로 화살을 막아 냈어요.",
-  "textDe": "Heute nicht, danke — der Pfeil prallt am Schild ab."
+  "textKo": "좀벌레라는 길의 의식을 마쳤어요.",
+  "textDe": "Silberfischchen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_deflect_arrow",

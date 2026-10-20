@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1102,
  "concepts": [
-  "villager",
-  "emerald",
+  "gen_mooshroom",
+  "gen_brown_wool",
   "gold",
-  "gold_block"
+  "gen_cyan_terracotta"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,36 +23,22 @@
   {
    "id": "s1",
    "teach": [
-    "villager"
+    "gen_mooshroom"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Handle mit einem Dorfbewohner in der Wüstensiedlung."
-   },
-   "hint": {
-    "ko": "주민과 이야기하면 물건을 바꿀 수 있어요.",
-    "de": "Dorfbewohner tauschen Waren gegen Smaragde."
+    "entity": "minecraft:mooshroom"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "emerald"
+    "gen_brown_wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:brown_wool",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Smaragde aus dem Handel."
-   },
-   "hint": {
-    "ko": "에메랄드는 주민과의 거래로 얻어요.",
-    "de": "Smaragde bekommst du im Tauschhandel."
    }
   },
   {
@@ -78,17 +64,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "gen_cyan_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:cyan_terracotta",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "금 블록을 놓아 카라반의 보물을 봉해요.",
-  "textDe": "Ein Goldblock versiegelt den Schatz der Karawane."
+  "textKo": "청록색 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkise Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_02",

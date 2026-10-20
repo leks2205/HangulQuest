@@ -8,7 +8,8 @@
  "order": 284,
  "concepts": [
   "axe",
-  "adv_item_copper_bulb"
+  "adv_item_crying_obsidian",
+  "gen_yellow_bed"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -38,18 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "adv_item_copper_bulb"
+    "adv_item_crying_obsidian"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_bulb",
+    "block": "minecraft:crying_obsidian",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell die gewachste Kupferlampe vor dich hin, damit du sie bearbeiten kannst."
-   },
-   "hint": {
-    "ko": "구리 전구를 땅에 놓아요."
    }
   }
  ],
@@ -57,22 +52,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_copper_bulb"
+    "gen_yellow_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:copper_bulb"
+    "block": "minecraft:yellow_bed"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Fahr mit der Axt über die Lampe und schab die Wachsschicht ab."
-   },
-   "hint": {
-    "ko": "도끼로 구리 전구의 밀랍을 벗겨요."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍을 벗겼어요! 구리가 다시 반짝반짝해요.",
-  "textDe": "Wachs abgezogen – die Kupferlampe glänzt wieder wie neu."
+  "textKo": "노란색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelbes Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_wax_off",

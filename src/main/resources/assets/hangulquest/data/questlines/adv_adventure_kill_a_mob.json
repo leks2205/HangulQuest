@@ -8,7 +8,7 @@
  "order": 212,
  "concepts": [
   "sword",
-  "skeleton",
+  "gen_endermite",
   "zombie"
  ],
  "requires": {
@@ -39,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "skeleton"
+    "gen_endermite"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:endermite",
     "count": 1
-   },
-   "clue": {
-    "de": "Erlege ein Skelett, das dich nachts beschießt."
    }
   }
  ],

@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 84,
  "concepts": [
-  "flower",
-  "campfire",
-  "bed"
+  "gen_waxed_exposed_copper_lantern",
+  "gen_cave_vines",
+  "gen_smithing_table"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "flower"
+    "gen_waxed_exposed_copper_lantern"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:waxed_exposed_copper_lantern",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Blume an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "campfire"
+    "gen_cave_vines"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:cave_vines",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    },
    "conditions": [
     {
@@ -59,11 +53,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_smithing_table"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:smithing_table"
    },
    "conditions": [
     {
@@ -72,8 +66,8 @@
     }
    ]
   },
-  "textKo": "정원을 지키며 밤을 보내요.",
-  "textDe": "Die Gartenwacht verbringt die Nacht."
+  "textKo": "밤에 대장장이 작업대라는 길의 의식을 마쳤어요.",
+  "textDe": "Schmiedetisch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gartenwacht",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1037,
  "concepts": [
-  "horse",
-  "leather",
-  "saddle",
-  "fence"
+  "gen_tadpole",
+  "sandstone",
+  "gen_horn_coral_block",
+  "gen_waxed_oxidized_copper_chest"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_tadpole"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
+    "entity": "minecraft:tadpole",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau das Pferd auf dem Markt an."
-   },
-   "hint": {
-    "ko": "말을 바라봐요.",
-    "de": "Schau ein Pferd an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "leather"
+    "sandstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather",
+    "item": "minecraft:sandstone",
     "count": 3
-   },
-   "clue": {
-    "de": "Kauf drei Leder für den Sattler."
-   },
-   "hint": {
-    "ko": "가죽을 모아요.",
-    "de": "Sammle Leder."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "saddle"
+    "gen_horn_coral_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:saddle",
+    "item": "minecraft:horn_coral_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Besorg einen Sattel für das Pferd."
-   },
-   "hint": {
-    "ko": "안장을 챙겨요.",
-    "de": "Nimm einen Sattel mit."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "fence"
+    "gen_waxed_oxidized_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
+    "block": "minecraft:waxed_oxidized_copper_chest",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "안장을 얹고 울타리 안으로 걸어가요. 장터에 말이 도착했어요.",
-  "textDe": "Sattel aufgelegt, hinein in den Pferch. Das Pferd ist am Markt angekommen."
+  "textKo": "밀랍칠한 산화된 구리 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste oxidierte Kupfertruhe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_07",

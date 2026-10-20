@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 315,
  "concepts": [
-  "enderman",
-  "ender_pearl",
-  "adv_item_blaze_rod",
-  "adv_item_ender_eye"
+  "gen_slime",
+  "gen_shelf_mushroom",
+  "gen_brown_egg",
+  "gen_rib_armor_trim_smithing_template"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,47 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "enderman"
+    "gen_slime"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:enderman",
+    "entity": "minecraft:slime",
     "count": 3
-   },
-   "clue": {
-    "de": "Erlege drei Endermen für ihre Enderperlen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ender_pearl"
+    "gen_shelf_mushroom"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_pearl",
+    "item": "minecraft:shelf_mushroom",
     "count": 2
-   },
-   "clue": {
-    "de": "Hebe zwei Enderperlen auf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_blaze_rod"
+    "gen_brown_egg"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blaze_rod",
+    "item": "minecraft:brown_egg",
     "count": 1
-   },
-   "clue": {
-    "de": "Hol dir im Nether eine Lohenrute."
-   },
-   "hint": {
-    "ko": "블레이즈 막대기를 갈면 블레이즈 가루가 돼요.",
-    "de": "Eine Lohenrute wird zu Lohenstaub gemahlen."
    }
   }
  ],
@@ -71,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ender_eye"
+    "gen_rib_armor_trim_smithing_template"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_eye",
+    "item": "minecraft:rib_armor_trim_smithing_template",
     "count": 1
-   },
-   "clue": {
-    "de": "Verbinde Enderperle und Lohenstaub zum Enderauge."
-   },
-   "hint": {
-    "ko": "엔더 진주에 블레이즈 가루를 더하면 엔더의 눈이 돼요.",
-    "de": "Enderperle plus Lohenstaub ergibt ein Enderauge."
    },
    "conditions": []
   },
-  "textKo": "스무고개 — 엔더의 눈이 요새로 가는 길을 알려 줘요.",
-  "textDe": "Das fliegende Auge — Das Enderauge zeigt zur Festung."
+  "textKo": "대장장이 형판라는 길의 의식을 마쳤어요.",
+  "textDe": "Schmiedevorlage — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_follow_ender_eye",

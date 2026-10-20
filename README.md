@@ -4,7 +4,7 @@
 
 # 한글 탐험 · Hangul Quest
 
-**Learn Korean by playing Minecraft.** Korean instructions, easier-Korean hints that start a sidequest, and 414 authored quest trails in a tree that climbs from "break three stone" to literary Korean.
+**Learn Korean by playing Minecraft.** Korean instructions, easier-Korean hints that start a sidequest, and 420 authored quest trails in a tree that climbs from "break three stone" to literary Korean.
 
 Client-only Fabric mod. No server component, no packets, no chat, no telemetry.
 
@@ -13,7 +13,7 @@ Client-only Fabric mod. No server component, no packets, no chat, no telemetry.
 ![Minecraft](https://img.shields.io/badge/Minecraft-26.3-3c8527)
 ![Fabric](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-dbbd8b)
 ![Java](https://img.shields.io/badge/Java-25-b7410e?logo=openjdk&logoColor=white)
-![Questlines](https://img.shields.io/badge/questlines-414-16a34a)
+![Questlines](https://img.shields.io/badge/questlines-420-16a34a)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Telemetry](https://img.shields.io/badge/telemetry-none-16a34a)
 [![CI](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml/badge.svg)](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml)
@@ -62,7 +62,9 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 ## Features
 
 **Quest trails**
-- **414 questlines**, one JSON file each: a tree **22 levels deep**, 1,505 steps in total, 38 roots, branches that merge again before they continue.
+- **420 questlines**, one JSON file each: a tree **22 levels deep**, 1,524 steps in total, 38 roots, branches that merge again before they continue.
+- **Every action is used once.** No two steps in the whole mod ask for the same thing: one quest collects wool, another shears a sheep, another dyes it purple — the sweep removed 1,100 duplicated goals and gave them unique ones.
+- **Chains that build a thing.** The colour branch is a real path: red, blue and yellow dye quests unlock the purple and orange wool quests, and those unlock the rainbow banner.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
 - **A quest log, not a single tracker.** Tick quests in the journal and they appear top-left as a short, background-free list: title, current Korean objective, the count right after it (`1/3`) and a status line when a condition is missing. Up to six, one of them highlighted; `V` cycles the highlight.
 - **Only checked quests advance.** An unticked quest keeps its saved progress but is paused, so nothing completes behind your back while you are reading something else. The highlighted quest is the one the hint key and the sidequest work on.
@@ -75,7 +77,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 - Quiz cards hide the item icon behind a `?` until you answer, so the picture never gives the answer away.
 
 **Vocabulary**
-- 293 curated concepts (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description, aliases and the blocks, entities or biomes they map to.
+- 1,132 concepts: 293 hand-written ones (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description and aliases, plus one entry per rarer object the quests use, generated from the game's own name files.
 - Every vanilla item, block, entity and biome name that has a Korean/German pair, generated from the game's own language files.
 - **Lute import**: drop your Lute export at `config/hangulquest/vocab/lute-vocab.csv` and your own words and learning states become quest vocabulary — read-only, the mod never writes to your file.
 
@@ -227,7 +229,7 @@ References: [`docs/questline.schema.json`](docs/questline.schema.json), the [aut
 | `src/main/java/…/sense` | World sensors (blocks, items, look, biome, dimension, height) and the safety gate |
 | `src/main/java/…/ui` | Quest log HUD, journal screen, celebrations, Korean text drawing |
 | `src/main/java/…/data` | Concept catalog, vanilla names, Lute CSV import |
-| `src/main/resources/assets/hangulquest/data` | `concepts.json`, `names.json` and 414 questline files |
+| `src/main/resources/assets/hangulquest/data` | `concepts.json`, `names.json` and 420 questline files |
 | `docs/` | Authoring guide, attribute reference, JSON schema, screenshots, the mdBook guide |
 | `tools/` | Questline scaffolding, font subsetting, name extraction, quest tree report |
 | `src/test/java` | 15 test classes: engine, grammar, SRS, store, content validation and content QA |
@@ -239,7 +241,7 @@ You need JDK 25; the wrapper pins Gradle 9.7.1 and Loom 1.18.
 ```bash
 git clone https://github.com/leks2205/HangulQuest.git
 cd HangulQuest
-./gradlew test          # engine tests plus validation of all 414 questlines
+./gradlew test          # engine tests plus validation of all 420 questlines
 ./gradlew build         # jar in build/libs/
 ./gradlew runClient     # development client
 ```

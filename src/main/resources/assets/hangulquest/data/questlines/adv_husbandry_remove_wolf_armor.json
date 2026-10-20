@@ -8,7 +8,7 @@
  "order": 274,
  "concepts": [
   "shears",
-  "wolf_armor",
+  "gen_guster_banner_pattern",
   "wolf"
  ],
  "requires": {
@@ -39,18 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "wolf_armor"
+    "gen_guster_banner_pattern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wolf_armor",
+    "item": "minecraft:guster_banner_pattern",
     "count": 1
-   },
-   "clue": {
-    "de": "Fertige eine Wolfsrüstung aus sechs Hornschilden."
-   },
-   "hint": {
-    "ko": "아르마딜로 인갑으로 만들어요."
    }
   }
  ],

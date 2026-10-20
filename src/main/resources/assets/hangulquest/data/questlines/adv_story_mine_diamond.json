@@ -7,8 +7,9 @@
  "tier": 2,
  "order": 319,
  "concepts": [
-  "stone",
-  "diamond"
+  "gen_tube_coral_wall_fan",
+  "diamond",
+  "gen_diamond_pickaxe"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "stone"
+    "gen_tube_coral_wall_fan"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone",
+    "block": "minecraft:tube_coral_wall_fan",
     "count": 24
-   },
-   "clue": {
-    "de": "Grabe dich vierundzwanzig Blöcke tief in den Stein."
    }
   },
   {
@@ -51,24 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "diamond"
+    "gen_diamond_pickaxe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:diamond_pickaxe",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue das Diamanten-Erz mit einer Eisenspitzhacke ab."
-   },
-   "hint": {
-    "ko": "다이아몬드는 철 곡괭이로 캐요.",
-    "de": "Diamanten brauchen eine Eisenspitzhacke."
    },
    "conditions": []
   },
-  "textKo": "다이아몬드다! — 반짝이는 다이아몬드를 손에 넣었어요.",
-  "textDe": "Diamanten! — Der erste Diamant ist im Rucksack."
+  "textKo": "다이아몬드 곡괭이라는 길의 의식을 마쳤어요.",
+  "textDe": "Diamantspitzhacke — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_mine_diamond",

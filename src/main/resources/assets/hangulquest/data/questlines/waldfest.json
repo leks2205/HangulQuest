@@ -6,9 +6,10 @@
  "tier": 4,
  "order": 420,
  "concepts": [
-  "planks",
-  "cake",
-  "chicken"
+  "gen_waxed_oxidized_copper_door",
+  "gen_pumpkin_pie",
+  "gen_sculk_shrieker",
+  "gen_vine"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "planks"
+    "gen_waxed_oxidized_copper_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_planks",
+    "block": "minecraft:waxed_oxidized_copper_door",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Holzbretter."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cake"
+    "gen_pumpkin_pie"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:pumpkin_pie",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Kuchen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chicken"
+    "gen_sculk_shrieker"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Huhn an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sculk_shrieker",
+    "count": 3
    }
   }
  ],
@@ -67,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_vine"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:vine",
     "count": 1
    },
    "conditions": [
@@ -81,8 +73,8 @@
     }
    ]
   },
-  "textKo": "밤에 숲에서 불을 피워요. 잔치예요!",
-  "textDe": "In der Nacht brennt das Feuer im Wald. Ein Fest!"
+  "textKo": "밤에 덩굴라는 길의 의식을 마쳤어요.",
+  "textDe": "Ranken — Zeremonie vollendet."
  },
  "reward": {
   "badge": "waldfest",

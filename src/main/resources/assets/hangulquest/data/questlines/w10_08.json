@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1108,
  "concepts": [
-  "redstone",
+  "gen_waxed_weathered_copper_door",
   "lever",
-  "iron_golem",
-  "lantern"
+  "zombie",
+  "gen_smooth_sandstone_slab"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "redstone"
+    "gen_waxed_weathered_copper_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone",
+    "item": "minecraft:waxed_weathered_copper_door",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Redstone-Staub für den Mechanismus."
-   },
-   "hint": {
-    "ko": "레드스톤은 땅속에서 캐요.",
-    "de": "Redstone baust du tief unter der Erde ab."
    }
   },
   {
@@ -59,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "iron_golem"
+    "zombie"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:iron_golem",
+    "entity": "minecraft:zombie",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Schau den Eisengolem an, der die Ruine bewacht."
-   },
-   "hint": {
-    "ko": "철 골렘은 마을과 유적을 지켜요.",
-    "de": "Eisengolems bewachen Dörfer und Ruinen."
    }
   }
  ],
@@ -79,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_smooth_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:smooth_sandstone_slab",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "랜턴을 걸어 골렘의 길을 밝혀요.",
-  "textDe": "Vier Laternen erhellen den Weg des Golems."
+  "textKo": "매끄러운 사암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Glatte Sandsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_08",

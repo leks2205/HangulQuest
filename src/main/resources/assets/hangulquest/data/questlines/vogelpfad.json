@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 105,
  "concepts": [
-  "parrot",
+  "gen_sniffer",
   "feather",
-  "chicken",
-  "egg"
+  "gen_ocelot",
+  "gen_polished_deepslate"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,15 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "parrot"
+    "gen_sniffer"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:parrot",
+    "entity": "minecraft:sniffer",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Papagei an."
    }
   },
   {
@@ -55,15 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "chicken"
+    "gen_ocelot"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
+    "entity": "minecraft:ocelot",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Huhn an."
    }
   }
  ],
@@ -71,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "egg"
+    "gen_polished_deepslate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:egg",
+    "item": "minecraft:polished_deepslate",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "닭이 낳은 달걀을 모아요.",
-  "textDe": "Sammle Eier vom Huhn."
+  "textKo": "윤나는 심층암라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Tiefenschiefer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vogelpfad",

@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 109,
  "concepts": [
-  "mountain",
-  "magma",
-  "campfire",
-  "torch"
+  "gen_small_end_islands",
+  "gen_cave_vines",
+  "gen_chiseled_resin_bricks",
+  "gen_waxed_weathered_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,47 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_small_end_islands"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:small_end_islands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "magma"
+    "gen_cave_vines"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:magma_block",
+    "block": "minecraft:cave_vines",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Magmablöcke ab."
-   },
-   "hint": {
-    "ko": "마그마 블록은 곡괭이로 캐요. 뜨거우니 조심해요.",
-    "de": "Magmablöcke baust du mit einer Spitzhacke ab; sie sind heiß."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_chiseled_resin_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:chiseled_resin_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    },
    "conditions": [
     {
@@ -78,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_waxed_weathered_copper_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:waxed_weathered_copper_trapdoor",
     "count": 4
    },
    "conditions": [
@@ -92,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤에 화산에 횃불을 놓아요.",
-  "textDe": "Nachts leuchten Fackeln am Vulkan."
+  "textKo": "밤에 밀랍칠한 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste verwitterte Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vulkanpfad",

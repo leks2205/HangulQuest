@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1021,
  "concepts": [
-  "rain",
-  "glass",
-  "height",
-  "lantern"
+  "gen_warped_button",
+  "gen_waxed_exposed_copper_door",
+  "gen_black_wool",
+  "gen_chorus_flower"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,55 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "rain"
+    "gen_warped_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:water_bucket",
+    "item": "minecraft:warped_button",
     "count": 1
-   },
-   "clue": {
-    "de": "Füll einen Eimer mit Wasser."
-   },
-   "hint": {
-    "ko": "비는 하늘에서 와요. 물은 양동이에 담아요.",
-    "de": "Regen fällt vom Himmel; im Eimer sammelt sich das Wasser."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "glass"
+    "gen_waxed_exposed_copper_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass",
+    "block": "minecraft:waxed_exposed_copper_door",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Glasblöcke als Fenster zum Himmel."
-   },
-   "hint": {
-    "ko": "유리는 모래를 화로에 구워 만들어요.",
-    "de": "Glas entsteht, wenn Sand im Ofen schmilzt."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "height"
+    "gen_black_wool"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 100,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Steig bis auf Höhe 100 hinauf."
-   },
-   "hint": {
-    "ko": "높이 백 블록 위로 올라가요.",
-    "de": "Steig über hundert Blöcke hinauf."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:black_wool",
+    "count": 3
    }
   }
  ],
@@ -77,11 +56,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_chorus_flower"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:chorus_flower",
     "count": 2
    },
    "conditions": [
@@ -89,14 +68,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "밤에 랜턴을 두 개 놓아요.",
-    "de": "Setze in der Nacht zwei Laternen."
-   }
+   ]
   },
-  "textKo": "비가 그친 밤에 랜턴을 밝혀 하늘을 봐요.",
-  "textDe": "In der Nacht nach dem Regen leuchten Laternen unter dem Himmel."
+  "textKo": "밤에 후렴화라는 길의 의식을 마쳤어요.",
+  "textDe": "Chorusblüte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_01",

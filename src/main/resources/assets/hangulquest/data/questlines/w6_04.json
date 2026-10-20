@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1064,
  "concepts": [
-  "bee",
-  "honeycomb",
-  "beehive",
+  "gen_red_poplar_leaves",
+  "gen_birch_fence",
+  "gen_calcite",
   "honey_bottle"
  ],
  "requires": {
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "bee"
+    "gen_red_poplar_leaves"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:bee",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Beobachte eine Biene an einer Blüte."
-   },
-   "hint": {
-    "ko": "벌은 꽃가루를 모아요.",
-    "de": "Bienen sammeln Blütenstaub."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_poplar_leaves",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "honeycomb"
+    "gen_birch_fence"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honeycomb",
+    "item": "minecraft:birch_fence",
     "count": 3
-   },
-   "clue": {
-    "de": "Ernte drei Honigwaben aus einem Nest."
-   },
-   "hint": {
-    "ko": "벌집 조각은 가위로 얻어요.",
-    "de": "Honigwaben schneidest du mit einer Schere."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "beehive"
+    "gen_calcite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:beehive",
+    "block": "minecraft:calcite",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Bienenstock an den Waldrand."
-   },
-   "hint": {
-    "ko": "벌통은 나무판자로 만들어요.",
-    "de": "Ein Bienenstock besteht aus Brettern."
    }
   }
  ],

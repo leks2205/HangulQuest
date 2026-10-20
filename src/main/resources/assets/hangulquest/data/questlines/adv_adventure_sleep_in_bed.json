@@ -7,6 +7,7 @@
  "tier": 2,
  "order": 226,
  "concepts": [
+  "gen_magenta_wool_stairs",
   "bed"
  ],
  "requires": {
@@ -20,18 +21,12 @@
   {
    "id": "s1",
    "teach": [
-    "bed"
+    "gen_magenta_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_bed",
+    "item": "minecraft:magenta_wool_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue ein Bett aus drei Blöcken Wolle und drei Holzplanken."
-   },
-   "hint": {
-    "ko": "양털 세 개와 나무 판자 세 개로 만들어요."
    }
   },
   {

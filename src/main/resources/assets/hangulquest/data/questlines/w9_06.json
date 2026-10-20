@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1096,
  "concepts": [
-  "gate",
   "obsidian",
-  "soul_lantern"
+  "soul_lantern",
+  "gen_crimson_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -68,16 +68,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gate"
+    "gen_crimson_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:oak_fence_gate"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:crimson_trapdoor",
+    "count": 1
    },
    "conditions": []
   },
-  "textKo": "어둠의 문을 열지 않고서는 왕관의 방에 들어갈 수 없어요.",
-  "textDe": "Ohne das Tor der Dunkelheit bleibt die Kammer verschlossen."
+  "textKo": "진홍빛 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Karmesinfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_06",

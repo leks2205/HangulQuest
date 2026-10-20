@@ -7,8 +7,10 @@
  "tier": 1,
  "order": 98,
  "concepts": [
-  "villager",
-  "flower"
+  "gen_elder_guardian",
+  "gen_panda",
+  "gen_suspicious_gravel",
+  "gen_cracked_polished_blackstone_bricks"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -19,42 +21,33 @@
   {
    "id": "s1",
    "teach": [
-    "villager"
+    "gen_elder_guardian"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:villager",
+    "entity": "minecraft:elder_guardian",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Dorfbewohner an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "gen_panda"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Sprich mit einem Dorfbewohner."
+    "entity": "minecraft:panda"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "flower"
+    "gen_suspicious_gravel"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:suspicious_gravel",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Blume."
    }
   }
  ],
@@ -62,17 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower"
+    "gen_cracked_polished_blackstone_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poppy",
+    "item": "minecraft:cracked_polished_blackstone_bricks",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "주민과 꽃으로 친구가 돼요.",
-  "textDe": "Mit einer Blume werden Dorfbewohner zu Freunden."
+  "textKo": "금 간 윤나는 흑암 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Rissige polierte Schwarzsteinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "freundschaftspfad",

@@ -8,8 +8,8 @@
  "concepts": [
   "ocean",
   "turtle",
-  "squid",
-  "torch"
+  "gen_sentry_armor_trim_smithing_template",
+  "gen_pink_tulip"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -53,15 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "squid"
+    "gen_sentry_armor_trim_smithing_template"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ink_sac",
+    "item": "minecraft:sentry_armor_trim_smithing_template",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle die schwarze Tinte vom Tintenfisch."
    }
   }
  ],
@@ -69,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_pink_tulip"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:pink_tulip",
     "count": 1
    },
    "conditions": [
@@ -87,8 +84,8 @@
     }
    ]
   },
-  "textKo": "밤에 해변에서 횃불을 놓아요.",
-  "textDe": "Nachts setzt du am Strand eine Fackel."
+  "textKo": "밤에 해변에서 분홍색 튤립라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Tulpe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "brandung",

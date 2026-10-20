@@ -6,12 +6,12 @@ This page is generated from the content itself, so the numbers below are what th
 
 | | |
 |---|---|
-| Questlines | **414** |
-| Steps (incl. finales) | **1505** |
+| Questlines | **420** |
+| Steps (incl. finales) | **1524** |
 | Tree levels | **22** |
 | Roots | 38 |
-| Merges (more than one parent) | 126 |
-| Vocabulary | 293 curated concepts plus generated vanilla names and the Lute import |
+| Merges (more than one parent) | 129 |
+| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
 
 A trail's `koreanLevel` is the TOPIK band of its depth: levels 1–3 speak polite Korean, 4–6 add obligation, 7–9 emphatic forms, 10–12 the double negative, 13–15 literary forms and 16 and deeper the `-(으)ㄹ 수밖에 없어요` band.
 
@@ -21,22 +21,21 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 505 | collect an item |
-| `PLACE_BLOCK` | 389 | place a block |
-| `USE_BLOCK` | 163 | use a block |
+| `PLACE_BLOCK` | 576 | place a block |
+| `ACQUIRE_ITEM` | 511 | collect an item |
 | `BREAK_BLOCK` | 88 | break a block |
-| `LOOK_AT_ENTITY` | 83 | look at a mob |
+| `LOOK_AT_ENTITY` | 70 | look at a mob |
+| `USE_BLOCK` | 62 | use a block |
+| `LOOK_AT_BLOCK` | 61 | look at a block |
 | `REACH_BIOME` | 58 | reach a biome |
-| `LOOK_AT_BLOCK` | 55 | look at a block |
-| `DEFEAT_ENTITY` | 51 | defeat a mob |
+| `DEFEAT_ENTITY` | 37 | defeat a mob |
 | `CONSUME_ITEM` | 32 | eat or drink an item |
-| `REACH_HEIGHT` | 29 | reach an altitude |
 | `INTERACT_ENTITY` | 27 | interact with a mob |
-| `REACH_DIMENSION` | 25 | reach a dimension |
+| `REACH_DIMENSION` | 2 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 154 | a time of day |
+| `TIME` | 160 | a time of day |
 | `IN_BIOME` | 28 | a biome |
 | `Y_RANGE` | 8 | an altitude band |
 | `WEATHER` | 5 | the weather |
@@ -516,7 +515,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `weltwaechter` | 세계의 수호자 | Der Weltwächter | 4 | `kronenklang`, `gartenwacht`, `weltenrichter` |
 | `unsterblichkeit` | 불멸의 길 | Der Unsterblichkeitspfad | 4 | `schicksalspfad`, `weltenrichter` |
 
-### Level 18 · TOPIK 6 · 19 trails
+### Level 18 · TOPIK 6 · 22 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -539,14 +538,19 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w12_06` | 끝의 노래 | Das Lied vom Ende | 4 | `weltwaechter` |
 | `w12_07` | 전설의 대장간 | Die Schmiede der Legende | 4 | `letzte_reise` |
 | `w12_08` | 세계의 왕관 | Die Krone der Welt | 4 | `weltwaechter` |
+| `rotwerk` | 붉은 실의 길 | Der rote Faden | 3 | `weltwaechter` |
+| `blauwerk` | 푸른 실의 길 | Der blaue Faden | 3 | `unsterblichkeit` |
+| `gelbwerk` | 노란 실의 길 | Der gelbe Faden | 3 | `letzte_reise` |
 
-### Level 19 · TOPIK 6 · 1 trails
+### Level 19 · TOPIK 6 · 3 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `adv_end_kill_dragon` | 엔드 해방 | Befreie das Ende | 3 | `adv_end_root` |
+| `purpurwerk` | 보랏빛 천의 길 | Der Purpurstoff | 3 | `rotwerk`, `blauwerk` |
+| `orangewerk` | 주황빛 천의 길 | Der Orangestoff | 3 | `rotwerk`, `gelbwerk` |
 
-### Level 20 · TOPIK 6 · 4 trails
+### Level 20 · TOPIK 6 · 5 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -554,6 +558,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_end_dragon_egg` | 그다음 세대 | Die nächste Generation | 3 | `adv_end_kill_dragon` |
 | `adv_end_enter_end_gateway` | 머나먼 휴양지 | Im Transit | 3 | `adv_end_kill_dragon` |
 | `adv_end_respawn_dragon` | 끝 아녔어? | Das Ende … Schon wieder … | 3 | `adv_end_kill_dragon` |
+| `regenbogenfahne` | 무지개 깃발의 길 | Die Regenbogenfahne | 4 | `purpurwerk`, `orangewerk` |
 
 ### Level 21 · TOPIK 6 · 1 trails
 

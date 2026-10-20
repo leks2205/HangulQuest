@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 112,
  "concepts": [
-  "lantern",
-  "bell",
-  "ocean",
-  "sea_lantern"
+  "gen_magenta_concrete_powder",
+  "gen_green_banner",
+  "gen_savanna_plateau",
+  "gen_poplar_wood"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,46 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "lantern"
+    "gen_magenta_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:magenta_concrete_powder",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Laternen."
-   },
-   "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen bestehen aus einer Fackel und Eisennuggets."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "gen_green_banner"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:green_banner",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "ocean"
+    "gen_savanna_plateau"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:savanna_plateau",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ans Meer."
    }
   }
  ],
@@ -71,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sea_lantern"
+    "gen_poplar_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sea_lantern",
+    "block": "minecraft:poplar_wood",
     "count": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "바다 랜턴은 바다 결정과 조각으로 만들어요.",
-    "de": "Meereslaternen bestehen aus Prismarinkristallen und -scherben."
-   }
+   "conditions": []
   },
-  "textKo": "바다 랜턴으로 등대를 밝혀요.",
-  "textDe": "Meereslaternen erhellen den Leuchtturm."
+  "textKo": "포플러나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "leuchtturmpfad",

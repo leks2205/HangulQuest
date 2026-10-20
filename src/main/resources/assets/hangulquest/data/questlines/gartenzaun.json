@@ -9,8 +9,8 @@
  "concepts": [
   "fence",
   "gate",
-  "torch",
-  "lantern"
+  "gen_mud_brick_slab",
+  "gen_gray_bed"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -55,15 +55,12 @@
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_mud_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:mud_brick_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -77,21 +74,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_gray_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:gray_bed",
     "count": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen bestehen aus Fackel und Eisen."
-   }
+   "conditions": []
   },
-  "textKo": "정원에 랜턴을 걸어요.",
-  "textDe": "Laternen schmücken den Garten."
+  "textKo": "회색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Graues Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gartenzaun",

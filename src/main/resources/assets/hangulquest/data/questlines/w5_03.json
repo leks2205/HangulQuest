@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1053,
  "concepts": [
-  "redstone",
-  "obsidian",
+  "gen_red_shulker_box",
+  "gen_waxed_copper_grate",
   "diamond",
-  "lava_bucket"
+  "gen_orange_concrete_stairs"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "redstone"
+    "gen_red_shulker_box"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:redstone_ore",
+    "block": "minecraft:red_shulker_box",
     "count": 6
-   },
-   "clue": {
-    "de": "Baue sechs Redstone-Erz ab."
-   },
-   "hint": {
-    "ko": "레드스톤은 철 곡괭이로 캐요.",
-    "de": "Redstone braucht eine Eisenspitzhacke."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "obsidian"
+    "gen_waxed_copper_grate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:waxed_copper_grate",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Obsidian ab."
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian braucht eine Diamantspitzhacke."
    }
   },
   {
@@ -79,19 +65,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lava_bucket"
+    "gen_orange_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
+    "item": "minecraft:orange_concrete_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Schöpf einen Eimer Lava ganz tief unten."
-   },
-   "hint": {
-    "ko": "높이 -50 이하에서 용암을 담아요.",
-    "de": "Unter Höhe -50 schöpfst du Lava."
    },
    "conditions": [
     {
@@ -101,8 +80,8 @@
     }
    ]
   },
-  "textKo": "높이 -50 이하의 용암 호수에서 불을 얻어요.",
-  "textDe": "Ganz unten, unter Höhe -50, gibst du der Tiefe ihr Feuer."
+  "textKo": "높이 -50 이하에서 주황색 콘크리트 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Orange Betontreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_03",

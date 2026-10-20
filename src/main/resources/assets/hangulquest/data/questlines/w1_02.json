@@ -7,9 +7,10 @@
  "tier": 1,
  "order": 1012,
  "concepts": [
-  "glass",
-  "glass_pane",
-  "dye"
+  "gen_pale_oak_fence",
+  "gen_wildflowers",
+  "carpet",
+  "gen_cyan_candle_cake"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,55 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "glass"
+    "gen_pale_oak_fence"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass",
+    "item": "minecraft:pale_oak_fence",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Glasblöcke."
-   },
-   "hint": {
-    "ko": "유리는 모래를 화로에 구워요.",
-    "de": "Glas entsteht, wenn Sand im Ofen schmilzt."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "glass"
+    "gen_wildflowers"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass",
+    "block": "minecraft:wildflowers",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Glasblöcke als Fenster in die Wand."
-   },
-   "hint": {
-    "ko": "유리를 벽에 놓아요.",
-    "de": "Setze die Glasblöcke in die Wand."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "dye"
+    "carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_dye",
+    "item": "minecraft:white_carpet",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei rote Farbstoffe."
-   },
-   "hint": {
-    "ko": "빨간 염료는 꽃으로 만들어요.",
-    "de": "Roter Farbstoff entsteht aus einer Mohnblume."
    }
   }
  ],
@@ -76,17 +56,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "glass_pane"
+    "gen_cyan_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass_pane",
+    "block": "minecraft:cyan_candle_cake",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "유리와 염료로 창문에 무지개를 그려요.",
-  "textDe": "Aus Glas und Farbstoff wird ein Regenbogen im Fenster."
+  "textKo": "청록색 초를 꽂은 케이크라는 길의 의식을 마쳤어요.",
+  "textDe": "Kuchen mit türkiser Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_02",

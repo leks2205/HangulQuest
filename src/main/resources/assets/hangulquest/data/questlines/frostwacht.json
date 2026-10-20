@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 90,
  "concepts": [
-  "iron",
-  "crafting_table",
-  "iron_chestplate",
-  "anvil"
+  "gen_flow_banner_pattern",
+  "gen_green_bed",
+  "gen_spectral_arrow",
+  "gen_grindstone"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,42 +23,33 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_flow_banner_pattern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:flow_banner_pattern",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Eisenbarren."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "crafting_table"
+    "gen_green_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Benutz eine Werkbank."
+    "block": "minecraft:green_bed"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron_chestplate"
+    "gen_spectral_arrow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_chestplate",
+    "item": "minecraft:spectral_arrow",
     "count": 1
-   },
-   "clue": {
-    "de": "Stelle eine Eisenbrustplatte her."
    }
   }
  ],
@@ -66,16 +57,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "anvil"
+    "gen_grindstone"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "block": "minecraft:grindstone"
    },
    "conditions": []
   },
-  "textKo": "모루에서 철 갑옷을 다듬어요.",
-  "textDe": "Die Eisenrüstung am Amboss verbessern."
+  "textKo": "숫돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Schleifstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "frostwacht",

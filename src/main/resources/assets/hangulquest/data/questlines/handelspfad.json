@@ -5,11 +5,10 @@
  "titleDe": "Der Handelspfad",
  "tier": 2,
  "concepts": [
-  "emerald",
-  "villager",
-  "bread",
-  "bell",
-  "chest"
+  "gen_prismarine_brick_stairs",
+  "gen_donkey",
+  "gen_exposed_copper_door",
+  "gen_orange_bed"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -22,42 +21,33 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_prismarine_brick_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:prismarine_brick_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei grüne Edelsteine."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "gen_donkey"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
-   },
-   "clue": {
-    "de": "Sprich mit einem Dorfbewohner."
+    "entity": "minecraft:donkey"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bread"
+    "gen_exposed_copper_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:exposed_copper_door",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Brote."
    }
   }
  ],
@@ -65,11 +55,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_orange_bed"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_bed",
+    "count": 2
    },
    "conditions": [
     {
@@ -78,8 +69,8 @@
     }
    ]
   },
-  "textKo": "낮에 장터 상자를 열어요.",
-  "textDe": "Am Tag öffnest du die Handelstruhe."
+  "textKo": "낮에 주황색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Oranges Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "handelspfad",

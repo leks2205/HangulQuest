@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1075,
  "concepts": [
-  "soul_sand",
-  "soul_torch",
-  "soul_lantern",
-  "adv_dimension_the_nether"
+  "gen_raw_copper_block",
+  "gen_muddy_mangrove_roots",
+  "gen_horn_coral_block",
+  "gen_cyan_wool"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "soul_sand"
+    "gen_raw_copper_block"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:soul_sand",
+    "block": "minecraft:raw_copper_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Seelensand ab."
-   },
-   "hint": {
-    "ko": "영혼 모래는 지옥의 영혼 모래 골짜기에서 캐요.",
-    "de": "Seelensand gräbst du im Seelensandtal des Nethers."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "soul_torch"
+    "gen_muddy_mangrove_roots"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_torch",
+    "block": "minecraft:muddy_mangrove_roots",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Seelenfackeln."
-   },
-   "hint": {
-    "ko": "영혼 횃불은 석탄, 막대기, 영혼 모래로 만들어요.",
-    "de": "Seelenfackeln bestehen aus Kohle, Stock und Seelensand."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "soul_lantern"
+    "gen_horn_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_lantern",
+    "block": "minecraft:horn_coral_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Häng zwei Seelenlaternen auf."
-   },
-   "hint": {
-    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
-    "de": "Seelenlaternen bestehen aus einer Seelenfackel und Eisenklumpen."
    }
   }
  ],
@@ -79,16 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_cyan_wool"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cyan_wool",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "영혼의 등불을 들고 지옥의 골짜기로 걸어가요.",
-  "textDe": "Mit Seelenlicht wanderst du ins Tal des Nethers."
+  "textKo": "청록색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkise Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_05",

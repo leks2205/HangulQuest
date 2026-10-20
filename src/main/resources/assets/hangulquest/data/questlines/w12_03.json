@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1123,
  "concepts": [
-  "stone_bricks",
-  "chiseled_stone_bricks",
-  "lectern",
-  "beacon"
+  "gen_andesite",
+  "gen_red_sandstone_wall",
+  "gen_lime_bed",
+  "gen_dark_oak_wall_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "stone_bricks"
+    "gen_andesite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_bricks",
+    "block": "minecraft:andesite",
     "count": 12
-   },
-   "clue": {
-    "de": "Setz zwölf Steinziegel für die Mauer des Tempels."
-   },
-   "hint": {
-    "ko": "석재 벽돌은 돌 네 개로 만들어요.",
-    "de": "Steinziegel stellt man aus vier Steinblöcken her."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chiseled_stone_bricks"
+    "gen_red_sandstone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_stone_bricks",
+    "block": "minecraft:red_sandstone_wall",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs gemeißelte Steinziegel als Zeichen der alten Mythen."
-   },
-   "hint": {
-    "ko": "조각된 석재 벽돌은 석재 벽돌을 반으로 잘라 만들어요.",
-    "de": "Gemeißelte Steinziegel schneidet man aus Steinziegeln."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "lectern"
+    "gen_lime_bed"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:lectern"
-   },
-   "clue": {
-    "de": "Benutze ein Lesepult und lies die Schrift des Tempels."
-   },
-   "hint": {
-    "ko": "독서대는 판자와 책장으로 만들어요.",
-    "de": "Ein Lesepult besteht aus Brettern und einem Bücherregal."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lime_bed",
+    "count": 3
    }
   }
  ],
@@ -78,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "beacon"
+    "gen_dark_oak_wall_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:beacon",
+    "block": "minecraft:dark_oak_wall_hanging_sign",
     "count": 1
    },
    "conditions": [
@@ -91,14 +71,10 @@
      "minY": 100,
      "maxY": 320
     }
-   ],
-   "hint": {
-    "ko": "신호기는 네더의 별과 유리로 만들어요. 높이 100블록 위에 세워요.",
-    "de": "Ein Leuchtfeuer braucht einen Netherstern und Glas; stell es auf 100 Blöcken Höhe."
-   }
+   ]
   },
-  "textKo": "높이 100블록 위 잊힌 신전에 신호기를 세워요.",
-  "textDe": "Auf 100 Blöcken Höhe leuchtet das Leuchtfeuer des vergessenen Tempels."
+  "textKo": "짙은 참나무 벽 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzeichenholzwandhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_03",

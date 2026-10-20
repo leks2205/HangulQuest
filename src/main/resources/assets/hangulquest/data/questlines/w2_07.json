@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1027,
  "concepts": [
-  "ice",
-  "snow",
+  "gen_mossy_stone_bricks",
+  "gen_dragon_wall_head",
   "milk",
-  "lantern"
+  "gen_glow_lichen"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,37 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "gen_mossy_stone_bricks"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:mossy_stone_bricks",
     "count": 5
-   },
-   "clue": {
-    "de": "Baue fünf Eisblöcke ab."
-   },
-   "hint": {
-    "ko": "얼음은 눈 덮인 곳에 있어요.",
-    "de": "Eis liegt in verschneiten Gegenden."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_dragon_wall_head"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:dragon_wall_head",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Schneeblöcke auf den Hof."
-   },
-   "hint": {
-    "ko": "눈은 하얘요.",
-    "de": "Schnee ist weiß."
    }
   },
   {
@@ -78,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_glow_lichen"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:glow_lichen",
     "count": 1
    },
    "conditions": [
@@ -90,14 +76,10 @@
      "type": "TIME",
      "phase": "DAWN"
     }
-   ],
-   "hint": {
-    "ko": "새벽에 랜턴을 하나 놓아요.",
-    "de": "Setze im Morgengrauen eine Laterne."
-   }
+   ]
   },
-  "textKo": "새벽에 겨울 마당에 랜턴을 밝혀요.",
-  "textDe": "Im Morgengrauen leuchtet eine Laterne im Winterhof."
+  "textKo": "새벽에 발광 이끼라는 길의 의식을 마쳤어요.",
+  "textDe": "Leuchtflechte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_07",

@@ -7,9 +7,9 @@
  "tier": 5,
  "order": 73,
  "concepts": [
-  "diamond",
-  "torch",
-  "bed"
+  "gen_wooden_shovel",
+  "gen_calibrated_sculk_sensor",
+  "gen_gray_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -28,33 +28,23 @@
   {
    "id": "s1",
    "teach": [
-    "diamond"
+    "gen_wooden_shovel"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:wooden_shovel",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Diamanten."
-   },
-   "hint": {
-    "ko": "철 곡괭이로 다이아몬드를 캐요.",
-    "de": "Diamanten brauchen eine Eisenspitzhacke."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_calibrated_sculk_sensor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:calibrated_sculk_sensor",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -68,11 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_gray_stained_glass_pane"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gray_stained_glass_pane",
+    "count": 3
    },
    "conditions": [
     {
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "왕관이 빛나는 밤에 자요.",
-  "textDe": "In der glänzenden Nacht schläfst du."
+  "textKo": "밤에 회색 색유리 판라는 길의 의식을 마쳤어요.",
+  "textDe": "Graue Glasscheibe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenglanz",

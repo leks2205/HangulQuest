@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 321,
  "concepts": [
-  "iron",
+  "gen_resin_bricks",
   "adv2_item_iron_helmet",
   "adv_item_iron_boots",
-  "iron_chestplate"
+  "gen_bamboo_shelf"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,15 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_resin_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:resin_bricks",
     "count": 17
-   },
-   "clue": {
-    "de": "Schmelze siebzehn Eisenbarren für die Rüstung."
    }
   },
   {
@@ -75,24 +72,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron_chestplate"
+    "gen_bamboo_shelf"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_chestplate",
+    "item": "minecraft:bamboo_shelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Ziehe den Eisenharnisch an."
-   },
-   "hint": {
-    "ko": "철 흉갑은 철 주괴 여덟 개로 만들어요.",
-    "de": "Ein Eisenharnisch braucht acht Eisenbarren."
    },
    "conditions": []
   },
-  "textKo": "차려입기 — 철 갑옷으로 몸을 단단히 감쌌어요.",
-  "textDe": "Mach dich fein — Die Eisenrüstung sitzt."
+  "textKo": "대나무 선반라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambusregal — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",

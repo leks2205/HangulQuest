@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 164,
  "concepts": [
-  "cow",
+  "gen_zoglin",
   "leather",
-  "chest",
-  "anvil"
+  "gen_blue_stained_glass",
+  "gen_composter"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,15 +24,12 @@
   {
    "id": "s1",
    "teach": [
-    "cow"
+    "gen_zoglin"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
+    "entity": "minecraft:zoglin",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Kuh an."
    }
   },
   {
@@ -56,15 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_blue_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:blue_stained_glass",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Truhe."
    }
   }
  ],
@@ -72,20 +66,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "anvil"
+    "gen_composter"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "block": "minecraft:composter"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "모루는 철 블록과 철 조각으로 만들어요.",
-    "de": "Ein Amboss besteht aus Eisenblöcken und -barren."
-   }
+   "conditions": []
   },
-  "textKo": "모루에서 가죽을 다듬어요.",
-  "textDe": "Leder am Amboss bearbeiten."
+  "textKo": "퇴비통라는 길의 의식을 마쳤어요.",
+  "textDe": "Komposter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gerberei",

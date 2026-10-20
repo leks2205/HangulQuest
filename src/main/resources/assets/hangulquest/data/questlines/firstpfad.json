@@ -6,11 +6,10 @@
  "tier": 2,
  "order": 370,
  "concepts": [
-  "goat",
-  "ice",
-  "snow",
-  "mountain",
-  "campfire"
+  "gen_breeze",
+  "gen_small_amethyst_bud",
+  "crafting_table",
+  "gen_copper_grate"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -23,43 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "goat"
+    "gen_breeze"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
+    "entity": "minecraft:breeze",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ice"
+    "gen_small_amethyst_bud"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:small_amethyst_bud",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Stück Eis ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "crafting_table"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:crafting_table",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau den weißen Schnee an."
    }
   }
  ],
@@ -67,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:copper_grate",
     "count": 1
    },
    "conditions": [
@@ -85,8 +75,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 밤에 모닥불을 피워요.",
-  "textDe": "Im Bergbiom brennt nachts ein Feuer."
+  "textKo": "밤에 산 지형에서 구리 격자라는 길의 의식을 마쳤어요.",
+  "textDe": "Kupferrost — Zeremonie vollendet."
  },
  "reward": {
   "badge": "firstpfad",

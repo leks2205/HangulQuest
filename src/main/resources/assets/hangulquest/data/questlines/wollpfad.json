@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 44,
  "concepts": [
-  "sheep",
+  "gen_andesite_wall",
   "wool",
-  "bed",
-  "shears"
+  "shears",
+  "gen_bamboo_fence"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,15 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "sheep"
+    "gen_andesite_wall"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sheep",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Schaf an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:andesite_wall",
+    "count": 2
    }
   },
   {
@@ -59,17 +56,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_bamboo_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_bed",
+    "block": "minecraft:bamboo_fence",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "양털로 침대를 만들어요.",
-  "textDe": "Aus Wolle baust du ein Bett."
+  "textKo": "대나무 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambuszaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wollpfad",

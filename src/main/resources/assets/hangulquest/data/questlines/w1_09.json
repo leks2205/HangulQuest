@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 1019,
  "concepts": [
-  "compass",
-  "map",
-  "item_frame",
+  "gen_open_eyeblossom",
+  "gen_deepslate_tiles",
+  "gen_red_candle_cake",
   "lectern"
  ],
  "requires": {
@@ -21,55 +21,34 @@
   {
    "id": "s1",
    "teach": [
-    "compass"
+    "gen_open_eyeblossom"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:compass",
+    "item": "minecraft:open_eyeblossom",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau einen Kompass."
-   },
-   "hint": {
-    "ko": "나침반은 철과 레드스톤으로 만들어요.",
-    "de": "Ein Kompass braucht Eisen und Redstone."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "item_frame"
+    "gen_deepslate_tiles"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:item_frame",
+    "item": "minecraft:deepslate_tiles",
     "count": 2
-   },
-   "clue": {
-    "de": "Bau zwei Rahmen für deine Fundstücke."
-   },
-   "hint": {
-    "ko": "아이템 액자는 가죽과 막대기로 만들어요.",
-    "de": "Ein Rahmen besteht aus Leder und Stöcken."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "map"
+    "gen_red_candle_cake"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:map",
+    "item": "minecraft:red_candle_cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Mach eine Karte von deiner Umgebung."
-   },
-   "hint": {
-    "ko": "지도는 종이로 만들어요.",
-    "de": "Eine Karte besteht aus Papier."
    }
   }
  ],

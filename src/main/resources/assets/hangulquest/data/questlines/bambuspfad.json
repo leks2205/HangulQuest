@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 137,
  "concepts": [
-  "jungle",
+  "gen_taiga",
   "bamboo"
  ],
  "requires": {
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "jungle"
+    "gen_taiga"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:jungle",
+    "biome": "minecraft:taiga",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in den Dschungel."
    }
   },
   {

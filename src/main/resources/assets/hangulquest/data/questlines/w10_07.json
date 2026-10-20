@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1107,
  "concepts": [
-  "map",
-  "cartography_table",
-  "compass",
-  "desert"
+  "gen_end_stone_brick_slab",
+  "gen_resin_bricks",
+  "gen_cyan_candle_cake",
+  "gen_windswept_gravelly_hills"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "map"
+    "gen_end_stone_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:map",
+    "item": "minecraft:end_stone_brick_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Karte für die Reise."
-   },
-   "hint": {
-    "ko": "지도는 종이와 나침반으로 만들어요.",
-    "de": "Eine Karte besteht aus Papier und einem Kompass."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cartography_table"
+    "gen_resin_bricks"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:cartography_table"
-   },
-   "clue": {
-    "de": "Benutz einen Kartentisch, um die Karte zu erweitern."
-   },
-   "hint": {
-    "ko": "지도 제작대에서 지도를 넓혀요.",
-    "de": "Am Kartentisch wird die Karte größer."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:resin_bricks",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "compass"
+    "gen_cyan_candle_cake"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:compass",
+    "item": "minecraft:cyan_candle_cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Kompass für den Weg."
-   },
-   "hint": {
-    "ko": "나침반은 철과 레드스톤으로 만들어요.",
-    "de": "Ein Kompass braucht Eisen und Redstone."
    }
   }
  ],
@@ -78,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "desert"
+    "gen_windswept_gravelly_hills"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:desert",
+    "biome": "minecraft:windswept_gravelly_hills",
     "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "별빛을 따라 사막에 도착해요.",
-  "textDe": "Dem Sternenlicht folgend erreichst du die Wüste."
+  "textKo": "바람이 세찬 자갈투성이 언덕라는 길의 의식을 마쳤어요.",
+  "textDe": "Zerzauste Geröllhügel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_07",

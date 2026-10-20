@@ -8,8 +8,8 @@
  "order": 253,
  "concepts": [
   "adv_item_shulker_shell",
-  "adv_block_purpur_block",
-  "height"
+  "gen_chorus_flower",
+  "gen_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -36,15 +36,12 @@
   {
    "id": "s2",
    "teach": [
-    "adv_block_purpur_block"
+    "gen_chorus_flower"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:purpur_block",
+    "block": "minecraft:chorus_flower",
     "dwellMs": 700
-   },
-   "clue": {
-    "de": "Suche in der Endstadt nach einem Shulker, der dich schweben lässt."
    }
   }
  ],
@@ -52,17 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "height"
+    "gen_brick_wall"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 180,
-    "maxY": 320
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brick_wall",
+    "count": 1
    },
    "conditions": []
   },
-  "textKo": "위쪽 공기 좋은데? — 셜커의 부유 효과로 높이 올라가요.",
-  "textDe": "Schöne Aussicht von hier oben — Lass dich von der Levitation hoch in die Luft tragen."
+  "textKo": "벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Ziegelsteinmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_end_levitate",

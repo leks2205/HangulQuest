@@ -6,11 +6,10 @@
  "tier": 4,
  "order": 530,
  "concepts": [
-  "diamond",
-  "gold",
-  "obsidian",
-  "torch",
-  "campfire"
+  "chest",
+  "gen_poplar_pressure_plate",
+  "gen_red_sandstone_slab",
+  "gen_observer"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "diamond"
+    "chest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:chest",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Diamanten."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gold"
+    "gen_poplar_pressure_plate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:gold_ore",
+    "block": "minecraft:poplar_pressure_plate",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Golderz ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "obsidian"
+    "gen_red_sandstone_slab"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:red_sandstone_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue Obsidian ab."
    }
   }
  ],
@@ -69,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_observer"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:observer",
     "count": 1
    },
    "conditions": [
@@ -83,8 +73,8 @@
     }
    ]
   },
-  "textKo": "밤에 수정 동굴에서 모닥불을 피워요.",
-  "textDe": "Nachts brennt in der Kristallhöhle ein Feuer."
+  "textKo": "밤에 관측기라는 길의 의식을 마쳤어요.",
+  "textDe": "Beobachter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kristallhoehle",

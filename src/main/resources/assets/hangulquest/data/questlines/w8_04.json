@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1084,
  "concepts": [
-  "end",
-  "adv_block_purpur_block",
-  "adv_item_shulker_shell",
-  "adv_item_end_crystal"
+  "gen_yellow_stained_glass",
+  "gen_smooth_stone",
+  "gen_weathered_cut_copper_slab",
+  "gen_jungle_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "end"
+    "gen_yellow_stained_glass"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
-   },
-   "clue": {
-    "de": "Reise in das Ende."
-   },
-   "hint": {
-    "ko": "엔드 차원은 흑요석 문으로 가요.",
-    "de": "Ins Ende reist du durch ein Obsidiantor."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:yellow_stained_glass",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_block_purpur_block"
+    "gen_smooth_stone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purpur_block",
+    "block": "minecraft:smooth_stone",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Purpurblöcke."
-   },
-   "hint": {
-    "ko": "퍼퍼 블록은 엔드 도시에서 나와요.",
-    "de": "Purpurblöcke stammen aus den Endstädten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_shulker_shell"
+    "gen_weathered_cut_copper_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shulker_shell",
+    "item": "minecraft:weathered_cut_copper_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Shulkerschalen."
-   },
-   "hint": {
-    "ko": "셜커 껍데기는 셜커를 물리치면 나와요.",
-    "de": "Shulkerschalen lassen Shulker fallen."
    }
   }
  ],
@@ -78,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_end_crystal"
+    "gen_jungle_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_crystal",
+    "item": "minecraft:jungle_trapdoor",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "용의 섬에 도착했어요. 퍼퍼 탑이 우리를 기다려요.",
-  "textDe": "Die Dracheninsel ist erreicht. Die Purpurtürme warten."
+  "textKo": "정글나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_04",

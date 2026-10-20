@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 310,
  "concepts": [
-  "brewing_stand",
-  "adv_item_potion",
+  "adv_item_chiseled_bookshelf",
+  "gen_polished_tuff_stairs",
   "golden_apple"
  ],
  "requires": {
@@ -22,31 +22,22 @@
   {
    "id": "s1",
    "teach": [
-    "brewing_stand"
+    "adv_item_chiseled_bookshelf"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:brewing_stand"
-   },
-   "clue": {
-    "de": "Brau am Braustand einen Wurfrank der Schwäche."
-   },
-   "hint": {
-    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요. 발효된 거미 눈으로 약화 물약을 끓여요."
+    "block": "minecraft:chiseled_bookshelf"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_potion"
+    "gen_polished_tuff_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:potion",
+    "item": "minecraft:polished_tuff_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm den fertigen Wurfrank der Schwäche in die Hand."
    }
   }
  ],

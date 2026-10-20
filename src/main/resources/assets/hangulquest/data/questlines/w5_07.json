@@ -8,9 +8,9 @@
  "order": 1057,
  "concepts": [
   "gravel",
-  "flint",
-  "squid",
-  "ocean"
+  "gen_red_sandstone",
+  "gen_stripped_poplar_log",
+  "gen_birch_forest"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "flint"
+    "gen_red_sandstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flint",
+    "item": "minecraft:red_sandstone",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Feuersteine."
-   },
-   "hint": {
-    "ko": "부싯돌은 자갈에서 나와요.",
-    "de": "Feuerstein steckt im Kies."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "squid"
+    "gen_stripped_poplar_log"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:squid",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Tintenfisch an."
-   },
-   "hint": {
-    "ko": "오징어는 바다에서 헤엄쳐요.",
-    "de": "Tintenfische schwimmen im Meer."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stripped_poplar_log",
+    "count": 1
    }
   }
  ],
@@ -79,24 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "ocean"
+    "gen_birch_forest"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:birch_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Tauche in den Ozean."
-   },
-   "hint": {
-    "ko": "바다 지형으로 헤엄쳐 가요.",
-    "de": "Schwimm in ein Ozean-Biom."
    },
    "conditions": []
   },
-  "textKo": "물밑의 자갈을 캐고 바다로 나아가요.",
-  "textDe": "Kies unter Wasser, dann hinaus aufs Meer."
+  "textKo": "자작나무 숲라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenwald — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_07",

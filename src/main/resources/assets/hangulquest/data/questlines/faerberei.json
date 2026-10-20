@@ -8,8 +8,9 @@
  "order": 163,
  "concepts": [
   "dye",
-  "cauldron",
-  "wool"
+  "gen_smoker",
+  "gen_pale_oak_fence",
+  "gen_cobbled_deepslate_wall"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -41,28 +42,22 @@
   {
    "id": "s2",
    "teach": [
-    "cauldron"
+    "gen_smoker"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:cauldron"
-   },
-   "clue": {
-    "de": "Benutz einen Kessel."
+    "block": "minecraft:smoker"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "wool"
+    "gen_pale_oak_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool",
+    "block": "minecraft:pale_oak_fence",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Wollblöcke."
    }
   }
  ],
@@ -70,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wool"
+    "gen_cobbled_deepslate_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_wool",
+    "item": "minecraft:cobbled_deepslate_wall",
     "count": 6
    },
    "conditions": []
   },
-  "textKo": "염료로 양털을 물들여요.",
-  "textDe": "Wolle mit Farbe färben."
+  "textKo": "심층암 조약돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Bruchtiefenschiefermauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "faerberei",

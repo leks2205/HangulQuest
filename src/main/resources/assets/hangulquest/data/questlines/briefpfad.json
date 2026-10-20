@@ -8,7 +8,8 @@
  "order": 99,
  "concepts": [
   "paper",
-  "ink_sac",
+  "gen_dark_oak_stairs",
+  "gen_white_candle",
   "chest"
  ],
  "requires": {
@@ -38,32 +39,22 @@
   {
    "id": "s2",
    "teach": [
-    "ink_sac"
+    "gen_dark_oak_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ink_sac",
+    "item": "minecraft:dark_oak_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Tintenbeutel."
-   },
-   "hint": {
-    "ko": "잉크 주머니는 오징어에게서 얻어요.",
-    "de": "Tintenbeutel bekommst du von Tintenfischen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_white_candle"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "block": "minecraft:white_candle"
    }
   }
  ],

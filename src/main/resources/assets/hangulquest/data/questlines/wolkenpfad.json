@@ -6,11 +6,10 @@
  "tier": 5,
  "order": 545,
  "concepts": [
-  "mountain",
-  "torch",
-  "bed",
-  "night",
-  "bell"
+  "gen_frozen_peaks",
+  "gen_smooth_sandstone",
+  "gen_waxed_oxidized_copper_chain",
+  "gen_waxed_oxidized_cut_copper_slab"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -26,29 +25,23 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_frozen_peaks"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:frozen_peaks",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_smooth_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:smooth_sandstone",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -60,14 +53,12 @@
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_waxed_oxidized_copper_chain"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Benutz ein Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_oxidized_copper_chain",
+    "count": 1
    }
   }
  ],
@@ -75,11 +66,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_waxed_oxidized_cut_copper_slab"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_oxidized_cut_copper_slab",
+    "count": 1
    },
    "conditions": [
     {
@@ -92,8 +84,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 낮에 구름의 종을 울려요.",
-  "textDe": "Im Bergbiom läutet am Tag die Wolkenuhr."
+  "textKo": "낮에 산 지형에서 밀랍칠한 산화된 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste oxidierte geschnittene Kupferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wolkenpfad",

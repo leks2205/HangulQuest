@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 294,
  "concepts": [
-  "adv_dimension_the_nether",
+  "gen_waxed_copper_bulb",
   "netherrack",
   "soul_sand"
  ],
@@ -22,17 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_dimension_the_nether"
+    "gen_waxed_copper_bulb"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
-   },
-   "clue": {
-    "de": "Reise durch das Portal in den Nether – dort beginnt die Tour."
-   },
-   "hint": {
-    "ko": "흑요석으로 만든 포털에 불을 붙여요."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_bulb",
+    "count": 2
    }
   },
   {

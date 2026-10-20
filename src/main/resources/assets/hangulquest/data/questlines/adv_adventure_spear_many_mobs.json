@@ -8,8 +8,8 @@
  "order": 228,
  "concepts": [
   "adv_item_iron_spear",
-  "zombie",
-  "skeleton"
+  "gen_stray",
+  "gen_bogged"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -40,15 +40,12 @@
   {
    "id": "s2",
    "teach": [
-    "zombie"
+    "gen_stray"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:stray",
     "count": 2
-   },
-   "clue": {
-    "de": "Wirf den Speer und durchbohre zwei Zombies."
    }
   }
  ],
@@ -56,17 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "skeleton"
+    "gen_bogged"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:skeleton",
+    "entity": "minecraft:bogged",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "몹 꼬치 — 철 창으로 몹을 꼬치처럼 한 번에 꿰뚫어요.",
-  "textDe": "Fünf auf einen Spieß — Mit dem Speer spießt du mehrere Monster auf einmal auf."
+  "textKo": "보그드라는 길의 의식을 마쳤어요.",
+  "textDe": "Sumpfskelett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_spear_many_mobs",

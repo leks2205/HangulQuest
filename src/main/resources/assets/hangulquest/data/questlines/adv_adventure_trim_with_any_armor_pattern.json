@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 238,
  "concepts": [
-  "adv_item_dune_armor_trim_smithing_template",
-  "iron_chestplate",
+  "gen_waxed_exposed_copper_chest",
+  "gen_gray_dye",
   "adv_block_diamond_chestplate"
  ],
  "requires": {
@@ -22,37 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_dune_armor_trim_smithing_template"
+    "gen_waxed_exposed_copper_chest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dune_armor_trim_smithing_template",
+    "item": "minecraft:waxed_exposed_copper_chest",
     "count": 1
-   },
-   "clue": {
-    "de": "Finde die Dünen-Vorlage in einem Wüstentempel."
-   },
-   "hint": {
-    "ko": "사막 사원 상자에서 형판을 찾아요.",
-    "de": "Die Dünenvorlage liegt in einer Truhe im Wüstentempel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "iron_chestplate"
+    "gen_gray_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_chestplate",
+    "item": "minecraft:gray_dye",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede eine Eisenbrustplatte als Grundlage."
-   },
-   "hint": {
-    "ko": "철 흉갑은 철 여덟 개로 만들어요.",
-    "de": "Eine Eisenbrustplatte besteht aus acht Eisenbarren."
    }
   }
  ],

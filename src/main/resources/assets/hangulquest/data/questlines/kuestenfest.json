@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 430,
  "concepts": [
-  "beach",
-  "fish",
-  "campfire",
-  "bed"
+  "gen_deep_dark",
+  "gen_tuff_wall",
+  "gen_big_dripleaf",
+  "gen_spore_blossom"
  ],
  "requires": {
   "minWordsKnown": 14,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_deep_dark"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:deep_dark",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Sandstrand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fish"
+    "gen_tuff_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:tuff_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Fisch."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_big_dripleaf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:big_dripleaf",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   }
  ],
@@ -67,11 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_spore_blossom"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:spore_blossom",
+    "count": 1
    },
    "conditions": [
     {
@@ -80,8 +72,8 @@
     }
    ]
   },
-  "textKo": "해변의 밤에 잠들어요. 잔치가 끝났어요.",
-  "textDe": "Am Strand schläfst du nachts ein. Das Fest ist vorbei."
+  "textKo": "밤에 포자 꽃라는 길의 의식을 마쳤어요.",
+  "textDe": "Sporenblüte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kuestenfest",

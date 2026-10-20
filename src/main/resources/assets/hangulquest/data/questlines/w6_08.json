@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1068,
  "concepts": [
-  "wheat",
-  "hay_block",
-  "sunflower",
-  "campfire"
+  "gen_attached_melon_stem",
+  "gen_brain_coral",
+  "gen_copper_nautilus_armor",
+  "gen_skeleton_skull"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "gen_attached_melon_stem"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wheat",
+    "item": "minecraft:attached_melon_stem",
     "count": 6
-   },
-   "clue": {
-    "de": "Ernte sechs Weizen für das Bündel."
-   },
-   "hint": {
-    "ko": "밀은 노란색 곡식이에요.",
-    "de": "Weizen ist das gelbe Korn."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "hay_block"
+    "gen_brain_coral"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:hay_block",
+    "block": "minecraft:brain_coral",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Heuballen als Trockenbank."
-   },
-   "hint": {
-    "ko": "건초 더미는 밀을 묶어 만들어요.",
-    "de": "Heuballen bindest du aus Weizen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sunflower"
+    "gen_copper_nautilus_armor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sunflower",
+    "item": "minecraft:copper_nautilus_armor",
     "count": 3
-   },
-   "clue": {
-    "de": "Pflück drei Sonnenblumen für den Strauß."
-   },
-   "hint": {
-    "ko": "해바라기는 해를 따라가요.",
-    "de": "Sonnenblumen folgen der Sonne."
    }
   }
  ],
@@ -79,20 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_skeleton_skull"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:skeleton_skull",
     "count": 1
-   },
-   "clue": {
-    "de": "Entzünde ein Lagerfeuer unter dem Trockenrahmen."
    },
    "conditions": []
   },
-  "textKo": "불 옆에 약초를 매달아 말려요.",
-  "textDe": "Neben dem Feuer trocknen die Kräuter."
+  "textKo": "스켈레톤 해골라는 길의 의식을 마쳤어요.",
+  "textDe": "Skelettschädel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_08",

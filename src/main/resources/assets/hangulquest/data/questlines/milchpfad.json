@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 141,
  "concepts": [
-  "milk",
-  "cauldron",
-  "sugar",
-  "cake"
+  "gen_smooth_sandstone_stairs",
+  "gen_infested_chiseled_stone_bricks",
+  "gen_netherite_axe",
+  "gen_packed_ice"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "milk"
+    "gen_smooth_sandstone_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:milk_bucket",
+    "item": "minecraft:smooth_sandstone_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Milcheimer."
-   },
-   "hint": {
-    "ko": "우유는 젖소에게서 얻어요.",
-    "de": "Milch bekommst du von Kühen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cauldron"
+    "gen_infested_chiseled_stone_bricks"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:cauldron"
-   },
-   "clue": {
-    "de": "Benutz einen Kessel."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:infested_chiseled_stone_bricks",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sugar"
+    "gen_netherite_axe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sugar",
+    "item": "minecraft:netherite_axe",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Zucker."
-   },
-   "hint": {
-    "ko": "설탕은 사탕수수로 만들어요.",
-    "de": "Zucker wird aus Zuckerrohr gemacht."
    }
   }
  ],
@@ -75,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cake"
+    "gen_packed_ice"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cake",
+    "block": "minecraft:packed_ice",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "케이크는 밀, 설탕, 달걀, 우유로 만들어요.",
-    "de": "Kuchen braucht Weizen, Zucker, Ei und Milch."
-   }
+   "conditions": []
   },
-  "textKo": "우유와 설탕으로 케이크를 만들어요.",
-  "textDe": "Aus Milch und Zucker wird Kuchen."
+  "textKo": "꽁꽁 언 얼음라는 길의 의식을 마쳤어요.",
+  "textDe": "Packeis — Zeremonie vollendet."
  },
  "reward": {
   "badge": "milchpfad",

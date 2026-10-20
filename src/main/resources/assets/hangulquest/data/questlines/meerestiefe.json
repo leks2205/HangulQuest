@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 514,
  "concepts": [
-  "ocean",
-  "squid",
-  "fish",
-  "campfire"
+  "gen_mushroom_fields",
+  "gen_mule",
+  "gen_stripped_birch_log",
+  "gen_cherry_button"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_mushroom_fields"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:mushroom_fields",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ins Meer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "squid"
+    "gen_mule"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:squid",
+    "entity": "minecraft:mule",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Tintenfisch an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fish"
+    "gen_stripped_birch_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:stripped_birch_log",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Fisch."
    }
   }
  ],
@@ -67,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_cherry_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:cherry_button",
     "count": 1
    },
    "conditions": [
@@ -81,8 +72,8 @@
     }
    ]
   },
-  "textKo": "해변에서 불을 피워요. 바다 깊은 길이 끝났어요.",
-  "textDe": "Am Strand brennt das Feuer. Die Meerestiefe ist zu Ende."
+  "textKo": "해변에서 벚나무 버튼라는 길의 의식을 마쳤어요.",
+  "textDe": "Kirschholzknopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "meerestiefe",

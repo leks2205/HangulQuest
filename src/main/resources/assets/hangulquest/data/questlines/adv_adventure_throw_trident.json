@@ -8,8 +8,8 @@
  "order": 233,
  "concepts": [
   "adv_item_trident",
-  "creeper",
-  "zombie"
+  "gen_zoglin",
+  "gen_breeze"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -40,15 +40,12 @@
   {
    "id": "s2",
    "teach": [
-    "creeper"
+    "gen_zoglin"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:creeper",
+    "entity": "minecraft:zoglin",
     "count": 1
-   },
-   "clue": {
-    "de": "Wirf den Dreizack auf einen Creeper, bevor er explodiert."
    }
   }
  ],
@@ -56,17 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_breeze"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:breeze",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "준비하시고... 쏘세요! — 삼지창을 던져서 좀비를 맞혀요.",
-  "textDe": "Ein Witz zum Wegwerfen — Du wirfst den Dreizack und triffst die Zombies."
+  "textKo": "브리즈라는 길의 의식을 마쳤어요.",
+  "textDe": "Böe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_throw_trident",

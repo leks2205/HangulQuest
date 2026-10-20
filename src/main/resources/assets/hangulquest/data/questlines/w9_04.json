@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1094,
  "concepts": [
+  "stone_bricks",
   "iron_chestplate",
-  "shield",
-  "stone_bricks"
+  "gen_hopper_minecart"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -62,17 +62,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "shield"
+    "gen_hopper_minecart"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shield",
+    "item": "minecraft:hopper_minecart",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "방패를 들지 않고서는 왕관을 지킬 수 없어요.",
-  "textDe": "Ohne Schild lässt sich die Krone nicht bewachen."
+  "textKo": "호퍼가 실린 광산 수레라는 길의 의식을 마쳤어요.",
+  "textDe": "Trichterlore — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_04",

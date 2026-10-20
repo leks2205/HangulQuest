@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1042,
  "concepts": [
-  "beach",
+  "gen_old_growth_spruce_taiga",
   "squid",
-  "ink_sac",
-  "lantern"
+  "gen_sulfur_cube_bucket",
+  "gen_weathered_copper_lantern"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_old_growth_spruce_taiga"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:old_growth_spruce_taiga",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Strand."
-   },
-   "hint": {
-    "ko": "해변에는 모래와 바다가 있어요.",
-    "de": "Am Strand liegen Sand und Meer."
    }
   },
   {
@@ -59,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "ink_sac"
+    "gen_sulfur_cube_bucket"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ink_sac",
+    "item": "minecraft:sulfur_cube_bucket",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Tintenbeutel."
-   },
-   "hint": {
-    "ko": "잉크 주머니는 오징어에게서 얻어요.",
-    "de": "Den Tintenbeutel bekommst du vom Tintenfisch."
    }
   }
  ],
@@ -79,19 +65,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_weathered_copper_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:weathered_copper_lantern",
     "count": 1
-   },
-   "clue": {
-    "de": "Häng nachts eine Laterne an den Leuchtturm."
-   },
-   "hint": {
-    "ko": "랜턴은 밤에 길을 밝혀요.",
-    "de": "Eine Laterne leuchtet in der Nacht."
    },
    "conditions": [
     {
@@ -100,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤에 등대에 불을 밝혀요.",
-  "textDe": "Nachts brennt das Licht am Leuchtturm."
+  "textKo": "밤에 녹슨 구리 랜턴라는 길의 의식을 마쳤어요.",
+  "textDe": "Verwitterte Kupferlaterne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_02",

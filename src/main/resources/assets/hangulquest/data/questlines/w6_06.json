@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1066,
  "concepts": [
-  "leaves",
-  "ladder",
-  "height",
-  "lantern"
+  "gen_red_stained_glass_pane",
+  "gen_bamboo_sign",
+  "gen_kelp_plant",
+  "gen_white_bed"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "leaves"
+    "gen_red_stained_glass_pane"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_leaves",
+    "block": "minecraft:red_stained_glass_pane",
     "count": 6
-   },
-   "clue": {
-    "de": "Schneide sechs Blätter für ein Sichtfenster weg."
-   },
-   "hint": {
-    "ko": "나뭇잎을 베면 시야가 열려요.",
-    "de": "Ohne Blätter hast du freie Sicht."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ladder"
+    "gen_bamboo_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:ladder",
+    "block": "minecraft:bamboo_sign",
     "count": 3
-   },
-   "clue": {
-    "de": "Bau drei Leitern am Stamm hinauf."
-   },
-   "hint": {
-    "ko": "사다리는 위로 올라가게 해요.",
-    "de": "Leitern bringen dich nach oben."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "height"
+    "gen_kelp_plant"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 120,
-    "maxY": 250
-   },
-   "clue": {
-    "de": "Steig bis auf Höhe 120 in die Krone."
-   },
-   "hint": {
-    "ko": "높이 백이십 위에서 숲이 보여요.",
-    "de": "Ab Höhe 120 siehst du über den Wald."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:kelp_plant",
+    "count": 3
    }
   }
  ],
@@ -79,29 +58,22 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_white_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:white_bed",
     "count": 1
-   },
-   "clue": {
-    "de": "Häng eine Laterne in die Kanzel."
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "랜턴은 밤에 길을 비춰요.",
-    "de": "Eine Laterne leuchtet in der Nacht."
-   }
+   ]
   },
-  "textKo": "밤에 나무 위 전망대에 랜턴을 걸어요.",
-  "textDe": "Bei Nacht hängt eine Laterne in der Waldkanzel."
+  "textKo": "밤에 하얀색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Weißes Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_06",

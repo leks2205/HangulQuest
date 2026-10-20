@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 550,
  "concepts": [
-  "emerald",
-  "diamond",
-  "beach",
-  "campfire"
+  "gen_piglin_banner_pattern",
+  "gen_gilded_blackstone",
+  "gen_nether_wastes",
+  "gen_warped_shelf"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,43 +25,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_piglin_banner_pattern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:piglin_banner_pattern",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Smaragde."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "diamond"
+    "gen_gilded_blackstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:gilded_blackstone",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Diamanten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "beach"
+    "gen_nether_wastes"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:nether_wastes",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Strand."
    }
   }
  ],
@@ -69,11 +60,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_warped_shelf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:warped_shelf",
     "count": 1
    },
    "conditions": [
@@ -83,8 +74,8 @@
     }
    ]
   },
-  "textKo": "해변에서 불을 피워요. 여행은 계속돼요!",
-  "textDe": "Am Strand brennt das Feuer. Die Reise geht weiter!"
+  "textKo": "해변에서 뒤틀린 선반라는 길의 의식을 마쳤어요.",
+  "textDe": "Wirrregal — Zeremonie vollendet."
  },
  "reward": {
   "badge": "unendlichereise",

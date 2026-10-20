@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_white_banner",
   "witch",
-  "villager"
+  "gen_snow_golem"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -52,19 +52,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "villager"
+    "gen_snow_golem"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
+    "entity": "minecraft:snow_golem"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sprich mit dem geretteten Dorfbewohner, der dir dankbar begegnet."
-   }
+   "conditions": []
   },
-  "textKo": "마을의 영웅 — 습격을 막고 주민에게 인사를 받았어요.",
-  "textDe": "Dorfheld — der Überfall ist abgewehrt."
+  "textKo": "눈 골렘라는 길의 의식을 마쳤어요.",
+  "textDe": "Schneegolem — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_hero_of_the_village",

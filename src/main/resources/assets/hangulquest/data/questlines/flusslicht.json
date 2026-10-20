@@ -7,10 +7,11 @@
  "tier": 2,
  "order": 45,
  "concepts": [
-  "river",
+  "gen_mangrove_swamp",
   "fish",
-  "torch",
-  "fishing_rod"
+  "fishing_rod",
+  "gen_tall_dry_grass",
+  "gen_cobblestone_slab"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,15 +24,12 @@
   {
    "id": "s1",
    "teach": [
-    "river"
+    "gen_mangrove_swamp"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_river",
+    "biome": "minecraft:mangrove_swamp",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an einen Fluss."
    }
   },
   {
@@ -57,15 +55,12 @@
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_tall_dry_grass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:tall_dry_grass",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    },
    "conditions": [
     {
@@ -79,11 +74,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_cobblestone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:cobblestone_slab",
     "count": 1
    },
    "conditions": [
@@ -93,8 +88,8 @@
     }
    ]
   },
-  "textKo": "밤에 강가에 빛을 놓아요.",
-  "textDe": "Nachts leuchtet der Fluss."
+  "textKo": "밤에 조약돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bruchsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "flusslicht",

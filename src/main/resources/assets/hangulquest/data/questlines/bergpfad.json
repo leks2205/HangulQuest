@@ -6,10 +6,10 @@
  "tier": 1,
  "concepts": [
   "mountain",
-  "snow",
   "climb",
-  "torch",
-  "goat"
+  "goat",
+  "snow",
+  "gen_spruce_fence_gate"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -79,11 +79,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_spruce_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:spruce_fence_gate",
     "count": 1
    },
    "conditions": [
@@ -97,8 +97,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 높은 곳에서 밤을 밝혔어요. 보물은 기억이에요.",
-  "textDe": "Auf der Höhe hast du die Nacht erhellt. Der Schatz ist die Erinnerung."
+  "textKo": "밤에 산 지형에서 가문비나무 울타리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Fichtenholzzauntor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bergpfad",

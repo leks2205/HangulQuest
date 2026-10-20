@@ -5,10 +5,10 @@
  "titleDe": "Der Hofpfad",
  "tier": 2,
  "concepts": [
-  "sheep",
-  "wool",
+  "spider",
+  "gen_dark_oak_pressure_plate",
   "chicken",
-  "bed"
+  "gen_soul_campfire"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -21,29 +21,23 @@
   {
    "id": "s1",
    "teach": [
-    "sheep"
+    "spider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sheep",
+    "entity": "minecraft:spider",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau das wollige Tier an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wool"
+    "gen_dark_oak_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_wool",
+    "item": "minecraft:dark_oak_pressure_plate",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle weiche Wolle."
    }
   },
   {
@@ -65,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_soul_campfire"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:soul_campfire"
    },
    "conditions": [
     {
@@ -78,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 농장의 침대에서 자요.",
-  "textDe": "Nachts schläfst du im Bauernhaus."
+  "textKo": "밤에 영혼 모닥불라는 길의 의식을 마쳤어요.",
+  "textDe": "Seelenlagerfeuer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "farmpfad",

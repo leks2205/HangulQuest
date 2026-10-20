@@ -7,7 +7,8 @@
  "tier": 2,
  "order": 207,
  "concepts": [
-  "adv_item_crafter"
+  "adv_item_crafter",
+  "gen_waxed_cut_copper_stairs"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -53,20 +54,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_crafter"
+    "gen_waxed_cut_copper_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crafter",
+    "item": "minecraft:waxed_cut_copper_stairs",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Lass den Werker einen zweiten Werker bauen und nimm ihn auf."
-   }
+   "conditions": []
   },
-  "textKo": "제작기 제 자신 제작기 — 제작기가 제작기를 하나 더 만들었어요.",
-  "textDe": "Werker werkeln Werker — ein Werker baut den nächsten."
+  "textKo": "밀랍칠한 깎인 구리 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste geschnittene Kupfertreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_crafters_crafting_crafters",

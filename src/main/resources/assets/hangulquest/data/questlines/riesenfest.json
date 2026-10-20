@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 531,
  "concepts": [
-  "cake",
-  "chicken",
-  "campfire",
-  "bell"
+  "fish",
+  "gen_strider",
+  "gen_red_shrub",
+  "gen_dark_oak_fence_gate"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -26,43 +26,34 @@
   {
    "id": "s1",
    "teach": [
-    "cake"
+    "fish"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:tropical_fish",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Kuchen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chicken"
+    "gen_strider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
+    "entity": "minecraft:strider",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Huhn an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_red_shrub"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:red_shrub",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   }
  ],
@@ -70,11 +61,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_dark_oak_fence_gate"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dark_oak_fence_gate",
+    "count": 2
    },
    "conditions": [
     {
@@ -83,8 +75,8 @@
     }
    ]
   },
-  "textKo": "낮에 잔치의 종을 울려요!",
-  "textDe": "Am Tag läutet die Festglocke!"
+  "textKo": "낮에 짙은 참나무 울타리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzeichenholzzauntor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "riesenfest",

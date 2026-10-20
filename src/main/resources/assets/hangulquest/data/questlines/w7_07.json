@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1077,
  "concepts": [
-  "adv_item_wither_skeleton_skull",
-  "nether_wart",
+  "gen_fire_coral_wall_fan",
+  "gen_cobweb",
   "adv_item_respawn_anchor",
-  "adv_item_crying_obsidian"
+  "gen_exposed_copper_chain"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_wither_skeleton_skull"
+    "gen_fire_coral_wall_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wither_skeleton_skull",
+    "item": "minecraft:fire_coral_wall_fan",
     "count": 1
-   },
-   "clue": {
-    "de": "Erbeute einen Wither-Skelettschädel."
-   },
-   "hint": {
-    "ko": "위더 스켈레톤 해골은 위더 스켈레톤을 물리치면 가끔 나와요.",
-    "de": "Wither-Skelettschädel lassen Wither-Skelette manchmal fallen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "nether_wart"
+    "gen_cobweb"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_wart",
+    "block": "minecraft:cobweb",
     "count": 3
-   },
-   "clue": {
-    "de": "Pflanz drei Netherwarzen."
-   },
-   "hint": {
-    "ko": "네더 사마귀는 영혼 모래에 심어요.",
-    "de": "Netherwarzen pflanzt du auf Seelensand."
    }
   },
   {
@@ -79,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_crying_obsidian"
+    "gen_exposed_copper_chain"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crying_obsidian",
+    "item": "minecraft:exposed_copper_chain",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "위더의 뼈와 우는 흑요석으로 어둠의 제단을 만들어요.",
-  "textDe": "Aus Witherknochen und weinendem Obsidian entsteht ein dunkler Altar."
+  "textKo": "약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Angelaufene Kupferkette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_07",

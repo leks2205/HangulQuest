@@ -9,7 +9,7 @@
  "concepts": [
   "wheat",
   "hay_block",
-  "bread"
+  "gen_cooked_cod"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -55,17 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bread"
+    "gen_cooked_cod"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:cooked_cod",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "농사 — 밀을 기르고 빵을 구워 먹어요.",
-  "textDe": "Landwirtschaft — Du erntest Weizen und isst dein eigenes Brot."
+  "textKo": "익힌 대구라는 길의 의식을 마쳤어요.",
+  "textDe": "Gebratener Kabeljau — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_root",

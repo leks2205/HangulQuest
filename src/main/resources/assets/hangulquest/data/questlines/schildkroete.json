@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 149,
  "concepts": [
-  "turtle",
+  "witch",
   "seagrass",
   "turtle_egg"
  ],
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "turtle"
+    "witch"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:turtle",
+    "entity": "minecraft:witch",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Schildkröte an."
    }
   },
   {

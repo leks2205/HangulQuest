@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 510,
  "concepts": [
-  "coal",
-  "iron",
+  "gen_golden_dandelion",
+  "gen_jungle_sapling",
   "diamond",
-  "torch"
+  "gen_prismarine_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_golden_dandelion"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:golden_dandelion",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Kohle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "iron"
+    "gen_jungle_sapling"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:jungle_sapling",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Eisen."
    }
   },
   {
@@ -67,11 +61,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_prismarine_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:prismarine_brick_slab",
     "count": 1
    },
    "conditions": [
@@ -82,8 +76,8 @@
     }
    ]
   },
-  "textKo": "높이 0 이하의 깊은 광맥에서 불을 밝혀요.",
-  "textDe": "Tief im Stollen brennt dein Licht."
+  "textKo": "높이 0 이하에서 프리즈머린 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Prismarinziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tiefenpfad",

@@ -8,8 +8,8 @@
  "order": 153,
  "concepts": [
   "shell",
-  "turtle",
-  "sand",
+  "gen_vindicator",
+  "gen_cyan_concrete_powder",
   "prismarine"
  ],
  "requires": {
@@ -39,29 +39,23 @@
   {
    "id": "s2",
    "teach": [
-    "turtle"
+    "gen_vindicator"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:turtle",
+    "entity": "minecraft:vindicator",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Schildkröte an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sand"
+    "gen_cyan_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sand",
+    "block": "minecraft:cyan_concrete_powder",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Sandblöcke."
    }
   }
  ],

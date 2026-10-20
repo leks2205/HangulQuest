@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 252,
  "concepts": [
-  "bow",
-  "arrow",
-  "ender_dragon"
+  "gen_tipped_arrow",
+  "gen_spruce_planks",
+  "gen_hoglin"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "bow"
+    "gen_tipped_arrow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bow",
+    "item": "minecraft:tipped_arrow",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue einen Bogen, um die Kristalle von den Türmen zu schießen."
-   },
-   "hint": {
-    "ko": "막대기와 실로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "arrow"
+    "gen_spruce_planks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arrow",
+    "item": "minecraft:spruce_planks",
     "count": 32
-   },
-   "clue": {
-    "de": "Nimm genug Pfeile mit in die Schlacht."
-   },
-   "hint": {
-    "ko": "부싯돌, 막대기, 깃털이 필요해요."
    }
   }
  ],
@@ -58,17 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "ender_dragon"
+    "gen_hoglin"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "entity": "minecraft:hoglin",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "엔드 해방 — 엔더 드래곤을 물리쳐 엔드를 해방해요.",
-  "textDe": "Befreie das Ende — Besiege den Enderdrachen über dem Portal."
+  "textKo": "호글린라는 길의 의식을 마쳤어요.",
+  "textDe": "Hoglin — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_end_kill_dragon",

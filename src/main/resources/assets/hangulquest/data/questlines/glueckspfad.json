@@ -7,9 +7,9 @@
  "order": 390,
  "concepts": [
   "gold",
-  "diamond",
-  "chest",
-  "torch"
+  "gen_pufferfish",
+  "gen_white_bed",
+  "gen_spruce_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -36,28 +36,22 @@
   {
    "id": "s2",
    "teach": [
-    "diamond"
+    "gen_pufferfish"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:pufferfish",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Diamanten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_white_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "block": "minecraft:white_bed"
    }
   }
  ],
@@ -65,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_spruce_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:spruce_hanging_sign",
     "count": 1
    },
    "conditions": [
@@ -79,8 +73,8 @@
     }
    ]
   },
-  "textKo": "밤에 횃불로 보물을 밝혀요.",
-  "textDe": "Mit einer Fackel leuchtet der Schatz."
+  "textKo": "밤에 가문비나무 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Fichtenholzhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "glueckspfad",

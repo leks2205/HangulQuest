@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1043,
  "concepts": [
-  "river",
-  "lily_pad",
-  "fishing_rod",
-  "salmon"
+  "gen_savanna",
+  "gen_dead_brain_coral",
+  "gen_jungle_pyramid_map",
+  "gen_leather_helmet"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "river"
+    "gen_savanna"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_river",
+    "biome": "minecraft:savanna",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Fluss."
-   },
-   "hint": {
-    "ko": "강에는 물이 흘러요.",
-    "de": "Im Fluss fließt das Wasser."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "lily_pad"
+    "gen_dead_brain_coral"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lily_pad",
+    "block": "minecraft:dead_brain_coral",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Seerosen auf das Wasser."
-   },
-   "hint": {
-    "ko": "수련잎은 물 위에 떠 있어요.",
-    "de": "Seerosen liegen oben auf dem Wasser."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fishing_rod"
+    "gen_jungle_pyramid_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fishing_rod",
+    "item": "minecraft:jungle_pyramid_map",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell eine Angel für die Nacht her."
-   },
-   "hint": {
-    "ko": "낚싯대는 나무 막대와 실로 만들어요.",
-    "de": "Eine Angel baust du aus Holzstab und Faden."
    }
   }
  ],
@@ -79,19 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "salmon"
+    "gen_leather_helmet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:salmon",
+    "item": "minecraft:leather_helmet",
     "count": 2
-   },
-   "clue": {
-    "de": "Zieh nachts zwei Lachse aus dem Wasser."
-   },
-   "hint": {
-    "ko": "연어는 밤에 강에서 잘 잡혀요.",
-    "de": "Lachs beißt nachts im Fluss gut an."
    },
    "conditions": [
     {
@@ -100,8 +72,8 @@
     }
    ]
   },
-  "textKo": "밤에 달빛 아래에서 연어를 잡아요.",
-  "textDe": "Nachts ziehst du im Mondlicht zwei Lachse an Land."
+  "textKo": "밤에 가죽 모자라는 길의 의식을 마쳤어요.",
+  "textDe": "Lederkappe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_03",

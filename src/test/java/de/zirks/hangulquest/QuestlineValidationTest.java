@@ -21,6 +21,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /** Guards the shipped content: every trail must load, validate and stay Hangul-only. */
@@ -47,10 +48,10 @@ class QuestlineValidationTest {
 	void allShippedQuestlinesValidate() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		List<Questline> loaded = QuestLoader.loadAll();
-		assertEquals(414, loaded.size(), "expected four hundred and fourteen authored trails");
+		assertEquals(420, loaded.size(), "expected four hundred and twenty authored trails");
 		QuestValidator.Result result = QuestValidator.validate(loaded, catalog, LOG);
 		assertTrue(result.problems().isEmpty(), "questline problems: " + result.problems());
-		assertEquals(414, result.trails().size());
+		assertEquals(420, result.trails().size());
 
 		java.util.Set<String> trailIds = new java.util.HashSet<>();
 		java.util.Map<String, Questline> byId = new java.util.HashMap<>();
@@ -246,6 +247,37 @@ class QuestlineValidationTest {
 						+ " clue omits the taught word " + word + ": " + ko);
 			}
 		}
+	}
+
+	@Test
+	void everyActionIsUsedOnceAcrossTheContent() {
+		java.util.Map<String, String> seen = new java.util.HashMap<>();
+		for (Questline trail : QuestLoader.loadAll()) {
+			for (var step : trail.allSteps()) {
+				String key = actionKey(step.goal());
+				String previous = seen.put(key, trail.id() + "/" + step.id());
+				assertNull(previous, "action used twice: " + key + " in "
+						+ previous + " and " + trail.id() + "/" + step.id());
+			}
+		}
+	}
+
+	private static String actionKey(Goal goal) {
+		String target = switch (goal) {
+			case Goal.BreakBlock g -> g.block();
+			case Goal.PlaceBlock g -> g.block();
+			case Goal.AcquireItem g -> g.item();
+			case Goal.ConsumeItem g -> g.item();
+			case Goal.LookAtBlock g -> g.block();
+			case Goal.UseBlock g -> g.block();
+			case Goal.LookAtEntity g -> g.entity();
+			case Goal.DefeatEntity g -> g.entity();
+			case Goal.InteractEntity g -> g.entity();
+			case Goal.ReachBiome g -> g.biome();
+			case Goal.ReachDimension g -> g.dimension();
+			case Goal.ReachHeight g -> g.minY() + ":" + g.maxY();
+		};
+		return goal.getClass().getSimpleName() + "|" + target;
 	}
 
 	@Test

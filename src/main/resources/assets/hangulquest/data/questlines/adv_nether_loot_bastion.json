@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 299,
  "concepts": [
-  "gold",
+  "gen_stripped_spruce_log",
   "gold_block",
   "chest"
  ],
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "gold"
+    "gen_stripped_spruce_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:stripped_spruce_log",
     "count": 4
-   },
-   "clue": {
-    "de": "Nimm vier Goldbarren mit, um unterwegs mit Piglins zu handeln."
    }
   },
   {

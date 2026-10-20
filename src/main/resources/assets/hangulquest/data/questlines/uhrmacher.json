@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 151,
  "concepts": [
-  "clock",
-  "crafting_table",
-  "gold_block",
-  "bell"
+  "gen_yellow_bundle",
+  "gen_dark_oak_door",
+  "gen_granite",
+  "gen_mud_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,46 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "clock"
+    "gen_yellow_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:yellow_bundle",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Uhr."
-   },
-   "hint": {
-    "ko": "시계는 금과 레드스톤으로 만들어요.",
-    "de": "Uhren bestehen aus Gold und Redstone."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "crafting_table"
+    "gen_dark_oak_door"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Benutz eine Werkbank."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dark_oak_door",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gold_block"
+    "gen_granite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:granite",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Goldblöcke."
    }
   }
  ],
@@ -71,20 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_mud_brick_wall"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mud_brick_wall",
+    "count": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "종은 금 조각으로 만들어요.",
-    "de": "Glocken bestehen aus Gold."
-   }
+   "conditions": []
   },
-  "textKo": "종을 울려 시간을 알려요.",
-  "textDe": "Die Glocke läutet die Zeit."
+  "textKo": "진흙 벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Schlammziegelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "uhrmacher",

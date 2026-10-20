@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1063,
  "concepts": [
-  "fox",
-  "sweet_berries",
-  "rabbit",
-  "leaves"
+  "gen_bamboo_shelf",
+  "gen_oxidized_chiseled_copper",
+  "gen_orange_stained_glass_pane",
+  "gen_jungle_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "fox"
+    "gen_bamboo_shelf"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:fox",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Fuchs an, ohne ihn zu erschrecken."
-   },
-   "hint": {
-    "ko": "여우는 달콤한 열매를 좋아해요.",
-    "de": "Füchse mögen Süßbeeren."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bamboo_shelf",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sweet_berries"
+    "gen_oxidized_chiseled_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sweet_berries",
+    "item": "minecraft:oxidized_chiseled_copper",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle fünf Süßbeeren aus dem Unterholz."
-   },
-   "hint": {
-    "ko": "달콤한 열매는 덤불에서 자라요.",
-    "de": "Süßbeeren wachsen an Sträuchern."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "rabbit"
+    "gen_orange_stained_glass_pane"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:rabbit",
-    "dwellMs": 700
-   },
-   "clue": {
-    "de": "Entdecke ein Kaninchen zwischen den Wurzeln."
-   },
-   "hint": {
-    "ko": "토끼는 풀밭에서 뛰어요.",
-    "de": "Kaninchen hoppeln über Wiesen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_stained_glass_pane",
+    "count": 3
    }
   }
  ],
@@ -79,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "leaves"
+    "gen_jungle_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_leaves",
+    "block": "minecraft:jungle_pressure_plate",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue aus drei Blättern ein Versteck für Fuchs und Kaninchen."
-   },
-   "hint": {
-    "ko": "나뭇잎으로 여우의 숨을 곳을 만들어요.",
-    "de": "Aus Blättern baust du dem Fuchs ein Versteck."
    },
    "conditions": []
   },
-  "textKo": "여우와 토끼를 위해 나뭇잎으로 숨을 곳을 만들어요.",
-  "textDe": "Aus Blättern entsteht ein Versteck für Fuchs und Kaninchen."
+  "textKo": "정글나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_03",

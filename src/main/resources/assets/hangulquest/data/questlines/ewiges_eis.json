@@ -7,10 +7,9 @@
  "tier": 3,
  "order": 92,
  "concepts": [
-  "diamond",
-  "bell",
-  "bed",
-  "eternity"
+  "gen_dark_oak_log",
+  "gen_white_shulker_box",
+  "gen_birch_door"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -24,28 +23,22 @@
   {
    "id": "s1",
    "teach": [
-    "diamond"
+    "gen_dark_oak_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:dark_oak_log",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Diamanten."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "gen_white_shulker_box"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute die Glocke."
+    "block": "minecraft:white_shulker_box"
    },
    "conditions": [
     {
@@ -59,12 +52,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed",
-    "eternity"
+    "gen_birch_door"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:birch_door"
    },
    "conditions": [
     {
@@ -75,14 +67,10 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "hint": {
-    "ko": "영원은 끝없다는 뜻이에요. 산 지형의 밤에 침대에서 자요.",
-    "de": "Ewigkeit heißt ohne Ende; schlaf nachts im Bergbiom im Bett."
-   }
+   ]
   },
-  "textKo": "산 지형의 밤에 침대에서 영원한 얼음을 지켜요.",
-  "textDe": "Im Bergbiom bewahrst du nachts das ewige Eis."
+  "textKo": "밤에 산 지형에서 자작나무 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenholztür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "ewiges_eis",

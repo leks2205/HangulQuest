@@ -8,7 +8,7 @@
   "log",
   "planks",
   "crafting_table",
-  "campfire"
+  "gen_infested_deepslate"
  ],
  "requires": {
   "minWordsKnown": 1,
@@ -77,11 +77,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_infested_deepslate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:infested_deepslate",
     "count": 1
    },
    "conditions": [
@@ -91,8 +91,8 @@
     }
    ]
   },
-  "textKo": "밤에 나무로 따뜻한 불을 만들었어요. 길이 끝났어요.",
-  "textDe": "Aus Holz wurde ein warmes Feuer. Der Pfad endet hier."
+  "textKo": "밤에 벌레 먹은 심층암라는 길의 의식을 마쳤어요.",
+  "textDe": "Befallener Tiefenschiefer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "holzpfad",

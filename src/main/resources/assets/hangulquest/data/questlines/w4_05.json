@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1045,
  "concepts": [
-  "sand",
-  "sea_lantern",
-  "fish",
-  "campfire"
+  "gen_waxed_oxidized_copper_golem_statue",
+  "gen_birch_trapdoor",
+  "gen_netherite_pickaxe",
+  "gold"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "sand"
+    "gen_waxed_oxidized_copper_golem_statue"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:sand",
+    "block": "minecraft:waxed_oxidized_copper_golem_statue",
     "count": 8
-   },
-   "clue": {
-    "de": "Hole acht Sand für die Feuerstelle am Strand."
-   },
-   "hint": {
-    "ko": "모래는 해변에 있어요.",
-    "de": "Sand liegt am Strand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sea_lantern"
+    "gen_birch_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sea_lantern",
+    "block": "minecraft:birch_trapdoor",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Meereslaternen an den Strand."
-   },
-   "hint": {
-    "ko": "바다 랜턴은 물속에서 빛나요.",
-    "de": "Eine Meereslaterne leuchtet unter Wasser."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fish"
+    "gen_netherite_pickaxe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:netherite_pickaxe",
     "count": 2
-   },
-   "clue": {
-    "de": "Fang zwei Kabeljau."
-   },
-   "hint": {
-    "ko": "물고기는 낚싯대로 잡아요.",
-    "de": "Fische fängst du mit einer Angel."
    }
   }
  ],
@@ -79,19 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gold"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:gold_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Mach nachts am Strand ein Lagerfeuer."
-   },
-   "hint": {
-    "ko": "모닥불은 밤에 따뜻해요.",
-    "de": "Ein Lagerfeuer wärmt in der Nacht."
    },
    "conditions": [
     {
@@ -104,8 +76,8 @@
     }
    ]
   },
-  "textKo": "밤 해변에서 모닥불을 피워요.",
-  "textDe": "Nachts brennt am Strand ein Lagerfeuer."
+  "textKo": "해변에서 밤에 금 광석라는 길의 의식을 마쳤어요.",
+  "textDe": "Golderz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_05",

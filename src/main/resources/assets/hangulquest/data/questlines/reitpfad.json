@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 503,
  "concepts": [
-  "horse",
-  "leather",
-  "fence"
+  "gen_donkey",
+  "gen_enchanted_golden_apple",
+  "gen_weathered_copper",
+  "gen_cut_copper"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -21,43 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_donkey"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
+    "entity": "minecraft:donkey",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Pferd an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "leather"
+    "gen_enchanted_golden_apple"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather",
+    "item": "minecraft:enchanted_golden_apple",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Leder."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fence"
+    "gen_weathered_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
+    "block": "minecraft:weathered_copper",
     "count": 8
-   },
-   "clue": {
-    "de": "Setz acht Zaunpfosten."
    }
   }
  ],
@@ -65,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_cut_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:cut_copper",
     "count": 1
    },
    "conditions": [
@@ -79,8 +71,8 @@
     }
    ]
   },
-  "textKo": "밤에 말과 함께 불을 피워요.",
-  "textDe": "Bei Nacht brennt das Feuer am Zaun."
+  "textKo": "밤에 깎인 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Geschnittener Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "reitpfad",

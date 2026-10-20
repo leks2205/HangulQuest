@@ -8,9 +8,9 @@
  "order": 1127,
  "concepts": [
   "flint",
-  "amethyst_shard",
-  "iron_block",
-  "anvil"
+  "gen_iron_door",
+  "gen_red_shulker_box",
+  "gen_deepslate_copper_ore"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "amethyst_shard"
+    "gen_iron_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_shard",
+    "item": "minecraft:iron_door",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Amethystsplitter für den Griff des Schwertes."
-   },
-   "hint": {
-    "ko": "자수정 조각은 자수정 군집에서 캐요.",
-    "de": "Amethystsplitter gewinnt man aus Amethyst-Clustern."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron_block"
+    "gen_red_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_block",
+    "block": "minecraft:red_shulker_box",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Eisenblöcke als Ambossblock in die Schmiede."
-   },
-   "hint": {
-    "ko": "철 블록은 철 조각 아홉 개로 만들어요.",
-    "de": "Ein Eisenblock besteht aus neun Eisenbarren."
    }
   }
  ],
@@ -79,25 +65,22 @@
   "step": {
    "id": "finale",
    "teach": [
-    "anvil"
+    "gen_deepslate_copper_ore"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:deepslate_copper_ore",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "모루는 철 블록 세 개와 철 조각 네 개로 만들어요. 밤에 사용해요.",
-    "de": "Ein Amboss braucht drei Eisenblöcke und vier Barren; nutz ihn nachts."
-   }
+   ]
   },
-  "textKo": "밤에 모루를 두드려 전설의 검을 벼려요.",
-  "textDe": "Nachts schmiedet der Amboss das Schwert der Legende."
+  "textKo": "밤에 심층암 구리 광석라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschiefer-Kupfererz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_07",

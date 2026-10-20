@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "blauwerk",
+ "titleKo": "푸른 실의 길",
+ "titleDe": "Der blaue Faden",
+ "topic": "색",
+ "tier": 2,
+ "order": 1131,
+ "koreanLevel": 6,
+ "concepts": [
+  "gen_cornflower",
+  "gen_cornflower",
+  "gen_blue_bed"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "unsterblichkeit"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gen_cornflower"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cornflower",
+    "count": 2
+   },
+   "clue": {
+    "ko": "수레국화를 만들어요.",
+    "de": "Stelle Kornblume her."
+   },
+   "hint": {
+    "ko": "수레국화를 만들어요.",
+    "de": "Stelle Kornblume her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_cornflower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:cornflower",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "수레국화를 봐요.",
+    "de": "Sieh dir Kornblume an."
+   },
+   "hint": {
+    "ko": "수레국화를 봐요.",
+    "de": "Sieh dir Kornblume an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_blue_bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:blue_bed",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 푸른 천을 펼쳤어요.",
+  "textDe": "Die Zeremonie ist vollendet."
+ },
+ "reward": {
+  "badge": "blauwerk",
+  "words": [
+   "gen_cornflower",
+   "gen_cornflower",
+   "gen_blue_bed"
+  ]
+ }
+}

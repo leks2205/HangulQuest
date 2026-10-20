@@ -8,7 +8,7 @@
  "order": 247,
  "concepts": [
   "glass_bottle",
-  "ender_dragon",
+  "gen_silverfish",
   "adv_item_dragon_breath"
  ],
  "requires": {
@@ -39,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "ender_dragon"
+    "gen_silverfish"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "entity": "minecraft:silverfish",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Weiche dem Drachen aus und behalte seinen Atem im Blick."
    }
   }
  ],

@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 136,
  "concepts": [
-  "beach",
+  "gen_crimson_forest",
   "sand",
-  "chest",
-  "torch"
+  "gen_smoker",
+  "gen_oak_wood"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,15 +24,12 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_crimson_forest"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:crimson_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an einen Strand."
    }
   },
   {
@@ -52,14 +49,12 @@
   {
    "id": "s3",
    "teach": [
-    "chest"
+    "gen_smoker"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:smoker",
+    "count": 1
    }
   }
  ],
@@ -67,11 +62,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_oak_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:oak_wood",
     "count": 2
    },
    "conditions": [
@@ -81,8 +76,8 @@
     }
    ]
   },
-  "textKo": "밤에 섬에 횃불을 놓아요.",
-  "textDe": "Nachts leuchten Fackeln auf der Insel."
+  "textKo": "밤에 참나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Eichenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "inselpfad",

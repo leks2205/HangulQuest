@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 258,
  "concepts": [
-  "iron",
+  "gen_lime_carpet",
   "bucket",
   "adv_item_axolotl_bucket"
  ],
@@ -22,19 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_lime_carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:lime_carpet",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Eisenbarren für den Eimer."
-   },
-   "hint": {
-    "ko": "철 원석은 돌 곡괭이로 캐고 화로에 구워요.",
-    "de": "Eisenerz baust du mit einer Steinspitzhacke ab und schmilzt es im Ofen."
    }
   },
   {

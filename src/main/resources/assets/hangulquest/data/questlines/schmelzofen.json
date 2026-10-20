@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 60,
  "concepts": [
-  "iron",
+  "seagrass",
   "furnace",
-  "torch"
+  "gen_wither_skeleton_wall_skull"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "seagrass"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:iron_ore",
+    "block": "minecraft:seagrass",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Eisenerz ab."
    }
   },
   {
@@ -52,16 +49,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "furnace"
+    "gen_wither_skeleton_wall_skull"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:wither_skeleton_wall_skull",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "용광로에 불을 붙여요.",
-  "textDe": "Im Ofen brennt das Feuer."
+  "textKo": "위더 스켈레톤 벽 해골라는 길의 의식을 마쳤어요.",
+  "textDe": "Wither-Skelett-Wandschädel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmelzofen",

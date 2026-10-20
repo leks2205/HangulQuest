@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 41,
  "concepts": [
-  "cat",
-  "wolf",
-  "bed"
+  "gen_slime",
+  "gen_ravager",
+  "gen_medium_amethyst_bud"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,29 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "cat"
+    "gen_slime"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cat",
+    "entity": "minecraft:slime",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Katze an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wolf"
+    "gen_ravager"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wolf",
+    "entity": "minecraft:ravager",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Wolf an."
    }
   }
  ],
@@ -53,17 +47,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_medium_amethyst_bud"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_bed",
+    "block": "minecraft:medium_amethyst_bud",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "침대를 놓고 함께 쉬어요.",
-  "textDe": "Mit dem Bett ruhst du dich aus."
+  "textKo": "중간 자수정 봉오리라는 길의 의식을 마쳤어요.",
+  "textDe": "Mittlere Amethystknospe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "haustierpfad",

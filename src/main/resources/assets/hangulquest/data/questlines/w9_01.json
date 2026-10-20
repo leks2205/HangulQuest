@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1091,
  "concepts": [
-  "bell",
   "crown",
-  "ritual"
+  "ritual",
+  "gen_waxed_copper_block"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -68,16 +68,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_waxed_copper_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_block",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "종을 울리지 않고서는 서약을 끝낼 수 없어요.",
-  "textDe": "Ohne das Läuten der Glocke kann der Schwur nicht enden."
+  "textKo": "밀랍칠한 구리 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_01",

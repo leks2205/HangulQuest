@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 275,
  "concepts": [
-  "wolf_armor",
-  "adv_item_armadillo_scute",
-  "wolf"
+  "gen_dark_oak_sign",
+  "gen_amethyst_cluster",
+  "gen_allay"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "wolf_armor"
+    "gen_dark_oak_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wolf_armor",
+    "item": "minecraft:dark_oak_sign",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue eine Wolfsrüstung aus sechs Hornschilden."
-   },
-   "hint": {
-    "ko": "아르마딜로 인갑으로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_armadillo_scute"
+    "gen_amethyst_cluster"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:armadillo_scute",
+    "item": "minecraft:amethyst_cluster",
     "count": 1
-   },
-   "clue": {
-    "de": "Bürste ein Gürteltier, bis ein Hornschild abfällt."
-   },
-   "hint": {
-    "ko": "솔로 아르마딜로를 빗어요."
    }
   }
  ],
@@ -58,16 +46,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wolf"
+    "gen_allay"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:wolf"
+    "entity": "minecraft:allay"
    },
    "conditions": []
   },
-  "textKo": "새것처럼 — 인갑으로 늑대 갑옷을 고쳐요.",
-  "textDe": "So gut wie neu — Mit einem Hornschild flickst du die Wolfsrüstung."
+  "textKo": "알레이라는 길의 의식을 마쳤어요.",
+  "textDe": "Hilfsgeist — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_repair_wolf_armor",

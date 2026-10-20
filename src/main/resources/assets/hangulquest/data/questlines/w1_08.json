@@ -8,8 +8,9 @@
  "order": 1018,
  "concepts": [
   "lantern",
-  "sea_lantern",
-  "adv_item_glow_ink_sac"
+  "gen_cherry_wood",
+  "gen_furnace_minecart",
+  "gen_yellow_concrete_slab"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -38,37 +39,23 @@
   {
    "id": "s2",
    "teach": [
-    "lantern"
+    "gen_cherry_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:cherry_wood",
     "count": 2
-   },
-   "clue": {
-    "de": "Häng zwei Laternen an die Wand."
-   },
-   "hint": {
-    "ko": "랜턴을 벽에 놓아요.",
-    "de": "Hänge die Laternen an die Wand."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_glow_ink_sac"
+    "gen_furnace_minecart"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glow_ink_sac",
+    "item": "minecraft:furnace_minecart",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Leuchttintenbeutel."
-   },
-   "hint": {
-    "ko": "발광 먹물 주머니는 빛나는 오징어에게서 얻어요.",
-    "de": "Leuchttinte kommt von leuchtenden Tintenfischen."
    }
   }
  ],
@@ -76,17 +63,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sea_lantern"
+    "gen_yellow_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sea_lantern",
+    "block": "minecraft:yellow_concrete_slab",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "바다 랜턴이 물속을 환하게 비춰요.",
-  "textDe": "Meereslaternen erhellen das Wasser."
+  "textKo": "노란색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelbe Betonstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_08",

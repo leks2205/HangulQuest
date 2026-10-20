@@ -6,11 +6,10 @@
  "tier": 4,
  "order": 450,
  "concepts": [
-  "climb",
-  "diamond",
-  "torch",
-  "mountain",
-  "bed"
+  "gen_swamp",
+  "gen_exposed_chiseled_copper",
+  "gen_mangrove_shelf",
+  "gen_daylight_detector"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -25,48 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain",
-    "climb"
+    "gen_swamp"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:swamp",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
-   },
-   "hint": {
-    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "diamond"
+    "gen_exposed_chiseled_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
+    "item": "minecraft:exposed_chiseled_copper",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Diamanten."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_mangrove_shelf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:mangrove_shelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz in der Nacht eine Fackel."
    },
    "conditions": [
     {
@@ -80,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_daylight_detector"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:daylight_detector"
    },
    "conditions": [
     {
@@ -97,8 +82,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 밤에 잠들어요. 수호자가 되었어요!",
-  "textDe": "Im Bergbiom schläfst du nachts. Du bist Wächter!"
+  "textKo": "밤에 산 지형에서 햇빛 감지기라는 길의 의식을 마쳤어요.",
+  "textDe": "Tageslichtsensor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gipfelwaechter",

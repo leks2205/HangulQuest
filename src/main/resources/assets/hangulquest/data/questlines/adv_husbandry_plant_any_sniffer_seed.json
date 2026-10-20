@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 272,
  "concepts": [
-  "adv_block_torchflower_seeds",
+  "gen_carrots",
   "adv_item_pitcher_pod",
   "flower"
  ],
@@ -22,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_block_torchflower_seeds"
+    "gen_carrots"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:torchflower_seeds",
+    "item": "minecraft:carrots",
     "count": 1
-   },
-   "clue": {
-    "de": "Lass einen Schnüffler graben, bis er Fackelliliensamen ausgräbt."
    }
   },
   {

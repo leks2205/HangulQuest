@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 310,
  "concepts": [
-  "coal",
-  "furnace",
-  "iron",
-  "torch"
+  "gen_glow_lichen",
+  "gen_rooted_dirt",
+  "gen_copper_pickaxe",
+  "gen_oxidized_copper_bars"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -22,42 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_glow_lichen"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:glow_lichen",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Stück Kohle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_rooted_dirt"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Öffne den heißen Ofen."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:rooted_dirt",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron"
+    "gen_copper_pickaxe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:copper_pickaxe",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle ein Stück Eisen."
    }
   }
  ],
@@ -65,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_oxidized_copper_bars"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:oxidized_copper_bars",
     "count": 1
    },
    "conditions": [
@@ -79,8 +71,8 @@
     }
    ]
   },
-  "textKo": "밤에 횃불을 놓아요. 뜨거운 불이 남았어요.",
-  "textDe": "Nachts setzt du eine Fackel. Das Feuer bleibt."
+  "textKo": "밤에 산화된 구리 창살라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidiertes Kupfergitter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmelzpfad",

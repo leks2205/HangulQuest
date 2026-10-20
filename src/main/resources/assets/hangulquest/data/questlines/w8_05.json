@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1085,
  "concepts": [
-  "adv_item_dragon_breath",
-  "ender_dragon",
-  "dragon_egg",
-  "adv_item_dragon_head"
+  "gen_cobbled_deepslate_slab",
+  "gen_purple_terracotta",
+  "gen_purple_shulker_box",
+  "gen_cyan_concrete"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_dragon_breath"
+    "gen_cobbled_deepslate_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dragon_breath",
+    "item": "minecraft:cobbled_deepslate_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Fang drei Drachenatem ein."
-   },
-   "hint": {
-    "ko": "드래곤의 숨결은 유리병으로 모아요.",
-    "de": "Drachenatem fängst du mit Glasflaschen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ender_dragon"
+    "gen_purple_terracotta"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:purple_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege den Enderdrachen."
-   },
-   "hint": {
-    "ko": "엔더 드래곤은 엔드 섬의 보스예요.",
-    "de": "Der Enderdrache ist der Boss der Endinsel."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "dragon_egg"
+    "gen_purple_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dragon_egg",
+    "block": "minecraft:purple_shulker_box",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz das Drachenei."
-   },
-   "hint": {
-    "ko": "드래곤 알은 드래곤을 물리치면 나와요.",
-    "de": "Das Drachenei erscheint nach dem Sieg über den Drachen."
    }
   }
  ],
@@ -79,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_dragon_head"
+    "gen_cyan_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dragon_head",
+    "block": "minecraft:cyan_concrete",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "드래곤이 쓰러졌어요. 알과 머리가 우리 것이에요.",
-  "textDe": "Der Drache ist gefallen. Ei und Haupt gehören uns."
+  "textKo": "청록색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkiser Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_05",

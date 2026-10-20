@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 144,
  "concepts": [
-  "fox",
-  "sweet_berries",
+  "gen_piglin",
+  "gen_nether_gold_ore",
   "leaves",
-  "campfire"
+  "gen_polished_diorite"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,33 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "fox"
+    "gen_piglin"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:fox",
+    "entity": "minecraft:piglin",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Fuchs an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sweet_berries"
+    "gen_nether_gold_ore"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sweet_berries",
+    "item": "minecraft:nether_gold_ore",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Süßbeeren."
-   },
-   "hint": {
-    "ko": "달콤한 열매는 숲의 덤불에서 자라요.",
-    "de": "Süßbeeren wachsen an Sträuchern im Wald."
    }
   },
   {
@@ -71,11 +61,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_polished_diorite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:polished_diorite",
     "count": 1
    },
    "conditions": [
@@ -83,14 +73,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "hint": {
-    "ko": "모닥불은 막대기와 석탄으로 만들어요.",
-    "de": "Lagerfeuer bestehen aus Stöcken und Kohle."
-   }
+   ]
   },
-  "textKo": "밤에 여우 집에 모닥불을 피워요.",
-  "textDe": "Nachts brennt am Fuchsbau ein Feuer."
+  "textKo": "밤에 윤나는 섬록암라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Diorit — Zeremonie vollendet."
  },
  "reward": {
   "badge": "fuchsbau",

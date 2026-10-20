@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 517,
  "concepts": [
-  "emerald",
-  "bread",
-  "bell",
-  "chest"
+  "gen_filled_map",
+  "gen_cherry_fence",
+  "gen_polished_blackstone_brick_wall",
+  "gen_closed_eyeblossom"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,42 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_filled_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:filled_map",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle fünf Smaragde."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "gen_cherry_fence"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:cherry_fence",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Brote."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_polished_blackstone_brick_wall"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute die Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:polished_blackstone_brick_wall",
+    "count": 1
    }
   }
  ],
@@ -66,11 +58,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_closed_eyeblossom"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:closed_eyeblossom",
+    "count": 3
    },
    "conditions": [
     {
@@ -79,8 +72,8 @@
     }
    ]
   },
-  "textKo": "낮에 무역로 상자를 열어요.",
-  "textDe": "Am Tag öffnest du die Handelstruhe."
+  "textKo": "낮에 감은 눈망울꽃라는 길의 의식을 마쳤어요.",
+  "textDe": "Geschlossene Augenblüte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "handelsstrasse",

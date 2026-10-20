@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1067,
  "concepts": [
-  "jungle",
+  "gen_sunflower_plains",
   "jungle_log",
-  "bamboo",
-  "cocoa_beans"
+  "gen_clay",
+  "gen_poplar_boat"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "jungle"
+    "gen_sunflower_plains"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:jungle",
+    "biome": "minecraft:sunflower_plains",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche den Dschungel und bleib einen Moment."
-   },
-   "hint": {
-    "ko": "정글은 덥고 나무가 많아요.",
-    "de": "Im Dschungel ist es heiß und grün."
    }
   },
   {
@@ -59,19 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "bamboo"
+    "gen_clay"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo",
+    "item": "minecraft:clay",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Bambusrohre."
-   },
-   "hint": {
-    "ko": "대나무는 정글에서 자라요.",
-    "de": "Bambus wächst im Dschungel."
    }
   }
  ],
@@ -79,20 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cocoa_beans"
+    "gen_poplar_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cocoa_beans",
+    "item": "minecraft:poplar_boat",
     "count": 3
-   },
-   "clue": {
-    "de": "Ernte drei Kakaobohnen von den Stämmen."
    },
    "conditions": []
   },
-  "textKo": "정글에서 약초와 카카오 콩을 모아요.",
-  "textDe": "Sammle im Dschungel Kräuter und Kakaobohnen."
+  "textKo": "포플러나무 보트라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelholzboot — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_07",

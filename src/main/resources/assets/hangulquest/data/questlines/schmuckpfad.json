@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 104,
  "concepts": [
-  "gold",
-  "emerald",
-  "crafting_table",
-  "chest"
+  "gen_waxed_cut_copper",
+  "gen_exposed_copper_bulb",
+  "gen_gray_harness",
+  "gen_allium"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "gold"
+    "gen_waxed_cut_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:waxed_cut_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Goldbarren."
-   },
-   "hint": {
-    "ko": "금은 철 곡괭이로 캐요.",
-    "de": "Gold baust du mit einer Eisenspitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "crafting_table"
+    "gen_exposed_copper_bulb"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
-   },
-   "clue": {
-    "de": "Benutz eine Werkbank."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:exposed_copper_bulb",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "gen_gray_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:gray_harness",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   }
  ],
@@ -75,17 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_allium"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chest",
+    "block": "minecraft:allium",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "보석을 상자에 넣어요.",
-  "textDe": "Schmuck kommt in die Truhe."
+  "textKo": "알리움라는 길의 의식을 마쳤어요.",
+  "textDe": "Zierlauch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmuckpfad",

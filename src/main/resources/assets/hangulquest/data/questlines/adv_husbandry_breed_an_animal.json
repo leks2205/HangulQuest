@@ -8,7 +8,7 @@
  "order": 261,
  "concepts": [
   "wheat",
-  "cow",
+  "gen_camel",
   "pig"
  ],
  "requires": {
@@ -36,14 +36,11 @@
   {
    "id": "s2",
    "teach": [
-    "cow"
+    "gen_camel"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:cow"
-   },
-   "clue": {
-    "de": "Füttere zwei Kühe mit dem Weizen und lass sie ein Kalb machen."
+    "entity": "minecraft:camel"
    }
   }
  ],

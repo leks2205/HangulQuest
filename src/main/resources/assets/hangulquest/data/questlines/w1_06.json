@@ -9,7 +9,7 @@
  "concepts": [
   "ice",
   "snow",
-  "glass_pane"
+  "gen_polished_deepslate_wall"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -76,17 +76,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "glass_pane"
+    "gen_polished_deepslate_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glass_pane",
+    "block": "minecraft:polished_deepslate_wall",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "얼음과 눈과 유리로 겨울 창문을 만들어요.",
-  "textDe": "Eis, Schnee und Glas ergeben ein Winterfenster."
+  "textKo": "윤나는 심층암 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Tiefenschiefermauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_06",

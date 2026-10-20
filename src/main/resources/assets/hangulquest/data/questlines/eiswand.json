@@ -6,11 +6,10 @@
  "tier": 5,
  "order": 506,
  "concepts": [
-  "ice",
+  "gen_birch_sapling",
   "snow",
-  "goat",
-  "torch",
-  "mountain"
+  "gen_llama",
+  "gen_dead_horn_coral_fan"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -26,15 +25,12 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "gen_birch_sapling"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
+    "block": "minecraft:birch_sapling",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Eis ab."
    }
   },
   {
@@ -54,15 +50,12 @@
   {
    "id": "s3",
    "teach": [
-    "goat"
+    "gen_llama"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
+    "entity": "minecraft:llama",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
    }
   }
  ],
@@ -70,11 +63,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_dead_horn_coral_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:dead_horn_coral_fan",
     "count": 1
    },
    "conditions": [
@@ -84,8 +77,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 얼음벽 위에서 밤을 밝혀요.",
-  "textDe": "Über der Eiswand brennt ein Licht."
+  "textKo": "산 지형에서 죽은 부채형 사방산호라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Geweihkorallenfächer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "eiswand",

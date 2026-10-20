@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 317,
  "concepts": [
-  "iron",
-  "stick",
+  "gen_warped_trapdoor",
+  "gen_green_concrete_stairs",
   "crafting_table",
   "pickaxe"
  ],
@@ -23,33 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_warped_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:warped_trapdoor",
     "count": 3
-   },
-   "clue": {
-    "de": "Lege drei Eisenbarren für die neue Spitzhacke bereit."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "stick"
+    "gen_green_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stick",
+    "item": "minecraft:green_concrete_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Schnitze zwei Stöcke als Griff."
-   },
-   "hint": {
-    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
-    "de": "Zwei Holzbretter ergeben vier Stöcke."
    }
   },
   {

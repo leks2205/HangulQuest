@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1074,
  "concepts": [
-  "coal",
-  "furnace",
+  "gen_polished_granite_slab",
+  "gen_yellow_terracotta",
   "adv2_item_baked_potato",
-  "campfire"
+  "gen_ominous_banner"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_polished_granite_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:coal",
+    "item": "minecraft:polished_granite_slab",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Kohle."
-   },
-   "hint": {
-    "ko": "석탄은 돌 속에서 캐요.",
-    "de": "Kohle findest du im Stein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_yellow_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:furnace",
+    "block": "minecraft:yellow_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Ofen auf."
-   },
-   "hint": {
-    "ko": "화로는 조약돌 여덟 개로 만들어요.",
-    "de": "Ein Ofen besteht aus acht Bruchsteinen."
    }
   },
   {
@@ -79,16 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_ominous_banner"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:campfire"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:ominous_banner",
+    "count": 1
    },
    "conditions": []
   },
-  "textKo": "화로와 모닥불로 따뜻한 저녁을 만들어요.",
-  "textDe": "Ofen und Lagerfeuer wärmen den Abend."
+  "textKo": "불길한 현수막라는 길의 의식을 마쳤어요.",
+  "textDe": "Unheilvolles Banner — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_04",

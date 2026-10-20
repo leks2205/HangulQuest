@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1038,
  "concepts": [
-  "beach",
-  "fishing_rod",
-  "fish",
-  "villager"
+  "gen_ice_spikes",
+  "gen_oak_trapdoor",
+  "gen_crimson_sign",
+  "gen_tadpole"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_ice_spikes"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:ice_spikes",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh zum Strand, wo die Boote anlegen."
-   },
-   "hint": {
-    "ko": "해변으로 걸어가요.",
-    "de": "Geh zum Strand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fishing_rod"
+    "gen_oak_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fishing_rod",
+    "item": "minecraft:oak_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Nimm eine Angel für den Fang."
-   },
-   "hint": {
-    "ko": "낚싯대를 챙겨요.",
-    "de": "Nimm eine Angel mit."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "fish"
+    "gen_crimson_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:crimson_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Fang zwei Fische für den Marktstand."
-   },
-   "hint": {
-    "ko": "물고기를 잡아요.",
-    "de": "Fang Fische."
    }
   }
  ],
@@ -79,16 +58,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "villager"
+    "gen_tadpole"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
+    "entity": "minecraft:tadpole"
    },
    "conditions": []
   },
-  "textKo": "물고기를 팔고 인사를 나눠요. 항구의 하루가 저물어요.",
-  "textDe": "Fisch verkauft, Grüße getauscht. Der Tag am Hafen geht zu Ende."
+  "textKo": "올챙이라는 길의 의식을 마쳤어요.",
+  "textDe": "Kaulquappe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_08",

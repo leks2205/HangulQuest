@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1061,
  "concepts": [
-  "log",
-  "axe",
-  "planks",
-  "sapling"
+  "gen_poplar_button",
+  "gen_lime_wool_stairs",
+  "gen_warped_fence",
+  "gen_jungle_wood"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "log"
+    "gen_poplar_button"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_log",
+    "block": "minecraft:poplar_button",
     "count": 3
-   },
-   "clue": {
-    "de": "Fälle drei Eichenstämme und zähle die Jahresringe."
-   },
-   "hint": {
-    "ko": "나이테는 한 해에 하나씩 생겨요.",
-    "de": "Jahresringe wachsen einer pro Jahr."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "axe"
+    "gen_lime_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_axe",
+    "item": "minecraft:lime_wool_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Besorge eine Eisenaxt für die nächsten Stämme."
-   },
-   "hint": {
-    "ko": "도끼는 나무를 빨리 베어요.",
-    "de": "Mit einer Axt fällst du Stämme schneller."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "planks"
+    "gen_warped_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_planks",
+    "block": "minecraft:warped_fence",
     "count": 4
-   },
-   "clue": {
-    "de": "Säge das Holz zu Brettern und leg vier davon aus."
-   },
-   "hint": {
-    "ko": "판자는 통나무로 만들어요.",
-    "de": "Bretter entstehen aus Stämmen."
    }
   }
  ],
@@ -79,20 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sapling"
+    "gen_jungle_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_sapling",
+    "block": "minecraft:jungle_wood",
     "count": 1
-   },
-   "clue": {
-    "de": "Pflanze einen Setzling für die nächsten Jahresringe."
    },
    "conditions": []
   },
-  "textKo": "나이테를 읽고 새 나무를 심어요.",
-  "textDe": "Lies die Jahresringe und pflanze einen neuen Baum."
+  "textKo": "정글나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_01",

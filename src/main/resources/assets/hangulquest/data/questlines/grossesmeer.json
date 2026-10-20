@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 542,
  "concepts": [
-  "ocean",
-  "fish",
-  "campfire",
-  "bed"
+  "gen_deep_ocean",
+  "gen_lime_concrete_stairs",
+  "gen_green_stained_glass_pane",
+  "gen_stone_button"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,43 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
+    "gen_deep_ocean"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
+    "biome": "minecraft:deep_ocean",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh ins Meer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "fish"
+    "gen_lime_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:lime_concrete_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Fische."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_green_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:green_stained_glass_pane",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   }
  ],
@@ -67,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_stone_button"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:stone_button"
    },
    "conditions": [
     {
@@ -80,8 +71,8 @@
     }
    ]
   },
-  "textKo": "밤에 배 위에서 잠들어요.",
-  "textDe": "Nachts schläfst du auf dem Schiff."
+  "textKo": "밤에 돌 버튼라는 길의 의식을 마쳤어요.",
+  "textDe": "Steinknopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "grossesmeer",

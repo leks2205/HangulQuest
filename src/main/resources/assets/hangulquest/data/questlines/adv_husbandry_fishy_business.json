@@ -9,7 +9,7 @@
  "concepts": [
   "string",
   "fishing_rod",
-  "fish"
+  "gen_green_shulker_box"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -56,17 +56,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "fish"
+    "gen_green_shulker_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
+    "item": "minecraft:green_shulker_box",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "강태공이 세월을 낚듯 — 물에서 대구를 낚아 올려요.",
-  "textDe": "Anglerglück: Du ziehst einen Kabeljau aus dem Wasser."
+  "textKo": "초록색 셜커 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne Shulker-Kiste — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_fishy_business",

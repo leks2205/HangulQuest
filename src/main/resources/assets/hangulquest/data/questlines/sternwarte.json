@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 515,
  "concepts": [
-  "flower",
-  "sea_lantern",
-  "bed",
-  "flower_pot"
+  "gen_magenta_concrete_powder",
+  "gen_copper_chest",
+  "gen_jungle_trapdoor",
+  "gen_blue_terracotta"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,42 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "flower"
+    "gen_magenta_concrete_powder"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
+    "block": "minecraft:magenta_concrete_powder",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau eine Mohnblume an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sea_lantern"
+    "gen_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sea_lantern",
+    "block": "minecraft:copper_chest",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Meereslaternen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_jungle_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf nachts im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:jungle_trapdoor",
+    "count": 3
    },
    "conditions": [
     {
@@ -72,17 +64,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower_pot"
+    "gen_blue_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:flower_pot",
+    "block": "minecraft:blue_terracotta",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "달빛 정원에 화분을 놓아요.",
-  "textDe": "Blumentöpfe im Mondgarten."
+  "textKo": "파란색 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Blaue Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "sternwarte",

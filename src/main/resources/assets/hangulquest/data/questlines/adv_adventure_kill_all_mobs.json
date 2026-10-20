@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_diamond_sword",
   "enderman",
-  "witch"
+  "gen_guardian"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -55,20 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "witch"
+    "gen_guardian"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:witch",
+    "entity": "minecraft:guardian",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Beende die Sammlung mit einer Hexe aus dem Sumpf."
-   }
+   "conditions": []
   },
-  "textKo": "몬스터 도감 — 여러 몬스터를 차례로 사냥했어요.",
-  "textDe": "Meisterjäger — die ganze Sammlung abgearbeitet."
+  "textKo": "가디언라는 길의 의식을 마쳤어요.",
+  "textDe": "Wächter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_kill_all_mobs",

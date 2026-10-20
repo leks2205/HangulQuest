@@ -5,10 +5,10 @@
  "titleDe": "Der Bäckereipfad",
  "tier": 4,
  "concepts": [
-  "wheat",
-  "furnace",
+  "gen_dead_tube_coral_fan",
+  "gen_barrel",
   "bread",
-  "campfire"
+  "gen_copper_torch"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -23,28 +23,22 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "gen_dead_tube_coral_fan"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:wheat",
+    "block": "minecraft:dead_tube_coral_fan",
     "count": 3
-   },
-   "clue": {
-    "de": "Ernte drei gelbe Halme."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_barrel"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
-   },
-   "clue": {
-    "de": "Öffne den heißen Ort."
+    "block": "minecraft:barrel"
    }
   },
   {
@@ -66,11 +60,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_copper_torch"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:copper_torch",
     "count": 1
    },
    "conditions": [
@@ -80,8 +74,8 @@
     }
    ]
   },
-  "textKo": "밤에 모닥불을 피워 빵을 구워요.",
-  "textDe": "Nachts backst du Brot am Feuer."
+  "textKo": "밤에 구리 횃불라는 길의 의식을 마쳤어요.",
+  "textDe": "Kupferfackel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "baeckerei",

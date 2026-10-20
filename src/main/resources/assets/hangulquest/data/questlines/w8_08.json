@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1088,
  "concepts": [
-  "nether_star",
-  "beacon",
-  "enchanting_table",
-  "candle"
+  "sea_lantern",
+  "gen_brown_carpet",
+  "gen_mud_bricks",
+  "gen_crimson_fungus"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,54 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "nether_star"
+    "sea_lantern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
+    "item": "minecraft:sea_lantern",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Netherstern."
-   },
-   "hint": {
-    "ko": "네더의 별은 위더를 물리치면 나와요.",
-    "de": "Der Netherstern fällt vom Wither."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "beacon"
+    "gen_brown_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:beacon",
+    "block": "minecraft:brown_carpet",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Leuchtfeuer."
-   },
-   "hint": {
-    "ko": "신호기는 네더의 별과 유리로 만들어요.",
-    "de": "Ein Leuchtfeuer besteht aus einem Netherstern und Glas."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "enchanting_table"
+    "gen_mud_bricks"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
-   },
-   "clue": {
-    "de": "Benutz einen Zaubertisch."
-   },
-   "hint": {
-    "ko": "마법 부여대는 흑요석과 책으로 만들어요.",
-    "de": "Der Zaubertisch besteht aus Obsidian, Büchern und Diamanten."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:mud_bricks",
+    "count": 1
    }
   }
  ],
@@ -78,17 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "candle"
+    "gen_crimson_fungus"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
+    "block": "minecraft:crimson_fungus",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "별의 문이 밤에 빛나요. 새로운 세계가 열려요.",
-  "textDe": "Das Sternentor leuchtet in der Nacht. Eine neue Welt öffnet sich."
+  "textKo": "진홍빛 균라는 길의 의식을 마쳤어요.",
+  "textDe": "Karmesinpilz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_08",

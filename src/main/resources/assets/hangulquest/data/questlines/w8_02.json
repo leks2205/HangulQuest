@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1082,
  "concepts": [
-  "ender_pearl",
-  "adv_item_ender_eye",
+  "gen_black_terracotta",
+  "gen_brown_concrete_powder",
   "stone_bricks",
-  "adv_block_end_stone"
+  "gen_red_concrete"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,37 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "ender_pearl"
+    "gen_black_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_pearl",
+    "item": "minecraft:black_terracotta",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Enderperlen."
-   },
-   "hint": {
-    "ko": "엔더 진주는 엔더맨을 물리치면 나와요.",
-    "de": "Endermen lassen Enderperlen fallen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_ender_eye"
+    "gen_brown_concrete_powder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_eye",
+    "item": "minecraft:brown_concrete_powder",
     "count": 6
-   },
-   "clue": {
-    "de": "Stelle sechs Augen des Enders her."
-   },
-   "hint": {
-    "ko": "엔더의 눈은 진주와 블레이즈 가루로 만들어요.",
-    "de": "Ein Auge des Enders ist eine Enderperle mit Lohenstaub."
    }
   },
   {
@@ -79,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_end_stone"
+    "gen_red_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:end_stone",
+    "block": "minecraft:red_concrete",
     "count": 3
    },
    "conditions": []
   },
-  "textKo": "눈이 길을 보여 줘요. 엔드 돌 제단이 빛나요.",
-  "textDe": "Die Augen weisen den Weg. Ein Altar aus Endstein leuchtet."
+  "textKo": "빨간색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Roter Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_02",

@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 122,
  "concepts": [
-  "bell",
-  "lectern",
-  "emerald",
-  "gold_block"
+  "gen_end_stone_brick_slab",
+  "gen_short_grass",
+  "gen_pink_candle_cake",
+  "gen_oxidized_chiseled_copper"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -24,45 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "bell"
+    "gen_end_stone_brick_slab"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:end_stone_brick_slab",
+    "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "lectern"
+    "gen_short_grass"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:lectern"
-   },
-   "clue": {
-    "de": "Benutz ein Lesepult."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:short_grass",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "gen_pink_candle_cake"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:pink_candle_cake",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Smaragde."
-   },
-   "hint": {
-    "ko": "에메랄드는 산에서 캐요.",
-    "de": "Smaragde findest du in Bergen."
    }
   }
  ],
@@ -70,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "gen_oxidized_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:oxidized_chiseled_copper",
     "count": 4
    },
-   "conditions": [],
-   "hint": {
-    "ko": "금 블록은 금 아홉 개로 만들어요.",
-    "de": "Goldblöcke bestehen aus neun Goldbarren."
-   }
+   "conditions": []
   },
-  "textKo": "금 블록으로 왕관 회의를 열어요.",
-  "textDe": "Goldblöcke schmücken den Kronenrat."
+  "textKo": "산화된 조각된 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierter gemeißelter Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenrat",

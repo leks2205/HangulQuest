@@ -8,8 +8,8 @@
  "order": 308,
  "concepts": [
   "soul_sand",
-  "adv_item_wither_skeleton_skull",
-  "nether_star"
+  "gen_warped_planks",
+  "gen_powder_snow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "adv_item_wither_skeleton_skull"
+    "gen_warped_planks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wither_skeleton_skull",
+    "item": "minecraft:warped_planks",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Wither-Skelettschädel in der Festung."
    }
   }
  ],
@@ -55,20 +52,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "nether_star"
+    "gen_powder_snow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
+    "item": "minecraft:powder_snow",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Setz die Schädel auf den Seelensand und besiege den Wither – sein Stern ist der Beweis."
-   }
+   "conditions": []
   },
-  "textKo": "시들어 버린 언덕 — 위더를 깨우고 별을 얻었어요.",
-  "textDe": "Umwitherte Höhen — der Wither steigt auf, sein Stern bleibt."
+  "textKo": "가루눈라는 길의 의식을 마쳤어요.",
+  "textDe": "Pulverschnee — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_summon_wither",

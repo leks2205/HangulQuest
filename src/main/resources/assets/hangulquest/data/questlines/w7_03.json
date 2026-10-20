@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1073,
  "concepts": [
-  "iron",
-  "anvil",
-  "adv_item_netherite_helmet"
+  "gen_sheaf_pottery_shard",
+  "gen_oak_button",
+  "gen_black_dye"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,37 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "iron"
+    "gen_sheaf_pottery_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:sheaf_pottery_shard",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Eisenbarren."
-   },
-   "hint": {
-    "ko": "철은 철 원석을 화로에 구워 얻어요.",
-    "de": "Eisen gewinnst du, indem du Eisenerz im Ofen schmilzt."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "anvil"
+    "gen_oak_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:anvil",
+    "block": "minecraft:oak_button",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Amboss auf."
-   },
-   "hint": {
-    "ko": "모루는 철 블록 세 개와 철 주괴 네 개로 만들어요.",
-    "de": "Ein Amboss besteht aus drei Eisenblöcken und vier Eisenbarren."
    }
   }
  ],
@@ -60,17 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_netherite_helmet"
+    "gen_black_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_helmet",
+    "item": "minecraft:black_dye",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "모루에서 철을 두드려 튼튼한 투구를 만들어요.",
-  "textDe": "Auf dem Amboss wird aus Eisen ein fester Helm."
+  "textKo": "검은색 염료라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzer Farbstoff — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_03",

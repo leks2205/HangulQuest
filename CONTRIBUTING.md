@@ -36,7 +36,11 @@ Questlines are data. You do not need to compile anything.
 6. Open a pull request with the JSON file and a one-paragraph note on what the trail teaches and
    where it sits in the tree.
 
-Two rules that are easy to break and hard to notice:
+Three rules that are easy to break and hard to notice:
+
+- **No repeated action.** A goal is `type + object`; the same pair may appear only once in the whole
+  content, whatever the count (`ACQUIRE_ITEM minecraft:red_dye` twice is a duplicate). Check with
+  `./gradlew test`, which enforces it.
 
 - **Every trail must be finishable in a fresh world.** Nothing may require a specific structure,
   chest, coordinate or rare biome. That is what the ritual finale is for.

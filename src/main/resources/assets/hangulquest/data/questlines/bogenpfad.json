@@ -8,12 +8,12 @@
  "order": 64,
  "concepts": [
   "bow",
-  "arrow",
-  "cow",
   "string",
+  "arrow",
   "feather",
-  "zombie",
-  "flint"
+  "flint",
+  "gen_drowned",
+  "gen_cave_spider"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -68,15 +68,12 @@
   {
    "id": "s3",
    "teach": [
-    "cow"
+    "gen_drowned"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
+    "entity": "minecraft:drowned",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Kuh an."
    }
   }
  ],
@@ -84,17 +81,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "zombie"
+    "gen_cave_spider"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:cave_spider",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "활로 좀비를 물리쳐요.",
-  "textDe": "Mit dem Bogen besiegst du einen Zombie."
+  "textKo": "동굴 거미라는 길의 의식을 마쳤어요.",
+  "textDe": "Höhlenspinne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bogenpfad",

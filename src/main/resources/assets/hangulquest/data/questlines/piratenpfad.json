@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 108,
  "concepts": [
-  "beach",
-  "chest",
-  "torch",
-  "gold"
+  "gen_jagged_peaks",
+  "gen_waxed_weathered_copper_grate",
+  "gen_candle_cake",
+  "gen_weathered_copper_chain"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,42 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "gen_jagged_peaks"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
+    "biome": "minecraft:jagged_peaks",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an einen Strand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chest"
+    "gen_waxed_weathered_copper_grate"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
-   },
-   "clue": {
-    "de": "Öffne eine Truhe."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_weathered_copper_grate",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_candle_cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:candle_cake",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -73,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold"
+    "gen_weathered_copper_chain"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:weathered_copper_chain",
     "count": 5
    },
    "conditions": []
   },
-  "textKo": "해적의 금을 모아요.",
-  "textDe": "Piratengold sammeln."
+  "textKo": "녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Verwitterte Kupferkette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "piratenpfad",

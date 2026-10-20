@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 155,
  "concepts": [
-  "goat",
-  "snow",
-  "torch",
-  "campfire"
+  "gen_waxed_copper_lantern",
+  "gen_orange_stained_glass_pane",
+  "gen_copper_ore",
+  "gen_lime_concrete_powder"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,47 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "goat"
+    "gen_waxed_copper_lantern"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_lantern",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "gen_orange_stained_glass_pane"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:orange_stained_glass_pane",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Schneeblöcke ab."
-   },
-   "hint": {
-    "ko": "눈은 삽으로 캐요.",
-    "de": "Schnee baust du mit einer Schaufel ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_copper_ore"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:copper_ore",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    },
    "conditions": [
     {
@@ -78,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_lime_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:lime_concrete_powder",
     "count": 1
    },
    "conditions": [
@@ -92,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤에 염소와 모닥불을 지켜요.",
-  "textDe": "Nachts hüten Ziege und Feuer."
+  "textKo": "밤에 연두색 콘크리트 가루라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüner Trockenbeton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "ziegenpfad",

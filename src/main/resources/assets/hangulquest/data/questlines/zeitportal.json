@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 117,
  "concepts": [
-  "clock",
-  "obsidian",
-  "bed",
-  "torch"
+  "gen_yellow_poplar_leaves",
+  "gen_coal_block",
+  "gen_stripped_spruce_wood",
+  "gen_cyan_carpet"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "clock"
+    "gen_yellow_poplar_leaves"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clock",
+    "item": "minecraft:yellow_poplar_leaves",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Uhr."
-   },
-   "hint": {
-    "ko": "시계는 금과 레드스톤으로 만들어요.",
-    "de": "Uhren bestehen aus Gold und Redstone."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "obsidian"
+    "gen_coal_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:coal_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Obsidianblöcke."
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_stripped_spruce_wood"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Schlaf nachts im Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stripped_spruce_wood",
+    "count": 1
    },
    "conditions": [
     {
@@ -81,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_cyan_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:cyan_carpet",
     "count": 3
    },
    "conditions": [
@@ -95,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤에 시간의 문에 횃불을 3개 놓아요.",
-  "textDe": "Drei Fackeln erhellen das Zeitportal."
+  "textKo": "밤에 청록색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkiser Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "zeitportal",

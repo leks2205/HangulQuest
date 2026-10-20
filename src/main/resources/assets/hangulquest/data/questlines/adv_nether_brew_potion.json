@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 289,
  "concepts": [
-  "glass_bottle",
-  "adv_item_blaze_rod",
-  "adv_item_potion"
+  "gen_blaze_powder",
+  "gen_crimson_hanging_sign",
+  "gen_green_glazed_terracotta"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,35 +22,23 @@
   {
    "id": "s1",
    "teach": [
-    "glass_bottle"
+    "gen_blaze_powder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glass_bottle",
+    "item": "minecraft:blaze_powder",
     "count": 3
-   },
-   "clue": {
-    "de": "Drei Glasflaschen – darin wird der fertige Trank abgefüllt."
-   },
-   "hint": {
-    "ko": "유리병을 만들어요. 유리 세 개가 필요해요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_blaze_rod"
+    "gen_crimson_hanging_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blaze_rod",
+    "item": "minecraft:crimson_hanging_sign",
     "count": 1
-   },
-   "clue": {
-    "de": "Eine Lohenrute befeuert den Braustand, sonst bleibt der Trank kalt."
-   },
-   "hint": {
-    "ko": "블레이즈를 물리치고 막대기를 얻어요."
    }
   }
  ],
@@ -58,23 +46,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_potion"
+    "gen_green_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:potion",
+    "item": "minecraft:green_glazed_terracotta",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Nimm den fertigen Trank aus dem Braustand – das ist dein erster eigener."
-   },
-   "hint": {
-    "ko": "양조기에서 물약을 꺼내요."
-   }
+   "conditions": []
   },
-  "textKo": "물약을 처음 만들었어요! 이제 나는 양조장 주인이에요.",
-  "textDe": "Der erste eigene Trank – willkommen in der Alchemie."
+  "textKo": "초록색 유광 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne glasierte Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_brew_potion",

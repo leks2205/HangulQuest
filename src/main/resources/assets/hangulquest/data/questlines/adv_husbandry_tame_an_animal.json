@@ -8,7 +8,8 @@
  "order": 282,
  "concepts": [
   "bone",
-  "wolf"
+  "wolf",
+  "gen_trader_llama"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -51,16 +52,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "wolf"
+    "gen_trader_llama"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:wolf"
+    "entity": "minecraft:trader_llama"
    },
    "conditions": []
   },
-  "textKo": "인생의 동반자 — 늑대에게 뼈를 주고 친구가 돼요.",
-  "textDe": "Allerbeste Freunde — Mit Knochen wird der Wolf dein Freund."
+  "textKo": "상인 라마라는 길의 의식을 마쳤어요.",
+  "textDe": "Händlerlama — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_tame_an_animal",

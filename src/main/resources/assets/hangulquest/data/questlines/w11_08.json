@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1118,
  "concepts": [
-  "creation",
-  "note_block",
-  "jukebox",
-  "adv_item_shulker_shell"
+  "brick",
+  "gen_bone_block",
+  "gen_pale_moss_block",
+  "gen_fire"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "creation"
+    "brick"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crafting_table",
+    "item": "minecraft:bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau dir eine Werkbank als erste Schöpfung.",
-    "ko": "창조의 시작인 제작대를 만들어요."
-   },
-   "hint": {
-    "ko": "제작대는 나무 판자 네 개로 만들어요.",
-    "de": "Eine Werkbank machst du aus vier Holzplanken."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "note_block"
+    "gen_bone_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:note_block",
+    "block": "minecraft:bone_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Notenblöcke als Sternenmusik."
-   },
-   "hint": {
-    "ko": "음표 블록은 나무 판자와 레드스톤으로 만들어요.",
-    "de": "Ein Notenblock braucht Holz und Redstone."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "jukebox"
+    "gen_pale_moss_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:jukebox"
-   },
-   "clue": {
-    "de": "Spiel eine Schallplatte auf einer Jukebox ab."
-   },
-   "hint": {
-    "ko": "주크박스에 음반을 넣으면 음악이 나와요.",
-    "de": "Leg eine Schallplatte in die Jukebox."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:pale_moss_block",
+    "count": 1
    }
   }
  ],
@@ -79,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_shulker_shell"
+    "gen_fire"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shulker_shell",
+    "item": "minecraft:fire",
     "count": 2
-   },
-   "clue": {
-    "de": "Hol zwei Shulkerschalen aus der Endstadt."
-   },
-   "hint": {
-    "ko": "셜커 껍데기는 엔드 도시의 셜커에게서 나와요.",
-    "de": "Shulkerschalen lässt ein Shulker in der Endstadt fallen."
    },
    "conditions": []
   },
-  "textKo": "우주의 노래를 별들 사이에 울려 퍼지게 해요.",
-  "textDe": "Du lässt das Lied des Kosmos zwischen den Sternen erklingen."
+  "textKo": "불라는 길의 의식을 마쳤어요.",
+  "textDe": "Feuer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_08",

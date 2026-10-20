@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 509,
  "concepts": [
-  "goat",
-  "cow",
-  "campfire",
-  "bed"
+  "gen_wither",
+  "gen_mooshroom",
+  "gen_waxed_oxidized_chiseled_copper",
+  "gen_stonecutter"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,43 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "goat"
+    "gen_wither"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
+    "entity": "minecraft:wither",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "cow"
+    "gen_mooshroom"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
+    "entity": "minecraft:mooshroom",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Kuh an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "campfire"
+    "gen_waxed_oxidized_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:waxed_oxidized_chiseled_copper",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Lagerfeuer."
    }
   }
  ],
@@ -66,11 +57,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_stonecutter"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:stonecutter"
    },
    "conditions": [
     {
@@ -83,8 +74,8 @@
     }
    ]
   },
-  "textKo": "산 지형의 밤에 잠들어요.",
-  "textDe": "Im Bergtal schläfst du nachts ein."
+  "textKo": "산 지형에서 밤에 석재 절단기라는 길의 의식을 마쳤어요.",
+  "textDe": "Steinsäge — Zeremonie vollendet."
  },
  "reward": {
   "badge": "alpental",

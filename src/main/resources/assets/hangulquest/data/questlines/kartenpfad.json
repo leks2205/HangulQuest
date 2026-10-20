@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 97,
  "concepts": [
-  "map",
+  "gen_twisting_vines_plant",
   "cartography_table",
   "item_frame"
  ],
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "map"
+    "gen_twisting_vines_plant"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:map",
+    "item": "minecraft:twisting_vines_plant",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Karte."
-   },
-   "hint": {
-    "ko": "지도는 종이와 나침반으로 만들어요.",
-    "de": "Eine Karte besteht aus Papier und einem Kompass."
    }
   },
   {

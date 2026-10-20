@@ -7,7 +7,9 @@
  "tier": 2,
  "order": 298,
  "concepts": [
-  "adv_item_wither_skeleton_skull"
+  "adv_item_wither_skeleton_skull",
+  "gen_purple_candle",
+  "gen_pink_concrete_slab"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -37,15 +39,12 @@
   {
    "id": "s2",
    "teach": [
-    "adv_item_wither_skeleton_skull"
+    "gen_purple_candle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wither_skeleton_skull",
+    "item": "minecraft:purple_candle",
     "count": 2
-   },
-   "clue": {
-    "de": "Ein zweiter Schädel: bleib in der Festung und kämpfe weiter."
    }
   }
  ],
@@ -53,20 +52,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_wither_skeleton_skull"
+    "gen_pink_concrete_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wither_skeleton_skull",
+    "item": "minecraft:pink_concrete_slab",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Drei Schädel sind beisammen – genug, um den Wither zu rufen."
-   }
+   "conditions": []
   },
-  "textKo": "으스스한 스켈레톤 — 위더 스켈레톤의 해골 세 개를 모았어요.",
-  "textDe": "Nicht den Kopf verlieren — drei Schädel für den Wither."
+  "textKo": "분홍색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Betonstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_get_wither_skull",

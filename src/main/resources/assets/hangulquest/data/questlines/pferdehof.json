@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 513,
  "concepts": [
-  "horse",
-  "leather",
-  "wool",
-  "campfire"
+  "gen_cave_spider",
+  "gen_spruce_sign",
+  "gen_bamboo_button",
+  "gen_bubble_coral_wall_fan"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "horse"
+    "gen_cave_spider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
+    "entity": "minecraft:cave_spider",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau ein Pferd an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "leather"
+    "gen_spruce_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather",
+    "item": "minecraft:spruce_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Leder."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "wool"
+    "gen_bamboo_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_wool",
+    "item": "minecraft:bamboo_button",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Wolle."
    }
   }
  ],
@@ -68,11 +59,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_bubble_coral_wall_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:bubble_coral_wall_fan",
     "count": 1
    },
    "conditions": [
@@ -82,8 +73,8 @@
     }
    ]
   },
-  "textKo": "밤에 말 우리에서 불을 피워요.",
-  "textDe": "Auf dem Hof brennt das Feuer."
+  "textKo": "밤에 부채형 거품 산호 벽라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasenkorallenwandfächer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "pferdehof",

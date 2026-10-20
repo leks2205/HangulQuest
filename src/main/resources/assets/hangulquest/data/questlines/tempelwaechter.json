@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 114,
  "concepts": [
-  "zombie",
-  "torch",
-  "bell",
-  "lantern"
+  "gen_warped_wall_hanging_sign",
+  "gen_chiseled_quartz_block",
+  "gen_dark_oak_button",
+  "gen_smooth_quartz"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -24,33 +24,23 @@
   {
    "id": "s1",
    "teach": [
-    "zombie"
+    "gen_warped_wall_hanging_sign"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 3
-   },
-   "clue": {
-    "de": "Besiege drei Zombies."
-   },
-   "hint": {
-    "ko": "좀비는 검으로 물리쳐요.",
-    "de": "Zombies besiegst du mit einem Schwert."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:warped_wall_hanging_sign",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_chiseled_quartz_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:chiseled_quartz_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Fackeln."
    },
    "conditions": [
     {
@@ -62,14 +52,12 @@
   {
    "id": "s3",
    "teach": [
-    "bell"
+    "gen_dark_oak_button"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dark_oak_button",
+    "count": 3
    }
   }
  ],
@@ -77,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_smooth_quartz"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
+    "block": "minecraft:smooth_quartz",
     "count": 2
    },
    "conditions": []
   },
-  "textKo": "수호자의 신전에 랜턴을 놓아요.",
-  "textDe": "Laternen bewachen den Tempel."
+  "textKo": "매끄러운 석영 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Glatter Quarzblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tempelwaechter",

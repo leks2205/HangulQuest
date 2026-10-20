@@ -6,11 +6,10 @@
  "tier": 4,
  "order": 525,
  "concepts": [
-  "emerald",
-  "pickaxe",
-  "bread",
-  "bell",
-  "chest"
+  "gen_cobweb",
+  "gen_brown_dye",
+  "gen_purple_wool",
+  "gen_smooth_stone_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_cobweb"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:cobweb",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle sechs Smaragde."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "pickaxe"
+    "gen_brown_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_pickaxe",
+    "item": "minecraft:brown_dye",
     "count": 1
-   },
-   "clue": {
-    "de": "Bau eine Eisenspitzhacke."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bread"
+    "gen_purple_wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:purple_wool",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Brote."
    }
   }
  ],
@@ -69,11 +59,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chest"
+    "gen_smooth_stone_slab"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chest"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:smooth_stone_slab",
+    "count": 3
    },
    "conditions": [
     {
@@ -82,8 +73,8 @@
     }
    ]
   },
-  "textKo": "낮에 세계 시장의 상자를 열어요.",
-  "textDe": "Am Tag öffnest du die Truhe des Weltmarkts."
+  "textKo": "낮에 매끄러운 돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Glatte Steinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltmarkt",

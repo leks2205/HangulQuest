@@ -5,7 +5,7 @@ catalog the quest engine draws from.
 
 ## 1. Curated concepts
 
-`src/main/resources/assets/hangulquest/data/concepts.json` holds **293 concepts**: blocks, tools, food,
+`src/main/resources/assets/hangulquest/data/concepts.json` holds **1,132 concept entries**: 293 hand-written ones — blocks, tools, food,
 animals, biomes, verbs and a few abstract words. Each one looks like this:
 
 ```json

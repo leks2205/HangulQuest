@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 135,
  "concepts": [
-  "wool",
+  "gen_swamp_explorer_map",
   "loom",
   "carpet",
-  "string"
+  "gen_purple_bundle"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,19 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "wool"
+    "gen_swamp_explorer_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_wool",
+    "item": "minecraft:swamp_explorer_map",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Wolle."
-   },
-   "hint": {
-    "ko": "양털은 가위로 양을 깎아요.",
-    "de": "Wolle bekommst du mit einer Schere vom Schaf."
    }
   },
   {
@@ -78,21 +71,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "string"
+    "gen_purple_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:string",
+    "item": "minecraft:purple_bundle",
     "count": 4
    },
-   "conditions": [],
-   "hint": {
-    "ko": "실은 거미를 물리치면 얻어요.",
-    "de": "Fäden bekommst du von Spinnen."
-   }
+   "conditions": []
   },
-  "textKo": "양탄자에 실을 꿰어요.",
-  "textDe": "Fäden für den Teppich sammeln."
+  "textKo": "보라색 꾸러미라는 길의 의식을 마쳤어요.",
+  "textDe": "Violettes Bündel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "teppichpfad",

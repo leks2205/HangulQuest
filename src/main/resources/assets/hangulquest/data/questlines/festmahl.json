@@ -8,7 +8,8 @@
  "concepts": [
   "milk",
   "egg",
-  "cake"
+  "gen_chorus_plant",
+  "chicken"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -49,15 +50,12 @@
   {
    "id": "s3",
    "teach": [
-    "cake"
+    "gen_chorus_plant"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:chorus_plant",
     "count": 1
-   },
-   "clue": {
-    "de": "Back einen Kuchen."
    }
   }
  ],
@@ -65,11 +63,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cake"
+    "chicken"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:chicken",
     "count": 1
    },
    "conditions": [
@@ -79,8 +77,8 @@
     }
    ]
   },
-  "textKo": "밤에 케이크를 먹어요. 잔치예요!",
-  "textDe": "In der Nacht Kuchen. Ein Fest!"
+  "textKo": "밤에 익히지 않은 닭고기라는 길의 의식을 마쳤어요.",
+  "textDe": "Rohes Hühnchen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "festmahl",

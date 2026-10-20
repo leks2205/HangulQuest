@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 206,
  "concepts": [
-  "adv_item_brush",
+  "gen_orange_candle_cake",
   "adv_block_torchflower_seeds",
   "adv_item_decorated_pot"
  ],
@@ -22,18 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_brush"
+    "gen_orange_candle_cake"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brush",
+    "item": "minecraft:orange_candle_cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue einen Pinsel für die Ausgrabung in den Ruinen."
-   },
-   "hint": {
-    "ko": "깃털과 구리 주괴와 막대기로 만들어요."
    }
   },
   {

@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 30,
  "concepts": [
-  "coal",
-  "torch",
-  "campfire"
+  "gen_honeycomb_block",
+  "gen_cyan_stained_glass_pane",
+  "gen_purpur_pillar"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,29 +20,23 @@
   {
    "id": "s1",
    "teach": [
-    "coal"
+    "gen_honeycomb_block"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:honeycomb_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Kohle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_cyan_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:cyan_stained_glass_pane",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Fackeln."
    }
   }
  ],
@@ -50,11 +44,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_purpur_pillar"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:purpur_pillar",
     "count": 1
    },
    "conditions": [
@@ -64,8 +58,8 @@
     }
    ]
   },
-  "textKo": "밤에 모닥불을 피워요.",
-  "textDe": "Nachts brennt das Lagerfeuer."
+  "textKo": "밤에 퍼퍼 기둥라는 길의 의식을 마쳤어요.",
+  "textDe": "Purpursäule — Zeremonie vollendet."
  },
  "reward": {
   "badge": "feuerpfad",

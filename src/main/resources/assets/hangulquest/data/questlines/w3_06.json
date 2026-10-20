@@ -8,9 +8,9 @@
  "order": 1036,
  "concepts": [
   "potato",
-  "fence",
-  "gate",
-  "bread"
+  "gen_blue_candle",
+  "gen_deepslate_tile_slab",
+  "gen_mushroom_stew"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -41,37 +41,23 @@
   {
    "id": "s2",
    "teach": [
-    "fence"
+    "gen_blue_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
+    "block": "minecraft:blue_candle",
     "count": 6
-   },
-   "clue": {
-    "de": "Zäun den Acker mit sechs Zaunpfosten ein."
-   },
-   "hint": {
-    "ko": "울타리를 세워요.",
-    "de": "Stell einen Zaun auf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gate"
+    "gen_deepslate_tile_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence_gate",
+    "block": "minecraft:deepslate_tile_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz ein Tor in den neuen Zaun."
-   },
-   "hint": {
-    "ko": "울타리에 문을 달아요.",
-    "de": "Setz ein Tor in den Zaun."
    }
   }
  ],
@@ -79,17 +65,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bread"
+    "gen_mushroom_stew"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
+    "item": "minecraft:mushroom_stew",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "이웃의 밭에서 감자를 캐요. 울타리 안이 따뜻해요.",
-  "textDe": "Kartoffeln vom Acker des Nachbarn. Hinter dem Zaun ist es warm."
+  "textKo": "버섯 스튜라는 길의 의식을 마쳤어요.",
+  "textDe": "Pilzsuppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_06",

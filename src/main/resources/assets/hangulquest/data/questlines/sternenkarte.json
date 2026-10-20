@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 115,
  "concepts": [
-  "height",
-  "amethyst_shard",
-  "lectern",
-  "amethyst_block"
+  "gen_jungle_planks",
+  "gen_suspicious_sand",
+  "gen_green_concrete_slab",
+  "gen_tuff_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -24,46 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "height"
+    "gen_jungle_planks"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 180,
-    "maxY": 320
-   },
-   "clue": {
-    "de": "Geh auf eine hohe Stelle."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:jungle_planks",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "amethyst_shard"
+    "gen_suspicious_sand"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_shard",
+    "item": "minecraft:suspicious_sand",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Amethystsplitter."
-   },
-   "hint": {
-    "ko": "자수정 조각은 지하 수정 동굴에서 캐요.",
-    "de": "Amethystsplitter findest du in Amethystgeoden."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "lectern"
+    "gen_green_concrete_slab"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:lectern"
-   },
-   "clue": {
-    "de": "Benutz ein Lesepult."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:green_concrete_slab",
+    "count": 1
    }
   }
  ],
@@ -71,21 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "amethyst_block"
+    "gen_tuff_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:amethyst_block",
+    "block": "minecraft:tuff_brick_wall",
     "count": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "자수정 블록은 자수정 조각 네 개로 만들어요.",
-    "de": "Amethystblöcke bestehen aus vier Splittern."
-   }
+   "conditions": []
   },
-  "textKo": "자수정 블록으로 별자리를 만들어요.",
-  "textDe": "Amethystblöcke bilden die Sternenkarte."
+  "textKo": "응회암 벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Tuffsteinziegelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "sternenkarte",

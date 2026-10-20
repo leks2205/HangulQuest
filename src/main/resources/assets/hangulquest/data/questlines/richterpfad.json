@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 123,
  "concepts": [
-  "bell",
-  "zombie",
-  "gold_block",
-  "anvil"
+  "gen_waxed_oxidized_copper_grate",
+  "gen_torchflower",
+  "gen_red_stained_glass",
+  "gen_red_carpet"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "bell"
+    "gen_waxed_oxidized_copper_grate"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
-   },
-   "clue": {
-    "de": "Läute eine Glocke."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_oxidized_copper_grate",
+    "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "zombie"
+    "gen_torchflower"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zombie",
-    "count": 5
-   },
-   "clue": {
-    "de": "Besiege fünf Zombies."
-   },
-   "hint": {
-    "ko": "좀비는 검으로 물리쳐요.",
-    "de": "Zombies besiegst du mit einem Schwert."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torchflower",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gold_block"
+    "gen_red_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:red_stained_glass",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Goldblöcke."
-   },
-   "hint": {
-    "ko": "금 블록은 금 아홉 개로 만들어요.",
-    "de": "Goldblöcke bestehen aus neun Goldbarren."
    }
   }
  ],
@@ -75,20 +59,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "anvil"
+    "gen_red_carpet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_carpet",
+    "count": 3
    },
-   "conditions": [],
-   "hint": {
-    "ko": "모루는 철 블록과 철 조각으로 만들어요.",
-    "de": "Ein Amboss besteht aus Eisenblöcken und -barren."
-   }
+   "conditions": []
   },
-  "textKo": "심판의 모루를 써요.",
-  "textDe": "Der Amboss des Richters."
+  "textKo": "빨간색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Roter Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "richterpfad",

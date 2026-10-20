@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1093,
  "concepts": [
-  "emerald",
-  "gold_block",
-  "villager"
+  "gen_acacia_pressure_plate",
+  "villager",
+  "gen_lime_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,20 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "emerald"
+    "gen_acacia_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:acacia_pressure_plate",
     "count": 6
-   },
-   "clue": {
-    "de": "Verkaufe Waren und sammle sechs Smaragde.",
-    "ko": "궁정에서 물건을 팔아 에메랄드 여섯 개를 모아요."
-   },
-   "hint": {
-    "ko": "에메랄드는 주민과 거래해서 얻어요.",
-    "de": "Smaragde bekommst du im Handel mit Dorfbewohnern."
    }
   },
   {
@@ -61,17 +53,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "gen_lime_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:lime_stained_glass_pane",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "금 블록을 내놓지 않고서는 왕관의 값을 치를 수 없어요.",
-  "textDe": "Ohne einen Goldblock lässt sich der Preis der Krone nicht zahlen."
+  "textKo": "연두색 색유리 판라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüne Glasscheibe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_03",

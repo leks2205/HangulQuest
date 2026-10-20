@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "orangewerk",
+ "titleKo": "주황빛 천의 길",
+ "titleDe": "Der Orangestoff",
+ "topic": "주황",
+ "tier": 3,
+ "order": 1134,
+ "koreanLevel": 6,
+ "concepts": [
+  "gen_orange_dye",
+  "gen_orange_wool",
+  "gen_orange_concrete"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "rotwerk",
+   "gelbwerk"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gen_orange_dye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:orange_dye",
+    "count": 2
+   },
+   "clue": {
+    "ko": "주황색 염료를 만들어요.",
+    "de": "Stelle Oranger Farbstoff her."
+   },
+   "hint": {
+    "ko": "주황색 염료를 만들어요.",
+    "de": "Stelle Oranger Farbstoff her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_orange_wool"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:orange_wool",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "주황색 양털을 봐요.",
+    "de": "Sieh dir Orange Wolle an."
+   },
+   "hint": {
+    "ko": "주황색 양털을 봐요.",
+    "de": "Sieh dir Orange Wolle an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_orange_concrete"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_concrete",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 주황빛 천을 펼쳤어요.",
+  "textDe": "Die Zeremonie ist vollendet."
+ },
+ "reward": {
+  "badge": "orangewerk",
+  "words": [
+   "gen_orange_dye",
+   "gen_orange_wool",
+   "gen_orange_concrete"
+  ]
+ }
+}

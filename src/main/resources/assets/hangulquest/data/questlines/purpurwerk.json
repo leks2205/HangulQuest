@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "purpurwerk",
+ "titleKo": "보랏빛 천의 길",
+ "titleDe": "Der Purpurstoff",
+ "topic": "보라",
+ "tier": 3,
+ "order": 1133,
+ "koreanLevel": 6,
+ "concepts": [
+  "gen_purple_dye",
+  "gen_purple_wool",
+  "gen_purple_carpet"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "rotwerk",
+   "blauwerk"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gen_purple_dye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:purple_dye",
+    "count": 2
+   },
+   "clue": {
+    "ko": "보라색 염료를 만들어요.",
+    "de": "Stelle Violetter Farbstoff her."
+   },
+   "hint": {
+    "ko": "보라색 염료를 만들어요.",
+    "de": "Stelle Violetter Farbstoff her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_purple_wool"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:purple_wool",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "보라색 양털을 봐요.",
+    "de": "Sieh dir Violette Wolle an."
+   },
+   "hint": {
+    "ko": "보라색 양털을 봐요.",
+    "de": "Sieh dir Violette Wolle an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_purple_carpet"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:purple_carpet",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
+  },
+  "textKo": "저녁에 보랏빛 천을 펼쳤어요.",
+  "textDe": "Die Zeremonie ist vollendet."
+ },
+ "reward": {
+  "badge": "purpurwerk",
+  "words": [
+   "gen_purple_dye",
+   "gen_purple_wool",
+   "gen_purple_carpet"
+  ]
+ }
+}

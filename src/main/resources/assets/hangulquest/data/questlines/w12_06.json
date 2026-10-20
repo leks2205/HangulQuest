@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1126,
  "concepts": [
-  "ender_pearl",
-  "ender_dragon",
-  "nether_star",
-  "dragon_egg"
+  "gen_poplar_shelf",
+  "gen_wandering_trader",
+  "gen_cooked_cod",
+  "gen_white_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "ender_pearl"
+    "gen_poplar_shelf"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_pearl",
+    "item": "minecraft:poplar_shelf",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Enderperlen, den ersten Ton des Liedes."
-   },
-   "hint": {
-    "ko": "엔더 진주는 엔더맨에게서 나와요.",
-    "de": "Enderperlen stammen von Endermen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ender_dragon"
+    "gen_wandering_trader"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "entity": "minecraft:wandering_trader",
     "dwellMs": 1500
-   },
-   "clue": {
-    "de": "Schau zwei Sekunden lang einen lebenden Enderdrachen an."
-   },
-   "hint": {
-    "ko": "엔더 드래곤은 엔드 수정을 먼저 부숴야 해요.",
-    "de": "Der Enderdrache wird schwach, wenn man zuerst die Endkristalle zerstört."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "nether_star"
+    "gen_cooked_cod"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
+    "item": "minecraft:cooked_cod",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle einen Netherstern, den gefallenen Stern der alten Welt."
-   },
-   "hint": {
-    "ko": "위더를 물리치면 네더의 별이 떨어져요.",
-    "de": "Besiegt man den Wither, fällt ein Netherstern."
    }
   }
  ],
@@ -79,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "dragon_egg"
+    "gen_white_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dragon_egg",
+    "block": "minecraft:white_stained_glass",
     "count": 1
    },
    "conditions": [
@@ -91,14 +70,10 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_end"
     }
-   ],
-   "hint": {
-    "ko": "드래곤 알은 엔더 드래곤이 죽은 자리에 생겨요. 엔드에서 놓아요.",
-    "de": "Das Drachenei erscheint, wo der Drache starb; setz es im Ende ab."
-   }
+   ]
   },
-  "textKo": "엔드에서 드래곤 알을 놓아 끝의 노래를 마쳐요.",
-  "textDe": "Im Ende beendet das Drachenei das Lied vom Ende."
+  "textKo": "다른 차원에서 하얀색 색유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Weißes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_06",

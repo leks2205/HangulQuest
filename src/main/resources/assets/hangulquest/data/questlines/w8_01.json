@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1081,
  "concepts": [
-  "obsidian",
-  "flint",
-  "torch",
-  "end"
+  "gen_oxidized_cut_copper",
+  "gen_test_block",
+  "gen_red_wool_slab",
+  "gen_waxed_exposed_chiseled_copper"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "obsidian"
+    "gen_oxidized_cut_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:obsidian",
+    "block": "minecraft:oxidized_cut_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Obsidianblöcke ab."
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "flint"
+    "gen_test_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flint",
+    "item": "minecraft:test_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Feuersteine."
-   },
-   "hint": {
-    "ko": "부싯돌은 자갈을 캐면 나와요.",
-    "de": "Feuerstein findest du beim Abbau von Kies."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_red_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:red_wool_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Fackeln an das Tor."
-   },
-   "hint": {
-    "ko": "횃불은 막대기와 석탄으로 만들어요.",
-    "de": "Fackeln machst du aus einem Stock und Kohle."
    }
   }
  ],
@@ -79,16 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "end"
+    "gen_waxed_exposed_chiseled_copper"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_end"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_exposed_chiseled_copper",
+    "count": 2
    },
    "conditions": []
   },
-  "textKo": "문이 열렸어요. 이제 끝의 세계로 가요!",
-  "textDe": "Das Tor steht offen. Der Weg ins Ende beginnt."
+  "textKo": "밀랍칠한 약간 녹슨 조각된 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster angelaufener gemeißelter Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_01",

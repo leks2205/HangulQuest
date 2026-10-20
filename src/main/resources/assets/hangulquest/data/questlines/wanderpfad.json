@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 62,
  "concepts": [
-  "mountain",
-  "goat",
-  "torch",
-  "campfire"
+  "gen_frozen_ocean",
+  "gen_acacia_shelf",
+  "gen_stripped_jungle_wood",
+  "gen_dead_brain_coral_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,43 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "mountain"
+    "gen_frozen_ocean"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:frozen_ocean",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "goat"
+    "gen_acacia_shelf"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Ziege an."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:acacia_shelf",
+    "count": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "torch"
+    "gen_stripped_jungle_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:stripped_jungle_wood",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -74,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_dead_brain_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:dead_brain_coral_block",
     "count": 1
    },
    "conditions": [
@@ -88,8 +79,8 @@
     }
    ]
   },
-  "textKo": "밤 산길에 모닥불을 피워요.",
-  "textDe": "Nachts brennt am Bergpfad ein Lagerfeuer."
+  "textKo": "밤에 죽은 뇌 산호 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Hirnkorallenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wanderpfad",

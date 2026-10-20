@@ -6,12 +6,10 @@
  "tier": 3,
  "order": 534,
  "concepts": [
-  "climb",
-  "torch",
-  "bed",
-  "night",
-  "mountain",
-  "campfire"
+  "gen_flower_forest",
+  "gen_infested_stone_bricks",
+  "gen_waxed_copper_chest",
+  "gen_polished_deepslate_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,34 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "mountain",
-    "climb"
+    "gen_flower_forest"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
+    "biome": "minecraft:flower_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh in ein Bergbiom."
-   },
-   "hint": {
-    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "gen_infested_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:infested_stone_bricks",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Fackeln."
    },
    "conditions": [
     {
@@ -64,14 +51,12 @@
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "gen_waxed_copper_chest"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
-   },
-   "clue": {
-    "de": "Benutz ein Bett."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:waxed_copper_chest",
+    "count": 1
    }
   }
  ],
@@ -79,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_polished_deepslate_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:polished_deepslate_slab",
     "count": 1
    },
    "conditions": [
@@ -93,8 +78,8 @@
     }
    ]
   },
-  "textKo": "밤에 하늘 관측소에 불을 피워요.",
-  "textDe": "Nachts brennt das Feuer an der Himmelswarte."
+  "textKo": "밤에 윤나는 심층암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Tiefenschieferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "himmelswarte",

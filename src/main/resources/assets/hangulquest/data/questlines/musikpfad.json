@@ -7,8 +7,9 @@
  "tier": 1,
  "order": 93,
  "concepts": [
-  "note_block",
-  "jukebox"
+  "gen_zombie_wall_head",
+  "gen_rose_bush",
+  "gen_bamboo_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -19,32 +20,23 @@
   {
    "id": "s1",
    "teach": [
-    "note_block"
+    "gen_zombie_wall_head"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:note_block",
+    "block": "minecraft:zombie_wall_head",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Notenblöcke."
-   },
-   "hint": {
-    "ko": "음표 블록은 나무 판자와 레드스톤으로 만들어요.",
-    "de": "Notenblöcke bestehen aus Holzbrettern und Redstone."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "jukebox"
+    "gen_rose_bush"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:jukebox"
-   },
-   "clue": {
-    "de": "Benutz eine Jukebox."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:rose_bush",
+    "count": 2
    }
   }
  ],
@@ -52,21 +44,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "jukebox"
+    "gen_bamboo_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jukebox",
+    "block": "minecraft:bamboo_trapdoor",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "주크박스는 나무 판자와 다이아몬드로 만들어요.",
-    "de": "Eine Jukebox besteht aus Holzbrettern und einem Diamanten."
-   }
+   "conditions": []
   },
-  "textKo": "주크박스에서 음악이 흐르는 마을을 만들어요.",
-  "textDe": "Ein Dorf voller Musik."
+  "textKo": "대나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambusfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "musikpfad",

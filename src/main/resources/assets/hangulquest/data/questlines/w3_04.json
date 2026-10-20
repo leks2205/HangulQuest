@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1034,
  "concepts": [
-  "wheat",
-  "hay_block",
-  "cake",
-  "bell"
+  "gen_waxed_oxidized_copper_chain",
+  "gen_mycelium",
+  "gen_lime_candle_cake",
+  "gen_lime_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "gen_waxed_oxidized_copper_chain"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:wheat",
+    "block": "minecraft:waxed_oxidized_copper_chain",
     "count": 3
-   },
-   "clue": {
-    "de": "Ernte drei Weizen für das Fest."
-   },
-   "hint": {
-    "ko": "밀을 수확해요.",
-    "de": "Ernte Weizen."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "hay_block"
+    "gen_mycelium"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:hay_block",
+    "block": "minecraft:mycelium",
     "count": 2
-   },
-   "clue": {
-    "de": "Stell zwei Heuballen als Sitzbank auf."
-   },
-   "hint": {
-    "ko": "건초 더미를 놓아요.",
-    "de": "Stell einen Heuballen auf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "cake"
+    "gen_lime_candle_cake"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cake",
+    "item": "minecraft:lime_candle_cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Back einen Kuchen für die Nachbarn."
-   },
-   "hint": {
-    "ko": "케이크를 만들어요.",
-    "de": "Backe einen Kuchen."
    }
   }
  ],
@@ -79,16 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_lime_stained_glass"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:bell"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lime_stained_glass",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "종이 울리고 잔치가 시작돼요. 모두 배불러요.",
-  "textDe": "Die Glocke läutet, das Fest beginnt. Alle sind satt."
+  "textKo": "연두색 색유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrünes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_04",

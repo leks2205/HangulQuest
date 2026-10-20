@@ -9,8 +9,8 @@
  "concepts": [
   "fox",
   "sweet_berries",
-  "snow",
-  "campfire"
+  "gen_powder_snow",
+  "gen_dark_oak_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -51,15 +51,12 @@
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "gen_powder_snow"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:snow_block",
+    "block": "minecraft:powder_snow",
     "count": 4
-   },
-   "clue": {
-    "de": "Setz vier Schneeblöcke."
    }
   }
  ],
@@ -67,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "gen_dark_oak_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:campfire",
+    "block": "minecraft:dark_oak_pressure_plate",
     "count": 1
    },
    "conditions": [
@@ -81,8 +78,8 @@
     }
    ]
   },
-  "textKo": "밤에 북극 여우와 모닥불을 피워요.",
-  "textDe": "Nachts brennt beim Polarfuchs ein Feuer."
+  "textKo": "밤에 짙은 참나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzeichenholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "eiskrone",

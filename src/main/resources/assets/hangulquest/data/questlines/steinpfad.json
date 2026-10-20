@@ -8,7 +8,7 @@
   "stone",
   "cobblestone",
   "coal",
-  "torch"
+  "gen_birch_wood"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -77,11 +77,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "torch"
+    "gen_birch_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
+    "block": "minecraft:birch_wood",
     "count": 1
    },
    "conditions": [
@@ -91,8 +91,8 @@
     }
    ]
   },
-  "textKo": "밤에 어두운 곳에서 빛을 만들었어요. 보물은 기억이에요.",
-  "textDe": "Du hast im Dunkeln Licht gemacht. Der Schatz ist die Erinnerung."
+  "textKo": "밤에 자작나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "steinpfad",

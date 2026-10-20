@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1054,
  "concepts": [
-  "furnace",
-  "coal",
-  "iron",
-  "gold"
+  "gen_exposed_copper_golem_statue",
+  "gen_dead_brain_coral_block",
+  "beacon",
+  "gen_dark_oak_leaves"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,55 +23,34 @@
   {
    "id": "s1",
    "teach": [
-    "furnace"
+    "gen_exposed_copper_golem_statue"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:furnace",
+    "block": "minecraft:exposed_copper_golem_statue",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Ofen auf."
-   },
-   "hint": {
-    "ko": "화로는 조약돌 여덟 개로 만들어요.",
-    "de": "Ein Ofen braucht acht Bruchsteine."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "coal"
+    "gen_dead_brain_coral_block"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "block": "minecraft:dead_brain_coral_block",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue acht Kohle ab."
-   },
-   "hint": {
-    "ko": "석탄은 곡괭이로 캐요.",
-    "de": "Kohle baust du mit einer Spitzhacke ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron"
+    "beacon"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
+    "item": "minecraft:beacon",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Eisenbarren."
-   },
-   "hint": {
-    "ko": "철은 화로에서 구워요.",
-    "de": "Eisen schmilzt du im Ofen."
    }
   }
  ],
@@ -79,24 +58,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold"
+    "gen_dark_oak_leaves"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
+    "item": "minecraft:dark_oak_leaves",
     "count": 3
-   },
-   "clue": {
-    "de": "Schmelz drei Goldbarren."
-   },
-   "hint": {
-    "ko": "금은 화로에서 구워요.",
-    "de": "Gold schmilzt du im Ofen."
    },
    "conditions": []
   },
-  "textKo": "화로의 불빛 아래에서 쇠와 금을 녹여요.",
-  "textDe": "Im Licht des Schmelzofens schmelzen Eisen und Gold."
+  "textKo": "짙은 참나무 잎라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzeichenlaub — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_04",
