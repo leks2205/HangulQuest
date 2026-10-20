@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "w11_01",
+ "titleKo": "별을 심는 밤",
+ "titleDe": "Die Nacht, in der Sterne wachsen",
+ "topic": "별",
+ "tier": 2,
+ "order": 1111,
+ "concepts": [
+  "nether_star",
+  "beacon",
+  "obsidian",
+  "sky"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "nether_star"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_star",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erbeute einen Netherstern."
+   },
+   "hint": {
+    "ko": "네더의 별은 위더를 물리치면 나와요.",
+    "de": "Den Netherstern lässt der Wither fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:beacon"
+   },
+   "clue": {
+    "de": "Aktiviere ein Leuchtfeuer."
+   },
+   "hint": {
+    "ko": "신호기는 철 블록 위에 놓고 써요.",
+    "de": "Ein Leuchtfeuer braucht einen Sockel aus Eisenblöcken."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Obsidianblöcke als Sternenaltar."
+   },
+   "hint": {
+    "ko": "흑요석은 물과 용암이 만나면 생겨요.",
+    "de": "Obsidian entsteht, wo Wasser auf Lava trifft."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sky"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 200,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig bis in die höchste Luft über den Sternen."
+   },
+   "hint": {
+    "ko": "높은 곳까지 블록을 쌓고 올라가요.",
+    "de": "Bau dich mit Blöcken bis in die Höhe."
+   },
+   "conditions": []
+  },
+  "textKo": "별을 심고 하늘까지 올라 영원을 봐요.",
+  "textDe": "Du pflanzt einen Stern und siehst vom Himmel aus die Ewigkeit."
+ },
+ "reward": {
+  "badge": "w11_01",
+  "words": [
+   "nether_star",
+   "beacon",
+   "obsidian",
+   "sky"
+  ]
+ },
+ "koreanLevel": 6
+}

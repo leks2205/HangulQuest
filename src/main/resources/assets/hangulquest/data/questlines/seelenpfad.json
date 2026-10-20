@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "seelenpfad",
+ "titleKo": "영혼의 길",
+ "titleDe": "Der Seelenpfad",
+ "topic": "영혼",
+ "tier": 3,
+ "order": 120,
+ "concepts": [
+  "soul_sand",
+  "soul_lantern",
+  "bed",
+  "soul_torch"
+ ],
+ "requires": {
+  "minWordsKnown": 70,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schattenpfad",
+   "handwerksmeister"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:soul_sand",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Seelensand."
+   },
+   "hint": {
+    "ko": "영혼 모래는 영혼 계곡에서 캐요.",
+    "de": "Seelensand findest du im Seelensandtal."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "soul_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_lantern",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Seelenlaternen."
+   },
+   "hint": {
+    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
+    "de": "Seelenlaternen bestehen aus einer Seelenfackel und Eisennuggets."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf nachts im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "soul_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_torch",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 영혼 횃불을 4개 놓아요.",
+  "textDe": "Nachts leuchten vier Seelenfackeln."
+ },
+ "reward": {
+  "badge": "seelenpfad",
+  "words": [
+   "soul_sand",
+   "soul_lantern",
+   "bed",
+   "soul_torch"
+  ]
+ },
+ "koreanLevel": 5
+}

@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "adv_end_respawn_dragon",
+ "titleKo": "끝 아녔어?",
+ "titleDe": "Das Ende … Schon wieder …",
+ "topic": "end",
+ "tier": 2,
+ "order": 254,
+ "concepts": [
+  "adv_item_ghast_tear",
+  "adv_item_end_crystal"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_kill_dragon"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_ghast_tear"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ghast_tear",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erlege einen Ghast im Nether und bring seine Träne mit."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_end_crystal"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:end_crystal",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Enderkristalle für die Beschwörung."
+   },
+   "hint": {
+    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_end_crystal"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:end_crystal",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요.",
+  "textDe": "Das Ende … Schon wieder … — Setze vier Enderkristalle auf das Portal und beschwöre den Drachen erneut."
+ },
+ "reward": {
+  "badge": "adv_end_respawn_dragon",
+  "words": [
+   "adv_item_ghast_tear",
+   "adv_item_end_crystal"
+  ]
+ },
+ "koreanLevel": 6
+}

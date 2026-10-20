@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "w1_04",
+ "titleKo": "달빛 산책",
+ "titleDe": "Mondlicht-Spaziergang",
+ "topic": "달빛",
+ "tier": 1,
+ "order": 1014,
+ "concepts": [
+  "moon",
+  "night",
+  "sky",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "moon"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "ko": "달을 보려면 시계를 만들어요.",
+    "de": "Bau dir eine Uhr für den Mond."
+   },
+   "hint": {
+    "ko": "시계는 금과 레드스톤으로 만들어요.",
+    "de": "Eine Uhr braucht Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch",
+    "night"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:torch",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau nachts eine Fackel an."
+   },
+   "hint": {
+    "ko": "밤에 횃불을 봐요.",
+    "de": "Schau in der Nacht auf eine Fackel."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sky"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig über 120 Blöcke hoch."
+   },
+   "hint": {
+    "ko": "높은 곳에서 하늘을 봐요.",
+    "de": "Von oben siehst du den ganzen Himmel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "달빛 아래에서 횃불을 놓고 하늘을 봐요.",
+  "textDe": "Unter dem Mond stellst du Fackeln auf und schaust in den Himmel."
+ },
+ "reward": {
+  "badge": "w1_04",
+  "words": [
+   "moon",
+   "night",
+   "sky",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

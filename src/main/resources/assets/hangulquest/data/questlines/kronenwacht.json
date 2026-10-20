@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "kronenwacht",
+ "titleKo": "왕관의 수호자",
+ "titleDe": "Der Kronenwächter",
+ "topic": "산",
+ "tier": 5,
+ "order": 71,
+ "concepts": [
+  "goat",
+  "campfire",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenlicht",
+   "gipfelwaechter",
+   "ewiges_eis",
+   "leuchtturmpfad",
+   "sternenkarte",
+   "festungpfad",
+   "schatzkammer",
+   "druckerei",
+   "ziegelpfad",
+   "brauerei",
+   "bienenzucht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "수호자로서 좀비를 물리쳐요.",
+  "textDe": "Als Wächter besiegst du einen Zombie."
+ },
+ "reward": {
+  "badge": "kronenwacht",
+  "words": [
+   "goat",
+   "campfire",
+   "zombie"
+  ]
+ },
+ "koreanLevel": 5
+}

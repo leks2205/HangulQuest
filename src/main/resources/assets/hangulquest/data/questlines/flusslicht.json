@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "flusslicht",
+ "titleKo": "강빛의 길",
+ "titleDe": "Das Flusslicht",
+ "topic": "물",
+ "tier": 2,
+ "order": 45,
+ "concepts": [
+  "river",
+  "fish",
+  "torch",
+  "fishing_rod"
+ ],
+ "requires": {
+  "minWordsKnown": 18,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "wasserpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "river"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_river",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an einen Fluss."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fish",
+    "fishing_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch.",
+    "ko": "낚싯대로 물고기를 모아요."
+   },
+   "hint": {
+    "ko": "낚싯대는 나무와 실로 만들어요. 물고기를 모아요.",
+    "de": "Die Angelrute besteht aus Holz und Faden."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 강가에 빛을 놓아요.",
+  "textDe": "Nachts leuchtet der Fluss."
+ },
+ "reward": {
+  "badge": "flusslicht",
+  "words": [
+   "river",
+   "fish",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

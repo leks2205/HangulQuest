@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "wasserpfad",
+ "titleKo": "물의 길",
+ "titleDe": "Der Wasserpfad",
+ "tier": 1,
+ "concepts": [
+  "river",
+  "sand",
+  "bucket",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 3,
+  "dimension": "minecraft:overworld"
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "river"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_river",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "ko": "강으로 가요.",
+    "de": "Finde einen Ort, an dem Wasser fließt."
+   },
+   "hint": {
+    "ko": "강에 가요.",
+    "de": "Geh zum Fluss."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 3
+   },
+   "clue": {
+    "ko": "노란 모래를 세 개 수확해요.",
+    "de": "Hol dir drei gelbe Dinge."
+   },
+   "hint": {
+    "ko": "모래를 캐요.",
+    "de": "Baue Sand ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "ko": "양동이를 만들어요.",
+    "de": "Stelle etwas her, das Wasser hält."
+   },
+   "hint": {
+    "ko": "양동이를 만들어요.",
+    "de": "Stelle einen Eimer her."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변에서 불을 피웠어요. 물의 길이 끝났어요.",
+  "textDe": "Am Strand brennt dein Feuer. Der Wasserpfad endet hier."
+ },
+ "reward": {
+  "badge": "wasserpfad",
+  "words": [
+   "river",
+   "sand",
+   "bucket",
+   "campfire"
+  ]
+ },
+ "order": 60,
+ "koreanLevel": 1,
+ "topic": "물"
+}

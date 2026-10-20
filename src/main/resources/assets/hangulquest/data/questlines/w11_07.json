@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w11_07",
+ "titleKo": "영원을 두른 왕관",
+ "titleDe": "Die Krone der Ewigkeit",
+ "topic": "왕관",
+ "tier": 2,
+ "order": 1117,
+ "concepts": [
+  "crown",
+  "ritual",
+  "soul_lantern",
+  "adv_item_totem_of_undying"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "crown"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_helmet",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede eine goldene Krone."
+   },
+   "hint": {
+    "ko": "금 투구는 금 조각 다섯 개로 만들어요.",
+    "de": "Ein Goldhelm braucht fünf Goldbarren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ritual"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:candle"
+   },
+   "clue": {
+    "de": "Entzünde eine Kerze für das Ritual.",
+    "ko": "의식에 쓸 초를 사용해 불을 붙여요."
+   },
+   "hint": {
+    "ko": "초에 불을 붙이면 의식이 시작돼요.",
+    "de": "Mit Feuerzeug oder Feuerstein zündest du die Kerze an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "soul_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_lantern",
+    "count": 4
+   },
+   "clue": {
+    "de": "Häng vier Seelenlaternen um den Altar."
+   },
+   "hint": {
+    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
+    "de": "Eine Seelenlaterne braucht eine Seelenfackel und Eisennuggets."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_totem_of_undying"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:totem_of_undying",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm einen Totem der Unsterblichkeit mit."
+   },
+   "hint": {
+    "ko": "불사의 토템은 숲 저택에서 얻어요.",
+    "de": "Ein Totem der Unsterblichkeit findest du im Waldanwesen."
+   },
+   "conditions": []
+  },
+  "textKo": "영원의 왕관을 쓰고 별의 의식을 올려요.",
+  "textDe": "Du trägst die Krone der Ewigkeit und vollendest das Ritual der Sterne."
+ },
+ "reward": {
+  "badge": "w11_07",
+  "words": [
+   "crown",
+   "ritual",
+   "soul_lantern",
+   "adv_item_totem_of_undying"
+  ]
+ },
+ "koreanLevel": 6
+}

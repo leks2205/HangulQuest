@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_repair_wolf_armor",
+ "titleKo": "새것처럼",
+ "titleDe": "So gut wie neu",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 275,
+ "concepts": [
+  "wolf_armor",
+  "adv_item_armadillo_scute",
+  "wolf"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tame_an_animal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wolf_armor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wolf_armor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Wolfsrüstung aus sechs Hornschilden."
+   },
+   "hint": {
+    "ko": "아르마딜로 인갑으로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_armadillo_scute"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:armadillo_scute",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bürste ein Gürteltier, bis ein Hornschild abfällt."
+   },
+   "hint": {
+    "ko": "솔로 아르마딜로를 빗어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:wolf"
+   },
+   "conditions": []
+  },
+  "textKo": "새것처럼 — 인갑으로 늑대 갑옷을 고쳐요.",
+  "textDe": "So gut wie neu — Mit einem Hornschild flickst du die Wolfsrüstung."
+ },
+ "reward": {
+  "badge": "adv_husbandry_repair_wolf_armor",
+  "words": [
+   "wolf_armor",
+   "adv_item_armadillo_scute",
+   "wolf"
+  ]
+ },
+ "koreanLevel": 2
+}

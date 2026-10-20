@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w1_03",
+ "titleKo": "노란 꽃밭",
+ "titleDe": "Das gelbe Blumenfeld",
+ "topic": "꽃밭",
+ "tier": 1,
+ "order": 1013,
+ "concepts": [
+  "dandelion",
+  "sunflower",
+  "flower"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "dandelion"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dandelion",
+    "count": 3
+   },
+   "clue": {
+    "de": "Pflück drei Löwenzahn."
+   },
+   "hint": {
+    "ko": "민들레는 노란 꽃이에요.",
+    "de": "Löwenzahn erkennst du an der gelben Blüte."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "dandelion"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dandelion",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Löwenzahn in die Erde."
+   },
+   "hint": {
+    "ko": "민들레를 흙 위에 놓아요.",
+    "de": "Pflanze den Löwenzahn auf Erde."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sunflower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sunflower",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau dir eine Sonnenblume an."
+   },
+   "hint": {
+    "ko": "해바라기는 해를 따라가요.",
+    "de": "Sonnenblumen wenden sich der Sonne zu."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poppy",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "노란 꽃과 빨간 꽃이 작은 들판을 만들어요.",
+  "textDe": "Gelbe und rote Blumen machen aus einer Wiese ein kleines Feld."
+ },
+ "reward": {
+  "badge": "w1_03",
+  "words": [
+   "dandelion",
+   "sunflower",
+   "flower"
+  ]
+ },
+ "koreanLevel": 1
+}

@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_nether_all_potions",
+ "titleKo": "뿅가는 폭탄주",
+ "titleDe": "Eine gefährliche Mischung",
+ "topic": "nether",
+ "tier": 2,
+ "order": 288,
+ "concepts": [
+  "brewing_stand",
+  "nether_wart"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_brew_potion"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "brewing_stand"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brewing_stand",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Braustand auf – ohne ihn läuft in der Alchemie nichts."
+   },
+   "hint": {
+    "ko": "양조기를 만들어요. 블레이즈 막대기가 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_wart",
+    "count": 3
+   },
+   "clue": {
+    "de": "Netherwarzen sind die Basis für jeden Trank, den du brauen willst."
+   },
+   "hint": {
+    "ko": "네더 사마귀를 모아요. 요새의 계단에서 자라요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "brewing_stand"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:brewing_stand"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Brau am Stand Trank um Trank, bis jede Sorte fertig in der Flasche ist."
+   },
+   "hint": {
+    "ko": "양조기를 사용해요."
+   }
+  },
+  "textKo": "모든 물약을 다 만들었어요! 이건 진짜 폭탄주예요.",
+  "textDe": "Jede Trank-Sorte gebraut – eine gefährliche Mischung."
+ },
+ "reward": {
+  "badge": "adv_nether_all_potions",
+  "words": [
+   "brewing_stand",
+   "nether_wart"
+  ]
+ },
+ "koreanLevel": 3
+}

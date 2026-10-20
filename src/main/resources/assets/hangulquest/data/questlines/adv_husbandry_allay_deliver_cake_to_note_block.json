@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_allay_deliver_cake_to_note_block",
+ "titleKo": "생일 축하 노래",
+ "titleDe": "Geburtstagslied",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 256,
+ "concepts": [
+  "cake",
+  "note_block"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_allay_deliver_item_to_player"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Backe einen Kuchen für das Geburtstagslied."
+   },
+   "hint": {
+    "ko": "케이크는 우유 세 개와 설탕 두 개, 달걀 하나, 밀 세 개로 만들어요.",
+    "de": "Ein Kuchen braucht drei Milch, zwei Zucker, ein Ei und drei Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "note_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:note_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz einen Notenblock als Bühne für das Lied."
+   },
+   "hint": {
+    "ko": "음표 블록은 판자 여덟 개와 레드스톤 하나로 만들어요.",
+    "de": "Ein Notenblock besteht aus acht Brettern und einem Redstone."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cake",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "생일 축하 노래 — 케이크를 음표 블록 앞에 놓아요.",
+  "textDe": "Zum Geburtstagslied legst du den Kuchen an den Notenblock."
+ },
+ "reward": {
+  "badge": "adv_husbandry_allay_deliver_cake_to_note_block",
+  "words": [
+   "cake",
+   "note_block"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "eiskrone",
+ "titleKo": "북극 여우",
+ "titleDe": "Der Polarfuchs",
+ "topic": "겨울",
+ "tier": 2,
+ "order": 89,
+ "concepts": [
+  "fox",
+  "sweet_berries",
+  "snow",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schneesturm"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fox"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:fox",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Fuchs an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sweet_berries"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sweet_berries",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Süßbeeren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Schneeblöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 북극 여우와 모닥불을 피워요.",
+  "textDe": "Nachts brennt beim Polarfuchs ein Feuer."
+ },
+ "reward": {
+  "badge": "eiskrone",
+  "words": [
+   "fox",
+   "sweet_berries",
+   "snow",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 3
+}

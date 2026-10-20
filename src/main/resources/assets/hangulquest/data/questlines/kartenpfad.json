@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "kartenpfad",
+ "titleKo": "지도의 길",
+ "titleDe": "Der Kartenpfad",
+ "topic": "지도",
+ "tier": 3,
+ "order": 97,
+ "concepts": [
+  "map",
+  "cartography_table",
+  "item_frame"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelspfad",
+   "karawanepfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:map",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Karte."
+   },
+   "hint": {
+    "ko": "지도는 종이와 나침반으로 만들어요.",
+    "de": "Eine Karte besteht aus Papier und einem Kompass."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cartography_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:cartography_table"
+   },
+   "clue": {
+    "de": "Benutz einen Kartentisch."
+   },
+   "hint": {
+    "ko": "지도 제작대는 나무 판자와 종이로 만들어요.",
+    "de": "Ein Kartentisch besteht aus Holzbrettern und Papier."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "item_frame"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:item_frame",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "아이템 액자는 막대기와 가죽으로 만들어요.",
+    "de": "Ein Rahmen besteht aus Stöcken und Leder."
+   }
+  },
+  "textKo": "지도를 걸 아이템 액자를 모아요.",
+  "textDe": "Sammle einen Rahmen für die Karte."
+ },
+ "reward": {
+  "badge": "kartenpfad",
+  "words": [
+   "map",
+   "cartography_table",
+   "item_frame"
+  ]
+ },
+ "koreanLevel": 2
+}

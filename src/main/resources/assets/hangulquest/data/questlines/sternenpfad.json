@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "sternenpfad",
+ "titleKo": "별의 길",
+ "titleDe": "Der Sternenpfad",
+ "tier": 2,
+ "concepts": [
+  "climb",
+  "torch",
+  "night",
+  "mountain",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 4,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "nachtpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   },
+   "hint": {
+    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Fackeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 5
+   },
+   "clue": {
+    "de": "Setz in der Nacht fünf Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 침대에서 자요. 별의 길이 끝났어요.",
+  "textDe": "Nachts schläfst du im Bett. Der Sternenpfad ist zu Ende."
+ },
+ "reward": {
+  "badge": "sternenpfad",
+  "words": [
+   "climb",
+   "torch",
+   "night"
+  ]
+ },
+ "order": 150,
+ "koreanLevel": 1,
+ "topic": "밤"
+}

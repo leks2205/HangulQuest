@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "adv_story_enter_the_end",
+ "titleKo": "이걸로 끝이야?",
+ "titleDe": "Das Ende?",
+ "topic": "story",
+ "tier": 2,
+ "order": 313,
+ "concepts": [
+  "adv_item_ender_eye",
+  "stone_bricks",
+  "adv_dimension_the_end"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_follow_ender_eye"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_ender_eye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_eye",
+    "count": 12
+   },
+   "clue": {
+    "de": "Sammle zwölf Enderaugen für den Portalrahmen."
+   },
+   "hint": {
+    "ko": "엔드 포털 틀에는 엔더의 눈이 열두 개 필요해요.",
+    "de": "Der Endportalrahmen braucht zwölf Enderaugen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 4
+   },
+   "clue": {
+    "de": "Schlage dich durch vier Steinziegel der Festung."
+   },
+   "hint": {
+    "ko": "요새 벽을 뚫으려면 곡괭이가 필요해요.",
+    "de": "Für die Festungsmauer braucht es eine Spitzhacke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_end"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "clue": {
+    "de": "Setze die Augen ein und spring in das Endportal."
+   },
+   "conditions": []
+  },
+  "textKo": "이걸로 끝이야? — 엔드 포털을 지나 엔드에 도착했어요.",
+  "textDe": "Das Ende? — Durch das Portal ins Ende gereist."
+ },
+ "reward": {
+  "badge": "adv_story_enter_the_end",
+  "words": [
+   "adv_item_ender_eye",
+   "stone_bricks",
+   "adv_dimension_the_end"
+  ]
+ },
+ "koreanLevel": 4
+}

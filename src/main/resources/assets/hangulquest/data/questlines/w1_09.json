@@ -1,0 +1,105 @@
+{
+ "schema": 1,
+ "id": "w1_09",
+ "titleKo": "작은 발견",
+ "titleDe": "Kleine Entdeckungen",
+ "topic": "발견",
+ "tier": 1,
+ "order": 1019,
+ "concepts": [
+  "compass",
+  "map",
+  "item_frame",
+  "lectern"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "compass"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:compass",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau einen Kompass."
+   },
+   "hint": {
+    "ko": "나침반은 철과 레드스톤으로 만들어요.",
+    "de": "Ein Kompass braucht Eisen und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "item_frame"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:item_frame",
+    "count": 2
+   },
+   "clue": {
+    "de": "Bau zwei Rahmen für deine Fundstücke."
+   },
+   "hint": {
+    "ko": "아이템 액자는 가죽과 막대기로 만들어요.",
+    "de": "Ein Rahmen besteht aus Leder und Stöcken."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:map",
+    "count": 1
+   },
+   "clue": {
+    "de": "Mach eine Karte von deiner Umgebung."
+   },
+   "hint": {
+    "ko": "지도는 종이로 만들어요.",
+    "de": "Eine Karte besteht aus Papier."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lectern",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell ein Lesepult für deine Karte auf."
+   },
+   "conditions": []
+  },
+  "textKo": "작은 발견을 액자에 담고 독서대에 올려요.",
+  "textDe": "Deine kleine Entdeckung ist im Rahmen und auf dem Lesepult ausgestellt."
+ },
+ "reward": {
+  "badge": "w1_09",
+  "words": [
+   "compass",
+   "map",
+   "item_frame",
+   "lectern"
+  ]
+ },
+ "koreanLevel": 1
+}

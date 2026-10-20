@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "w5_01",
+ "titleKo": "광부의 등불",
+ "titleDe": "Die Grubenlampe",
+ "topic": "광산",
+ "tier": 2,
+ "order": 1051,
+ "concepts": [
+  "coal",
+  "stone",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "bergwerk"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:coal",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Kohle."
+   },
+   "hint": {
+    "ko": "석탄은 곡괭이로 캐요.",
+    "de": "Kohle baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "stone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Stein ab."
+   },
+   "hint": {
+    "ko": "돌은 곡괭이로 캐요.",
+    "de": "Stein baust du mit einer Spitzhacke ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln tief unter der Erde."
+   },
+   "hint": {
+    "ko": "높이 0 이하에서 횃불을 놓아요.",
+    "de": "Unter Höhe 0 setzt du Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
+  },
+  "textKo": "높이 0 이하의 갱도에서도 등불은 꺼지지 않아요.",
+  "textDe": "Selbst im Stollen unter Höhe 0 erlischt die Lampe nicht."
+ },
+ "reward": {
+  "badge": "w5_01",
+  "words": [
+   "coal",
+   "stone",
+   "torch"
+  ]
+ },
+ "koreanLevel": 3
+}

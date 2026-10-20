@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "schneeballpfad",
+ "titleKo": "눈싸움의 길",
+ "titleDe": "Der Schneeballpfad",
+ "topic": "겨울",
+ "tier": 2,
+ "order": 101,
+ "concepts": [
+  "snowball",
+  "snow"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "nachtpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "snowball"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:snowball",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Schneebälle."
+   },
+   "hint": {
+    "ko": "삽으로 눈을 캐면 눈덩이가 나와요.",
+    "de": "Mit einer Schaufel bekommst du aus Schnee Schneebälle."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf Schnee."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Schneeblöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:snow",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "눈을 쌓아요.",
+  "textDe": "Schnee aufschichten."
+ },
+ "reward": {
+  "badge": "schneeballpfad",
+  "words": [
+   "snowball",
+   "snow"
+  ]
+ },
+ "koreanLevel": 1
+}

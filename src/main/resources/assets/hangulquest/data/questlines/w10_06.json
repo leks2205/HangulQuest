@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w10_06",
+ "titleKo": "도공의 손",
+ "titleDe": "Die Hände des Töpfers",
+ "topic": "손",
+ "tier": 2,
+ "order": 1106,
+ "concepts": [
+  "adv_item_brush",
+  "clay",
+  "brick",
+  "adv_item_decorated_pot"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handwerksmeister"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_brush"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brush",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Bürste für die Ausgrabung."
+   },
+   "hint": {
+    "ko": "솔은 깃털과 구리, 막대기로 만들어요.",
+    "de": "Eine Bürste braucht eine Feder, Kupfer und einen Stock."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "clay"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clay_ball",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Tonklumpen am Flussufer."
+   },
+   "hint": {
+    "ko": "점토는 물가의 흙에서 나와요.",
+    "de": "Ton findest du am Ufer unter Wasser."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "brick"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:bricks",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Schau die alte Ziegelmauer im Tempel an."
+   },
+   "hint": {
+    "ko": "벽돌 벽은 오래된 유적의 벽이에요.",
+    "de": "Die Ziegelmauer gehört zu den alten Ruinen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_decorated_pot"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:decorated_pot",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "모래에서 찾은 도자기를 유적에 다시 세워요.",
+  "textDe": "Der bemalte Krug steht wieder in seiner Nische."
+ },
+ "reward": {
+  "badge": "w10_06",
+  "words": [
+   "adv_item_brush",
+   "clay",
+   "brick",
+   "adv_item_decorated_pot"
+  ]
+ },
+ "koreanLevel": 5
+}

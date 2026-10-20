@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "w9_03",
+ "titleKo": "왕관의 항로",
+ "titleDe": "Die Kronenroute",
+ "topic": "무역",
+ "tier": 2,
+ "order": 1093,
+ "concepts": [
+  "emerald",
+  "gold_block",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelsflotte"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 6
+   },
+   "clue": {
+    "de": "Verkaufe Waren und sammle sechs Smaragde.",
+    "ko": "궁정에서 물건을 팔아 에메랄드 여섯 개를 모아요."
+   },
+   "hint": {
+    "ko": "에메랄드는 주민과 거래해서 얻어요.",
+    "de": "Smaragde bekommst du im Handel mit Dorfbewohnern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "clue": {
+    "de": "Sprich mit einem Dorfbewohner am Hof.",
+    "ko": "궁정의 주민과 이야기해요."
+   },
+   "hint": {
+    "ko": "주민은 마을에서 만나요.",
+    "de": "Dorfbewohner trifft man im Dorf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "금 블록을 내놓지 않고서는 왕관의 값을 치를 수 없어요.",
+  "textDe": "Ohne einen Goldblock lässt sich der Preis der Krone nicht zahlen."
+ },
+ "reward": {
+  "badge": "w9_03",
+  "words": [
+   "emerald",
+   "gold_block",
+   "villager"
+  ]
+ },
+ "koreanLevel": 5
+}

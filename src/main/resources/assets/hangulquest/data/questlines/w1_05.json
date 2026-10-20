@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w1_05",
+ "titleKo": "물 위의 빛",
+ "titleDe": "Licht auf dem Wasser",
+ "topic": "물빛",
+ "tier": 1,
+ "order": 1015,
+ "concepts": [
+  "lily_pad",
+  "seagrass",
+  "water"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lily_pad"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lily_pad",
+    "count": 2
+   },
+   "clue": {
+    "de": "Hol zwei Seerosenblätter."
+   },
+   "hint": {
+    "ko": "수련잎은 강과 늪에서 자라요.",
+    "de": "Seerosen wachsen auf ruhigem Wasser."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "lily_pad"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lily_pad",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Seerosenblätter aufs Wasser."
+   },
+   "hint": {
+    "ko": "수련잎을 물 위에 놓아요.",
+    "de": "Lege die Blätter auf die Wasserfläche."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "seagrass"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:seagrass",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau dir Seegras unter Wasser an."
+   },
+   "hint": {
+    "ko": "해초는 바다 밑에서 자라요.",
+    "de": "Seegras wächst auf dem Meeresgrund."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "물빛이 수련잎과 해초를 비춰요.",
+  "textDe": "Das Wasser lässt Seerosen und Seegras leuchten."
+ },
+ "reward": {
+  "badge": "w1_05",
+  "words": [
+   "lily_pad",
+   "seagrass",
+   "water"
+  ]
+ },
+ "koreanLevel": 1
+}

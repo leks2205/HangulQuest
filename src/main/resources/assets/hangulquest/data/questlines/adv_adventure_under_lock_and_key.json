@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_under_lock_and_key",
+ "titleKo": "열쇠로 잠금 해제",
+ "titleDe": "Hinter Schloss und Riegel",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 240,
+ "concepts": [
+  "adv_item_trial_key",
+  "adv_item_ominous_trial_key",
+  "adv_item_enchanted_book"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_minecraft_trials_edition"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_trial_key"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:trial_key",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege die Gegner an einem Prüfungsgenerator und nimm den Schlüssel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_ominous_trial_key"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ominous_trial_key",
+    "count": 1
+   },
+   "clue": {
+    "de": "Trink die ominöse Flasche und besiege die Gegner am unheilvollen Prüfungsgenerator."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_enchanted_book"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:enchanted_book",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "열쇠로 잠금 해제 — 시련 열쇠로 금고를 열고 보물을 가져요.",
+  "textDe": "Hinter Schloss und Riegel — Mit dem Prüfungsschlüssel öffnest du den Tresor und nimmst die Beute."
+ },
+ "reward": {
+  "badge": "adv_adventure_under_lock_and_key",
+  "words": [
+   "adv_item_trial_key",
+   "adv_item_ominous_trial_key",
+   "adv_item_enchanted_book"
+  ]
+ },
+ "koreanLevel": 3
+}

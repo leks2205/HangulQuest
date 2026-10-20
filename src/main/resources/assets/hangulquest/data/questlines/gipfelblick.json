@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "gipfelblick",
+ "titleKo": "정상의 전망",
+ "titleDe": "Der Gipfelblick",
+ "tier": 3,
+ "order": 512,
+ "concepts": [
+  "mountain",
+  "snow",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gipfelpfad",
+   "sternenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf den Schnee."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "산 지형의 정상에서 밤의 전망을 밝혀요.",
+  "textDe": "Vom Gipfel leuchtet die Nacht."
+ },
+ "reward": {
+  "badge": "gipfelblick",
+  "words": [
+   "mountain",
+   "snow",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1,
+ "topic": "산"
+}

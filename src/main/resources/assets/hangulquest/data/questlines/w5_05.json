@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w5_05",
+ "titleKo": "동굴의 숨결",
+ "titleDe": "Der Atem der Höhle",
+ "topic": "동굴",
+ "tier": 2,
+ "order": 1055,
+ "concepts": [
+  "bat",
+  "zombie",
+  "torch",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "observatorium"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:bat",
+    "dwellMs": 1200
+   },
+   "clue": {
+    "de": "Schau eine Fledermaus an."
+   },
+   "hint": {
+    "ko": "박쥐는 동굴에서 살아요.",
+    "de": "Fledermäuse leben in Höhlen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 2
+   },
+   "clue": {
+    "de": "Besiege zwei Zombies."
+   },
+   "hint": {
+    "ko": "좀비는 검으로 물리쳐요.",
+    "de": "Zombies besiegst du mit dem Schwert."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "hint": {
+    "ko": "횃불은 석탄과 막대기로 만들어요.",
+    "de": "Fackeln brauchen Kohle und Stöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": -40
+   },
+   "clue": {
+    "de": "Steig hinab, bis du unter Höhe -40 bist."
+   },
+   "hint": {
+    "ko": "높이 -40 이하로 내려가요.",
+    "de": "Geh unter Höhe -40 hinab."
+   },
+   "conditions": []
+  },
+  "textKo": "동굴의 숨결을 따라 높이 -40 아래로 내려가요.",
+  "textDe": "Dem Atem der Höhle folgst du unter Höhe -40."
+ },
+ "reward": {
+  "badge": "w5_05",
+  "words": [
+   "bat",
+   "zombie",
+   "torch",
+   "height"
+  ]
+ },
+ "koreanLevel": 3
+}

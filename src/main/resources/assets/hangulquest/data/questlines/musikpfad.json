@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "musikpfad",
+ "titleKo": "음악의 길",
+ "titleDe": "Der Musikpfad",
+ "topic": "음악",
+ "tier": 1,
+ "order": 93,
+ "concepts": [
+  "note_block",
+  "jukebox"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "note_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:note_block",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Notenblöcke."
+   },
+   "hint": {
+    "ko": "음표 블록은 나무 판자와 레드스톤으로 만들어요.",
+    "de": "Notenblöcke bestehen aus Holzbrettern und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:jukebox"
+   },
+   "clue": {
+    "de": "Benutz eine Jukebox."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:jukebox",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "주크박스는 나무 판자와 다이아몬드로 만들어요.",
+    "de": "Eine Jukebox besteht aus Holzbrettern und einem Diamanten."
+   }
+  },
+  "textKo": "주크박스에서 음악이 흐르는 마을을 만들어요.",
+  "textDe": "Ein Dorf voller Musik."
+ },
+ "reward": {
+  "badge": "musikpfad",
+  "words": [
+   "note_block",
+   "jukebox",
+   "music_disc"
+  ]
+ },
+ "koreanLevel": 1
+}

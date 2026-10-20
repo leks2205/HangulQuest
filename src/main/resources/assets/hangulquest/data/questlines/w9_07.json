@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "w9_07",
+ "titleKo": "왕관의 공방",
+ "titleDe": "Die Kronenwerkstatt",
+ "topic": "손",
+ "tier": 2,
+ "order": 1097,
+ "concepts": [
+  "anvil",
+  "crown",
+  "iron"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handwerksmeister"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "clue": {
+    "de": "Richte die Krone am Amboss wieder auf.",
+    "ko": "왕관을 고치려고 모루를 사용해요."
+   },
+   "hint": {
+    "ko": "모루는 철 블록 세 개와 철 조각 네 개로 만들어요.",
+    "de": "Ein Amboss braucht drei Eisenblöcke und vier Eisenbarren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Eisenbarren für den neuen Reif.",
+    "ko": "왕관의 테를 만들 철 조각 여덟 개를 모아요."
+   },
+   "hint": {
+    "ko": "철은 철 광석을 화로에 구워 얻어요.",
+    "de": "Eisen gewinnst du, indem du Eisenerz im Ofen brennst."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "crown"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_helmet",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "모루로 벼린 왕관을 갖지 않고서는 공방의 일을 끝낼 수 없어요.",
+  "textDe": "Ohne die auf dem Amboss geschmiedete Krone ist die Arbeit der Werkstatt nicht getan."
+ },
+ "reward": {
+  "badge": "w9_07",
+  "words": [
+   "anvil",
+   "crown",
+   "iron"
+  ]
+ },
+ "koreanLevel": 5
+}

@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "teppichpfad",
+ "titleKo": "양탄자의 길",
+ "titleDe": "Der Teppichpfad",
+ "topic": "양탄자",
+ "tier": 2,
+ "order": 135,
+ "concepts": [
+  "wool",
+  "loom",
+  "carpet",
+  "string"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "dorfpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_wool",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Wolle."
+   },
+   "hint": {
+    "ko": "양털은 가위로 양을 깎아요.",
+    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "loom"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:loom"
+   },
+   "clue": {
+    "de": "Benutz einen Webstuhl."
+   },
+   "hint": {
+    "ko": "베틀은 나무 판자와 실로 만들어요.",
+    "de": "Ein Webstuhl besteht aus Holzbrettern und Faden."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carpet"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_carpet",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Teppiche."
+   },
+   "hint": {
+    "ko": "양탄자는 양털 두 개로 만들어요.",
+    "de": "Teppiche bestehen aus zwei Wolle."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "string"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:string",
+    "count": 4
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "실은 거미를 물리치면 얻어요.",
+    "de": "Fäden bekommst du von Spinnen."
+   }
+  },
+  "textKo": "양탄자에 실을 꿰어요.",
+  "textDe": "Fäden für den Teppich sammeln."
+ },
+ "reward": {
+  "badge": "teppichpfad",
+  "words": [
+   "wool",
+   "loom",
+   "carpet",
+   "string"
+  ]
+ },
+ "koreanLevel": 1
+}

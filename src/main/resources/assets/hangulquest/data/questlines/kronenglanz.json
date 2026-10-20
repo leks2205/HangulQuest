@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "kronenglanz",
+ "titleKo": "왕관의 빛남",
+ "titleDe": "Der Kronenglanz",
+ "topic": "산",
+ "tier": 5,
+ "order": 73,
+ "concepts": [
+  "diamond",
+  "torch",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenpfad",
+   "kristallschmiede",
+   "zeitportal",
+   "seelenpfad",
+   "gartenkunst",
+   "wolkenstadt",
+   "schmuckgilde"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Diamanten."
+   },
+   "hint": {
+    "ko": "철 곡괭이로 다이아몬드를 캐요.",
+    "de": "Diamanten brauchen eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "왕관이 빛나는 밤에 자요.",
+  "textDe": "In der glänzenden Nacht schläfst du."
+ },
+ "reward": {
+  "badge": "kronenglanz",
+  "words": [
+   "diamond",
+   "torch",
+   "bed"
+  ]
+ },
+ "koreanLevel": 5
+}

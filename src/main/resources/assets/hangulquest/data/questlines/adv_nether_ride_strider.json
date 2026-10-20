@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_nether_ride_strider",
+ "titleKo": "두 발 달린 보트",
+ "titleDe": "Mach diesem „Boot“ Beine",
+ "topic": "nether",
+ "tier": 2,
+ "order": 305,
+ "concepts": [
+  "adv_dimension_the_nether",
+  "saddle",
+  "adv_item_warped_fungus_on_a_stick"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh in den Nether, dort schwimmen die Striders im Lavasee."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "saddle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:saddle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besorg einen Sattel für den Strider."
+   },
+   "hint": {
+    "ko": "안장은 요새 상자나 낚시로 얻어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_warped_fungus_on_a_stick"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:warped_fungus_on_a_stick",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Baue aus Angel und Wirrpilz die Rute, mit der du den Strider lenkst."
+   },
+   "hint": {
+    "ko": "낚싯대와 뒤틀린 균으로 만들어요."
+   }
+  },
+  "textKo": "두 발 달린 보트 — 뒤틀린 균 낚싯대로 스트라이더를 몰았어요.",
+  "textDe": "Mach diesem „Boot“ Beine — der Strider läuft über Lava."
+ },
+ "reward": {
+  "badge": "adv_nether_ride_strider",
+  "words": [
+   "adv_dimension_the_nether",
+   "saddle",
+   "adv_item_warped_fungus_on_a_stick"
+  ]
+ },
+ "koreanLevel": 2
+}

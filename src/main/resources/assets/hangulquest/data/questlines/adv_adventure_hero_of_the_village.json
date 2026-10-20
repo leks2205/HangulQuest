@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_hero_of_the_village",
+ "titleKo": "마을의 영웅",
+ "titleDe": "Dorfheld",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 210,
+ "concepts": [
+  "adv_item_white_banner",
+  "witch",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_voluntary_exile"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_white_banner"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_banner",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm dem Räuberhauptmann sein Banner ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "witch"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:witch",
+    "count": 1
+   },
+   "clue": {
+    "de": "Wehre den Überfall ab und erlege eine Hexe im Getümmel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Sprich mit dem geretteten Dorfbewohner, der dir dankbar begegnet."
+   }
+  },
+  "textKo": "마을의 영웅 — 습격을 막고 주민에게 인사를 받았어요.",
+  "textDe": "Dorfheld — der Überfall ist abgewehrt."
+ },
+ "reward": {
+  "badge": "adv_adventure_hero_of_the_village",
+  "words": [
+   "adv_item_white_banner",
+   "witch",
+   "villager"
+  ]
+ },
+ "koreanLevel": 3
+}

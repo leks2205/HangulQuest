@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "redstonepfad",
+ "titleKo": "레드스톤의 길",
+ "titleDe": "Der Redstonepfad",
+ "topic": "레드스톤",
+ "tier": 2,
+ "order": 100,
+ "concepts": [
+  "redstone",
+  "redstone_torch",
+  "lever"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steinpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "redstone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:redstone_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Redstone-Erze ab."
+   },
+   "hint": {
+    "ko": "철 곡괭이로 레드스톤 원석을 캐요.",
+    "de": "Baue Redstone-Erz mit einer Eisenspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "redstone_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:redstone_torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Redstonefackeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lever"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lever"
+   },
+   "clue": {
+    "de": "Benutz einen Hebel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "redstone"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:redstone",
+    "count": 16
+   },
+   "conditions": []
+  },
+  "textKo": "레드스톤을 모아요.",
+  "textDe": "Redstone sammeln."
+ },
+ "reward": {
+  "badge": "redstonepfad",
+  "words": [
+   "redstone",
+   "redstone_torch",
+   "lever"
+  ]
+ },
+ "koreanLevel": 1
+}

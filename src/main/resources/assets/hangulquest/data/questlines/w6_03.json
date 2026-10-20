@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w6_03",
+ "titleKo": "붉은 여우의 숲",
+ "titleDe": "Der Wald des roten Fuchses",
+ "topic": "여우",
+ "tier": 2,
+ "order": 1063,
+ "concepts": [
+  "fox",
+  "sweet_berries",
+  "rabbit",
+  "leaves"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "wolfpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fox"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:fox",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Fuchs an, ohne ihn zu erschrecken."
+   },
+   "hint": {
+    "ko": "여우는 달콤한 열매를 좋아해요.",
+    "de": "Füchse mögen Süßbeeren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sweet_berries"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sweet_berries",
+    "count": 5
+   },
+   "clue": {
+    "de": "Sammle fünf Süßbeeren aus dem Unterholz."
+   },
+   "hint": {
+    "ko": "달콤한 열매는 덤불에서 자라요.",
+    "de": "Süßbeeren wachsen an Sträuchern."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "rabbit"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:rabbit",
+    "dwellMs": 700
+   },
+   "clue": {
+    "de": "Entdecke ein Kaninchen zwischen den Wurzeln."
+   },
+   "hint": {
+    "ko": "토끼는 풀밭에서 뛰어요.",
+    "de": "Kaninchen hoppeln über Wiesen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_leaves",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue aus drei Blättern ein Versteck für Fuchs und Kaninchen."
+   },
+   "hint": {
+    "ko": "나뭇잎으로 여우의 숨을 곳을 만들어요.",
+    "de": "Aus Blättern baust du dem Fuchs ein Versteck."
+   },
+   "conditions": []
+  },
+  "textKo": "여우와 토끼를 위해 나뭇잎으로 숨을 곳을 만들어요.",
+  "textDe": "Aus Blättern entsteht ein Versteck für Fuchs und Kaninchen."
+ },
+ "reward": {
+  "badge": "w6_03",
+  "words": [
+   "fox",
+   "sweet_berries",
+   "rabbit",
+   "leaves"
+  ]
+ },
+ "koreanLevel": 3
+}

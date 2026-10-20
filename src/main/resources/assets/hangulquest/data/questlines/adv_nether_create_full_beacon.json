@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "adv_nether_create_full_beacon",
+ "titleKo": "신호자",
+ "titleDe": "Leuchtturmwärter",
+ "topic": "nether",
+ "tier": 2,
+ "order": 292,
+ "concepts": [
+  "iron_block",
+  "gold_block",
+  "beacon"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_create_beacon"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_block",
+    "count": 9
+   },
+   "clue": {
+    "de": "Erste Stufe: neun Eisenblöcke im Quadrat als Fundament."
+   },
+   "hint": {
+    "ko": "철 블록을 아홉 개 놓아요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 9
+   },
+   "clue": {
+    "de": "Zweite Stufe: neun Goldblöcke kommen direkt darauf."
+   },
+   "hint": {
+    "ko": "금 블록을 아홉 개 놓아요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:beacon"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Aktiviere das Leuchtfeuer auf dem vollen Sockel und wähle eine Kraft."
+   },
+   "hint": {
+    "ko": "신호기를 사용해서 효과를 골라요."
+   }
+  },
+  "textKo": "네 층 신호기가 완성됐어요! 온 마을이 이 빛을 봐요.",
+  "textDe": "Ein volles Leuchtfeuer – der ganze Ort sieht dein Licht."
+ },
+ "reward": {
+  "badge": "adv_nether_create_full_beacon",
+  "words": [
+   "iron_block",
+   "gold_block",
+   "beacon"
+  ]
+ },
+ "koreanLevel": 4
+}

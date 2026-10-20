@@ -1,0 +1,105 @@
+{
+ "schema": 1,
+ "id": "kuestenwacht",
+ "titleKo": "해안 초소",
+ "titleDe": "Die Küstenwacht",
+ "tier": 2,
+ "order": 510,
+ "concepts": [
+  "beach",
+  "squid",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "brandung"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an den Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "squid"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:squid",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Tintenfisch an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "해변 초소에서 밤을 밝혀요.",
+  "textDe": "Die Küstenwacht leuchtet in der Nacht."
+ },
+ "reward": {
+  "badge": "kuestenwacht",
+  "words": [
+   "beach",
+   "squid",
+   "torch"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "물"
+}

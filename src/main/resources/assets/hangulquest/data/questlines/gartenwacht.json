@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "gartenwacht",
+ "titleKo": "정원의 수호",
+ "titleDe": "Die Gartenwacht",
+ "topic": "마을",
+ "tier": 3,
+ "order": 84,
+ "concepts": [
+  "flower",
+  "campfire",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenfest",
+   "nachtwache"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "정원을 지키며 밤을 보내요.",
+  "textDe": "Die Gartenwacht verbringt die Nacht."
+ },
+ "reward": {
+  "badge": "gartenwacht",
+  "words": [
+   "flower",
+   "campfire",
+   "bed"
+  ]
+ },
+ "koreanLevel": 3
+}

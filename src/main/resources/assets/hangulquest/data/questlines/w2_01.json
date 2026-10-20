@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w2_01",
+ "titleKo": "비 그친 하늘",
+ "titleDe": "Der Himmel nach dem Regen",
+ "topic": "하늘",
+ "tier": 1,
+ "order": 1021,
+ "concepts": [
+  "rain",
+  "glass",
+  "height",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "rain"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Füll einen Eimer mit Wasser."
+   },
+   "hint": {
+    "ko": "비는 하늘에서 와요. 물은 양동이에 담아요.",
+    "de": "Regen fällt vom Himmel; im Eimer sammelt sich das Wasser."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Glasblöcke als Fenster zum Himmel."
+   },
+   "hint": {
+    "ko": "유리는 모래를 화로에 구워 만들어요.",
+    "de": "Glas entsteht, wenn Sand im Ofen schmilzt."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig bis auf Höhe 100 hinauf."
+   },
+   "hint": {
+    "ko": "높이 백 블록 위로 올라가요.",
+    "de": "Steig über hundert Blöcke hinauf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "밤에 랜턴을 두 개 놓아요.",
+    "de": "Setze in der Nacht zwei Laternen."
+   }
+  },
+  "textKo": "비가 그친 밤에 랜턴을 밝혀 하늘을 봐요.",
+  "textDe": "In der Nacht nach dem Regen leuchten Laternen unter dem Himmel."
+ },
+ "reward": {
+  "badge": "w2_01",
+  "words": [
+   "rain",
+   "glass",
+   "height",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 1
+}

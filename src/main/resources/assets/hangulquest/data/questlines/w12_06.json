@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "id": "w12_06",
+ "titleKo": "끝의 노래",
+ "titleDe": "Das Lied vom Ende",
+ "topic": "엔드",
+ "tier": 2,
+ "order": 1126,
+ "concepts": [
+  "ender_pearl",
+  "ender_dragon",
+  "nether_star",
+  "dragon_egg"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Enderperlen, den ersten Ton des Liedes."
+   },
+   "hint": {
+    "ko": "엔더 진주는 엔더맨에게서 나와요.",
+    "de": "Enderperlen stammen von Endermen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "dwellMs": 1500
+   },
+   "clue": {
+    "de": "Schau zwei Sekunden lang einen lebenden Enderdrachen an."
+   },
+   "hint": {
+    "ko": "엔더 드래곤은 엔드 수정을 먼저 부숴야 해요.",
+    "de": "Der Enderdrache wird schwach, wenn man zuerst die Endkristalle zerstört."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "nether_star"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_star",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Netherstern, den gefallenen Stern der alten Welt."
+   },
+   "hint": {
+    "ko": "위더를 물리치면 네더의 별이 떨어져요.",
+    "de": "Besiegt man den Wither, fällt ein Netherstern."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "dragon_egg"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dragon_egg",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   ],
+   "hint": {
+    "ko": "드래곤 알은 엔더 드래곤이 죽은 자리에 생겨요. 엔드에서 놓아요.",
+    "de": "Das Drachenei erscheint, wo der Drache starb; setz es im Ende ab."
+   }
+  },
+  "textKo": "엔드에서 드래곤 알을 놓아 끝의 노래를 마쳐요.",
+  "textDe": "Im Ende beendet das Drachenei das Lied vom Ende."
+ },
+ "reward": {
+  "badge": "w12_06",
+  "words": [
+   "ender_pearl",
+   "ender_dragon",
+   "nether_star",
+   "dragon_egg"
+  ]
+ },
+ "koreanLevel": 6
+}

@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_shoot_arrow",
+ "titleKo": "정조준",
+ "titleDe": "Zielübungen",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 225,
+ "concepts": [
+  "bow",
+  "arrow",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_kill_a_mob"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Bogen aus drei Stöcken und drei Fäden."
+   },
+   "hint": {
+    "ko": "막대기 세 개와 실 세 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 8
+   },
+   "clue": {
+    "de": "Fertige acht Pfeile aus Feuerstein, Stöcken und Federn."
+   },
+   "hint": {
+    "ko": "부싯돌, 막대기, 깃털로 화살을 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Zieh den Bogen auf und triff einen Zombie mit einem Pfeil."
+   }
+  },
+  "textKo": "정조준 — 활로 좀비를 맞혀요.",
+  "textDe": "Zielübungen — Triff einen Zombie mit einem Pfeil."
+ },
+ "reward": {
+  "badge": "adv_adventure_shoot_arrow",
+  "words": [
+   "bow",
+   "arrow",
+   "zombie"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "id": "w4_05",
+ "titleKo": "밤바다 등불",
+ "titleDe": "Lichter am Nachtmeer",
+ "topic": "밤바다",
+ "tier": 2,
+ "order": 1045,
+ "concepts": [
+  "sand",
+  "sea_lantern",
+  "fish",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "nachthafen"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 8
+   },
+   "clue": {
+    "de": "Hole acht Sand für die Feuerstelle am Strand."
+   },
+   "hint": {
+    "ko": "모래는 해변에 있어요.",
+    "de": "Sand liegt am Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sea_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sea_lantern",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Meereslaternen an den Strand."
+   },
+   "hint": {
+    "ko": "바다 랜턴은 물속에서 빛나요.",
+    "de": "Eine Meereslaterne leuchtet unter Wasser."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 2
+   },
+   "clue": {
+    "de": "Fang zwei Kabeljau."
+   },
+   "hint": {
+    "ko": "물고기는 낚싯대로 잡아요.",
+    "de": "Fische fängst du mit einer Angel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Mach nachts am Strand ein Lagerfeuer."
+   },
+   "hint": {
+    "ko": "모닥불은 밤에 따뜻해요.",
+    "de": "Ein Lagerfeuer wärmt in der Nacht."
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤 해변에서 모닥불을 피워요.",
+  "textDe": "Nachts brennt am Strand ein Lagerfeuer."
+ },
+ "reward": {
+  "badge": "w4_05",
+  "words": [
+   "sand",
+   "sea_lantern",
+   "fish",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2
+}

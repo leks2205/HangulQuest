@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w1_06",
+ "titleKo": "겨울 창가",
+ "titleDe": "Am Winterfenster",
+ "topic": "겨울",
+ "tier": 1,
+ "order": 1016,
+ "concepts": [
+  "ice",
+  "snow",
+  "glass_pane"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ice",
+    "count": 3
+   },
+   "clue": {
+    "de": "Bring drei Eisblöcke mit."
+   },
+   "hint": {
+    "ko": "얼음은 눈 덮인 곳에서 얻어요.",
+    "de": "Eis findest du in verschneiten Gegenden."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:ice",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Eisblöcke ans Fenster."
+   },
+   "hint": {
+    "ko": "얼음을 창가에 놓아요.",
+    "de": "Stelle die Eisblöcke an das Fenster."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau dir eine Schneeschicht an."
+   },
+   "hint": {
+    "ko": "눈은 하얗고 차가워요.",
+    "de": "Schnee ist weiß und kalt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "glass_pane"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass_pane",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "얼음과 눈과 유리로 겨울 창문을 만들어요.",
+  "textDe": "Eis, Schnee und Glas ergeben ein Winterfenster."
+ },
+ "reward": {
+  "badge": "w1_06",
+  "words": [
+   "ice",
+   "snow",
+   "glass_pane"
+  ]
+ },
+ "koreanLevel": 1
+}

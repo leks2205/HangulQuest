@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w1_08",
+ "titleKo": "바다의 등불",
+ "titleDe": "Das Licht des Meeres",
+ "topic": "등불",
+ "tier": 1,
+ "order": 1018,
+ "concepts": [
+  "lantern",
+  "sea_lantern",
+  "adv_item_glow_ink_sac"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lantern",
+    "count": 2
+   },
+   "clue": {
+    "de": "Bau zwei Laternen."
+   },
+   "hint": {
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
+    "de": "Laternen brauchen eine Fackel und Eisenstücke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 2
+   },
+   "clue": {
+    "de": "Häng zwei Laternen an die Wand."
+   },
+   "hint": {
+    "ko": "랜턴을 벽에 놓아요.",
+    "de": "Hänge die Laternen an die Wand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_glow_ink_sac"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glow_ink_sac",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Leuchttintenbeutel."
+   },
+   "hint": {
+    "ko": "발광 먹물 주머니는 빛나는 오징어에게서 얻어요.",
+    "de": "Leuchttinte kommt von leuchtenden Tintenfischen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sea_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sea_lantern",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "바다 랜턴이 물속을 환하게 비춰요.",
+  "textDe": "Meereslaternen erhellen das Wasser."
+ },
+ "reward": {
+  "badge": "w1_08",
+  "words": [
+   "lantern",
+   "sea_lantern",
+   "adv_item_glow_ink_sac"
+  ]
+ },
+ "koreanLevel": 1
+}

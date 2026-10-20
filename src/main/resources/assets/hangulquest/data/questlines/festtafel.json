@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "festtafel",
+ "titleKo": "잔칫상",
+ "titleDe": "Die Festtafel",
+ "tier": 3,
+ "order": 521,
+ "concepts": [
+  "cake",
+  "bread",
+  "chicken",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenfest",
+   "kochkunst"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Kuchen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Brote."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chicken"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:chicken",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Huhn an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 잔칫상을 차려요.",
+  "textDe": "Bei Nacht ist die Tafel gedeckt."
+ },
+ "reward": {
+  "badge": "festtafel",
+  "words": [
+   "cake",
+   "bread",
+   "chicken",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "나무"
+}

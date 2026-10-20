@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "sternwarte",
+ "titleKo": "달빛 정원",
+ "titleDe": "Der Mondgarten",
+ "tier": 3,
+ "order": 515,
+ "concepts": [
+  "flower",
+  "sea_lantern",
+  "bed",
+  "flower_pot"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "mondpfad",
+   "nachtwache"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Mohnblume an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sea_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sea_lantern",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Meereslaternen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf nachts im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower_pot"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:flower_pot",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "달빛 정원에 화분을 놓아요.",
+  "textDe": "Blumentöpfe im Mondgarten."
+ },
+ "reward": {
+  "badge": "sternwarte",
+  "words": [
+   "flower",
+   "sea_lantern",
+   "bed",
+   "flower_pot"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "달빛"
+}

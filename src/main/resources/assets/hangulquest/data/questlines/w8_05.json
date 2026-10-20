@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w8_05",
+ "titleKo": "드래곤 알",
+ "titleDe": "Das Drachenei",
+ "topic": "알",
+ "tier": 2,
+ "order": 1085,
+ "concepts": [
+  "adv_item_dragon_breath",
+  "ender_dragon",
+  "dragon_egg",
+  "adv_item_dragon_head"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "drachenhort"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_dragon_breath"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dragon_breath",
+    "count": 3
+   },
+   "clue": {
+    "de": "Fang drei Drachenatem ein."
+   },
+   "hint": {
+    "ko": "드래곤의 숨결은 유리병으로 모아요.",
+    "de": "Drachenatem fängst du mit Glasflaschen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege den Enderdrachen."
+   },
+   "hint": {
+    "ko": "엔더 드래곤은 엔드 섬의 보스예요.",
+    "de": "Der Enderdrache ist der Boss der Endinsel."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "dragon_egg"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dragon_egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz das Drachenei."
+   },
+   "hint": {
+    "ko": "드래곤 알은 드래곤을 물리치면 나와요.",
+    "de": "Das Drachenei erscheint nach dem Sieg über den Drachen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_dragon_head"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dragon_head",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "드래곤이 쓰러졌어요. 알과 머리가 우리 것이에요.",
+  "textDe": "Der Drache ist gefallen. Ei und Haupt gehören uns."
+ },
+ "reward": {
+  "badge": "w8_05",
+  "words": [
+   "adv_item_dragon_breath",
+   "ender_dragon",
+   "dragon_egg",
+   "adv_item_dragon_head"
+  ]
+ },
+ "koreanLevel": 4
+}

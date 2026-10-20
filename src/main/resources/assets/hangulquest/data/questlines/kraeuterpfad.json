@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "kraeuterpfad",
+ "titleKo": "빵과 꽃의 길",
+ "titleDe": "Der Brot-und-Blumen-Pfad",
+ "topic": "음식",
+ "tier": 2,
+ "order": 43,
+ "concepts": [
+  "wheat",
+  "flower",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 18,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "essenspfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "빵으로 허브를 맛봐요.",
+  "textDe": "Mit Brot schmeckst du die Kräuter."
+ },
+ "reward": {
+  "badge": "kraeuterpfad",
+  "words": [
+   "wheat",
+   "flower",
+   "bread"
+  ]
+ },
+ "koreanLevel": 1
+}

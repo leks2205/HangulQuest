@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "alpental",
+ "titleKo": "알펜 계곡",
+ "titleDe": "Das Alpental",
+ "tier": 2,
+ "order": 509,
+ "concepts": [
+  "goat",
+  "cow",
+  "campfire",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weidepfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cow",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Kuh an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "산 지형의 밤에 잠들어요.",
+  "textDe": "Im Bergtal schläfst du nachts ein."
+ },
+ "reward": {
+  "badge": "alpental",
+  "words": [
+   "goat",
+   "cow",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "동물"
+}

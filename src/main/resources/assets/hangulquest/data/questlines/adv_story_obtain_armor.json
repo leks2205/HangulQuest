@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "adv_story_obtain_armor",
+ "titleKo": "차려입기",
+ "titleDe": "Mach dich fein",
+ "topic": "story",
+ "tier": 2,
+ "order": 321,
+ "concepts": [
+  "iron",
+  "adv2_item_iron_helmet",
+  "adv_item_iron_boots",
+  "iron_chestplate"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_smelt_iron"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 17
+   },
+   "clue": {
+    "de": "Schmelze siebzehn Eisenbarren für die Rüstung."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv2_item_iron_helmet"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_helmet",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede einen Eisenhelm."
+   },
+   "hint": {
+    "ko": "철 투구는 철 주괴 다섯 개로 만들어요.",
+    "de": "Ein Eisenhelm braucht fünf Eisenbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_iron_boots"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_boots",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede ein Paar Eisenstiefel."
+   },
+   "hint": {
+    "ko": "철 부츠는 철 주괴 네 개로 만들어요.",
+    "de": "Eisenstiefel brauchen vier Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Ziehe den Eisenharnisch an."
+   },
+   "hint": {
+    "ko": "철 흉갑은 철 주괴 여덟 개로 만들어요.",
+    "de": "Ein Eisenharnisch braucht acht Eisenbarren."
+   },
+   "conditions": []
+  },
+  "textKo": "차려입기 — 철 갑옷으로 몸을 단단히 감쌌어요.",
+  "textDe": "Mach dich fein — Die Eisenrüstung sitzt."
+ },
+ "reward": {
+  "badge": "adv_story_obtain_armor",
+  "words": [
+   "iron",
+   "adv2_item_iron_helmet",
+   "adv_item_iron_boots",
+   "iron_chestplate"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w12_04",
+ "titleKo": "지옥의 문",
+ "titleDe": "Das Tor zur Hölle",
+ "topic": "지옥",
+ "tier": 2,
+ "order": 1124,
+ "concepts": [
+  "nether",
+  "netherrack",
+  "ghast",
+  "magma"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Reise durch ein Obsidianportal in den Nether."
+   },
+   "hint": {
+    "ko": "지옥 차원으로 가려면 흑요석 문에 불을 붙여요.",
+    "de": "Ins Nether kommt man durch ein brennendes Obsidianportal."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "netherrack"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:netherrack",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Netherrack ab und brich dir einen Weg."
+   },
+   "hint": {
+    "ko": "네더랙은 곡괭이로 아주 빨리 캐져요.",
+    "de": "Netherrack bricht mit jeder Spitzhacke sehr schnell."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ghast"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ghast",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege einen Ghast, der über dem See aus Lava schwebt."
+   },
+   "hint": {
+    "ko": "가스트는 화살로 물리치고 눈물을 모아요.",
+    "de": "Ghasts besiegt man mit Pfeilen und sammelt ihre Tränen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "magma"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:magma_block",
+    "count": 8
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ],
+   "hint": {
+    "ko": "마그마 블록은 마그마 크림으로 만들어요. 지옥 차원에서 놓아요.",
+    "de": "Magmablöcke entstehen aus Magmacreme; setz sie im Nether."
+   }
+  },
+  "textKo": "지옥 차원에서 마그마 블록 여덟 개로 종말의 문을 세워요.",
+  "textDe": "Im Nether entsteht aus acht Magmablöcken das Tor des Endes."
+ },
+ "reward": {
+  "badge": "w12_04",
+  "words": [
+   "nether",
+   "netherrack",
+   "ghast",
+   "magma"
+  ]
+ },
+ "koreanLevel": 6
+}

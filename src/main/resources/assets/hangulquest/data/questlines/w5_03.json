@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "id": "w5_03",
+ "titleKo": "깊은 돌의 노래",
+ "titleDe": "Das Lied des tiefen Steins",
+ "topic": "깊이",
+ "tier": 2,
+ "order": 1053,
+ "concepts": [
+  "redstone",
+  "obsidian",
+  "diamond",
+  "lava_bucket"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "eiskrone"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "redstone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:redstone_ore",
+    "count": 6
+   },
+   "clue": {
+    "de": "Baue sechs Redstone-Erz ab."
+   },
+   "hint": {
+    "ko": "레드스톤은 철 곡괭이로 캐요.",
+    "de": "Redstone braucht eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Obsidian ab."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Obsidian braucht eine Diamantspitzhacke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:deepslate_diamond_ore",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Diamanten im Tiefenschiefer ab."
+   },
+   "hint": {
+    "ko": "다이아몬드는 아주 깊은 곳에 있어요.",
+    "de": "Diamanten liegen sehr tief."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lava_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schöpf einen Eimer Lava ganz tief unten."
+   },
+   "hint": {
+    "ko": "높이 -50 이하에서 용암을 담아요.",
+    "de": "Unter Höhe -50 schöpfst du Lava."
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": -50
+    }
+   ]
+  },
+  "textKo": "높이 -50 이하의 용암 호수에서 불을 얻어요.",
+  "textDe": "Ganz unten, unter Höhe -50, gibst du der Tiefe ihr Feuer."
+ },
+ "reward": {
+  "badge": "w5_03",
+  "words": [
+   "redstone",
+   "obsidian",
+   "diamond",
+   "lava_bucket"
+  ]
+ },
+ "koreanLevel": 3
+}

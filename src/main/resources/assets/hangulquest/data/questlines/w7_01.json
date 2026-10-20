@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "w7_01",
+ "titleKo": "불의 문",
+ "titleDe": "Das Feuertor",
+ "topic": "불",
+ "tier": 2,
+ "order": 1071,
+ "concepts": [
+  "obsidian",
+  "adv_item_flint_and_steel",
+  "adv_dimension_the_nether"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "unendlichereise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Obsidianblöcke ab."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_flint_and_steel"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:flint_and_steel",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle ein Feuerzeug her."
+   },
+   "hint": {
+    "ko": "부싯돌과 부시는 철 조각과 부싯돌로 만들어요.",
+    "de": "Ein Feuerzeug besteht aus Eisenbarren und Feuerstein."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "conditions": []
+  },
+  "textKo": "흑요석 문에 불을 붙여 지옥으로 걸어가요.",
+  "textDe": "Zünde das Obsidiator und geh ins Nether."
+ },
+ "reward": {
+  "badge": "w7_01",
+  "words": [
+   "obsidian",
+   "adv_item_flint_and_steel",
+   "adv_dimension_the_nether"
+  ]
+ },
+ "koreanLevel": 4
+}

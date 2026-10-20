@@ -1,0 +1,116 @@
+{
+ "schema": 1,
+ "id": "w6_06",
+ "titleKo": "숲의 전망대",
+ "titleDe": "Die Waldkanzel",
+ "topic": "전망대",
+ "tier": 2,
+ "order": 1066,
+ "concepts": [
+  "leaves",
+  "ladder",
+  "height",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "observatorium"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:oak_leaves",
+    "count": 6
+   },
+   "clue": {
+    "de": "Schneide sechs Blätter für ein Sichtfenster weg."
+   },
+   "hint": {
+    "ko": "나뭇잎을 베면 시야가 열려요.",
+    "de": "Ohne Blätter hast du freie Sicht."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ladder"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:ladder",
+    "count": 3
+   },
+   "clue": {
+    "de": "Bau drei Leitern am Stamm hinauf."
+   },
+   "hint": {
+    "ko": "사다리는 위로 올라가게 해요.",
+    "de": "Leitern bringen dich nach oben."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 250
+   },
+   "clue": {
+    "de": "Steig bis auf Höhe 120 in die Krone."
+   },
+   "hint": {
+    "ko": "높이 백이십 위에서 숲이 보여요.",
+    "de": "Ab Höhe 120 siehst du über den Wald."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 1
+   },
+   "clue": {
+    "de": "Häng eine Laterne in die Kanzel."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "랜턴은 밤에 길을 비춰요.",
+    "de": "Eine Laterne leuchtet in der Nacht."
+   }
+  },
+  "textKo": "밤에 나무 위 전망대에 랜턴을 걸어요.",
+  "textDe": "Bei Nacht hängt eine Laterne in der Waldkanzel."
+ },
+ "reward": {
+  "badge": "w6_06",
+  "words": [
+   "leaves",
+   "ladder",
+   "height",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 3
+}

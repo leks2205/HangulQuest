@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "adv_end_find_end_city",
+ "titleKo": "게임의 끝에서 만난 도시",
+ "titleDe": "Die Stadt am Ende des Spiels",
+ "topic": "end",
+ "tier": 2,
+ "order": 251,
+ "concepts": [
+  "adv_dimension_the_end",
+  "adv_block_purpur_block"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_enter_end_gateway"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_end"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "clue": {
+    "de": "Spring durch das Endtor zu den äußeren Inseln."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:purpur_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Halte nach Purpur Ausschau, dem Zeichen einer Endstadt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:purpur_block",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "게임의 끝에서 만난 도시 — 퍼퍼 블록으로 엔드 도시를 확인해요.",
+  "textDe": "Die Stadt am Ende des Spiels — Ein Purpurblock beweist, dass du die Endstadt gefunden hast."
+ },
+ "reward": {
+  "badge": "adv_end_find_end_city",
+  "words": [
+   "adv_dimension_the_end",
+   "adv_block_purpur_block"
+  ]
+ },
+ "koreanLevel": 6
+}

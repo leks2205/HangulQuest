@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_silk_touch_nest",
+ "titleKo": "한 벌 한 벌 정성껏 모시겠습니다",
+ "titleDe": "Bienenwanderung",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 279,
+ "concepts": [
+  "enchanting_table",
+  "bee",
+  "adv_item_bee_nest"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "enchanting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:enchanting_table"
+   },
+   "clue": {
+    "de": "Verzaubere eine Axt am Zaubertisch mit Behutsamkeit."
+   },
+   "hint": {
+    "ko": "책과 다이아몬드와 흑요석으로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bee"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:bee",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Beobachte drei Bienen, die in ihr Nest kriechen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_bee_nest"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:bee_nest",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "한 벌 한 벌 정성껏 모시겠습니다 — 벌이 든 벌집을 통째로 옮겨요.",
+  "textDe": "Bienenwanderung — Du trägst das Nest samt drei Bienen um."
+ },
+ "reward": {
+  "badge": "adv_husbandry_silk_touch_nest",
+  "words": [
+   "enchanting_table",
+   "bee",
+   "adv_item_bee_nest"
+  ]
+ },
+ "koreanLevel": 1
+}

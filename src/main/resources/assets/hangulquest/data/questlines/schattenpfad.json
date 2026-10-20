@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "schattenpfad",
+ "titleKo": "그림자의 길",
+ "titleDe": "Der Schattenpfad",
+ "topic": "그림자",
+ "tier": 3,
+ "order": 118,
+ "concepts": [
+  "bat",
+  "soul_torch",
+  "bed",
+  "coal"
+ ],
+ "requires": {
+  "minWordsKnown": 70,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "sternenkarte",
+   "handelsflotte"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:bat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Fledermaus an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "soul_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Seelenfackeln."
+   },
+   "hint": {
+    "ko": "영혼 횃불은 석탄, 막대기, 영혼 모래로 만들어요.",
+    "de": "Seelenfackeln bestehen aus Kohle, Stock und Seelensand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf nachts im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:coal",
+    "count": 8
+   },
+   "conditions": []
+  },
+  "textKo": "그림자 속에서 석탄을 모아요.",
+  "textDe": "Kohle im Schatten sammeln."
+ },
+ "reward": {
+  "badge": "schattenpfad",
+  "words": [
+   "bat",
+   "soul_torch",
+   "bed",
+   "coal"
+  ]
+ },
+ "koreanLevel": 5
+}

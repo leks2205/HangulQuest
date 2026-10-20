@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_craft_decorated_pot_using_only_sherds",
+ "titleKo": "세심한 복원",
+ "titleDe": "Behutsame Restaurierung",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 206,
+ "concepts": [
+  "adv_item_brush",
+  "adv_block_torchflower_seeds",
+  "adv_item_decorated_pot"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_salvage_sherd"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_brush"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brush",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Pinsel für die Ausgrabung in den Ruinen."
+   },
+   "hint": {
+    "ko": "깃털과 구리 주괴와 막대기로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_torchflower_seeds"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torchflower_seeds",
+    "count": 1
+   },
+   "clue": {
+    "de": "Pinsle in den Ruinen Fackelliliensamen aus dem verdächtigen Sand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_decorated_pot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:decorated_pot",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Setze vier Töpferscherben in die Werkbank – ohne einen einzigen Ziegel."
+   },
+   "hint": {
+    "ko": "도자기 조각 네 개를 십자로 놓아요."
+   }
+  },
+  "textKo": "세심한 복원 — 조각 네 개로 도자기를 되살렸어요.",
+  "textDe": "Behutsame Restaurierung — vier Scherben, ein heiler Krug."
+ },
+ "reward": {
+  "badge": "adv_adventure_craft_decorated_pot_using_only_sherds",
+  "words": [
+   "adv_item_brush",
+   "adv_block_torchflower_seeds",
+   "adv_item_decorated_pot"
+  ]
+ },
+ "koreanLevel": 3
+}

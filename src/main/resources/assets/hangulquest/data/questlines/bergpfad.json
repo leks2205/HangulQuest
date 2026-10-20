@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "id": "bergpfad",
+ "titleKo": "높은 곳의 길",
+ "titleDe": "Der Höhenpfad",
+ "tier": 1,
+ "concepts": [
+  "mountain",
+  "snow",
+  "climb",
+  "torch",
+  "goat"
+ ],
+ "requires": {
+  "minWordsKnown": 4,
+  "dimension": "minecraft:overworld"
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "ko": "산으로 가요.",
+    "de": "Finde einen sehr hohen Ort."
+   },
+   "hint": {
+    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "산에서 염소를 1초 동안 바라봐요.",
+    "de": "Geh in ein Bergbiom."
+   },
+   "hint": {
+    "ko": "높이 올라가요.",
+    "de": "Steig nach oben."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 2
+   },
+   "clue": {
+    "ko": "하얀 눈을 두 개 캐요.",
+    "de": "Hol dir zwei weiße, kalte Dinge."
+   },
+   "hint": {
+    "ko": "눈을 캐요.",
+    "de": "Baue Schnee ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 높은 곳에서 밤을 밝혔어요. 보물은 기억이에요.",
+  "textDe": "Auf der Höhe hast du die Nacht erhellt. Der Schatz ist die Erinnerung."
+ },
+ "reward": {
+  "badge": "bergpfad",
+  "words": [
+   "mountain",
+   "snow",
+   "climb",
+   "torch"
+  ]
+ },
+ "order": 70,
+ "koreanLevel": 1,
+ "topic": "산"
+}

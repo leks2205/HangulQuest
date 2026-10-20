@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_trade",
+ "titleKo": "훌륭한 거래군요!",
+ "titleDe": "Was für ein Geschäft!",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 235,
+ "concepts": [
+  "emerald",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Smaragde als Bezahlung."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:villager",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Suche einen Dorfbewohner mit einem Beruf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "conditions": []
+  },
+  "textKo": "훌륭한 거래군요! — 주민과 물건을 바꿔요. 에메랄드를 주고 물건을 받아요.",
+  "textDe": "Was für ein Geschäft! — Du handelst mit einem Dorfbewohner und tauschst Smaragde gegen Ware."
+ },
+ "reward": {
+  "badge": "adv_adventure_trade",
+  "words": [
+   "emerald",
+   "villager"
+  ]
+ },
+ "koreanLevel": 2
+}

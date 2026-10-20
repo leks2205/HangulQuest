@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "ewiges_eis",
+ "titleKo": "영원한 얼음",
+ "titleDe": "Das ewige Eis",
+ "topic": "산",
+ "tier": 3,
+ "order": 92,
+ "concepts": [
+  "diamond",
+  "bell",
+  "bed",
+  "eternity"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "polarlicht",
+   "kristallschmiede"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Diamanten."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Glocke."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed",
+    "eternity"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ],
+   "hint": {
+    "ko": "영원은 끝없다는 뜻이에요. 산 지형의 밤에 침대에서 자요.",
+    "de": "Ewigkeit heißt ohne Ende; schlaf nachts im Bergbiom im Bett."
+   }
+  },
+  "textKo": "산 지형의 밤에 침대에서 영원한 얼음을 지켜요.",
+  "textDe": "Im Bergbiom bewahrst du nachts das ewige Eis."
+ },
+ "reward": {
+  "badge": "ewiges_eis",
+  "words": [
+   "diamond",
+   "bell",
+   "bed",
+   "eternity"
+  ]
+ },
+ "koreanLevel": 4
+}

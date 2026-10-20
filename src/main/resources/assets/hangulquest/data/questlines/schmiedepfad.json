@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "schmiedepfad",
+ "titleKo": "대장간의 길",
+ "titleDe": "Der Meisterpfad",
+ "tier": 5,
+ "order": 410,
+ "concepts": [
+  "pickaxe",
+  "crafting_table",
+  "emerald",
+  "furnace"
+ ],
+ "requires": {
+  "minWordsKnown": 14,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmelzpfad",
+   "waldhaus",
+   "handelspfad",
+   "feuerpfad",
+   "feuerstelle"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Öffne die Werkbank."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei grüne Edelsteine."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 대장간의 화로를 열어요.",
+  "textDe": "Nachts öffnest du den Schmiedeofen."
+ },
+ "reward": {
+  "badge": "schmiedepfad",
+  "words": [
+   "pickaxe",
+   "crafting_table",
+   "emerald",
+   "torch"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "돌"
+}

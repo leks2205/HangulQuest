@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w2_07",
+ "titleKo": "겨울 아침",
+ "titleDe": "Der Wintermorgen",
+ "topic": "겨울",
+ "tier": 1,
+ "order": 1027,
+ "concepts": [
+  "ice",
+  "snow",
+  "milk",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 5
+   },
+   "clue": {
+    "de": "Baue fünf Eisblöcke ab."
+   },
+   "hint": {
+    "ko": "얼음은 눈 덮인 곳에 있어요.",
+    "de": "Eis liegt in verschneiten Gegenden."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Schneeblöcke auf den Hof."
+   },
+   "hint": {
+    "ko": "눈은 하얘요.",
+    "de": "Schnee ist weiß."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "clue": {
+    "ko": "겨울 아침에는 따뜻한 우유를 마시고 힘을 내요.",
+    "de": "Trink am Morgen einen Schluck Milch."
+   },
+   "hint": {
+    "ko": "우유는 따뜻하게 마셔요.",
+    "de": "Milch trinkst du warm."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ],
+   "hint": {
+    "ko": "새벽에 랜턴을 하나 놓아요.",
+    "de": "Setze im Morgengrauen eine Laterne."
+   }
+  },
+  "textKo": "새벽에 겨울 마당에 랜턴을 밝혀요.",
+  "textDe": "Im Morgengrauen leuchtet eine Laterne im Winterhof."
+ },
+ "reward": {
+  "badge": "w2_07",
+  "words": [
+   "ice",
+   "snow",
+   "milk",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 1
+}

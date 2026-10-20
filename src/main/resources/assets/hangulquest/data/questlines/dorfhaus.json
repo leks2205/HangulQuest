@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "dorfhaus",
+ "titleKo": "마을 집의 길",
+ "titleDe": "Das Dorfhaus",
+ "tier": 4,
+ "order": 320,
+ "concepts": [
+  "door",
+  "bed",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 6,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "waldhaus",
+   "glasfenster",
+   "teppichpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_door",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Tür ins Dorf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell ein Bett ins Dorf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:villager",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Dorfbewohner an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "마을 집에서 밤에 자요.",
+  "textDe": "Im Dorfhaus schläfst du in der Nacht."
+ },
+ "reward": {
+  "badge": "dorfhaus",
+  "words": [
+   "door",
+   "bed",
+   "villager"
+  ]
+ },
+ "koreanLevel": 1,
+ "topic": "나무"
+}

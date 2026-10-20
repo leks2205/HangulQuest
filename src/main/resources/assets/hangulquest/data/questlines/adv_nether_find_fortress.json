@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "adv_nether_find_fortress",
+ "titleKo": "끔찍한 요새",
+ "titleDe": "Eine schreckliche Festung",
+ "topic": "nether",
+ "tier": 2,
+ "order": 297,
+ "concepts": [
+  "adv_block_nether_bricks",
+  "adv_item_blaze_rod"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_block_nether_bricks"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:nether_bricks",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dich um: dunkle Netherziegel verraten die schreckliche Festung."
+   },
+   "hint": {
+    "ko": "어두운 벽돌을 천천히 바라봐요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_nether_bricks"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:nether_bricks",
+    "count": 3
+   },
+   "clue": {
+    "de": "Brich drei Netherziegel aus der Mauer der Festung."
+   },
+   "hint": {
+    "ko": "곡괭이로 네더 벽돌을 캐요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Hol dir eine Lohenrute von einem Blaze im Inneren der Festung."
+   },
+   "hint": {
+    "ko": "블레이즈를 물리치고 막대기를 얻어요."
+   }
+  },
+  "textKo": "끔찍한 요새를 찾았어요! 블레이즈가 지키는 곳이에요.",
+  "textDe": "Die Festung gefunden – ein schrecklicher, aber lohnender Ort."
+ },
+ "reward": {
+  "badge": "adv_nether_find_fortress",
+  "words": [
+   "adv_block_nether_bricks",
+   "adv_item_blaze_rod"
+  ]
+ },
+ "koreanLevel": 2
+}

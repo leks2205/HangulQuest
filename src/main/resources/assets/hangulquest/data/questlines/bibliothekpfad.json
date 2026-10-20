@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "bibliothekpfad",
+ "titleKo": "도서관의 길",
+ "titleDe": "Der Bibliothekspfad",
+ "topic": "책",
+ "tier": 3,
+ "order": 111,
+ "concepts": [
+  "book",
+  "lectern",
+  "ink_sac",
+  "bookshelf"
+ ],
+ "requires": {
+  "minWordsKnown": 50,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "piratenpfad",
+   "vogelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "book"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:book",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Bücher."
+   },
+   "hint": {
+    "ko": "책은 종이와 가죽으로 만들어요.",
+    "de": "Bücher bestehen aus Papier und Leder."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "clue": {
+    "de": "Benutz ein Lesepult."
+   },
+   "hint": {
+    "ko": "독서대는 나무 판자와 책장으로 만들어요.",
+    "de": "Ein Lesepult besteht aus Holzbrettern und einem Bücherregal."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ink_sac"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ink_sac",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Tintenbeutel."
+   },
+   "hint": {
+    "ko": "잉크 주머니는 오징어에게서 얻어요.",
+    "de": "Tintenbeutel bekommst du von Tintenfischen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bookshelf",
+    "count": 4
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "책장은 나무 판자와 책으로 만들어요.",
+    "de": "Bücherregale bestehen aus Holzbrettern und Büchern."
+   }
+  },
+  "textKo": "책장을 놓아 도서관을 만들어요.",
+  "textDe": "Ein Bücherregal macht die Bibliothek."
+ },
+ "reward": {
+  "badge": "bibliothekpfad",
+  "words": [
+   "book",
+   "lectern",
+   "ink_sac",
+   "bookshelf"
+  ]
+ },
+ "koreanLevel": 4
+}

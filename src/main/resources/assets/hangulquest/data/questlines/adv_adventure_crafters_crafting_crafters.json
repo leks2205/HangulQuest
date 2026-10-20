@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_crafters_crafting_crafters",
+ "titleKo": "제작기 제 자신 제작기",
+ "titleDe": "Werker werkeln Werker",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 207,
+ "concepts": [
+  "adv_item_crafter"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_crafter"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crafter",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue den ersten Werker aus Eisen, Werkbank, Spender und Redstone."
+   },
+   "hint": {
+    "ko": "철 주괴 다섯 개와 작업대와 공급기와 레드스톤으로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_crafter"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:crafter",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle den Werker auf und lege ein Rezept in seine Fächer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_crafter"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crafter",
+    "count": 2
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Lass den Werker einen zweiten Werker bauen und nimm ihn auf."
+   }
+  },
+  "textKo": "제작기 제 자신 제작기 — 제작기가 제작기를 하나 더 만들었어요.",
+  "textDe": "Werker werkeln Werker — ein Werker baut den nächsten."
+ },
+ "reward": {
+  "badge": "adv_adventure_crafters_crafting_crafters",
+  "words": [
+   "adv_item_crafter"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "postpfad",
+ "titleKo": "우편의 길",
+ "titleDe": "Der Postpfad",
+ "topic": "우편",
+ "tier": 3,
+ "order": 165,
+ "concepts": [
+  "paper",
+  "cartography_table",
+  "chest",
+  "compass"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltmarkt",
+   "gartenfest"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "paper"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:paper",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Papier."
+   },
+   "hint": {
+    "ko": "종이는 사탕수수로 만들어요.",
+    "de": "Papier wird aus Zuckerrohr gemacht."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cartography_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:cartography_table"
+   },
+   "clue": {
+    "de": "Benutz einen Kartentisch."
+   },
+   "hint": {
+    "ko": "지도 제작대는 나무 판자와 종이로 만들어요.",
+    "de": "Ein Kartentisch besteht aus Holzbrettern und Papier."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "compass"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:compass",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "나침반은 철 조각과 레드스톤으로 만들어요.",
+    "de": "Ein Kompass besteht aus Eisen und Redstone."
+   }
+  },
+  "textKo": "나침반으로 편지를 보내요.",
+  "textDe": "Mit dem Kompass Briefe senden."
+ },
+ "reward": {
+  "badge": "postpfad",
+  "words": [
+   "paper",
+   "cartography_table",
+   "chest",
+   "compass"
+  ]
+ },
+ "koreanLevel": 3
+}

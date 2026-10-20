@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "zeitportal",
+ "titleKo": "시간의 문",
+ "titleDe": "Das Zeitportal",
+ "topic": "시간",
+ "tier": 3,
+ "order": 117,
+ "concepts": [
+  "clock",
+  "obsidian",
+  "bed",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "sternenkarte",
+   "handelsflotte"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Uhr."
+   },
+   "hint": {
+    "ko": "시계는 금과 레드스톤으로 만들어요.",
+    "de": "Uhren bestehen aus Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Obsidianblöcke."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf nachts im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 시간의 문에 횃불을 3개 놓아요.",
+  "textDe": "Drei Fackeln erhellen das Zeitportal."
+ },
+ "reward": {
+  "badge": "zeitportal",
+  "words": [
+   "clock",
+   "obsidian",
+   "bed",
+   "torch"
+  ]
+ },
+ "koreanLevel": 5
+}

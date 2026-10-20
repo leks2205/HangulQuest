@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_end_dragon_breath",
+ "titleKo": "양치질이 필요해 보이는걸",
+ "titleDe": "Du brauchst ein Pfefferminz",
+ "topic": "end",
+ "tier": 2,
+ "order": 247,
+ "concepts": [
+  "glass_bottle",
+  "ender_dragon",
+  "adv_item_dragon_breath"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_kill_dragon"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass_bottle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm Glasflaschen mit, sonst kannst du den Atem nicht einfangen."
+   },
+   "hint": {
+    "ko": "유리 세 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Weiche dem Drachen aus und behalte seinen Atem im Blick."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_dragon_breath"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dragon_breath",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "양치질이 필요해 보이는걸 — 유리병으로 드래곤의 숨결을 담아요.",
+  "textDe": "Du brauchst ein Pfefferminz — Fange den Drachenatem mit einer Glasflasche ein."
+ },
+ "reward": {
+  "badge": "adv_end_dragon_breath",
+  "words": [
+   "glass_bottle",
+   "ender_dragon",
+   "adv_item_dragon_breath"
+  ]
+ },
+ "koreanLevel": 6
+}

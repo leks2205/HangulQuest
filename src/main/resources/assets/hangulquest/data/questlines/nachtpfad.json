@@ -1,0 +1,116 @@
+{
+ "schema": 1,
+ "id": "nachtpfad",
+ "titleKo": "밤의 길",
+ "titleDe": "Der Nachtpfad",
+ "tier": 1,
+ "concepts": [
+  "torch",
+  "bed",
+  "moon",
+  "night"
+ ],
+ "requires": {
+  "minWordsKnown": 3,
+  "dimension": "minecraft:overworld"
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "torch",
+    "moon",
+    "night"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "ko": "횃불을 두 개 모아요.",
+    "de": "Hol dir zwei Dinge, die die Dunkelheit erhellen."
+   },
+   "hint": {
+    "ko": "횃불을 만들어요. 달과 밤을 밝혀요.",
+    "de": "Baue Fackeln; sie erhellen Mond und Nacht."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:torch",
+    "dwellMs": 400
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "clue": {
+    "ko": "밤에 횃불을 1초 동안 바라봐요.",
+    "de": "Schau in der Nacht ein kleines Licht an."
+   },
+   "hint": {
+    "ko": "횃불을 봐요.",
+    "de": "Schau eine Fackel an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "ko": "침대를 하나 만들어요.",
+    "de": "Mach dir einen Ort zum Schlafen."
+   },
+   "hint": {
+    "ko": "침대를 만들어요.",
+    "de": "Stelle ein Bett her."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤이 왔어요. 이제 자요. 밤의 길이 끝났어요.",
+  "textDe": "Die Nacht ist da. Jetzt schläfst du. Der Nachtpfad endet hier."
+ },
+ "reward": {
+  "badge": "nachtpfad",
+  "words": [
+   "torch",
+   "bed",
+   "moon",
+   "night"
+  ]
+ },
+ "order": 50,
+ "koreanLevel": 1,
+ "topic": "밤"
+}

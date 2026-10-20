@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w3_04",
+ "titleKo": "마을 잔치",
+ "titleDe": "Das Dorffest",
+ "topic": "음식",
+ "tier": 2,
+ "order": 1034,
+ "concepts": [
+  "wheat",
+  "hay_block",
+  "cake",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festmahl"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:wheat",
+    "count": 3
+   },
+   "clue": {
+    "de": "Ernte drei Weizen für das Fest."
+   },
+   "hint": {
+    "ko": "밀을 수확해요.",
+    "de": "Ernte Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "hay_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:hay_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Stell zwei Heuballen als Sitzbank auf."
+   },
+   "hint": {
+    "ko": "건초 더미를 놓아요.",
+    "de": "Stell einen Heuballen auf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Back einen Kuchen für die Nachbarn."
+   },
+   "hint": {
+    "ko": "케이크를 만들어요.",
+    "de": "Backe einen Kuchen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": []
+  },
+  "textKo": "종이 울리고 잔치가 시작돼요. 모두 배불러요.",
+  "textDe": "Die Glocke läutet, das Fest beginnt. Alle sind satt."
+ },
+ "reward": {
+  "badge": "w3_04",
+  "words": [
+   "wheat",
+   "hay_block",
+   "cake",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2
+}

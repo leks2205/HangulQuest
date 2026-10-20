@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_axolotl_in_a_bucket",
+ "titleKo": "귀여운 포식자",
+ "titleDe": "Das niedlichste Raubtier",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 258,
+ "concepts": [
+  "iron",
+  "bucket",
+  "adv_item_axolotl_bucket"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tactical_fishing"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Eisenbarren für den Eimer."
+   },
+   "hint": {
+    "ko": "철 원석은 돌 곡괭이로 캐고 화로에 구워요.",
+    "de": "Eisenerz baust du mit einer Steinspitzhacke ab und schmilzt es im Ofen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede aus dem Eisen einen Eimer."
+   },
+   "hint": {
+    "ko": "양동이는 철괴 세 개로 만들어요.",
+    "de": "Ein Eimer besteht aus drei Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_axolotl_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:axolotl_bucket",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "아홀로틀은 물에서 빈 양동이를 쓰면 잡혀요.",
+    "de": "Ein leerer Eimer fängt den Axolotl, wenn du ihn im Wasser benutzt."
+   }
+  },
+  "textKo": "귀여운 포식자 — 물속 아홀로틀을 양동이로 잡아요.",
+  "textDe": "Das niedlichste Raubtier: Mit dem leeren Eimer fängst du den Axolotl im Wasser."
+ },
+ "reward": {
+  "badge": "adv_husbandry_axolotl_in_a_bucket",
+  "words": [
+   "iron",
+   "bucket",
+   "adv_item_axolotl_bucket"
+  ]
+ },
+ "koreanLevel": 2
+}

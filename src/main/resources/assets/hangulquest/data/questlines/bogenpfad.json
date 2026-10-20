@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "bogenpfad",
+ "titleKo": "활의 길",
+ "titleDe": "Der Bogenpfad",
+ "topic": "나무",
+ "tier": 3,
+ "order": 64,
+ "concepts": [
+  "bow",
+  "arrow",
+  "cow",
+  "string",
+  "feather",
+  "zombie",
+  "flint"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "waldhaus",
+   "tierpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bow",
+    "string"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau einen Bogen.",
+    "ko": "나무와 실로 활을 만들어요."
+   },
+   "hint": {
+    "ko": "활은 나무와 실로 만들어요.",
+    "de": "Ein Bogen besteht aus Holz und Faden."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow",
+    "feather",
+    "flint"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Pfeile.",
+    "ko": "깃털과 나무로 화살을 만들어요."
+   },
+   "hint": {
+    "ko": "화살은 깃털, 나무, 부싯돌로 만들어요.",
+    "de": "Pfeile bestehen aus Feder, Holz und Feuerstein."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cow",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Kuh an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "활로 좀비를 물리쳐요.",
+  "textDe": "Mit dem Bogen besiegst du einen Zombie."
+ },
+ "reward": {
+  "badge": "bogenpfad",
+  "words": [
+   "bow",
+   "arrow",
+   "cow"
+  ]
+ },
+ "koreanLevel": 1
+}

@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "polarlicht",
+ "titleKo": "뜨거운 것",
+ "titleDe": "Hot Stuff",
+ "topic": "용암",
+ "tier": 2,
+ "order": 91,
+ "concepts": [
+  "bucket",
+  "lava_bucket",
+  "furnace",
+  "magma"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "frostwacht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Eimer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "lava_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle einen Lavaeimer."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Benutz einen Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "magma"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:magma_block",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "마그마 블록을 놓아 뜨거운 길을 만들어요.",
+  "textDe": "Magmablöcke für den heißen Weg."
+ },
+ "reward": {
+  "badge": "polarlicht",
+  "words": [
+   "bucket",
+   "lava_bucket",
+   "furnace",
+   "magma"
+  ]
+ },
+ "koreanLevel": 3
+}

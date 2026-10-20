@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "karawanepfad",
+ "titleKo": "상단의 길",
+ "titleDe": "Die Karawanenstraße",
+ "tier": 3,
+ "order": 507,
+ "concepts": [
+  "emerald",
+  "bread",
+  "carrot",
+  "bell",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "marktpfad",
+   "glockenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Brote."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carrot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carrot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Karotten."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 대상단의 침대에서 자요.",
+  "textDe": "Nachts schläfst du bei der Karawane."
+ },
+ "reward": {
+  "badge": "karawanepfad",
+  "words": [
+   "emerald",
+   "bread",
+   "carrot",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "마을"
+}

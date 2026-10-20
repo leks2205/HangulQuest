@@ -1,0 +1,105 @@
+{
+ "schema": 1,
+ "id": "gipfelpfad",
+ "titleKo": "꼭대기의 길",
+ "titleDe": "Der Gipfelpfad",
+ "tier": 2,
+ "concepts": [
+  "climb",
+  "ice",
+  "snow",
+  "mountain",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 4,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "bergpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   },
+   "hint": {
+    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Stück Eis ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau den weißen Schnee an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 밤에 침대에서 자요.",
+  "textDe": "Im Bergbiom schläfst du nachts im Bett."
+ },
+ "reward": {
+  "badge": "gipfelpfad",
+  "words": [
+   "climb",
+   "ice",
+   "snow"
+  ]
+ },
+ "order": 170,
+ "koreanLevel": 1,
+ "topic": "산"
+}

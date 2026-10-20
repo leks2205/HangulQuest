@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w7_07",
+ "titleKo": "위더의 뼈",
+ "titleDe": "Die Knochen des Withers",
+ "topic": "해골",
+ "tier": 2,
+ "order": 1077,
+ "concepts": [
+  "adv_item_wither_skeleton_skull",
+  "nether_wart",
+  "adv_item_respawn_anchor",
+  "adv_item_crying_obsidian"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tempelwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wither_skeleton_skull",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erbeute einen Wither-Skelettschädel."
+   },
+   "hint": {
+    "ko": "위더 스켈레톤 해골은 위더 스켈레톤을 물리치면 가끔 나와요.",
+    "de": "Wither-Skelettschädel lassen Wither-Skelette manchmal fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:nether_wart",
+    "count": 3
+   },
+   "clue": {
+    "de": "Pflanz drei Netherwarzen."
+   },
+   "hint": {
+    "ko": "네더 사마귀는 영혼 모래에 심어요.",
+    "de": "Netherwarzen pflanzt du auf Seelensand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_respawn_anchor"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:respawn_anchor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Seelenanker auf."
+   },
+   "hint": {
+    "ko": "리스폰 정박기는 우는 흑요석과 발광석으로 만들어요.",
+    "de": "Ein Seelenanker besteht aus weinendem Obsidian und Glowstone."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_crying_obsidian"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crying_obsidian",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "위더의 뼈와 우는 흑요석으로 어둠의 제단을 만들어요.",
+  "textDe": "Aus Witherknochen und weinendem Obsidian entsteht ein dunkler Altar."
+ },
+ "reward": {
+  "badge": "w7_07",
+  "words": [
+   "adv_item_wither_skeleton_skull",
+   "nether_wart",
+   "adv_item_respawn_anchor",
+   "adv_item_crying_obsidian"
+  ]
+ },
+ "koreanLevel": 4
+}

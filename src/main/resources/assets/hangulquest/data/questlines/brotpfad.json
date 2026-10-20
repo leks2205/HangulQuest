@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "brotpfad",
+ "titleKo": "빵의 길",
+ "titleDe": "Der Brotpfad",
+ "topic": "음식",
+ "tier": 2,
+ "order": 40,
+ "concepts": [
+  "wheat",
+  "campfire",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "essenspfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "빵을 먹으며 배를 채워요.",
+  "textDe": "Mit Brot stillst du deinen Hunger."
+ },
+ "reward": {
+  "badge": "brotpfad",
+  "words": [
+   "wheat",
+   "campfire",
+   "bread"
+  ]
+ },
+ "koreanLevel": 1
+}

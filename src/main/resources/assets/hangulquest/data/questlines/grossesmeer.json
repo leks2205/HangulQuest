@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "grossesmeer",
+ "titleKo": "큰 바다",
+ "titleDe": "Das Große Meer",
+ "tier": 3,
+ "order": 542,
+ "concepts": [
+  "ocean",
+  "fish",
+  "campfire",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tiefseehafen",
+   "ozeanfahrt"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh ins Meer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Fische."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 배 위에서 잠들어요.",
+  "textDe": "Nachts schläfst du auf dem Schiff."
+ },
+ "reward": {
+  "badge": "grossesmeer",
+  "words": [
+   "ocean",
+   "fish",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "물"
+}

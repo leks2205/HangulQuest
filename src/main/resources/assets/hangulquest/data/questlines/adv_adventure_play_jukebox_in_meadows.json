@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_play_jukebox_in_meadows",
+ "titleKo": "사운드 오브 뮤직",
+ "titleDe": "Deine Welt sind die Berge",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 220,
+ "concepts": [
+  "jukebox"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_sleep_in_bed"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:jukebox",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Jukebox aus acht Holzplanken und einem Diamanten."
+   },
+   "hint": {
+    "ko": "나무 판자 여덟 개와 다이아몬드 하나로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:jukebox",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell die Jukebox mitten auf eine Wiese mit hohem Gras."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:jukebox"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Leg eine Musikscheibe ein und lass die Musik über die Wiese ziehen."
+   }
+  },
+  "textKo": "사운드 오브 뮤직 — 초원에서 음악을 들어요.",
+  "textDe": "Deine Welt sind die Berge — Spiel eine Musikscheibe in der Wiese ab."
+ },
+ "reward": {
+  "badge": "adv_adventure_play_jukebox_in_meadows",
+  "words": [
+   "jukebox"
+  ]
+ },
+ "koreanLevel": 3
+}

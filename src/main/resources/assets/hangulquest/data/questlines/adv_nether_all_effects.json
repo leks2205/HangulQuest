@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "adv_nether_all_effects",
+ "titleKo": "어쩌다 이 지경까지",
+ "titleDe": "Wie haben wir das geschafft?",
+ "topic": "nether",
+ "tier": 2,
+ "order": 287,
+ "concepts": [
+  "adv_item_potion",
+  "golden_apple"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_all_potions"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_potion"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potion",
+    "count": 3
+   },
+   "clue": {
+    "de": "Brau einen Vorrat: drei Tränke mit ganz verschiedenen Wirkungen."
+   },
+   "hint": {
+    "ko": "양조기로 물약 세 개를 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_potion"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:potion",
+    "count": 1
+   },
+   "clue": {
+    "de": "Trink den ersten Trank und spür, wie die Wirkung einsetzt."
+   },
+   "hint": {
+    "ko": "물약을 마셔요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "golden_apple"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:golden_apple",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Iss den goldenen Apfel dazu – Regeneration und Absorption kommen obendrauf."
+   },
+   "hint": {
+    "ko": "황금 사과를 먹어요."
+   }
+  },
+  "textKo": "온몸이 물약 효과로 가득해요. 이게 바로 전부 모은 맛이에요!",
+  "textDe": "Ein Körper voller Effekte – alle Wirkungen auf einmal."
+ },
+ "reward": {
+  "badge": "adv_nether_all_effects",
+  "words": [
+   "adv_item_potion",
+   "golden_apple"
+  ]
+ },
+ "koreanLevel": 4
+}

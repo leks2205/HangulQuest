@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_overoverkill",
+ "titleKo": "하늘에서 철퇴가 내린다면",
+ "titleDe": "Großmeister des Kampfes",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 219,
+ "concepts": [
+  "adv_item_mace",
+  "height",
+  "iron_golem"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_minecraft_trials_edition"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_mace"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:mace",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede einen Streitkolben – der schwere Kern stammt aus einem unheilvollen Tresor."
+   },
+   "hint": {
+    "ko": "무거운 핵은 불길한 금고에서 나와요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Kletter über Y 120 hinaus auf einen hohen Gipfel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:iron_golem",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Stürz dich vom Gipfel und zerschmettere einen Eisengolem mit dem Streitkolben."
+   }
+  },
+  "textKo": "하늘에서 철퇴가 내린다면 — 높은 곳에서 철퇴로 철 골렘을 쓰러뜨려요.",
+  "textDe": "Großmeister des Kampfes — Erschlag einen Eisengolem mit einem Hieb aus großer Höhe."
+ },
+ "reward": {
+  "badge": "adv_adventure_overoverkill",
+  "words": [
+   "adv_item_mace",
+   "height",
+   "iron_golem"
+  ]
+ },
+ "koreanLevel": 3
+}

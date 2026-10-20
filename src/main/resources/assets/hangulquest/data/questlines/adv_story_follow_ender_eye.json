@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "adv_story_follow_ender_eye",
+ "titleKo": "스무고개",
+ "titleDe": "Das fliegende Auge",
+ "topic": "story",
+ "tier": 2,
+ "order": 315,
+ "concepts": [
+  "enderman",
+  "ender_pearl",
+  "adv_item_blaze_rod",
+  "adv_item_ender_eye"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_enter_the_nether"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "enderman"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
+    "count": 3
+   },
+   "clue": {
+    "de": "Erlege drei Endermen für ihre Enderperlen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 2
+   },
+   "clue": {
+    "de": "Hebe zwei Enderperlen auf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Hol dir im Nether eine Lohenrute."
+   },
+   "hint": {
+    "ko": "블레이즈 막대기를 갈면 블레이즈 가루가 돼요.",
+    "de": "Eine Lohenrute wird zu Lohenstaub gemahlen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_ender_eye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_eye",
+    "count": 1
+   },
+   "clue": {
+    "de": "Verbinde Enderperle und Lohenstaub zum Enderauge."
+   },
+   "hint": {
+    "ko": "엔더 진주에 블레이즈 가루를 더하면 엔더의 눈이 돼요.",
+    "de": "Enderperle plus Lohenstaub ergibt ein Enderauge."
+   },
+   "conditions": []
+  },
+  "textKo": "스무고개 — 엔더의 눈이 요새로 가는 길을 알려 줘요.",
+  "textDe": "Das fliegende Auge — Das Enderauge zeigt zur Festung."
+ },
+ "reward": {
+  "badge": "adv_story_follow_ender_eye",
+  "words": [
+   "enderman",
+   "ender_pearl",
+   "adv_item_blaze_rod",
+   "adv_item_ender_eye"
+  ]
+ },
+ "koreanLevel": 3
+}

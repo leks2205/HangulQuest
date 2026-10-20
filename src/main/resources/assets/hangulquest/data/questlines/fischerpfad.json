@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "fischerpfad",
+ "titleKo": "물고기의 길",
+ "titleDe": "Der Fischerpfad",
+ "tier": 2,
+ "concepts": [
+  "fishing_rod",
+  "fish",
+  "beach",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 4,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "wasserpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fishing_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:fishing_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Angel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fang einen Fisch."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an den Sandstrand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변의 밤에 침대에서 자요.",
+  "textDe": "Am Strand schläfst du nachts im Bett."
+ },
+ "reward": {
+  "badge": "fischerpfad",
+  "words": [
+   "fishing_rod",
+   "fish",
+   "beach",
+   "campfire"
+  ]
+ },
+ "order": 160,
+ "koreanLevel": 1,
+ "topic": "물"
+}

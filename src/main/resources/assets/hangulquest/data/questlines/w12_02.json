@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w12_02",
+ "titleKo": "밤의 신화",
+ "titleDe": "Der Mythos der Nacht",
+ "topic": "밤",
+ "tier": 2,
+ "order": 1122,
+ "concepts": [
+  "carved_pumpkin",
+  "obsidian",
+  "soul_torch",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "count": 2
+   },
+   "clue": {
+    "de": "Schnitze einen Kürbis und stell zwei geschnitzte Kürbisse als Wächter auf."
+   },
+   "hint": {
+    "ko": "조각된 호박은 가위로 호박을 잘라서 만들어요.",
+    "de": "Ein geschnitzter Kürbis entsteht mit der Schere aus einem Kürbis."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Obsidianblöcke ab, das dunkle Gestein der Nacht."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요. 용암과 물이 만나면 생겨요.",
+    "de": "Obsidian braucht eine Diamantspitzhacke; er entsteht aus Lava und Wasser."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "soul_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_torch",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Seelenfackeln, damit die Nacht blau brennt."
+   },
+   "hint": {
+    "ko": "영혼 횃불은 석탄과 영혼 모래로 만들어요.",
+    "de": "Seelenfackeln macht man aus Kohle und Seelensand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "종은 마을에서 찾을 수 있어요. 밤에 종을 울려요.",
+    "de": "Eine Glocke steht im Dorf; läute sie in der Nacht."
+   }
+  },
+  "textKo": "밤에 종을 울려 신화의 밤을 깨워요.",
+  "textDe": "Die Glocke weckt in der Nacht den Mythos."
+ },
+ "reward": {
+  "badge": "w12_02",
+  "words": [
+   "carved_pumpkin",
+   "obsidian",
+   "soul_torch",
+   "bell"
+  ]
+ },
+ "koreanLevel": 6
+}

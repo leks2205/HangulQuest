@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "unendlichereise",
+ "titleKo": "끝없는 여행",
+ "titleDe": "Die Unendliche Reise",
+ "tier": 5,
+ "order": 550,
+ "concepts": [
+  "emerald",
+  "diamond",
+  "beach",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "koenigspfad",
+   "weltwunder",
+   "grossesmeer",
+   "piratenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Diamanten."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an den Strand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변에서 불을 피워요. 여행은 계속돼요!",
+  "textDe": "Am Strand brennt das Feuer. Die Reise geht weiter!"
+ },
+ "reward": {
+  "badge": "unendlichereise",
+  "words": [
+   "emerald",
+   "diamond",
+   "beach",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 4,
+ "topic": "나무"
+}

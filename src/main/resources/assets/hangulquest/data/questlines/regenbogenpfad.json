@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "regenbogenpfad",
+ "titleKo": "무지개의 길",
+ "titleDe": "Der Regenbogenpfad",
+ "topic": "무지개",
+ "tier": 1,
+ "order": 143,
+ "concepts": [
+  "wool",
+  "flower",
+  "glass"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_wool",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Wollblöcke."
+   },
+   "hint": {
+    "ko": "양털은 가위로 양을 깎아요.",
+    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Mohnblume an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Glasblöcke."
+   },
+   "hint": {
+    "ko": "유리는 모래를 화로에 구워 만들어요.",
+    "de": "Glas entsteht aus Sand im Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass",
+    "count": 6
+   },
+   "conditions": []
+  },
+  "textKo": "무지개 색 유리를 모아요.",
+  "textDe": "Buntes Glas für den Regenbogen."
+ },
+ "reward": {
+  "badge": "regenbogenpfad",
+  "words": [
+   "wool",
+   "flower",
+   "glass"
+  ]
+ },
+ "koreanLevel": 1
+}

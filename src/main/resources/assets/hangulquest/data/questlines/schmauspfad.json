@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "schmauspfad",
+ "titleKo": "산해진미의 길",
+ "titleDe": "Der Schlemmerpfad",
+ "tier": 2,
+ "order": 502,
+ "concepts": [
+  "fish",
+  "furnace",
+  "bread",
+  "cake"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festmahl"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Öffne den Ofen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss ein Brot."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 케이크로 잔치를 해요.",
+  "textDe": "Kuchen macht die Nacht zum Fest."
+ },
+ "reward": {
+  "badge": "schmauspfad",
+  "words": [
+   "fish",
+   "furnace",
+   "bread",
+   "cake"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "음식"
+}

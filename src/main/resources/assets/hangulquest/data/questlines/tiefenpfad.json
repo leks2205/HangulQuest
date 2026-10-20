@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "tiefenpfad",
+ "titleKo": "깊은 광맥의 길",
+ "titleDe": "Der Tiefenpfad",
+ "tier": 3,
+ "order": 510,
+ "concepts": [
+  "coal",
+  "iron",
+  "diamond",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kohlenpfad",
+   "schmelzpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Kohle ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Eisen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:diamond_ore",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Diamanterz ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
+  },
+  "textKo": "높이 0 이하의 깊은 광맥에서 불을 밝혀요.",
+  "textDe": "Tief im Stollen brennt dein Licht."
+ },
+ "reward": {
+  "badge": "tiefenpfad",
+  "words": [
+   "coal",
+   "iron",
+   "diamond",
+   "torch"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "돌"
+}

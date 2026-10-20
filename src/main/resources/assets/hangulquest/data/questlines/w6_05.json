@@ -1,0 +1,105 @@
+{
+ "schema": 1,
+ "id": "w6_05",
+ "titleKo": "버섯 그늘",
+ "titleDe": "Im Schatten der Pilze",
+ "topic": "버섯",
+ "tier": 2,
+ "order": 1065,
+ "concepts": [
+  "mushroom",
+  "mushroom_block",
+  "bowl"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "bergwerk"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mushroom"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:red_mushroom",
+    "count": 2
+   },
+   "clue": {
+    "de": "Brich zwei rote Pilze aus dem feuchten Boden."
+   },
+   "hint": {
+    "ko": "빨간 버섯은 어두운 곳에서 자라요.",
+    "de": "Rote Pilze wachsen im Dunkeln."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "mushroom"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brown_mushroom",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei braune Pilze für die Suppe."
+   },
+   "hint": {
+    "ko": "갈색 버섯은 동굴에도 있어요.",
+    "de": "Braune Pilze findest du auch in Höhlen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "mushroom_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brown_mushroom_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Pilzblöcke als Schattenspender."
+   },
+   "hint": {
+    "ko": "버섯 블록은 큰 버섯에서 나와요.",
+    "de": "Pilzblöcke stammen von großen Pilzen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bowl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bowl",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schnitze eine Schüssel für die Pilzsuppe."
+   },
+   "conditions": []
+  },
+  "textKo": "버섯을 모아 그릇에 담아요.",
+  "textDe": "Sammle die Pilze und füll sie in eine Schüssel."
+ },
+ "reward": {
+  "badge": "w6_05",
+  "words": [
+   "mushroom",
+   "mushroom_block",
+   "bowl"
+  ]
+ },
+ "koreanLevel": 3
+}

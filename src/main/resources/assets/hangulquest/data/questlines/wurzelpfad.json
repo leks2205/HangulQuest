@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "wurzelpfad",
+ "titleKo": "뿌리의 길",
+ "titleDe": "Der Wurzelpfad",
+ "topic": "나무",
+ "tier": 1,
+ "order": 82,
+ "concepts": [
+  "log",
+  "torch",
+  "flower"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "log"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:oak_log",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Baumstämme ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "conditions": []
+  },
+  "textKo": "뿌리 곁의 꽃을 바라봐요.",
+  "textDe": "Am Wurzelpfad blüht eine Blume."
+ },
+ "reward": {
+  "badge": "wurzelpfad",
+  "words": [
+   "log",
+   "torch",
+   "flower"
+  ]
+ },
+ "koreanLevel": 1
+}

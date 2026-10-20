@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "glockenpfad",
+ "titleKo": "종의 길",
+ "titleDe": "Der Glockenpfad",
+ "topic": "종",
+ "tier": 2,
+ "order": 131,
+ "concepts": [
+  "bell",
+  "gold",
+  "gold_block"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "marktpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute eine Glocke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bell",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Glocke."
+   },
+   "hint": {
+    "ko": "종은 금 조각으로 만들어요.",
+    "de": "Glocken bestehen aus Gold."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Goldbarren."
+   },
+   "hint": {
+    "ko": "금은 철 곡괭이로 캐요.",
+    "de": "Gold baust du mit einer Eisenspitzhacke ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "금 블록으로 종을 장식해요.",
+  "textDe": "Ein Goldblock schmückt die Glocke."
+ },
+ "reward": {
+  "badge": "glockenpfad",
+  "words": [
+   "bell",
+   "gold",
+   "gold_block"
+  ]
+ },
+ "koreanLevel": 2
+}

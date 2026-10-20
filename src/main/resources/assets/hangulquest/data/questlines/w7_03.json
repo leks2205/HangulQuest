@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "w7_03",
+ "titleKo": "모루의 길",
+ "titleDe": "Der Ambosspfad",
+ "topic": "모루",
+ "tier": 2,
+ "order": 1073,
+ "concepts": [
+  "iron",
+  "anvil",
+  "adv_item_netherite_helmet"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "ewiges_eis"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Eisenbarren."
+   },
+   "hint": {
+    "ko": "철은 철 원석을 화로에 구워 얻어요.",
+    "de": "Eisen gewinnst du, indem du Eisenerz im Ofen schmilzt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:anvil",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Amboss auf."
+   },
+   "hint": {
+    "ko": "모루는 철 블록 세 개와 철 주괴 네 개로 만들어요.",
+    "de": "Ein Amboss besteht aus drei Eisenblöcken und vier Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_netherite_helmet"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:netherite_helmet",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "모루에서 철을 두드려 튼튼한 투구를 만들어요.",
+  "textDe": "Auf dem Amboss wird aus Eisen ein fester Helm."
+ },
+ "reward": {
+  "badge": "w7_03",
+  "words": [
+   "iron",
+   "anvil",
+   "adv_item_netherite_helmet"
+  ]
+ },
+ "koreanLevel": 4
+}

@@ -1,0 +1,124 @@
+{
+ "schema": 1,
+ "id": "w2_04",
+ "titleKo": "천둥의 언덕",
+ "titleDe": "Der Donnerhügel",
+ "topic": "천둥",
+ "tier": 1,
+ "order": 1024,
+ "concepts": [
+  "thunder",
+  "height",
+  "lightning_rod",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lightning_rod",
+    "thunder"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lightning_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell bei Gewitter einen Blitzableiter auf."
+   },
+   "hint": {
+    "ko": "천둥이 칠 때 피뢰침을 놓아요.",
+    "de": "Bei Gewitter stellst du den Blitzableiter auf."
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 90,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig bis auf Höhe 90 hinauf."
+   },
+   "hint": {
+    "ko": "언덕 위로 올라가요.",
+    "de": "Steig auf den Hügel hinauf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lightning_rod"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lightning_rod",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau bei Gewitter auf den Blitzableiter."
+   },
+   "hint": {
+    "ko": "피뢰침은 번개를 땅으로 보내요.",
+    "de": "Der Blitzableiter leitet den Blitz in die Erde."
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 5
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "밤에 횃불을 다섯 개 놓아요.",
+    "de": "Setze in der Nacht fünf Fackeln."
+   }
+  },
+  "textKo": "천둥이 지나간 밤에 횃불 다섯 개를 밝혀요.",
+  "textDe": "In der Nacht nach dem Donner brennen fünf Fackeln."
+ },
+ "reward": {
+  "badge": "w2_04",
+  "words": [
+   "thunder",
+   "height",
+   "lightning_rod",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

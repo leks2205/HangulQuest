@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "w6_07",
+ "titleKo": "정글의 약초",
+ "titleDe": "Kräuter im Dschungel",
+ "topic": "정글",
+ "tier": 2,
+ "order": 1067,
+ "concepts": [
+  "jungle",
+  "jungle_log",
+  "bamboo",
+  "cocoa_beans"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltreise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "jungle"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:jungle",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche den Dschungel und bleib einen Moment."
+   },
+   "hint": {
+    "ko": "정글은 덥고 나무가 많아요.",
+    "de": "Im Dschungel ist es heiß und grün."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "jungle_log"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:jungle_log",
+    "count": 4
+   },
+   "clue": {
+    "de": "Fälle vier Dschungelstämme."
+   },
+   "hint": {
+    "ko": "정글 나무는 키가 커요.",
+    "de": "Dschungelbäume werden sehr hoch."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bamboo"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bamboo",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Bambusrohre."
+   },
+   "hint": {
+    "ko": "대나무는 정글에서 자라요.",
+    "de": "Bambus wächst im Dschungel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cocoa_beans"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cocoa_beans",
+    "count": 3
+   },
+   "clue": {
+    "de": "Ernte drei Kakaobohnen von den Stämmen."
+   },
+   "conditions": []
+  },
+  "textKo": "정글에서 약초와 카카오 콩을 모아요.",
+  "textDe": "Sammle im Dschungel Kräuter und Kakaobohnen."
+ },
+ "reward": {
+  "badge": "w6_07",
+  "words": [
+   "jungle",
+   "jungle_log",
+   "bamboo",
+   "cocoa_beans"
+  ]
+ },
+ "koreanLevel": 3
+}

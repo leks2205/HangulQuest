@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "blumenkranz",
+ "titleKo": "꽃관의 길",
+ "titleDe": "Der Blumenkranz",
+ "topic": "꽃관",
+ "tier": 3,
+ "order": 150,
+ "concepts": [
+  "flower",
+  "wool"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kraeuterpfad",
+   "waldhaus"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Mohnblume an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poppy",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Mohnblumen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_wool",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Wollblöcke."
+   },
+   "hint": {
+    "ko": "양털은 가위로 양을 깎아요.",
+    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:poppy",
+    "count": 5
+   },
+   "conditions": []
+  },
+  "textKo": "꽃과 양털로 꽃관을 만들어요.",
+  "textDe": "Blumen und Wolle für den Kranz."
+ },
+ "reward": {
+  "badge": "blumenkranz",
+  "words": [
+   "flower",
+   "wool"
+  ]
+ },
+ "koreanLevel": 1
+}

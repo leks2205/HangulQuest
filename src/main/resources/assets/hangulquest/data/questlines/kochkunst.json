@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "kochkunst",
+ "titleKo": "요리의 길",
+ "titleDe": "Die Kochkunst",
+ "tier": 3,
+ "order": 512,
+ "concepts": [
+  "bread",
+  "fish",
+  "cake",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmauspfad",
+   "festmahl"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Brote."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Kuchen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 모닥불에서 요리를 해요.",
+  "textDe": "Nachts kochst du am Feuer."
+ },
+ "reward": {
+  "badge": "kochkunst",
+  "words": [
+   "bread",
+   "fish",
+   "cake"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "음식"
+}

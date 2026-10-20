@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "freundschaftspfad",
+ "titleKo": "우정의 길",
+ "titleDe": "Der Freundschaftspfad",
+ "topic": "우정",
+ "tier": 1,
+ "order": 98,
+ "concepts": [
+  "villager",
+  "flower"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:villager",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Dorfbewohner an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "clue": {
+    "de": "Sprich mit einem Dorfbewohner."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poppy",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Blume."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:poppy",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "주민과 꽃으로 친구가 돼요.",
+  "textDe": "Mit einer Blume werden Dorfbewohner zu Freunden."
+ },
+ "reward": {
+  "badge": "freundschaftspfad",
+  "words": [
+   "villager",
+   "flower"
+  ]
+ },
+ "koreanLevel": 1
+}

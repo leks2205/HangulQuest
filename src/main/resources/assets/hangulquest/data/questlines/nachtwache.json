@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "nachtwache",
+ "titleKo": "별빛의 길",
+ "titleDe": "Der Sternwachtpfad",
+ "tier": 2,
+ "order": 360,
+ "concepts": [
+  "clock",
+  "climb",
+  "torch",
+  "mountain"
+ ],
+ "requires": {
+  "minWordsKnown": 8,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "sternenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Uhr."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "mountain",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   },
+   "hint": {
+    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz in der Nacht drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 높은 곳에서 밤을 지켜요.",
+  "textDe": "Ganz oben hältst du Wache in der Nacht."
+ },
+ "reward": {
+  "badge": "nachtwache",
+  "words": [
+   "clock",
+   "climb",
+   "torch",
+   "night"
+  ]
+ },
+ "koreanLevel": 1,
+ "topic": "밤"
+}

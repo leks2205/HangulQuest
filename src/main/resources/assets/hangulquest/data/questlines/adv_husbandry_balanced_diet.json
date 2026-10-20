@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_balanced_diet",
+ "titleKo": "균형 잡힌 식단",
+ "titleDe": "Ausgewogene Ernährung",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 259,
+ "concepts": [
+  "apple",
+  "bread",
+  "adv_item_golden_carrot"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_plant_seed"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "apple"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:apple",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Apfel vom Baum."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "clue": {
+    "de": "Backe aus drei Weizen ein Brot und iss es."
+   },
+   "hint": {
+    "ko": "빵은 밀 세 개로 만들어요.",
+    "de": "Brot backst du aus drei Weizen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_golden_carrot"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:golden_carrot",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "황금 당근은 당근과 금 조각 여덟 개로 만들어요.",
+    "de": "Eine goldene Karotte braucht eine Karotte und acht Goldnuggets."
+   }
+  },
+  "textKo": "균형 잡힌 식단 — 황금 당근까지 골고루 먹어요.",
+  "textDe": "Ausgewogene Ernährung: Zum Schluss kommt eine goldene Karotte dazu."
+ },
+ "reward": {
+  "badge": "adv_husbandry_balanced_diet",
+  "words": [
+   "apple",
+   "bread",
+   "adv_item_golden_carrot"
+  ]
+ },
+ "koreanLevel": 2
+}

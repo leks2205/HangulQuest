@@ -1,0 +1,165 @@
+package de.zirks.hangulquest;
+
+import de.zirks.hangulquest.data.Catalog;
+import de.zirks.hangulquest.data.ConceptLoader;
+import de.zirks.hangulquest.data.Word;
+import de.zirks.hangulquest.quest.GoalEvaluator;
+import de.zirks.hangulquest.quest.QuestStatus;
+import de.zirks.hangulquest.quest.Questline;
+import de.zirks.hangulquest.quest.QuestLoader;
+import de.zirks.hangulquest.quest.SentenceBuilder;
+import de.zirks.hangulquest.sense.Observation;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/** QA guard for the new wave content: clue, hint, status and taught word must be usable. */
+class WaveQaTest {
+	private static final Set<String> WAVE_1 = Set.of("feuerpfad", "tierfreund", "brotpfad",
+			"haustierpfad", "hoehlenlicht");
+	private static final Set<String> WAVE_2 = Set.of("kraeuterpfad", "wollpfad", "flusslicht",
+			"waldlicht", "feuerstelle");
+	private static final Set<String> WAVE_3 = Set.of("schmelzofen", "saatfeld", "wanderpfad",
+			"nachthafen", "bogenpfad");
+	private static final Set<String> WAVE_4 = Set.of("kronenlicht", "kronenwacht", "kronenpfad",
+			"kronenglanz", "kronenfeier");
+	private static final Set<String> WAVE_5 = Set.of("letzte_reise", "weltenschoepfer", "wurzelpfad",
+			"steinherz", "gartenwacht");
+	private static final Set<String> BATCH_6 = Set.of("musikpfad", "bienenpfad", "wetterpfad",
+			"farbenpfad", "kartenpfad");
+	private static final Set<String> PREVIOUS_BATCH = Set.of("musikpfad", "bienenpfad", "wetterpfad",
+			"farbenpfad", "kartenpfad");
+	private static final Set<String> BATCH_7 = Set.of("freundschaftspfad", "briefpfad", "redstonepfad",
+			"schneeballpfad", "blumenpfad");
+	private static final Set<String> BATCH_8 = Set.of("alchemiepfad", "schmuckpfad", "vogelpfad",
+			"tempelpfad", "dschungelpfad");
+	private static final Set<String> BATCH_9 = Set.of("piratenpfad", "vulkanpfad", "pyramidenpfad",
+			"bibliothekpfad", "leuchtturmpfad");
+	private static final Set<String> BATCH_10 = Set.of("drachenhort", "tempelwaechter", "sternenkarte",
+			"handelsflotte", "zeitportal");
+	private static final Set<String> BATCH_11 = Set.of("schattenpfad", "handwerksmeister", "seelenpfad",
+			"golemwerkstatt", "kronenrat");
+	private static final Set<String> BATCH_12 = Set.of("richterpfad", "runenpfad", "schicksalspfad",
+			"weltenrichter", "unsterblichkeit");
+	private static final Set<String> BATCH_13 = Set.of("kerzenpfad", "kuerbispfad", "glasfenster",
+			"glockenpfad", "windpfad");
+	private static final Set<String> BATCH_14 = Set.of("schneemannpfad", "pilzpfad", "teppichpfad",
+			"inselpfad", "bambuspfad");
+	private static final Set<String> BATCH_15 = Set.of("apfelpfad", "froschteich", "sonnenblume",
+			"milchpfad", "festungpfad");
+	private static final Set<String> BATCH_16 = Set.of("regenbogenpfad", "fuchsbau", "lavapfad",
+			"gartenzaun", "schatzkammer");
+	private static final Set<String> BATCH_17 = Set.of("blumentopf", "schildkroete", "blumenkranz",
+			"uhrmacher", "druckerei");
+	private static final Set<String> BATCH_18 = Set.of("muschelpfad", "vogelscheuche", "ziegenpfad",
+			"pferderennen", "ziegelpfad");
+	private static final Set<String> BATCH_19 = Set.of("brauerei", "bienenzucht", "steinmetz",
+			"gartenkunst", "handelsgilde");
+	private static final Set<String> BATCH_20 = Set.of("faerberei", "gerberei", "postpfad",
+			"wolfpfad", "wolkenstadt");
+	private static final Set<String> BATCH_21 = Set.of("obstgarten", "werkzeugpfad", "schmuckgilde",
+			"fischergilde", "wuestenstadt");
+
+	@Test
+	void wavesOneAndTwoAreReadable() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		SentenceBuilder.Namer namer = new SentenceBuilder.Namer() {
+			@Override
+			public String biome(String id) {
+				return "강";
+			}
+
+			@Override
+			public String entity(String id) {
+				return "동물";
+			}
+
+			@Override
+			public String block(String id) {
+				return "블록";
+			}
+		};
+		int checked = 0;
+		for (Questline trail : QuestLoader.loadAll()) {
+			if (!WAVE_1.contains(trail.id()) && !WAVE_2.contains(trail.id())
+					&& !WAVE_3.contains(trail.id()) && !WAVE_4.contains(trail.id())
+					&& !WAVE_5.contains(trail.id()) && !BATCH_6.contains(trail.id())
+					&& !PREVIOUS_BATCH.contains(trail.id()) && !BATCH_7.contains(trail.id())
+					&& !BATCH_8.contains(trail.id()) && !BATCH_9.contains(trail.id())
+					&& !BATCH_10.contains(trail.id()) && !BATCH_11.contains(trail.id())
+					&& !BATCH_12.contains(trail.id()) && !BATCH_13.contains(trail.id())
+					&& !BATCH_14.contains(trail.id()) && !BATCH_15.contains(trail.id())
+					&& !BATCH_16.contains(trail.id()) && !BATCH_17.contains(trail.id())
+					&& !BATCH_18.contains(trail.id()) && !BATCH_19.contains(trail.id())
+					&& !BATCH_20.contains(trail.id()) && !BATCH_21.contains(trail.id())) {
+				continue;
+			}
+			for (var step : trail.allSteps()) {
+				Word word = catalog.byConceptId(step.teach().get(0)).orElseThrow();
+				String clue = SentenceBuilder.normal(step.goal(), word, step.conditions(),
+						trail.koreanLevel(), step.id().equals("finale"), namer);
+				String hint = SentenceBuilder.hint(step.goal(), word, step.conditions(), namer);
+				assertFalse(clue.isBlank(), trail.id() + "/" + step.id() + " clue blank");
+				assertFalse(hint.isBlank(), trail.id() + "/" + step.id() + " hint blank");
+				assertTrue(clue.contains(word.ko) || step.goal() instanceof de.zirks.hangulquest.quest.Goal.UseBlock,
+						trail.id() + "/" + step.id() + " clue omits the taught word: " + clue);
+				if (!(step.goal() instanceof de.zirks.hangulquest.quest.Goal.UseBlock)
+						&& !(step.goal() instanceof de.zirks.hangulquest.quest.Goal.InteractEntity)) {
+					String status = QuestStatus.text(step, new Observation(),
+							new GoalEvaluator.Tracker(), catalog);
+					assertFalse(status.isBlank(), trail.id() + "/" + step.id() + " has no status line");
+				}
+				System.out.println("QA " + trail.id() + "/" + step.id() + " | " + clue + " | H: " + hint);
+				checked++;
+			}
+		}
+		assertTrue(checked >= 60, "expected all wave steps, got " + checked);
+	}
+
+	@Test
+	void toolStepsHaveHelpfulHintText() {
+		java.util.Map<String, String> expected = java.util.Map.of(
+				"flusslicht/s2", "낚싯대", "wollpfad/s2", "가위", "bogenpfad/s1", "활",
+				"bogenpfad/s2", "화살", "kronenpfad/s2", "곡괭이",
+				"kronenglanz/s1", "곡괭이", "kronenfeier/s1", "케이크");
+		for (Questline trail : QuestLoader.loadAll()) {
+			for (var step : trail.allSteps()) {
+				String key = trail.id() + "/" + step.id();
+				String word = expected.get(key);
+				if (word == null) {
+					continue;
+				}
+				assertTrue(step.hintKo() != null && step.hintKo().contains(word),
+						key + " needs a hint containing " + word);
+			}
+		}
+	}
+
+
+	@Test
+	void multiWordHintsExplainTheExtraNouns() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (Questline trail : QuestLoader.loadAll()) {
+			for (var step : trail.allSteps()) {
+				if (step.teach().size() < 2) {
+					continue;
+				}
+				assertFalse(step.hintKo() == null || step.hintKo().isBlank(),
+						trail.id() + "/" + step.id() + " teaches several words but has no hint");
+				for (String concept : step.teach()) {
+					var word = catalog.byConceptId(concept).orElse(null);
+					if (word == null || "ACTIONS".equals(word.category) || word.ko.endsWith("다")) {
+						continue; // verbs are conjugated in the hint, not repeated as a dictionary form
+					}
+					assertTrue(step.hintKo().contains(word.ko), trail.id() + "/" + step.id()
+							+ " hint omits " + word.ko + ": " + step.hintKo());
+				}
+			}
+		}
+	}
+
+}

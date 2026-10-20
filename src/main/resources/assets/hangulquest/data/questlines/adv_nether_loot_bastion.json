@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_nether_loot_bastion",
+ "titleKo": "돼지와 전쟁",
+ "titleDe": "Kampfschweine",
+ "topic": "nether",
+ "tier": 2,
+ "order": 299,
+ "concepts": [
+  "gold",
+  "gold_block",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_find_bastion"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Nimm vier Goldbarren mit, um unterwegs mit Piglins zu handeln."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Stemm zwei Goldblöcke aus den Wänden der Bastion."
+   },
+   "hint": {
+    "ko": "금 블록은 곡괭이로 캐요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Öffne die Truhe in der Schatzkammer der Bastion und plündere sie."
+   }
+  },
+  "textKo": "돼지와 전쟁 — 보루의 상자를 열고 금을 챙겼어요.",
+  "textDe": "Kampfschweine — die Schatzkammer der Bastion ist geplündert."
+ },
+ "reward": {
+  "badge": "adv_nether_loot_bastion",
+  "words": [
+   "gold",
+   "gold_block",
+   "chest"
+  ]
+ },
+ "koreanLevel": 3
+}

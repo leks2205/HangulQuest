@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "haustierpfad",
+ "titleKo": "집동물의 길",
+ "titleDe": "Der Haustierpfad",
+ "topic": "동물",
+ "tier": 3,
+ "order": 41,
+ "concepts": [
+  "cat",
+  "wolf",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tierpfad",
+   "tierfreund"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Katze an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:wolf",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Wolf an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "침대를 놓고 함께 쉬어요.",
+  "textDe": "Mit dem Bett ruhst du dich aus."
+ },
+ "reward": {
+  "badge": "haustierpfad",
+  "words": [
+   "cat",
+   "wolf",
+   "bed"
+  ]
+ },
+ "koreanLevel": 1
+}

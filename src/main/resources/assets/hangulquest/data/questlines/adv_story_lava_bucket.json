@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "adv_story_lava_bucket",
+ "titleKo": "화끈한 화제",
+ "titleDe": "Manche mögen’s heiß",
+ "topic": "story",
+ "tier": 2,
+ "order": 318,
+ "concepts": [
+  "iron",
+  "bucket",
+  "lava"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_smelt_iron"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Schmelze drei Eisenbarren für den Eimer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue aus drei Eisenbarren einen Eimer."
+   },
+   "hint": {
+    "ko": "양동이는 철 주괴 세 개로 만들어요.",
+    "de": "Ein Eimer braucht drei Eisenbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lava"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lava",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Stehe an einem Lavasee und sieh ins Feuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lava"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schöpfe mit dem Eimer einen Lavaeimer voll."
+   },
+   "hint": {
+    "ko": "용암 가까이서 양동이를 쓰면 용암이 담겨요.",
+    "de": "Mit dem Eimer am Lavasee schöpfen."
+   },
+   "conditions": []
+  },
+  "textKo": "화끈한 화제 — 뜨거운 용암을 양동이에 담았어요.",
+  "textDe": "Manche mögen’s heiß — Ein Eimer Lava blubbert im Rucksack."
+ },
+ "reward": {
+  "badge": "adv_story_lava_bucket",
+  "words": [
+   "iron",
+   "bucket",
+   "lava"
+  ]
+ },
+ "koreanLevel": 2
+}

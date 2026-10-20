@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_fishy_business",
+ "titleKo": "강태공이 세월을 낚듯",
+ "titleDe": "Anglerglück",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 264,
+ "concepts": [
+  "string",
+  "fishing_rod",
+  "fish"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "string"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:string",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Fäden von Spinnen oder aus einer Mine."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fishing_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:fishing_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue aus Stöcken und Fäden eine Angel."
+   },
+   "hint": {
+    "ko": "낚싯대는 막대기 세 개와 실 두 개로 만들어요.",
+    "de": "Eine Angel braucht drei Stöcke und zwei Fäden."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "강태공이 세월을 낚듯 — 물에서 대구를 낚아 올려요.",
+  "textDe": "Anglerglück: Du ziehst einen Kabeljau aus dem Wasser."
+ },
+ "reward": {
+  "badge": "adv_husbandry_fishy_business",
+  "words": [
+   "string",
+   "fishing_rod",
+   "fish"
+  ]
+ },
+ "koreanLevel": 1
+}

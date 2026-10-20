@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "hangulquest",
+	"version": "${version}",
+	"name": "한글 탐험",
+	"description": "Korean quest trails for Minecraft: Korean instructions, Schnitzeljagd clues, easier-Korean hints with related sidequests. Fully client-side.",
+	"authors": [
+		"Lenni"
+	],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"de.zirks.hangulquest.HangulQuestClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": ">=0.162.0"
+	}
+}

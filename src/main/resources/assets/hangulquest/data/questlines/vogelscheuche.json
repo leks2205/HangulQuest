@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "vogelscheuche",
+ "titleKo": "허수아비의 길",
+ "titleDe": "Der Vogelscheuchenpfad",
+ "topic": "허수아비",
+ "tier": 2,
+ "order": 154,
+ "concepts": [
+  "hay_block",
+  "carved_pumpkin",
+  "torch",
+  "wheat"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "dorfpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "hay_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:hay_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Heuballen."
+   },
+   "hint": {
+    "ko": "건초 더미는 밀 아홉 개로 만들어요.",
+    "de": "Heuballen bestehen aus neun Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz einen geschnitzten Kürbis."
+   },
+   "hint": {
+    "ko": "조각된 호박은 가위로 호박을 깎아요.",
+    "de": "Geschnitzte Kürbisse entstehen mit einer Schere."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "밀을 모아 허수아비를 만들어요.",
+  "textDe": "Weizen für die Vogelscheuche."
+ },
+ "reward": {
+  "badge": "vogelscheuche",
+  "words": [
+   "hay_block",
+   "carved_pumpkin",
+   "torch",
+   "wheat"
+  ]
+ },
+ "koreanLevel": 1
+}

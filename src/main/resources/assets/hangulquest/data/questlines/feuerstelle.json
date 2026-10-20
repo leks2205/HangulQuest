@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "feuerstelle",
+ "titleKo": "불자리",
+ "titleDe": "Die Feuerstelle",
+ "topic": "불",
+ "tier": 3,
+ "order": 47,
+ "concepts": [
+  "campfire",
+  "torch",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 18,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "brotpfad",
+   "feuerpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:torch",
+    "dwellMs": 400
+   },
+   "clue": {
+    "de": "Schau eine Fackel an."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 불 곁에서 자요.",
+  "textDe": "Nachts schläfst du am Feuer."
+ },
+ "reward": {
+  "badge": "feuerstelle",
+  "words": [
+   "campfire",
+   "torch",
+   "bed"
+  ]
+ },
+ "koreanLevel": 1
+}

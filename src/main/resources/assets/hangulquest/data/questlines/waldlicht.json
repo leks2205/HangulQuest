@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "waldlicht",
+ "titleKo": "숲빛의 길",
+ "titleDe": "Das Waldlicht",
+ "topic": "나무",
+ "tier": 3,
+ "order": 46,
+ "concepts": [
+  "log",
+  "flower",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 18,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "hoehlenlicht",
+   "holzpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "log"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:oak_log",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Baumstämme ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤 숲에 불빛을 놓아요.",
+  "textDe": "Nachts leuchtet der Wald."
+ },
+ "reward": {
+  "badge": "waldlicht",
+  "words": [
+   "log",
+   "flower",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

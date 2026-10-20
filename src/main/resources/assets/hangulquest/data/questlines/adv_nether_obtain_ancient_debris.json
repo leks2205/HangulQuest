@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_nether_obtain_ancient_debris",
+ "titleKo": "깊이 파묻힌 잔해",
+ "titleDe": "Verborgen in den Tiefen",
+ "topic": "nether",
+ "tier": 2,
+ "order": 301,
+ "concepts": [
+  "height",
+  "adv_item_ancient_debris"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 8,
+    "maxY": 22
+   },
+   "clue": {
+    "de": "Grabe dich im Nether auf Höhe 8 bis 22 hinunter, dort liegt der Schrott."
+   },
+   "hint": {
+    "ko": "높이 8에서 22 사이, 용암 아래를 파요. 다이아몬드 곡괭이로 캐요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_ancient_debris"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ancient_debris",
+    "count": 1
+   },
+   "clue": {
+    "de": "Brich einen Block antiken Schrotts heraus."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_ancient_debris"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ancient_debris",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Der uralte Schrott liegt in deiner Hand."
+   }
+  },
+  "textKo": "깊이 파묻힌 잔해 — 용암 아래에서 고대 잔해를 캐냈어요.",
+  "textDe": "Verborgen in den Tiefen — unter der Lava lag der uralte Schrott."
+ },
+ "reward": {
+  "badge": "adv_nether_obtain_ancient_debris",
+  "words": [
+   "height",
+   "adv_item_ancient_debris"
+  ]
+ },
+ "koreanLevel": 2
+}

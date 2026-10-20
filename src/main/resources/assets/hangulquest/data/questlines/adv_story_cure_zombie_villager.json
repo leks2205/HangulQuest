@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_story_cure_zombie_villager",
+ "titleKo": "좀비 의사",
+ "titleDe": "Zombiearzt",
+ "topic": "story",
+ "tier": 2,
+ "order": 310,
+ "concepts": [
+  "brewing_stand",
+  "adv_item_potion",
+  "golden_apple"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_enter_the_nether"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "brewing_stand"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:brewing_stand"
+   },
+   "clue": {
+    "de": "Brau am Braustand einen Wurfrank der Schwäche."
+   },
+   "hint": {
+    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요. 발효된 거미 눈으로 약화 물약을 끓여요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_potion"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potion",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm den fertigen Wurfrank der Schwäche in die Hand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "golden_apple"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_apple",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Baue aus einem Apfel und acht Goldbarren den goldenen Apfel für den Zombiedorfbewohner."
+   },
+   "hint": {
+    "ko": "황금 사과는 사과와 금 주괴 여덟 개로 만들어요."
+   }
+  },
+  "textKo": "좀비 의사 — 약화 물약과 황금 사과로 주민을 살렸어요.",
+  "textDe": "Zombiearzt — Schwächetrank und goldener Apfel heilen den Dorfbewohner."
+ },
+ "reward": {
+  "badge": "adv_story_cure_zombie_villager",
+  "words": [
+   "brewing_stand",
+   "adv_item_potion",
+   "golden_apple"
+  ]
+ },
+ "koreanLevel": 3
+}

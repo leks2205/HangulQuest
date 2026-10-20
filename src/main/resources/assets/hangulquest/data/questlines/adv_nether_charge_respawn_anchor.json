@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_nether_charge_respawn_anchor",
+ "titleKo": "목숨 충전",
+ "titleDe": "Nicht ganz „sieben“ Leben",
+ "topic": "nether",
+ "tier": 2,
+ "order": 290,
+ "concepts": [
+  "adv_item_crying_obsidian",
+  "adv_item_respawn_anchor"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_obtain_crying_obsidian"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_crying_obsidian"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crying_obsidian",
+    "count": 3
+   },
+   "clue": {
+    "de": "Weinender Obsidian ist der Grundstein des Seelenankers."
+   },
+   "hint": {
+    "ko": "우는 흑요석을 캐요. 다이아몬드 곡괭이가 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_respawn_anchor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:respawn_anchor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau aus dem Obsidian und Leuchtstein einen Seelenanker."
+   },
+   "hint": {
+    "ko": "우는 흑요석 여섯 개와 발광석 세 개로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_respawn_anchor"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:respawn_anchor"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Lade den Anker mit Leuchtstein auf – vier Ladungen, vier Leben."
+   },
+   "hint": {
+    "ko": "리스폰 정박기에 발광석을 사용해요."
+   }
+  },
+  "textKo": "정박기를 가득 채웠어요! 지옥에서도 다시 살아날 수 있어요.",
+  "textDe": "Der Seelenanker ist geladen – im Nether bist du jetzt sicher."
+ },
+ "reward": {
+  "badge": "adv_nether_charge_respawn_anchor",
+  "words": [
+   "adv_item_crying_obsidian",
+   "adv_item_respawn_anchor"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_nether_obtain_crying_obsidian",
+ "titleKo": "누가 양파를 써나?",
+ "titleDe": "Wer schneidet hier Zwiebeln?",
+ "topic": "nether",
+ "tier": 2,
+ "order": 303,
+ "concepts": [
+  "adv_dimension_the_nether",
+  "gold",
+  "adv_item_crying_obsidian"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh in den Nether, dort handeln die Piglins mit dem weinenden Obsidian."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Leg vier Goldbarren bereit, damit die Piglins tauschen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_crying_obsidian"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crying_obsidian",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Tausch bei den Piglins und nimm den weinenden Obsidian."
+   },
+   "hint": {
+    "ko": "우는 흑요석은 다이아몬드 곡괭이로 캐거나 피글린과 바꿔요."
+   }
+  },
+  "textKo": "누가 양파를 써나? — 우는 흑요석이 눈물을 흘려요.",
+  "textDe": "Wer schneidet hier Zwiebeln? — weinender Obsidian in der Hand."
+ },
+ "reward": {
+  "badge": "adv_nether_obtain_crying_obsidian",
+  "words": [
+   "adv_dimension_the_nether",
+   "gold",
+   "adv_item_crying_obsidian"
+  ]
+ },
+ "koreanLevel": 2
+}

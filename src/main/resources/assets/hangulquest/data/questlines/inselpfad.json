@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "inselpfad",
+ "titleKo": "섬의 길",
+ "titleDe": "Der Inselpfad",
+ "topic": "섬",
+ "tier": 3,
+ "order": 136,
+ "concepts": [
+  "beach",
+  "sand",
+  "chest",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "fischerpfad",
+   "gipfelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an einen Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sand",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Sandblöcke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 섬에 횃불을 놓아요.",
+  "textDe": "Nachts leuchten Fackeln auf der Insel."
+ },
+ "reward": {
+  "badge": "inselpfad",
+  "words": [
+   "beach",
+   "sand",
+   "chest",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

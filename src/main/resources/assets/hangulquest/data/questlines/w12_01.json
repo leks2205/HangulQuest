@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w12_01",
+ "titleKo": "시간의 지도",
+ "titleDe": "Die Karte der Zeit",
+ "topic": "시간",
+ "tier": 2,
+ "order": 1121,
+ "concepts": [
+  "clock",
+  "compass",
+  "cartography_table",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Uhr und halte sie in der Hand."
+   },
+   "hint": {
+    "ko": "시계는 금 조각과 레드스톤으로 만들어요.",
+    "de": "Eine Uhr besteht aus Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "compass"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:compass",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle einen Kompass her, der die Richtung der Zeit zeigt."
+   },
+   "hint": {
+    "ko": "나침반은 철 조각과 레드스톤으로 만들어요.",
+    "de": "Ein Kompass braucht Eisen und Redstone."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cartography_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:cartography_table"
+   },
+   "clue": {
+    "de": "Benutze einen Kartentisch und zeichne den Lauf der Zeit auf."
+   },
+   "hint": {
+    "ko": "지도 제작대는 판자와 종이로 만들어요.",
+    "de": "Der Kartentisch braucht Bretter und Papier."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 200,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "높이 200블록은 구름보다 훨씬 위예요. 밤에 산을 올라가요.",
+    "de": "200 Blöcke liegen weit über den Wolken; steig nachts den Berg hinauf."
+   }
+  },
+  "textKo": "밤에 높이 200블록 위에서 시간의 지도를 펼쳐요.",
+  "textDe": "Nachts entfaltet sich auf 200 Blöcken Höhe die Karte der Zeit."
+ },
+ "reward": {
+  "badge": "w12_01",
+  "words": [
+   "clock",
+   "compass",
+   "cartography_table",
+   "height"
+  ]
+ },
+ "koreanLevel": 6
+}

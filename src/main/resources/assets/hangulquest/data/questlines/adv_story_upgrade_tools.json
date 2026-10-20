@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "adv_story_upgrade_tools",
+ "titleKo": "더욱더 좋게",
+ "titleDe": "Technischer Fortschritt",
+ "topic": "story",
+ "tier": 2,
+ "order": 325,
+ "concepts": [
+  "cobblestone",
+  "crafting_table",
+  "stick",
+  "adv_block_stone_pickaxe"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_mine_stone"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cobblestone",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Bruchstein aus dem Stein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Nutze deine Werkbank für die neue Spitzhacke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "stick"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stick",
+    "count": 2
+   },
+   "clue": {
+    "de": "Schnitze zwei Stöcke als Griff."
+   },
+   "hint": {
+    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
+    "de": "Zwei Holzbretter ergeben vier Stöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_stone_pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stone_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Steinspitzhacke an der Werkbank."
+   },
+   "hint": {
+    "ko": "돌 곡괭이는 조약돌 세 개와 막대기 두 개로 만들어요.",
+    "de": "Steinspitzhacke: drei Bruchstein und zwei Stöcke."
+   },
+   "conditions": []
+  },
+  "textKo": "더욱더 좋게 — 돌 곡괭이를 들었어요. 이제 더 단단한 것도 캐요.",
+  "textDe": "Technischer Fortschritt — Mit der Steinspitzhacke geht es tiefer."
+ },
+ "reward": {
+  "badge": "adv_story_upgrade_tools",
+  "words": [
+   "cobblestone",
+   "crafting_table",
+   "stick",
+   "adv_block_stone_pickaxe"
+  ]
+ },
+ "koreanLevel": 2
+}

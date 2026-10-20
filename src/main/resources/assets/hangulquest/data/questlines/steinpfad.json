@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "steinpfad",
+ "titleKo": "돌의 길",
+ "titleDe": "Der Steinpfad",
+ "tier": 1,
+ "concepts": [
+  "stone",
+  "cobblestone",
+  "coal",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld"
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 3
+   },
+   "clue": {
+    "ko": "회색 돌을 세 개 캐요.",
+    "de": "Baue drei harte, graue Dinge ab."
+   },
+   "hint": {
+    "ko": "돌을 캐요. 세 개요.",
+    "de": "Baue Stein ab, drei Stück."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cobblestone",
+    "count": 3
+   },
+   "clue": {
+    "ko": "조약돌을 세 개 놓아요.",
+    "de": "Stapel die gebrochenen Steine wieder auf."
+   },
+   "hint": {
+    "ko": "조약돌을 놓아요.",
+    "de": "Platziere Bruchstein."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 1
+   },
+   "clue": {
+    "ko": "반짝이는 검은 석탄을 캐요.",
+    "de": "Ein schwarzer Stein glitzert. Baue ihn ab."
+   },
+   "hint": {
+    "ko": "석탄을 캐요.",
+    "de": "Baue Kohle ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 어두운 곳에서 빛을 만들었어요. 보물은 기억이에요.",
+  "textDe": "Du hast im Dunkeln Licht gemacht. Der Schatz ist die Erinnerung."
+ },
+ "reward": {
+  "badge": "steinpfad",
+  "words": [
+   "stone",
+   "cobblestone",
+   "coal",
+   "torch"
+  ]
+ },
+ "order": 10,
+ "koreanLevel": 1,
+ "topic": "돌"
+}

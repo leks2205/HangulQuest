@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "w4_07",
+ "titleKo": "항구 시장",
+ "titleDe": "Der Hafenmarkt",
+ "topic": "시장",
+ "tier": 2,
+ "order": 1047,
+ "concepts": [
+  "fish",
+  "villager",
+  "emerald",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festmahl"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 4
+   },
+   "clue": {
+    "de": "Bring vier Kabeljau zum Markt."
+   },
+   "hint": {
+    "ko": "물고기는 낚싯대로 잡아요.",
+    "de": "Fische fängst du mit einer Angel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "clue": {
+    "de": "Sprich mit einem Dorfbewohner am Hafen."
+   },
+   "hint": {
+    "ko": "주민과 이야기하면 물건을 바꿔요.",
+    "de": "Mit einem Dorfbewohner tauschst du Waren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
+   },
+   "clue": {
+    "de": "Verdien zwei Smaragde."
+   },
+   "hint": {
+    "ko": "에메랄드는 주민과 바꿔요.",
+    "de": "Smaragde bekommst du im Tausch."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell deine Markttruhe auf den Kai."
+   },
+   "hint": {
+    "ko": "상자에 물고기를 담아요.",
+    "de": "In der Truhe lagerst du den Fisch."
+   }
+  },
+  "textKo": "시장 좌판에 상자를 놓아요.",
+  "textDe": "Auf dem Markt steht deine Truhe."
+ },
+ "reward": {
+  "badge": "w4_07",
+  "words": [
+   "fish",
+   "villager",
+   "emerald",
+   "chest"
+  ]
+ },
+ "koreanLevel": 2
+}

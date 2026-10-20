@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "riesenfest",
+ "titleKo": "큰 잔치",
+ "titleDe": "Das Riesenfest",
+ "tier": 5,
+ "order": 531,
+ "concepts": [
+  "cake",
+  "chicken",
+  "campfire",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festtafel",
+   "waldfest",
+   "kochkunst",
+   "farbenpfad",
+   "vogelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Kuchen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chicken"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:chicken",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Huhn an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 잔치의 종을 울려요!",
+  "textDe": "Am Tag läutet die Festglocke!"
+ },
+ "reward": {
+  "badge": "riesenfest",
+  "words": [
+   "cake",
+   "chicken",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "나무"
+}

@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_nether_netherite_armor",
+ "titleKo": "잔해로 날 감싸줘",
+ "titleDe": "Bedeck mich mit Schrott",
+ "topic": "nether",
+ "tier": 2,
+ "order": 300,
+ "concepts": [
+  "adv_item_ancient_debris",
+  "adv_item_netherite_helmet",
+  "adv_block_netherite_chestplate"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_obtain_ancient_debris"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_ancient_debris"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ancient_debris",
+    "count": 4
+   },
+   "clue": {
+    "de": "Fördere vier antike Schrottblöcke für den ersten Netheritbarren."
+   },
+   "hint": {
+    "ko": "고대 잔해는 다이아몬드 곡괭이로 캐요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_netherite_helmet"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:netherite_helmet",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede den ersten Helm aus Netherit."
+   },
+   "hint": {
+    "ko": "고대 잔해를 화로에 구우면 네더라이트 주괴가 돼요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_netherite_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:netherite_chestplate",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Schließe den Harnisch an – die Rüstung sitzt."
+   }
+  },
+  "textKo": "잔해로 날 감싸줘 — 고대 잔해로 네더라이트 갑옷을 만들었어요.",
+  "textDe": "Bedeck mich mit Schrott — aus uraltem Schrott wird Netheritrüstung."
+ },
+ "reward": {
+  "badge": "adv_nether_netherite_armor",
+  "words": [
+   "adv_item_ancient_debris",
+   "adv_item_netherite_helmet",
+   "adv_block_netherite_chestplate"
+  ]
+ },
+ "koreanLevel": 3
+}

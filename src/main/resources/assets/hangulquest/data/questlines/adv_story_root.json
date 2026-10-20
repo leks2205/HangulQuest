@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "adv_story_root",
+ "titleKo": "마인크래프트",
+ "titleDe": "Minecraft",
+ "topic": "story",
+ "tier": 2,
+ "order": 322,
+ "concepts": [
+  "log",
+  "planks",
+  "stick",
+  "crafting_table"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steinpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "log"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:oak_log",
+    "count": 4
+   },
+   "clue": {
+    "de": "Fälle vier Baumstämme mit der bloßen Hand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:oak_planks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Zerlege das Holz in acht Holzbretter."
+   },
+   "hint": {
+    "ko": "통나무 하나를 판자 네 개로 만들 수 있어요.",
+    "de": "Ein Stamm ergibt vier Holzbretter."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "stick"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stick",
+    "count": 4
+   },
+   "clue": {
+    "de": "Schnitze vier Stöcke aus Holzbrettern."
+   },
+   "hint": {
+    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
+    "de": "Zwei Holzbretter ergeben vier Stöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crafting_table",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue aus vier Holzbrettern eine Werkbank."
+   },
+   "hint": {
+    "ko": "작업대는 판자 네 개로 만들어요.",
+    "de": "Eine Werkbank braucht vier Holzbretter."
+   },
+   "conditions": []
+  },
+  "textKo": "마인크래프트 — 작업대를 만들었어요. 이제 진짜 시작이에요.",
+  "textDe": "Minecraft — Die Werkbank steht. Jetzt geht es richtig los."
+ },
+ "reward": {
+  "badge": "adv_story_root",
+  "words": [
+   "log",
+   "planks",
+   "stick",
+   "crafting_table"
+  ]
+ },
+ "koreanLevel": 1
+}

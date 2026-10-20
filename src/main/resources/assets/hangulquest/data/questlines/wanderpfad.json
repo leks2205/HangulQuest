@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "wanderpfad",
+ "titleKo": "산길의 길",
+ "titleDe": "Der Wanderpfad",
+ "topic": "산",
+ "tier": 3,
+ "order": 62,
+ "concepts": [
+  "mountain",
+  "goat",
+  "torch",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weidepfad",
+   "gipfelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤 산길에 모닥불을 피워요.",
+  "textDe": "Nachts brennt am Bergpfad ein Lagerfeuer."
+ },
+ "reward": {
+  "badge": "wanderpfad",
+  "words": [
+   "mountain",
+   "goat",
+   "torch"
+  ]
+ },
+ "koreanLevel": 2
+}

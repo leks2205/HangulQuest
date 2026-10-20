@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_nether_obtain_blaze_rod",
+ "titleKo": "포화 속으로",
+ "titleDe": "Spiel mit dem Feuer",
+ "topic": "nether",
+ "tier": 2,
+ "order": 302,
+ "concepts": [
+  "adv_dimension_the_nether",
+  "bow",
+  "adv_item_blaze_rod"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_find_fortress"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh durch das Portal in den Nether, dort steht die Festung mit den Lohen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm einen Bogen mit, Lohen kämpfen aus der Ferne."
+   },
+   "hint": {
+    "ko": "실 세 개와 막대기 세 개로 활을 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Erlege eine Lohe und nimm ihre Rute an dich."
+   }
+  },
+  "textKo": "포화 속으로 — 블레이즈를 물리치고 막대기를 얻었어요.",
+  "textDe": "Spiel mit dem Feuer — eine Lohenrute aus der Festung."
+ },
+ "reward": {
+  "badge": "adv_nether_obtain_blaze_rod",
+  "words": [
+   "adv_dimension_the_nether",
+   "bow",
+   "adv_item_blaze_rod"
+  ]
+ },
+ "koreanLevel": 3
+}

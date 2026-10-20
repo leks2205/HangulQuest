@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_complete_catalogue",
+ "titleKo": "집사 그 자체",
+ "titleDe": "Ein kompletter Katerlog",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 262,
+ "concepts": [
+  "cat"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tame_an_animal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Finde im Dorf eine Katze und schau sie dir an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 2
+   },
+   "clue": {
+    "de": "Fange zwei rohe Kabeljau für die Katze."
+   },
+   "hint": {
+    "ko": "낚싯대를 들고 물에서 대구를 잡아요.",
+    "de": "Mit einer Angel ziehst du den Kabeljau aus dem Wasser."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:cat"
+   },
+   "conditions": []
+  },
+  "textKo": "집사 그 자체 — 대구를 주고 고양이를 길들여요.",
+  "textDe": "Ein kompletter Katerlog: Mit rohem Kabeljau zähmst du die Katze."
+ },
+ "reward": {
+  "badge": "adv_husbandry_complete_catalogue",
+  "words": [
+   "cat"
+  ]
+ },
+ "koreanLevel": 2
+}

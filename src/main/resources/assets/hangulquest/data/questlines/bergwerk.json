@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "bergwerk",
+ "titleKo": "광산의 길",
+ "titleDe": "Das Bergwerk",
+ "tier": 3,
+ "order": 520,
+ "concepts": [
+  "iron",
+  "coal",
+  "ice",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tiefenpfad",
+   "gletscherpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:iron_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Eisenerz ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Kohle ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Eis ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
+  },
+  "textKo": "높이 0 이하의 광산 아래에서 불을 밝혀요.",
+  "textDe": "Tief im Bergwerk brennt dein Licht."
+ },
+ "reward": {
+  "badge": "bergwerk",
+  "words": [
+   "iron",
+   "coal",
+   "ice",
+   "torch"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "돌"
+}

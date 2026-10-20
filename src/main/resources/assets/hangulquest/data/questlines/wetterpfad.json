@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "wetterpfad",
+ "titleKo": "비의 길",
+ "titleDe": "Der Regenpfad",
+ "topic": "날씨",
+ "tier": 3,
+ "order": 95,
+ "concepts": [
+  "beach",
+  "torch",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gipfelpfad",
+   "wasserpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh bei Regen an den Strand."
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ],
+   "hint": {
+    "ko": "비가 올 때만 돼요. 비를 기다려요.",
+    "de": "Das geht nur bei Regen; warte auf Regen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz bei Regen zwei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ],
+   "hint": {
+    "ko": "비가 올 때만 돼요. 비를 기다려요.",
+    "de": "Das geht nur bei Regen; warte auf Regen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ],
+   "hint": {
+    "ko": "비가 올 때만 돼요. 비를 기다려요.",
+    "de": "Das geht nur bei Regen; warte auf Regen."
+   }
+  },
+  "textKo": "비가 올 때 해변에서 모닥불을 피워요.",
+  "textDe": "Bei Regen brennt am Strand ein Feuer."
+ },
+ "reward": {
+  "badge": "wetterpfad",
+  "words": [
+   "beach",
+   "torch",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

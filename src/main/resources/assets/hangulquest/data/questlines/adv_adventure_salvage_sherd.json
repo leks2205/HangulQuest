@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_salvage_sherd",
+ "titleKo": "소중한 잔해",
+ "titleDe": "Achtung vor dem Alten",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 224,
+ "concepts": [
+  "adv_item_brush",
+  "desert",
+  "sand"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_brush"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brush",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fertige einen Pinsel aus einer Feder, einem Kupferbarren und einem Stock."
+   },
+   "hint": {
+    "ko": "깃털, 구리 주괴, 막대기로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "desert"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:desert",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Reis in die Wüste zu einer Tempelruine mit seltsamem Sand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 6
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Grab im Wüstentempel den Sand beiseite und pinsle den seltsamen Block ab."
+   }
+  },
+  "textKo": "소중한 잔해 — 모래를 털어 도자기 조각을 찾아요.",
+  "textDe": "Achtung vor dem Alten — Pinsle im Wüstentempel eine Töpferscherbe frei."
+ },
+ "reward": {
+  "badge": "adv_adventure_salvage_sherd",
+  "words": [
+   "adv_item_brush",
+   "desert",
+   "sand"
+  ]
+ },
+ "koreanLevel": 2
+}

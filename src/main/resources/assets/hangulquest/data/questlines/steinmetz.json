@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "steinmetz",
+ "titleKo": "석공의 길",
+ "titleDe": "Der Steinmetzpfad",
+ "topic": "석공",
+ "tier": 3,
+ "order": 160,
+ "concepts": [
+  "stone_bricks",
+  "chiseled_stone_bricks",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festungpfad",
+   "schatzkammer"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Steinziegel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei gemeißelte Steinziegel."
+   },
+   "hint": {
+    "ko": "조각된 석재 벽돌은 석재 벽돌 두 개로 만들어요.",
+    "de": "Gemeißelte Steinziegel bestehen aus zwei Steinziegeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stone_bricks",
+    "count": 6
+   },
+   "conditions": []
+  },
+  "textKo": "석재 벽돌을 모아요.",
+  "textDe": "Steinziegel sammeln."
+ },
+ "reward": {
+  "badge": "steinmetz",
+  "words": [
+   "stone_bricks",
+   "chiseled_stone_bricks",
+   "chest"
+  ]
+ },
+ "koreanLevel": 2
+}

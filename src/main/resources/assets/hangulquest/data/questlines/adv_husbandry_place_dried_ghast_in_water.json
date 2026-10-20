@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_place_dried_ghast_in_water",
+ "titleKo": "수분 충전!",
+ "titleDe": "Bleib hydriert!",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 271,
+ "concepts": [
+  "adv_item_dried_ghast",
+  "bucket"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_dried_ghast"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dried_ghast",
+    "count": 1
+   },
+   "clue": {
+    "de": "Finde einen ausgetrockneten Ghast im Seelensandtal oder tausche ihn bei einem Piglin ein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle einen Eimer mit Wasser."
+   },
+   "hint": {
+    "ko": "철 주괴 세 개로 양동이를 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_dried_ghast"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dried_ghast",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "수분 충전! — 마른 가스트를 물속에 넣어요.",
+  "textDe": "Bleib hydriert! — Du setzt den ausgetrockneten Ghast ins Wasser."
+ },
+ "reward": {
+  "badge": "adv_husbandry_place_dried_ghast_in_water",
+  "words": [
+   "adv_item_dried_ghast",
+   "bucket"
+  ]
+ },
+ "koreanLevel": 1
+}

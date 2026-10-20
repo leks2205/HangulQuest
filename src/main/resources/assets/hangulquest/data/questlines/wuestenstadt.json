@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "wuestenstadt",
+ "titleKo": "사막 도시의 길",
+ "titleDe": "Die Wüstenstadt",
+ "topic": "사막 도시",
+ "tier": 3,
+ "order": 172,
+ "concepts": [
+  "desert",
+  "sandstone",
+  "chest",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "karawane",
+   "handelsgilde"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "desert"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:desert",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in eine Wüste."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sandstone"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sandstone",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Sandsteinblöcke."
+   },
+   "hint": {
+    "ko": "사암은 곡괭이로 캐요.",
+    "de": "Sandstein baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 3
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
+    "de": "Laternen bestehen aus Fackel und Eisen."
+   }
+  },
+  "textKo": "사막 도시에 랜턴을 걸어요.",
+  "textDe": "Laternen in der Wüstenstadt."
+ },
+ "reward": {
+  "badge": "wuestenstadt",
+  "words": [
+   "desert",
+   "sandstone",
+   "chest",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 3
+}

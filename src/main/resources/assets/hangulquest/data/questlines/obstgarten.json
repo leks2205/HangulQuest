@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "obstgarten",
+ "titleKo": "과수원의 길",
+ "titleDe": "Der Obstgarten",
+ "topic": "과수원",
+ "tier": 3,
+ "order": 168,
+ "concepts": [
+  "sapling",
+  "leaves",
+  "apple"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festungpfad",
+   "schatzkammer"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sapling"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_sapling",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Setzlinge."
+   },
+   "hint": {
+    "ko": "묘목은 나뭇잎을 깨면 나와요.",
+    "de": "Setzlinge bekommst du von Blättern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:oak_leaves",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf Blätter."
+   },
+   "hint": {
+    "ko": "묘목이 자라면 나뭇잎이 돼요. 근처 나무를 봐도 돼요.",
+    "de": "Setzlinge werden zu Blättern; du kannst auch einen nahen Baum ansehen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "apple"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:apple",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Äpfel."
+   },
+   "hint": {
+    "ko": "사과는 참나무 잎에서 떨어져요.",
+    "de": "Äpfel fallen von Eichenblättern."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "apple"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:apple",
+    "count": 6
+   },
+   "conditions": []
+  },
+  "textKo": "과수원에서 사과를 모아요.",
+  "textDe": "Äpfel im Obstgarten sammeln."
+ },
+ "reward": {
+  "badge": "obstgarten",
+  "words": [
+   "sapling",
+   "leaves",
+   "apple"
+  ]
+ },
+ "koreanLevel": 2
+}

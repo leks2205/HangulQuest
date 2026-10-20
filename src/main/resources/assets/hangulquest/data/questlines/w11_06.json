@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w11_06",
+ "titleKo": "용의 별자리",
+ "titleDe": "Das Sternbild des Drachen",
+ "topic": "용",
+ "tier": 2,
+ "order": 1116,
+ "concepts": [
+  "ender_dragon",
+  "dragon_egg",
+  "adv_item_dragon_breath",
+  "adv_item_dragon_head"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege den Enderdrachen."
+   },
+   "hint": {
+    "ko": "엔더 드래곤은 엔드 수정을 먼저 부숴야 해요.",
+    "de": "Zerstöre zuerst die Enderkristalle auf den Türmen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "dragon_egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dragon_egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm das Drachenei an dich."
+   },
+   "hint": {
+    "ko": "드래곤 알은 드래곤이 죽은 자리에 남아요.",
+    "de": "Das Drachenei bleibt zurück, wo der Drache fiel."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_dragon_breath"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dragon_breath",
+    "count": 3
+   },
+   "clue": {
+    "de": "Fang drei Drachenatem in Glasflaschen."
+   },
+   "hint": {
+    "ko": "드래곤의 숨결은 유리병으로 모아요.",
+    "de": "Drachenatem sammelst du mit Glasflaschen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_dragon_head"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:dragon_head",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz den Drachenkopf als Sternbild in die Nacht."
+   },
+   "hint": {
+    "ko": "드래곤 머리는 엔드 배의 앞머리에 있어요.",
+    "de": "Einen Drachenkopf findest du am Bug eines Endschiffs."
+   },
+   "conditions": []
+  },
+  "textKo": "용의 별자리를 하늘에 세워요.",
+  "textDe": "Du setzt das Sternbild des Drachen an den Himmel."
+ },
+ "reward": {
+  "badge": "w11_06",
+  "words": [
+   "ender_dragon",
+   "dragon_egg",
+   "adv_item_dragon_breath",
+   "adv_item_dragon_head"
+  ]
+ },
+ "koreanLevel": 6
+}

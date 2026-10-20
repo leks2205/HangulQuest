@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "marktpfad",
+ "titleKo": "시장의 길",
+ "titleDe": "Der Marktpfad",
+ "tier": 2,
+ "order": 380,
+ "concepts": [
+  "emerald",
+  "bread",
+  "carrot"
+ ],
+ "requires": {
+  "minWordsKnown": 9,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelspfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei grüne Edelsteine."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Brote."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carrot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carrot",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Karotten."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 시장의 종을 울려요.",
+  "textDe": "Am Tag läutet die Glocke auf dem Markt."
+ },
+ "reward": {
+  "badge": "marktpfad",
+  "words": [
+   "emerald",
+   "bread",
+   "carrot",
+   "bell"
+  ]
+ },
+ "koreanLevel": 1,
+ "topic": "마을"
+}

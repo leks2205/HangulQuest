@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_avoid_vibration",
+ "titleKo": "은밀하게 위대하게",
+ "titleDe": "Schleichen 100",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 202,
+ "concepts": [
+  "adv_item_sculk_sensor"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_sculk_sensor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sculk_sensor",
+    "count": 2
+   },
+   "clue": {
+    "de": "Hole zwei Sculk-Sensoren aus der Tiefe, ohne sie auszulösen."
+   },
+   "hint": {
+    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_sculk_sensor"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sculk_sensor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setze einen der Sensoren vor dir auf den Boden ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_sculk_sensor"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sculk_sensor",
+    "dwellMs": 600
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Schleiche auf Zehenspitzen vorbei und sieh den Sensor dabei an."
+   }
+  },
+  "textKo": "은밀하게 위대하게 — 스컬크 감지체 앞에서 숨을 죽였어요.",
+  "textDe": "Schleichen 100 — am Sculk-Sensor vorbei, ohne Vibration."
+ },
+ "reward": {
+  "badge": "adv_adventure_avoid_vibration",
+  "words": [
+   "adv_item_sculk_sensor"
+  ]
+ },
+ "koreanLevel": 2
+}

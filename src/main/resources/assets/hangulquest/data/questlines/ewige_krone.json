@@ -1,0 +1,118 @@
+{
+ "schema": 1,
+ "id": "ewige_krone",
+ "titleKo": "영원의 왕관",
+ "titleDe": "Die ewige Krone",
+ "topic": "산",
+ "tier": 5,
+ "order": 87,
+ "concepts": [
+  "mountain",
+  "cake",
+  "bell",
+  "bed",
+  "crown",
+  "eternity"
+ ],
+ "requires": {
+  "minWordsKnown": 50,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter",
+   "letzte_reise",
+   "kronenrat",
+   "unsterblichkeit"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss ein Stück Kuchen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Glocke."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed",
+    "crown",
+    "eternity"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ],
+   "hint": {
+    "ko": "영원은 끝없이 계속되는 것이에요. 왕관은 머리에 쓰는 것이에요. 산 지형의 밤에 침대에서 자요.",
+    "de": "Ewigkeit heißt ohne Ende; eine Krone trägt man auf dem Kopf; schlaf nachts im Bergbiom im Bett."
+   }
+  },
+  "textKo": "산 지형의 밤에 침대에서 영원의 왕관을 쓰고 자요.",
+  "textDe": "Im Bergbiom schläfst du mit der ewigen Krone."
+ },
+ "reward": {
+  "badge": "ewige_krone",
+  "words": [
+   "mountain",
+   "cake",
+   "bell",
+   "bed",
+   "crown",
+   "eternity"
+  ]
+ },
+ "koreanLevel": 6
+}

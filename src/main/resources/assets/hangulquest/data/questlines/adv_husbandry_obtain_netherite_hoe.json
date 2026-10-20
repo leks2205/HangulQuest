@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_obtain_netherite_hoe",
+ "titleKo": "도를 넘은 전념",
+ "titleDe": "Landwirt aus Leidenschaft",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 269,
+ "concepts": [
+  "adv_item_ancient_debris",
+  "gold",
+  "adv_item_netherite_hoe"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_plant_seed"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_ancient_debris"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ancient_debris",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue im Nether zwei antike Schrottblöcke ab."
+   },
+   "hint": {
+    "ko": "고대 잔해는 다이아몬드 곡괭이로 캐요.",
+    "de": "Antiken Schrott baust du mit einer Diamantspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Schmelze vier Goldbarren für den Netheritbarren."
+   },
+   "hint": {
+    "ko": "금 원석은 철 곡괭이로 캐고 화로에 구워요.",
+    "de": "Golderz baust du mit einer Eisenspitzhacke ab und schmilzt es im Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_netherite_hoe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:netherite_hoe",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "네더라이트 괭이는 대장장이 형판과 네더라이트 주괴로 만들어요.",
+    "de": "Eine Netherithacke braucht eine Schmiedevorlage und einen Netheritbarren."
+   }
+  },
+  "textKo": "도를 넘은 전념 — 네더라이트 괭이를 손에 넣어요.",
+  "textDe": "Landwirt aus Leidenschaft: Am Schmiedetisch wird die Hacke zur Netherithacke."
+ },
+ "reward": {
+  "badge": "adv_husbandry_obtain_netherite_hoe",
+  "words": [
+   "adv_item_ancient_debris",
+   "gold",
+   "adv_item_netherite_hoe"
+  ]
+ },
+ "koreanLevel": 2
+}

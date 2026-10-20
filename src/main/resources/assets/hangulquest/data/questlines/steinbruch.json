@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "steinbruch",
+ "titleKo": "채석장의 길",
+ "titleDe": "Der Steinbruch",
+ "tier": 2,
+ "order": 508,
+ "concepts": [
+  "stone",
+  "iron",
+  "torch",
+  "furnace"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmelzpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Stein ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle ein Eisen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에도 채석장의 불이 타요.",
+  "textDe": "Auch nachts brennt das Feuer im Steinbruch."
+ },
+ "reward": {
+  "badge": "steinbruch",
+  "words": [
+   "stone",
+   "iron",
+   "torch",
+   "furnace"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "돌"
+}

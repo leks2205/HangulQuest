@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "tierpfad",
+ "titleKo": "동물의 길",
+ "titleDe": "Der Tierpfad",
+ "tier": 1,
+ "concepts": [
+  "cow",
+  "pig",
+  "sheep",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 2,
+  "dimension": "minecraft:overworld"
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cow",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "우유를 주는 소를 1초 동안 바라봐요.",
+    "de": "Finde das Tier, das Milch gibt."
+   },
+   "hint": {
+    "ko": "소를 봐요.",
+    "de": "Schau eine Kuh an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "pig"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:pig",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "분홍색 돼지를 1초 동안 바라봐요.",
+    "de": "Schau das rosafarbene Tier an."
+   },
+   "hint": {
+    "ko": "돼지를 봐요.",
+    "de": "Schau ein Schwein an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sheep"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:sheep",
+    "dwellMs": 800
+   },
+   "clue": {
+    "ko": "털이 있는 양을 1초 동안 바라봐요.",
+    "de": "Schau das wollige Tier an."
+   },
+   "hint": {
+    "ko": "양을 봐요.",
+    "de": "Schau ein Schaf an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 동물을 지켰어요. 길이 끝났어요.",
+  "textDe": "Du hast die Tiere in der Nacht beschützt. Der Pfad endet hier."
+ },
+ "reward": {
+  "badge": "tierpfad",
+  "words": [
+   "cow",
+   "pig",
+   "sheep",
+   "zombie"
+  ]
+ },
+ "order": 40,
+ "koreanLevel": 1,
+ "topic": "동물"
+}

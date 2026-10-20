@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_leash_all_frog_variants",
+ "titleKo": "개구리 삼총사 출동!",
+ "titleDe": "Wenn die Kerle um die Häuser ziehen",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 267,
+ "concepts": [
+  "adv_item_tadpole_bucket",
+  "adv_item_lead",
+  "frog"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tadpole_in_a_bucket"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_tadpole_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:tadpole_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fang eine Kaulquappe im Wasser mit dem Eimer."
+   },
+   "hint": {
+    "ko": "올챙이는 물에서 빈 양동이를 쓰면 잡혀요.",
+    "de": "Ein leerer Eimer fängt die Kaulquappe im Wasser."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_lead"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lead",
+    "count": 3
+   },
+   "clue": {
+    "de": "Knüpfe drei Leinen aus Fäden und Schleim."
+   },
+   "hint": {
+    "ko": "끈은 실 네 개와 점액 공 하나로 만들어요.",
+    "de": "Eine Leine besteht aus vier Fäden und einer Schleimkugel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "frog"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:frog"
+   },
+   "conditions": []
+  },
+  "textKo": "개구리 삼총사 출동! — 세 가지 개구리를 모두 끈으로 묶어요.",
+  "textDe": "Wenn die Kerle um die Häuser ziehen: Alle drei Froschfarben kommen an die Leine."
+ },
+ "reward": {
+  "badge": "adv_husbandry_leash_all_frog_variants",
+  "words": [
+   "adv_item_tadpole_bucket",
+   "adv_item_lead",
+   "frog"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_nether_ride_strider_in_overworld_lava",
+ "titleKo": "고향 같은 편안함",
+ "titleDe": "Ganz wie zu Hause",
+ "topic": "nether",
+ "tier": 2,
+ "order": 306,
+ "concepts": [
+  "saddle",
+  "adv_item_warped_fungus_on_a_stick",
+  "lava_bucket"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_ride_strider"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "saddle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:saddle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm den Sattel mit, den du für den Strider brauchst."
+   },
+   "hint": {
+    "ko": "안장은 요새 상자나 낚시로 얻어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_warped_fungus_on_a_stick"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:warped_fungus_on_a_stick",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue die Wirrpilzrute, mit der du den Strider lenkst."
+   },
+   "hint": {
+    "ko": "낚싯대와 뒤틀린 균으로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lava_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Bring Lava in die Oberwelt, damit sich der Strider wie zu Hause fühlt."
+   }
+  },
+  "textKo": "고향 같은 편안함 — 지상의 용암 위에서도 스트라이더는 편해요.",
+  "textDe": "Ganz wie zu Hause — Lava in der Oberwelt, und der Strider läuft."
+ },
+ "reward": {
+  "badge": "adv_nether_ride_strider_in_overworld_lava",
+  "words": [
+   "saddle",
+   "adv_item_warped_fungus_on_a_stick",
+   "lava_bucket"
+  ]
+ },
+ "koreanLevel": 3
+}

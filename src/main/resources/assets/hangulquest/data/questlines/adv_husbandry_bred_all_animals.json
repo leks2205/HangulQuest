@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_bred_all_animals",
+ "titleKo": "짝지어주기",
+ "titleDe": "Paarweise",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 260,
+ "concepts": [
+  "cow",
+  "sheep",
+  "frog"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_breed_an_animal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:cow"
+   },
+   "clue": {
+    "de": "Füttere zwei Kühe mit Weizen, bis Herzen erscheinen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sheep"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:sheep"
+   },
+   "clue": {
+    "de": "Paare zwei Schafe mit einer Handvoll Weizen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "frog"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:frog"
+   },
+   "conditions": []
+  },
+  "textKo": "짝지어주기 — 개구리까지 모두 짝을 지어 줘요.",
+  "textDe": "Paarweise: Auch zwei Frösche finden mit Schleimkugeln zueinander."
+ },
+ "reward": {
+  "badge": "adv_husbandry_bred_all_animals",
+  "words": [
+   "cow",
+   "sheep",
+   "frog"
+  ]
+ },
+ "koreanLevel": 2
+}

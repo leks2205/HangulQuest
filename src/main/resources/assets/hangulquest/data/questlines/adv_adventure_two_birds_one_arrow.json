@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_two_birds_one_arrow",
+ "titleKo": "일전쌍조",
+ "titleDe": "Zwei auf einen Streich",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 239,
+ "concepts": [
+  "adv_item_crossbow",
+  "arrow",
+  "skeleton"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_ol_betsy"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_crossbow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crossbow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Armbrust für den Doppelschuss."
+   },
+   "hint": {
+    "ko": "쇠뇌는 나무, 철, 실로 만들어요.",
+    "de": "Eine Armbrust besteht aus Holz, Eisen und Faden."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 8
+   },
+   "clue": {
+    "de": "Lege acht Pfeile als Munition bereit."
+   },
+   "hint": {
+    "ko": "화살은 부싯돌, 막대기, 깃털로 만들어요.",
+    "de": "Pfeile bestehen aus Feuerstein, Stock und Feder."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "일전쌍조 — 쇠뇌 한 발로 스켈레톤 둘을 맞혀요.",
+  "textDe": "Zwei auf einen Streich — Ein Bolzen durchbohrt zwei Skelette."
+ },
+ "reward": {
+  "badge": "adv_adventure_two_birds_one_arrow",
+  "words": [
+   "adv_item_crossbow",
+   "arrow",
+   "skeleton"
+  ]
+ },
+ "koreanLevel": 3
+}

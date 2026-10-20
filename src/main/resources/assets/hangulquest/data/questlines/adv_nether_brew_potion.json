@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "adv_nether_brew_potion",
+ "titleKo": "물약 양조장",
+ "titleDe": "Alchemie",
+ "topic": "nether",
+ "tier": 2,
+ "order": 289,
+ "concepts": [
+  "glass_bottle",
+  "adv_item_blaze_rod",
+  "adv_item_potion"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_obtain_blaze_rod"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass_bottle",
+    "count": 3
+   },
+   "clue": {
+    "de": "Drei Glasflaschen – darin wird der fertige Trank abgefüllt."
+   },
+   "hint": {
+    "ko": "유리병을 만들어요. 유리 세 개가 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Eine Lohenrute befeuert den Braustand, sonst bleibt der Trank kalt."
+   },
+   "hint": {
+    "ko": "블레이즈를 물리치고 막대기를 얻어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_potion"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potion",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Nimm den fertigen Trank aus dem Braustand – das ist dein erster eigener."
+   },
+   "hint": {
+    "ko": "양조기에서 물약을 꺼내요."
+   }
+  },
+  "textKo": "물약을 처음 만들었어요! 이제 나는 양조장 주인이에요.",
+  "textDe": "Der erste eigene Trank – willkommen in der Alchemie."
+ },
+ "reward": {
+  "badge": "adv_nether_brew_potion",
+  "words": [
+   "glass_bottle",
+   "adv_item_blaze_rod",
+   "adv_item_potion"
+  ]
+ },
+ "koreanLevel": 3
+}

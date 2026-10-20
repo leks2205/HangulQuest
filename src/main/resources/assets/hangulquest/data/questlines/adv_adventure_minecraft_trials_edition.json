@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_minecraft_trials_edition",
+ "titleKo": "인생은 시련의 연속",
+ "titleDe": "Minecraft: Prüfungs‐Edition",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 217,
+ "concepts": [
+  "adv_item_chiseled_tuff",
+  "skeleton",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_chiseled_tuff"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:chiseled_tuff",
+    "count": 2
+   },
+   "clue": {
+    "de": "Schlag dich durch die Wände aus gemeißeltem Tuffstein einer Prüfungskammer."
+   },
+   "hint": {
+    "ko": "곡괭이로 캐요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 2
+   },
+   "clue": {
+    "de": "Übersteh zwei Wellen Skelette aus dem Prüfungs-Spawner."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": -20
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Wage dich unter Y -20 hinab – dort wartet die Prüfungskammer."
+   }
+  },
+  "textKo": "인생은 시련의 연속 — 시련의 방에 들어가요.",
+  "textDe": "Prüfungs-Edition — Wage dich in eine Prüfungskammer."
+ },
+ "reward": {
+  "badge": "adv_adventure_minecraft_trials_edition",
+  "words": [
+   "adv_item_chiseled_tuff",
+   "skeleton",
+   "height"
+  ]
+ },
+ "koreanLevel": 2
+}

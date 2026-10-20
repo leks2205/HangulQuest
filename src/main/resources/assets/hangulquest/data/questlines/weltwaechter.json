@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "weltwaechter",
+ "titleKo": "세계의 수호자",
+ "titleDe": "Der Weltwächter",
+ "topic": "산",
+ "tier": 4,
+ "order": 86,
+ "concepts": [
+  "goat",
+  "torch",
+  "zombie",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 50,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenklang",
+   "gartenwacht",
+   "weltenrichter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege einen Zombie."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 낮에 세계의 종을 울려요.",
+  "textDe": "Im Bergbiom läutet am Tag die Weltglocke."
+ },
+ "reward": {
+  "badge": "weltwaechter",
+  "words": [
+   "goat",
+   "torch",
+   "zombie",
+   "bell"
+  ]
+ },
+ "koreanLevel": 6
+}

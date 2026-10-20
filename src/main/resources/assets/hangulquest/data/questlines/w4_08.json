@@ -1,0 +1,116 @@
+{
+ "schema": 1,
+ "id": "w4_08",
+ "titleKo": "모래 정원",
+ "titleDe": "Der Sandgarten",
+ "topic": "모래",
+ "tier": 2,
+ "order": 1048,
+ "concepts": [
+  "sand",
+  "turtle",
+  "glass",
+  "turtle_egg"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sand",
+    "count": 5
+   },
+   "clue": {
+    "de": "Leg fünf Sandblöcke als Gartenweg."
+   },
+   "hint": {
+    "ko": "모래로 길을 만들어요.",
+    "de": "Aus Sand baust du einen Weg."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "turtle"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:turtle",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einer Schildkröte zu."
+   },
+   "hint": {
+    "ko": "거북은 아주 느리게 걸어요.",
+    "de": "Eine Schildkröte geht sehr langsam."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Glasblöcke als Beetrand."
+   },
+   "hint": {
+    "ko": "유리는 모래를 구우면 나와요.",
+    "de": "Glas entsteht, wenn du Sand brennst."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "turtle_egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:turtle_egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm am Strand ein Schildkrötenei auf."
+   },
+   "hint": {
+    "ko": "거북 알은 섬세한 손길 곡괭이로 캐요.",
+    "de": "Schildkröteneier gräbst du nur mit Behutsamkeit aus."
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변에서 거북 알을 품에 안아요.",
+  "textDe": "Am Strand nimmst du ein Schildkrötenei auf."
+ },
+ "reward": {
+  "badge": "w4_08",
+  "words": [
+   "sand",
+   "turtle",
+   "glass",
+   "turtle_egg"
+  ]
+ },
+ "koreanLevel": 2
+}

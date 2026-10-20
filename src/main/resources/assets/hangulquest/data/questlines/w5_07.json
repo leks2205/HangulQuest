@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w5_07",
+ "titleKo": "물속의 자갈",
+ "titleDe": "Kies unter Wasser",
+ "topic": "물밑",
+ "tier": 2,
+ "order": 1057,
+ "concepts": [
+  "gravel",
+  "flint",
+  "squid",
+  "ocean"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tiefseehafen"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gravel"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:gravel",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Kies ab."
+   },
+   "hint": {
+    "ko": "자갈은 삽으로 캐요.",
+    "de": "Kies gräbst du mit der Schaufel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flint"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:flint",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Feuersteine."
+   },
+   "hint": {
+    "ko": "부싯돌은 자갈에서 나와요.",
+    "de": "Feuerstein steckt im Kies."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "squid"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:squid",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Tintenfisch an."
+   },
+   "hint": {
+    "ko": "오징어는 바다에서 헤엄쳐요.",
+    "de": "Tintenfische schwimmen im Meer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Tauche in den Ozean."
+   },
+   "hint": {
+    "ko": "바다 지형으로 헤엄쳐 가요.",
+    "de": "Schwimm in ein Ozean-Biom."
+   },
+   "conditions": []
+  },
+  "textKo": "물밑의 자갈을 캐고 바다로 나아가요.",
+  "textDe": "Kies unter Wasser, dann hinaus aufs Meer."
+ },
+ "reward": {
+  "badge": "w5_07",
+  "words": [
+   "gravel",
+   "flint",
+   "squid",
+   "ocean"
+  ]
+ },
+ "koreanLevel": 3
+}

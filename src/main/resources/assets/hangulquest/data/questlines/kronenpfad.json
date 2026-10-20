@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "kronenpfad",
+ "titleKo": "왕관의 길",
+ "titleDe": "Der Kronenpfad",
+ "topic": "산",
+ "tier": 5,
+ "order": 72,
+ "concepts": [
+  "mountain",
+  "diamond",
+  "bell",
+  "crown"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenwacht",
+   "wolkenpfad",
+   "bibliothekpfad",
+   "handelsflotte",
+   "handwerksmeister",
+   "steinmetz",
+   "faerberei",
+   "obstgarten"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "diamond",
+    "crown"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Diamanten.",
+    "ko": "왕관을 만들 다이아몬드를 캐요."
+   },
+   "hint": {
+    "ko": "왕관을 만들려면 다이아몬드가 필요해요. 철 곡괭이로 캐요.",
+    "de": "Für eine Krone brauchst du Diamanten; baue sie mit einer Eisenspitzhacke ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 산 위에서 왕관의 종을 울려요.",
+  "textDe": "Auf dem Berg läutet die Krone."
+ },
+ "reward": {
+  "badge": "kronenpfad",
+  "words": [
+   "mountain",
+   "diamond",
+   "bell"
+  ]
+ },
+ "koreanLevel": 5
+}

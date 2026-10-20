@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "festmahl",
+ "titleKo": "잔치의 길",
+ "titleDe": "Das Festmahl",
+ "tier": 2,
+ "order": 330,
+ "concepts": [
+  "milk",
+  "egg",
+  "cake"
+ ],
+ "requires": {
+  "minWordsKnown": 6,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "baeckerei"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Milch."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle ein Ei."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Back einen Kuchen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 케이크를 먹어요. 잔치예요!",
+  "textDe": "In der Nacht Kuchen. Ein Fest!"
+ },
+ "reward": {
+  "badge": "festmahl",
+  "words": [
+   "milk",
+   "egg",
+   "cake"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "음식"
+}

@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "adv_nether_create_beacon",
+ "titleKo": "신호기 꾸리기",
+ "titleDe": "Den Nachbarn heimleuchten",
+ "topic": "nether",
+ "tier": 2,
+ "order": 291,
+ "concepts": [
+  "nether_star",
+  "iron_block",
+  "beacon"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_summon_wither"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "nether_star"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_star",
+    "count": 1
+   },
+   "clue": {
+    "de": "Ohne Netherstern kein Leuchtfeuer – besiege zuerst den Wither."
+   },
+   "hint": {
+    "ko": "위더를 물리치고 네더의 별을 얻어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_block",
+    "count": 9
+   },
+   "clue": {
+    "de": "Neun Eisenblöcke bilden die unterste Stufe des Sockels."
+   },
+   "hint": {
+    "ko": "철 블록을 아홉 개 놓아요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beacon",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Setz das Leuchtfeuer auf den Sockel und lass den Lichtstrahl los."
+   },
+   "hint": {
+    "ko": "신호기를 철 블록 위에 놓아요."
+   }
+  },
+  "textKo": "신호기가 하늘로 빛을 보내요! 이제 우리 집이 보여요.",
+  "textDe": "Das Leuchtfeuer strahlt bis in den Himmel."
+ },
+ "reward": {
+  "badge": "adv_nether_create_beacon",
+  "words": [
+   "nether_star",
+   "iron_block",
+   "beacon"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,30 @@
+[book]
+title = "Hangul Quest"
+description = "Learn Korean by playing Minecraft. Quest trails, easier-Korean hints and a vocabulary that the world keeps asking you to use."
+authors = ["Hangul Quest contributors"]
+language = "en"
+src = "src"
+multilingual = false
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/leks2205/HangulQuest"
+edit-url-template = "https://github.com/leks2205/HangulQuest/edit/main/docs/book/{path}"
+site-url = "/HangulQuest/"
+default-theme = "light"
+preferred-dark-theme = "light"
+no-section-label = true
+additional-css = ["theme/hangulquest.css"]
+
+[output.html.playground]
+editable = false
+
+[output.html.search]
+enable = true
+heading-split-level = 3
+
+[output.html.fold]
+enable = false
