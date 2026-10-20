@@ -57,13 +57,14 @@ German name and progress. They are a nudge, not a gate: nothing in the mod requi
 The tree. Each node is one trail, coloured by state:
 
 - **done** — finished, badge earned,
-- **active** — the trail you are on,
+- **active** — one of the trails in your quest log (the HUD shows up to six),
 - **open** — unlocked but not started,
 - **locked** — shows what it is waiting for (`nach 돌의 길`, or `ab 2 Wörtern`).
 
 Selecting a node shows the detail card: Korean and German title, level, TOPIK band, state, parents,
-children, progress (`2/4`), the live status of the current step, and a start button. Parent trails are
-listed before their children, and the list scrolls.
+children, progress (`2/4`), the live status of the current step, and a start button. Starting a trail
+adds it to the quest log without dropping the ones you already track; starting the highlighted trail
+again only re-highlights it. Parent trails are listed before their children, and the list scrolls.
 
 <img src="screenshots/quests.webp" alt="Quest tree with locked and open trails" />
 

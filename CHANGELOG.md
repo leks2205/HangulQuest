@@ -4,6 +4,32 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [1.1.0] — 2026-10-20
+
+### Added
+
+- **Quest log instead of a single tracker.** The HUD now lists every tracked quest with its title,
+  current Korean objective, live status line and a progress bar for counting goals — modelled on how
+  World of Warcraft quest trackers show accepted quests, drawn in the mod's own panel style.
+- **Several quests at once.** Up to six trails are tracked in parallel and all of them are checked
+  against the same world observation, each with its own step, partial counter, hint state and sidequest.
+  Starting a quest adds it to the log instead of replacing the previous one; the oldest background quest
+  is dropped when the log is full.
+- **Focus cycling.** `V` moves the highlight through the log. Hints, sidequests and the follow-up chain
+  follow the highlighted quest, so `H` answers exactly the quest you are looking at.
+- `questTrackerRows` in the config (1–6) caps how many log rows the HUD draws.
+- A dev run helper for UI screenshots: `./gradlew runClient -Pdemo=questlogdemo -PquickPlay="World"`.
+
+### Changed
+
+- Finishing a background quest marks it done with a banner and does not steal the highlight; finishing
+  the highlighted quest still starts or offers its successor.
+- A quest that is already tracked is only focused when you start it again, never reset.
+- The old "the active quest switches to whatever you just did" behaviour is gone: with a quest log, an
+  action simply counts for every tracked quest that wants it.
+
+[1.1.0]: https://github.com/leks2205/HangulQuest/releases/tag/v1.1.0
+
 ## [1.0.0] — 2026-10-20
 
 First public release, for Minecraft 26.3.

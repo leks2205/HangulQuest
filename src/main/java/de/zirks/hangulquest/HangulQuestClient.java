@@ -81,6 +81,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private KeyMapping keyHint;
 	private KeyMapping keyReview;
 	private KeyMapping keyHud;
+	private KeyMapping keyFocus;
 
 	private Observation lastObservation = new Observation();
 	private final Map<String, Long> wordCooldowns = new HashMap<>();
@@ -93,7 +94,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private static final boolean SELFTEST = Boolean.getBoolean("hangulquest.selftest");
 	private static final boolean CELEBRATE_DEMO = Boolean.getBoolean("hangulquest.celebrateDemo");
 	private static final boolean UI_DEMO = Boolean.getBoolean("hangulquest.uidemo");
+	private static final boolean QUESTLOG_DEMO = Boolean.getBoolean("hangulquest.questlogdemo");
 	private int selftestTicks;
+	private int questDemoTicks;
 	private int uiDemoTicks;
 
 	public static HangulQuestClient get() {
@@ -191,6 +194,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 				"key.hangulquest.review", InputConstants.Type.KEYBOARD, InputConstants.KEY_J, category));
 		keyHud = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.hangulquest.hud", InputConstants.Type.KEYBOARD, InputConstants.KEY_F8, category));
+		keyFocus = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+				"key.hangulquest.focus", InputConstants.Type.KEYBOARD, InputConstants.KEY_V, category));
 	}
 
 	private void onTick(Minecraft client) {
@@ -229,6 +234,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 		if (UI_DEMO) {
 			uiDemo();
 		}
+		if (QUESTLOG_DEMO) {
+			questLogDemo(obs);
+		}
 	}
 
 	/** Dev-only: quiz -> reveal -> journal, for UI screenshots. */
@@ -244,6 +252,30 @@ public final class HangulQuestClient implements ClientModInitializer {
 			mc.setScreenAndShow(new JournalScreen());
 			LOG.info("[uidemo] journal opened");
 		}
+	}
+
+	/** Dev-only: -Dhangulquest.questlogdemo=true fills the quest log with open quests for screenshots. */
+	private void questLogDemo(Observation obs) {
+		questDemoTicks++;
+		if (mc.player == null || quests == null || questDemoTicks != 100) {
+			return;
+		}
+		List<Questline> roots = quests.trails().stream()
+				.filter(trail -> !trail.adaptive())
+				.filter(trail -> trail.requires().completed().isEmpty())
+				.sorted(java.util.Comparator.comparingInt(Questline::order))
+				.limit(4)
+				.toList();
+		for (Questline root : roots) {
+			quests.startTrail(root.id(), obs, hud);
+		}
+		if (!roots.isEmpty()) {
+			quests.focus(roots.get(0).id());
+		}
+		for (int i = 0; i < roots.size(); i++) {
+			quests.demoProgress(roots.get(i).id(), i == 1 ? 1 : i == 2 ? 0 : i == 3 ? 2 : 1);
+		}
+		LOG.info("[questlog] tracked {} roots={}", quests.trackedCount(), roots.size());
 	}
 
 	/** Dev-only: -Dhangulquest.selftest=true drives the UI for screenshots. */
@@ -277,6 +309,25 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 	}
 
+	/** Cycles the focused quest in the log; the hint key and the sidequest follow the focus. */
+	private void cycleFocus() {
+		var views = quests.trackedViews();
+		if (views.size() < 2) {
+			return;
+		}
+		int index = 0;
+		for (int i = 0; i < views.size(); i++) {
+			if (views.get(i).id().equals(quests.focusedId())) {
+				index = i;
+				break;
+			}
+		}
+		QuestEngine.TrackView next = views.get((index + 1) % views.size());
+		if (quests.focus(next.id())) {
+			hud.banner(next.titleKo(), next.titleDe(), true);
+		}
+	}
+
 	private void handleKeys(Observation obs) {
 		if (mc.gui.screen() != null) {
 			return;
@@ -294,6 +345,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		while (keyReview.consumeClick()) {
 			hud.startFromDue();
+		}
+		while (keyFocus.consumeClick()) {
+			cycleFocus();
 		}
 		while (keyHud.consumeClick()) {
 			config.hudCards = !config.hudCards;

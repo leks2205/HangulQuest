@@ -6,6 +6,9 @@ spent thirty seconds with that word.
 
 <img src="screenshots/hint.webp" alt="Hint panel: the clue in simpler Korean, the word explained, and the sidequest line" />
 
+`H` works on the **highlighted** quest in the log — press `V` until the quest you want help with is the
+gold one, then ask.
+
 ## What `H` gives you
 
 1. **The same goal, at level 1.** A late trail might say

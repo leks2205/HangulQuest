@@ -477,7 +477,7 @@ class QuestEngineTest {
 
 
 	@Test
-	void switchesToAnOpenQuestWhoseGoalMatchesTheAction() {
+	void untrackedQuestDoesNotStealTheAction() {
 		Path dir = tempDir.resolve("opportunistic");
 		ProgressStore store = new ProgressStore(dir, LOG);
 		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
@@ -489,7 +489,7 @@ class QuestEngineTest {
 		QuestStep torchFinale = new QuestStep("finale", List.of("torch"),
 				new Goal.PlaceBlock("minecraft:torch", 1), List.of(),
 				null, null, null, null, null);
-		Questline torches = new Questline("torches", "횃불", "Fackeln", "불", 1,
+		Questline torches = new Questline("torches", "횃불", "Fackeln", 1,
 				List.of("torch"), Questline.Requires.none(), List.of(torchStep), torchFinale,
 				"끝", "Ende", "torches", 10, 1, false);
 		QuestStep coalStep = new QuestStep("s1", List.of("coal"),
@@ -498,7 +498,7 @@ class QuestEngineTest {
 		QuestStep coalFinale = new QuestStep("finale", List.of("coal"),
 				new Goal.PlaceBlock("minecraft:torch", 1), List.of(),
 				null, null, null, null, null);
-		Questline coal = new Questline("coal", "석탄", "Kohle", "돌", 2,
+		Questline coal = new Questline("coal", "석탄", "Kohle", 2,
 				List.of("coal"), Questline.Requires.none(), List.of(coalStep), coalFinale,
 				"끝", "Ende", "coal", 20, 1, false);
 		QuestEngine engine = new QuestEngine(List.of(torches, coal), catalog, learn, LOG);
@@ -512,8 +512,110 @@ class QuestEngineTest {
 		mining.brokenBlocks.add("minecraft:coal_ore");
 		engine.tick(mining, recorder);
 
-		assertEquals("coal", engine.activeTrail().id());
+		assertEquals("torches", engine.activeTrail().id(), "an untracked quest must not take over");
+		assertFalse(engine.isTracked("coal"));
+		assertEquals(1, engine.trackedCount());
+	}
+
+	@Test
+	void questLogTracksSeveralQuestsAndProgressesThemTogether() {
+		Path dir = tempDir.resolve("log");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline stones = simpleTrail("stones", "minecraft:stone", 2, 10);
+		Questline ores = simpleTrail("ores", "minecraft:coal_ore", 2, 20);
+		QuestEngine engine = new QuestEngine(List.of(stones, ores), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+
+		Observation start = night();
+		start.now = 1_000L;
+		engine.startTrail("stones", start, recorder);
+		engine.tick(obsFor(1_100L, "minecraft:stone"), recorder);
 		assertEquals(1, engine.goalProgress());
+
+		engine.startTrail("ores", start, recorder);
+		assertEquals(2, engine.trackedCount());
+		assertEquals("ores", engine.activeTrail().id());
+		assertTrue(engine.focus("stones"));
+
+		engine.tick(obsFor(1_200L, "minecraft:coal_ore"), recorder);
+
+		assertEquals("stones", engine.activeTrail().id(), "focus does not follow the action");
+		assertEquals(1, engine.goalProgress(), "the focused quest keeps its own counter");
+		QuestEngine.TrackView oreView = engine.trackedViews().stream()
+				.filter(view -> view.id().equals("ores")).findFirst().orElseThrow();
+		assertEquals(1, oreView.progress(), "a background quest counts the same action");
+		assertFalse(oreView.focused());
+		assertEquals("stones", engine.trackedViews().get(0).id(), "the focused quest is listed first");
+	}
+
+	@Test
+	void restoresEveryTrackedQuest() {
+		Path dir = tempDir.resolve("log-restore");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline stones = simpleTrail("stones", "minecraft:stone", 2, 10);
+		Questline ores = simpleTrail("ores", "minecraft:coal_ore", 2, 20);
+		QuestEngine first = new QuestEngine(List.of(stones, ores), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		first.startTrail("stones", start, recorder);
+		first.tick(obsFor(1_100L, "minecraft:stone"), recorder);
+		first.startTrail("ores", start, recorder);
+		first.tick(obsFor(1_200L, "minecraft:coal_ore"), recorder);
+		store.flush();
+
+		ProgressStore reloaded = new ProgressStore(dir, LOG);
+		LearningService learnAgain = new LearningService(reloaded.data(), reloaded, catalog);
+		QuestEngine second = new QuestEngine(List.of(stones, ores), catalog, learnAgain, LOG);
+
+		assertEquals(2, second.trackedCount());
+		assertEquals("ores", second.activeTrail().id());
+		QuestEngine.TrackView stoneView = second.trackedViews().stream()
+				.filter(view -> view.id().equals("stones")).findFirst().orElseThrow();
+		assertEquals(1, stoneView.progress(), "a background quest survives a restart");
+	}
+
+	@Test
+	void questLogKeepsAtMostSixQuests() {
+		Path dir = tempDir.resolve("log-cap");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		List<Questline> many = new ArrayList<>();
+		for (int i = 0; i < 8; i++) {
+			many.add(simpleTrail("trail" + i, "minecraft:stone", 2, 10 + i));
+		}
+		QuestEngine engine = new QuestEngine(many, catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		for (int i = 0; i < 8; i++) {
+			engine.startTrail("trail" + i, start, recorder);
+		}
+
+		assertEquals(QuestEngine.MAX_TRACKED, engine.trackedCount());
+		assertFalse(engine.isTracked("trail0"), "the oldest background quest is dropped first");
+		assertTrue(engine.isTracked("trail7"));
+		assertEquals("trail7", engine.activeTrail().id());
+	}
+
+	private static Questline simpleTrail(String id, String block, int count, int order) {
+		QuestStep step = new QuestStep("s1", List.of("stone"),
+				new Goal.BreakBlock(block, count, null), List.of(),
+				null, null, null, null, null);
+		QuestStep finale = new QuestStep("finale", List.of("torch"),
+				new Goal.PlaceBlock("minecraft:torch", 1), List.of(),
+				null, null, null, null, null);
+		return new Questline(id, id, id + "-de", 1, List.of("stone"),
+				Questline.Requires.none(), List.of(step), finale,
+				"끝", "Ende", id, order, 1, false);
 	}
 
 }

@@ -26,6 +26,8 @@ public final class Config {
 	public boolean quests = true;
 	public boolean questTracker = true;
 	public String questTrackerCorner = "TOP_LEFT";
+	/** How many tracked quests the HUD log shows at once (the focused one always counts). */
+	public int questTrackerRows = 4;
 	public boolean questGerman = false;
 	/** Journal shows German translations only when the eye button is on. */
 	public boolean journalTranslations = false;
@@ -70,6 +72,7 @@ public final class Config {
 			version = 2;
 		}
 		quizIntervalMinutes = clamp(quizIntervalMinutes, 1, 120);
+		questTrackerRows = clamp(questTrackerRows, 1, 6);
 		cardDurationMs = clamp(cardDurationMs, 1000, 20000);
 		if (hudCorner == null) {
 			hudCorner = "BOTTOM_RIGHT";

@@ -37,9 +37,10 @@ sha256sum -c SHA256SUMS
 
 ## First five minutes
 
-- The tracker sits in the top-left corner and shows one Korean sentence. Read it, then do what it
-  says. Underneath is a status line that tells you how far you are (`0/3`) or what is still missing
-  (`지금 낮 · 밤 필요` — "it is day now, night is needed").
+- The quest log sits in the top-left corner and lists every quest you have open: one Korean sentence
+  each, a progress bar where the goal counts something, and a status line that says what is still
+  missing (`지금 낮 · 밤 필요` — "it is day now, night is needed"). `V` moves the highlight; `H` helps
+  with the highlighted quest.
 - Press `H` whenever a word is unknown. You get the same task in easier Korean, an explanation of the
   word, and a two-question sidequest. Finishing it brings the quest back.
 - Press `K` for the journal. The **Quests** tab shows the whole tree: what you finished, what is open

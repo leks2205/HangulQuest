@@ -9,6 +9,20 @@ base {
 	archivesName = project.archives_base_name
 }
 
+// Dev-only run helpers: ./gradlew runClient -Pdemo=questlogdemo -PquickPlay="New World"
+loom {
+	runs {
+		client {
+			if (project.hasProperty('demo')) {
+				property "hangulquest.${project.property('demo')}", "true"
+			}
+			if (project.hasProperty('quickPlay')) {
+				programArgs "--quickPlaySingleplayer", project.property('quickPlay').toString()
+			}
+		}
+	}
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"

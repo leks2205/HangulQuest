@@ -64,7 +64,8 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 **Quest trails**
 - **414 questlines**, one JSON file each: a tree **22 levels deep**, 1,505 steps in total, 38 roots, branches that merge again before they continue.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
-- The tracker shows the current Korean sentence and a **live status line** that answers "why isn't this done yet?": `지금 낮 · 밤 필요`, `돌 1/3`, `Y 62 / 140 위`.
+- **A quest log, not a single tracker.** Every trail you start stays in the HUD: title, current Korean objective, live status line (`지금 낮 · 밤 필요`, `Y 62 / 140 위`) and a progress bar where the goal counts something. Up to six quests at once, one of them highlighted; `V` cycles the highlight.
+- The highlighted quest is the one the hint key and the sidequest work on, so you can keep several quests open and still ask for help on exactly one of them.
 - Finishing a trail chains onward automatically: the only unlocked child starts, or a HUD card offers up to five follow-ups (`1`–`5`, the first one after 60 s). Leaving a trail pauses it mid-step; coming back resumes that exact step, counter and sidequest state.
 
 **Hints and sidequests**
@@ -110,8 +111,12 @@ Everything happens on your own client. The mod never talks to a server, so it wo
     <td><img src="docs/screenshots/journal-translations.webp" alt="Journal with translations switched on" /></td>
   </tr>
   <tr>
+    <td><img src="docs/screenshots/quest-log.webp" alt="Quest log with four tracked quests and their progress" /></td>
     <td><img src="docs/screenshots/celebration-trail.webp" alt="Trail completed celebration" /></td>
+  </tr>
+  <tr>
     <td><img src="docs/screenshots/wordcard.webp" alt="Word card while looking at a block" /></td>
+    <td><img src="docs/screenshots/quests.webp" alt="Trail tree in the journal" /></td>
   </tr>
 </table>
 
@@ -136,17 +141,18 @@ All keys can be changed in **Options → Controls → Key Binds → 한글 탐�
 | `H` | Show the hint (and start the sidequest if the word is new) |
 | `J` | Review due words now |
 | `F8` | Toggle the HUD |
+| `V` | Cycle the highlighted quest in the log |
 | `1`–`3`, `1`–`5` | Answer in a quiz or sidequest, pick the next trail |
 
 ## How a quest works
 
-1. **Clue.** The tracker shows one Korean sentence. Every condition is spoken inside the sentence — `해변에서 모닥불을 놓아요.`, "place a campfire *on the beach*" — so text and check can never disagree.
+1. **Clue.** The quest log shows the objective of every quest you have open — one Korean sentence each. Every condition is spoken inside the sentence — `해변에서 모닥불을 놓아요.`, "place a campfire *on the beach*" — so text and check can never disagree.
 2. **Do it.** The mod verifies the goal locally: blocks broken or placed, items gained or eaten, a block or mob looked at long enough, a biome, a dimension, an altitude, a right-click, an interaction. Twelve goal types, seven condition types, nothing that needs the server's trust.
 3. **Stuck?** `H`. Simpler Korean, the word explained, a sidequest so it sticks.
 4. **Done.** A step card names the next clue. The finale ends with a gold card, a fanfare, fireworks and a badge; the next trail starts.
 5. **Later.** Due words come back as flashcards, and the generated review trail turns them into a quest again.
 
-The full model — every goal type, every condition, how the tracker words its status lines, what the tests enforce — is in the **[guide](https://leks2205.github.io/HangulQuest/)**.
+The full model — every goal type, every condition, how the quest log words its status lines, what the tests enforce — is in the **[guide](https://leks2205.github.io/HangulQuest/)**.
 
 ## The journal
 
@@ -219,7 +225,7 @@ References: [`docs/questline.schema.json`](docs/questline.schema.json), the [aut
 | `src/main/java/…/quest` | Engine, loader, validator, sentence builder, Korean grammar, TOPIK bands, adaptive trail |
 | `src/main/java/…/learn` | Progress store, spaced repetition, streak, achievements |
 | `src/main/java/…/sense` | World sensors (blocks, items, look, biome, dimension, height) and the safety gate |
-| `src/main/java/…/ui` | HUD tracker, journal screen, celebrations, Korean text drawing |
+| `src/main/java/…/ui` | Quest log HUD, journal screen, celebrations, Korean text drawing |
 | `src/main/java/…/data` | Concept catalog, vanilla names, Lute CSV import |
 | `src/main/resources/assets/hangulquest/data` | `concepts.json`, `names.json` and 414 questline files |
 | `docs/` | Authoring guide, attribute reference, JSON schema, screenshots, the mdBook guide |

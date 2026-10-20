@@ -67,7 +67,8 @@ The full set of settings, with the defaults that matter:
 | `sound` | `true` | celebration sounds |
 | `hudCorner` | `BOTTOM_RIGHT` | corner for ambient cards |
 | `quests`, `questTracker` | `true` | quest system and tracker |
-| `questTrackerCorner` | `TOP_LEFT` | corner for the quest sentence |
+| `questTrackerCorner` | `TOP_LEFT` | corner for the quest log |
+| `questTrackerRows` | `4` | how many quests the log draws at once (1–6) |
 | `questGerman` | `false` | German line in quests |
 | `journalTranslations` | `false` | translations in the journal |
 | `luteImport` | `true` | read the Lute CSV |

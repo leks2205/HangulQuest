@@ -9,13 +9,27 @@ import de.zirks.hangulquest.sense.Observation;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
- * Drives the active trail: clue -> goal -> next clue -> ritual finale, plus the
+ * Drives the tracked trails: clue -> goal -> next clue -> ritual finale, plus the
  * hint/sidequest loop that pauses the original quest.
+ *
+ * <p>Several trails are tracked at once, like a quest log. Each tracked trail keeps its own step,
+ * partial counter, hint state and sidequest, and all of them are checked against the same world
+ * observation. One trail is <em>focused</em>: the hint key, the sidequest and the follow-up chain work
+ * on it. Starting a trail focuses it; finishing the focused trail starts or offers its successor.
  */
 public final class QuestEngine {
+	/** How many trails the quest log holds at once, the focused one included. */
+	public static final int MAX_TRACKED = 6;
+
 	public interface Feedback {
 		void banner(String ko, String de, boolean success);
 
@@ -44,18 +58,52 @@ public final class QuestEngine {
 						   boolean sidequestStarted) {
 	}
 
+	/** One row of the quest log, as the HUD and the journal render it. */
+	public record TrackView(String id, String titleKo, String titleDe, String topicKey, int koreanLevel,
+							String clueKo, String clueDe, String status, int progress, int needed,
+							boolean countable, boolean focused, int stepIndex, int stepCount) {
+	}
+
+	/** Runtime state of one tracked trail. */
+	private static final class Track {
+		Questline trail;
+		int stepIndex;
+		SideQuest sideQuest;
+		boolean hintUsed;
+		final GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
+		long startedAt;
+		long lastSeenAt;
+
+		Track(Questline trail, long now) {
+			this.trail = trail;
+			this.startedAt = now;
+			this.lastSeenAt = now;
+		}
+
+		QuestStep step() {
+			List<QuestStep> steps = trail.allSteps();
+			if (stepIndex < 0 || stepIndex >= steps.size()) {
+				return null;
+			}
+			return steps.get(stepIndex);
+		}
+
+		int stepCount() {
+			return trail.allSteps().size();
+		}
+	}
+
 	private final List<Questline> trails;
 	private final Catalog catalog;
 	private final LearningService learn;
 	private final ProgressData data;
 	private final Logger log;
 	private final SentenceBuilder.Namer namer;
-	private final GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
 
-	private Questline active;
-	private int stepIndex;
-	private SideQuest sideQuest;
-	private boolean stepHintUsed;
+	/** Insertion order: the quest log keeps the order the player started tracking in. */
+	private final LinkedHashMap<String, Track> tracks = new LinkedHashMap<>();
+	private String focusedId;
+
 	private long lastHintAt;
 	private Observation lastObs;
 
@@ -84,65 +132,98 @@ public final class QuestEngine {
 		restore();
 	}
 
+	// ------------------------------------------------------------------ restore
+
 	private void restore() {
-		ProgressData.Active saved = data.quests.active;
-		if (saved == null || saved.trailId == null) {
+		ProgressData.QuestData quests = data.quests;
+		if (quests == null) {
 			return;
 		}
-		Questline trail = byId(saved.trailId);
-		if (trail == null) {
-			data.quests.active = null;
-			return;
-		}
-		active = trail;
-		stepIndex = 0;
-		List<QuestStep> steps = trail.allSteps();
-		for (int i = 0; i < steps.size(); i++) {
-			if (steps.get(i).id().equals(saved.stepId)) {
-				stepIndex = i;
-				break;
+		if (quests.active != null && quests.active.trailId != null) {
+			Track track = trackOf(quests.active);
+			if (track != null) {
+				tracks.put(track.trail.id(), track);
+				focusedId = track.trail.id();
+			} else {
+				quests.active = null;
 			}
 		}
-		stepHintUsed = saved.hintUsed;
-		QuestStep step = currentStep();
-		if (step != null) {
-			GoalEvaluator.seed(tracker, step.goal(), saved.goalProgress);
-		}
-		if (saved.sidequest != null && saved.sidequest.wordId != null) {
-			catalog.byId(saved.sidequest.wordId).ifPresent(word ->
-					sideQuest = SideQuest.restore(word, saved.sidequest.stage, saved.sidequest.attempts, catalog));
+		if (quests.saved != null) {
+			for (ProgressData.Active snapshot : quests.saved.values()) {
+				if (tracks.size() >= MAX_TRACKED) {
+					break;
+				}
+				Track track = trackOf(snapshot);
+				if (track != null && !tracks.containsKey(track.trail.id())) {
+					tracks.put(track.trail.id(), track);
+					if (focusedId == null) {
+						focusedId = track.trail.id();
+					}
+				}
+			}
+			// Rebuilt from the live tracks on the next persist.
+			quests.saved = new LinkedHashMap<>();
 		}
 	}
 
-	/** Replaces all authored trails (live reload) without losing the active one. */
+	private Track trackOf(ProgressData.Active snapshot) {
+		if (snapshot == null || snapshot.trailId == null) {
+			return null;
+		}
+		Questline trail = byId(snapshot.trailId);
+		if (trail == null) {
+			return null;
+		}
+		Track track = new Track(trail, snapshot.startedAt);
+		track.stepIndex = 0;
+		List<QuestStep> steps = trail.allSteps();
+		if (snapshot.stepId != null) {
+			for (int i = 0; i < steps.size(); i++) {
+				if (steps.get(i).id().equals(snapshot.stepId)) {
+					track.stepIndex = i;
+					break;
+				}
+			}
+		}
+		track.hintUsed = snapshot.hintUsed;
+		track.lastSeenAt = snapshot.lastSeenAt == 0 ? snapshot.startedAt : snapshot.lastSeenAt;
+		QuestStep step = track.step();
+		if (step != null) {
+			GoalEvaluator.seed(track.tracker, step.goal(), snapshot.goalProgress);
+		}
+		if (snapshot.sidequest != null && snapshot.sidequest.wordId != null) {
+			catalog.byId(snapshot.sidequest.wordId).ifPresent(word ->
+					track.sideQuest = SideQuest.restore(word, snapshot.sidequest.stage,
+							snapshot.sidequest.attempts, catalog));
+		}
+		return track;
+	}
+
+	/** Replaces all authored trails (live reload) without losing a tracked one. */
 	public void replaceTrails(List<Questline> replacement) {
 		Questline adaptive = byId("adaptive");
-		String activeId = active == null ? null : active.id();
-		String stepId = currentStep() == null ? null : currentStep().id();
 		trails.clear();
 		trails.addAll(replacement);
 		if (adaptive != null && byId("adaptive") == null) {
 			trails.add(adaptive);
 		}
-		if (activeId == null) {
-			return;
-		}
-		Questline updated = byId(activeId);
-		if (updated == null) {
-			// Keep the old object so the player can still finish an edited-away trail.
-			trails.add(active);
-			return;
-		}
-		active = updated;
-		List<QuestStep> steps = updated.allSteps();
-		int index = -1;
-		for (int i = 0; i < steps.size(); i++) {
-			if (steps.get(i).id().equals(stepId)) {
-				index = i;
-				break;
+		for (Track track : tracks.values()) {
+			Questline updated = byId(track.trail.id());
+			if (updated == null) {
+				continue;
 			}
+			String stepId = track.step() == null ? null : track.step().id();
+			track.trail = updated;
+			List<QuestStep> steps = updated.allSteps();
+			int index = 0;
+			for (int i = 0; i < steps.size(); i++) {
+				if (steps.get(i).id().equals(stepId)) {
+					index = i;
+					break;
+				}
+			}
+			track.stepIndex = index;
 		}
-		stepIndex = Math.max(0, index);
 	}
 
 	public void addTrail(Questline trail) {
@@ -150,117 +231,51 @@ public final class QuestEngine {
 		trails.add(trail);
 	}
 
+	// --------------------------------------------------------------------- tick
+
 	public void tick(Observation obs, Feedback feedback) {
 		lastObs = obs;
-		if (active == null) {
+		if (tracks.isEmpty()) {
 			return;
 		}
-		if (sideQuest != null) {
+		boolean dirty = false;
+		List<Track> snapshot = new ArrayList<>(tracks.values());
+		for (Track track : snapshot) {
+			if (!tracks.containsKey(track.trail.id())) {
+				continue; // finished while this tick was running
+			}
+			QuestStep step = track.step();
+			if (step == null) {
+				removeTrack(track.trail.id());
+				dirty = true;
+				continue;
+			}
+			if (track.sideQuest != null) {
+				continue; // frozen until its sidequest is answered
+			}
+			int beforeCount = track.tracker.count;
+			long beforeDwell = track.tracker.dwellMs;
+			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, track.tracker);
+			if (complete) {
+				completeStep(track, obs, feedback);
+				dirty = true;
+			} else if (track.tracker.count > beforeCount || track.tracker.dwellMs > beforeDwell) {
+				track.lastSeenAt = obs.now;
+				dirty = true;
+			}
+		}
+		if (dirty) {
 			persist(obs.now);
-			return;
-		}
-		QuestStep step = currentStep();
-		if (step == null) {
-			active = null;
-			persist(obs.now);
-			return;
-		}
-		int beforeCount = tracker.count;
-		long beforeDwell = tracker.dwellMs;
-		boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, tracker);
-		if (data.quests.active != null) {
-			data.quests.active.goalProgress = tracker.count;
-		}
-		boolean activeProgressed = complete || tracker.count > beforeCount || tracker.dwellMs > beforeDwell;
-		if (complete) {
-			completeStep(obs, feedback);
-		} else if (!activeProgressed && tryOpportunisticSwitch(obs, feedback)) {
-			// switched to the quest that actually matches this action
-		} else {
 			learn.markDirty();
 		}
 	}
 
-
-	/**
-	 * If the current step did not react to this observation but another unlocked trail's current
-	 * step does, switch to that trail and let the same action count there (e.g. mining coal while
-	 * a torch quest is active switches to the coal quest with 1/2 already counted).
-	 */
-	private boolean tryOpportunisticSwitch(Observation obs, Feedback feedback) {
-		if (active == null) {
-			return false;
-		}
-		List<Questline> candidates = new ArrayList<>();
-		for (Questline trail : trails) {
-			if (trail == active || trail.adaptive() || isCompleted(trail.id())) {
-				continue;
-			}
-			if (!unlocked(trail)) {
-				continue;
-			}
-			String dimension = trail.requires().dimension();
-			if (dimension != null && !dimension.equals(obs.dimension)) {
-				continue;
-			}
-			QuestStep step = stepFor(trail);
-			if (step == null) {
-				continue;
-			}
-			if (step.goal() instanceof Goal.ReachBiome
-					|| step.goal() instanceof Goal.ReachDimension
-					|| step.goal() instanceof Goal.ReachHeight) {
-				continue; // state goals would switch every tick while standing there
-			}
-			GoalEvaluator.Tracker probe = new GoalEvaluator.Tracker();
-			boolean done = GoalEvaluator.tick(step.goal(), step.conditions(), obs, probe);
-			boolean triggered = done || probe.count > 0 || probe.dwellMs > 0
-					|| (step.goal() instanceof Goal.AcquireItem acquire
-					&& GoalEvaluator.heldCount(obs, acquire.item()) > 0);
-			if (triggered) {
-				candidates.add(trail);
-			}
-		}
-		if (candidates.isEmpty()) {
-			return false;
-		}
-		candidates.sort(java.util.Comparator.comparingInt(Questline::order)
-				.thenComparing(Questline::id));
-		Questline target = candidates.get(0);
-		startTrail(target.id(), obs, feedback);
-		QuestStep step = currentStep();
-		if (step != null) {
-			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, tracker);
-			if (data.quests.active != null) {
-				data.quests.active.goalProgress = tracker.count;
-			}
-			if (complete) {
-				completeStep(obs, feedback);
-			} else {
-				learn.markDirty();
-			}
-		}
-		feedback.banner("다른 퀘스트로 바꿨어요", "Quest gewechselt: " + target.titleDe(), false);
-		return true;
-	}
-
-	private QuestStep stepFor(Questline trail) {
-		ProgressData.Active saved = data.quests.saved == null ? null : data.quests.saved.get(trail.id());
-		if (saved != null && saved.stepId != null) {
-			for (QuestStep step : trail.allSteps()) {
-				if (step.id().equals(saved.stepId)) {
-					return step;
-				}
-			}
-		}
-		return trail.allSteps().isEmpty() ? null : trail.allSteps().get(0);
-	}
-
-	private void completeStep(Observation obs, Feedback feedback) {
-		QuestStep step = currentStep();
+	private void completeStep(Track track, Observation obs, Feedback feedback) {
+		QuestStep step = track.step();
 		if (step == null) {
 			return;
 		}
+		boolean focused = track.trail.id().equals(focusedId);
 		for (String conceptId : step.teach()) {
 			catalog.byConceptId(conceptId).ifPresent(word -> {
 				learn.introduce(word, obs.now);
@@ -268,59 +283,67 @@ public final class QuestEngine {
 			});
 		}
 		learn.noteQuestStepCompleted();
-		boolean last = stepIndex >= active.allSteps().size() - 1;
+		boolean last = track.stepIndex >= track.stepCount() - 1;
 		if (last) {
-			finish(obs, feedback);
+			finish(track, obs, feedback);
 			return;
 		}
-		stepIndex++;
-		tracker.clear();
-		stepHintUsed = false;
+		track.stepIndex++;
+		track.tracker.clear();
+		track.hintUsed = false;
+		track.lastSeenAt = obs.now;
 		persist(obs.now);
 		unlock(feedback, learn.checkAchievements());
-		QuestStep next = currentStep();
-		feedback.stepCompleted("좋아요!", next == null ? "" : clueKo(next), next == null ? "" : clueDe(next));
+		QuestStep next = track.step();
+		if (focused) {
+			feedback.stepCompleted("좋아요!", next == null ? "" : clueKo(track, next),
+					next == null ? "" : clueDe(next));
+		} else {
+			feedback.banner(track.trail.titleKo(), "Ziel erreicht · " + track.trail.titleDe(), true);
+		}
 		feedback.sound(true);
 	}
 
-	private void finish(Observation obs, Feedback feedback) {
-		String trailId = active.id();
-		forgetSaved(trailId);
+	private void finish(Track track, Observation obs, Feedback feedback) {
+		String trailId = track.trail.id();
+		boolean focused = trailId.equals(focusedId);
 		data.quests.completed.put(trailId, obs.now);
 		if (data.quests.badges == null) {
 			data.quests.badges = new ArrayList<>();
 		}
-		if (!data.quests.badges.contains(active.badge())) {
-			data.quests.badges.add(active.badge());
+		if (!data.quests.badges.contains(track.trail.badge())) {
+			data.quests.badges.add(track.trail.badge());
 		}
 		if (data.quests.history == null) {
 			data.quests.history = new ArrayList<>();
 		}
 		data.quests.history.add(new ProgressData.History(trailId, obs.now));
-		feedback.trailCompleted(active);
-		feedback.sound(true);
-		active = null;
-		sideQuest = null;
-		stepIndex = 0;
-		tracker.clear();
+		removeTrack(trailId);
 		persist(obs.now);
 		unlock(feedback, learn.checkAchievements());
-		advanceAfterCompletion(trailId, obs, feedback);
+		if (focused) {
+			feedback.trailCompleted(track.trail);
+			feedback.sound(true);
+			advanceAfterCompletion(trailId, obs, feedback);
+		} else {
+			feedback.banner(track.trail.titleKo(), "Questline geschafft · " + track.trail.titleDe(), true);
+			feedback.sound(true);
+		}
 	}
 
 	/**
-	 * After a trail: start its unlocked child, or the missing prerequisite of a locked child.
+	 * After the focused trail: start its unlocked child, or the missing prerequisite of a locked child.
 	 * Several options are handed to the UI for a selection popup.
 	 */
 	private void advanceAfterCompletion(String completedId, Observation obs, Feedback feedback) {
 		// Stay on the same tree level, taking the most similar unfinished topic; only then climb.
 		Questline finished = byId(completedId);
 		if (finished != null) {
-			java.util.Map<String, Questline> all = trails.stream()
-					.collect(java.util.stream.Collectors.toMap(Questline::id, java.util.function.Function.identity()));
+			Map<String, Questline> all = trails.stream()
+					.collect(Collectors.toMap(Questline::id, java.util.function.Function.identity()));
 			int startDepth = depthOf(finished, all);
 			int maxDepth = trails.stream().mapToInt(trail -> depthOf(trail, all)).max().orElse(startDepth);
-			java.util.Comparator<Questline> bestFirst = java.util.Comparator
+			Comparator<Questline> bestFirst = Comparator
 					.comparingInt((Questline trail) -> topicSimilarity(trail, finished, all)).reversed()
 					.thenComparingInt(Questline::order);
 			for (int depth = startDepth; depth <= maxDepth; depth++) {
@@ -328,6 +351,7 @@ public final class QuestEngine {
 				List<Questline> candidates = trails.stream()
 						.filter(trail -> !"adaptive".equals(trail.id()))
 						.filter(trail -> !trail.id().equals(completedId))
+						.filter(trail -> !tracks.containsKey(trail.id()))
 						.filter(trail -> !isCompleted(trail.id()))
 						.filter(this::unlocked)
 						.filter(trail -> depthOf(trail, all) == currentDepth)
@@ -346,15 +370,16 @@ public final class QuestEngine {
 				.filter(trail -> trail.requires().completed().contains(completedId))
 				.toList();
 		List<Questline> ready = children.stream()
+				.filter(trail -> !tracks.containsKey(trail.id()))
 				.filter(trail -> !isCompleted(trail.id()))
 				.filter(this::unlocked)
-				.sorted(java.util.Comparator.comparingInt(Questline::order))
+				.sorted(Comparator.comparingInt(Questline::order))
 				.toList();
 		if (offerNext(ready, obs, feedback)) {
 			return;
 		}
 
-		java.util.Set<String> missing = new java.util.LinkedHashSet<>();
+		Set<String> missing = new LinkedHashSet<>();
 		for (Questline child : children) {
 			for (String parent : child.requires().completed()) {
 				if (!isCompleted(parent)) {
@@ -366,8 +391,9 @@ public final class QuestEngine {
 				.map(this::byId)
 				.filter(java.util.Objects::nonNull)
 				.filter(trail -> !isCompleted(trail.id()))
+				.filter(trail -> !tracks.containsKey(trail.id()))
 				.filter(this::unlocked)
-				.sorted(java.util.Comparator.comparingInt(Questline::order))
+				.sorted(Comparator.comparingInt(Questline::order))
 				.toList();
 		if (offerNext(prereq, obs, feedback)) {
 			return;
@@ -376,20 +402,19 @@ public final class QuestEngine {
 		List<Questline> fallback = trails.stream()
 				.filter(trail -> !"adaptive".equals(trail.id()))
 				.filter(trail -> !isCompleted(trail.id()))
+				.filter(trail -> !tracks.containsKey(trail.id()))
 				.filter(this::unlocked)
-				.sorted(java.util.Comparator.comparingInt(Questline::order))
+				.sorted(Comparator.comparingInt(Questline::order))
 				.toList();
 		offerNext(fallback, obs, feedback);
 	}
 
-
 	/** Tree level: roots are 1, a trail is one deeper than its deepest parent. */
-	private int depthOf(Questline trail, java.util.Map<String, Questline> all) {
-		java.util.Set<String> seen = new java.util.HashSet<>();
-		return depthOf(trail, all, seen);
+	private int depthOf(Questline trail, Map<String, Questline> all) {
+		return depthOf(trail, all, new java.util.HashSet<>());
 	}
 
-	private int depthOf(Questline trail, java.util.Map<String, Questline> all, java.util.Set<String> seen) {
+	private int depthOf(Questline trail, Map<String, Questline> all, Set<String> seen) {
 		if (!seen.add(trail.id())) {
 			return 1; // defensive: a cycle would be rejected by validation
 		}
@@ -405,7 +430,7 @@ public final class QuestEngine {
 	}
 
 	/** 3 = same branch topic, 1 = sibling (shares a parent), 0 = unrelated. */
-	private int topicSimilarity(Questline candidate, Questline finished, java.util.Map<String, Questline> all) {
+	private int topicSimilarity(Questline candidate, Questline finished, Map<String, Questline> all) {
 		if (java.util.Objects.equals(TopicResolver.keyFor(candidate, all), TopicResolver.keyFor(finished, all))) {
 			return 3;
 		}
@@ -421,7 +446,7 @@ public final class QuestEngine {
 		if (options.isEmpty()) {
 			return false;
 		}
-		if (options.size() == 1) {
+		if (options.size() == 1 || tracks.size() >= MAX_TRACKED) {
 			startTrail(options.get(0).id(), obs, feedback);
 		} else {
 			feedback.chooseNext(options);
@@ -433,38 +458,95 @@ public final class QuestEngine {
 		return data.quests.completed != null && data.quests.completed.containsKey(trailId);
 	}
 
+	// ----------------------------------------------------------------- tracking
+
+	/**
+	 * Starts tracking a trail and focuses it. A trail that is already tracked is only focused, so the
+	 * quest log never loses progress by starting the same quest twice.
+	 */
 	public boolean startTrail(String trailId, Observation obs, Feedback feedback) {
 		Questline trail = byId(trailId);
 		if (trail == null) {
 			return false;
 		}
 		long now = obs == null ? System.currentTimeMillis() : obs.now;
-		stashActive(now);
-		active = trail;
-		ProgressData.Active resumed = data.quests.saved == null ? null : data.quests.saved.remove(trail.id());
-		if (resumed != null && resumed.stepId != null) {
-			data.quests.active = resumed;
-			restore();
-		} else {
-			stepIndex = 0;
-			sideQuest = null;
-			stepHintUsed = false;
-			tracker.clear();
-			data.quests.active = new ProgressData.Active();
-			data.quests.active.trailId = trail.id();
-			data.quests.active.stepId = trail.allSteps().get(0).id();
-			data.quests.active.startedAt = now;
+		Track existing = tracks.get(trailId);
+		if (existing != null) {
+			focusedId = trailId;
+			persist(now);
+			QuestStep step = existing.step();
+			if (step != null) {
+				feedback.banner(clueKo(existing, step), clueDe(step), true);
+			}
+			return true;
 		}
+		while (tracks.size() >= MAX_TRACKED) {
+			dropOldestBackground();
+		}
+		Track track = resumeOrCreate(trail, now);
+		tracks.put(trailId, track);
+		focusedId = trailId;
 		persist(now);
-		QuestStep step = currentStep();
+		QuestStep step = track.step();
 		if (step != null) {
-			feedback.banner(clueKo(step), clueDe(step), true);
+			feedback.banner(clueKo(track, step), clueDe(step), true);
 		}
 		return true;
 	}
 
+	private Track resumeOrCreate(Questline trail, long now) {
+		ProgressData.Active snapshot = data.quests.saved == null ? null : data.quests.saved.get(trail.id());
+		if (snapshot != null) {
+			Track resumed = trackOf(snapshot);
+			if (resumed != null) {
+				return resumed;
+			}
+		}
+		return new Track(trail, now);
+	}
+
+	/** Removes the oldest tracked trail that is not focused, so a new quest always fits. */
+	private void dropOldestBackground() {
+		for (Track track : tracks.values()) {
+			if (!track.trail.id().equals(focusedId)) {
+				removeTrack(track.trail.id());
+				return;
+			}
+		}
+		removeTrack(tracks.keySet().iterator().next());
+	}
+
+	private void removeTrack(String trailId) {
+		tracks.remove(trailId);
+		if (data.quests.saved != null) {
+			data.quests.saved.remove(trailId);
+		}
+		if (trailId.equals(focusedId)) {
+			focusedId = tracks.isEmpty() ? null : tracks.keySet().iterator().next();
+		}
+	}
+
+	/** Focuses a tracked trail without touching its progress. */
+	public boolean focus(String trailId) {
+		if (!tracks.containsKey(trailId)) {
+			return false;
+		}
+		focusedId = trailId;
+		persist(lastObs == null ? System.currentTimeMillis() : lastObs.now);
+		return true;
+	}
+
+	/** Stops tracking one trail; its progress is dropped. */
+	public void untrack(String trailId) {
+		if (!tracks.containsKey(trailId)) {
+			return;
+		}
+		removeTrack(trailId);
+		persist(lastObs == null ? System.currentTimeMillis() : lastObs.now);
+	}
+
 	public void autoStart(Observation obs, Feedback feedback) {
-		if (active != null) {
+		if (!tracks.isEmpty()) {
 			return;
 		}
 		Questline best = null;
@@ -489,63 +571,31 @@ public final class QuestEngine {
 		}
 	}
 
-	/** Pauses the current trail; switching back resumes at the same step and counter. */
+	/** Stops tracking the focused trail (the journal's "Abbrechen"). */
 	public void abandon() {
-		stashActive(System.currentTimeMillis());
-		active = null;
-		sideQuest = null;
-		stepIndex = 0;
-		stepHintUsed = false;
-		tracker.clear();
-		data.quests.active = null;
-		learn.markDirty();
-	}
-
-	private void stashActive(long now) {
-		if (active == null || data.quests.active == null) {
+		if (focusedId == null) {
 			return;
 		}
-		filledActive();
-		ProgressData.Active current = data.quests.active;
-		ProgressData.Active copy = new ProgressData.Active();
-		copy.trailId = current.trailId;
-		copy.stepId = current.stepId;
-		copy.goalProgress = current.goalProgress;
-		copy.hintUsed = current.hintUsed;
-		copy.startedAt = current.startedAt;
-		copy.lastSeenAt = now;
-		if (current.sidequest != null) {
-			copy.sidequest = new ProgressData.Side();
-			copy.sidequest.wordId = current.sidequest.wordId;
-			copy.sidequest.stage = current.sidequest.stage;
-			copy.sidequest.attempts = current.sidequest.attempts;
-		}
-		if (data.quests.saved == null) {
-			data.quests.saved = new java.util.LinkedHashMap<>();
-		}
-		data.quests.saved.put(active.id(), copy);
+		removeTrack(focusedId);
+		persist(System.currentTimeMillis());
 	}
 
-	/** Completed trails never resume from a paused snapshot. */
-	private void forgetSaved(String trailId) {
-		if (data.quests.saved != null) {
-			data.quests.saved.remove(trailId);
-		}
-	}
+	// -------------------------------------------------------------------- hint
 
 	public HintView hint(Observation obs, Feedback feedback) {
-		if (active == null) {
+		Track track = focused();
+		if (track == null) {
 			return null;
 		}
 		if (obs.now - lastHintAt < 2000) {
 			return null;
 		}
 		lastHintAt = obs.now;
-		QuestStep step = currentStep();
+		QuestStep step = track.step();
 		if (step == null) {
 			return null;
 		}
-		Word word = sideQuest != null ? sideQuest.word() : firstWord(step);
+		Word word = track.sideQuest != null ? track.sideQuest.word() : firstWord(step);
 		String simplified;
 		if (step.hintKo() != null && !step.hintKo().isBlank()) {
 			// Authored hints win even when the step has conditions; they are written to include them.
@@ -553,56 +603,46 @@ public final class QuestEngine {
 		} else if (!step.conditions().isEmpty()) {
 			simplified = word != null
 					? SentenceBuilder.hint(step.goal(), word, step.conditions(), namer)
-					: clueKo(step);
+					: clueKo(track, step);
 		} else {
 			simplified = word != null
 					? SentenceBuilder.hint(step.goal(), word, List.of(), namer)
-					: clueKo(step);
+					: clueKo(track, step);
 		}
 		String description = word != null && word.hasDescKo() ? word.descKo : null;
 		boolean known = word != null && learn.isKnown(word.id);
 		boolean started = false;
-		if (sideQuest == null && !known && word != null && !stepHintUsed) {
-			sideQuest = SideQuest.start(word, catalog);
-			stepHintUsed = true;
-			data.quests.active.sidequest = new ProgressData.Side();
-			data.quests.active.sidequest.wordId = word.id;
-			data.quests.active.sidequest.stage = 1;
-			data.quests.active.sidequest.attempts = 0;
-			filledActive();
+		if (track.sideQuest == null && !known && word != null && !track.hintUsed) {
+			track.sideQuest = SideQuest.start(word, catalog);
+			track.hintUsed = true;
 			feedback.wordCard(word);
+			persist(obs.now);
 			started = true;
 		}
-		persist(obs.now);
-		return new HintView(clueKo(step), simplified, description, word, started || sideQuest != null);
+		return new HintView(clueKo(track, step), simplified, description, word,
+				started || track.sideQuest != null);
 	}
 
 	public boolean answerSidequest(int index, Feedback feedback) {
-		if (sideQuest == null) {
+		Track track = focused();
+		if (track == null || track.sideQuest == null) {
 			return false;
 		}
-		boolean correct = sideQuest.answer(index);
-		Word word = sideQuest.word();
+		boolean correct = track.sideQuest.answer(index);
+		Word word = track.sideQuest.word();
 		long now = System.currentTimeMillis();
 		if (correct) {
 			learn.answer(word.id, true, true, now);
 		}
-		if (sideQuest.isDone()) {
-			Word learned = sideQuest.word();
-			sideQuest = null;
-			if (data.quests.active != null) {
-				data.quests.active.sidequest = null;
-			}
+		if (track.sideQuest.isDone()) {
+			Word learned = track.sideQuest.word();
+			track.sideQuest = null;
 			learn.noteSidequestCompleted();
 			persist(now);
 			feedback.sidequestCompleted(learned);
 			feedback.sound(true);
 			unlock(feedback, learn.checkAchievements());
 		} else {
-			if (data.quests.active != null && data.quests.active.sidequest != null) {
-				data.quests.active.sidequest.stage = sideQuest.stage();
-				data.quests.active.sidequest.attempts = sideQuest.attempts();
-			}
 			persist(now);
 			feedback.sound(correct);
 		}
@@ -610,12 +650,13 @@ public final class QuestEngine {
 	}
 
 	public void hintWordCard(Feedback feedback) {
-		QuestStep step = currentStep();
-		if (step != null) {
-			Word word = firstWord(step);
-			if (word != null) {
-				feedback.wordCard(word);
-			}
+		Track track = focused();
+		if (track == null) {
+			return;
+		}
+		Word word = firstWord(track.step());
+		if (word != null) {
+			feedback.wordCard(word);
 		}
 	}
 
@@ -626,32 +667,43 @@ public final class QuestEngine {
 		}
 	}
 
-	private void filledActive() {
-		if (data.quests.active == null) {
-			data.quests.active = new ProgressData.Active();
-		}
-		data.quests.active.trailId = active.id();
-		QuestStep step = currentStep();
-		if (step != null) {
-			data.quests.active.stepId = step.id();
-		}
-		data.quests.active.goalProgress = tracker.count;
-		data.quests.active.hintUsed = stepHintUsed;
-	}
+	// --------------------------------------------------------------- persistence
 
 	private void persist(long now) {
-		if (active == null) {
-			data.quests.active = null;
-			learn.markDirty();
-			return;
+		ProgressData.Active focusedSnapshot = null;
+		Map<String, ProgressData.Active> background = new LinkedHashMap<>();
+		for (Track track : tracks.values()) {
+			ProgressData.Active snapshot = snapshot(track, now);
+			if (track.trail.id().equals(focusedId)) {
+				focusedSnapshot = snapshot;
+			} else {
+				background.put(track.trail.id(), snapshot);
+			}
 		}
-		if (data.quests.active == null) {
-			data.quests.active = new ProgressData.Active();
-		}
-		filledActive();
-		data.quests.active.lastSeenAt = now;
+		data.quests.active = focusedSnapshot;
+		data.quests.saved = background;
 		learn.markDirty();
 	}
+
+	private ProgressData.Active snapshot(Track track, long now) {
+		ProgressData.Active snapshot = new ProgressData.Active();
+		snapshot.trailId = track.trail.id();
+		QuestStep step = track.step();
+		snapshot.stepId = step == null ? null : step.id();
+		snapshot.goalProgress = track.tracker.count;
+		snapshot.hintUsed = track.hintUsed;
+		snapshot.startedAt = track.startedAt;
+		snapshot.lastSeenAt = now;
+		if (track.sideQuest != null) {
+			snapshot.sidequest = new ProgressData.Side();
+			snapshot.sidequest.wordId = track.sideQuest.word().id;
+			snapshot.sidequest.stage = track.sideQuest.stage();
+			snapshot.sidequest.attempts = track.sideQuest.attempts();
+		}
+		return snapshot;
+	}
+
+	// ------------------------------------------------------------------ queries
 
 	public List<Questline> trails() {
 		return trails;
@@ -678,44 +730,110 @@ public final class QuestEngine {
 		return true;
 	}
 
+	private Track focused() {
+		return focusedId == null ? null : tracks.get(focusedId);
+	}
+
 	public Questline activeTrail() {
-		return active;
+		Track track = focused();
+		return track == null ? null : track.trail;
+	}
+
+	public String focusedId() {
+		return focusedId;
+	}
+
+	public boolean isTracked(String trailId) {
+		return tracks.containsKey(trailId);
+	}
+
+	public int trackedCount() {
+		return tracks.size();
+	}
+
+	/** The quest log, focused trail first, then in the order the player added them. */
+	public List<TrackView> trackedViews() {
+		List<TrackView> views = new ArrayList<>();
+		for (Track track : tracks.values()) {
+			QuestStep step = track.step();
+			if (step == null) {
+				continue;
+			}
+			String status = lastObs == null ? "" : QuestStatus.text(step, lastObs, track.tracker, catalog);
+			views.add(new TrackView(track.trail.id(), track.trail.titleKo(), track.trail.titleDe(),
+					track.trail.topicKey(), track.trail.koreanLevel(),
+					clueKo(track, step), clueDe(step), status,
+					track.tracker.count, needed(step), countable(step),
+					track.trail.id().equals(focusedId), track.stepIndex, track.stepCount()));
+		}
+		views.sort(Comparator.comparing((TrackView view) -> !view.focused()));
+		return views;
 	}
 
 	public SideQuest sideQuest() {
-		return sideQuest;
+		Track track = focused();
+		return track == null ? null : track.sideQuest;
 	}
 
 	public boolean sidequestActive() {
-		return sideQuest != null;
+		return sideQuest() != null;
 	}
 
 	public QuestStep currentStep() {
-		if (active == null) {
-			return null;
-		}
-		List<QuestStep> steps = active.allSteps();
-		if (stepIndex < 0 || stepIndex >= steps.size()) {
-			return null;
-		}
-		return steps.get(stepIndex);
+		Track track = focused();
+		return track == null ? null : track.step();
 	}
 
 	public int stepIndex() {
-		return stepIndex;
+		Track track = focused();
+		return track == null ? 0 : track.stepIndex;
 	}
 
 	public int stepCount() {
-		return active == null ? 0 : active.allSteps().size();
+		Track track = focused();
+		return track == null ? 0 : track.stepCount();
 	}
 
-	/** Short Korean line: unmet condition, or progress toward the current goal. */
+	private static boolean countable(QuestStep step) {
+		if (step == null) {
+			return false;
+		}
+		return switch (step.goal()) {
+			case Goal.BreakBlock ignored -> true;
+			case Goal.PlaceBlock ignored -> true;
+			case Goal.AcquireItem ignored -> true;
+			case Goal.ConsumeItem ignored -> true;
+			case Goal.DefeatEntity ignored -> true;
+			default -> false;
+		};
+	}
+
+	private static int needed(QuestStep step) {
+		if (step == null) {
+			return 0;
+		}
+		return switch (step.goal()) {
+			case Goal.BreakBlock g -> g.count();
+			case Goal.PlaceBlock g -> g.count();
+			case Goal.AcquireItem g -> g.count();
+			case Goal.ConsumeItem g -> g.count();
+			case Goal.DefeatEntity g -> g.count();
+			default -> 1;
+		};
+	}
+
+	/** Short Korean line for the focused trail: unmet condition, or progress toward the goal. */
 	public String statusText() {
-		return QuestStatus.text(currentStep(), lastObs, tracker, catalog);
+		Track track = focused();
+		if (track == null || lastObs == null) {
+			return "";
+		}
+		return QuestStatus.text(track.step(), lastObs, track.tracker, catalog);
 	}
 
 	public long goalDwellMs() {
-		return tracker.dwellMs;
+		Track track = focused();
+		return track == null ? 0L : track.tracker.dwellMs;
 	}
 
 	public long goalDwellNeededMs() {
@@ -731,22 +849,12 @@ public final class QuestEngine {
 	}
 
 	public int goalProgress() {
-		return tracker.count;
+		Track track = focused();
+		return track == null ? 0 : track.tracker.count;
 	}
 
 	public int goalNeeded() {
-		QuestStep step = currentStep();
-		if (step == null) {
-			return 0;
-		}
-		return switch (step.goal()) {
-			case Goal.BreakBlock g -> g.count();
-			case Goal.PlaceBlock g -> g.count();
-			case Goal.AcquireItem g -> g.count();
-			case Goal.ConsumeItem g -> g.count();
-			case Goal.DefeatEntity g -> g.count();
-			default -> 1;
-		};
+		return needed(currentStep());
 	}
 
 	public List<Word> currentWords() {
@@ -769,10 +877,14 @@ public final class QuestEngine {
 	}
 
 	public String clueKo(QuestStep step) {
+		return clueKo(focused(), step);
+	}
+
+	private String clueKo(Track track, QuestStep step) {
 		if (step == null) {
 			return "";
 		}
-		int level = active == null ? 1 : active.koreanLevel();
+		int level = track == null ? 1 : track.trail.koreanLevel();
 		boolean finale = "finale".equals(step.id());
 		if (!step.conditions().isEmpty()) {
 			// Every condition must show up in the Korean sentence; generated text guarantees it.
@@ -806,6 +918,22 @@ public final class QuestEngine {
 	}
 
 	public boolean hintUsed() {
-		return stepHintUsed;
+		Track track = focused();
+		return track != null && track.hintUsed;
+	}
+
+	/** Dev-only: seeds a partial counter on a tracked trail so UI demos show filled progress bars. */
+	public void demoProgress(String trailId, int count) {
+		Track track = tracks.get(trailId);
+		if (track == null) {
+			return;
+		}
+		track.tracker.count = Math.max(0, count);
+		persist(lastObs == null ? System.currentTimeMillis() : lastObs.now);
+	}
+
+	/** Unused, kept so subclasses/tests can share the engine's logger. */
+	public Logger log() {
+		return log;
 	}
 }

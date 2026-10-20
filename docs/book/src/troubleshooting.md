@@ -20,7 +20,7 @@
 
 ## A quest step does not complete
 
-The tracker's status line is the diagnosis: it names the missing condition (`지금 낮 · 밤 필요`), the
+The quest log's status line is the diagnosis: it names the missing condition (`지금 낮 · 밤 필요`), the
 counter (`1/3`) or the dwell percentage. Common causes:
 
 - **Counters reset when the step starts.** Items you already carry do not count for `ACQUIRE_ITEM`

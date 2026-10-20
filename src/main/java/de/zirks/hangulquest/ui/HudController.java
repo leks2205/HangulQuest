@@ -321,7 +321,7 @@ public final class HudController implements QuestEngine.Feedback {
 			drawBanner(graphics, bannerKo, bannerDe);
 		}
 		if (hq.quests() != null && hq.config().quests && hq.config().questTracker) {
-			drawTracker(graphics);
+			drawQuestLog(graphics);
 		}
 		boolean hintVisible = hint != null && now < hintUntil;
 		if (hintVisible) {
@@ -393,53 +393,141 @@ public final class HudController implements QuestEngine.Feedback {
 		}
 	}
 
-	private void drawTracker(GuiGraphicsExtractor graphics) {
+	/**
+	 * Questie-style quest log: every tracked trail with its current objective, its conditions and live
+	 * progress, drawn in the mod's own panel style. The focused trail — the one the hint key and the
+	 * sidequest work on — is highlighted and shows its clue in full.
+	 */
+	private void drawQuestLog(GuiGraphicsExtractor graphics) {
 		QuestEngine quests = hq.quests();
-		QuestStep step = quests.currentStep();
-		if (step == null) {
+		List<QuestEngine.TrackView> views = quests.trackedViews();
+		if (views.isEmpty()) {
 			return;
 		}
 		var font = mc.font;
-		Questline active = quests.activeTrail();
 		int x = 6;
 		int y = 6;
-		Component clue = KoText.ko(quests.clueKo(step));
-		String counter = (quests.stepIndex() + 1) + "/" + quests.stepCount();
-		Component counterComponent = Component.literal(counter);
-		String german = hq.config().questGerman ? quests.clueDe(step) : "";
-		String progress = quests.statusText();
-		Component footer = Component.empty().append(Component.literal(progress + (progress.isEmpty() ? "" : "   ") + "H "))
-				.append(KoText.ko("힌트"));
+		int maxWidth = Math.min(268, mc.getWindow().getGuiScaledWidth() - 12);
+		int limit = Math.max(1, Math.min(views.size(), hq.config().questTrackerRows));
+		List<QuestEngine.TrackView> shown = views.subList(0, limit);
+		boolean more = views.size() > limit;
 
-		int maxWidth = Math.min(320, mc.getWindow().getGuiScaledWidth() - 12);
-		String topik = active == null ? "" : " · TOPIK " + active.koreanLevel();
-		int titleWidth = 20 + font.width(KoText.ko("퀘스트"))
-				+ (topik.isEmpty() ? 0 : font.width(Component.literal(topik))) + 12
-				+ font.width(counterComponent);
-		int germanWidth = german == null || german.isBlank() ? 0 : font.width(Component.literal(german));
-		int contentWidth = Math.max(titleWidth,
-				Math.max(font.width(footer), Math.max(font.width(clue), germanWidth)));
-		int width = Math.max(110, Math.min(maxWidth, contentWidth + 12));
-		int clueHeight = Draw.wrappedHeight(font, clue, width - 12, 2);
-		int germanHeight = german == null || german.isBlank() ? 0 : font.lineHeight + 2;
-		int height = 22 + clueHeight + 14 + germanHeight;
+		int textWidth = Math.max(120, maxWidth - 34);
+		int titleWidth = 0;
+		int statusWidth = 0;
+		for (QuestEngine.TrackView view : shown) {
+			titleWidth = Math.max(titleWidth, font.width(KoText.ko(view.titleKo())) + 6
+					+ font.width(Component.literal(counter(view))));
+			statusWidth = Math.max(statusWidth, font.width(KoText.ko(view.status())));
+		}
+		int contentWidth = Math.min(maxWidth - 34, Math.max(titleWidth, Math.min(190, statusWidth)));
+		int width = Math.max(184, Math.min(maxWidth, contentWidth + 34));
+
+		int height = 32;
+		for (QuestEngine.TrackView view : shown) {
+			height += entryHeight(font, view, width - 34);
+		}
+		if (more) {
+			height += 10;
+		}
 
 		Draw.panel(graphics, x, y, width, height, 0);
-		if (active != null) {
-			Draw.itemIcon(graphics, QuestTheme.icon(active.topicKey()), x + 5, y + 2);
+		Draw.korean(graphics, font, "퀘스트", x + 6, y + 5, Draw.GOLD);
+		String count = views.size() + "/" + QuestEngine.MAX_TRACKED;
+		Draw.label(graphics, font, count, x + width - 6 - font.width(Component.literal(count)), y + 5,
+				Draw.DIM);
+		graphics.fill(x + 2, y + 17, x + width - 2, y + 18, 0x40FFFFFF);
+
+		int row = y + 20;
+		for (int i = 0; i < shown.size(); i++) {
+			row = drawQuestRow(graphics, shown.get(i), x, row, width);
+			if (i < shown.size() - 1) {
+				graphics.fill(x + 6, row - 4, x + width - 6, row - 3, 0x33FFFFFF);
+			}
 		}
-		Draw.korean(graphics, font, "퀘스트", x + 24, y + 5, Draw.GOLD);
-		if (!topik.isEmpty()) {
-			Draw.label(graphics, font, topik, x + 24 + font.width(KoText.ko("퀘스트")) + 2, y + 5,
+		if (more) {
+			Draw.label(graphics, font, "+" + (views.size() - limit) + " weitere", x + 28, row - 2, Draw.DIM);
+			row += 10;
+		}
+		Draw.label(graphics, font, "H 힌트 · V 전환 · K 일지", x + 6, y + height - 11, Draw.DIM);
+	}
+
+	private int entryHeight(net.minecraft.client.gui.Font font, QuestEngine.TrackView view,
+							int textWidth) {
+		int height = 11;
+		Component clue = KoText.ko(view.clueKo());
+		height += view.focused() ? Draw.wrappedHeight(font, clue, textWidth, 2) : font.lineHeight;
+		if (hq.config().questGerman && view.clueDe() != null && !view.clueDe().isBlank()) {
+			height += font.lineHeight;
+		}
+		return height + 12;
+	}
+
+	private int drawQuestRow(GuiGraphicsExtractor graphics, QuestEngine.TrackView view, int x, int y,
+							 int width) {
+		var font = mc.font;
+		int textX = x + 28;
+		int textWidth = width - 34;
+		if (view.focused()) {
+			graphics.fill(x + 7, y + 3, x + 10, y + 9, Draw.GOLD);
+		}
+		Draw.itemIcon(graphics, QuestTheme.icon(view.topicKey()), x + 10, y - 1);
+		Draw.korean(graphics, font, view.titleKo(), textX, y, view.focused() ? Draw.GOLD : Draw.WHITE);
+		String counter = counter(view);
+		Draw.label(graphics, font, counter, x + width - 6 - font.width(Component.literal(counter)), y,
+				Draw.DIM);
+		int row = y + 11;
+
+		Component clue = KoText.ko(view.clueKo());
+		if (view.focused()) {
+			Draw.wrapped(graphics, font, clue, textX, row, textWidth, Draw.WHITE, 2);
+			row += Draw.wrappedHeight(font, clue, textWidth, 2);
+		} else {
+			Draw.truncated(graphics, font, clue, textX, row, textWidth, Draw.GRAY);
+			row += font.lineHeight;
+		}
+		if (hq.config().questGerman && view.clueDe() != null && !view.clueDe().isBlank()) {
+			Draw.truncated(graphics, font, Component.literal(view.clueDe()), textX, row, textWidth,
 					Draw.DIM);
+			row += font.lineHeight;
 		}
-		Draw.label(graphics, font, counter, x + width - 6 - font.width(counterComponent), y + 5, Draw.DIM);
-		Draw.wrapped(graphics, font, clue, x + 6, y + 20, width - 12, Draw.WHITE, 2);
-		if (germanHeight > 0) {
-			Draw.truncated(graphics, font, Component.literal(german), x + 6, y + 21 + clueHeight,
-					width - 12, Draw.GRAY);
+		row += 1;
+
+		if (view.countable()) {
+			int barWidth = 42;
+			drawProgressBar(graphics, textX, row + 2, barWidth, 4, view.progress(), view.needed());
+			String progress = view.progress() + "/" + view.needed();
+			int progressColor = view.progress() >= view.needed() ? Draw.GREEN : Draw.WHITE;
+			Draw.label(graphics, font, progress, textX + barWidth + 5, row, progressColor);
+			// The bar already shows a count; only condition messages ("밤 필요") add anything.
+			if (!view.status().isBlank() && !view.status().contains("/")) {
+				int statusX = textX + barWidth + 9 + font.width(Component.literal(progress));
+				Draw.truncated(graphics, font, KoText.ko(view.status()), statusX, row,
+						textX + textWidth - statusX, Draw.DIM);
+			}
+		} else if (!view.status().isBlank()) {
+			Draw.truncated(graphics, font, KoText.ko(view.status()), textX, row, textWidth, Draw.BLUE);
 		}
-		Draw.truncated(graphics, font, footer, x + 6, y + height - 11, width - 12, Draw.DIM);
+		return row + 12;
+	}
+
+	private void drawProgressBar(GuiGraphicsExtractor graphics, int x, int y, int width, int height,
+							  int progress, int needed) {
+		graphics.fill(x, y, x + width, y + height, 0xFF2C2C35);
+		float ratio = needed <= 0 ? 0f : Math.min(1f, progress / (float) needed);
+		int filled = Math.round((width - 2) * ratio);
+		if (filled > 0) {
+			graphics.fill(x + 1, y + 1, x + 1 + filled, y + height - 1,
+					ratio >= 1f ? Draw.GREEN : Draw.GOLD);
+		}
+		graphics.fill(x, y, x + width, y + 1, Draw.BORDER);
+		graphics.fill(x, y + height - 1, x + width, y + height, Draw.BORDER);
+		graphics.fill(x, y, x + 1, y + height, Draw.BORDER);
+		graphics.fill(x + width - 1, y, x + width, y + height, Draw.BORDER);
+	}
+
+	private static String counter(QuestEngine.TrackView view) {
+		return (view.stepIndex() + 1) + "/" + view.stepCount();
 	}
 
 	private void drawHint(GuiGraphicsExtractor graphics) {
