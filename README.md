@@ -10,12 +10,13 @@ Client-only Fabric mod. No server component, no packets, no chat, no telemetry.
 
 [**Download**](../../releases/latest) · [**Guide**](https://leks2205.github.io/HangulQuest/) · [Features](#features) · [Install](#install) · [Writing questlines](#writing-your-own-questlines) · [Report a bug](../../issues/new/choose)
 
-![Minecraft](https://img.shields.io/badge/Minecraft-26.3-3c8527?logo=minecraft&logoColor=white)
+![Minecraft](https://img.shields.io/badge/Minecraft-26.3-3c8527)
 ![Fabric](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-dbbd8b)
 ![Java](https://img.shields.io/badge/Java-25-b7410e?logo=openjdk&logoColor=white)
 ![Questlines](https://img.shields.io/badge/questlines-414-16a34a)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Telemetry](https://img.shields.io/badge/telemetry-none-16a34a)
+[![CI](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml/badge.svg)](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml)
 
 </div>
 
