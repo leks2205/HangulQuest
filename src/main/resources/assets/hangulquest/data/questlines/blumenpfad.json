@@ -9,8 +9,8 @@
  "concepts": [
   "gen_birch_shelf",
   "dandelion",
-  "gen_waxed_exposed_copper_bars",
-  "gen_blue_cushion"
+  "gen_stripped_warped_hyphae",
+  "gen_chiseled_sulfur"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -30,6 +30,9 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:birch_shelf",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Birkenholzregal an."
    }
   },
   {
@@ -49,12 +52,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_exposed_copper_bars"
+    "gen_stripped_warped_hyphae"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_bars",
+    "block": "minecraft:stripped_warped_hyphae",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Geschälte Wirrhyphen."
    }
   }
  ],
@@ -62,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_cushion"
+    "gen_chiseled_sulfur"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_cushion",
+    "item": "minecraft:chiseled_sulfur",
     "count": 5
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 5× Gemeißelter Schwefel."
+   }
   },
-  "textKo": "파란색 방석라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaues Kissen — Zeremonie vollendet."
+  "textKo": "조각된 유황라는 길의 의식을 마쳤어요.",
+  "textDe": "Gemeißelter Schwefel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "blumenpfad",

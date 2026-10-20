@@ -8,8 +8,8 @@
  "order": 99,
  "concepts": [
   "paper",
-  "gen_dark_oak_stairs",
-  "gen_white_candle",
+  "gen_waxed_exposed_copper",
+  "gen_daylight_detector",
   "chest"
  ],
  "requires": {
@@ -39,22 +39,28 @@
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_stairs"
+    "gen_waxed_exposed_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_stairs",
+    "item": "minecraft:waxed_exposed_copper",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachster angelaufener Kupferblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_candle"
+    "gen_daylight_detector"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:white_candle"
+    "block": "minecraft:daylight_detector"
+   },
+   "clue": {
+    "de": "Benutze Tageslichtsensor."
    }
   }
  ],

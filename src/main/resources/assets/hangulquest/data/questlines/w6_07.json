@@ -9,8 +9,8 @@
  "concepts": [
   "gen_sunflower_plains",
   "jungle_log",
-  "gen_clay",
-  "gen_poplar_boat"
+  "gen_red_wool_slab",
+  "gen_smooth_sandstone"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -29,6 +29,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:sunflower_plains",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Sonnenblumenebene."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_clay"
+    "gen_red_wool_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:clay",
+    "item": "minecraft:red_wool_slab",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Rote Wollstufe."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_boat"
+    "gen_smooth_sandstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_boat",
+    "item": "minecraft:smooth_sandstone",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Glatter Sandstein."
+   }
   },
-  "textKo": "포플러나무 보트라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzboot — Zeremonie vollendet."
+  "textKo": "매끄러운 사암라는 길의 의식을 마쳤어요.",
+  "textDe": "Glatter Sandstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_07",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1031,
  "concepts": [
-  "gen_polar_bear",
-  "gen_mossy_stone_brick_slab",
-  "gen_cherry_log",
-  "gen_waxed_exposed_copper_trapdoor"
+  "parrot",
+  "gen_orange_bundle",
+  "gen_cinnabar_brick_wall",
+  "gen_pale_hanging_moss"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,33 +23,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polar_bear"
+    "parrot"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:polar_bear"
+    "entity": "minecraft:parrot"
+   },
+   "clue": {
+    "de": "Interagiere mit Papagei."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mossy_stone_brick_slab"
+    "gen_orange_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_stone_brick_slab",
+    "item": "minecraft:orange_bundle",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Oranges Bündel."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_log"
+    "gen_cinnabar_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_log",
+    "block": "minecraft:cinnabar_brick_wall",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Zinnoberziegelmauer."
    }
   }
  ],
@@ -57,17 +66,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_trapdoor"
+    "gen_pale_hanging_moss"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_trapdoor",
+    "block": "minecraft:pale_hanging_moss",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Hängendes Blassmoos."
+   }
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste angelaufene Kupferfalltür — Zeremonie vollendet."
+  "textKo": "창백한 매달린 이끼라는 길의 의식을 마쳤어요.",
+  "textDe": "Hängendes Blassmoos — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_01",

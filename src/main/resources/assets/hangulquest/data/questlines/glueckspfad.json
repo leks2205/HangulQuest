@@ -7,9 +7,9 @@
  "order": 390,
  "concepts": [
   "gold",
-  "gen_pufferfish",
-  "gen_white_bed",
-  "gen_spruce_hanging_sign"
+  "build",
+  "gen_blue_bed",
+  "gen_sulfur_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -36,22 +36,28 @@
   {
    "id": "s2",
    "teach": [
-    "gen_pufferfish"
+    "build"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pufferfish",
+    "item": "minecraft:scaffolding",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Gerüst."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_bed"
+    "gen_blue_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:white_bed"
+    "block": "minecraft:blue_bed"
+   },
+   "clue": {
+    "de": "Benutze Blaues Bett."
    }
   }
  ],
@@ -59,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_hanging_sign"
+    "gen_sulfur_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_hanging_sign",
+    "block": "minecraft:sulfur_brick_slab",
     "count": 1
    },
    "conditions": [
@@ -71,10 +77,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Schwefelziegelstufe. Nachts."
+   }
   },
-  "textKo": "밤에 가문비나무 매다는 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzhängeschild — Zeremonie vollendet."
+  "textKo": "밤에 유황 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwefelziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "glueckspfad",

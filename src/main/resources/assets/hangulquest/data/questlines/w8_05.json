@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1085,
  "concepts": [
-  "gen_cobbled_deepslate_slab",
-  "gen_purple_terracotta",
-  "gen_purple_shulker_box",
-  "gen_cyan_concrete"
+  "gen_copper_lantern",
+  "gen_acacia_slab",
+  "gen_cherry_leaves",
+  "gen_tall_dry_grass"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cobbled_deepslate_slab"
+    "gen_copper_lantern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cobbled_deepslate_slab",
+    "item": "minecraft:copper_lantern",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Kupferlaterne."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_terracotta"
+    "gen_acacia_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_terracotta",
-    "count": 1
+    "block": "minecraft:acacia_slab",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Akazienholzstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_purple_shulker_box"
+    "gen_cherry_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_shulker_box",
+    "block": "minecraft:cherry_leaves",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Kirschlaub."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_concrete"
+    "gen_tall_dry_grass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_concrete",
+    "block": "minecraft:tall_dry_grass",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Hohes Trockengras."
+   }
   },
-  "textKo": "청록색 콘크리트라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkiser Beton — Zeremonie vollendet."
+  "textKo": "키 큰 마른 잔디라는 길의 의식을 마쳤어요.",
+  "textDe": "Hohes Trockengras — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_05",

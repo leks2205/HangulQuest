@@ -8,7 +8,7 @@
  "order": 219,
  "concepts": [
   "adv_item_mace",
-  "gravel",
+  "gen_tube_coral",
   "iron_golem"
  ],
  "requires": {
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gravel"
+    "gen_tube_coral"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gravel",
-    "count": 1
+    "block": "minecraft:tube_coral",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Orgelkoralle."
    }
   }
  ],

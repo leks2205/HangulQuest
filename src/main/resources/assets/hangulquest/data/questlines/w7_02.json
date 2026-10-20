@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1072,
  "concepts": [
-  "gen_golden_dandelion",
-  "gen_chorus_fruit",
-  "gen_white_concrete_slab",
-  "gen_mossy_cobblestone"
+  "gen_cherry_slab",
+  "gen_honeycomb_block",
+  "gen_creeper_head",
+  "gen_waxed_exposed_copper_bulb"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_golden_dandelion"
+    "gen_cherry_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_dandelion",
+    "item": "minecraft:cherry_slab",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Kirschholzstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chorus_fruit"
+    "gen_honeycomb_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:chorus_fruit",
+    "item": "minecraft:honeycomb_block",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Honigwabenblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_concrete_slab"
+    "gen_creeper_head"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_concrete_slab",
+    "block": "minecraft:creeper_head",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Creeperkopf."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mossy_cobblestone"
+    "gen_waxed_exposed_copper_bulb"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_cobblestone",
+    "item": "minecraft:waxed_exposed_copper_bulb",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Gewachste angelaufene Kupferleuchte."
+   }
   },
-  "textKo": "이끼 낀 조약돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooster Bruchstein — Zeremonie vollendet."
+  "textKo": "밀랍칠한 약간 녹슨 구리 전구라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste angelaufene Kupferleuchte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_02",

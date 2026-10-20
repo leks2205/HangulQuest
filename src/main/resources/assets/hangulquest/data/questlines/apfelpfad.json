@@ -7,7 +7,7 @@
  "tier": 1,
  "order": 138,
  "concepts": [
-  "gen_cracked_stone_bricks",
+  "gen_cyan_concrete_slab",
   "gen_spider_eye",
   "leaves",
   "sapling"
@@ -21,12 +21,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cracked_stone_bricks"
+    "gen_cyan_concrete_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cracked_stone_bricks",
+    "item": "minecraft:cyan_concrete_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Türkise Betonstufe."
    }
   },
   {
@@ -38,6 +41,9 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:spider_eye",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Spinnenauge."
    }
   },
   {

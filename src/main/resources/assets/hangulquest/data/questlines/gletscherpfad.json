@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 516,
  "concepts": [
-  "gen_diorite",
-  "gen_heavy_core",
-  "gen_warden",
-  "gen_stripped_cherry_log"
+  "gen_diorite_slab",
+  "gen_honeycomb_block",
+  "witch",
+  "gen_twisting_vines"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_diorite"
+    "gen_diorite_slab"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:diorite",
+    "block": "minecraft:diorite_slab",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Dioritstufe ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_heavy_core"
+    "gen_honeycomb_block"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:heavy_core",
+    "block": "minecraft:honeycomb_block",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Honigwabenblock an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_warden"
+    "witch"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:warden",
+    "entity": "minecraft:witch",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Hexe an."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_cherry_log"
+    "gen_twisting_vines"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_cherry_log",
+    "block": "minecraft:twisting_vines",
     "count": 1
    },
    "conditions": [
@@ -74,10 +83,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Zwirbelranken. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 껍질 벗긴 벚나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Kirschstamm — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 휘어진 덩굴라는 길의 의식을 마쳤어요.",
+  "textDe": "Zwirbelranken — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gletscherpfad",

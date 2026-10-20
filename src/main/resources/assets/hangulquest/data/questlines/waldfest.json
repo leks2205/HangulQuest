@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 420,
  "concepts": [
-  "gen_waxed_oxidized_copper_door",
-  "gen_pumpkin_pie",
-  "gen_sculk_shrieker",
-  "gen_vine"
+  "gen_mycelium",
+  "gen_mushroom_stew",
+  "gen_waxed_weathered_copper_chest",
+  "gen_polished_andesite"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_door"
+    "gen_mycelium"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_door",
+    "block": "minecraft:mycelium",
     "count": 8
+   },
+   "clue": {
+    "de": "Platziere 8× Myzel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pumpkin_pie"
+    "gen_mushroom_stew"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:pumpkin_pie",
+    "item": "minecraft:mushroom_stew",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Pilzsuppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sculk_shrieker"
+    "gen_waxed_weathered_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sculk_shrieker",
-    "count": 3
+    "block": "minecraft:waxed_weathered_copper_chest",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Gewachste verwitterte Kupfertruhe."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_vine"
+    "gen_polished_andesite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:vine",
+    "block": "minecraft:polished_andesite",
     "count": 1
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Polierter Andesit. Nachts."
+   }
   },
-  "textKo": "밤에 덩굴라는 길의 의식을 마쳤어요.",
-  "textDe": "Ranken — Zeremonie vollendet."
+  "textKo": "밤에 윤나는 안산암라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierter Andesit — Zeremonie vollendet."
  },
  "reward": {
   "badge": "waldfest",

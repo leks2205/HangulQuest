@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 252,
  "concepts": [
-  "gen_tipped_arrow",
-  "gen_spruce_planks",
-  "gen_hoglin"
+  "gen_cyan_candle",
+  "gen_weathered_copper_grate",
+  "gen_evoker"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tipped_arrow"
+    "gen_cyan_candle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tipped_arrow",
+    "item": "minecraft:cyan_candle",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Türkise Kerze."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_planks"
+    "gen_weathered_copper_grate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spruce_planks",
+    "item": "minecraft:weathered_copper_grate",
     "count": 32
+   },
+   "clue": {
+    "de": "Sammle 32× Verwitterter Kupferrost."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hoglin"
+    "gen_evoker"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:hoglin",
+    "entity": "minecraft:evoker",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Magier."
+   }
   },
-  "textKo": "호글린라는 길의 의식을 마쳤어요.",
-  "textDe": "Hoglin — Zeremonie vollendet."
+  "textKo": "소환사라는 길의 의식을 마쳤어요.",
+  "textDe": "Magier — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_end_kill_dragon",

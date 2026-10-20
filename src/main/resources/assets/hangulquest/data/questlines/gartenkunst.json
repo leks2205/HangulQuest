@@ -8,9 +8,9 @@
  "order": 161,
  "concepts": [
   "gen_acacia_sapling",
-  "gen_jungle_button",
-  "gen_sandstone_wall",
-  "gen_oak_hanging_sign"
+  "gen_lime_bed",
+  "gen_spruce_sapling",
+  "gen_oxidized_copper_bulb"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -30,28 +30,37 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_sapling",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Akaziensetzling."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_jungle_button"
+    "gen_lime_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_button",
+    "block": "minecraft:lime_bed",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Hellgrünes Bett."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sandstone_wall"
+    "gen_spruce_sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sandstone_wall",
+    "block": "minecraft:spruce_sapling",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Fichtensetzling."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oak_hanging_sign"
+    "gen_oxidized_copper_bulb"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_hanging_sign",
+    "block": "minecraft:oxidized_copper_bulb",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Oxidierte Kupferleuchte."
+   }
   },
-  "textKo": "참나무 매다는 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholzhängeschild — Zeremonie vollendet."
+  "textKo": "산화된 구리 전구라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierte Kupferleuchte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gartenkunst",

@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 132,
  "concepts": [
-  "gen_blue_wool_slab",
-  "gen_slime_block",
+  "gen_birch_fence_gate",
+  "gen_raw_gold_block",
   "wool",
-  "gen_deepslate_brick_slab"
+  "gen_jungle_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,23 +24,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blue_wool_slab"
+    "gen_birch_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_wool_slab",
+    "block": "minecraft:birch_fence_gate",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Birkenholzzauntor."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_slime_block"
+    "gen_raw_gold_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:slime_block",
+    "block": "minecraft:raw_gold_block",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Rohgoldblock."
    }
   },
   {
@@ -62,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_deepslate_brick_slab"
+    "gen_jungle_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_brick_slab",
+    "block": "minecraft:jungle_pressure_plate",
     "count": 1
    },
    "conditions": [
@@ -74,10 +80,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Tropenholzdruckplatte. Nachts."
+   }
   },
-  "textKo": "밤에 심층암 벽돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Tiefenschieferziegelstufe — Zeremonie vollendet."
+  "textKo": "밤에 정글나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "windpfad",

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 203,
  "concepts": [
-  "gen_copper_chain",
+  "gen_red_wool",
   "adv_item_wind_charge"
  ],
  "requires": {
@@ -21,12 +21,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_chain"
+    "gen_red_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_chain",
-    "count": 3
+    "block": "minecraft:red_wool",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Rote Wolle."
    }
   },
   {

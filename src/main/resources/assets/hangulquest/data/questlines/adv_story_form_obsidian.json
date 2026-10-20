@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 316,
  "concepts": [
-  "gen_purple_banner",
-  "gen_red_nether_brick_slab",
+  "gen_sandstone_slab",
+  "gen_spider_eye",
   "obsidian",
-  "note_block"
+  "gen_pale_oak_log"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_banner"
+    "gen_sandstone_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_banner",
+    "item": "minecraft:sandstone_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Sandsteinstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_nether_brick_slab"
+    "gen_spider_eye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_nether_brick_slab",
+    "item": "minecraft:spider_eye",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Spinnenauge."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "note_block"
+    "gen_pale_oak_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:note_block",
+    "item": "minecraft:pale_oak_log",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Blasseichenstamm."
+   }
   },
-  "textKo": "소리 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Notenblock — Zeremonie vollendet."
+  "textKo": "창백한 참나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_form_obsidian",

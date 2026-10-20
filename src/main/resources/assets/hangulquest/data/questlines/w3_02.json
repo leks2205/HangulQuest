@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1032,
  "concepts": [
-  "gen_andesite_slab",
-  "gen_cooked_mutton",
-  "gen_black_concrete",
-  "gen_piston"
+  "gen_orange_wool_slab",
+  "gen_chorus_fruit",
+  "gen_mud",
+  "gen_warped_fence_gate"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_andesite_slab"
+    "gen_orange_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:andesite_slab",
+    "block": "minecraft:orange_wool_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Orange Wollstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cooked_mutton"
+    "gen_chorus_fruit"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_mutton",
+    "item": "minecraft:chorus_fruit",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Chorusfrucht."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_black_concrete"
+    "gen_mud"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_concrete",
-    "count": 3
+    "block": "minecraft:mud",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Schlamm."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_piston"
+    "gen_warped_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:piston",
+    "block": "minecraft:warped_fence_gate",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Wirrzauntor."
+   }
   },
-  "textKo": "피스톤라는 길의 의식을 마쳤어요.",
-  "textDe": "Kolben — Zeremonie vollendet."
+  "textKo": "뒤틀린 울타리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Wirrzauntor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_02",

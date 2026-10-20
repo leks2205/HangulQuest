@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1023,
  "concepts": [
-  "gen_stone_brick_wall",
-  "gen_copper_golem_statue",
-  "gen_mangrove_door",
-  "gen_yellow_stained_glass_pane"
+  "gen_waxed_exposed_cut_copper_slab",
+  "gen_crimson_trapdoor",
+  "gen_oak_pressure_plate",
+  "gen_jungle_button"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,33 +21,39 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stone_brick_wall"
+    "gen_waxed_exposed_cut_copper_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stone_brick_wall",
+    "item": "minecraft:waxed_exposed_cut_copper_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachste angelaufene geschnittene Kupferstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_copper_golem_statue"
+    "gen_crimson_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_golem_statue",
+    "block": "minecraft:crimson_trapdoor",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Karmesinfalltür."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mangrove_door"
+    "gen_oak_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_door",
+    "block": "minecraft:oak_pressure_plate",
     "count": 4
    },
    "conditions": [
@@ -55,18 +61,21 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 4× Eichenholzdruckplatte. In der Dämmerung."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_yellow_stained_glass_pane"
+    "gen_jungle_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_stained_glass_pane",
+    "block": "minecraft:jungle_button",
     "count": 1
    },
    "conditions": [
@@ -74,10 +83,13 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Tropenholzknopf. In der Dämmerung."
+   }
   },
-  "textKo": "저녁에 노란색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Gelbe Glasscheibe — Zeremonie vollendet."
+  "textKo": "저녁에 정글나무 버튼라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzknopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_03",

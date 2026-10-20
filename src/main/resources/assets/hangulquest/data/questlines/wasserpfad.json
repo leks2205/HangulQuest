@@ -8,7 +8,7 @@
   "river",
   "sand",
   "bucket",
-  "gen_waxed_exposed_copper_grate"
+  "gen_mossy_cobblestone_slab"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -77,11 +77,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_grate"
+    "gen_mossy_cobblestone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_grate",
+    "block": "minecraft:mossy_cobblestone_slab",
     "count": 1
    },
    "conditions": [
@@ -89,10 +89,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Bemooste Bruchsteinstufe. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 밀랍칠한 약간 녹슨 구리 격자라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster angelaufener Kupferrost — Zeremonie vollendet."
+  "textKo": "해변에서 이끼 낀 조약돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wasserpfad",

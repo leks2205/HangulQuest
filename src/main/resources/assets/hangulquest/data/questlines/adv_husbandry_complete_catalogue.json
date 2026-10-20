@@ -8,7 +8,7 @@
  "order": 262,
  "concepts": [
   "cat",
-  "gen_beetroot_seeds"
+  "gen_birch_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -35,12 +35,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_beetroot_seeds"
+    "gen_birch_hanging_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:beetroot_seeds",
+    "item": "minecraft:birch_hanging_sign",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Birkenholzhängeschild."
    }
   }
  ],

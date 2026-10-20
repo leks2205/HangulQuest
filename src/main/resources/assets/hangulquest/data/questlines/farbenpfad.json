@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 96,
  "concepts": [
-  "gen_crimson_fence_gate",
-  "gen_red_stained_glass_pane",
-  "gen_coal_block"
+  "gen_damaged_anvil",
+  "gen_smooth_red_sandstone_slab",
+  "coal"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_fence_gate"
+    "gen_damaged_anvil"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_fence_gate",
+    "item": "minecraft:damaged_anvil",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Beschädigter Amboss."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_stained_glass_pane"
+    "gen_smooth_red_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_stained_glass_pane",
+    "block": "minecraft:smooth_red_sandstone_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Glatte rote Sandsteinstufe."
    }
   }
  ],
@@ -47,17 +53,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_coal_block"
+    "coal"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:coal_block",
+    "block": "minecraft:coal_ore",
     "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sieh dir Steinkohle an."
+   }
   },
-  "textKo": "석탄 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Kohleblock — Zeremonie vollendet."
+  "textKo": "석탄 광석라는 길의 의식을 마쳤어요.",
+  "textDe": "Steinkohle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "farbenpfad",

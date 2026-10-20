@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 295,
  "concepts": [
-  "gen_magenta_concrete",
-  "gen_cinnabar_brick_wall",
-  "gen_orange_wool"
+  "gen_music_disc_13",
+  "gen_cobweb",
+  "gen_pale_oak_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_concrete"
+    "gen_music_disc_13"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_concrete",
+    "item": "minecraft:music_disc_13",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cinnabar_brick_wall"
+    "gen_cobweb"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar_brick_wall",
+    "block": "minecraft:cobweb",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Spinnennetz."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_wool"
+    "gen_pale_oak_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_wool",
+    "block": "minecraft:pale_oak_trapdoor",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Blasseichenholzfalltür."
+   }
   },
-  "textKo": "주황색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Orange Wolle — Zeremonie vollendet."
+  "textKo": "창백한 참나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_fast_travel",

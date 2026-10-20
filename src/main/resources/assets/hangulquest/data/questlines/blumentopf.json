@@ -8,8 +8,8 @@
  "order": 148,
  "concepts": [
   "flower_pot",
-  "gen_potent_sulfur",
-  "gen_cherry_slab"
+  "gen_prismarine",
+  "gen_chiseled_sandstone"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -52,12 +52,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_potent_sulfur"
+    "gen_prismarine"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:potent_sulfur",
+    "block": "minecraft:prismarine",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Prismarin an."
    }
   }
  ],
@@ -65,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_slab"
+    "gen_chiseled_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_slab",
+    "block": "minecraft:chiseled_sandstone",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Gemeißelter Sandstein."
+   }
   },
-  "textKo": "벚나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschholzstufe — Zeremonie vollendet."
+  "textKo": "조각된 사암라는 길의 의식을 마쳤어요.",
+  "textDe": "Gemeißelter Sandstein — Zeremonie vollendet."
  },
  "reward": {
   "badge": "blumentopf",

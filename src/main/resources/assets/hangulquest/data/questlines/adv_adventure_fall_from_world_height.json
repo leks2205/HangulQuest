@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 208,
  "concepts": [
-  "gen_stripped_poplar_wood",
-  "gen_netherite_block",
-  "gen_orange_wool_slab"
+  "gen_waxed_exposed_cut_copper",
+  "mushroom",
+  "gen_poplar_log"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_poplar_wood"
+    "gen_waxed_exposed_cut_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_poplar_wood",
+    "item": "minecraft:waxed_exposed_cut_copper",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachster angelaufener geschnittener Kupferblock."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_netherite_block"
+    "mushroom"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:netherite_block",
+    "block": "minecraft:red_mushroom",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Roter Pilz."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_wool_slab"
+    "gen_poplar_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_wool_slab",
+    "block": "minecraft:poplar_log",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Pappelstamm."
+   }
   },
-  "textKo": "주황색 양털 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Orange Wollstufe — Zeremonie vollendet."
+  "textKo": "포플러나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_fall_from_world_height",

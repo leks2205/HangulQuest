@@ -8,7 +8,7 @@
  "order": 274,
  "concepts": [
   "shears",
-  "gen_guster_banner_pattern",
+  "gen_jungle_pressure_plate",
   "wolf"
  ],
  "requires": {
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_guster_banner_pattern"
+    "gen_jungle_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:guster_banner_pattern",
+    "item": "minecraft:jungle_pressure_plate",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Tropenholzdruckplatte."
    }
   }
  ],

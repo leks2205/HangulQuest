@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1024,
  "concepts": [
-  "gen_red_concrete_powder",
-  "gen_tuff_brick_slab",
+  "gen_smooth_sandstone_slab",
+  "gen_weathered_copper_door",
   "lightning_rod",
-  "gen_coarse_dirt"
+  "gen_cracked_polished_blackstone_bricks"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,11 +21,11 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_concrete_powder"
+    "gen_smooth_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_concrete_powder",
+    "block": "minecraft:smooth_sandstone_slab",
     "count": 1
    },
    "conditions": [
@@ -33,17 +33,23 @@
      "type": "WEATHER",
      "weather": "THUNDER"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Glatte Sandsteinstufe. Im Gewitter."
+   }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_tuff_brick_slab"
+    "gen_weathered_copper_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:tuff_brick_slab",
+    "block": "minecraft:weathered_copper_door",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Verwitterte Kupfertür."
    }
   },
   {
@@ -75,11 +81,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_coarse_dirt"
+    "gen_cracked_polished_blackstone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:coarse_dirt",
+    "block": "minecraft:cracked_polished_blackstone_bricks",
     "count": 5
    },
    "conditions": [
@@ -87,10 +93,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 5× Rissige polierte Schwarzsteinziegel. Nachts."
+   }
   },
-  "textKo": "밤에 거친 흙라는 길의 의식을 마쳤어요.",
-  "textDe": "Grobe Erde — Zeremonie vollendet."
+  "textKo": "밤에 금 간 윤나는 흑암 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Rissige polierte Schwarzsteinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_04",

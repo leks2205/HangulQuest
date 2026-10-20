@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 166,
  "concepts": [
-  "gen_packed_mud",
-  "gen_purple_concrete_slab",
-  "gen_orange_terracotta",
-  "gen_green_harness"
+  "gen_dried_kelp_block",
+  "gen_smooth_quartz_slab",
+  "dirt",
+  "goat"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_packed_mud"
+    "gen_dried_kelp_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:packed_mud",
+    "block": "minecraft:dried_kelp_block",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Getrockneter Seetangblock."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_concrete_slab"
+    "gen_smooth_quartz_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_concrete_slab",
+    "item": "minecraft:smooth_quartz_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Glatte Quarzstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_orange_terracotta"
+    "dirt"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_terracotta",
+    "block": "minecraft:dirt",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Erde."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_harness"
+    "goat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_harness",
+    "item": "minecraft:goat_horn",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Bockshorn."
+   }
   },
-  "textKo": "초록색 하네스라는 길의 의식을 마쳤어요.",
-  "textDe": "Grünes Geschirr — Zeremonie vollendet."
+  "textKo": "염소 뿔라는 길의 의식을 마쳤어요.",
+  "textDe": "Bockshorn — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wolfpfad",

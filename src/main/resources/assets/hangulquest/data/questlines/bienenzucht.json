@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 159,
  "concepts": [
-  "gen_black_stained_glass",
+  "gen_blackstone",
   "honey_bottle",
-  "gen_panda",
-  "gen_leather_leggings"
+  "gen_phantom",
+  "gen_polished_andesite_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,12 +24,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_stained_glass"
+    "gen_blackstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_stained_glass",
+    "block": "minecraft:blackstone",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Schwarzstein."
    }
   },
   {
@@ -53,12 +56,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_panda"
+    "gen_phantom"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:panda",
+    "entity": "minecraft:phantom",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Phantom an."
    }
   }
  ],
@@ -66,17 +72,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_leather_leggings"
+    "gen_polished_andesite_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather_leggings",
+    "item": "minecraft:polished_andesite_slab",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Polierte Andesitstufe."
+   }
   },
-  "textKo": "가죽 바지라는 길의 의식을 마쳤어요.",
-  "textDe": "Lederhose — Zeremonie vollendet."
+  "textKo": "윤나는 안산암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Andesitstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bienenzucht",

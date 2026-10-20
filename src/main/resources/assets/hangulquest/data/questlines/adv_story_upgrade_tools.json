@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 325,
  "concepts": [
-  "gen_deepslate_tile_stairs",
+  "adv_block_end_stone",
   "adv_item_decorated_pot",
-  "chicken_meat",
+  "gen_cracked_deepslate_tiles",
   "adv_block_stone_pickaxe"
  ],
  "requires": {
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate_tile_stairs"
+    "adv_block_end_stone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_tile_stairs",
+    "item": "minecraft:end_stone",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Endstein."
    }
   },
   {
@@ -39,17 +42,23 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:decorated_pot"
+   },
+   "clue": {
+    "de": "Benutze Verzierter Krug."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "chicken_meat"
+    "gen_cracked_deepslate_tiles"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cooked_chicken",
+    "item": "minecraft:cracked_deepslate_tiles",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Rissige Tiefenschieferfliesen."
    }
   }
  ],

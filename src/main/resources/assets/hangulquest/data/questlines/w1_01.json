@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1011,
  "concepts": [
-  "gen_mangrove_roots",
-  "gen_waxed_oxidized_copper_golem_statue",
-  "gen_birch_boat",
-  "gen_warped_pressure_plate"
+  "gen_netherite_shovel",
+  "gen_big_dripleaf",
+  "gen_brown_wool_stairs",
+  "gen_purple_terracotta"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,22 +21,25 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_roots"
+    "gen_netherite_shovel"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_roots",
+    "item": "minecraft:netherite_shovel",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Netheritschaufel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_oxidized_copper_golem_statue"
+    "gen_big_dripleaf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_golem_statue",
+    "block": "minecraft:big_dripleaf",
     "count": 2
    },
    "conditions": [
@@ -44,17 +47,23 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Großes Tropfblatt. Nachts."
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_birch_boat"
+    "gen_brown_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_boat",
+    "item": "minecraft:brown_wool_stairs",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Braune Wolltreppe."
    }
   }
  ],
@@ -62,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_pressure_plate"
+    "gen_purple_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_pressure_plate",
+    "block": "minecraft:purple_terracotta",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Violette Keramik."
+   }
   },
-  "textKo": "뒤틀린 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirrdruckplatte — Zeremonie vollendet."
+  "textKo": "보라색 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Violette Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_01",

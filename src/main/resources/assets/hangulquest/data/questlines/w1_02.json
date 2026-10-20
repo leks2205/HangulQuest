@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1012,
  "concepts": [
-  "gen_pale_oak_fence",
-  "gen_wildflowers",
-  "carpet",
-  "gen_cyan_candle_cake"
+  "gen_poplar_trapdoor",
+  "gen_dark_oak_sign",
+  "gen_mangrove_pressure_plate",
+  "gen_nether_brick_fence"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,34 +21,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_oak_fence"
+    "gen_poplar_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_fence",
+    "item": "minecraft:poplar_trapdoor",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Pappelholzfalltür."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_wildflowers"
+    "gen_dark_oak_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:wildflowers",
+    "block": "minecraft:dark_oak_sign",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Schwarzeichenholzschild."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "carpet"
+    "gen_mangrove_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_carpet",
+    "item": "minecraft:mangrove_pressure_plate",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Mangrovenholzdruckplatte."
    }
   }
  ],
@@ -56,17 +65,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_candle_cake"
+    "gen_nether_brick_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_candle_cake",
+    "block": "minecraft:nether_brick_fence",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Netherziegelzaun."
+   }
   },
-  "textKo": "청록색 초를 꽂은 케이크라는 길의 의식을 마쳤어요.",
-  "textDe": "Kuchen mit türkiser Kerze — Zeremonie vollendet."
+  "textKo": "네더 벽돌 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Netherziegelzaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_02",

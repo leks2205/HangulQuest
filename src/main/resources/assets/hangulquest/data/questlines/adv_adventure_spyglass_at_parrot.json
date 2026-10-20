@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 231,
  "concepts": [
-  "gen_cyan_glazed_terracotta",
+  "gen_dead_brain_coral_block",
   "gen_meadow",
   "parrot"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cyan_glazed_terracotta"
+    "gen_dead_brain_coral_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_glazed_terracotta",
+    "item": "minecraft:dead_brain_coral_block",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Abgestorbener Hirnkorallenblock."
    }
   },
   {
@@ -39,6 +42,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:meadow",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Alm."
    }
   }
  ],

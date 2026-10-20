@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 111,
  "concepts": [
-  "gen_iron_nugget",
+  "gen_lime_stained_glass_pane",
   "gen_trapped_chest",
   "ink_sac",
-  "gen_redstone_block"
+  "gen_red_shulker_box"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,12 +24,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_iron_nugget"
+    "gen_lime_stained_glass_pane"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_nugget",
+    "item": "minecraft:lime_stained_glass_pane",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Hellgrüne Glasscheibe."
    }
   },
   {
@@ -40,6 +43,9 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:trapped_chest"
+   },
+   "clue": {
+    "de": "Benutze Redstone-Truhe."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_redstone_block"
+    "gen_red_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:redstone_block",
+    "block": "minecraft:red_shulker_box",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Rote Shulker-Kiste."
+   }
   },
-  "textKo": "레드스톤 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Redstone-Block — Zeremonie vollendet."
+  "textKo": "빨간색 셜커 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Rote Shulker-Kiste — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bibliothekpfad",

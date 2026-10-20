@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1123,
  "concepts": [
-  "gen_andesite",
-  "gen_red_sandstone_wall",
-  "gen_lime_bed",
-  "gen_dark_oak_wall_hanging_sign"
+  "gen_andesite_wall",
+  "gen_medium_amethyst_bud",
+  "gen_white_terracotta",
+  "gen_waxed_oxidized_copper_grate"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_andesite"
+    "gen_andesite_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:andesite",
+    "block": "minecraft:andesite_wall",
     "count": 12
+   },
+   "clue": {
+    "de": "Platziere 12× Andesitmauer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_sandstone_wall"
+    "gen_medium_amethyst_bud"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_sandstone_wall",
+    "block": "minecraft:medium_amethyst_bud",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Mittlere Amethystknospe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_bed"
+    "gen_white_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_bed",
-    "count": 3
+    "block": "minecraft:white_terracotta",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Weiße Keramik."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_oak_wall_hanging_sign"
+    "gen_waxed_oxidized_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_wall_hanging_sign",
+    "block": "minecraft:waxed_oxidized_copper_grate",
     "count": 1
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "minY": 100,
      "maxY": 320
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Gewachster oxidierter Kupferrost. Zwischen Y 100 und 320."
+   }
   },
-  "textKo": "짙은 참나무 벽 매다는 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzeichenholzwandhängeschild — Zeremonie vollendet."
+  "textKo": "밀랍칠한 산화된 구리 격자라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster oxidierter Kupferrost — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_03",

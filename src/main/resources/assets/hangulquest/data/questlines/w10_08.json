@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1108,
  "concepts": [
-  "gen_waxed_weathered_copper_door",
+  "gen_warped_wart_block",
   "lever",
-  "zombie",
-  "gen_smooth_sandstone_slab"
+  "gen_pillager",
+  "gen_prismarine_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_copper_door"
+    "gen_warped_wart_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_copper_door",
+    "item": "minecraft:warped_wart_block",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Wirrwarzenblock."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "zombie"
+    "gen_pillager"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:zombie",
+    "entity": "minecraft:pillager",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Sieh dir Plünderer an."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_smooth_sandstone_slab"
+    "gen_prismarine_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_sandstone_slab",
+    "block": "minecraft:prismarine_brick_slab",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Prismarinziegelstufe."
+   }
   },
-  "textKo": "매끄러운 사암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Glatte Sandsteinstufe — Zeremonie vollendet."
+  "textKo": "프리즈머린 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Prismarinziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_08",

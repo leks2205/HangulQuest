@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 321,
  "concepts": [
-  "gen_resin_bricks",
+  "adv_item_bee_nest",
   "adv2_item_iron_helmet",
   "adv_item_iron_boots",
-  "gen_bamboo_shelf"
+  "gen_chainmail_helmet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_resin_bricks"
+    "adv_item_bee_nest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:resin_bricks",
+    "item": "minecraft:bee_nest",
     "count": 17
+   },
+   "clue": {
+    "de": "Sammle 17× Bienennest."
    }
   },
   {
@@ -72,17 +75,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bamboo_shelf"
+    "gen_chainmail_helmet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_shelf",
+    "item": "minecraft:chainmail_helmet",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Kettenhaube."
+   }
   },
-  "textKo": "대나무 선반라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusregal — Zeremonie vollendet."
+  "textKo": "사슬 투구라는 길의 의식을 마쳤어요.",
+  "textDe": "Kettenhaube — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",

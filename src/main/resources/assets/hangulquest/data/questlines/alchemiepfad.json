@@ -8,7 +8,7 @@
  "order": 103,
  "concepts": [
   "cauldron",
-  "gen_crimson_door",
+  "gen_cyan_stained_glass_pane",
   "sugar"
  ],
  "requires": {
@@ -36,12 +36,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_crimson_door"
+    "gen_cyan_stained_glass_pane"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_door",
+    "item": "minecraft:cyan_stained_glass_pane",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Türkise Glasscheibe."
    }
   },
   {

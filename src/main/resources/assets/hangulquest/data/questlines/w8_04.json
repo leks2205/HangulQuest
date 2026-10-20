@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1084,
  "concepts": [
-  "gen_yellow_stained_glass",
-  "gen_smooth_stone",
-  "gen_weathered_cut_copper_slab",
-  "gen_jungle_trapdoor"
+  "gen_cyan_concrete_powder",
+  "gen_yellow_glazed_terracotta",
+  "gen_mangrove_roots",
+  "gen_skull_pottery_sherd"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_stained_glass"
+    "gen_cyan_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_stained_glass",
-    "count": 1
+    "block": "minecraft:cyan_concrete_powder",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Türkiser Trockenbeton."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_stone"
+    "gen_yellow_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_stone",
+    "block": "minecraft:yellow_glazed_terracotta",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Gelbe glasierte Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_weathered_cut_copper_slab"
+    "gen_mangrove_roots"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_cut_copper_slab",
+    "item": "minecraft:mangrove_roots",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Mangrovenwurzeln."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_trapdoor"
+    "gen_skull_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_trapdoor",
+    "item": "minecraft:skull_pottery_sherd",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 4× Totenkopf-Töpferscherbe."
+   }
   },
-  "textKo": "정글나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzfalltür — Zeremonie vollendet."
+  "textKo": "해골 도자기 조각라는 길의 의식을 마쳤어요.",
+  "textDe": "Totenkopf-Töpferscherbe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_04",

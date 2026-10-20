@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1022,
  "concepts": [
-  "gen_brown_carpet",
-  "gen_short_grass",
-  "gen_white_terracotta",
-  "gen_mossy_stone_bricks"
+  "gen_brown_concrete",
+  "gen_terracotta",
+  "gen_oxidized_chiseled_copper",
+  "gen_blue_candle"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,34 +21,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_carpet"
+    "gen_brown_concrete"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:brown_carpet",
+    "block": "minecraft:brown_concrete",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Brauner Beton ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_short_grass"
+    "gen_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:short_grass",
+    "item": "minecraft:terracotta",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_terracotta"
+    "gen_oxidized_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_terracotta",
+    "block": "minecraft:oxidized_chiseled_copper",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Oxidierter gemeißelter Kupferblock."
    }
   }
  ],
@@ -56,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mossy_stone_bricks"
+    "gen_blue_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_stone_bricks",
+    "block": "minecraft:blue_candle",
     "count": 1
    },
    "conditions": [
@@ -68,10 +77,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Blaue Kerze. Nachts."
+   }
   },
-  "textKo": "밤에 이끼 낀 석재 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooste Steinziegel — Zeremonie vollendet."
+  "textKo": "밤에 파란색 초라는 길의 의식을 마쳤어요.",
+  "textDe": "Blaue Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_02",

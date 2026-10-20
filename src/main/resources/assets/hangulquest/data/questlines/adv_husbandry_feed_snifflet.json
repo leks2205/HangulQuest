@@ -8,7 +8,7 @@
  "order": 263,
  "concepts": [
   "adv_item_sniffer_egg",
-  "gen_sulfur_wall"
+  "gen_waxed_weathered_copper_bars"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -51,17 +51,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sulfur_wall"
+    "gen_waxed_weathered_copper_bars"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur_wall",
+    "item": "minecraft:waxed_weathered_copper_bars",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Gewachstes verwittertes Kupfergitter."
+   }
   },
-  "textKo": "유황 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwefelmauer — Zeremonie vollendet."
+  "textKo": "밀랍칠한 녹슨 구리 창살라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachstes verwittertes Kupfergitter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_feed_snifflet",

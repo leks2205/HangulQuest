@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 83,
  "concepts": [
-  "gen_oak_trapdoor",
-  "gen_bubble_coral_wall_fan",
-  "gen_moss_carpet"
+  "gen_observer",
+  "gen_cherry_boat",
+  "gen_open_eyeblossom"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oak_trapdoor"
+    "gen_observer"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_trapdoor",
+    "block": "minecraft:observer",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Beobachter ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bubble_coral_wall_fan"
+    "gen_cherry_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bubble_coral_wall_fan",
+    "item": "minecraft:cherry_boat",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Kirschholzboot."
    }
   }
  ],
@@ -47,17 +53,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_moss_carpet"
+    "gen_open_eyeblossom"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:moss_carpet",
+    "block": "minecraft:open_eyeblossom",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Geöffnete Augenblüte."
+   }
   },
-  "textKo": "이끼 바닥라는 길의 의식을 마쳤어요.",
-  "textDe": "Moosteppich — Zeremonie vollendet."
+  "textKo": "뜬 눈망울꽃라는 길의 의식을 마쳤어요.",
+  "textDe": "Geöffnete Augenblüte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "steinherz",

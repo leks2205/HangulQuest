@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 240,
  "concepts": [
-  "gen_birch_button",
-  "gen_mangrove_wall_hanging_sign",
+  "gen_birch_sign",
+  "gen_short_dry_grass",
   "adv_item_enchanted_book"
  ],
  "requires": {
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_birch_button"
+    "gen_birch_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_button",
+    "item": "minecraft:birch_sign",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Birkenholzschild."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_wall_hanging_sign"
+    "gen_short_dry_grass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_wall_hanging_sign",
+    "item": "minecraft:short_dry_grass",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Niedriges Trockengras."
    }
   }
  ],

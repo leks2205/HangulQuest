@@ -8,7 +8,7 @@
  "order": 107,
  "concepts": [
   "gen_windswept_forest",
-  "gen_endermite",
+  "gen_vex",
   "cocoa_beans",
   "jungle_log"
  ],
@@ -31,17 +31,23 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:windswept_forest",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Zerzauster Wald."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_endermite"
+    "gen_vex"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:endermite",
+    "entity": "minecraft:vex",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Plagegeist an."
    }
   },
   {

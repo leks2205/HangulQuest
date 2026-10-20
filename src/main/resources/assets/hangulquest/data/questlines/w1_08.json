@@ -8,9 +8,9 @@
  "order": 1018,
  "concepts": [
   "lantern",
-  "gen_cherry_wood",
-  "gen_furnace_minecart",
-  "gen_yellow_concrete_slab"
+  "gen_cobbled_deepslate_slab",
+  "gen_green_concrete_powder",
+  "gen_pale_oak_fence_gate"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,23 +39,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_wood"
+    "gen_cobbled_deepslate_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_wood",
+    "block": "minecraft:cobbled_deepslate_slab",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Bruchtiefenschieferstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_furnace_minecart"
+    "gen_green_concrete_powder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:furnace_minecart",
+    "item": "minecraft:green_concrete_powder",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Grüner Trockenbeton."
    }
   }
  ],
@@ -63,17 +69,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_yellow_concrete_slab"
+    "gen_pale_oak_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_concrete_slab",
+    "block": "minecraft:pale_oak_fence_gate",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Blasseichenholzzauntor."
+   }
   },
-  "textKo": "노란색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Gelbe Betonstufe — Zeremonie vollendet."
+  "textKo": "창백한 참나무 울타리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzzauntor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_08",

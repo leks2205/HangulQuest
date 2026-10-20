@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 340,
  "concepts": [
-  "gen_stone_slab",
-  "gen_mangrove_roots",
-  "gen_dead_fire_coral_wall_fan",
-  "gen_mossy_stone_brick_slab"
+  "gen_yellow_candle",
+  "gen_warped_fence",
+  "gen_medium_amethyst_bud",
+  "gen_weathered_copper_grate"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stone_slab"
+    "gen_yellow_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_slab",
-    "count": 1
+    "block": "minecraft:yellow_candle",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Gelbe Kerze."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_roots"
+    "gen_warped_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_roots",
-    "count": 2
+    "block": "minecraft:warped_fence",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Wirrzaun."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dead_fire_coral_wall_fan"
+    "gen_medium_amethyst_bud"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_fire_coral_wall_fan",
+    "item": "minecraft:medium_amethyst_bud",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Mittlere Amethystknospe."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mossy_stone_brick_slab"
+    "gen_weathered_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_stone_brick_slab",
+    "block": "minecraft:weathered_copper_grate",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Verwitterter Kupferrost. Nachts."
+   }
   },
-  "textKo": "밤에 이끼 낀 석재 벽돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooste Steinziegelstufe — Zeremonie vollendet."
+  "textKo": "밤에 녹슨 구리 격자라는 길의 의식을 마쳤어요.",
+  "textDe": "Verwitterter Kupferrost — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weidepfad",

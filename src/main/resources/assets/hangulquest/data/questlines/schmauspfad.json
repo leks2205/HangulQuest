@@ -6,8 +6,8 @@
  "tier": 2,
  "order": 502,
  "concepts": [
-  "gen_cherry_log",
-  "gen_end_rod",
+  "gen_cinnabar_brick_stairs",
+  "gen_frogspawn",
   "fox",
   "gen_glow_berries"
  ],
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_log"
+    "gen_cinnabar_brick_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_log",
+    "item": "minecraft:cinnabar_brick_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Zinnoberziegeltreppe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_end_rod"
+    "gen_frogspawn"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:end_rod",
+    "block": "minecraft:frogspawn",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Froschlaich."
    }
   },
   {
@@ -50,6 +56,9 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:sweet_berries",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Süßbeeren."
    }
   }
  ],
@@ -69,7 +78,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Iss Leuchtbeeren. Nachts."
+   }
   },
   "textKo": "밤에 발광 열매라는 길의 의식을 마쳤어요.",
   "textDe": "Leuchtbeeren — Zeremonie vollendet."

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 149,
  "concepts": [
-  "witch",
+  "gen_tadpole",
   "seagrass",
   "turtle_egg"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "witch"
+    "gen_tadpole"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:witch",
+    "entity": "minecraft:tadpole",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Kaulquappe an."
    }
   },
   {

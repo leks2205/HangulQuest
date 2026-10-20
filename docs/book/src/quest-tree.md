@@ -21,11 +21,11 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 576 | place a block |
+| `PLACE_BLOCK` | 574 | place a block |
 | `ACQUIRE_ITEM` | 511 | collect an item |
 | `BREAK_BLOCK` | 88 | break a block |
-| `LOOK_AT_ENTITY` | 70 | look at a mob |
-| `USE_BLOCK` | 62 | use a block |
+| `LOOK_AT_ENTITY` | 71 | look at a mob |
+| `USE_BLOCK` | 63 | use a block |
 | `LOOK_AT_BLOCK` | 61 | look at a block |
 | `REACH_BIOME` | 58 | reach a biome |
 | `DEFEAT_ENTITY` | 37 | defeat a mob |

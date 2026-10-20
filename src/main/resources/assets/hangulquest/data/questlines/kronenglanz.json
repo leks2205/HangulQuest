@@ -7,9 +7,9 @@
  "tier": 5,
  "order": 73,
  "concepts": [
-  "gen_wooden_shovel",
-  "gen_calibrated_sculk_sensor",
-  "gen_gray_stained_glass_pane"
+  "gen_copper_block",
+  "gen_horn_coral_fan",
+  "gen_stripped_pale_oak_wood"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -28,22 +28,25 @@
   {
    "id": "s1",
    "teach": [
-    "gen_wooden_shovel"
+    "gen_copper_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wooden_shovel",
+    "item": "minecraft:copper_block",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Kupferblock."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_calibrated_sculk_sensor"
+    "gen_horn_coral_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:calibrated_sculk_sensor",
+    "block": "minecraft:horn_coral_fan",
     "count": 3
    },
    "conditions": [
@@ -51,29 +54,35 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Geweihkorallenfächer. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_stained_glass_pane"
+    "gen_stripped_pale_oak_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_stained_glass_pane",
-    "count": 3
+    "block": "minecraft:stripped_pale_oak_wood",
+    "count": 2
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Entrindetes Blasseichenholz. Nachts."
+   }
   },
-  "textKo": "밤에 회색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Graue Glasscheibe — Zeremonie vollendet."
+  "textKo": "밤에 껍질 벗긴 창백한 참나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindetes Blasseichenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenglanz",

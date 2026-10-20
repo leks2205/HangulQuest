@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 544,
  "concepts": [
-  "gen_cherry_planks",
-  "gen_sulfur_spike",
-  "beehive",
-  "gen_pink_dye"
+  "gen_chiseled_nether_bricks",
+  "gen_waxed_copper_golem_statue",
+  "gen_white_shulker_box",
+  "gen_gray_concrete"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,33 +23,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_planks"
+    "gen_chiseled_nether_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_planks",
+    "block": "minecraft:chiseled_nether_bricks",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Gemeißelte Netherziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_sulfur_spike"
+    "gen_waxed_copper_golem_statue"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_spike",
+    "block": "minecraft:waxed_copper_golem_statue",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Gewachste Kupfergolemstatue."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "beehive"
+    "gen_white_shulker_box"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:beehive"
+    "block": "minecraft:white_shulker_box"
+   },
+   "clue": {
+    "de": "Benutze Weiße Shulker-Kiste."
    }
   }
  ],
@@ -57,17 +66,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pink_dye"
+    "gen_gray_concrete"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_dye",
+    "item": "minecraft:gray_concrete",
     "count": 6
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 6× Grauer Beton."
+   }
   },
-  "textKo": "분홍색 염료라는 길의 의식을 마쳤어요.",
-  "textDe": "Rosa Farbstoff — Zeremonie vollendet."
+  "textKo": "회색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Grauer Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "hafenwacht",

@@ -9,7 +9,7 @@
  "concepts": [
   "anvil",
   "iron",
-  "bell"
+  "gen_birch_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -61,17 +61,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "gen_birch_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bell",
+    "item": "minecraft:birch_pressure_plate",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Birkenholzdruckplatte."
+   }
   },
-  "textKo": "종라는 길의 의식을 마쳤어요.",
-  "textDe": "Glocke — Zeremonie vollendet."
+  "textKo": "자작나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_07",

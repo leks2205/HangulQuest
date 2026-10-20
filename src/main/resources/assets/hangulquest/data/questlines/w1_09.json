@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 1019,
  "concepts": [
-  "gen_open_eyeblossom",
-  "gen_deepslate_tiles",
-  "gen_red_candle_cake",
+  "gen_pointed_dripstone",
+  "gen_ender_chest",
+  "gen_spruce_hanging_sign",
   "lectern"
  ],
  "requires": {
@@ -21,34 +21,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_open_eyeblossom"
+    "gen_pointed_dripstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:open_eyeblossom",
+    "item": "minecraft:pointed_dripstone",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Spitzer Tropfstein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_deepslate_tiles"
+    "gen_ender_chest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_tiles",
+    "item": "minecraft:ender_chest",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Endertruhe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_red_candle_cake"
+    "gen_spruce_hanging_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_candle_cake",
+    "item": "minecraft:spruce_hanging_sign",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Fichtenholzhängeschild."
    }
   }
  ],

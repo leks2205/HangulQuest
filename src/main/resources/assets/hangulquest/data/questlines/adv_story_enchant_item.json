@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 312,
  "concepts": [
-  "gen_red_concrete_stairs",
+  "gen_snowy_village_map",
   "enchanting_table",
   "gen_ender_chest",
-  "adv_block_end_stone"
+  "gen_frogspawn"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_concrete_stairs"
+    "gen_snowy_village_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_concrete_stairs",
+    "item": "minecraft:snowy_village_map",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Schneedorfkarte."
    }
   },
   {
@@ -57,6 +60,9 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:ender_chest"
+   },
+   "clue": {
+    "de": "Benutze Endertruhe."
    }
   }
  ],
@@ -64,17 +70,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_end_stone"
+    "gen_frogspawn"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_stone",
+    "item": "minecraft:frogspawn",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Froschlaich."
+   }
   },
-  "textKo": "엔드 돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Endstein — Zeremonie vollendet."
+  "textKo": "개구리알라는 길의 의식을 마쳤어요.",
+  "textDe": "Froschlaich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_enchant_item",

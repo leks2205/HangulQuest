@@ -5,10 +5,10 @@
  "titleDe": "Das Waldhaus",
  "tier": 3,
  "concepts": [
-  "gen_cracked_polished_blackstone_bricks",
-  "gen_dripstone_block",
-  "gen_bamboo_wall_hanging_sign",
-  "gen_crimson_fence_gate"
+  "gen_purple_concrete",
+  "gen_brown_glazed_terracotta",
+  "gen_cobblestone_wall",
+  "gen_azure_bluet"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -22,34 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cracked_polished_blackstone_bricks"
+    "gen_purple_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_polished_blackstone_bricks",
+    "block": "minecraft:purple_concrete",
     "count": 8
+   },
+   "clue": {
+    "de": "Platziere 8× Violetter Beton."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dripstone_block"
+    "gen_brown_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dripstone_block",
+    "block": "minecraft:brown_glazed_terracotta",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Braune glasierte Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_bamboo_wall_hanging_sign"
+    "gen_cobblestone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_wall_hanging_sign",
+    "block": "minecraft:cobblestone_wall",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Bruchsteinmauer."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_fence_gate"
+    "gen_azure_bluet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_fence_gate",
+    "block": "minecraft:azure_bluet",
     "count": 1
    },
    "conditions": [
@@ -69,10 +78,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Porzellansternchen. Nachts."
+   }
   },
-  "textKo": "밤에 진홍빛 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Karmesinzauntor — Zeremonie vollendet."
+  "textKo": "밤에 선애기별꽃라는 길의 의식을 마쳤어요.",
+  "textDe": "Porzellansternchen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "waldhaus",

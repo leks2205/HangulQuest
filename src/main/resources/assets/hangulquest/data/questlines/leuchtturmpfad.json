@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 112,
  "concepts": [
-  "gen_magenta_concrete_powder",
-  "gen_green_banner",
+  "gen_mud_brick_slab",
+  "gen_infested_mossy_stone_bricks",
   "gen_savanna_plateau",
-  "gen_poplar_wood"
+  "gen_red_mushroom_block"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,23 +24,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_concrete_powder"
+    "gen_mud_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_concrete_powder",
+    "block": "minecraft:mud_brick_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Schlammziegelstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_green_banner"
+    "gen_infested_mossy_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:green_banner",
+    "block": "minecraft:infested_mossy_stone_bricks",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Befallene bemooste Steinziegel."
    }
   },
   {
@@ -52,6 +58,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:savanna_plateau",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Savannenhochebene."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_wood"
+    "gen_red_mushroom_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_wood",
+    "block": "minecraft:red_mushroom_block",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Roter Pilzblock."
+   }
   },
-  "textKo": "포플러나무라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholz — Zeremonie vollendet."
+  "textKo": "빨간색 버섯 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Roter Pilzblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "leuchtturmpfad",

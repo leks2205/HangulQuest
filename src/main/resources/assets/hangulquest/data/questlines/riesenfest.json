@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 531,
  "concepts": [
-  "fish",
-  "gen_strider",
-  "gen_red_shrub",
-  "gen_dark_oak_fence_gate"
+  "gen_dried_kelp",
+  "gen_piglin_brute",
+  "gen_weathered_copper_bulb",
+  "gen_pale_oak_fence"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -26,34 +26,43 @@
   {
    "id": "s1",
    "teach": [
-    "fish"
+    "gen_dried_kelp"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:tropical_fish",
+    "item": "minecraft:dried_kelp",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Getrockneter Seetang."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_strider"
+    "gen_piglin_brute"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:strider",
+    "entity": "minecraft:piglin_brute",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Piglin-Barbar an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_red_shrub"
+    "gen_weathered_copper_bulb"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_shrub",
+    "block": "minecraft:weathered_copper_bulb",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Verwitterte Kupferleuchte."
    }
   }
  ],
@@ -61,22 +70,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_oak_fence_gate"
+    "gen_pale_oak_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_fence_gate",
-    "count": 2
+    "block": "minecraft:pale_oak_fence",
+    "count": 3
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Blasseichenholzzaun. Tagsüber."
+   }
   },
-  "textKo": "낮에 짙은 참나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzeichenholzzauntor — Zeremonie vollendet."
+  "textKo": "낮에 창백한 참나무 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzzaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "riesenfest",

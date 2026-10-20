@@ -10,7 +10,7 @@
   "moon",
   "night",
   "gen_cherry_grove",
-  "gen_warped_planks"
+  "gen_weathered_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -67,6 +67,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:cherry_grove",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Kirschberghain."
    }
   }
  ],
@@ -74,17 +77,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_planks"
+    "gen_weathered_copper_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_planks",
+    "block": "minecraft:weathered_copper_trapdoor",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Verwitterte Kupferfalltür."
+   }
   },
-  "textKo": "뒤틀린 판자라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirrbretter — Zeremonie vollendet."
+  "textKo": "녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Verwitterte Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_02",

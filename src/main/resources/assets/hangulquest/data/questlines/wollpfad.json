@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 44,
  "concepts": [
-  "gen_andesite_wall",
+  "gen_bamboo_door",
   "wool",
   "shears",
-  "gen_bamboo_fence"
+  "gen_bamboo_planks"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_andesite_wall"
+    "gen_bamboo_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:andesite_wall",
+    "block": "minecraft:bamboo_door",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Bambustür."
    }
   },
   {
@@ -56,17 +59,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bamboo_fence"
+    "gen_bamboo_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_fence",
+    "block": "minecraft:bamboo_planks",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Bambusbretter."
+   }
   },
-  "textKo": "대나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambuszaun — Zeremonie vollendet."
+  "textKo": "대나무 판자라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambusbretter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wollpfad",

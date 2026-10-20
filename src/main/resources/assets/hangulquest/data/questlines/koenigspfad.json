@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 540,
  "concepts": [
-  "gen_cherry_sapling",
+  "gen_cinnabar_stairs",
   "gen_beetroot",
-  "gen_spruce_sign",
-  "gen_spruce_slab"
+  "gen_terracotta",
+  "gen_test_block"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,12 +24,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_sapling"
+    "gen_cinnabar_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_sapling",
+    "item": "minecraft:cinnabar_stairs",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Zinnobertreppe."
    }
   },
   {
@@ -41,17 +44,23 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:beetroot",
     "count": 1
+   },
+   "clue": {
+    "de": "Iss Rote Bete."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_sign"
+    "gen_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_sign",
+    "block": "minecraft:terracotta",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Keramik."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_slab"
+    "gen_test_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_slab",
+    "block": "minecraft:test_block",
     "count": 3
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Testblock. Nachts."
+   }
   },
-  "textKo": "밤에 가문비나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzstufe — Zeremonie vollendet."
+  "textKo": "밤에 테스트 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Testblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "koenigspfad",

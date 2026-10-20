@@ -8,8 +8,8 @@
  "concepts": [
   "gen_sulfur_caves",
   "gen_acacia_slab",
-  "gen_oxidized_copper_chest",
-  "gen_jungle_fence"
+  "gen_gray_wool",
+  "gen_pink_concrete"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -29,6 +29,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:sulfur_caves",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Schwefelhöhlen."
    }
   },
   {
@@ -40,16 +43,19 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:acacia_slab",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Akazienholzstufe an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oxidized_copper_chest"
+    "gen_gray_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_chest",
+    "block": "minecraft:gray_wool",
     "count": 3
    },
    "conditions": [
@@ -57,18 +63,21 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Graue Wolle. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_fence"
+    "gen_pink_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_fence",
+    "block": "minecraft:pink_concrete",
     "count": 1
    },
    "conditions": [
@@ -80,10 +89,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Rosa Beton. In einem passenden Biom. Nachts."
+   }
   },
-  "textKo": "산 지형에서 밤에 정글나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzzaun — Zeremonie vollendet."
+  "textKo": "산 지형에서 밤에 분홍색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gipfelblick",

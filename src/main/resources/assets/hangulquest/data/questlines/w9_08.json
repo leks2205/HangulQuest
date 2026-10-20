@@ -9,7 +9,7 @@
  "concepts": [
   "bookshelf",
   "lectern",
-  "gen_stripped_acacia_log"
+  "gen_waxed_weathered_cut_copper_stairs"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -61,17 +61,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_acacia_log"
+    "gen_waxed_weathered_cut_copper_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_acacia_log",
+    "item": "minecraft:waxed_weathered_cut_copper_stairs",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Gewachste verwitterte geschnittene Kupfertreppe."
+   }
   },
-  "textKo": "껍질 벗긴 아카시아나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet."
+  "textKo": "밀랍칠한 녹슨 깎인 구리 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste verwitterte geschnittene Kupfertreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_08",

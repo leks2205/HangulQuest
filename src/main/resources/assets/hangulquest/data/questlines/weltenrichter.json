@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 126,
  "concepts": [
-  "gen_stripped_warped_hyphae",
-  "gen_bamboo_block",
-  "gen_set_spawn",
-  "gen_quartz_stairs"
+  "gen_red_concrete",
+  "gen_tuff_brick_wall",
+  "gen_exposed_chiseled_copper",
+  "gen_red_sandstone_slab"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_warped_hyphae"
+    "gen_red_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_warped_hyphae",
-    "count": 3
+    "block": "minecraft:red_concrete",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Roter Beton."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bamboo_block"
+    "gen_tuff_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_block",
-    "count": 2
+    "block": "minecraft:tuff_brick_wall",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Tuffsteinziegelmauer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_set_spawn"
+    "gen_exposed_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:set_spawn",
+    "block": "minecraft:exposed_chiseled_copper",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Angelaufener gemeißelter Kupferblock."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_quartz_stairs"
+    "gen_red_sandstone_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:quartz_stairs",
+    "item": "minecraft:red_sandstone_slab",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Rote Sandsteinstufe."
+   }
   },
-  "textKo": "석영 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Quarztreppe — Zeremonie vollendet."
+  "textKo": "붉은 사암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Rote Sandsteinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltenrichter",

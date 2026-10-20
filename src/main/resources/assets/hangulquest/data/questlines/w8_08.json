@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1088,
  "concepts": [
-  "sea_lantern",
-  "gen_brown_carpet",
-  "gen_mud_bricks",
-  "gen_crimson_fungus"
+  "gen_tall_grass",
+  "gen_deepslate_lapis_ore",
+  "gen_birch_sapling",
+  "gen_yellow_banner"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "sea_lantern"
+    "gen_tall_grass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sea_lantern",
+    "item": "minecraft:tall_grass",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Hohes Gras."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_carpet"
+    "gen_deepslate_lapis_ore"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_carpet",
+    "block": "minecraft:deepslate_lapis_ore",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Tiefenschiefer-Lapislazulierz."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mud_bricks"
+    "gen_birch_sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mud_bricks",
-    "count": 1
+    "block": "minecraft:birch_sapling",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Birkensetzling."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_fungus"
+    "gen_yellow_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_fungus",
+    "block": "minecraft:yellow_banner",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Gelbes Banner."
+   }
   },
-  "textKo": "진홍빛 균라는 길의 의식을 마쳤어요.",
-  "textDe": "Karmesinpilz — Zeremonie vollendet."
+  "textKo": "노란색 현수막라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelbes Banner — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_08",

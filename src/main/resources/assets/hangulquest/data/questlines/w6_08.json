@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1068,
  "concepts": [
-  "gen_attached_melon_stem",
-  "gen_brain_coral",
-  "gen_copper_nautilus_armor",
-  "gen_skeleton_skull"
+  "gen_bamboo_button",
+  "gen_brown_shulker_box",
+  "gen_cut_copper_stairs",
+  "gen_tube_coral_block"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_attached_melon_stem"
+    "gen_bamboo_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:attached_melon_stem",
+    "item": "minecraft:bamboo_button",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Bambusknopf."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brain_coral"
+    "gen_brown_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral",
+    "block": "minecraft:brown_shulker_box",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Braune Shulker-Kiste."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_copper_nautilus_armor"
+    "gen_cut_copper_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_nautilus_armor",
+    "item": "minecraft:cut_copper_stairs",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Geschnittene Kupfertreppe."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_skeleton_skull"
+    "gen_tube_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:skeleton_skull",
+    "block": "minecraft:tube_coral_block",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Orgelkorallenblock."
+   }
   },
-  "textKo": "스켈레톤 해골라는 길의 의식을 마쳤어요.",
-  "textDe": "Skelettschädel — Zeremonie vollendet."
+  "textKo": "관 산호 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Orgelkorallenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_08",

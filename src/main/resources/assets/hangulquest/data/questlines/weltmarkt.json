@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 525,
  "concepts": [
-  "gen_cobweb",
-  "gen_brown_dye",
-  "gen_purple_wool",
-  "gen_smooth_stone_slab"
+  "gen_copper_spear",
+  "gen_cactus_flower",
+  "gen_snort_pottery_sherd",
+  "gen_kelp"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cobweb"
+    "gen_copper_spear"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cobweb",
+    "item": "minecraft:copper_spear",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Kupferspeer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_dye"
+    "gen_cactus_flower"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_dye",
+    "item": "minecraft:cactus_flower",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Kaktusblüte."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_purple_wool"
+    "gen_snort_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_wool",
+    "item": "minecraft:snort_pottery_sherd",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Schnaub-Töpferscherbe."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_smooth_stone_slab"
+    "gen_kelp"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_stone_slab",
+    "block": "minecraft:kelp",
     "count": 3
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Seetang. Tagsüber."
+   }
   },
-  "textKo": "낮에 매끄러운 돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Glatte Steinstufe — Zeremonie vollendet."
+  "textKo": "낮에 켈프라는 길의 의식을 마쳤어요.",
+  "textDe": "Seetang — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltmarkt",

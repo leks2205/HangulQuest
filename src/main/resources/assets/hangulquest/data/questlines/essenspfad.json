@@ -8,7 +8,7 @@
   "apple",
   "bread",
   "cow",
-  "gen_chipped_anvil"
+  "gen_spruce_door"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -77,21 +77,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chipped_anvil"
+    "gen_spruce_door"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:chipped_anvil"
+    "block": "minecraft:spruce_door"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Fichtenholztür. Nachts."
+   }
   },
-  "textKo": "밤에 금 간 모루라는 길의 의식을 마쳤어요.",
-  "textDe": "Angeschlagener Amboss — Zeremonie vollendet."
+  "textKo": "밤에 가문비나무 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Fichtenholztür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "essenspfad",

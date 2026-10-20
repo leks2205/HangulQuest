@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 124,
  "concepts": [
-  "gen_netherite_leggings",
-  "gen_chiseled_tuff_bricks",
-  "gen_rail",
-  "gen_cornflower"
+  "gen_pale_oak_sign",
+  "gen_sulfur_slab",
+  "gen_cherry_planks",
+  "gen_crimson_hyphae"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_netherite_leggings"
+    "gen_pale_oak_sign"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_leggings",
+    "item": "minecraft:pale_oak_sign",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Blasseichenholzschild."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_tuff_bricks"
+    "gen_sulfur_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_tuff_bricks",
+    "block": "minecraft:sulfur_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Schwefelstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_rail"
+    "gen_cherry_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:rail",
+    "block": "minecraft:cherry_planks",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Kirschholzbretter."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cornflower"
+    "gen_crimson_hyphae"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cornflower",
+    "block": "minecraft:crimson_hyphae",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Karmesinhyphen."
+   }
   },
-  "textKo": "수레국화라는 길의 의식을 마쳤어요.",
-  "textDe": "Kornblume — Zeremonie vollendet."
+  "textKo": "진홍빛 균사라는 길의 의식을 마쳤어요.",
+  "textDe": "Karmesinhyphen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "runenpfad",

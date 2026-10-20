@@ -8,7 +8,7 @@
  "order": 248,
  "concepts": [
   "ender_dragon",
-  "gen_black_wool_slab",
+  "gen_blue_banner",
   "dragon_egg"
  ],
  "requires": {
@@ -36,12 +36,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_black_wool_slab"
+    "gen_blue_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_wool_slab",
+    "block": "minecraft:blue_banner",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Blaues Banner."
    }
   }
  ],

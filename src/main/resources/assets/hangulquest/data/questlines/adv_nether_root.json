@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_flint_and_steel",
   "obsidian",
-  "loom"
+  "gen_mangrove_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -58,17 +58,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "loom"
+    "gen_mangrove_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:loom",
+    "block": "minecraft:mangrove_trapdoor",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Mangrovenholzfalltür."
+   }
   },
-  "textKo": "베틀라는 길의 의식을 마쳤어요.",
-  "textDe": "Webstuhl — Zeremonie vollendet."
+  "textKo": "맹그로브나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Mangrovenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_root",

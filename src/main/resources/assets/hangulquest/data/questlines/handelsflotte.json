@@ -8,8 +8,8 @@
  "order": 116,
  "concepts": [
   "gen_bamboo_jungle",
-  "gen_oak_button",
-  "gen_black_carpet",
+  "gen_oak_trapdoor",
+  "gen_hanging_roots",
   "sea_lantern"
  ],
  "requires": {
@@ -30,27 +30,36 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:bamboo_jungle",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Bambusdschungel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_button"
+    "gen_oak_trapdoor"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:oak_button"
+    "block": "minecraft:oak_trapdoor"
+   },
+   "clue": {
+    "de": "Benutze Eichenholzfalltür."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_black_carpet"
+    "gen_hanging_roots"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:black_carpet",
+    "item": "minecraft:hanging_roots",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Hängende Wurzeln."
    }
   }
  ],

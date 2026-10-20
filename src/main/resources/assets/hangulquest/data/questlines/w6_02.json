@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1062,
  "concepts": [
-  "gen_spore_blossom",
+  "gen_waxed_chiseled_copper",
   "dandelion",
   "mushroom",
-  "gen_cobbled_deepslate_slab"
+  "gen_soul_soil"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_spore_blossom"
+    "gen_waxed_chiseled_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spore_blossom",
+    "item": "minecraft:waxed_chiseled_copper",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Gewachster gemeißelter Kupferblock."
    }
   },
   {
@@ -72,17 +75,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cobbled_deepslate_slab"
+    "gen_soul_soil"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cobbled_deepslate_slab",
+    "block": "minecraft:soul_soil",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Seelenerde."
+   }
   },
-  "textKo": "심층암 조약돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bruchtiefenschieferstufe — Zeremonie vollendet."
+  "textKo": "영혼 흙라는 길의 의식을 마쳤어요.",
+  "textDe": "Seelenerde — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_02",

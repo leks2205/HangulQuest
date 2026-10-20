@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1113,
  "concepts": [
-  "gen_cave_vines",
-  "gen_sulfur_spike",
-  "gen_weathered_chiseled_copper",
-  "stone"
+  "gen_chiseled_deepslate",
+  "gen_waxed_oxidized_copper_golem_statue",
+  "gen_emerald_ore",
+  "gen_waxed_copper_lantern"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cave_vines"
+    "gen_chiseled_deepslate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cave_vines",
+    "item": "minecraft:chiseled_deepslate",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gemeißelter Tiefenschiefer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_sulfur_spike"
+    "gen_waxed_oxidized_copper_golem_statue"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur_spike",
+    "item": "minecraft:waxed_oxidized_copper_golem_statue",
     "count": 18
+   },
+   "clue": {
+    "de": "Sammle 18× Gewachste oxidierte Kupfergolemstatue."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_weathered_chiseled_copper"
+    "gen_emerald_ore"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_chiseled_copper",
+    "block": "minecraft:emerald_ore",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Smaragderz."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "stone"
+    "gen_waxed_copper_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stone",
+    "block": "minecraft:waxed_copper_lantern",
     "count": 16
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 16× Gewachste Kupferlaterne."
+   }
   },
-  "textKo": "돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Stein — Zeremonie vollendet."
+  "textKo": "밀랍칠한 구리 랜턴라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste Kupferlaterne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_03",

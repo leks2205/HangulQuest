@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1027,
  "concepts": [
-  "gen_mossy_stone_bricks",
-  "gen_dragon_wall_head",
+  "gen_mud_brick_wall",
+  "gen_pale_oak_button",
   "milk",
-  "gen_glow_lichen"
+  "gen_green_wool_slab"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mossy_stone_bricks"
+    "gen_mud_brick_wall"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:mossy_stone_bricks",
+    "block": "minecraft:mud_brick_wall",
     "count": 5
+   },
+   "clue": {
+    "de": "Baue 5× Schlammziegelmauer ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dragon_wall_head"
+    "gen_pale_oak_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dragon_wall_head",
+    "block": "minecraft:pale_oak_button",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Blasseichenholzknopf."
    }
   },
   {
@@ -64,11 +70,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_glow_lichen"
+    "gen_green_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:glow_lichen",
+    "block": "minecraft:green_wool_slab",
     "count": 1
    },
    "conditions": [
@@ -76,10 +82,13 @@
      "type": "TIME",
      "phase": "DAWN"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Grüne Wollstufe. Im Morgengrauen."
+   }
   },
-  "textKo": "새벽에 발광 이끼라는 길의 의식을 마쳤어요.",
-  "textDe": "Leuchtflechte — Zeremonie vollendet."
+  "textKo": "새벽에 초록색 양털 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne Wollstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_07",

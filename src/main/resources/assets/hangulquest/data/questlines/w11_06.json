@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1116,
  "concepts": [
-  "gen_waxed_oxidized_copper_trapdoor",
-  "gen_oak_chest_boat",
-  "gen_waxed_exposed_cut_copper_slab",
+  "gen_horn_coral",
+  "gen_raw_copper",
+  "gen_poisonous_potato",
   "adv_item_dragon_head"
  ],
  "requires": {
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_trapdoor"
+    "gen_horn_coral"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_trapdoor",
+    "block": "minecraft:horn_coral",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Geweihkoralle."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_chest_boat"
+    "gen_raw_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_chest_boat",
+    "item": "minecraft:raw_copper",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Rohkupfer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_exposed_cut_copper_slab"
+    "gen_poisonous_potato"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_cut_copper_slab",
+    "item": "minecraft:poisonous_potato",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Giftige Kartoffel."
    }
   }
  ],

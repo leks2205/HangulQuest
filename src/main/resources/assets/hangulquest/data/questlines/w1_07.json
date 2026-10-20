@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1017,
  "concepts": [
-  "gen_blue_bundle",
-  "gen_cut_red_sandstone",
+  "gen_blue_stained_glass_pane",
+  "gen_dark_oak_sapling",
   "amethyst_block",
-  "gen_tall_grass"
+  "gen_golden_nautilus_armor"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blue_bundle"
+    "gen_blue_stained_glass_pane"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_bundle",
+    "item": "minecraft:blue_stained_glass_pane",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Blaue Glasscheibe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cut_red_sandstone"
+    "gen_dark_oak_sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cut_red_sandstone",
+    "block": "minecraft:dark_oak_sapling",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Schwarzeichensetzling."
    }
   },
   {
@@ -63,17 +69,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tall_grass"
+    "gen_golden_nautilus_armor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tall_grass",
+    "item": "minecraft:golden_nautilus_armor",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 2× Goldener Nautiluspanzer."
+   }
   },
-  "textKo": "키 큰 잔디라는 길의 의식을 마쳤어요.",
-  "textDe": "Hohes Gras — Zeremonie vollendet."
+  "textKo": "금 앵무조개 갑옷라는 길의 의식을 마쳤어요.",
+  "textDe": "Goldener Nautiluspanzer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_07",

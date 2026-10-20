@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 119,
  "concepts": [
-  "gen_orange_concrete_slab",
-  "gen_mossy_stone_brick_stairs",
-  "gen_gray_candle_cake",
+  "gen_pale_oak_shelf",
+  "gen_oak_stairs",
+  "gen_spruce_leaves",
   "anvil"
  ],
  "requires": {
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_orange_concrete_slab"
+    "gen_pale_oak_shelf"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_concrete_slab",
+    "block": "minecraft:pale_oak_shelf",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Blasseichenholzregal."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mossy_stone_brick_stairs"
+    "gen_oak_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_stone_brick_stairs",
+    "item": "minecraft:oak_stairs",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Eichenholztreppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_gray_candle_cake"
+    "gen_spruce_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_candle_cake",
+    "block": "minecraft:spruce_leaves",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Fichtennadeln."
    }
   }
  ],

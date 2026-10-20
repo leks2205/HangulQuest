@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 160,
  "concepts": [
-  "gen_magenta_concrete_slab",
+  "gen_muddy_mangrove_roots",
   "chiseled_stone_bricks",
-  "gen_exposed_chiseled_copper",
+  "gen_conduit",
   "stone_bricks"
  ],
  "requires": {
@@ -24,12 +24,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_concrete_slab"
+    "gen_muddy_mangrove_roots"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_concrete_slab",
+    "block": "minecraft:muddy_mangrove_roots",
     "count": 8
+   },
+   "clue": {
+    "de": "Platziere 8× Schlammige Mangrovenwurzeln."
    }
   },
   {
@@ -53,12 +56,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_chiseled_copper"
+    "gen_conduit"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_chiseled_copper",
-    "count": 1
+    "block": "minecraft:conduit",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Aquisator."
    }
   }
  ],

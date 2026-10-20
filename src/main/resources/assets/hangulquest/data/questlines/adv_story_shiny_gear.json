@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 323,
  "concepts": [
-  "gen_gray_wool_slab",
+  "gen_iron_nautilus_armor",
   "adv2_item_diamond_helmet",
-  "gen_sulfur_slab",
-  "gen_yellow_wool_stairs"
+  "gen_waxed_weathered_copper_chest",
+  "bell"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_gray_wool_slab"
+    "gen_iron_nautilus_armor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_wool_slab",
+    "item": "minecraft:iron_nautilus_armor",
     "count": 17
+   },
+   "clue": {
+    "de": "Sammle 17× Eiserner Nautiluspanzer."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_sulfur_slab"
+    "gen_waxed_weathered_copper_chest"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur_slab",
+    "item": "minecraft:waxed_weathered_copper_chest",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachste verwitterte Kupfertruhe."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_yellow_wool_stairs"
+    "bell"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:yellow_wool_stairs",
+    "item": "minecraft:bell",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Glocke."
+   }
   },
-  "textKo": "노란색 양털 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Gelbe Wolltreppe — Zeremonie vollendet."
+  "textKo": "종라는 길의 의식을 마쳤어요.",
+  "textDe": "Glocke — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_shiny_gear",

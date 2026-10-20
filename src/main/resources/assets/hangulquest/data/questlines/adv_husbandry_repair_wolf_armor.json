@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 275,
  "concepts": [
-  "gen_dark_oak_sign",
-  "gen_amethyst_cluster",
-  "gen_allay"
+  "gen_green_banner",
+  "gen_deepslate_redstone_ore",
+  "gen_wandering_trader"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_sign"
+    "gen_green_banner"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_sign",
+    "item": "minecraft:green_banner",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Grünes Banner."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_amethyst_cluster"
+    "gen_deepslate_redstone_ore"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:amethyst_cluster",
+    "item": "minecraft:deepslate_redstone_ore",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Tiefenschiefer-Redstone-Erz."
    }
   }
  ],
@@ -46,16 +52,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_allay"
+    "gen_wandering_trader"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:allay"
+    "entity": "minecraft:wandering_trader"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Interagiere mit Fahrender Händler."
+   }
   },
-  "textKo": "알레이라는 길의 의식을 마쳤어요.",
-  "textDe": "Hilfsgeist — Zeremonie vollendet."
+  "textKo": "떠돌이 상인라는 길의 의식을 마쳤어요.",
+  "textDe": "Fahrender Händler — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_repair_wolf_armor",

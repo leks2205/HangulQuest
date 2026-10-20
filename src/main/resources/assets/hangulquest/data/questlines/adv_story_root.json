@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 322,
  "concepts": [
-  "gen_purpur_pillar",
-  "gen_diamond_hoe",
-  "gate",
-  "gen_dark_oak_wood"
+  "gen_quartz_pillar",
+  "gen_exposed_copper",
+  "gen_pale_oak_slab",
+  "gen_cherry_leaves"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purpur_pillar"
+    "gen_quartz_pillar"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:purpur_pillar",
+    "block": "minecraft:quartz_pillar",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Quarzsäule ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_diamond_hoe"
+    "gen_exposed_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_hoe",
+    "item": "minecraft:exposed_copper",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Angelaufener Kupferblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gate"
+    "gen_pale_oak_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_fence_gate",
+    "item": "minecraft:pale_oak_slab",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Blasseichenholzstufe."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_oak_wood"
+    "gen_cherry_leaves"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_wood",
+    "item": "minecraft:cherry_leaves",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Kirschlaub."
+   }
   },
-  "textKo": "짙은 참나무라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzeichenholz — Zeremonie vollendet."
+  "textKo": "벚나무 잎라는 길의 의식을 마쳤어요.",
+  "textDe": "Kirschlaub — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_root",

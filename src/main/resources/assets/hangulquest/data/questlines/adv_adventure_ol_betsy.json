@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 218,
  "concepts": [
-  "gen_bamboo_mosaic_slab",
-  "gen_powered_rail",
+  "gen_bamboo_stairs",
+  "gen_red_wool",
   "gen_warden"
  ],
  "requires": {
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_mosaic_slab"
+    "gen_bamboo_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_mosaic_slab",
+    "item": "minecraft:bamboo_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Bambustreppe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_powered_rail"
+    "gen_red_wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:powered_rail",
+    "item": "minecraft:red_wool",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Rote Wolle."
    }
   }
  ],
@@ -53,7 +59,10 @@
     "entity": "minecraft:warden",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Wärter."
+   }
   },
   "textKo": "워든라는 길의 의식을 마쳤어요.",
   "textDe": "Wärter — Zeremonie vollendet."

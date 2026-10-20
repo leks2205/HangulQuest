@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1044,
  "concepts": [
-  "gen_poplar_fence_gate",
-  "gen_iron_trapdoor",
-  "gen_deepslate_tiles",
-  "gen_dead_fire_coral_fan"
+  "gen_resin_brick",
+  "gen_exposed_copper_bars",
+  "gen_nether_brick_slab",
+  "gen_lime_glazed_terracotta"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_fence_gate"
+    "gen_resin_brick"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_fence_gate",
+    "item": "minecraft:resin_brick",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Harzziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_iron_trapdoor"
+    "gen_exposed_copper_bars"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_trapdoor",
+    "block": "minecraft:exposed_copper_bars",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Angelaufenes Kupfergitter."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_deepslate_tiles"
+    "gen_nether_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_tiles",
-    "count": 2
+    "block": "minecraft:nether_brick_slab",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Netherziegelstufe."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dead_fire_coral_fan"
+    "gen_lime_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_fire_coral_fan",
+    "item": "minecraft:lime_glazed_terracotta",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_ocean"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Sammle Hellgrüne glasierte Keramik. In einem passenden Biom."
+   }
   },
-  "textKo": "죽은 부채형 불 산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbener Feuerkorallenfächer — Zeremonie vollendet."
+  "textKo": "연두색 유광 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüne glasierte Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_04",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1046,
  "concepts": [
-  "gen_iron_trapdoor",
-  "gen_lilac",
-  "gen_blade_pottery_shard",
-  "gen_dirt_path"
+  "gen_jungle_button",
+  "gen_mossy_stone_brick_stairs",
+  "gen_blue_dye",
+  "gen_exposed_cut_copper_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_iron_trapdoor"
+    "gen_jungle_button"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:iron_trapdoor",
+    "block": "minecraft:jungle_button",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Tropenholzknopf ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lilac"
+    "gen_mossy_stone_brick_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lilac",
+    "item": "minecraft:mossy_stone_brick_stairs",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Bemooste Steinziegeltreppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_blade_pottery_shard"
+    "gen_blue_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blade_pottery_shard",
+    "item": "minecraft:blue_dye",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Blauer Farbstoff."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dirt_path"
+    "gen_exposed_cut_copper_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dirt_path",
+    "block": "minecraft:exposed_cut_copper_slab",
     "count": 1
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "minY": 90,
      "maxY": 320
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Angelaufene geschnittene Kupferstufe. Zwischen Y 90 und 320."
+   }
   },
-  "textKo": "흙 길라는 길의 의식을 마쳤어요.",
-  "textDe": "Trampelpfad — Zeremonie vollendet."
+  "textKo": "약간 녹슨 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Angelaufene geschnittene Kupferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_06",

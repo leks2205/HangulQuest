@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 513,
  "concepts": [
-  "gen_cave_spider",
-  "gen_spruce_sign",
-  "gen_bamboo_button",
-  "gen_bubble_coral_wall_fan"
+  "gen_wandering_trader",
+  "gen_crimson_shelf",
+  "gen_warped_trapdoor",
+  "gen_bamboo_button"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cave_spider"
+    "gen_wandering_trader"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cave_spider",
+    "entity": "minecraft:wandering_trader",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Fahrender Händler an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_sign"
+    "gen_crimson_shelf"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spruce_sign",
+    "item": "minecraft:crimson_shelf",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Karmesinregal."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_bamboo_button"
+    "gen_warped_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_button",
+    "item": "minecraft:warped_trapdoor",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Wirrfalltür."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bubble_coral_wall_fan"
+    "gen_bamboo_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bubble_coral_wall_fan",
+    "block": "minecraft:bamboo_button",
     "count": 1
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Bambusknopf. Nachts."
+   }
   },
-  "textKo": "밤에 부채형 거품 산호 벽라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasenkorallenwandfächer — Zeremonie vollendet."
+  "textKo": "밤에 대나무 버튼라는 길의 의식을 마쳤어요.",
+  "textDe": "Bambusknopf — Zeremonie vollendet."
  },
  "reward": {
   "badge": "pferdehof",

@@ -46,6 +46,9 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:husk",
     "count": 1
+   },
+   "clue": {
+    "de": "Besiege Wüstenzombie."
    }
   }
  ],
@@ -60,7 +63,10 @@
     "entity": "minecraft:pillager",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Plünderer."
+   }
   },
   "textKo": "약탈자라는 길의 의식을 마쳤어요.",
   "textDe": "Plünderer — Zeremonie vollendet."

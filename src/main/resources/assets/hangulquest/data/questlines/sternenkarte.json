@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 115,
  "concepts": [
-  "gen_jungle_planks",
-  "gen_suspicious_sand",
-  "gen_green_concrete_slab",
-  "gen_tuff_brick_wall"
+  "gen_mossy_stone_brick_slab",
+  "gen_weathered_cut_copper_slab",
+  "gen_jack_o_lantern",
+  "gen_waxed_weathered_copper"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_jungle_planks"
+    "gen_mossy_stone_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_planks",
-    "count": 3
+    "block": "minecraft:mossy_stone_brick_slab",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Bemooste Steinziegelstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_suspicious_sand"
+    "gen_weathered_cut_copper_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:suspicious_sand",
+    "item": "minecraft:weathered_cut_copper_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Verwitterte geschnittene Kupferstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_green_concrete_slab"
+    "gen_jack_o_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:green_concrete_slab",
+    "block": "minecraft:jack_o_lantern",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Kürbislaterne."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tuff_brick_wall"
+    "gen_waxed_weathered_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:tuff_brick_wall",
+    "block": "minecraft:waxed_weathered_copper",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Gewachster verwitterter Kupferblock."
+   }
   },
-  "textKo": "응회암 벽돌 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Tuffsteinziegelmauer — Zeremonie vollendet."
+  "textKo": "밀랍칠한 녹슨 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachster verwitterter Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "sternenkarte",

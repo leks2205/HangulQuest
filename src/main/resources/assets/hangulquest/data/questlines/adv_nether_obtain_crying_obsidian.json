@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 303,
  "concepts": [
-  "gen_crimson_door",
-  "gen_weathered_copper_chest",
-  "gen_lime_cushion"
+  "gen_cut_red_sandstone",
+  "gen_experience_bottle",
+  "gen_moss_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_door"
+    "gen_cut_red_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_door",
+    "block": "minecraft:cut_red_sandstone",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Geschnittener roter Sandstein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_weathered_copper_chest"
+    "gen_experience_bottle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_chest",
+    "item": "minecraft:experience_bottle",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Erfahrungsfläschchen."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_cushion"
+    "gen_moss_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_cushion",
+    "item": "minecraft:moss_block",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Moosblock."
+   }
   },
-  "textKo": "연두색 방석라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrünes Kissen — Zeremonie vollendet."
+  "textKo": "이끼 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Moosblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_obtain_crying_obsidian",

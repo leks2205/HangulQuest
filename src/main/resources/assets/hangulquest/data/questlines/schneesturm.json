@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 88,
  "concepts": [
-  "gen_red_carpet",
-  "gen_purple_concrete_slab",
-  "gen_shelf_mushroom"
+  "gen_red_mushroom_block",
+  "gen_purple_stained_glass_pane",
+  "gen_stripped_birch_wood"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_carpet"
+    "gen_red_mushroom_block"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:red_carpet",
+    "block": "minecraft:red_mushroom_block",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Roter Pilzblock ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_concrete_slab"
+    "gen_purple_stained_glass_pane"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:purple_concrete_slab",
+    "block": "minecraft:purple_stained_glass_pane",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Violette Glasscheibe an."
    }
   }
  ],
@@ -47,11 +53,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_shelf_mushroom"
+    "gen_stripped_birch_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:shelf_mushroom",
+    "block": "minecraft:stripped_birch_wood",
     "count": 1
    },
    "conditions": [
@@ -59,10 +65,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Entrindetes Birkenholz. Nachts."
+   }
   },
-  "textKo": "밤에 선반 버섯라는 길의 의식을 마쳤어요.",
-  "textDe": "Baumpilz — Zeremonie vollendet."
+  "textKo": "밤에 껍질 벗긴 자작나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindetes Birkenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schneesturm",

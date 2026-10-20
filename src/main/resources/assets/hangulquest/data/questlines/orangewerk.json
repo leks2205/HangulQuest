@@ -10,7 +10,7 @@
  "concepts": [
   "gen_orange_dye",
   "gen_orange_wool",
-  "gen_orange_concrete"
+  "gen_orange_wool"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -64,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_concrete"
+    "gen_orange_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_concrete",
+    "block": "minecraft:orange_wool",
     "count": 1
    },
    "conditions": [
@@ -86,7 +86,7 @@
   "words": [
    "gen_orange_dye",
    "gen_orange_wool",
-   "gen_orange_concrete"
+   "gen_orange_wool"
   ]
  }
 }

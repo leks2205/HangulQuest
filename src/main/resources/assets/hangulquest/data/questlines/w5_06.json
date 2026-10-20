@@ -8,9 +8,9 @@
  "order": 1056,
  "concepts": [
   "gold",
-  "goat",
-  "gen_dead_horn_coral_block",
-  "gen_birch_leaves"
+  "gen_dried_kelp",
+  "gen_blue_harness",
+  "gen_mud"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "goat"
+    "gen_dried_kelp"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:goat_horn",
+    "item": "minecraft:dried_kelp",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Getrockneter Seetang."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dead_horn_coral_block"
+    "gen_blue_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_horn_coral_block",
+    "item": "minecraft:blue_harness",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Blaues Geschirr."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_birch_leaves"
+    "gen_mud"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:birch_leaves",
+    "block": "minecraft:mud",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Baue 3× Schlamm ab."
+   }
   },
-  "textKo": "자작나무 잎라는 길의 의식을 마쳤어요.",
-  "textDe": "Birkenlaub — Zeremonie vollendet."
+  "textKo": "진흙라는 길의 의식을 마쳤어요.",
+  "textDe": "Schlamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_06",

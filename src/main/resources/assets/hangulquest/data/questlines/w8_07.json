@@ -8,9 +8,9 @@
  "order": 1087,
  "concepts": [
   "enderman",
-  "gen_pale_oak_stairs",
-  "diamond",
-  "gen_nether_quartz_ore"
+  "gen_pumpkin_pie",
+  "gen_chiseled_sulfur",
+  "gen_polished_sulfur_slab"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_pale_oak_stairs"
+    "gen_pumpkin_pie"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_stairs",
+    "item": "minecraft:pumpkin_pie",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Kürbiskuchen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "diamond"
+    "gen_chiseled_sulfur"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_diamond_ore",
+    "block": "minecraft:chiseled_sulfur",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Gemeißelter Schwefel."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_nether_quartz_ore"
+    "gen_polished_sulfur_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_quartz_ore",
+    "block": "minecraft:polished_sulfur_slab",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Polierte Schwefelstufe."
+   }
   },
-  "textKo": "네더 석영 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Netherquarzerz — Zeremonie vollendet."
+  "textKo": "윤나는 유황 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Schwefelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_07",

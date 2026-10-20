@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 122,
  "concepts": [
-  "gen_end_stone_brick_slab",
-  "gen_short_grass",
-  "gen_pink_candle_cake",
-  "gen_oxidized_chiseled_copper"
+  "gen_gilded_blackstone",
+  "gen_straw_bed",
+  "gen_prismarine_wall",
+  "gen_pink_candle"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_stone_brick_slab"
+    "gen_gilded_blackstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:end_stone_brick_slab",
+    "block": "minecraft:gilded_blackstone",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Golddurchzogener Schwarzstein."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_short_grass"
+    "gen_straw_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:short_grass",
+    "block": "minecraft:straw_bed",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Strohbett."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_candle_cake"
+    "gen_prismarine_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_candle_cake",
+    "item": "minecraft:prismarine_wall",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Prismarinmauer."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oxidized_chiseled_copper"
+    "gen_pink_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_chiseled_copper",
+    "block": "minecraft:pink_candle",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Rosa Kerze."
+   }
   },
-  "textKo": "산화된 조각된 구리라는 길의 의식을 마쳤어요.",
-  "textDe": "Oxidierter gemeißelter Kupferblock — Zeremonie vollendet."
+  "textKo": "분홍색 초라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenrat",

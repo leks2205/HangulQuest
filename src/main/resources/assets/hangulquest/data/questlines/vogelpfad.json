@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 105,
  "concepts": [
-  "gen_sniffer",
+  "gen_magma_cube",
   "feather",
-  "gen_ocelot",
-  "gen_polished_deepslate"
+  "gen_wither_skeleton",
+  "gen_quartz_bricks"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sniffer"
+    "gen_magma_cube"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sniffer",
+    "entity": "minecraft:magma_cube",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Magmawürfel an."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_ocelot"
+    "gen_wither_skeleton"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ocelot",
+    "entity": "minecraft:wither_skeleton",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Wither-Skelett an."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_deepslate"
+    "gen_quartz_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_deepslate",
+    "item": "minecraft:quartz_bricks",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 2× Quarzziegel."
+   }
   },
-  "textKo": "윤나는 심층암라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierter Tiefenschiefer — Zeremonie vollendet."
+  "textKo": "석영 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Quarzziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vogelpfad",

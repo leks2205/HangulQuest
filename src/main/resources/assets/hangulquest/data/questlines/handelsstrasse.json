@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 517,
  "concepts": [
-  "gen_filled_map",
-  "gen_cherry_fence",
-  "gen_polished_blackstone_brick_wall",
-  "gen_closed_eyeblossom"
+  "gen_golden_spear",
+  "gen_chorus_plant",
+  "diamond",
+  "gen_cracked_stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_filled_map"
+    "gen_golden_spear"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:filled_map",
+    "item": "minecraft:golden_spear",
     "count": 5
+   },
+   "clue": {
+    "de": "Sammle 5× Goldspeer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_fence"
+    "gen_chorus_plant"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_fence",
+    "item": "minecraft:chorus_plant",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Choruspflanze."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_polished_blackstone_brick_wall"
+    "diamond"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_blackstone_brick_wall",
-    "count": 1
+    "block": "minecraft:deepslate_diamond_ore",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Tiefenschiefer-Diamanterz."
    }
   }
  ],
@@ -58,22 +67,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_closed_eyeblossom"
+    "gen_cracked_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:closed_eyeblossom",
-    "count": 3
+    "block": "minecraft:cracked_stone_bricks",
+    "count": 2
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Rissige Steinziegel. Tagsüber."
+   }
   },
-  "textKo": "낮에 감은 눈망울꽃라는 길의 의식을 마쳤어요.",
-  "textDe": "Geschlossene Augenblüte — Zeremonie vollendet."
+  "textKo": "낮에 금 간 석재 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Rissige Steinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "handelsstrasse",

@@ -9,7 +9,7 @@
  "concepts": [
   "pumpkin",
   "carved_pumpkin",
-  "gen_polished_tuff_slab"
+  "gen_purpur_pillar"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -68,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_tuff_slab"
+    "gen_purpur_pillar"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_tuff_slab",
+    "block": "minecraft:purpur_pillar",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Purpursäule."
+   }
   },
-  "textKo": "윤나는 응회암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Tuffsteinstufe — Zeremonie vollendet."
+  "textKo": "퍼퍼 기둥라는 길의 의식을 마쳤어요.",
+  "textDe": "Purpursäule — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kuerbispfad",

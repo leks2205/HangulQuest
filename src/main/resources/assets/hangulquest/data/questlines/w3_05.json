@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1035,
  "concepts": [
-  "gen_sulfur_brick_slab",
-  "gen_sculk_vein",
-  "gen_poplar_leaves",
+  "gen_waxed_oxidized_cut_copper_slab",
+  "gen_stripped_oak_log",
+  "gen_red_sandstone_slab",
   "door"
  ],
  "requires": {
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sulfur_brick_slab"
+    "gen_waxed_oxidized_cut_copper_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_brick_slab",
+    "block": "minecraft:waxed_oxidized_cut_copper_slab",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Gewachste oxidierte geschnittene Kupferstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_sculk_vein"
+    "gen_stripped_oak_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sculk_vein",
+    "block": "minecraft:stripped_oak_log",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Entrindeter Eichenstamm."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_poplar_leaves"
+    "gen_red_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_leaves",
+    "block": "minecraft:red_sandstone_slab",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Rote Sandsteinstufe."
    }
   }
  ],

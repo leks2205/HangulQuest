@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 310,
  "concepts": [
-  "gen_glow_lichen",
-  "gen_rooted_dirt",
-  "gen_copper_pickaxe",
-  "gen_oxidized_copper_bars"
+  "gen_piglin_wall_head",
+  "gen_red_sandstone",
+  "gen_red_nether_brick_slab",
+  "loom"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -22,34 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_glow_lichen"
+    "gen_piglin_wall_head"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:glow_lichen",
+    "block": "minecraft:piglin_wall_head",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Piglin-Wandkopf ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_rooted_dirt"
+    "gen_red_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:rooted_dirt",
-    "count": 3
+    "block": "minecraft:red_sandstone",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Roter Sandstein."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_copper_pickaxe"
+    "gen_red_nether_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_pickaxe",
+    "item": "minecraft:red_nether_brick_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Rote Netherziegelstufe."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oxidized_copper_bars"
+    "loom"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_bars",
+    "block": "minecraft:loom",
     "count": 1
    },
    "conditions": [
@@ -69,10 +78,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Webstuhl. Nachts."
+   }
   },
-  "textKo": "밤에 산화된 구리 창살라는 길의 의식을 마쳤어요.",
-  "textDe": "Oxidiertes Kupfergitter — Zeremonie vollendet."
+  "textKo": "밤에 베틀라는 길의 의식을 마쳤어요.",
+  "textDe": "Webstuhl — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmelzpfad",

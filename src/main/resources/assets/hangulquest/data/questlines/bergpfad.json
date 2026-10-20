@@ -9,7 +9,7 @@
   "climb",
   "goat",
   "snow",
-  "gen_spruce_fence_gate"
+  "gen_sulfur_bricks"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -79,11 +79,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_fence_gate"
+    "gen_sulfur_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_fence_gate",
+    "block": "minecraft:sulfur_bricks",
     "count": 1
    },
    "conditions": [
@@ -95,10 +95,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Schwefelziegel. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 가문비나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzzauntor — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 유황 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwefelziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bergpfad",

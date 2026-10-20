@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 123,
  "concepts": [
-  "gen_waxed_oxidized_copper_grate",
-  "gen_torchflower",
-  "gen_red_stained_glass",
-  "gen_red_carpet"
+  "gen_oak_wood",
+  "gen_shulker_box",
+  "gen_detector_rail",
+  "gen_blue_concrete_powder"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_grate"
+    "gen_oak_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_grate",
-    "count": 2
+    "block": "minecraft:oak_wood",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Eichenholz."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_torchflower"
+    "gen_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:torchflower",
-    "count": 2
+    "block": "minecraft:shulker_box",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Shulker-Kiste."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_red_stained_glass"
+    "gen_detector_rail"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_stained_glass",
+    "block": "minecraft:detector_rail",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Sensorschiene."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_carpet"
+    "gen_blue_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_carpet",
+    "block": "minecraft:blue_concrete_powder",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Blauer Trockenbeton."
+   }
   },
-  "textKo": "빨간색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Roter Teppich — Zeremonie vollendet."
+  "textKo": "파란색 콘크리트 가루라는 길의 의식을 마쳤어요.",
+  "textDe": "Blauer Trockenbeton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "richterpfad",

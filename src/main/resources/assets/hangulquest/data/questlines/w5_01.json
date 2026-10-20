@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1051,
  "concepts": [
-  "gen_prismarine_bricks",
-  "gen_end_stone_brick_wall",
-  "gen_polished_andesite_slab"
+  "gen_lime_harness",
+  "gen_lime_candle",
+  "gen_oxidized_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_prismarine_bricks"
+    "gen_lime_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_bricks",
+    "item": "minecraft:lime_harness",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Hellgrünes Geschirr."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_end_stone_brick_wall"
+    "gen_lime_candle"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:end_stone_brick_wall",
+    "block": "minecraft:lime_candle",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Hellgrüne Kerze ab."
    }
   }
  ],
@@ -46,11 +52,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_andesite_slab"
+    "gen_oxidized_copper_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_andesite_slab",
+    "block": "minecraft:oxidized_copper_trapdoor",
     "count": 2
    },
    "conditions": [
@@ -59,10 +65,13 @@
      "minY": -64,
      "maxY": 0
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Oxidierte Kupferfalltür. Zwischen Y -64 und 0."
+   }
   },
-  "textKo": "높이 0 이하에서 윤나는 안산암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Andesitstufe — Zeremonie vollendet."
+  "textKo": "높이 0 이하에서 산화된 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierte Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_01",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1048,
  "concepts": [
-  "gen_waxed_weathered_copper_bulb",
+  "gen_mossy_stone_brick_wall",
   "gen_armadillo",
-  "gen_dried_kelp_block",
-  "gen_green_stained_glass_pane"
+  "gen_flowering_azalea",
+  "gen_jungle_wood"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_copper_bulb"
+    "gen_mossy_stone_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_bulb",
+    "block": "minecraft:mossy_stone_brick_wall",
     "count": 5
+   },
+   "clue": {
+    "de": "Platziere 5× Bemooste Steinziegelmauer."
    }
   },
   {
@@ -40,17 +43,23 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:armadillo",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Gürteltier an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dried_kelp_block"
+    "gen_flowering_azalea"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dried_kelp_block",
+    "block": "minecraft:flowering_azalea",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Blühende Azalee."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_stained_glass_pane"
+    "gen_jungle_wood"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_stained_glass_pane",
+    "item": "minecraft:jungle_wood",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Sammle Tropenholz. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 초록색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Glasscheibe — Zeremonie vollendet."
+  "textKo": "해변에서 정글나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_08",

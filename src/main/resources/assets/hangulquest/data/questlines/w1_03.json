@@ -8,8 +8,8 @@
  "order": 1013,
  "concepts": [
   "dandelion",
-  "hay_block",
-  "gen_powered_rail"
+  "loom",
+  "gen_chiseled_tuff_bricks"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -56,12 +56,15 @@
   {
    "id": "s3",
    "teach": [
-    "hay_block"
+    "loom"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:hay_block",
+    "block": "minecraft:loom",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Webstuhl an."
    }
   }
  ],
@@ -69,17 +72,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_powered_rail"
+    "gen_chiseled_tuff_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:powered_rail",
+    "block": "minecraft:chiseled_tuff_bricks",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Gemeißelte Tuffsteinziegel."
+   }
   },
-  "textKo": "동력 레일라는 길의 의식을 마쳤어요.",
-  "textDe": "Antriebsschiene — Zeremonie vollendet."
+  "textKo": "조각된 응회암 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Gemeißelte Tuffsteinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_03",

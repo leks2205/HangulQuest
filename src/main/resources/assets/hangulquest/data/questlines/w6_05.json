@@ -8,9 +8,9 @@
  "order": 1065,
  "concepts": [
   "mushroom",
-  "gen_red_sandstone_stairs",
-  "gen_brown_banner",
-  "ladder"
+  "gen_brown_glazed_terracotta",
+  "gen_nether_sprouts",
+  "gen_gray_shulker_box"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_red_sandstone_stairs"
+    "gen_brown_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_sandstone_stairs",
+    "item": "minecraft:brown_glazed_terracotta",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Braune glasierte Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_brown_banner"
+    "gen_nether_sprouts"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_banner",
+    "block": "minecraft:nether_sprouts",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Nethersprossen."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "ladder"
+    "gen_gray_shulker_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ladder",
+    "item": "minecraft:gray_shulker_box",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Graue Shulker-Kiste."
+   }
   },
-  "textKo": "사다리라는 길의 의식을 마쳤어요.",
-  "textDe": "Leiter — Zeremonie vollendet."
+  "textKo": "회색 셜커 상자라는 길의 의식을 마쳤어요.",
+  "textDe": "Graue Shulker-Kiste — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_05",

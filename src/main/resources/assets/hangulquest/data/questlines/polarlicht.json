@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 91,
  "concepts": [
-  "gen_cod_bucket",
-  "gen_gold_nugget",
-  "gen_weeping_vines_plant",
+  "gen_copper_sword",
+  "gen_green_wool_stairs",
+  "gen_tuff_bricks",
   "magma"
  ],
  "requires": {
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cod_bucket"
+    "gen_copper_sword"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod_bucket",
+    "item": "minecraft:copper_sword",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Kupferschwert."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gold_nugget"
+    "gen_green_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_nugget",
+    "item": "minecraft:green_wool_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Grüne Wolltreppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_weeping_vines_plant"
+    "gen_tuff_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:weeping_vines_plant",
-    "count": 3
+    "block": "minecraft:tuff_bricks",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Tuffsteinziegel."
    }
   }
  ],

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 272,
  "concepts": [
-  "gen_carrots",
+  "gen_cherry_trapdoor",
   "adv_item_pitcher_pod",
   "flower"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_carrots"
+    "gen_cherry_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:carrots",
+    "item": "minecraft:cherry_trapdoor",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Kirschholzfalltür."
    }
   },
   {

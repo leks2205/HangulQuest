@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 143,
  "concepts": [
-  "gen_black_carpet",
-  "gen_mangrove_trapdoor",
+  "gen_black_concrete_slab",
+  "gen_medium_amethyst_bud",
   "gen_acacia_leaves",
-  "gen_detector_rail"
+  "gen_waxed_copper_golem_statue"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_carpet"
+    "gen_black_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_carpet",
+    "block": "minecraft:black_concrete_slab",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Schwarze Betonstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_trapdoor"
+    "gen_medium_amethyst_bud"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:mangrove_trapdoor",
+    "block": "minecraft:medium_amethyst_bud",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Mittlere Amethystknospe an."
    }
   },
   {
@@ -49,6 +55,9 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_leaves",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Akazienlaub."
    }
   }
  ],
@@ -56,17 +65,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_detector_rail"
+    "gen_waxed_copper_golem_statue"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:detector_rail",
+    "item": "minecraft:waxed_copper_golem_statue",
     "count": 6
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 6× Gewachste Kupfergolemstatue."
+   }
   },
-  "textKo": "감지 레일라는 길의 의식을 마쳤어요.",
-  "textDe": "Sensorschiene — Zeremonie vollendet."
+  "textKo": "밀랍칠한 구리 골렘 동상라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste Kupfergolemstatue — Zeremonie vollendet."
  },
  "reward": {
   "badge": "regenbogenpfad",

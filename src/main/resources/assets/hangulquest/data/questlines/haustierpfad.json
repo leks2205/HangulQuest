@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 41,
  "concepts": [
-  "gen_slime",
-  "gen_ravager",
-  "gen_medium_amethyst_bud"
+  "spider",
+  "gen_zoglin",
+  "gen_jungle_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_slime"
+    "spider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:slime",
+    "entity": "minecraft:spider",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Spinne an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_ravager"
+    "gen_zoglin"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ravager",
+    "entity": "minecraft:zoglin",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Zoglin an."
    }
   }
  ],
@@ -47,17 +53,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_medium_amethyst_bud"
+    "gen_jungle_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:medium_amethyst_bud",
+    "block": "minecraft:jungle_trapdoor",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Tropenholzfalltür."
+   }
   },
-  "textKo": "중간 자수정 봉오리라는 길의 의식을 마쳤어요.",
-  "textDe": "Mittlere Amethystknospe — Zeremonie vollendet."
+  "textKo": "정글나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "haustierpfad",

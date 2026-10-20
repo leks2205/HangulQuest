@@ -8,7 +8,7 @@
  "order": 278,
  "concepts": [
   "campfire",
-  "gen_mangrove_button",
+  "gen_music_disc_strad",
   "adv_item_bee_nest"
  ],
  "requires": {
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_button"
+    "gen_music_disc_strad"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_button",
+    "item": "minecraft:music_disc_strad",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   }
  ],

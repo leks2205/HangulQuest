@@ -9,7 +9,7 @@
  "concepts": [
   "map",
   "gate",
-  "gen_jungle_sapling"
+  "gen_composter"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -62,17 +62,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_sapling"
+    "gen_composter"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_sapling",
+    "block": "minecraft:composter",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Komposter."
+   }
   },
-  "textKo": "정글나무 묘목라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenbaumsetzling — Zeremonie vollendet."
+  "textKo": "퇴비통라는 길의 의식을 마쳤어요.",
+  "textDe": "Komposter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_02",

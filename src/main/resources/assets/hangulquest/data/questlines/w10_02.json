@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1102,
  "concepts": [
-  "gen_mooshroom",
-  "gen_brown_wool",
+  "gen_mule",
+  "gen_dark_prismarine_stairs",
   "gold",
-  "gen_cyan_terracotta"
+  "gen_dark_prismarine_slab"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,22 +23,28 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mooshroom"
+    "gen_mule"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:mooshroom"
+    "entity": "minecraft:mule"
+   },
+   "clue": {
+    "de": "Interagiere mit Maultier."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_wool"
+    "gen_dark_prismarine_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_wool",
+    "item": "minecraft:dark_prismarine_stairs",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Dunkle Prismarintreppe."
    }
   },
   {
@@ -64,17 +70,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_terracotta"
+    "gen_dark_prismarine_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_terracotta",
+    "block": "minecraft:dark_prismarine_slab",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Dunkle Prismarinstufe."
+   }
   },
-  "textKo": "청록색 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkise Keramik — Zeremonie vollendet."
+  "textKo": "짙은 프리즈머린 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Dunkle Prismarinstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_02",

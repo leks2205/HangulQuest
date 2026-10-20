@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 125,
  "concepts": [
-  "gen_mineshaft_map",
-  "gen_stripped_pale_oak_wood",
-  "gen_waxed_exposed_copper_bulb",
-  "gen_deepslate_emerald_ore"
+  "gen_crimson_fungus",
+  "gen_magenta_shulker_box",
+  "gen_polished_diorite",
+  "gen_yellow_carpet"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,40 +24,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mineshaft_map"
+    "gen_crimson_fungus"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mineshaft_map",
+    "item": "minecraft:crimson_fungus",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Karmesinpilz."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stripped_pale_oak_wood"
+    "gen_magenta_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_pale_oak_wood",
-    "count": 2
+    "block": "minecraft:magenta_shulker_box",
+    "count": 3
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Magenta Shulker-Kiste. Nachts."
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_exposed_copper_bulb"
+    "gen_polished_diorite"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_bulb",
+    "block": "minecraft:polished_diorite",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Polierter Diorit."
    }
   }
  ],
@@ -65,17 +74,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_deepslate_emerald_ore"
+    "gen_yellow_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_emerald_ore",
+    "block": "minecraft:yellow_carpet",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Gelber Teppich."
+   }
   },
-  "textKo": "심층암 에메랄드 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Tiefenschiefer-Smaragderz — Zeremonie vollendet."
+  "textKo": "노란색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelber Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schicksalspfad",

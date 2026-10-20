@@ -8,9 +8,9 @@
  "order": 1038,
  "concepts": [
   "gen_ice_spikes",
-  "gen_oak_trapdoor",
-  "gen_crimson_sign",
-  "gen_tadpole"
+  "gen_piston",
+  "mushroom_block",
+  "gen_allay"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -29,28 +29,37 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:ice_spikes",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Eiszapfentundra."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_trapdoor"
+    "gen_piston"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_trapdoor",
+    "item": "minecraft:piston",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Kolben."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_crimson_sign"
+    "mushroom_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_sign",
+    "item": "minecraft:brown_mushroom_block",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Brauner Pilzblock."
    }
   }
  ],
@@ -58,16 +67,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tadpole"
+    "gen_allay"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:tadpole"
+    "entity": "minecraft:allay"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Interagiere mit Hilfsgeist."
+   }
   },
-  "textKo": "올챙이라는 길의 의식을 마쳤어요.",
-  "textDe": "Kaulquappe — Zeremonie vollendet."
+  "textKo": "알레이라는 길의 의식을 마쳤어요.",
+  "textDe": "Hilfsgeist — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_08",

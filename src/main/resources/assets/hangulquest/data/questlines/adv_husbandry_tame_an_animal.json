@@ -9,7 +9,7 @@
  "concepts": [
   "bone",
   "wolf",
-  "gen_trader_llama"
+  "gen_panda"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -52,16 +52,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_trader_llama"
+    "gen_panda"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:trader_llama"
+    "entity": "minecraft:panda"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Interagiere mit Panda."
+   }
   },
-  "textKo": "상인 라마라는 길의 의식을 마쳤어요.",
-  "textDe": "Händlerlama — Zeremonie vollendet."
+  "textKo": "판다라는 길의 의식을 마쳤어요.",
+  "textDe": "Panda — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_tame_an_animal",

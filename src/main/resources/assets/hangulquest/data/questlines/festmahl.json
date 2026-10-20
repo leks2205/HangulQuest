@@ -8,8 +8,7 @@
  "concepts": [
   "milk",
   "egg",
-  "gen_chorus_plant",
-  "chicken"
+  "pork"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -50,12 +49,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_chorus_plant"
+    "pork"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:chorus_plant",
+    "item": "minecraft:cooked_porkchop",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gebratenes Schweinefleisch."
    }
   }
  ],
@@ -63,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "chicken"
+    "pork"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:chicken",
+    "item": "minecraft:cooked_porkchop",
     "count": 1
    },
    "conditions": [
@@ -75,10 +77,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Iss Gebratenes Schweinefleisch. Nachts."
+   }
   },
-  "textKo": "밤에 익히지 않은 닭고기라는 길의 의식을 마쳤어요.",
-  "textDe": "Rohes Hühnchen — Zeremonie vollendet."
+  "textKo": "밤에 익힌 돼지고기라는 길의 의식을 마쳤어요.",
+  "textDe": "Gebratenes Schweinefleisch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "festmahl",

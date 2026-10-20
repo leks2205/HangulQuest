@@ -7,9 +7,9 @@
  "order": 504,
  "concepts": [
   "gen_dolphin",
-  "gen_polar_bear",
-  "gen_lush_caves",
-  "gen_poplar_log"
+  "gen_warden",
+  "gen_nether_wastes",
+  "gen_gray_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -28,28 +28,37 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:dolphin",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Delfin an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polar_bear"
+    "gen_warden"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:polar_bear",
+    "entity": "minecraft:warden",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Wärter an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lush_caves"
+    "gen_nether_wastes"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:lush_caves",
+    "biome": "minecraft:nether_wastes",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Nether-Ödland."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_log"
+    "gen_gray_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_log",
+    "block": "minecraft:gray_stained_glass_pane",
     "count": 1
    },
    "conditions": [
@@ -69,10 +78,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Graue Glasscheibe. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 포플러나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelstamm — Zeremonie vollendet."
+  "textKo": "해변에서 회색 색유리 판라는 길의 의식을 마쳤어요.",
+  "textDe": "Graue Glasscheibe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "riffpfad",

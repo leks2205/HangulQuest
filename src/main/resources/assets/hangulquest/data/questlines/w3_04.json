@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1034,
  "concepts": [
-  "gen_waxed_oxidized_copper_chain",
-  "gen_mycelium",
-  "gen_lime_candle_cake",
-  "gen_lime_stained_glass"
+  "gen_waxed_oxidized_copper_trapdoor",
+  "gen_oxidized_copper_grate",
+  "gen_muddy_mangrove_roots",
+  "gen_mud_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_chain"
+    "gen_waxed_oxidized_copper_trapdoor"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_chain",
+    "block": "minecraft:waxed_oxidized_copper_trapdoor",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Gewachste oxidierte Kupferfalltür ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mycelium"
+    "gen_oxidized_copper_grate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mycelium",
+    "block": "minecraft:oxidized_copper_grate",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Oxidierter Kupferrost."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_candle_cake"
+    "gen_muddy_mangrove_roots"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_candle_cake",
+    "item": "minecraft:muddy_mangrove_roots",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schlammige Mangrovenwurzeln."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_stained_glass"
+    "gen_mud_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_stained_glass",
+    "block": "minecraft:mud_brick_wall",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Schlammziegelmauer."
+   }
   },
-  "textKo": "연두색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrünes Glas — Zeremonie vollendet."
+  "textKo": "진흙 벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Schlammziegelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_04",

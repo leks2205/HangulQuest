@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 165,
  "concepts": [
-  "gen_mangrove_planks",
-  "gen_mangrove_fence_gate",
-  "gen_black_concrete_powder",
-  "gen_pottery_shard_archer"
+  "gen_polished_cinnabar",
+  "gen_gray_glazed_terracotta",
+  "gen_pink_shulker_box",
+  "gen_prismarine_brick_stairs"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_planks"
+    "gen_polished_cinnabar"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_planks",
+    "item": "minecraft:polished_cinnabar",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Polierter Zinnober."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_fence_gate"
+    "gen_gray_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_fence_gate",
-    "count": 2
+    "block": "minecraft:gray_glazed_terracotta",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Graue glasierte Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_black_concrete_powder"
+    "gen_pink_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_concrete_powder",
+    "block": "minecraft:pink_shulker_box",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Rosa Shulker-Kiste."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pottery_shard_archer"
+    "gen_prismarine_brick_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pottery_shard_archer",
+    "item": "minecraft:prismarine_brick_stairs",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Prismarinziegeltreppe."
+   }
   },
-  "textKo": "궁수 도자기 조각라는 길의 의식을 마쳤어요.",
-  "textDe": "Schützen-Töpferscherbe — Zeremonie vollendet."
+  "textKo": "프리즈머린 벽돌 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Prismarinziegeltreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "postpfad",

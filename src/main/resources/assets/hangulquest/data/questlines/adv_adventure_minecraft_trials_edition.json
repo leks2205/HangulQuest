@@ -9,7 +9,7 @@
  "concepts": [
   "adv_item_chiseled_tuff",
   "gen_vindicator",
-  "gen_gray_banner"
+  "gen_green_terracotta"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -45,6 +45,9 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:vindicator",
     "count": 2
+   },
+   "clue": {
+    "de": "Besiege 2× Diener."
    }
   }
  ],
@@ -52,17 +55,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_banner"
+    "gen_green_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_banner",
+    "block": "minecraft:green_terracotta",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Grüne Keramik."
+   }
   },
-  "textKo": "회색 현수막라는 길의 의식을 마쳤어요.",
-  "textDe": "Graues Banner — Zeremonie vollendet."
+  "textKo": "초록색 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_adventure_minecraft_trials_edition",

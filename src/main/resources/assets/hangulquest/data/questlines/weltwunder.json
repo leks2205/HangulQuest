@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 541,
  "concepts": [
-  "gen_pink_carpet",
-  "gen_spruce_wall_hanging_sign",
-  "gen_deep_cold_ocean",
-  "gen_red_tulip"
+  "gen_purple_glazed_terracotta",
+  "gen_brain_coral_fan",
+  "gen_soul_sand_valley",
+  "gen_stripped_birch_log"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -30,22 +30,25 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pink_carpet"
+    "gen_purple_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_carpet",
+    "item": "minecraft:purple_glazed_terracotta",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Violette glasierte Keramik."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_wall_hanging_sign"
+    "gen_brain_coral_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_wall_hanging_sign",
+    "block": "minecraft:brain_coral_fan",
     "count": 5
    },
    "conditions": [
@@ -53,17 +56,23 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 5× Hirnkorallenfächer. Nachts."
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_deep_cold_ocean"
+    "gen_soul_sand_valley"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:deep_cold_ocean",
+    "biome": "minecraft:soul_sand_valley",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Seelensandtal."
    }
   }
  ],
@@ -71,11 +80,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_tulip"
+    "gen_stripped_birch_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_tulip",
+    "block": "minecraft:stripped_birch_log",
     "count": 1
    },
    "conditions": [
@@ -87,10 +96,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Entrindeter Birkenstamm. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 빨간색 튤립라는 길의 의식을 마쳤어요.",
-  "textDe": "Rote Tulpe — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 껍질 벗긴 자작나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindeter Birkenstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "weltwunder",

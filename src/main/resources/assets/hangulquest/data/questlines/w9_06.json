@@ -9,7 +9,7 @@
  "concepts": [
   "obsidian",
   "soul_lantern",
-  "gen_crimson_trapdoor"
+  "gen_cactus"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -68,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_trapdoor"
+    "gen_cactus"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_trapdoor",
+    "block": "minecraft:cactus",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Kaktus."
+   }
   },
-  "textKo": "진홍빛 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Karmesinfalltür — Zeremonie vollendet."
+  "textKo": "선인장라는 길의 의식을 마쳤어요.",
+  "textDe": "Kaktus — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_06",

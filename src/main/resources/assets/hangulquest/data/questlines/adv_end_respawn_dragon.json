@@ -8,7 +8,8 @@
  "order": 254,
  "concepts": [
   "adv_item_ghast_tear",
-  "adv_item_end_crystal"
+  "adv_item_end_crystal",
+  "adv_item_crying_obsidian"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -54,14 +55,17 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_end_crystal"
+    "adv_item_crying_obsidian"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:end_crystal",
+    "block": "minecraft:crying_obsidian",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Weinender Obsidian."
+   }
   },
   "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요.",
   "textDe": "Das Ende … Schon wieder … — Setze vier Enderkristalle auf das Portal und beschwöre den Drachen erneut."

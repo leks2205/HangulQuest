@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1039,
  "concepts": [
-  "gen_mangrove_propagule",
+  "gen_orange_glazed_terracotta",
   "cookie",
-  "gen_magenta_terracotta",
-  "gen_kelp"
+  "gen_mangrove_button",
+  "gen_skeleton_skull"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_propagule"
+    "gen_orange_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_propagule",
+    "block": "minecraft:orange_glazed_terracotta",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Orange glasierte Keramik."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_magenta_terracotta"
+    "gen_mangrove_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_terracotta",
+    "block": "minecraft:mangrove_button",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Mangrovenholzknopf."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_kelp"
+    "gen_skeleton_skull"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:kelp",
-    "count": 2
+    "block": "minecraft:skeleton_skull",
+    "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Skelettschädel."
+   }
   },
-  "textKo": "켈프라는 길의 의식을 마쳤어요.",
-  "textDe": "Seetang — Zeremonie vollendet."
+  "textKo": "스켈레톤 해골라는 길의 의식을 마쳤어요.",
+  "textDe": "Skelettschädel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_09",

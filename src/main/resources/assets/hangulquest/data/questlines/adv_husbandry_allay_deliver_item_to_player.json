@@ -8,8 +8,8 @@
  "order": 257,
  "concepts": [
   "cookie",
-  "gen_waxed_cut_copper",
-  "gen_magenta_wool"
+  "gen_weeping_vines",
+  "gen_music_disc_stal"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -40,12 +40,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_cut_copper"
+    "gen_weeping_vines"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_cut_copper",
+    "block": "minecraft:weeping_vines",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Trauerranken."
    }
   }
  ],
@@ -53,17 +56,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_magenta_wool"
+    "gen_music_disc_stal"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_wool",
+    "item": "minecraft:music_disc_stal",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 2× Schallplatte."
+   }
   },
-  "textKo": "자홍색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta Wolle — Zeremonie vollendet."
+  "textKo": "음반라는 길의 의식을 마쳤어요.",
+  "textDe": "Schallplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_item_to_player",

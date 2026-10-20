@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 249,
  "concepts": [
-  "gen_purple_concrete",
+  "gen_red_terracotta",
   "adv_block_purpur_block",
   "adv_item_elytra"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_concrete"
+    "gen_red_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_concrete",
+    "block": "minecraft:red_terracotta",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Rote Keramik."
    }
   },
   {

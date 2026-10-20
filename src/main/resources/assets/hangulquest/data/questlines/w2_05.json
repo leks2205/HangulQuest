@@ -10,7 +10,7 @@
   "gen_snowy_slopes",
   "leaves",
   "flower",
-  "gen_stripped_dark_oak_log"
+  "gen_waxed_copper_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -27,6 +27,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_slopes",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Verschneite Hänge."
    }
   },
   {
@@ -70,11 +73,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_dark_oak_log"
+    "gen_waxed_copper_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_dark_oak_log",
+    "block": "minecraft:waxed_copper_trapdoor",
     "count": 2
    },
    "conditions": [
@@ -82,10 +85,13 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Gewachste Kupferfalltür. In der Dämmerung."
+   }
   },
-  "textKo": "저녁에 껍질 벗긴 짙은 참나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Schwarzeichenstamm — Zeremonie vollendet."
+  "textKo": "저녁에 밀랍칠한 구리 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste Kupferfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_05",

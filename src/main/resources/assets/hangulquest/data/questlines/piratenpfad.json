@@ -8,9 +8,9 @@
  "order": 108,
  "concepts": [
   "gen_jagged_peaks",
-  "gen_waxed_weathered_copper_grate",
-  "gen_candle_cake",
-  "gen_weathered_copper_chain"
+  "gen_deepslate",
+  "gen_red_tulip",
+  "gen_warped_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -30,27 +30,33 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:jagged_peaks",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Zerklüftete Gipfel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_weathered_copper_grate"
+    "gen_deepslate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_grate",
+    "block": "minecraft:deepslate",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Tiefenschiefer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_candle_cake"
+    "gen_red_tulip"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:candle_cake",
+    "block": "minecraft:red_tulip",
     "count": 3
    },
    "conditions": [
@@ -58,24 +64,30 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Rote Tulpe. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_copper_chain"
+    "gen_warped_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_chain",
+    "item": "minecraft:warped_pressure_plate",
     "count": 5
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 5× Wirrdruckplatte."
+   }
   },
-  "textKo": "녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Verwitterte Kupferkette — Zeremonie vollendet."
+  "textKo": "뒤틀린 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Wirrdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "piratenpfad",

@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1015,
  "concepts": [
-  "gen_breeze_rod",
-  "gen_chiseled_cinnabar",
+  "gen_brown_egg",
+  "gen_orange_terracotta",
   "seagrass",
-  "adv_item_golden_carrot"
+  "gen_heart_pottery_sherd"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_breeze_rod"
+    "gen_brown_egg"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:breeze_rod",
+    "item": "minecraft:brown_egg",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Braunes Ei."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_cinnabar"
+    "gen_orange_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_cinnabar",
+    "block": "minecraft:orange_terracotta",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Orange Keramik."
    }
   },
   {
@@ -63,17 +69,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_golden_carrot"
+    "gen_heart_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_carrot",
+    "item": "minecraft:heart_pottery_sherd",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Herz-Töpferscherbe."
+   }
   },
-  "textKo": "황금 당근라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldene Karotte — Zeremonie vollendet."
+  "textKo": "심장 도자기 조각라는 길의 의식을 마쳤어요.",
+  "textDe": "Herz-Töpferscherbe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w1_05",

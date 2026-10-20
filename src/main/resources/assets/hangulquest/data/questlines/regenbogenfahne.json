@@ -9,9 +9,9 @@
  "koreanLevel": 6,
  "concepts": [
   "gen_magenta_dye",
-  "gen_lime_wool",
+  "gen_lime_carpet",
   "adv_item_white_banner",
-  "adv_item_white_banner"
+  "gen_magenta_banner"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -44,20 +44,20 @@
   {
    "id": "s2",
    "teach": [
-    "gen_lime_wool"
+    "gen_lime_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_wool",
+    "block": "minecraft:lime_carpet",
     "count": 1
    },
    "clue": {
-    "ko": "연두색 양털을 놓아요.",
-    "de": "Platziere Hellgrüne Wolle."
+    "ko": "연두색 양탄자를 놓아요.",
+    "de": "Platziere Hellgrüner Teppich."
    },
    "hint": {
-    "ko": "연두색 양털을 놓아요.",
-    "de": "Platziere Hellgrüne Wolle."
+    "ko": "연두색 양탄자를 놓아요.",
+    "de": "Platziere Hellgrüner Teppich."
    }
   },
   {
@@ -84,11 +84,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_white_banner"
+    "gen_magenta_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_banner",
+    "block": "minecraft:magenta_banner",
     "count": 1
    },
    "conditions": [
@@ -105,9 +105,9 @@
   "badge": "regenbogenfahne",
   "words": [
    "gen_magenta_dye",
-   "gen_lime_wool",
+   "gen_lime_carpet",
    "adv_item_white_banner",
-   "adv_item_white_banner"
+   "gen_magenta_banner"
   ]
  }
 }

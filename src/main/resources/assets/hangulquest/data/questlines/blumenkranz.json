@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 150,
  "concepts": [
-  "gen_grindstone",
+  "hay_block",
   "flower",
   "wool"
  ],
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_grindstone"
+    "hay_block"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:grindstone",
+    "block": "minecraft:hay_block",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Strohballen an."
    }
   },
   {

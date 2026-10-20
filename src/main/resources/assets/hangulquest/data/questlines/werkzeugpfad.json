@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 169,
  "concepts": [
-  "gen_magenta_carpet",
-  "gen_bamboo_door",
+  "gen_nether_brick_slab",
+  "gen_amethyst_cluster",
   "crafting_table",
-  "gen_green_banner"
+  "gen_gray_bed"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,23 +24,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_carpet"
+    "gen_nether_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_carpet",
+    "item": "minecraft:nether_brick_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Netherziegelstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bamboo_door"
+    "gen_amethyst_cluster"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_door",
+    "block": "minecraft:amethyst_cluster",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Amethysthaufen."
    }
   },
   {
@@ -66,17 +72,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_banner"
+    "gen_gray_bed"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_banner",
+    "item": "minecraft:gray_bed",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Graues Bett."
+   }
   },
-  "textKo": "초록색 현수막라는 길의 의식을 마쳤어요.",
-  "textDe": "Grünes Banner — Zeremonie vollendet."
+  "textKo": "회색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Graues Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "werkzeugpfad",

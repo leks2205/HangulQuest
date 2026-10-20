@@ -8,8 +8,8 @@
  "order": 298,
  "concepts": [
   "adv_item_wither_skeleton_skull",
-  "gen_purple_candle",
-  "gen_pink_concrete_slab"
+  "gen_arms_up_pottery_sherd",
+  "gen_birch_leaves"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_purple_candle"
+    "gen_arms_up_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_candle",
+    "item": "minecraft:arms_up_pottery_sherd",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Gebärden-Töpferscherbe."
    }
   }
  ],
@@ -52,17 +55,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pink_concrete_slab"
+    "gen_birch_leaves"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_concrete_slab",
+    "item": "minecraft:birch_leaves",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Birkenlaub."
+   }
   },
-  "textKo": "분홍색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Rosa Betonstufe — Zeremonie vollendet."
+  "textKo": "자작나무 잎라는 길의 의식을 마쳤어요.",
+  "textDe": "Birkenlaub — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_get_wither_skull",

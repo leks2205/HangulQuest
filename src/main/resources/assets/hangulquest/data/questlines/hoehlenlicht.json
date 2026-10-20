@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 42,
  "concepts": [
-  "gen_red_sand",
-  "gen_polished_cinnabar",
-  "gen_piglin_head"
+  "gen_red_shrub",
+  "gen_purple_bed",
+  "gen_pink_bed"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_sand"
+    "gen_red_shrub"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:red_sand",
+    "block": "minecraft:red_shrub",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Roter Strauch ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_cinnabar"
+    "gen_purple_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_cinnabar",
+    "block": "minecraft:purple_bed",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Violettes Bett."
    }
   }
  ],
@@ -46,11 +52,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_piglin_head"
+    "gen_pink_bed"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:piglin_head",
+    "block": "minecraft:pink_bed",
     "count": 1
    },
    "conditions": [
@@ -58,10 +64,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Baue Rosa Bett ab. Nachts."
+   }
   },
-  "textKo": "밤에 피글린 머리라는 길의 의식을 마쳤어요.",
-  "textDe": "Piglinkopf — Zeremonie vollendet."
+  "textKo": "밤에 분홍색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "hoehlenlicht",

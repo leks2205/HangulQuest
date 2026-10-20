@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1074,
  "concepts": [
-  "gen_polished_granite_slab",
-  "gen_yellow_terracotta",
+  "gen_red_sand",
+  "gen_piston",
   "adv2_item_baked_potato",
-  "gen_ominous_banner"
+  "gen_iron_chain"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polished_granite_slab"
+    "gen_red_sand"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_granite_slab",
+    "item": "minecraft:red_sand",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Roter Sand."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_yellow_terracotta"
+    "gen_piston"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_terracotta",
+    "block": "minecraft:piston",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Kolben."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_ominous_banner"
+    "gen_iron_chain"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:ominous_banner",
+    "block": "minecraft:iron_chain",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Eisenkette."
+   }
   },
-  "textKo": "불길한 현수막라는 길의 의식을 마쳤어요.",
-  "textDe": "Unheilvolles Banner — Zeremonie vollendet."
+  "textKo": "철 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Eisenkette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_04",

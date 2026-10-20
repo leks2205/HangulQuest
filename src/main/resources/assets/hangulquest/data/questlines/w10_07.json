@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1107,
  "concepts": [
-  "gen_end_stone_brick_slab",
-  "gen_resin_bricks",
-  "gen_cyan_candle_cake",
+  "gen_magenta_harness",
+  "gen_spruce_planks",
+  "gen_dead_bubble_coral_fan",
   "gen_windswept_gravelly_hills"
  ],
  "requires": {
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_stone_brick_slab"
+    "gen_magenta_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_stone_brick_slab",
+    "item": "minecraft:magenta_harness",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Magenta Geschirr."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_resin_bricks"
+    "gen_spruce_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:resin_bricks",
+    "block": "minecraft:spruce_planks",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Fichtenholzbretter."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cyan_candle_cake"
+    "gen_dead_bubble_coral_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_candle_cake",
+    "item": "minecraft:dead_bubble_coral_fan",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Abgestorbener Blasenkorallenfächer."
    }
   }
  ],
@@ -65,7 +74,10 @@
     "biome": "minecraft:windswept_gravelly_hills",
     "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Erreiche Zerzauste Geröllhügel."
+   }
   },
   "textKo": "바람이 세찬 자갈투성이 언덕라는 길의 의식을 마쳤어요.",
   "textDe": "Zerzauste Geröllhügel — Zeremonie vollendet."

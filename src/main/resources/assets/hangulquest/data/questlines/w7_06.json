@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1076,
  "concepts": [
-  "gen_deepslate",
-  "gen_orange_wool",
-  "gen_pointed_dripstone",
-  "gen_suspicious_sand"
+  "gen_emerald_block",
+  "gen_oxidized_copper",
+  "gen_white_bed",
+  "gen_waxed_exposed_copper_chain"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate"
+    "gen_emerald_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate",
+    "item": "minecraft:emerald_block",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Smaragdblock."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_orange_wool"
+    "gen_oxidized_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:orange_wool",
+    "block": "minecraft:oxidized_copper",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Oxidierter Kupferblock ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pointed_dripstone"
+    "gen_white_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pointed_dripstone",
+    "block": "minecraft:white_bed",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Weißes Bett."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_suspicious_sand"
+    "gen_waxed_exposed_copper_chain"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:suspicious_sand",
-    "count": 2
+    "block": "minecraft:waxed_exposed_copper_chain",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Gewachste angelaufene Kupferkette."
+   }
   },
-  "textKo": "수상한 모래라는 길의 의식을 마쳤어요.",
-  "textDe": "Seltsamer Sand — Zeremonie vollendet."
+  "textKo": "밀랍칠한 약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste angelaufene Kupferkette — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_06",

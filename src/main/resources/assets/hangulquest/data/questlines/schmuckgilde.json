@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 170,
  "concepts": [
-  "gen_nether_brick_fence",
-  "gen_brown_candle",
-  "gen_yellow_poplar_leaves",
-  "gen_test_instance_block"
+  "gen_oxidized_copper_lantern",
+  "gen_bubble_coral_block",
+  "gen_mangrove_leaves",
+  "gen_waxed_oxidized_copper_golem_statue"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_nether_brick_fence"
+    "gen_oxidized_copper_lantern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_brick_fence",
+    "item": "minecraft:oxidized_copper_lantern",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Oxidierte Kupferlaterne."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_candle"
+    "gen_bubble_coral_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_candle",
+    "item": "minecraft:bubble_coral_block",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Blasenkorallenblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_yellow_poplar_leaves"
+    "gen_mangrove_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_poplar_leaves",
+    "block": "minecraft:mangrove_leaves",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Mangrovenlaub."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_test_instance_block"
+    "gen_waxed_oxidized_copper_golem_statue"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:test_instance_block",
+    "block": "minecraft:waxed_oxidized_copper_golem_statue",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Gewachste oxidierte Kupfergolemstatue."
+   }
   },
-  "textKo": "테스트 인스턴스 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Testinstanzblock — Zeremonie vollendet."
+  "textKo": "밀랍칠한 산화된 구리 골렘 동상라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste oxidierte Kupfergolemstatue — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmuckgilde",

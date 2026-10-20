@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 172,
  "concepts": [
-  "gen_the_end",
-  "gen_prismarine",
-  "gen_pink_wool",
-  "gen_hanging_roots"
+  "gen_plains",
+  "gen_smooth_basalt",
+  "gen_red_concrete_slab",
+  "gen_oak_sign"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_the_end"
+    "gen_plains"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:the_end",
+    "biome": "minecraft:plains",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Ebene."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_prismarine"
+    "gen_smooth_basalt"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:prismarine",
+    "block": "minecraft:smooth_basalt",
     "count": 6
+   },
+   "clue": {
+    "de": "Platziere 6× Glatter Basalt."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_wool"
+    "gen_red_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_wool",
+    "block": "minecraft:red_concrete_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Rote Betonstufe."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hanging_roots"
+    "gen_oak_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:hanging_roots",
+    "block": "minecraft:oak_sign",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Eichenholzschild."
+   }
   },
-  "textKo": "매달린 뿌리라는 길의 의식을 마쳤어요.",
-  "textDe": "Hängende Wurzeln — Zeremonie vollendet."
+  "textKo": "참나무 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Eichenholzschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "wuestenstadt",

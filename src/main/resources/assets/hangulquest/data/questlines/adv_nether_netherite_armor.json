@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 300,
  "concepts": [
-  "gen_cinnabar_brick_slab",
+  "gen_conduit",
   "adv_item_netherite_helmet",
   "adv_block_netherite_chestplate"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cinnabar_brick_slab"
+    "gen_conduit"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cinnabar_brick_slab",
+    "item": "minecraft:conduit",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Aquisator."
    }
   },
   {

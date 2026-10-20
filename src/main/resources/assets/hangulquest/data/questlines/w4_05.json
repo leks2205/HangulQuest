@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1045,
  "concepts": [
-  "gen_waxed_oxidized_copper_golem_statue",
-  "gen_birch_trapdoor",
-  "gen_netherite_pickaxe",
-  "gold"
+  "gen_waxed_weathered_chiseled_copper",
+  "gen_black_concrete",
+  "gen_piglin_banner_pattern",
+  "gen_dead_horn_coral_block"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_golem_statue"
+    "gen_waxed_weathered_chiseled_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_golem_statue",
+    "block": "minecraft:waxed_weathered_chiseled_copper",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Gewachster verwitterter gemeißelter Kupferblock ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_birch_trapdoor"
+    "gen_black_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:birch_trapdoor",
+    "block": "minecraft:black_concrete",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Schwarzer Beton."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_netherite_pickaxe"
+    "gen_piglin_banner_pattern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_pickaxe",
+    "item": "minecraft:piglin_banner_pattern",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Bannervorlage."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold"
+    "gen_dead_horn_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_ore",
+    "block": "minecraft:dead_horn_coral_block",
     "count": 1
    },
    "conditions": [
@@ -74,10 +83,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Abgestorbener Geweihkorallenblock. In einem passenden Biom. Nachts."
+   }
   },
-  "textKo": "해변에서 밤에 금 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Golderz — Zeremonie vollendet."
+  "textKo": "해변에서 밤에 죽은 사방산호 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbener Geweihkorallenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w4_05",

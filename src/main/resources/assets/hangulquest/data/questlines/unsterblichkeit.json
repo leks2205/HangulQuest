@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 127,
  "concepts": [
-  "gen_glowstone_dust",
-  "gen_waxed_exposed_copper_chain",
-  "gen_infested_cracked_stone_bricks",
-  "gen_brown_concrete_slab"
+  "gen_stone_stairs",
+  "gen_fletching_table",
+  "gen_hopper",
+  "gen_bubble_coral_block"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_glowstone_dust"
+    "gen_stone_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glowstone_dust",
+    "item": "minecraft:stone_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Steintreppe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_exposed_copper_chain"
+    "gen_fletching_table"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_chain",
-    "count": 2
+    "block": "minecraft:fletching_table",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Bognertisch."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_infested_cracked_stone_bricks"
+    "gen_hopper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_cracked_stone_bricks",
+    "block": "minecraft:hopper",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Trichter."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_concrete_slab"
+    "gen_bubble_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_concrete_slab",
+    "block": "minecraft:bubble_coral_block",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Blasenkorallenblock."
+   }
   },
-  "textKo": "갈색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Braune Betonstufe — Zeremonie vollendet."
+  "textKo": "거품 산호 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasenkorallenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "unsterblichkeit",

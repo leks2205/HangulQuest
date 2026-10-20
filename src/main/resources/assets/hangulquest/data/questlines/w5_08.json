@@ -8,9 +8,9 @@
  "order": 1058,
  "concepts": [
   "dirt",
-  "gen_mangrove_log",
-  "gen_sulfur_bricks",
-  "gen_waxed_oxidized_copper"
+  "gen_waxed_weathered_copper_chain",
+  "gen_cyan_wool_slab",
+  "gen_deepslate_copper_ore"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_log"
+    "gen_waxed_weathered_copper_chain"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_log",
+    "block": "minecraft:waxed_weathered_copper_chain",
     "count": 12
+   },
+   "clue": {
+    "de": "Platziere 12× Gewachste verwitterte Kupferkette."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sulfur_bricks"
+    "gen_cyan_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_bricks",
-    "count": 1
+    "block": "minecraft:cyan_wool_slab",
+    "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Türkise Wollstufe."
    }
   }
  ],
@@ -65,11 +71,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper"
+    "gen_deepslate_copper_ore"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper",
+    "block": "minecraft:deepslate_copper_ore",
     "count": 2
    },
    "conditions": [
@@ -78,10 +84,13 @@
      "minY": -64,
      "maxY": 0
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Tiefenschiefer-Kupfererz. Zwischen Y -64 und 0."
+   }
   },
-  "textKo": "높이 0 이하에서 밀랍칠한 산화된 구리라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster oxidierter Kupferblock — Zeremonie vollendet."
+  "textKo": "높이 0 이하에서 심층암 구리 광석라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschiefer-Kupfererz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_08",

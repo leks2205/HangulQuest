@@ -8,8 +8,8 @@
  "order": 74,
  "concepts": [
   "cake",
-  "gen_yellow_concrete",
-  "gen_infested_mossy_stone_bricks"
+  "gen_white_stained_glass",
+  "gen_lilac"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -44,11 +44,11 @@
   {
    "id": "s2",
    "teach": [
-    "gen_yellow_concrete"
+    "gen_white_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_concrete",
+    "block": "minecraft:white_stained_glass",
     "count": 3
    },
    "conditions": [
@@ -56,18 +56,21 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Weißes Glas. Tagsüber."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_infested_mossy_stone_bricks"
+    "gen_lilac"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_mossy_stone_bricks",
+    "block": "minecraft:lilac",
     "count": 1
    },
    "conditions": [
@@ -75,10 +78,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Flieder. Nachts."
+   }
   },
-  "textKo": "밤에 벌레 먹은 이끼 낀 석재 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Befallene bemooste Steinziegel — Zeremonie vollendet."
+  "textKo": "밤에 라일락라는 길의 의식을 마쳤어요.",
+  "textDe": "Flieder — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenfeier",

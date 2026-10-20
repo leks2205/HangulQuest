@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1063,
  "concepts": [
-  "gen_bamboo_shelf",
-  "gen_oxidized_chiseled_copper",
-  "gen_orange_stained_glass_pane",
-  "gen_jungle_pressure_plate"
+  "gen_quartz_bricks",
+  "gen_waxed_cut_copper_stairs",
+  "gen_magenta_stained_glass_pane",
+  "gen_resin_clump"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_shelf"
+    "gen_quartz_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_shelf",
-    "count": 1
+    "block": "minecraft:quartz_bricks",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Quarzziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_chiseled_copper"
+    "gen_waxed_cut_copper_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_chiseled_copper",
+    "item": "minecraft:waxed_cut_copper_stairs",
     "count": 5
+   },
+   "clue": {
+    "de": "Sammle 5× Gewachste geschnittene Kupfertreppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_orange_stained_glass_pane"
+    "gen_magenta_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_stained_glass_pane",
+    "block": "minecraft:magenta_stained_glass_pane",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Magenta Glasscheibe."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_pressure_plate"
+    "gen_resin_clump"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_pressure_plate",
+    "block": "minecraft:resin_clump",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Harzklumpen."
+   }
   },
-  "textKo": "정글나무 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzdruckplatte — Zeremonie vollendet."
+  "textKo": "수지 덩어리라는 길의 의식을 마쳤어요.",
+  "textDe": "Harzklumpen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_03",

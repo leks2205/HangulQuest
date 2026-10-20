@@ -8,7 +8,7 @@
  "order": 310,
  "concepts": [
   "adv_item_chiseled_bookshelf",
-  "gen_polished_tuff_stairs",
+  "gen_red_bundle",
   "golden_apple"
  ],
  "requires": {
@@ -27,17 +27,23 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:chiseled_bookshelf"
+   },
+   "clue": {
+    "de": "Benutze Gearbeitetes Bücherregal."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_tuff_stairs"
+    "gen_red_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_tuff_stairs",
+    "item": "minecraft:red_bundle",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Rotes Bündel."
    }
   }
  ],

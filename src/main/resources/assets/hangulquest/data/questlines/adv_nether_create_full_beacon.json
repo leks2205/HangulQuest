@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 292,
  "concepts": [
-  "gen_dark_oak_leaves",
+  "gen_dead_bush",
   "gold_block",
   "beacon"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_leaves"
+    "gen_dead_bush"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_leaves",
+    "block": "minecraft:dead_bush",
     "count": 9
+   },
+   "clue": {
+    "de": "Platziere 9× Toter Busch."
    }
   },
   {

@@ -10,7 +10,7 @@
   "gen_stony_peaks",
   "diamond",
   "crown",
-  "gen_tinted_glass"
+  "gen_waxed_exposed_cut_copper_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -36,6 +36,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:stony_peaks",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Steinige Gipfel."
    }
   },
   {
@@ -63,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tinted_glass"
+    "gen_waxed_exposed_cut_copper_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:tinted_glass",
+    "block": "minecraft:waxed_exposed_cut_copper_slab",
     "count": 1
    },
    "conditions": [
@@ -75,10 +78,13 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Gewachste angelaufene geschnittene Kupferstufe. Tagsüber."
+   }
   },
-  "textKo": "낮에 차광 유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Getöntes Glas — Zeremonie vollendet."
+  "textKo": "낮에 밀랍칠한 약간 녹슨 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste angelaufene geschnittene Kupferstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenpfad",

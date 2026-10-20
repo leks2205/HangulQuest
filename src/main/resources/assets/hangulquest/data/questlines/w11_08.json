@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1118,
  "concepts": [
-  "brick",
-  "gen_bone_block",
-  "gen_pale_moss_block",
-  "gen_fire"
+  "gen_purpur_stairs",
+  "gen_blue_wool",
+  "gen_brick_wall",
+  "gen_cyan_harness"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "brick"
+    "gen_purpur_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bricks",
+    "item": "minecraft:purpur_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Purpurtreppe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bone_block"
+    "gen_blue_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bone_block",
+    "block": "minecraft:blue_wool",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Blaue Wolle."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pale_moss_block"
+    "gen_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_moss_block",
-    "count": 1
+    "block": "minecraft:brick_wall",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Ziegelsteinmauer."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_fire"
+    "gen_cyan_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fire",
+    "item": "minecraft:cyan_harness",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 2× Türkises Geschirr."
+   }
   },
-  "textKo": "불라는 길의 의식을 마쳤어요.",
-  "textDe": "Feuer — Zeremonie vollendet."
+  "textKo": "청록색 하네스라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkises Geschirr — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_08",

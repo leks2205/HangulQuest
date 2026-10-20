@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 97,
  "concepts": [
-  "gen_twisting_vines_plant",
+  "gen_cyan_cushion",
   "cartography_table",
   "item_frame"
  ],
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_twisting_vines_plant"
+    "gen_cyan_cushion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:twisting_vines_plant",
+    "item": "minecraft:cyan_cushion",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Türkises Kissen."
    }
   },
   {

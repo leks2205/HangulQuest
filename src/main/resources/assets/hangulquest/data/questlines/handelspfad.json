@@ -5,10 +5,10 @@
  "titleDe": "Der Handelspfad",
  "tier": 2,
  "concepts": [
-  "gen_prismarine_brick_stairs",
-  "gen_donkey",
-  "gen_exposed_copper_door",
-  "gen_orange_bed"
+  "zombie",
+  "gen_trader_llama",
+  "gen_gold_nugget",
+  "gen_smoker"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -21,33 +21,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_prismarine_brick_stairs"
+    "zombie"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_brick_stairs",
+    "item": "minecraft:rotten_flesh",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Verrottetes Fleisch."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_donkey"
+    "gen_trader_llama"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:donkey"
+    "entity": "minecraft:trader_llama"
+   },
+   "clue": {
+    "de": "Interagiere mit Händlerlama."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_copper_door"
+    "gen_gold_nugget"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_door",
+    "item": "minecraft:gold_nugget",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Goldklumpen."
    }
   }
  ],
@@ -55,22 +64,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_bed"
+    "gen_smoker"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_bed",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:smoker"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Räucherofen. Tagsüber."
+   }
   },
-  "textKo": "낮에 주황색 침대라는 길의 의식을 마쳤어요.",
-  "textDe": "Oranges Bett — Zeremonie vollendet."
+  "textKo": "낮에 훈연기라는 길의 의식을 마쳤어요.",
+  "textDe": "Räucherofen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "handelspfad",

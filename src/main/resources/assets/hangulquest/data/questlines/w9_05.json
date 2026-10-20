@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1095,
  "concepts": [
-  "gen_miner_pottery_shard",
+  "gen_oak_wood",
   "enchanting_table",
-  "gen_oxidized_copper_door"
+  "gen_poplar_fence_gate"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_miner_pottery_shard"
+    "gen_oak_wood"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:miner_pottery_shard",
+    "item": "minecraft:oak_wood",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Eichenholz."
    }
   },
   {
@@ -53,17 +56,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oxidized_copper_door"
+    "gen_poplar_fence_gate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_copper_door",
+    "item": "minecraft:poplar_fence_gate",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Pappelholzzauntor."
+   }
   },
-  "textKo": "산화된 구리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Oxidierte Kupfertür — Zeremonie vollendet."
+  "textKo": "포플러나무 울타리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelholzzauntor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_05",

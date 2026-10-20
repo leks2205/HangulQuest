@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 520,
  "concepts": [
-  "gen_chiseled_copper",
-  "gen_pink_tulip",
+  "gen_chiseled_deepslate",
+  "gen_piston",
   "ice",
-  "gen_granite_slab"
+  "gen_green_concrete_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_chiseled_copper"
+    "gen_chiseled_deepslate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:chiseled_copper",
+    "block": "minecraft:chiseled_deepslate",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Gemeißelter Tiefenschiefer ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pink_tulip"
+    "gen_piston"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:pink_tulip",
+    "block": "minecraft:piston",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Kolben ab."
    }
   },
   {
@@ -61,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_granite_slab"
+    "gen_green_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:granite_slab",
+    "block": "minecraft:green_concrete_slab",
     "count": 1
    },
    "conditions": [
@@ -74,10 +80,13 @@
      "minY": -64,
      "maxY": 0
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Grüne Betonstufe. Zwischen Y -64 und 0."
+   }
   },
-  "textKo": "높이 0 이하에서 화강암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Granitstufe — Zeremonie vollendet."
+  "textKo": "높이 0 이하에서 초록색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne Betonstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bergwerk",

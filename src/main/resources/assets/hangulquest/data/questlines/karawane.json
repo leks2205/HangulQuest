@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 532,
  "concepts": [
-  "gen_stray",
-  "gen_oxidized_copper_golem_statue",
-  "gen_smoker",
-  "gen_hopper"
+  "gen_sniffer",
+  "gen_polished_diorite_stairs",
+  "gen_test_block",
+  "gen_jungle_slab"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stray"
+    "gen_sniffer"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:stray",
+    "entity": "minecraft:sniffer",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Schnüffler an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_copper_golem_statue"
+    "gen_polished_diorite_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_copper_golem_statue",
+    "item": "minecraft:polished_diorite_stairs",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Polierte Diorittreppe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_smoker"
+    "gen_test_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:smoker",
+    "item": "minecraft:test_block",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Testblock."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hopper"
+    "gen_jungle_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:hopper",
+    "block": "minecraft:jungle_slab",
     "count": 3
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Tropenholzstufe. Tagsüber."
+   }
   },
-  "textKo": "낮에 호퍼라는 길의 의식을 마쳤어요.",
-  "textDe": "Trichter — Zeremonie vollendet."
+  "textKo": "낮에 정글나무 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "karawane",

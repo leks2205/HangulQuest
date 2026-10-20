@@ -9,7 +9,7 @@
  "concepts": [
   "shield",
   "skeleton",
-  "gen_silverfish"
+  "gen_phantom"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -55,17 +55,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_silverfish"
+    "gen_phantom"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:silverfish",
+    "entity": "minecraft:phantom",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Phantom."
+   }
   },
-  "textKo": "좀벌레라는 길의 의식을 마쳤어요.",
-  "textDe": "Silberfischchen — Zeremonie vollendet."
+  "textKo": "팬텀라는 길의 의식을 마쳤어요.",
+  "textDe": "Phantom — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_deflect_arrow",

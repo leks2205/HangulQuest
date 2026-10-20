@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 60,
  "concepts": [
-  "seagrass",
+  "gen_shulker_box",
   "furnace",
-  "gen_wither_skeleton_wall_skull"
+  "gen_purple_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "seagrass"
+    "gen_shulker_box"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:seagrass",
+    "block": "minecraft:shulker_box",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Shulker-Kiste ab."
    }
   },
   {
@@ -49,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_wither_skeleton_wall_skull"
+    "gen_purple_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:wither_skeleton_wall_skull",
-    "count": 3
+    "block": "minecraft:purple_stained_glass",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Violettes Glas."
+   }
   },
-  "textKo": "위더 스켈레톤 벽 해골라는 길의 의식을 마쳤어요.",
-  "textDe": "Wither-Skelett-Wandschädel — Zeremonie vollendet."
+  "textKo": "보라색 색유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Violettes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmelzofen",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1103,
  "concepts": [
-  "gen_dark_oak_leaves",
-  "gen_spruce_pressure_plate",
-  "gen_cyan_concrete_stairs",
-  "turtle"
+  "gen_dark_oak_planks",
+  "gen_tube_coral_fan",
+  "gen_lime_wool_slab",
+  "gen_dead_horn_coral"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_leaves"
+    "gen_dark_oak_planks"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:dark_oak_leaves",
+    "block": "minecraft:dark_oak_planks",
     "count": 10
+   },
+   "clue": {
+    "de": "Baue 10× Schwarzeichenholzbretter ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_pressure_plate"
+    "gen_tube_coral_fan"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_pressure_plate",
+    "block": "minecraft:tube_coral_fan",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Orgelkorallenfächer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cyan_concrete_stairs"
+    "gen_lime_wool_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_concrete_stairs",
+    "item": "minecraft:lime_wool_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Hellgrüne Wollstufe."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "turtle"
+    "gen_dead_horn_coral"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:scute",
+    "item": "minecraft:dead_horn_coral",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 4× Abgestorbene Geweihkoralle."
+   }
   },
-  "textKo": "인갑라는 길의 의식을 마쳤어요.",
-  "textDe": "Hornschild — Zeremonie vollendet."
+  "textKo": "죽은 사방산호라는 길의 의식을 마쳤어요.",
+  "textDe": "Abgestorbene Geweihkoralle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_03",

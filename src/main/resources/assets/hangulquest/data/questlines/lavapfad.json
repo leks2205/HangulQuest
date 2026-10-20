@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 145,
  "concepts": [
-  "gen_dried_kelp_block",
-  "gen_mangrove_hanging_sign",
-  "gen_stripped_spruce_log",
-  "gen_sculk"
+  "gen_dropper",
+  "gen_mangrove_planks",
+  "gen_waxed_copper_chest",
+  "gen_spruce_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dried_kelp_block"
+    "gen_dropper"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:dried_kelp_block",
+    "block": "minecraft:dropper",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Spender an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_hanging_sign"
+    "gen_mangrove_planks"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:mangrove_hanging_sign",
+    "block": "minecraft:mangrove_planks",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Mangrovenholzbretter ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_spruce_log"
+    "gen_waxed_copper_chest"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_spruce_log",
+    "block": "minecraft:waxed_copper_chest",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Gewachste Kupfertruhe."
    }
   }
  ],
@@ -59,11 +68,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sculk"
+    "gen_spruce_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sculk",
+    "block": "minecraft:spruce_trapdoor",
     "count": 1
    },
    "conditions": [
@@ -71,10 +80,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Fichtenholzfalltür. Nachts."
+   }
   },
-  "textKo": "밤에 스컬크라는 길의 의식을 마쳤어요.",
-  "textDe": "Sculk — Zeremonie vollendet."
+  "textKo": "밤에 가문비나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Fichtenholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "lavapfad",

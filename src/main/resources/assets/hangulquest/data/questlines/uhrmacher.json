@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 151,
  "concepts": [
-  "gen_yellow_bundle",
-  "gen_dark_oak_door",
-  "gen_granite",
-  "gen_mud_brick_wall"
+  "adv_item_dragon_head",
+  "gen_yellow_wool_slab",
+  "gen_orange_candle",
+  "gen_moss_carpet"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_bundle"
+    "adv_item_dragon_head"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:yellow_bundle",
+    "item": "minecraft:dragon_head",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Drachenkopf."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_door"
+    "gen_yellow_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_door",
-    "count": 3
+    "block": "minecraft:yellow_wool_slab",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Gelbe Wollstufe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_granite"
+    "gen_orange_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:granite",
+    "block": "minecraft:orange_candle",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Orange Kerze."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mud_brick_wall"
+    "gen_moss_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mud_brick_wall",
+    "block": "minecraft:moss_carpet",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Moosteppich."
+   }
   },
-  "textKo": "진흙 벽돌 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Schlammziegelmauer — Zeremonie vollendet."
+  "textKo": "이끼 바닥라는 길의 의식을 마쳤어요.",
+  "textDe": "Moosteppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "uhrmacher",

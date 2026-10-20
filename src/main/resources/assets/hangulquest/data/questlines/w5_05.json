@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1055,
  "concepts": [
-  "gen_trader_llama",
+  "gen_strider",
   "gen_acacia_door",
-  "gen_oak_pressure_plate",
-  "gen_sulfur_slab"
+  "gen_pink_bed",
+  "gen_waxed_weathered_copper_door"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_trader_llama"
+    "gen_strider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:trader_llama",
+    "entity": "minecraft:strider",
     "dwellMs": 1200
+   },
+   "clue": {
+    "de": "Sieh dir Schreiter an."
    }
   },
   {
@@ -40,17 +43,23 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_door",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Akazienholztür."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oak_pressure_plate"
+    "gen_pink_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_pressure_plate",
+    "block": "minecraft:pink_bed",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Rosa Bett."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sulfur_slab"
+    "gen_waxed_weathered_copper_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_slab",
+    "block": "minecraft:waxed_weathered_copper_door",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Gewachste verwitterte Kupfertür."
+   }
   },
-  "textKo": "유황 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwefelstufe — Zeremonie vollendet."
+  "textKo": "밀랍칠한 녹슨 구리 문라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste verwitterte Kupfertür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_05",

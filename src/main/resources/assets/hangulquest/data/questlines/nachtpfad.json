@@ -9,7 +9,7 @@
   "moon",
   "night",
   "bed",
-  "gen_orange_candle_cake"
+  "gen_pale_oak_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -86,11 +86,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_candle_cake"
+    "gen_pale_oak_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_candle_cake",
+    "block": "minecraft:pale_oak_hanging_sign",
     "count": 1
    },
    "conditions": [
@@ -98,10 +98,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Blasseichenholzhängeschild. Nachts."
+   }
   },
-  "textKo": "밤에 주황색 초를 꽂은 케이크라는 길의 의식을 마쳤어요.",
-  "textDe": "Kuchen mit oranger Kerze — Zeremonie vollendet."
+  "textKo": "밤에 창백한 참나무 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "nachtpfad",

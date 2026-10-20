@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 270,
  "concepts": [
-  "gen_weathered_copper",
+  "gen_turtle_helmet",
   "sand",
-  "gen_spruce_fence"
+  "redstone_torch"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weathered_copper"
+    "gen_turtle_helmet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper",
+    "item": "minecraft:turtle_helmet",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schildkrötenpanzer."
    }
   },
   {
@@ -49,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_fence"
+    "redstone_torch"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spruce_fence",
+    "item": "minecraft:redstone_torch",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Redstone-Fackel."
+   }
   },
-  "textKo": "가문비나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzzaun — Zeremonie vollendet."
+  "textKo": "레드스톤 횃불라는 길의 의식을 마쳤어요.",
+  "textDe": "Redstone-Fackel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_sniffer_egg",

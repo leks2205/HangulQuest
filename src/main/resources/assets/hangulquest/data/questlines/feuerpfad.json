@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 30,
  "concepts": [
-  "gen_honeycomb_block",
-  "gen_cyan_stained_glass_pane",
-  "gen_purpur_pillar"
+  "gen_horn_coral",
+  "gen_dark_oak_trapdoor",
+  "adv_item_ancient_debris"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,23 +20,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_honeycomb_block"
+    "gen_horn_coral"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:honeycomb_block",
+    "block": "minecraft:horn_coral",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Geweihkoralle ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cyan_stained_glass_pane"
+    "gen_dark_oak_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_stained_glass_pane",
+    "block": "minecraft:dark_oak_trapdoor",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Schwarzeichenholzfalltür."
    }
   }
  ],
@@ -44,11 +50,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purpur_pillar"
+    "adv_item_ancient_debris"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purpur_pillar",
+    "block": "minecraft:ancient_debris",
     "count": 1
    },
    "conditions": [
@@ -56,10 +62,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Antiker Schrott. Nachts."
+   }
   },
-  "textKo": "밤에 퍼퍼 기둥라는 길의 의식을 마쳤어요.",
-  "textDe": "Purpursäule — Zeremonie vollendet."
+  "textKo": "밤에 고대 잔해라는 길의 의식을 마쳤어요.",
+  "textDe": "Antiker Schrott — Zeremonie vollendet."
  },
  "reward": {
   "badge": "feuerpfad",

@@ -9,7 +9,7 @@
  "concepts": [
   "string",
   "fishing_rod",
-  "gen_green_shulker_box"
+  "gen_jungle_chest_boat"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -56,17 +56,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_shulker_box"
+    "gen_jungle_chest_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_shulker_box",
+    "item": "minecraft:jungle_chest_boat",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Tropenholztruhenboot."
+   }
   },
-  "textKo": "초록색 셜커 상자라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Shulker-Kiste — Zeremonie vollendet."
+  "textKo": "상자가 실린 정글나무 보트라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholztruhenboot — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_fishy_business",

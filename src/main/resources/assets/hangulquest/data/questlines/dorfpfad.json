@@ -9,7 +9,7 @@
   "village",
   "bell",
   "emerald",
-  "gen_blast_furnace"
+  "gen_dropper"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -78,21 +78,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blast_furnace"
+    "gen_dropper"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:blast_furnace"
+    "block": "minecraft:dropper"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Spender. Nachts."
+   }
   },
-  "textKo": "밤에 용광로라는 길의 의식을 마쳤어요.",
-  "textDe": "Schmelzofen — Zeremonie vollendet."
+  "textKo": "밤에 공급기라는 길의 의식을 마쳤어요.",
+  "textDe": "Spender — Zeremonie vollendet."
  },
  "reward": {
   "badge": "dorfpfad",

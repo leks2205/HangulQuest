@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 258,
  "concepts": [
-  "gen_lime_carpet",
+  "melon",
   "bucket",
   "adv_item_axolotl_bucket"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_lime_carpet"
+    "melon"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_carpet",
+    "item": "minecraft:melon_slice",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Melonenscheibe."
    }
   },
   {

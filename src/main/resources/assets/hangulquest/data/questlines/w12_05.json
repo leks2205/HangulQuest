@@ -8,9 +8,9 @@
  "order": 1125,
  "concepts": [
   "soul_sand",
-  "gen_cinnabar_bricks",
-  "gen_wooden_hoe",
-  "gen_exposed_cut_copper_slab"
+  "gen_copper_golem_statue",
+  "gen_heartbreak_pottery_sherd",
+  "gen_pale_oak_sign"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_cinnabar_bricks"
+    "gen_copper_golem_statue"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar_bricks",
+    "block": "minecraft:copper_golem_statue",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Kupfergolemstatue."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_wooden_hoe"
+    "gen_heartbreak_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wooden_hoe",
+    "item": "minecraft:heartbreak_pottery_sherd",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Herzschmerz-Töpferscherbe."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_cut_copper_slab"
+    "gen_pale_oak_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_cut_copper_slab",
-    "count": 3
+    "block": "minecraft:pale_oak_sign",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Blasseichenholzschild."
+   }
   },
-  "textKo": "약간 녹슨 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene geschnittene Kupferstufe — Zeremonie vollendet."
+  "textKo": "창백한 참나무 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_05",

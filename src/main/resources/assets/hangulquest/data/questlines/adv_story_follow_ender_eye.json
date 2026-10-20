@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 315,
  "concepts": [
-  "gen_slime",
-  "gen_shelf_mushroom",
-  "gen_brown_egg",
-  "gen_rib_armor_trim_smithing_template"
+  "gen_cave_spider",
+  "gen_stripped_spruce_log",
+  "gen_burn_pottery_sherd",
+  "gen_stone_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_slime"
+    "gen_cave_spider"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:slime",
+    "entity": "minecraft:cave_spider",
     "count": 3
+   },
+   "clue": {
+    "de": "Besiege 3× Höhlenspinne."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_shelf_mushroom"
+    "gen_stripped_spruce_log"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shelf_mushroom",
+    "item": "minecraft:stripped_spruce_log",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Entrindeter Fichtenstamm."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_brown_egg"
+    "gen_burn_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_egg",
+    "item": "minecraft:burn_pottery_sherd",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Flammen-Töpferscherbe."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_rib_armor_trim_smithing_template"
+    "gen_stone_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:rib_armor_trim_smithing_template",
+    "item": "minecraft:stone_pressure_plate",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Steindruckplatte."
+   }
   },
-  "textKo": "대장장이 형판라는 길의 의식을 마쳤어요.",
-  "textDe": "Schmiedevorlage — Zeremonie vollendet."
+  "textKo": "돌 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Steindruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_follow_ender_eye",

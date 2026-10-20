@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1117,
  "concepts": [
-  "gen_bone_meal",
+  "gen_brown_banner",
   "ritual",
-  "gen_small_dripleaf",
-  "door"
+  "gen_stripped_mangrove_wood",
+  "gen_brown_wool"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bone_meal"
+    "gen_brown_banner"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bone_meal",
+    "item": "minecraft:brown_banner",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Braunes Banner."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_small_dripleaf"
+    "gen_stripped_mangrove_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:small_dripleaf",
+    "block": "minecraft:stripped_mangrove_wood",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Entrindetes Mangrovenholz."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "door"
+    "gen_brown_wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_door",
+    "item": "minecraft:brown_wool",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Braune Wolle."
+   }
   },
-  "textKo": "참나무 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholztür — Zeremonie vollendet."
+  "textKo": "갈색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Braune Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_07",

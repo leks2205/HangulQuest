@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 313,
  "concepts": [
-  "gen_smooth_sandstone",
+  "gen_test_instance_block",
   "stone_bricks",
-  "gen_peony"
+  "gen_polished_blackstone_wall"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_smooth_sandstone"
+    "gen_test_instance_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:smooth_sandstone",
+    "item": "minecraft:test_instance_block",
     "count": 12
+   },
+   "clue": {
+    "de": "Sammle 12× Testinstanzblock."
    }
   },
   {
@@ -53,17 +56,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_peony"
+    "gen_polished_blackstone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:peony",
+    "block": "minecraft:polished_blackstone_wall",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Polierte Schwarzsteinmauer."
+   }
   },
-  "textKo": "모란라는 길의 의식을 마쳤어요.",
-  "textDe": "Pfingstrose — Zeremonie vollendet."
+  "textKo": "윤나는 흑암 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Schwarzsteinmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_enter_the_end",

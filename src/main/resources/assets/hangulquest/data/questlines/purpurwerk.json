@@ -10,7 +10,7 @@
  "concepts": [
   "gen_purple_dye",
   "gen_purple_wool",
-  "gen_purple_carpet"
+  "gen_purple_wool"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -64,11 +64,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_carpet"
+    "gen_purple_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_carpet",
+    "block": "minecraft:purple_wool",
     "count": 1
    },
    "conditions": [
@@ -86,7 +86,7 @@
   "words": [
    "gen_purple_dye",
    "gen_purple_wool",
-   "gen_purple_carpet"
+   "gen_purple_wool"
   ]
  }
 }

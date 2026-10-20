@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 224,
  "concepts": [
-  "gen_kelp",
+  "gen_magenta_shulker_box",
   "gen_eroded_badlands",
   "gen_cave_vines_plant"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_kelp"
+    "gen_magenta_shulker_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:kelp",
+    "item": "minecraft:magenta_shulker_box",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Magenta Shulker-Kiste."
    }
   },
   {
@@ -39,6 +42,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:eroded_badlands",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Abgetragene Tafelberge."
    }
   }
  ],
@@ -53,7 +59,10 @@
     "block": "minecraft:cave_vines_plant",
     "count": 6
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Baue 6× Höhlenrankenpflanze ab."
+   }
   },
   "textKo": "동굴 덩굴 식물라는 길의 의식을 마쳤어요.",
   "textDe": "Höhlenrankenpflanze — Zeremonie vollendet."

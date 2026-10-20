@@ -10,8 +10,8 @@
   "gen_mangrove_swamp",
   "fish",
   "fishing_rod",
-  "gen_tall_dry_grass",
-  "gen_cobblestone_slab"
+  "gen_waxed_exposed_chiseled_copper",
+  "gen_copper_torch"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -30,6 +30,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:mangrove_swamp",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Mangrovensumpf."
    }
   },
   {
@@ -55,11 +58,11 @@
   {
    "id": "s3",
    "teach": [
-    "gen_tall_dry_grass"
+    "gen_waxed_exposed_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:tall_dry_grass",
+    "block": "minecraft:waxed_exposed_chiseled_copper",
     "count": 2
    },
    "conditions": [
@@ -67,18 +70,21 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Gewachster angelaufener gemeißelter Kupferblock. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cobblestone_slab"
+    "gen_copper_torch"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cobblestone_slab",
+    "block": "minecraft:copper_torch",
     "count": 1
    },
    "conditions": [
@@ -86,10 +92,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Kupferfackel. Nachts."
+   }
   },
-  "textKo": "밤에 조약돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bruchsteinstufe — Zeremonie vollendet."
+  "textKo": "밤에 구리 횃불라는 길의 의식을 마쳤어요.",
+  "textDe": "Kupferfackel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "flusslicht",

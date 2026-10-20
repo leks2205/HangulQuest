@@ -10,7 +10,7 @@
  "concepts": [
   "gen_beetroot",
   "gen_beetroots",
-  "gen_red_wool"
+  "gen_red_banner"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -63,11 +63,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_wool"
+    "gen_red_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_wool",
+    "block": "minecraft:red_banner",
     "count": 1
    },
    "conditions": [
@@ -85,7 +85,7 @@
   "words": [
    "gen_beetroot",
    "gen_beetroots",
-   "gen_red_wool"
+   "gen_red_banner"
   ]
  }
 }

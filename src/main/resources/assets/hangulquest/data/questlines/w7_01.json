@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1071,
  "concepts": [
-  "gen_deepslate_lapis_ore",
-  "gen_pink_bed",
-  "gen_end_stone_brick_wall"
+  "gen_deepslate_redstone_ore",
+  "gen_purple_concrete_slab",
+  "gen_granite_slab"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate_lapis_ore"
+    "gen_deepslate_redstone_ore"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:deepslate_lapis_ore",
+    "block": "minecraft:deepslate_redstone_ore",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Tiefenschiefer-Redstone-Erz ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pink_bed"
+    "gen_purple_concrete_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_bed",
+    "item": "minecraft:purple_concrete_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Violette Betonstufe."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_end_stone_brick_wall"
+    "gen_granite_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:end_stone_brick_wall",
+    "block": "minecraft:granite_slab",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Granitstufe."
+   }
   },
-  "textKo": "엔드 석재 벽돌 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Endsteinziegelmauer — Zeremonie vollendet."
+  "textKo": "화강암 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Granitstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_01",

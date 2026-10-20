@@ -63,7 +63,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 
 **Quest trails**
 - **420 questlines**, one JSON file each: a tree **22 levels deep**, 1,524 steps in total, 38 roots, branches that merge again before they continue.
-- **Every action is used once.** No two steps in the whole mod ask for the same thing: one quest collects wool, another shears a sheep, another dyes it purple — the sweep removed 1,100 duplicated goals and gave them unique ones.
+- **Every action is used once.** No two steps in the whole mod ask for the same thing: one quest collects wool, another shears a sheep, another dyes it purple — the sweep replaced 1,109 duplicated goals with unique ones.
 - **Chains that build a thing.** The colour branch is a real path: red, blue and yellow dye quests unlock the purple and orange wool quests, and those unlock the rainbow banner.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
 - **A quest log, not a single tracker.** Tick quests in the journal and they appear top-left as a short, background-free list: title, current Korean objective, the count right after it (`1/3`) and a status line when a condition is missing. Up to six, one of them highlighted; `V` cycles the highlight.
@@ -77,7 +77,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 - Quiz cards hide the item icon behind a `?` until you answer, so the picture never gives the answer away.
 
 **Vocabulary**
-- 1,132 concepts: 293 hand-written ones (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description and aliases, plus one entry per rarer object the quests use, generated from the game's own name files.
+- 1,132 concepts: 293 hand-written ones (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description and aliases, plus one entry per rarer object, generated from the game's name files.
 - Every vanilla item, block, entity and biome name that has a Korean/German pair, generated from the game's own language files.
 - **Lute import**: drop your Lute export at `config/hangulquest/vocab/lute-vocab.csv` and your own words and learning states become quest vocabulary — read-only, the mod never writes to your file.
 

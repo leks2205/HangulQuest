@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 139,
  "concepts": [
-  "gen_husk",
+  "gen_polar_bear",
   "lily_pad",
   "slime"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_husk"
+    "gen_polar_bear"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:husk",
+    "entity": "minecraft:polar_bear",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Eisbär an."
    }
   },
   {

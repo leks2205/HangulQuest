@@ -6,9 +6,9 @@
  "tier": 2,
  "concepts": [
   "gen_snowy_taiga",
-  "gen_gray_concrete_powder",
-  "iron_block",
-  "bookshelf"
+  "gen_gray_glazed_terracotta",
+  "iron",
+  "gen_blast_furnace"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -27,28 +27,37 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_taiga",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Verschneite Taiga."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gray_concrete_powder"
+    "gen_gray_glazed_terracotta"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:gray_concrete_powder",
+    "block": "minecraft:gray_glazed_terracotta",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Graue glasierte Keramik ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "iron_block"
+    "iron"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:iron_block",
+    "block": "minecraft:iron_ore",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Eisenerz an."
    }
   }
  ],
@@ -56,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bookshelf"
+    "gen_blast_furnace"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bookshelf"
+    "block": "minecraft:blast_furnace"
    },
    "conditions": [
     {
@@ -71,10 +80,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Schmelzofen. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 책장라는 길의 의식을 마쳤어요.",
-  "textDe": "Bücherregal — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 용광로라는 길의 의식을 마쳤어요.",
+  "textDe": "Schmelzofen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gipfelpfad",

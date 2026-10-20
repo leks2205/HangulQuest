@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 318,
  "concepts": [
-  "gen_dark_oak_planks",
-  "gen_birch_wall_hanging_sign",
+  "gen_green_dye",
+  "gen_deepslate_lapis_ore",
   "lava",
-  "gen_bamboo_block"
+  "gen_black_harness"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_planks"
+    "gen_green_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_planks",
+    "item": "minecraft:green_dye",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Grüner Farbstoff."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_birch_wall_hanging_sign"
+    "gen_deepslate_lapis_ore"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_wall_hanging_sign",
+    "item": "minecraft:deepslate_lapis_ore",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Tiefenschiefer-Lapislazulierz."
    }
   },
   {
@@ -61,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bamboo_block"
+    "gen_black_harness"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_block",
+    "item": "minecraft:black_harness",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Schwarzes Geschirr."
+   }
   },
-  "textKo": "대나무 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusblock — Zeremonie vollendet."
+  "textKo": "검은색 하네스라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzes Geschirr — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_story_lava_bucket",

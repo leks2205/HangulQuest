@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 281,
  "concepts": [
-  "gen_mossy_stone_bricks",
+  "gen_oak_chest_boat",
   "frog",
-  "gen_blue_concrete_powder"
+  "gen_blue_wool_stairs"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mossy_stone_bricks"
+    "gen_oak_chest_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_stone_bricks",
+    "item": "minecraft:oak_chest_boat",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Eichenholztruhenboot."
    }
   },
   {
@@ -49,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_concrete_powder"
+    "gen_blue_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_concrete_powder",
+    "item": "minecraft:blue_wool_stairs",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Blaue Wolltreppe."
+   }
   },
-  "textKo": "파란색 콘크리트 가루라는 길의 의식을 마쳤어요.",
-  "textDe": "Blauer Trockenbeton — Zeremonie vollendet."
+  "textKo": "파란색 양털 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Blaue Wolltreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_husbandry_tadpole_in_a_bucket",

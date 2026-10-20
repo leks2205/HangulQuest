@@ -5,10 +5,10 @@
  "titleDe": "Der Abenteuerpfad",
  "tier": 3,
  "concepts": [
-  "gen_magenta_stained_glass",
+  "gen_music_disc_creator_music_box",
   "obsidian",
   "nether",
-  "gen_waxed_copper_door"
+  "gen_weathered_copper_lantern"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_stained_glass"
+    "gen_music_disc_creator_music_box"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_stained_glass",
+    "item": "minecraft:music_disc_creator_music_box",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   },
   {
@@ -62,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_copper_door"
+    "gen_weathered_copper_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_door",
+    "block": "minecraft:weathered_copper_lantern",
     "count": 1
    },
    "conditions": [
@@ -74,10 +77,13 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_nether"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Verwitterte Kupferlaterne. In einer anderen Dimension."
+   }
   },
-  "textKo": "지옥에서 밀랍칠한 구리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste Kupfertür — Zeremonie vollendet."
+  "textKo": "지옥에서 녹슨 구리 랜턴라는 길의 의식을 마쳤어요.",
+  "textDe": "Verwitterte Kupferlaterne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "abenteuerpfad",

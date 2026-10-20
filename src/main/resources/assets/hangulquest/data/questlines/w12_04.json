@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1124,
  "concepts": [
-  "gen_waxed_copper_trapdoor",
-  "gen_polished_cinnabar_wall",
+  "gen_white_wool_slab",
+  "gen_polished_diorite_slab",
   "ghast",
-  "gen_crimson_hyphae"
+  "gen_cyan_wool"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_copper_trapdoor"
+    "gen_white_wool_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_trapdoor",
+    "block": "minecraft:white_wool_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Weiße Wollstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_cinnabar_wall"
+    "gen_polished_diorite_slab"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:polished_cinnabar_wall",
+    "block": "minecraft:polished_diorite_slab",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Polierte Dioritstufe ab."
    }
   },
   {
@@ -65,11 +71,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_hyphae"
+    "gen_cyan_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_hyphae",
+    "block": "minecraft:cyan_wool",
     "count": 8
    },
    "conditions": [
@@ -77,10 +83,13 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_nether"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 8× Türkise Wolle. In einer anderen Dimension."
+   }
   },
-  "textKo": "지옥에서 진홍빛 균사라는 길의 의식을 마쳤어요.",
-  "textDe": "Karmesinhyphen — Zeremonie vollendet."
+  "textKo": "지옥에서 청록색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkise Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_04",

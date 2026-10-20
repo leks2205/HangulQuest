@@ -9,7 +9,7 @@
  "concepts": [
   "stone_bricks",
   "iron_chestplate",
-  "gen_hopper_minecart"
+  "gen_lime_carpet"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -62,17 +62,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hopper_minecart"
+    "gen_lime_carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:hopper_minecart",
+    "item": "minecraft:lime_carpet",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Hellgrüner Teppich."
+   }
   },
-  "textKo": "호퍼가 실린 광산 수레라는 길의 의식을 마쳤어요.",
-  "textDe": "Trichterlore — Zeremonie vollendet."
+  "textKo": "연두색 양탄자라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüner Teppich — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w9_04",

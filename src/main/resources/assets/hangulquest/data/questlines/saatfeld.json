@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 61,
  "concepts": [
-  "gen_waxed_exposed_cut_copper_stairs",
-  "gen_flowering_azalea_leaves",
-  "beef"
+  "nether",
+  "gen_dark_oak_log",
+  "pig"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_exposed_cut_copper_stairs"
+    "nether"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_cut_copper_stairs",
+    "item": "minecraft:netherrack",
     "count": 5
+   },
+   "clue": {
+    "de": "Sammle 5× Netherrack."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_flowering_azalea_leaves"
+    "gen_dark_oak_log"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:flowering_azalea_leaves",
+    "block": "minecraft:dark_oak_log",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Schwarzeichenstamm an."
    }
   }
  ],
@@ -46,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "beef"
+    "pig"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_beef",
+    "item": "minecraft:porkchop",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Iss Rohes Schweinefleisch."
+   }
   },
-  "textKo": "스테이크라는 길의 의식을 마쳤어요.",
-  "textDe": "Steak — Zeremonie vollendet."
+  "textKo": "익히지 않은 돼지고기라는 길의 의식을 마쳤어요.",
+  "textDe": "Rohes Schweinefleisch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "saatfeld",

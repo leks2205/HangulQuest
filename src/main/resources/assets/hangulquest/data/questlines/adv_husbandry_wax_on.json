@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 285,
  "concepts": [
-  "gen_cherry_hanging_sign",
+  "adv_item_chiseled_tuff",
   "honeycomb",
   "gen_dispenser"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_hanging_sign"
+    "adv_item_chiseled_tuff"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_hanging_sign",
+    "item": "minecraft:chiseled_tuff",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gemeißelter Tuffstein."
    }
   },
   {
@@ -58,7 +61,10 @@
     "type": "USE_BLOCK",
     "block": "minecraft:dispenser"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Benutze Werfer."
+   }
   },
   "textKo": "발사기라는 길의 의식을 마쳤어요.",
   "textDe": "Werfer — Zeremonie vollendet."

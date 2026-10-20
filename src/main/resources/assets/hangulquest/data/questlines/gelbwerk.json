@@ -9,7 +9,7 @@
  "koreanLevel": 6,
  "concepts": [
   "gen_yellow_dye",
-  "gold_block",
+  "gen_yellow_concrete",
   "gen_yellow_bed"
  ],
  "requires": {
@@ -42,20 +42,20 @@
   {
    "id": "s2",
    "teach": [
-    "gold_block"
+    "gen_yellow_concrete"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:gold_block",
+    "block": "minecraft:yellow_concrete",
     "dwellMs": 800
    },
    "clue": {
-    "ko": "금 블록을 봐요.",
-    "de": "Sieh dir Goldblock an."
+    "ko": "노란색 콘크리트를 봐요.",
+    "de": "Sieh dir Gelber Beton an."
    },
    "hint": {
-    "ko": "금 블록을 봐요.",
-    "de": "Sieh dir Goldblock an."
+    "ko": "노란색 콘크리트를 봐요.",
+    "de": "Sieh dir Gelber Beton an."
    }
   }
  ],
@@ -84,7 +84,7 @@
   "badge": "gelbwerk",
   "words": [
    "gen_yellow_dye",
-   "gold_block",
+   "gen_yellow_concrete",
    "gen_yellow_bed"
   ]
  }

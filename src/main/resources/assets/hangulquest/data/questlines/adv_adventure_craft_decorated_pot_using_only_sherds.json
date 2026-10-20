@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 206,
  "concepts": [
-  "gen_orange_candle_cake",
+  "gen_pink_glazed_terracotta",
   "adv_block_torchflower_seeds",
   "adv_item_decorated_pot"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_orange_candle_cake"
+    "gen_pink_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:orange_candle_cake",
+    "item": "minecraft:pink_glazed_terracotta",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Rosa glasierte Keramik."
    }
   },
   {

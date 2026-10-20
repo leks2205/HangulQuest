@@ -5,10 +5,10 @@
  "titleDe": "Der Fischerpfad",
  "tier": 2,
  "concepts": [
-  "gen_heart_pottery_shard",
-  "gen_firework_rocket",
+  "gen_large_amethyst_bud",
+  "gen_gray_candle",
   "beach",
-  "gen_blue_bed"
+  "gen_damaged_anvil"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_heart_pottery_shard"
+    "gen_large_amethyst_bud"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:heart_pottery_shard",
+    "item": "minecraft:large_amethyst_bud",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Große Amethystknospe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_firework_rocket"
+    "gen_gray_candle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:firework_rocket",
+    "item": "minecraft:gray_candle",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Graue Kerze."
    }
   },
   {
@@ -59,11 +65,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_bed"
+    "gen_damaged_anvil"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:blue_bed"
+    "block": "minecraft:damaged_anvil"
    },
    "conditions": [
     {
@@ -74,10 +80,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Beschädigter Amboss. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 해변에서 파란색 침대라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaues Bett — Zeremonie vollendet."
+  "textKo": "밤에 해변에서 손상된 모루라는 길의 의식을 마쳤어요.",
+  "textDe": "Beschädigter Amboss — Zeremonie vollendet."
  },
  "reward": {
   "badge": "fischerpfad",

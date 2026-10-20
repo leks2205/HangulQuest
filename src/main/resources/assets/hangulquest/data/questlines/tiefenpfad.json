@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 510,
  "concepts": [
-  "gen_golden_dandelion",
-  "gen_jungle_sapling",
+  "gen_granite_slab",
+  "gen_mangrove_chest_boat",
   "diamond",
-  "gen_prismarine_brick_slab"
+  "gen_red_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_golden_dandelion"
+    "gen_granite_slab"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:golden_dandelion",
+    "block": "minecraft:granite_slab",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Granitstufe ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_jungle_sapling"
+    "gen_mangrove_chest_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_sapling",
+    "item": "minecraft:mangrove_chest_boat",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Mangrovenholztruhenboot."
    }
   },
   {
@@ -61,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_prismarine_brick_slab"
+    "gen_red_stained_glass"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:prismarine_brick_slab",
+    "block": "minecraft:red_stained_glass",
     "count": 1
    },
    "conditions": [
@@ -74,10 +80,13 @@
      "minY": -64,
      "maxY": 0
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Rotes Glas. Zwischen Y -64 und 0."
+   }
   },
-  "textKo": "높이 0 이하에서 프리즈머린 벽돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Prismarinziegelstufe — Zeremonie vollendet."
+  "textKo": "높이 0 이하에서 빨간색 색유리라는 길의 의식을 마쳤어요.",
+  "textDe": "Rotes Glas — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tiefenpfad",

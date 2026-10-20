@@ -7,9 +7,9 @@
  "order": 514,
  "concepts": [
   "gen_mushroom_fields",
-  "gen_mule",
-  "gen_stripped_birch_log",
-  "gen_cherry_button"
+  "gen_mooshroom",
+  "gen_waxed_exposed_copper_trapdoor",
+  "gen_cherry_trapdoor"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -29,28 +29,37 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:mushroom_fields",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Pilzland."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mule"
+    "gen_mooshroom"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:mule",
+    "entity": "minecraft:mooshroom",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Mooshroom an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_birch_log"
+    "gen_waxed_exposed_copper_trapdoor"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_birch_log",
+    "item": "minecraft:waxed_exposed_copper_trapdoor",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachste angelaufene Kupferfalltür."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_button"
+    "gen_cherry_trapdoor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_button",
+    "block": "minecraft:cherry_trapdoor",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Kirschholzfalltür. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 벚나무 버튼라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschholzknopf — Zeremonie vollendet."
+  "textKo": "해변에서 벚나무 다락문라는 길의 의식을 마쳤어요.",
+  "textDe": "Kirschholzfalltür — Zeremonie vollendet."
  },
  "reward": {
   "badge": "meerestiefe",

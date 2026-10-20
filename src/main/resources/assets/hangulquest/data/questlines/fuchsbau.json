@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 144,
  "concepts": [
-  "gen_piglin",
-  "gen_nether_gold_ore",
+  "gen_ocelot",
+  "gen_oxidized_cut_copper_slab",
   "leaves",
-  "gen_polished_diorite"
+  "gen_purple_glazed_terracotta"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_piglin"
+    "gen_ocelot"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:piglin",
+    "entity": "minecraft:ocelot",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Ozelot an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_nether_gold_ore"
+    "gen_oxidized_cut_copper_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_gold_ore",
+    "item": "minecraft:oxidized_cut_copper_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Oxidierte geschnittene Kupferstufe."
    }
   },
   {
@@ -61,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_diorite"
+    "gen_purple_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_diorite",
+    "block": "minecraft:purple_glazed_terracotta",
     "count": 1
    },
    "conditions": [
@@ -73,10 +79,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Violette glasierte Keramik. Nachts."
+   }
   },
-  "textKo": "밤에 윤나는 섬록암라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierter Diorit — Zeremonie vollendet."
+  "textKo": "밤에 보라색 유광 테라코타라는 길의 의식을 마쳤어요.",
+  "textDe": "Violette glasierte Keramik — Zeremonie vollendet."
  },
  "reward": {
   "badge": "fuchsbau",

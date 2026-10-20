@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 317,
  "concepts": [
-  "gen_warped_trapdoor",
-  "gen_green_concrete_stairs",
+  "gen_yellow_glazed_terracotta",
+  "gen_jungle_boat",
   "crafting_table",
   "pickaxe"
  ],
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_warped_trapdoor"
+    "gen_yellow_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_trapdoor",
+    "item": "minecraft:yellow_glazed_terracotta",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Gelbe glasierte Keramik."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_green_concrete_stairs"
+    "gen_jungle_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_concrete_stairs",
+    "item": "minecraft:jungle_boat",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Tropenholzboot."
    }
   },
   {

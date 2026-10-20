@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1105,
  "concepts": [
-  "gen_dark_oak_fence_gate",
-  "gen_mangrove_button",
-  "gen_cyan_wool_slab",
-  "gen_oak_trapdoor"
+  "gen_dark_oak_leaves",
+  "gen_oak_button",
+  "gen_dead_brain_coral_block",
+  "gen_oxidized_cut_copper"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_fence_gate"
+    "gen_dark_oak_leaves"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:dark_oak_fence_gate",
+    "block": "minecraft:dark_oak_leaves",
     "count": 16
+   },
+   "clue": {
+    "de": "Baue 16× Schwarzeichenlaub ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_button"
+    "gen_oak_button"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_button",
+    "block": "minecraft:oak_button",
     "count": 8
+   },
+   "clue": {
+    "de": "Platziere 8× Eichenholzknopf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cyan_wool_slab"
+    "gen_dead_brain_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_wool_slab",
+    "block": "minecraft:dead_brain_coral_block",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Abgestorbener Hirnkorallenblock."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oak_trapdoor"
+    "gen_oxidized_cut_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_trapdoor",
-    "count": 3
+    "block": "minecraft:oxidized_cut_copper",
+    "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Oxidierter geschnittener Kupferblock."
+   }
   },
-  "textKo": "참나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholzfalltür — Zeremonie vollendet."
+  "textKo": "산화된 깎인 구리라는 길의 의식을 마쳤어요.",
+  "textDe": "Oxidierter geschnittener Kupferblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w10_05",

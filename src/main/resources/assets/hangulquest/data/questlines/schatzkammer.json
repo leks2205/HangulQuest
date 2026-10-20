@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 147,
  "concepts": [
-  "gen_polished_deepslate",
-  "gen_waxed_exposed_copper_chest",
-  "gen_stripped_birch_wood",
-  "gen_mossy_cobblestone_slab"
+  "gen_purpur_slab",
+  "gen_smooth_sandstone",
+  "gen_yellow_concrete_powder",
+  "gen_sulfur_stairs"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polished_deepslate"
+    "gen_purpur_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_deepslate",
+    "block": "minecraft:purpur_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Purpurstufe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_exposed_copper_chest"
+    "gen_smooth_sandstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_chest",
+    "block": "minecraft:smooth_sandstone",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Glatter Sandstein."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_birch_wood"
+    "gen_yellow_concrete_powder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_birch_wood",
+    "block": "minecraft:yellow_concrete_powder",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Gelber Trockenbeton."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mossy_cobblestone_slab"
+    "gen_sulfur_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_cobblestone_slab",
+    "item": "minecraft:sulfur_stairs",
     "count": 5
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 5× Schwefeltreppe."
+   }
   },
-  "textKo": "이끼 낀 조약돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet."
+  "textKo": "유황 계단라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwefeltreppe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schatzkammer",

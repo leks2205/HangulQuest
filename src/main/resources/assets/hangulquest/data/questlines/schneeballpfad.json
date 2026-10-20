@@ -8,8 +8,8 @@
  "order": 101,
  "concepts": [
   "snowball",
-  "gen_cherry_shelf",
-  "gen_cherry_leaves",
+  "gen_cherry_sign",
+  "gen_chiseled_copper",
   "snow"
  ],
  "requires": {
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_shelf"
+    "gen_cherry_sign"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:cherry_shelf",
+    "block": "minecraft:cherry_sign",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Kirschholzschild an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_leaves"
+    "gen_chiseled_copper"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_leaves",
+    "block": "minecraft:chiseled_copper",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Gemeißelter Kupferblock."
    }
   }
  ],

@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 511,
  "concepts": [
-  "gen_conduit",
-  "gen_chiseled_sandstone",
-  "gen_lime_terracotta",
-  "gen_brain_coral_fan"
+  "gen_cracked_deepslate_bricks",
+  "gen_chiseled_sulfur",
+  "gen_mossy_cobblestone_wall",
+  "gen_stripped_acacia_wood"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -24,33 +24,39 @@
   {
    "id": "s1",
    "teach": [
-    "gen_conduit"
+    "gen_cracked_deepslate_bricks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:conduit",
+    "item": "minecraft:cracked_deepslate_bricks",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Rissige Tiefenschieferziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_sandstone"
+    "gen_chiseled_sulfur"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:chiseled_sandstone",
+    "block": "minecraft:chiseled_sulfur",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Gemeißelter Schwefel ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_terracotta"
+    "gen_mossy_cobblestone_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_terracotta",
+    "block": "minecraft:mossy_cobblestone_wall",
     "count": 3
    },
    "conditions": [
@@ -58,29 +64,35 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Bemooste Bruchsteinmauer. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brain_coral_fan"
+    "gen_stripped_acacia_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral_fan",
-    "count": 2
+    "block": "minecraft:stripped_acacia_wood",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Entrindetes Akazienholz. Nachts."
+   }
   },
-  "textKo": "밤에 부채형 뇌 산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Hirnkorallenfächer — Zeremonie vollendet."
+  "textKo": "밤에 껍질 벗긴 아카시아나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindetes Akazienholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmiedefeuer",

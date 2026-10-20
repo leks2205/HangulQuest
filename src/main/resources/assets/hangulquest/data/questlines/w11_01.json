@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1111,
  "concepts": [
-  "gen_stripped_warped_stem",
-  "gen_mangrove_wood",
-  "gen_purple_candle_cake",
-  "gen_dark_oak_trapdoor"
+  "gen_weathered_copper_bulb",
+  "gen_orange_bed",
+  "gen_resin_block",
+  "gen_deepslate_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_warped_stem"
+    "gen_weathered_copper_bulb"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_warped_stem",
+    "item": "minecraft:weathered_copper_bulb",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Verwitterte Kupferleuchte."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_wood"
+    "gen_orange_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_wood",
+    "block": "minecraft:orange_bed",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Oranges Bett."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_purple_candle_cake"
+    "gen_resin_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_candle_cake",
+    "block": "minecraft:resin_block",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Harzblock."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_oak_trapdoor"
+    "gen_deepslate_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_trapdoor",
+    "block": "minecraft:deepslate_brick_wall",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Tiefenschieferziegelmauer."
+   }
   },
-  "textKo": "짙은 참나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzeichenholzfalltür — Zeremonie vollendet."
+  "textKo": "심층암 벽돌 담장라는 길의 의식을 마쳤어요.",
+  "textDe": "Tiefenschieferziegelmauer — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_01",

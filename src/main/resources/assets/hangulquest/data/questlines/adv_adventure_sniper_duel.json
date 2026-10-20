@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 227,
  "concepts": [
-  "gen_brain_coral",
-  "gen_nether_gold_ore",
+  "gen_brown_carpet",
+  "gen_orange_concrete_slab",
   "gen_drowned"
  ],
  "requires": {
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brain_coral"
+    "gen_brown_carpet"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brain_coral",
+    "item": "minecraft:brown_carpet",
     "count": 16
+   },
+   "clue": {
+    "de": "Sammle 16× Brauner Teppich."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_nether_gold_ore"
+    "gen_orange_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_gold_ore",
+    "block": "minecraft:orange_concrete_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Orange Betonstufe."
    }
   }
  ],
@@ -53,7 +59,10 @@
     "entity": "minecraft:drowned",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Ertrunkener."
+   }
   },
   "textKo": "드라운드라는 길의 의식을 마쳤어요.",
   "textDe": "Ertrunkener — Zeremonie vollendet."

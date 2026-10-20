@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1075,
  "concepts": [
-  "gen_raw_copper_block",
-  "gen_muddy_mangrove_roots",
-  "gen_horn_coral_block",
-  "gen_cyan_wool"
+  "gen_red_candle_cake",
+  "gen_pale_oak_planks",
+  "gen_lime_shulker_box",
+  "gen_coarse_dirt"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_raw_copper_block"
+    "gen_red_candle_cake"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:raw_copper_block",
+    "block": "minecraft:red_candle_cake",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Kuchen mit roter Kerze ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_muddy_mangrove_roots"
+    "gen_pale_oak_planks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:muddy_mangrove_roots",
+    "block": "minecraft:pale_oak_planks",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Blasseichenholzbretter."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_horn_coral_block"
+    "gen_lime_shulker_box"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:horn_coral_block",
+    "block": "minecraft:lime_shulker_box",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Hellgrüne Shulker-Kiste."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_wool"
+    "gen_coarse_dirt"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_wool",
-    "count": 2
+    "block": "minecraft:coarse_dirt",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Grobe Erde."
+   }
   },
-  "textKo": "청록색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkise Wolle — Zeremonie vollendet."
+  "textKo": "거친 흙라는 길의 의식을 마쳤어요.",
+  "textDe": "Grobe Erde — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_05",

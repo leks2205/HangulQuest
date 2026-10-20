@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1083,
  "concepts": [
-  "gen_blue_orchid",
-  "gen_yellow_glazed_terracotta",
-  "grass",
-  "gen_exposed_copper_bulb"
+  "gen_brown_banner",
+  "gen_gray_wool",
+  "gen_green_wool",
+  "gen_black_cushion"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blue_orchid"
+    "gen_brown_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_orchid",
+    "block": "minecraft:brown_banner",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Braunes Banner."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_yellow_glazed_terracotta"
+    "gen_gray_wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:yellow_glazed_terracotta",
+    "item": "minecraft:gray_wool",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Graue Wolle."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "grass"
+    "gen_green_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:grass_block",
+    "block": "minecraft:green_wool",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Grüne Wolle."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_copper_bulb"
+    "gen_black_cushion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_bulb",
+    "item": "minecraft:black_cushion",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Schwarzes Kissen."
+   }
   },
-  "textKo": "약간 녹슨 구리 전구라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene Kupferleuchte — Zeremonie vollendet."
+  "textKo": "검은색 방석라는 길의 의식을 마쳤어요.",
+  "textDe": "Schwarzes Kissen — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_03",

@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 550,
  "concepts": [
-  "gen_piglin_banner_pattern",
-  "gen_gilded_blackstone",
-  "gen_nether_wastes",
-  "gen_warped_shelf"
+  "gen_prize_pottery_sherd",
+  "gen_green_cushion",
+  "gen_lush_caves",
+  "gen_stripped_poplar_wood"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,34 +25,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_piglin_banner_pattern"
+    "gen_prize_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:piglin_banner_pattern",
+    "item": "minecraft:prize_pottery_sherd",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Juwelen-Töpferscherbe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gilded_blackstone"
+    "gen_green_cushion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gilded_blackstone",
+    "item": "minecraft:green_cushion",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Grünes Kissen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_nether_wastes"
+    "gen_lush_caves"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:nether_wastes",
+    "biome": "minecraft:lush_caves",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Üppige Höhlen."
    }
   }
  ],
@@ -60,11 +69,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_shelf"
+    "gen_stripped_poplar_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_shelf",
+    "block": "minecraft:stripped_poplar_wood",
     "count": 1
    },
    "conditions": [
@@ -72,10 +81,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Entrindetes Pappelholz. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 뒤틀린 선반라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirrregal — Zeremonie vollendet."
+  "textKo": "해변에서 껍질 벗긴 포플러나무라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindetes Pappelholz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "unendlichereise",

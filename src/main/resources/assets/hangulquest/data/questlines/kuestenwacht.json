@@ -8,8 +8,8 @@
  "concepts": [
   "gen_dappled_forest",
   "squid",
-  "gen_pale_oak_slab",
-  "gen_resin_block"
+  "gen_polished_cinnabar_slab",
+  "gen_spore_blossom"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -28,6 +28,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:dappled_forest",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Rotlaubwald."
    }
   },
   {
@@ -47,11 +50,11 @@
   {
    "id": "s3",
    "teach": [
-    "gen_pale_oak_slab"
+    "gen_polished_cinnabar_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_slab",
+    "block": "minecraft:polished_cinnabar_slab",
     "count": 3
    },
    "conditions": [
@@ -59,18 +62,21 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Polierte Zinnoberstufe. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_resin_block"
+    "gen_spore_blossom"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:resin_block",
+    "block": "minecraft:spore_blossom",
     "count": 1
    },
    "conditions": [
@@ -82,10 +88,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Sporenblüte. In einem passenden Biom. Nachts."
+   }
   },
-  "textKo": "해변에서 밤에 수지 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Harzblock — Zeremonie vollendet."
+  "textKo": "해변에서 밤에 포자 꽃라는 길의 의식을 마쳤어요.",
+  "textDe": "Sporenblüte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kuestenwacht",

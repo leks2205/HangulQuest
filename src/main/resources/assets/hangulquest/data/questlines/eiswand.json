@@ -8,8 +8,8 @@
  "concepts": [
   "gen_birch_sapling",
   "snow",
-  "gen_llama",
-  "gen_dead_horn_coral_fan"
+  "gen_slime",
+  "gen_jungle_fence"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -31,6 +31,9 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:birch_sapling",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Birkensetzling ab."
    }
   },
   {
@@ -50,12 +53,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_llama"
+    "gen_slime"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:llama",
+    "entity": "minecraft:slime",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Schleim an."
    }
   }
  ],
@@ -63,11 +69,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dead_horn_coral_fan"
+    "gen_jungle_fence"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dead_horn_coral_fan",
+    "block": "minecraft:jungle_fence",
     "count": 1
    },
    "conditions": [
@@ -75,10 +81,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Tropenholzzaun. In einem passenden Biom."
+   }
   },
-  "textKo": "산 지형에서 죽은 부채형 사방산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbener Geweihkorallenfächer — Zeremonie vollendet."
+  "textKo": "산 지형에서 정글나무 울타리라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzzaun — Zeremonie vollendet."
  },
  "reward": {
   "badge": "eiswand",

@@ -6,9 +6,9 @@
  "tier": 5,
  "order": 501,
  "concepts": [
-  "gen_mangrove_planks",
+  "gen_mangrove_propagule",
   "carrot",
-  "gen_deepslate",
+  "gen_deepslate_brick_wall",
   "gen_rabbit_stew"
  ],
  "requires": {
@@ -26,12 +26,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_planks"
+    "gen_mangrove_propagule"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:mangrove_planks",
+    "block": "minecraft:mangrove_propagule",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Mangroven-Keimling ab."
    }
   },
   {
@@ -51,12 +54,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_deepslate"
+    "gen_deepslate_brick_wall"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:deepslate",
+    "block": "minecraft:deepslate_brick_wall",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Tiefenschieferziegelmauer an."
    }
   }
  ],
@@ -76,7 +82,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Iss Kaninchenragout. Nachts."
+   }
   },
   "textKo": "밤에 토끼 스튜라는 길의 의식을 마쳤어요.",
   "textDe": "Kaninchenragout — Zeremonie vollendet."

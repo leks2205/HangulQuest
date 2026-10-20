@@ -8,8 +8,8 @@
  "concepts": [
   "gen_snowy_beach",
   "gen_windswept_savanna",
-  "gen_diamond_block",
-  "gen_brown_stained_glass"
+  "gen_exposed_copper_bulb",
+  "gen_bush"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -29,6 +29,9 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_beach",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Verschneiter Strand."
    }
   },
   {
@@ -40,17 +43,23 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:windswept_savanna",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Zerzauste Savanne."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_diamond_block"
+    "gen_exposed_copper_bulb"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_block",
+    "item": "minecraft:exposed_copper_bulb",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Angelaufene Kupferleuchte."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_stained_glass"
+    "gen_bush"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_stained_glass",
+    "block": "minecraft:bush",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Busch. In einem passenden Biom."
+   }
   },
-  "textKo": "해변에서 갈색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Braunes Glas — Zeremonie vollendet."
+  "textKo": "해변에서 덤불라는 길의 의식을 마쳤어요.",
+  "textDe": "Busch — Zeremonie vollendet."
  },
  "reward": {
   "badge": "ozeanfahrt",

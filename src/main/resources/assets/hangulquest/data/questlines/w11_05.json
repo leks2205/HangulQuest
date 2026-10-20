@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1115,
  "concepts": [
-  "gen_piglin_wall_head",
-  "stone",
+  "gen_polished_sulfur_wall",
+  "gen_waxed_exposed_chiseled_copper",
   "adv_block_end_stone",
-  "iron"
+  "gen_magenta_bundle"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_piglin_wall_head"
+    "gen_polished_sulfur_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:piglin_wall_head",
+    "block": "minecraft:polished_sulfur_wall",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Polierte Schwefelmauer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "stone"
+    "gen_waxed_exposed_chiseled_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stone",
+    "item": "minecraft:waxed_exposed_chiseled_copper",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Gewachster angelaufener gemeißelter Kupferblock."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "iron"
+    "gen_magenta_bundle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ore",
+    "item": "minecraft:magenta_bundle",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 2× Magenta Bündel."
+   }
   },
-  "textKo": "철 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Eisenerz — Zeremonie vollendet."
+  "textKo": "자홍색 꾸러미라는 길의 의식을 마쳤어요.",
+  "textDe": "Magenta Bündel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w11_05",

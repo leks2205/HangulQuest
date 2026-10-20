@@ -8,8 +8,8 @@
  "order": 308,
  "concepts": [
   "soul_sand",
-  "gen_warped_planks",
-  "gen_powder_snow"
+  "gen_red_stained_glass_pane",
+  "gen_brown_concrete"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_warped_planks"
+    "gen_red_stained_glass_pane"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_planks",
+    "item": "minecraft:red_stained_glass_pane",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Rote Glasscheibe."
    }
   }
  ],
@@ -52,17 +55,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_powder_snow"
+    "gen_brown_concrete"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:powder_snow",
+    "item": "minecraft:brown_concrete",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Brauner Beton."
+   }
   },
-  "textKo": "가루눈라는 길의 의식을 마쳤어요.",
-  "textDe": "Pulverschnee — Zeremonie vollendet."
+  "textKo": "갈색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Brauner Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_summon_wither",

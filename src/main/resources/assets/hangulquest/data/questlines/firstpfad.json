@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 370,
  "concepts": [
-  "gen_breeze",
-  "gen_small_amethyst_bud",
-  "crafting_table",
-  "gen_copper_grate"
+  "gen_cave_spider",
+  "gen_smooth_quartz",
+  "gen_copper_bars",
+  "gen_jungle_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -22,34 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_breeze"
+    "gen_cave_spider"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:breeze",
+    "entity": "minecraft:cave_spider",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Höhlenspinne an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_small_amethyst_bud"
+    "gen_smooth_quartz"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:small_amethyst_bud",
+    "block": "minecraft:smooth_quartz",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Glatter Quarzblock ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "crafting_table"
+    "gen_copper_bars"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:crafting_table",
+    "block": "minecraft:copper_bars",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Kupfergitter an."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_copper_grate"
+    "gen_jungle_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_grate",
+    "block": "minecraft:jungle_hanging_sign",
     "count": 1
    },
    "conditions": [
@@ -73,10 +82,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Tropenholzhängeschild. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 구리 격자라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupferrost — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 정글나무 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Tropenholzhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "firstpfad",

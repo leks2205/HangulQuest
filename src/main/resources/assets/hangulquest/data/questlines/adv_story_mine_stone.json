@@ -8,8 +8,8 @@
  "order": 320,
  "concepts": [
   "adv_item_wooden_pickaxe",
-  "gen_exposed_chiseled_copper",
-  "gen_lime_candle",
+  "gen_exposed_copper",
+  "gen_lime_carpet",
   "cobblestone"
  ],
  "requires": {
@@ -41,23 +41,29 @@
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_chiseled_copper"
+    "gen_exposed_copper"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:exposed_chiseled_copper",
+    "block": "minecraft:exposed_copper",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Angelaufener Kupferblock ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_candle"
+    "gen_lime_carpet"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:lime_candle",
+    "block": "minecraft:lime_carpet",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Hellgrüner Teppich ab."
    }
   }
  ],

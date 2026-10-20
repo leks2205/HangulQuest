@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 131,
  "concepts": [
-  "gen_dropper",
+  "bookshelf",
   "bell",
-  "snow",
-  "gen_green_concrete"
+  "gen_tuff_brick_slab",
+  "gen_infested_cracked_stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,11 +23,14 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dropper"
+    "bookshelf"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:dropper"
+    "block": "minecraft:bookshelf"
+   },
+   "clue": {
+    "de": "Benutze Bücherregal."
    }
   },
   {
@@ -51,12 +54,15 @@
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "gen_tuff_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:snow_block",
+    "item": "minecraft:tuff_brick_slab",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Tuffsteinziegelstufe."
    }
   }
  ],
@@ -64,17 +70,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_concrete"
+    "gen_infested_cracked_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:green_concrete",
+    "block": "minecraft:infested_cracked_stone_bricks",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Befallene rissige Steinziegel."
+   }
   },
-  "textKo": "초록색 콘크리트라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüner Beton — Zeremonie vollendet."
+  "textKo": "벌레 먹은 금 간 석재 벽돌라는 길의 의식을 마쳤어요.",
+  "textDe": "Befallene rissige Steinziegel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "glockenpfad",

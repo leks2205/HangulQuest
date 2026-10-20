@@ -8,7 +8,7 @@
  "order": 276,
  "concepts": [
   "adv_item_oak_boat",
-  "gen_pink_shulker_box",
+  "gen_prismarine_brick_slab",
   "goat"
  ],
  "requires": {
@@ -39,12 +39,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_pink_shulker_box"
+    "gen_prismarine_brick_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_shulker_box",
+    "item": "minecraft:prismarine_brick_slab",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Prismarinziegelstufe."
    }
   }
  ],

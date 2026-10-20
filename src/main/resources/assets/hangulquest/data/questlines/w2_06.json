@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 1026,
  "concepts": [
-  "gen_pink_carpet",
-  "gen_white_cushion",
-  "gen_magenta_bed",
-  "gen_lime_carpet"
+  "gen_poplar_wood",
+  "gen_nether_brick_wall",
+  "gen_mossy_cobblestone",
+  "gen_pale_oak_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,11 +21,11 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pink_carpet"
+    "gen_poplar_wood"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_carpet",
+    "block": "minecraft:poplar_wood",
     "count": 3
    },
    "conditions": [
@@ -33,28 +33,37 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Pappelholz. Nachts."
+   }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_cushion"
+    "gen_nether_brick_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_cushion",
+    "item": "minecraft:nether_brick_wall",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Netherziegelmauer."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_magenta_bed"
+    "gen_mossy_cobblestone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_bed",
-    "count": 3
+    "block": "minecraft:mossy_cobblestone",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Bemooster Bruchstein."
    }
   }
  ],
@@ -62,11 +71,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_carpet"
+    "gen_pale_oak_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_carpet",
+    "block": "minecraft:pale_oak_pressure_plate",
     "count": 2
    },
    "conditions": [
@@ -74,10 +83,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Blasseichenholzdruckplatte. Nachts."
+   }
   },
-  "textKo": "밤에 연두색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrüner Teppich — Zeremonie vollendet."
+  "textKo": "밤에 창백한 참나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Blasseichenholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w2_06",

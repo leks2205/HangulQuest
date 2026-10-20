@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1037,
  "concepts": [
-  "gen_tadpole",
-  "sandstone",
-  "gen_horn_coral_block",
-  "gen_waxed_oxidized_copper_chest"
+  "gen_llama",
+  "gen_mangrove_fence_gate",
+  "gen_sulfur",
+  "gen_lime_wool"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tadpole"
+    "gen_llama"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:tadpole",
+    "entity": "minecraft:llama",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Lama an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sandstone"
+    "gen_mangrove_fence_gate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sandstone",
+    "item": "minecraft:mangrove_fence_gate",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Mangrovenholzzauntor."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_horn_coral_block"
+    "gen_sulfur"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:horn_coral_block",
+    "item": "minecraft:sulfur",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schwefel."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_chest"
+    "gen_lime_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_chest",
+    "block": "minecraft:lime_wool",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 4× Hellgrüne Wolle."
+   }
   },
-  "textKo": "밀랍칠한 산화된 구리 상자라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste oxidierte Kupfertruhe — Zeremonie vollendet."
+  "textKo": "연두색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Hellgrüne Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w3_07",

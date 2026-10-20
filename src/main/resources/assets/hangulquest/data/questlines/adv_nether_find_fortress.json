@@ -8,7 +8,7 @@
  "order": 297,
  "concepts": [
   "adv_block_nether_bricks",
-  "gen_brown_carpet"
+  "gen_waxed_oxidized_copper_lantern"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -57,17 +57,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_carpet"
+    "gen_waxed_oxidized_copper_lantern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_carpet",
+    "item": "minecraft:waxed_oxidized_copper_lantern",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Gewachste oxidierte Kupferlaterne."
+   }
   },
-  "textKo": "갈색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Brauner Teppich — Zeremonie vollendet."
+  "textKo": "밀랍칠한 산화된 구리 랜턴라는 길의 의식을 마쳤어요.",
+  "textDe": "Gewachste oxidierte Kupferlaterne — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_nether_find_fortress",

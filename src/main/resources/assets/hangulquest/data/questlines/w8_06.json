@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1086,
  "concepts": [
-  "gen_pale_oak_shelf",
-  "lava",
-  "gen_gray_concrete_slab",
-  "gen_experience_bottle"
+  "gen_end_stone_bricks",
+  "gen_basalt",
+  "gen_crimson_fence_gate",
+  "gen_suspicious_gravel"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,41 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_oak_shelf"
+    "gen_end_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_shelf",
+    "block": "minecraft:end_stone_bricks",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Endsteinziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "lava"
+    "gen_basalt"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lava",
+    "block": "minecraft:basalt",
     "count": 1
    },
    "clue": {
-    "de": "Setz einen Lavablock."
-   },
-   "hint": {
-    "ko": "용암은 양동이로 옮겨요.",
-    "de": "Lava transportierst du in einem Eimer."
+    "de": "Platziere Basalt."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_gray_concrete_slab"
+    "gen_crimson_fence_gate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_concrete_slab",
+    "block": "minecraft:crimson_fence_gate",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Karmesinzauntor."
    }
   }
  ],
@@ -65,25 +67,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_experience_bottle"
+    "gen_suspicious_gravel"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:experience_bottle",
+    "item": "minecraft:suspicious_gravel",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Seltsamer Kies."
+   }
   },
-  "textKo": "경험치 병라는 길의 의식을 마쳤어요.",
-  "textDe": "Erfahrungsfläschchen — Zeremonie vollendet."
+  "textKo": "수상한 자갈라는 길의 의식을 마쳤어요.",
+  "textDe": "Seltsamer Kies — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_06",
   "words": [
-   "height",
-   "lava",
-   "obsidian",
-   "adv_item_elytra"
+   "gen_end_stone_bricks",
+   "gen_basalt",
+   "gen_crimson_fence_gate",
+   "gen_suspicious_gravel"
   ]
  },
  "koreanLevel": 4

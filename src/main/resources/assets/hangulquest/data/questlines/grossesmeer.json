@@ -7,9 +7,9 @@
  "order": 542,
  "concepts": [
   "gen_deep_ocean",
-  "gen_lime_concrete_stairs",
-  "gen_green_stained_glass_pane",
-  "gen_stone_button"
+  "gen_mud",
+  "gen_crimson_door",
+  "beehive"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -29,28 +29,37 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:deep_ocean",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Tiefsee."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_concrete_stairs"
+    "gen_mud"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_concrete_stairs",
+    "item": "minecraft:mud",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Schlamm."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_green_stained_glass_pane"
+    "gen_crimson_door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:green_stained_glass_pane",
+    "block": "minecraft:crimson_door",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Karmesintür."
    }
   }
  ],
@@ -58,21 +67,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stone_button"
+    "beehive"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:stone_button"
+    "block": "minecraft:beehive"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Bienenstock. Nachts."
+   }
   },
-  "textKo": "밤에 돌 버튼라는 길의 의식을 마쳤어요.",
-  "textDe": "Steinknopf — Zeremonie vollendet."
+  "textKo": "밤에 벌통라는 길의 의식을 마쳤어요.",
+  "textDe": "Bienenstock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "grossesmeer",

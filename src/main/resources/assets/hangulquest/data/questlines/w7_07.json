@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1077,
  "concepts": [
-  "gen_fire_coral_wall_fan",
-  "gen_cobweb",
+  "gen_gray_concrete_stairs",
+  "gen_crimson_hanging_sign",
   "adv_item_respawn_anchor",
-  "gen_exposed_copper_chain"
+  "adv_item_golden_carrot"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_fire_coral_wall_fan"
+    "gen_gray_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fire_coral_wall_fan",
+    "item": "minecraft:gray_concrete_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Graue Betontreppe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cobweb"
+    "gen_crimson_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cobweb",
+    "block": "minecraft:crimson_hanging_sign",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Karmesinhängeschild."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_copper_chain"
+    "adv_item_golden_carrot"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_chain",
+    "item": "minecraft:golden_carrot",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Goldene Karotte."
+   }
   },
-  "textKo": "약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene Kupferkette — Zeremonie vollendet."
+  "textKo": "황금 당근라는 길의 의식을 마쳤어요.",
+  "textDe": "Goldene Karotte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_07",

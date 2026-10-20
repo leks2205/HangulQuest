@@ -4,6 +4,22 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [2.0.1] — 2026-10-20
+
+### Fixed
+
+- **German lines for re-authored steps.** The sweep dropped the hand-written German clue of every step
+  it changed; they are now generated from the goal ("Sammle 2× Roten Farbstoff."), so the German toggle
+  explains every step again.
+- **Two impossible goals that predated the sweep.** `adv_end_respawn_dragon` asked to *place* an end
+  crystal (an entity, not a block) and `w8_06` asked to place lava; they now place crying obsidian and
+  basalt.
+- Object pools now come from the game's own registries (1,657 items, 1,285 blocks, 160 entities, dumped
+  from the dev client) instead of the language file, so no quest asks for a block that cannot be placed
+  or a mob that does not exist.
+- A dev hook (`-Dhangulquest.dumpregistries=true`) writes those registry lists to `run/` for content
+  tooling.
+
 ## [2.0.0] — 2026-10-20
 
 ### Changed
@@ -11,23 +27,21 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 - **Every action is used exactly once.** Only 406 of the 1,505 steps had a goal of their own; 1,109
   steps repeated an action another quest already asked for (68 trails placed a torch, 51 a campfire,
   41 required sleeping in a bed). All of them now have a unique `action + object` pair, chosen from the
-  game's own registries and matching the branch and level of the trail they sit in.
+  game's registries and matching the branch and level of the trail they sit in.
   `QuestlineValidationTest.everyActionIsUsedOnceAcrossTheContent` keeps it that way.
 - **The vocabulary catalog grew to 1,132 entries.** The 293 hand-written concepts stay; every rarer
   object the quests now use got a generated entry with the game's Korean and German name.
-- German quest lines for re-authored steps are generated from the goal ("Sammle 2× Roten Farbstoff."),
-  so the German toggle still explains every step.
 - The 29 altitude-only steps were re-authored into object goals: "climb above Y 120" never names the
-  word it teaches, so those quests now ask for something the player can read.
+  word it teaches.
 
 ### Added
 
-- **The colour chain**, six quests that build a thing in the order a crafter would: red, blue and
-  yellow dye paths (beetroot, cornflower, sunflower), the purple and orange wool quests that require
-  both their parent dyes, and a rainbow banner that needs both mixed colours. Parents, levels and
-  Korean difficulty follow the tree like every other trail.
+- **The colour chain**, six quests that build a thing in the order a crafter would: red, blue and yellow
+  dye paths (beetroot, cornflower, sunflower), the purple and orange wool quests that require both their
+  parent dyes, and a rainbow banner that needs both mixed colours.
 - 420 questlines, 1,524 steps.
 
+[2.0.1]: https://github.com/leks2205/HangulQuest/releases/tag/v2.0.1
 [2.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v2.0.0
 
 ## [1.3.1] — 2026-10-20

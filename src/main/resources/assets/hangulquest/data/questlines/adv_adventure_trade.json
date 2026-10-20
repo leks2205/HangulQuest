@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 235,
  "concepts": [
-  "redstone_torch",
+  "gen_spruce_pressure_plate",
   "gen_guardian",
   "gen_dolphin"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "redstone_torch"
+    "gen_spruce_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone_torch",
+    "item": "minecraft:spruce_pressure_plate",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Fichtenholzdruckplatte."
    }
   },
   {
@@ -39,6 +42,9 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:guardian",
     "dwellMs": 600
+   },
+   "clue": {
+    "de": "Sieh dir Wächter an."
    }
   }
  ],
@@ -52,7 +58,10 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:dolphin"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Interagiere mit Delfin."
+   }
   },
   "textKo": "돌고래라는 길의 의식을 마쳤어요.",
   "textDe": "Delfin — Zeremonie vollendet."

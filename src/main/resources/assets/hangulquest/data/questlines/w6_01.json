@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1061,
  "concepts": [
-  "gen_poplar_button",
-  "gen_lime_wool_stairs",
-  "gen_warped_fence",
-  "gen_jungle_wood"
+  "gen_poplar_log",
+  "gen_music_disc_precipice",
+  "gen_birch_leaves",
+  "gen_yellow_concrete"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_button"
+    "gen_poplar_log"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:poplar_button",
+    "block": "minecraft:poplar_log",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Pappelstamm ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_wool_stairs"
+    "gen_music_disc_precipice"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_wool_stairs",
+    "item": "minecraft:music_disc_precipice",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_warped_fence"
+    "gen_birch_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_fence",
+    "block": "minecraft:birch_leaves",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Birkenlaub."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_wood"
+    "gen_yellow_concrete"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_wood",
+    "block": "minecraft:yellow_concrete",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Gelber Beton."
+   }
   },
-  "textKo": "정글나무라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholz — Zeremonie vollendet."
+  "textKo": "노란색 콘크리트라는 길의 의식을 마쳤어요.",
+  "textDe": "Gelber Beton — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w6_01",

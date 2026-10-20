@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 154,
  "concepts": [
-  "gen_comparator",
-  "gen_blue_wool",
-  "gen_warped_trapdoor",
-  "gen_exposed_copper_trapdoor"
+  "gen_cracked_nether_bricks",
+  "gen_brain_coral_block",
+  "adv_item_white_banner",
+  "gen_golden_hoe"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_comparator"
+    "gen_cracked_nether_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:comparator",
+    "block": "minecraft:cracked_nether_bricks",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Rissige Netherziegel."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_wool"
+    "gen_brain_coral_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_wool",
+    "block": "minecraft:brain_coral_block",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Hirnkorallenblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_warped_trapdoor"
+    "adv_item_white_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_trapdoor",
+    "block": "minecraft:white_banner",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Weißes Banner."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_copper_trapdoor"
+    "gen_golden_hoe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_trapdoor",
+    "item": "minecraft:golden_hoe",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Goldhacke."
+   }
   },
-  "textKo": "약간 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene Kupferfalltür — Zeremonie vollendet."
+  "textKo": "금 괭이라는 길의 의식을 마쳤어요.",
+  "textDe": "Goldhacke — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vogelscheuche",

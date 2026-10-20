@@ -8,9 +8,9 @@
  "order": 163,
  "concepts": [
   "dye",
-  "gen_smoker",
-  "gen_pale_oak_fence",
-  "gen_cobbled_deepslate_wall"
+  "gen_stone_button",
+  "gen_pitcher_plant",
+  "gen_copper_leggings"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -42,22 +42,28 @@
   {
    "id": "s2",
    "teach": [
-    "gen_smoker"
+    "gen_stone_button"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:smoker"
+    "block": "minecraft:stone_button"
+   },
+   "clue": {
+    "de": "Benutze Steinknopf."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pale_oak_fence"
+    "gen_pitcher_plant"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_fence",
+    "block": "minecraft:pitcher_plant",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Kannenpflanze."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cobbled_deepslate_wall"
+    "gen_copper_leggings"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cobbled_deepslate_wall",
+    "item": "minecraft:copper_leggings",
     "count": 6
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 6× Kupferbeinschutz."
+   }
   },
-  "textKo": "심층암 조약돌 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Bruchtiefenschiefermauer — Zeremonie vollendet."
+  "textKo": "구리 레깅스라는 길의 의식을 마쳤어요.",
+  "textDe": "Kupferbeinschutz — Zeremonie vollendet."
  },
  "reward": {
   "badge": "faerberei",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1059,
  "concepts": [
-  "gen_lime_candle",
-  "gen_waxed_copper_grate",
-  "gen_minecart",
-  "gen_wandering_trader"
+  "gen_moss_block",
+  "gen_pale_oak_leaves",
+  "gen_mossy_cobblestone_wall",
+  "horse"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_lime_candle"
+    "gen_moss_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_candle",
+    "block": "minecraft:moss_block",
     "count": 12
+   },
+   "clue": {
+    "de": "Platziere 12× Moosblock."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_copper_grate"
+    "gen_pale_oak_leaves"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_grate",
+    "block": "minecraft:pale_oak_leaves",
     "count": 4
+   },
+   "clue": {
+    "de": "Platziere 4× Blasseichenlaub."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_minecart"
+    "gen_mossy_cobblestone_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:minecart",
+    "item": "minecraft:mossy_cobblestone_wall",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Bemooste Bruchsteinmauer."
    }
   }
  ],
@@ -58,16 +67,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_wandering_trader"
+    "horse"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:wandering_trader"
+    "entity": "minecraft:horse"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Interagiere mit Pferd."
+   }
   },
-  "textKo": "떠돌이 상인라는 길의 의식을 마쳤어요.",
-  "textDe": "Fahrender Händler — Zeremonie vollendet."
+  "textKo": "말라는 길의 의식을 마쳤어요.",
+  "textDe": "Pferd — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_09",

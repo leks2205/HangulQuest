@@ -46,6 +46,9 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:stray",
     "count": 2
+   },
+   "clue": {
+    "de": "Besiege 2× Eiswanderer."
    }
   }
  ],
@@ -60,7 +63,10 @@
     "entity": "minecraft:bogged",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege 3× Sumpfskelett."
+   }
   },
   "textKo": "보그드라는 길의 의식을 마쳤어요.",
   "textDe": "Sumpfskelett — Zeremonie vollendet."

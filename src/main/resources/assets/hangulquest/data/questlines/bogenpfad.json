@@ -12,8 +12,8 @@
   "arrow",
   "feather",
   "flint",
-  "gen_drowned",
-  "gen_cave_spider"
+  "gen_elder_guardian",
+  "gen_slime"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -68,12 +68,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_drowned"
+    "gen_elder_guardian"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:drowned",
+    "entity": "minecraft:elder_guardian",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Großwächter an."
    }
   }
  ],
@@ -81,17 +84,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cave_spider"
+    "gen_slime"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:cave_spider",
+    "entity": "minecraft:slime",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Schleim."
+   }
   },
-  "textKo": "동굴 거미라는 길의 의식을 마쳤어요.",
-  "textDe": "Höhlenspinne — Zeremonie vollendet."
+  "textKo": "슬라임라는 길의 의식을 마쳤어요.",
+  "textDe": "Schleim — Zeremonie vollendet."
  },
  "reward": {
   "badge": "bogenpfad",

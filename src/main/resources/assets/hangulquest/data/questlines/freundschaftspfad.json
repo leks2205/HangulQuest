@@ -7,10 +7,10 @@
  "tier": 1,
  "order": 98,
  "concepts": [
-  "gen_elder_guardian",
-  "gen_panda",
-  "gen_suspicious_gravel",
-  "gen_cracked_polished_blackstone_bricks"
+  "gen_endermite",
+  "gen_donkey",
+  "gen_cracked_deepslate_bricks",
+  "gen_cyan_dye"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -21,33 +21,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_elder_guardian"
+    "gen_endermite"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:elder_guardian",
+    "entity": "minecraft:endermite",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Endermite an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_panda"
+    "gen_donkey"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:panda"
+    "entity": "minecraft:donkey"
+   },
+   "clue": {
+    "de": "Interagiere mit Esel."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_suspicious_gravel"
+    "gen_cracked_deepslate_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:suspicious_gravel",
+    "block": "minecraft:cracked_deepslate_bricks",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Rissige Tiefenschieferziegel."
    }
   }
  ],
@@ -55,17 +64,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cracked_polished_blackstone_bricks"
+    "gen_cyan_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cracked_polished_blackstone_bricks",
+    "item": "minecraft:cyan_dye",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Türkiser Farbstoff."
+   }
   },
-  "textKo": "금 간 윤나는 흑암 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Rissige polierte Schwarzsteinziegel — Zeremonie vollendet."
+  "textKo": "청록색 염료라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkiser Farbstoff — Zeremonie vollendet."
  },
  "reward": {
   "badge": "freundschaftspfad",

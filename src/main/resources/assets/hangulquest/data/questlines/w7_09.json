@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1079,
  "concepts": [
-  "gen_copper_helmet",
+  "gen_crimson_slab",
   "brewing_stand",
-  "gen_warped_stem",
-  "gen_dried_kelp"
+  "gen_flow_armor_trim_smithing_template",
+  "soul_torch"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_helmet"
+    "gen_crimson_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_helmet",
+    "item": "minecraft:crimson_slab",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Karmesinstufe."
    }
   },
   {
@@ -52,12 +55,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_warped_stem"
+    "gen_flow_armor_trim_smithing_template"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_stem",
+    "item": "minecraft:flow_armor_trim_smithing_template",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Schmiedevorlage."
    }
   }
  ],
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dried_kelp"
+    "soul_torch"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dried_kelp",
+    "item": "minecraft:soul_torch",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle Seelenfackel."
+   }
   },
-  "textKo": "말린 켈프라는 길의 의식을 마쳤어요.",
-  "textDe": "Getrockneter Seetang — Zeremonie vollendet."
+  "textKo": "영혼 횃불라는 길의 의식을 마쳤어요.",
+  "textDe": "Seelenfackel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w7_09",

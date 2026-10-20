@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 226,
  "concepts": [
-  "gen_magenta_wool_stairs",
+  "gen_music_disc_otherside",
   "bed"
  ],
  "requires": {
@@ -21,12 +21,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_wool_stairs"
+    "gen_music_disc_otherside"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_wool_stairs",
+    "item": "minecraft:music_disc_otherside",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   },
   {

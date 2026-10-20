@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 505,
  "concepts": [
-  "gen_painting",
-  "gen_creeper_wall_head",
-  "gen_pink_bed",
-  "gen_jungle_slab"
+  "gen_polished_tuff_wall",
+  "gen_cut_red_sandstone_slab",
+  "gen_polished_granite_slab",
+  "gen_magenta_bed"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,22 +22,25 @@
   {
    "id": "s1",
    "teach": [
-    "gen_painting"
+    "gen_polished_tuff_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:painting",
+    "item": "minecraft:polished_tuff_wall",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Polierte Tuffsteinmauer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_creeper_wall_head"
+    "gen_cut_red_sandstone_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:creeper_wall_head",
+    "block": "minecraft:cut_red_sandstone_slab",
     "count": 3
    },
    "conditions": [
@@ -45,17 +48,23 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 3× Geschnittene rote Sandsteinstufe. Nachts."
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_bed"
+    "gen_polished_granite_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_bed",
+    "block": "minecraft:polished_granite_slab",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Polierte Granitstufe."
    }
   }
  ],
@@ -63,11 +72,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_slab"
+    "gen_magenta_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_slab",
+    "block": "minecraft:magenta_bed",
     "count": 1
    },
    "conditions": [
@@ -75,10 +84,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Magenta Bett. Nachts."
+   }
   },
-  "textKo": "밤에 정글나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzstufe — Zeremonie vollendet."
+  "textKo": "밤에 자홍색 침대라는 길의 의식을 마쳤어요.",
+  "textDe": "Magenta Bett — Zeremonie vollendet."
  },
  "reward": {
   "badge": "mondpfad",

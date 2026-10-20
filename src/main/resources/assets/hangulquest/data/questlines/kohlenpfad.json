@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 500,
  "concepts": [
-  "gen_melon",
-  "gen_black_candle_cake",
-  "gen_spruce_leaves",
-  "gen_black_shulker_box"
+  "gen_moss_carpet",
+  "gen_black_glazed_terracotta",
+  "gen_infested_stone_bricks",
+  "gen_green_candle"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,34 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_melon"
+    "gen_moss_carpet"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:melon",
+    "block": "minecraft:moss_carpet",
     "count": 4
+   },
+   "clue": {
+    "de": "Baue 4× Moosteppich ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_black_candle_cake"
+    "gen_black_glazed_terracotta"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_candle_cake",
+    "block": "minecraft:black_glazed_terracotta",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Schwarze glasierte Keramik."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_leaves"
+    "gen_infested_stone_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_leaves",
-    "count": 2
+    "block": "minecraft:infested_stone_bricks",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere Befallene Steinziegel."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_black_shulker_box"
+    "gen_green_candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:black_shulker_box",
+    "block": "minecraft:green_candle",
     "count": 2
    },
    "conditions": [
@@ -69,10 +78,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Grüne Kerze. Nachts."
+   }
   },
-  "textKo": "밤에 검은색 셜커 상자라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarze Shulker-Kiste — Zeremonie vollendet."
+  "textKo": "밤에 초록색 초라는 길의 의식을 마쳤어요.",
+  "textDe": "Grüne Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kohlenpfad",

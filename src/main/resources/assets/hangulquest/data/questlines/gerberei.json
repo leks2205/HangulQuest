@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 164,
  "concepts": [
-  "gen_zoglin",
+  "zombie",
   "leather",
-  "gen_blue_stained_glass",
-  "gen_composter"
+  "gen_brain_coral",
+  "note_block"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,12 +24,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_zoglin"
+    "zombie"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:zoglin",
+    "entity": "minecraft:zombie",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Zombie an."
    }
   },
   {
@@ -53,12 +56,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_blue_stained_glass"
+    "gen_brain_coral"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_stained_glass",
+    "block": "minecraft:brain_coral",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Hirnkoralle."
    }
   }
  ],
@@ -66,16 +72,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_composter"
+    "note_block"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:composter"
+    "block": "minecraft:note_block"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Benutze Notenblock."
+   }
   },
-  "textKo": "퇴비통라는 길의 의식을 마쳤어요.",
-  "textDe": "Komposter — Zeremonie vollendet."
+  "textKo": "소리 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Notenblock — Zeremonie vollendet."
  },
  "reward": {
   "badge": "gerberei",

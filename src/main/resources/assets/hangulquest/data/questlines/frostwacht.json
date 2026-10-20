@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 90,
  "concepts": [
-  "gen_flow_banner_pattern",
-  "gen_green_bed",
-  "gen_spectral_arrow",
-  "gen_grindstone"
+  "gen_gray_glazed_terracotta",
+  "gen_smithing_table",
+  "gen_waxed_exposed_copper_lantern",
+  "gen_hopper"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,33 +23,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_flow_banner_pattern"
+    "gen_gray_glazed_terracotta"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flow_banner_pattern",
+    "item": "minecraft:gray_glazed_terracotta",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Graue glasierte Keramik."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_green_bed"
+    "gen_smithing_table"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:green_bed"
+    "block": "minecraft:smithing_table"
+   },
+   "clue": {
+    "de": "Benutze Schmiedetisch."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spectral_arrow"
+    "gen_waxed_exposed_copper_lantern"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spectral_arrow",
+    "item": "minecraft:waxed_exposed_copper_lantern",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gewachste angelaufene Kupferlaterne."
    }
   }
  ],
@@ -57,16 +66,19 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_grindstone"
+    "gen_hopper"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:grindstone"
+    "block": "minecraft:hopper"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Benutze Trichter."
+   }
   },
-  "textKo": "숫돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Schleifstein — Zeremonie vollendet."
+  "textKo": "호퍼라는 길의 의식을 마쳤어요.",
+  "textDe": "Trichter — Zeremonie vollendet."
  },
  "reward": {
   "badge": "frostwacht",

@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 304,
  "concepts": [
-  "gen_buried_ancient_city_map",
-  "gen_waxed_exposed_copper_door",
+  "gen_charcoal",
+  "gen_lime_concrete_stairs",
   "adv_item_fire_charge"
  ],
  "requires": {
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_buried_ancient_city_map"
+    "gen_charcoal"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:buried_ancient_city_map",
+    "item": "minecraft:charcoal",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Holzkohle."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_exposed_copper_door"
+    "gen_lime_concrete_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper_door",
+    "item": "minecraft:lime_concrete_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Hellgrüne Betontreppe."
    }
   }
  ],

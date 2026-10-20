@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 158,
  "concepts": [
-  "gen_waxed_weathered_chiseled_copper",
-  "gen_hopper",
-  "gen_stripped_bamboo_block",
-  "gen_cinnabar_slab"
+  "gen_golden_dandelion",
+  "gen_iron_trapdoor",
+  "gen_copper_axe",
+  "gen_brown_candle"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,33 +24,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_chiseled_copper"
+    "gen_golden_dandelion"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_chiseled_copper",
+    "item": "minecraft:golden_dandelion",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Goldener Löwenzahn."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_hopper"
+    "gen_iron_trapdoor"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:hopper"
+    "block": "minecraft:iron_trapdoor"
+   },
+   "clue": {
+    "de": "Benutze Eisenfalltür."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_bamboo_block"
+    "gen_copper_axe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_bamboo_block",
+    "item": "minecraft:copper_axe",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Kupferaxt."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cinnabar_slab"
+    "gen_brown_candle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cinnabar_slab",
+    "item": "minecraft:brown_candle",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Braune Kerze."
+   }
   },
-  "textKo": "진사 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Zinnoberstufe — Zeremonie vollendet."
+  "textKo": "갈색 초라는 길의 의식을 마쳤어요.",
+  "textDe": "Braune Kerze — Zeremonie vollendet."
  },
  "reward": {
   "badge": "brauerei",

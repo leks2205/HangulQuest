@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 299,
  "concepts": [
-  "gen_stripped_spruce_log",
+  "gen_dead_tube_coral_fan",
   "gold_block",
   "chest"
  ],
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_spruce_log"
+    "gen_dead_tube_coral_fan"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_spruce_log",
+    "item": "minecraft:dead_tube_coral_fan",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Abgestorbener Orgelkorallenfächer."
    }
   },
   {

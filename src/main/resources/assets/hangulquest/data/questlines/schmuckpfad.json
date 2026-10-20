@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 104,
  "concepts": [
-  "gen_waxed_cut_copper",
-  "gen_exposed_copper_bulb",
-  "gen_gray_harness",
-  "gen_allium"
+  "gen_jungle_pyramid_map",
+  "gen_brown_bed",
+  "gen_andesite_stairs",
+  "gen_stone_brick_slab"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_cut_copper"
+    "gen_jungle_pyramid_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_cut_copper",
+    "item": "minecraft:jungle_pyramid_map",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Dschungeltempelkarte."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_copper_bulb"
+    "gen_brown_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper_bulb",
-    "count": 1
+    "block": "minecraft:brown_bed",
+    "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Braunes Bett."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_gray_harness"
+    "gen_andesite_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_harness",
+    "item": "minecraft:andesite_stairs",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Andesittreppe."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_allium"
+    "gen_stone_brick_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:allium",
+    "block": "minecraft:stone_brick_slab",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Steinziegelstufe."
+   }
   },
-  "textKo": "알리움라는 길의 의식을 마쳤어요.",
-  "textDe": "Zierlauch — Zeremonie vollendet."
+  "textKo": "석재 벽돌 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Steinziegelstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "schmuckpfad",

@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 1106,
  "concepts": [
-  "gen_cut_sandstone",
+  "gen_dark_oak_wood",
   "clay",
   "brick",
   "adv_item_decorated_pot"
@@ -23,12 +23,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cut_sandstone"
+    "gen_dark_oak_wood"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cut_sandstone",
+    "item": "minecraft:dark_oak_wood",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schwarzeichenholz."
    }
   },
   {

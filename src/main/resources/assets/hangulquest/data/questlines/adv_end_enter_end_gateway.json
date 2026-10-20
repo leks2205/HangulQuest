@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 250,
  "concepts": [
-  "gen_evoker",
+  "gen_silverfish",
   "ender_pearl",
-  "gen_red_glazed_terracotta"
+  "gen_poplar_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,12 +22,15 @@
   {
    "id": "s1",
    "teach": [
-    "gen_evoker"
+    "gen_silverfish"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:evoker",
+    "entity": "minecraft:silverfish",
     "count": 1
+   },
+   "clue": {
+    "de": "Besiege Silberfischchen."
    }
   },
   {
@@ -49,17 +52,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_glazed_terracotta"
+    "gen_poplar_pressure_plate"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_glazed_terracotta",
+    "block": "minecraft:poplar_pressure_plate",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 2× Pappelholzdruckplatte."
+   }
   },
-  "textKo": "빨간색 유광 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Rote glasierte Keramik — Zeremonie vollendet."
+  "textKo": "포플러나무 압력판라는 길의 의식을 마쳤어요.",
+  "textDe": "Pappelholzdruckplatte — Zeremonie vollendet."
  },
  "reward": {
   "badge": "adv_end_enter_end_gateway",

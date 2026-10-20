@@ -8,9 +8,9 @@
  "order": 85,
  "concepts": [
   "gen_snowy_plains",
-  "gen_copper_trapdoor",
-  "gen_purple_wool",
-  "gen_crimson_pressure_plate"
+  "gen_crimson_nylium",
+  "gen_resin_bricks",
+  "gen_cyan_concrete_slab"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -36,16 +36,19 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_plains",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Verschneite Ebene."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_copper_trapdoor"
+    "gen_crimson_nylium"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_trapdoor",
+    "block": "minecraft:crimson_nylium",
     "count": 2
    },
    "conditions": [
@@ -53,16 +56,19 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Karmesin-Nezel. Tagsüber."
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_purple_wool"
+    "gen_resin_bricks"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_wool",
+    "block": "minecraft:resin_bricks",
     "count": 1
    },
    "conditions": [
@@ -70,18 +76,21 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Harzziegel. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_pressure_plate"
+    "gen_cyan_concrete_slab"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_pressure_plate",
+    "block": "minecraft:cyan_concrete_slab",
     "count": 1
    },
    "conditions": [
@@ -93,10 +102,13 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Türkise Betonstufe. Nachts. In einem passenden Biom."
+   }
   },
-  "textKo": "밤에 산 지형에서 진홍빛 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Karmesindruckplatte — Zeremonie vollendet."
+  "textKo": "밤에 산 지형에서 청록색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Türkise Betonstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "kronenklang",

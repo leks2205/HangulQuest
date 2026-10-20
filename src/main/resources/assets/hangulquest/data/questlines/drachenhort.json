@@ -7,9 +7,9 @@
  "tier": 3,
  "order": 113,
  "concepts": [
-  "gen_stripped_poplar_wood",
-  "gen_polished_tuff_slab",
-  "gen_pink_candle",
+  "gen_sulfur",
+  "gen_stripped_warped_hyphae",
+  "gen_wildflowers",
   "lantern"
  ],
  "requires": {
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_poplar_wood"
+    "gen_sulfur"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stripped_poplar_wood",
+    "block": "minecraft:sulfur",
     "count": 2
+   },
+   "clue": {
+    "de": "Baue 2× Schwefel ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_tuff_slab"
+    "gen_stripped_warped_hyphae"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_tuff_slab",
+    "item": "minecraft:stripped_warped_hyphae",
     "count": 8
+   },
+   "clue": {
+    "de": "Sammle 8× Geschälte Wirrhyphen."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_candle"
+    "gen_wildflowers"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_candle",
+    "block": "minecraft:wildflowers",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Wildblumen."
    }
   }
  ],

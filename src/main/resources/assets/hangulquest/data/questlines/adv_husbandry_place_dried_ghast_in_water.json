@@ -8,7 +8,7 @@
  "order": 271,
  "concepts": [
   "adv_item_dried_ghast",
-  "gen_glow_berries"
+  "gen_weathered_copper_golem_statue"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -35,12 +35,15 @@
   {
    "id": "s2",
    "teach": [
-    "gen_glow_berries"
+    "gen_weathered_copper_golem_statue"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glow_berries",
+    "item": "minecraft:weathered_copper_golem_statue",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Verwitterte Kupfergolemstatue."
    }
   }
  ],

@@ -7,8 +7,8 @@
  "tier": 2,
  "order": 280,
  "concepts": [
-  "gen_crimson_stem",
-  "beehive",
+  "gen_danger_pottery_sherd",
+  "gen_birch_door",
   "adv_item_pufferfish_bucket"
  ],
  "requires": {
@@ -22,23 +22,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_stem"
+    "gen_danger_pottery_sherd"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_stem",
+    "item": "minecraft:danger_pottery_sherd",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Gefahren-Töpferscherbe."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "beehive"
+    "gen_birch_door"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:beehive",
+    "item": "minecraft:birch_door",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Birkenholztür."
    }
   }
  ],

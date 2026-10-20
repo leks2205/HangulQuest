@@ -7,8 +7,8 @@
  "tier": 3,
  "order": 92,
  "concepts": [
-  "gen_dark_oak_log",
-  "gen_white_shulker_box",
+  "gen_desert_pyramid_map",
+  "gen_white_bed",
   "gen_birch_door"
  ],
  "requires": {
@@ -23,29 +23,35 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_log"
+    "gen_desert_pyramid_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_log",
+    "item": "minecraft:desert_pyramid_map",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Wüstentempelkarte."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_shulker_box"
+    "gen_white_bed"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:white_shulker_box"
+    "block": "minecraft:white_bed"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Weißes Bett. Tagsüber."
+   }
   }
  ],
  "finale": {
@@ -67,7 +73,10 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Birkenholztür. Nachts. In einem passenden Biom."
+   }
   },
   "textKo": "밤에 산 지형에서 자작나무 문라는 길의 의식을 마쳤어요.",
   "textDe": "Birkenholztür — Zeremonie vollendet."

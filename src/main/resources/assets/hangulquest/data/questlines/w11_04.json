@@ -7,9 +7,9 @@
  "tier": 2,
  "order": 1114,
  "concepts": [
-  "gen_jungle_boat",
-  "gen_deepslate_brick_wall",
-  "gen_piston",
+  "gen_magenta_stained_glass",
+  "gen_dripstone_block",
+  "gen_purple_wool_stairs",
   "adv_block_purpur_block"
  ],
  "requires": {
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_jungle_boat"
+    "gen_magenta_stained_glass"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_boat",
+    "item": "minecraft:magenta_stained_glass",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Magenta Glas."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_deepslate_brick_wall"
+    "gen_dripstone_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_brick_wall",
+    "block": "minecraft:dripstone_block",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Tropfsteinblock."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_piston"
+    "gen_purple_wool_stairs"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:piston",
+    "item": "minecraft:purple_wool_stairs",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Violette Wolltreppe."
    }
   }
  ],

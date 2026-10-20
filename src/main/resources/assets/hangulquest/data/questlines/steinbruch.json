@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 508,
  "concepts": [
-  "gen_red_shrub",
-  "gen_crimson_wall_hanging_sign",
-  "gen_lime_concrete",
-  "gen_oak_sign"
+  "gen_red_tulip",
+  "gen_dark_oak_pressure_plate",
+  "gen_mangrove_sign",
+  "gen_cherry_hanging_sign"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,34 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_shrub"
+    "gen_red_tulip"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:red_shrub",
+    "block": "minecraft:red_tulip",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Rote Tulpe ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_crimson_wall_hanging_sign"
+    "gen_dark_oak_pressure_plate"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_wall_hanging_sign",
+    "item": "minecraft:dark_oak_pressure_plate",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schwarzeichenholzdruckplatte."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_concrete"
+    "gen_mangrove_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_concrete",
+    "block": "minecraft:mangrove_sign",
     "count": 2
+   },
+   "clue": {
+    "de": "Platziere 2× Mangrovenholzschild."
    }
   }
  ],
@@ -57,11 +66,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oak_sign"
+    "gen_cherry_hanging_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_sign",
+    "block": "minecraft:cherry_hanging_sign",
     "count": 2
    },
    "conditions": [
@@ -69,10 +78,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 2× Kirschholzhängeschild. Nachts."
+   }
   },
-  "textKo": "밤에 참나무 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholzschild — Zeremonie vollendet."
+  "textKo": "밤에 벚나무 매다는 표지판라는 길의 의식을 마쳤어요.",
+  "textDe": "Kirschholzhängeschild — Zeremonie vollendet."
  },
  "reward": {
   "badge": "steinbruch",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1126,
  "concepts": [
-  "gen_poplar_shelf",
-  "gen_wandering_trader",
-  "gen_cooked_cod",
-  "gen_white_stained_glass"
+  "gen_resin_brick_wall",
+  "gen_blaze",
+  "gen_music_disc_pigstep",
+  "gen_stripped_jungle_log"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_shelf"
+    "gen_resin_brick_wall"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_shelf",
+    "item": "minecraft:resin_brick_wall",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Harzziegelmauer."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_wandering_trader"
+    "gen_blaze"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wandering_trader",
+    "entity": "minecraft:blaze",
     "dwellMs": 1500
+   },
+   "clue": {
+    "de": "Sieh dir Lohe an."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cooked_cod"
+    "gen_music_disc_pigstep"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cooked_cod",
+    "item": "minecraft:music_disc_pigstep",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schallplatte."
    }
   }
  ],
@@ -58,11 +67,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_white_stained_glass"
+    "gen_stripped_jungle_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_stained_glass",
+    "block": "minecraft:stripped_jungle_log",
     "count": 1
    },
    "conditions": [
@@ -70,10 +79,13 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_end"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Entrindeter Tropenbaumstamm. In einer anderen Dimension."
+   }
   },
-  "textKo": "다른 차원에서 하얀색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Weißes Glas — Zeremonie vollendet."
+  "textKo": "다른 차원에서 껍질 벗긴 정글나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindeter Tropenbaumstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w12_06",

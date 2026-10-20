@@ -28,6 +28,9 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:spider",
     "count": 1
+   },
+   "clue": {
+    "de": "Besiege Spinne."
    }
   },
   {
@@ -39,6 +42,9 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:wither",
     "count": 2
+   },
+   "clue": {
+    "de": "Besiege 2× Wither."
    }
   }
  ],
@@ -53,7 +59,10 @@
     "entity": "minecraft:vex",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Besiege Plagegeist."
+   }
   },
   "textKo": "벡스라는 길의 의식을 마쳤어요.",
   "textDe": "Plagegeist — Zeremonie vollendet."

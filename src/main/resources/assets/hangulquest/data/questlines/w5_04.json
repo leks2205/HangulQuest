@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1054,
  "concepts": [
-  "gen_exposed_copper_golem_statue",
-  "gen_dead_brain_coral_block",
-  "beacon",
-  "gen_dark_oak_leaves"
+  "gen_gray_bed",
+  "gen_dead_brain_coral_wall_fan",
+  "gen_birch_button",
+  "gen_detector_rail"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,34 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_exposed_copper_golem_statue"
+    "gen_gray_bed"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper_golem_statue",
+    "block": "minecraft:gray_bed",
     "count": 1
+   },
+   "clue": {
+    "de": "Platziere Graues Bett."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dead_brain_coral_block"
+    "gen_dead_brain_coral_wall_fan"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:dead_brain_coral_block",
+    "block": "minecraft:dead_brain_coral_wall_fan",
     "count": 8
+   },
+   "clue": {
+    "de": "Baue 8× Abgestorbener Hirnkorallenwandfächer ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "beacon"
+    "gen_birch_button"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:beacon",
+    "item": "minecraft:birch_button",
     "count": 4
+   },
+   "clue": {
+    "de": "Sammle 4× Birkenholzknopf."
    }
   }
  ],
@@ -58,17 +67,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_oak_leaves"
+    "gen_detector_rail"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_leaves",
+    "item": "minecraft:detector_rail",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sammle 3× Sensorschiene."
+   }
   },
-  "textKo": "짙은 참나무 잎라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzeichenlaub — Zeremonie vollendet."
+  "textKo": "감지 레일라는 길의 의식을 마쳤어요.",
+  "textDe": "Sensorschiene — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_04",

@@ -7,9 +7,9 @@
  "tier": 1,
  "order": 31,
  "concepts": [
-  "gen_piglin_brute",
-  "gen_vex",
-  "gen_axolotl"
+  "gen_trader_llama",
+  "gen_stray",
+  "gen_donkey"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,23 +20,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_piglin_brute"
+    "gen_trader_llama"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:piglin_brute",
+    "entity": "minecraft:trader_llama",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Händlerlama an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_vex"
+    "gen_stray"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:vex",
+    "entity": "minecraft:stray",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Eiswanderer an."
    }
   }
  ],
@@ -44,17 +50,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_axolotl"
+    "gen_donkey"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:axolotl",
+    "entity": "minecraft:donkey",
     "dwellMs": 800
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Sieh dir Esel an."
+   }
   },
-  "textKo": "아홀로틀라는 길의 의식을 마쳤어요.",
-  "textDe": "Axolotl — Zeremonie vollendet."
+  "textKo": "당나귀라는 길의 의식을 마쳤어요.",
+  "textDe": "Esel — Zeremonie vollendet."
  },
  "reward": {
   "badge": "tierfreund",

@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1053,
  "concepts": [
-  "gen_red_shulker_box",
-  "gen_waxed_copper_grate",
+  "gen_dispenser",
+  "gen_red_wool",
   "diamond",
-  "gen_orange_concrete_stairs"
+  "gen_polished_cinnabar_slab"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_shulker_box"
+    "gen_dispenser"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:red_shulker_box",
+    "block": "minecraft:dispenser",
     "count": 6
+   },
+   "clue": {
+    "de": "Baue 6× Werfer ab."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_copper_grate"
+    "gen_red_wool"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:waxed_copper_grate",
+    "block": "minecraft:red_wool",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Rote Wolle ab."
    }
   },
   {
@@ -65,11 +71,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_concrete_stairs"
+    "gen_polished_cinnabar_slab"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:orange_concrete_stairs",
+    "item": "minecraft:polished_cinnabar_slab",
     "count": 1
    },
    "conditions": [
@@ -78,10 +84,13 @@
      "minY": -64,
      "maxY": -50
     }
-   ]
+   ],
+   "clue": {
+    "de": "Sammle Polierte Zinnoberstufe. Zwischen Y -64 und -50."
+   }
   },
-  "textKo": "높이 -50 이하에서 주황색 콘크리트 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Orange Betontreppe — Zeremonie vollendet."
+  "textKo": "높이 -50 이하에서 윤나는 진사 반 블록라는 길의 의식을 마쳤어요.",
+  "textDe": "Polierte Zinnoberstufe — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w5_03",

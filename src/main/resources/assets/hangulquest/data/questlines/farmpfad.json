@@ -5,8 +5,8 @@
  "titleDe": "Der Hofpfad",
  "tier": 2,
  "concepts": [
-  "spider",
-  "gen_dark_oak_pressure_plate",
+  "gen_snow_golem",
+  "gen_desert_village_map",
   "chicken",
   "gen_soul_campfire"
  ],
@@ -21,23 +21,29 @@
   {
    "id": "s1",
    "teach": [
-    "spider"
+    "gen_snow_golem"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:spider",
+    "entity": "minecraft:snow_golem",
     "dwellMs": 800
+   },
+   "clue": {
+    "de": "Sieh dir Schneegolem an."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_pressure_plate"
+    "gen_desert_village_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_pressure_plate",
+    "item": "minecraft:desert_village_map",
     "count": 1
+   },
+   "clue": {
+    "de": "Sammle Wüstendorfkarte."
    }
   },
   {
@@ -70,7 +76,10 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Benutze Seelenlagerfeuer. Nachts."
+   }
   },
   "textKo": "밤에 영혼 모닥불라는 길의 의식을 마쳤어요.",
   "textDe": "Seelenlagerfeuer — Zeremonie vollendet."

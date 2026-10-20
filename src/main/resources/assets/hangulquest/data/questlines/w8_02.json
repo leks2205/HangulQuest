@@ -7,10 +7,10 @@
  "tier": 2,
  "order": 1082,
  "concepts": [
-  "gen_black_terracotta",
-  "gen_brown_concrete_powder",
+  "gen_blue_banner",
+  "gen_buried_mineshaft_map",
   "stone_bricks",
-  "gen_red_concrete"
+  "gen_stripped_acacia_log"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,23 +23,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_terracotta"
+    "gen_blue_banner"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:black_terracotta",
+    "item": "minecraft:blue_banner",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Blaues Banner."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_concrete_powder"
+    "gen_buried_mineshaft_map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_concrete_powder",
+    "item": "minecraft:buried_mineshaft_map",
     "count": 6
+   },
+   "clue": {
+    "de": "Sammle 6× Minenkarte."
    }
   },
   {
@@ -65,17 +71,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_concrete"
+    "gen_stripped_acacia_log"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_concrete",
+    "block": "minecraft:stripped_acacia_log",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere 3× Entrindeter Akazienstamm."
+   }
   },
-  "textKo": "빨간색 콘크리트라는 길의 의식을 마쳤어요.",
-  "textDe": "Roter Beton — Zeremonie vollendet."
+  "textKo": "껍질 벗긴 아카시아나무 원목라는 길의 의식을 마쳤어요.",
+  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet."
  },
  "reward": {
   "badge": "w8_02",

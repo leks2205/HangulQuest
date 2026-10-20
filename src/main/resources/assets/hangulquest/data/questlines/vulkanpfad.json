@@ -8,9 +8,9 @@
  "order": 109,
  "concepts": [
   "gen_small_end_islands",
-  "gen_cave_vines",
-  "gen_chiseled_resin_bricks",
-  "gen_waxed_weathered_copper_trapdoor"
+  "gen_cherry_button",
+  "coal",
+  "gen_calibrated_sculk_sensor"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -30,27 +30,33 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:small_end_islands",
     "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Erreiche Kleine Endinseln."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cave_vines"
+    "gen_cherry_button"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:cave_vines",
+    "block": "minecraft:cherry_button",
     "count": 3
+   },
+   "clue": {
+    "de": "Baue 3× Kirschholzknopf ab."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_chiseled_resin_bricks"
+    "coal"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_resin_bricks",
+    "block": "minecraft:coal_ore",
     "count": 1
    },
    "conditions": [
@@ -58,18 +64,21 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere Steinkohle. Nachts."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_weathered_copper_trapdoor"
+    "gen_calibrated_sculk_sensor"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_trapdoor",
+    "block": "minecraft:calibrated_sculk_sensor",
     "count": 4
    },
    "conditions": [
@@ -77,10 +86,13 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "de": "Platziere 4× Kalibrierter Sculk-Sensor. Nachts."
+   }
   },
-  "textKo": "밤에 밀랍칠한 녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste verwitterte Kupferfalltür — Zeremonie vollendet."
+  "textKo": "밤에 조율한 스컬크 감지체라는 길의 의식을 마쳤어요.",
+  "textDe": "Kalibrierter Sculk-Sensor — Zeremonie vollendet."
  },
  "reward": {
   "badge": "vulkanpfad",

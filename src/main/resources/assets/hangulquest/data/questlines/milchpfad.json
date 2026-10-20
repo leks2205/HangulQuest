@@ -7,10 +7,10 @@
  "tier": 3,
  "order": 141,
  "concepts": [
-  "gen_smooth_sandstone_stairs",
-  "gen_infested_chiseled_stone_bricks",
-  "gen_netherite_axe",
-  "gen_packed_ice"
+  "gen_tripwire_hook",
+  "gen_large_amethyst_bud",
+  "gen_pale_oak_chest_boat",
+  "gen_pink_wool"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,34 +24,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_smooth_sandstone_stairs"
+    "gen_tripwire_hook"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:smooth_sandstone_stairs",
+    "item": "minecraft:tripwire_hook",
     "count": 2
+   },
+   "clue": {
+    "de": "Sammle 2× Haken."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_infested_chiseled_stone_bricks"
+    "gen_large_amethyst_bud"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_chiseled_stone_bricks",
+    "block": "minecraft:large_amethyst_bud",
     "count": 3
+   },
+   "clue": {
+    "de": "Platziere 3× Große Amethystknospe."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_netherite_axe"
+    "gen_pale_oak_chest_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_axe",
+    "item": "minecraft:pale_oak_chest_boat",
     "count": 3
+   },
+   "clue": {
+    "de": "Sammle 3× Blasseichenholztruhenboot."
    }
   }
  ],
@@ -59,17 +68,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_packed_ice"
+    "gen_pink_wool"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:packed_ice",
+    "block": "minecraft:pink_wool",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "de": "Platziere Rosa Wolle."
+   }
   },
-  "textKo": "꽁꽁 언 얼음라는 길의 의식을 마쳤어요.",
-  "textDe": "Packeis — Zeremonie vollendet."
+  "textKo": "분홍색 양털라는 길의 의식을 마쳤어요.",
+  "textDe": "Rosa Wolle — Zeremonie vollendet."
  },
  "reward": {
   "badge": "milchpfad",
