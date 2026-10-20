@@ -4,6 +4,15 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [1.1.1] — 2026-10-20
+
+### Fixed
+
+- The journal marks every quest in the log as tracked ("▸ im Log") instead of only the highlighted one,
+  and offers a **Fokus** button to highlight a quest that is already in the log.
+
+[1.1.1]: https://github.com/leks2205/HangulQuest/releases/tag/v1.1.1
+
 ## [1.1.0] — 2026-10-20
 
 ### Added

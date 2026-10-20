@@ -706,7 +706,7 @@ public final class JournalScreen extends Screen {
 			boolean done = hq.learn() != null
 					&& hq.learn().data().quests.completed.containsKey(trail.id());
 			boolean unlocked = quests.unlocked(trail);
-			boolean active = quests.activeTrail() != null && quests.activeTrail().id().equals(trail.id());
+			boolean active = quests.isTracked(trail.id());
 			int fill = active ? ACCENT : done ? GOOD : unlocked ? 0xFF8A6A44 : 0xFFD8C9A8;
 			if (treeZoom < 0.7F) {
 				fill = QuestTheme.color(trail.topicKey());
@@ -774,8 +774,10 @@ public final class JournalScreen extends Screen {
 			boolean done = hq.learn() != null
 					&& hq.learn().data().quests.completed.containsKey(selected.id());
 			boolean unlocked = quests.unlocked(selected);
-			boolean active = quests.activeTrail() != null && quests.activeTrail().id().equals(selected.id());
-			String state = done ? "✓ fertig" : active ? "▶ aktiv" : unlocked ? "○ offen" : "· gesperrt";
+			boolean active = quests.isTracked(selected.id());
+			boolean focused = selected.id().equals(quests.focusedId());
+			String state = done ? "✓ fertig" : focused ? "▶ aktiv" : active ? "▸ im Log"
+					: unlocked ? "○ offen" : "· gesperrt";
 			int detailTop = treeBottom;
 			g.fill(x, detailTop, x + width, detailTop + 1, 0x55CBB88F);
 			String title = selected.titleDe();
@@ -820,9 +822,15 @@ public final class JournalScreen extends Screen {
 						width, INK);
 			}
 			Draw.truncated(g, this.font, Component.literal(progressOf(selected, done)
-							+ (active ? " · " + quests.statusText() : "")),
+							+ (focused ? " · " + quests.statusText() : "")),
 					x, detailTop + 45, width - 68, INK_FAINT);
-			if (unlocked && !active && !done) {
+			if (active && !focused && !done) {
+				Questline chosen = selected;
+				button(g, x + width - 62, detailTop + 52, 58, 16, "Fokus", false, () -> {
+					quests.focus(chosen.id());
+					status = "Fokus: " + chosen.titleDe();
+				});
+			} else if (unlocked && !active && !done) {
 				Questline chosen = selected;
 				button(g, x + width - 62, detailTop + 52, 58, 16, "Starten", false, () -> {
 					Observation obs = new Observation();

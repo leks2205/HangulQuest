@@ -125,7 +125,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 Hangul Quest needs **Minecraft 26.3** (Java Edition), **Fabric Loader 0.19.5 or newer**, **Fabric API 0.162.0+26.3 or newer** and **Java 25**. It is client-side: install it in your own `mods` folder, not on the server.
 
 1. Install [Fabric](https://fabricmc.net/use/installer/) for Minecraft 26.3.
-2. Download `hangulquest-1.0.0.jar` from the [latest release](../../releases/latest) and drop it into `.minecraft/mods/`.
+2. Download `hangulquest-<version>.jar` from the [latest release](../../releases/latest) and drop it into `.minecraft/mods/`.
 3. Download [Fabric API](https://modrinth.com/mod/fabric-api) for 26.3 and put it in the same folder.
 4. Start the game and enter any world — the first questline starts by itself.
 
