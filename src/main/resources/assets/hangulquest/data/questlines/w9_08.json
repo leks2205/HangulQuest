@@ -31,11 +31,13 @@
    },
    "clue": {
     "de": "Stell vier Bücherregale für die Chronik der Krone.",
-    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요."
+    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요.",
+    "en": "Place 4× Bookshelf."
    },
    "hint": {
     "ko": "책장은 나무 판자와 책으로 만들어요.",
-    "de": "Bücherregale bestehen aus Brettern und Büchern."
+    "de": "Bücherregale bestehen aus Brettern und Büchern.",
+    "en": "Place 4× Bookshelf."
    }
   },
   {
@@ -49,11 +51,13 @@
    },
    "clue": {
     "de": "Trag das Vermächtnis am Lesepult vor.",
-    "ko": "유산을 남기려고 독서대를 사용해요."
+    "ko": "유산을 남기려고 독서대를 사용해요.",
+    "en": "Use Lectern."
    },
    "hint": {
     "ko": "독서대는 나무 반 블록과 책장으로 만들어요.",
-    "de": "Ein Lesepult braucht eine Holzstufe und ein Bücherregal."
+    "de": "Ein Lesepult braucht eine Holzstufe und ein Bücherregal.",
+    "en": "Use Lectern."
    }
   }
  ],
@@ -70,11 +74,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Gewachste verwitterte geschnittene Kupfertreppe."
+    "de": "Sammle 3× Gewachste verwitterte geschnittene Kupfertreppe.",
+    "en": "Collect 3× Waxed Weathered Cut Copper Stairs."
+   },
+   "hint": {
+    "en": "Collect 3× Waxed Weathered Cut Copper Stairs."
    }
   },
   "textKo": "밀랍칠한 녹슨 깎인 구리 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste verwitterte geschnittene Kupfertreppe — Zeremonie vollendet."
+  "textDe": "Gewachste verwitterte geschnittene Kupfertreppe — Zeremonie vollendet.",
+  "textEn": "the ritual of Waxed Weathered Cut Copper Stairs is complete."
  },
  "reward": {
   "badge": "w9_08",
@@ -84,5 +93,6 @@
    "lectern"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Heritage"
 }

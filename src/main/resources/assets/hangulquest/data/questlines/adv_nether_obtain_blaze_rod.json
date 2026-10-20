@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Tiefenschieferfliesenstufe."
+    "de": "Platziere Tiefenschieferfliesenstufe.",
+    "en": "Place Deepslate Tile Slab."
+   },
+   "hint": {
+    "en": "Place Deepslate Tile Slab."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Lesepult."
+    "de": "Sammle Lesepult.",
+    "en": "Collect Lectern."
+   },
+   "hint": {
+    "en": "Collect Lectern."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Redstone-Erz."
+    "de": "Sammle Redstone-Erz.",
+    "en": "Collect Redstone Ore."
+   },
+   "hint": {
+    "en": "Collect Redstone Ore."
    }
   },
   "textKo": "레드스톤 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Redstone-Erz — Zeremonie vollendet."
+  "textDe": "Redstone-Erz — Zeremonie vollendet.",
+  "textEn": "the ritual of Redstone Ore is complete."
  },
  "reward": {
   "badge": "adv_nether_obtain_blaze_rod",
@@ -75,5 +88,6 @@
    "adv_item_blaze_rod"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Into Fire"
 }

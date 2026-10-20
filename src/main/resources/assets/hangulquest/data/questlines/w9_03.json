@@ -30,7 +30,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Sammle 6× Akaziensetzling."
+    "de": "Sammle 6× Akaziensetzling.",
+    "en": "Collect 6× Acacia Sapling."
+   },
+   "hint": {
+    "en": "Collect 6× Acacia Sapling."
    }
   },
   {
@@ -44,11 +48,13 @@
    },
    "clue": {
     "de": "Sprich mit einem Dorfbewohner am Hof.",
-    "ko": "궁정의 주민과 이야기해요."
+    "ko": "궁정의 주민과 이야기해요.",
+    "en": "Talk to Villager."
    },
    "hint": {
     "ko": "주민은 마을에서 만나요.",
-    "de": "Dorfbewohner trifft man im Dorf."
+    "de": "Dorfbewohner trifft man im Dorf.",
+    "en": "Talk to Villager."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Pappelsetzling."
+    "de": "Platziere Pappelsetzling.",
+    "en": "Place Poplar Sapling."
+   },
+   "hint": {
+    "en": "Place Poplar Sapling."
    }
   },
   "textKo": "포플러나무 묘목라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelsetzling — Zeremonie vollendet."
+  "textDe": "Pappelsetzling — Zeremonie vollendet.",
+  "textEn": "the ritual of Poplar Sapling is complete."
  },
  "reward": {
   "badge": "w9_03",
@@ -79,5 +90,6 @@
    "villager"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Route"
 }

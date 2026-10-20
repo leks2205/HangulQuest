@@ -29,7 +29,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Verrottetes Fleisch."
+    "de": "Sammle 2× Verrottetes Fleisch.",
+    "en": "Collect 2× Rotten Flesh."
+   },
+   "hint": {
+    "en": "Collect 2× Rotten Flesh."
    }
   },
   {
@@ -42,7 +46,11 @@
     "entity": "minecraft:trader_llama"
    },
    "clue": {
-    "de": "Interagiere mit Händlerlama."
+    "de": "Interagiere mit Händlerlama.",
+    "en": "Talk to Trader Llama."
+   },
+   "hint": {
+    "en": "Talk to Trader Llama."
    }
   },
   {
@@ -56,7 +64,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Goldklumpen."
+    "de": "Sammle 3× Goldklumpen.",
+    "en": "Collect 3× Gold Nugget."
+   },
+   "hint": {
+    "en": "Collect 3× Gold Nugget."
    }
   }
  ],
@@ -77,11 +89,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Räucherofen. Tagsüber."
+    "de": "Benutze Räucherofen. Tagsüber.",
+    "en": "Use Smoker. During the day."
+   },
+   "hint": {
+    "en": "Use Smoker. During the day."
    }
   },
   "textKo": "낮에 훈연기라는 길의 의식을 마쳤어요.",
-  "textDe": "Räucherofen — Zeremonie vollendet."
+  "textDe": "Räucherofen — Zeremonie vollendet.",
+  "textEn": "By day the ritual of Smoker is complete."
  },
  "reward": {
   "badge": "handelspfad",
@@ -94,5 +111,6 @@
  },
  "order": 180,
  "koreanLevel": 1,
- "topic": "마을"
+ "topic": "마을",
+ "titleEn": "The Trade Trail"
 }

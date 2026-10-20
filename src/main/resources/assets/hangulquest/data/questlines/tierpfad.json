@@ -26,7 +26,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Hilfsgeist an."
+    "de": "Sieh dir Hilfsgeist an.",
+    "en": "Look at Allay."
+   },
+   "hint": {
+    "en": "Look at Allay."
    }
   },
   {
@@ -41,11 +45,13 @@
    },
    "clue": {
     "ko": "분홍색 돼지를 1초 동안 바라봐요.",
-    "de": "Schau das rosafarbene Tier an."
+    "de": "Schau das rosafarbene Tier an.",
+    "en": "Look at Pig."
    },
    "hint": {
     "ko": "돼지를 봐요.",
-    "de": "Schau ein Schwein an."
+    "de": "Schau ein Schwein an.",
+    "en": "Look at Pig."
    }
   },
   {
@@ -60,11 +66,13 @@
    },
    "clue": {
     "ko": "털이 있는 양을 1초 동안 바라봐요.",
-    "de": "Schau das wollige Tier an."
+    "de": "Schau das wollige Tier an.",
+    "en": "Look at Sheep."
    },
    "hint": {
     "ko": "양을 봐요.",
-    "de": "Schau ein Schaf an."
+    "de": "Schau ein Schaf an.",
+    "en": "Look at Sheep."
    }
   }
  ],
@@ -86,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Kupfererz. Nachts."
+    "de": "Platziere Kupfererz. Nachts.",
+    "en": "Place Copper Ore. At night."
+   },
+   "hint": {
+    "en": "Place Copper Ore. At night."
    }
   },
   "textKo": "밤에 구리 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupfererz — Zeremonie vollendet."
+  "textDe": "Kupfererz — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Copper Ore is complete."
  },
  "reward": {
   "badge": "tierpfad",
@@ -103,5 +116,6 @@
  },
  "order": 40,
  "koreanLevel": 1,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Animal Trail"
 }

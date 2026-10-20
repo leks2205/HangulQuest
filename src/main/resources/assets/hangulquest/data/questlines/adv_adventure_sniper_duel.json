@@ -30,7 +30,11 @@
     "count": 16
    },
    "clue": {
-    "de": "Sammle 16× Brauner Teppich."
+    "de": "Sammle 16× Brauner Teppich.",
+    "en": "Collect 16× Brown Carpet."
+   },
+   "hint": {
+    "en": "Collect 16× Brown Carpet."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Orange Betonstufe."
+    "de": "Platziere 3× Orange Betonstufe.",
+    "en": "Place 3× Orange Concrete Slab."
+   },
+   "hint": {
+    "en": "Place 3× Orange Concrete Slab."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Ertrunkener."
+    "de": "Besiege Ertrunkener.",
+    "en": "Defeat Drowned."
+   },
+   "hint": {
+    "en": "Defeat Drowned."
    }
   },
   "textKo": "드라운드라는 길의 의식을 마쳤어요.",
-  "textDe": "Ertrunkener — Zeremonie vollendet."
+  "textDe": "Ertrunkener — Zeremonie vollendet.",
+  "textEn": "the ritual of Drowned is complete."
  },
  "reward": {
   "badge": "adv_adventure_sniper_duel",
@@ -75,5 +88,6 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Sniper Duel"
 }

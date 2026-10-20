@@ -32,7 +32,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau eine Fledermaus an."
+    "de": "Schau eine Fledermaus an.",
+    "en": "Look at Bat."
+   },
+   "hint": {
+    "en": "Look at Bat."
    }
   },
   {
@@ -46,11 +50,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Seelenfackeln."
+    "de": "Setz drei Seelenfackeln.",
+    "en": "Place 3× Soul Torch."
    },
    "hint": {
     "ko": "영혼 횃불은 석탄, 막대기, 영혼 모래로 만들어요.",
-    "de": "Seelenfackeln bestehen aus Kohle, Stock und Seelensand."
+    "de": "Seelenfackeln bestehen aus Kohle, Stock und Seelensand.",
+    "en": "Place 3× Soul Torch."
    }
   },
   {
@@ -70,7 +76,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Kirschholzzaun. Nachts."
+    "de": "Platziere 3× Kirschholzzaun. Nachts.",
+    "en": "Place 3× Cherry Fence. At night."
+   },
+   "hint": {
+    "en": "Place 3× Cherry Fence. At night."
    }
   }
  ],
@@ -85,10 +95,17 @@
     "item": "minecraft:coal",
     "count": 8
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect 8× Coal."
+   },
+   "hint": {
+    "en": "Collect 8× Coal."
+   }
   },
   "textKo": "그림자 속에서 석탄을 모아요.",
-  "textDe": "Kohle im Schatten sammeln."
+  "textDe": "Kohle im Schatten sammeln.",
+  "textEn": "the ritual of Coal is complete."
  },
  "reward": {
   "badge": "schattenpfad",
@@ -99,5 +116,6 @@
    "coal"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Shadow Trail"
 }

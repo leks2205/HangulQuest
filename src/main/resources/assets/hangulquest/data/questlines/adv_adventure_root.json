@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Besiege Spinne."
+    "de": "Besiege Spinne.",
+    "en": "Defeat Spider."
+   },
+   "hint": {
+    "en": "Defeat Spider."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Besiege 2× Wither."
+    "de": "Besiege 2× Wither.",
+    "en": "Defeat 2× Wither."
+   },
+   "hint": {
+    "en": "Defeat 2× Wither."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Plagegeist."
+    "de": "Besiege Plagegeist.",
+    "en": "Defeat Vex."
+   },
+   "hint": {
+    "en": "Defeat Vex."
    }
   },
   "textKo": "벡스라는 길의 의식을 마쳤어요.",
-  "textDe": "Plagegeist — Zeremonie vollendet."
+  "textDe": "Plagegeist — Zeremonie vollendet.",
+  "textEn": "the ritual of Vex is complete."
  },
  "reward": {
   "badge": "adv_adventure_root",
@@ -75,5 +88,6 @@
    "creeper"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Adventure"
 }

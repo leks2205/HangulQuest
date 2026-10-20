@@ -32,7 +32,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Setz eine Tür ins Dorf."
+    "de": "Setz eine Tür ins Dorf.",
+    "en": "Place Oak Door."
+   },
+   "hint": {
+    "en": "Place Oak Door."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Fichtenholz."
+    "de": "Platziere Fichtenholz.",
+    "en": "Place Spruce Wood."
+   },
+   "hint": {
+    "en": "Place Spruce Wood."
    }
   },
   {
@@ -60,7 +68,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Verwüster an."
+    "de": "Sieh dir Verwüster an.",
+    "en": "Look at Ravager."
+   },
+   "hint": {
+    "en": "Look at Ravager."
    }
   }
  ],
@@ -81,11 +93,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Shulker-Kiste. Nachts."
+    "de": "Benutze Shulker-Kiste. Nachts.",
+    "en": "Use Shulker Box. At night."
+   },
+   "hint": {
+    "en": "Use Shulker Box. At night."
    }
   },
   "textKo": "밤에 셜커 상자라는 길의 의식을 마쳤어요.",
-  "textDe": "Shulker-Kiste — Zeremonie vollendet."
+  "textDe": "Shulker-Kiste — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Shulker Box is complete."
  },
  "reward": {
   "badge": "dorfhaus",
@@ -96,5 +113,6 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "나무"
+ "topic": "나무",
+ "titleEn": "The Village House"
 }

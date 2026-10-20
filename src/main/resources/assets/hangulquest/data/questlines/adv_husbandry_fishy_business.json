@@ -30,7 +30,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle zwei Fäden von Spinnen oder aus einer Mine."
+    "de": "Sammle zwei Fäden von Spinnen oder aus einer Mine.",
+    "en": "Collect 2× String."
+   },
+   "hint": {
+    "en": "Collect 2× String."
    }
   },
   {
@@ -44,11 +48,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue aus Stöcken und Fäden eine Angel."
+    "de": "Baue aus Stöcken und Fäden eine Angel.",
+    "en": "Collect Fishing Rod."
    },
    "hint": {
     "ko": "낚싯대는 막대기 세 개와 실 두 개로 만들어요.",
-    "de": "Eine Angel braucht drei Stöcke und zwei Fäden."
+    "de": "Eine Angel braucht drei Stöcke und zwei Fäden.",
+    "en": "Collect Fishing Rod."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Tropenholztruhenboot."
+    "de": "Sammle Tropenholztruhenboot.",
+    "en": "Collect Jungle Boat with Chest."
+   },
+   "hint": {
+    "en": "Collect Jungle Boat with Chest."
    }
   },
   "textKo": "상자가 실린 정글나무 보트라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholztruhenboot — Zeremonie vollendet."
+  "textDe": "Tropenholztruhenboot — Zeremonie vollendet.",
+  "textEn": "the ritual of Jungle Boat with Chest is complete."
  },
  "reward": {
   "badge": "adv_husbandry_fishy_business",
@@ -79,5 +90,6 @@
    "fish"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Fishy Business"
 }

@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Gewachster gemeißelter Kupferblock."
+    "de": "Sammle 3× Gewachster gemeißelter Kupferblock.",
+    "en": "Collect 3× Waxed Chiseled Copper."
+   },
+   "hint": {
+    "en": "Collect 3× Waxed Chiseled Copper."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Zupfe zwei Löwenzahn für den Kräuterbeutel."
+    "de": "Zupfe zwei Löwenzahn für den Kräuterbeutel.",
+    "en": "Break 2× Dandelion."
    },
    "hint": {
     "ko": "민들레는 노란 꽃이에요.",
-    "de": "Löwenzahn erkennst du an der gelben Blüte."
+    "de": "Löwenzahn erkennst du an der gelben Blüte.",
+    "en": "Break 2× Dandelion."
    }
   },
   {
@@ -63,11 +69,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Suche zwei rote Pilze im Schatten der Bäume."
+    "de": "Suche zwei rote Pilze im Schatten der Bäume.",
+    "en": "Collect 2× Red Mushroom."
    },
    "hint": {
     "ko": "버섯은 그늘진 곳에서 자라요.",
-    "de": "Pilze wachsen im Schatten."
+    "de": "Pilze wachsen im Schatten.",
+    "en": "Collect 2× Red Mushroom."
    }
   }
  ],
@@ -84,11 +92,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Seelenerde."
+    "de": "Platziere Seelenerde.",
+    "en": "Place Soul Soil."
+   },
+   "hint": {
+    "en": "Place Soul Soil."
    }
   },
   "textKo": "영혼 흙라는 길의 의식을 마쳤어요.",
-  "textDe": "Seelenerde — Zeremonie vollendet."
+  "textDe": "Seelenerde — Zeremonie vollendet.",
+  "textEn": "the ritual of Soul Soil is complete."
  },
  "reward": {
   "badge": "w6_02",
@@ -99,5 +112,6 @@
    "flower_pot"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Herbs of the Forest"
 }

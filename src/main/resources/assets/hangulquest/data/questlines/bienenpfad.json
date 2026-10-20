@@ -30,7 +30,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Panda an."
+    "de": "Sieh dir Panda an.",
+    "en": "Look at Panda."
+   },
+   "hint": {
+    "en": "Look at Panda."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Gemeißelter Zinnober."
+    "de": "Sammle 2× Gemeißelter Zinnober.",
+    "en": "Collect 2× Chiseled Cinnabar."
+   },
+   "hint": {
+    "en": "Collect 2× Chiseled Cinnabar."
    }
   }
  ],
@@ -62,11 +70,16 @@
    "conditions": [],
    "hint": {
     "ko": "벌통은 벌집 조각과 나무 판자로 만들어요.",
-    "de": "Ein Bienenstock besteht aus Honigwabe und Holzbrettern."
+    "de": "Ein Bienenstock besteht aus Honigwabe und Holzbrettern.",
+    "en": "Place Beehive."
+   },
+   "clue": {
+    "en": "Place Beehive."
    }
   },
   "textKo": "벌통을 놓아 꿀벌의 집을 만들어요.",
-  "textDe": "Ein Bienenstock wird zur Heimat der Bienen."
+  "textDe": "Ein Bienenstock wird zur Heimat der Bienen.",
+  "textEn": "the ritual of Beehive is complete."
  },
  "reward": {
   "badge": "bienenpfad",
@@ -76,5 +89,6 @@
    "beehive"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Bee Trail"
 }

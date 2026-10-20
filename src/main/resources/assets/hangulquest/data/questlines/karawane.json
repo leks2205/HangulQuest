@@ -32,7 +32,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Schnüffler an."
+    "de": "Sieh dir Schnüffler an.",
+    "en": "Look at Sniffer."
+   },
+   "hint": {
+    "en": "Look at Sniffer."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Polierte Diorittreppe."
+    "de": "Sammle 4× Polierte Diorittreppe.",
+    "en": "Collect 4× Polished Diorite Stairs."
+   },
+   "hint": {
+    "en": "Collect 4× Polished Diorite Stairs."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Testblock."
+    "de": "Sammle 3× Testblock.",
+    "en": "Collect 3× Test Block."
+   },
+   "hint": {
+    "en": "Collect 3× Test Block."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Tropenholzstufe. Tagsüber."
+    "de": "Platziere 3× Tropenholzstufe. Tagsüber.",
+    "en": "Place 3× Jungle Slab. During the day."
+   },
+   "hint": {
+    "en": "Place 3× Jungle Slab. During the day."
    }
   },
   "textKo": "낮에 정글나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzstufe — Zeremonie vollendet."
+  "textDe": "Tropenholzstufe — Zeremonie vollendet.",
+  "textEn": "By day the ritual of Jungle Slab is complete."
  },
  "reward": {
   "badge": "karawane",
@@ -98,5 +115,6 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Caravan"
 }

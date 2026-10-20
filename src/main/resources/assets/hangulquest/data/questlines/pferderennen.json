@@ -32,7 +32,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Maultier an."
+    "de": "Sieh dir Maultier an.",
+    "en": "Look at Mule."
+   },
+   "hint": {
+    "en": "Look at Mule."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Blasseichensetzling."
+    "de": "Sammle Blasseichensetzling.",
+    "en": "Collect Pale Oak Sapling."
+   },
+   "hint": {
+    "en": "Collect Pale Oak Sapling."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Platziere 6× Angelaufener geschnittener Kupferblock."
+    "de": "Platziere 6× Angelaufener geschnittener Kupferblock.",
+    "en": "Place 6× Exposed Cut Copper."
+   },
+   "hint": {
+    "en": "Place 6× Exposed Cut Copper."
    }
   }
  ],
@@ -77,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Abschabe-Töpferscherbe."
+    "de": "Sammle 3× Abschabe-Töpferscherbe.",
+    "en": "Collect 3× Scrape Pottery Sherd."
+   },
+   "hint": {
+    "en": "Collect 3× Scrape Pottery Sherd."
    }
   },
   "textKo": "긁개 도자기 조각라는 길의 의식을 마쳤어요.",
-  "textDe": "Abschabe-Töpferscherbe — Zeremonie vollendet."
+  "textDe": "Abschabe-Töpferscherbe — Zeremonie vollendet.",
+  "textEn": "the ritual of Scrape Pottery Sherd is complete."
  },
  "reward": {
   "badge": "pferderennen",
@@ -92,5 +109,6 @@
    "carrot"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Horse Race Trail"
 }

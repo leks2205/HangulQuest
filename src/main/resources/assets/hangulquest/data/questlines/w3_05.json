@@ -31,7 +31,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Gewachste oxidierte geschnittene Kupferstufe."
+    "de": "Platziere 2× Gewachste oxidierte geschnittene Kupferstufe.",
+    "en": "Place 2× Waxed Oxidized Cut Copper Slab."
+   },
+   "hint": {
+    "en": "Place 2× Waxed Oxidized Cut Copper Slab."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Entrindeter Eichenstamm."
+    "de": "Platziere 2× Entrindeter Eichenstamm.",
+    "en": "Place 2× Stripped Oak Log."
+   },
+   "hint": {
+    "en": "Place 2× Stripped Oak Log."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Rote Sandsteinstufe."
+    "de": "Platziere 2× Rote Sandsteinstufe.",
+    "en": "Place 2× Red Sandstone Slab."
+   },
+   "hint": {
+    "en": "Place 2× Red Sandstone Slab."
    }
   }
  ],
@@ -73,10 +85,17 @@
     "type": "USE_BLOCK",
     "block": "minecraft:oak_door"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Use Oak Door."
+   },
+   "hint": {
+    "en": "Use Oak Door."
+   }
   },
   "textKo": "좀비가 사라지고 마을이 조용해요. 이웃이 편히 자요.",
-  "textDe": "Der Zombie ist fort, das Dorf ist still. Die Nachbarn schlafen ruhig."
+  "textDe": "Der Zombie ist fort, das Dorf ist still. Die Nachbarn schlafen ruhig.",
+  "textEn": "the ritual of Oak Door is complete."
  },
  "reward": {
   "badge": "w3_05",
@@ -87,5 +106,6 @@
    "door"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Night in the Village"
 }

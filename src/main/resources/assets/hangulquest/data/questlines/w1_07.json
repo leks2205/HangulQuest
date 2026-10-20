@@ -29,7 +29,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Blaue Glasscheibe."
+    "de": "Sammle 3× Blaue Glasscheibe.",
+    "en": "Collect 3× Blue Stained Glass Pane."
+   },
+   "hint": {
+    "en": "Collect 3× Blue Stained Glass Pane."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Schwarzeichensetzling."
+    "de": "Platziere 2× Schwarzeichensetzling.",
+    "en": "Place 2× Dark Oak Sapling."
+   },
+   "hint": {
+    "en": "Place 2× Dark Oak Sapling."
    }
   },
   {
@@ -57,11 +65,13 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau den Amethystblock im Licht an."
+    "de": "Schau den Amethystblock im Licht an.",
+    "en": "Look at Block of Amethyst."
    },
    "hint": {
     "ko": "자수정 블록은 빛을 반짝여요.",
-    "de": "Amethyst glitzert im Licht."
+    "de": "Amethyst glitzert im Licht.",
+    "en": "Look at Block of Amethyst."
    }
   }
  ],
@@ -78,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 2× Goldener Nautiluspanzer."
+    "de": "Sammle 2× Goldener Nautiluspanzer.",
+    "en": "Collect 2× Golden Nautilus Armor."
+   },
+   "hint": {
+    "en": "Collect 2× Golden Nautilus Armor."
    }
   },
   "textKo": "금 앵무조개 갑옷라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldener Nautiluspanzer — Zeremonie vollendet."
+  "textDe": "Goldener Nautiluspanzer — Zeremonie vollendet.",
+  "textEn": "the ritual of Golden Nautilus Armor is complete."
  },
  "reward": {
   "badge": "w1_07",
@@ -92,5 +107,6 @@
    "glass_bottle"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Glittering Amethyst"
 }

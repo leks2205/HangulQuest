@@ -28,10 +28,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue eine Jukebox aus acht Holzplanken und einem Diamanten."
+    "de": "Baue eine Jukebox aus acht Holzplanken und einem Diamanten.",
+    "en": "Collect Jukebox."
    },
    "hint": {
-    "ko": "나무 판자 여덟 개와 다이아몬드 하나로 만들어요."
+    "ko": "나무 판자 여덟 개와 다이아몬드 하나로 만들어요.",
+    "en": "Collect Jukebox."
    }
   },
   {
@@ -45,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Stell die Jukebox mitten auf eine Wiese mit hohem Gras."
+    "de": "Stell die Jukebox mitten auf eine Wiese mit hohem Gras.",
+    "en": "Place Jukebox."
+   },
+   "hint": {
+    "en": "Place Jukebox."
    }
   }
  ],
@@ -61,11 +67,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Leg eine Musikscheibe ein und lass die Musik über die Wiese ziehen."
+    "de": "Leg eine Musikscheibe ein und lass die Musik über die Wiese ziehen.",
+    "en": "Use Jukebox."
+   },
+   "hint": {
+    "en": "Use Jukebox."
    }
   },
   "textKo": "사운드 오브 뮤직 — 초원에서 음악을 들어요.",
-  "textDe": "Deine Welt sind die Berge — Spiel eine Musikscheibe in der Wiese ab."
+  "textDe": "Deine Welt sind die Berge — Spiel eine Musikscheibe in der Wiese ab.",
+  "textEn": "the ritual of Jukebox is complete."
  },
  "reward": {
   "badge": "adv_adventure_play_jukebox_in_meadows",
@@ -73,5 +84,6 @@
    "jukebox"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Sound of Music"
 }

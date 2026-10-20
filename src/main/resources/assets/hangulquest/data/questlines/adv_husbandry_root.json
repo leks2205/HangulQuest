@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Ernte drei reife Weizenpflanzen auf deinem Feld."
+    "de": "Ernte drei reife Weizenpflanzen auf deinem Feld.",
+    "en": "Break 3× Wheat Crops."
+   },
+   "hint": {
+    "en": "Break 3× Wheat Crops."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Presse neun Weizen zu einem Heuballen und stelle ihn auf."
+    "de": "Presse neun Weizen zu einem Heuballen und stelle ihn auf.",
+    "en": "Place Hay Bale."
    },
    "hint": {
-    "ko": "밀 아홉 개를 조합해요."
+    "ko": "밀 아홉 개를 조합해요.",
+    "en": "Place Hay Bale."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Iss Gebratener Kabeljau."
+    "de": "Iss Gebratener Kabeljau.",
+    "en": "Eat Cooked Cod."
+   },
+   "hint": {
+    "en": "Eat Cooked Cod."
    }
   },
   "textKo": "익힌 대구라는 길의 의식을 마쳤어요.",
-  "textDe": "Gebratener Kabeljau — Zeremonie vollendet."
+  "textDe": "Gebratener Kabeljau — Zeremonie vollendet.",
+  "textEn": "the ritual of Cooked Cod is complete."
  },
  "reward": {
   "badge": "adv_husbandry_root",
@@ -78,5 +89,6 @@
    "bread"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Husbandry"
 }

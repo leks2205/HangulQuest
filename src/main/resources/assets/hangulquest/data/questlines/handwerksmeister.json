@@ -32,7 +32,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Blasseichenholzregal."
+    "de": "Platziere Blasseichenholzregal.",
+    "en": "Place Pale Oak Shelf."
+   },
+   "hint": {
+    "en": "Place Pale Oak Shelf."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Eichenholztreppe."
+    "de": "Sammle 3× Eichenholztreppe.",
+    "en": "Collect 3× Oak Stairs."
+   },
+   "hint": {
+    "en": "Collect 3× Oak Stairs."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Fichtennadeln."
+    "de": "Platziere 3× Fichtennadeln.",
+    "en": "Place 3× Spruce Leaves."
+   },
+   "hint": {
+    "en": "Place 3× Spruce Leaves."
    }
   }
  ],
@@ -75,10 +87,17 @@
     "block": "minecraft:anvil",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place Anvil."
+   },
+   "hint": {
+    "en": "Place Anvil."
+   }
   },
   "textKo": "모루를 놓아 작업장을 만들어요.",
-  "textDe": "Ein Amboss macht die Werkstatt."
+  "textDe": "Ein Amboss macht die Werkstatt.",
+  "textEn": "the ritual of Anvil is complete."
  },
  "reward": {
   "badge": "handwerksmeister",
@@ -88,5 +107,6 @@
    "anvil"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Master Craftsman"
 }

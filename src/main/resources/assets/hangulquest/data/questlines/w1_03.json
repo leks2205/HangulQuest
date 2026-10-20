@@ -28,11 +28,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Pflück drei Löwenzahn."
+    "de": "Pflück drei Löwenzahn.",
+    "en": "Collect 3× Dandelion."
    },
    "hint": {
     "ko": "민들레는 노란 꽃이에요.",
-    "de": "Löwenzahn erkennst du an der gelben Blüte."
+    "de": "Löwenzahn erkennst du an der gelben Blüte.",
+    "en": "Collect 3× Dandelion."
    }
   },
   {
@@ -46,11 +48,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Löwenzahn in die Erde."
+    "de": "Setz drei Löwenzahn in die Erde.",
+    "en": "Place 3× Dandelion."
    },
    "hint": {
     "ko": "민들레를 흙 위에 놓아요.",
-    "de": "Pflanze den Löwenzahn auf Erde."
+    "de": "Pflanze den Löwenzahn auf Erde.",
+    "en": "Place 3× Dandelion."
    }
   },
   {
@@ -64,7 +68,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Webstuhl an."
+    "de": "Sieh dir Webstuhl an.",
+    "en": "Look at Loom."
+   },
+   "hint": {
+    "en": "Look at Loom."
    }
   }
  ],
@@ -81,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Gemeißelte Tuffsteinziegel."
+    "de": "Platziere 2× Gemeißelte Tuffsteinziegel.",
+    "en": "Place 2× Chiseled Tuff Bricks."
+   },
+   "hint": {
+    "en": "Place 2× Chiseled Tuff Bricks."
    }
   },
   "textKo": "조각된 응회암 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Gemeißelte Tuffsteinziegel — Zeremonie vollendet."
+  "textDe": "Gemeißelte Tuffsteinziegel — Zeremonie vollendet.",
+  "textEn": "the ritual of Chiseled Tuff Bricks is complete."
  },
  "reward": {
   "badge": "w1_03",
@@ -95,5 +108,6 @@
    "flower"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Yellow Flower Field"
 }

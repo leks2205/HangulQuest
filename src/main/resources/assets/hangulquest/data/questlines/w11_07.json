@@ -31,7 +31,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Braunes Banner."
+    "de": "Sammle Braunes Banner.",
+    "en": "Collect Brown Banner."
+   },
+   "hint": {
+    "en": "Collect Brown Banner."
    }
   },
   {
@@ -45,11 +49,13 @@
    },
    "clue": {
     "de": "Entzünde eine Kerze für das Ritual.",
-    "ko": "의식에 쓸 초를 사용해 불을 붙여요."
+    "ko": "의식에 쓸 초를 사용해 불을 붙여요.",
+    "en": "Use Candle."
    },
    "hint": {
     "ko": "초에 불을 붙이면 의식이 시작돼요.",
-    "de": "Mit Feuerzeug oder Feuerstein zündest du die Kerze an."
+    "de": "Mit Feuerzeug oder Feuerstein zündest du die Kerze an.",
+    "en": "Use Candle."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Entrindetes Mangrovenholz."
+    "de": "Platziere 4× Entrindetes Mangrovenholz.",
+    "en": "Place 4× Stripped Mangrove Wood."
+   },
+   "hint": {
+    "en": "Place 4× Stripped Mangrove Wood."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Braune Wolle."
+    "de": "Sammle Braune Wolle.",
+    "en": "Collect Brown Wool."
+   },
+   "hint": {
+    "en": "Collect Brown Wool."
    }
   },
   "textKo": "갈색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Braune Wolle — Zeremonie vollendet."
+  "textDe": "Braune Wolle — Zeremonie vollendet.",
+  "textEn": "the ritual of Brown Wool is complete."
  },
  "reward": {
   "badge": "w11_07",
@@ -95,5 +110,6 @@
    "adv_item_totem_of_undying"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Crown of Eternity"
 }

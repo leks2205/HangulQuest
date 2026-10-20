@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Mangrovensumpf."
+    "de": "Erreiche Mangrovensumpf.",
+    "en": "Reach Mangrove Swamp."
+   },
+   "hint": {
+    "en": "Reach Mangrove Swamp."
    }
   },
   {
@@ -48,11 +52,13 @@
    },
    "clue": {
     "de": "Sammle einen Fisch.",
-    "ko": "낚싯대로 물고기를 모아요."
+    "ko": "낚싯대로 물고기를 모아요.",
+    "en": "Collect Raw Cod."
    },
    "hint": {
     "ko": "낚싯대는 나무와 실로 만들어요. 물고기를 모아요.",
-    "de": "Die Angelrute besteht aus Holz und Faden."
+    "de": "Die Angelrute besteht aus Holz und Faden.",
+    "en": "Collect Raw Cod."
    }
   },
   {
@@ -72,7 +78,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 2× Gewachster angelaufener gemeißelter Kupferblock. Nachts."
+    "de": "Platziere 2× Gewachster angelaufener gemeißelter Kupferblock. Nachts.",
+    "en": "Place 2× Waxed Exposed Chiseled Copper. At night."
+   },
+   "hint": {
+    "en": "Place 2× Waxed Exposed Chiseled Copper. At night."
    }
   }
  ],
@@ -94,11 +104,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Kupferfackel. Nachts."
+    "de": "Platziere Kupferfackel. Nachts.",
+    "en": "Place Copper Torch. At night."
+   },
+   "hint": {
+    "en": "Place Copper Torch. At night."
    }
   },
   "textKo": "밤에 구리 횃불라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupferfackel — Zeremonie vollendet."
+  "textDe": "Kupferfackel — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Copper Torch is complete."
  },
  "reward": {
   "badge": "flusslicht",
@@ -108,5 +123,6 @@
    "torch"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The River Light"
 }

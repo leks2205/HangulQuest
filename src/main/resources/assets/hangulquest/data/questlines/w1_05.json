@@ -29,7 +29,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Braunes Ei."
+    "de": "Sammle 2× Braunes Ei.",
+    "en": "Collect 2× Brown Egg."
+   },
+   "hint": {
+    "en": "Collect 2× Brown Egg."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Orange Keramik."
+    "de": "Platziere 2× Orange Keramik.",
+    "en": "Place 2× Orange Terracotta."
+   },
+   "hint": {
+    "en": "Place 2× Orange Terracotta."
    }
   },
   {
@@ -57,11 +65,13 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau dir Seegras unter Wasser an."
+    "de": "Schau dir Seegras unter Wasser an.",
+    "en": "Look at Seagrass."
    },
    "hint": {
     "ko": "해초는 바다 밑에서 자라요.",
-    "de": "Seegras wächst auf dem Meeresgrund."
+    "de": "Seegras wächst auf dem Meeresgrund.",
+    "en": "Look at Seagrass."
    }
   }
  ],
@@ -78,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Herz-Töpferscherbe."
+    "de": "Sammle Herz-Töpferscherbe.",
+    "en": "Collect Heart Pottery Sherd."
+   },
+   "hint": {
+    "en": "Collect Heart Pottery Sherd."
    }
   },
   "textKo": "심장 도자기 조각라는 길의 의식을 마쳤어요.",
-  "textDe": "Herz-Töpferscherbe — Zeremonie vollendet."
+  "textDe": "Herz-Töpferscherbe — Zeremonie vollendet.",
+  "textEn": "the ritual of Heart Pottery Sherd is complete."
  },
  "reward": {
   "badge": "w1_05",
@@ -92,5 +107,6 @@
    "water"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Light on the Water"
 }

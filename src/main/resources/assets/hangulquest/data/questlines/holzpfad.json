@@ -27,11 +27,13 @@
    },
    "clue": {
     "ko": "통나무를 두 개 베어요.",
-    "de": "Fälle zwei Baumstämme."
+    "de": "Fälle zwei Baumstämme.",
+    "en": "Break 2× Oak Log."
    },
    "hint": {
     "ko": "통나무를 베어요.",
-    "de": "Fälle einen Stamm."
+    "de": "Fälle einen Stamm.",
+    "en": "Break 2× Oak Log."
    }
   },
   {
@@ -46,11 +48,13 @@
    },
    "clue": {
     "ko": "나무 판자를 납작하게 만들어 놓아요.",
-    "de": "Mach das Holz flach."
+    "de": "Mach das Holz flach.",
+    "en": "Place 4× Oak Planks."
    },
    "hint": {
     "ko": "판자를 놓아요.",
-    "de": "Platziere Holzbretter."
+    "de": "Platziere Holzbretter.",
+    "en": "Place 4× Oak Planks."
    }
   },
   {
@@ -65,11 +69,13 @@
    },
    "clue": {
     "ko": "작업대를 하나 모아요.",
-    "de": "Hol dir einen Ort zum Herstellen."
+    "de": "Hol dir einen Ort zum Herstellen.",
+    "en": "Collect Crafting Table."
    },
    "hint": {
     "ko": "작업대를 만들어요.",
-    "de": "Stelle eine Werkbank her."
+    "de": "Stelle eine Werkbank her.",
+    "en": "Collect Crafting Table."
    }
   }
  ],
@@ -91,11 +97,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Kirschholzschild. Nachts."
+    "de": "Platziere Kirschholzschild. Nachts.",
+    "en": "Place Cherry Sign. At night."
+   },
+   "hint": {
+    "en": "Place Cherry Sign. At night."
    }
   },
   "textKo": "밤에 벚나무 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschholzschild — Zeremonie vollendet."
+  "textDe": "Kirschholzschild — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Cherry Sign is complete."
  },
  "reward": {
   "badge": "holzpfad",
@@ -108,5 +119,6 @@
  },
  "order": 20,
  "koreanLevel": 1,
- "topic": "나무"
+ "topic": "나무",
+ "titleEn": "The Wood Trail"
 }

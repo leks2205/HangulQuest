@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Sumpf."
+    "de": "Erreiche Sumpf.",
+    "en": "Reach Swamp."
+   },
+   "hint": {
+    "en": "Reach Swamp."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Leuchtsteinstaub."
+    "de": "Sammle 2× Leuchtsteinstaub.",
+    "en": "Collect 2× Glowstone Dust."
+   },
+   "hint": {
+    "en": "Collect 2× Glowstone Dust."
    }
   },
   {
@@ -66,7 +74,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere Netherrack. Nachts."
+    "de": "Platziere Netherrack. Nachts.",
+    "en": "Place Netherrack. At night."
+   },
+   "hint": {
+    "en": "Place Netherrack. At night."
    }
   }
  ],
@@ -91,11 +103,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Weiße Kerze. Nachts. In einem passenden Biom."
+    "de": "Benutze Weiße Kerze. Nachts. In einem passenden Biom.",
+    "en": "Use White Candle. At night. In a fitting biome."
+   },
+   "hint": {
+    "en": "Use White Candle. At night. In a fitting biome."
    }
   },
   "textKo": "밤에 산 지형에서 하얀색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Weiße Kerze — Zeremonie vollendet."
+  "textDe": "Weiße Kerze — Zeremonie vollendet.",
+  "textEn": "By night In the mountains the ritual of White Candle is complete."
  },
  "reward": {
   "badge": "gipfelwaechter",
@@ -106,5 +123,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "산"
+ "topic": "산",
+ "titleEn": "The Summit Keeper"
 }

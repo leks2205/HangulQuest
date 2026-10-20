@@ -31,7 +31,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Baue 6× Werfer ab."
+    "de": "Baue 6× Werfer ab.",
+    "en": "Break 6× Dispenser."
+   },
+   "hint": {
+    "en": "Break 6× Dispenser."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Baue 3× Rote Wolle ab."
+    "de": "Baue 3× Rote Wolle ab.",
+    "en": "Break 3× Red Wool."
+   },
+   "hint": {
+    "en": "Break 3× Red Wool."
    }
   },
   {
@@ -59,11 +67,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue zwei Diamanten im Tiefenschiefer ab."
+    "de": "Baue zwei Diamanten im Tiefenschiefer ab.",
+    "en": "Break 2× Deepslate Diamond Ore."
    },
    "hint": {
     "ko": "다이아몬드는 아주 깊은 곳에 있어요.",
-    "de": "Diamanten liegen sehr tief."
+    "de": "Diamanten liegen sehr tief.",
+    "en": "Break 2× Deepslate Diamond Ore."
    }
   }
  ],
@@ -86,11 +96,16 @@
     }
    ],
    "clue": {
-    "de": "Sammle Polierte Zinnoberstufe. Zwischen Y -64 und -50."
+    "de": "Sammle Polierte Zinnoberstufe. Zwischen Y -64 und -50.",
+    "en": "Collect Polished Cinnabar Slab. Between Y -64 and -50."
+   },
+   "hint": {
+    "en": "Collect Polished Cinnabar Slab. Between Y -64 and -50."
    }
   },
   "textKo": "높이 -50 이하에서 윤나는 진사 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Zinnoberstufe — Zeremonie vollendet."
+  "textDe": "Polierte Zinnoberstufe — Zeremonie vollendet.",
+  "textEn": "Below Y -50 the ritual of Polished Cinnabar Slab is complete."
  },
  "reward": {
   "badge": "w5_03",
@@ -101,5 +116,6 @@
    "lava_bucket"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Song of Deep Stone"
 }

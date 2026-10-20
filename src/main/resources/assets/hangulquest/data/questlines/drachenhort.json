@@ -32,7 +32,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue 2× Schwefel ab."
+    "de": "Baue 2× Schwefel ab.",
+    "en": "Break 2× Sulfur."
+   },
+   "hint": {
+    "en": "Break 2× Sulfur."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Geschälte Wirrhyphen."
+    "de": "Sammle 8× Geschälte Wirrhyphen.",
+    "en": "Collect 8× Stripped Warped Hyphae."
+   },
+   "hint": {
+    "en": "Collect 8× Stripped Warped Hyphae."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Wildblumen."
+    "de": "Platziere Wildblumen.",
+    "en": "Place Wildflowers."
+   },
+   "hint": {
+    "en": "Place Wildflowers."
    }
   }
  ],
@@ -83,11 +95,16 @@
    ],
    "hint": {
     "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen bestehen aus einer Fackel und Eisennuggets."
+    "de": "Laternen bestehen aus einer Fackel und Eisennuggets.",
+    "en": "Place 3× Lantern. At night."
+   },
+   "clue": {
+    "en": "Place 3× Lantern. At night."
    }
   },
   "textKo": "밤에 랜턴을 3개 놓아요.",
-  "textDe": "Nachts leuchten drei Laternen am Hort."
+  "textDe": "Nachts leuchten drei Laternen am Hort.",
+  "textEn": "By night the ritual of Lantern is complete."
  },
  "reward": {
   "badge": "drachenhort",
@@ -98,5 +115,6 @@
    "lantern"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Dragon's Hoard"
 }

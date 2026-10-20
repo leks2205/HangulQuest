@@ -58,11 +58,12 @@ something — does show icons, because that card is teaching, not testing.
 This matters more than it sounds: with the icon visible, `돌` in a multiple-choice list is a picture
 puzzle, not a reading exercise.
 
-## German in quests
+## Translations in quests
 
 By default the quest text is Korean only: tracker, step cards, sidequest, finale. The journal's
-**Optionen** tab has *Deutsch in Quests*, which adds one German line under each Korean one. Turn it on
-for the first week, then off; the point is to stop needing it.
+**Optionen** tab has *Übersetzungen in Quests* (*Translations in quests*), which adds one line under each
+Korean one — in English or German, whichever *Sprache* is set to. Turn it on for the first week, then off;
+the point is to stop needing it.
 
 The **Danger of overuse:** if you leave the German line on, your eyes will read it first. The mod cannot
 stop you, but the hint key is the intended crutch, and it is a slower one.

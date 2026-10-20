@@ -31,7 +31,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Karmesinstufe."
+    "de": "Sammle 2× Karmesinstufe.",
+    "en": "Collect 2× Crimson Slab."
+   },
+   "hint": {
+    "en": "Collect 2× Crimson Slab."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Stell einen Braustand auf."
+    "de": "Stell einen Braustand auf.",
+    "en": "Place Brewing Stand."
    },
    "hint": {
     "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요.",
-    "de": "Ein Braustand besteht aus einer Lohenrute und Bruchstein."
+    "de": "Ein Braustand besteht aus einer Lohenrute und Bruchstein.",
+    "en": "Place Brewing Stand."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Schmiedevorlage."
+    "de": "Sammle 3× Schmiedevorlage.",
+    "en": "Collect 3× Smithing Template."
+   },
+   "hint": {
+    "en": "Collect 3× Smithing Template."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Seelenfackel."
+    "de": "Sammle Seelenfackel.",
+    "en": "Collect Soul Torch."
+   },
+   "hint": {
+    "en": "Collect Soul Torch."
    }
   },
   "textKo": "영혼 횃불라는 길의 의식을 마쳤어요.",
-  "textDe": "Seelenfackel — Zeremonie vollendet."
+  "textDe": "Seelenfackel — Zeremonie vollendet.",
+  "textEn": "the ritual of Soul Torch is complete."
  },
  "reward": {
   "badge": "w7_09",
@@ -95,5 +110,6 @@
    "adv_item_potion"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "Ghast Tears"
 }

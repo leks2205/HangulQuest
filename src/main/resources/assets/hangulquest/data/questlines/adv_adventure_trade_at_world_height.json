@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Hellgrüne Kerze."
+    "de": "Platziere Hellgrüne Kerze.",
+    "en": "Place Lime Candle."
+   },
+   "hint": {
+    "en": "Place Lime Candle."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Geschlossene Augenblüte."
+    "de": "Sammle 2× Geschlossene Augenblüte.",
+    "en": "Collect 2× Closed Eyeblossom."
+   },
+   "hint": {
+    "en": "Collect 2× Closed Eyeblossom."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Schreiter."
+    "de": "Interagiere mit Schreiter.",
+    "en": "Talk to Strider."
+   },
+   "hint": {
+    "en": "Talk to Strider."
    }
   },
   "textKo": "스트라이더라는 길의 의식을 마쳤어요.",
-  "textDe": "Schreiter — Zeremonie vollendet."
+  "textDe": "Schreiter — Zeremonie vollendet.",
+  "textEn": "the ritual of Strider is complete."
  },
  "reward": {
   "badge": "adv_adventure_trade_at_world_height",
@@ -74,5 +87,6 @@
    "villager"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Star Trader"
 }

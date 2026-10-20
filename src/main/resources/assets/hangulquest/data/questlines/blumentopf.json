@@ -28,11 +28,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Blumentöpfe."
+    "de": "Sammle drei Blumentöpfe.",
+    "en": "Collect 3× Flower Pot."
    },
    "hint": {
     "ko": "화분은 벽돌로 만들어요.",
-    "de": "Blumentöpfe bestehen aus Ziegeln."
+    "de": "Blumentöpfe bestehen aus Ziegeln.",
+    "en": "Collect 3× Flower Pot."
    }
   },
   {
@@ -46,7 +48,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Blumentöpfe."
+    "de": "Setz drei Blumentöpfe.",
+    "en": "Place 3× Flower Pot."
+   },
+   "hint": {
+    "en": "Place 3× Flower Pot."
    }
   },
   {
@@ -60,7 +66,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Prismarin an."
+    "de": "Sieh dir Prismarin an.",
+    "en": "Look at Prismarine."
+   },
+   "hint": {
+    "en": "Look at Prismarine."
    }
   }
  ],
@@ -77,11 +87,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Gemeißelter Sandstein."
+    "de": "Platziere Gemeißelter Sandstein.",
+    "en": "Place Chiseled Sandstone."
+   },
+   "hint": {
+    "en": "Place Chiseled Sandstone."
    }
   },
   "textKo": "조각된 사암라는 길의 의식을 마쳤어요.",
-  "textDe": "Gemeißelter Sandstein — Zeremonie vollendet."
+  "textDe": "Gemeißelter Sandstein — Zeremonie vollendet.",
+  "textEn": "the ritual of Chiseled Sandstone is complete."
  },
  "reward": {
   "badge": "blumentopf",
@@ -90,5 +105,6 @@
    "flower"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Flower Pot Trail"
 }

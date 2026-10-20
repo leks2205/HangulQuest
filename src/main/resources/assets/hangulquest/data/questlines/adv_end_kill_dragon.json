@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Türkise Kerze."
+    "de": "Sammle Türkise Kerze.",
+    "en": "Collect Cyan Candle."
+   },
+   "hint": {
+    "en": "Collect Cyan Candle."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 32
    },
    "clue": {
-    "de": "Sammle 32× Verwitterter Kupferrost."
+    "de": "Sammle 32× Verwitterter Kupferrost.",
+    "en": "Collect 32× Weathered Copper Grate."
+   },
+   "hint": {
+    "en": "Collect 32× Weathered Copper Grate."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Magier."
+    "de": "Besiege Magier.",
+    "en": "Defeat Evoker."
+   },
+   "hint": {
+    "en": "Defeat Evoker."
    }
   },
   "textKo": "소환사라는 길의 의식을 마쳤어요.",
-  "textDe": "Magier — Zeremonie vollendet."
+  "textDe": "Magier — Zeremonie vollendet.",
+  "textEn": "the ritual of Evoker is complete."
  },
  "reward": {
   "badge": "adv_end_kill_dragon",
@@ -75,5 +88,6 @@
    "ender_dragon"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "Free the End"
 }

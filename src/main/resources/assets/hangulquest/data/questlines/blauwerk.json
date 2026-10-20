@@ -32,11 +32,13 @@
    },
    "clue": {
     "ko": "수레국화를 만들어요.",
-    "de": "Stelle Kornblume her."
+    "de": "Stelle Kornblume her.",
+    "en": "Collect 2× Cornflower."
    },
    "hint": {
     "ko": "수레국화를 만들어요.",
-    "de": "Stelle Kornblume her."
+    "de": "Stelle Kornblume her.",
+    "en": "Collect 2× Cornflower."
    }
   },
   {
@@ -51,11 +53,13 @@
    },
    "clue": {
     "ko": "수레국화를 봐요.",
-    "de": "Sieh dir Kornblume an."
+    "de": "Sieh dir Kornblume an.",
+    "en": "Look at Cornflower."
    },
    "hint": {
     "ko": "수레국화를 봐요.",
-    "de": "Sieh dir Kornblume an."
+    "de": "Sieh dir Kornblume an.",
+    "en": "Look at Cornflower."
    }
   }
  ],
@@ -75,10 +79,17 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "en": "Place Blue Bed. At night."
+   },
+   "hint": {
+    "en": "Place Blue Bed. At night."
+   }
   },
   "textKo": "밤에 푸른 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet."
+  "textDe": "Die Zeremonie ist vollendet.",
+  "textEn": "By night the ritual of Blue Bed is complete."
  },
  "reward": {
   "badge": "blauwerk",
@@ -87,5 +98,6 @@
    "gen_cornflower",
    "gen_blue_bed"
   ]
- }
+ },
+ "titleEn": "The Blue Thread"
 }

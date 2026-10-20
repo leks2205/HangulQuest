@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Holzkohle."
+    "de": "Sammle Holzkohle.",
+    "en": "Collect Charcoal."
+   },
+   "hint": {
+    "en": "Collect Charcoal."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Hellgrüne Betontreppe."
+    "de": "Sammle Hellgrüne Betontreppe.",
+    "en": "Collect Lime Concrete Stairs."
+   },
+   "hint": {
+    "en": "Collect Lime Concrete Stairs."
    }
   }
  ],
@@ -61,14 +69,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Baue aus Schießpulver, Lohenstaub und Kohle eine Feuerkugel für den Ghast."
+    "de": "Baue aus Schießpulver, Lohenstaub und Kohle eine Feuerkugel für den Ghast.",
+    "en": "Collect Fire Charge."
    },
    "hint": {
-    "ko": "화약과 블레이즈 가루, 석탄을 섞어요."
+    "ko": "화약과 블레이즈 가루, 석탄을 섞어요.",
+    "en": "Collect Fire Charge."
    }
   },
   "textKo": "전해지지 않은 러브레터 — 화염구를 만들어 되돌려 보냈어요.",
-  "textDe": "Zurück zum Absender — die Feuerkugel geht zurück."
+  "textDe": "Zurück zum Absender — die Feuerkugel geht zurück.",
+  "textEn": "the ritual of Fire Charge is complete."
  },
  "reward": {
   "badge": "adv_nether_return_to_sender",
@@ -78,5 +89,6 @@
    "adv_item_fire_charge"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Return to Sender"
 }

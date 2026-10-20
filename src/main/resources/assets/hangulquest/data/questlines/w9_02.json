@@ -31,11 +31,13 @@
    },
    "clue": {
     "de": "Zeichne eine Karte, um den Sternen zu folgen.",
-    "ko": "별을 따라가려고 지도를 만들어요."
+    "ko": "별을 따라가려고 지도를 만들어요.",
+    "en": "Collect Empty Map."
    },
    "hint": {
     "ko": "지도는 종이와 나침반으로 만들어요.",
-    "de": "Eine Karte entsteht aus Papier und Kompass."
+    "de": "Eine Karte entsteht aus Papier und Kompass.",
+    "en": "Collect Empty Map."
    }
   },
   {
@@ -50,11 +52,13 @@
    },
    "clue": {
     "de": "Stell zwei Tore am Hof der Sterne auf.",
-    "ko": "별의 궁정에 문을 두 개 세워요."
+    "ko": "별의 궁정에 문을 두 개 세워요.",
+    "en": "Place 2× Oak Fence Gate."
    },
    "hint": {
     "ko": "문은 나무 판자와 막대기로 만들어요.",
-    "de": "Tore bestehen aus Brettern und Stöcken."
+    "de": "Tore bestehen aus Brettern und Stöcken.",
+    "en": "Place 2× Oak Fence Gate."
    }
   }
  ],
@@ -71,11 +75,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Komposter."
+    "de": "Platziere Komposter.",
+    "en": "Place Composter."
+   },
+   "hint": {
+    "en": "Place Composter."
    }
   },
   "textKo": "퇴비통라는 길의 의식을 마쳤어요.",
-  "textDe": "Komposter — Zeremonie vollendet."
+  "textDe": "Komposter — Zeremonie vollendet.",
+  "textEn": "the ritual of Composter is complete."
  },
  "reward": {
   "badge": "w9_02",
@@ -85,5 +94,6 @@
    "map"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Star Crown"
 }

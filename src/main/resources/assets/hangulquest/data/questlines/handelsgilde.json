@@ -32,7 +32,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Sammle 6× Grauer Teppich."
+    "de": "Sammle 6× Grauer Teppich.",
+    "en": "Collect 6× Gray Carpet."
+   },
+   "hint": {
+    "en": "Collect 6× Gray Carpet."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Polierter Tuffstein."
+    "de": "Platziere 3× Polierter Tuffstein.",
+    "en": "Place 3× Polished Tuff."
+   },
+   "hint": {
+    "en": "Place 3× Polished Tuff."
    }
   },
   {
@@ -59,7 +67,11 @@
     "block": "minecraft:crafter"
    },
    "clue": {
-    "de": "Benutze Werker."
+    "de": "Benutze Werker.",
+    "en": "Use Crafter."
+   },
+   "hint": {
+    "en": "Use Crafter."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Schwerer Kern."
+    "de": "Platziere 2× Schwerer Kern.",
+    "en": "Place 2× Heavy Core."
+   },
+   "hint": {
+    "en": "Place 2× Heavy Core."
    }
   },
   "textKo": "무거운 코어라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwerer Kern — Zeremonie vollendet."
+  "textDe": "Schwerer Kern — Zeremonie vollendet.",
+  "textEn": "the ritual of Heavy Core is complete."
  },
  "reward": {
   "badge": "handelsgilde",
@@ -91,5 +108,6 @@
    "gold_block"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Merchant Guild Trail"
 }

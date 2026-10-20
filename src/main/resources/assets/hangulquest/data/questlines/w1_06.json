@@ -28,11 +28,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Bring drei Eisblöcke mit."
+    "de": "Bring drei Eisblöcke mit.",
+    "en": "Collect 3× Ice."
    },
    "hint": {
     "ko": "얼음은 눈 덮인 곳에서 얻어요.",
-    "de": "Eis findest du in verschneiten Gegenden."
+    "de": "Eis findest du in verschneiten Gegenden.",
+    "en": "Collect 3× Ice."
    }
   },
   {
@@ -46,11 +48,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Eisblöcke ans Fenster."
+    "de": "Setz drei Eisblöcke ans Fenster.",
+    "en": "Place 3× Ice."
    },
    "hint": {
     "ko": "얼음을 창가에 놓아요.",
-    "de": "Stelle die Eisblöcke an das Fenster."
+    "de": "Stelle die Eisblöcke an das Fenster.",
+    "en": "Place 3× Ice."
    }
   },
   {
@@ -64,11 +68,13 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau dir eine Schneeschicht an."
+    "de": "Schau dir eine Schneeschicht an.",
+    "en": "Look at Snow."
    },
    "hint": {
     "ko": "눈은 하얗고 차가워요.",
-    "de": "Schnee ist weiß und kalt."
+    "de": "Schnee ist weiß und kalt.",
+    "en": "Look at Snow."
    }
   }
  ],
@@ -85,11 +91,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Schiene."
+    "de": "Platziere 2× Schiene.",
+    "en": "Place 2× Rail."
+   },
+   "hint": {
+    "en": "Place 2× Rail."
    }
   },
   "textKo": "레일라는 길의 의식을 마쳤어요.",
-  "textDe": "Schiene — Zeremonie vollendet."
+  "textDe": "Schiene — Zeremonie vollendet.",
+  "textEn": "the ritual of Rail is complete."
  },
  "reward": {
   "badge": "w1_06",
@@ -99,5 +110,6 @@
    "glass_pane"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "At the Winter Window"
 }

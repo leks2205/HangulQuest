@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Eichenholzfalltür."
+    "de": "Platziere 3× Eichenholzfalltür.",
+    "en": "Place 3× Oak Trapdoor."
+   },
+   "hint": {
+    "en": "Place 3× Oak Trapdoor."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Blasseichenstamm."
+    "de": "Platziere Blasseichenstamm.",
+    "en": "Place Pale Oak Log."
+   },
+   "hint": {
+    "en": "Place Pale Oak Log."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Amethystsplitter."
+    "de": "Sammle vier Amethystsplitter.",
+    "en": "Collect 4× Amethyst Shard."
+   },
+   "hint": {
+    "en": "Collect 4× Amethyst Shard."
    }
   }
  ],
@@ -74,10 +86,17 @@
     "block": "minecraft:amethyst_block",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 2× Block of Amethyst."
+   },
+   "hint": {
+    "en": "Place 2× Block of Amethyst."
+   }
   },
   "textKo": "별의 축제에 자수정 블록을 놓아요.",
-  "textDe": "Amethystblöcke für das Sternenfest."
+  "textDe": "Amethystblöcke für das Sternenfest.",
+  "textEn": "the ritual of Block of Amethyst is complete."
  },
  "reward": {
   "badge": "observatorium",
@@ -89,5 +108,6 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "별"
+ "topic": "별",
+ "titleEn": "The Festival of Stars"
 }

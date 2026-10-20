@@ -29,11 +29,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Kerzen."
+    "de": "Sammle drei Kerzen.",
+    "en": "Collect 3× Candle."
    },
    "hint": {
     "ko": "초는 실과 벌집 조각으로 만들어요.",
-    "de": "Kerzen bestehen aus Faden und Honigwabe."
+    "de": "Kerzen bestehen aus Faden und Honigwabe.",
+    "en": "Collect 3× Candle."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Fackellilie."
+    "de": "Platziere 3× Fackellilie.",
+    "en": "Place 3× Torchflower."
+   },
+   "hint": {
+    "en": "Place 3× Torchflower."
    }
   },
   {
@@ -67,7 +73,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Schwarzeichenholzbretter. Nachts."
+    "de": "Platziere 3× Schwarzeichenholzbretter. Nachts.",
+    "en": "Place 3× Dark Oak Planks. At night."
+   },
+   "hint": {
+    "en": "Place 3× Dark Oak Planks. At night."
    }
   }
  ],
@@ -81,10 +91,17 @@
     "type": "USE_BLOCK",
     "block": "minecraft:campfire"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Use Campfire."
+   },
+   "hint": {
+    "en": "Use Campfire."
+   }
   },
   "textKo": "촛불과 모닥불로 밤을 밝혀요.",
-  "textDe": "Kerzen und Feuer erhellen die Nacht."
+  "textDe": "Kerzen und Feuer erhellen die Nacht.",
+  "textEn": "the ritual of Campfire is complete."
  },
  "reward": {
   "badge": "kerzenpfad",
@@ -94,5 +111,6 @@
    "campfire"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Candle Trail"
 }

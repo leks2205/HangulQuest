@@ -30,7 +30,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Rote Keramik."
+    "de": "Platziere 2× Rote Keramik.",
+    "en": "Place 2× Red Terracotta."
+   },
+   "hint": {
+    "en": "Place 2× Red Terracotta."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Finde eine Endstadt und sieh dich nach Purpur um."
+    "de": "Finde eine Endstadt und sieh dich nach Purpur um.",
+    "en": "Look at Purpur Block."
+   },
+   "hint": {
+    "en": "Look at Purpur Block."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:elytra",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Elytra."
+   },
+   "hint": {
+    "en": "Collect Elytra."
+   }
   },
   "textKo": "불가능은 없다 — 엔드 배에서 겉날개를 챙겨 하늘을 날아요.",
-  "textDe": "Hinterm Horizont geht’s weiter — Hol dir die Elytren vom Endschiff."
+  "textDe": "Hinterm Horizont geht’s weiter — Hol dir die Elytren vom Endschiff.",
+  "textEn": "the ritual of Elytra is complete."
  },
  "reward": {
   "badge": "adv_end_elytra",
@@ -72,5 +87,6 @@
    "adv_item_elytra"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "Sky's the Limit"
 }

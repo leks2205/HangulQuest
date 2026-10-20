@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Nimm dem Räuberhauptmann sein Banner ab."
+    "de": "Nimm dem Räuberhauptmann sein Banner ab.",
+    "en": "Collect White Banner."
+   },
+   "hint": {
+    "en": "Collect White Banner."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Wehre den Überfall ab und erlege eine Hexe im Getümmel."
+    "de": "Wehre den Überfall ab und erlege eine Hexe im Getümmel.",
+    "en": "Defeat Witch."
+   },
+   "hint": {
+    "en": "Defeat Witch."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Schneegolem."
+    "de": "Interagiere mit Schneegolem.",
+    "en": "Talk to Snow Golem."
+   },
+   "hint": {
+    "en": "Talk to Snow Golem."
    }
   },
   "textKo": "눈 골렘라는 길의 의식을 마쳤어요.",
-  "textDe": "Schneegolem — Zeremonie vollendet."
+  "textDe": "Schneegolem — Zeremonie vollendet.",
+  "textEn": "the ritual of Snow Golem is complete."
  },
  "reward": {
   "badge": "adv_adventure_hero_of_the_village",
@@ -74,5 +87,6 @@
    "villager"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Hero of the Village"
 }

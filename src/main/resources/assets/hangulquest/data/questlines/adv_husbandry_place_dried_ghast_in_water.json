@@ -29,7 +29,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Finde einen ausgetrockneten Ghast im Seelensandtal oder tausche ihn bei einem Piglin ein."
+    "de": "Finde einen ausgetrockneten Ghast im Seelensandtal oder tausche ihn bei einem Piglin ein.",
+    "en": "Collect Dried Ghast."
+   },
+   "hint": {
+    "en": "Collect Dried Ghast."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Verwitterte Kupfergolemstatue."
+    "de": "Sammle Verwitterte Kupfergolemstatue.",
+    "en": "Collect Weathered Copper Golem Statue."
+   },
+   "hint": {
+    "en": "Collect Weathered Copper Golem Statue."
    }
   }
  ],
@@ -58,10 +66,17 @@
     "block": "minecraft:dried_ghast",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place Dried Ghast."
+   },
+   "hint": {
+    "en": "Place Dried Ghast."
+   }
   },
   "textKo": "수분 충전! — 마른 가스트를 물속에 넣어요.",
-  "textDe": "Bleib hydriert! — Du setzt den ausgetrockneten Ghast ins Wasser."
+  "textDe": "Bleib hydriert! — Du setzt den ausgetrockneten Ghast ins Wasser.",
+  "textEn": "the ritual of Dried Ghast is complete."
  },
  "reward": {
   "badge": "adv_husbandry_place_dried_ghast_in_water",
@@ -70,5 +85,6 @@
    "bucket"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Stay Hydrated!"
 }

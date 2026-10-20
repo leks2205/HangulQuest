@@ -29,10 +29,12 @@
     "count": 3
    },
    "clue": {
-    "de": "Brau einen Vorrat: drei Tränke mit ganz verschiedenen Wirkungen."
+    "de": "Brau einen Vorrat: drei Tränke mit ganz verschiedenen Wirkungen.",
+    "en": "Collect 3× Potion."
    },
    "hint": {
-    "ko": "양조기로 물약 세 개를 만들어요."
+    "ko": "양조기로 물약 세 개를 만들어요.",
+    "en": "Collect 3× Potion."
    }
   },
   {
@@ -46,10 +48,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Trink den ersten Trank und spür, wie die Wirkung einsetzt."
+    "de": "Trink den ersten Trank und spür, wie die Wirkung einsetzt.",
+    "en": "Eat Potion."
    },
    "hint": {
-    "ko": "물약을 마셔요."
+    "ko": "물약을 마셔요.",
+    "en": "Eat Potion."
    }
   }
  ],
@@ -66,14 +70,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Iss den goldenen Apfel dazu – Regeneration und Absorption kommen obendrauf."
+    "de": "Iss den goldenen Apfel dazu – Regeneration und Absorption kommen obendrauf.",
+    "en": "Eat Golden Apple."
    },
    "hint": {
-    "ko": "황금 사과를 먹어요."
+    "ko": "황금 사과를 먹어요.",
+    "en": "Eat Golden Apple."
    }
   },
   "textKo": "온몸이 물약 효과로 가득해요. 이게 바로 전부 모은 맛이에요!",
-  "textDe": "Ein Körper voller Effekte – alle Wirkungen auf einmal."
+  "textDe": "Ein Körper voller Effekte – alle Wirkungen auf einmal.",
+  "textEn": "the ritual of Golden Apple is complete."
  },
  "reward": {
   "badge": "adv_nether_all_effects",
@@ -82,5 +89,6 @@
    "golden_apple"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "How Did We Get Here?"
 }

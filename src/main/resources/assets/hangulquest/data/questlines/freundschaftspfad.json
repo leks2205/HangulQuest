@@ -29,7 +29,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Endermite an."
+    "de": "Sieh dir Endermite an.",
+    "en": "Look at Endermite."
+   },
+   "hint": {
+    "en": "Look at Endermite."
    }
   },
   {
@@ -42,7 +46,11 @@
     "entity": "minecraft:donkey"
    },
    "clue": {
-    "de": "Interagiere mit Esel."
+    "de": "Interagiere mit Esel.",
+    "en": "Talk to Donkey."
+   },
+   "hint": {
+    "en": "Talk to Donkey."
    }
   },
   {
@@ -56,7 +64,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Rissige Tiefenschieferziegel."
+    "de": "Platziere Rissige Tiefenschieferziegel.",
+    "en": "Place Cracked Deepslate Bricks."
+   },
+   "hint": {
+    "en": "Place Cracked Deepslate Bricks."
    }
   }
  ],
@@ -73,11 +85,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Türkiser Farbstoff."
+    "de": "Sammle 3× Türkiser Farbstoff.",
+    "en": "Collect 3× Cyan Dye."
+   },
+   "hint": {
+    "en": "Collect 3× Cyan Dye."
    }
   },
   "textKo": "청록색 염료라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkiser Farbstoff — Zeremonie vollendet."
+  "textDe": "Türkiser Farbstoff — Zeremonie vollendet.",
+  "textEn": "the ritual of Cyan Dye is complete."
  },
  "reward": {
   "badge": "freundschaftspfad",
@@ -86,5 +103,6 @@
    "flower"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Friendship Trail"
 }

@@ -31,7 +31,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Sonnenblumenebene."
+    "de": "Erreiche Sonnenblumenebene.",
+    "en": "Reach Sunflower Plains."
+   },
+   "hint": {
+    "en": "Reach Sunflower Plains."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Fälle vier Dschungelstämme."
+    "de": "Fälle vier Dschungelstämme.",
+    "en": "Break 4× Jungle Log."
    },
    "hint": {
     "ko": "정글 나무는 키가 커요.",
-    "de": "Dschungelbäume werden sehr hoch."
+    "de": "Dschungelbäume werden sehr hoch.",
+    "en": "Break 4× Jungle Log."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Rote Wollstufe."
+    "de": "Sammle 4× Rote Wollstufe.",
+    "en": "Collect 4× Red Wool Slab."
+   },
+   "hint": {
+    "en": "Collect 4× Red Wool Slab."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Glatter Sandstein."
+    "de": "Sammle 3× Glatter Sandstein.",
+    "en": "Collect 3× Smooth Sandstone."
+   },
+   "hint": {
+    "en": "Collect 3× Smooth Sandstone."
    }
   },
   "textKo": "매끄러운 사암라는 길의 의식을 마쳤어요.",
-  "textDe": "Glatter Sandstein — Zeremonie vollendet."
+  "textDe": "Glatter Sandstein — Zeremonie vollendet.",
+  "textEn": "the ritual of Smooth Sandstone is complete."
  },
  "reward": {
   "badge": "w6_07",
@@ -95,5 +110,6 @@
    "cocoa_beans"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Herbs in the Jungle"
 }

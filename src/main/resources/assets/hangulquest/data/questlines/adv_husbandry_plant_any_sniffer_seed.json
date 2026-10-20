@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Kirschholzfalltür."
+    "de": "Sammle Kirschholzfalltür.",
+    "en": "Collect Cherry Trapdoor."
+   },
+   "hint": {
+    "en": "Collect Cherry Trapdoor."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Suche im Grab des Schnüfflers nach einer Kannenpflanzenkapsel."
+    "de": "Suche im Grab des Schnüfflers nach einer Kannenpflanzenkapsel.",
+    "en": "Collect Pitcher Pod."
+   },
+   "hint": {
+    "en": "Collect Pitcher Pod."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "block": "minecraft:poppy",
     "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Look at Poppy."
+   },
+   "hint": {
+    "en": "Look at Poppy."
+   }
   },
   "textKo": "과거를 심다 — 심은 고대 씨앗이 꽃으로 피어요.",
-  "textDe": "Wir säen Geschichte — Aus dem alten Samen blüht eine Blume."
+  "textDe": "Wir säen Geschichte — Aus dem alten Samen blüht eine Blume.",
+  "textEn": "the ritual of Poppy is complete."
  },
  "reward": {
   "badge": "adv_husbandry_plant_any_sniffer_seed",
@@ -72,5 +87,6 @@
    "flower"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Planting the Past"
 }

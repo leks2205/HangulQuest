@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Magenta Shulker-Kiste."
+    "de": "Sammle Magenta Shulker-Kiste.",
+    "en": "Collect Magenta Shulker Box."
+   },
+   "hint": {
+    "en": "Collect Magenta Shulker Box."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Abgetragene Tafelberge."
+    "de": "Erreiche Abgetragene Tafelberge.",
+    "en": "Reach Eroded Badlands."
+   },
+   "hint": {
+    "en": "Reach Eroded Badlands."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Baue 6× Höhlenrankenpflanze ab."
+    "de": "Baue 6× Höhlenrankenpflanze ab.",
+    "en": "Break 6× Cave Vines Plant."
+   },
+   "hint": {
+    "en": "Break 6× Cave Vines Plant."
    }
   },
   "textKo": "동굴 덩굴 식물라는 길의 의식을 마쳤어요.",
-  "textDe": "Höhlenrankenpflanze — Zeremonie vollendet."
+  "textDe": "Höhlenrankenpflanze — Zeremonie vollendet.",
+  "textEn": "the ritual of Cave Vines Plant is complete."
  },
  "reward": {
   "badge": "adv_adventure_salvage_sherd",
@@ -75,5 +88,6 @@
    "sand"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Respecting the Remnants"
 }

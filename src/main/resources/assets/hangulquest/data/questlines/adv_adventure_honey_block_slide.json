@@ -28,10 +28,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Stelle aus vier Honigflaschen einen Honigblock her."
+    "de": "Stelle aus vier Honigflaschen einen Honigblock her.",
+    "en": "Collect Honey Block."
    },
    "hint": {
-    "ko": "꿀병 네 개를 작업대 네 칸에 놓아요."
+    "ko": "꿀병 네 개를 작업대 네 칸에 놓아요.",
+    "en": "Collect Honey Block."
    }
   },
   {
@@ -45,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Setze den Honigblock hoch oben an eine Wand."
+    "de": "Setze den Honigblock hoch oben an eine Wand.",
+    "en": "Place Honey Block."
+   },
+   "hint": {
+    "en": "Place Honey Block."
    }
   }
  ],
@@ -62,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Rutsche die Honigwand hinab und behalte den Block dabei im Blick."
+    "de": "Rutsche die Honigwand hinab und behalte den Block dabei im Blick.",
+    "en": "Look at Honey Block."
+   },
+   "hint": {
+    "en": "Look at Honey Block."
    }
   },
   "textKo": "달콤함에 몸을 맡기다 — 꿀 블록 벽을 타고 미끄러졌어요.",
-  "textDe": "Eine klebrige Angelegenheit — an der Honigwand hinabgerutscht."
+  "textDe": "Eine klebrige Angelegenheit — an der Honigwand hinabgerutscht.",
+  "textEn": "the ritual of Honey Block is complete."
  },
  "reward": {
   "badge": "adv_adventure_honey_block_slide",
@@ -74,5 +85,6 @@
    "honey_block"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Sticky Situation"
 }

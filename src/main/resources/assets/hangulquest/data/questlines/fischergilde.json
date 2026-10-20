@@ -32,7 +32,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Tuffsteinziegelmauer."
+    "de": "Sammle 3× Tuffsteinziegelmauer.",
+    "en": "Collect 3× Tuff Brick Wall."
+   },
+   "hint": {
+    "en": "Collect 3× Tuff Brick Wall."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Gewachste verwitterte Kupfergolemstatue."
+    "de": "Platziere Gewachste verwitterte Kupfergolemstatue.",
+    "en": "Place Waxed Weathered Copper Golem Statue."
+   },
+   "hint": {
+    "en": "Place Waxed Weathered Copper Golem Statue."
    }
   },
   {
@@ -59,7 +67,11 @@
     "block": "minecraft:flower_pot"
    },
    "clue": {
-    "de": "Benutze Blumentopf."
+    "de": "Benutze Blumentopf.",
+    "en": "Use Flower Pot."
+   },
+   "hint": {
+    "en": "Use Flower Pot."
    }
   }
  ],
@@ -77,11 +89,16 @@
    "conditions": [],
    "hint": {
     "ko": "연어는 낚시나 바다에서 잡아요.",
-    "de": "Lachs fängst du beim Angeln oder im Meer."
+    "de": "Lachs fängst du beim Angeln oder im Meer.",
+    "en": "Collect 2× Raw Salmon."
+   },
+   "clue": {
+    "en": "Collect 2× Raw Salmon."
    }
   },
   "textKo": "연어를 모아 길드에 팔아요.",
-  "textDe": "Lachs für die Gilde sammeln."
+  "textDe": "Lachs für die Gilde sammeln.",
+  "textEn": "the ritual of Raw Salmon is complete."
  },
  "reward": {
   "badge": "fischergilde",
@@ -92,5 +109,6 @@
    "salmon"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Fisher's Guild Trail"
 }

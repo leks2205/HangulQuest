@@ -31,7 +31,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Magenta Shulker-Kiste an."
+    "de": "Sieh dir Magenta Shulker-Kiste an.",
+    "en": "Look at Magenta Shulker Box."
+   },
+   "hint": {
+    "en": "Look at Magenta Shulker Box."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Karmesinzaun."
+    "de": "Platziere 3× Karmesinzaun.",
+    "en": "Place 3× Crimson Fence."
+   },
+   "hint": {
+    "en": "Place 3× Crimson Fence."
    }
   },
   {
@@ -65,7 +73,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Magenta Trockenbeton. Nachts."
+    "de": "Platziere 3× Magenta Trockenbeton. Nachts.",
+    "en": "Place 3× Magenta Concrete Powder. At night."
+   },
+   "hint": {
+    "en": "Place 3× Magenta Concrete Powder. At night."
    }
   }
  ],
@@ -82,11 +94,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Gewachster angelaufener Kupferrost."
+    "de": "Platziere 3× Gewachster angelaufener Kupferrost.",
+    "en": "Place 3× Waxed Exposed Copper Grate."
+   },
+   "hint": {
+    "en": "Place 3× Waxed Exposed Copper Grate."
    }
   },
   "textKo": "밀랍칠한 약간 녹슨 구리 격자라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster angelaufener Kupferrost — Zeremonie vollendet."
+  "textDe": "Gewachster angelaufener Kupferrost — Zeremonie vollendet.",
+  "textEn": "the ritual of Waxed Exposed Copper Grate is complete."
  },
  "reward": {
   "badge": "sternwarte",
@@ -98,5 +115,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "달빛"
+ "topic": "달빛",
+ "titleEn": "The Moon Garden"
 }

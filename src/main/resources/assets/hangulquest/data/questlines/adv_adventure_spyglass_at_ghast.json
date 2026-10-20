@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Kirschholztruhenboot."
+    "de": "Sammle Kirschholztruhenboot.",
+    "en": "Collect Cherry Boat with Chest."
+   },
+   "hint": {
+    "en": "Collect Cherry Boat with Chest."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Gewachster geschnittener Kupferblock."
+    "de": "Platziere 3× Gewachster geschnittener Kupferblock.",
+    "en": "Place 3× Waxed Cut Copper."
+   },
+   "hint": {
+    "en": "Place 3× Waxed Cut Copper."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "entity": "minecraft:ghast",
     "dwellMs": 700
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Look at Ghast."
+   },
+   "hint": {
+    "en": "Look at Ghast."
+   }
   },
   "textKo": "망원경으로 가스트를 봐요. 하늘을 나는 커다란 몬스터예요.",
-  "textDe": "Sieh dir mit dem Fernrohr einen Ghast an."
+  "textDe": "Sieh dir mit dem Fernrohr einen Ghast an.",
+  "textEn": "the ritual of Ghast is complete."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_ghast",
@@ -72,5 +87,6 @@
    "ghast"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Is It a Balloon?"
 }

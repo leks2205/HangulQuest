@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Schildkrötenpanzer."
+    "de": "Sammle Schildkrötenpanzer.",
+    "en": "Collect Turtle Shell."
+   },
+   "hint": {
+    "en": "Collect Turtle Shell."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Halte in einer warmen Ozeanruine nach verdächtigem Sand Ausschau."
+    "de": "Halte in einer warmen Ozeanruine nach verdächtigem Sand Ausschau.",
+    "en": "Look at Sand."
+   },
+   "hint": {
+    "en": "Look at Sand."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Redstone-Fackel."
+    "de": "Sammle Redstone-Fackel.",
+    "en": "Collect Redstone Torch."
+   },
+   "hint": {
+    "en": "Collect Redstone Torch."
    }
   },
   "textKo": "레드스톤 횃불라는 길의 의식을 마쳤어요.",
-  "textDe": "Redstone-Fackel — Zeremonie vollendet."
+  "textDe": "Redstone-Fackel — Zeremonie vollendet.",
+  "textEn": "the ritual of Redstone Torch is complete."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_sniffer_egg",
@@ -75,5 +88,6 @@
    "adv_item_sniffer_egg"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Smells Interesting"
 }

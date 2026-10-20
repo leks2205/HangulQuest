@@ -29,7 +29,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Türkise Betonstufe."
+    "de": "Sammle 3× Türkise Betonstufe.",
+    "en": "Collect 3× Cyan Concrete Slab."
+   },
+   "hint": {
+    "en": "Collect 3× Cyan Concrete Slab."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Iss Spinnenauge."
+    "de": "Iss Spinnenauge.",
+    "en": "Eat Spider Eye."
+   },
+   "hint": {
+    "en": "Eat Spider Eye."
    }
   },
   {
@@ -57,7 +65,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau auf Blätter."
+    "de": "Schau auf Blätter.",
+    "en": "Look at Oak Leaves."
+   },
+   "hint": {
+    "en": "Look at Oak Leaves."
    }
   }
  ],
@@ -75,11 +87,16 @@
    "conditions": [],
    "hint": {
     "ko": "묘목은 나뭇잎을 깨면 나와요.",
-    "de": "Setzlinge bekommst du von Blättern."
+    "de": "Setzlinge bekommst du von Blättern.",
+    "en": "Place Oak Sapling."
+   },
+   "clue": {
+    "en": "Place Oak Sapling."
    }
   },
   "textKo": "사과나무 묘목을 심어요.",
-  "textDe": "Einen Apfelbaum pflanzen."
+  "textDe": "Einen Apfelbaum pflanzen.",
+  "textEn": "the ritual of Oak Sapling is complete."
  },
  "reward": {
   "badge": "apfelpfad",
@@ -89,5 +106,6 @@
    "sapling"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Apple Trail"
 }

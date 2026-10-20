@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Steinige Küste."
+    "de": "Erreiche Steinige Küste.",
+    "en": "Reach Stony Shore."
+   },
+   "hint": {
+    "en": "Reach Stony Shore."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Setz sechs Sandsteinblöcke."
+    "de": "Setz sechs Sandsteinblöcke.",
+    "en": "Place 6× Sandstone."
+   },
+   "hint": {
+    "en": "Place 6× Sandstone."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Prismarinmauer."
+    "de": "Platziere 3× Prismarinmauer.",
+    "en": "Place 3× Prismarine Wall."
+   },
+   "hint": {
+    "en": "Place 3× Prismarine Wall."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Kirschstamm. Nachts."
+    "de": "Platziere 3× Kirschstamm. Nachts.",
+    "en": "Place 3× Cherry Log. At night."
+   },
+   "hint": {
+    "en": "Place 3× Cherry Log. At night."
    }
   },
   "textKo": "밤에 벚나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschstamm — Zeremonie vollendet."
+  "textDe": "Kirschstamm — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Cherry Log is complete."
  },
  "reward": {
   "badge": "pyramidenpfad",
@@ -97,5 +114,6 @@
    "torch"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Pyramid Trail"
 }

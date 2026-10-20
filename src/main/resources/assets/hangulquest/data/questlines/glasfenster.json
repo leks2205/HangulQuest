@@ -29,11 +29,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Glas."
+    "de": "Sammle vier Glas.",
+    "en": "Collect 4× Glass."
    },
    "hint": {
     "ko": "유리는 모래를 화로에 구워 만들어요.",
-    "de": "Glas entsteht aus Sand im Ofen."
+    "de": "Glas entsteht aus Sand im Ofen.",
+    "en": "Collect 4× Glass."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Setz vier Glasblöcke."
+    "de": "Setz vier Glasblöcke.",
+    "en": "Place 4× Glass."
+   },
+   "hint": {
+    "en": "Place 4× Glass."
    }
   },
   {
@@ -61,11 +67,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Glasscheiben."
+    "de": "Sammle vier Glasscheiben.",
+    "en": "Collect 4× Glass Pane."
    },
    "hint": {
     "ko": "유리판은 유리 블록으로 만들어요.",
-    "de": "Glasscheiben werden aus Glasblöcken gemacht."
+    "de": "Glasscheiben werden aus Glasblöcken gemacht.",
+    "en": "Collect 4× Glass Pane."
    }
   }
  ],
@@ -80,10 +88,17 @@
     "block": "minecraft:glass_pane",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 4× Glass Pane."
+   },
+   "hint": {
+    "en": "Place 4× Glass Pane."
+   }
   },
   "textKo": "유리판으로 창문을 만들어요.",
-  "textDe": "Glasscheiben machen das Fenster."
+  "textDe": "Glasscheiben machen das Fenster.",
+  "textEn": "the ritual of Glass Pane is complete."
  },
  "reward": {
   "badge": "glasfenster",
@@ -92,5 +107,6 @@
    "glass_pane"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Glass Window Trail"
 }

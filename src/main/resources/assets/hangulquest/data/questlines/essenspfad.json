@@ -27,11 +27,13 @@
    },
    "clue": {
     "ko": "빨간 사과를 하나 모아요.",
-    "de": "Finde etwas Rotes."
+    "de": "Finde etwas Rotes.",
+    "en": "Collect Apple."
    },
    "hint": {
     "ko": "사과를 모아요.",
-    "de": "Sammle einen Apfel."
+    "de": "Sammle einen Apfel.",
+    "en": "Collect Apple."
    }
   },
   {
@@ -46,11 +48,13 @@
    },
    "clue": {
     "ko": "배가 고파요. 빵을 먹어요.",
-    "de": "Du hast Hunger. Iss Brot."
+    "de": "Du hast Hunger. Iss Brot.",
+    "en": "Eat Bread."
    },
    "hint": {
     "ko": "빵을 먹어요.",
-    "de": "Iss Brot."
+    "de": "Iss Brot.",
+    "en": "Eat Bread."
    }
   },
   {
@@ -65,11 +69,13 @@
    },
    "clue": {
     "ko": "고기를 주는 소를 1초 동안 바라봐요.",
-    "de": "Schau das Tier an, das Fleisch gibt."
+    "de": "Schau das Tier an, das Fleisch gibt.",
+    "en": "Look at Cow."
    },
    "hint": {
     "ko": "소를 봐요.",
-    "de": "Schau eine Kuh an."
+    "de": "Schau eine Kuh an.",
+    "en": "Look at Cow."
    }
   }
  ],
@@ -90,11 +96,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Fichtenholztür. Nachts."
+    "de": "Benutze Fichtenholztür. Nachts.",
+    "en": "Use Spruce Door. At night."
+   },
+   "hint": {
+    "en": "Use Spruce Door. At night."
    }
   },
   "textKo": "밤에 가문비나무 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholztür — Zeremonie vollendet."
+  "textDe": "Fichtenholztür — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Spruce Door is complete."
  },
  "reward": {
   "badge": "essenspfad",
@@ -107,5 +118,6 @@
  },
  "order": 30,
  "koreanLevel": 1,
- "topic": "음식"
+ "topic": "음식",
+ "titleEn": "The Dining Trail"
 }

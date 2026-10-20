@@ -29,7 +29,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau eine Sonnenblume an."
+    "de": "Schau eine Sonnenblume an.",
+    "en": "Look at Sunflower."
+   },
+   "hint": {
+    "en": "Look at Sunflower."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue zwei Sonnenblumen ab."
+    "de": "Baue zwei Sonnenblumen ab.",
+    "en": "Break 2× Sunflower."
+   },
+   "hint": {
+    "en": "Break 2× Sunflower."
    }
   },
   {
@@ -57,7 +65,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Setz zwei Sonnenblumen."
+    "de": "Setz zwei Sonnenblumen.",
+    "en": "Place 2× Sunflower."
+   },
+   "hint": {
+    "en": "Place 2× Sunflower."
    }
   }
  ],
@@ -72,10 +84,17 @@
     "item": "minecraft:sunflower",
     "count": 4
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect 4× Sunflower."
+   },
+   "hint": {
+    "en": "Collect 4× Sunflower."
+   }
   },
   "textKo": "해바라기를 모아요.",
-  "textDe": "Sonnenblumen sammeln."
+  "textDe": "Sonnenblumen sammeln.",
+  "textEn": "the ritual of Sunflower is complete."
  },
  "reward": {
   "badge": "sonnenblume",
@@ -83,5 +102,6 @@
    "sunflower"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Sunflower Trail"
 }

@@ -29,7 +29,11 @@
     "entity": "minecraft:cow"
    },
    "clue": {
-    "de": "Füttere zwei Kühe mit Weizen, bis Herzen erscheinen."
+    "de": "Füttere zwei Kühe mit Weizen, bis Herzen erscheinen.",
+    "en": "Talk to Cow."
+   },
+   "hint": {
+    "en": "Talk to Cow."
    }
   },
   {
@@ -42,7 +46,11 @@
     "entity": "minecraft:sheep"
    },
    "clue": {
-    "de": "Paare zwei Schafe mit einer Handvoll Weizen."
+    "de": "Paare zwei Schafe mit einer Handvoll Weizen.",
+    "en": "Talk to Sheep."
+   },
+   "hint": {
+    "en": "Talk to Sheep."
    }
   }
  ],
@@ -56,10 +64,17 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:frog"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Talk to Frog."
+   },
+   "hint": {
+    "en": "Talk to Frog."
+   }
   },
   "textKo": "짝지어주기 — 개구리까지 모두 짝을 지어 줘요.",
-  "textDe": "Paarweise: Auch zwei Frösche finden mit Schleimkugeln zueinander."
+  "textDe": "Paarweise: Auch zwei Frösche finden mit Schleimkugeln zueinander.",
+  "textEn": "the ritual of Frog is complete."
  },
  "reward": {
   "badge": "adv_husbandry_bred_all_animals",
@@ -69,5 +84,6 @@
    "frog"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Pair by Pair"
 }

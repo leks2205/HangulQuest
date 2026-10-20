@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue Schwarze Wollstufe ab."
+    "de": "Baue Schwarze Wollstufe ab.",
+    "en": "Break Black Wool Slab."
+   },
+   "hint": {
+    "en": "Break Black Wool Slab."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Kohleblock."
+    "de": "Platziere 2× Kohleblock.",
+    "en": "Place 2× Block of Coal."
+   },
+   "hint": {
+    "en": "Place 2× Block of Coal."
    }
   },
   {
@@ -58,7 +66,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Pappelholzzaun."
+    "de": "Platziere 2× Pappelholzzaun.",
+    "en": "Place 2× Poplar Fence."
+   },
+   "hint": {
+    "en": "Place 2× Poplar Fence."
    }
   }
  ],
@@ -81,11 +93,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Blasseichensetzling. Zwischen Y -64 und 0."
+    "de": "Platziere Blasseichensetzling. Zwischen Y -64 und 0.",
+    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
+   },
+   "hint": {
+    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
    }
   },
   "textKo": "높이 0 이하에서 창백한 참나무 묘목라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichensetzling — Zeremonie vollendet."
+  "textDe": "Blasseichensetzling — Zeremonie vollendet.",
+  "textEn": "Below Y 0 the ritual of Pale Oak Sapling is complete."
  },
  "reward": {
   "badge": "steintiefe",
@@ -97,5 +114,6 @@
  },
  "order": 110,
  "koreanLevel": 1,
- "topic": "돌"
+ "topic": "돌",
+ "titleEn": "The Deep Stone Trail"
 }

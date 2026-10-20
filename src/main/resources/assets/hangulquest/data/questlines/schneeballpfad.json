@@ -31,11 +31,13 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle acht Schneebälle."
+    "de": "Sammle acht Schneebälle.",
+    "en": "Collect 8× Snowball."
    },
    "hint": {
     "ko": "삽으로 눈을 캐면 눈덩이가 나와요.",
-    "de": "Mit einer Schaufel bekommst du aus Schnee Schneebälle."
+    "de": "Mit einer Schaufel bekommst du aus Schnee Schneebälle.",
+    "en": "Collect 8× Snowball."
    }
   },
   {
@@ -49,7 +51,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Kirschholzschild an."
+    "de": "Sieh dir Kirschholzschild an.",
+    "en": "Look at Cherry Sign."
+   },
+   "hint": {
+    "en": "Look at Cherry Sign."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Gemeißelter Kupferblock."
+    "de": "Platziere 2× Gemeißelter Kupferblock.",
+    "en": "Place 2× Chiseled Copper."
+   },
+   "hint": {
+    "en": "Place 2× Chiseled Copper."
    }
   }
  ],
@@ -78,10 +88,17 @@
     "block": "minecraft:snow",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 3× Snow."
+   },
+   "hint": {
+    "en": "Place 3× Snow."
+   }
   },
   "textKo": "눈을 쌓아요.",
-  "textDe": "Schnee aufschichten."
+  "textDe": "Schnee aufschichten.",
+  "textEn": "the ritual of Snow is complete."
  },
  "reward": {
   "badge": "schneeballpfad",
@@ -90,5 +107,6 @@
    "snow"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Snowball Trail"
 }

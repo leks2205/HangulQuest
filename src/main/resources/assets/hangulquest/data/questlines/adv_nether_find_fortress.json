@@ -29,10 +29,12 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dich um: dunkle Netherziegel verraten die schreckliche Festung."
+    "de": "Sieh dich um: dunkle Netherziegel verraten die schreckliche Festung.",
+    "en": "Look at Nether Bricks."
    },
    "hint": {
-    "ko": "어두운 벽돌을 천천히 바라봐요."
+    "ko": "어두운 벽돌을 천천히 바라봐요.",
+    "en": "Look at Nether Bricks."
    }
   },
   {
@@ -46,10 +48,12 @@
     "count": 3
    },
    "clue": {
-    "de": "Brich drei Netherziegel aus der Mauer der Festung."
+    "de": "Brich drei Netherziegel aus der Mauer der Festung.",
+    "en": "Break 3× Nether Bricks."
    },
    "hint": {
-    "ko": "곡괭이로 네더 벽돌을 캐요."
+    "ko": "곡괭이로 네더 벽돌을 캐요.",
+    "en": "Break 3× Nether Bricks."
    }
   }
  ],
@@ -66,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Gewachste oxidierte Kupferlaterne."
+    "de": "Sammle Gewachste oxidierte Kupferlaterne.",
+    "en": "Collect Waxed Oxidized Copper Lantern."
+   },
+   "hint": {
+    "en": "Collect Waxed Oxidized Copper Lantern."
    }
   },
   "textKo": "밀랍칠한 산화된 구리 랜턴라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste oxidierte Kupferlaterne — Zeremonie vollendet."
+  "textDe": "Gewachste oxidierte Kupferlaterne — Zeremonie vollendet.",
+  "textEn": "the ritual of Waxed Oxidized Copper Lantern is complete."
  },
  "reward": {
   "badge": "adv_nether_find_fortress",
@@ -79,5 +88,6 @@
    "adv_item_blaze_rod"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "A Terrible Fortress"
 }

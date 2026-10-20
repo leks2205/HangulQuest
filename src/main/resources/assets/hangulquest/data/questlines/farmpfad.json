@@ -29,7 +29,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Schneegolem an."
+    "de": "Sieh dir Schneegolem an.",
+    "en": "Look at Snow Golem."
+   },
+   "hint": {
+    "en": "Look at Snow Golem."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Wüstendorfkarte."
+    "de": "Sammle Wüstendorfkarte.",
+    "en": "Collect Desert Village Map."
+   },
+   "hint": {
+    "en": "Collect Desert Village Map."
    }
   },
   {
@@ -57,7 +65,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau den kleinen Vogel an."
+    "de": "Schau den kleinen Vogel an.",
+    "en": "Look at Chicken."
+   },
+   "hint": {
+    "en": "Look at Chicken."
    }
   }
  ],
@@ -78,11 +90,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Seelenlagerfeuer. Nachts."
+    "de": "Benutze Seelenlagerfeuer. Nachts.",
+    "en": "Use Soul Campfire. At night."
+   },
+   "hint": {
+    "en": "Use Soul Campfire. At night."
    }
   },
   "textKo": "밤에 영혼 모닥불라는 길의 의식을 마쳤어요.",
-  "textDe": "Seelenlagerfeuer — Zeremonie vollendet."
+  "textDe": "Seelenlagerfeuer — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Soul Campfire is complete."
  },
  "reward": {
   "badge": "farmpfad",
@@ -95,5 +112,6 @@
  },
  "order": 140,
  "koreanLevel": 1,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Farm Trail"
 }

@@ -70,7 +70,8 @@ The full set of settings, with the defaults that matter:
 | `quests`, `questTracker` | `true` | quest system and tracker |
 | `questTrackerCorner` | `TOP_LEFT` | corner for the quest log |
 | `questTrackerRows` | `4` | how many quests the log draws at once (1–6) |
-| `questGerman` | `false` | German line in quests |
+| `language` | `"EN"` | interface language, `"EN"` or `"DE"` |
+| `questTranslations` | `false` | translation line in quests |
 | `journalTranslations` | `false` | translations in the journal |
 | `luteImport` | `true` | read the Lute CSV |
 

@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Bambustreppe."
+    "de": "Sammle Bambustreppe.",
+    "en": "Collect Bamboo Stairs."
+   },
+   "hint": {
+    "en": "Collect Bamboo Stairs."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Rote Wolle."
+    "de": "Sammle 8× Rote Wolle.",
+    "en": "Collect 8× Red Wool."
+   },
+   "hint": {
+    "en": "Collect 8× Red Wool."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Wärter."
+    "de": "Besiege Wärter.",
+    "en": "Defeat Warden."
+   },
+   "hint": {
+    "en": "Defeat Warden."
    }
   },
   "textKo": "워든라는 길의 의식을 마쳤어요.",
-  "textDe": "Wärter — Zeremonie vollendet."
+  "textDe": "Wärter — Zeremonie vollendet.",
+  "textEn": "the ritual of Warden is complete."
  },
  "reward": {
   "badge": "adv_adventure_ol_betsy",
@@ -75,5 +88,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Ol' Betsy"
 }

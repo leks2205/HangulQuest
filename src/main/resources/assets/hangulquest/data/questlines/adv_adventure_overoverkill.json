@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede einen Streitkolben – der schwere Kern stammt aus einem unheilvollen Tresor."
+    "de": "Schmiede einen Streitkolben – der schwere Kern stammt aus einem unheilvollen Tresor.",
+    "en": "Collect Mace."
    },
    "hint": {
-    "ko": "무거운 핵은 불길한 금고에서 나와요."
+    "ko": "무거운 핵은 불길한 금고에서 나와요.",
+    "en": "Collect Mace."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Orgelkoralle."
+    "de": "Platziere 2× Orgelkoralle.",
+    "en": "Place 2× Tube Coral."
+   },
+   "hint": {
+    "en": "Place 2× Tube Coral."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Stürz dich vom Gipfel und zerschmettere einen Eisengolem mit dem Streitkolben."
+    "de": "Stürz dich vom Gipfel und zerschmettere einen Eisengolem mit dem Streitkolben.",
+    "en": "Defeat Iron Golem."
+   },
+   "hint": {
+    "en": "Defeat Iron Golem."
    }
   },
   "textKo": "하늘에서 철퇴가 내린다면 — 높은 곳에서 철퇴로 철 골렘을 쓰러뜨려요.",
-  "textDe": "Großmeister des Kampfes — Erschlag einen Eisengolem mit einem Hieb aus großer Höhe."
+  "textDe": "Großmeister des Kampfes — Erschlag einen Eisengolem mit einem Hieb aus großer Höhe.",
+  "textEn": "the ritual of Iron Golem is complete."
  },
  "reward": {
   "badge": "adv_adventure_overoverkill",
@@ -78,5 +89,6 @@
    "iron_golem"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Over-Overkill"
 }

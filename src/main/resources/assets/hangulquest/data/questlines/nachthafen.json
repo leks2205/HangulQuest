@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Lichter Dschungel."
+    "de": "Erreiche Lichter Dschungel.",
+    "en": "Reach Sparse Jungle."
+   },
+   "hint": {
+    "en": "Reach Sparse Jungle."
    }
   },
   {
@@ -46,7 +50,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Dromedar an."
+    "de": "Sieh dir Dromedar an.",
+    "en": "Look at Camel."
+   },
+   "hint": {
+    "en": "Look at Camel."
    }
   },
   {
@@ -66,7 +74,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Gemeißelter Quarzblock. Nachts."
+    "de": "Platziere 3× Gemeißelter Quarzblock. Nachts.",
+    "en": "Place 3× Chiseled Quartz Block. At night."
+   },
+   "hint": {
+    "en": "Place 3× Chiseled Quartz Block. At night."
    }
   }
  ],
@@ -88,11 +100,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Grüner Teppich. Nachts."
+    "de": "Platziere Grüner Teppich. Nachts.",
+    "en": "Place Green Carpet. At night."
+   },
+   "hint": {
+    "en": "Place Green Carpet. At night."
    }
   },
   "textKo": "밤에 초록색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüner Teppich — Zeremonie vollendet."
+  "textDe": "Grüner Teppich — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Green Carpet is complete."
  },
  "reward": {
   "badge": "nachthafen",
@@ -103,5 +120,6 @@
    "bed"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Night Harbour"
 }

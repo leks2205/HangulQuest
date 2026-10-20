@@ -29,10 +29,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Hole einen Sculk-Katalysator mit Behutsamkeit aus einer Sculk-Höhle."
+    "de": "Hole einen Sculk-Katalysator mit Behutsamkeit aus einer Sculk-Höhle.",
+    "en": "Collect Sculk Catalyst."
    },
    "hint": {
-    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요."
+    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요.",
+    "en": "Collect Sculk Catalyst."
    }
   },
   {
@@ -46,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Setz den Katalysator auf den Boden einer tiefen Höhle ab."
+    "de": "Setz den Katalysator auf den Boden einer tiefen Höhle ab.",
+    "en": "Place Sculk Catalyst."
+   },
+   "hint": {
+    "en": "Place Sculk Catalyst."
    }
   }
  ],
@@ -63,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Piglin-Barbar."
+    "de": "Besiege Piglin-Barbar.",
+    "en": "Defeat Piglin Brute."
+   },
+   "hint": {
+    "en": "Defeat Piglin Brute."
    }
   },
   "textKo": "난폭한 피글린라는 길의 의식을 마쳤어요.",
-  "textDe": "Piglin-Barbar — Zeremonie vollendet."
+  "textDe": "Piglin-Barbar — Zeremonie vollendet.",
+  "textEn": "the ritual of Piglin Brute is complete."
  },
  "reward": {
   "badge": "adv_adventure_kill_mob_near_sculk_catalyst",
@@ -76,5 +87,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "It Spreads"
 }

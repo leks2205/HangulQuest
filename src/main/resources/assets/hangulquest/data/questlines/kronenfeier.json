@@ -34,11 +34,13 @@
    },
    "clue": {
     "de": "Iss ein Stück Kuchen.",
-    "ko": "케이크를 만들어 먹어요."
+    "ko": "케이크를 만들어 먹어요.",
+    "en": "Eat Cake."
    },
    "hint": {
     "ko": "케이크는 밀, 설탕, 달걀, 우유로 만들어요.",
-    "de": "Kuchen braucht Weizen, Zucker, Ei und Milch."
+    "de": "Kuchen braucht Weizen, Zucker, Ei und Milch.",
+    "en": "Eat Cake."
    }
   },
   {
@@ -58,7 +60,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Weißes Glas. Tagsüber."
+    "de": "Platziere 3× Weißes Glas. Tagsüber.",
+    "en": "Place 3× White Stained Glass. During the day."
+   },
+   "hint": {
+    "en": "Place 3× White Stained Glass. During the day."
    }
   }
  ],
@@ -80,11 +86,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Flieder. Nachts."
+    "de": "Platziere Flieder. Nachts.",
+    "en": "Place Lilac. At night."
+   },
+   "hint": {
+    "en": "Place Lilac. At night."
    }
   },
   "textKo": "밤에 라일락라는 길의 의식을 마쳤어요.",
-  "textDe": "Flieder — Zeremonie vollendet."
+  "textDe": "Flieder — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Lilac is complete."
  },
  "reward": {
   "badge": "kronenfeier",
@@ -94,5 +105,6 @@
    "campfire"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Crown Festival"
 }

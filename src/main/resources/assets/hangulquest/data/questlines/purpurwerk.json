@@ -33,11 +33,13 @@
    },
    "clue": {
     "ko": "보라색 염료를 만들어요.",
-    "de": "Stelle Violetter Farbstoff her."
+    "de": "Stelle Violetter Farbstoff her.",
+    "en": "Collect 2× Purple Dye."
    },
    "hint": {
     "ko": "보라색 염료를 만들어요.",
-    "de": "Stelle Violetter Farbstoff her."
+    "de": "Stelle Violetter Farbstoff her.",
+    "en": "Collect 2× Purple Dye."
    }
   },
   {
@@ -52,11 +54,13 @@
    },
    "clue": {
     "ko": "보라색 양털을 봐요.",
-    "de": "Sieh dir Violette Wolle an."
+    "de": "Sieh dir Violette Wolle an.",
+    "en": "Look at Purple Wool."
    },
    "hint": {
     "ko": "보라색 양털을 봐요.",
-    "de": "Sieh dir Violette Wolle an."
+    "de": "Sieh dir Violette Wolle an.",
+    "en": "Look at Purple Wool."
    }
   }
  ],
@@ -76,10 +80,17 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "en": "Place Purple Wool. At dusk."
+   },
+   "hint": {
+    "en": "Place Purple Wool. At dusk."
+   }
   },
   "textKo": "저녁에 보랏빛 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet."
+  "textDe": "Die Zeremonie ist vollendet.",
+  "textEn": "At dusk the ritual of Purple Wool is complete."
  },
  "reward": {
   "badge": "purpurwerk",
@@ -88,5 +99,6 @@
    "gen_purple_wool",
    "gen_purple_wool"
   ]
- }
+ },
+ "titleEn": "The Purple Cloth"
 }

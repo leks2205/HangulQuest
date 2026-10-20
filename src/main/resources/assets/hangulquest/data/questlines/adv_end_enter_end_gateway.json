@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Besiege Silberfischchen."
+    "de": "Besiege Silberfischchen.",
+    "en": "Defeat Silverfish."
+   },
+   "hint": {
+    "en": "Defeat Silverfish."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Enderperlen für den Wurf ins Tor."
+    "de": "Sammle vier Enderperlen für den Wurf ins Tor.",
+    "en": "Collect 4× Ender Pearl."
+   },
+   "hint": {
+    "en": "Collect 4× Ender Pearl."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Pappelholzdruckplatte."
+    "de": "Platziere 2× Pappelholzdruckplatte.",
+    "en": "Place 2× Poplar Pressure Plate."
+   },
+   "hint": {
+    "en": "Place 2× Poplar Pressure Plate."
    }
   },
   "textKo": "포플러나무 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzdruckplatte — Zeremonie vollendet."
+  "textDe": "Pappelholzdruckplatte — Zeremonie vollendet.",
+  "textEn": "the ritual of Poplar Pressure Plate is complete."
  },
  "reward": {
   "badge": "adv_end_enter_end_gateway",
@@ -75,5 +88,6 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "Remote Getaway"
 }

@@ -32,7 +32,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Netherziegelstufe."
+    "de": "Sammle Netherziegelstufe.",
+    "en": "Collect Nether Brick Slab."
+   },
+   "hint": {
+    "en": "Collect Nether Brick Slab."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Amethysthaufen."
+    "de": "Platziere Amethysthaufen.",
+    "en": "Place Amethyst Cluster."
+   },
+   "hint": {
+    "en": "Place Amethyst Cluster."
    }
   },
   {
@@ -60,11 +68,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Setz eine Werkbank."
+    "de": "Setz eine Werkbank.",
+    "en": "Place Crafting Table."
    },
    "hint": {
     "ko": "작업대는 나무 판자 네 개로 만들어요.",
-    "de": "Eine Werkbank besteht aus vier Holzbrettern."
+    "de": "Eine Werkbank besteht aus vier Holzbrettern.",
+    "en": "Place Crafting Table."
    }
   }
  ],
@@ -81,11 +91,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Graues Bett."
+    "de": "Sammle 3× Graues Bett.",
+    "en": "Collect 3× Gray Bed."
+   },
+   "hint": {
+    "en": "Collect 3× Gray Bed."
    }
   },
   "textKo": "회색 침대라는 길의 의식을 마쳤어요.",
-  "textDe": "Graues Bett — Zeremonie vollendet."
+  "textDe": "Graues Bett — Zeremonie vollendet.",
+  "textEn": "the ritual of Gray Bed is complete."
  },
  "reward": {
   "badge": "werkzeugpfad",
@@ -96,5 +111,6 @@
    "diamond"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Tool Trail"
 }

@@ -32,7 +32,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Kupfergitter."
+    "de": "Sammle 4× Kupfergitter.",
+    "en": "Collect 4× Copper Bars."
+   },
+   "hint": {
+    "en": "Collect 4× Copper Bars."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Schwarzeichenstamm."
+    "de": "Platziere Schwarzeichenstamm.",
+    "en": "Place Dark Oak Log."
+   },
+   "hint": {
+    "en": "Place Dark Oak Log."
    }
   },
   {
@@ -60,11 +68,13 @@
     "count": 6
    },
    "clue": {
-    "de": "Setz sechs Ziegel."
+    "de": "Setz sechs Ziegel.",
+    "en": "Place 6× Bricks."
    },
    "hint": {
     "ko": "벽돌은 점토를 구워 만들어요.",
-    "de": "Ziegel entstehen aus gebranntem Ton."
+    "de": "Ziegel entstehen aus gebranntem Ton.",
+    "en": "Place 6× Bricks."
    }
   }
  ],
@@ -81,11 +91,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Getöntes Glas."
+    "de": "Platziere 4× Getöntes Glas.",
+    "en": "Place 4× Tinted Glass."
+   },
+   "hint": {
+    "en": "Place 4× Tinted Glass."
    }
   },
   "textKo": "차광 유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Getöntes Glas — Zeremonie vollendet."
+  "textDe": "Getöntes Glas — Zeremonie vollendet.",
+  "textEn": "the ritual of Tinted Glass is complete."
  },
  "reward": {
   "badge": "ziegelpfad",
@@ -95,5 +110,6 @@
    "stone_bricks"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Brick Trail"
 }

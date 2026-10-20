@@ -30,7 +30,11 @@
     "entity": "minecraft:parrot"
    },
    "clue": {
-    "de": "Interagiere mit Papagei."
+    "de": "Interagiere mit Papagei.",
+    "en": "Talk to Parrot."
+   },
+   "hint": {
+    "en": "Talk to Parrot."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Oranges Bündel."
+    "de": "Sammle 3× Oranges Bündel.",
+    "en": "Collect 3× Orange Bundle."
+   },
+   "hint": {
+    "en": "Collect 3× Orange Bundle."
    }
   },
   {
@@ -58,7 +66,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Zinnoberziegelmauer."
+    "de": "Platziere Zinnoberziegelmauer.",
+    "en": "Place Cinnabar Brick Wall."
+   },
+   "hint": {
+    "en": "Place Cinnabar Brick Wall."
    }
   }
  ],
@@ -75,11 +87,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Hängendes Blassmoos."
+    "de": "Platziere 2× Hängendes Blassmoos.",
+    "en": "Place 2× Pale Hanging Moss."
+   },
+   "hint": {
+    "en": "Place 2× Pale Hanging Moss."
    }
   },
   "textKo": "창백한 매달린 이끼라는 길의 의식을 마쳤어요.",
-  "textDe": "Hängendes Blassmoos — Zeremonie vollendet."
+  "textDe": "Hängendes Blassmoos — Zeremonie vollendet.",
+  "textEn": "the ritual of Pale Hanging Moss is complete."
  },
  "reward": {
   "badge": "w3_01",
@@ -89,5 +106,6 @@
    "bell"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Market Road"
 }

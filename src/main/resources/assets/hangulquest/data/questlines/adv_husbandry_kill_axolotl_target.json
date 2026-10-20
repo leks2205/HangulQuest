@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Graue Glasscheibe."
+    "de": "Sammle Graue Glasscheibe.",
+    "en": "Collect Gray Stained Glass Pane."
+   },
+   "hint": {
+    "en": "Collect Gray Stained Glass Pane."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Tropfsteinblock."
+    "de": "Sammle Tropfsteinblock.",
+    "en": "Collect Dripstone Block."
+   },
+   "hint": {
+    "en": "Collect Dripstone Block."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Hoglin."
+    "de": "Besiege Hoglin.",
+    "en": "Defeat Hoglin."
+   },
+   "hint": {
+    "en": "Defeat Hoglin."
    }
   },
   "textKo": "호글린라는 길의 의식을 마쳤어요.",
-  "textDe": "Hoglin — Zeremonie vollendet."
+  "textDe": "Hoglin — Zeremonie vollendet.",
+  "textEn": "the ritual of Hoglin is complete."
  },
  "reward": {
   "badge": "adv_husbandry_kill_axolotl_target",
@@ -75,5 +88,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Healing Power of Friendship!"
 }

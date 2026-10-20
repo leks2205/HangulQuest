@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Abgestorbener Hirnkorallenblock."
+    "de": "Sammle Abgestorbener Hirnkorallenblock.",
+    "en": "Collect Dead Brain Coral Block."
+   },
+   "hint": {
+    "en": "Collect Dead Brain Coral Block."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Alm."
+    "de": "Erreiche Alm.",
+    "en": "Reach Meadow."
+   },
+   "hint": {
+    "en": "Reach Meadow."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "entity": "minecraft:parrot",
     "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Look at Parrot."
+   },
+   "hint": {
+    "en": "Look at Parrot."
+   }
   },
   "textKo": "새인가? — 망원경으로 앵무새를 봐요. 색이 알록달록해요.",
-  "textDe": "Ist es ein Vogel? — Durch das Fernrohr siehst du einen bunten Papagei."
+  "textDe": "Ist es ein Vogel? — Durch das Fernrohr siehst du einen bunten Papagei.",
+  "textEn": "the ritual of Parrot is complete."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_parrot",
@@ -72,5 +87,6 @@
    "parrot"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Is It a Bird?"
 }

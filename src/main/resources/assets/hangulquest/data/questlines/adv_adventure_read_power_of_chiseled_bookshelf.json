@@ -29,10 +29,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue ein gearbeitetes Bücherregal aus sechs Planken und drei Holzstufen."
+    "de": "Baue ein gearbeitetes Bücherregal aus sechs Planken und drei Holzstufen.",
+    "en": "Collect Chiseled Bookshelf."
    },
    "hint": {
-    "ko": "나무 판자 여섯 개와 나무 반 블록 세 개로 만들어요."
+    "ko": "나무 판자 여섯 개와 나무 반 블록 세 개로 만들어요.",
+    "en": "Collect Chiseled Bookshelf."
    }
   },
   {
@@ -46,10 +48,12 @@
     "count": 3
    },
    "clue": {
-    "de": "Fertige drei Bücher aus Papier und Leder für die Fächer."
+    "de": "Fertige drei Bücher aus Papier und Leder für die Fächer.",
+    "en": "Collect 3× Book."
    },
    "hint": {
-    "ko": "종이 세 개와 가죽 하나로 책을 만들어요."
+    "ko": "종이 세 개와 가죽 하나로 책을 만들어요.",
+    "en": "Collect 3× Book."
    }
   }
  ],
@@ -66,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Stell das Regal auf, füll es mit Büchern und lies mit einem Komparator die Signalstärke ab."
+    "de": "Stell das Regal auf, füll es mit Büchern und lies mit einem Komparator die Signalstärke ab.",
+    "en": "Place Chiseled Bookshelf."
+   },
+   "hint": {
+    "en": "Place Chiseled Bookshelf."
    }
   },
   "textKo": "책의 힘 — 조각된 책장에 책을 꽂고 신호를 읽어요.",
-  "textDe": "Spannung in jedem Band — Lies die Signalstärke des gearbeiteten Bücherregals."
+  "textDe": "Spannung in jedem Band — Lies die Signalstärke des gearbeiteten Bücherregals.",
+  "textEn": "the ritual of Chiseled Bookshelf is complete."
  },
  "reward": {
   "badge": "adv_adventure_read_power_of_chiseled_bookshelf",
@@ -79,5 +88,6 @@
    "book"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Power in Every Volume"
 }

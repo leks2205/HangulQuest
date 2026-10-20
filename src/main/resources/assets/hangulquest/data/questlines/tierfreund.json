@@ -28,7 +28,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Händlerlama an."
+    "de": "Sieh dir Händlerlama an.",
+    "en": "Look at Trader Llama."
+   },
+   "hint": {
+    "en": "Look at Trader Llama."
    }
   },
   {
@@ -42,7 +46,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Eiswanderer an."
+    "de": "Sieh dir Eiswanderer an.",
+    "en": "Look at Stray."
+   },
+   "hint": {
+    "en": "Look at Stray."
    }
   }
  ],
@@ -59,11 +67,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sieh dir Esel an."
+    "de": "Sieh dir Esel an.",
+    "en": "Look at Donkey."
+   },
+   "hint": {
+    "en": "Look at Donkey."
    }
   },
   "textKo": "당나귀라는 길의 의식을 마쳤어요.",
-  "textDe": "Esel — Zeremonie vollendet."
+  "textDe": "Esel — Zeremonie vollendet.",
+  "textEn": "the ritual of Donkey is complete."
  },
  "reward": {
   "badge": "tierfreund",
@@ -73,5 +86,6 @@
    "sheep"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Animal Friend Trail"
 }

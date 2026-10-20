@@ -30,7 +30,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Aquisator."
+    "de": "Sammle 4× Aquisator.",
+    "en": "Collect 4× Conduit."
+   },
+   "hint": {
+    "en": "Collect 4× Conduit."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede den ersten Helm aus Netherit."
+    "de": "Schmiede den ersten Helm aus Netherit.",
+    "en": "Collect Netherite Helmet."
    },
    "hint": {
-    "ko": "고대 잔해를 화로에 구우면 네더라이트 주괴가 돼요."
+    "ko": "고대 잔해를 화로에 구우면 네더라이트 주괴가 돼요.",
+    "en": "Collect Netherite Helmet."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Schließe den Harnisch an – die Rüstung sitzt."
+    "de": "Schließe den Harnisch an – die Rüstung sitzt.",
+    "en": "Collect Netherite Chestplate."
+   },
+   "hint": {
+    "en": "Collect Netherite Chestplate."
    }
   },
   "textKo": "잔해로 날 감싸줘 — 고대 잔해로 네더라이트 갑옷을 만들었어요.",
-  "textDe": "Bedeck mich mit Schrott — aus uraltem Schrott wird Netheritrüstung."
+  "textDe": "Bedeck mich mit Schrott — aus uraltem Schrott wird Netheritrüstung.",
+  "textEn": "the ritual of Netherite Chestplate is complete."
  },
  "reward": {
   "badge": "adv_nether_netherite_armor",
@@ -78,5 +89,6 @@
    "adv_block_netherite_chestplate"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Cover Me in Debris"
 }

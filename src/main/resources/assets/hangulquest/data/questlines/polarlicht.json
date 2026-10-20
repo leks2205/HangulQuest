@@ -31,7 +31,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Kupferschwert."
+    "de": "Sammle Kupferschwert.",
+    "en": "Collect Copper Sword."
+   },
+   "hint": {
+    "en": "Collect Copper Sword."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Grüne Wolltreppe."
+    "de": "Sammle Grüne Wolltreppe.",
+    "en": "Collect Green Wool Stairs."
+   },
+   "hint": {
+    "en": "Collect Green Wool Stairs."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Tuffsteinziegel."
+    "de": "Platziere Tuffsteinziegel.",
+    "en": "Place Tuff Bricks."
+   },
+   "hint": {
+    "en": "Place Tuff Bricks."
    }
   }
  ],
@@ -74,10 +86,17 @@
     "block": "minecraft:magma_block",
     "count": 2
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 2× Magma Block."
+   },
+   "hint": {
+    "en": "Place 2× Magma Block."
+   }
   },
   "textKo": "마그마 블록을 놓아 뜨거운 길을 만들어요.",
-  "textDe": "Magmablöcke für den heißen Weg."
+  "textDe": "Magmablöcke für den heißen Weg.",
+  "textEn": "the ritual of Magma Block is complete."
  },
  "reward": {
   "badge": "polarlicht",
@@ -88,5 +107,6 @@
    "magma"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Hot Stuff"
 }

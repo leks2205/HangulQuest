@@ -30,7 +30,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Wandere in die Wüste und bleib dort stehen, bis sie als entdeckt gilt."
+    "de": "Wandere in die Wüste und bleib dort stehen, bis sie als entdeckt gilt.",
+    "en": "Reach Desert."
+   },
+   "hint": {
+    "en": "Reach Desert."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Reise in den Dschungel und halte dich dort eine Weile auf."
+    "de": "Reise in den Dschungel und halte dich dort eine Weile auf.",
+    "en": "Reach Jungle."
+   },
+   "hint": {
+    "en": "Reach Jungle."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Erreiche den Wald als letzten fehlenden Fleck der Biomekarte."
+    "de": "Erreiche den Wald als letzten fehlenden Fleck der Biomekarte.",
+    "en": "Reach Forest."
+   },
+   "hint": {
+    "en": "Reach Forest."
    }
   },
   "textKo": "모험의 시간 — 숲과 사막과 정글을 모두 걸어서 만났어요.",
-  "textDe": "Abenteuerzeit — Wald, Wüste und Dschungel sind entdeckt."
+  "textDe": "Abenteuerzeit — Wald, Wüste und Dschungel sind entdeckt.",
+  "textEn": "the ritual of Forest is complete."
  },
  "reward": {
   "badge": "adv_adventure_adventuring_time",
@@ -75,5 +88,6 @@
    "forest"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Adventuring Time"
 }

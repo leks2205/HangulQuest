@@ -30,7 +30,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Taiga."
+    "de": "Erreiche Taiga.",
+    "en": "Reach Taiga."
+   },
+   "hint": {
+    "en": "Reach Taiga."
    }
   },
   {
@@ -44,11 +48,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Baue vier Bambus ab."
+    "de": "Baue vier Bambus ab.",
+    "en": "Break 4× Bamboo."
    },
    "hint": {
     "ko": "대나무는 손이나 도끼로 캐요.",
-    "de": "Bambus baust du mit der Hand oder Axt ab."
+    "de": "Bambus baust du mit der Hand oder Axt ab.",
+    "en": "Break 4× Bamboo."
    }
   },
   {
@@ -62,7 +68,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Setz vier Bambus."
+    "de": "Setz vier Bambus.",
+    "en": "Place 4× Bamboo."
+   },
+   "hint": {
+    "en": "Place 4× Bamboo."
    }
   }
  ],
@@ -77,10 +87,17 @@
     "item": "minecraft:bamboo",
     "count": 8
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect 8× Bamboo."
+   },
+   "hint": {
+    "en": "Collect 8× Bamboo."
+   }
   },
   "textKo": "대나무를 모아요.",
-  "textDe": "Bambus sammeln."
+  "textDe": "Bambus sammeln.",
+  "textEn": "the ritual of Bamboo is complete."
  },
  "reward": {
   "badge": "bambuspfad",
@@ -89,5 +106,6 @@
    "bamboo"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Bamboo Trail"
 }

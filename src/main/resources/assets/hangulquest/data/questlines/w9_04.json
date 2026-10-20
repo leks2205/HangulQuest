@@ -31,11 +31,13 @@
    },
    "clue": {
     "de": "Zieh im Thronsaal eine Mauer aus acht Steinziegeln.",
-    "ko": "왕관의 방에 석재 벽돌을 여덟 개 놓아요."
+    "ko": "왕관의 방에 석재 벽돌을 여덟 개 놓아요.",
+    "en": "Place 8× Stone Bricks."
    },
    "hint": {
     "ko": "석재 벽돌은 돌로 만들어요.",
-    "de": "Steinziegel fertigst du aus Stein."
+    "de": "Steinziegel fertigst du aus Stein.",
+    "en": "Place 8× Stone Bricks."
    }
   },
   {
@@ -50,11 +52,13 @@
    },
    "clue": {
     "de": "Schmiede einen eisernen Brustharnisch für die Wache.",
-    "ko": "왕관을 지키려고 철 흉갑을 챙겨요."
+    "ko": "왕관을 지키려고 철 흉갑을 챙겨요.",
+    "en": "Collect Iron Chestplate."
    },
    "hint": {
     "ko": "철 흉갑은 철 조각 여덟 개로 만들어요.",
-    "de": "Ein Eisenharnisch braucht acht Eisenbarren."
+    "de": "Ein Eisenharnisch braucht acht Eisenbarren.",
+    "en": "Collect Iron Chestplate."
    }
   }
  ],
@@ -71,11 +75,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Hellgrüner Teppich."
+    "de": "Sammle Hellgrüner Teppich.",
+    "en": "Collect Lime Carpet."
+   },
+   "hint": {
+    "en": "Collect Lime Carpet."
    }
   },
   "textKo": "연두색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrüner Teppich — Zeremonie vollendet."
+  "textDe": "Hellgrüner Teppich — Zeremonie vollendet.",
+  "textEn": "the ritual of Lime Carpet is complete."
  },
  "reward": {
   "badge": "w9_04",
@@ -85,5 +94,6 @@
    "stone_bricks"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Wall"
 }

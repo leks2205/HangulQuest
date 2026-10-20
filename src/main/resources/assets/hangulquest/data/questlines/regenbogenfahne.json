@@ -34,11 +34,13 @@
    },
    "clue": {
     "ko": "자홍색 염료를 만들어요.",
-    "de": "Stelle Magenta Farbstoff her."
+    "de": "Stelle Magenta Farbstoff her.",
+    "en": "Collect 2× Magenta Dye."
    },
    "hint": {
     "ko": "자홍색 염료를 만들어요.",
-    "de": "Stelle Magenta Farbstoff her."
+    "de": "Stelle Magenta Farbstoff her.",
+    "en": "Collect 2× Magenta Dye."
    }
   },
   {
@@ -53,11 +55,13 @@
    },
    "clue": {
     "ko": "연두색 양탄자를 놓아요.",
-    "de": "Platziere Hellgrüner Teppich."
+    "de": "Platziere Hellgrüner Teppich.",
+    "en": "Place Lime Carpet."
    },
    "hint": {
     "ko": "연두색 양탄자를 놓아요.",
-    "de": "Platziere Hellgrüner Teppich."
+    "de": "Platziere Hellgrüner Teppich.",
+    "en": "Place Lime Carpet."
    }
   },
   {
@@ -72,11 +76,13 @@
    },
    "clue": {
     "ko": "하얀색 현수막을 봐요.",
-    "de": "Sieh dir Weißes Banner an."
+    "de": "Sieh dir Weißes Banner an.",
+    "en": "Look at White Banner."
    },
    "hint": {
     "ko": "하얀색 현수막을 봐요.",
-    "de": "Sieh dir Weißes Banner an."
+    "de": "Sieh dir Weißes Banner an.",
+    "en": "Look at White Banner."
    }
   }
  ],
@@ -96,10 +102,17 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "en": "Place Magenta Banner. During the day."
+   },
+   "hint": {
+    "en": "Place Magenta Banner. During the day."
+   }
   },
   "textKo": "낮에 무지개 깃발을 세웠어요.",
-  "textDe": "Die Zeremonie ist vollendet."
+  "textDe": "Die Zeremonie ist vollendet.",
+  "textEn": "By day the ritual of Magenta Banner is complete."
  },
  "reward": {
   "badge": "regenbogenfahne",
@@ -109,5 +122,6 @@
    "adv_item_white_banner",
    "gen_magenta_banner"
   ]
- }
+ },
+ "titleEn": "The Rainbow Banner"
 }

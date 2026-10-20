@@ -40,7 +40,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Ertrunkener an."
+    "de": "Sieh dir Ertrunkener an.",
+    "en": "Look at Drowned."
+   },
+   "hint": {
+    "en": "Look at Drowned."
    }
   },
   {
@@ -60,7 +64,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere Polierte Schwarzsteindruckplatte. Nachts."
+    "de": "Platziere Polierte Schwarzsteindruckplatte. Nachts.",
+    "en": "Place Polished Blackstone Pressure Plate. At night."
+   },
+   "hint": {
+    "en": "Place Polished Blackstone Pressure Plate. At night."
    }
   }
  ],
@@ -77,11 +85,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Magmawürfel."
+    "de": "Besiege Magmawürfel.",
+    "en": "Defeat Magma Cube."
+   },
+   "hint": {
+    "en": "Defeat Magma Cube."
    }
   },
   "textKo": "마그마 큐브라는 길의 의식을 마쳤어요.",
-  "textDe": "Magmawürfel — Zeremonie vollendet."
+  "textDe": "Magmawürfel — Zeremonie vollendet.",
+  "textEn": "the ritual of Magma Cube is complete."
  },
  "reward": {
   "badge": "kronenwacht",
@@ -91,5 +104,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Guard"
 }

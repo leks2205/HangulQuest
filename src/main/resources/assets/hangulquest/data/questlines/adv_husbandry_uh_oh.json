@@ -30,7 +30,11 @@
     "count": 5
    },
    "clue": {
-    "de": "Sammle Schießpulver von erlegten Creepers."
+    "de": "Sammle Schießpulver von erlegten Creepers.",
+    "en": "Collect 5× Gunpowder."
+   },
+   "hint": {
+    "en": "Collect 5× Gunpowder."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 4
    },
    "clue": {
-    "de": "Grabe vier Sandblöcke für die TNT-Herstellung aus."
+    "de": "Grabe vier Sandblöcke für die TNT-Herstellung aus.",
+    "en": "Collect 4× Sand."
    },
    "hint": {
-    "ko": "화약 다섯 개와 모래 네 개로 티엔티를 만들어요."
+    "ko": "화약 다섯 개와 모래 네 개로 티엔티를 만들어요.",
+    "en": "Collect 4× Sand."
    }
   }
  ],
@@ -62,10 +68,17 @@
     "block": "minecraft:tnt",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place TNT."
+   },
+   "hint": {
+    "en": "Place TNT."
+   }
   },
   "textKo": "폭탄 받아라 — 유황 큐브 앞에 티엔티를 놓아요.",
-  "textDe": "Oh, oh — Du legst TNT vor einen Schwefelwürfel, der es verschlingt."
+  "textDe": "Oh, oh — Du legst TNT vor einen Schwefelwürfel, der es verschlingt.",
+  "textEn": "the ritual of TNT is complete."
  },
  "reward": {
   "badge": "adv_husbandry_uh_oh",
@@ -75,5 +88,6 @@
    "adv_item_tnt"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Uh Oh"
 }

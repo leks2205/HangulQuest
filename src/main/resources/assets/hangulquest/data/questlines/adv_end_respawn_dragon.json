@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Erlege einen Ghast im Nether und bring seine Träne mit."
+    "de": "Erlege einen Ghast im Nether und bring seine Träne mit.",
+    "en": "Collect Ghast Tear."
+   },
+   "hint": {
+    "en": "Collect Ghast Tear."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 4
    },
    "clue": {
-    "de": "Baue vier Enderkristalle für die Beschwörung."
+    "de": "Baue vier Enderkristalle für die Beschwörung.",
+    "en": "Collect 4× End Crystal."
    },
    "hint": {
-    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요."
+    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요.",
+    "en": "Collect 4× End Crystal."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Weinender Obsidian."
+    "de": "Platziere 4× Weinender Obsidian.",
+    "en": "Place 4× Crying Obsidian."
+   },
+   "hint": {
+    "en": "Place 4× Crying Obsidian."
    }
   },
   "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요.",
-  "textDe": "Das Ende … Schon wieder … — Setze vier Enderkristalle auf das Portal und beschwöre den Drachen erneut."
+  "textDe": "Das Ende … Schon wieder … — Setze vier Enderkristalle auf das Portal und beschwöre den Drachen erneut.",
+  "textEn": "the ritual of Crying Obsidian is complete."
  },
  "reward": {
   "badge": "adv_end_respawn_dragon",
@@ -77,5 +88,6 @@
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The End... Again..."
 }

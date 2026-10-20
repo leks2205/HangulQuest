@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue ein Feuerzeug aus Eisen und Feuerstein."
+    "de": "Baue ein Feuerzeug aus Eisen und Feuerstein.",
+    "en": "Collect Flint and Steel."
    },
    "hint": {
-    "ko": "철 주괴와 부싯돌로 만들어요."
+    "ko": "철 주괴와 부싯돌로 만들어요.",
+    "en": "Collect Flint and Steel."
    }
   },
   {
@@ -47,10 +49,12 @@
     "count": 10
    },
    "clue": {
-    "de": "Setz zehn Obsidianblöcke zum Portalrahmen."
+    "de": "Setz zehn Obsidianblöcke zum Portalrahmen.",
+    "en": "Place 10× Obsidian."
    },
    "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요."
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "en": "Place 10× Obsidian."
    }
   }
  ],
@@ -67,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Mangrovenholzfalltür."
+    "de": "Platziere 2× Mangrovenholzfalltür.",
+    "en": "Place 2× Mangrove Trapdoor."
+   },
+   "hint": {
+    "en": "Place 2× Mangrove Trapdoor."
    }
   },
   "textKo": "맹그로브나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Mangrovenholzfalltür — Zeremonie vollendet."
+  "textDe": "Mangrovenholzfalltür — Zeremonie vollendet.",
+  "textEn": "the ritual of Mangrove Trapdoor is complete."
  },
  "reward": {
   "badge": "adv_nether_root",
@@ -81,5 +90,6 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Nether"
 }

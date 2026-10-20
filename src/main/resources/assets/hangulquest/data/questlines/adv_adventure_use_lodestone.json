@@ -29,11 +29,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue einen Kompass aus Eisen und Redstone."
+    "de": "Baue einen Kompass aus Eisen und Redstone.",
+    "en": "Collect Compass."
    },
    "hint": {
     "ko": "나침반은 철과 레드스톤으로 만들어요.",
-    "de": "Ein Kompass besteht aus Eisen und Redstone."
+    "de": "Ein Kompass besteht aus Eisen und Redstone.",
+    "en": "Collect Compass."
    }
   },
   {
@@ -47,11 +49,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Stelle einen Leitstein bei deinem Zuhause auf."
+    "de": "Stelle einen Leitstein bei deinem Zuhause auf.",
+    "en": "Place Lodestone."
    },
    "hint": {
     "ko": "자석석은 조각된 석재 벽돌과 네더라이트로 만들어요.",
-    "de": "Ein Leitstein besteht aus gemeißelten Steinziegeln und Netherit."
+    "de": "Ein Leitstein besteht aus gemeißelten Steinziegeln und Netherit.",
+    "en": "Place Lodestone."
    }
   }
  ],
@@ -65,10 +69,17 @@
     "type": "USE_BLOCK",
     "block": "minecraft:lodestone"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Use Lodestone."
+   },
+   "hint": {
+    "en": "Use Lodestone."
+   }
   },
   "textKo": "집으로 이끌려가네 — 나침반을 자석석에 대면 집으로 가는 방향을 알려 줘요.",
-  "textDe": "Weißt du, wo die Leitstein' stehen? — Du hältst den Kompass an den Leitstein und er zeigt nach Hause."
+  "textDe": "Weißt du, wo die Leitstein' stehen? — Du hältst den Kompass an den Leitstein und er zeigt nach Hause.",
+  "textEn": "the ritual of Lodestone is complete."
  },
  "reward": {
   "badge": "adv_adventure_use_lodestone",
@@ -77,5 +88,6 @@
    "adv_block_lodestone"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Country Lode, Take Me Home"
 }

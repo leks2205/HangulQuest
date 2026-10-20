@@ -29,11 +29,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Papier."
+    "de": "Sammle drei Papier.",
+    "en": "Collect 3× Paper."
    },
    "hint": {
     "ko": "종이는 사탕수수로 만들어요.",
-    "de": "Papier wird aus Zuckerrohr gemacht."
+    "de": "Papier wird aus Zuckerrohr gemacht.",
+    "en": "Collect 3× Paper."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Gewachster angelaufener Kupferblock."
+    "de": "Sammle Gewachster angelaufener Kupferblock.",
+    "en": "Collect Waxed Exposed Copper."
+   },
+   "hint": {
+    "en": "Collect Waxed Exposed Copper."
    }
   },
   {
@@ -60,7 +66,11 @@
     "block": "minecraft:daylight_detector"
    },
    "clue": {
-    "de": "Benutze Tageslichtsensor."
+    "de": "Benutze Tageslichtsensor.",
+    "en": "Use Daylight Detector."
+   },
+   "hint": {
+    "en": "Use Daylight Detector."
    }
   }
  ],
@@ -75,10 +85,17 @@
     "block": "minecraft:chest",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place Chest."
+   },
+   "hint": {
+    "en": "Place Chest."
+   }
   },
   "textKo": "상자에 편지를 넣어요.",
-  "textDe": "Der Brief kommt in die Truhe."
+  "textDe": "Der Brief kommt in die Truhe.",
+  "textEn": "the ritual of Chest is complete."
  },
  "reward": {
   "badge": "briefpfad",
@@ -88,5 +105,6 @@
    "chest"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Letter Trail"
 }

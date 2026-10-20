@@ -30,7 +30,11 @@
     "count": 5
    },
    "clue": {
-    "de": "Sammle 5× Netherrack."
+    "de": "Sammle 5× Netherrack.",
+    "en": "Collect 5× Netherrack."
+   },
+   "hint": {
+    "en": "Collect 5× Netherrack."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Schwarzeichenstamm an."
+    "de": "Sieh dir Schwarzeichenstamm an.",
+    "en": "Look at Dark Oak Log."
+   },
+   "hint": {
+    "en": "Look at Dark Oak Log."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Iss Rohes Schweinefleisch."
+    "de": "Iss Rohes Schweinefleisch.",
+    "en": "Eat Raw Porkchop."
+   },
+   "hint": {
+    "en": "Eat Raw Porkchop."
    }
   },
   "textKo": "익히지 않은 돼지고기라는 길의 의식을 마쳤어요.",
-  "textDe": "Rohes Schweinefleisch — Zeremonie vollendet."
+  "textDe": "Rohes Schweinefleisch — Zeremonie vollendet.",
+  "textEn": "the ritual of Raw Porkchop is complete."
  },
  "reward": {
   "badge": "saatfeld",
@@ -75,5 +88,6 @@
    "bread"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Seed Field Trail"
 }

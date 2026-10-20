@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Ranken."
+    "de": "Platziere 3× Ranken.",
+    "en": "Place 3× Vines."
+   },
+   "hint": {
+    "en": "Place 3× Vines."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Besorg einen Sattel für den Strider."
+    "de": "Besorg einen Sattel für den Strider.",
+    "en": "Collect Saddle."
    },
    "hint": {
-    "ko": "안장은 요새 상자나 낚시로 얻어요."
+    "ko": "안장은 요새 상자나 낚시로 얻어요.",
+    "en": "Collect Saddle."
    }
   }
  ],
@@ -64,14 +70,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Baue aus Angel und Wirrpilz die Rute, mit der du den Strider lenkst."
+    "de": "Baue aus Angel und Wirrpilz die Rute, mit der du den Strider lenkst.",
+    "en": "Collect Warped Fungus on a Stick."
    },
    "hint": {
-    "ko": "낚싯대와 뒤틀린 균으로 만들어요."
+    "ko": "낚싯대와 뒤틀린 균으로 만들어요.",
+    "en": "Collect Warped Fungus on a Stick."
    }
   },
   "textKo": "두 발 달린 보트 — 뒤틀린 균 낚싯대로 스트라이더를 몰았어요.",
-  "textDe": "Mach diesem „Boot“ Beine — der Strider läuft über Lava."
+  "textDe": "Mach diesem „Boot“ Beine — der Strider läuft über Lava.",
+  "textEn": "the ritual of Warped Fungus on a Stick is complete."
  },
  "reward": {
   "badge": "adv_nether_ride_strider",
@@ -81,5 +90,6 @@
    "adv_item_warped_fungus_on_a_stick"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "This Boat Has Legs"
 }

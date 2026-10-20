@@ -30,11 +30,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede dir zuerst einen Eisenspeer."
+    "de": "Schmiede dir zuerst einen Eisenspeer.",
+    "en": "Collect Iron Spear."
    },
    "hint": {
     "ko": "철 창은 철과 막대기로 만들어요.",
-    "de": "Ein Speer besteht aus Eisen und einem Stock."
+    "de": "Ein Speer besteht aus Eisen und einem Stock.",
+    "en": "Collect Iron Spear."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Besiege 2× Eiswanderer."
+    "de": "Besiege 2× Eiswanderer.",
+    "en": "Defeat 2× Stray."
+   },
+   "hint": {
+    "en": "Defeat 2× Stray."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege 3× Sumpfskelett."
+    "de": "Besiege 3× Sumpfskelett.",
+    "en": "Defeat 3× Bogged."
+   },
+   "hint": {
+    "en": "Defeat 3× Bogged."
    }
   },
   "textKo": "보그드라는 길의 의식을 마쳤어요.",
-  "textDe": "Sumpfskelett — Zeremonie vollendet."
+  "textDe": "Sumpfskelett — Zeremonie vollendet.",
+  "textEn": "the ritual of Bogged is complete."
  },
  "reward": {
   "badge": "adv_adventure_spear_many_mobs",
@@ -79,5 +90,6 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Mob Kabob"
 }

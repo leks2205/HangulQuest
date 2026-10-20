@@ -31,7 +31,11 @@
     "count": 10
    },
    "clue": {
-    "de": "Sammle 10× Knochenblock."
+    "de": "Sammle 10× Knochenblock.",
+    "en": "Collect 10× Bone Block."
+   },
+   "hint": {
+    "en": "Collect 10× Bone Block."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Beobachter."
+    "de": "Sammle Beobachter.",
+    "en": "Collect Observer."
+   },
+   "hint": {
+    "en": "Collect Observer."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 10
    },
    "clue": {
-    "de": "Platziere 10× Akazienholzzauntor."
+    "de": "Platziere 10× Akazienholzzauntor.",
+    "en": "Place 10× Acacia Fence Gate."
+   },
+   "hint": {
+    "en": "Place 10× Acacia Fence Gate."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Pappelholzfalltür."
+    "de": "Platziere 3× Pappelholzfalltür.",
+    "en": "Place 3× Poplar Trapdoor."
+   },
+   "hint": {
+    "en": "Place 3× Poplar Trapdoor."
    }
   },
   "textKo": "포플러나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzfalltür — Zeremonie vollendet."
+  "textDe": "Pappelholzfalltür — Zeremonie vollendet.",
+  "textEn": "the ritual of Poplar Trapdoor is complete."
  },
  "reward": {
   "badge": "adv_story_enter_the_nether",
@@ -90,5 +107,6 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "We Need to Go Deeper"
 }

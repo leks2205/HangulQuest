@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Herz des Meeres."
+    "de": "Sammle Herz des Meeres.",
+    "en": "Collect Heart of the Sea."
+   },
+   "hint": {
+    "en": "Collect Heart of the Sea."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Axolotl an."
+    "de": "Sieh dir Axolotl an.",
+    "en": "Look at Axolotl."
+   },
+   "hint": {
+    "en": "Look at Axolotl."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Blaues Glas."
+    "de": "Sammle Blaues Glas.",
+    "en": "Collect Blue Stained Glass."
+   },
+   "hint": {
+    "en": "Collect Blue Stained Glass."
    }
   },
   "textKo": "파란색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaues Glas — Zeremonie vollendet."
+  "textDe": "Blaues Glas — Zeremonie vollendet.",
+  "textEn": "the ritual of Blue Stained Glass is complete."
  },
  "reward": {
   "badge": "adv_adventure_voluntary_exile",
@@ -75,5 +88,6 @@
    "adv_item_white_banner"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Voluntary Exile"
 }

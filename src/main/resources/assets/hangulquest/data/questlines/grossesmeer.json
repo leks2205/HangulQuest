@@ -31,7 +31,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Tiefsee."
+    "de": "Erreiche Tiefsee.",
+    "en": "Reach Deep Ocean."
+   },
+   "hint": {
+    "en": "Reach Deep Ocean."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Schlamm."
+    "de": "Sammle 2× Schlamm.",
+    "en": "Collect 2× Mud."
+   },
+   "hint": {
+    "en": "Collect 2× Mud."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Karmesintür."
+    "de": "Platziere Karmesintür.",
+    "en": "Place Crimson Door."
+   },
+   "hint": {
+    "en": "Place Crimson Door."
    }
   }
  ],
@@ -80,11 +92,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Bienenstock. Nachts."
+    "de": "Benutze Bienenstock. Nachts.",
+    "en": "Use Beehive. At night."
+   },
+   "hint": {
+    "en": "Use Beehive. At night."
    }
   },
   "textKo": "밤에 벌통라는 길의 의식을 마쳤어요.",
-  "textDe": "Bienenstock — Zeremonie vollendet."
+  "textDe": "Bienenstock — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Beehive is complete."
  },
  "reward": {
   "badge": "grossesmeer",
@@ -95,5 +112,6 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "물"
+ "topic": "물",
+ "titleEn": "The Great Sea"
 }

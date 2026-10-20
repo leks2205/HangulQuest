@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Karmesinwald."
+    "de": "Erreiche Karmesinwald.",
+    "en": "Reach Crimson Forest."
+   },
+   "hint": {
+    "en": "Reach Crimson Forest."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Setz vier Sandblöcke."
+    "de": "Setz vier Sandblöcke.",
+    "en": "Place 4× Sand."
+   },
+   "hint": {
+    "en": "Place 4× Sand."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Entrindetes Kirschholz."
+    "de": "Platziere Entrindetes Kirschholz.",
+    "en": "Place Stripped Cherry Wood."
+   },
+   "hint": {
+    "en": "Place Stripped Cherry Wood."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 2× Blassmoosblock. Nachts."
+    "de": "Platziere 2× Blassmoosblock. Nachts.",
+    "en": "Place 2× Pale Moss Block. At night."
+   },
+   "hint": {
+    "en": "Place 2× Pale Moss Block. At night."
    }
   },
   "textKo": "밤에 창백한 이끼 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Blassmoosblock — Zeremonie vollendet."
+  "textDe": "Blassmoosblock — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Pale Moss Block is complete."
  },
  "reward": {
   "badge": "inselpfad",
@@ -97,5 +114,6 @@
    "torch"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Island Trail"
 }

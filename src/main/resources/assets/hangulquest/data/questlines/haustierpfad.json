@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Spinne an."
+    "de": "Sieh dir Spinne an.",
+    "en": "Look at Spider."
+   },
+   "hint": {
+    "en": "Look at Spider."
    }
   },
   {
@@ -45,7 +49,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Zoglin an."
+    "de": "Sieh dir Zoglin an.",
+    "en": "Look at Zoglin."
+   },
+   "hint": {
+    "en": "Look at Zoglin."
    }
   }
  ],
@@ -62,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Tropenholzfalltür."
+    "de": "Platziere Tropenholzfalltür.",
+    "en": "Place Jungle Trapdoor."
+   },
+   "hint": {
+    "en": "Place Jungle Trapdoor."
    }
   },
   "textKo": "정글나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzfalltür — Zeremonie vollendet."
+  "textDe": "Tropenholzfalltür — Zeremonie vollendet.",
+  "textEn": "the ritual of Jungle Trapdoor is complete."
  },
  "reward": {
   "badge": "haustierpfad",
@@ -76,5 +89,6 @@
    "bed"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Pet Trail"
 }

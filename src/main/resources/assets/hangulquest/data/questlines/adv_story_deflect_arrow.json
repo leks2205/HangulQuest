@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue einen Schild aus Brettern und Eisen."
+    "de": "Baue einen Schild aus Brettern und Eisen.",
+    "en": "Collect Shield."
    },
    "hint": {
-    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요."
+    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요.",
+    "en": "Collect Shield."
    }
   },
   {
@@ -47,7 +49,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Stell dich einem Skelett mit gezogenem Bogen gegenüber."
+    "de": "Stell dich einem Skelett mit gezogenem Bogen gegenüber.",
+    "en": "Look at Skeleton."
+   },
+   "hint": {
+    "en": "Look at Skeleton."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Phantom."
+    "de": "Besiege Phantom.",
+    "en": "Defeat Phantom."
+   },
+   "hint": {
+    "en": "Defeat Phantom."
    }
   },
   "textKo": "팬텀라는 길의 의식을 마쳤어요.",
-  "textDe": "Phantom — Zeremonie vollendet."
+  "textDe": "Phantom — Zeremonie vollendet.",
+  "textEn": "the ritual of Phantom is complete."
  },
  "reward": {
   "badge": "adv_story_deflect_arrow",
@@ -77,5 +88,6 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Not Today, Thank You"
 }

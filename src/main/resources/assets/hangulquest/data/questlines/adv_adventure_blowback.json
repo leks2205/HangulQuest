@@ -29,7 +29,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Rote Wolle."
+    "de": "Platziere Rote Wolle.",
+    "en": "Place Red Wool."
+   },
+   "hint": {
+    "en": "Place Red Wool."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle zwei Windkugeln von einem Briesen ein."
+    "de": "Sammle zwei Windkugeln von einem Briesen ein.",
+    "en": "Collect 2× Wind Charge."
+   },
+   "hint": {
+    "en": "Collect 2× Wind Charge."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Wirf eine Windkugel zurück in den Briesen, der sie geschickt hat."
+    "de": "Wirf eine Windkugel zurück in den Briesen, der sie geschickt hat.",
+    "en": "Eat Wind Charge."
+   },
+   "hint": {
+    "en": "Eat Wind Charge."
    }
   },
   "textKo": "역풍 — 돌풍구를 되받아쳐 바람 정령을 날려 버렸어요.",
-  "textDe": "Gegenwind — die Windkugel zurückgeschleudert."
+  "textDe": "Gegenwind — die Windkugel zurückgeschleudert.",
+  "textEn": "the ritual of Wind Charge is complete."
  },
  "reward": {
   "badge": "adv_adventure_blowback",
@@ -72,5 +85,6 @@
    "adv_item_wind_charge"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Blowback"
 }

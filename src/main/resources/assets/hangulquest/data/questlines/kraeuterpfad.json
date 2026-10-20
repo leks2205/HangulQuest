@@ -30,7 +30,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Endsteinziegelstufe."
+    "de": "Sammle 2× Endsteinziegelstufe.",
+    "en": "Collect 2× End Stone Brick Slab."
+   },
+   "hint": {
+    "en": "Collect 2× End Stone Brick Slab."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Gemeißelter polierter Schwarzstein an."
+    "de": "Sieh dir Gemeißelter polierter Schwarzstein an.",
+    "en": "Look at Chiseled Polished Blackstone."
+   },
+   "hint": {
+    "en": "Look at Chiseled Polished Blackstone."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Iss Verzauberter goldener Apfel."
+    "de": "Iss Verzauberter goldener Apfel.",
+    "en": "Eat Enchanted Golden Apple."
+   },
+   "hint": {
+    "en": "Eat Enchanted Golden Apple."
    }
   },
   "textKo": "마법이 부여된 황금 사과라는 길의 의식을 마쳤어요.",
-  "textDe": "Verzauberter goldener Apfel — Zeremonie vollendet."
+  "textDe": "Verzauberter goldener Apfel — Zeremonie vollendet.",
+  "textEn": "the ritual of Enchanted Golden Apple is complete."
  },
  "reward": {
   "badge": "kraeuterpfad",
@@ -75,5 +88,6 @@
    "bread"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Bread-and-Blossoms Trail"
 }

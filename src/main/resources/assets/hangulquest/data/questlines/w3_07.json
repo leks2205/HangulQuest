@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Lama an."
+    "de": "Sieh dir Lama an.",
+    "en": "Look at Llama."
+   },
+   "hint": {
+    "en": "Look at Llama."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Mangrovenholzzauntor."
+    "de": "Sammle 3× Mangrovenholzzauntor.",
+    "en": "Collect 3× Mangrove Fence Gate."
+   },
+   "hint": {
+    "en": "Collect 3× Mangrove Fence Gate."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Schwefel."
+    "de": "Sammle Schwefel.",
+    "en": "Collect Sulfur."
+   },
+   "hint": {
+    "en": "Collect Sulfur."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Hellgrüne Wolle."
+    "de": "Platziere 4× Hellgrüne Wolle.",
+    "en": "Place 4× Lime Wool."
+   },
+   "hint": {
+    "en": "Place 4× Lime Wool."
    }
   },
   "textKo": "연두색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrüne Wolle — Zeremonie vollendet."
+  "textDe": "Hellgrüne Wolle — Zeremonie vollendet.",
+  "textEn": "the ritual of Lime Wool is complete."
  },
  "reward": {
   "badge": "w3_07",
@@ -91,5 +108,6 @@
    "fence"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Horse and Market"
 }

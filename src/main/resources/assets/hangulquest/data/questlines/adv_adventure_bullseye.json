@@ -28,10 +28,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Stelle einen Zielblock aus einem Heuballen und vier Redstone her."
+    "de": "Stelle einen Zielblock aus einem Heuballen und vier Redstone her.",
+    "en": "Collect Target."
    },
    "hint": {
-    "ko": "건초 더미 하나와 레드스톤 네 개로 만들어요."
+    "ko": "건초 더미 하나와 레드스톤 네 개로 만들어요.",
+    "en": "Collect Target."
    }
   },
   {
@@ -45,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Setze den Zielblock mindestens dreißig Blöcke entfernt auf."
+    "de": "Setze den Zielblock mindestens dreißig Blöcke entfernt auf.",
+    "en": "Place Target."
+   },
+   "hint": {
+    "en": "Place Target."
    }
   }
  ],
@@ -62,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Ziele aus der Distanz auf das Schwarze in der Mitte des Zielblocks."
+    "de": "Ziele aus der Distanz auf das Schwarze in der Mitte des Zielblocks.",
+    "en": "Look at Target."
+   },
+   "hint": {
+    "en": "Look at Target."
    }
   },
   "textKo": "명중 — 멀리서 과녁 한가운데를 겨눴어요.",
-  "textDe": "Volltreffer! — mitten ins Schwarze, aus der Ferne."
+  "textDe": "Volltreffer! — mitten ins Schwarze, aus der Ferne.",
+  "textEn": "the ritual of Target is complete."
  },
  "reward": {
   "badge": "adv_adventure_bullseye",
@@ -74,5 +85,6 @@
    "adv_item_target"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Bullseye"
 }

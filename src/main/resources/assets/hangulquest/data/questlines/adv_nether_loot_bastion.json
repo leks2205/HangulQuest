@@ -30,7 +30,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Abgestorbener Orgelkorallenfächer."
+    "de": "Sammle 4× Abgestorbener Orgelkorallenfächer.",
+    "en": "Collect 4× Dead Tube Coral Fan."
+   },
+   "hint": {
+    "en": "Collect 4× Dead Tube Coral Fan."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 2
    },
    "clue": {
-    "de": "Stemm zwei Goldblöcke aus den Wänden der Bastion."
+    "de": "Stemm zwei Goldblöcke aus den Wänden der Bastion.",
+    "en": "Break 2× Block of Gold."
    },
    "hint": {
-    "ko": "금 블록은 곡괭이로 캐요."
+    "ko": "금 블록은 곡괭이로 캐요.",
+    "en": "Break 2× Block of Gold."
    }
   }
  ],
@@ -63,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Öffne die Truhe in der Schatzkammer der Bastion und plündere sie."
+    "de": "Öffne die Truhe in der Schatzkammer der Bastion und plündere sie.",
+    "en": "Use Chest."
+   },
+   "hint": {
+    "en": "Use Chest."
    }
   },
   "textKo": "돼지와 전쟁 — 보루의 상자를 열고 금을 챙겼어요.",
-  "textDe": "Kampfschweine — die Schatzkammer der Bastion ist geplündert."
+  "textDe": "Kampfschweine — die Schatzkammer der Bastion ist geplündert.",
+  "textEn": "the ritual of Chest is complete."
  },
  "reward": {
   "badge": "adv_nether_loot_bastion",
@@ -77,5 +88,6 @@
    "chest"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "War Pigs"
 }

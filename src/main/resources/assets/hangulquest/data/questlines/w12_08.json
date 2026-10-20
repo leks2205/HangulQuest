@@ -31,11 +31,13 @@
     "dwellMs": 1500
    },
    "clue": {
-    "de": "Schau zwei Sekunden lang auf einen Grasblock, den Anfang der Welt."
+    "de": "Schau zwei Sekunden lang auf einen Grasblock, den Anfang der Welt.",
+    "en": "Look at Grass Block."
    },
    "hint": {
     "ko": "잔디 블록을 봐요. 세계는 잔디 블록에서 시작해요.",
-    "de": "Schau einen Grasblock an; die Welt beginnt auf einem Grasblock."
+    "de": "Schau einen Grasblock an; die Welt beginnt auf einem Grasblock.",
+    "en": "Look at Grass Block."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Polierte Andesittreppe."
+    "de": "Sammle Polierte Andesittreppe.",
+    "en": "Collect Polished Andesite Stairs."
+   },
+   "hint": {
+    "en": "Collect Polished Andesite Stairs."
    }
   },
   {
@@ -62,11 +68,13 @@
     "entity": "minecraft:iron_golem"
    },
    "clue": {
-    "de": "Sprich einen Eisengolem an, den Wächter der Welt."
+    "de": "Sprich einen Eisengolem an, den Wächter der Welt.",
+    "en": "Talk to Iron Golem."
    },
    "hint": {
     "ko": "철 골렘은 철 블록과 조각된 호박으로 만들어요.",
-    "de": "Ein Eisengolem besteht aus Eisenblöcken und einem geschnitzten Kürbis."
+    "de": "Ein Eisengolem besteht aus Eisenblöcken und einem geschnitzten Kürbis.",
+    "en": "Talk to Iron Golem."
    }
   }
  ],
@@ -88,11 +96,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Weiße Glasscheibe. Nachts."
+    "de": "Platziere 3× Weiße Glasscheibe. Nachts.",
+    "en": "Place 3× White Stained Glass Pane. At night."
+   },
+   "hint": {
+    "en": "Place 3× White Stained Glass Pane. At night."
    }
   },
   "textKo": "밤에 하얀색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Weiße Glasscheibe — Zeremonie vollendet."
+  "textDe": "Weiße Glasscheibe — Zeremonie vollendet.",
+  "textEn": "By night the ritual of White Stained Glass Pane is complete."
  },
  "reward": {
   "badge": "w12_08",
@@ -103,5 +116,6 @@
    "height"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Crown of the World"
 }

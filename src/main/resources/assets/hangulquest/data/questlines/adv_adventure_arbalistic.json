@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue eine Armbrust und spanne sie für den ersten Schuss."
+    "de": "Baue eine Armbrust und spanne sie für den ersten Schuss.",
+    "en": "Collect Crossbow."
    },
    "hint": {
-    "ko": "막대기와 철 주괴, 실, 철사 덫 발동기로 만들어요."
+    "ko": "막대기와 철 주괴, 실, 철사 덫 발동기로 만들어요.",
+    "en": "Collect Crossbow."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Erlege ein Skelett mit einem einzigen Armbrustbolzen."
+    "de": "Erlege ein Skelett mit einem einzigen Armbrustbolzen.",
+    "en": "Defeat Skeleton."
+   },
+   "hint": {
+    "en": "Defeat Skeleton."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Erschieße einen Creeper aus der Ferne, bevor er zündet."
+    "de": "Erschieße einen Creeper aus der Ferne, bevor er zündet.",
+    "en": "Defeat Creeper."
+   },
+   "hint": {
+    "en": "Defeat Creeper."
    }
   },
   "textKo": "명사수 — 쇠뇌 한 발로 몬스터를 쓰러뜨렸어요.",
-  "textDe": "Armbrustschütze — ein Bolzen, ein Monster, ein Treffer."
+  "textDe": "Armbrustschütze — ein Bolzen, ein Monster, ein Treffer.",
+  "textEn": "the ritual of Creeper is complete."
  },
  "reward": {
   "badge": "adv_adventure_arbalistic",
@@ -78,5 +89,6 @@
    "creeper"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Arbalistic"
 }

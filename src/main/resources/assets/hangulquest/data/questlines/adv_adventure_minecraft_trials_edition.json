@@ -30,10 +30,12 @@
     "count": 2
    },
    "clue": {
-    "de": "Schlag dich durch die Wände aus gemeißeltem Tuffstein einer Prüfungskammer."
+    "de": "Schlag dich durch die Wände aus gemeißeltem Tuffstein einer Prüfungskammer.",
+    "en": "Break 2× Chiseled Tuff."
    },
    "hint": {
-    "ko": "곡괭이로 캐요."
+    "ko": "곡괭이로 캐요.",
+    "en": "Break 2× Chiseled Tuff."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Besiege 2× Diener."
+    "de": "Besiege 2× Diener.",
+    "en": "Defeat 2× Vindicator."
+   },
+   "hint": {
+    "en": "Defeat 2× Vindicator."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Grüne Keramik."
+    "de": "Platziere Grüne Keramik.",
+    "en": "Place Green Terracotta."
+   },
+   "hint": {
+    "en": "Place Green Terracotta."
    }
   },
   "textKo": "초록색 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Keramik — Zeremonie vollendet."
+  "textDe": "Grüne Keramik — Zeremonie vollendet.",
+  "textEn": "the ritual of Green Terracotta is complete."
  },
  "reward": {
   "badge": "adv_adventure_minecraft_trials_edition",
@@ -78,5 +89,6 @@
    "height"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Minecraft: Trial(s) Edition"
 }

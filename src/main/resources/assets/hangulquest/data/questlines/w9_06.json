@@ -31,11 +31,13 @@
    },
    "clue": {
     "de": "Brich vier Obsidianblöcke für die Kammer der Krone.",
-    "ko": "왕관의 방을 지키려고 흑요석 네 개를 캐요."
+    "ko": "왕관의 방을 지키려고 흑요석 네 개를 캐요.",
+    "en": "Collect 4× Obsidian."
    },
    "hint": {
     "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
+    "de": "Obsidian baust du mit einer Diamantspitzhacke ab.",
+    "en": "Collect 4× Obsidian."
    }
   },
   {
@@ -50,7 +52,8 @@
    },
    "clue": {
     "de": "Häng nachts vier Seelenlaternen in den Gang.",
-    "ko": "밤에 복도에 영혼 랜턴을 네 개 놓아요."
+    "ko": "밤에 복도에 영혼 랜턴을 네 개 놓아요.",
+    "en": "Place 4× Soul Lantern. At night."
    },
    "conditions": [
     {
@@ -60,7 +63,8 @@
    ],
    "hint": {
     "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
-    "de": "Seelenlaternen brauchen eine Seelenfackel und Eisenbarren."
+    "de": "Seelenlaternen brauchen eine Seelenfackel und Eisenbarren.",
+    "en": "Place 4× Soul Lantern. At night."
    }
   }
  ],
@@ -77,11 +81,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Kaktus."
+    "de": "Platziere Kaktus.",
+    "en": "Place Cactus."
+   },
+   "hint": {
+    "en": "Place Cactus."
    }
   },
   "textKo": "선인장라는 길의 의식을 마쳤어요.",
-  "textDe": "Kaktus — Zeremonie vollendet."
+  "textDe": "Kaktus — Zeremonie vollendet.",
+  "textEn": "the ritual of Cactus is complete."
  },
  "reward": {
   "badge": "w9_06",
@@ -91,5 +100,6 @@
    "soul_lantern"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Dark Crown"
 }

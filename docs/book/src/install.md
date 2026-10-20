@@ -45,8 +45,10 @@ sha256sum -c SHA256SUMS
   word, and a two-question sidequest. Finishing it brings the quest back.
 - Press `K` for the journal. The **Quests** tab shows the whole tree: what you finished, what is open
   and what the locked branches are waiting for.
-- If you want to see the German line for each quest, open **Optionen** in the journal and switch on
-  *Deutsch in Quests*. The quest itself is always Korean, so the Korean is what you learn to read.
+- The interface starts in English; **Optionen** → *Sprache* switches it to German (and back).
+- If you want a translation line under each quest, switch on *Übersetzungen in Quests* / *Translations
+  in quests* in the same tab. It is off by default: the quest itself is always Korean, so the Korean is
+  what you learn to read.
 
 ## Updating
 

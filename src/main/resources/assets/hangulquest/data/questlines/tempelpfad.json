@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Lauwarme Tiefsee."
+    "de": "Erreiche Lauwarme Tiefsee.",
+    "en": "Reach Deep Lukewarm Ocean."
+   },
+   "hint": {
+    "en": "Reach Deep Lukewarm Ocean."
    }
   },
   {
@@ -46,11 +50,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Baue vier Sandstein ab."
+    "de": "Baue vier Sandstein ab.",
+    "en": "Break 4× Sandstone."
    },
    "hint": {
     "ko": "사암은 곡괭이로 캐요.",
-    "de": "Sandstein baust du mit einer Spitzhacke ab."
+    "de": "Sandstein baust du mit einer Spitzhacke ab.",
+    "en": "Break 4× Sandstone."
    }
   },
   {
@@ -64,7 +70,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Steinziegelmauer."
+    "de": "Platziere 3× Steinziegelmauer.",
+    "en": "Place 3× Stone Brick Wall."
+   },
+   "hint": {
+    "en": "Place 3× Stone Brick Wall."
    }
   }
  ],
@@ -86,11 +96,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 2× Zierlauch. Nachts."
+    "de": "Platziere 2× Zierlauch. Nachts.",
+    "en": "Place 2× Allium. At night."
+   },
+   "hint": {
+    "en": "Place 2× Allium. At night."
    }
   },
   "textKo": "밤에 알리움라는 길의 의식을 마쳤어요.",
-  "textDe": "Zierlauch — Zeremonie vollendet."
+  "textDe": "Zierlauch — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Allium is complete."
  },
  "reward": {
   "badge": "tempelpfad",
@@ -101,5 +116,6 @@
    "torch"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Desert Temple"
 }

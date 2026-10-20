@@ -32,11 +32,13 @@
    },
    "clue": {
     "ko": "비트를 만들어요.",
-    "de": "Stelle Rote Bete her."
+    "de": "Stelle Rote Bete her.",
+    "en": "Collect 2× Beetroot."
    },
    "hint": {
     "ko": "비트를 만들어요.",
-    "de": "Stelle Rote Bete her."
+    "de": "Stelle Rote Bete her.",
+    "en": "Collect 2× Beetroot."
    }
   },
   {
@@ -51,11 +53,13 @@
    },
    "clue": {
     "ko": "비트를 봐요.",
-    "de": "Sieh dir Rote Bete an."
+    "de": "Sieh dir Rote Bete an.",
+    "en": "Look at Beetroots."
    },
    "hint": {
     "ko": "비트를 봐요.",
-    "de": "Sieh dir Rote Bete an."
+    "de": "Sieh dir Rote Bete an.",
+    "en": "Look at Beetroots."
    }
   }
  ],
@@ -75,10 +79,17 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "en": "Place Red Banner. At dusk."
+   },
+   "hint": {
+    "en": "Place Red Banner. At dusk."
+   }
   },
   "textKo": "저녁에 붉은 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet."
+  "textDe": "Die Zeremonie ist vollendet.",
+  "textEn": "At dusk the ritual of Red Banner is complete."
  },
  "reward": {
   "badge": "rotwerk",
@@ -87,5 +98,6 @@
    "gen_beetroots",
    "gen_red_banner"
   ]
- }
+ },
+ "titleEn": "The Red Thread"
 }

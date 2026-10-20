@@ -31,11 +31,13 @@
     "count": 8
    },
    "clue": {
-    "de": "Baue acht Kies ab."
+    "de": "Baue acht Kies ab.",
+    "en": "Break 8× Gravel."
    },
    "hint": {
     "ko": "자갈은 삽으로 캐요.",
-    "de": "Kies gräbst du mit der Schaufel."
+    "de": "Kies gräbst du mit der Schaufel.",
+    "en": "Break 8× Gravel."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Steinschaufel."
+    "de": "Sammle 3× Steinschaufel.",
+    "en": "Collect 3× Stone Shovel."
+   },
+   "hint": {
+    "en": "Collect 3× Stone Shovel."
    }
   },
   {
@@ -63,7 +69,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Diener an."
+    "de": "Sieh dir Diener an.",
+    "en": "Look at Vindicator."
+   },
+   "hint": {
+    "en": "Look at Vindicator."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Erreiche Birkenwald."
+    "de": "Erreiche Birkenwald.",
+    "en": "Reach Birch Forest."
+   },
+   "hint": {
+    "en": "Reach Birch Forest."
    }
   },
   "textKo": "자작나무 숲라는 길의 의식을 마쳤어요.",
-  "textDe": "Birkenwald — Zeremonie vollendet."
+  "textDe": "Birkenwald — Zeremonie vollendet.",
+  "textEn": "the ritual of Birch Forest is complete."
  },
  "reward": {
   "badge": "w5_07",
@@ -95,5 +110,6 @@
    "ocean"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Gravel Under Water"
 }

@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Vereister Ozean."
+    "de": "Erreiche Vereister Ozean.",
+    "en": "Reach Frozen Ocean."
+   },
+   "hint": {
+    "en": "Reach Frozen Ocean."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Akazienstamm."
+    "de": "Platziere 2× Akazienstamm.",
+    "en": "Place 2× Acacia Log."
+   },
+   "hint": {
+    "en": "Place 2× Acacia Log."
    }
   },
   {
@@ -66,7 +74,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Gelbe Glasscheibe. Nachts."
+    "de": "Platziere 3× Gelbe Glasscheibe. Nachts.",
+    "en": "Place 3× Yellow Stained Glass Pane. At night."
+   },
+   "hint": {
+    "en": "Place 3× Yellow Stained Glass Pane. At night."
    }
   }
  ],
@@ -88,11 +100,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Magenta Kerze. Nachts."
+    "de": "Platziere Magenta Kerze. Nachts.",
+    "en": "Place Magenta Candle. At night."
+   },
+   "hint": {
+    "en": "Place Magenta Candle. At night."
    }
   },
   "textKo": "밤에 자홍색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta Kerze — Zeremonie vollendet."
+  "textDe": "Magenta Kerze — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Magenta Candle is complete."
  },
  "reward": {
   "badge": "wanderpfad",
@@ -102,5 +119,6 @@
    "torch"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Wanderer's Trail"
 }

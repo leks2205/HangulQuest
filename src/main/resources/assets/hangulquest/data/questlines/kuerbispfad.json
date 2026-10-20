@@ -28,7 +28,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Kürbisse."
+    "de": "Sammle drei Kürbisse.",
+    "en": "Collect 3× Pumpkin."
+   },
+   "hint": {
+    "en": "Collect 3× Pumpkin."
    }
   },
   {
@@ -42,11 +46,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Setz zwei Kürbisse."
+    "de": "Setz zwei Kürbisse.",
+    "en": "Place 2× Pumpkin."
    },
    "hint": {
     "ko": "조각된 호박은 가위로 호박을 깎아 만들어요.",
-    "de": "Geschnitzte Kürbisse entstehen mit einer Schere."
+    "de": "Geschnitzte Kürbisse entstehen mit einer Schere.",
+    "en": "Place 2× Pumpkin."
    }
   },
   {
@@ -60,7 +66,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau einen geschnitzten Kürbis an."
+    "de": "Schau einen geschnitzten Kürbis an.",
+    "en": "Look at Carved Pumpkin."
+   },
+   "hint": {
+    "en": "Look at Carved Pumpkin."
    }
   }
  ],
@@ -77,11 +87,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Purpursäule."
+    "de": "Platziere Purpursäule.",
+    "en": "Place Purpur Pillar."
+   },
+   "hint": {
+    "en": "Place Purpur Pillar."
    }
   },
   "textKo": "퍼퍼 기둥라는 길의 의식을 마쳤어요.",
-  "textDe": "Purpursäule — Zeremonie vollendet."
+  "textDe": "Purpursäule — Zeremonie vollendet.",
+  "textEn": "the ritual of Purpur Pillar is complete."
  },
  "reward": {
   "badge": "kuerbispfad",
@@ -90,5 +105,6 @@
    "carved_pumpkin"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Pumpkin Trail"
 }

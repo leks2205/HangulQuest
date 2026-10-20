@@ -32,11 +32,13 @@
    },
    "clue": {
     "ko": "노란색 염료를 만들어요.",
-    "de": "Stelle Gelber Farbstoff her."
+    "de": "Stelle Gelber Farbstoff her.",
+    "en": "Collect 2× Yellow Dye."
    },
    "hint": {
     "ko": "노란색 염료를 만들어요.",
-    "de": "Stelle Gelber Farbstoff her."
+    "de": "Stelle Gelber Farbstoff her.",
+    "en": "Collect 2× Yellow Dye."
    }
   },
   {
@@ -51,11 +53,13 @@
    },
    "clue": {
     "ko": "노란색 콘크리트를 봐요.",
-    "de": "Sieh dir Gelber Beton an."
+    "de": "Sieh dir Gelber Beton an.",
+    "en": "Look at Yellow Concrete."
    },
    "hint": {
     "ko": "노란색 콘크리트를 봐요.",
-    "de": "Sieh dir Gelber Beton an."
+    "de": "Sieh dir Gelber Beton an.",
+    "en": "Look at Yellow Concrete."
    }
   }
  ],
@@ -75,10 +79,17 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ]
+   ],
+   "clue": {
+    "en": "Place Yellow Bed. During the day."
+   },
+   "hint": {
+    "en": "Place Yellow Bed. During the day."
+   }
   },
   "textKo": "낮에 노란 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet."
+  "textDe": "Die Zeremonie ist vollendet.",
+  "textEn": "By day the ritual of Yellow Bed is complete."
  },
  "reward": {
   "badge": "gelbwerk",
@@ -87,5 +98,6 @@
    "gen_yellow_concrete",
    "gen_yellow_bed"
   ]
- }
+ },
+ "titleEn": "The Yellow Thread"
 }

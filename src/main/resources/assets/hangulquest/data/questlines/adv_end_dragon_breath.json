@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Nimm Glasflaschen mit, sonst kannst du den Atem nicht einfangen."
+    "de": "Nimm Glasflaschen mit, sonst kannst du den Atem nicht einfangen.",
+    "en": "Collect Glass Bottle."
    },
    "hint": {
-    "ko": "유리 세 개로 만들어요."
+    "ko": "유리 세 개로 만들어요.",
+    "en": "Collect Glass Bottle."
    }
   },
   {
@@ -47,7 +49,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Silberfischchen an."
+    "de": "Sieh dir Silberfischchen an.",
+    "en": "Look at Silverfish."
+   },
+   "hint": {
+    "en": "Look at Silverfish."
    }
   }
  ],
@@ -62,10 +68,17 @@
     "item": "minecraft:dragon_breath",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Dragon's Breath."
+   },
+   "hint": {
+    "en": "Collect Dragon's Breath."
+   }
   },
   "textKo": "양치질이 필요해 보이는걸 — 유리병으로 드래곤의 숨결을 담아요.",
-  "textDe": "Du brauchst ein Pfefferminz — Fange den Drachenatem mit einer Glasflasche ein."
+  "textDe": "Du brauchst ein Pfefferminz — Fange den Drachenatem mit einer Glasflasche ein.",
+  "textEn": "the ritual of Dragon's Breath is complete."
  },
  "reward": {
   "badge": "adv_end_dragon_breath",
@@ -75,5 +88,6 @@
    "adv_item_dragon_breath"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "You Need a Mint"
 }

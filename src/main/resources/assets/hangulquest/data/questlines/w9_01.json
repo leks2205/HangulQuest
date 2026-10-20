@@ -31,11 +31,13 @@
    },
    "clue": {
     "de": "Schmiede eine goldene Krone.",
-    "ko": "금으로 왕관을 만들어요."
+    "ko": "금으로 왕관을 만들어요.",
+    "en": "Collect Golden Helmet."
    },
    "hint": {
     "ko": "왕관은 금 조각 다섯 개로 만들어요.",
-    "de": "Eine Krone schmiedest du aus fünf Goldbarren."
+    "de": "Eine Krone schmiedest du aus fünf Goldbarren.",
+    "en": "Collect Golden Helmet."
    }
   },
   {
@@ -50,7 +52,8 @@
    },
    "clue": {
     "de": "Stell nachts vier Kerzen für das Ritual auf.",
-    "ko": "밤에 의식을 위해 초를 네 개 놓아요."
+    "ko": "밤에 의식을 위해 초를 네 개 놓아요.",
+    "en": "Place 4× Candle. At night."
    },
    "conditions": [
     {
@@ -60,7 +63,8 @@
    ],
    "hint": {
     "ko": "초는 실과 벌집 조각으로 만들어요.",
-    "de": "Kerzen bestehen aus Faden und Honigwabe."
+    "de": "Kerzen bestehen aus Faden und Honigwabe.",
+    "en": "Place 4× Candle. At night."
    }
   }
  ],
@@ -77,11 +81,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Mangrovenwurzeln."
+    "de": "Platziere 3× Mangrovenwurzeln.",
+    "en": "Place 3× Mangrove Roots."
+   },
+   "hint": {
+    "en": "Place 3× Mangrove Roots."
    }
   },
   "textKo": "맹그로브나무 뿌리라는 길의 의식을 마쳤어요.",
-  "textDe": "Mangrovenwurzeln — Zeremonie vollendet."
+  "textDe": "Mangrovenwurzeln — Zeremonie vollendet.",
+  "textEn": "the ritual of Mangrove Roots is complete."
  },
  "reward": {
   "badge": "w9_01",
@@ -91,5 +100,6 @@
    "ritual"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Shining Oath"
 }

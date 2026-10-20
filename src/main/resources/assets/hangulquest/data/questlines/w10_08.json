@@ -31,7 +31,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Wirrwarzenblock."
+    "de": "Sammle 8× Wirrwarzenblock.",
+    "en": "Collect 8× Warped Wart Block."
+   },
+   "hint": {
+    "en": "Collect 8× Warped Wart Block."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Setz zwei Hebel an die Ruinenwand."
+    "de": "Setz zwei Hebel an die Ruinenwand.",
+    "en": "Place 2× Lever."
    },
    "hint": {
     "ko": "레버는 조약돌과 막대기로 만들어요.",
-    "de": "Ein Hebel besteht aus Bruchstein und einem Stock."
+    "de": "Ein Hebel besteht aus Bruchstein und einem Stock.",
+    "en": "Place 2× Lever."
    }
   },
   {
@@ -63,7 +69,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Sieh dir Plünderer an."
+    "de": "Sieh dir Plünderer an.",
+    "en": "Look at Pillager."
+   },
+   "hint": {
+    "en": "Look at Pillager."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Prismarinziegelstufe."
+    "de": "Platziere 4× Prismarinziegelstufe.",
+    "en": "Place 4× Prismarine Brick Slab."
+   },
+   "hint": {
+    "en": "Place 4× Prismarine Brick Slab."
    }
   },
   "textKo": "프리즈머린 벽돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Prismarinziegelstufe — Zeremonie vollendet."
+  "textDe": "Prismarinziegelstufe — Zeremonie vollendet.",
+  "textEn": "the ritual of Prismarine Brick Slab is complete."
  },
  "reward": {
   "badge": "w10_08",
@@ -95,5 +110,6 @@
    "lantern"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Sand Golem's Lantern"
 }

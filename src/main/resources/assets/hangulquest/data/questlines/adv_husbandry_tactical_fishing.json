@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Gefahren-Töpferscherbe."
+    "de": "Sammle Gefahren-Töpferscherbe.",
+    "en": "Collect Danger Pottery Sherd."
+   },
+   "hint": {
+    "en": "Collect Danger Pottery Sherd."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Birkenholztür."
+    "de": "Sammle Birkenholztür.",
+    "en": "Collect Birch Door."
+   },
+   "hint": {
+    "en": "Collect Birch Door."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:pufferfish_bucket",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Bucket of Pufferfish."
+   },
+   "hint": {
+    "en": "Collect Bucket of Pufferfish."
+   }
   },
   "textKo": "이 대신 잇몸으로 — 양동이로 복어를 잡아요.",
-  "textDe": "Taktisches Fischen — Statt mit der Angel schöpfst du einen Kugelfisch in den Eimer."
+  "textDe": "Taktisches Fischen — Statt mit der Angel schöpfst du einen Kugelfisch in den Eimer.",
+  "textEn": "the ritual of Bucket of Pufferfish is complete."
  },
  "reward": {
   "badge": "adv_husbandry_tactical_fishing",
@@ -72,5 +87,6 @@
    "adv_item_pufferfish_bucket"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Tactical Fishing"
 }

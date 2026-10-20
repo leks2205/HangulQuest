@@ -32,11 +32,13 @@
    },
    "clue": {
     "de": "Hol dir eine Uhr für die Mondstunden.",
-    "ko": "달빛 아래에서 쓸 시계를 만들어요."
+    "ko": "달빛 아래에서 쓸 시계를 만들어요.",
+    "en": "Collect Clock."
    },
    "hint": {
     "ko": "시계는 금 조각과 레드스톤으로 만들어요.",
-    "de": "Eine Uhr braucht Gold und Redstone."
+    "de": "Eine Uhr braucht Gold und Redstone.",
+    "en": "Collect Clock."
    }
   },
   {
@@ -51,11 +53,13 @@
    },
    "clue": {
     "de": "Setz acht Fackeln gegen die Nacht.",
-    "ko": "밤이 오기 전에 횃불 여덟 개를 놓아요."
+    "ko": "밤이 오기 전에 횃불 여덟 개를 놓아요.",
+    "en": "Place 8× Torch."
    },
    "hint": {
     "ko": "횃불은 막대기와 석탄으로 만들어요.",
-    "de": "Fackeln machst du aus Stöcken und Kohle."
+    "de": "Fackeln machst du aus Stöcken und Kohle.",
+    "en": "Place 8× Torch."
    }
   },
   {
@@ -69,7 +73,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Kirschberghain."
+    "de": "Erreiche Kirschberghain.",
+    "en": "Reach Cherry Grove."
+   },
+   "hint": {
+    "en": "Reach Cherry Grove."
    }
   }
  ],
@@ -86,11 +94,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Verwitterte Kupferfalltür."
+    "de": "Platziere 4× Verwitterte Kupferfalltür.",
+    "en": "Place 4× Weathered Copper Trapdoor."
+   },
+   "hint": {
+    "en": "Place 4× Weathered Copper Trapdoor."
    }
   },
   "textKo": "녹슨 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Verwitterte Kupferfalltür — Zeremonie vollendet."
+  "textDe": "Verwitterte Kupferfalltür — Zeremonie vollendet.",
+  "textEn": "the ritual of Weathered Copper Trapdoor is complete."
  },
  "reward": {
   "badge": "w11_02",
@@ -101,5 +114,6 @@
    "candle"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "A Ride in Moonlight"
 }

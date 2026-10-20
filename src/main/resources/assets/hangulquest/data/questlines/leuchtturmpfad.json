@@ -32,7 +32,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Schlammziegelstufe."
+    "de": "Platziere 3× Schlammziegelstufe.",
+    "en": "Place 3× Mud Brick Slab."
+   },
+   "hint": {
+    "en": "Place 3× Mud Brick Slab."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Befallene bemooste Steinziegel."
+    "de": "Platziere 3× Befallene bemooste Steinziegel.",
+    "en": "Place 3× Infested Mossy Stone Bricks."
+   },
+   "hint": {
+    "en": "Place 3× Infested Mossy Stone Bricks."
    }
   },
   {
@@ -60,7 +68,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Savannenhochebene."
+    "de": "Erreiche Savannenhochebene.",
+    "en": "Reach Savanna Plateau."
+   },
+   "hint": {
+    "en": "Reach Savanna Plateau."
    }
   }
  ],
@@ -77,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Roter Pilzblock."
+    "de": "Platziere 2× Roter Pilzblock.",
+    "en": "Place 2× Red Mushroom Block."
+   },
+   "hint": {
+    "en": "Place 2× Red Mushroom Block."
    }
   },
   "textKo": "빨간색 버섯 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Roter Pilzblock — Zeremonie vollendet."
+  "textDe": "Roter Pilzblock — Zeremonie vollendet.",
+  "textEn": "the ritual of Red Mushroom Block is complete."
  },
  "reward": {
   "badge": "leuchtturmpfad",
@@ -92,5 +109,6 @@
    "sea_lantern"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Lighthouse Trail"
 }

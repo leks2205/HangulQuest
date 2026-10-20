@@ -30,7 +30,11 @@
     "count": 24
    },
    "clue": {
-    "de": "Baue 24× Tuffsteinstufe ab."
+    "de": "Baue 24× Tuffsteinstufe ab.",
+    "en": "Break 24× Tuff Slab."
+   },
+   "hint": {
+    "en": "Break 24× Tuff Slab."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Halte nach einem Diamanten im Erz Ausschau."
+    "de": "Halte nach einem Diamanten im Erz Ausschau.",
+    "en": "Look at Diamond Ore."
+   },
+   "hint": {
+    "en": "Look at Diamond Ore."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Angelaufene Kupferkette."
+    "de": "Sammle Angelaufene Kupferkette.",
+    "en": "Collect Exposed Copper Chain."
+   },
+   "hint": {
+    "en": "Collect Exposed Copper Chain."
    }
   },
   "textKo": "약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene Kupferkette — Zeremonie vollendet."
+  "textDe": "Angelaufene Kupferkette — Zeremonie vollendet.",
+  "textEn": "the ritual of Exposed Copper Chain is complete."
  },
  "reward": {
   "badge": "adv_story_mine_diamond",
@@ -74,5 +87,6 @@
    "diamond"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Diamonds!"
 }

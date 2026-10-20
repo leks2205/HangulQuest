@@ -29,10 +29,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue den ersten Werker aus Eisen, Werkbank, Spender und Redstone."
+    "de": "Baue den ersten Werker aus Eisen, Werkbank, Spender und Redstone.",
+    "en": "Collect Crafter."
    },
    "hint": {
-    "ko": "철 주괴 다섯 개와 작업대와 공급기와 레드스톤으로 만들어요."
+    "ko": "철 주괴 다섯 개와 작업대와 공급기와 레드스톤으로 만들어요.",
+    "en": "Collect Crafter."
    }
   },
   {
@@ -46,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Stelle den Werker auf und lege ein Rezept in seine Fächer."
+    "de": "Stelle den Werker auf und lege ein Rezept in seine Fächer.",
+    "en": "Place Crafter."
+   },
+   "hint": {
+    "en": "Place Crafter."
    }
   }
  ],
@@ -63,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 2× Zombiekopf."
+    "de": "Sammle 2× Zombiekopf.",
+    "en": "Collect 2× Zombie Head."
+   },
+   "hint": {
+    "en": "Collect 2× Zombie Head."
    }
   },
   "textKo": "좀비 머리라는 길의 의식을 마쳤어요.",
-  "textDe": "Zombiekopf — Zeremonie vollendet."
+  "textDe": "Zombiekopf — Zeremonie vollendet.",
+  "textEn": "the ritual of Zombie Head is complete."
  },
  "reward": {
   "badge": "adv_adventure_crafters_crafting_crafters",
@@ -75,5 +86,6 @@
    "adv_item_crafter"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Crafters Crafting Crafters"
 }

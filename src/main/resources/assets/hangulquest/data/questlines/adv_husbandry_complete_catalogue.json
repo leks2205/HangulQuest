@@ -29,7 +29,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Finde im Dorf eine Katze und schau sie dir an."
+    "de": "Finde im Dorf eine Katze und schau sie dir an.",
+    "en": "Look at Cat."
+   },
+   "hint": {
+    "en": "Look at Cat."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Birkenholzhängeschild."
+    "de": "Sammle 2× Birkenholzhängeschild.",
+    "en": "Collect 2× Birch Hanging Sign."
+   },
+   "hint": {
+    "en": "Collect 2× Birch Hanging Sign."
    }
   }
  ],
@@ -57,10 +65,17 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:cat"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Talk to Cat."
+   },
+   "hint": {
+    "en": "Talk to Cat."
+   }
   },
   "textKo": "집사 그 자체 — 대구를 주고 고양이를 길들여요.",
-  "textDe": "Ein kompletter Katerlog: Mit rohem Kabeljau zähmst du die Katze."
+  "textDe": "Ein kompletter Katerlog: Mit rohem Kabeljau zähmst du die Katze.",
+  "textEn": "the ritual of Cat is complete."
  },
  "reward": {
   "badge": "adv_husbandry_complete_catalogue",
@@ -68,5 +83,6 @@
    "cat"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "A Complete Catalogue"
 }

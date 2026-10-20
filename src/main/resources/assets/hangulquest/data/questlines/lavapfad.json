@@ -32,7 +32,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Spender an."
+    "de": "Sieh dir Spender an.",
+    "en": "Look at Dropper."
+   },
+   "hint": {
+    "en": "Look at Dropper."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Baue 3× Mangrovenholzbretter ab."
+    "de": "Baue 3× Mangrovenholzbretter ab.",
+    "en": "Break 3× Mangrove Planks."
+   },
+   "hint": {
+    "en": "Break 3× Mangrove Planks."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Gewachste Kupfertruhe."
+    "de": "Platziere 4× Gewachste Kupfertruhe.",
+    "en": "Place 4× Waxed Copper Chest."
+   },
+   "hint": {
+    "en": "Place 4× Waxed Copper Chest."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Fichtenholzfalltür. Nachts."
+    "de": "Platziere Fichtenholzfalltür. Nachts.",
+    "en": "Place Spruce Trapdoor. At night."
+   },
+   "hint": {
+    "en": "Place Spruce Trapdoor. At night."
    }
   },
   "textKo": "밤에 가문비나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzfalltür — Zeremonie vollendet."
+  "textDe": "Fichtenholzfalltür — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Spruce Trapdoor is complete."
  },
  "reward": {
   "badge": "lavapfad",
@@ -97,5 +114,6 @@
    "campfire"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Lava Trail"
 }

@@ -30,11 +30,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Erbeute einen Dreizack von einem Ertrunkenen."
+    "de": "Erbeute einen Dreizack von einem Ertrunkenen.",
+    "en": "Collect Trident."
    },
    "hint": {
     "ko": "익사자가 가끔 삼지창을 떨어뜨려요.",
-    "de": "Ertrunkene lassen manchmal einen Dreizack fallen."
+    "de": "Ertrunkene lassen manchmal einen Dreizack fallen.",
+    "en": "Collect Trident."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Besiege Zoglin."
+    "de": "Besiege Zoglin.",
+    "en": "Defeat Zoglin."
+   },
+   "hint": {
+    "en": "Defeat Zoglin."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege 2× Böe."
+    "de": "Besiege 2× Böe.",
+    "en": "Defeat 2× Breeze."
+   },
+   "hint": {
+    "en": "Defeat 2× Breeze."
    }
   },
   "textKo": "브리즈라는 길의 의식을 마쳤어요.",
-  "textDe": "Böe — Zeremonie vollendet."
+  "textDe": "Böe — Zeremonie vollendet.",
+  "textEn": "the ritual of Breeze is complete."
  },
  "reward": {
   "badge": "adv_adventure_throw_trident",
@@ -79,5 +90,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "A Throwaway Joke"
 }

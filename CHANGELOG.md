@@ -4,6 +4,29 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [2.1.0] — 2026-10-20
+
+### Added
+
+- **English, everywhere.** The interface, the journal, the settings page, the achievements, the quiz and
+  every quest line now exist in English as well as German. English is the default; *Optionen → Sprache*
+  switches to German, and an existing config that had German switched on moves over automatically.
+- **English quest text for all 420 trails**: titles, 1,524 clue and hint lines, 420 finale lines, and the
+  vocabulary gloss for all 1,132 concepts. Names come from Minecraft's own `en_us.json`, so an apple is
+  an apple; the sentences are generated from the same goal data as the German ones.
+- `QuestlineValidationTest` now also fails when a trail lacks an English title or a step lacks an English
+  clue, or when an English clue contains Hangul.
+
+### Changed
+
+- **The translation line stays off by default**, in either language: quest text is Korean only until you
+  switch *Übersetzungen in Quests* (or the journal's eye) on. The setting no longer means "German", only
+  "show a translation", and it follows the interface language.
+- **Package renamed** from `de.zirks.hangulquest` to `io.github.leks2205.hangulquest` (config, progress
+  files and the mod id are unchanged), so the source tree carries no personal namespace.
+
+[2.1.0]: https://github.com/leks2205/HangulQuest/releases/tag/v2.1.0
+
 ## [2.0.1] — 2026-10-20
 
 ### Fixed

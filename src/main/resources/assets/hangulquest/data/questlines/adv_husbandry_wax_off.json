@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede zuerst eine Axt – damit wird das Wachs später abgeschabt."
+    "de": "Schmiede zuerst eine Axt – damit wird das Wachs später abgeschabt.",
+    "en": "Collect Iron Axe."
    },
    "hint": {
-    "ko": "철 도끼를 만들어요. 철 세 개와 막대기 두 개가 필요해요."
+    "ko": "철 도끼를 만들어요. 철 세 개와 막대기 두 개가 필요해요.",
+    "en": "Collect Iron Axe."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Türkise Glasscheibe."
+    "de": "Platziere Türkise Glasscheibe.",
+    "en": "Place Cyan Stained Glass Pane."
+   },
+   "hint": {
+    "en": "Place Cyan Stained Glass Pane."
    }
   }
  ],
@@ -63,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Benutze Gelbes Bett."
+    "de": "Benutze Gelbes Bett.",
+    "en": "Use Yellow Bed."
+   },
+   "hint": {
+    "en": "Use Yellow Bed."
    }
   },
   "textKo": "노란색 침대라는 길의 의식을 마쳤어요.",
-  "textDe": "Gelbes Bett — Zeremonie vollendet."
+  "textDe": "Gelbes Bett — Zeremonie vollendet.",
+  "textEn": "the ritual of Yellow Bed is complete."
  },
  "reward": {
   "badge": "adv_husbandry_wax_off",
@@ -76,5 +87,6 @@
    "adv_item_copper_bulb"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Wax Off"
 }

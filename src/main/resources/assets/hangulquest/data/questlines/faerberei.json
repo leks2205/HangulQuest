@@ -32,11 +32,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei roten Farbstoff."
+    "de": "Sammle drei roten Farbstoff.",
+    "en": "Collect 3× Red Dye."
    },
    "hint": {
     "ko": "빨간 염료는 양귀비나 비트로 만들어요.",
-    "de": "Roter Farbstoff kommt aus Mohn oder Rote Bete."
+    "de": "Roter Farbstoff kommt aus Mohn oder Rote Bete.",
+    "en": "Collect 3× Red Dye."
    }
   },
   {
@@ -49,7 +51,11 @@
     "block": "minecraft:stone_button"
    },
    "clue": {
-    "de": "Benutze Steinknopf."
+    "de": "Benutze Steinknopf.",
+    "en": "Use Stone Button."
+   },
+   "hint": {
+    "en": "Use Stone Button."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Kannenpflanze."
+    "de": "Platziere 4× Kannenpflanze.",
+    "en": "Place 4× Pitcher Plant."
+   },
+   "hint": {
+    "en": "Place 4× Pitcher Plant."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 6× Kupferbeinschutz."
+    "de": "Sammle 6× Kupferbeinschutz.",
+    "en": "Collect 6× Copper Leggings."
+   },
+   "hint": {
+    "en": "Collect 6× Copper Leggings."
    }
   },
   "textKo": "구리 레깅스라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupferbeinschutz — Zeremonie vollendet."
+  "textDe": "Kupferbeinschutz — Zeremonie vollendet.",
+  "textEn": "the ritual of Copper Leggings is complete."
  },
  "reward": {
   "badge": "faerberei",
@@ -94,5 +109,6 @@
    "wool"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Dyer's Trail"
 }

@@ -31,7 +31,11 @@
     "count": 17
    },
    "clue": {
-    "de": "Sammle 17× Bienennest."
+    "de": "Sammle 17× Bienennest.",
+    "en": "Collect 17× Bee Nest."
+   },
+   "hint": {
+    "en": "Collect 17× Bee Nest."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede einen Eisenhelm."
+    "de": "Schmiede einen Eisenhelm.",
+    "en": "Collect Iron Helmet."
    },
    "hint": {
     "ko": "철 투구는 철 주괴 다섯 개로 만들어요.",
-    "de": "Ein Eisenhelm braucht fünf Eisenbarren."
+    "de": "Ein Eisenhelm braucht fünf Eisenbarren.",
+    "en": "Collect Iron Helmet."
    }
   },
   {
@@ -63,11 +69,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede ein Paar Eisenstiefel."
+    "de": "Schmiede ein Paar Eisenstiefel.",
+    "en": "Collect Iron Boots."
    },
    "hint": {
     "ko": "철 부츠는 철 주괴 네 개로 만들어요.",
-    "de": "Eisenstiefel brauchen vier Eisenbarren."
+    "de": "Eisenstiefel brauchen vier Eisenbarren.",
+    "en": "Collect Iron Boots."
    }
   }
  ],
@@ -84,11 +92,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Kettenhaube."
+    "de": "Sammle Kettenhaube.",
+    "en": "Collect Chainmail Helmet."
+   },
+   "hint": {
+    "en": "Collect Chainmail Helmet."
    }
   },
   "textKo": "사슬 투구라는 길의 의식을 마쳤어요.",
-  "textDe": "Kettenhaube — Zeremonie vollendet."
+  "textDe": "Kettenhaube — Zeremonie vollendet.",
+  "textEn": "the ritual of Chainmail Helmet is complete."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",
@@ -99,5 +112,6 @@
    "iron_chestplate"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Suit Up"
 }

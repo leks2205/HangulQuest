@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Ebene."
+    "de": "Erreiche Ebene.",
+    "en": "Reach Plains."
+   },
+   "hint": {
+    "en": "Reach Plains."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Platziere 6× Glatter Basalt."
+    "de": "Platziere 6× Glatter Basalt.",
+    "en": "Place 6× Smooth Basalt."
+   },
+   "hint": {
+    "en": "Place 6× Smooth Basalt."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Rote Betonstufe."
+    "de": "Platziere Rote Betonstufe.",
+    "en": "Place Red Concrete Slab."
+   },
+   "hint": {
+    "en": "Place Red Concrete Slab."
    }
   }
  ],
@@ -77,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Eichenholzschild."
+    "de": "Platziere 3× Eichenholzschild.",
+    "en": "Place 3× Oak Sign."
+   },
+   "hint": {
+    "en": "Place 3× Oak Sign."
    }
   },
   "textKo": "참나무 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholzschild — Zeremonie vollendet."
+  "textDe": "Eichenholzschild — Zeremonie vollendet.",
+  "textEn": "the ritual of Oak Sign is complete."
  },
  "reward": {
   "badge": "wuestenstadt",
@@ -92,5 +109,6 @@
    "lantern"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Desert City"
 }

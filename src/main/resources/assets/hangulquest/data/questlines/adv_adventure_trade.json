@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Fichtenholzdruckplatte."
+    "de": "Sammle 3× Fichtenholzdruckplatte.",
+    "en": "Collect 3× Spruce Pressure Plate."
+   },
+   "hint": {
+    "en": "Collect 3× Spruce Pressure Plate."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Wächter an."
+    "de": "Sieh dir Wächter an.",
+    "en": "Look at Guardian."
+   },
+   "hint": {
+    "en": "Look at Guardian."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Delfin."
+    "de": "Interagiere mit Delfin.",
+    "en": "Talk to Dolphin."
+   },
+   "hint": {
+    "en": "Talk to Dolphin."
    }
   },
   "textKo": "돌고래라는 길의 의식을 마쳤어요.",
-  "textDe": "Delfin — Zeremonie vollendet."
+  "textDe": "Delfin — Zeremonie vollendet.",
+  "textEn": "the ritual of Dolphin is complete."
  },
  "reward": {
   "badge": "adv_adventure_trade",
@@ -73,5 +86,6 @@
    "villager"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "What a Deal!"
 }

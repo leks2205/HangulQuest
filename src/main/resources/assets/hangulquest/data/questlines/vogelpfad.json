@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Magmawürfel an."
+    "de": "Sieh dir Magmawürfel an.",
+    "en": "Look at Magma Cube."
+   },
+   "hint": {
+    "en": "Look at Magma Cube."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Federn."
+    "de": "Sammle drei Federn.",
+    "en": "Collect 3× Feather."
    },
    "hint": {
     "ko": "깃털은 닭을 잡으면 얻어요.",
-    "de": "Federn bekommst du von Hühnern."
+    "de": "Federn bekommst du von Hühnern.",
+    "en": "Collect 3× Feather."
    }
   },
   {
@@ -63,7 +69,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Wither-Skelett an."
+    "de": "Sieh dir Wither-Skelett an.",
+    "en": "Look at Wither Skeleton."
+   },
+   "hint": {
+    "en": "Look at Wither Skeleton."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 2× Quarzziegel."
+    "de": "Sammle 2× Quarzziegel.",
+    "en": "Collect 2× Quartz Bricks."
+   },
+   "hint": {
+    "en": "Collect 2× Quartz Bricks."
    }
   },
   "textKo": "석영 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Quarzziegel — Zeremonie vollendet."
+  "textDe": "Quarzziegel — Zeremonie vollendet.",
+  "textEn": "the ritual of Quartz Bricks is complete."
  },
  "reward": {
   "badge": "vogelpfad",
@@ -95,5 +110,6 @@
    "egg"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Bird Trail"
 }

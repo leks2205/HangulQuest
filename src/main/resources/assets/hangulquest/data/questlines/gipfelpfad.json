@@ -29,7 +29,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Verschneite Taiga."
+    "de": "Erreiche Verschneite Taiga.",
+    "en": "Reach Snowy Taiga."
+   },
+   "hint": {
+    "en": "Reach Snowy Taiga."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue 2× Graue glasierte Keramik ab."
+    "de": "Baue 2× Graue glasierte Keramik ab.",
+    "en": "Break 2× Gray Glazed Terracotta."
+   },
+   "hint": {
+    "en": "Break 2× Gray Glazed Terracotta."
    }
   },
   {
@@ -57,7 +65,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Eisenerz an."
+    "de": "Sieh dir Eisenerz an.",
+    "en": "Look at Iron Ore."
+   },
+   "hint": {
+    "en": "Look at Iron Ore."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Schmelzofen. Nachts. In einem passenden Biom."
+    "de": "Benutze Schmelzofen. Nachts. In einem passenden Biom.",
+    "en": "Use Blast Furnace. At night. In a fitting biome."
+   },
+   "hint": {
+    "en": "Use Blast Furnace. At night. In a fitting biome."
    }
   },
   "textKo": "밤에 산 지형에서 용광로라는 길의 의식을 마쳤어요.",
-  "textDe": "Schmelzofen — Zeremonie vollendet."
+  "textDe": "Schmelzofen — Zeremonie vollendet.",
+  "textEn": "By night In the mountains the ritual of Blast Furnace is complete."
  },
  "reward": {
   "badge": "gipfelpfad",
@@ -98,5 +115,6 @@
  },
  "order": 170,
  "koreanLevel": 1,
- "topic": "산"
+ "topic": "산",
+ "titleEn": "The Summit Trail"
 }

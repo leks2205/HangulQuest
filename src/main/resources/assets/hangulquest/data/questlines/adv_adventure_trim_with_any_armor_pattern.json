@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Geheul-Töpferscherbe."
+    "de": "Sammle Geheul-Töpferscherbe.",
+    "en": "Collect Howl Pottery Sherd."
+   },
+   "hint": {
+    "en": "Collect Howl Pottery Sherd."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Trampelpfad."
+    "de": "Sammle Trampelpfad.",
+    "en": "Collect Dirt Path."
+   },
+   "hint": {
+    "en": "Collect Dirt Path."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:diamond_chestplate",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Diamond Chestplate."
+   },
+   "hint": {
+    "en": "Collect Diamond Chestplate."
+   }
   },
   "textKo": "유행의 선도자 — 형판으로 다이아몬드 흉갑을 꾸며요.",
-  "textDe": "Ein neues Aussehen — Dein Diamantharnisch trägt jetzt das Muster der Vorlage."
+  "textDe": "Ein neues Aussehen — Dein Diamantharnisch trägt jetzt das Muster der Vorlage.",
+  "textEn": "the ritual of Diamond Chestplate is complete."
  },
  "reward": {
   "badge": "adv_adventure_trim_with_any_armor_pattern",
@@ -72,5 +87,6 @@
    "adv_block_diamond_chestplate"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Crafting a New Look"
 }

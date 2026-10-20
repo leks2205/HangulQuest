@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Eichenholz."
+    "de": "Sammle Eichenholz.",
+    "en": "Collect Oak Wood."
+   },
+   "hint": {
+    "en": "Collect Oak Wood."
    }
   },
   {
@@ -44,11 +48,13 @@
    },
    "clue": {
     "de": "Verzaubere die Krone am Zaubertisch.",
-    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요."
+    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요.",
+    "en": "Use Enchanting Table."
    },
    "hint": {
     "ko": "마법 부여대는 흑요석과 다이아몬드와 책으로 만들어요.",
-    "de": "Ein Zaubertisch braucht Obsidian, Diamanten und Bücher."
+    "de": "Ein Zaubertisch braucht Obsidian, Diamanten und Bücher.",
+    "en": "Use Enchanting Table."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Pappelholzzauntor."
+    "de": "Sammle Pappelholzzauntor.",
+    "en": "Collect Poplar Fence Gate."
+   },
+   "hint": {
+    "en": "Collect Poplar Fence Gate."
    }
   },
   "textKo": "포플러나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzzauntor — Zeremonie vollendet."
+  "textDe": "Pappelholzzauntor — Zeremonie vollendet.",
+  "textEn": "the ritual of Poplar Fence Gate is complete."
  },
  "reward": {
   "badge": "w9_05",
@@ -79,5 +90,6 @@
    "nether_star"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Time of Eternity"
 }

@@ -27,11 +27,13 @@
    },
    "clue": {
     "ko": "회색 돌을 세 개 캐요.",
-    "de": "Baue drei harte, graue Dinge ab."
+    "de": "Baue drei harte, graue Dinge ab.",
+    "en": "Break 3× Stone."
    },
    "hint": {
     "ko": "돌을 캐요. 세 개요.",
-    "de": "Baue Stein ab, drei Stück."
+    "de": "Baue Stein ab, drei Stück.",
+    "en": "Break 3× Stone."
    }
   },
   {
@@ -46,11 +48,13 @@
    },
    "clue": {
     "ko": "조약돌을 세 개 놓아요.",
-    "de": "Stapel die gebrochenen Steine wieder auf."
+    "de": "Stapel die gebrochenen Steine wieder auf.",
+    "en": "Place 3× Cobblestone."
    },
    "hint": {
     "ko": "조약돌을 놓아요.",
-    "de": "Platziere Bruchstein."
+    "de": "Platziere Bruchstein.",
+    "en": "Place 3× Cobblestone."
    }
   },
   {
@@ -65,11 +69,13 @@
    },
    "clue": {
     "ko": "반짝이는 검은 석탄을 캐요.",
-    "de": "Ein schwarzer Stein glitzert. Baue ihn ab."
+    "de": "Ein schwarzer Stein glitzert. Baue ihn ab.",
+    "en": "Break Coal Ore."
    },
    "hint": {
     "ko": "석탄을 캐요.",
-    "de": "Baue Kohle ab."
+    "de": "Baue Kohle ab.",
+    "en": "Break Coal Ore."
    }
   }
  ],
@@ -91,11 +97,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Schwarzes Banner. Nachts."
+    "de": "Platziere Schwarzes Banner. Nachts.",
+    "en": "Place Black Banner. At night."
+   },
+   "hint": {
+    "en": "Place Black Banner. At night."
    }
   },
   "textKo": "밤에 검은색 현수막라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzes Banner — Zeremonie vollendet."
+  "textDe": "Schwarzes Banner — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Black Banner is complete."
  },
  "reward": {
   "badge": "steinpfad",
@@ -108,5 +119,6 @@
  },
  "order": 10,
  "koreanLevel": 1,
- "topic": "돌"
+ "topic": "돌",
+ "titleEn": "The Stone Trail"
 }

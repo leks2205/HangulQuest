@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Besiege 3× Großwächter."
+    "de": "Besiege 3× Großwächter.",
+    "en": "Defeat 3× Elder Guardian."
+   },
+   "hint": {
+    "en": "Defeat 3× Elder Guardian."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Erbeute vom Prüfungs-Spawner den ersten Prüfungsschlüssel."
+    "de": "Erbeute vom Prüfungs-Spawner den ersten Prüfungsschlüssel.",
+    "en": "Collect Trial Key."
+   },
+   "hint": {
+    "en": "Collect Trial Key."
    }
   }
  ],
@@ -61,14 +69,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Erzwing mit schlechtem Omen den unheilvollen Schlüssel und schließ damit einen unheilvollen Tresor auf."
+    "de": "Erzwing mit schlechtem Omen den unheilvollen Schlüssel und schließ damit einen unheilvollen Tresor auf.",
+    "en": "Collect Ominous Trial Key."
    },
    "hint": {
-    "ko": "나쁜 징조 효과가 있을 때 불길한 시련 생성기를 이기면 열쇠가 나와요."
+    "ko": "나쁜 징조 효과가 있을 때 불길한 시련 생성기를 이기면 열쇠가 나와요.",
+    "en": "Collect Ominous Trial Key."
    }
   },
   "textKo": "불길에 뛰어드는 나 — 불길한 금고를 열어요.",
-  "textDe": "Panzerknacker — Schließ den unheilvollen Tresor mit dem unheilvollen Prüfungsschlüssel auf."
+  "textDe": "Panzerknacker — Schließ den unheilvollen Tresor mit dem unheilvollen Prüfungsschlüssel auf.",
+  "textEn": "the ritual of Ominous Trial Key is complete."
  },
  "reward": {
   "badge": "adv_adventure_revaulting",
@@ -78,5 +89,6 @@
    "adv_item_ominous_trial_key"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Revaulting"
 }

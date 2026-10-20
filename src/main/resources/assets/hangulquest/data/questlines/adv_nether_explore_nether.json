@@ -30,7 +30,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Verwitterte Kupfertruhe."
+    "de": "Platziere 2× Verwitterte Kupfertruhe.",
+    "en": "Place 2× Weathered Copper Chest."
+   },
+   "hint": {
+    "en": "Place 2× Weathered Copper Chest."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 3
    },
    "clue": {
-    "de": "Im roten Ödland brichst du drei Netherrack als Andenken heraus."
+    "de": "Im roten Ödland brichst du drei Netherrack als Andenken heraus.",
+    "en": "Break 3× Netherrack."
    },
    "hint": {
-    "ko": "네더랙을 캐요. 곡괭이가 필요해요."
+    "ko": "네더랙을 캐요. 곡괭이가 필요해요.",
+    "en": "Break 3× Netherrack."
    }
   }
  ],
@@ -64,14 +70,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Weiter ins Seelensandtal: drei Seelensand für die Sammlung."
+    "de": "Weiter ins Seelensandtal: drei Seelensand für die Sammlung.",
+    "en": "Break 3× Soul Sand."
    },
    "hint": {
-    "ko": "영혼 모래를 캐요. 삽이 필요해요."
+    "ko": "영혼 모래를 캐요. 삽이 필요해요.",
+    "en": "Break 3× Soul Sand."
    }
   },
   "textKo": "지옥의 명소를 둘러봤어요! 뜨겁지만 정말 멋졌어요.",
-  "textDe": "Alle heißen Reiseziele des Nethers abgehakt."
+  "textDe": "Alle heißen Reiseziele des Nethers abgehakt.",
+  "textEn": "the ritual of Soul Sand is complete."
  },
  "reward": {
   "badge": "adv_nether_explore_nether",
@@ -81,5 +90,6 @@
    "soul_sand"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Hot Tourist Destinations"
 }

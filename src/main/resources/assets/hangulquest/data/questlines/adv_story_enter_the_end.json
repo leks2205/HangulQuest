@@ -30,7 +30,11 @@
     "count": 12
    },
    "clue": {
-    "de": "Sammle 12× Testinstanzblock."
+    "de": "Sammle 12× Testinstanzblock.",
+    "en": "Collect 12× Test Instance Block."
+   },
+   "hint": {
+    "en": "Collect 12× Test Instance Block."
    }
   },
   {
@@ -44,11 +48,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Schlage dich durch vier Steinziegel der Festung."
+    "de": "Schlage dich durch vier Steinziegel der Festung.",
+    "en": "Break 4× Stone Bricks."
    },
    "hint": {
     "ko": "요새 벽을 뚫으려면 곡괭이가 필요해요.",
-    "de": "Für die Festungsmauer braucht es eine Spitzhacke."
+    "de": "Für die Festungsmauer braucht es eine Spitzhacke.",
+    "en": "Break 4× Stone Bricks."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Polierte Schwarzsteinmauer."
+    "de": "Platziere 3× Polierte Schwarzsteinmauer.",
+    "en": "Place 3× Polished Blackstone Wall."
+   },
+   "hint": {
+    "en": "Place 3× Polished Blackstone Wall."
    }
   },
   "textKo": "윤나는 흑암 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Schwarzsteinmauer — Zeremonie vollendet."
+  "textDe": "Polierte Schwarzsteinmauer — Zeremonie vollendet.",
+  "textEn": "the ritual of Polished Blackstone Wall is complete."
  },
  "reward": {
   "badge": "adv_story_enter_the_end",
@@ -79,5 +90,6 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The End?"
 }

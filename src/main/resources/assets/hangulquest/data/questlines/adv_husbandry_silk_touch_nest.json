@@ -29,7 +29,11 @@
     "block": "minecraft:iron_door"
    },
    "clue": {
-    "de": "Benutze Eisentür."
+    "de": "Benutze Eisentür.",
+    "en": "Use Iron Door."
+   },
+   "hint": {
+    "en": "Use Iron Door."
    }
   },
   {
@@ -43,7 +47,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Beobachte drei Bienen, die in ihr Nest kriechen."
+    "de": "Beobachte drei Bienen, die in ihr Nest kriechen.",
+    "en": "Look at Bee."
+   },
+   "hint": {
+    "en": "Look at Bee."
    }
   }
  ],
@@ -58,10 +66,17 @@
     "block": "minecraft:bee_nest",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Break Bee Nest."
+   },
+   "hint": {
+    "en": "Break Bee Nest."
+   }
   },
   "textKo": "한 벌 한 벌 정성껏 모시겠습니다 — 벌이 든 벌집을 통째로 옮겨요.",
-  "textDe": "Bienenwanderung — Du trägst das Nest samt drei Bienen um."
+  "textDe": "Bienenwanderung — Du trägst das Nest samt drei Bienen um.",
+  "textEn": "the ritual of Bee Nest is complete."
  },
  "reward": {
   "badge": "adv_husbandry_silk_touch_nest",
@@ -71,5 +86,6 @@
    "adv_item_bee_nest"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Total Beelocation"
 }

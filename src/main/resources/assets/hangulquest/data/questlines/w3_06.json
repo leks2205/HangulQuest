@@ -31,11 +31,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Ernte vier Kartoffeln vom Nachbaracker."
+    "de": "Ernte vier Kartoffeln vom Nachbaracker.",
+    "en": "Collect 4× Potato."
    },
    "hint": {
     "ko": "감자를 캐요.",
-    "de": "Ernte Kartoffeln."
+    "de": "Ernte Kartoffeln.",
+    "en": "Collect 4× Potato."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Platziere 6× Blaueis."
+    "de": "Platziere 6× Blaueis.",
+    "en": "Place 6× Blue Ice."
+   },
+   "hint": {
+    "en": "Place 6× Blue Ice."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Angelaufener Kupferblock."
+    "de": "Platziere Angelaufener Kupferblock.",
+    "en": "Place Exposed Copper."
+   },
+   "hint": {
+    "en": "Place Exposed Copper."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Iss Gebratenes Hammelfleisch."
+    "de": "Iss Gebratenes Hammelfleisch.",
+    "en": "Eat Cooked Mutton."
+   },
+   "hint": {
+    "en": "Eat Cooked Mutton."
    }
   },
   "textKo": "익힌 양고기라는 길의 의식을 마쳤어요.",
-  "textDe": "Gebratenes Hammelfleisch — Zeremonie vollendet."
+  "textDe": "Gebratenes Hammelfleisch — Zeremonie vollendet.",
+  "textEn": "the ritual of Cooked Mutton is complete."
  },
  "reward": {
   "badge": "w3_06",
@@ -95,5 +110,6 @@
    "bread"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Neighbour's Field"
 }

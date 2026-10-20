@@ -31,7 +31,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Fichten-Urtaiga."
+    "de": "Erreiche Fichten-Urtaiga.",
+    "en": "Reach Old Growth Spruce Taiga."
+   },
+   "hint": {
+    "en": "Reach Old Growth Spruce Taiga."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Erlege zwei Tintenfische."
+    "de": "Erlege zwei Tintenfische.",
+    "en": "Defeat 2× Squid."
    },
    "hint": {
     "ko": "오징어는 물속에서 헤엄쳐요.",
-    "de": "Tintenfische schwimmen im Wasser."
+    "de": "Tintenfische schwimmen im Wasser.",
+    "en": "Defeat 2× Squid."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Weiße Betontreppe."
+    "de": "Sammle 2× Weiße Betontreppe.",
+    "en": "Collect 2× White Concrete Stairs."
+   },
+   "hint": {
+    "en": "Collect 2× White Concrete Stairs."
    }
   }
  ],
@@ -85,11 +95,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Roheisenblock. Nachts."
+    "de": "Platziere Roheisenblock. Nachts.",
+    "en": "Place Block of Raw Iron. At night."
+   },
+   "hint": {
+    "en": "Place Block of Raw Iron. At night."
    }
   },
   "textKo": "밤에 철 원석 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Roheisenblock — Zeremonie vollendet."
+  "textDe": "Roheisenblock — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Block of Raw Iron is complete."
  },
  "reward": {
   "badge": "w4_02",
@@ -100,5 +115,6 @@
    "lantern"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Lighthouse Light"
 }

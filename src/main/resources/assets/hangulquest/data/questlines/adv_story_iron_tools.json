@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Gelbe glasierte Keramik."
+    "de": "Sammle 3× Gelbe glasierte Keramik.",
+    "en": "Collect 3× Yellow Glazed Terracotta."
+   },
+   "hint": {
+    "en": "Collect 3× Yellow Glazed Terracotta."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Tropenholzboot."
+    "de": "Sammle 2× Tropenholzboot.",
+    "en": "Collect 2× Jungle Boat."
+   },
+   "hint": {
+    "en": "Collect 2× Jungle Boat."
    }
   },
   {
@@ -58,7 +66,11 @@
     "block": "minecraft:crafting_table"
    },
    "clue": {
-    "de": "Stelle die Eisenstücke an der Werkbank zusammen."
+    "de": "Stelle die Eisenstücke an der Werkbank zusammen.",
+    "en": "Use Crafting Table."
+   },
+   "hint": {
+    "en": "Use Crafting Table."
    }
   }
  ],
@@ -74,16 +86,19 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue dir eine Eisenspitzhacke."
+    "de": "Baue dir eine Eisenspitzhacke.",
+    "en": "Collect Iron Pickaxe."
    },
    "hint": {
     "ko": "철 곡괭이는 철 주괴 세 개와 막대기 두 개로 만들어요.",
-    "de": "Eisenspitzhacke: drei Eisenbarren und zwei Stöcke."
+    "de": "Eisenspitzhacke: drei Eisenbarren und zwei Stöcke.",
+    "en": "Collect Iron Pickaxe."
    },
    "conditions": []
   },
   "textKo": "이젠 철 좀 들어라 — 철 곡괭이로 더 깊은 곳까지 캘 수 있어요.",
-  "textDe": "Zu viel Eisen im Blut — Die Eisenspitzhacke ist fertig."
+  "textDe": "Zu viel Eisen im Blut — Die Eisenspitzhacke ist fertig.",
+  "textEn": "the ritual of Iron Pickaxe is complete."
  },
  "reward": {
   "badge": "adv_story_iron_tools",
@@ -94,5 +109,6 @@
    "pickaxe"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Isn't It Iron Pick?"
 }

@@ -31,7 +31,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Graues Bett."
+    "de": "Platziere Graues Bett.",
+    "en": "Place Gray Bed."
+   },
+   "hint": {
+    "en": "Place Gray Bed."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Baue 8× Abgestorbener Hirnkorallenwandfächer ab."
+    "de": "Baue 8× Abgestorbener Hirnkorallenwandfächer ab.",
+    "en": "Break 8× Dead Brain Coral Wall Fan."
+   },
+   "hint": {
+    "en": "Break 8× Dead Brain Coral Wall Fan."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Birkenholzknopf."
+    "de": "Sammle 4× Birkenholzknopf.",
+    "en": "Collect 4× Birch Button."
+   },
+   "hint": {
+    "en": "Collect 4× Birch Button."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Sensorschiene."
+    "de": "Sammle 3× Sensorschiene.",
+    "en": "Collect 3× Detector Rail."
+   },
+   "hint": {
+    "en": "Collect 3× Detector Rail."
    }
   },
   "textKo": "감지 레일라는 길의 의식을 마쳤어요.",
-  "textDe": "Sensorschiene — Zeremonie vollendet."
+  "textDe": "Sensorschiene — Zeremonie vollendet.",
+  "textEn": "the ritual of Detector Rail is complete."
  },
  "reward": {
   "badge": "w5_04",
@@ -91,5 +108,6 @@
    "gold"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Fire in the Furnace"
 }

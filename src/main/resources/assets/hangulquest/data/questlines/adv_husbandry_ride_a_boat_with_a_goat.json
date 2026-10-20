@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Zimmere ein Eichenholzboot aus fünf Brettern."
+    "de": "Zimmere ein Eichenholzboot aus fünf Brettern.",
+    "en": "Collect Oak Boat."
    },
    "hint": {
-    "ko": "참나무 판자 다섯 개로 만들어요."
+    "ko": "참나무 판자 다섯 개로 만들어요.",
+    "en": "Collect Oak Boat."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Prismarinziegelstufe."
+    "de": "Sammle Prismarinziegelstufe.",
+    "en": "Collect Prismarine Brick Slab."
+   },
+   "hint": {
+    "en": "Collect Prismarine Brick Slab."
    }
   }
  ],
@@ -61,10 +67,17 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:goat"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Talk to Goat."
+   },
+   "hint": {
+    "en": "Talk to Goat."
+   }
   },
   "textKo": "염소 떴소 — 염소를 배에 태우고 함께 떠요.",
-  "textDe": "Ohne Geiß kein Preis! — Du ruderst mit einer Ziege im Boot."
+  "textDe": "Ohne Geiß kein Preis! — Du ruderst mit einer Ziege im Boot.",
+  "textEn": "the ritual of Goat is complete."
  },
  "reward": {
   "badge": "adv_husbandry_ride_a_boat_with_a_goat",
@@ -74,5 +87,6 @@
    "goat"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Whatever Floats Your Goat!"
 }

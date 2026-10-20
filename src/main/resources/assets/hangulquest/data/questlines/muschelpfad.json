@@ -29,11 +29,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle eine Muschel."
+    "de": "Sammle eine Muschel.",
+    "en": "Collect Nautilus Shell."
    },
    "hint": {
     "ko": "조개는 바다 밑이나 익사한 좀비에게서 얻어요.",
-    "de": "Muscheln findest du am Meeresgrund oder bei Ertrunkenen."
+    "de": "Muscheln findest du am Meeresgrund oder bei Ertrunkenen.",
+    "en": "Collect Nautilus Shell."
    }
   },
   {
@@ -47,7 +49,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Wüstenzombie an."
+    "de": "Sieh dir Wüstenzombie an.",
+    "en": "Look at Husk."
+   },
+   "hint": {
+    "en": "Look at Husk."
    }
   },
   {
@@ -61,7 +67,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Wirrtür."
+    "de": "Platziere 4× Wirrtür.",
+    "en": "Place 4× Warped Door."
+   },
+   "hint": {
+    "en": "Place 4× Warped Door."
    }
   }
  ],
@@ -79,11 +89,16 @@
    "conditions": [],
    "hint": {
     "ko": "프리즈머린은 바다 신전의 수호자를 물리치면 얻어요.",
-    "de": "Prismarin kommt von Wächtern im Meerestempel."
+    "de": "Prismarin kommt von Wächtern im Meerestempel.",
+    "en": "Collect 2× Prismarine Shard."
+   },
+   "clue": {
+    "en": "Collect 2× Prismarine Shard."
    }
   },
   "textKo": "프리즈머린을 모아요.",
-  "textDe": "Prismarin sammeln."
+  "textDe": "Prismarin sammeln.",
+  "textEn": "the ritual of Prismarine Shard is complete."
  },
  "reward": {
   "badge": "muschelpfad",
@@ -94,5 +109,6 @@
    "prismarine"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Shell Trail"
 }

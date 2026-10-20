@@ -32,7 +32,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Schwarzstein."
+    "de": "Platziere 2× Schwarzstein.",
+    "en": "Place 2× Blackstone."
+   },
+   "hint": {
+    "en": "Place 2× Blackstone."
    }
   },
   {
@@ -46,11 +50,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle zwei Honigflaschen."
+    "de": "Sammle zwei Honigflaschen.",
+    "en": "Collect 2× Honey Bottle."
    },
    "hint": {
     "ko": "꿀병은 벌집에서 꿀을 모아 만들어요.",
-    "de": "Honigflaschen entstehen aus Honig am Bienenstock."
+    "de": "Honigflaschen entstehen aus Honig am Bienenstock.",
+    "en": "Collect 2× Honey Bottle."
    }
   },
   {
@@ -64,7 +70,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Phantom an."
+    "de": "Sieh dir Phantom an.",
+    "en": "Look at Phantom."
+   },
+   "hint": {
+    "en": "Look at Phantom."
    }
   }
  ],
@@ -81,11 +91,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Polierte Andesitstufe."
+    "de": "Sammle 3× Polierte Andesitstufe.",
+    "en": "Collect 3× Polished Andesite Slab."
+   },
+   "hint": {
+    "en": "Collect 3× Polished Andesite Slab."
    }
   },
   "textKo": "윤나는 안산암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Andesitstufe — Zeremonie vollendet."
+  "textDe": "Polierte Andesitstufe — Zeremonie vollendet.",
+  "textEn": "the ritual of Polished Andesite Slab is complete."
  },
  "reward": {
   "badge": "bienenzucht",
@@ -96,5 +111,6 @@
    "honey_bottle"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Beekeeping Trail"
 }

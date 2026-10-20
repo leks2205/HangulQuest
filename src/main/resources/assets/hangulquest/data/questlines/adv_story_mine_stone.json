@@ -31,11 +31,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue dir zuerst eine Holzspitzhacke."
+    "de": "Baue dir zuerst eine Holzspitzhacke.",
+    "en": "Collect Wooden Pickaxe."
    },
    "hint": {
     "ko": "나무 곡괭이는 판자 세 개와 막대기 두 개로 만들어요.",
-    "de": "Eine Holzspitzhacke: drei Holzbretter und zwei Stöcke."
+    "de": "Eine Holzspitzhacke: drei Holzbretter und zwei Stöcke.",
+    "en": "Collect Wooden Pickaxe."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Baue 8× Angelaufener Kupferblock ab."
+    "de": "Baue 8× Angelaufener Kupferblock ab.",
+    "en": "Break 8× Exposed Copper."
+   },
+   "hint": {
+    "en": "Break 8× Exposed Copper."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue 2× Hellgrüner Teppich ab."
+    "de": "Baue 2× Hellgrüner Teppich ab.",
+    "en": "Break 2× Lime Carpet."
+   },
+   "hint": {
+    "en": "Break 2× Lime Carpet."
    }
   }
  ],
@@ -79,12 +89,17 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Bruchstein aus dem abgebauten Stein."
+    "de": "Sammle drei Bruchstein aus dem abgebauten Stein.",
+    "en": "Collect 3× Cobblestone."
    },
-   "conditions": []
+   "conditions": [],
+   "hint": {
+    "en": "Collect 3× Cobblestone."
+   }
   },
   "textKo": "석기 시대 — 조약돌을 캐서 돌 도구를 만들 수 있어요.",
-  "textDe": "Steinzeit — Bruchstein abgebaut, jetzt sind Steinwerkzeuge möglich."
+  "textDe": "Steinzeit — Bruchstein abgebaut, jetzt sind Steinwerkzeuge möglich.",
+  "textEn": "the ritual of Cobblestone is complete."
  },
  "reward": {
   "badge": "adv_story_mine_stone",
@@ -95,5 +110,6 @@
    "cobblestone"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Stone Age"
 }

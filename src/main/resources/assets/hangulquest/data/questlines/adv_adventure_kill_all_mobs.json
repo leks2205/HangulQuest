@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede für die große Jagd ein Diamantschwert."
+    "de": "Schmiede für die große Jagd ein Diamantschwert.",
+    "en": "Collect Diamond Sword."
    },
    "hint": {
-    "ko": "다이아몬드 두 개와 막대기 하나로 만들어요."
+    "ko": "다이아몬드 두 개와 막대기 하나로 만들어요.",
+    "en": "Collect Diamond Sword."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Erlege einen Enderman, der sich vor dir wegteleportiert."
+    "de": "Erlege einen Enderman, der sich vor dir wegteleportiert.",
+    "en": "Defeat Enderman."
+   },
+   "hint": {
+    "en": "Defeat Enderman."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Wächter."
+    "de": "Besiege Wächter.",
+    "en": "Defeat Guardian."
+   },
+   "hint": {
+    "en": "Defeat Guardian."
    }
   },
   "textKo": "가디언라는 길의 의식을 마쳤어요.",
-  "textDe": "Wächter — Zeremonie vollendet."
+  "textDe": "Wächter — Zeremonie vollendet.",
+  "textEn": "the ritual of Guardian is complete."
  },
  "reward": {
   "badge": "adv_adventure_kill_all_mobs",
@@ -78,5 +89,6 @@
    "witch"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Monsters Hunted"
 }

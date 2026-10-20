@@ -28,10 +28,12 @@
     "count": 2
    },
    "clue": {
-    "de": "Hole zwei Sculk-Sensoren aus der Tiefe, ohne sie auszulösen."
+    "de": "Hole zwei Sculk-Sensoren aus der Tiefe, ohne sie auszulösen.",
+    "en": "Collect 2× Sculk Sensor."
    },
    "hint": {
-    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요."
+    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요.",
+    "en": "Collect 2× Sculk Sensor."
    }
   },
   {
@@ -45,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Setze einen der Sensoren vor dir auf den Boden ab."
+    "de": "Setze einen der Sensoren vor dir auf den Boden ab.",
+    "en": "Place Sculk Sensor."
+   },
+   "hint": {
+    "en": "Place Sculk Sensor."
    }
   }
  ],
@@ -62,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Schleiche auf Zehenspitzen vorbei und sieh den Sensor dabei an."
+    "de": "Schleiche auf Zehenspitzen vorbei und sieh den Sensor dabei an.",
+    "en": "Look at Sculk Sensor."
+   },
+   "hint": {
+    "en": "Look at Sculk Sensor."
    }
   },
   "textKo": "은밀하게 위대하게 — 스컬크 감지체 앞에서 숨을 죽였어요.",
-  "textDe": "Schleichen 100 — am Sculk-Sensor vorbei, ohne Vibration."
+  "textDe": "Schleichen 100 — am Sculk-Sensor vorbei, ohne Vibration.",
+  "textEn": "the ritual of Sculk Sensor is complete."
  },
  "reward": {
   "badge": "adv_adventure_avoid_vibration",
@@ -74,5 +85,6 @@
    "adv_item_sculk_sensor"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Sneak 100"
 }

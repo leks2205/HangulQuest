@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Zerklüftete Gipfel."
+    "de": "Erreiche Zerklüftete Gipfel.",
+    "en": "Reach Jagged Peaks."
+   },
+   "hint": {
+    "en": "Reach Jagged Peaks."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Tiefenschiefer."
+    "de": "Platziere Tiefenschiefer.",
+    "en": "Place Deepslate."
+   },
+   "hint": {
+    "en": "Place Deepslate."
    }
   },
   {
@@ -66,7 +74,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Rote Tulpe. Nachts."
+    "de": "Platziere 3× Rote Tulpe. Nachts.",
+    "en": "Place 3× Red Tulip. At night."
+   },
+   "hint": {
+    "en": "Place 3× Red Tulip. At night."
    }
   }
  ],
@@ -83,11 +95,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 5× Wirrdruckplatte."
+    "de": "Sammle 5× Wirrdruckplatte.",
+    "en": "Collect 5× Warped Pressure Plate."
+   },
+   "hint": {
+    "en": "Collect 5× Warped Pressure Plate."
    }
   },
   "textKo": "뒤틀린 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirrdruckplatte — Zeremonie vollendet."
+  "textDe": "Wirrdruckplatte — Zeremonie vollendet.",
+  "textEn": "the ritual of Warped Pressure Plate is complete."
  },
  "reward": {
   "badge": "piratenpfad",
@@ -98,5 +115,6 @@
    "gold"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Pirate Trail"
 }

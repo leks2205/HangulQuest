@@ -33,7 +33,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Zerzauster Wald."
+    "de": "Erreiche Zerzauster Wald.",
+    "en": "Reach Windswept Forest."
+   },
+   "hint": {
+    "en": "Reach Windswept Forest."
    }
   },
   {
@@ -47,7 +51,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Plagegeist an."
+    "de": "Sieh dir Plagegeist an.",
+    "en": "Look at Vex."
+   },
+   "hint": {
+    "en": "Look at Vex."
    }
   },
   {
@@ -61,11 +69,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Kakaobohnen."
+    "de": "Sammle drei Kakaobohnen.",
+    "en": "Collect 3× Cocoa Beans."
    },
    "hint": {
     "ko": "카카오 콩은 정글 나무에서 자라요.",
-    "de": "Kakaobohnen wachsen am Dschungelbaum."
+    "de": "Kakaobohnen wachsen am Dschungelbaum.",
+    "en": "Collect 3× Cocoa Beans."
    }
   }
  ],
@@ -83,11 +93,16 @@
    "conditions": [],
    "hint": {
     "ko": "정글 나무를 캐서 쌓아요.",
-    "de": "Baue Dschungelholz ab und schichte es."
+    "de": "Baue Dschungelholz ab und schichte es.",
+    "en": "Place 4× Jungle Log."
+   },
+   "clue": {
+    "en": "Place 4× Jungle Log."
    }
   },
   "textKo": "정글 나무를 쌓아요.",
-  "textDe": "Dschungelholz aufschichten."
+  "textDe": "Dschungelholz aufschichten.",
+  "textEn": "the ritual of Jungle Log is complete."
  },
  "reward": {
   "badge": "dschungelpfad",
@@ -97,5 +112,6 @@
    "cocoa_beans"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Jungle Trail"
 }

@@ -30,10 +30,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Ohne Netherstern kein Leuchtfeuer – besiege zuerst den Wither."
+    "de": "Ohne Netherstern kein Leuchtfeuer – besiege zuerst den Wither.",
+    "en": "Collect Nether Star."
    },
    "hint": {
-    "ko": "위더를 물리치고 네더의 별을 얻어요."
+    "ko": "위더를 물리치고 네더의 별을 얻어요.",
+    "en": "Collect Nether Star."
    }
   },
   {
@@ -47,10 +49,12 @@
     "count": 9
    },
    "clue": {
-    "de": "Neun Eisenblöcke bilden die unterste Stufe des Sockels."
+    "de": "Neun Eisenblöcke bilden die unterste Stufe des Sockels.",
+    "en": "Place 9× Block of Iron."
    },
    "hint": {
-    "ko": "철 블록을 아홉 개 놓아요."
+    "ko": "철 블록을 아홉 개 놓아요.",
+    "en": "Place 9× Block of Iron."
    }
   }
  ],
@@ -67,14 +71,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Setz das Leuchtfeuer auf den Sockel und lass den Lichtstrahl los."
+    "de": "Setz das Leuchtfeuer auf den Sockel und lass den Lichtstrahl los.",
+    "en": "Place Beacon."
    },
    "hint": {
-    "ko": "신호기를 철 블록 위에 놓아요."
+    "ko": "신호기를 철 블록 위에 놓아요.",
+    "en": "Place Beacon."
    }
   },
   "textKo": "신호기가 하늘로 빛을 보내요! 이제 우리 집이 보여요.",
-  "textDe": "Das Leuchtfeuer strahlt bis in den Himmel."
+  "textDe": "Das Leuchtfeuer strahlt bis in den Himmel.",
+  "textEn": "the ritual of Beacon is complete."
  },
  "reward": {
   "badge": "adv_nether_create_beacon",
@@ -84,5 +91,6 @@
    "beacon"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Bring Home the Beacon"
 }

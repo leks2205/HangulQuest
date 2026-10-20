@@ -30,11 +30,13 @@
     "count": 6
    },
    "clue": {
-    "de": "Mach aus einem Stamm sechs Holzbretter für das Schild."
+    "de": "Mach aus einem Stamm sechs Holzbretter für das Schild.",
+    "en": "Collect 6× Oak Planks."
    },
    "hint": {
     "ko": "판자는 통나무 하나로 만들어요.",
-    "de": "Sechs Bretter entstehen aus einem Stamm."
+    "de": "Sechs Bretter entstehen aus einem Stamm.",
+    "en": "Collect 6× Oak Planks."
    }
   },
   {
@@ -48,11 +50,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Schnitze aus zwei Brettern einen Stock für den Pfosten."
+    "de": "Schnitze aus zwei Brettern einen Stock für den Pfosten.",
+    "en": "Collect 2× Stick."
    },
    "hint": {
     "ko": "막대기는 판자 두 개로 만들어요.",
-    "de": "Zwei Bretter ergeben vier Stöcke."
+    "de": "Zwei Bretter ergeben vier Stöcke.",
+    "en": "Collect 2× Stick."
    }
   }
  ],
@@ -70,11 +74,16 @@
    "conditions": [],
    "hint": {
     "ko": "발광 먹물 주머니는 발광 오징어를 잡으면 나와요.",
-    "de": "Leuchttinte lässt einen Leuchttintenfisch fallen."
+    "de": "Leuchttinte lässt einen Leuchttintenfisch fallen.",
+    "en": "Collect Glow Ink Sac."
+   },
+   "clue": {
+    "en": "Collect Glow Ink Sac."
    }
   },
   "textKo": "밝은 말 고운 말 — 발광 먹물로 표지판을 빛나게 해요.",
-  "textDe": "Leuchte und staune: Mit Leuchttinte bringen die Worte auf dem Schild Licht ins Dunkel."
+  "textDe": "Leuchte und staune: Mit Leuchttinte bringen die Worte auf dem Schild Licht ins Dunkel.",
+  "textEn": "the ritual of Glow Ink Sac is complete."
  },
  "reward": {
   "badge": "adv_husbandry_make_a_sign_glow",
@@ -84,5 +93,6 @@
    "adv_item_glow_ink_sac"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Glow and Behold!"
 }

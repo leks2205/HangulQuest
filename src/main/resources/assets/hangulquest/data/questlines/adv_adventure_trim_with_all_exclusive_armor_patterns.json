@@ -30,11 +30,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Finde die Stille-Vorlage in einer antiken Stadt."
+    "de": "Finde die Stille-Vorlage in einer antiken Stadt.",
+    "en": "Collect Smithing Template."
    },
    "hint": {
     "ko": "고대 도시에서 형판을 찾아요.",
-    "de": "Die Stille-Vorlage liegt in der antiken Stadt."
+    "de": "Die Stille-Vorlage liegt in der antiken Stadt.",
+    "en": "Collect Smithing Template."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Suche die Dünen-Vorlage im Wüstentempel."
+    "de": "Suche die Dünen-Vorlage im Wüstentempel.",
+    "en": "Collect Smithing Template."
+   },
+   "hint": {
+    "en": "Collect Smithing Template."
    }
   }
  ],
@@ -63,10 +69,17 @@
     "item": "minecraft:diamond_boots",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Diamond Boots."
+   },
+   "hint": {
+    "en": "Collect Diamond Boots."
+   }
   },
   "textKo": "형판 좋은 대장장이 — 여러 형판으로 다이아몬드 부츠를 꾸며요.",
-  "textDe": "Schmieden mit Stil — Jede exklusive Vorlage ziert deine Diamantstiefel."
+  "textDe": "Schmieden mit Stil — Jede exklusive Vorlage ziert deine Diamantstiefel.",
+  "textEn": "the ritual of Diamond Boots is complete."
  },
  "reward": {
   "badge": "adv_adventure_trim_with_all_exclusive_armor_patterns",
@@ -76,5 +89,6 @@
    "adv_item_diamond_boots"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Smithing with Style"
 }

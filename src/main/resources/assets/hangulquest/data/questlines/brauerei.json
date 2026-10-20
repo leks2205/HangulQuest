@@ -32,7 +32,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Goldener Löwenzahn."
+    "de": "Sammle 3× Goldener Löwenzahn.",
+    "en": "Collect 3× Golden Dandelion."
+   },
+   "hint": {
+    "en": "Collect 3× Golden Dandelion."
    }
   },
   {
@@ -45,7 +49,11 @@
     "block": "minecraft:iron_trapdoor"
    },
    "clue": {
-    "de": "Benutze Eisenfalltür."
+    "de": "Benutze Eisenfalltür.",
+    "en": "Use Iron Trapdoor."
+   },
+   "hint": {
+    "en": "Use Iron Trapdoor."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Kupferaxt."
+    "de": "Sammle 2× Kupferaxt.",
+    "en": "Collect 2× Copper Axe."
+   },
+   "hint": {
+    "en": "Collect 2× Copper Axe."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 3× Braune Kerze."
+    "de": "Sammle 3× Braune Kerze.",
+    "en": "Collect 3× Brown Candle."
+   },
+   "hint": {
+    "en": "Collect 3× Brown Candle."
    }
   },
   "textKo": "갈색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Braune Kerze — Zeremonie vollendet."
+  "textDe": "Braune Kerze — Zeremonie vollendet.",
+  "textEn": "the ritual of Brown Candle is complete."
  },
  "reward": {
   "badge": "brauerei",
@@ -91,5 +108,6 @@
    "sugar"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Brewery Trail"
 }

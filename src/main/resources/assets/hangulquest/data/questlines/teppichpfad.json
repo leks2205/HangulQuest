@@ -31,7 +31,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Trauerranken."
+    "de": "Sammle 4× Trauerranken.",
+    "en": "Collect 4× Weeping Vines."
+   },
+   "hint": {
+    "en": "Collect 4× Weeping Vines."
    }
   },
   {
@@ -44,11 +48,13 @@
     "block": "minecraft:loom"
    },
    "clue": {
-    "de": "Benutz einen Webstuhl."
+    "de": "Benutz einen Webstuhl.",
+    "en": "Use Loom."
    },
    "hint": {
     "ko": "베틀은 나무 판자와 실로 만들어요.",
-    "de": "Ein Webstuhl besteht aus Holzbrettern und Faden."
+    "de": "Ein Webstuhl besteht aus Holzbrettern und Faden.",
+    "en": "Use Loom."
    }
   },
   {
@@ -62,11 +68,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Setz vier Teppiche."
+    "de": "Setz vier Teppiche.",
+    "en": "Place 4× White Carpet."
    },
    "hint": {
     "ko": "양탄자는 양털 두 개로 만들어요.",
-    "de": "Teppiche bestehen aus zwei Wolle."
+    "de": "Teppiche bestehen aus zwei Wolle.",
+    "en": "Place 4× White Carpet."
    }
   }
  ],
@@ -83,11 +91,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 4× Feuerwerksrakete."
+    "de": "Sammle 4× Feuerwerksrakete.",
+    "en": "Collect 4× Firework Rocket."
+   },
+   "hint": {
+    "en": "Collect 4× Firework Rocket."
    }
   },
   "textKo": "폭죽 로켓라는 길의 의식을 마쳤어요.",
-  "textDe": "Feuerwerksrakete — Zeremonie vollendet."
+  "textDe": "Feuerwerksrakete — Zeremonie vollendet.",
+  "textEn": "the ritual of Firework Rocket is complete."
  },
  "reward": {
   "badge": "teppichpfad",
@@ -98,5 +111,6 @@
    "string"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Carpet Trail"
 }

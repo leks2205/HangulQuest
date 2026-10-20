@@ -33,7 +33,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Geh zum Ozean."
+    "de": "Geh zum Ozean.",
+    "en": "Reach the ocean."
+   },
+   "hint": {
+    "en": "Reach the ocean."
    }
   },
   {
@@ -47,7 +51,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau eine Schildkröte an."
+    "de": "Schau eine Schildkröte an.",
+    "en": "Look at Turtle."
+   },
+   "hint": {
+    "en": "Look at Turtle."
    }
   },
   {
@@ -61,7 +69,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Kartentisch."
+    "de": "Sammle Kartentisch.",
+    "en": "Collect Cartography Table."
+   },
+   "hint": {
+    "en": "Collect Cartography Table."
    }
   }
  ],
@@ -87,11 +99,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Spitzer Tropfstein. Nachts. In einem passenden Biom."
+    "de": "Platziere Spitzer Tropfstein. Nachts. In einem passenden Biom.",
+    "en": "Place Pointed Dripstone. At night. In a fitting biome."
+   },
+   "hint": {
+    "en": "Place Pointed Dripstone. At night. In a fitting biome."
    }
   },
   "textKo": "밤에 해변에서 뾰족한 점적석라는 길의 의식을 마쳤어요.",
-  "textDe": "Spitzer Tropfstein — Zeremonie vollendet."
+  "textDe": "Spitzer Tropfstein — Zeremonie vollendet.",
+  "textEn": "By night On the beach the ritual of Pointed Dripstone is complete."
  },
  "reward": {
   "badge": "brandung",
@@ -103,5 +120,6 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "물"
+ "topic": "물",
+ "titleEn": "The Surf Trail"
 }

@@ -30,11 +30,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Baue drei Redstone-Erze ab."
+    "de": "Baue drei Redstone-Erze ab.",
+    "en": "Break 3× Redstone Ore."
    },
    "hint": {
     "ko": "철 곡괭이로 레드스톤 원석을 캐요.",
-    "de": "Baue Redstone-Erz mit einer Eisenspitzhacke ab."
+    "de": "Baue Redstone-Erz mit einer Eisenspitzhacke ab.",
+    "en": "Break 3× Redstone Ore."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Setz zwei Redstonefackeln."
+    "de": "Setz zwei Redstonefackeln.",
+    "en": "Place 2× Redstone Torch."
+   },
+   "hint": {
+    "en": "Place 2× Redstone Torch."
    }
   },
   {
@@ -61,7 +67,11 @@
     "block": "minecraft:lever"
    },
    "clue": {
-    "de": "Benutz einen Hebel."
+    "de": "Benutz einen Hebel.",
+    "en": "Use Lever."
+   },
+   "hint": {
+    "en": "Use Lever."
    }
   }
  ],
@@ -76,10 +86,17 @@
     "item": "minecraft:redstone",
     "count": 16
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect 16× Redstone Dust."
+   },
+   "hint": {
+    "en": "Collect 16× Redstone Dust."
+   }
   },
   "textKo": "레드스톤을 모아요.",
-  "textDe": "Redstone sammeln."
+  "textDe": "Redstone sammeln.",
+  "textEn": "the ritual of Redstone Dust is complete."
  },
  "reward": {
   "badge": "redstonepfad",
@@ -89,5 +106,6 @@
    "lever"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Redstone Trail"
 }

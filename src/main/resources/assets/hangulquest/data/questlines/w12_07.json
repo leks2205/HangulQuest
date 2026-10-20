@@ -31,11 +31,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Feuersteine für das Feuer der Legende."
+    "de": "Sammle vier Feuersteine für das Feuer der Legende.",
+    "en": "Collect 4× Flint."
    },
    "hint": {
     "ko": "부싯돌은 자갈을 캐면 가끔 나와요.",
-    "de": "Feuerstein fällt beim Abbau von Kies an."
+    "de": "Feuerstein fällt beim Abbau von Kies an.",
+    "en": "Collect 4× Flint."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Sammle 6× Hellgrüne Wolle."
+    "de": "Sammle 6× Hellgrüne Wolle.",
+    "en": "Collect 6× Lime Wool."
+   },
+   "hint": {
+    "en": "Collect 6× Lime Wool."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Glatte Steinstufe."
+    "de": "Platziere 2× Glatte Steinstufe.",
+    "en": "Place 2× Smooth Stone Slab."
+   },
+   "hint": {
+    "en": "Place 2× Smooth Stone Slab."
    }
   }
  ],
@@ -85,11 +95,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Endstab. Nachts."
+    "de": "Platziere Endstab. Nachts.",
+    "en": "Place End Rod. At night."
+   },
+   "hint": {
+    "en": "Place End Rod. At night."
    }
   },
   "textKo": "밤에 엔드 막대기라는 길의 의식을 마쳤어요.",
-  "textDe": "Endstab — Zeremonie vollendet."
+  "textDe": "Endstab — Zeremonie vollendet.",
+  "textEn": "By night the ritual of End Rod is complete."
  },
  "reward": {
   "badge": "w12_07",
@@ -100,5 +115,6 @@
    "anvil"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Forge of Legend"
 }

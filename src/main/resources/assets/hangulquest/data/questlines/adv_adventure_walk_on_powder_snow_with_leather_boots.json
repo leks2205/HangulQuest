@@ -30,10 +30,12 @@
     "count": 3
    },
    "clue": {
-    "de": "Schaufle Schnee zusammen und setz drei Schneeblöcke als Untergrund."
+    "de": "Schaufle Schnee zusammen und setz drei Schneeblöcke als Untergrund.",
+    "en": "Place 3× Snow Block."
    },
    "hint": {
-    "ko": "삽으로 눈을 모아요."
+    "ko": "삽으로 눈을 모아요.",
+    "en": "Place 3× Snow Block."
    }
   },
   {
@@ -47,7 +49,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Hüpfe so leicht wie ein Kaninchen über die Schneedecke."
+    "de": "Hüpfe so leicht wie ein Kaninchen über die Schneedecke.",
+    "en": "Look at Rabbit."
+   },
+   "hint": {
+    "en": "Look at Rabbit."
    }
   }
  ],
@@ -62,10 +68,17 @@
     "item": "minecraft:leather_boots",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Leather Boots."
+   },
+   "hint": {
+    "en": "Collect Leather Boots."
+   }
   },
   "textKo": "토끼처럼 가볍게 — 가죽 부츠를 신고 눈 위를 가볍게 걸어요.",
-  "textDe": "Leicht wie ein Kaninchen — Zieh Lederstiefel an und lauf über den Pulverschnee."
+  "textDe": "Leicht wie ein Kaninchen — Zieh Lederstiefel an und lauf über den Pulverschnee.",
+  "textEn": "the ritual of Leather Boots is complete."
  },
  "reward": {
   "badge": "adv_adventure_walk_on_powder_snow_with_leather_boots",
@@ -75,5 +88,6 @@
    "walk"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Light as a Rabbit"
 }

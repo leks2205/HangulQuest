@@ -29,7 +29,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Podsol."
+    "de": "Platziere 2× Podsol.",
+    "en": "Place 2× Podzol."
+   },
+   "hint": {
+    "en": "Place 2× Podzol."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Redstone-Truhe."
+    "de": "Platziere Redstone-Truhe.",
+    "en": "Place Trapped Chest."
+   },
+   "hint": {
+    "en": "Place Trapped Chest."
    }
   },
   {
@@ -57,7 +65,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Wurzelerde an."
+    "de": "Sieh dir Wurzelerde an.",
+    "en": "Look at Rooted Dirt."
+   },
+   "hint": {
+    "en": "Look at Rooted Dirt."
    }
   }
  ],
@@ -74,11 +86,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 8× Orange glasierte Keramik."
+    "de": "Sammle 8× Orange glasierte Keramik.",
+    "en": "Collect 8× Orange Glazed Terracotta."
+   },
+   "hint": {
+    "en": "Collect 8× Orange Glazed Terracotta."
    }
   },
   "textKo": "주황색 유광 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Orange glasierte Keramik — Zeremonie vollendet."
+  "textDe": "Orange glasierte Keramik — Zeremonie vollendet.",
+  "textEn": "the ritual of Orange Glazed Terracotta is complete."
  },
  "reward": {
   "badge": "schneemannpfad",
@@ -88,5 +105,6 @@
    "snowball"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Snowman Trail"
 }

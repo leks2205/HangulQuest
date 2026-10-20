@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Birkenholzschild."
+    "de": "Sammle Birkenholzschild.",
+    "en": "Collect Birch Sign."
+   },
+   "hint": {
+    "en": "Collect Birch Sign."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Niedriges Trockengras."
+    "de": "Sammle Niedriges Trockengras.",
+    "en": "Collect Short Dry Grass."
+   },
+   "hint": {
+    "en": "Collect Short Dry Grass."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:enchanted_book",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Enchanted Book."
+   },
+   "hint": {
+    "en": "Collect Enchanted Book."
+   }
   },
   "textKo": "열쇠로 잠금 해제 — 시련 열쇠로 금고를 열고 보물을 가져요.",
-  "textDe": "Hinter Schloss und Riegel — Mit dem Prüfungsschlüssel öffnest du den Tresor und nimmst die Beute."
+  "textDe": "Hinter Schloss und Riegel — Mit dem Prüfungsschlüssel öffnest du den Tresor und nimmst die Beute.",
+  "textEn": "the ritual of Enchanted Book is complete."
  },
  "reward": {
   "badge": "adv_adventure_under_lock_and_key",
@@ -72,5 +87,6 @@
    "adv_item_enchanted_book"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Under Lock and Key"
 }

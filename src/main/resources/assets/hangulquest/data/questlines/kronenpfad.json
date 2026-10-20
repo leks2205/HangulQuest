@@ -38,7 +38,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Steinige Gipfel."
+    "de": "Erreiche Steinige Gipfel.",
+    "en": "Reach Stony Peaks."
+   },
+   "hint": {
+    "en": "Reach Stony Peaks."
    }
   },
   {
@@ -54,11 +58,13 @@
    },
    "clue": {
     "de": "Sammle zwei Diamanten.",
-    "ko": "왕관을 만들 다이아몬드를 캐요."
+    "ko": "왕관을 만들 다이아몬드를 캐요.",
+    "en": "Collect 2× Diamond."
    },
    "hint": {
     "ko": "왕관을 만들려면 다이아몬드가 필요해요. 철 곡괭이로 캐요.",
-    "de": "Für eine Krone brauchst du Diamanten; baue sie mit einer Eisenspitzhacke ab."
+    "de": "Für eine Krone brauchst du Diamanten; baue sie mit einer Eisenspitzhacke ab.",
+    "en": "Collect 2× Diamond."
    }
   }
  ],
@@ -80,11 +86,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Gewachste angelaufene geschnittene Kupferstufe. Tagsüber."
+    "de": "Platziere Gewachste angelaufene geschnittene Kupferstufe. Tagsüber.",
+    "en": "Place Waxed Exposed Cut Copper Slab. During the day."
+   },
+   "hint": {
+    "en": "Place Waxed Exposed Cut Copper Slab. During the day."
    }
   },
   "textKo": "낮에 밀랍칠한 약간 녹슨 깎인 구리 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste angelaufene geschnittene Kupferstufe — Zeremonie vollendet."
+  "textDe": "Gewachste angelaufene geschnittene Kupferstufe — Zeremonie vollendet.",
+  "textEn": "By day the ritual of Waxed Exposed Cut Copper Slab is complete."
  },
  "reward": {
   "badge": "kronenpfad",
@@ -94,5 +105,6 @@
    "bell"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Trail"
 }

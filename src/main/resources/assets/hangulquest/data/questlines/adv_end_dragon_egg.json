@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Besiege den Drachen, dann erscheint das Ei auf dem Portal."
+    "de": "Besiege den Drachen, dann erscheint das Ei auf dem Portal.",
+    "en": "Defeat Ender Dragon."
+   },
+   "hint": {
+    "en": "Defeat Ender Dragon."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Blaues Banner."
+    "de": "Platziere Blaues Banner.",
+    "en": "Place Blue Banner."
+   },
+   "hint": {
+    "en": "Place Blue Banner."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:dragon_egg",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Dragon Egg."
+   },
+   "hint": {
+    "en": "Collect Dragon Egg."
+   }
   },
   "textKo": "그다음 세대 — 드래곤 알을 손에 넣어 다음 세대를 준비해요.",
-  "textDe": "Die nächste Generation — Sichere dir das Drachenei, bevor es verschwindet."
+  "textDe": "Die nächste Generation — Sichere dir das Drachenei, bevor es verschwindet.",
+  "textEn": "the ritual of Dragon Egg is complete."
  },
  "reward": {
   "badge": "adv_end_dragon_egg",
@@ -72,5 +87,6 @@
    "dragon_egg"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Next Generation"
 }

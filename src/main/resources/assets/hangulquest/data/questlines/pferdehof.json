@@ -32,7 +32,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Fahrender Händler an."
+    "de": "Sieh dir Fahrender Händler an.",
+    "en": "Look at Wandering Trader."
+   },
+   "hint": {
+    "en": "Look at Wandering Trader."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Karmesinregal."
+    "de": "Sammle 2× Karmesinregal.",
+    "en": "Collect 2× Crimson Shelf."
+   },
+   "hint": {
+    "en": "Collect 2× Crimson Shelf."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Wirrfalltür."
+    "de": "Sammle 2× Wirrfalltür.",
+    "en": "Collect 2× Warped Trapdoor."
+   },
+   "hint": {
+    "en": "Collect 2× Warped Trapdoor."
    }
   }
  ],
@@ -82,11 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Bambusknopf. Nachts."
+    "de": "Platziere Bambusknopf. Nachts.",
+    "en": "Place Bamboo Button. At night."
+   },
+   "hint": {
+    "en": "Place Bamboo Button. At night."
    }
   },
   "textKo": "밤에 대나무 버튼라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusknopf — Zeremonie vollendet."
+  "textDe": "Bambusknopf — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Bamboo Button is complete."
  },
  "reward": {
   "badge": "pferdehof",
@@ -98,5 +115,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Horse Farm"
 }

@@ -30,11 +30,13 @@
     "count": 4
    },
    "clue": {
-    "de": "Stelle vier Eisenblöcke für den Körper her."
+    "de": "Stelle vier Eisenblöcke für den Körper her.",
+    "en": "Collect 4× Block of Iron."
    },
    "hint": {
     "ko": "철 블록은 철 아홉 개로 만들어요.",
-    "de": "Ein Eisenblock besteht aus neun Eisenbarren."
+    "de": "Ein Eisenblock besteht aus neun Eisenbarren.",
+    "en": "Collect 4× Block of Iron."
    }
   },
   {
@@ -48,11 +50,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Setze den geschnitzten Kürbis als Kopf oben auf die Blöcke."
+    "de": "Setze den geschnitzten Kürbis als Kopf oben auf die Blöcke.",
+    "en": "Place Carved Pumpkin."
    },
    "hint": {
     "ko": "호박은 가위로 조각해요.",
-    "de": "Einen Kürbis schnitzt du mit der Schere."
+    "de": "Einen Kürbis schnitzt du mit der Schere.",
+    "en": "Place Carved Pumpkin."
    }
   }
  ],
@@ -67,10 +71,17 @@
     "entity": "minecraft:iron_golem",
     "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Look at Iron Golem."
+   },
+   "hint": {
+    "en": "Look at Iron Golem."
+   }
   },
   "textKo": "도우미 고용 — 철 블록과 호박으로 철 골렘을 만들어요.",
-  "textDe": "Das 1. Gesetz der Robotik — Aus vier Eisenblöcken und einem Kürbis entsteht ein Eisengolem, der dich beschützt."
+  "textDe": "Das 1. Gesetz der Robotik — Aus vier Eisenblöcken und einem Kürbis entsteht ein Eisengolem, der dich beschützt.",
+  "textEn": "the ritual of Iron Golem is complete."
  },
  "reward": {
   "badge": "adv_adventure_summon_iron_golem",
@@ -80,5 +91,6 @@
    "iron_golem"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Hired Help"
 }

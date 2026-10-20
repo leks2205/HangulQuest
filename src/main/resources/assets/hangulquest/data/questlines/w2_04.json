@@ -35,7 +35,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere Glatte Sandsteinstufe. Im Gewitter."
+    "de": "Platziere Glatte Sandsteinstufe. Im Gewitter.",
+    "en": "Place Smooth Sandstone Slab. In a thunderstorm."
+   },
+   "hint": {
+    "en": "Place Smooth Sandstone Slab. In a thunderstorm."
    }
   },
   {
@@ -49,7 +53,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Verwitterte Kupfertür."
+    "de": "Platziere 2× Verwitterte Kupfertür.",
+    "en": "Place 2× Weathered Copper Door."
+   },
+   "hint": {
+    "en": "Place 2× Weathered Copper Door."
    }
   },
   {
@@ -63,11 +71,13 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau bei Gewitter auf den Blitzableiter."
+    "de": "Schau bei Gewitter auf den Blitzableiter.",
+    "en": "Look at Lightning Rod. In a thunderstorm."
    },
    "hint": {
     "ko": "피뢰침은 번개를 땅으로 보내요.",
-    "de": "Der Blitzableiter leitet den Blitz in die Erde."
+    "de": "Der Blitzableiter leitet den Blitz in die Erde.",
+    "en": "Look at Lightning Rod. In a thunderstorm."
    },
    "conditions": [
     {
@@ -95,11 +105,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 5× Rissige polierte Schwarzsteinziegel. Nachts."
+    "de": "Platziere 5× Rissige polierte Schwarzsteinziegel. Nachts.",
+    "en": "Place 5× Cracked Polished Blackstone Bricks. At night."
+   },
+   "hint": {
+    "en": "Place 5× Cracked Polished Blackstone Bricks. At night."
    }
   },
   "textKo": "밤에 금 간 윤나는 흑암 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Rissige polierte Schwarzsteinziegel — Zeremonie vollendet."
+  "textDe": "Rissige polierte Schwarzsteinziegel — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Cracked Polished Blackstone Bricks is complete."
  },
  "reward": {
   "badge": "w2_04",
@@ -110,5 +125,6 @@
    "torch"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Thunder Hill"
 }

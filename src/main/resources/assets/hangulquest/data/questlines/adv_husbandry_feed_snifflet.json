@@ -29,7 +29,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Hol ein Schnüffler-Ei aus einer Truhe im warmen Ozean."
+    "de": "Hol ein Schnüffler-Ei aus einer Truhe im warmen Ozean.",
+    "en": "Collect Sniffer Egg."
+   },
+   "hint": {
+    "en": "Collect Sniffer Egg."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Leg das Ei auf Moos und brüte den kleinen Schnüffler aus."
+    "de": "Leg das Ei auf Moos und brüte den kleinen Schnüffler aus.",
+    "en": "Place Sniffer Egg."
+   },
+   "hint": {
+    "en": "Place Sniffer Egg."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Gewachstes verwittertes Kupfergitter."
+    "de": "Sammle Gewachstes verwittertes Kupfergitter.",
+    "en": "Collect Waxed Weathered Copper Bars."
+   },
+   "hint": {
+    "en": "Collect Waxed Weathered Copper Bars."
    }
   },
   "textKo": "밀랍칠한 녹슨 구리 창살라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachstes verwittertes Kupfergitter — Zeremonie vollendet."
+  "textDe": "Gewachstes verwittertes Kupfergitter — Zeremonie vollendet.",
+  "textEn": "the ritual of Waxed Weathered Copper Bars is complete."
  },
  "reward": {
   "badge": "adv_husbandry_feed_snifflet",
@@ -73,5 +86,6 @@
    "adv_block_torchflower_seeds"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Little Sniffs"
 }

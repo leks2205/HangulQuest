@@ -31,7 +31,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Sandsteinstufe."
+    "de": "Sammle Sandsteinstufe.",
+    "en": "Collect Sandstone Slab."
+   },
+   "hint": {
+    "en": "Collect Sandstone Slab."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Spinnenauge."
+    "de": "Sammle Spinnenauge.",
+    "en": "Collect Spider Eye."
+   },
+   "hint": {
+    "en": "Collect Spider Eye."
    }
   },
   {
@@ -59,11 +67,13 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Lass Wasser auf die Lava treffen und sieh dir den neuen Block an."
+    "de": "Lass Wasser auf die Lava treffen und sieh dir den neuen Block an.",
+    "en": "Look at Obsidian."
    },
    "hint": {
     "ko": "흑요석은 다이아몬드 곡괭이로만 캘 수 있어요.",
-    "de": "Obsidian braucht eine Diamantspitzhacke."
+    "de": "Obsidian braucht eine Diamantspitzhacke.",
+    "en": "Look at Obsidian."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Blasseichenstamm."
+    "de": "Sammle Blasseichenstamm.",
+    "en": "Collect Pale Oak Log."
+   },
+   "hint": {
+    "en": "Collect Pale Oak Log."
    }
   },
   "textKo": "창백한 참나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenstamm — Zeremonie vollendet."
+  "textDe": "Blasseichenstamm — Zeremonie vollendet.",
+  "textEn": "the ritual of Pale Oak Log is complete."
  },
  "reward": {
   "badge": "adv_story_form_obsidian",
@@ -94,5 +109,6 @@
    "obsidian"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Ice Bucket Challenge"
 }

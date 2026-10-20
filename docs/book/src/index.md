@@ -24,7 +24,7 @@ works in single-player and on any server, with or without other players.
   then starts a two-question sidequest on it. The original quest waits until you have answered both.
 - **A journal** (`K`) drawn as a worn notebook: your dictionary, due words, achievements, the trail
   tree and the options.
-- **Vocabulary from three places**: 293 hand-written concepts, one generated entry per rarer object, the game's own Korean/German names, and your
+- **Vocabulary from three places**: 293 hand-written concepts, one generated entry per rarer object, the game's own Korean, English and German names, and your
   own words imported from [Lute](https://github.com/LuteOrg/lute-v3).
 - **Content as data.** Questlines are JSON files, re-read every two seconds, so you can write your own
   without touching Java or restarting the game.
@@ -51,5 +51,5 @@ design: **the Korean is the interface**.
 ## Status
 
 Version 1.0.0, for Minecraft 26.3 with Fabric Loader 0.19.5+ and Fabric API 0.162.0+26.3 on Java 25.
-The interface is German; the quest text is Korean, with an optional German line. See
+The interface is English by default (German is one switch away); the quest text is Korean, with an optional English or German line. See
 [Compatibility](install.md#compatibility) for what is deliberately out of scope.

@@ -31,11 +31,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Baue drei Golderz im Tiefenschiefer ab."
+    "de": "Baue drei Golderz im Tiefenschiefer ab.",
+    "en": "Break 3× Deepslate Gold Ore."
    },
    "hint": {
     "ko": "금은 철 곡괭이로 캐요.",
-    "de": "Gold braucht eine Eisenspitzhacke."
+    "de": "Gold braucht eine Eisenspitzhacke.",
+    "en": "Break 3× Deepslate Gold Ore."
    }
   },
   {
@@ -49,7 +51,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Getrockneter Seetang."
+    "de": "Sammle 3× Getrockneter Seetang.",
+    "en": "Collect 3× Dried Kelp."
+   },
+   "hint": {
+    "en": "Collect 3× Dried Kelp."
    }
   },
   {
@@ -63,7 +69,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Blaues Geschirr."
+    "de": "Sammle 4× Blaues Geschirr.",
+    "en": "Collect 4× Blue Harness."
+   },
+   "hint": {
+    "en": "Collect 4× Blue Harness."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Baue 3× Schlamm ab."
+    "de": "Baue 3× Schlamm ab.",
+    "en": "Break 3× Mud."
+   },
+   "hint": {
+    "en": "Break 3× Mud."
    }
   },
   "textKo": "진흙라는 길의 의식을 마쳤어요.",
-  "textDe": "Schlamm — Zeremonie vollendet."
+  "textDe": "Schlamm — Zeremonie vollendet.",
+  "textEn": "the ritual of Mud is complete."
  },
  "reward": {
   "badge": "w5_06",
@@ -95,5 +110,6 @@
    "diamond"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Treasure in the Deep"
 }

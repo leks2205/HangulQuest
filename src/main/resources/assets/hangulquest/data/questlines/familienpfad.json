@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Sumpfskelett an."
+    "de": "Sieh dir Sumpfskelett an.",
+    "en": "Look at Bogged."
+   },
+   "hint": {
+    "en": "Look at Bogged."
    }
   },
   {
@@ -45,7 +49,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Hoglin an."
+    "de": "Sieh dir Hoglin an.",
+    "en": "Look at Hoglin."
+   },
+   "hint": {
+    "en": "Look at Hoglin."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Iss Rohes Hühnchen."
+    "de": "Iss Rohes Hühnchen.",
+    "en": "Eat Raw Chicken."
+   },
+   "hint": {
+    "en": "Eat Raw Chicken."
    }
   }
  ],
@@ -80,11 +92,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Grünes Bett. Nachts."
+    "de": "Benutze Grünes Bett. Nachts.",
+    "en": "Use Green Bed. At night."
+   },
+   "hint": {
+    "en": "Use Green Bed. At night."
    }
   },
   "textKo": "밤에 초록색 침대라는 길의 의식을 마쳤어요.",
-  "textDe": "Grünes Bett — Zeremonie vollendet."
+  "textDe": "Grünes Bett — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Green Bed is complete."
  },
  "reward": {
   "badge": "familienpfad",
@@ -96,5 +113,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "나무"
+ "topic": "나무",
+ "titleEn": "The Family Trail"
 }

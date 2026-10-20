@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau ein Pferd an."
+    "de": "Schau ein Pferd an.",
+    "en": "Look at Horse."
+   },
+   "hint": {
+    "en": "Look at Horse."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Hellgrüne Kerze."
+    "de": "Sammle 3× Hellgrüne Kerze.",
+    "en": "Collect 3× Lime Candle."
+   },
+   "hint": {
+    "en": "Collect 3× Lime Candle."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Platziere 8× Goldener Löwenzahn."
+    "de": "Platziere 8× Goldener Löwenzahn.",
+    "en": "Place 8× Golden Dandelion."
+   },
+   "hint": {
+    "en": "Place 8× Golden Dandelion."
    }
   }
  ],
@@ -81,11 +93,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Wirr-Nezel. Nachts."
+    "de": "Platziere Wirr-Nezel. Nachts.",
+    "en": "Place Warped Nylium. At night."
+   },
+   "hint": {
+    "en": "Place Warped Nylium. At night."
    }
   },
   "textKo": "밤에 뒤틀린 네사체라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirr-Nezel — Zeremonie vollendet."
+  "textDe": "Wirr-Nezel — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Warped Nylium is complete."
  },
  "reward": {
   "badge": "gestuet",
@@ -97,5 +114,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Stud Farm"
 }

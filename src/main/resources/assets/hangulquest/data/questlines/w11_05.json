@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Polierte Schwefelmauer."
+    "de": "Platziere 3× Polierte Schwefelmauer.",
+    "en": "Place 3× Polished Sulfur Wall."
+   },
+   "hint": {
+    "en": "Place 3× Polished Sulfur Wall."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Gewachster angelaufener gemeißelter Kupferblock."
+    "de": "Sammle 8× Gewachster angelaufener gemeißelter Kupferblock.",
+    "en": "Collect 8× Waxed Exposed Chiseled Copper."
+   },
+   "hint": {
+    "en": "Collect 8× Waxed Exposed Chiseled Copper."
    }
   },
   {
@@ -59,11 +67,13 @@
     "count": 8
    },
    "clue": {
-    "de": "Setz acht Endsteinblöcke als Altarstufe."
+    "de": "Setz acht Endsteinblöcke als Altarstufe.",
+    "en": "Place 8× End Stone."
    },
    "hint": {
     "ko": "엔드 돌은 엔드 섬에서 캐요.",
-    "de": "Endstein brichst du auf den Endinseln."
+    "de": "Endstein brichst du auf den Endinseln.",
+    "en": "Place 8× End Stone."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 2× Magenta Bündel."
+    "de": "Sammle 2× Magenta Bündel.",
+    "en": "Collect 2× Magenta Bundle."
+   },
+   "hint": {
+    "en": "Collect 2× Magenta Bundle."
    }
   },
   "textKo": "자홍색 꾸러미라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta Bündel — Zeremonie vollendet."
+  "textDe": "Magenta Bündel — Zeremonie vollendet.",
+  "textEn": "the ritual of Magenta Bundle is complete."
  },
  "reward": {
   "badge": "w11_05",
@@ -95,5 +110,6 @@
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Altar of the Galaxy"
 }

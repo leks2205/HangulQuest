@@ -32,7 +32,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Zombie an."
+    "de": "Sieh dir Zombie an.",
+    "en": "Look at Zombie."
+   },
+   "hint": {
+    "en": "Look at Zombie."
    }
   },
   {
@@ -46,11 +50,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Leder."
+    "de": "Sammle drei Leder.",
+    "en": "Collect 3× Leather."
    },
    "hint": {
     "ko": "가죽은 소를 잡으면 얻어요.",
-    "de": "Leder bekommst du von Kühen."
+    "de": "Leder bekommst du von Kühen.",
+    "en": "Collect 3× Leather."
    }
   },
   {
@@ -64,7 +70,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Hirnkoralle."
+    "de": "Platziere Hirnkoralle.",
+    "en": "Place Brain Coral."
+   },
+   "hint": {
+    "en": "Place Brain Coral."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Benutze Notenblock."
+    "de": "Benutze Notenblock.",
+    "en": "Use Note Block."
+   },
+   "hint": {
+    "en": "Use Note Block."
    }
   },
   "textKo": "소리 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Notenblock — Zeremonie vollendet."
+  "textDe": "Notenblock — Zeremonie vollendet.",
+  "textEn": "the ritual of Note Block is complete."
  },
  "reward": {
   "badge": "gerberei",
@@ -95,5 +110,6 @@
    "anvil"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Tannery Trail"
 }

@@ -31,7 +31,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Eiszapfentundra."
+    "de": "Erreiche Eiszapfentundra.",
+    "en": "Reach Ice Spikes."
+   },
+   "hint": {
+    "en": "Reach Ice Spikes."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Kolben."
+    "de": "Sammle Kolben.",
+    "en": "Collect Piston."
+   },
+   "hint": {
+    "en": "Collect Piston."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Brauner Pilzblock."
+    "de": "Sammle 2× Brauner Pilzblock.",
+    "en": "Collect 2× Brown Mushroom Block."
+   },
+   "hint": {
+    "en": "Collect 2× Brown Mushroom Block."
    }
   }
  ],
@@ -75,11 +87,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Hilfsgeist."
+    "de": "Interagiere mit Hilfsgeist.",
+    "en": "Talk to Allay."
+   },
+   "hint": {
+    "en": "Talk to Allay."
    }
   },
   "textKo": "알레이라는 길의 의식을 마쳤어요.",
-  "textDe": "Hilfsgeist — Zeremonie vollendet."
+  "textDe": "Hilfsgeist — Zeremonie vollendet.",
+  "textEn": "the ritual of Allay is complete."
  },
  "reward": {
   "badge": "w3_08",
@@ -90,5 +107,6 @@
    "villager"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Guest at the Harbour"
 }

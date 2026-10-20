@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Grünes Banner."
+    "de": "Sammle Grünes Banner.",
+    "en": "Collect Green Banner."
+   },
+   "hint": {
+    "en": "Collect Green Banner."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Tiefenschiefer-Redstone-Erz."
+    "de": "Sammle Tiefenschiefer-Redstone-Erz.",
+    "en": "Collect Deepslate Redstone Ore."
+   },
+   "hint": {
+    "en": "Collect Deepslate Redstone Ore."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Fahrender Händler."
+    "de": "Interagiere mit Fahrender Händler.",
+    "en": "Talk to Wandering Trader."
+   },
+   "hint": {
+    "en": "Talk to Wandering Trader."
    }
   },
   "textKo": "떠돌이 상인라는 길의 의식을 마쳤어요.",
-  "textDe": "Fahrender Händler — Zeremonie vollendet."
+  "textDe": "Fahrender Händler — Zeremonie vollendet.",
+  "textEn": "the ritual of Wandering Trader is complete."
  },
  "reward": {
   "badge": "adv_husbandry_repair_wolf_armor",
@@ -74,5 +87,6 @@
    "wolf"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Good as New"
 }

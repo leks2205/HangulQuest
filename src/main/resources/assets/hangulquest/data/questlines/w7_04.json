@@ -31,7 +31,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Roter Sand."
+    "de": "Sammle 8× Roter Sand.",
+    "en": "Collect 8× Red Sand."
+   },
+   "hint": {
+    "en": "Collect 8× Red Sand."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Kolben."
+    "de": "Platziere Kolben.",
+    "en": "Place Piston."
+   },
+   "hint": {
+    "en": "Place Piston."
    }
   },
   {
@@ -59,11 +67,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Iss eine Ofenkartoffel."
+    "de": "Iss eine Ofenkartoffel.",
+    "en": "Eat Baked Potato."
    },
    "hint": {
     "ko": "구운 감자는 화로에 감자를 구워서 만들어요.",
-    "de": "Ofenkartoffeln backst du im Ofen aus Kartoffeln."
+    "de": "Ofenkartoffeln backst du im Ofen aus Kartoffeln.",
+    "en": "Eat Baked Potato."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Eisenkette."
+    "de": "Platziere Eisenkette.",
+    "en": "Place Iron Chain."
+   },
+   "hint": {
+    "en": "Place Iron Chain."
    }
   },
   "textKo": "철 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Eisenkette — Zeremonie vollendet."
+  "textDe": "Eisenkette — Zeremonie vollendet.",
+  "textEn": "the ritual of Iron Chain is complete."
  },
  "reward": {
   "badge": "w7_04",
@@ -95,5 +110,6 @@
    "campfire"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Warmth of the Furnace"
 }

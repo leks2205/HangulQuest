@@ -29,11 +29,13 @@
    },
    "clue": {
     "ko": "산으로 가요.",
-    "de": "Finde einen sehr hohen Ort."
+    "de": "Finde einen sehr hohen Ort.",
+    "en": "Reach the mountains."
    },
    "hint": {
     "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg.",
+    "en": "Reach the mountains."
    }
   },
   {
@@ -48,11 +50,13 @@
    },
    "clue": {
     "ko": "산에서 염소를 1초 동안 바라봐요.",
-    "de": "Geh in ein Bergbiom."
+    "de": "Geh in ein Bergbiom.",
+    "en": "Look at Goat."
    },
    "hint": {
     "ko": "높이 올라가요.",
-    "de": "Steig nach oben."
+    "de": "Steig nach oben.",
+    "en": "Look at Goat."
    }
   },
   {
@@ -67,11 +71,13 @@
    },
    "clue": {
     "ko": "하얀 눈을 두 개 캐요.",
-    "de": "Hol dir zwei weiße, kalte Dinge."
+    "de": "Hol dir zwei weiße, kalte Dinge.",
+    "en": "Break 2× Snow Block."
    },
    "hint": {
     "ko": "눈을 캐요.",
-    "de": "Baue Schnee ab."
+    "de": "Baue Schnee ab.",
+    "en": "Break 2× Snow Block."
    }
   }
  ],
@@ -97,11 +103,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Schwefelziegel. Nachts. In einem passenden Biom."
+    "de": "Platziere Schwefelziegel. Nachts. In einem passenden Biom.",
+    "en": "Place Sulfur Bricks. At night. In a fitting biome."
+   },
+   "hint": {
+    "en": "Place Sulfur Bricks. At night. In a fitting biome."
    }
   },
   "textKo": "밤에 산 지형에서 유황 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwefelziegel — Zeremonie vollendet."
+  "textDe": "Schwefelziegel — Zeremonie vollendet.",
+  "textEn": "By night In the mountains the ritual of Sulfur Bricks is complete."
  },
  "reward": {
   "badge": "bergpfad",
@@ -114,5 +125,6 @@
  },
  "order": 70,
  "koreanLevel": 1,
- "topic": "산"
+ "topic": "산",
+ "titleEn": "The High Trail"
 }

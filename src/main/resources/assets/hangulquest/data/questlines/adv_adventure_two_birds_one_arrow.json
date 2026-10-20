@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Schwarzes Banner."
+    "de": "Sammle Schwarzes Banner.",
+    "en": "Collect Black Banner."
+   },
+   "hint": {
+    "en": "Collect Black Banner."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Redstone-Verstärker."
+    "de": "Sammle 8× Redstone-Verstärker.",
+    "en": "Collect 8× Redstone Repeater."
+   },
+   "hint": {
+    "en": "Collect 8× Redstone Repeater."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege 2× Shulker."
+    "de": "Besiege 2× Shulker.",
+    "en": "Defeat 2× Shulker."
+   },
+   "hint": {
+    "en": "Defeat 2× Shulker."
    }
   },
   "textKo": "셜커라는 길의 의식을 마쳤어요.",
-  "textDe": "Shulker — Zeremonie vollendet."
+  "textDe": "Shulker — Zeremonie vollendet.",
+  "textEn": "the ritual of Shulker is complete."
  },
  "reward": {
   "badge": "adv_adventure_two_birds_one_arrow",
@@ -75,5 +88,6 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Two Birds, One Arrow"
 }

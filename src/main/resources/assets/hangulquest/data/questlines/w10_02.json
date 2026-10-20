@@ -30,7 +30,11 @@
     "entity": "minecraft:mule"
    },
    "clue": {
-    "de": "Interagiere mit Maultier."
+    "de": "Interagiere mit Maultier.",
+    "en": "Talk to Mule."
+   },
+   "hint": {
+    "en": "Talk to Mule."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Dunkle Prismarintreppe."
+    "de": "Sammle 3× Dunkle Prismarintreppe.",
+    "en": "Collect 3× Dark Prismarine Stairs."
+   },
+   "hint": {
+    "en": "Collect 3× Dark Prismarine Stairs."
    }
   },
   {
@@ -58,11 +66,13 @@
     "count": 6
    },
    "clue": {
-    "de": "Hol sechs rohe Goldstücke aus dem Sand."
+    "de": "Hol sechs rohe Goldstücke aus dem Sand.",
+    "en": "Collect 6× Raw Gold."
    },
    "hint": {
     "ko": "금은 사막 동굴의 광석에서 나와요.",
-    "de": "Gold findest du in den Höhlen unter dem Sand."
+    "de": "Gold findest du in den Höhlen unter dem Sand.",
+    "en": "Collect 6× Raw Gold."
    }
   }
  ],
@@ -79,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Dunkle Prismarinstufe."
+    "de": "Platziere Dunkle Prismarinstufe.",
+    "en": "Place Dark Prismarine Slab."
+   },
+   "hint": {
+    "en": "Place Dark Prismarine Slab."
    }
   },
   "textKo": "짙은 프리즈머린 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Dunkle Prismarinstufe — Zeremonie vollendet."
+  "textDe": "Dunkle Prismarinstufe — Zeremonie vollendet.",
+  "textEn": "the ritual of Dark Prismarine Slab is complete."
  },
  "reward": {
   "badge": "w10_02",
@@ -94,5 +109,6 @@
    "gold_block"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Desert Caravan"
 }

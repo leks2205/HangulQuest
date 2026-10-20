@@ -29,10 +29,12 @@
     "block": "minecraft:grass_block"
    },
    "clue": {
-    "de": "Mach mit der Hacke aus Gras Ackerboden."
+    "de": "Mach mit der Hacke aus Gras Ackerboden.",
+    "en": "Use Grass Block."
    },
    "hint": {
-    "ko": "괭이로 잔디를 갈아요."
+    "ko": "괭이로 잔디를 갈아요.",
+    "en": "Use Grass Block."
    }
   },
   {
@@ -46,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Pflanze Netherwarze auf Seelensand im Nether."
+    "de": "Pflanze Netherwarze auf Seelensand im Nether.",
+    "en": "Place Nether Wart."
+   },
+   "hint": {
+    "en": "Place Nether Wart."
    }
   }
  ],
@@ -61,10 +67,17 @@
     "block": "minecraft:wheat",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 3× Wheat Crops."
+   },
+   "hint": {
+    "en": "Place 3× Wheat Crops."
+   }
   },
   "textKo": "씨앗이 자라나는 곳 — 밀 씨앗을 심고 밭을 가꿔요.",
-  "textDe": "Hobbygärtner — Du säst Weizenkörner und pflegst dein Feld."
+  "textDe": "Hobbygärtner — Du säst Weizenkörner und pflegst dein Feld.",
+  "textEn": "the ritual of Wheat Crops is complete."
  },
  "reward": {
   "badge": "adv_husbandry_plant_seed",
@@ -74,5 +87,6 @@
    "wheat"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "A Seedy Place"
 }

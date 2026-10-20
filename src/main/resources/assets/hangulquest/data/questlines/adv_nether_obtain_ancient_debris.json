@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Brauner Beton."
+    "de": "Platziere 3× Brauner Beton.",
+    "en": "Place 3× Brown Concrete."
+   },
+   "hint": {
+    "en": "Place 3× Brown Concrete."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Brich einen Block antiken Schrotts heraus."
+    "de": "Brich einen Block antiken Schrotts heraus.",
+    "en": "Break Ancient Debris."
+   },
+   "hint": {
+    "en": "Break Ancient Debris."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Magenta glasierte Keramik."
+    "de": "Sammle Magenta glasierte Keramik.",
+    "en": "Collect Magenta Glazed Terracotta."
+   },
+   "hint": {
+    "en": "Collect Magenta Glazed Terracotta."
    }
   },
   "textKo": "자홍색 유광 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta glasierte Keramik — Zeremonie vollendet."
+  "textDe": "Magenta glasierte Keramik — Zeremonie vollendet.",
+  "textEn": "the ritual of Magenta Glazed Terracotta is complete."
  },
  "reward": {
   "badge": "adv_nether_obtain_ancient_debris",
@@ -74,5 +87,6 @@
    "adv_item_ancient_debris"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Hidden in the Depths"
 }

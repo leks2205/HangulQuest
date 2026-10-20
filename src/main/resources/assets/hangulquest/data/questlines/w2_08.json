@@ -29,11 +29,13 @@
     "count": 8
    },
    "clue": {
-    "de": "Bau eine Leiter acht Blöcke hoch."
+    "de": "Bau eine Leiter acht Blöcke hoch.",
+    "en": "Place 8× Ladder."
    },
    "hint": {
     "ko": "사다리로 위로 올라가요.",
-    "de": "Mit einer Leiter steigst du hinauf."
+    "de": "Mit einer Leiter steigst du hinauf.",
+    "en": "Place 8× Ladder."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Platziere 8× Redstone-Block."
+    "de": "Platziere 8× Redstone-Block.",
+    "en": "Place 8× Block of Redstone."
+   },
+   "hint": {
+    "en": "Place 8× Block of Redstone."
    }
   },
   {
@@ -61,7 +67,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Bambusfalltür."
+    "de": "Platziere 3× Bambusfalltür.",
+    "en": "Place 3× Bamboo Trapdoor."
+   },
+   "hint": {
+    "en": "Place 3× Bamboo Trapdoor."
    }
   }
  ],
@@ -83,11 +93,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 8× Sandsteinstufe. Nachts."
+    "de": "Platziere 8× Sandsteinstufe. Nachts.",
+    "en": "Place 8× Sandstone Slab. At night."
+   },
+   "hint": {
+    "en": "Place 8× Sandstone Slab. At night."
    }
   },
   "textKo": "밤에 사암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Sandsteinstufe — Zeremonie vollendet."
+  "textDe": "Sandsteinstufe — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Sandstone Slab is complete."
  },
  "reward": {
   "badge": "w2_08",
@@ -98,5 +113,6 @@
    "torch"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Tower Above the Clouds"
 }

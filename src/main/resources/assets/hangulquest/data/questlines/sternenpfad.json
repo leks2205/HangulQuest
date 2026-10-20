@@ -29,7 +29,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Fluss."
+    "de": "Erreiche Fluss.",
+    "en": "Reach River."
+   },
+   "hint": {
+    "en": "Reach River."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Endsteinziegelmauer."
+    "de": "Sammle 3× Endsteinziegelmauer.",
+    "en": "Collect 3× End Stone Brick Wall."
+   },
+   "hint": {
+    "en": "Collect 3× End Stone Brick Wall."
    }
   },
   {
@@ -57,7 +65,11 @@
     "count": 5
    },
    "clue": {
-    "de": "Platziere 5× Granitmauer."
+    "de": "Platziere 5× Granitmauer.",
+    "en": "Place 5× Granite Wall."
+   },
+   "hint": {
+    "en": "Place 5× Granite Wall."
    }
   }
  ],
@@ -79,11 +91,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 2× Birkenholzfalltür. Nachts."
+    "de": "Platziere 2× Birkenholzfalltür. Nachts.",
+    "en": "Place 2× Birch Trapdoor. At night."
+   },
+   "hint": {
+    "en": "Place 2× Birch Trapdoor. At night."
    }
   },
   "textKo": "밤에 자작나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Birkenholzfalltür — Zeremonie vollendet."
+  "textDe": "Birkenholzfalltür — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Birch Trapdoor is complete."
  },
  "reward": {
   "badge": "sternenpfad",
@@ -95,5 +112,6 @@
  },
  "order": 150,
  "koreanLevel": 1,
- "topic": "밤"
+ "topic": "밤",
+ "titleEn": "The Star Trail"
 }

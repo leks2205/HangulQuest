@@ -30,7 +30,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Kaulquappe an."
+    "de": "Sieh dir Kaulquappe an.",
+    "en": "Look at Tadpole."
+   },
+   "hint": {
+    "en": "Look at Tadpole."
    }
   },
   {
@@ -44,11 +48,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Seegras."
+    "de": "Sammle drei Seegras.",
+    "en": "Collect 3× Seagrass."
    },
    "hint": {
     "ko": "해초는 바다 밑에서 찾아요.",
-    "de": "Seegras findest du am Meeresgrund."
+    "de": "Seegras findest du am Meeresgrund.",
+    "en": "Collect 3× Seagrass."
    }
   },
   {
@@ -62,7 +68,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Seegras."
+    "de": "Setz drei Seegras.",
+    "en": "Place 3× Seagrass."
+   },
+   "hint": {
+    "en": "Place 3× Seagrass."
    }
   }
  ],
@@ -80,11 +90,16 @@
    "conditions": [],
    "hint": {
     "ko": "거북 알은 거북이 알을 낳을 때 생겨요.",
-    "de": "Schildkröteneier legt eine Schildkröte."
+    "de": "Schildkröteneier legt eine Schildkröte.",
+    "en": "Collect Turtle Egg."
+   },
+   "clue": {
+    "en": "Collect Turtle Egg."
    }
   },
   "textKo": "거북 알을 모아요.",
-  "textDe": "Ein Schildkrötenei sammeln."
+  "textDe": "Ein Schildkrötenei sammeln.",
+  "textEn": "the ritual of Turtle Egg is complete."
  },
  "reward": {
   "badge": "schildkroete",
@@ -94,5 +109,6 @@
    "turtle_egg"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Turtle Trail"
 }

@@ -31,7 +31,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Schneedorfkarte."
+    "de": "Sammle 4× Schneedorfkarte.",
+    "en": "Collect 4× Snowy Village Map."
+   },
+   "hint": {
+    "en": "Collect 4× Snowy Village Map."
    }
   },
   {
@@ -45,11 +49,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue einen Zaubertisch aus Obsidian, Diamanten und einem Buch."
+    "de": "Baue einen Zaubertisch aus Obsidian, Diamanten und einem Buch.",
+    "en": "Collect Enchanting Table."
    },
    "hint": {
     "ko": "마법 부여대는 흑요석 네 개와 다이아몬드 두 개, 책 한 권으로 만들어요.",
-    "de": "Zaubertisch: vier Obsidian, zwei Diamanten, ein Buch."
+    "de": "Zaubertisch: vier Obsidian, zwei Diamanten, ein Buch.",
+    "en": "Collect Enchanting Table."
    }
   },
   {
@@ -62,7 +68,11 @@
     "block": "minecraft:ender_chest"
    },
    "clue": {
-    "de": "Benutze Endertruhe."
+    "de": "Benutze Endertruhe.",
+    "en": "Use Ender Chest."
+   },
+   "hint": {
+    "en": "Use Ender Chest."
    }
   }
  ],
@@ -79,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Froschlaich."
+    "de": "Sammle Froschlaich.",
+    "en": "Collect Frogspawn."
+   },
+   "hint": {
+    "en": "Collect Frogspawn."
    }
   },
   "textKo": "개구리알라는 길의 의식을 마쳤어요.",
-  "textDe": "Froschlaich — Zeremonie vollendet."
+  "textDe": "Froschlaich — Zeremonie vollendet.",
+  "textEn": "the ritual of Frogspawn is complete."
  },
  "reward": {
   "badge": "adv_story_enchant_item",
@@ -93,5 +108,6 @@
    "adv_item_enchanted_book"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Enchanter"
 }

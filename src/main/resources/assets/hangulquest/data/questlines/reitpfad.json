@@ -30,7 +30,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Magier an."
+    "de": "Sieh dir Magier an.",
+    "en": "Look at Evoker."
+   },
+   "hint": {
+    "en": "Look at Evoker."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Fermentiertes Spinnenauge."
+    "de": "Sammle 2× Fermentiertes Spinnenauge.",
+    "en": "Collect 2× Fermented Spider Eye."
+   },
+   "hint": {
+    "en": "Collect 2× Fermented Spider Eye."
    }
   },
   {
@@ -58,7 +66,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Platziere 8× Abgestorbener Orgelkorallenblock."
+    "de": "Platziere 8× Abgestorbener Orgelkorallenblock.",
+    "en": "Place 8× Dead Tube Coral Block."
+   },
+   "hint": {
+    "en": "Place 8× Dead Tube Coral Block."
    }
   }
  ],
@@ -80,11 +92,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Türkise Keramik. Nachts."
+    "de": "Platziere Türkise Keramik. Nachts.",
+    "en": "Place Cyan Terracotta. At night."
+   },
+   "hint": {
+    "en": "Place Cyan Terracotta. At night."
    }
   },
   "textKo": "밤에 청록색 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkise Keramik — Zeremonie vollendet."
+  "textDe": "Türkise Keramik — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Cyan Terracotta is complete."
  },
  "reward": {
   "badge": "reitpfad",
@@ -95,5 +112,6 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "동물"
+ "topic": "동물",
+ "titleEn": "The Riding Trail"
 }

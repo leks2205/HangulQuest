@@ -31,7 +31,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Bambustür."
+    "de": "Platziere 2× Bambustür.",
+    "en": "Place 2× Bamboo Door."
+   },
+   "hint": {
+    "en": "Place 2× Bamboo Door."
    }
   },
   {
@@ -47,11 +51,13 @@
    },
    "clue": {
     "de": "Sammle zwei Wolle.",
-    "ko": "가위로 양털을 모아요."
+    "ko": "가위로 양털을 모아요.",
+    "en": "Collect 2× White Wool."
    },
    "hint": {
     "ko": "가위로 양털을 깎아요. 가위는 철 두 개로 만들어요.",
-    "de": "Scher die Wolle mit einer Schere aus zwei Eisen."
+    "de": "Scher die Wolle mit einer Schere aus zwei Eisen.",
+    "en": "Collect 2× White Wool."
    }
   }
  ],
@@ -68,11 +74,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Bambusbretter."
+    "de": "Platziere Bambusbretter.",
+    "en": "Place Bamboo Planks."
+   },
+   "hint": {
+    "en": "Place Bamboo Planks."
    }
   },
   "textKo": "대나무 판자라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusbretter — Zeremonie vollendet."
+  "textDe": "Bambusbretter — Zeremonie vollendet.",
+  "textEn": "the ritual of Bamboo Planks is complete."
  },
  "reward": {
   "badge": "wollpfad",
@@ -82,5 +93,6 @@
    "bed"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Wool Trail"
 }

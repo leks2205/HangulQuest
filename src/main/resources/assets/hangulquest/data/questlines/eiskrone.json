@@ -31,7 +31,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Schau einen Fuchs an."
+    "de": "Schau einen Fuchs an.",
+    "en": "Look at Fox."
+   },
+   "hint": {
+    "en": "Look at Fox."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Süßbeeren."
+    "de": "Sammle drei Süßbeeren.",
+    "en": "Collect 3× Sweet Berries."
+   },
+   "hint": {
+    "en": "Collect 3× Sweet Berries."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Rote glasierte Keramik."
+    "de": "Platziere 4× Rote glasierte Keramik.",
+    "en": "Place 4× Red Glazed Terracotta."
+   },
+   "hint": {
+    "en": "Place 4× Red Glazed Terracotta."
    }
   }
  ],
@@ -81,11 +93,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Abgestorbener Geweihkorallenfächer. Nachts."
+    "de": "Platziere Abgestorbener Geweihkorallenfächer. Nachts.",
+    "en": "Place Dead Horn Coral Fan. At night."
+   },
+   "hint": {
+    "en": "Place Dead Horn Coral Fan. At night."
    }
   },
   "textKo": "밤에 죽은 부채형 사방산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbener Geweihkorallenfächer — Zeremonie vollendet."
+  "textDe": "Abgestorbener Geweihkorallenfächer — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Dead Horn Coral Fan is complete."
  },
  "reward": {
   "badge": "eiskrone",
@@ -96,5 +113,6 @@
    "campfire"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Arctic Fox"
 }

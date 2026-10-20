@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Melonenscheibe."
+    "de": "Sammle 3× Melonenscheibe.",
+    "en": "Collect 3× Melon Slice."
+   },
+   "hint": {
+    "en": "Collect 3× Melon Slice."
    }
   },
   {
@@ -44,11 +48,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede aus dem Eisen einen Eimer."
+    "de": "Schmiede aus dem Eisen einen Eimer.",
+    "en": "Collect Bucket."
    },
    "hint": {
     "ko": "양동이는 철괴 세 개로 만들어요.",
-    "de": "Ein Eimer besteht aus drei Eisenbarren."
+    "de": "Ein Eimer besteht aus drei Eisenbarren.",
+    "en": "Collect Bucket."
    }
   }
  ],
@@ -66,11 +72,16 @@
    "conditions": [],
    "hint": {
     "ko": "아홀로틀은 물에서 빈 양동이를 쓰면 잡혀요.",
-    "de": "Ein leerer Eimer fängt den Axolotl, wenn du ihn im Wasser benutzt."
+    "de": "Ein leerer Eimer fängt den Axolotl, wenn du ihn im Wasser benutzt.",
+    "en": "Collect Bucket of Axolotl."
+   },
+   "clue": {
+    "en": "Collect Bucket of Axolotl."
    }
   },
   "textKo": "귀여운 포식자 — 물속 아홀로틀을 양동이로 잡아요.",
-  "textDe": "Das niedlichste Raubtier: Mit dem leeren Eimer fängst du den Axolotl im Wasser."
+  "textDe": "Das niedlichste Raubtier: Mit dem leeren Eimer fängst du den Axolotl im Wasser.",
+  "textEn": "the ritual of Bucket of Axolotl is complete."
  },
  "reward": {
   "badge": "adv_husbandry_axolotl_in_a_bucket",
@@ -80,5 +91,6 @@
    "adv_item_axolotl_bucket"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Cutest Predator"
 }

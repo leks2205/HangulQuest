@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Steindruckplatte."
+    "de": "Platziere 3× Steindruckplatte.",
+    "en": "Place 3× Stone Pressure Plate."
+   },
+   "hint": {
+    "en": "Place 3× Stone Pressure Plate."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Türkises Glas."
+    "de": "Sammle 3× Türkises Glas.",
+    "en": "Collect 3× Cyan Stained Glass."
+   },
+   "hint": {
+    "en": "Collect 3× Cyan Stained Glass."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Birkenholzdruckplatte."
+    "de": "Platziere Birkenholzdruckplatte.",
+    "en": "Place Birch Pressure Plate."
+   },
+   "hint": {
+    "en": "Place Birch Pressure Plate."
    }
   }
  ],
@@ -75,12 +87,17 @@
     "count": 1
    },
    "clue": {
-    "de": "Trink eine Flasche Honig nach der Arbeit."
+    "de": "Trink eine Flasche Honig nach der Arbeit.",
+    "en": "Eat Honey Bottle."
    },
-   "conditions": []
+   "conditions": [],
+   "hint": {
+    "en": "Eat Honey Bottle."
+   }
   },
   "textKo": "벌통을 세우고 꿀 한 병을 마셔요.",
-  "textDe": "Stell den Bienenstock auf und trink eine Flasche Honig."
+  "textDe": "Stell den Bienenstock auf und trink eine Flasche Honig.",
+  "textEn": "the ritual of Honey Bottle is complete."
  },
  "reward": {
   "badge": "w6_04",
@@ -91,5 +108,6 @@
    "honey_bottle"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "The Forest of the Bees"
 }

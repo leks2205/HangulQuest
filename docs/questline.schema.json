@@ -21,10 +21,11 @@
       "type": "object",
       "additionalProperties": false,
       "required": [],
-      "anyOf": [{ "required": ["ko"] }, { "required": ["de"] }],
+      "anyOf": [{ "required": ["ko"] }, { "required": ["de"] }, { "required": ["en"] }],
       "properties": {
         "ko": { "$ref": "#/definitions/koreanText" },
-        "de": { "type": "string", "description": "German line, shown only when the German toggle is on." }
+        "de": { "type": "string", "description": "German line, shown when German is the interface language and translations are on." },
+        "en": { "type": "string", "description": "English line, shown when English is the interface language and translations are on." }
       }
     },
     "goal": {
@@ -241,6 +242,10 @@
       "description": "Stable lowercase id; also the file name and the badge id. Never change it after release."
     },
     "titleKo": { "$ref": "#/definitions/koreanText" },
+    "titleEn": {
+      "type": "string",
+      "description": "English title, shown when English is the interface language."
+    },
     "titleDe": { "type": "string", "minLength": 1 },
     "topic": { "$ref": "#/definitions/koreanText" },
     "tier": { "type": "integer", "minimum": 1, "maximum": 5 },
@@ -270,10 +275,12 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["step", "textKo", "textDe"],
+      "additionalProperties": false,
       "properties": {
         "step": { "$ref": "#/definitions/step" },
         "textKo": { "$ref": "#/definitions/koreanText" },
-        "textDe": { "type": "string", "minLength": 1 }
+        "textDe": { "type": "string", "minLength": 1 },
+        "textEn": { "type": "string", "minLength": 1 }
       }
     },
     "reward": {

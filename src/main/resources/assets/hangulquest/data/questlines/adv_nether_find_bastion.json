@@ -29,7 +29,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Gelbe Wolle."
+    "de": "Platziere 2× Gelbe Wolle.",
+    "en": "Place 2× Yellow Wool."
+   },
+   "hint": {
+    "en": "Place 2× Yellow Wool."
    }
   },
   {
@@ -43,10 +47,12 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Halt Ausschau nach schwarzen, polierten Ziegeln: Das ist eine Bastion."
+    "de": "Halt Ausschau nach schwarzen, polierten Ziegeln: Das ist eine Bastion.",
+    "en": "Look at Polished Blackstone Bricks."
    },
    "hint": {
-    "ko": "검은 벽돌을 천천히 바라봐요."
+    "ko": "검은 벽돌을 천천히 바라봐요.",
+    "en": "Look at Polished Blackstone Bricks."
    }
   }
  ],
@@ -63,14 +69,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Brich einen polierten Schwarzsteinziegel aus der Bastion als Beweis."
+    "de": "Brich einen polierten Schwarzsteinziegel aus der Bastion als Beweis.",
+    "en": "Break Polished Blackstone Bricks."
    },
    "hint": {
-    "ko": "곡괭이로 검은 벽돌을 캐요."
+    "ko": "곡괭이로 검은 벽돌을 캐요.",
+    "en": "Break Polished Blackstone Bricks."
    }
   },
   "textKo": "바스티온을 찾았어요! 피글린의 보물이 가득해요.",
-  "textDe": "Eine Bastion gefunden – das waren noch Zeiten."
+  "textDe": "Eine Bastion gefunden – das waren noch Zeiten.",
+  "textEn": "the ritual of Polished Blackstone Bricks is complete."
  },
  "reward": {
   "badge": "adv_nether_find_bastion",
@@ -79,5 +88,6 @@
    "adv_block_polished_blackstone_bricks"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Those Were the Days"
 }

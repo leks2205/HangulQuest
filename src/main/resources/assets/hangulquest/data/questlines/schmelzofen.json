@@ -30,7 +30,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Baue 2× Shulker-Kiste ab."
+    "de": "Baue 2× Shulker-Kiste ab.",
+    "en": "Break 2× Shulker Box."
+   },
+   "hint": {
+    "en": "Break 2× Shulker Box."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Stell einen Ofen auf."
+    "de": "Stell einen Ofen auf.",
+    "en": "Place Furnace."
+   },
+   "hint": {
+    "en": "Place Furnace."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Violettes Glas."
+    "de": "Platziere Violettes Glas.",
+    "en": "Place Purple Stained Glass."
+   },
+   "hint": {
+    "en": "Place Purple Stained Glass."
    }
   },
   "textKo": "보라색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Violettes Glas — Zeremonie vollendet."
+  "textDe": "Violettes Glas — Zeremonie vollendet.",
+  "textEn": "the ritual of Purple Stained Glass is complete."
  },
  "reward": {
   "badge": "schmelzofen",
@@ -75,5 +88,6 @@
    "torch"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Smelting Fire"
 }

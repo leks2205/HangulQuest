@@ -55,7 +55,7 @@ Most language-learning mods put vocabulary lists in a book and ask you to read t
 
 *"Mine three stone."* — and the world is where you prove you understood it. Finish the step and the next sentence appears; finish the trail and a ritual finale (a torch on a mountain at night, a bell rung at dawn) closes it with a gold card, fireworks and a badge.
 
-When a word blocks you, `H` restates the same task in **simpler Korean**, explains the unknown word in easy Korean, and hands you a two-question **sidequest**. The original quest waits until you have answered both. Nothing is ever translated into a language you can read at a glance — German only appears if you switch it on.
+When a word blocks you, `H` restates the same task in **simpler Korean**, explains the unknown word in easy Korean, and hands you a two-question **sidequest**. The original quest waits until you have answered both. Nothing is ever translated into a language you can read at a glance — an English or German line only appears if you switch it on.
 
 Everything happens on your own client. The mod never talks to a server, so it works unchanged in single-player and on any server, with or without other players.
 
@@ -72,13 +72,13 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 
 **Hints and sidequests**
 - `H` restates the goal in **level-1 Korean** (always simpler than the quest) plus a one-line description of the blocking word, also in easy Korean.
-- An unknown word starts a **two-question sidequest** (Korean → German, German → Korean) and freezes the original step. A wrong answer shows the word card, drops to two options and lets you retry; nothing is penalised.
+- An unknown word starts a **two-question sidequest** (Korean → meaning, meaning → Korean) and freezes the original step. A wrong answer shows the word card, drops to two options and lets you retry; nothing is penalised.
 - Words you already know — a mastered word in the mod, or Lute status 99 — get the hint without a sidequest.
 - Quiz cards hide the item icon behind a `?` until you answer, so the picture never gives the answer away.
 
 **Vocabulary**
 - 1,132 concepts: 293 hand-written ones (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description and aliases, plus one entry per rarer object, generated from the game's name files.
-- Every vanilla item, block, entity and biome name that has a Korean/German pair, generated from the game's own language files.
+- Every vanilla item, block, entity and biome name that has a Korean, English and German name, generated from the game's own language files.
 - **Lute import**: drop your Lute export at `config/hangulquest/vocab/lute-vocab.csv` and your own words and learning states become quest vocabulary — read-only, the mod never writes to your file.
 
 **Learning layer**
@@ -98,7 +98,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 
 **Presentation**
 - Three celebration tiers — step, sidequest, trail — with cards, sounds and client-side particles that the server never sees.
-- A German line in quest text, banners and celebrations, only when you enable it (journal → *Optionen* → *Deutsch in Quests*).
+- **English or German interface** (English by default; *Optionen* → *Sprache* switches to Deutsch), and a translation line in quest text, banners and celebrations that stays **off** until you enable it (*Optionen* → *Übersetzungen in Quests*).
 - A bundled Korean font (a Noto Sans CJK KR subset), so Hangul looks the same everywhere instead of falling back to the 6-pixel unifont.
 
 ## Screenshots
@@ -163,11 +163,11 @@ The full model — every goal type, every condition, how the quest log words its
 | Tab | What is in it |
 |---|---|
 | **Info** | Words discovered and mastered, due today, streak, level, word of the day |
-| **Wörter** | Your dictionary: Korean, German, status, and where the word came from (curated, vanilla, Lute) |
+| **Words / Wörter** | Your dictionary: Korean, the translation, status, and where the word came from (curated, vanilla, Lute) |
 | **Lernen** | Flashcards for due words, with the review trail as a shortcut |
 | **Erfolge** | Fifteen achievements with progress |
 | **Quests** | The trail tree and a detail card with the **Im Log** checkbox: ticked quests appear on the HUD and advance, unticked ones wait |
-| **Optionen** | HUD, German in quests, quiz size, hints, sound and the quest folder |
+| **Settings / Optionen** | Language, HUD, translations in quests, quiz size, hints, sound and the quest folder |
 
 ## Writing your own questlines
 
@@ -260,7 +260,7 @@ mdbook build docs/book                    # output in docs/book/book
 
 - Built for exactly **Minecraft 26.3**. Other versions are untested; the mod uses named 26.3 classes and will not load elsewhere without changes.
 - **Client-only.** It works in single-player and on servers that do not have it. Installing it on a server does nothing.
-- The **interface is German**, the quest text Korean. An English UI and per-language quest lines are the obvious next step; see [CONTRIBUTING.md](CONTRIBUTING.md).
+- Quest text is always Korean. The interface and the optional translation line are English by default, with German one switch away; per-quest line authoring in more languages is the obvious next step; see [CONTRIBUTING.md](CONTRIBUTING.md).
 - No pronunciation audio, no romanisation and no Korean keyboard input — every answer is multiple choice.
 - Goals are limited to what a client can see. There is no "find this structure" or "open this chest" requirement, which is what keeps every trail finishable.
 - Progress lives in `config/hangulquest/progress.json`. It is backed up before a migration and a corrupt file is renamed rather than overwritten, but it is not synced between machines.
@@ -281,7 +281,7 @@ Bug reports, questlines and code are welcome. Questline contributions need no Ja
 - **[Fabric](https://fabricmc.net/)** and **Fabric API** — the loader and the client hooks the quest engine builds on.
 - **Noto Sans CJK KR** (SIL Open Font License 1.1) — the bundled Korean font subset. Details in [NOTICE.md](NOTICE.md).
 - **[Lute](https://github.com/LuteOrg/lute-v3)** — the vocabulary import reads Lute's CSV export format; Lute itself is not bundled.
-- Vanilla Korean and German item, block, entity and biome names come from Minecraft's own language files; the quest text built on them is original.
+- Vanilla Korean, English and German item, block, entity and biome names come from Minecraft's own language files; the quest text built on them is original.
 
 ## Legal notes
 

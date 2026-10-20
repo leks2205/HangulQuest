@@ -31,7 +31,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Sammle 6× Blaues Banner."
+    "de": "Sammle 6× Blaues Banner.",
+    "en": "Collect 6× Blue Banner."
+   },
+   "hint": {
+    "en": "Collect 6× Blue Banner."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Sammle 6× Minenkarte."
+    "de": "Sammle 6× Minenkarte.",
+    "en": "Collect 6× Buried Mineshaft Map."
+   },
+   "hint": {
+    "en": "Collect 6× Buried Mineshaft Map."
    }
   },
   {
@@ -59,11 +67,13 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Sieh dir die Steinziegel der Festung an."
+    "de": "Sieh dir die Steinziegel der Festung an.",
+    "en": "Look at Stone Bricks."
    },
    "hint": {
     "ko": "석재 벽돌은 돌을 구워서 만들어요.",
-    "de": "Steinziegel brennst du aus Stein."
+    "de": "Steinziegel brennst du aus Stein.",
+    "en": "Look at Stone Bricks."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Entrindeter Akazienstamm."
+    "de": "Platziere 3× Entrindeter Akazienstamm.",
+    "en": "Place 3× Stripped Acacia Log."
+   },
+   "hint": {
+    "en": "Place 3× Stripped Acacia Log."
    }
   },
   "textKo": "껍질 벗긴 아카시아나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet."
+  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet.",
+  "textEn": "the ritual of Stripped Acacia Log is complete."
  },
  "reward": {
   "badge": "w8_02",
@@ -95,5 +110,6 @@
    "adv_block_end_stone"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Eye of Ender"
 }

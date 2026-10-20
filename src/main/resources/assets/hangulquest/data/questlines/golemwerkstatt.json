@@ -32,7 +32,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Platziere 4× Grünes Glas."
+    "de": "Platziere 4× Grünes Glas.",
+    "en": "Place 4× Green Stained Glass."
+   },
+   "hint": {
+    "en": "Place 4× Green Stained Glass."
    }
   },
   {
@@ -46,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Zinnober."
+    "de": "Platziere Zinnober.",
+    "en": "Place Cinnabar."
+   },
+   "hint": {
+    "en": "Place Cinnabar."
    }
   },
   {
@@ -60,7 +68,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Böe an."
+    "de": "Sieh dir Böe an.",
+    "en": "Look at Breeze."
+   },
+   "hint": {
+    "en": "Look at Breeze."
    }
   }
  ],
@@ -77,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 8× Melone."
+    "de": "Sammle 8× Melone.",
+    "en": "Collect 8× Melon."
+   },
+   "hint": {
+    "en": "Collect 8× Melon."
    }
   },
   "textKo": "수박라는 길의 의식을 마쳤어요.",
-  "textDe": "Melone — Zeremonie vollendet."
+  "textDe": "Melone — Zeremonie vollendet.",
+  "textEn": "the ritual of Melon is complete."
  },
  "reward": {
   "badge": "golemwerkstatt",
@@ -92,5 +109,6 @@
    "iron"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Golem Workshop"
 }

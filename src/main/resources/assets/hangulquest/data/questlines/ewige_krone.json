@@ -34,7 +34,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Dunkler Wald."
+    "de": "Erreiche Dunkler Wald.",
+    "en": "Reach Dark Forest."
+   },
+   "hint": {
+    "en": "Reach Dark Forest."
    }
   },
   {
@@ -48,7 +52,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Iss Gebratenes Hühnchen."
+    "de": "Iss Gebratenes Hühnchen.",
+    "en": "Eat Cooked Chicken."
+   },
+   "hint": {
+    "en": "Eat Cooked Chicken."
    }
   },
   {
@@ -67,7 +75,11 @@
     }
    ],
    "clue": {
-    "de": "Benutze Wasserkessel. Tagsüber."
+    "de": "Benutze Wasserkessel. Tagsüber.",
+    "en": "Use Water Cauldron. During the day."
+   },
+   "hint": {
+    "en": "Use Water Cauldron. During the day."
    }
   }
  ],
@@ -92,11 +104,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Zielblock. Nachts. In einem passenden Biom."
+    "de": "Benutze Zielblock. Nachts. In einem passenden Biom.",
+    "en": "Use Target. At night. In a fitting biome."
+   },
+   "hint": {
+    "en": "Use Target. At night. In a fitting biome."
    }
   },
   "textKo": "밤에 산 지형에서 과녁라는 길의 의식을 마쳤어요.",
-  "textDe": "Zielblock — Zeremonie vollendet."
+  "textDe": "Zielblock — Zeremonie vollendet.",
+  "textEn": "By night In the mountains the ritual of Target is complete."
  },
  "reward": {
   "badge": "ewige_krone",
@@ -109,5 +126,6 @@
    "eternity"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The Eternal Crown"
 }

@@ -30,7 +30,11 @@
     "count": 9
    },
    "clue": {
-    "de": "Sammle 9× Kirschsetzling."
+    "de": "Sammle 9× Kirschsetzling.",
+    "en": "Collect 9× Cherry Sapling."
+   },
+   "hint": {
+    "en": "Collect 9× Cherry Sapling."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 1
    },
    "clue": {
-    "de": "Press die neun Barren zu einem einzigen Goldblock zusammen."
+    "de": "Press die neun Barren zu einem einzigen Goldblock zusammen.",
+    "en": "Collect Block of Gold."
    },
    "hint": {
-    "ko": "금 블록을 만들어요. 금 아홉 개가 필요해요."
+    "ko": "금 블록을 만들어요. 금 아홉 개가 필요해요.",
+    "en": "Collect Block of Gold."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Blaue Keramik."
+    "de": "Platziere Blaue Keramik.",
+    "en": "Place Blue Terracotta."
+   },
+   "hint": {
+    "en": "Place Blue Terracotta."
    }
   },
   "textKo": "파란색 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaue Keramik — Zeremonie vollendet."
+  "textDe": "Blaue Keramik — Zeremonie vollendet.",
+  "textEn": "the ritual of Blue Terracotta is complete."
  },
  "reward": {
   "badge": "adv_nether_distract_piglin",
@@ -77,5 +88,6 @@
    "gold_block"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Oh Shiny"
 }

@@ -30,11 +30,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Hole ein Totem der Unsterblichkeit aus einem Waldanwesen."
+    "de": "Hole ein Totem der Unsterblichkeit aus einem Waldanwesen.",
+    "en": "Collect Totem of Undying."
    },
    "hint": {
     "ko": "소환사가 불사의 토템을 떨어뜨려요.",
-    "de": "Ein Evoker im Waldanwesen lässt das Totem fallen."
+    "de": "Ein Evoker im Waldanwesen lässt das Totem fallen.",
+    "en": "Collect Totem of Undying."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Besiege Wüstenzombie."
+    "de": "Besiege Wüstenzombie.",
+    "en": "Defeat Husk."
+   },
+   "hint": {
+    "en": "Defeat Husk."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Plünderer."
+    "de": "Besiege Plünderer.",
+    "en": "Defeat Pillager."
+   },
+   "hint": {
+    "en": "Defeat Pillager."
    }
   },
   "textKo": "약탈자라는 길의 의식을 마쳤어요.",
-  "textDe": "Plünderer — Zeremonie vollendet."
+  "textDe": "Plünderer — Zeremonie vollendet.",
+  "textEn": "the ritual of Pillager is complete."
  },
  "reward": {
   "badge": "adv_adventure_totem_of_undying",
@@ -79,5 +90,6 @@
    "witch"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Postmortal"
 }

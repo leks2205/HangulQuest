@@ -32,7 +32,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Birkenholzregal an."
+    "de": "Sieh dir Birkenholzregal an.",
+    "en": "Look at Birch Shelf."
+   },
+   "hint": {
+    "en": "Look at Birch Shelf."
    }
   },
   {
@@ -46,7 +50,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Schau einen Löwenzahn an."
+    "de": "Schau einen Löwenzahn an.",
+    "en": "Look at Dandelion."
+   },
+   "hint": {
+    "en": "Look at Dandelion."
    }
   },
   {
@@ -60,7 +68,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Geschälte Wirrhyphen."
+    "de": "Platziere 2× Geschälte Wirrhyphen.",
+    "en": "Place 2× Stripped Warped Hyphae."
+   },
+   "hint": {
+    "en": "Place 2× Stripped Warped Hyphae."
    }
   }
  ],
@@ -77,11 +89,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 5× Gemeißelter Schwefel."
+    "de": "Sammle 5× Gemeißelter Schwefel.",
+    "en": "Collect 5× Chiseled Sulfur."
+   },
+   "hint": {
+    "en": "Collect 5× Chiseled Sulfur."
    }
   },
   "textKo": "조각된 유황라는 길의 의식을 마쳤어요.",
-  "textDe": "Gemeißelter Schwefel — Zeremonie vollendet."
+  "textDe": "Gemeißelter Schwefel — Zeremonie vollendet.",
+  "textEn": "the ritual of Chiseled Sulfur is complete."
  },
  "reward": {
   "badge": "blumenpfad",
@@ -90,5 +107,6 @@
    "dandelion"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Flower Trail"
 }

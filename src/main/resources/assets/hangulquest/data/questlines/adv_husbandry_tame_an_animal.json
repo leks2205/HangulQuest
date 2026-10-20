@@ -30,7 +30,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle drei Knochen von Skeletten."
+    "de": "Sammle drei Knochen von Skeletten.",
+    "en": "Collect 3× Bone."
+   },
+   "hint": {
+    "en": "Collect 3× Bone."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Suche im Wald oder in der Taiga nach einem Wolf."
+    "de": "Suche im Wald oder in der Taiga nach einem Wolf.",
+    "en": "Look at Wolf."
+   },
+   "hint": {
+    "en": "Look at Wolf."
    }
   }
  ],
@@ -60,11 +68,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Interagiere mit Panda."
+    "de": "Interagiere mit Panda.",
+    "en": "Talk to Panda."
+   },
+   "hint": {
+    "en": "Talk to Panda."
    }
   },
   "textKo": "판다라는 길의 의식을 마쳤어요.",
-  "textDe": "Panda — Zeremonie vollendet."
+  "textDe": "Panda — Zeremonie vollendet.",
+  "textEn": "the ritual of Panda is complete."
  },
  "reward": {
   "badge": "adv_husbandry_tame_an_animal",
@@ -73,5 +86,6 @@
    "wolf"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Best Friends Forever"
 }

@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Gemeißelter Tuffstein."
+    "de": "Sammle Gemeißelter Tuffstein.",
+    "en": "Collect Chiseled Tuff."
+   },
+   "hint": {
+    "en": "Collect Chiseled Tuff."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 2
    },
    "clue": {
-    "de": "Hol zwei Wachswaben aus dem Bienenstock – das ist dein Wachs."
+    "de": "Hol zwei Wachswaben aus dem Bienenstock – das ist dein Wachs.",
+    "en": "Collect 2× Honeycomb."
    },
    "hint": {
-    "ko": "벌통에 가위를 써서 벌집 조각을 얻어요."
+    "ko": "벌통에 가위를 써서 벌집 조각을 얻어요.",
+    "en": "Collect 2× Honeycomb."
    }
   }
  ],
@@ -63,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Benutze Werfer."
+    "de": "Benutze Werfer.",
+    "en": "Use Dispenser."
+   },
+   "hint": {
+    "en": "Use Dispenser."
    }
   },
   "textKo": "발사기라는 길의 의식을 마쳤어요.",
-  "textDe": "Werfer — Zeremonie vollendet."
+  "textDe": "Werfer — Zeremonie vollendet.",
+  "textEn": "the ritual of Dispenser is complete."
  },
  "reward": {
   "badge": "adv_husbandry_wax_on",
@@ -77,5 +88,6 @@
    "adv_item_copper_bulb"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Wax On"
 }

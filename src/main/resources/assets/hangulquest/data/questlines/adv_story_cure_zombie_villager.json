@@ -29,7 +29,11 @@
     "block": "minecraft:chiseled_bookshelf"
    },
    "clue": {
-    "de": "Benutze Gearbeitetes Bücherregal."
+    "de": "Benutze Gearbeitetes Bücherregal.",
+    "en": "Use Chiseled Bookshelf."
+   },
+   "hint": {
+    "en": "Use Chiseled Bookshelf."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Rotes Bündel."
+    "de": "Sammle Rotes Bündel.",
+    "en": "Collect Red Bundle."
+   },
+   "hint": {
+    "en": "Collect Red Bundle."
    }
   }
  ],
@@ -60,14 +68,17 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Baue aus einem Apfel und acht Goldbarren den goldenen Apfel für den Zombiedorfbewohner."
+    "de": "Baue aus einem Apfel und acht Goldbarren den goldenen Apfel für den Zombiedorfbewohner.",
+    "en": "Collect Golden Apple."
    },
    "hint": {
-    "ko": "황금 사과는 사과와 금 주괴 여덟 개로 만들어요."
+    "ko": "황금 사과는 사과와 금 주괴 여덟 개로 만들어요.",
+    "en": "Collect Golden Apple."
    }
   },
   "textKo": "좀비 의사 — 약화 물약과 황금 사과로 주민을 살렸어요.",
-  "textDe": "Zombiearzt — Schwächetrank und goldener Apfel heilen den Dorfbewohner."
+  "textDe": "Zombiearzt — Schwächetrank und goldener Apfel heilen den Dorfbewohner.",
+  "textEn": "the ritual of Golden Apple is complete."
  },
  "reward": {
   "badge": "adv_story_cure_zombie_villager",
@@ -77,5 +88,6 @@
    "golden_apple"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Zombie Doctor"
 }

@@ -32,11 +32,13 @@
     "count": 6
    },
    "clue": {
-    "de": "Setz sechs Zäune."
+    "de": "Setz sechs Zäune.",
+    "en": "Place 6× Oak Fence."
    },
    "hint": {
     "ko": "울타리는 막대기로 만들어요.",
-    "de": "Zäune bestehen aus Stöcken."
+    "de": "Zäune bestehen aus Stöcken.",
+    "en": "Place 6× Oak Fence."
    }
   },
   {
@@ -49,7 +51,11 @@
     "block": "minecraft:oak_fence_gate"
    },
    "clue": {
-    "de": "Benutz ein Tor."
+    "de": "Benutz ein Tor.",
+    "en": "Use Oak Fence Gate."
+   },
+   "hint": {
+    "en": "Use Oak Fence Gate."
    }
   },
   {
@@ -69,7 +75,11 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Oranges Banner. Nachts."
+    "de": "Platziere 3× Oranges Banner. Nachts.",
+    "en": "Place 3× Orange Banner. At night."
+   },
+   "hint": {
+    "en": "Place 3× Orange Banner. At night."
    }
   }
  ],
@@ -86,11 +96,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Grüne Glasscheibe."
+    "de": "Platziere 2× Grüne Glasscheibe.",
+    "en": "Place 2× Green Stained Glass Pane."
+   },
+   "hint": {
+    "en": "Place 2× Green Stained Glass Pane."
    }
   },
   "textKo": "초록색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Glasscheibe — Zeremonie vollendet."
+  "textDe": "Grüne Glasscheibe — Zeremonie vollendet.",
+  "textEn": "the ritual of Green Stained Glass Pane is complete."
  },
  "reward": {
   "badge": "gartenzaun",
@@ -101,5 +116,6 @@
    "lantern"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Garden Fence"
 }

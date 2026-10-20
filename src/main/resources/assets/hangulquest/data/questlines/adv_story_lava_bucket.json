@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Grüner Farbstoff."
+    "de": "Sammle 3× Grüner Farbstoff.",
+    "en": "Collect 3× Green Dye."
+   },
+   "hint": {
+    "en": "Collect 3× Green Dye."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Tiefenschiefer-Lapislazulierz."
+    "de": "Sammle Tiefenschiefer-Lapislazulierz.",
+    "en": "Collect Deepslate Lapis Lazuli Ore."
+   },
+   "hint": {
+    "en": "Collect Deepslate Lapis Lazuli Ore."
    }
   },
   {
@@ -59,7 +67,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Stehe an einem Lavasee und sieh ins Feuer."
+    "de": "Stehe an einem Lavasee und sieh ins Feuer.",
+    "en": "Look at Lava."
+   },
+   "hint": {
+    "en": "Look at Lava."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Schwarzes Geschirr."
+    "de": "Sammle Schwarzes Geschirr.",
+    "en": "Collect Black Harness."
+   },
+   "hint": {
+    "en": "Collect Black Harness."
    }
   },
   "textKo": "검은색 하네스라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzes Geschirr — Zeremonie vollendet."
+  "textDe": "Schwarzes Geschirr — Zeremonie vollendet.",
+  "textEn": "the ritual of Black Harness is complete."
  },
  "reward": {
   "badge": "adv_story_lava_bucket",
@@ -90,5 +107,6 @@
    "lava"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Hot Stuff"
 }

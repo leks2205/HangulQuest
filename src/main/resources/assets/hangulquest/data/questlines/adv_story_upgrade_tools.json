@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Endstein."
+    "de": "Sammle 3× Endstein.",
+    "en": "Collect 3× End Stone."
+   },
+   "hint": {
+    "en": "Collect 3× End Stone."
    }
   },
   {
@@ -44,7 +48,11 @@
     "block": "minecraft:decorated_pot"
    },
    "clue": {
-    "de": "Benutze Verzierter Krug."
+    "de": "Benutze Verzierter Krug.",
+    "en": "Use Decorated Pot."
+   },
+   "hint": {
+    "en": "Use Decorated Pot."
    }
   },
   {
@@ -58,7 +66,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Rissige Tiefenschieferfliesen."
+    "de": "Sammle 2× Rissige Tiefenschieferfliesen.",
+    "en": "Collect 2× Cracked Deepslate Tiles."
+   },
+   "hint": {
+    "en": "Collect 2× Cracked Deepslate Tiles."
    }
   }
  ],
@@ -74,16 +86,19 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue eine Steinspitzhacke an der Werkbank."
+    "de": "Baue eine Steinspitzhacke an der Werkbank.",
+    "en": "Collect Stone Pickaxe."
    },
    "hint": {
     "ko": "돌 곡괭이는 조약돌 세 개와 막대기 두 개로 만들어요.",
-    "de": "Steinspitzhacke: drei Bruchstein und zwei Stöcke."
+    "de": "Steinspitzhacke: drei Bruchstein und zwei Stöcke.",
+    "en": "Collect Stone Pickaxe."
    },
    "conditions": []
   },
   "textKo": "더욱더 좋게 — 돌 곡괭이를 들었어요. 이제 더 단단한 것도 캐요.",
-  "textDe": "Technischer Fortschritt — Mit der Steinspitzhacke geht es tiefer."
+  "textDe": "Technischer Fortschritt — Mit der Steinspitzhacke geht es tiefer.",
+  "textEn": "the ritual of Stone Pickaxe is complete."
  },
  "reward": {
   "badge": "adv_story_upgrade_tools",
@@ -94,5 +109,6 @@
    "adv_block_stone_pickaxe"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Getting an Upgrade"
 }

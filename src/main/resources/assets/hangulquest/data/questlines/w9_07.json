@@ -30,11 +30,13 @@
    },
    "clue": {
     "de": "Richte die Krone am Amboss wieder auf.",
-    "ko": "왕관을 고치려고 모루를 사용해요."
+    "ko": "왕관을 고치려고 모루를 사용해요.",
+    "en": "Use Anvil."
    },
    "hint": {
     "ko": "모루는 철 블록 세 개와 철 조각 네 개로 만들어요.",
-    "de": "Ein Amboss braucht drei Eisenblöcke und vier Eisenbarren."
+    "de": "Ein Amboss braucht drei Eisenblöcke und vier Eisenbarren.",
+    "en": "Use Anvil."
    }
   },
   {
@@ -49,11 +51,13 @@
    },
    "clue": {
     "de": "Sammle acht Eisenbarren für den neuen Reif.",
-    "ko": "왕관의 테를 만들 철 조각 여덟 개를 모아요."
+    "ko": "왕관의 테를 만들 철 조각 여덟 개를 모아요.",
+    "en": "Collect 8× Iron Ingot."
    },
    "hint": {
     "ko": "철은 철 광석을 화로에 구워 얻어요.",
-    "de": "Eisen gewinnst du, indem du Eisenerz im Ofen brennst."
+    "de": "Eisen gewinnst du, indem du Eisenerz im Ofen brennst.",
+    "en": "Collect 8× Iron Ingot."
    }
   }
  ],
@@ -70,11 +74,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Birkenholzdruckplatte."
+    "de": "Sammle Birkenholzdruckplatte.",
+    "en": "Collect Birch Pressure Plate."
+   },
+   "hint": {
+    "en": "Collect Birch Pressure Plate."
    }
   },
   "textKo": "자작나무 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Birkenholzdruckplatte — Zeremonie vollendet."
+  "textDe": "Birkenholzdruckplatte — Zeremonie vollendet.",
+  "textEn": "the ritual of Birch Pressure Plate is complete."
  },
  "reward": {
   "badge": "w9_07",
@@ -84,5 +93,6 @@
    "iron"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "titleEn": "The Crown Workshop"
 }

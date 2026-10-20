@@ -27,11 +27,13 @@
    },
    "clue": {
     "ko": "강으로 가요.",
-    "de": "Finde einen Ort, an dem Wasser fließt."
+    "de": "Finde einen Ort, an dem Wasser fließt.",
+    "en": "Reach a river."
    },
    "hint": {
     "ko": "강에 가요.",
-    "de": "Geh zum Fluss."
+    "de": "Geh zum Fluss.",
+    "en": "Reach a river."
    }
   },
   {
@@ -46,11 +48,13 @@
    },
    "clue": {
     "ko": "노란 모래를 세 개 수확해요.",
-    "de": "Hol dir drei gelbe Dinge."
+    "de": "Hol dir drei gelbe Dinge.",
+    "en": "Break 3× Sand."
    },
    "hint": {
     "ko": "모래를 캐요.",
-    "de": "Baue Sand ab."
+    "de": "Baue Sand ab.",
+    "en": "Break 3× Sand."
    }
   },
   {
@@ -65,11 +69,13 @@
    },
    "clue": {
     "ko": "양동이를 만들어요.",
-    "de": "Stelle etwas her, das Wasser hält."
+    "de": "Stelle etwas her, das Wasser hält.",
+    "en": "Collect Water Bucket."
    },
    "hint": {
     "ko": "양동이를 만들어요.",
-    "de": "Stelle einen Eimer her."
+    "de": "Stelle einen Eimer her.",
+    "en": "Collect Water Bucket."
    }
   }
  ],
@@ -91,11 +97,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Bemooste Bruchsteinstufe. In einem passenden Biom."
+    "de": "Platziere Bemooste Bruchsteinstufe. In einem passenden Biom.",
+    "en": "Place Mossy Cobblestone Slab. In a fitting biome."
+   },
+   "hint": {
+    "en": "Place Mossy Cobblestone Slab. In a fitting biome."
    }
   },
   "textKo": "해변에서 이끼 낀 조약돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet."
+  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet.",
+  "textEn": "On the beach the ritual of Mossy Cobblestone Slab is complete."
  },
  "reward": {
   "badge": "wasserpfad",
@@ -108,5 +119,6 @@
  },
  "order": 60,
  "koreanLevel": 1,
- "topic": "물"
+ "topic": "물",
+ "titleEn": "The Water Trail"
 }

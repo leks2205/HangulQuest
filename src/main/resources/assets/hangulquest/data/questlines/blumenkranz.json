@@ -31,7 +31,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Strohballen an."
+    "de": "Sieh dir Strohballen an.",
+    "en": "Look at Hay Bale."
+   },
+   "hint": {
+    "en": "Look at Hay Bale."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Setz drei Mohnblumen."
+    "de": "Setz drei Mohnblumen.",
+    "en": "Place 3× Poppy."
+   },
+   "hint": {
+    "en": "Place 3× Poppy."
    }
   },
   {
@@ -59,11 +67,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Setz zwei Wollblöcke."
+    "de": "Setz zwei Wollblöcke.",
+    "en": "Place 2× White Wool."
    },
    "hint": {
     "ko": "양털은 가위로 양을 깎아요.",
-    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+    "de": "Wolle bekommst du mit einer Schere vom Schaf.",
+    "en": "Place 2× White Wool."
    }
   }
  ],
@@ -78,10 +88,17 @@
     "item": "minecraft:poppy",
     "count": 5
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect 5× Poppy."
+   },
+   "hint": {
+    "en": "Collect 5× Poppy."
+   }
   },
   "textKo": "꽃과 양털로 꽃관을 만들어요.",
-  "textDe": "Blumen und Wolle für den Kranz."
+  "textDe": "Blumen und Wolle für den Kranz.",
+  "textEn": "the ritual of Poppy is complete."
  },
  "reward": {
   "badge": "blumenkranz",
@@ -90,5 +107,6 @@
    "wool"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Flower Wreath"
 }

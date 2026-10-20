@@ -30,7 +30,11 @@
     "count": 6
    },
    "clue": {
-    "de": "Hol dir Lohenruten aus der Netherfestung, daraus wird Blazepulver."
+    "de": "Hol dir Lohenruten aus der Netherfestung, daraus wird Blazepulver.",
+    "en": "Collect 6× Blaze Rod."
+   },
+   "hint": {
+    "en": "Collect 6× Blaze Rod."
    }
   },
   {
@@ -44,10 +48,12 @@
     "count": 12
    },
    "clue": {
-    "de": "Fülle zwölf Enderaugen für die Rahmen des Portals."
+    "de": "Fülle zwölf Enderaugen für die Rahmen des Portals.",
+    "en": "Collect 12× Eye of Ender."
    },
    "hint": {
-    "ko": "엔더 진주와 블레이즈 가루로 만들어요."
+    "ko": "엔더 진주와 블레이즈 가루로 만들어요.",
+    "en": "Collect 12× Eye of Ender."
    }
   }
  ],
@@ -64,11 +70,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 3× Quarzblock."
+    "de": "Platziere 3× Quarzblock.",
+    "en": "Place 3× Block of Quartz."
+   },
+   "hint": {
+    "en": "Place 3× Block of Quartz."
    }
   },
   "textKo": "석영 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Quarzblock — Zeremonie vollendet."
+  "textDe": "Quarzblock — Zeremonie vollendet.",
+  "textEn": "the ritual of Block of Quartz is complete."
  },
  "reward": {
   "badge": "adv_end_root",
@@ -78,5 +89,6 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The End"
 }

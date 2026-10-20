@@ -30,11 +30,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Backe einen Keks als Geschenk für den Allay."
+    "de": "Backe einen Keks als Geschenk für den Allay.",
+    "en": "Collect Cookie."
    },
    "hint": {
     "ko": "쿠키는 밀 두 개와 카카오 콩 하나로 만들어요.",
-    "de": "Ein Keks entsteht aus zwei Weizen und einer Kakaobohne."
+    "de": "Ein Keks entsteht aus zwei Weizen und einer Kakaobohne.",
+    "en": "Collect Cookie."
    }
   },
   {
@@ -48,7 +50,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Trauerranken."
+    "de": "Platziere Trauerranken.",
+    "en": "Place Weeping Vines."
+   },
+   "hint": {
+    "en": "Place Weeping Vines."
    }
   }
  ],
@@ -65,11 +71,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle 2× Schallplatte."
+    "de": "Sammle 2× Schallplatte.",
+    "en": "Collect 2× Music Disc."
+   },
+   "hint": {
+    "en": "Collect 2× Music Disc."
    }
   },
   "textKo": "음반라는 길의 의식을 마쳤어요.",
-  "textDe": "Schallplatte — Zeremonie vollendet."
+  "textDe": "Schallplatte — Zeremonie vollendet.",
+  "textEn": "the ritual of Music Disc is complete."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_item_to_player",
@@ -78,5 +89,6 @@
    "note_block"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "You've Got a Friend in Me"
 }

@@ -29,7 +29,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Spitzer Tropfstein."
+    "de": "Sammle Spitzer Tropfstein.",
+    "en": "Collect Pointed Dripstone."
+   },
+   "hint": {
+    "en": "Collect Pointed Dripstone."
    }
   },
   {
@@ -43,7 +47,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Endertruhe."
+    "de": "Sammle 2× Endertruhe.",
+    "en": "Collect 2× Ender Chest."
+   },
+   "hint": {
+    "en": "Collect 2× Ender Chest."
    }
   },
   {
@@ -57,7 +65,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Fichtenholzhängeschild."
+    "de": "Sammle Fichtenholzhängeschild.",
+    "en": "Collect Spruce Hanging Sign."
+   },
+   "hint": {
+    "en": "Collect Spruce Hanging Sign."
    }
   }
  ],
@@ -73,12 +85,17 @@
     "count": 1
    },
    "clue": {
-    "de": "Stell ein Lesepult für deine Karte auf."
+    "de": "Stell ein Lesepult für deine Karte auf.",
+    "en": "Place Lectern."
    },
-   "conditions": []
+   "conditions": [],
+   "hint": {
+    "en": "Place Lectern."
+   }
   },
   "textKo": "작은 발견을 액자에 담고 독서대에 올려요.",
-  "textDe": "Deine kleine Entdeckung ist im Rahmen und auf dem Lesepult ausgestellt."
+  "textDe": "Deine kleine Entdeckung ist im Rahmen und auf dem Lesepult ausgestellt.",
+  "textEn": "the ritual of Lectern is complete."
  },
  "reward": {
   "badge": "w1_09",
@@ -89,5 +106,6 @@
    "lectern"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "Small Discoveries"
 }

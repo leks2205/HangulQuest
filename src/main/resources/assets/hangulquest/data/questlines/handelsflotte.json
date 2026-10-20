@@ -32,7 +32,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Bambusdschungel."
+    "de": "Erreiche Bambusdschungel.",
+    "en": "Reach Bamboo Jungle."
+   },
+   "hint": {
+    "en": "Reach Bamboo Jungle."
    }
   },
   {
@@ -45,7 +49,11 @@
     "block": "minecraft:oak_trapdoor"
    },
    "clue": {
-    "de": "Benutze Eichenholzfalltür."
+    "de": "Benutze Eichenholzfalltür.",
+    "en": "Use Oak Trapdoor."
+   },
+   "hint": {
+    "en": "Use Oak Trapdoor."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle 4× Hängende Wurzeln."
+    "de": "Sammle 4× Hängende Wurzeln.",
+    "en": "Collect 4× Hanging Roots."
+   },
+   "hint": {
+    "en": "Collect 4× Hanging Roots."
    }
   }
  ],
@@ -74,10 +86,17 @@
     "block": "minecraft:sea_lantern",
     "count": 3
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Place 3× Sea Lantern."
+   },
+   "hint": {
+    "en": "Place 3× Sea Lantern."
+   }
   },
   "textKo": "바다 랜턴으로 무역선을 밝혀요.",
-  "textDe": "Meereslaternen erhellen die Handelsschiffe."
+  "textDe": "Meereslaternen erhellen die Handelsschiffe.",
+  "textEn": "the ritual of Sea Lantern is complete."
  },
  "reward": {
   "badge": "handelsflotte",
@@ -88,5 +107,6 @@
    "sea_lantern"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Trade Fleet"
 }

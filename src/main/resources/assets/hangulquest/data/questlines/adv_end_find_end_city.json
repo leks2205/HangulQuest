@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Platziere Laubhaufen."
+    "de": "Platziere Laubhaufen.",
+    "en": "Place Leaf Litter."
+   },
+   "hint": {
+    "en": "Place Leaf Litter."
    }
   },
   {
@@ -44,7 +48,11 @@
     "dwellMs": 600
    },
    "clue": {
-    "de": "Sieh dir Gemeißelter Sandstein an."
+    "de": "Sieh dir Gemeißelter Sandstein an.",
+    "en": "Look at Chiseled Sandstone."
+   },
+   "hint": {
+    "en": "Look at Chiseled Sandstone."
    }
   }
  ],
@@ -59,10 +67,17 @@
     "item": "minecraft:purpur_block",
     "count": 1
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "en": "Collect Purpur Block."
+   },
+   "hint": {
+    "en": "Collect Purpur Block."
+   }
   },
   "textKo": "게임의 끝에서 만난 도시 — 퍼퍼 블록으로 엔드 도시를 확인해요.",
-  "textDe": "Die Stadt am Ende des Spiels — Ein Purpurblock beweist, dass du die Endstadt gefunden hast."
+  "textDe": "Die Stadt am Ende des Spiels — Ein Purpurblock beweist, dass du die Endstadt gefunden hast.",
+  "textEn": "the ritual of Purpur Block is complete."
  },
  "reward": {
   "badge": "adv_end_find_end_city",
@@ -71,5 +86,6 @@
    "adv_block_purpur_block"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "titleEn": "The City at the End of the Game"
 }

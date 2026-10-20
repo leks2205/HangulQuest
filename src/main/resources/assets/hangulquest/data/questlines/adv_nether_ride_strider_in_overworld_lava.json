@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Bemooste Bruchsteinstufe."
+    "de": "Sammle Bemooste Bruchsteinstufe.",
+    "en": "Collect Mossy Cobblestone Slab."
+   },
+   "hint": {
+    "en": "Collect Mossy Cobblestone Slab."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Angelaufener gemeißelter Kupferblock."
+    "de": "Sammle Angelaufener gemeißelter Kupferblock.",
+    "en": "Collect Exposed Chiseled Copper."
+   },
+   "hint": {
+    "en": "Collect Exposed Chiseled Copper."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Bring Lava in die Oberwelt, damit sich der Strider wie zu Hause fühlt."
+    "de": "Bring Lava in die Oberwelt, damit sich der Strider wie zu Hause fühlt.",
+    "en": "Collect Lava Bucket."
+   },
+   "hint": {
+    "en": "Collect Lava Bucket."
    }
   },
   "textKo": "고향 같은 편안함 — 지상의 용암 위에서도 스트라이더는 편해요.",
-  "textDe": "Ganz wie zu Hause — Lava in der Oberwelt, und der Strider läuft."
+  "textDe": "Ganz wie zu Hause — Lava in der Oberwelt, und der Strider läuft.",
+  "textEn": "the ritual of Lava Bucket is complete."
  },
  "reward": {
   "badge": "adv_nether_ride_strider_in_overworld_lava",
@@ -75,5 +88,6 @@
    "lava_bucket"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Feels Like Home"
 }

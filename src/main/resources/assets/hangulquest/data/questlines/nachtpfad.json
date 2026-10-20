@@ -30,11 +30,13 @@
    },
    "clue": {
     "ko": "횃불을 두 개 모아요.",
-    "de": "Hol dir zwei Dinge, die die Dunkelheit erhellen."
+    "de": "Hol dir zwei Dinge, die die Dunkelheit erhellen.",
+    "en": "Collect 2× Torch."
    },
    "hint": {
     "ko": "횃불을 만들어요. 달과 밤을 밝혀요.",
-    "de": "Baue Fackeln; sie erhellen Mond und Nacht."
+    "de": "Baue Fackeln; sie erhellen Mond und Nacht.",
+    "en": "Collect 2× Torch."
    }
   },
   {
@@ -55,11 +57,13 @@
    ],
    "clue": {
     "ko": "밤에 횃불을 1초 동안 바라봐요.",
-    "de": "Schau in der Nacht ein kleines Licht an."
+    "de": "Schau in der Nacht ein kleines Licht an.",
+    "en": "Look at Torch. At night."
    },
    "hint": {
     "ko": "횃불을 봐요.",
-    "de": "Schau eine Fackel an."
+    "de": "Schau eine Fackel an.",
+    "en": "Look at Torch. At night."
    }
   },
   {
@@ -74,11 +78,13 @@
    },
    "clue": {
     "ko": "침대를 하나 만들어요.",
-    "de": "Mach dir einen Ort zum Schlafen."
+    "de": "Mach dir einen Ort zum Schlafen.",
+    "en": "Collect Red Bed."
    },
    "hint": {
     "ko": "침대를 만들어요.",
-    "de": "Stelle ein Bett her."
+    "de": "Stelle ein Bett her.",
+    "en": "Collect Red Bed."
    }
   }
  ],
@@ -100,11 +106,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Blasseichenholzhängeschild. Nachts."
+    "de": "Platziere Blasseichenholzhängeschild. Nachts.",
+    "en": "Place Pale Oak Hanging Sign. At night."
+   },
+   "hint": {
+    "en": "Place Pale Oak Hanging Sign. At night."
    }
   },
   "textKo": "밤에 창백한 참나무 매다는 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenholzhängeschild — Zeremonie vollendet."
+  "textDe": "Blasseichenholzhängeschild — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Pale Oak Hanging Sign is complete."
  },
  "reward": {
   "badge": "nachtpfad",
@@ -117,5 +128,6 @@
  },
  "order": 50,
  "koreanLevel": 1,
- "topic": "밤"
+ "topic": "밤",
+ "titleEn": "The Night Trail"
 }

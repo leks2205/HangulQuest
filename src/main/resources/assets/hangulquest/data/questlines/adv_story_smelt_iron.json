@@ -30,11 +30,13 @@
     "count": 3
    },
    "clue": {
-    "de": "Baue drei Eisenerze mit einer Steinspitzhacke ab."
+    "de": "Baue drei Eisenerze mit einer Steinspitzhacke ab.",
+    "en": "Break 3× Iron Ore."
    },
    "hint": {
     "ko": "철 원석은 돌 곡괭이로 캘 수 있어요.",
-    "de": "Eisenerz braucht mindestens eine Steinspitzhacke."
+    "de": "Eisenerz braucht mindestens eine Steinspitzhacke.",
+    "en": "Break 3× Iron Ore."
    }
   },
   {
@@ -48,11 +50,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Baue aus acht Bruchstein einen Ofen."
+    "de": "Baue aus acht Bruchstein einen Ofen.",
+    "en": "Collect Furnace."
    },
    "hint": {
     "ko": "화로는 조약돌 여덟 개로 만들어요.",
-    "de": "Ein Ofen braucht acht Bruchstein."
+    "de": "Ein Ofen braucht acht Bruchstein.",
+    "en": "Collect Furnace."
    }
   },
   {
@@ -65,11 +69,13 @@
     "block": "minecraft:furnace"
    },
    "clue": {
-    "de": "Lege Eisenerz und Kohle in den Ofen."
+    "de": "Lege Eisenerz und Kohle in den Ofen.",
+    "en": "Use Furnace."
    },
    "hint": {
     "ko": "화로에 철 원석과 석탄을 넣고 기다려요.",
-    "de": "Eisenerz und Kohle in den Ofen legen."
+    "de": "Eisenerz und Kohle in den Ofen legen.",
+    "en": "Use Furnace."
    }
   }
  ],
@@ -86,11 +92,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Kugelfisch."
+    "de": "Sammle Kugelfisch.",
+    "en": "Collect Pufferfish."
+   },
+   "hint": {
+    "en": "Collect Pufferfish."
    }
   },
   "textKo": "복어라는 길의 의식을 마쳤어요.",
-  "textDe": "Kugelfisch — Zeremonie vollendet."
+  "textDe": "Kugelfisch — Zeremonie vollendet.",
+  "textEn": "the ritual of Pufferfish is complete."
  },
  "reward": {
   "badge": "adv_story_smelt_iron",
@@ -99,5 +110,6 @@
    "furnace"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "Acquire Hardware"
 }

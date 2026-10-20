@@ -30,7 +30,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Tiefenschiefer."
+    "de": "Sammle Tiefenschiefer.",
+    "en": "Collect Deepslate."
+   },
+   "hint": {
+    "en": "Collect Deepslate."
    }
   },
   {
@@ -44,7 +48,11 @@
     "count": 8
    },
    "clue": {
-    "de": "Sammle 8× Redstone-Lampe."
+    "de": "Sammle 8× Redstone-Lampe.",
+    "en": "Collect 8× Redstone Lamp."
+   },
+   "hint": {
+    "en": "Collect 8× Redstone Lamp."
    }
   }
  ],
@@ -61,11 +69,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Wither-Skelett."
+    "de": "Besiege Wither-Skelett.",
+    "en": "Defeat Wither Skeleton."
+   },
+   "hint": {
+    "en": "Defeat Wither Skeleton."
    }
   },
   "textKo": "위더 스켈레톤라는 길의 의식을 마쳤어요.",
-  "textDe": "Wither-Skelett — Zeremonie vollendet."
+  "textDe": "Wither-Skelett — Zeremonie vollendet.",
+  "textEn": "the ritual of Wither Skeleton is complete."
  },
  "reward": {
   "badge": "adv_adventure_shoot_arrow",
@@ -75,5 +88,6 @@
    "zombie"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Take Aim"
 }

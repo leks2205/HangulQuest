@@ -29,11 +29,13 @@
    },
    "clue": {
     "ko": "주민을 1초 동안 바라봐요.",
-    "de": "Finde einen Dorfbewohner."
+    "de": "Finde einen Dorfbewohner.",
+    "en": "Look at Villager."
    },
    "hint": {
     "ko": "마을 사람인 주민을 봐요. 마을은 집들이 모인 곳이에요.",
-    "de": "Schau den Dorfbewohner an; ein Dorf besteht aus Häusern."
+    "de": "Schau den Dorfbewohner an; ein Dorf besteht aus Häusern.",
+    "en": "Look at Villager."
    }
   },
   {
@@ -47,11 +49,13 @@
    },
    "clue": {
     "ko": "마을에서 종을 울려요.",
-    "de": "Läute im Dorf das Ding, das klingt."
+    "de": "Läute im Dorf das Ding, das klingt.",
+    "en": "Use Bell."
    },
    "hint": {
     "ko": "종을 울려요.",
-    "de": "Läute die Glocke."
+    "de": "Läute die Glocke.",
+    "en": "Use Bell."
    }
   },
   {
@@ -66,11 +70,13 @@
    },
    "clue": {
     "ko": "에메랄드를 하나 모아요.",
-    "de": "Hol dir einen grünen Edelstein."
+    "de": "Hol dir einen grünen Edelstein.",
+    "en": "Collect Emerald."
    },
    "hint": {
     "ko": "에메랄드를 모아요.",
-    "de": "Sammle einen Smaragd."
+    "de": "Sammle einen Smaragd.",
+    "en": "Collect Emerald."
    }
   }
  ],
@@ -91,11 +97,16 @@
     }
    ],
    "clue": {
-    "de": "Benutze Spender. Nachts."
+    "de": "Benutze Spender. Nachts.",
+    "en": "Use Dropper. At night."
+   },
+   "hint": {
+    "en": "Use Dropper. At night."
    }
   },
   "textKo": "밤에 공급기라는 길의 의식을 마쳤어요.",
-  "textDe": "Spender — Zeremonie vollendet."
+  "textDe": "Spender — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Dropper is complete."
  },
  "reward": {
   "badge": "dorfpfad",
@@ -108,5 +119,6 @@
  },
  "order": 80,
  "koreanLevel": 1,
- "topic": "마을"
+ "topic": "마을",
+ "titleEn": "The Village Trail"
 }

@@ -31,7 +31,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Graue Betontreppe."
+    "de": "Sammle Graue Betontreppe.",
+    "en": "Collect Gray Concrete Stairs."
+   },
+   "hint": {
+    "en": "Collect Gray Concrete Stairs."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Karmesinhängeschild."
+    "de": "Platziere 3× Karmesinhängeschild.",
+    "en": "Place 3× Crimson Hanging Sign."
+   },
+   "hint": {
+    "en": "Place 3× Crimson Hanging Sign."
    }
   },
   {
@@ -59,11 +67,13 @@
     "count": 1
    },
    "clue": {
-    "de": "Stell einen Seelenanker auf."
+    "de": "Stell einen Seelenanker auf.",
+    "en": "Place Respawn Anchor."
    },
    "hint": {
     "ko": "리스폰 정박기는 우는 흑요석과 발광석으로 만들어요.",
-    "de": "Ein Seelenanker besteht aus weinendem Obsidian und Glowstone."
+    "de": "Ein Seelenanker besteht aus weinendem Obsidian und Glowstone.",
+    "en": "Place Respawn Anchor."
    }
   }
  ],
@@ -80,11 +90,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Goldene Karotte."
+    "de": "Sammle Goldene Karotte.",
+    "en": "Collect Golden Carrot."
+   },
+   "hint": {
+    "en": "Collect Golden Carrot."
    }
   },
   "textKo": "황금 당근라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldene Karotte — Zeremonie vollendet."
+  "textDe": "Goldene Karotte — Zeremonie vollendet.",
+  "textEn": "the ritual of Golden Carrot is complete."
  },
  "reward": {
   "badge": "w7_07",
@@ -95,5 +110,6 @@
    "adv_item_crying_obsidian"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "titleEn": "The Bones of the Wither"
 }

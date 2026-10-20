@@ -29,11 +29,13 @@
     "count": 2
    },
    "clue": {
-    "de": "Bau zwei Laternen."
+    "de": "Bau zwei Laternen.",
+    "en": "Collect 2× Lantern."
    },
    "hint": {
     "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen brauchen eine Fackel und Eisenstücke."
+    "de": "Laternen brauchen eine Fackel und Eisenstücke.",
+    "en": "Collect 2× Lantern."
    }
   },
   {
@@ -47,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Platziere 2× Bruchtiefenschieferstufe."
+    "de": "Platziere 2× Bruchtiefenschieferstufe.",
+    "en": "Place 2× Cobbled Deepslate Slab."
+   },
+   "hint": {
+    "en": "Place 2× Cobbled Deepslate Slab."
    }
   },
   {
@@ -61,7 +67,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Grüner Trockenbeton."
+    "de": "Sammle 2× Grüner Trockenbeton.",
+    "en": "Collect 2× Green Concrete Powder."
+   },
+   "hint": {
+    "en": "Collect 2× Green Concrete Powder."
    }
   }
  ],
@@ -78,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 2× Blasseichenholzzauntor."
+    "de": "Platziere 2× Blasseichenholzzauntor.",
+    "en": "Place 2× Pale Oak Fence Gate."
+   },
+   "hint": {
+    "en": "Place 2× Pale Oak Fence Gate."
    }
   },
   "textKo": "창백한 참나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenholzzauntor — Zeremonie vollendet."
+  "textDe": "Blasseichenholzzauntor — Zeremonie vollendet.",
+  "textEn": "the ritual of Pale Oak Fence Gate is complete."
  },
  "reward": {
   "badge": "w1_08",
@@ -92,5 +107,6 @@
    "adv_item_glow_ink_sac"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Light of the Sea"
 }

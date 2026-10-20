@@ -31,7 +31,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Besiege 3× Höhlenspinne."
+    "de": "Besiege 3× Höhlenspinne.",
+    "en": "Defeat 3× Cave Spider."
+   },
+   "hint": {
+    "en": "Defeat 3× Cave Spider."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Entrindeter Fichtenstamm."
+    "de": "Sammle 2× Entrindeter Fichtenstamm.",
+    "en": "Collect 2× Stripped Spruce Log."
+   },
+   "hint": {
+    "en": "Collect 2× Stripped Spruce Log."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Flammen-Töpferscherbe."
+    "de": "Sammle Flammen-Töpferscherbe.",
+    "en": "Collect Burn Pottery Sherd."
+   },
+   "hint": {
+    "en": "Collect Burn Pottery Sherd."
    }
   }
  ],
@@ -76,11 +88,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Steindruckplatte."
+    "de": "Sammle Steindruckplatte.",
+    "en": "Collect Stone Pressure Plate."
+   },
+   "hint": {
+    "en": "Collect Stone Pressure Plate."
    }
   },
   "textKo": "돌 압력판라는 길의 의식을 마쳤어요.",
-  "textDe": "Steindruckplatte — Zeremonie vollendet."
+  "textDe": "Steindruckplatte — Zeremonie vollendet.",
+  "textEn": "the ritual of Stone Pressure Plate is complete."
  },
  "reward": {
   "badge": "adv_story_follow_ender_eye",
@@ -91,5 +108,6 @@
    "adv_item_ender_eye"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "titleEn": "Eye Spy"
 }

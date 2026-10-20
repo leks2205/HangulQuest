@@ -31,7 +31,11 @@
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Berghain."
+    "de": "Erreiche Berghain.",
+    "en": "Reach Grove."
+   },
+   "hint": {
+    "en": "Reach Grove."
    }
   },
   {
@@ -45,7 +49,11 @@
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Fichtenholzzauntor."
+    "de": "Platziere 3× Fichtenholzzauntor.",
+    "en": "Place 3× Spruce Fence Gate."
+   },
+   "hint": {
+    "en": "Place 3× Spruce Fence Gate."
    }
   },
   {
@@ -59,7 +67,11 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle 2× Tropenholzschild."
+    "de": "Sammle 2× Tropenholzschild.",
+    "en": "Collect 2× Jungle Sign."
+   },
+   "hint": {
+    "en": "Collect 2× Jungle Sign."
    }
   }
  ],
@@ -75,11 +87,16 @@
     "count": 1
    },
    "clue": {
-    "de": "Sammle Diamantaxt."
+    "de": "Sammle Diamantaxt.",
+    "en": "Collect Diamond Axe."
+   },
+   "hint": {
+    "en": "Collect Diamond Axe."
    }
   },
   "textKo": "다이아몬드 도끼라는 길의 의식을 마쳤어요.",
-  "textDe": "Diamantaxt — Zeremonie vollendet."
+  "textDe": "Diamantaxt — Zeremonie vollendet.",
+  "textEn": "the ritual of Diamond Axe is complete."
  },
  "reward": {
   "badge": "w4_01",
@@ -90,5 +107,6 @@
    "shell"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "titleEn": "The Coral Reef Trail"
 }

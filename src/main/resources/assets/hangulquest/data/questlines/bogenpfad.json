@@ -37,11 +37,13 @@
    },
    "clue": {
     "de": "Bau einen Bogen.",
-    "ko": "나무와 실로 활을 만들어요."
+    "ko": "나무와 실로 활을 만들어요.",
+    "en": "Collect Bow."
    },
    "hint": {
     "ko": "활은 나무와 실로 만들어요.",
-    "de": "Ein Bogen besteht aus Holz und Faden."
+    "de": "Ein Bogen besteht aus Holz und Faden.",
+    "en": "Collect Bow."
    }
   },
   {
@@ -58,11 +60,13 @@
    },
    "clue": {
     "de": "Sammle vier Pfeile.",
-    "ko": "깃털과 나무로 화살을 만들어요."
+    "ko": "깃털과 나무로 화살을 만들어요.",
+    "en": "Collect 4× Arrow."
    },
    "hint": {
     "ko": "화살은 깃털, 나무, 부싯돌로 만들어요.",
-    "de": "Pfeile bestehen aus Feder, Holz und Feuerstein."
+    "de": "Pfeile bestehen aus Feder, Holz und Feuerstein.",
+    "en": "Collect 4× Arrow."
    }
   },
   {
@@ -76,7 +80,11 @@
     "dwellMs": 800
    },
    "clue": {
-    "de": "Sieh dir Großwächter an."
+    "de": "Sieh dir Großwächter an.",
+    "en": "Look at Elder Guardian."
+   },
+   "hint": {
+    "en": "Look at Elder Guardian."
    }
   }
  ],
@@ -93,11 +101,16 @@
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Schleim."
+    "de": "Besiege Schleim.",
+    "en": "Defeat Slime."
+   },
+   "hint": {
+    "en": "Defeat Slime."
    }
   },
   "textKo": "슬라임라는 길의 의식을 마쳤어요.",
-  "textDe": "Schleim — Zeremonie vollendet."
+  "textDe": "Schleim — Zeremonie vollendet.",
+  "textEn": "the ritual of Slime is complete."
  },
  "reward": {
   "badge": "bogenpfad",
@@ -107,5 +120,6 @@
    "cow"
   ]
  },
- "koreanLevel": 1
+ "koreanLevel": 1,
+ "titleEn": "The Bow Trail"
 }
