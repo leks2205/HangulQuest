@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "adv_nether_fast_travel",
+ "titleKo": "천 리 길도 한 걸음",
+ "titleDe": "Subraumtransport",
+ "topic": "nether",
+ "tier": 2,
+ "order": 295,
+ "concepts": [
+  "map",
+  "adv_dimension_the_nether",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:map",
+    "count": 1
+   },
+   "clue": {
+    "de": "Zeichne eine Karte, damit du auf dem langen Weg nicht die Richtung verlierst."
+   },
+   "hint": {
+    "ko": "지도를 만들어요. 종이 아홉 개와 나침반이 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh durch das Portal: Im Nether zählt jeder Block acht Mal."
+   },
+   "hint": {
+    "ko": "포털로 지옥에 가요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Kletter auf das Netherdach über Y 120 – von dort läuft die weite Reise schnell."
+   },
+   "hint": {
+    "ko": "높이 120블록 위로 올라가요."
+   }
+  },
+  "textKo": "천 리 길도 한 걸음이에요! 지옥 위를 달려서 순식간에 도착했어요.",
+  "textDe": "Tausend Meilen in einem Schritt – der Nether macht es möglich."
+ },
+ "reward": {
+  "badge": "adv_nether_fast_travel",
+  "words": [
+   "map",
+   "adv_dimension_the_nether",
+   "height"
+  ]
+ },
+ "koreanLevel": 2
+}

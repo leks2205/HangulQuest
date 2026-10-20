@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "w9_08",
+ "titleKo": "왕관의 유산",
+ "titleDe": "Das Kronenerbe",
+ "topic": "유산",
+ "tier": 2,
+ "order": 1098,
+ "concepts": [
+  "bookshelf",
+  "item_frame",
+  "lectern"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bookshelf",
+    "count": 4
+   },
+   "clue": {
+    "de": "Stell vier Bücherregale für die Chronik der Krone.",
+    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요."
+   },
+   "hint": {
+    "ko": "책장은 나무 판자와 책으로 만들어요.",
+    "de": "Bücherregale bestehen aus Brettern und Büchern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "clue": {
+    "de": "Trag das Vermächtnis am Lesepult vor.",
+    "ko": "유산을 남기려고 독서대를 사용해요."
+   },
+   "hint": {
+    "ko": "독서대는 나무 반 블록과 책장으로 만들어요.",
+    "de": "Ein Lesepult braucht eine Holzstufe und ein Bücherregal."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "item_frame"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:item_frame",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "아이템 액자를 갖추지 않고서는 왕관의 유산을 남길 수 없어요.",
+  "textDe": "Ohne drei Rahmen lässt sich das Erbe der Krone nicht aufhängen."
+ },
+ "reward": {
+  "badge": "w9_08",
+  "words": [
+   "bookshelf",
+   "item_frame",
+   "lectern"
+  ]
+ },
+ "koreanLevel": 5
+}

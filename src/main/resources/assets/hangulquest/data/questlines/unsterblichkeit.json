@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "unsterblichkeit",
+ "titleKo": "불멸의 길",
+ "titleDe": "Der Unsterblichkeitspfad",
+ "topic": "불멸",
+ "tier": 3,
+ "order": 127,
+ "concepts": [
+  "golden_apple",
+  "anvil",
+  "beacon",
+  "enchanting_table"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schicksalspfad",
+   "weltenrichter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "golden_apple"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_apple",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen goldenen Apfel."
+   },
+   "hint": {
+    "ko": "황금 사과는 사과와 금 조각으로 만들어요.",
+    "de": "Goldene Äpfel bestehen aus Apfel und Gold."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "clue": {
+    "de": "Benutz einen Amboss."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beacon",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Leuchtfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "enchanting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:enchanting_table"
+   },
+   "conditions": []
+  },
+  "textKo": "마법 부여대에서 불멸을 빌어요.",
+  "textDe": "Am Zaubertisch um Unsterblichkeit bitten."
+ },
+ "reward": {
+  "badge": "unsterblichkeit",
+  "words": [
+   "golden_apple",
+   "anvil",
+   "beacon",
+   "enchanting_table"
+  ]
+ },
+ "koreanLevel": 6
+}

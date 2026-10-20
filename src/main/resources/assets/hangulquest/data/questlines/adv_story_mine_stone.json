@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "adv_story_mine_stone",
+ "titleKo": "석기 시대",
+ "titleDe": "Steinzeit",
+ "topic": "story",
+ "tier": 2,
+ "order": 320,
+ "concepts": [
+  "adv_item_wooden_pickaxe",
+  "stone",
+  "coal",
+  "cobblestone"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_wooden_pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wooden_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue dir zuerst eine Holzspitzhacke."
+   },
+   "hint": {
+    "ko": "나무 곡괭이는 판자 세 개와 막대기 두 개로 만들어요.",
+    "de": "Eine Holzspitzhacke: drei Holzbretter und zwei Stöcke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "stone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Steinblöcke mit der Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue dabei zwei Kohleerze ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cobblestone",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Bruchstein aus dem abgebauten Stein."
+   },
+   "conditions": []
+  },
+  "textKo": "석기 시대 — 조약돌을 캐서 돌 도구를 만들 수 있어요.",
+  "textDe": "Steinzeit — Bruchstein abgebaut, jetzt sind Steinwerkzeuge möglich."
+ },
+ "reward": {
+  "badge": "adv_story_mine_stone",
+  "words": [
+   "adv_item_wooden_pickaxe",
+   "stone",
+   "coal",
+   "cobblestone"
+  ]
+ },
+ "koreanLevel": 1
+}

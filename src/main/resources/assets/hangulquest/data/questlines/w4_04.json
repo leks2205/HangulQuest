@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "id": "w4_04",
+ "titleKo": "부두의 배",
+ "titleDe": "Das Boot am Kai",
+ "topic": "부두",
+ "tier": 2,
+ "order": 1044,
+ "concepts": [
+  "adv_item_oak_boat",
+  "chest",
+  "bell",
+  "water"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "wanderpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_oak_boat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:oak_boat",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau ein Eichenholzboot."
+   },
+   "hint": {
+    "ko": "보트는 나무 판자로 만들어요.",
+    "de": "Ein Boot baust du aus Holzplanken."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell eine Truhe auf den Kai."
+   },
+   "hint": {
+    "ko": "상자에는 물건을 담아요.",
+    "de": "In die Truhe legst du deine Sachen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Glocke am Hafen."
+   },
+   "hint": {
+    "ko": "종을 치면 소리가 나요.",
+    "de": "Die Glocke läutet laut."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Füll am Meer Wasser in den Eimer."
+   },
+   "hint": {
+    "ko": "물은 양동이에 담아요.",
+    "de": "Das Wasser füllst du in den Eimer."
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
+  },
+  "textKo": "바다에서 양동이에 물을 담아요.",
+  "textDe": "Am Meer füllst du Wasser in den Eimer."
+ },
+ "reward": {
+  "badge": "w4_04",
+  "words": [
+   "adv_item_oak_boat",
+   "chest",
+   "bell",
+   "water"
+  ]
+ },
+ "koreanLevel": 2
+}

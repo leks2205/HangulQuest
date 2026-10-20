@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "weltmarkt",
+ "titleKo": "세계 시장",
+ "titleDe": "Der Weltmarkt",
+ "tier": 4,
+ "order": 525,
+ "concepts": [
+  "emerald",
+  "pickaxe",
+  "bread",
+  "bell",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelsstrasse",
+   "schmiedepfad",
+   "briefpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Brote."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 세계 시장의 상자를 열어요.",
+  "textDe": "Am Tag öffnest du die Truhe des Weltmarkts."
+ },
+ "reward": {
+  "badge": "weltmarkt",
+  "words": [
+   "emerald",
+   "pickaxe",
+   "bread",
+   "bell"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "마을"
+}

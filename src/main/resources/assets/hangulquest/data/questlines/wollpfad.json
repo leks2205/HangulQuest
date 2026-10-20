@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "wollpfad",
+ "titleKo": "양털의 길",
+ "titleDe": "Der Wollpfad",
+ "topic": "동물",
+ "tier": 2,
+ "order": 44,
+ "concepts": [
+  "sheep",
+  "wool",
+  "bed",
+  "shears"
+ ],
+ "requires": {
+  "minWordsKnown": 18,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tierpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sheep"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:sheep",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Schaf an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wool",
+    "shears"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_wool",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Wolle.",
+    "ko": "가위로 양털을 모아요."
+   },
+   "hint": {
+    "ko": "가위로 양털을 깎아요. 가위는 철 두 개로 만들어요.",
+    "de": "Scher die Wolle mit einer Schere aus zwei Eisen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "양털로 침대를 만들어요.",
+  "textDe": "Aus Wolle baust du ein Bett."
+ },
+ "reward": {
+  "badge": "wollpfad",
+  "words": [
+   "sheep",
+   "wool",
+   "bed"
+  ]
+ },
+ "koreanLevel": 1
+}

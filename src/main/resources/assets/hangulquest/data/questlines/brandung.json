@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "brandung",
+ "titleKo": "파도의 길",
+ "titleDe": "Der Brandungspfad",
+ "tier": 5,
+ "order": 350,
+ "concepts": [
+  "ocean",
+  "turtle",
+  "squid",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 7,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "fischerpfad",
+   "flusslicht",
+   "froschteich",
+   "schildkroete"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh zum Ozean."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "turtle"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:turtle",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Schildkröte an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "squid"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ink_sac",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle die schwarze Tinte vom Tintenfisch."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "밤에 해변에서 횃불을 놓아요.",
+  "textDe": "Nachts setzt du am Strand eine Fackel."
+ },
+ "reward": {
+  "badge": "brandung",
+  "words": [
+   "ocean",
+   "turtle",
+   "squid",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1,
+ "topic": "물"
+}

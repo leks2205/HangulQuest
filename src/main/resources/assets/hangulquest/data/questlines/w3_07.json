@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w3_07",
+ "titleKo": "말과 장터",
+ "titleDe": "Pferd und Markt",
+ "topic": "동물",
+ "tier": 2,
+ "order": 1037,
+ "concepts": [
+  "horse",
+  "leather",
+  "saddle",
+  "fence"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "reitpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:horse",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau das Pferd auf dem Markt an."
+   },
+   "hint": {
+    "ko": "말을 바라봐요.",
+    "de": "Schau ein Pferd an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "leather"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:leather",
+    "count": 3
+   },
+   "clue": {
+    "de": "Kauf drei Leder für den Sattler."
+   },
+   "hint": {
+    "ko": "가죽을 모아요.",
+    "de": "Sammle Leder."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "saddle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:saddle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besorg einen Sattel für das Pferd."
+   },
+   "hint": {
+    "ko": "안장을 챙겨요.",
+    "de": "Nimm einen Sattel mit."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "안장을 얹고 울타리 안으로 걸어가요. 장터에 말이 도착했어요.",
+  "textDe": "Sattel aufgelegt, hinein in den Pferch. Das Pferd ist am Markt angekommen."
+ },
+ "reward": {
+  "badge": "w3_07",
+  "words": [
+   "horse",
+   "leather",
+   "saddle",
+   "fence"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "kronenfeier",
+ "titleKo": "왕관의 잔치",
+ "titleDe": "Das Kronenfest",
+ "topic": "음식",
+ "tier": 5,
+ "order": 74,
+ "concepts": [
+  "cake",
+  "bell",
+  "campfire",
+  "ritual"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenglanz",
+   "weltbaum",
+   "runenpfad",
+   "fischergilde"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss ein Stück Kuchen.",
+    "ko": "케이크를 만들어 먹어요."
+   },
+   "hint": {
+    "ko": "케이크는 밀, 설탕, 달걀, 우유로 만들어요.",
+    "de": "Kuchen braucht Weizen, Zucker, Ei und Milch."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bell",
+    "ritual"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Festglocke.",
+    "ko": "의식의 종을 울려요."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
+   "hint": {
+    "ko": "의식은 특별한 날에 하는 것이에요. 낮에 종을 울려요.",
+    "de": "Ein Ritual macht man an besonderen Tagen; läute am Tag die Glocke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 왕관의 잔치에서 불을 피워요.",
+  "textDe": "Beim Kronenfest brennt das Feuer."
+ },
+ "reward": {
+  "badge": "kronenfeier",
+  "words": [
+   "cake",
+   "bell",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 6
+}

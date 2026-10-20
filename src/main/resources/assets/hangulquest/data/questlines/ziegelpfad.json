@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "ziegelpfad",
+ "titleKo": "벽돌의 길",
+ "titleDe": "Der Ziegelpfad",
+ "topic": "벽돌",
+ "tier": 3,
+ "order": 157,
+ "concepts": [
+  "clay",
+  "furnace",
+  "brick",
+  "stone_bricks"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "alpental",
+   "gartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clay"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clay_ball",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Ton."
+   },
+   "hint": {
+    "ko": "점토는 물가의 점토 블록에서 캐요.",
+    "de": "Ton findest du an Tonblöcken am Wasser."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Benutz einen Ofen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "brick"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bricks",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Ziegel."
+   },
+   "hint": {
+    "ko": "벽돌은 점토를 구워 만들어요.",
+    "de": "Ziegel entstehen aus gebranntem Ton."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 4
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "석재 벽돌은 돌을 구워 만들어요.",
+    "de": "Steinziegel entstehen aus gebranntem Stein."
+   }
+  },
+  "textKo": "석재 벽돌로 집을 지어요.",
+  "textDe": "Steinziegel für das Haus."
+ },
+ "reward": {
+  "badge": "ziegelpfad",
+  "words": [
+   "clay",
+   "brick",
+   "stone_bricks"
+  ]
+ },
+ "koreanLevel": 2
+}

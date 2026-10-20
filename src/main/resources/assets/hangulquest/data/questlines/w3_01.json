@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w3_01",
+ "titleKo": "장터의 길",
+ "titleDe": "Der Marktweg",
+ "topic": "마을",
+ "tier": 2,
+ "order": 1031,
+ "concepts": [
+  "villager",
+  "emerald",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmelzpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "clue": {
+    "de": "Sprich mit einem Dorfbewohner."
+   },
+   "hint": {
+    "ko": "마을 사람과 이야기해요.",
+    "de": "Rede mit einem Bewohner im Dorf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Smaragde für den Handel."
+   },
+   "hint": {
+    "ko": "에메랄드를 모아요.",
+    "de": "Sammle Smaragde."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bell",
+    "count": 1
+   },
+   "clue": {
+    "de": "Häng eine Glocke über dem Markt auf."
+   },
+   "hint": {
+    "ko": "종을 하나 놓아요.",
+    "de": "Stell eine Glocke auf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": []
+  },
+  "textKo": "종소리가 장터에 울려요. 장터의 길이 끝났어요.",
+  "textDe": "Die Glocke läutet über den Markt. Der Marktweg ist zu Ende."
+ },
+ "reward": {
+  "badge": "w3_01",
+  "words": [
+   "villager",
+   "emerald",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_end_root",
+ "titleKo": "엔드",
+ "titleDe": "Das Ende",
+ "topic": "end",
+ "tier": 2,
+ "order": 255,
+ "concepts": [
+  "adv_item_blaze_rod",
+  "adv_item_ender_eye",
+  "adv_dimension_the_end"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 6
+   },
+   "clue": {
+    "de": "Hol dir Lohenruten aus der Netherfestung, daraus wird Blazepulver."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_ender_eye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_eye",
+    "count": 12
+   },
+   "clue": {
+    "de": "Fülle zwölf Enderaugen für die Rahmen des Portals."
+   },
+   "hint": {
+    "ko": "엔더 진주와 블레이즈 가루로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_end"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "conditions": []
+  },
+  "textKo": "엔드 — 엔더의 눈을 모두 꽂고 엔드로 걸어 들어가요.",
+  "textDe": "Das Ende — Setze die Augen in den Rahmen und betritt die Dimension."
+ },
+ "reward": {
+  "badge": "adv_end_root",
+  "words": [
+   "adv_item_blaze_rod",
+   "adv_item_ender_eye",
+   "adv_dimension_the_end"
+  ]
+ },
+ "koreanLevel": 6
+}

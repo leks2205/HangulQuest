@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "faerberei",
+ "titleKo": "염색의 길",
+ "titleDe": "Der Färberpfad",
+ "topic": "염색",
+ "tier": 3,
+ "order": 163,
+ "concepts": [
+  "dye",
+  "cauldron",
+  "wool"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festungpfad",
+   "schatzkammer"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "dye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:red_dye",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei roten Farbstoff."
+   },
+   "hint": {
+    "ko": "빨간 염료는 양귀비나 비트로 만들어요.",
+    "de": "Roter Farbstoff kommt aus Mohn oder Rote Bete."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cauldron"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:cauldron"
+   },
+   "clue": {
+    "de": "Benutz einen Kessel."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_wool",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Wollblöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_wool",
+    "count": 6
+   },
+   "conditions": []
+  },
+  "textKo": "염료로 양털을 물들여요.",
+  "textDe": "Wolle mit Farbe färben."
+ },
+ "reward": {
+  "badge": "faerberei",
+  "words": [
+   "dye",
+   "cauldron",
+   "wool"
+  ]
+ },
+ "koreanLevel": 2
+}

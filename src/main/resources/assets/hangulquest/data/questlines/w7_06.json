@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w7_06",
+ "titleKo": "마그마의 길",
+ "titleDe": "Der Magmaweg",
+ "topic": "마그마",
+ "tier": 2,
+ "order": 1076,
+ "concepts": [
+  "lava_bucket",
+  "netherrack",
+  "magma",
+  "ghast"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "pyramidenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lava_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle einen Lavaeimer."
+   },
+   "hint": {
+    "ko": "용암 양동이는 빈 양동이로 용암을 떠서 만들어요.",
+    "de": "Einen Lavaeimer füllst du mit einem leeren Eimer in Lava."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "netherrack"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:netherrack",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Netherrack ab."
+   },
+   "hint": {
+    "ko": "네더랙은 지옥 어디서나 캘 수 있어요.",
+    "de": "Netherrack kannst du überall im Nether abbauen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "magma"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:magma_block",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Magmablöcke."
+   },
+   "hint": {
+    "ko": "마그마 블록은 마그마 크림과 네더랙으로 만들어요.",
+    "de": "Magmablöcke bestehen aus Magmacreme und Netherrack."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "ghast"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ghast",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "마그마 길을 건너 가스트를 물리쳐요.",
+  "textDe": "Über den Magmaweg besiegt du einen Ghast."
+ },
+ "reward": {
+  "badge": "w7_06",
+  "words": [
+   "lava_bucket",
+   "netherrack",
+   "magma",
+   "ghast"
+  ]
+ },
+ "koreanLevel": 4
+}

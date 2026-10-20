@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_root",
+ "titleKo": "농사",
+ "titleDe": "Landwirtschaft",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 277,
+ "concepts": [
+  "wheat",
+  "hay_block",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tierpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:wheat",
+    "count": 3
+   },
+   "clue": {
+    "de": "Ernte drei reife Weizenpflanzen auf deinem Feld."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "hay_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:hay_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Presse neun Weizen zu einem Heuballen und stelle ihn auf."
+   },
+   "hint": {
+    "ko": "밀 아홉 개를 조합해요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "농사 — 밀을 기르고 빵을 구워 먹어요.",
+  "textDe": "Landwirtschaft — Du erntest Weizen und isst dein eigenes Brot."
+ },
+ "reward": {
+  "badge": "adv_husbandry_root",
+  "words": [
+   "wheat",
+   "hay_block",
+   "bread"
+  ]
+ },
+ "koreanLevel": 1
+}

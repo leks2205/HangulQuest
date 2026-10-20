@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_remove_wolf_armor",
+ "titleKo": "탁월한 가위질",
+ "titleDe": "Schnipp‐schnapp!",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 274,
+ "concepts": [
+  "shears",
+  "wolf_armor",
+  "wolf"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tame_an_animal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "shears"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shears",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede eine Schere aus zwei Eisenbarren."
+   },
+   "hint": {
+    "ko": "철 주괴 두 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wolf_armor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wolf_armor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fertige eine Wolfsrüstung aus sechs Hornschilden."
+   },
+   "hint": {
+    "ko": "아르마딜로 인갑으로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:wolf"
+   },
+   "conditions": []
+  },
+  "textKo": "탁월한 가위질 — 늑대의 갑옷을 가위로 벗겨요.",
+  "textDe": "Schnipp‐schnapp! — Du schneidest dem Wolf die Rüstung vom Leib."
+ },
+ "reward": {
+  "badge": "adv_husbandry_remove_wolf_armor",
+  "words": [
+   "shears",
+   "wolf_armor",
+   "wolf"
+  ]
+ },
+ "koreanLevel": 2
+}

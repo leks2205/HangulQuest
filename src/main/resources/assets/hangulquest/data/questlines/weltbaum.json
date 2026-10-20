@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "weltbaum",
+ "titleKo": "세계수",
+ "titleDe": "Der Weltbaum",
+ "tier": 5,
+ "order": 526,
+ "concepts": [
+  "planks",
+  "flower",
+  "campfire",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "waldfest",
+   "gartenfest",
+   "alpental",
+   "familienpfad",
+   "alchemiepfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_planks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Bretter."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 세계수의 종을 울려요.",
+  "textDe": "Am Tag läutet die Glocke des Weltbaums."
+ },
+ "reward": {
+  "badge": "weltbaum",
+  "words": [
+   "planks",
+   "flower",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "나무"
+}

@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_trim_with_all_exclusive_armor_patterns",
+ "titleKo": "형판 좋은 대장장이",
+ "titleDe": "Schmieden mit Stil",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 237,
+ "concepts": [
+  "adv_item_silence_armor_trim_smithing_template",
+  "adv_item_dune_armor_trim_smithing_template",
+  "adv_item_diamond_boots"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_trim_with_any_armor_pattern"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_silence_armor_trim_smithing_template"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:silence_armor_trim_smithing_template",
+    "count": 1
+   },
+   "clue": {
+    "de": "Finde die Stille-Vorlage in einer antiken Stadt."
+   },
+   "hint": {
+    "ko": "고대 도시에서 형판을 찾아요.",
+    "de": "Die Stille-Vorlage liegt in der antiken Stadt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_dune_armor_trim_smithing_template"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dune_armor_trim_smithing_template",
+    "count": 1
+   },
+   "clue": {
+    "de": "Suche die Dünen-Vorlage im Wüstentempel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_diamond_boots"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_boots",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "형판 좋은 대장장이 — 여러 형판으로 다이아몬드 부츠를 꾸며요.",
+  "textDe": "Schmieden mit Stil — Jede exklusive Vorlage ziert deine Diamantstiefel."
+ },
+ "reward": {
+  "badge": "adv_adventure_trim_with_all_exclusive_armor_patterns",
+  "words": [
+   "adv_item_silence_armor_trim_smithing_template",
+   "adv_item_dune_armor_trim_smithing_template",
+   "adv_item_diamond_boots"
+  ]
+ },
+ "koreanLevel": 3
+}

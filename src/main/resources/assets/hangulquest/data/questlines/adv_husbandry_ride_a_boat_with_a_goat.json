@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_ride_a_boat_with_a_goat",
+ "titleKo": "염소 떴소",
+ "titleDe": "Ohne Geiß kein Preis!",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 276,
+ "concepts": [
+  "adv_item_oak_boat",
+  "adv_item_lead",
+  "goat"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_oak_boat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:oak_boat",
+    "count": 1
+   },
+   "clue": {
+    "de": "Zimmere ein Eichenholzboot aus fünf Brettern."
+   },
+   "hint": {
+    "ko": "참나무 판자 다섯 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_lead"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lead",
+    "count": 1
+   },
+   "clue": {
+    "de": "Knote eine Leine aus fünf Fäden."
+   },
+   "hint": {
+    "ko": "실 다섯 개로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:goat"
+   },
+   "conditions": []
+  },
+  "textKo": "염소 떴소 — 염소를 배에 태우고 함께 떠요.",
+  "textDe": "Ohne Geiß kein Preis! — Du ruderst mit einer Ziege im Boot."
+ },
+ "reward": {
+  "badge": "adv_husbandry_ride_a_boat_with_a_goat",
+  "words": [
+   "adv_item_oak_boat",
+   "adv_item_lead",
+   "goat"
+  ]
+ },
+ "koreanLevel": 1
+}

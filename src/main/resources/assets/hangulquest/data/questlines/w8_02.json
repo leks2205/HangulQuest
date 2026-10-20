@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w8_02",
+ "titleKo": "엔더의 눈",
+ "titleDe": "Das Auge des Enders",
+ "topic": "눈",
+ "tier": 2,
+ "order": 1082,
+ "concepts": [
+  "ender_pearl",
+  "adv_item_ender_eye",
+  "stone_bricks",
+  "adv_block_end_stone"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "pyramidenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Enderperlen."
+   },
+   "hint": {
+    "ko": "엔더 진주는 엔더맨을 물리치면 나와요.",
+    "de": "Endermen lassen Enderperlen fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_ender_eye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_eye",
+    "count": 6
+   },
+   "clue": {
+    "de": "Stelle sechs Augen des Enders her."
+   },
+   "hint": {
+    "ko": "엔더의 눈은 진주와 블레이즈 가루로 만들어요.",
+    "de": "Ein Auge des Enders ist eine Enderperle mit Lohenstaub."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Sieh dir die Steinziegel der Festung an."
+   },
+   "hint": {
+    "ko": "석재 벽돌은 돌을 구워서 만들어요.",
+    "de": "Steinziegel brennst du aus Stein."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_end_stone"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:end_stone",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "눈이 길을 보여 줘요. 엔드 돌 제단이 빛나요.",
+  "textDe": "Die Augen weisen den Weg. Ein Altar aus Endstein leuchtet."
+ },
+ "reward": {
+  "badge": "w8_02",
+  "words": [
+   "ender_pearl",
+   "adv_item_ender_eye",
+   "stone_bricks",
+   "adv_block_end_stone"
+  ]
+ },
+ "koreanLevel": 4
+}

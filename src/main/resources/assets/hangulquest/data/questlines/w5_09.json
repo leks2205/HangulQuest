@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "w5_09",
+ "titleKo": "돌 정원의 벽돌",
+ "titleDe": "Ziegel im Steingarten",
+ "topic": "벽돌",
+ "tier": 2,
+ "order": 1059,
+ "concepts": [
+  "stone_bricks",
+  "chiseled_stone_bricks",
+  "pickaxe",
+  "iron_golem"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenwacht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 12
+   },
+   "clue": {
+    "de": "Setz zwölf Steinziegel."
+   },
+   "hint": {
+    "ko": "석재 벽돌은 돌로 만들어요.",
+    "de": "Steinziegel machst du aus Stein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier gemeißelte Steinziegel."
+   },
+   "hint": {
+    "ko": "조각된 석재 벽돌은 석재 벽돌을 조각해요.",
+    "de": "Gemeißelte Ziegel entstehen aus Steinziegeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Eisenspitzhacke."
+   },
+   "hint": {
+    "ko": "곡괭이는 철괴와 막대기로 만들어요.",
+    "de": "Eine Spitzhacke braucht Barren und Stöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:iron_golem"
+   },
+   "clue": {
+    "de": "Sprich mit einem Eisengolem."
+   },
+   "hint": {
+    "ko": "철 골렘은 철 블록으로 만들어요.",
+    "de": "Ein Eisengolem besteht aus Eisenblöcken."
+   },
+   "conditions": []
+  },
+  "textKo": "돌로 만든 정원에서 철 골렘과 이야기해요.",
+  "textDe": "Im Steingarten sprichst du mit dem Eisengolem."
+ },
+ "reward": {
+  "badge": "w5_09",
+  "words": [
+   "stone_bricks",
+   "chiseled_stone_bricks",
+   "pickaxe",
+   "iron_golem"
+  ]
+ },
+ "koreanLevel": 3
+}

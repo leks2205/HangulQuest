@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_adventuring_time",
+ "titleKo": "모험의 시간",
+ "titleDe": "Abenteuerzeit",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 200,
+ "concepts": [
+  "desert",
+  "jungle",
+  "forest"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_sleep_in_bed"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "desert"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:desert",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Wandere in die Wüste und bleib dort stehen, bis sie als entdeckt gilt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "jungle"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:jungle",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Reise in den Dschungel und halte dich dort eine Weile auf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "forest"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:forest",
+    "dwellMs": 1000
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Erreiche den Wald als letzten fehlenden Fleck der Biomekarte."
+   }
+  },
+  "textKo": "모험의 시간 — 숲과 사막과 정글을 모두 걸어서 만났어요.",
+  "textDe": "Abenteuerzeit — Wald, Wüste und Dschungel sind entdeckt."
+ },
+ "reward": {
+  "badge": "adv_adventure_adventuring_time",
+  "words": [
+   "desert",
+   "jungle",
+   "forest"
+  ]
+ },
+ "koreanLevel": 3
+}

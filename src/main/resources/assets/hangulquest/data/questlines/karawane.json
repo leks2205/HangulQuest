@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "karawane",
+ "titleKo": "대상단",
+ "titleDe": "Die Karawane",
+ "tier": 4,
+ "order": 532,
+ "concepts": [
+  "horse",
+  "emerald",
+  "bread",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gestuet",
+   "weltmarkt",
+   "schmuckpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:horse",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Pferd an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Smaragde."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Brote."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 대상단의 종을 울려요.",
+  "textDe": "Am Tag zieht die Karawane weiter."
+ },
+ "reward": {
+  "badge": "karawane",
+  "words": [
+   "horse",
+   "emerald",
+   "bread",
+   "bell"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "동물"
+}

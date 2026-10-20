@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "feuerpfad",
+ "titleKo": "불의 길",
+ "titleDe": "Der Feuerpfad",
+ "topic": "불",
+ "tier": 1,
+ "order": 30,
+ "concepts": [
+  "coal",
+  "torch",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Kohle ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 모닥불을 피워요.",
+  "textDe": "Nachts brennt das Lagerfeuer."
+ },
+ "reward": {
+  "badge": "feuerpfad",
+  "words": [
+   "coal",
+   "torch",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

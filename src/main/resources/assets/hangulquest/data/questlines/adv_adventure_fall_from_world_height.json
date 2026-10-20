@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_fall_from_world_height",
+ "titleKo": "동굴과 절벽",
+ "titleDe": "Höhlen & Klippen",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 208,
+ "concepts": [
+  "water",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle Wasser in einen Eimer – das wird deine Landung."
+   },
+   "hint": {
+    "ko": "양동이에 물을 담아요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 300,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Klettere ganz nach oben an den Himmelsrand der Welt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 0
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Springe vom Himmelsrand und lande unten im Wasser am Grund."
+   }
+  },
+  "textKo": "동굴과 절벽 — 하늘 끝에서 물속으로 떨어져 살았어요.",
+  "textDe": "Höhlen & Klippen — vom Himmelsrand ins Wasser gestürzt."
+ },
+ "reward": {
+  "badge": "adv_adventure_fall_from_world_height",
+  "words": [
+   "water",
+   "height"
+  ]
+ },
+ "koreanLevel": 2
+}

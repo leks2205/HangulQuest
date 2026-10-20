@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w10_01",
+ "titleKo": "모래 아래의 빛",
+ "titleDe": "Licht unter dem Sand",
+ "topic": "사막",
+ "tier": 2,
+ "order": 1101,
+ "concepts": [
+  "sand",
+  "sandstone",
+  "chiseled_stone_bricks",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenlicht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 12
+   },
+   "clue": {
+    "de": "Grab zwölf Sandblöcke aus der Düne."
+   },
+   "hint": {
+    "ko": "모래는 삽으로 빨리 캘 수 있어요.",
+    "de": "Mit einer Schaufel geht Sand am schnellsten."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sandstone"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sandstone",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Sandsteinblöcke als Schwelle vor die Ruine."
+   },
+   "hint": {
+    "ko": "사암은 모래를 굳혀서 만들어요.",
+    "de": "Sandstein entsteht aus gepresstem Sand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Schau die gemeißelten Steinziegel an der Ruinenwand an."
+   },
+   "hint": {
+    "ko": "조각된 석재 벽돌은 유적의 벽에 있어요.",
+    "de": "Gemeißelte Steinziegel findest du an Ruinenwänden."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "모래 아래 어두운 방에 횃불을 밝혀요.",
+  "textDe": "Vier Fackeln erhellen die verborgene Kammer unter dem Sand."
+ },
+ "reward": {
+  "badge": "w10_01",
+  "words": [
+   "sand",
+   "sandstone",
+   "chiseled_stone_bricks",
+   "torch"
+  ]
+ },
+ "koreanLevel": 5
+}

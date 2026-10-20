@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_brush_armadillo",
+ "titleKo": "이게 인갑인갑다",
+ "titleDe": "Ist das nicht putzig?",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 204,
+ "concepts": [
+  "adv_item_brush",
+  "adv_item_armadillo_scute",
+  "wolf_armor"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_brush"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brush",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Pinsel aus einer Feder, einem Kupferbarren und einem Stock."
+   },
+   "hint": {
+    "ko": "깃털 하나와 구리 주괴 하나, 막대기 하나로 솔을 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_armadillo_scute"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:armadillo_scute",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bürste ein Gürteltier, bis es ein Hornschild fallen lässt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wolf_armor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wolf_armor",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Nähe aus den Hornschilden eine Rüstung für deinen Wolf."
+   }
+  },
+  "textKo": "이게 인갑인갑다 — 솔로 인갑을 얻어 늑대를 지켰어요.",
+  "textDe": "Ist das nicht putzig? — Hornschilde gepinselt, Wolf geschützt."
+ },
+ "reward": {
+  "badge": "adv_adventure_brush_armadillo",
+  "words": [
+   "adv_item_brush",
+   "adv_item_armadillo_scute",
+   "wolf_armor"
+  ]
+ },
+ "koreanLevel": 2
+}

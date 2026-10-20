@@ -1,0 +1,121 @@
+{
+ "schema": 1,
+ "id": "w2_06",
+ "titleKo": "별이 뜨는 밤",
+ "titleDe": "Die Nacht der Sterne",
+ "topic": "밤",
+ "tier": 1,
+ "order": 1026,
+ "concepts": [
+  "night",
+  "moon",
+  "sky",
+  "campfire",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "torch",
+    "night"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz nachts drei Fackeln."
+   },
+   "hint": {
+    "ko": "밤에는 횃불이 필요해요.",
+    "de": "In der Nacht ist es dunkel."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "moon"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "ko": "달이 뜨는 밤에 쓸 시계를 모아요.",
+    "de": "Hol dir eine Uhr für die Nacht."
+   },
+   "hint": {
+    "ko": "달은 밤에 떠요.",
+    "de": "Der Mond steht in der Nacht."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sky"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 150,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig bis auf Höhe 150 hinauf."
+   },
+   "hint": {
+    "ko": "하늘은 위에 있어요.",
+    "de": "Der Himmel ist oben."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "밤에 모닥불을 두 개 피워요.",
+    "de": "Entzünde in der Nacht zwei Lagerfeuer."
+   }
+  },
+  "textKo": "밤에 높은 탑 위에서 모닥불 두 개를 피워요.",
+  "textDe": "Nachts brennen auf dem hohen Turm zwei Lagerfeuer."
+ },
+ "reward": {
+  "badge": "w2_06",
+  "words": [
+   "night",
+   "moon",
+   "sky",
+   "campfire",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

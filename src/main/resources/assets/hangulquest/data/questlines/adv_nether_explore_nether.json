@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "adv_nether_explore_nether",
+ "titleKo": "화끈한 관광 명소",
+ "titleDe": "Heißbegehrte Reiseziele",
+ "topic": "nether",
+ "tier": 2,
+ "order": 294,
+ "concepts": [
+  "adv_dimension_the_nether",
+  "netherrack",
+  "soul_sand"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_ride_strider"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Reise durch das Portal in den Nether – dort beginnt die Tour."
+   },
+   "hint": {
+    "ko": "흑요석으로 만든 포털에 불을 붙여요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "netherrack"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:netherrack",
+    "count": 3
+   },
+   "clue": {
+    "de": "Im roten Ödland brichst du drei Netherrack als Andenken heraus."
+   },
+   "hint": {
+    "ko": "네더랙을 캐요. 곡괭이가 필요해요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:soul_sand",
+    "count": 3
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Weiter ins Seelensandtal: drei Seelensand für die Sammlung."
+   },
+   "hint": {
+    "ko": "영혼 모래를 캐요. 삽이 필요해요."
+   }
+  },
+  "textKo": "지옥의 명소를 둘러봤어요! 뜨겁지만 정말 멋졌어요.",
+  "textDe": "Alle heißen Reiseziele des Nethers abgehakt."
+ },
+ "reward": {
+  "badge": "adv_nether_explore_nether",
+  "words": [
+   "adv_dimension_the_nether",
+   "netherrack",
+   "soul_sand"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_summon_iron_golem",
+ "titleKo": "도우미 고용",
+ "titleDe": "Das 1. Gesetz der Robotik",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 232,
+ "concepts": [
+  "iron_block",
+  "carved_pumpkin",
+  "iron_golem"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_trade"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron_block"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_block",
+    "count": 4
+   },
+   "clue": {
+    "de": "Stelle vier Eisenblöcke für den Körper her."
+   },
+   "hint": {
+    "ko": "철 블록은 철 아홉 개로 만들어요.",
+    "de": "Ein Eisenblock besteht aus neun Eisenbarren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setze den geschnitzten Kürbis als Kopf oben auf die Blöcke."
+   },
+   "hint": {
+    "ko": "호박은 가위로 조각해요.",
+    "de": "Einen Kürbis schnitzt du mit der Schere."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:iron_golem",
+    "dwellMs": 600
+   },
+   "conditions": []
+  },
+  "textKo": "도우미 고용 — 철 블록과 호박으로 철 골렘을 만들어요.",
+  "textDe": "Das 1. Gesetz der Robotik — Aus vier Eisenblöcken und einem Kürbis entsteht ein Eisengolem, der dich beschützt."
+ },
+ "reward": {
+  "badge": "adv_adventure_summon_iron_golem",
+  "words": [
+   "iron_block",
+   "carved_pumpkin",
+   "iron_golem"
+  ]
+ },
+ "koreanLevel": 3
+}

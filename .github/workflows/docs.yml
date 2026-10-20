@@ -1,0 +1,53 @@
+name: Guide
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "src/main/resources/assets/hangulquest/data/questlines/**"
+      - "tools/quest_tree.py"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.5.4/mdbook-v0.5.4-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+          echo "$PWD" >> "$GITHUB_PATH"
+
+      - name: Screenshots into the book
+        run: cp -r docs/screenshots docs/book/src/screenshots
+
+      - name: Regenerate the quest tree page
+        run: python3 tools/quest_tree.py
+
+      - name: Build the guide
+        run: mdbook build docs/book
+
+      # Pages is served from the gh-pages branch on purpose: a branch deployment needs no Actions
+      # artifact storage, so the guide cannot be blocked by the account's artifact quota.
+      - name: Publish to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd docs/book/book
+          touch .nojekyll
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "docs: build ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages

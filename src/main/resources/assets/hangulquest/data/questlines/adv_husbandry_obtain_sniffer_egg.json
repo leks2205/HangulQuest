@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_obtain_sniffer_egg",
+ "titleKo": "흥미로운 냄새",
+ "titleDe": "Ein ungewöhnlicher Geruch",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 270,
+ "concepts": [
+  "adv_item_brush",
+  "sand",
+  "adv_item_sniffer_egg"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_brush"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brush",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Bürste aus einer Feder, einem Kupferbarren und einem Stock."
+   },
+   "hint": {
+    "ko": "깃털과 구리 주괴와 막대기로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sand"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sand",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Halte in einer warmen Ozeanruine nach verdächtigem Sand Ausschau."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_sniffer_egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sniffer_egg",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "흥미로운 냄새 — 따뜻한 바다 유적에서 스니퍼 알을 얻어요.",
+  "textDe": "Ein ungewöhnlicher Geruch — In der warmen Ozeanruine findest du das Schnüffler-Ei."
+ },
+ "reward": {
+  "badge": "adv_husbandry_obtain_sniffer_egg",
+  "words": [
+   "adv_item_brush",
+   "sand",
+   "adv_item_sniffer_egg"
+  ]
+ },
+ "koreanLevel": 1
+}

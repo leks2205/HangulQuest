@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "waldhaus",
+ "titleKo": "숲의 집",
+ "titleDe": "Das Waldhaus",
+ "tier": 3,
+ "concepts": [
+  "planks",
+  "door",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 3,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "holzpfad",
+   "wurzelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_planks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Bau eine Wand aus Holzbrettern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_door",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Tür in dein Haus."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell dir etwas zum Schlafen hin."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "숲에 집이 생겼어요. 밤에 불을 밝혀요.",
+  "textDe": "Im Wald steht ein Haus. Bei Nacht brennt Licht."
+ },
+ "reward": {
+  "badge": "waldhaus",
+  "words": [
+   "planks",
+   "door",
+   "bed"
+  ]
+ },
+ "order": 120,
+ "koreanLevel": 1,
+ "topic": "나무"
+}

@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "drachenhort",
+ "titleKo": "용의 보물",
+ "titleDe": "Der Drachenhort",
+ "topic": "용",
+ "tier": 3,
+ "order": 113,
+ "concepts": [
+  "obsidian",
+  "gold",
+  "chest",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "bibliothekpfad",
+   "pyramidenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Obsidian ab."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Goldbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
+    "de": "Laternen bestehen aus einer Fackel und Eisennuggets."
+   }
+  },
+  "textKo": "밤에 랜턴을 3개 놓아요.",
+  "textDe": "Nachts leuchten drei Laternen am Hort."
+ },
+ "reward": {
+  "badge": "drachenhort",
+  "words": [
+   "obsidian",
+   "gold",
+   "chest",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 4
+}

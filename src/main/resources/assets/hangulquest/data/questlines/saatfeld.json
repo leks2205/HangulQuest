@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "saatfeld",
+ "titleKo": "씨앗밭의 길",
+ "titleDe": "Der Saatfeldpfad",
+ "topic": "음식",
+ "tier": 2,
+ "order": 61,
+ "concepts": [
+  "wheat",
+  "flower",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "baeckerei"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
+    "count": 5
+   },
+   "clue": {
+    "de": "Sammle fünf Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "빵으로 밭의 결실을 맛봐요.",
+  "textDe": "Mit Brot schmeckst du die Ernte."
+ },
+ "reward": {
+  "badge": "saatfeld",
+  "words": [
+   "wheat",
+   "flower",
+   "bread"
+  ]
+ },
+ "koreanLevel": 2
+}

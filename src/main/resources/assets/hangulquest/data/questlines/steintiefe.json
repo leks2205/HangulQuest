@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "steintiefe",
+ "titleKo": "돌의 깊은 길",
+ "titleDe": "Der tiefe Steinpfad",
+ "tier": 3,
+ "concepts": [
+  "iron",
+  "cave",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 3,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steinpfad",
+   "hoehlenlicht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:iron_ore",
+    "count": 1
+   },
+   "clue": {
+    "de": "Ein glitzernder Stein im grauen Gestein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cave"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 0
+   },
+   "clue": {
+    "de": "Geh unter die Erde."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Lichter in die Dunkelheit."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
+  },
+  "textKo": "높이 0 이하의 깊은 곳에서 빛을 만들었어요. 돌의 길이 이어졌어요.",
+  "textDe": "Tief unten hast du Licht gemacht. Der Steinpfad geht weiter."
+ },
+ "reward": {
+  "badge": "steintiefe",
+  "words": [
+   "iron",
+   "cave",
+   "torch"
+  ]
+ },
+ "order": 110,
+ "koreanLevel": 1,
+ "topic": "돌"
+}

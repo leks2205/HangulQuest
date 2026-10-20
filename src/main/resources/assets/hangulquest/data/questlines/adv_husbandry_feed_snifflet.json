@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_feed_snifflet",
+ "titleKo": "조그만 킁킁이",
+ "titleDe": "Schnupperkurs",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 263,
+ "concepts": [
+  "adv_item_sniffer_egg",
+  "adv_block_torchflower_seeds"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_obtain_sniffer_egg"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_sniffer_egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sniffer_egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Hol ein Schnüffler-Ei aus einer Truhe im warmen Ozean."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_sniffer_egg"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sniffer_egg",
+    "count": 1
+   },
+   "clue": {
+    "de": "Leg das Ei auf Moos und brüte den kleinen Schnüffler aus."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_torchflower_seeds"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torchflower_seeds",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "조그만 킁킁이 — 아기 스니퍼가 캔 씨앗을 먹여요.",
+  "textDe": "Schnupperkurs: Der kleine Schnüffler gräbt einen Fackelliliensamen aus, den du ihm reichst."
+ },
+ "reward": {
+  "badge": "adv_husbandry_feed_snifflet",
+  "words": [
+   "adv_item_sniffer_egg",
+   "adv_block_torchflower_seeds"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "id": "weltreise",
+ "titleKo": "세계 여행의 길",
+ "titleDe": "Die Weltreise",
+ "tier": 5,
+ "order": 460,
+ "concepts": [
+  "beach",
+  "bed",
+  "climb",
+  "mountain"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kuestenfest",
+   "sternenhaus",
+   "gipfelwaechter",
+   "kartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh wieder an den Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf in der Nacht im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "mountain",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   },
+   "hint": {
+    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
+    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "밤에 산 지형에서 세계를 여행했어요. 이제 집이에요!",
+  "textDe": "Du hast die Welt bereist. Jetzt bist du zu Hause!"
+ },
+ "reward": {
+  "badge": "weltreise",
+  "words": [
+   "beach",
+   "bed",
+   "climb",
+   "torch"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "물"
+}

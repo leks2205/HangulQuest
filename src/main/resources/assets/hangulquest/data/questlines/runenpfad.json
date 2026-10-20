@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "runenpfad",
+ "titleKo": "룬의 길",
+ "titleDe": "Der Runenpfad",
+ "topic": "룬",
+ "tier": 3,
+ "order": 124,
+ "concepts": [
+  "emerald",
+  "enchanting_table",
+  "bookshelf",
+  "anvil"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handwerksmeister",
+   "seelenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "enchanting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:enchanting_table"
+   },
+   "clue": {
+    "de": "Benutz einen Zaubertisch."
+   },
+   "hint": {
+    "ko": "마법 부여대는 흑요석, 다이아몬드, 책으로 만들어요.",
+    "de": "Ein Zaubertisch besteht aus Obsidian, Diamant und Buch."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bookshelf",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Bücherregale."
+   },
+   "hint": {
+    "ko": "책장은 나무 판자와 책으로 만들어요.",
+    "de": "Bücherregale bestehen aus Holzbrettern und Büchern."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "conditions": []
+  },
+  "textKo": "모루에서 룬을 만들어요.",
+  "textDe": "Runen entstehen am Amboss."
+ },
+ "reward": {
+  "badge": "runenpfad",
+  "words": [
+   "emerald",
+   "enchanting_table",
+   "bookshelf",
+   "anvil"
+  ]
+ },
+ "koreanLevel": 5
+}

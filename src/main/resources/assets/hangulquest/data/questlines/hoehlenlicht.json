@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "hoehlenlicht",
+ "titleKo": "동굴의 빛",
+ "titleDe": "Das Höhlenlicht",
+ "topic": "돌",
+ "tier": 2,
+ "order": 42,
+ "concepts": [
+  "stone",
+  "torch",
+  "coal"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steinpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Stein ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 동굴에서 석탄을 캐요.",
+  "textDe": "Nachts baust du in der Höhle Kohle ab."
+ },
+ "reward": {
+  "badge": "hoehlenlicht",
+  "words": [
+   "stone",
+   "torch",
+   "coal"
+  ]
+ },
+ "koreanLevel": 1
+}

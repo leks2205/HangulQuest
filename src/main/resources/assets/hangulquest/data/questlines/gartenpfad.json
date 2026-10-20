@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "gartenpfad",
+ "titleKo": "정원의 길",
+ "titleDe": "Der Gartenpfad",
+ "tier": 5,
+ "order": 501,
+ "concepts": [
+  "wheat",
+  "carrot",
+  "flower",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "dorfhaus",
+   "bienenpfad",
+   "kuerbispfad",
+   "pilzpfad",
+   "fuchsbau"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:wheat",
+    "count": 2
+   },
+   "clue": {
+    "de": "Ernte zwei Weizen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "carrot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carrot",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Karotte."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Blume an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 정원에서 빵을 먹어요.",
+  "textDe": "Im Garten schmeckt das Brot bei Nacht."
+ },
+ "reward": {
+  "badge": "gartenpfad",
+  "words": [
+   "wheat",
+   "carrot",
+   "flower",
+   "bread"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "나무"
+}

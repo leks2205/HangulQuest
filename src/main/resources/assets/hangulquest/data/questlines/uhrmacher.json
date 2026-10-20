@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "uhrmacher",
+ "titleKo": "시계공의 길",
+ "titleDe": "Der Uhrmacherpfad",
+ "topic": "시계",
+ "tier": 3,
+ "order": 151,
+ "concepts": [
+  "clock",
+  "crafting_table",
+  "gold_block",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weidepfad",
+   "wollpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle eine Uhr."
+   },
+   "hint": {
+    "ko": "시계는 금과 레드스톤으로 만들어요.",
+    "de": "Uhren bestehen aus Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Benutz eine Werkbank."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Goldblöcke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "종은 금 조각으로 만들어요.",
+    "de": "Glocken bestehen aus Gold."
+   }
+  },
+  "textKo": "종을 울려 시간을 알려요.",
+  "textDe": "Die Glocke läutet die Zeit."
+ },
+ "reward": {
+  "badge": "uhrmacher",
+  "words": [
+   "clock",
+   "crafting_table",
+   "gold_block",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2
+}

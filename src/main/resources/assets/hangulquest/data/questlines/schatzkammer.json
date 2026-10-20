@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "schatzkammer",
+ "titleKo": "보물방의 길",
+ "titleDe": "Die Schatzkammer",
+ "topic": "보물",
+ "tier": 3,
+ "order": 147,
+ "concepts": [
+  "chest",
+  "gold_block",
+  "anvil",
+  "diamond"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "alpental",
+   "gartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Truhen."
+   },
+   "hint": {
+    "ko": "상자는 나무 판자로 만들어요.",
+    "de": "Truhen bestehen aus Holzbrettern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Goldblöcke."
+   },
+   "hint": {
+    "ko": "금 블록은 금 아홉 개로 만들어요.",
+    "de": "Goldblöcke bestehen aus neun Goldbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "clue": {
+    "de": "Benutz einen Amboss."
+   },
+   "hint": {
+    "ko": "모루는 철 블록과 철 조각으로 만들어요.",
+    "de": "Ein Amboss besteht aus Eisenblöcken und -barren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 5
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "다이아몬드는 철 곡괭이로 캐요.",
+    "de": "Diamanten baust du mit einer Eisenspitzhacke ab."
+   }
+  },
+  "textKo": "다이아몬드를 보물방에 모아요.",
+  "textDe": "Diamanten für die Schatzkammer."
+ },
+ "reward": {
+  "badge": "schatzkammer",
+  "words": [
+   "chest",
+   "gold_block",
+   "anvil",
+   "diamond"
+  ]
+ },
+ "koreanLevel": 2
+}

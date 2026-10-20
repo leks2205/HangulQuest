@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "adv_end_enter_end_gateway",
+ "titleKo": "머나먼 휴양지",
+ "titleDe": "Im Transit",
+ "topic": "end",
+ "tier": 2,
+ "order": 250,
+ "concepts": [
+  "enderman",
+  "ender_pearl",
+  "adv_dimension_the_end"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_kill_dragon"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "enderman"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erlege Endermen, sonst bekommst du keine Perlen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Enderperlen für den Wurf ins Tor."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_end"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "conditions": []
+  },
+  "textKo": "머나먼 휴양지 — 엔드 관문을 지나 머나먼 섬으로 건너가요.",
+  "textDe": "Im Transit — Wirf eine Perle in das Endtor und reise auf die äußeren Inseln."
+ },
+ "reward": {
+  "badge": "adv_end_enter_end_gateway",
+  "words": [
+   "enderman",
+   "ender_pearl",
+   "adv_dimension_the_end"
+  ]
+ },
+ "koreanLevel": 6
+}

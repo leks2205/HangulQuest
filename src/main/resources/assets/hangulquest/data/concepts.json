@@ -1,0 +1,4757 @@
+[
+ {
+  "id": "stone",
+  "ko": "돌",
+  "de": "Stein",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:stone"
+  ],
+  "sentenceKo": "돌을 캐요.",
+  "sentenceDe": "Stein abbauen.",
+  "grammar": "OBJECT",
+  "descKo": "땅에서 나와요. 단단해요.",
+  "aliases": [
+   "돌"
+  ]
+ },
+ {
+  "id": "dirt",
+  "ko": "흙",
+  "de": "Erde",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:dirt"
+  ],
+  "sentenceKo": "흙을 파요.",
+  "sentenceDe": "Erde graben.",
+  "grammar": "OBJECT",
+  "descKo": "갈색이에요. 땅이에요.",
+  "aliases": [
+   "흙"
+  ]
+ },
+ {
+  "id": "grass",
+  "ko": "잔디",
+  "de": "Gras",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:grass_block"
+  ],
+  "sentenceKo": "잔디를 봐요.",
+  "sentenceDe": "Gras ansehen.",
+  "descKo": "초록색이에요. 땅 위에 있어요.",
+  "aliases": [
+   "잔디"
+  ]
+ },
+ {
+  "id": "sand",
+  "ko": "모래",
+  "de": "Sand",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:sand"
+  ],
+  "sentenceKo": "모래를 봐요.",
+  "sentenceDe": "Sand ansehen.",
+  "descKo": "노란색이에요. 바다 옆에 있어요.",
+  "aliases": [
+   "모래"
+  ]
+ },
+ {
+  "id": "gravel",
+  "ko": "자갈",
+  "de": "Kies",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:gravel"
+  ],
+  "sentenceKo": "자갈을 봐요.",
+  "sentenceDe": "Kies ansehen.",
+  "descKo": "작은 돌이에요.",
+  "aliases": [
+   "자갈"
+  ]
+ },
+ {
+  "id": "log",
+  "ko": "통나무",
+  "de": "Stamm",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_log"
+  ],
+  "sentenceKo": "통나무를 베어요.",
+  "sentenceDe": "Einen Stamm fällen.",
+  "descKo": "나무의 몸이에요. 갈색이에요.",
+  "aliases": [
+   "통나무",
+   "나무"
+  ]
+ },
+ {
+  "id": "tree",
+  "ko": "나무",
+  "de": "Baum",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_sapling"
+  ],
+  "sentenceKo": "나무를 베어요.",
+  "sentenceDe": "Einen Baum fällen.",
+  "descKo": "키가 커요. 잎이 있어요.",
+  "aliases": [
+   "나무"
+  ]
+ },
+ {
+  "id": "planks",
+  "ko": "판자",
+  "de": "Holzbrett",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_planks"
+  ],
+  "sentenceKo": "판자를 놓아요.",
+  "sentenceDe": "Holzbretter platzieren.",
+  "descKo": "나무로 만들어요. 납작해요.",
+  "aliases": [
+   "판자"
+  ]
+ },
+ {
+  "id": "cobblestone",
+  "ko": "조약돌",
+  "de": "Bruchstein",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:cobblestone"
+  ],
+  "sentenceKo": "조약돌을 놓아요.",
+  "sentenceDe": "Bruchstein platzieren.",
+  "descKo": "거친 돌이에요. 회색이에요.",
+  "aliases": [
+   "조약돌"
+  ]
+ },
+ {
+  "id": "coal",
+  "ko": "석탄",
+  "de": "Kohle",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:coal",
+   "minecraft:coal_ore",
+   "minecraft:deepslate_coal_ore"
+  ],
+  "sentenceKo": "석탄을 캐요.",
+  "sentenceDe": "Kohle abbauen.",
+  "descKo": "검은색이에요. 불을 만들어요.",
+  "aliases": [
+   "석탄"
+  ]
+ },
+ {
+  "id": "iron",
+  "ko": "철",
+  "de": "Eisen",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_ingot",
+   "minecraft:iron_ore",
+   "minecraft:deepslate_iron_ore"
+  ],
+  "sentenceKo": "철을 모아요.",
+  "sentenceDe": "Eisen sammeln.",
+  "descKo": "단단한 금속이에요.",
+  "aliases": [
+   "철"
+  ]
+ },
+ {
+  "id": "gold",
+  "ko": "금",
+  "de": "Gold",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:gold_ingot",
+   "minecraft:gold_ore",
+   "minecraft:deepslate_gold_ore",
+   "minecraft:raw_gold"
+  ],
+  "sentenceKo": "금을 모아요.",
+  "sentenceDe": "Gold sammeln.",
+  "descKo": "노란 금속이에요. 반짝여요.",
+  "aliases": [
+   "금"
+  ]
+ },
+ {
+  "id": "diamond",
+  "ko": "다이아몬드",
+  "de": "Diamant",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:diamond",
+   "minecraft:diamond_ore",
+   "minecraft:deepslate_diamond_ore"
+  ],
+  "sentenceKo": "다이아몬드를 캐요.",
+  "sentenceDe": "Diamanten abbauen.",
+  "descKo": "아주 단단해요. 파란색이에요.",
+  "aliases": [
+   "다이아몬드"
+  ]
+ },
+ {
+  "id": "obsidian",
+  "ko": "흑요석",
+  "de": "Obsidian",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:obsidian"
+  ],
+  "sentenceKo": "흑요석을 봐요.",
+  "sentenceDe": "Obsidian ansehen.",
+  "descKo": "검고 단단해요. 용암에서 나와요.",
+  "aliases": [
+   "흑요석"
+  ]
+ },
+ {
+  "id": "water",
+  "ko": "물",
+  "de": "Wasser",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:water_bucket"
+  ],
+  "sentenceKo": "물을 마셔요.",
+  "sentenceDe": "Wasser trinken.",
+  "descKo": "투명해요. 마실 수 있어요.",
+  "aliases": [
+   "물"
+  ]
+ },
+ {
+  "id": "lava",
+  "ko": "용암",
+  "de": "Lava",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:lava_bucket",
+   "minecraft:lava"
+  ],
+  "sentenceKo": "용암을 봐요.",
+  "sentenceDe": "Lava ansehen.",
+  "descKo": "아주 뜨거워요. 빨간색이에요.",
+  "aliases": [
+   "용암"
+  ]
+ },
+ {
+  "id": "snow",
+  "ko": "눈",
+  "de": "Schnee",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:snow_block",
+   "minecraft:snow"
+  ],
+  "sentenceKo": "눈이 와요.",
+  "sentenceDe": "Es schneit.",
+  "descKo": "하얘요. 차가워요.",
+  "aliases": [
+   "눈"
+  ]
+ },
+ {
+  "id": "ice",
+  "ko": "얼음",
+  "de": "Eis",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:ice"
+  ],
+  "sentenceKo": "얼음을 봐요.",
+  "sentenceDe": "Eis ansehen.",
+  "descKo": "차가워요. 미끄러워요.",
+  "aliases": [
+   "얼음"
+  ]
+ },
+ {
+  "id": "torch",
+  "ko": "횃불",
+  "de": "Fackel",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:torch"
+  ],
+  "sentenceKo": "횃불을 놓아요.",
+  "sentenceDe": "Eine Fackel platzieren.",
+  "descKo": "밝아요. 밤에 써요.",
+  "aliases": [
+   "횃불"
+  ]
+ },
+ {
+  "id": "crafting_table",
+  "ko": "작업대",
+  "de": "Werkbank",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:crafting_table"
+  ],
+  "sentenceKo": "작업대를 열어요.",
+  "sentenceDe": "Die Werkbank öffnen.",
+  "descKo": "물건을 만들어요.",
+  "aliases": [
+   "작업대"
+  ]
+ },
+ {
+  "id": "furnace",
+  "ko": "화로",
+  "de": "Ofen",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:furnace"
+  ],
+  "sentenceKo": "화로를 열어요.",
+  "sentenceDe": "Den Ofen öffnen.",
+  "descKo": "불로 요리해요.",
+  "aliases": [
+   "화로"
+  ]
+ },
+ {
+  "id": "chest",
+  "ko": "상자",
+  "de": "Truhe",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:chest"
+  ],
+  "sentenceKo": "상자를 열어요.",
+  "sentenceDe": "Eine Truhe öffnen.",
+  "descKo": "물건을 넣어요.",
+  "aliases": [
+   "상자"
+  ]
+ },
+ {
+  "id": "bed",
+  "ko": "침대",
+  "de": "Bett",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:red_bed"
+  ],
+  "sentenceKo": "침대에서 자요.",
+  "sentenceDe": "Im Bett schlafen.",
+  "descKo": "밤에 자요.",
+  "aliases": [
+   "침대"
+  ]
+ },
+ {
+  "id": "door",
+  "ko": "문",
+  "de": "Tür",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_door"
+  ],
+  "sentenceKo": "문을 열어요.",
+  "sentenceDe": "Eine Tür öffnen.",
+  "descKo": "들어갈 수 있어요.",
+  "aliases": [
+   "문"
+  ]
+ },
+ {
+  "id": "ladder",
+  "ko": "사다리",
+  "de": "Leiter",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:ladder"
+  ],
+  "sentenceKo": "사다리를 놓아요.",
+  "sentenceDe": "Eine Leiter platzieren.",
+  "descKo": "위로 올라가요.",
+  "aliases": [
+   "사다리"
+  ]
+ },
+ {
+  "id": "bell",
+  "ko": "종",
+  "de": "Glocke",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:bell"
+  ],
+  "sentenceKo": "종을 울려요.",
+  "sentenceDe": "Die Glocke läuten.",
+  "descKo": "소리가 나요. 마을에 있어요.",
+  "aliases": [
+   "종"
+  ]
+ },
+ {
+  "id": "wheat",
+  "ko": "밀",
+  "de": "Weizen",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:wheat"
+  ],
+  "sentenceKo": "밀을 수확해요.",
+  "sentenceDe": "Weizen ernten.",
+  "descKo": "빵을 만들어요. 노란색이에요.",
+  "aliases": [
+   "밀"
+  ]
+ },
+ {
+  "id": "carrot",
+  "ko": "당근",
+  "de": "Karotte",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:carrot"
+  ],
+  "sentenceKo": "당근을 먹어요.",
+  "sentenceDe": "Eine Karotte essen.",
+  "descKo": "주황색이에요. 먹을 수 있어요.",
+  "aliases": [
+   "당근"
+  ]
+ },
+ {
+  "id": "potato",
+  "ko": "감자",
+  "de": "Kartoffel",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:potato"
+  ],
+  "sentenceKo": "감자를 먹어요.",
+  "sentenceDe": "Eine Kartoffel essen.",
+  "descKo": "갈색이에요. 먹을 수 있어요.",
+  "aliases": [
+   "감자"
+  ]
+ },
+ {
+  "id": "pumpkin",
+  "ko": "호박",
+  "de": "Kürbis",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:pumpkin"
+  ],
+  "sentenceKo": "호박을 봐요.",
+  "sentenceDe": "Einen Kürbis ansehen.",
+  "descKo": "커요. 주황색이에요.",
+  "aliases": [
+   "호박"
+  ]
+ },
+ {
+  "id": "flower",
+  "ko": "꽃",
+  "de": "Blume",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:poppy"
+  ],
+  "sentenceKo": "꽃을 봐요.",
+  "sentenceDe": "Eine Blume ansehen.",
+  "descKo": "예뻐요. 색이 있어요.",
+  "aliases": [
+   "꽃"
+  ]
+ },
+ {
+  "id": "mushroom",
+  "ko": "버섯",
+  "de": "Pilz",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:red_mushroom",
+   "minecraft:brown_mushroom"
+  ],
+  "sentenceKo": "버섯을 봐요.",
+  "sentenceDe": "Einen Pilz ansehen.",
+  "descKo": "작아요. 어두운 곳에 있어요.",
+  "aliases": [
+   "버섯"
+  ]
+ },
+ {
+  "id": "pickaxe",
+  "ko": "곡괭이",
+  "de": "Spitzhacke",
+  "category": "TOOLS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_pickaxe"
+  ],
+  "sentenceKo": "곡괭이를 써요.",
+  "sentenceDe": "Die Spitzhacke benutzen.",
+  "descKo": "돌을 캐요.",
+  "aliases": [
+   "곡괭이"
+  ]
+ },
+ {
+  "id": "axe",
+  "ko": "도끼",
+  "de": "Axt",
+  "category": "TOOLS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_axe"
+  ],
+  "sentenceKo": "도끼를 써요.",
+  "sentenceDe": "Die Axt benutzen.",
+  "descKo": "나무를 베어요.",
+  "aliases": [
+   "도끼"
+  ]
+ },
+ {
+  "id": "shovel",
+  "ko": "삽",
+  "de": "Schaufel",
+  "category": "TOOLS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_shovel"
+  ],
+  "sentenceKo": "삽을 써요.",
+  "sentenceDe": "Die Schaufel benutzen.",
+  "descKo": "흙을 파요.",
+  "aliases": [
+   "삽"
+  ]
+ },
+ {
+  "id": "hoe",
+  "ko": "괭이",
+  "de": "Hacke",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [
+   "minecraft:iron_hoe"
+  ],
+  "sentenceKo": "괭이를 써요.",
+  "sentenceDe": "Die Hacke benutzen.",
+  "descKo": "밭을 만들어요.",
+  "aliases": [
+   "괭이"
+  ]
+ },
+ {
+  "id": "sword",
+  "ko": "검",
+  "de": "Schwert",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_sword"
+  ],
+  "sentenceKo": "검을 써요.",
+  "sentenceDe": "Das Schwert benutzen.",
+  "descKo": "싸울 때 써요.",
+  "aliases": [
+   "검"
+  ]
+ },
+ {
+  "id": "bow",
+  "ko": "활",
+  "de": "Bogen",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:bow"
+  ],
+  "sentenceKo": "활을 쏴요.",
+  "sentenceDe": "Den Bogen spannen.",
+  "descKo": "멀리 쏴요.",
+  "aliases": [
+   "활"
+  ]
+ },
+ {
+  "id": "arrow",
+  "ko": "화살",
+  "de": "Pfeil",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:arrow"
+  ],
+  "sentenceKo": "화살을 쏴요.",
+  "sentenceDe": "Einen Pfeil schießen.",
+  "descKo": "활로 쏴요.",
+  "aliases": [
+   "화살"
+  ]
+ },
+ {
+  "id": "shield",
+  "ko": "방패",
+  "de": "Schild",
+  "category": "COMBAT",
+  "tier": 2,
+  "items": [
+   "minecraft:shield"
+  ],
+  "sentenceKo": "방패를 들어요.",
+  "sentenceDe": "Das Schild heben.",
+  "descKo": "나를 지켜요.",
+  "aliases": [
+   "방패"
+  ]
+ },
+ {
+  "id": "bucket",
+  "ko": "양동이",
+  "de": "Eimer",
+  "category": "TOOLS",
+  "tier": 1,
+  "items": [
+   "minecraft:bucket",
+   "minecraft:water_bucket"
+  ],
+  "sentenceKo": "양동이를 써요.",
+  "sentenceDe": "Den Eimer benutzen.",
+  "descKo": "물을 담아요.",
+  "aliases": [
+   "양동이"
+  ]
+ },
+ {
+  "id": "fishing_rod",
+  "ko": "낚싯대",
+  "de": "Angel",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [
+   "minecraft:fishing_rod"
+  ],
+  "sentenceKo": "낚싯대를 써요.",
+  "sentenceDe": "Die Angel benutzen.",
+  "descKo": "물고기를 잡아요.",
+  "aliases": [
+   "낚싯대"
+  ]
+ },
+ {
+  "id": "shears",
+  "ko": "가위",
+  "de": "Schere",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [
+   "minecraft:shears"
+  ],
+  "sentenceKo": "가위를 써요.",
+  "sentenceDe": "Die Schere benutzen.",
+  "descKo": "양털을 잘라요.",
+  "aliases": [
+   "가위"
+  ]
+ },
+ {
+  "id": "apple",
+  "ko": "사과",
+  "de": "Apfel",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:apple"
+  ],
+  "sentenceKo": "사과를 먹어요.",
+  "sentenceDe": "Einen Apfel essen.",
+  "descKo": "빨간색이에요. 달아요.",
+  "aliases": [
+   "사과"
+  ]
+ },
+ {
+  "id": "bread",
+  "ko": "빵",
+  "de": "Brot",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:bread"
+  ],
+  "sentenceKo": "빵을 먹어요.",
+  "sentenceDe": "Brot essen.",
+  "descKo": "밀에서 만들어요. 배를 채워요.",
+  "aliases": [
+   "빵"
+  ]
+ },
+ {
+  "id": "cookie",
+  "ko": "쿠키",
+  "de": "Keks",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:cookie"
+  ],
+  "sentenceKo": "쿠키를 먹어요.",
+  "sentenceDe": "Einen Keks essen.",
+  "descKo": "작아요. 달아요.",
+  "aliases": [
+   "쿠키"
+  ]
+ },
+ {
+  "id": "cake",
+  "ko": "케이크",
+  "de": "Kuchen",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [
+   "minecraft:cake"
+  ],
+  "sentenceKo": "케이크를 먹어요.",
+  "sentenceDe": "Kuchen essen.",
+  "descKo": "크고 달아요.",
+  "aliases": [
+   "케이크"
+  ]
+ },
+ {
+  "id": "beef",
+  "ko": "소고기",
+  "de": "Rindfleisch",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:cooked_beef"
+  ],
+  "sentenceKo": "소고기를 먹어요.",
+  "sentenceDe": "Rindfleisch essen.",
+  "descKo": "소에서 나와요.",
+  "aliases": [
+   "소고기"
+  ]
+ },
+ {
+  "id": "pork",
+  "ko": "돼지고기",
+  "de": "Schweinefleisch",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [
+   "minecraft:cooked_porkchop"
+  ],
+  "sentenceKo": "돼지고기를 먹어요.",
+  "sentenceDe": "Schweinefleisch essen.",
+  "descKo": "돼지에서 나와요.",
+  "aliases": [
+   "돼지고기"
+  ]
+ },
+ {
+  "id": "chicken_meat",
+  "ko": "닭고기",
+  "de": "Hühnerfleisch",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [
+   "minecraft:cooked_chicken"
+  ],
+  "sentenceKo": "닭고기를 먹어요.",
+  "sentenceDe": "Hühnerfleisch essen.",
+  "descKo": "닭에서 나와요.",
+  "aliases": [
+   "닭고기"
+  ]
+ },
+ {
+  "id": "milk",
+  "ko": "우유",
+  "de": "Milch",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:milk_bucket"
+  ],
+  "sentenceKo": "우유를 마셔요.",
+  "sentenceDe": "Milch trinken.",
+  "descKo": "하얘요. 마실 수 있어요.",
+  "aliases": [
+   "우유"
+  ]
+ },
+ {
+  "id": "honey",
+  "ko": "꿀",
+  "de": "Honig",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [
+   "minecraft:honey_bottle"
+  ],
+  "sentenceKo": "꿀을 마셔요.",
+  "sentenceDe": "Honig trinken.",
+  "descKo": "달아요. 벌이 만들어요.",
+  "aliases": [
+   "꿀"
+  ]
+ },
+ {
+  "id": "melon",
+  "ko": "수박",
+  "de": "Melone",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:melon_slice"
+  ],
+  "sentenceKo": "수박을 먹어요.",
+  "sentenceDe": "Melone essen.",
+  "descKo": "크고 달아요. 초록색이에요.",
+  "aliases": [
+   "수박"
+  ]
+ },
+ {
+  "id": "cow",
+  "ko": "소",
+  "de": "Kuh",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:beef"
+  ],
+  "entity": "minecraft:cow",
+  "sentenceKo": "소를 봐요.",
+  "sentenceDe": "Eine Kuh ansehen.",
+  "descKo": "커요. 우유를 줘요.",
+  "aliases": [
+   "소"
+  ]
+ },
+ {
+  "id": "pig",
+  "ko": "돼지",
+  "de": "Schwein",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:porkchop"
+  ],
+  "entity": "minecraft:pig",
+  "sentenceKo": "돼지를 봐요.",
+  "sentenceDe": "Ein Schwein ansehen.",
+  "descKo": "분홍색이에요. 고기를 줘요.",
+  "aliases": [
+   "돼지"
+  ]
+ },
+ {
+  "id": "sheep",
+  "ko": "양",
+  "de": "Schaf",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:mutton"
+  ],
+  "entity": "minecraft:sheep",
+  "sentenceKo": "양을 봐요.",
+  "sentenceDe": "Ein Schaf ansehen.",
+  "descKo": "하얘요. 털이 있어요.",
+  "aliases": [
+   "양"
+  ]
+ },
+ {
+  "id": "chicken",
+  "ko": "닭",
+  "de": "Huhn",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:chicken"
+  ],
+  "entity": "minecraft:chicken",
+  "sentenceKo": "닭을 봐요.",
+  "sentenceDe": "Ein Huhn ansehen.",
+  "descKo": "작아요. 날개가 있어요.",
+  "aliases": [
+   "닭"
+  ]
+ },
+ {
+  "id": "horse",
+  "ko": "말",
+  "de": "Pferd",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:saddle"
+  ],
+  "entity": "minecraft:horse",
+  "sentenceKo": "말을 봐요.",
+  "sentenceDe": "Ein Pferd ansehen.",
+  "descKo": "빨라요. 타고 가요.",
+  "aliases": [
+   "말"
+  ]
+ },
+ {
+  "id": "wolf",
+  "ko": "늑대",
+  "de": "Wolf",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:bone"
+  ],
+  "entity": "minecraft:wolf",
+  "sentenceKo": "늑대를 봐요.",
+  "sentenceDe": "Einen Wolf ansehen.",
+  "descKo": "개와 비슷해요. 빨라요.",
+  "aliases": [
+   "늑대"
+  ]
+ },
+ {
+  "id": "cat",
+  "ko": "고양이",
+  "de": "Katze",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:cod"
+  ],
+  "entity": "minecraft:cat",
+  "sentenceKo": "고양이를 봐요.",
+  "sentenceDe": "Eine Katze ansehen.",
+  "descKo": "작아요. 귀여워요.",
+  "aliases": [
+   "고양이"
+  ]
+ },
+ {
+  "id": "rabbit",
+  "ko": "토끼",
+  "de": "Kaninchen",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:rabbit_foot"
+  ],
+  "entity": "minecraft:rabbit",
+  "sentenceKo": "토끼를 봐요.",
+  "sentenceDe": "Ein Kaninchen ansehen.",
+  "descKo": "작아요. 깡충 뛰어요.",
+  "aliases": [
+   "토끼"
+  ]
+ },
+ {
+  "id": "fox",
+  "ko": "여우",
+  "de": "Fuchs",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:sweet_berries"
+  ],
+  "entity": "minecraft:fox",
+  "sentenceKo": "여우를 봐요.",
+  "sentenceDe": "Einen Fuchs ansehen.",
+  "descKo": "주황색이에요. 빠르게 움직여요.",
+  "aliases": [
+   "여우"
+  ]
+ },
+ {
+  "id": "bee",
+  "ko": "벌",
+  "de": "Biene",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:honeycomb"
+  ],
+  "entity": "minecraft:bee",
+  "sentenceKo": "벌을 봐요.",
+  "sentenceDe": "Eine Biene ansehen.",
+  "descKo": "작아요. 날아요. 꿀을 만들어요.",
+  "aliases": [
+   "벌"
+  ]
+ },
+ {
+  "id": "turtle",
+  "ko": "거북",
+  "de": "Schildkröte",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:scute"
+  ],
+  "entity": "minecraft:turtle",
+  "sentenceKo": "거북을 봐요.",
+  "sentenceDe": "Eine Schildkröte ansehen.",
+  "descKo": "느려요. 등딱지가 있어요.",
+  "aliases": [
+   "거북"
+  ]
+ },
+ {
+  "id": "squid",
+  "ko": "오징어",
+  "de": "Tintenfisch",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:ink_sac"
+  ],
+  "entity": "minecraft:squid",
+  "sentenceKo": "오징어를 봐요.",
+  "sentenceDe": "Einen Tintenfisch ansehen.",
+  "descKo": "물에 살아요. 다리가 많아요.",
+  "aliases": [
+   "오징어"
+  ]
+ },
+ {
+  "id": "zombie",
+  "ko": "좀비",
+  "de": "Zombie",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:rotten_flesh"
+  ],
+  "entity": "minecraft:zombie",
+  "sentenceKo": "좀비를 물리쳐요.",
+  "sentenceDe": "Einen Zombie besiegen.",
+  "descKo": "밤에 나타나요. 위험해요.",
+  "aliases": [
+   "좀비"
+  ]
+ },
+ {
+  "id": "skeleton",
+  "ko": "스켈레톤",
+  "de": "Skelett",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:bone"
+  ],
+  "entity": "minecraft:skeleton",
+  "sentenceKo": "스켈레톤을 물리쳐요.",
+  "sentenceDe": "Ein Skelett besiegen.",
+  "descKo": "활을 쏴요. 위험해요.",
+  "aliases": [
+   "스켈레톤"
+  ]
+ },
+ {
+  "id": "creeper",
+  "ko": "크리퍼",
+  "de": "Creeper",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:gunpowder"
+  ],
+  "entity": "minecraft:creeper",
+  "sentenceKo": "크리퍼를 물리쳐요.",
+  "sentenceDe": "Einen Creeper besiegen.",
+  "descKo": "초록색이에요. 터져요.",
+  "aliases": [
+   "크리퍼"
+  ]
+ },
+ {
+  "id": "spider",
+  "ko": "거미",
+  "de": "Spinne",
+  "category": "COMBAT",
+  "tier": 1,
+  "items": [
+   "minecraft:string"
+  ],
+  "entity": "minecraft:spider",
+  "sentenceKo": "거미를 물리쳐요.",
+  "sentenceDe": "Eine Spinne besiegen.",
+  "descKo": "다리가 많아요. 밤에 나와요.",
+  "aliases": [
+   "거미"
+  ]
+ },
+ {
+  "id": "enderman",
+  "ko": "엔더맨",
+  "de": "Enderman",
+  "category": "COMBAT",
+  "tier": 2,
+  "items": [
+   "minecraft:ender_pearl"
+  ],
+  "entity": "minecraft:enderman",
+  "sentenceKo": "엔더맨을 물리쳐요.",
+  "sentenceDe": "Einen Enderman besiegen.",
+  "descKo": "키가 커요. 눈을 보면 화나요.",
+  "aliases": [
+   "엔더맨"
+  ]
+ },
+ {
+  "id": "witch",
+  "ko": "마녀",
+  "de": "Hexe",
+  "category": "COMBAT",
+  "tier": 2,
+  "items": [
+   "minecraft:glass_bottle"
+  ],
+  "entity": "minecraft:witch",
+  "sentenceKo": "마녀를 물리쳐요.",
+  "sentenceDe": "Eine Hexe besiegen.",
+  "descKo": "물약을 만들어요.",
+  "aliases": [
+   "마녀"
+  ]
+ },
+ {
+  "id": "villager",
+  "ko": "주민",
+  "de": "Dorfbewohner",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [
+   "minecraft:emerald"
+  ],
+  "entity": "minecraft:villager",
+  "sentenceKo": "주민과 이야기해요.",
+  "sentenceDe": "Mit einem Dorfbewohner sprechen.",
+  "descKo": "마을에 살아요. 물건을 팔아요.",
+  "aliases": [
+   "주민"
+  ]
+ },
+ {
+  "id": "forest",
+  "ko": "숲",
+  "de": "Wald",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_sapling"
+  ],
+  "biome": "minecraft:forest",
+  "sentenceKo": "숲에 가요.",
+  "sentenceDe": "In den Wald gehen.",
+  "descKo": "나무가 많아요.",
+  "aliases": [
+   "숲"
+  ]
+ },
+ {
+  "id": "ocean",
+  "ko": "바다",
+  "de": "Ozean",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:water_bucket"
+  ],
+  "biome": "#minecraft:is_ocean",
+  "sentenceKo": "바다에 가요.",
+  "sentenceDe": "Zum Ozean gehen.",
+  "descKo": "물이 아주 많아요.",
+  "aliases": [
+   "바다"
+  ]
+ },
+ {
+  "id": "river",
+  "ko": "강",
+  "de": "Fluss",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:lily_pad"
+  ],
+  "biome": "#minecraft:is_river",
+  "sentenceKo": "강에 가요.",
+  "sentenceDe": "Zum Fluss gehen.",
+  "descKo": "물이 흘러요.",
+  "aliases": [
+   "강"
+  ]
+ },
+ {
+  "id": "mountain",
+  "ko": "산",
+  "de": "Berg",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:stone"
+  ],
+  "biome": "#minecraft:is_mountain",
+  "sentenceKo": "산에 올라가요.",
+  "sentenceDe": "Auf einen Berg steigen.",
+  "descKo": "높아요.",
+  "aliases": [
+   "산"
+  ]
+ },
+ {
+  "id": "desert",
+  "ko": "사막",
+  "de": "Wüste",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:sand"
+  ],
+  "biome": "minecraft:desert",
+  "sentenceKo": "사막에 가요.",
+  "sentenceDe": "In die Wüste gehen.",
+  "descKo": "모래가 많아요. 더워요.",
+  "aliases": [
+   "사막"
+  ]
+ },
+ {
+  "id": "beach",
+  "ko": "해변",
+  "de": "Strand",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:sand"
+  ],
+  "biome": "minecraft:beach",
+  "sentenceKo": "해변에 가요.",
+  "sentenceDe": "Zum Strand gehen.",
+  "descKo": "모래와 바다가 있어요.",
+  "aliases": [
+   "해변"
+  ]
+ },
+ {
+  "id": "cave",
+  "ko": "동굴",
+  "de": "Höhle",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:torch"
+  ],
+  "sentenceKo": "동굴에 가요.",
+  "sentenceDe": "In eine Höhle gehen.",
+  "descKo": "어두워요. 돌이 많아요.",
+  "aliases": [
+   "동굴"
+  ]
+ },
+ {
+  "id": "village",
+  "ko": "마을",
+  "de": "Dorf",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:bell"
+  ],
+  "sentenceKo": "마을에 가요.",
+  "sentenceDe": "In ein Dorf gehen.",
+  "descKo": "사람과 집이 있어요.",
+  "aliases": [
+   "마을"
+  ]
+ },
+ {
+  "id": "nether",
+  "ko": "지옥",
+  "de": "Nether",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:netherrack"
+  ],
+  "entity": null,
+  "sentenceKo": "지옥에 가요.",
+  "sentenceDe": "In den Nether gehen.",
+  "descKo": "아주 더워요. 위험해요.",
+  "aliases": [
+   "지옥"
+  ]
+ },
+ {
+  "id": "end",
+  "ko": "엔드",
+  "de": "Ende",
+  "category": "ENVIRONMENT",
+  "tier": 3,
+  "items": [
+   "minecraft:ender_pearl"
+  ],
+  "sentenceKo": "엔드에 가요.",
+  "sentenceDe": "Ins Ende gehen.",
+  "descKo": "어두운 곳이에요.",
+  "aliases": [
+   "엔드"
+  ]
+ },
+ {
+  "id": "sky",
+  "ko": "하늘",
+  "de": "Himmel",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:sunflower"
+  ],
+  "sentenceKo": "하늘을 봐요.",
+  "sentenceDe": "Den Himmel ansehen.",
+  "descKo": "위에 있어요. 파란색이에요.",
+  "aliases": [
+   "하늘"
+  ]
+ },
+ {
+  "id": "sun",
+  "ko": "해",
+  "de": "Sonne",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:sunflower"
+  ],
+  "sentenceKo": "해를 봐요.",
+  "sentenceDe": "Die Sonne ansehen.",
+  "descKo": "밝아요. 낮에 있어요.",
+  "aliases": [
+   "해"
+  ]
+ },
+ {
+  "id": "moon",
+  "ko": "달",
+  "de": "Mond",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:clock"
+  ],
+  "sentenceKo": "달을 봐요.",
+  "sentenceDe": "Den Mond ansehen.",
+  "descKo": "밤에 있어요. 하얘요.",
+  "aliases": [
+   "달"
+  ]
+ },
+ {
+  "id": "rain",
+  "ko": "비",
+  "de": "Regen",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:water_bucket"
+  ],
+  "sentenceKo": "비가 와요.",
+  "sentenceDe": "Es regnet.",
+  "descKo": "하늘에서 물이 와요.",
+  "aliases": [
+   "비"
+  ]
+ },
+ {
+  "id": "thunder",
+  "ko": "천둥",
+  "de": "Donner",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:lightning_rod"
+  ],
+  "sentenceKo": "천둥이 쳐요.",
+  "sentenceDe": "Es donnert.",
+  "descKo": "큰 소리가 나요.",
+  "aliases": [
+   "천둥"
+  ]
+ },
+ {
+  "id": "night",
+  "ko": "밤",
+  "de": "Nacht",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:torch"
+  ],
+  "sentenceKo": "밤이에요.",
+  "sentenceDe": "Es ist Nacht.",
+  "descKo": "어두워요. 달이 있어요.",
+  "aliases": [
+   "밤"
+  ]
+ },
+ {
+  "id": "day",
+  "ko": "낮",
+  "de": "Tag",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:sunflower"
+  ],
+  "sentenceKo": "낮이에요.",
+  "sentenceDe": "Es ist Tag.",
+  "descKo": "밝아요. 해가 있어요.",
+  "aliases": [
+   "낮"
+  ]
+ },
+ {
+  "id": "house",
+  "ko": "집",
+  "de": "Haus",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_planks"
+  ],
+  "sentenceKo": "집을 지어요.",
+  "sentenceDe": "Ein Haus bauen.",
+  "descKo": "사람이 살아요.",
+  "aliases": [
+   "집"
+  ]
+ },
+ {
+  "id": "mine",
+  "ko": "캐다",
+  "de": "abbauen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_pickaxe"
+  ],
+  "sentenceKo": "돌을 캐요.",
+  "sentenceDe": "Stein abbauen.",
+  "descKo": "돌을 얻어요.",
+  "aliases": [
+   "캐다"
+  ]
+ },
+ {
+  "id": "chop",
+  "ko": "베다",
+  "de": "fällen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_axe"
+  ],
+  "sentenceKo": "나무를 베어요.",
+  "sentenceDe": "Einen Baum fällen.",
+  "descKo": "나무를 얻어요.",
+  "aliases": [
+   "베다"
+  ]
+ },
+ {
+  "id": "place",
+  "ko": "놓다",
+  "de": "platzieren",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_planks"
+  ],
+  "sentenceKo": "블록을 놓아요.",
+  "sentenceDe": "Einen Block platzieren.",
+  "descKo": "블록을 땅에 둬요.",
+  "aliases": [
+   "놓다"
+  ]
+ },
+ {
+  "id": "collect",
+  "ko": "모으다",
+  "de": "sammeln",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:chest"
+  ],
+  "sentenceKo": "물건을 모아요.",
+  "sentenceDe": "Dinge sammeln.",
+  "descKo": "여러 개를 가져요.",
+  "aliases": [
+   "모으다"
+  ]
+ },
+ {
+  "id": "eat",
+  "ko": "먹다",
+  "de": "essen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:apple"
+  ],
+  "sentenceKo": "음식을 먹어요.",
+  "sentenceDe": "Essen essen.",
+  "descKo": "배를 채워요.",
+  "aliases": [
+   "먹다"
+  ]
+ },
+ {
+  "id": "drink",
+  "ko": "마시다",
+  "de": "trinken",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:milk_bucket"
+  ],
+  "sentenceKo": "물을 마셔요.",
+  "sentenceDe": "Wasser trinken.",
+  "descKo": "물을 몸에 넣어요.",
+  "aliases": [
+   "마시다"
+  ]
+ },
+ {
+  "id": "look",
+  "ko": "보다",
+  "de": "anschauen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:spyglass"
+  ],
+  "sentenceKo": "하늘을 봐요.",
+  "sentenceDe": "Den Himmel anschauen.",
+  "descKo": "눈으로 봐요.",
+  "aliases": [
+   "보다"
+  ]
+ },
+ {
+  "id": "walk",
+  "ko": "걷다",
+  "de": "gehen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:leather_boots"
+  ],
+  "sentenceKo": "천천히 걸어요.",
+  "sentenceDe": "Langsam gehen.",
+  "descKo": "발로 움직여요.",
+  "aliases": [
+   "걷다"
+  ]
+ },
+ {
+  "id": "swim",
+  "ko": "수영하다",
+  "de": "schwimmen",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [
+   "minecraft:water_bucket"
+  ],
+  "sentenceKo": "물에서 수영해요.",
+  "sentenceDe": "Im Wasser schwimmen.",
+  "descKo": "물에서 움직여요.",
+  "aliases": [
+   "수영하다"
+  ]
+ },
+ {
+  "id": "sleep",
+  "ko": "자다",
+  "de": "schlafen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:red_bed"
+  ],
+  "sentenceKo": "밤에 자요.",
+  "sentenceDe": "Nachts schlafen.",
+  "descKo": "밤에 눈을 감아요.",
+  "aliases": [
+   "자다"
+  ]
+ },
+ {
+  "id": "make",
+  "ko": "만들다",
+  "de": "herstellen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:crafting_table"
+  ],
+  "sentenceKo": "빵을 만들어요.",
+  "sentenceDe": "Brot herstellen.",
+  "descKo": "새로운 것을 봐요.",
+  "aliases": [
+   "만들다"
+  ]
+ },
+ {
+  "id": "open",
+  "ko": "열다",
+  "de": "öffnen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:chest"
+  ],
+  "sentenceKo": "문을 열어요.",
+  "sentenceDe": "Eine Tür öffnen.",
+  "descKo": "안을 볼 수 있어요.",
+  "aliases": [
+   "열다"
+  ]
+ },
+ {
+  "id": "fight",
+  "ko": "싸우다",
+  "de": "kämpfen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_sword"
+  ],
+  "sentenceKo": "좀비와 싸워요.",
+  "sentenceDe": "Gegen einen Zombie kämpfen.",
+  "descKo": "몹을 물리쳐요.",
+  "aliases": [
+   "싸우다"
+  ]
+ },
+ {
+  "id": "climb",
+  "ko": "올라가다",
+  "de": "hinaufsteigen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:ladder"
+  ],
+  "sentenceKo": "산에 올라가요.",
+  "sentenceDe": "Auf den Berg steigen.",
+  "descKo": "위로 가요.",
+  "aliases": [
+   "올라가다"
+  ]
+ },
+ {
+  "id": "dig",
+  "ko": "파다",
+  "de": "graben",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:iron_shovel"
+  ],
+  "sentenceKo": "땅을 파요.",
+  "sentenceDe": "Erde graben.",
+  "descKo": "땅을 내려가요.",
+  "aliases": [
+   "파다"
+  ]
+ },
+ {
+  "id": "build",
+  "ko": "짓다",
+  "de": "bauen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:scaffolding"
+  ],
+  "sentenceKo": "집을 지어요.",
+  "sentenceDe": "Ein Haus bauen.",
+  "descKo": "블록으로 만들어요.",
+  "aliases": [
+   "짓다"
+  ]
+ },
+ {
+  "id": "cook",
+  "ko": "요리하다",
+  "de": "kochen",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [
+   "minecraft:campfire"
+  ],
+  "sentenceKo": "고기를 요리해요.",
+  "sentenceDe": "Fleisch kochen.",
+  "descKo": "불로 음식을 만들어요.",
+  "aliases": [
+   "요리하다"
+  ]
+ },
+ {
+  "id": "fish",
+  "ko": "물고기",
+  "de": "Fisch",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [
+   "minecraft:cod",
+   "minecraft:salmon",
+   "minecraft:tropical_fish"
+  ],
+  "sentenceKo": "물고기를 잡아요.",
+  "sentenceDe": "Einen Fisch fangen.",
+  "descKo": "물에 살아요. 먹을 수 있어요.",
+  "aliases": [
+   "낚시하다"
+  ]
+ },
+ {
+  "id": "talk",
+  "ko": "이야기하다",
+  "de": "sprechen",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [
+   "minecraft:book"
+  ],
+  "sentenceKo": "친구와 이야기해요.",
+  "sentenceDe": "Mit einem Freund sprechen.",
+  "descKo": "말로 내 생각을 전해요.",
+  "aliases": [
+   "이야기하다"
+  ]
+ },
+ {
+  "id": "friend",
+  "ko": "친구",
+  "de": "Freund",
+  "category": "MISC",
+  "tier": 1,
+  "items": [
+   "minecraft:player_head"
+  ],
+  "sentenceKo": "친구를 봐요.",
+  "sentenceDe": "Einen Freund ansehen.",
+  "descKo": "나와 가까운 사람이에요.",
+  "aliases": [
+   "친구"
+  ]
+ },
+ {
+  "id": "book",
+  "ko": "책",
+  "de": "Buch",
+  "category": "MISC",
+  "tier": 1,
+  "items": [
+   "minecraft:book"
+  ],
+  "sentenceKo": "책을 읽어요.",
+  "sentenceDe": "Ein Buch lesen.",
+  "descKo": "글자가 있어요.",
+  "aliases": [
+   "책"
+  ]
+ },
+ {
+  "id": "paper",
+  "ko": "종이",
+  "de": "Papier",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:paper"
+  ],
+  "sentenceKo": "종이를 모아요.",
+  "sentenceDe": "Papier sammeln.",
+  "descKo": "하얗고 얇아요.",
+  "aliases": [
+   "종이"
+  ]
+ },
+ {
+  "id": "string",
+  "ko": "실",
+  "de": "Faden",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:string"
+  ],
+  "sentenceKo": "실을 모아요.",
+  "sentenceDe": "Faden sammeln.",
+  "descKo": "가늘어요. 거미에게서 나와요.",
+  "aliases": [
+   "실"
+  ]
+ },
+ {
+  "id": "leather",
+  "ko": "가죽",
+  "de": "Leder",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:leather"
+  ],
+  "sentenceKo": "가죽을 모아요.",
+  "sentenceDe": "Leder sammeln.",
+  "descKo": "소에게서 나와요.",
+  "aliases": [
+   "가죽"
+  ]
+ },
+ {
+  "id": "wool",
+  "ko": "양털",
+  "de": "Wolle",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:white_wool"
+  ],
+  "sentenceKo": "양털을 모아요.",
+  "sentenceDe": "Wolle sammeln.",
+  "descKo": "양에게서 나와요. 부드러워요.",
+  "aliases": [
+   "양털"
+  ]
+ },
+ {
+  "id": "feather",
+  "ko": "깃털",
+  "de": "Feder",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:feather"
+  ],
+  "sentenceKo": "깃털을 모아요.",
+  "sentenceDe": "Federn sammeln.",
+  "descKo": "가벼워요. 닭에게서 나와요.",
+  "aliases": [
+   "깃털"
+  ]
+ },
+ {
+  "id": "bone",
+  "ko": "뼈",
+  "de": "Knochen",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:bone"
+  ],
+  "sentenceKo": "뼈를 모아요.",
+  "sentenceDe": "Knochen sammeln.",
+  "descKo": "하얘요. 스켈레톤에게서 나와요.",
+  "aliases": [
+   "뼈"
+  ]
+ },
+ {
+  "id": "gunpowder",
+  "ko": "화약",
+  "de": "Schießpulver",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:gunpowder"
+  ],
+  "sentenceKo": "화약을 모아요.",
+  "sentenceDe": "Schießpulver sammeln.",
+  "descKo": "크리퍼에게서 나와요.",
+  "aliases": [
+   "화약"
+  ]
+ },
+ {
+  "id": "stick",
+  "ko": "막대기",
+  "de": "Stock",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:stick"
+  ],
+  "sentenceKo": "막대기를 모아요.",
+  "sentenceDe": "Stöcke sammeln.",
+  "descKo": "길어요. 나무로 만들어요.",
+  "aliases": [
+   "막대기"
+  ]
+ },
+ {
+  "id": "egg",
+  "ko": "달걀",
+  "de": "Ei",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [
+   "minecraft:egg"
+  ],
+  "sentenceKo": "달걀을 봐요.",
+  "sentenceDe": "Ein Ei ansehen.",
+  "descKo": "닭이 줘요.",
+  "aliases": [
+   "달걀"
+  ]
+ },
+ {
+  "id": "emerald",
+  "ko": "에메랄드",
+  "de": "Smaragd",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:emerald"
+  ],
+  "sentenceKo": "에메랄드를 모아요.",
+  "sentenceDe": "Smaragde sammeln.",
+  "descKo": "초록색이에요. 마을에서 써요.",
+  "aliases": [
+   "에메랄드"
+  ]
+ },
+ {
+  "id": "campfire",
+  "ko": "모닥불",
+  "de": "Lagerfeuer",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:campfire"
+  ],
+  "sentenceKo": "모닥불을 놓아요.",
+  "sentenceDe": "Ein Lagerfeuer platzieren.",
+  "descKo": "불이에요. 따뜻해요.",
+  "aliases": [
+   "모닥불"
+  ]
+ },
+ {
+  "id": "netherrack",
+  "ko": "네더랙",
+  "de": "Netherrack",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:netherrack"
+  ],
+  "sentenceKo": "네더랙을 봐요.",
+  "sentenceDe": "Netherrack ansehen.",
+  "descKo": "빨간 돌이에요. 지옥에 있어요.",
+  "aliases": [
+   "네더랙"
+  ]
+ },
+ {
+  "id": "lightning_rod",
+  "ko": "피뢰침",
+  "de": "Blitzableiter",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:lightning_rod"
+  ],
+  "sentenceKo": "피뢰침을 놓아요.",
+  "sentenceDe": "Einen Blitzableiter platzieren.",
+  "descKo": "천둥을 받아요.",
+  "aliases": [
+   "피뢰침"
+  ]
+ },
+ {
+  "id": "goat",
+  "ko": "염소",
+  "de": "Ziege",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:goat_horn"
+  ],
+  "entity": "minecraft:goat",
+  "sentenceKo": "염소를 봐요.",
+  "sentenceDe": "Eine Ziege ansehen.",
+  "descKo": "산에 살아요. 뿔이 있어요.",
+  "aliases": [
+   "염소"
+  ]
+ },
+ {
+  "id": "clock",
+  "ko": "시계",
+  "de": "Uhr",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [
+   "minecraft:clock"
+  ],
+  "sentenceKo": "시계를 봐요.",
+  "sentenceDe": "Auf die Uhr schauen.",
+  "descKo": "시간을 알려줘요.",
+  "aliases": [
+   "시계"
+  ]
+ },
+ {
+  "id": "fence",
+  "ko": "울타리",
+  "de": "Zaun",
+  "category": "BUILDING",
+  "tier": 2,
+  "items": [
+   "minecraft:oak_fence"
+  ],
+  "sentenceKo": "울타리를 놓아요.",
+  "sentenceDe": "Einen Zaun setzen.",
+  "descKo": "나무로 만들어요. 길을 막아요.",
+  "aliases": [
+   "울타리"
+  ]
+ },
+ {
+  "id": "crown",
+  "ko": "왕관",
+  "de": "Krone",
+  "category": "MISC",
+  "tier": 5,
+  "items": [
+   "minecraft:golden_helmet"
+  ],
+  "sentenceKo": "왕관을 써요.",
+  "sentenceDe": "Eine Krone tragen.",
+  "grammar": "OBJECT",
+  "descKo": "왕이 머리에 쓰는 것이에요.",
+  "aliases": [
+   "왕관"
+  ]
+ },
+ {
+  "id": "ritual",
+  "ko": "의식",
+  "de": "Ritual",
+  "category": "MISC",
+  "tier": 5,
+  "items": [
+   "minecraft:candle"
+  ],
+  "sentenceKo": "의식을 해요.",
+  "sentenceDe": "Ein Ritual ausführen.",
+  "grammar": "OBJECT",
+  "descKo": "특별한 날에 하는 것이에요.",
+  "aliases": [
+   "의식"
+  ]
+ },
+ {
+  "id": "eternity",
+  "ko": "영원",
+  "de": "Ewigkeit",
+  "category": "MISC",
+  "tier": 6,
+  "items": [
+   "minecraft:clock"
+  ],
+  "sentenceKo": "영원히 남아요.",
+  "sentenceDe": "Für immer bleiben.",
+  "grammar": "ADVERB",
+  "descKo": "끝이 없이 오래오래 계속되는 것이에요.",
+  "aliases": [
+   "영원"
+  ]
+ },
+ {
+  "id": "creation",
+  "ko": "창조",
+  "de": "Schöpfung",
+  "category": "ACTIONS",
+  "tier": 6,
+  "items": [
+   "minecraft:crafting_table"
+  ],
+  "sentenceKo": "새것을 창조해요.",
+  "sentenceDe": "Neues erschaffen.",
+  "grammar": "OBJECT",
+  "descKo": "없던 것을 새로 만드는 것이에요.",
+  "aliases": [
+   "창조"
+  ]
+ },
+ {
+  "id": "world",
+  "ko": "세계",
+  "de": "Welt",
+  "category": "ENVIRONMENT",
+  "tier": 5,
+  "items": [
+   "minecraft:grass_block"
+  ],
+  "sentenceKo": "세계를 봐요.",
+  "sentenceDe": "Die Welt sehen.",
+  "grammar": "OBJECT",
+  "descKo": "우리가 사는 넓은 곳이에요.",
+  "aliases": [
+   "세계"
+  ]
+ },
+ {
+  "id": "flint",
+  "ko": "부싯돌",
+  "de": "Feuerstein",
+  "category": "MATERIALS",
+  "tier": 4,
+  "items": [
+   "minecraft:flint"
+  ],
+  "sentenceKo": "부싯돌로 불을 피워요.",
+  "sentenceDe": "Mit Feuerstein Feuer machen.",
+  "grammar": "OBJECT",
+  "descKo": "불을 만들 때 쓰는 돌이에요.",
+  "aliases": [
+   "부싯돌"
+  ]
+ },
+ {
+  "id": "sugar",
+  "ko": "설탕",
+  "de": "Zucker",
+  "category": "MATERIALS",
+  "tier": 3,
+  "items": [
+   "minecraft:sugar"
+  ],
+  "sentenceKo": "설탕은 달아요.",
+  "sentenceDe": "Zucker ist süß.",
+  "grammar": "OBJECT",
+  "descKo": "음식을 달게 만드는 것이에요.",
+  "aliases": [
+   "설탕"
+  ]
+ },
+ {
+  "id": "note_block",
+  "ko": "음표 블록",
+  "de": "Notenblock",
+  "category": "BUILDING",
+  "tier": 2,
+  "items": [
+   "minecraft:note_block"
+  ],
+  "sentenceKo": "음표 블록을 놓아요.",
+  "sentenceDe": "Einen Notenblock setzen.",
+  "grammar": "OBJECT",
+  "descKo": "소리를 내는 블록이에요.",
+  "aliases": [
+   "음표 블록"
+  ]
+ },
+ {
+  "id": "jukebox",
+  "ko": "주크박스",
+  "de": "Jukebox",
+  "category": "BUILDING",
+  "tier": 2,
+  "items": [
+   "minecraft:jukebox"
+  ],
+  "sentenceKo": "주크박스를 켜요.",
+  "sentenceDe": "Die Jukebox anmachen.",
+  "grammar": "OBJECT",
+  "descKo": "음악을 틀 수 있는 상자예요.",
+  "aliases": [
+   "주크박스"
+  ]
+ },
+ {
+  "id": "honeycomb",
+  "ko": "벌집 조각",
+  "de": "Honigwabe",
+  "category": "MATERIALS",
+  "tier": 3,
+  "items": [
+   "minecraft:honeycomb"
+  ],
+  "sentenceKo": "벌집 조각을 모아요.",
+  "sentenceDe": "Honigwaben sammeln.",
+  "grammar": "OBJECT",
+  "descKo": "벌집에서 얻는 재료예요.",
+  "aliases": [
+   "벌집 조각"
+  ]
+ },
+ {
+  "id": "beehive",
+  "ko": "벌통",
+  "de": "Bienenstock",
+  "category": "BUILDING",
+  "tier": 3,
+  "items": [
+   "minecraft:beehive"
+  ],
+  "sentenceKo": "벌통을 놓아요.",
+  "sentenceDe": "Einen Bienenstock setzen.",
+  "grammar": "OBJECT",
+  "descKo": "벌이 사는 집이에요.",
+  "aliases": [
+   "벌통"
+  ]
+ },
+ {
+  "id": "map",
+  "ko": "지도",
+  "de": "Karte",
+  "category": "TOOLS",
+  "tier": 3,
+  "items": [
+   "minecraft:map"
+  ],
+  "sentenceKo": "지도를 봐요.",
+  "sentenceDe": "Eine Karte ansehen.",
+  "grammar": "OBJECT",
+  "descKo": "길을 알려 주는 종이예요.",
+  "aliases": [
+   "지도"
+  ]
+ },
+ {
+  "id": "cartography_table",
+  "ko": "지도 제작대",
+  "de": "Kartentisch",
+  "category": "BUILDING",
+  "tier": 4,
+  "items": [
+   "minecraft:cartography_table"
+  ],
+  "sentenceKo": "지도 제작대를 써요.",
+  "sentenceDe": "Den Kartentisch benutzen.",
+  "grammar": "OBJECT",
+  "descKo": "지도를 만들 때 쓰는 작업대예요.",
+  "aliases": [
+   "지도 제작대"
+  ]
+ },
+ {
+  "id": "item_frame",
+  "ko": "아이템 액자",
+  "de": "Rahmen",
+  "category": "BUILDING",
+  "tier": 3,
+  "items": [
+   "minecraft:item_frame"
+  ],
+  "sentenceKo": "아이템 액자를 걸어요.",
+  "sentenceDe": "Einen Rahmen aufhängen.",
+  "grammar": "OBJECT",
+  "descKo": "물건을 벽에 걸 때 써요.",
+  "aliases": [
+   "아이템 액자"
+  ]
+ },
+ {
+  "id": "ink_sac",
+  "ko": "잉크 주머니",
+  "de": "Tintenbeutel",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:ink_sac"
+  ],
+  "sentenceKo": "잉크 주머니를 모아요.",
+  "sentenceDe": "Einen Tintenbeutel sammeln.",
+  "descKo": "오징어에게서 얻어요.",
+  "aliases": [
+   "잉크 주머니"
+  ]
+ },
+ {
+  "id": "redstone",
+  "ko": "레드스톤",
+  "de": "Redstone",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:redstone",
+   "minecraft:redstone_ore"
+  ],
+  "sentenceKo": "레드스톤을 캐요.",
+  "sentenceDe": "Redstone abbauen.",
+  "descKo": "빛나고 전기를 통해요.",
+  "aliases": [
+   "레드스톤"
+  ]
+ },
+ {
+  "id": "redstone_torch",
+  "ko": "레드스톤 횃불",
+  "de": "Redstonefackel",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:redstone_torch"
+  ],
+  "sentenceKo": "레드스톤 횃불을 놓아요.",
+  "sentenceDe": "Eine Redstonefackel setzen.",
+  "descKo": "전기를 보내는 횃불이에요.",
+  "aliases": [
+   "레드스톤 횃불"
+  ]
+ },
+ {
+  "id": "lever",
+  "ko": "레버",
+  "de": "Hebel",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:lever"
+  ],
+  "sentenceKo": "레버를 당겨요.",
+  "sentenceDe": "Einen Hebel umlegen.",
+  "descKo": "문이나 기계를 움직여요.",
+  "aliases": [
+   "레버"
+  ]
+ },
+ {
+  "id": "snowball",
+  "ko": "눈덩이",
+  "de": "Schneeball",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:snowball"
+  ],
+  "sentenceKo": "눈덩이를 던져요.",
+  "sentenceDe": "Einen Schneeball werfen.",
+  "descKo": "눈으로 만든 공이에요.",
+  "aliases": [
+   "눈덩이"
+  ]
+ },
+ {
+  "id": "dandelion",
+  "ko": "민들레",
+  "de": "Löwenzahn",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:dandelion"
+  ],
+  "sentenceKo": "민들레를 봐요.",
+  "sentenceDe": "Einen Löwenzahn ansehen.",
+  "descKo": "노란 꽃이에요.",
+  "aliases": [
+   "민들레"
+  ]
+ },
+ {
+  "id": "cauldron",
+  "ko": "가마솥",
+  "de": "Kessel",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:cauldron"
+  ],
+  "sentenceKo": "가마솥을 써요.",
+  "sentenceDe": "Einen Kessel benutzen.",
+  "descKo": "물을 담는 큰 솥이에요.",
+  "aliases": [
+   "가마솥"
+  ]
+ },
+ {
+  "id": "glass_bottle",
+  "ko": "유리병",
+  "de": "Glasflasche",
+  "category": "TOOLS",
+  "tier": 3,
+  "items": [
+   "minecraft:glass_bottle"
+  ],
+  "sentenceKo": "유리병을 모아요.",
+  "sentenceDe": "Glasflaschen sammeln.",
+  "descKo": "물이나 약을 담아요.",
+  "aliases": [
+   "유리병"
+  ]
+ },
+ {
+  "id": "sandstone",
+  "ko": "사암",
+  "de": "Sandstein",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:sandstone"
+  ],
+  "sentenceKo": "사암을 캐요.",
+  "sentenceDe": "Sandstein abbauen.",
+  "descKo": "모래로 만든 단단한 돌이에요.",
+  "aliases": [
+   "사암"
+  ]
+ },
+ {
+  "id": "jungle",
+  "ko": "정글",
+  "de": "Dschungel",
+  "category": "ENVIRONMENT",
+  "tier": 4,
+  "items": [
+   "minecraft:jungle_log"
+  ],
+  "biome": "minecraft:jungle",
+  "sentenceKo": "정글에 가요.",
+  "sentenceDe": "In den Dschungel gehen.",
+  "descKo": "덥고 나무가 많은 곳이에요.",
+  "aliases": [
+   "정글"
+  ]
+ },
+ {
+  "id": "cocoa_beans",
+  "ko": "카카오 콩",
+  "de": "Kakaobohnen",
+  "category": "MATERIALS",
+  "tier": 4,
+  "items": [
+   "minecraft:cocoa_beans"
+  ],
+  "sentenceKo": "카카오 콩을 모아요.",
+  "sentenceDe": "Kakaobohnen sammeln.",
+  "descKo": "초콜릿을 만드는 재료예요.",
+  "aliases": [
+   "카카오 콩"
+  ]
+ },
+ {
+  "id": "parrot",
+  "ko": "앵무새",
+  "de": "Papagei",
+  "category": "ANIMALS",
+  "tier": 3,
+  "items": [
+   "minecraft:parrot_spawn_egg"
+  ],
+  "entity": "minecraft:parrot",
+  "sentenceKo": "앵무새를 봐요.",
+  "sentenceDe": "Einen Papagei ansehen.",
+  "descKo": "색이 알록달록한 새예요.",
+  "aliases": [
+   "앵무새"
+  ]
+ },
+ {
+  "id": "jungle_log",
+  "ko": "정글 나무",
+  "de": "Dschungelholz",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:jungle_log"
+  ],
+  "sentenceKo": "정글 나무를 놓아요.",
+  "sentenceDe": "Dschungelholz setzen.",
+  "descKo": "정글에서 자라는 나무예요.",
+  "aliases": [
+   "정글 나무"
+  ]
+ },
+ {
+  "id": "magma",
+  "ko": "마그마 블록",
+  "de": "Magmablock",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:magma_block"
+  ],
+  "sentenceKo": "마그마 블록을 캐요.",
+  "sentenceDe": "Magmablöcke abbauen.",
+  "descKo": "뜨겁고 위험한 블록이에요.",
+  "aliases": [
+   "마그마"
+  ]
+ },
+ {
+  "id": "lectern",
+  "ko": "독서대",
+  "de": "Lesepult",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:lectern"
+  ],
+  "sentenceKo": "독서대를 써요.",
+  "sentenceDe": "Ein Lesepult benutzen.",
+  "descKo": "책을 올려놓고 읽어요.",
+  "aliases": [
+   "독서대"
+  ]
+ },
+ {
+  "id": "bookshelf",
+  "ko": "책장",
+  "de": "Bücherregal",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:bookshelf"
+  ],
+  "sentenceKo": "책장을 놓아요.",
+  "sentenceDe": "Ein Bücherregal setzen.",
+  "descKo": "책을 넣는 선반이에요.",
+  "aliases": [
+   "책장"
+  ]
+ },
+ {
+  "id": "lantern",
+  "ko": "랜턴",
+  "de": "Laterne",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:lantern"
+  ],
+  "sentenceKo": "랜턴을 놓아요.",
+  "sentenceDe": "Eine Laterne setzen.",
+  "descKo": "밝게 비추는 등이에요.",
+  "aliases": [
+   "랜턴"
+  ]
+ },
+ {
+  "id": "sea_lantern",
+  "ko": "바다 랜턴",
+  "de": "Meereslaterne",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:sea_lantern"
+  ],
+  "sentenceKo": "바다 랜턴을 놓아요.",
+  "sentenceDe": "Eine Meereslaterne setzen.",
+  "descKo": "바다에서 빛나는 블록이에요.",
+  "aliases": [
+   "바다 랜턴"
+  ]
+ },
+ {
+  "id": "amethyst_shard",
+  "ko": "자수정 조각",
+  "de": "Amethystsplitter",
+  "category": "MATERIALS",
+  "tier": 4,
+  "items": [
+   "minecraft:amethyst_shard"
+  ],
+  "sentenceKo": "자수정 조각을 모아요.",
+  "sentenceDe": "Amethystsplitter sammeln.",
+  "descKo": "보라색으로 빛나는 조각이에요.",
+  "aliases": [
+   "자수정 조각"
+  ]
+ },
+ {
+  "id": "amethyst_block",
+  "ko": "자수정 블록",
+  "de": "Amethystblock",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:amethyst_block"
+  ],
+  "sentenceKo": "자수정 블록을 놓아요.",
+  "sentenceDe": "Einen Amethystblock setzen.",
+  "descKo": "자수정으로 만든 블록이에요.",
+  "aliases": [
+   "자수정 블록"
+  ]
+ },
+ {
+  "id": "height",
+  "ko": "높이",
+  "de": "Höhe",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [
+   "minecraft:ladder"
+  ],
+  "sentenceKo": "높이 올라가요.",
+  "sentenceDe": "In die Höhe steigen.",
+  "descKo": "위로 얼마나 높은지를 말해요.",
+  "aliases": [
+   "높이"
+  ]
+ },
+ {
+  "id": "bat",
+  "ko": "박쥐",
+  "de": "Fledermaus",
+  "category": "ANIMALS",
+  "tier": 3,
+  "items": [
+   "minecraft:bat_spawn_egg"
+  ],
+  "entity": "minecraft:bat",
+  "sentenceKo": "박쥐를 봐요.",
+  "sentenceDe": "Eine Fledermaus ansehen.",
+  "descKo": "동굴에 사는 작은 동물이에요.",
+  "aliases": [
+   "박쥐"
+  ]
+ },
+ {
+  "id": "soul_torch",
+  "ko": "영혼 횃불",
+  "de": "Seelenfackel",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:soul_torch"
+  ],
+  "sentenceKo": "영혼 횃불을 놓아요.",
+  "sentenceDe": "Eine Seelenfackel setzen.",
+  "descKo": "푸르게 타는 횃불이에요.",
+  "aliases": [
+   "영혼 횃불"
+  ]
+ },
+ {
+  "id": "anvil",
+  "ko": "모루",
+  "de": "Amboss",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:anvil"
+  ],
+  "sentenceKo": "모루를 써요.",
+  "sentenceDe": "Einen Amboss benutzen.",
+  "descKo": "도구를 고치거나 만들 때 써요.",
+  "aliases": [
+   "모루"
+  ]
+ },
+ {
+  "id": "soul_sand",
+  "ko": "영혼 모래",
+  "de": "Seelensand",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:soul_sand"
+  ],
+  "sentenceKo": "영혼 모래를 캐요.",
+  "sentenceDe": "Seelensand abbauen.",
+  "descKo": "영혼 계곡에서 나는 모래예요.",
+  "aliases": [
+   "영혼 모래"
+  ]
+ },
+ {
+  "id": "soul_lantern",
+  "ko": "영혼 랜턴",
+  "de": "Seelenlaterne",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:soul_lantern"
+  ],
+  "sentenceKo": "영혼 랜턴을 놓아요.",
+  "sentenceDe": "Eine Seelenlaterne setzen.",
+  "descKo": "푸른 빛을 내는 랜턴이에요.",
+  "aliases": [
+   "영혼 랜턴"
+  ]
+ },
+ {
+  "id": "iron_block",
+  "ko": "철 블록",
+  "de": "Eisenblock",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:iron_block"
+  ],
+  "sentenceKo": "철 블록을 놓아요.",
+  "sentenceDe": "Einen Eisenblock setzen.",
+  "descKo": "철 아홉 개로 만드는 블록이에요.",
+  "aliases": [
+   "철 블록"
+  ]
+ },
+ {
+  "id": "carved_pumpkin",
+  "ko": "조각된 호박",
+  "de": "Geschnitzter Kürbis",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:carved_pumpkin"
+  ],
+  "sentenceKo": "조각된 호박을 놓아요.",
+  "sentenceDe": "Einen geschnitzten Kürbis setzen.",
+  "descKo": "골렘의 얼굴이에요.",
+  "aliases": [
+   "조각된 호박"
+  ]
+ },
+ {
+  "id": "iron_golem",
+  "ko": "철 골렘",
+  "de": "Eisengolem",
+  "category": "ANIMALS",
+  "tier": 4,
+  "items": [
+   "minecraft:iron_block"
+  ],
+  "entity": "minecraft:iron_golem",
+  "sentenceKo": "철 골렘을 봐요.",
+  "sentenceDe": "Einen Eisengolem ansehen.",
+  "descKo": "마을을 지키는 큰 로봇이에요.",
+  "aliases": [
+   "철 골렘"
+  ]
+ },
+ {
+  "id": "gold_block",
+  "ko": "금 블록",
+  "de": "Goldblock",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:gold_block"
+  ],
+  "sentenceKo": "금 블록을 놓아요.",
+  "sentenceDe": "Einen Goldblock setzen.",
+  "descKo": "금 아홉 개로 만드는 블록이에요.",
+  "aliases": [
+   "금 블록"
+  ]
+ },
+ {
+  "id": "enchanting_table",
+  "ko": "마법 부여대",
+  "de": "Zaubertisch",
+  "category": "BLOCKS",
+  "tier": 5,
+  "items": [
+   "minecraft:enchanting_table"
+  ],
+  "sentenceKo": "마법 부여대를 써요.",
+  "sentenceDe": "Den Zaubertisch benutzen.",
+  "descKo": "도구에 마법을 붙여요.",
+  "aliases": [
+   "마법 부여대"
+  ]
+ },
+ {
+  "id": "ender_pearl",
+  "ko": "엔더 진주",
+  "de": "Enderperle",
+  "category": "MATERIALS",
+  "tier": 5,
+  "items": [
+   "minecraft:ender_pearl"
+  ],
+  "sentenceKo": "엔더 진주를 모아요.",
+  "sentenceDe": "Enderperlen sammeln.",
+  "descKo": "순간 이동할 때 써요.",
+  "aliases": [
+   "엔더 진주"
+  ]
+ },
+ {
+  "id": "beacon",
+  "ko": "신호기",
+  "de": "Leuchtfeuer",
+  "category": "BLOCKS",
+  "tier": 5,
+  "items": [
+   "minecraft:beacon"
+  ],
+  "sentenceKo": "신호기를 놓아요.",
+  "sentenceDe": "Ein Leuchtfeuer setzen.",
+  "descKo": "하늘로 빛을 보내요.",
+  "aliases": [
+   "신호기"
+  ]
+ },
+ {
+  "id": "nether_star",
+  "ko": "네더의 별",
+  "de": "Netherstern",
+  "category": "MATERIALS",
+  "tier": 5,
+  "items": [
+   "minecraft:nether_star"
+  ],
+  "sentenceKo": "네더의 별을 모아요.",
+  "sentenceDe": "Einen Netherstern sammeln.",
+  "descKo": "위더를 물리치면 얻어요.",
+  "aliases": [
+   "네더의 별"
+  ]
+ },
+ {
+  "id": "golden_apple",
+  "ko": "황금 사과",
+  "de": "Goldener Apfel",
+  "category": "FOOD",
+  "tier": 5,
+  "items": [
+   "minecraft:golden_apple"
+  ],
+  "sentenceKo": "황금 사과를 먹어요.",
+  "sentenceDe": "Einen goldenen Apfel essen.",
+  "descKo": "특별한 힘을 줘요.",
+  "aliases": [
+   "황금 사과"
+  ]
+ },
+ {
+  "id": "candle",
+  "ko": "초",
+  "de": "Kerze",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:candle"
+  ],
+  "sentenceKo": "초를 놓아요.",
+  "sentenceDe": "Eine Kerze setzen.",
+  "descKo": "작은 불빛이에요.",
+  "aliases": [
+   "초"
+  ]
+ },
+ {
+  "id": "glass",
+  "ko": "유리",
+  "de": "Glas",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:glass"
+  ],
+  "sentenceKo": "유리를 놓아요.",
+  "sentenceDe": "Glas setzen.",
+  "descKo": "투명한 블록이에요.",
+  "aliases": [
+   "유리"
+  ]
+ },
+ {
+  "id": "glass_pane",
+  "ko": "유리판",
+  "de": "Glasscheibe",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:glass_pane"
+  ],
+  "sentenceKo": "유리판을 놓아요.",
+  "sentenceDe": "Eine Glasscheibe setzen.",
+  "descKo": "창문에 쓰는 얇은 유리예요.",
+  "aliases": [
+   "유리판"
+  ]
+ },
+ {
+  "id": "bowl",
+  "ko": "그릇",
+  "de": "Schüssel",
+  "category": "TOOLS",
+  "tier": 1,
+  "items": [
+   "minecraft:bowl"
+  ],
+  "sentenceKo": "그릇을 만들어요.",
+  "sentenceDe": "Eine Schüssel herstellen.",
+  "descKo": "음식을 담아요.",
+  "aliases": [
+   "그릇"
+  ]
+ },
+ {
+  "id": "loom",
+  "ko": "베틀",
+  "de": "Webstuhl",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:loom"
+  ],
+  "sentenceKo": "베틀을 써요.",
+  "sentenceDe": "Einen Webstuhl benutzen.",
+  "descKo": "천을 짜는 도구예요.",
+  "aliases": [
+   "베틀"
+  ]
+ },
+ {
+  "id": "carpet",
+  "ko": "양탄자",
+  "de": "Teppich",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:white_carpet"
+  ],
+  "sentenceKo": "양탄자를 놓아요.",
+  "sentenceDe": "Einen Teppich setzen.",
+  "descKo": "바닥에 까는 천이에요.",
+  "aliases": [
+   "양탄자"
+  ]
+ },
+ {
+  "id": "mushroom_block",
+  "ko": "버섯 블록",
+  "de": "Pilzblock",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:brown_mushroom_block"
+  ],
+  "sentenceKo": "버섯 블록을 놓아요.",
+  "sentenceDe": "Einen Pilzblock setzen.",
+  "descKo": "큰 버섯의 몸통이에요.",
+  "aliases": [
+   "버섯 블록"
+  ]
+ },
+ {
+  "id": "bamboo",
+  "ko": "대나무",
+  "de": "Bambus",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:bamboo"
+  ],
+  "sentenceKo": "대나무를 모아요.",
+  "sentenceDe": "Bambus sammeln.",
+  "descKo": "정글에서 자라는 식물이에요.",
+  "aliases": [
+   "대나무"
+  ]
+ },
+ {
+  "id": "leaves",
+  "ko": "나뭇잎",
+  "de": "Blätter",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_leaves"
+  ],
+  "sentenceKo": "나뭇잎을 봐요.",
+  "sentenceDe": "Blätter ansehen.",
+  "descKo": "나무에 달린 잎이에요.",
+  "aliases": [
+   "나뭇잎"
+  ]
+ },
+ {
+  "id": "sapling",
+  "ko": "묘목",
+  "de": "Setzling",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:oak_sapling"
+  ],
+  "sentenceKo": "묘목을 놓아요.",
+  "sentenceDe": "Einen Setzling setzen.",
+  "descKo": "작은 나무가 될 거예요.",
+  "aliases": [
+   "묘목"
+  ]
+ },
+ {
+  "id": "frog",
+  "ko": "개구리",
+  "de": "Frosch",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:frog_spawn_egg"
+  ],
+  "entity": "minecraft:frog",
+  "sentenceKo": "개구리를 봐요.",
+  "sentenceDe": "Einen Frosch ansehen.",
+  "descKo": "연못에 사는 동물이에요.",
+  "aliases": [
+   "개구리"
+  ]
+ },
+ {
+  "id": "lily_pad",
+  "ko": "수련잎",
+  "de": "Seerose",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:lily_pad"
+  ],
+  "sentenceKo": "수련잎을 놓아요.",
+  "sentenceDe": "Eine Seerose setzen.",
+  "descKo": "물 위에 떠 있는 잎이에요.",
+  "aliases": [
+   "수련잎"
+  ]
+ },
+ {
+  "id": "slime",
+  "ko": "슬라임",
+  "de": "Schleim",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:slime_ball"
+  ],
+  "sentenceKo": "슬라임 공을 모아요.",
+  "sentenceDe": "Schleimbälle sammeln.",
+  "descKo": "초록색 끈적한 동물이에요.",
+  "aliases": [
+   "슬라임"
+  ]
+ },
+ {
+  "id": "sunflower",
+  "ko": "해바라기",
+  "de": "Sonnenblume",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:sunflower"
+  ],
+  "sentenceKo": "해바라기를 봐요.",
+  "sentenceDe": "Eine Sonnenblume ansehen.",
+  "descKo": "해를 닮은 큰 꽃이에요.",
+  "aliases": [
+   "해바라기"
+  ]
+ },
+ {
+  "id": "stone_bricks",
+  "ko": "석재 벽돌",
+  "de": "Steinziegel",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:stone_bricks"
+  ],
+  "sentenceKo": "석재 벽돌을 놓아요.",
+  "sentenceDe": "Steinziegel setzen.",
+  "descKo": "성이나 요새를 만들 때 써요.",
+  "aliases": [
+   "석재 벽돌"
+  ]
+ },
+ {
+  "id": "sweet_berries",
+  "ko": "달콤한 열매",
+  "de": "Süßbeeren",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [
+   "minecraft:sweet_berries"
+  ],
+  "sentenceKo": "달콤한 열매를 모아요.",
+  "sentenceDe": "Süßbeeren sammeln.",
+  "descKo": "숲에서 자라는 빨간 열매예요.",
+  "aliases": [
+   "달콤한 열매"
+  ]
+ },
+ {
+  "id": "gate",
+  "ko": "문",
+  "de": "Tor",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:oak_fence_gate"
+  ],
+  "sentenceKo": "문을 열어요.",
+  "sentenceDe": "Ein Tor öffnen.",
+  "descKo": "울타리에 다는 문이에요.",
+  "aliases": [
+   "문"
+  ]
+ },
+ {
+  "id": "flower_pot",
+  "ko": "화분",
+  "de": "Blumentopf",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:flower_pot"
+  ],
+  "sentenceKo": "화분을 놓아요.",
+  "sentenceDe": "Einen Blumentopf setzen.",
+  "descKo": "꽃을 담는 작은 그릇이에요.",
+  "aliases": [
+   "화분"
+  ]
+ },
+ {
+  "id": "seagrass",
+  "ko": "해초",
+  "de": "Seegras",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:seagrass"
+  ],
+  "sentenceKo": "해초를 놓아요.",
+  "sentenceDe": "Seegras setzen.",
+  "descKo": "바다 밑에서 자라는 풀이에요.",
+  "aliases": [
+   "해초"
+  ]
+ },
+ {
+  "id": "turtle_egg",
+  "ko": "거북 알",
+  "de": "Schildkrötenei",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:turtle_egg"
+  ],
+  "sentenceKo": "거북 알을 모아요.",
+  "sentenceDe": "Schildkröteneier sammeln.",
+  "descKo": "거북이 낳은 알이에요.",
+  "aliases": [
+   "거북 알"
+  ]
+ },
+ {
+  "id": "shell",
+  "ko": "조개",
+  "de": "Muschel",
+  "category": "MATERIALS",
+  "tier": 1,
+  "items": [
+   "minecraft:nautilus_shell"
+  ],
+  "sentenceKo": "조개를 모아요.",
+  "sentenceDe": "Muscheln sammeln.",
+  "descKo": "바다에서 나는 단단한 껍데기예요.",
+  "aliases": [
+   "조개"
+  ]
+ },
+ {
+  "id": "prismarine",
+  "ko": "프리즈머린",
+  "de": "Prismarin",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:prismarine_shard"
+  ],
+  "sentenceKo": "프리즈머린을 모아요.",
+  "sentenceDe": "Prismarin sammeln.",
+  "descKo": "바다 신전에서 나는 블록이에요.",
+  "aliases": [
+   "프리즈머린"
+  ]
+ },
+ {
+  "id": "hay_block",
+  "ko": "건초 더미",
+  "de": "Heuballen",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:hay_block"
+  ],
+  "sentenceKo": "건초 더미를 놓아요.",
+  "sentenceDe": "Einen Heuballen setzen.",
+  "descKo": "밀을 묶어 만든 블록이에요.",
+  "aliases": [
+   "건초 더미"
+  ]
+ },
+ {
+  "id": "saddle",
+  "ko": "안장",
+  "de": "Sattel",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [
+   "minecraft:saddle"
+  ],
+  "sentenceKo": "안장을 모아요.",
+  "sentenceDe": "Einen Sattel sammeln.",
+  "descKo": "말에 타려면 필요해요.",
+  "aliases": [
+   "안장"
+  ]
+ },
+ {
+  "id": "brick",
+  "ko": "벽돌",
+  "de": "Ziegel",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:bricks"
+  ],
+  "sentenceKo": "벽돌을 놓아요.",
+  "sentenceDe": "Ziegel setzen.",
+  "descKo": "점토를 구워 만든 블록이에요.",
+  "aliases": [
+   "벽돌"
+  ]
+ },
+ {
+  "id": "clay",
+  "ko": "점토",
+  "de": "Ton",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:clay_ball"
+  ],
+  "sentenceKo": "점토를 모아요.",
+  "sentenceDe": "Ton sammeln.",
+  "descKo": "물가에서 나는 재료예요.",
+  "aliases": [
+   "점토"
+  ]
+ },
+ {
+  "id": "brewing_stand",
+  "ko": "양조기",
+  "de": "Braustand",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:brewing_stand"
+  ],
+  "sentenceKo": "양조기를 써요.",
+  "sentenceDe": "Einen Braustand benutzen.",
+  "descKo": "물약을 만드는 도구예요.",
+  "aliases": [
+   "양조기"
+  ]
+ },
+ {
+  "id": "nether_wart",
+  "ko": "네더 사마귀",
+  "de": "Netherwarze",
+  "category": "MATERIALS",
+  "tier": 4,
+  "items": [
+   "minecraft:nether_wart"
+  ],
+  "sentenceKo": "네더 사마귀를 모아요.",
+  "sentenceDe": "Netherwarzen sammeln.",
+  "descKo": "물약의 기본 재료예요.",
+  "aliases": [
+   "네더 사마귀"
+  ]
+ },
+ {
+  "id": "honey_block",
+  "ko": "꿀 블록",
+  "de": "Honigblock",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:honey_block"
+  ],
+  "sentenceKo": "꿀 블록을 놓아요.",
+  "sentenceDe": "Einen Honigblock setzen.",
+  "descKo": "끈적한 꿀로 만든 블록이에요.",
+  "aliases": [
+   "꿀 블록"
+  ]
+ },
+ {
+  "id": "honey_bottle",
+  "ko": "꿀병",
+  "de": "Honigflasche",
+  "category": "FOOD",
+  "tier": 3,
+  "items": [
+   "minecraft:honey_bottle"
+  ],
+  "sentenceKo": "꿀병을 모아요.",
+  "sentenceDe": "Honigflaschen sammeln.",
+  "descKo": "꿀을 담은 병이에요.",
+  "aliases": [
+   "꿀병"
+  ]
+ },
+ {
+  "id": "chiseled_stone_bricks",
+  "ko": "조각된 석재 벽돌",
+  "de": "Gemeißelte Steinziegel",
+  "category": "BLOCKS",
+  "tier": 4,
+  "items": [
+   "minecraft:chiseled_stone_bricks"
+  ],
+  "sentenceKo": "조각된 석재 벽돌을 놓아요.",
+  "sentenceDe": "Gemeißelte Steinziegel setzen.",
+  "descKo": "무늬를 새긴 벽돌이에요.",
+  "aliases": [
+   "조각된 석재 벽돌"
+  ]
+ },
+ {
+  "id": "dye",
+  "ko": "염료",
+  "de": "Farbstoff",
+  "category": "MATERIALS",
+  "tier": 3,
+  "items": [
+   "minecraft:red_dye"
+  ],
+  "sentenceKo": "염료를 모아요.",
+  "sentenceDe": "Farbstoff sammeln.",
+  "descKo": "천이나 양털을 물들여요.",
+  "aliases": [
+   "염료"
+  ]
+ },
+ {
+  "id": "compass",
+  "ko": "나침반",
+  "de": "Kompass",
+  "category": "TOOLS",
+  "tier": 3,
+  "items": [
+   "minecraft:compass"
+  ],
+  "sentenceKo": "나침반을 봐요.",
+  "sentenceDe": "Auf den Kompass schauen.",
+  "descKo": "집으로 가는 방향을 알려 줘요.",
+  "aliases": [
+   "나침반"
+  ]
+ },
+ {
+  "id": "wolf_armor",
+  "ko": "늑대 갑옷",
+  "de": "Wolfsrüstung",
+  "category": "TOOLS",
+  "tier": 4,
+  "items": [
+   "minecraft:wolf_armor"
+  ],
+  "sentenceKo": "늑대 갑옷을 만들어요.",
+  "sentenceDe": "Eine Wolfsrüstung herstellen.",
+  "descKo": "늑대를 지켜 주는 갑옷이에요.",
+  "aliases": [
+   "늑대 갑옷"
+  ]
+ },
+ {
+  "id": "salmon",
+  "ko": "연어",
+  "de": "Lachs",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [
+   "minecraft:salmon"
+  ],
+  "sentenceKo": "연어를 모아요.",
+  "sentenceDe": "Lachs sammeln.",
+  "descKo": "바다와 강에 사는 물고기예요.",
+  "aliases": [
+   "연어"
+  ]
+ },
+ {
+  "id": "lava_bucket",
+  "ko": "용암 양동이",
+  "de": "Lavaeimer",
+  "category": "TOOLS",
+  "tier": 3,
+  "items": [
+   "minecraft:lava_bucket"
+  ],
+  "sentenceKo": "용암 양동이를 들어요.",
+  "sentenceDe": "Einen Lavaeimer tragen.",
+  "descKo": "용암을 담은 양동이예요.",
+  "aliases": [
+   "용암 양동이"
+  ]
+ },
+ {
+  "id": "iron_chestplate",
+  "ko": "철 흉갑",
+  "de": "Eisenbrustplatte",
+  "category": "TOOLS",
+  "tier": 3,
+  "items": [
+   "minecraft:iron_chestplate"
+  ],
+  "sentenceKo": "철 흉갑을 입어요.",
+  "sentenceDe": "Eine Eisenbrustplatte anziehen.",
+  "descKo": "몸을 지키는 철 갑옷이에요.",
+  "aliases": [
+   "철 흉갑"
+  ]
+ },
+ {
+  "id": "ender_dragon",
+  "ko": "엔더 드래곤",
+  "de": "Enderdrache",
+  "category": "ANIMALS",
+  "tier": 5,
+  "items": [
+   "minecraft:dragon_egg"
+  ],
+  "entity": "minecraft:ender_dragon",
+  "sentenceKo": "엔더 드래곤을 물리쳐요.",
+  "sentenceDe": "Den Enderdrachen besiegen.",
+  "descKo": "엔드의 마지막 보스예요.",
+  "aliases": [
+   "엔더 드래곤"
+  ]
+ },
+ {
+  "id": "dragon_egg",
+  "ko": "드래곤 알",
+  "de": "Drachenei",
+  "category": "BLOCKS",
+  "tier": 5,
+  "items": [
+   "minecraft:dragon_egg"
+  ],
+  "sentenceKo": "드래곤 알을 놓아요.",
+  "sentenceDe": "Ein Drachenei setzen.",
+  "descKo": "엔더 드래곤이 남긴 알이에요.",
+  "aliases": [
+   "드래곤 알"
+  ]
+ },
+ {
+  "id": "adv_item_diamond_boots",
+  "ko": "다이아몬드 부츠",
+  "de": "Diamantstiefel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:diamond_boots"
+  ],
+  "sentenceKo": "다이아몬드 부츠을/를 봐요.",
+  "sentenceDe": "Diamantstiefel ansehen.",
+  "descKo": "다이아몬드 부츠",
+  "aliases": [
+   "다이아몬드 부츠"
+  ]
+ },
+ {
+  "id": "adv_item_crossbow",
+  "ko": "쇠뇌",
+  "de": "Armbrust",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:crossbow"
+  ],
+  "sentenceKo": "쇠뇌을/를 봐요.",
+  "sentenceDe": "Armbrust ansehen.",
+  "descKo": "쇠뇌",
+  "aliases": [
+   "쇠뇌"
+  ]
+ },
+ {
+  "id": "adv_item_sculk_sensor",
+  "ko": "스컬크 감지체",
+  "de": "Sculk-Sensor",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:sculk_sensor"
+  ],
+  "sentenceKo": "스컬크 감지체을/를 봐요.",
+  "sentenceDe": "Sculk-Sensor ansehen.",
+  "descKo": "스컬크 감지체",
+  "aliases": [
+   "스컬크 감지체"
+  ]
+ },
+ {
+  "id": "adv_item_wind_charge",
+  "ko": "돌풍구",
+  "de": "Windkugel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:wind_charge"
+  ],
+  "sentenceKo": "돌풍구을/를 봐요.",
+  "sentenceDe": "Windkugel ansehen.",
+  "descKo": "돌풍구",
+  "aliases": [
+   "돌풍구"
+  ]
+ },
+ {
+  "id": "adv_item_armadillo_scute",
+  "ko": "아르마딜로 인갑",
+  "de": "Gürteltier-Hornschild",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:armadillo_scute"
+  ],
+  "sentenceKo": "아르마딜로 인갑을/를 봐요.",
+  "sentenceDe": "Gürteltier-Hornschild ansehen.",
+  "descKo": "아르마딜로 인갑",
+  "aliases": [
+   "아르마딜로 인갑"
+  ]
+ },
+ {
+  "id": "adv_item_target",
+  "ko": "과녁",
+  "de": "Zielblock",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:target"
+  ],
+  "sentenceKo": "과녁을/를 봐요.",
+  "sentenceDe": "Zielblock ansehen.",
+  "descKo": "과녁",
+  "aliases": [
+   "과녁"
+  ]
+ },
+ {
+  "id": "adv_item_decorated_pot",
+  "ko": "장식된 도자기",
+  "de": "Verzierter Krug",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:decorated_pot"
+  ],
+  "sentenceKo": "장식된 도자기을/를 봐요.",
+  "sentenceDe": "Verzierter Krug ansehen.",
+  "descKo": "장식된 도자기",
+  "aliases": [
+   "장식된 도자기"
+  ]
+ },
+ {
+  "id": "adv_item_crafter",
+  "ko": "제작기",
+  "de": "Werker",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:crafter"
+  ],
+  "sentenceKo": "제작기을/를 봐요.",
+  "sentenceDe": "Werker ansehen.",
+  "descKo": "제작기",
+  "aliases": [
+   "제작기"
+  ]
+ },
+ {
+  "id": "adv_item_creaking_heart",
+  "ko": "크리킹 심장",
+  "de": "Knarzherz",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:creaking_heart"
+  ],
+  "sentenceKo": "크리킹 심장을/를 봐요.",
+  "sentenceDe": "Knarzherz ansehen.",
+  "descKo": "크리킹 심장",
+  "aliases": [
+   "크리킹 심장"
+  ]
+ },
+ {
+  "id": "adv_item_white_banner",
+  "ko": "하얀색 현수막",
+  "de": "Weißes Banner",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:white_banner"
+  ],
+  "sentenceKo": "하얀색 현수막을/를 봐요.",
+  "sentenceDe": "Weißes Banner ansehen.",
+  "descKo": "하얀색 현수막",
+  "aliases": [
+   "하얀색 현수막"
+  ]
+ },
+ {
+  "id": "adv_item_diamond_sword",
+  "ko": "다이아몬드 검",
+  "de": "Diamantschwert",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:diamond_sword"
+  ],
+  "sentenceKo": "다이아몬드 검을/를 봐요.",
+  "sentenceDe": "Diamantschwert ansehen.",
+  "descKo": "다이아몬드 검",
+  "aliases": [
+   "다이아몬드 검"
+  ]
+ },
+ {
+  "id": "adv_item_sculk_catalyst",
+  "ko": "스컬크 촉매",
+  "de": "Sculk-Katalysator",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:sculk_catalyst"
+  ],
+  "sentenceKo": "스컬크 촉매을/를 봐요.",
+  "sentenceDe": "Sculk-Katalysator ansehen.",
+  "descKo": "스컬크 촉매",
+  "aliases": [
+   "스컬크 촉매"
+  ]
+ },
+ {
+  "id": "adv_item_copper_bulb",
+  "ko": "구리 전구",
+  "de": "Kupferleuchte",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:copper_bulb"
+  ],
+  "sentenceKo": "구리 전구을/를 봐요.",
+  "sentenceDe": "Kupferleuchte ansehen.",
+  "descKo": "구리 전구",
+  "aliases": [
+   "구리 전구"
+  ]
+ },
+ {
+  "id": "adv_item_chiseled_tuff",
+  "ko": "조각된 응회암",
+  "de": "Gemeißelter Tuffstein",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:chiseled_tuff"
+  ],
+  "sentenceKo": "조각된 응회암을/를 봐요.",
+  "sentenceDe": "Gemeißelter Tuffstein ansehen.",
+  "descKo": "조각된 응회암",
+  "aliases": [
+   "조각된 응회암"
+  ]
+ },
+ {
+  "id": "adv_item_mace",
+  "ko": "철퇴",
+  "de": "Streitkolben",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:mace"
+  ],
+  "sentenceKo": "철퇴을/를 봐요.",
+  "sentenceDe": "Streitkolben ansehen.",
+  "descKo": "철퇴",
+  "aliases": [
+   "철퇴"
+  ]
+ },
+ {
+  "id": "adv_item_chiseled_bookshelf",
+  "ko": "조각된 책장",
+  "de": "Gearbeitetes Bücherregal",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:chiseled_bookshelf"
+  ],
+  "sentenceKo": "조각된 책장을/를 봐요.",
+  "sentenceDe": "Gearbeitetes Bücherregal ansehen.",
+  "descKo": "조각된 책장",
+  "aliases": [
+   "조각된 책장"
+  ]
+ },
+ {
+  "id": "adv_item_ominous_trial_key",
+  "ko": "불길한 시련 열쇠",
+  "de": "Unheilvoller Prüfungsschlüssel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:ominous_trial_key"
+  ],
+  "sentenceKo": "불길한 시련 열쇠을/를 봐요.",
+  "sentenceDe": "Unheilvoller Prüfungsschlüssel ansehen.",
+  "descKo": "불길한 시련 열쇠",
+  "aliases": [
+   "불길한 시련 열쇠"
+  ]
+ },
+ {
+  "id": "adv_item_brush",
+  "ko": "솔",
+  "de": "Pinsel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:brush"
+  ],
+  "sentenceKo": "솔을/를 봐요.",
+  "sentenceDe": "Pinsel ansehen.",
+  "descKo": "솔",
+  "aliases": [
+   "솔"
+  ]
+ },
+ {
+  "id": "adv_item_iron_spear",
+  "ko": "철 창",
+  "de": "Eisenspeer",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:iron_spear"
+  ],
+  "sentenceKo": "철 창을/를 봐요.",
+  "sentenceDe": "Eisenspeer ansehen.",
+  "descKo": "철 창",
+  "aliases": [
+   "철 창"
+  ]
+ },
+ {
+  "id": "adv_item_trident",
+  "ko": "삼지창",
+  "de": "Dreizack",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:trident"
+  ],
+  "sentenceKo": "삼지창을/를 봐요.",
+  "sentenceDe": "Dreizack ansehen.",
+  "descKo": "삼지창",
+  "aliases": [
+   "삼지창"
+  ]
+ },
+ {
+  "id": "adv_item_totem_of_undying",
+  "ko": "불사의 토템",
+  "de": "Totem der Unsterblichkeit",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:totem_of_undying"
+  ],
+  "sentenceKo": "불사의 토템을/를 봐요.",
+  "sentenceDe": "Totem der Unsterblichkeit ansehen.",
+  "descKo": "불사의 토템",
+  "aliases": [
+   "불사의 토템"
+  ]
+ },
+ {
+  "id": "adv_item_silence_armor_trim_smithing_template",
+  "ko": "대장장이 형판",
+  "de": "Schmiedevorlage",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:silence_armor_trim_smithing_template"
+  ],
+  "sentenceKo": "대장장이 형판을/를 봐요.",
+  "sentenceDe": "Schmiedevorlage ansehen.",
+  "descKo": "대장장이 형판",
+  "aliases": [
+   "대장장이 형판"
+  ]
+ },
+ {
+  "id": "adv_item_dune_armor_trim_smithing_template",
+  "ko": "대장장이 형판",
+  "de": "Schmiedevorlage",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:dune_armor_trim_smithing_template"
+  ],
+  "sentenceKo": "대장장이 형판을/를 봐요.",
+  "sentenceDe": "Schmiedevorlage ansehen.",
+  "descKo": "대장장이 형판",
+  "aliases": [
+   "대장장이 형판"
+  ]
+ },
+ {
+  "id": "adv_item_trial_key",
+  "ko": "시련 열쇠",
+  "de": "Prüfungsschlüssel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:trial_key"
+  ],
+  "sentenceKo": "시련 열쇠을/를 봐요.",
+  "sentenceDe": "Prüfungsschlüssel ansehen.",
+  "descKo": "시련 열쇠",
+  "aliases": [
+   "시련 열쇠"
+  ]
+ },
+ {
+  "id": "adv_block_lodestone",
+  "ko": "자석석",
+  "de": "Leitstein",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:lodestone"
+  ],
+  "sentenceKo": "자석석을/를 봐요.",
+  "sentenceDe": "Leitstein ansehen.",
+  "descKo": "자석석",
+  "aliases": [
+   "자석석"
+  ]
+ },
+ {
+  "id": "adv_item_dragon_breath",
+  "ko": "드래곤의 숨결",
+  "de": "Drachenatem",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:dragon_breath"
+  ],
+  "sentenceKo": "드래곤의 숨결을/를 봐요.",
+  "sentenceDe": "Drachenatem ansehen.",
+  "descKo": "드래곤의 숨결",
+  "aliases": [
+   "드래곤의 숨결"
+  ]
+ },
+ {
+  "id": "adv_item_elytra",
+  "ko": "겉날개",
+  "de": "Elytren",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:elytra"
+  ],
+  "sentenceKo": "겉날개을/를 봐요.",
+  "sentenceDe": "Elytren ansehen.",
+  "descKo": "겉날개",
+  "aliases": [
+   "겉날개"
+  ]
+ },
+ {
+  "id": "adv_block_purpur_block",
+  "ko": "퍼퍼 블록",
+  "de": "Purpurblock",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:purpur_block"
+  ],
+  "sentenceKo": "퍼퍼 블록을/를 봐요.",
+  "sentenceDe": "Purpurblock ansehen.",
+  "descKo": "퍼퍼 블록",
+  "aliases": [
+   "퍼퍼 블록"
+  ]
+ },
+ {
+  "id": "adv_item_dragon_head",
+  "ko": "드래곤 머리",
+  "de": "Drachenkopf",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:dragon_head"
+  ],
+  "sentenceKo": "드래곤 머리을/를 봐요.",
+  "sentenceDe": "Drachenkopf ansehen.",
+  "descKo": "드래곤 머리",
+  "aliases": [
+   "드래곤 머리"
+  ]
+ },
+ {
+  "id": "adv_item_shulker_shell",
+  "ko": "셜커 껍데기",
+  "de": "Shulker-Schale",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:shulker_shell"
+  ],
+  "sentenceKo": "셜커 껍데기을/를 봐요.",
+  "sentenceDe": "Shulker-Schale ansehen.",
+  "descKo": "셜커 껍데기",
+  "aliases": [
+   "셜커 껍데기"
+  ]
+ },
+ {
+  "id": "adv_item_end_crystal",
+  "ko": "엔드 수정",
+  "de": "Enderkristall",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:end_crystal"
+  ],
+  "sentenceKo": "엔드 수정을/를 봐요.",
+  "sentenceDe": "Enderkristall ansehen.",
+  "descKo": "엔드 수정",
+  "aliases": [
+   "엔드 수정"
+  ]
+ },
+ {
+  "id": "adv_block_end_stone",
+  "ko": "엔드 돌",
+  "de": "Endstein",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:end_stone"
+  ],
+  "sentenceKo": "엔드 돌을/를 봐요.",
+  "sentenceDe": "Endstein ansehen.",
+  "descKo": "엔드 돌",
+  "aliases": [
+   "엔드 돌"
+  ]
+ },
+ {
+  "id": "adv_dimension_the_end",
+  "ko": "엔드",
+  "de": "Das Ende",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:the_end"
+  ],
+  "sentenceKo": "minecraft:end_stone을/를 봐요.",
+  "sentenceDe": "minecraft:end_stone ansehen.",
+  "descKo": "엔드 차원이에요.",
+  "aliases": [
+   "엔드"
+  ]
+ },
+ {
+  "id": "adv_item_axolotl_bucket",
+  "ko": "아홀로틀이 담긴 양동이",
+  "de": "Axolotleimer",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:axolotl_bucket"
+  ],
+  "sentenceKo": "아홀로틀이 담긴 양동이을/를 봐요.",
+  "sentenceDe": "Axolotleimer ansehen.",
+  "descKo": "아홀로틀이 담긴 양동이",
+  "aliases": [
+   "아홀로틀이 담긴 양동이"
+  ]
+ },
+ {
+  "id": "adv_item_golden_carrot",
+  "ko": "황금 당근",
+  "de": "Goldene Karotte",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:golden_carrot"
+  ],
+  "sentenceKo": "황금 당근을/를 봐요.",
+  "sentenceDe": "Goldene Karotte ansehen.",
+  "descKo": "황금 당근",
+  "aliases": [
+   "황금 당근"
+  ]
+ },
+ {
+  "id": "adv_block_torchflower_seeds",
+  "ko": "횃불꽃 씨앗",
+  "de": "Fackelliliensamen",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:torchflower_seeds"
+  ],
+  "sentenceKo": "횃불꽃 씨앗을/를 봐요.",
+  "sentenceDe": "Fackelliliensamen ansehen.",
+  "descKo": "횃불꽃 씨앗",
+  "aliases": [
+   "횃불꽃 씨앗"
+  ]
+ },
+ {
+  "id": "adv_item_verdant_froglight",
+  "ko": "잔딧빛 개구리불",
+  "de": "Junggrünes Froschlicht",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:verdant_froglight"
+  ],
+  "sentenceKo": "잔딧빛 개구리불을/를 봐요.",
+  "sentenceDe": "Junggrünes Froschlicht ansehen.",
+  "descKo": "잔딧빛 개구리불",
+  "aliases": [
+   "잔딧빛 개구리불"
+  ]
+ },
+ {
+  "id": "adv_item_ochre_froglight",
+  "ko": "황톳빛 개구리불",
+  "de": "Ockernes Froschlicht",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:ochre_froglight"
+  ],
+  "sentenceKo": "황톳빛 개구리불을/를 봐요.",
+  "sentenceDe": "Ockernes Froschlicht ansehen.",
+  "descKo": "황톳빛 개구리불",
+  "aliases": [
+   "황톳빛 개구리불"
+  ]
+ },
+ {
+  "id": "adv_item_tropical_fish_bucket",
+  "ko": "열대어가 담긴 양동이",
+  "de": "Tropenfischeimer",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:tropical_fish_bucket"
+  ],
+  "sentenceKo": "열대어가 담긴 양동이을/를 봐요.",
+  "sentenceDe": "Tropenfischeimer ansehen.",
+  "descKo": "열대어가 담긴 양동이",
+  "aliases": [
+   "열대어가 담긴 양동이"
+  ]
+ },
+ {
+  "id": "adv_item_lead",
+  "ko": "끈",
+  "de": "Leine",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:lead"
+  ],
+  "sentenceKo": "끈을/를 봐요.",
+  "sentenceDe": "Leine ansehen.",
+  "descKo": "끈",
+  "aliases": [
+   "끈"
+  ]
+ },
+ {
+  "id": "adv_item_glow_ink_sac",
+  "ko": "발광 먹물 주머니",
+  "de": "Leuchttintenbeutel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:glow_ink_sac"
+  ],
+  "sentenceKo": "발광 먹물 주머니을/를 봐요.",
+  "sentenceDe": "Leuchttintenbeutel ansehen.",
+  "descKo": "발광 먹물 주머니",
+  "aliases": [
+   "발광 먹물 주머니"
+  ]
+ },
+ {
+  "id": "adv_item_netherite_hoe",
+  "ko": "네더라이트 괭이",
+  "de": "Netherithacke",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:netherite_hoe"
+  ],
+  "sentenceKo": "네더라이트 괭이을/를 봐요.",
+  "sentenceDe": "Netherithacke ansehen.",
+  "descKo": "네더라이트 괭이",
+  "aliases": [
+   "네더라이트 괭이"
+  ]
+ },
+ {
+  "id": "adv_item_sniffer_egg",
+  "ko": "스니퍼 알",
+  "de": "Schnüffler-Ei",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:sniffer_egg"
+  ],
+  "sentenceKo": "스니퍼 알을/를 봐요.",
+  "sentenceDe": "Schnüffler-Ei ansehen.",
+  "descKo": "스니퍼 알",
+  "aliases": [
+   "스니퍼 알"
+  ]
+ },
+ {
+  "id": "adv_item_dried_ghast",
+  "ko": "마른 가스트",
+  "de": "Ausgetrockneter Ghast",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:dried_ghast"
+  ],
+  "sentenceKo": "마른 가스트을/를 봐요.",
+  "sentenceDe": "Ausgetrockneter Ghast ansehen.",
+  "descKo": "마른 가스트",
+  "aliases": [
+   "마른 가스트"
+  ]
+ },
+ {
+  "id": "adv_item_pitcher_pod",
+  "ko": "벌레잡이풀 꼬투리",
+  "de": "Kannenpflanzenkapsel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:pitcher_pod"
+  ],
+  "sentenceKo": "벌레잡이풀 꼬투리을/를 봐요.",
+  "sentenceDe": "Kannenpflanzenkapsel ansehen.",
+  "descKo": "벌레잡이풀 꼬투리",
+  "aliases": [
+   "벌레잡이풀 꼬투리"
+  ]
+ },
+ {
+  "id": "adv_item_oak_boat",
+  "ko": "참나무 보트",
+  "de": "Eichenholzboot",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:oak_boat"
+  ],
+  "sentenceKo": "참나무 보트을/를 봐요.",
+  "sentenceDe": "Eichenholzboot ansehen.",
+  "descKo": "참나무 보트",
+  "aliases": [
+   "참나무 보트"
+  ]
+ },
+ {
+  "id": "adv_item_bee_nest",
+  "ko": "벌집",
+  "de": "Bienennest",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:bee_nest"
+  ],
+  "sentenceKo": "벌집을/를 봐요.",
+  "sentenceDe": "Bienennest ansehen.",
+  "descKo": "벌집",
+  "aliases": [
+   "벌집"
+  ]
+ },
+ {
+  "id": "adv_item_pufferfish_bucket",
+  "ko": "복어가 담긴 양동이",
+  "de": "Kugelfischeimer",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:pufferfish_bucket"
+  ],
+  "sentenceKo": "복어가 담긴 양동이을/를 봐요.",
+  "sentenceDe": "Kugelfischeimer ansehen.",
+  "descKo": "복어가 담긴 양동이",
+  "aliases": [
+   "복어가 담긴 양동이"
+  ]
+ },
+ {
+  "id": "adv_item_tadpole_bucket",
+  "ko": "올챙이가 담긴 양동이",
+  "de": "Kaulquappeneimer",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:tadpole_bucket"
+  ],
+  "sentenceKo": "올챙이가 담긴 양동이을/를 봐요.",
+  "sentenceDe": "Kaulquappeneimer ansehen.",
+  "descKo": "올챙이가 담긴 양동이",
+  "aliases": [
+   "올챙이가 담긴 양동이"
+  ]
+ },
+ {
+  "id": "adv_item_tnt",
+  "ko": "티엔티",
+  "de": "TNT",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:tnt"
+  ],
+  "sentenceKo": "TNT을/를 봐요.",
+  "sentenceDe": "TNT ansehen.",
+  "descKo": "폭발하는 물건이에요.",
+  "aliases": [
+   "티엔티"
+  ]
+ },
+ {
+  "id": "adv_block_stone_axe",
+  "ko": "돌 도끼",
+  "de": "Steinaxt",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:stone_axe"
+  ],
+  "sentenceKo": "돌 도끼을/를 봐요.",
+  "sentenceDe": "Steinaxt ansehen.",
+  "descKo": "돌 도끼",
+  "aliases": [
+   "돌 도끼"
+  ]
+ },
+ {
+  "id": "adv_item_potion",
+  "ko": "물약",
+  "de": "Trank",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:potion"
+  ],
+  "sentenceKo": "물약을/를 봐요.",
+  "sentenceDe": "Trank ansehen.",
+  "descKo": "물약",
+  "aliases": [
+   "물약"
+  ]
+ },
+ {
+  "id": "adv_item_respawn_anchor",
+  "ko": "리스폰 정박기",
+  "de": "Seelenanker",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:respawn_anchor"
+  ],
+  "sentenceKo": "리스폰 정박기을/를 봐요.",
+  "sentenceDe": "Seelenanker ansehen.",
+  "descKo": "리스폰 정박기",
+  "aliases": [
+   "리스폰 정박기"
+  ]
+ },
+ {
+  "id": "adv_item_netherite_boots",
+  "ko": "네더라이트 부츠",
+  "de": "Netheritstiefel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:netherite_boots"
+  ],
+  "sentenceKo": "네더라이트 부츠을/를 봐요.",
+  "sentenceDe": "Netheritstiefel ansehen.",
+  "descKo": "네더라이트 부츠",
+  "aliases": [
+   "네더라이트 부츠"
+  ]
+ },
+ {
+  "id": "adv_dimension_the_nether",
+  "ko": "네더",
+  "de": "Nether",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:the_nether"
+  ],
+  "sentenceKo": "minecraft:map을/를 봐요.",
+  "sentenceDe": "minecraft:map ansehen.",
+  "descKo": "네더 차원이에요.",
+  "aliases": [
+   "네더"
+  ]
+ },
+ {
+  "id": "adv_block_polished_blackstone_bricks",
+  "ko": "윤나는 흑암 벽돌",
+  "de": "Polierte Schwarzsteinziegel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:polished_blackstone_bricks"
+  ],
+  "sentenceKo": "윤나는 흑암 벽돌을/를 봐요.",
+  "sentenceDe": "Polierte Schwarzsteinziegel ansehen.",
+  "descKo": "윤나는 흑암 벽돌",
+  "aliases": [
+   "윤나는 흑암 벽돌"
+  ]
+ },
+ {
+  "id": "adv_block_nether_bricks",
+  "ko": "네더 벽돌",
+  "de": "Netherziegel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:nether_bricks"
+  ],
+  "sentenceKo": "네더 벽돌을/를 봐요.",
+  "sentenceDe": "Netherziegel ansehen.",
+  "descKo": "네더 벽돌",
+  "aliases": [
+   "네더 벽돌"
+  ]
+ },
+ {
+  "id": "adv_item_wither_skeleton_skull",
+  "ko": "위더 스켈레톤 해골",
+  "de": "Wither-Skelettschädel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:wither_skeleton_skull"
+  ],
+  "sentenceKo": "위더 스켈레톤 해골을/를 봐요.",
+  "sentenceDe": "Wither-Skelettschädel ansehen.",
+  "descKo": "위더 스켈레톤 해골",
+  "aliases": [
+   "위더 스켈레톤 해골"
+  ]
+ },
+ {
+  "id": "adv_block_netherite_chestplate",
+  "ko": "네더라이트 흉갑",
+  "de": "Netheritharnisch",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:netherite_chestplate"
+  ],
+  "sentenceKo": "네더라이트 흉갑을/를 봐요.",
+  "sentenceDe": "Netheritharnisch ansehen.",
+  "descKo": "네더라이트 흉갑",
+  "aliases": [
+   "네더라이트 흉갑"
+  ]
+ },
+ {
+  "id": "adv_item_netherite_helmet",
+  "ko": "네더라이트 투구",
+  "de": "Netherithelm",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:netherite_helmet"
+  ],
+  "sentenceKo": "네더라이트 투구을/를 봐요.",
+  "sentenceDe": "Netherithelm ansehen.",
+  "descKo": "네더라이트 투구",
+  "aliases": [
+   "네더라이트 투구"
+  ]
+ },
+ {
+  "id": "adv_item_ancient_debris",
+  "ko": "고대 잔해",
+  "de": "Antiker Schrott",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:ancient_debris"
+  ],
+  "sentenceKo": "고대 잔해을/를 봐요.",
+  "sentenceDe": "Antiker Schrott ansehen.",
+  "descKo": "고대 잔해",
+  "aliases": [
+   "고대 잔해"
+  ]
+ },
+ {
+  "id": "adv_item_blaze_rod",
+  "ko": "블레이즈 막대기",
+  "de": "Lohenrute",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:blaze_rod"
+  ],
+  "sentenceKo": "블레이즈 막대기을/를 봐요.",
+  "sentenceDe": "Lohenrute ansehen.",
+  "descKo": "블레이즈 막대기",
+  "aliases": [
+   "블레이즈 막대기"
+  ]
+ },
+ {
+  "id": "adv_item_crying_obsidian",
+  "ko": "우는 흑요석",
+  "de": "Weinender Obsidian",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:crying_obsidian"
+  ],
+  "sentenceKo": "우는 흑요석을/를 봐요.",
+  "sentenceDe": "Weinender Obsidian ansehen.",
+  "descKo": "우는 흑요석",
+  "aliases": [
+   "우는 흑요석"
+  ]
+ },
+ {
+  "id": "adv_item_fire_charge",
+  "ko": "화염구",
+  "de": "Feuerkugel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:fire_charge"
+  ],
+  "sentenceKo": "화염구을/를 봐요.",
+  "sentenceDe": "Feuerkugel ansehen.",
+  "descKo": "화염구",
+  "aliases": [
+   "화염구"
+  ]
+ },
+ {
+  "id": "adv_item_warped_fungus_on_a_stick",
+  "ko": "뒤틀린 균 낚싯대",
+  "de": "Wirrpilzrute",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:warped_fungus_on_a_stick"
+  ],
+  "sentenceKo": "뒤틀린 균 낚싯대을/를 봐요.",
+  "sentenceDe": "Wirrpilzrute ansehen.",
+  "descKo": "뒤틀린 균 낚싯대",
+  "aliases": [
+   "뒤틀린 균 낚싯대"
+  ]
+ },
+ {
+  "id": "adv_block_red_nether_bricks",
+  "ko": "붉은 네더 벽돌",
+  "de": "Rote Netherziegel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:red_nether_bricks"
+  ],
+  "sentenceKo": "붉은 네더 벽돌을/를 봐요.",
+  "sentenceDe": "Rote Netherziegel ansehen.",
+  "descKo": "붉은 네더 벽돌",
+  "aliases": [
+   "붉은 네더 벽돌"
+  ]
+ },
+ {
+  "id": "adv_item_ghast_tear",
+  "ko": "가스트 눈물",
+  "de": "Ghast-Träne",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:ghast_tear"
+  ],
+  "sentenceKo": "가스트 눈물을/를 봐요.",
+  "sentenceDe": "Ghast-Träne ansehen.",
+  "descKo": "가스트 눈물",
+  "aliases": [
+   "가스트 눈물"
+  ]
+ },
+ {
+  "id": "adv_item_enchanted_book",
+  "ko": "마법이 부여된 책",
+  "de": "Verzaubertes Buch",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:enchanted_book"
+  ],
+  "sentenceKo": "마법이 부여된 책을/를 봐요.",
+  "sentenceDe": "Verzaubertes Buch ansehen.",
+  "descKo": "마법이 부여된 책",
+  "aliases": [
+   "마법이 부여된 책"
+  ]
+ },
+ {
+  "id": "adv_item_flint_and_steel",
+  "ko": "부싯돌과 부시",
+  "de": "Feuerzeug",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:flint_and_steel"
+  ],
+  "sentenceKo": "부싯돌과 부시을/를 봐요.",
+  "sentenceDe": "Feuerzeug ansehen.",
+  "descKo": "부싯돌과 부시",
+  "aliases": [
+   "부싯돌과 부시"
+  ]
+ },
+ {
+  "id": "adv_item_ender_eye",
+  "ko": "엔더의 눈",
+  "de": "Enderauge",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:ender_eye"
+  ],
+  "sentenceKo": "엔더의 눈을/를 봐요.",
+  "sentenceDe": "Enderauge ansehen.",
+  "descKo": "엔더의 눈",
+  "aliases": [
+   "엔더의 눈"
+  ]
+ },
+ {
+  "id": "adv_item_wooden_pickaxe",
+  "ko": "나무 곡괭이",
+  "de": "Holzspitzhacke",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:wooden_pickaxe"
+  ],
+  "sentenceKo": "나무 곡괭이을/를 봐요.",
+  "sentenceDe": "Holzspitzhacke ansehen.",
+  "descKo": "나무 곡괭이",
+  "aliases": [
+   "나무 곡괭이"
+  ]
+ },
+ {
+  "id": "adv_item_iron_boots",
+  "ko": "철 부츠",
+  "de": "Eisenstiefel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:iron_boots"
+  ],
+  "sentenceKo": "철 부츠을/를 봐요.",
+  "sentenceDe": "Eisenstiefel ansehen.",
+  "descKo": "철 부츠",
+  "aliases": [
+   "철 부츠"
+  ]
+ },
+ {
+  "id": "adv_block_diamond_chestplate",
+  "ko": "다이아몬드 흉갑",
+  "de": "Diamantharnisch",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:diamond_chestplate"
+  ],
+  "sentenceKo": "다이아몬드 흉갑을/를 봐요.",
+  "sentenceDe": "Diamantharnisch ansehen.",
+  "descKo": "다이아몬드 흉갑",
+  "aliases": [
+   "다이아몬드 흉갑"
+  ]
+ },
+ {
+  "id": "adv_block_stone_pickaxe",
+  "ko": "돌 곡괭이",
+  "de": "Steinspitzhacke",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:stone_pickaxe"
+  ],
+  "sentenceKo": "돌 곡괭이을/를 봐요.",
+  "sentenceDe": "Steinspitzhacke ansehen.",
+  "descKo": "돌 곡괭이",
+  "aliases": [
+   "돌 곡괭이"
+  ]
+ },
+ {
+  "id": "adv2_item_baked_potato",
+  "ko": "구운 감자",
+  "de": "Ofenkartoffel",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:baked_potato"
+  ],
+  "sentenceKo": "구운 감자을 봐요.",
+  "sentenceDe": "Ofenkartoffel ansehen.",
+  "descKo": "균형 잡힌 식단",
+  "aliases": [
+   "구운 감자"
+  ]
+ },
+ {
+  "id": "adv2_item_iron_helmet",
+  "ko": "철 투구",
+  "de": "Eisenhelm",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:iron_helmet"
+  ],
+  "sentenceKo": "철 투구을 봐요.",
+  "sentenceDe": "Eisenhelm ansehen.",
+  "descKo": "차려입기",
+  "aliases": [
+   "철 투구"
+  ]
+ },
+ {
+  "id": "adv2_item_diamond_helmet",
+  "ko": "다이아몬드 투구",
+  "de": "Diamanthelm",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:diamond_helmet"
+  ],
+  "sentenceKo": "다이아몬드 투구을 봐요.",
+  "sentenceDe": "Diamanthelm ansehen.",
+  "descKo": "다이아몬드로 날 감싸줘",
+  "aliases": [
+   "다이아몬드 투구"
+  ]
+ },
+ {
+  "id": "ghast",
+  "ko": "가스트",
+  "de": "Ghast",
+  "category": "ANIMALS",
+  "tier": 4,
+  "items": [
+   "minecraft:ghast_tear"
+  ],
+  "entity": "minecraft:ghast",
+  "sentenceKo": "가스트를 봐요.",
+  "sentenceDe": "Einen Ghast ansehen.",
+  "descKo": "하늘을 나는 무서운 몬스터예요.",
+  "aliases": [
+   "가스트"
+  ]
+ }
+]

@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "zuhausepfad",
+ "titleKo": "우리 집의 길",
+ "titleDe": "Der Zuhause-Pfad",
+ "tier": 3,
+ "concepts": [
+  "bed",
+  "bread",
+  "cat",
+  "door"
+ ],
+ "requires": {
+  "minWordsKnown": 7,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "waldhaus",
+   "baeckerei"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell ein Bett auf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss ein Brot."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Katze an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 침대에서 자요. 우리 집이에요!",
+  "textDe": "In der Nacht schläfst du im Bett. Zuhause!"
+ },
+ "reward": {
+  "badge": "zuhausepfad",
+  "words": [
+   "bed",
+   "bread",
+   "cat",
+   "door"
+  ]
+ },
+ "order": 220,
+ "koreanLevel": 2,
+ "topic": "나무"
+}

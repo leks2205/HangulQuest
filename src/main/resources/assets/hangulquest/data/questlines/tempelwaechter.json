@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "tempelwaechter",
+ "titleKo": "신전의 수호자",
+ "titleDe": "Der Tempelwächter",
+ "topic": "수호자",
+ "tier": 3,
+ "order": 114,
+ "concepts": [
+  "zombie",
+  "torch",
+  "bell",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "pyramidenpfad",
+   "bibliothekpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 3
+   },
+   "clue": {
+    "de": "Besiege drei Zombies."
+   },
+   "hint": {
+    "ko": "좀비는 검으로 물리쳐요.",
+    "de": "Zombies besiegst du mit einem Schwert."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute eine Glocke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "수호자의 신전에 랜턴을 놓아요.",
+  "textDe": "Laternen bewachen den Tempel."
+ },
+ "reward": {
+  "badge": "tempelwaechter",
+  "words": [
+   "zombie",
+   "torch",
+   "bell",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 4
+}

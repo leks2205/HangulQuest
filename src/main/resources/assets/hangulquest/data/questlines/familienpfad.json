@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "familienpfad",
+ "titleKo": "가족의 길",
+ "titleDe": "Der Familienpfad",
+ "tier": 3,
+ "order": 395,
+ "concepts": [
+  "cat",
+  "wolf",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 9,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "zuhausepfad",
+   "haustierpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Katze an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:wolf",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Wolf an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss ein Brot."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 침대에서 자요. 가족이에요!",
+  "textDe": "In der Nacht schläfst du im Bett. Familie!"
+ },
+ "reward": {
+  "badge": "familienpfad",
+  "words": [
+   "cat",
+   "wolf",
+   "bread",
+   "bed"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "나무"
+}

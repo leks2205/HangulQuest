@@ -1,0 +1,89 @@
+{
+ "schema": 1,
+ "id": "blumenpfad",
+ "titleKo": "꽃의 길",
+ "titleDe": "Der Blumenpfad",
+ "topic": "꽃",
+ "tier": 3,
+ "order": 102,
+ "concepts": [
+  "flower",
+  "dandelion"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "dorfpfad",
+   "waldhaus"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Mohnblume an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "dandelion"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:dandelion",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau einen Löwenzahn an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:poppy",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Mohnblumen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:poppy",
+    "count": 5
+   },
+   "conditions": []
+  },
+  "textKo": "꽃을 모아요.",
+  "textDe": "Blumen sammeln."
+ },
+ "reward": {
+  "badge": "blumenpfad",
+  "words": [
+   "flower",
+   "dandelion"
+  ]
+ },
+ "koreanLevel": 1
+}

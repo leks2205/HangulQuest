@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_sleep_in_bed",
+ "titleKo": "달콤한 꿈",
+ "titleDe": "Träum was Schönes",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 226,
+ "concepts": [
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue ein Bett aus drei Blöcken Wolle und drei Holzplanken."
+   },
+   "hint": {
+    "ko": "양털 세 개와 나무 판자 세 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_bed",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell das Bett in dein Schlafzimmer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Leg dich ins Bett und schlaf bis zum Morgen."
+   }
+  },
+  "textKo": "달콤한 꿈 — 침대에서 자고 아침을 맞아요.",
+  "textDe": "Träum was Schönes — Schlaf in deinem Bett bis zum Morgen."
+ },
+ "reward": {
+  "badge": "adv_adventure_sleep_in_bed",
+  "words": [
+   "bed"
+  ]
+ },
+ "koreanLevel": 2
+}

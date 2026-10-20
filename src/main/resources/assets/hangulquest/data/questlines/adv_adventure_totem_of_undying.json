@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_totem_of_undying",
+ "titleKo": "죽음을 초월한 자",
+ "titleDe": "Post mortem",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 234,
+ "concepts": [
+  "adv_item_totem_of_undying",
+  "creeper",
+  "witch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_kill_a_mob"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_totem_of_undying"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:totem_of_undying",
+    "count": 1
+   },
+   "clue": {
+    "de": "Hole ein Totem der Unsterblichkeit aus einem Waldanwesen."
+   },
+   "hint": {
+    "ko": "소환사가 불사의 토템을 떨어뜨려요.",
+    "de": "Ein Evoker im Waldanwesen lässt das Totem fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "creeper"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:creeper",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle dich einem Creeper, das Totem steckt schon in der Hand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "witch"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:witch",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "죽음을 초월한 자 — 마녀와 싸우다 죽어도 토템이 살려 줘요.",
+  "textDe": "Post mortem — Die Hexe bringt dich fast um, doch das Totem hält dich am Leben."
+ },
+ "reward": {
+  "badge": "adv_adventure_totem_of_undying",
+  "words": [
+   "adv_item_totem_of_undying",
+   "creeper",
+   "witch"
+  ]
+ },
+ "koreanLevel": 3
+}

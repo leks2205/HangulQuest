@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_kill_all_mobs",
+ "titleKo": "몬스터 도감",
+ "titleDe": "Meisterjäger",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 213,
+ "concepts": [
+  "adv_item_diamond_sword",
+  "enderman",
+  "witch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_kill_a_mob"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_diamond_sword"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_sword",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede für die große Jagd ein Diamantschwert."
+   },
+   "hint": {
+    "ko": "다이아몬드 두 개와 막대기 하나로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "enderman"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erlege einen Enderman, der sich vor dir wegteleportiert."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "witch"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:witch",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Beende die Sammlung mit einer Hexe aus dem Sumpf."
+   }
+  },
+  "textKo": "몬스터 도감 — 여러 몬스터를 차례로 사냥했어요.",
+  "textDe": "Meisterjäger — die ganze Sammlung abgearbeitet."
+ },
+ "reward": {
+  "badge": "adv_adventure_kill_all_mobs",
+  "words": [
+   "adv_item_diamond_sword",
+   "enderman",
+   "witch"
+  ]
+ },
+ "koreanLevel": 3
+}

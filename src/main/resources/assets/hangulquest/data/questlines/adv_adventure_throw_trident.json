@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_throw_trident",
+ "titleKo": "준비하시고... 쏘세요!",
+ "titleDe": "Ein Witz zum Wegwerfen",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 233,
+ "concepts": [
+  "adv_item_trident",
+  "creeper",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_kill_a_mob"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_trident"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:trident",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erbeute einen Dreizack von einem Ertrunkenen."
+   },
+   "hint": {
+    "ko": "익사자가 가끔 삼지창을 떨어뜨려요.",
+    "de": "Ertrunkene lassen manchmal einen Dreizack fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "creeper"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:creeper",
+    "count": 1
+   },
+   "clue": {
+    "de": "Wirf den Dreizack auf einen Creeper, bevor er explodiert."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "준비하시고... 쏘세요! — 삼지창을 던져서 좀비를 맞혀요.",
+  "textDe": "Ein Witz zum Wegwerfen — Du wirfst den Dreizack und triffst die Zombies."
+ },
+ "reward": {
+  "badge": "adv_adventure_throw_trident",
+  "words": [
+   "adv_item_trident",
+   "creeper",
+   "zombie"
+  ]
+ },
+ "koreanLevel": 3
+}

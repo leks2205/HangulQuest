@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "koenigspfad",
+ "titleKo": "왕의 길",
+ "titleDe": "Der Königspfad",
+ "tier": 4,
+ "order": 540,
+ "concepts": [
+  "emerald",
+  "cake",
+  "bell",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "riesenfest",
+   "karawane",
+   "weltmarkt"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Kuchen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Glocke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 왕의 방에서 잠들어요.",
+  "textDe": "Nachts schläfst du im Königsraum."
+ },
+ "reward": {
+  "badge": "koenigspfad",
+  "words": [
+   "emerald",
+   "cake",
+   "bell"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "나무"
+}

@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "schmuckgilde",
+ "titleKo": "보석 길드의 길",
+ "titleDe": "Der Schmuckgildenpfad",
+ "topic": "보석 길드",
+ "tier": 3,
+ "order": 170,
+ "concepts": [
+  "gold",
+  "emerald",
+  "anvil",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenfest",
+   "weltmarkt"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Goldbarren."
+   },
+   "hint": {
+    "ko": "금은 철 곡괭이로 캐요.",
+    "de": "Gold baust du mit einer Eisenspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Smaragde."
+   },
+   "hint": {
+    "ko": "에메랄드는 산에서 캐요.",
+    "de": "Smaragde findest du in Bergen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "clue": {
+    "de": "Benutz einen Amboss."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "길드의 보석을 상자에 넣어요.",
+  "textDe": "Schmuck in die Truhe."
+ },
+ "reward": {
+  "badge": "schmuckgilde",
+  "words": [
+   "gold",
+   "emerald",
+   "anvil",
+   "chest"
+  ]
+ },
+ "koreanLevel": 3
+}

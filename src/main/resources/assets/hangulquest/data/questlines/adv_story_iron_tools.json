@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "adv_story_iron_tools",
+ "titleKo": "이젠 철 좀 들어라",
+ "titleDe": "Zu viel Eisen im Blut",
+ "topic": "story",
+ "tier": 2,
+ "order": 317,
+ "concepts": [
+  "iron",
+  "stick",
+  "crafting_table",
+  "pickaxe"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_smelt_iron"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Lege drei Eisenbarren für die neue Spitzhacke bereit."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "stick"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stick",
+    "count": 2
+   },
+   "clue": {
+    "de": "Schnitze zwei Stöcke als Griff."
+   },
+   "hint": {
+    "ko": "판자 두 개로 막대기 네 개를 만들어요.",
+    "de": "Zwei Holzbretter ergeben vier Stöcke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Stelle die Eisenstücke an der Werkbank zusammen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue dir eine Eisenspitzhacke."
+   },
+   "hint": {
+    "ko": "철 곡괭이는 철 주괴 세 개와 막대기 두 개로 만들어요.",
+    "de": "Eisenspitzhacke: drei Eisenbarren und zwei Stöcke."
+   },
+   "conditions": []
+  },
+  "textKo": "이젠 철 좀 들어라 — 철 곡괭이로 더 깊은 곳까지 캘 수 있어요.",
+  "textDe": "Zu viel Eisen im Blut — Die Eisenspitzhacke ist fertig."
+ },
+ "reward": {
+  "badge": "adv_story_iron_tools",
+  "words": [
+   "iron",
+   "stick",
+   "crafting_table",
+   "pickaxe"
+  ]
+ },
+ "koreanLevel": 2
+}

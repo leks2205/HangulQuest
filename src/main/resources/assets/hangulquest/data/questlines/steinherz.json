@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "steinherz",
+ "titleKo": "돌심장",
+ "titleDe": "Das Steinherz",
+ "topic": "돌",
+ "tier": 3,
+ "order": 83,
+ "concepts": [
+  "coal",
+  "iron",
+  "furnace"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steintiefe",
+   "schmelzofen"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Kohle ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Eisen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "conditions": []
+  },
+  "textKo": "돌심장의 화로를 열어요.",
+  "textDe": "Im Steinherz öffnest du den Ofen."
+ },
+ "reward": {
+  "badge": "steinherz",
+  "words": [
+   "coal",
+   "iron",
+   "furnace"
+  ]
+ },
+ "koreanLevel": 2
+}

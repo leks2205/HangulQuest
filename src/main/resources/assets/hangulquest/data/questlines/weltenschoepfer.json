@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "weltenschoepfer",
+ "titleKo": "세계의 창조자",
+ "titleDe": "Der Weltenschöpfer",
+ "topic": "산",
+ "tier": 4,
+ "order": 81,
+ "concepts": [
+  "mountain",
+  "campfire",
+  "bell",
+  "creation",
+  "world"
+ ],
+ "requires": {
+  "minWordsKnown": 50,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise",
+   "weltbaum",
+   "golemwerkstatt"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell",
+    "creation",
+    "world"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
+   "hint": {
+    "ko": "창조는 새로운 것을 만드는 것이에요. 세계는 우리가 사는 곳이에요. 낮에 산에서 종을 울려요.",
+    "de": "Schöpfung heißt Neues erschaffen; die Welt ist unser Lebensort; läute am Tag auf dem Berg die Glocke."
+   }
+  },
+  "textKo": "낮에 산 위에서 세계를 창조하는 종을 울려요.",
+  "textDe": "Auf dem Berg läutet die Glocke der neuen Welt."
+ },
+ "reward": {
+  "badge": "weltenschoepfer",
+  "words": [
+   "mountain",
+   "campfire",
+   "bell"
+  ]
+ },
+ "koreanLevel": 6
+}

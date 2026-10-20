@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "pferdehof",
+ "titleKo": "말 목장의 길",
+ "titleDe": "Der Pferdehof",
+ "tier": 4,
+ "order": 513,
+ "concepts": [
+  "horse",
+  "leather",
+  "wool",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "reitpfad",
+   "weidepfad",
+   "bogenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:horse",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Pferd an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "leather"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:leather",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Leder."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_wool",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Wolle."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 말 우리에서 불을 피워요.",
+  "textDe": "Auf dem Hof brennt das Feuer."
+ },
+ "reward": {
+  "badge": "pferdehof",
+  "words": [
+   "horse",
+   "leather",
+   "wool",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "동물"
+}

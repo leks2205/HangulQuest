@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w10_03",
+ "titleKo": "잊혀진 사원",
+ "titleDe": "Der Tempel unter dem Sand",
+ "topic": "유적",
+ "tier": 2,
+ "order": 1103,
+ "concepts": [
+  "stone_bricks",
+  "chiseled_stone_bricks",
+  "adv_item_decorated_pot",
+  "gold"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "zeitportal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 10
+   },
+   "clue": {
+    "de": "Brich zehn Steinziegel aus der Tempelwand."
+   },
+   "hint": {
+    "ko": "석재 벽돌은 곡괭이로 캐요.",
+    "de": "Steinziegel baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier gemeißelte Steinziegel in die Mauer."
+   },
+   "hint": {
+    "ko": "조각된 석재 벽돌은 유적에서 찾아요.",
+    "de": "Gemeißelte Steinziegel liegen in alten Ruinen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_decorated_pot"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:decorated_pot",
+    "count": 1
+   },
+   "clue": {
+    "de": "Finde im Tempel die Scherben für einen verzierten Krug."
+   },
+   "hint": {
+    "ko": "장식된 도자기는 도자기 조각 네 개로 만들어요.",
+    "de": "Vier Tonscherben ergeben einen verzierten Krug."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:raw_gold",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "땅속 깊은 곳에서 금을 찾아요.",
+  "textDe": "Tief unter dem Tempel wartet das verborgene Gold."
+ },
+ "reward": {
+  "badge": "w10_03",
+  "words": [
+   "stone_bricks",
+   "chiseled_stone_bricks",
+   "adv_item_decorated_pot",
+   "gold"
+  ]
+ },
+ "koreanLevel": 5
+}

@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "observatorium",
+ "titleKo": "별의 축제",
+ "titleDe": "Das Sternenfest",
+ "tier": 3,
+ "order": 524,
+ "concepts": [
+  "lantern",
+  "bell",
+  "amethyst_shard",
+  "amethyst_block"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "sternwarte",
+   "gipfelwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Laternen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute eine Glocke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "amethyst_shard"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:amethyst_shard",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Amethystsplitter."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "amethyst_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:amethyst_block",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "별의 축제에 자수정 블록을 놓아요.",
+  "textDe": "Amethystblöcke für das Sternenfest."
+ },
+ "reward": {
+  "badge": "observatorium",
+  "words": [
+   "lantern",
+   "bell",
+   "amethyst_shard",
+   "amethyst_block"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "별"
+}

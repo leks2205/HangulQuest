@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_tactical_fishing",
+ "titleKo": "이 대신 잇몸으로",
+ "titleDe": "Taktisches Fischen",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 280,
+ "concepts": [
+  "fishing_rod",
+  "bucket",
+  "adv_item_pufferfish_bucket"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_fishy_business"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fishing_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:fishing_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue zuerst eine Angel aus Stöcken und Fäden."
+   },
+   "hint": {
+    "ko": "막대기와 실로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Dann schmiede einen Eimer aus drei Eisenbarren."
+   },
+   "hint": {
+    "ko": "철 주괴 세 개로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_pufferfish_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:pufferfish_bucket",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "이 대신 잇몸으로 — 양동이로 복어를 잡아요.",
+  "textDe": "Taktisches Fischen — Statt mit der Angel schöpfst du einen Kugelfisch in den Eimer."
+ },
+ "reward": {
+  "badge": "adv_husbandry_tactical_fishing",
+  "words": [
+   "fishing_rod",
+   "bucket",
+   "adv_item_pufferfish_bucket"
+  ]
+ },
+ "koreanLevel": 2
+}

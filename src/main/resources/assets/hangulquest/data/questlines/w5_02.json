@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w5_02",
+ "titleKo": "쇠를 두드리는 손",
+ "titleDe": "Hände, die Eisen schmieden",
+ "topic": "대장간",
+ "tier": 2,
+ "order": 1052,
+ "concepts": [
+  "iron",
+  "anvil",
+  "iron_block",
+  "iron_chestplate"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmuckpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Eisenbarren."
+   },
+   "hint": {
+    "ko": "철은 돌 곡괭이로 캐요.",
+    "de": "Eisen baust du mit einer Steinspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:anvil",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Amboss auf."
+   },
+   "hint": {
+    "ko": "모루는 철 블록과 철괴로 만들어요.",
+    "de": "Ein Amboss braucht Eisenblöcke und Barren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Eisenblöcke."
+   },
+   "hint": {
+    "ko": "철 블록은 철괴 아홉 개로 만들어요.",
+    "de": "Ein Eisenblock braucht neun Barren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede einen Eisenharnisch."
+   },
+   "hint": {
+    "ko": "철 흉갑은 철괴 여덟 개로 만들어요.",
+    "de": "Ein Eisenharnisch braucht acht Barren."
+   },
+   "conditions": []
+  },
+  "textKo": "모루 위에서 쇠를 두드려 갑옷을 완성해요.",
+  "textDe": "Auf dem Amboss wird aus Eisen ein Harnisch."
+ },
+ "reward": {
+  "badge": "w5_02",
+  "words": [
+   "iron",
+   "anvil",
+   "iron_block",
+   "iron_chestplate"
+  ]
+ },
+ "koreanLevel": 3
+}

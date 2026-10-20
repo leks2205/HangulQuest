@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_trade_at_world_height",
+ "titleKo": "최고의 거래",
+ "titleDe": "Sternenhändler",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 236,
+ "concepts": [
+  "height",
+  "emerald",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_trade"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 300,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Baue eine Treppe bis zur höchsten Bauhöhe hinauf."
+   },
+   "hint": {
+    "ko": "사다리나 발판으로 높이 올라가요.",
+    "de": "Mit Leitern oder Gerüsten kommst du nach oben."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
+   },
+   "clue": {
+    "de": "Nimm zwei Smaragde als Bezahlung mit nach oben."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "conditions": []
+  },
+  "textKo": "최고의 거래 — 하늘 높은 곳에서 주민과 거래해요.",
+  "textDe": "Sternenhändler — Auf der höchsten Bauhöhe handelst du mit einem Dorfbewohner."
+ },
+ "reward": {
+  "badge": "adv_adventure_trade_at_world_height",
+  "words": [
+   "height",
+   "emerald",
+   "villager"
+  ]
+ },
+ "koreanLevel": 3
+}

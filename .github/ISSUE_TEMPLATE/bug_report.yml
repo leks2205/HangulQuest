@@ -1,0 +1,83 @@
+name: Bug report
+description: Something doesn't work as it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before you file: the quest folder `config/hangulquest/questlines/` is re-read every two seconds. If a
+        questline did not reload, check the log for a parse warning first — a broken file is ignored on purpose.
+  - type: input
+    id: version
+    attributes:
+      label: Hangul Quest version
+      description: The jar's file name, e.g. hangulquest-1.0.0.jar
+      placeholder: "hangulquest-1.0.0.jar"
+    validations:
+      required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft version
+      placeholder: "26.3"
+    validations:
+      required: true
+  - type: input
+    id: loader
+    attributes:
+      label: Fabric Loader and Fabric API versions
+      placeholder: "Loader 0.19.5, Fabric API 0.162.0+26.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Linux, Windows, macOS]
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: What is affected?
+      multiple: true
+      options:
+        - Quest tracker / HUD
+        - Hint or sidequest
+        - Journal
+        - A specific questline (name it below)
+        - Vocabulary or Lute import
+        - Review / achievements / progress
+        - Crash or start-up
+        - Not sure
+  - type: input
+    id: questline
+    attributes:
+      label: Questline id, if one is involved
+      description: The file name in config/hangulquest/questlines/, e.g. steinpfad
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What were you doing, and does it happen again after a restart?
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log excerpt
+      description: >
+        The relevant lines from logs/latest.log (or the crash report). Remove your home directory path
+        and any server address if you would rather not share them.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I am on the latest release and the latest Fabric API for 26.3.
+        - label: I tried it once more after restarting the game.

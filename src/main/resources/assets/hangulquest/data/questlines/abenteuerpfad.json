@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "abenteuerpfad",
+ "titleKo": "모험의 길",
+ "titleDe": "Der Abenteuerpfad",
+ "tier": 3,
+ "concepts": [
+  "diamond",
+  "obsidian",
+  "nether",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 8,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "steintiefe",
+   "gipfelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue den harten blauen Edelstein ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen schwarzen Stein ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh in die Welt des Feuers."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  "textKo": "지옥에서 횃불을 놓아요. 모험의 길이 끝났어요.",
+  "textDe": "Im Nether brennt deine Fackel. Der Abenteuerpfad ist zu Ende."
+ },
+ "reward": {
+  "badge": "abenteuerpfad",
+  "words": [
+   "diamond",
+   "obsidian",
+   "nether",
+   "torch"
+  ]
+ },
+ "order": 210,
+ "koreanLevel": 2,
+ "topic": "돌"
+}

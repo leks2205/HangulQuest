@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "id": "kuerbispfad",
+ "titleKo": "호박의 길",
+ "titleDe": "Der Kürbispfad",
+ "topic": "호박",
+ "tier": 1,
+ "order": 129,
+ "concepts": [
+  "pumpkin",
+  "carved_pumpkin"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "pumpkin"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:pumpkin",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Kürbisse."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:pumpkin",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Kürbisse."
+   },
+   "hint": {
+    "ko": "조각된 호박은 가위로 호박을 깎아 만들어요.",
+    "de": "Geschnitzte Kürbisse entstehen mit einer Schere."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau einen geschnitzten Kürbis an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "조각된 호박을 놓아요.",
+  "textDe": "Einen geschnitzten Kürbis setzen."
+ },
+ "reward": {
+  "badge": "kuerbispfad",
+  "words": [
+   "pumpkin",
+   "carved_pumpkin"
+  ]
+ },
+ "koreanLevel": 1
+}

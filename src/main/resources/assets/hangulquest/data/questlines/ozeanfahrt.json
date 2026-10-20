@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "ozeanfahrt",
+ "titleKo": "대양 항해",
+ "titleDe": "Die Ozeanfahrt",
+ "tier": 3,
+ "order": 523,
+ "concepts": [
+  "ocean",
+  "beach",
+  "fish",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "meerestiefe",
+   "kuestenfest"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh ins Meer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an den Strand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변에서 불을 피워요. 대양 항해가 끝났어요.",
+  "textDe": "Am Strand brennt das Feuer. Die Ozeanfahrt ist zu Ende."
+ },
+ "reward": {
+  "badge": "ozeanfahrt",
+  "words": [
+   "ocean",
+   "beach",
+   "fish",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "물"
+}

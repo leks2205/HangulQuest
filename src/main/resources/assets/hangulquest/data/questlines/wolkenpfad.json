@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "wolkenpfad",
+ "titleKo": "구름의 길",
+ "titleDe": "Der Wolkenpfad",
+ "tier": 5,
+ "order": 545,
+ "concepts": [
+  "mountain",
+  "torch",
+  "bed",
+  "night",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwunder",
+   "observatorium",
+   "weltreise",
+   "windpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Benutz ein Bett."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 낮에 구름의 종을 울려요.",
+  "textDe": "Im Bergbiom läutet am Tag die Wolkenuhr."
+ },
+ "reward": {
+  "badge": "wolkenpfad",
+  "words": [
+   "mountain",
+   "torch",
+   "bed",
+   "night"
+  ]
+ },
+ "koreanLevel": 4,
+ "topic": "돌"
+}

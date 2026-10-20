@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w12_08",
+ "titleKo": "세계의 왕관",
+ "titleDe": "Die Krone der Welt",
+ "topic": "세계",
+ "tier": 2,
+ "order": 1128,
+ "concepts": [
+  "world",
+  "crown",
+  "iron_golem",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "world"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:grass_block",
+    "dwellMs": 1500
+   },
+   "clue": {
+    "de": "Schau zwei Sekunden lang auf einen Grasblock, den Anfang der Welt."
+   },
+   "hint": {
+    "ko": "잔디 블록을 봐요. 세계는 잔디 블록에서 시작해요.",
+    "de": "Schau einen Grasblock an; die Welt beginnt auf einem Grasblock."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crown"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_helmet",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen goldenen Helm als Krone der Welt."
+   },
+   "hint": {
+    "ko": "왕관은 금 조각 다섯 개로 만들어 머리에 써요.",
+    "de": "Eine Krone schmiedet man aus fünf Goldbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:iron_golem"
+   },
+   "clue": {
+    "de": "Sprich einen Eisengolem an, den Wächter der Welt."
+   },
+   "hint": {
+    "ko": "철 골렘은 철 블록과 조각된 호박으로 만들어요.",
+    "de": "Ein Eisengolem besteht aus Eisenblöcken und einem geschnitzten Kürbis."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 180,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "높이 180블록은 산 꼭대기보다 높아요. 밤에 올라가요.",
+    "de": "180 Blöcke liegen über den meisten Gipfeln; steig nachts hinauf."
+   }
+  },
+  "textKo": "밤에 높이 180블록 위에서 세계의 왕관을 봐요.",
+  "textDe": "Nachts schaut man auf 180 Blöcken Höhe die Krone der Welt."
+ },
+ "reward": {
+  "badge": "w12_08",
+  "words": [
+   "world",
+   "crown",
+   "iron_golem",
+   "height"
+  ]
+ },
+ "koreanLevel": 6
+}

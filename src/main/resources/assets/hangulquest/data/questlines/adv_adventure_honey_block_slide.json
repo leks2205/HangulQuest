@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_honey_block_slide",
+ "titleKo": "달콤함에 몸을 맡기다",
+ "titleDe": "Eine klebrige Angelegenheit",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 211,
+ "concepts": [
+  "honey_block"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "honey_block"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:honey_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle aus vier Honigflaschen einen Honigblock her."
+   },
+   "hint": {
+    "ko": "꿀병 네 개를 작업대 네 칸에 놓아요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "honey_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:honey_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setze den Honigblock hoch oben an eine Wand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "honey_block"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:honey_block",
+    "dwellMs": 600
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Rutsche die Honigwand hinab und behalte den Block dabei im Blick."
+   }
+  },
+  "textKo": "달콤함에 몸을 맡기다 — 꿀 블록 벽을 타고 미끄러졌어요.",
+  "textDe": "Eine klebrige Angelegenheit — an der Honigwand hinabgerutscht."
+ },
+ "reward": {
+  "badge": "adv_adventure_honey_block_slide",
+  "words": [
+   "honey_block"
+  ]
+ },
+ "koreanLevel": 2
+}

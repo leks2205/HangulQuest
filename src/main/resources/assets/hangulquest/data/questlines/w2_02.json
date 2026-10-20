@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w2_02",
+ "titleKo": "첫눈 소리",
+ "titleDe": "Der Klang des ersten Schnees",
+ "topic": "눈",
+ "tier": 1,
+ "order": 1022,
+ "concepts": [
+  "snow",
+  "snowball",
+  "ice",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Schneeblöcke ab."
+   },
+   "hint": {
+    "ko": "눈은 하얗고 차가워요.",
+    "de": "Schnee ist weiß und kalt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snowball"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:snowball",
+    "count": 8
+   },
+   "clue": {
+    "de": "Forme acht Schneebälle."
+   },
+   "hint": {
+    "ko": "눈덩이는 눈으로 만들어요.",
+    "de": "Schneebälle formst du aus Schnee."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:ice",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Eisblöcke in den Hof."
+   },
+   "hint": {
+    "ko": "얼음은 미끄러워요.",
+    "de": "Eis ist glatt und kalt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "밤에 모닥불을 피워요.",
+    "de": "Entzünde in der Nacht ein Lagerfeuer."
+   }
+  },
+  "textKo": "밤에 눈 내리는 마당에서 모닥불을 피워요.",
+  "textDe": "Nachts brennt im verschneiten Hof ein Lagerfeuer."
+ },
+ "reward": {
+  "badge": "w2_02",
+  "words": [
+   "snow",
+   "snowball",
+   "ice",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

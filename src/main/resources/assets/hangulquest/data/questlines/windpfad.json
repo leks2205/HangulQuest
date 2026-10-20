@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "windpfad",
+ "titleKo": "바람의 길",
+ "titleDe": "Der Windpfad",
+ "topic": "바람",
+ "tier": 3,
+ "order": 132,
+ "concepts": [
+  "height",
+  "wool",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gipfelpfad",
+   "nachtpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Geh auf eine hohe Stelle."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_wool",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Wollblöcke."
+   },
+   "hint": {
+    "ko": "양털은 가위로 양을 깎아요.",
+    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:white_wool",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf die Wolle."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 바람 속에서 모닥불을 피워요.",
+  "textDe": "Nachts brennt im Wind ein Feuer."
+ },
+ "reward": {
+  "badge": "windpfad",
+  "words": [
+   "height",
+   "wool",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w2_05",
+ "titleKo": "계절의 문",
+ "titleDe": "Das Tor der Jahreszeiten",
+ "topic": "계절",
+ "tier": 1,
+ "order": 1025,
+ "concepts": [
+  "forest",
+  "leaves",
+  "flower",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "forest"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:forest",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in einen Wald."
+   },
+   "hint": {
+    "ko": "숲에는 나무가 많아요.",
+    "de": "Im Wald stehen viele Bäume."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:oak_leaves",
+    "count": 5
+   },
+   "clue": {
+    "de": "Pflück fünf Blätter vom Baum."
+   },
+   "hint": {
+    "ko": "나뭇잎은 나무에 달려 있어요.",
+    "de": "Blätter hängen an den Bäumen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:poppy",
+    "count": 3
+   },
+   "clue": {
+    "de": "Pflück drei Blumen am Wegrand."
+   },
+   "hint": {
+    "ko": "꽃은 땅에서 자라요.",
+    "de": "Blumen wachsen auf der Erde."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ],
+   "hint": {
+    "ko": "저녁에 랜턴을 두 개 걸어요.",
+    "de": "Hänge am Abend zwei Laternen auf."
+   }
+  },
+  "textKo": "저녁에 숲의 문에 랜턴을 걸어요.",
+  "textDe": "Am Abend hängen Laternen am Tor des Waldes."
+ },
+ "reward": {
+  "badge": "w2_05",
+  "words": [
+   "forest",
+   "leaves",
+   "flower",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 1
+}

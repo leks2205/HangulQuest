@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_spyglass_at_ghast",
+ "titleKo": "풍선인가?",
+ "titleDe": "Ist es ein Ballon?",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 230,
+ "concepts": [
+  "look",
+  "nether",
+  "ghast"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_spyglass_at_parrot"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "look"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:spyglass",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue ein Fernrohr für den Blick in den Nether."
+   },
+   "hint": {
+    "ko": "망원경은 구리 두 개와 자수정 조각 하나로 만들어요.",
+    "de": "Ein Fernrohr besteht aus zwei Kupferbarren und einem Amethystsplitter."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Baue ein Portal aus Obsidian und steig in den Nether."
+   },
+   "hint": {
+    "ko": "흑요석으로 지옥문을 만들어요.",
+    "de": "Ein Netherportal wird aus Obsidian gebaut."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "ghast"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ghast",
+    "dwellMs": 700
+   },
+   "conditions": []
+  },
+  "textKo": "망원경으로 가스트를 봐요. 하늘을 나는 커다란 몬스터예요.",
+  "textDe": "Sieh dir mit dem Fernrohr einen Ghast an."
+ },
+ "reward": {
+  "badge": "adv_adventure_spyglass_at_ghast",
+  "words": [
+   "look",
+   "nether",
+   "ghast"
+  ]
+ },
+ "koreanLevel": 3
+}

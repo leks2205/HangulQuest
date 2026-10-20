@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "schicksalspfad",
+ "titleKo": "운명의 길",
+ "titleDe": "Der Schicksalspfad",
+ "topic": "운명",
+ "tier": 3,
+ "order": 125,
+ "concepts": [
+  "ender_pearl",
+  "bed",
+  "obsidian",
+  "beacon"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "richterpfad",
+   "kronenrat"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Enderperlen."
+   },
+   "hint": {
+    "ko": "엔더 진주는 엔더맨을 물리치면 얻어요.",
+    "de": "Enderperlen bekommst du von Endermen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Schlaf nachts im Bett."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Obsidianblöcke."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Obsidian baust du mit einer Diamantspitzhacke ab."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beacon",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "신호기는 네더의 별, 유리, 흑요석으로 만들어요.",
+    "de": "Ein Leuchtfeuer braucht Netherstern, Glas und Obsidian."
+   }
+  },
+  "textKo": "운명의 신호기를 놓아요.",
+  "textDe": "Das Leuchtfeuer des Schicksals."
+ },
+ "reward": {
+  "badge": "schicksalspfad",
+  "words": [
+   "ender_pearl",
+   "bed",
+   "obsidian",
+   "beacon"
+  ]
+ },
+ "koreanLevel": 6
+}

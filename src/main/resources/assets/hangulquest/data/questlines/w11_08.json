@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w11_08",
+ "titleKo": "우주의 노래",
+ "titleDe": "Das Lied des Kosmos",
+ "topic": "노래",
+ "tier": 2,
+ "order": 1118,
+ "concepts": [
+  "creation",
+  "note_block",
+  "jukebox",
+  "adv_item_shulker_shell"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "creation"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crafting_table",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau dir eine Werkbank als erste Schöpfung.",
+    "ko": "창조의 시작인 제작대를 만들어요."
+   },
+   "hint": {
+    "ko": "제작대는 나무 판자 네 개로 만들어요.",
+    "de": "Eine Werkbank machst du aus vier Holzplanken."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "note_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:note_block",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Notenblöcke als Sternenmusik."
+   },
+   "hint": {
+    "ko": "음표 블록은 나무 판자와 레드스톤으로 만들어요.",
+    "de": "Ein Notenblock braucht Holz und Redstone."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "jukebox"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:jukebox"
+   },
+   "clue": {
+    "de": "Spiel eine Schallplatte auf einer Jukebox ab."
+   },
+   "hint": {
+    "ko": "주크박스에 음반을 넣으면 음악이 나와요.",
+    "de": "Leg eine Schallplatte in die Jukebox."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_shulker_shell"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shulker_shell",
+    "count": 2
+   },
+   "clue": {
+    "de": "Hol zwei Shulkerschalen aus der Endstadt."
+   },
+   "hint": {
+    "ko": "셜커 껍데기는 엔드 도시의 셜커에게서 나와요.",
+    "de": "Shulkerschalen lässt ein Shulker in der Endstadt fallen."
+   },
+   "conditions": []
+  },
+  "textKo": "우주의 노래를 별들 사이에 울려 퍼지게 해요.",
+  "textDe": "Du lässt das Lied des Kosmos zwischen den Sternen erklingen."
+ },
+ "reward": {
+  "badge": "w11_08",
+  "words": [
+   "creation",
+   "note_block",
+   "jukebox",
+   "adv_item_shulker_shell"
+  ]
+ },
+ "koreanLevel": 6
+}

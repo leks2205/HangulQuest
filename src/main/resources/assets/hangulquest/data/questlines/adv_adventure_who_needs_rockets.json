@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_who_needs_rockets",
+ "titleKo": "누가 로켓이 필요하대?",
+ "titleDe": "Wer braucht schon Raketen?",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 245,
+ "concepts": [
+  "adv_item_wind_charge",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_minecraft_trials_edition"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_wind_charge"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wind_charge",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle Windkugeln von den Breeze in den Prüfungskammern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Lass dich von einer Windkugel nach oben schleudern."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "conditions": []
+  },
+  "textKo": "누가 로켓이 필요하대? — 돌풍구로 하늘 높이 날아올라요.",
+  "textDe": "Wer braucht schon Raketen? — Schleudere dich mit einer Windkugel nach oben, ganz ohne Rakete."
+ },
+ "reward": {
+  "badge": "adv_adventure_who_needs_rockets",
+  "words": [
+   "adv_item_wind_charge",
+   "height"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "schneesturm",
+ "titleKo": "눈보라의 길",
+ "titleDe": "Der Schneesturm",
+ "topic": "산",
+ "tier": 3,
+ "order": 88,
+ "concepts": [
+  "ice",
+  "snow",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "eiswand",
+   "gletscherpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Eis ab."
+   },
+   "hint": {
+    "ko": "얼음은 곡괭이로 캐요.",
+    "de": "Eis baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf den Schnee."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 눈보라 속에서 모닥불을 피워요.",
+  "textDe": "Nachts brennt im Schneesturm ein Feuer."
+ },
+ "reward": {
+  "badge": "schneesturm",
+  "words": [
+   "ice",
+   "snow",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2
+}

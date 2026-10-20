@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "sternenkarte",
+ "titleKo": "별자리 지도",
+ "titleDe": "Die Sternenkarte",
+ "topic": "별자리",
+ "tier": 3,
+ "order": 115,
+ "concepts": [
+  "height",
+  "amethyst_shard",
+  "lectern",
+  "amethyst_block"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "drachenhort",
+   "leuchtturmpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 180,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Geh auf eine hohe Stelle."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "amethyst_shard"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:amethyst_shard",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Amethystsplitter."
+   },
+   "hint": {
+    "ko": "자수정 조각은 지하 수정 동굴에서 캐요.",
+    "de": "Amethystsplitter findest du in Amethystgeoden."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "clue": {
+    "de": "Benutz ein Lesepult."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "amethyst_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:amethyst_block",
+    "count": 2
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "자수정 블록은 자수정 조각 네 개로 만들어요.",
+    "de": "Amethystblöcke bestehen aus vier Splittern."
+   }
+  },
+  "textKo": "자수정 블록으로 별자리를 만들어요.",
+  "textDe": "Amethystblöcke bilden die Sternenkarte."
+ },
+ "reward": {
+  "badge": "sternenkarte",
+  "words": [
+   "mountain",
+   "amethyst_shard",
+   "lectern",
+   "amethyst_block"
+  ]
+ },
+ "koreanLevel": 4
+}

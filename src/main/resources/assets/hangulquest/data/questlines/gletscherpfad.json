@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "gletscherpfad",
+ "titleKo": "빙하의 길",
+ "titleDe": "Der Gletscherpfad",
+ "tier": 3,
+ "order": 516,
+ "concepts": [
+  "ice",
+  "snow",
+  "goat",
+  "torch",
+  "mountain"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "eiswand",
+   "firstpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Eis ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf den Schnee."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  "textKo": "산 지형의 밤에 빙하 위에서 불을 밝혀요.",
+  "textDe": "Auf dem Gletscher brennt ein Licht."
+ },
+ "reward": {
+  "badge": "gletscherpfad",
+  "words": [
+   "ice",
+   "snow",
+   "goat",
+   "torch"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "산"
+}

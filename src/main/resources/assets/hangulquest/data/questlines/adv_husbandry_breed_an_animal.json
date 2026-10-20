@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_breed_an_animal",
+ "titleKo": "아기는 어떻게 태어나?",
+ "titleDe": "Die Hühnchen und die Blümchen",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 261,
+ "concepts": [
+  "wheat",
+  "cow",
+  "pig"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
+    "count": 2
+   },
+   "clue": {
+    "de": "Ernte zwei Weizen vom Feld."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:cow"
+   },
+   "clue": {
+    "de": "Füttere zwei Kühe mit dem Weizen und lass sie ein Kalb machen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "pig"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:pig"
+   },
+   "conditions": []
+  },
+  "textKo": "아기는 어떻게 태어나? — 당근을 주면 돼지가 짝을 지어요.",
+  "textDe": "Die Hühnchen und die Blümchen: Mit Karotten finden zwei Schweine zueinander."
+ },
+ "reward": {
+  "badge": "adv_husbandry_breed_an_animal",
+  "words": [
+   "wheat",
+   "cow",
+   "pig"
+  ]
+ },
+ "koreanLevel": 1
+}

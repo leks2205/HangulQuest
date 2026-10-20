@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_bullseye",
+ "titleKo": "명중",
+ "titleDe": "Volltreffer!",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 205,
+ "concepts": [
+  "adv_item_target"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_shoot_arrow"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_target"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:target",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle einen Zielblock aus einem Heuballen und vier Redstone her."
+   },
+   "hint": {
+    "ko": "건초 더미 하나와 레드스톤 네 개로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_target"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:target",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setze den Zielblock mindestens dreißig Blöcke entfernt auf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_target"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:target",
+    "dwellMs": 600
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Ziele aus der Distanz auf das Schwarze in der Mitte des Zielblocks."
+   }
+  },
+  "textKo": "명중 — 멀리서 과녁 한가운데를 겨눴어요.",
+  "textDe": "Volltreffer! — mitten ins Schwarze, aus der Ferne."
+ },
+ "reward": {
+  "badge": "adv_adventure_bullseye",
+  "words": [
+   "adv_item_target"
+  ]
+ },
+ "koreanLevel": 3
+}

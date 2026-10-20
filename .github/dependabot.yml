@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    groups:
+      gradle-plugins:
+        patterns: ["*"]
+    ignore:
+      # Minecraft, Fabric Loader and Fabric API move together; bumping one alone breaks the build.
+      - dependency-name: "com.mojang:minecraft"
+      - dependency-name: "net.fabricmc:fabric-loader"
+      - dependency-name: "net.fabricmc.fabric-api:fabric-api"
+      - dependency-name: "net.fabricmc:fabric-loom"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3

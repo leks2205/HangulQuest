@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_story_deflect_arrow",
+ "titleKo": "저희는 그런 것 받지 않습니다",
+ "titleDe": "Heute nicht, danke",
+ "topic": "story",
+ "tier": 2,
+ "order": 311,
+ "concepts": [
+  "shield",
+  "skeleton"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_obtain_armor"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "shield"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shield",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Schild aus Brettern und Eisen."
+   },
+   "hint": {
+    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Stell dich einem Skelett mit gezogenem Bogen gegenüber."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Halt den Schild hoch, wehr den Pfeil ab und streck den Schützen nieder."
+   }
+  },
+  "textKo": "저희는 그런 것 받지 않습니다 — 방패로 화살을 막아 냈어요.",
+  "textDe": "Heute nicht, danke — der Pfeil prallt am Schild ab."
+ },
+ "reward": {
+  "badge": "adv_story_deflect_arrow",
+  "words": [
+   "shield",
+   "skeleton"
+  ]
+ },
+ "koreanLevel": 3
+}

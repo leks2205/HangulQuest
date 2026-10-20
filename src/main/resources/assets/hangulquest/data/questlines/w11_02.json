@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "id": "w11_02",
+ "titleKo": "달빛 항해",
+ "titleDe": "Fahrt im Mondlicht",
+ "topic": "달",
+ "tier": 2,
+ "order": 1112,
+ "concepts": [
+  "moon",
+  "night",
+  "desert",
+  "candle"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "moon"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Hol dir eine Uhr für die Mondstunden.",
+    "ko": "달빛 아래에서 쓸 시계를 만들어요."
+   },
+   "hint": {
+    "ko": "시계는 금 조각과 레드스톤으로 만들어요.",
+    "de": "Eine Uhr braucht Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "night"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Fackeln gegen die Nacht.",
+    "ko": "밤이 오기 전에 횃불 여덟 개를 놓아요."
+   },
+   "hint": {
+    "ko": "횃불은 막대기와 석탄으로 만들어요.",
+    "de": "Fackeln machst du aus Stöcken und Kohle."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "desert"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:desert",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in die Wüste, wo der Himmel klar ist."
+   },
+   "hint": {
+    "ko": "사막은 모래가 많은 마른 땅이에요.",
+    "de": "In der Wüste ist der Nachthimmel am klarsten."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:candle",
+    "count": 4
+   },
+   "clue": {
+    "de": "Stell vier Kerzen in den Wüstensand."
+   },
+   "hint": {
+    "ko": "초는 실과 벌집 조각으로 만들어요.",
+    "de": "Kerzen machst du aus Faden und Honigwabe."
+   },
+   "conditions": []
+  },
+  "textKo": "달빛을 따라 걷고 촛불로 밤을 밝혀요.",
+  "textDe": "Du folgst dem Mondlicht und erhellst die Nacht mit Kerzen."
+ },
+ "reward": {
+  "badge": "w11_02",
+  "words": [
+   "moon",
+   "night",
+   "desert",
+   "candle"
+  ]
+ },
+ "koreanLevel": 6
+}

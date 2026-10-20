@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "kuestenfest",
+ "titleKo": "바닷가 잔치",
+ "titleDe": "Das Küstenfest",
+ "tier": 3,
+ "order": 430,
+ "concepts": [
+  "beach",
+  "fish",
+  "campfire",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 14,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "brandung",
+   "festmahl"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an den Sandstrand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Lagerfeuer."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "해변의 밤에 잠들어요. 잔치가 끝났어요.",
+  "textDe": "Am Strand schläfst du nachts ein. Das Fest ist vorbei."
+ },
+ "reward": {
+  "badge": "kuestenfest",
+  "words": [
+   "beach",
+   "fish",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "물"
+}

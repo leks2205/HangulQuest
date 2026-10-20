@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "wolkenstadt",
+ "titleKo": "구름 도시의 길",
+ "titleDe": "Die Wolkenstadt",
+ "topic": "구름",
+ "tier": 3,
+ "order": 167,
+ "concepts": [
+  "height",
+  "wool",
+  "glass",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenfest",
+   "handelsgilde"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 180,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Geh auf eine hohe Stelle."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:white_wool",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Wollblöcke."
+   },
+   "hint": {
+    "ko": "양털은 가위로 양을 깎아요.",
+    "de": "Wolle bekommst du mit einer Schere vom Schaf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Glasblöcke."
+   },
+   "hint": {
+    "ko": "유리는 모래를 화로에 구워 만들어요.",
+    "de": "Glas entsteht aus Sand im Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "구름 도시에 랜턴을 걸어요.",
+  "textDe": "Laternen in der Wolkenstadt."
+ },
+ "reward": {
+  "badge": "wolkenstadt",
+  "words": [
+   "height",
+   "wool",
+   "glass",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 3
+}

@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "ziegenpfad",
+ "titleKo": "염소의 길",
+ "titleDe": "Der Ziegenpfad",
+ "topic": "염소",
+ "tier": 3,
+ "order": 155,
+ "concepts": [
+  "goat",
+  "snow",
+  "torch",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gipfelpfad",
+   "nachtpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "goat"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau eine Ziege an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "snow"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Schneeblöcke ab."
+   },
+   "hint": {
+    "ko": "눈은 삽으로 캐요.",
+    "de": "Schnee baust du mit einer Schaufel ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 염소와 모닥불을 지켜요.",
+  "textDe": "Nachts hüten Ziege und Feuer."
+ },
+ "reward": {
+  "badge": "ziegenpfad",
+  "words": [
+   "goat",
+   "snow",
+   "torch",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

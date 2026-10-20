@@ -1,0 +1,85 @@
+# Playing
+
+## The tracker
+
+When a quest is active, the top-left corner shows the current Korean sentence. Under it sits a status
+line that is generated from the goal, so it always answers the question the sentence raises:
+
+| What you see | What it means |
+|---|---|
+| `돌 1/3` | one of three stone broken, collected or placed — depending on the goal |
+| `지금 낮 · 밤 필요` | it is day; the step needs night |
+| `Y 62 / 140 위` | you are at Y 62 and the goal wants Y 140 or higher |
+| `지금 평원 지형 · 산 지형 필요` | you are standing in plains, the step wants a mountain biome |
+| `가까이에 좀비 필요` | no zombie within range yet |
+| `보는 중 … 62%` | keep looking at the block or mob a little longer |
+
+The words are Korean; the numbers and the structure do most of the work while you learn to read the
+rest. Every condition of a step is spoken inside the sentence itself — `해변에서 모닥불을 놓아요.`,
+not just `모닥불을 놓아요.` — so the text and the check can never disagree.
+
+## A step
+
+1. Read the sentence.
+2. Do it. The mod watches the world locally: blocks you break or place, items you gain or eat, what you
+   look at long enough, the biome, dimension and altitude you are in, right-clicks and interactions.
+3. When the check passes, a card appears with the next clue. The tracker moves on.
+
+Nothing is ever sent to the server, and nothing can be "cheated" in a way that matters: the mod trusts
+your client because the only person you could cheat is yourself.
+
+## After a step: the finale
+
+Every trail ends with a **ritual finale**: the same goal-and-condition rules, but always something you
+can do in any world — light a torch on a mountain at night, ring a bell at dawn, place a campfire on a
+beach. That is deliberate. No trail ever asks for a structure, a chest, a coordinate or a rare biome, so
+no trail can be unfinishable because of world generation.
+
+Finishing the finale gives the big card: the trail's Korean title, the closing line, the German line if
+you enabled it, the badge, a fanfare, a level-up sound and fireworks. The badge stays in the journal.
+
+## What happens next
+
+- If exactly one follow-up trail is unlocked, it starts by itself.
+- If several are, a card offers up to five of them. Press `1`–`5`; if you do nothing, the first one starts
+  after 60 seconds.
+- If the next trail is still locked (it wants another parent, or more known words), the mod starts the
+  missing prerequisite instead, so you are never left without a quest.
+- Abandoning is allowed and costs nothing. The trail is paused where you left it — step, partial counter,
+  hint state and sidequest — and resumes exactly there when you come back. Progress in the journal shows
+  as `2/4`.
+
+## The HUD
+
+The vanilla HUD stays as it is. Hangul Quest adds three non-modal elements:
+
+- the **quest tracker** (top-left by default),
+- the **word card** when you look at a block or mob that is in your vocabulary,
+- **celebration cards**, which animate in and out and never capture input.
+
+All of them can be moved or switched off in the journal's options; `F8` hides the quest HUD entirely
+while you build.
+
+## Keys
+
+| Key | Action | Change it under |
+|---|---|---|
+| `K` | Open the journal | Controls → Key Binds → 한글 탐험 |
+| `H` | Show the hint / start the sidequest | same |
+| `J` | Review due words now | same |
+| `F8` | Toggle the quest HUD | same |
+| `1`–`3` | Answer a quiz or sidequest question | same |
+| `1`–`5` | Pick the next trail | same |
+| `Esc` | Close the journal or a card | — |
+
+## Playing in a group
+
+The mod is per-player and invisible to everyone else. On a server, each player can run it independently;
+there is no shared state and no server-side component. If you play with someone who also uses it, you
+will simply each have your own quest log.
+
+## A sensible first session
+
+Do the first branch for ten minutes with the hint key, then turn the hint off for one trail and see how
+far you get. The vocabulary you keep meeting — stone, wood, torch, bread — is the vocabulary the early
+tree is built from, and it reappears in later trails on purpose.

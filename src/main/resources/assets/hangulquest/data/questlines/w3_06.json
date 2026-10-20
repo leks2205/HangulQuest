@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w3_06",
+ "titleKo": "이웃의 밭",
+ "titleDe": "Der Acker des Nachbarn",
+ "topic": "밭",
+ "tier": 2,
+ "order": 1036,
+ "concepts": [
+  "potato",
+  "fence",
+  "gate",
+  "bread"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "gartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "potato"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potato",
+    "count": 4
+   },
+   "clue": {
+    "de": "Ernte vier Kartoffeln vom Nachbaracker."
+   },
+   "hint": {
+    "ko": "감자를 캐요.",
+    "de": "Ernte Kartoffeln."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence",
+    "count": 6
+   },
+   "clue": {
+    "de": "Zäun den Acker mit sechs Zaunpfosten ein."
+   },
+   "hint": {
+    "ko": "울타리를 세워요.",
+    "de": "Stell einen Zaun auf."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence_gate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz ein Tor in den neuen Zaun."
+   },
+   "hint": {
+    "ko": "울타리에 문을 달아요.",
+    "de": "Setz ein Tor in den Zaun."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "이웃의 밭에서 감자를 캐요. 울타리 안이 따뜻해요.",
+  "textDe": "Kartoffeln vom Acker des Nachbarn. Hinter dem Zaun ist es warm."
+ },
+ "reward": {
+  "badge": "w3_06",
+  "words": [
+   "potato",
+   "fence",
+   "gate",
+   "bread"
+  ]
+ },
+ "koreanLevel": 2
+}

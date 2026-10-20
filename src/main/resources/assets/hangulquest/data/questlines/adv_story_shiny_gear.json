@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "adv_story_shiny_gear",
+ "titleKo": "다이아몬드로 날 감싸줘",
+ "titleDe": "Bedeck mich mit Diamanten",
+ "topic": "story",
+ "tier": 2,
+ "order": 323,
+ "concepts": [
+  "diamond",
+  "adv2_item_diamond_helmet",
+  "adv_item_diamond_boots",
+  "adv_block_diamond_chestplate"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_mine_diamond"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 17
+   },
+   "clue": {
+    "de": "Baue siebzehn Diamanten für die Rüstung ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv2_item_diamond_helmet"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_helmet",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Diamanthelm."
+   },
+   "hint": {
+    "ko": "다이아몬드 투구는 다이아몬드 다섯 개로 만들어요.",
+    "de": "Ein Diamanthelm braucht fünf Diamanten."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_diamond_boots"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_boots",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue ein Paar Diamantstiefel."
+   },
+   "hint": {
+    "ko": "다이아몬드 부츠는 다이아몬드 네 개로 만들어요.",
+    "de": "Diamantstiefel brauchen vier Diamanten."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_diamond_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Lege den Diamantharnisch an."
+   },
+   "hint": {
+    "ko": "다이아몬드 흉갑은 다이아몬드 여덟 개로 만들어요.",
+    "de": "Ein Diamantharnisch braucht acht Diamanten."
+   },
+   "conditions": []
+  },
+  "textKo": "다이아몬드로 날 감싸줘 — 다이아몬드 갑옷이 반짝여요.",
+  "textDe": "Bedeck mich mit Diamanten — Die Diamantrüstung glänzt."
+ },
+ "reward": {
+  "badge": "adv_story_shiny_gear",
+  "words": [
+   "diamond",
+   "adv2_item_diamond_helmet",
+   "adv_item_diamond_boots",
+   "adv_block_diamond_chestplate"
+  ]
+ },
+ "koreanLevel": 3
+}

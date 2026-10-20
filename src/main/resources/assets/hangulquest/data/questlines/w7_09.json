@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w7_09",
+ "titleKo": "가스트의 눈물",
+ "titleDe": "Ghasttränen",
+ "topic": "눈물",
+ "tier": 2,
+ "order": 1079,
+ "concepts": [
+  "adv_item_ghast_tear",
+  "brewing_stand",
+  "nether_wart",
+  "adv_item_potion"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "wolkenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_ghast_tear"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ghast_tear",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Ghast-Tränen."
+   },
+   "hint": {
+    "ko": "가스트 눈물은 가스트를 물리치면 나와요.",
+    "de": "Ein besiegter Ghast lässt Ghast-Tränen fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "brewing_stand"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:brewing_stand",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Braustand auf."
+   },
+   "hint": {
+    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요.",
+    "de": "Ein Braustand besteht aus einer Lohenrute und Bruchstein."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_wart",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Netherwarzen."
+   },
+   "hint": {
+    "ko": "네더 사마귀는 영혼 모래에 심어요.",
+    "de": "Netherwarzen pflanzt du auf Seelensand."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_potion"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potion",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "가스트의 눈물로 물약을 빚어요.",
+  "textDe": "Aus Ghasttränen braust du einen Trank."
+ },
+ "reward": {
+  "badge": "w7_09",
+  "words": [
+   "adv_item_ghast_tear",
+   "brewing_stand",
+   "nether_wart",
+   "adv_item_potion"
+  ]
+ },
+ "koreanLevel": 4
+}

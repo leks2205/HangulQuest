@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_nether_return_to_sender",
+ "titleKo": "전해지지 않은 러브레터",
+ "titleDe": "Zurück zum Absender",
+ "topic": "nether",
+ "tier": 2,
+ "order": 304,
+ "concepts": [
+  "gunpowder",
+  "adv_item_blaze_rod",
+  "adv_item_fire_charge"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gunpowder"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gunpowder",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle Schießpulver von einem Ghast oder einem Creeper."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_blaze_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:blaze_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Hol eine Lohenrute aus der Festung, daraus wird Lohenstaub."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_fire_charge"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:fire_charge",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Baue aus Schießpulver, Lohenstaub und Kohle eine Feuerkugel für den Ghast."
+   },
+   "hint": {
+    "ko": "화약과 블레이즈 가루, 석탄을 섞어요."
+   }
+  },
+  "textKo": "전해지지 않은 러브레터 — 화염구를 만들어 되돌려 보냈어요.",
+  "textDe": "Zurück zum Absender — die Feuerkugel geht zurück."
+ },
+ "reward": {
+  "badge": "adv_nether_return_to_sender",
+  "words": [
+   "gunpowder",
+   "adv_item_blaze_rod",
+   "adv_item_fire_charge"
+  ]
+ },
+ "koreanLevel": 2
+}

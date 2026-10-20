@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_kill_axolotl_target",
+ "titleKo": "우정의 치유력!",
+ "titleDe": "Die heilende Kraft der Freundschaft!",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 266,
+ "concepts": [
+  "adv_item_axolotl_bucket",
+  "sword",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_axolotl_in_a_bucket"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_axolotl_bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:axolotl_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fang einen Axolotl im Wasser mit dem Eimer."
+   },
+   "hint": {
+    "ko": "아홀로틀은 물에서 빈 양동이를 쓰면 잡혀요.",
+    "de": "Ein leerer Eimer fängt den Axolotl im Wasser."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sword"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_sword",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede ein Eisenschwert für den Kampf."
+   },
+   "hint": {
+    "ko": "검은 철괴 두 개와 막대기 하나로 만들어요.",
+    "de": "Ein Eisenschwert braucht zwei Eisenbarren und einen Stock."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "우정의 치유력! — 아홀로틀이 함께 싸워 준 좀비를 물리쳐요.",
+  "textDe": "Die heilende Kraft der Freundschaft: Mit dem Axolotl besiegst du den Zombie."
+ },
+ "reward": {
+  "badge": "adv_husbandry_kill_axolotl_target",
+  "words": [
+   "adv_item_axolotl_bucket",
+   "sword",
+   "zombie"
+  ]
+ },
+ "koreanLevel": 2
+}

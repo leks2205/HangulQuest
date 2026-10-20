@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w3_08",
+ "titleKo": "항구의 손님",
+ "titleDe": "Der Gast am Hafen",
+ "topic": "물",
+ "tier": 2,
+ "order": 1038,
+ "concepts": [
+  "beach",
+  "fishing_rod",
+  "fish",
+  "villager"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "riffpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh zum Strand, wo die Boote anlegen."
+   },
+   "hint": {
+    "ko": "해변으로 걸어가요.",
+    "de": "Geh zum Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fishing_rod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:fishing_rod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm eine Angel für den Fang."
+   },
+   "hint": {
+    "ko": "낚싯대를 챙겨요.",
+    "de": "Nimm eine Angel mit."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 2
+   },
+   "clue": {
+    "de": "Fang zwei Fische für den Marktstand."
+   },
+   "hint": {
+    "ko": "물고기를 잡아요.",
+    "de": "Fang Fische."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
+   },
+   "conditions": []
+  },
+  "textKo": "물고기를 팔고 인사를 나눠요. 항구의 하루가 저물어요.",
+  "textDe": "Fisch verkauft, Grüße getauscht. Der Tag am Hafen geht zu Ende."
+ },
+ "reward": {
+  "badge": "w3_08",
+  "words": [
+   "beach",
+   "fishing_rod",
+   "fish",
+   "villager"
+  ]
+ },
+ "koreanLevel": 2
+}

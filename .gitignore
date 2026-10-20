@@ -1,0 +1,32 @@
+# Gradle / Loom
+.gradle/
+build/
+run/
+.loom-cache/
+.build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# Release artefacts (published by the release workflow)
+dist/
+
+# Local tooling and notes
+logs/
+*.log
+*.swp
+.DS_Store
+
+# Book build output and the screenshot copies the book build creates
+docs/book/book/
+docs/book/src/screenshots/
+
+# Local questline experiments and the mod's runtime folder — never the Java package under src/
+/config/

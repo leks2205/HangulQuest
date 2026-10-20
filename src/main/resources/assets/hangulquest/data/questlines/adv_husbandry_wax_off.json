@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_wax_off",
+ "titleKo": "밀랍을 벗기자",
+ "titleDe": "Polieren",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 284,
+ "concepts": [
+  "axe",
+  "adv_item_copper_bulb"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_wax_on"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "axe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_axe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede zuerst eine Axt – damit wird das Wachs später abgeschabt."
+   },
+   "hint": {
+    "ko": "철 도끼를 만들어요. 철 세 개와 막대기 두 개가 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_copper_bulb"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:copper_bulb",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell die gewachste Kupferlampe vor dich hin, damit du sie bearbeiten kannst."
+   },
+   "hint": {
+    "ko": "구리 전구를 땅에 놓아요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_copper_bulb"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:copper_bulb"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Fahr mit der Axt über die Lampe und schab die Wachsschicht ab."
+   },
+   "hint": {
+    "ko": "도끼로 구리 전구의 밀랍을 벗겨요."
+   }
+  },
+  "textKo": "밀랍을 벗겼어요! 구리가 다시 반짝반짝해요.",
+  "textDe": "Wachs abgezogen – die Kupferlampe glänzt wieder wie neu."
+ },
+ "reward": {
+  "badge": "adv_husbandry_wax_off",
+  "words": [
+   "axe",
+   "adv_item_copper_bulb"
+  ]
+ },
+ "koreanLevel": 2
+}

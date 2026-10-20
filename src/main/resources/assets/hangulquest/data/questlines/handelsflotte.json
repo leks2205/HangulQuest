@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "handelsflotte",
+ "titleKo": "무역선의 길",
+ "titleDe": "Die Handelsflotte",
+ "topic": "무역",
+ "tier": 3,
+ "order": 116,
+ "concepts": [
+  "ocean",
+  "chest",
+  "emerald",
+  "sea_lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "leuchtturmpfad",
+   "tempelwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh ans Meer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Smaragde."
+   },
+   "hint": {
+    "ko": "에메랄드는 산에서 캐요.",
+    "de": "Smaragde findest du in Bergen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sea_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sea_lantern",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "바다 랜턴으로 무역선을 밝혀요.",
+  "textDe": "Meereslaternen erhellen die Handelsschiffe."
+ },
+ "reward": {
+  "badge": "handelsflotte",
+  "words": [
+   "ocean",
+   "chest",
+   "emerald",
+   "sea_lantern"
+  ]
+ },
+ "koreanLevel": 4
+}

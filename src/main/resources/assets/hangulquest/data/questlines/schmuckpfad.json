@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "schmuckpfad",
+ "titleKo": "보석의 길",
+ "titleDe": "Der Schmuckpfad",
+ "topic": "보석",
+ "tier": 3,
+ "order": 104,
+ "concepts": [
+  "gold",
+  "emerald",
+  "crafting_table",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelsstrasse",
+   "schmelzofen"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Goldbarren."
+   },
+   "hint": {
+    "ko": "금은 철 곡괭이로 캐요.",
+    "de": "Gold baust du mit einer Eisenspitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Benutz eine Werkbank."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Smaragde."
+   },
+   "hint": {
+    "ko": "에메랄드는 산에서 캐요.",
+    "de": "Smaragde findest du in Bergen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "보석을 상자에 넣어요.",
+  "textDe": "Schmuck kommt in die Truhe."
+ },
+ "reward": {
+  "badge": "schmuckpfad",
+  "words": [
+   "gold",
+   "emerald",
+   "crafting_table",
+   "chest"
+  ]
+ },
+ "koreanLevel": 3
+}

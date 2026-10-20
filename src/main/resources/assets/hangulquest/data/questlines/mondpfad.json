@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "id": "mondpfad",
+ "titleKo": "달빛의 길",
+ "titleDe": "Der Mondpfad",
+ "tier": 2,
+ "order": 505,
+ "concepts": [
+  "clock",
+  "torch",
+  "bed",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "nachtwache"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Uhr."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "clue": {
+    "de": "Benutz ein Bett."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 달빛 아래에 모닥불을 피워요.",
+  "textDe": "Unter dem Mond brennt ein Lagerfeuer."
+ },
+ "reward": {
+  "badge": "mondpfad",
+  "words": [
+   "clock",
+   "torch",
+   "bed"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "밤"
+}

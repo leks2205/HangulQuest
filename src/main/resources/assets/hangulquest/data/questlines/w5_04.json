@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w5_04",
+ "titleKo": "용광로의 불빛",
+ "titleDe": "Das Feuer im Schmelzofen",
+ "topic": "화로",
+ "tier": 2,
+ "order": 1054,
+ "concepts": [
+  "furnace",
+  "coal",
+  "iron",
+  "gold"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "festtafel"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:furnace",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Ofen auf."
+   },
+   "hint": {
+    "ko": "화로는 조약돌 여덟 개로 만들어요.",
+    "de": "Ein Ofen braucht acht Bruchsteine."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 8
+   },
+   "clue": {
+    "de": "Baue acht Kohle ab."
+   },
+   "hint": {
+    "ko": "석탄은 곡괭이로 캐요.",
+    "de": "Kohle baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Eisenbarren."
+   },
+   "hint": {
+    "ko": "철은 화로에서 구워요.",
+    "de": "Eisen schmilzt du im Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 3
+   },
+   "clue": {
+    "de": "Schmelz drei Goldbarren."
+   },
+   "hint": {
+    "ko": "금은 화로에서 구워요.",
+    "de": "Gold schmilzt du im Ofen."
+   },
+   "conditions": []
+  },
+  "textKo": "화로의 불빛 아래에서 쇠와 금을 녹여요.",
+  "textDe": "Im Licht des Schmelzofens schmelzen Eisen und Gold."
+ },
+ "reward": {
+  "badge": "w5_04",
+  "words": [
+   "furnace",
+   "coal",
+   "iron",
+   "gold"
+  ]
+ },
+ "koreanLevel": 3
+}

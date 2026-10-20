@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "adv_end_levitate",
+ "titleKo": "위쪽 공기 좋은데?",
+ "titleDe": "Schöne Aussicht von hier oben",
+ "topic": "end",
+ "tier": 2,
+ "order": 253,
+ "concepts": [
+  "adv_item_shulker_shell",
+  "adv_block_purpur_block",
+  "height"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_find_end_city"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_shulker_shell"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shulker_shell",
+    "count": 2
+   },
+   "clue": {
+    "de": "Erlege Shulker in der Endstadt und nimm ihre Schalen mit."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:purpur_block",
+    "dwellMs": 700
+   },
+   "clue": {
+    "de": "Suche in der Endstadt nach einem Shulker, der dich schweben lässt."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 180,
+    "maxY": 320
+   },
+   "conditions": []
+  },
+  "textKo": "위쪽 공기 좋은데? — 셜커의 부유 효과로 높이 올라가요.",
+  "textDe": "Schöne Aussicht von hier oben — Lass dich von der Levitation hoch in die Luft tragen."
+ },
+ "reward": {
+  "badge": "adv_end_levitate",
+  "words": [
+   "adv_item_shulker_shell",
+   "adv_block_purpur_block",
+   "height"
+  ]
+ },
+ "koreanLevel": 6
+}

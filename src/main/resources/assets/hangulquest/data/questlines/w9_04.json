@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "w9_04",
+ "titleKo": "왕관의 성벽",
+ "titleDe": "Die Kronenmauer",
+ "topic": "수호",
+ "tier": 2,
+ "order": 1094,
+ "concepts": [
+  "iron_chestplate",
+  "shield",
+  "stone_bricks"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kronenwacht"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Zieh im Thronsaal eine Mauer aus acht Steinziegeln.",
+    "ko": "왕관의 방에 석재 벽돌을 여덟 개 놓아요."
+   },
+   "hint": {
+    "ko": "석재 벽돌은 돌로 만들어요.",
+    "de": "Steinziegel fertigst du aus Stein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede einen eisernen Brustharnisch für die Wache.",
+    "ko": "왕관을 지키려고 철 흉갑을 챙겨요."
+   },
+   "hint": {
+    "ko": "철 흉갑은 철 조각 여덟 개로 만들어요.",
+    "de": "Ein Eisenharnisch braucht acht Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "shield"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shield",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "방패를 들지 않고서는 왕관을 지킬 수 없어요.",
+  "textDe": "Ohne Schild lässt sich die Krone nicht bewachen."
+ },
+ "reward": {
+  "badge": "w9_04",
+  "words": [
+   "iron_chestplate",
+   "shield",
+   "stone_bricks"
+  ]
+ },
+ "koreanLevel": 5
+}

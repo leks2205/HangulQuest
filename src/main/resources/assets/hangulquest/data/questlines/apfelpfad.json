@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "apfelpfad",
+ "titleKo": "사과의 길",
+ "titleDe": "Der Apfelpfad",
+ "topic": "사과",
+ "tier": 1,
+ "order": 138,
+ "concepts": [
+  "apple",
+  "leaves",
+  "sapling"
+ ],
+ "requires": {
+  "minWordsKnown": 10,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "apple"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:apple",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Äpfel."
+   },
+   "hint": {
+    "ko": "사과는 참나무 잎에서 떨어져요.",
+    "de": "Äpfel fallen von Eichenblättern."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "apple"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:apple",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Apfel."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:oak_leaves",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau auf Blätter."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sapling"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_sapling",
+    "count": 1
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "묘목은 나뭇잎을 깨면 나와요.",
+    "de": "Setzlinge bekommst du von Blättern."
+   }
+  },
+  "textKo": "사과나무 묘목을 심어요.",
+  "textDe": "Einen Apfelbaum pflanzen."
+ },
+ "reward": {
+  "badge": "apfelpfad",
+  "words": [
+   "apple",
+   "leaves",
+   "sapling"
+  ]
+ },
+ "koreanLevel": 1
+}

@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_ol_betsy",
+ "titleKo": "부러진 화살",
+ "titleDe": "Ich habe die Knarre gesichert",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 218,
+ "concepts": [
+  "adv_item_crossbow",
+  "arrow",
+  "zombie"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_crossbow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crossbow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Armbrust aus Stöcken, einem Eisenbarren, Faden und einem Stolperdraht-Haken."
+   },
+   "hint": {
+    "ko": "막대기, 철 주괴, 실, 철사 덫 갈고리로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 8
+   },
+   "clue": {
+    "de": "Fülle deinen Köcher mit acht Pfeilen aus Feuerstein, Stöcken und Federn."
+   },
+   "hint": {
+    "ko": "부싯돌, 막대기, 깃털로 화살을 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Triff einen Zombie mit einem Bolzen aus der gespannten Armbrust."
+   }
+  },
+  "textKo": "부러진 화살 — 쇠뇌로 몬스터를 맞혀요.",
+  "textDe": "Ich habe die Knarre gesichert — Ein Armbrustbolzen trifft mitten ins Ziel."
+ },
+ "reward": {
+  "badge": "adv_adventure_ol_betsy",
+  "words": [
+   "adv_item_crossbow",
+   "arrow",
+   "zombie"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,37 @@
+name: Feature request
+description: An idea for Hangul Quest
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Questline ideas are welcome too, but they are content: describe the trail, the words it teaches and
+        where it should sit in the tree, and see `docs/questline-attributes.md` before writing one.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like Hangul Quest to do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why? How do you learn Korean today, and where does this fit?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What else could solve it?
+      description: A different questline, a config option, or something outside the mod entirely — say so if that is enough.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Quests and content
+        - Hint / sidequest / hints in general
+        - Journal and UI
+        - Vocabulary and Lute
+        - Review, streak and achievements
+        - Language support (English UI, more target languages)
+        - Build, packaging, docs

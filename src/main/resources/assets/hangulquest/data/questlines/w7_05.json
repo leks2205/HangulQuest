@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w7_05",
+ "titleKo": "영혼의 등불",
+ "titleDe": "Das Seelenlicht",
+ "topic": "영혼",
+ "tier": 2,
+ "order": 1075,
+ "concepts": [
+  "soul_sand",
+  "soul_torch",
+  "soul_lantern",
+  "adv_dimension_the_nether"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "leuchtturmpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:soul_sand",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Seelensand ab."
+   },
+   "hint": {
+    "ko": "영혼 모래는 지옥의 영혼 모래 골짜기에서 캐요.",
+    "de": "Seelensand gräbst du im Seelensandtal des Nethers."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "soul_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Seelenfackeln."
+   },
+   "hint": {
+    "ko": "영혼 횃불은 석탄, 막대기, 영혼 모래로 만들어요.",
+    "de": "Seelenfackeln bestehen aus Kohle, Stock und Seelensand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "soul_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_lantern",
+    "count": 2
+   },
+   "clue": {
+    "de": "Häng zwei Seelenlaternen auf."
+   },
+   "hint": {
+    "ko": "영혼 랜턴은 영혼 횃불과 철 조각으로 만들어요.",
+    "de": "Seelenlaternen bestehen aus einer Seelenfackel und Eisenklumpen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "conditions": []
+  },
+  "textKo": "영혼의 등불을 들고 지옥의 골짜기로 걸어가요.",
+  "textDe": "Mit Seelenlicht wanderst du ins Tal des Nethers."
+ },
+ "reward": {
+  "badge": "w7_05",
+  "words": [
+   "soul_sand",
+   "soul_torch",
+   "soul_lantern",
+   "adv_dimension_the_nether"
+  ]
+ },
+ "koreanLevel": 4
+}

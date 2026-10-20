@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "briefpfad",
+ "titleKo": "편지의 길",
+ "titleDe": "Der Briefpfad",
+ "topic": "편지",
+ "tier": 1,
+ "order": 99,
+ "concepts": [
+  "paper",
+  "ink_sac",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "paper"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:paper",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Papier."
+   },
+   "hint": {
+    "ko": "종이는 사탕수수로 만들어요.",
+    "de": "Papier wird aus Zuckerrohr gemacht."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ink_sac"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ink_sac",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Tintenbeutel."
+   },
+   "hint": {
+    "ko": "잉크 주머니는 오징어에게서 얻어요.",
+    "de": "Tintenbeutel bekommst du von Tintenfischen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "상자에 편지를 넣어요.",
+  "textDe": "Der Brief kommt in die Truhe."
+ },
+ "reward": {
+  "badge": "briefpfad",
+  "words": [
+   "paper",
+   "ink_sac",
+   "chest"
+  ]
+ },
+ "koreanLevel": 1
+}

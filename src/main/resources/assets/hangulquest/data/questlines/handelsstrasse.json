@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "handelsstrasse",
+ "titleKo": "무역로",
+ "titleDe": "Die Handelsstraße",
+ "tier": 3,
+ "order": 517,
+ "concepts": [
+  "emerald",
+  "bread",
+  "bell",
+  "chest"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "karawanepfad",
+   "marktpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 5
+   },
+   "clue": {
+    "de": "Sammle fünf Smaragde."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Brote."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "clue": {
+    "de": "Läute die Glocke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  "textKo": "낮에 무역로 상자를 열어요.",
+  "textDe": "Am Tag öffnest du die Handelstruhe."
+ },
+ "reward": {
+  "badge": "handelsstrasse",
+  "words": [
+   "emerald",
+   "bread",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "마을"
+}

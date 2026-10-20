@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "adv_story_form_obsidian",
+ "titleKo": "아이스 버킷 챌린지",
+ "titleDe": "Ice Bucket Challenge",
+ "topic": "story",
+ "tier": 2,
+ "order": 316,
+ "concepts": [
+  "lava",
+  "water",
+  "obsidian"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_lava_bucket"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "lava"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle einen Eimer mit Lava aus dem Höhlensee."
+   },
+   "hint": {
+    "ko": "양동이는 철 주괴 세 개로 만들어요.",
+    "de": "Ein Eimer braucht drei Eisenbarren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Fülle einen zweiten Eimer mit Wasser."
+   },
+   "hint": {
+    "ko": "물 근처에서 양동이를 쓰면 물이 담겨요.",
+    "de": "Am Wasser füllt sich der Eimer von selbst."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:obsidian",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Lass Wasser auf die Lava treffen und sieh dir den neuen Block an."
+   },
+   "hint": {
+    "ko": "흑요석은 다이아몬드 곡괭이로만 캘 수 있어요.",
+    "de": "Obsidian braucht eine Diamantspitzhacke."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:obsidian",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm den entstandenen Obsidianblock an dich."
+   },
+   "hint": {
+    "ko": "물과 용암이 만나면 흑요석이 만들어져요.",
+    "de": "Wasser auf Lava ergibt Obsidian."
+   },
+   "conditions": []
+  },
+  "textKo": "아이스 버킷 챌린지 — 물과 용암으로 흑요석을 만들었어요.",
+  "textDe": "Ice Bucket Challenge — Aus Wasser und Lava wurde Obsidian."
+ },
+ "reward": {
+  "badge": "adv_story_form_obsidian",
+  "words": [
+   "lava",
+   "water",
+   "obsidian"
+  ]
+ },
+ "koreanLevel": 3
+}

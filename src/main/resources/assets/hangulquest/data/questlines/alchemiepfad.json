@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "alchemiepfad",
+ "titleKo": "연금술의 길",
+ "titleDe": "Der Alchemiepfad",
+ "topic": "연금술",
+ "tier": 3,
+ "order": 103,
+ "concepts": [
+  "cauldron",
+  "glass_bottle",
+  "sugar"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmelzofen",
+   "schmauspfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cauldron"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:cauldron"
+   },
+   "clue": {
+    "de": "Benutz einen Kessel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass_bottle",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Glasflaschen."
+   },
+   "hint": {
+    "ko": "유리병은 모래를 화로에 구워 만들어요.",
+    "de": "Glasflaschen entstehen aus Sand im Ofen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sugar"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sugar",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Zucker."
+   },
+   "hint": {
+    "ko": "설탕은 사탕수수로 만들어요.",
+    "de": "Zucker wird aus Zuckerrohr gemacht."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cauldron"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cauldron",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "가마솥에 재료를 넣어요.",
+  "textDe": "Zutaten kommen in den Kessel."
+ },
+ "reward": {
+  "badge": "alchemiepfad",
+  "words": [
+   "cauldron",
+   "glass_bottle",
+   "sugar"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_trim_with_any_armor_pattern",
+ "titleKo": "유행의 선도자",
+ "titleDe": "Ein neues Aussehen",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 238,
+ "concepts": [
+  "adv_item_dune_armor_trim_smithing_template",
+  "iron_chestplate",
+  "adv_block_diamond_chestplate"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_dune_armor_trim_smithing_template"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dune_armor_trim_smithing_template",
+    "count": 1
+   },
+   "clue": {
+    "de": "Finde die Dünen-Vorlage in einem Wüstentempel."
+   },
+   "hint": {
+    "ko": "사막 사원 상자에서 형판을 찾아요.",
+    "de": "Die Dünenvorlage liegt in einer Truhe im Wüstentempel."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede eine Eisenbrustplatte als Grundlage."
+   },
+   "hint": {
+    "ko": "철 흉갑은 철 여덟 개로 만들어요.",
+    "de": "Eine Eisenbrustplatte besteht aus acht Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_block_diamond_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond_chestplate",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "유행의 선도자 — 형판으로 다이아몬드 흉갑을 꾸며요.",
+  "textDe": "Ein neues Aussehen — Dein Diamantharnisch trägt jetzt das Muster der Vorlage."
+ },
+ "reward": {
+  "badge": "adv_adventure_trim_with_any_armor_pattern",
+  "words": [
+   "adv_item_dune_armor_trim_smithing_template",
+   "iron_chestplate",
+   "adv_block_diamond_chestplate"
+  ]
+ },
+ "koreanLevel": 2
+}

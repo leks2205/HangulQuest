@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_root",
+ "titleKo": "모험",
+ "titleDe": "Abenteuer",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 223,
+ "concepts": [
+  "zombie",
+  "skeleton",
+  "creeper"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "abenteuerpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erschlage einen Zombie, der dir im Weg steht."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 2
+   },
+   "clue": {
+    "de": "Erschieße zwei Skelette, bevor ihre Pfeile dich treffen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "creeper"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:creeper",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Erledige einen Creeper aus sicherer Entfernung – dein erster echter Kampf."
+   }
+  },
+  "textKo": "모험 — 첫 몬스터를 물리치고 모험을 시작해요.",
+  "textDe": "Abenteuer — Erlege dein erstes Monster und beginne das Abenteuer."
+ },
+ "reward": {
+  "badge": "adv_adventure_root",
+  "words": [
+   "zombie",
+   "skeleton",
+   "creeper"
+  ]
+ },
+ "koreanLevel": 2
+}

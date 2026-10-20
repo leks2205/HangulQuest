@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "kristallschmiede",
+ "titleKo": "수정 대장간",
+ "titleDe": "Die Kristallschmiede",
+ "tier": 5,
+ "order": 543,
+ "concepts": [
+  "diamond",
+  "pickaxe",
+  "furnace",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kristallhoehle",
+   "schmiedefeuer",
+   "schmelzofen",
+   "redstonepfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Diamanten."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Öffne den Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 수정 대장간을 밝혀요.",
+  "textDe": "Nachts leuchtet die Kristallschmiede."
+ },
+ "reward": {
+  "badge": "kristallschmiede",
+  "words": [
+   "diamond",
+   "pickaxe",
+   "furnace"
+  ]
+ },
+ "koreanLevel": 3,
+ "topic": "돌"
+}

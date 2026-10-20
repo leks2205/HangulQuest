@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w2_08",
+ "titleKo": "구름 위 탑",
+ "titleDe": "Der Turm über den Wolken",
+ "topic": "하늘",
+ "tier": 1,
+ "order": 1028,
+ "concepts": [
+  "ladder",
+  "glass",
+  "height",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ladder"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:ladder",
+    "count": 8
+   },
+   "clue": {
+    "de": "Bau eine Leiter acht Blöcke hoch."
+   },
+   "hint": {
+    "ko": "사다리로 위로 올라가요.",
+    "de": "Mit einer Leiter steigst du hinauf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Glasblöcke als Fenster in den Turm."
+   },
+   "hint": {
+    "ko": "유리는 투명해요.",
+    "de": "Glas ist durchsichtig."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "clue": {
+    "de": "Steig bis auf Höhe 120 hinauf."
+   },
+   "hint": {
+    "ko": "구름 위로 올라가요.",
+    "de": "Steig über die Wolken hinauf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 8
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "밤에 횃불을 여덟 개 놓아요.",
+    "de": "Setze in der Nacht acht Fackeln."
+   }
+  },
+  "textKo": "밤에 구름 위 탑에 횃불 여덟 개를 밝혀요.",
+  "textDe": "Nachts brennen auf dem Turm über den Wolken acht Fackeln."
+ },
+ "reward": {
+  "badge": "w2_08",
+  "words": [
+   "ladder",
+   "glass",
+   "height",
+   "torch"
+  ]
+ },
+ "koreanLevel": 1
+}

@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "id": "frostwacht",
+ "titleKo": "철 갑옷의 길",
+ "titleDe": "Suit Up",
+ "topic": "장비",
+ "tier": 2,
+ "order": 90,
+ "concepts": [
+  "iron",
+  "crafting_table",
+  "iron_chestplate",
+  "anvil"
+ ],
+ "requires": {
+  "minWordsKnown": 25,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "eiskrone"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Eisenbarren."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:crafting_table"
+   },
+   "clue": {
+    "de": "Benutz eine Werkbank."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle eine Eisenbrustplatte her."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "conditions": []
+  },
+  "textKo": "모루에서 철 갑옷을 다듬어요.",
+  "textDe": "Die Eisenrüstung am Amboss verbessern."
+ },
+ "reward": {
+  "badge": "frostwacht",
+  "words": [
+   "iron",
+   "crafting_table",
+   "iron_chestplate",
+   "anvil"
+  ]
+ },
+ "koreanLevel": 3
+}

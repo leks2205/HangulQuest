@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_spear_many_mobs",
+ "titleKo": "몹 꼬치",
+ "titleDe": "Fünf auf einen Spieß",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 228,
+ "concepts": [
+  "adv_item_iron_spear",
+  "zombie",
+  "skeleton"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_kill_a_mob"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_iron_spear"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_spear",
+    "count": 1
+   },
+   "clue": {
+    "de": "Schmiede dir zuerst einen Eisenspeer."
+   },
+   "hint": {
+    "ko": "철 창은 철과 막대기로 만들어요.",
+    "de": "Ein Speer besteht aus Eisen und einem Stock."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 2
+   },
+   "clue": {
+    "de": "Wirf den Speer und durchbohre zwei Zombies."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "몹 꼬치 — 철 창으로 몹을 꼬치처럼 한 번에 꿰뚫어요.",
+  "textDe": "Fünf auf einen Spieß — Mit dem Speer spießt du mehrere Monster auf einmal auf."
+ },
+ "reward": {
+  "badge": "adv_adventure_spear_many_mobs",
+  "words": [
+   "adv_item_iron_spear",
+   "zombie",
+   "skeleton"
+  ]
+ },
+ "koreanLevel": 3
+}

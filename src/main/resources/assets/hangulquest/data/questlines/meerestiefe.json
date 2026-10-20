@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "meerestiefe",
+ "titleKo": "바다 깊은 길",
+ "titleDe": "Die Meerestiefe",
+ "tier": 3,
+ "order": 514,
+ "concepts": [
+  "ocean",
+  "squid",
+  "fish",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "riffpfad",
+   "fischerpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh ins Meer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "squid"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:squid",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau einen Tintenfisch an."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Sammle einen Fisch."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  "textKo": "해변에서 불을 피워요. 바다 깊은 길이 끝났어요.",
+  "textDe": "Am Strand brennt das Feuer. Die Meerestiefe ist zu Ende."
+ },
+ "reward": {
+  "badge": "meerestiefe",
+  "words": [
+   "ocean",
+   "squid",
+   "fish",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "물"
+}

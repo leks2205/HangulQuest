@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "id": "w4_06",
+ "titleKo": "산속 호수",
+ "titleDe": "Der Bergsee",
+ "topic": "호수",
+ "tier": 2,
+ "order": 1046,
+ "concepts": [
+  "ice",
+  "clay",
+  "bucket",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "alpental"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ice"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 4
+   },
+   "clue": {
+    "de": "Schlag vier Eisblöcke aus dem Bergsee."
+   },
+   "hint": {
+    "ko": "얼음은 호수 위에 있어요.",
+    "de": "Das Eis liegt auf dem See."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "clay"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clay_ball",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Tonklumpen vom Seegrund."
+   },
+   "hint": {
+    "ko": "점토는 물속 바닥에서 나와요.",
+    "de": "Ton findest du auf dem Grund des Sees."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bucket"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Eimer her."
+   },
+   "hint": {
+    "ko": "양동이는 철로 만들어요.",
+    "de": "Einen Eimer machst du aus Eisen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Mach auf über 90 Blöcken Höhe am Ufer ein Lagerfeuer."
+   },
+   "hint": {
+    "ko": "모닥불은 높은 호숫가에서 피워요.",
+    "de": "Das Lagerfeuer brennt hoch am Ufer."
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": 90,
+     "maxY": 320
+    }
+   ]
+  },
+  "textKo": "높은 호숫가에서 모닥불을 피워요.",
+  "textDe": "Hoch am Bergsee brennt das Lagerfeuer."
+ },
+ "reward": {
+  "badge": "w4_06",
+  "words": [
+   "ice",
+   "clay",
+   "bucket",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2
+}

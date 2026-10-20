@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "adv_story_enter_the_nether",
+ "titleKo": "더 깊은 곳으로",
+ "titleDe": "Wir müssen noch tiefer",
+ "topic": "story",
+ "tier": 2,
+ "order": 314,
+ "concepts": [
+  "obsidian",
+  "adv_item_flint_and_steel",
+  "adv_dimension_the_nether"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_form_obsidian"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:obsidian",
+    "count": 10
+   },
+   "clue": {
+    "de": "Baue zehn Obsidianblöcke für den Portalrahmen ab."
+   },
+   "hint": {
+    "ko": "포털에는 흑요석 열 개가 필요하고, 흑요석은 다이아몬드 곡괭이로 캐요.",
+    "de": "Zehn Obsidian für den Rahmen, abgebaut mit der Diamantspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_flint_and_steel"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:flint_and_steel",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue ein Feuerzeug aus Flint und Eisen."
+   },
+   "hint": {
+    "ko": "부싯돌과 철 주괴로 불을 붙이는 도구를 만들어요.",
+    "de": "Feuerzeug: Feuerstein und ein Eisenbarren."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "obsidian"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 10
+   },
+   "clue": {
+    "de": "Stelle aus zehn Obsidian einen Portalrahmen auf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Zünde den Rahmen an und gehe durch das Portal."
+   },
+   "conditions": []
+  },
+  "textKo": "더 깊은 곳으로 — 불타는 지옥에 첫발을 디뎠어요.",
+  "textDe": "Wir müssen noch tiefer — Der Nether ist erreicht."
+ },
+ "reward": {
+  "badge": "adv_story_enter_the_nether",
+  "words": [
+   "obsidian",
+   "adv_item_flint_and_steel",
+   "adv_dimension_the_nether"
+  ]
+ },
+ "koreanLevel": 3
+}

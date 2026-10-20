@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_heart_transplanter",
+ "titleKo": "심장 이식 수술",
+ "titleDe": "Herzverpflanzer",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 209,
+ "concepts": [
+  "adv_item_creaking_heart"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_creaking_heart"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:creaking_heart",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erlege den Knarzer im blassen Eichenwald und nimm sein Herz."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_creaking_heart"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:creaking_heart",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setze das Knarzherz zwischen zwei Stämme aus blasser Eiche."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_creaking_heart"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:creaking_heart",
+    "dwellMs": 600
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Tritt zurück und sieh zu, wie das Herz wieder zu schlagen beginnt."
+   }
+  },
+  "textKo": "심장 이식 수술 — 두 통나무 사이에서 심장이 다시 뛰었어요.",
+  "textDe": "Herzverpflanzer — das Herz schlägt zwischen zwei Stämmen."
+ },
+ "reward": {
+  "badge": "adv_adventure_heart_transplanter",
+  "words": [
+   "adv_item_creaking_heart"
+  ]
+ },
+ "koreanLevel": 2
+}

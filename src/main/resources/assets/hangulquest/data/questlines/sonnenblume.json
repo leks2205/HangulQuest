@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "sonnenblume",
+ "titleKo": "해바라기의 길",
+ "titleDe": "Der Sonnenblumenpfad",
+ "topic": "해바라기",
+ "tier": 3,
+ "order": 140,
+ "concepts": [
+  "sunflower"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "kraeuterpfad",
+   "waldhaus"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "sunflower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sunflower",
+    "dwellMs": 600
+   },
+   "clue": {
+    "de": "Schau eine Sonnenblume an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "sunflower"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sunflower",
+    "count": 2
+   },
+   "clue": {
+    "de": "Baue zwei Sonnenblumen ab."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sunflower"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sunflower",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Sonnenblumen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sunflower"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sunflower",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "해바라기를 모아요.",
+  "textDe": "Sonnenblumen sammeln."
+ },
+ "reward": {
+  "badge": "sonnenblume",
+  "words": [
+   "sunflower"
+  ]
+ },
+ "koreanLevel": 1
+}

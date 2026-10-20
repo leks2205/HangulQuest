@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "w9_05",
+ "titleKo": "영원의 시간",
+ "titleDe": "Die Zeit der Ewigkeit",
+ "topic": "영원",
+ "tier": 2,
+ "order": 1095,
+ "concepts": [
+  "clock",
+  "enchanting_table",
+  "nether_star"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "zeitportal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:clock",
+    "count": 1
+   },
+   "clue": {
+    "de": "Bau eine Uhr, um die Ewigkeit zu messen.",
+    "ko": "영원을 재려고 시계를 만들어요."
+   },
+   "hint": {
+    "ko": "시계는 금 조각과 레드스톤으로 만들어요.",
+    "de": "Eine Uhr entsteht aus Gold und Redstone."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "enchanting_table"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:enchanting_table"
+   },
+   "clue": {
+    "de": "Verzaubere die Krone am Zaubertisch.",
+    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요."
+   },
+   "hint": {
+    "ko": "마법 부여대는 흑요석과 다이아몬드와 책으로 만들어요.",
+    "de": "Ein Zaubertisch braucht Obsidian, Diamanten und Bücher."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "nether_star"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_star",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "네더의 별을 얻지 않고서는 영원을 이룰 수 없어요.",
+  "textDe": "Ohne den Netherstern bleibt die Ewigkeit unerreicht."
+ },
+ "reward": {
+  "badge": "w9_05",
+  "words": [
+   "clock",
+   "enchanting_table",
+   "nether_star"
+  ]
+ },
+ "koreanLevel": 5
+}

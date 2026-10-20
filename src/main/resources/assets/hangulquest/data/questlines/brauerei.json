@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "brauerei",
+ "titleKo": "양조장의 길",
+ "titleDe": "Der Brauereipfad",
+ "topic": "양조",
+ "tier": 3,
+ "order": 158,
+ "concepts": [
+  "glass_bottle",
+  "brewing_stand",
+  "nether_wart",
+  "sugar"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "alpental",
+   "gartenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass_bottle",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Glasflaschen."
+   },
+   "hint": {
+    "ko": "유리병은 유리 블록으로 만들어요.",
+    "de": "Glasflaschen entstehen aus Glas."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "brewing_stand"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:brewing_stand"
+   },
+   "clue": {
+    "de": "Benutz einen Braustand."
+   },
+   "hint": {
+    "ko": "양조기는 블레이즈 막대와 조약돌로 만들어요.",
+    "de": "Ein Braustand braucht Blaze-Rute und Bruchstein."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_wart",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Netherwarzen."
+   },
+   "hint": {
+    "ko": "네더 사마귀는 네더의 영혼 모래에서 자라요.",
+    "de": "Netherwarzen wachsen auf Seelensand im Nether."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "sugar"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sugar",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "설탕으로 양조를 마쳐요.",
+  "textDe": "Mit Zucker den Brau abschließen."
+ },
+ "reward": {
+  "badge": "brauerei",
+  "words": [
+   "glass_bottle",
+   "brewing_stand",
+   "nether_wart",
+   "sugar"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w8_04",
+ "titleKo": "용의 섬",
+ "titleDe": "Die Dracheninsel",
+ "topic": "섬",
+ "tier": 2,
+ "order": 1084,
+ "concepts": [
+  "end",
+  "adv_block_purpur_block",
+  "adv_item_shulker_shell",
+  "adv_item_end_crystal"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "reisekrone"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "end"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "clue": {
+    "de": "Reise in das Ende."
+   },
+   "hint": {
+    "ko": "엔드 차원은 흑요석 문으로 가요.",
+    "de": "Ins Ende reist du durch ein Obsidiantor."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:purpur_block",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Purpurblöcke."
+   },
+   "hint": {
+    "ko": "퍼퍼 블록은 엔드 도시에서 나와요.",
+    "de": "Purpurblöcke stammen aus den Endstädten."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_shulker_shell"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shulker_shell",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Shulkerschalen."
+   },
+   "hint": {
+    "ko": "셜커 껍데기는 셜커를 물리치면 나와요.",
+    "de": "Shulkerschalen lassen Shulker fallen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_end_crystal"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:end_crystal",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "용의 섬에 도착했어요. 퍼퍼 탑이 우리를 기다려요.",
+  "textDe": "Die Dracheninsel ist erreicht. Die Purpurtürme warten."
+ },
+ "reward": {
+  "badge": "w8_04",
+  "words": [
+   "end",
+   "adv_block_purpur_block",
+   "adv_item_shulker_shell",
+   "adv_item_end_crystal"
+  ]
+ },
+ "koreanLevel": 4
+}

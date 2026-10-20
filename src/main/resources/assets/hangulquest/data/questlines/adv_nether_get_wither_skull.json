@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_nether_get_wither_skull",
+ "titleKo": "으스스한 스켈레톤",
+ "titleDe": "Nicht den Kopf verlieren",
+ "topic": "nether",
+ "tier": 2,
+ "order": 298,
+ "concepts": [
+  "adv_item_wither_skeleton_skull"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_find_fortress"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wither_skeleton_skull",
+    "count": 1
+   },
+   "clue": {
+    "de": "Such in der Netherfestung die Wither-Skelette und hol dir den ersten Schädel."
+   },
+   "hint": {
+    "ko": "위더 스켈레톤은 네더 요새에서만 나와요. 강한 검이 필요해요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wither_skeleton_skull",
+    "count": 2
+   },
+   "clue": {
+    "de": "Ein zweiter Schädel: bleib in der Festung und kämpfe weiter."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wither_skeleton_skull",
+    "count": 3
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Drei Schädel sind beisammen – genug, um den Wither zu rufen."
+   }
+  },
+  "textKo": "으스스한 스켈레톤 — 위더 스켈레톤의 해골 세 개를 모았어요.",
+  "textDe": "Nicht den Kopf verlieren — drei Schädel für den Wither."
+ },
+ "reward": {
+  "badge": "adv_nether_get_wither_skull",
+  "words": [
+   "adv_item_wither_skeleton_skull"
+  ]
+ },
+ "koreanLevel": 3
+}

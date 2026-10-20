@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_froglights",
+ "titleKo": "우리의 힘을 합친다면!",
+ "titleDe": "Mit vereinten Kräften!",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 265,
+ "concepts": [
+  "magma",
+  "frog",
+  "adv_item_ochre_froglight"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_leash_all_frog_variants"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "magma"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:magma_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue im Nether einen Magmablock ab."
+   },
+   "hint": {
+    "ko": "마그마 블록은 곡괭이로 캐요.",
+    "de": "Magmablöcke baust du mit einer Spitzhacke ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "frog"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:frog"
+   },
+   "clue": {
+    "de": "Nimm einen Frosch mit in den Nether."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_ochre_froglight"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ochre_froglight",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "우리의 힘을 합친다면! — 개구리가 마그마를 먹고 빛을 남겨요.",
+  "textDe": "Mit vereinten Kräften: Der Frosch frisst den Magmawürfel und lässt ein Froschlicht zurück."
+ },
+ "reward": {
+  "badge": "adv_husbandry_froglights",
+  "words": [
+   "magma",
+   "frog",
+   "adv_item_ochre_froglight"
+  ]
+ },
+ "koreanLevel": 2
+}

@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_safely_harvest_honey",
+ "titleKo": "벌집을 내 집처럼",
+ "titleDe": "Sssei unser Gast",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 278,
+ "concepts": [
+  "campfire",
+  "glass_bottle",
+  "adv_item_bee_nest"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stelle ein Lagerfeuer unter das Bienennest, damit der Rauch die Bienen beruhigt."
+   },
+   "hint": {
+    "ko": "통나무와 석탄과 막대기로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass_bottle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Blase Glasflaschen aus Glas."
+   },
+   "hint": {
+    "ko": "유리로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_bee_nest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bee_nest"
+   },
+   "conditions": []
+  },
+  "textKo": "벌집을 내 집처럼 — 연기가 피어오르는 벌집에서 꿀을 받아요.",
+  "textDe": "Sssei unser Gast — Im Rauch zapfst du Honig aus dem Bienennest."
+ },
+ "reward": {
+  "badge": "adv_husbandry_safely_harvest_honey",
+  "words": [
+   "campfire",
+   "glass_bottle",
+   "adv_item_bee_nest"
+  ]
+ },
+ "koreanLevel": 1
+}

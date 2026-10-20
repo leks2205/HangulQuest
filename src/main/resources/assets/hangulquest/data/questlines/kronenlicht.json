@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "kronenlicht",
+ "titleKo": "왕관의 빛",
+ "titleDe": "Das Kronenlicht",
+ "topic": "산",
+ "tier": 5,
+ "order": 70,
+ "concepts": [
+  "mountain",
+  "torch",
+  "bed",
+  "crown"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "reisekrone",
+   "vulkanpfad",
+   "tempelwaechter",
+   "handelsgilde",
+   "gerberei",
+   "postpfad",
+   "werkzeugpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "mountain",
+    "crown"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh in ein Bergbiom.",
+    "ko": "왕관을 찾아 산으로 가요."
+   },
+   "hint": {
+    "ko": "왕관은 머리에 쓰는 것이에요. 산에서 찾아요.",
+    "de": "Eine Krone trägt man auf dem Kopf; du findest sie im Bergbiom."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 왕관의 빛 아래에서 자요.",
+  "textDe": "Unter dem Kronenlicht schläfst du."
+ },
+ "reward": {
+  "badge": "kronenlicht",
+  "words": [
+   "mountain",
+   "torch",
+   "bed"
+  ]
+ },
+ "koreanLevel": 4
+}

@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "piratenpfad",
+ "titleKo": "해적의 길",
+ "titleDe": "Der Piratenpfad",
+ "topic": "해적",
+ "tier": 3,
+ "order": 108,
+ "concepts": [
+  "beach",
+  "chest",
+  "torch",
+  "gold"
+ ],
+ "requires": {
+  "minWordsKnown": 50,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tempelpfad",
+   "tiefseehafen"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "beach"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Geh an einen Strand."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:chest"
+   },
+   "clue": {
+    "de": "Öffne eine Truhe."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 5
+   },
+   "conditions": []
+  },
+  "textKo": "해적의 금을 모아요.",
+  "textDe": "Piratengold sammeln."
+ },
+ "reward": {
+  "badge": "piratenpfad",
+  "words": [
+   "beach",
+   "chest",
+   "torch",
+   "gold"
+  ]
+ },
+ "koreanLevel": 3
+}

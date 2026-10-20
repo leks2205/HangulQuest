@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w7_04",
+ "titleKo": "화로의 온기",
+ "titleDe": "Die Wärme des Ofens",
+ "topic": "화로",
+ "tier": 2,
+ "order": 1074,
+ "concepts": [
+  "coal",
+  "furnace",
+  "adv2_item_baked_potato",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "reisekrone"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:coal",
+    "count": 8
+   },
+   "clue": {
+    "de": "Sammle acht Kohle."
+   },
+   "hint": {
+    "ko": "석탄은 돌 속에서 캐요.",
+    "de": "Kohle findest du im Stein."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:furnace",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Ofen auf."
+   },
+   "hint": {
+    "ko": "화로는 조약돌 여덟 개로 만들어요.",
+    "de": "Ein Ofen besteht aus acht Bruchsteinen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv2_item_baked_potato"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:baked_potato",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss eine Ofenkartoffel."
+   },
+   "hint": {
+    "ko": "구운 감자는 화로에 감자를 구워서 만들어요.",
+    "de": "Ofenkartoffeln backst du im Ofen aus Kartoffeln."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:campfire"
+   },
+   "conditions": []
+  },
+  "textKo": "화로와 모닥불로 따뜻한 저녁을 만들어요.",
+  "textDe": "Ofen und Lagerfeuer wärmen den Abend."
+ },
+ "reward": {
+  "badge": "w7_04",
+  "words": [
+   "coal",
+   "furnace",
+   "adv2_item_baked_potato",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 4
+}

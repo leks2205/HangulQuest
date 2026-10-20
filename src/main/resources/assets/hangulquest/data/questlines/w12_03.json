@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "id": "w12_03",
+ "titleKo": "잊힌 신전",
+ "titleDe": "Der vergessene Tempel",
+ "topic": "신전",
+ "tier": 2,
+ "order": 1123,
+ "concepts": [
+  "stone_bricks",
+  "chiseled_stone_bricks",
+  "lectern",
+  "beacon"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:stone_bricks",
+    "count": 12
+   },
+   "clue": {
+    "de": "Setz zwölf Steinziegel für die Mauer des Tempels."
+   },
+   "hint": {
+    "ko": "석재 벽돌은 돌 네 개로 만들어요.",
+    "de": "Steinziegel stellt man aus vier Steinblöcken her."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs gemeißelte Steinziegel als Zeichen der alten Mythen."
+   },
+   "hint": {
+    "ko": "조각된 석재 벽돌은 석재 벽돌을 반으로 잘라 만들어요.",
+    "de": "Gemeißelte Steinziegel schneidet man aus Steinziegeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "clue": {
+    "de": "Benutze ein Lesepult und lies die Schrift des Tempels."
+   },
+   "hint": {
+    "ko": "독서대는 판자와 책장으로 만들어요.",
+    "de": "Ein Lesepult besteht aus Brettern und einem Bücherregal."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beacon",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": 100,
+     "maxY": 320
+    }
+   ],
+   "hint": {
+    "ko": "신호기는 네더의 별과 유리로 만들어요. 높이 100블록 위에 세워요.",
+    "de": "Ein Leuchtfeuer braucht einen Netherstern und Glas; stell es auf 100 Blöcken Höhe."
+   }
+  },
+  "textKo": "높이 100블록 위 잊힌 신전에 신호기를 세워요.",
+  "textDe": "Auf 100 Blöcken Höhe leuchtet das Leuchtfeuer des vergessenen Tempels."
+ },
+ "reward": {
+  "badge": "w12_03",
+  "words": [
+   "stone_bricks",
+   "chiseled_stone_bricks",
+   "lectern",
+   "beacon"
+  ]
+ },
+ "koreanLevel": 6
+}

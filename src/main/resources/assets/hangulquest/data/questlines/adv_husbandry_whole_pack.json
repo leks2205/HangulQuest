@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_whole_pack",
+ "titleKo": "외롭지 못한 늑대",
+ "titleDe": "Das ganze Rudel",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 286,
+ "concepts": [
+  "wolf",
+  "wolf_armor"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_tame_an_animal"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bone",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Knochen – damit gewinnst du das Vertrauen der Wölfe."
+   },
+   "hint": {
+    "ko": "스켈레톤을 물리치면 뼈를 얻어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wolf_armor"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wolf_armor",
+    "count": 1
+   },
+   "clue": {
+    "de": "Eine Wolfsrüstung schützt den treuesten Freund im Rudel."
+   },
+   "hint": {
+    "ko": "늑대 갑옷을 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wolf"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:wolf"
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Füttere den ersten Wolf mit den Knochen und zähme ihn für das Rudel."
+   },
+   "hint": {
+    "ko": "늑대에게 뼈를 줘요."
+   }
+  },
+  "textKo": "늑대들이 나를 따라와요. 이제 우리는 한 가족이에요!",
+  "textDe": "Das ganze Rudel läuft hinter dir her – eine Familie."
+ },
+ "reward": {
+  "badge": "adv_husbandry_whole_pack",
+  "words": [
+   "wolf",
+   "wolf_armor"
+  ]
+ },
+ "koreanLevel": 2
+}

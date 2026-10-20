@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w10_04",
+ "titleKo": "뼈의 수호자",
+ "titleDe": "Der Wächter aus Knochen",
+ "topic": "유적",
+ "tier": 2,
+ "order": 1104,
+ "concepts": [
+  "bone",
+  "skeleton",
+  "zombie",
+  "candle"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schattenpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bone"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bone",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Knochen aus dem Sand."
+   },
+   "hint": {
+    "ko": "뼈는 스켈레톤을 물리치면 나와요.",
+    "de": "Knochen lassen Skelette fallen."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "skeleton"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:skeleton",
+    "count": 3
+   },
+   "clue": {
+    "de": "Besiege drei Skelette in der Ruine."
+   },
+   "hint": {
+    "ko": "스켈레톤은 햇빛을 받으면 타요.",
+    "de": "Skelette brennen im Sonnenlicht."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "zombie"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:zombie",
+    "count": 3
+   },
+   "clue": {
+    "de": "Besiege drei Zombies am Tempeltor."
+   },
+   "hint": {
+    "ko": "좀비는 밤에 나타나요.",
+    "de": "Zombies erscheinen in der Nacht."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:candle",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "초를 밝혀 잠든 수호자를 기려요.",
+  "textDe": "Zwei Kerzen ehren den schlafenden Wächter der Ruine."
+ },
+ "reward": {
+  "badge": "w10_04",
+  "words": [
+   "bone",
+   "skeleton",
+   "zombie",
+   "candle"
+  ]
+ },
+ "koreanLevel": 5
+}

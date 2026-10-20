@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "w3_09",
+ "titleKo": "등불의 이웃",
+ "titleDe": "Die Laternen-Nachbarn",
+ "topic": "등불",
+ "tier": 2,
+ "order": 1039,
+ "concepts": [
+  "candle",
+  "cookie",
+  "lectern",
+  "bell"
+ ],
+ "requires": {
+  "minWordsKnown": 40,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "mondpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:candle",
+    "count": 2
+   },
+   "clue": {
+    "de": "Stell zwei Kerzen für die Nachbarn ins Fenster."
+   },
+   "hint": {
+    "ko": "초를 놓아요.",
+    "de": "Stell eine Kerze auf."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cookie"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cookie",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Keks vom Nachbarteller."
+   },
+   "hint": {
+    "ko": "쿠키를 먹어요.",
+    "de": "Iss einen Keks."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lectern",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell ein Lesepult mit Neuigkeiten auf."
+   },
+   "hint": {
+    "ko": "독서대를 놓아요.",
+    "de": "Stell ein Lesepult auf."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bell"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:bell"
+   },
+   "conditions": []
+  },
+  "textKo": "촛불과 종소리가 밤을 밝혀요. 이웃들이 웃어요.",
+  "textDe": "Kerzenlicht und Glockenklang erhellen die Nacht. Die Nachbarn lachen."
+ },
+ "reward": {
+  "badge": "w3_09",
+  "words": [
+   "candle",
+   "cookie",
+   "lectern",
+   "bell"
+  ]
+ },
+ "koreanLevel": 2
+}

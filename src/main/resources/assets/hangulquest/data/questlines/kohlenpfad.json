@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "kohlenpfad",
+ "titleKo": "석탄의 길",
+ "titleDe": "Der Kohlenpfad",
+ "tier": 2,
+ "order": 500,
+ "concepts": [
+  "coal",
+  "torch",
+  "furnace",
+  "bed"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "schmelzpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "coal"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 4
+   },
+   "clue": {
+    "de": "Baue vier Kohle ab."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Öffne den Ofen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 침대에서 쉬어요. 석탄의 불이 남았어요.",
+  "textDe": "Nachts ruhst du im Bett. Die Kohle glüht nach."
+ },
+ "reward": {
+  "badge": "kohlenpfad",
+  "words": [
+   "coal",
+   "torch",
+   "furnace"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "돌"
+}

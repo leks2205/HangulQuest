@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "w5_06",
+ "titleKo": "땅속의 보석",
+ "titleDe": "Der Schatz in der Tiefe",
+ "topic": "보석",
+ "tier": 2,
+ "order": 1056,
+ "concepts": [
+  "gold",
+  "emerald",
+  "amethyst_shard",
+  "diamond"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weltmarkt"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:deepslate_gold_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Golderz im Tiefenschiefer ab."
+   },
+   "hint": {
+    "ko": "금은 철 곡괭이로 캐요.",
+    "de": "Gold braucht eine Eisenspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Smaragde."
+   },
+   "hint": {
+    "ko": "에메랄드는 산에서 캐요.",
+    "de": "Smaragde findest du in Bergen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "amethyst_shard"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:amethyst_shard",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Amethystsplitter."
+   },
+   "hint": {
+    "ko": "자수정은 동굴의 군집에서 캐요.",
+    "de": "Amethyst wächst in Höhlengruppen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "diamond"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:diamond_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Diamanterz ab."
+   },
+   "hint": {
+    "ko": "다이아몬드는 철 곡괭이로 캐요.",
+    "de": "Diamanten brauchen eine Eisenspitzhacke."
+   },
+   "conditions": []
+  },
+  "textKo": "땅속의 보석을 캐서 세상에 보여 줘요.",
+  "textDe": "Juwelen aus der Tiefe zeigst du der Welt."
+ },
+ "reward": {
+  "badge": "w5_06",
+  "words": [
+   "gold",
+   "emerald",
+   "amethyst_shard",
+   "diamond"
+  ]
+ },
+ "koreanLevel": 3
+}

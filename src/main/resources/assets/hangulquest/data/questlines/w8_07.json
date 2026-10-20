@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w8_07",
+ "titleKo": "엔더맨의 속삭임",
+ "titleDe": "Das Flüstern der Endermen",
+ "topic": "속삭임",
+ "tier": 2,
+ "order": 1087,
+ "concepts": [
+  "enderman",
+  "ender_pearl",
+  "carved_pumpkin",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "tempelwaechter"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "enderman"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:enderman",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "de": "Sieh einen Enderman an."
+   },
+   "hint": {
+    "ko": "엔더맨은 밤에 자주 나타나요.",
+    "de": "Endermen zeigen sich vor allem nachts."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "ender_pearl"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ender_pearl",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Enderperlen."
+   },
+   "hint": {
+    "ko": "엔더맨이 엔더 진주를 떨어뜨려요.",
+    "de": "Perlen fallen von Endermen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carved_pumpkin"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:carved_pumpkin",
+    "count": 1
+   },
+   "clue": {
+    "de": "Setz einen geschnitzten Kürbis."
+   },
+   "hint": {
+    "ko": "조각된 호박을 쓰면 엔더맨이 화내지 않아요.",
+    "de": "Mit einem geschnitzten Kürbis auf dem Kopf bleiben Endermen ruhig."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "엔더맨이 조용히 길을 알려 줘요. 밤의 횃불이 빛나요.",
+  "textDe": "Die Endermen flüstern den Weg. Fackeln brennen in der Nacht."
+ },
+ "reward": {
+  "badge": "w8_07",
+  "words": [
+   "enderman",
+   "ender_pearl",
+   "carved_pumpkin",
+   "torch"
+  ]
+ },
+ "koreanLevel": 4
+}

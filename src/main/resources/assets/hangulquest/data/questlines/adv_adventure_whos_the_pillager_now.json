@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_adventure_whos_the_pillager_now",
+ "titleKo": "이제 누가 약탈자지?",
+ "titleDe": "Wer ist jetzt der Plünderer?",
+ "topic": "adventure",
+ "tier": 2,
+ "order": 246,
+ "concepts": [
+  "adv_item_crossbow",
+  "arrow",
+  "witch"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_adventure_ol_betsy"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_item_crossbow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:crossbow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue eine Armbrust aus Stöcken, Faden und Eisen."
+   },
+   "hint": {
+    "ko": "막대기와 실, 철 조각으로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 16
+   },
+   "clue": {
+    "de": "Fülle deinen Köcher mit Pfeilen für die Armbrust."
+   },
+   "hint": {
+    "ko": "부싯돌과 깃털로 화살을 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "witch"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:witch",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "이제 누가 약탈자지? — 빼앗은 쇠뇌로 습격자를 물리쳐요.",
+  "textDe": "Wer ist jetzt der Plünderer? — Erlege einen Räuber mit der Armbrust."
+ },
+ "reward": {
+  "badge": "adv_adventure_whos_the_pillager_now",
+  "words": [
+   "adv_item_crossbow",
+   "arrow",
+   "witch"
+  ]
+ },
+ "koreanLevel": 3
+}

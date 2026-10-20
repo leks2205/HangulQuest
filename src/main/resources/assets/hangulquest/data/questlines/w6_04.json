@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "w6_04",
+ "titleKo": "꿀벌의 숲",
+ "titleDe": "Der Wald der Bienen",
+ "topic": "꿀벌",
+ "tier": 2,
+ "order": 1064,
+ "concepts": [
+  "bee",
+  "honeycomb",
+  "beehive",
+  "honey_bottle"
+ ],
+ "requires": {
+  "minWordsKnown": 60,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "vogelpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bee"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:bee",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Beobachte eine Biene an einer Blüte."
+   },
+   "hint": {
+    "ko": "벌은 꽃가루를 모아요.",
+    "de": "Bienen sammeln Blütenstaub."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "honeycomb"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:honeycomb",
+    "count": 3
+   },
+   "clue": {
+    "de": "Ernte drei Honigwaben aus einem Nest."
+   },
+   "hint": {
+    "ko": "벌집 조각은 가위로 얻어요.",
+    "de": "Honigwaben schneidest du mit einer Schere."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "beehive"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beehive",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell einen Bienenstock an den Waldrand."
+   },
+   "hint": {
+    "ko": "벌통은 나무판자로 만들어요.",
+    "de": "Ein Bienenstock besteht aus Brettern."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "honey_bottle"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:honey_bottle",
+    "count": 1
+   },
+   "clue": {
+    "de": "Trink eine Flasche Honig nach der Arbeit."
+   },
+   "conditions": []
+  },
+  "textKo": "벌통을 세우고 꿀 한 병을 마셔요.",
+  "textDe": "Stell den Bienenstock auf und trink eine Flasche Honig."
+ },
+ "reward": {
+  "badge": "w6_04",
+  "words": [
+   "bee",
+   "honeycomb",
+   "beehive",
+   "honey_bottle"
+  ]
+ },
+ "koreanLevel": 3
+}

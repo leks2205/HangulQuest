@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_plant_any_sniffer_seed",
+ "titleKo": "과거를 심다",
+ "titleDe": "Wir säen Geschichte",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 272,
+ "concepts": [
+  "adv_block_torchflower_seeds",
+  "adv_item_pitcher_pod",
+  "flower"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_feed_snifflet"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_block_torchflower_seeds"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torchflower_seeds",
+    "count": 1
+   },
+   "clue": {
+    "de": "Lass einen Schnüffler graben, bis er Fackelliliensamen ausgräbt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_pitcher_pod"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:pitcher_pod",
+    "count": 1
+   },
+   "clue": {
+    "de": "Suche im Grab des Schnüfflers nach einer Kannenpflanzenkapsel."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:poppy",
+    "dwellMs": 600
+   },
+   "conditions": []
+  },
+  "textKo": "과거를 심다 — 심은 고대 씨앗이 꽃으로 피어요.",
+  "textDe": "Wir säen Geschichte — Aus dem alten Samen blüht eine Blume."
+ },
+ "reward": {
+  "badge": "adv_husbandry_plant_any_sniffer_seed",
+  "words": [
+   "adv_block_torchflower_seeds",
+   "adv_item_pitcher_pod",
+   "flower"
+  ]
+ },
+ "koreanLevel": 2
+}

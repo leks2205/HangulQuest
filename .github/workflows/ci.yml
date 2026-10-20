@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Tests (engine plus all shipped questlines)
+        run: ./gradlew test --no-daemon --stacktrace
+
+      - name: Build the mod jar
+        run: ./gradlew build --no-daemon
+
+      - name: Inspect the jar
+        run: |
+          jar="$(ls build/libs/hangulquest-*.jar | head -n 1)"
+          echo "built: $jar"
+          unzip -l "$jar" | tail -n 5
+          questlines=$(unzip -l "$jar" | grep -c 'data/questlines/.*\.json' || true)
+          echo "questline files in jar: $questlines"
+          test "$questlines" -ge 414
+
+  content:
+    name: Questline content
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate every questline against the schema
+        run: |
+          python3 -m pip install --disable-pip-version-check jsonschema
+          python3 tools/validate_schema.py
+
+      - name: Check the generated quest tree report
+        run: python3 tools/quest_tree.py --check
+
+  docs:
+    name: Guide builds
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.5.4/mdbook-v0.5.4-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+          echo "$PWD" >> "$GITHUB_PATH"
+
+      - name: Prepare screenshots and generated pages
+        run: |
+          cp -r docs/screenshots docs/book/src/screenshots
+          python3 tools/quest_tree.py --check
+          mdbook build docs/book
+
+      - name: Check that every chapter is linked
+        run: |
+          missing=0
+          for file in docs/book/src/*.md; do
+            name="$(basename "$file")"
+            [ "$name" = "SUMMARY.md" ] && continue
+            grep -q "$name" docs/book/src/SUMMARY.md || { echo "not in SUMMARY.md: $name"; missing=1; }
+          done
+          exit "$missing"

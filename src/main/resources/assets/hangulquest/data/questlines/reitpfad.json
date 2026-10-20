@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "reitpfad",
+ "titleKo": "말타기의 길",
+ "titleDe": "Der Reitpfad",
+ "tier": 2,
+ "order": 503,
+ "concepts": [
+  "horse",
+  "leather",
+  "fence"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weidepfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:horse",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Pferd an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "leather"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:leather",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Leder."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Zaunpfosten."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 말과 함께 불을 피워요.",
+  "textDe": "Bei Nacht brennt das Feuer am Zaun."
+ },
+ "reward": {
+  "badge": "reitpfad",
+  "words": [
+   "horse",
+   "leather",
+   "fence"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "동물"
+}

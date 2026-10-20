@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "waldfest",
+ "titleKo": "숲의 잔치",
+ "titleDe": "Das Waldfest",
+ "tier": 4,
+ "order": 420,
+ "concepts": [
+  "planks",
+  "cake",
+  "chicken"
+ ],
+ "requires": {
+  "minWordsKnown": 15,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "waldhaus",
+   "festmahl",
+   "farmpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_planks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Holzbretter."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "cake"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
+    "count": 1
+   },
+   "clue": {
+    "de": "Iss einen Kuchen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chicken"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:chicken",
+    "dwellMs": 800
+   },
+   "clue": {
+    "de": "Schau ein Huhn an."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 숲에서 불을 피워요. 잔치예요!",
+  "textDe": "In der Nacht brennt das Feuer im Wald. Ein Fest!"
+ },
+ "reward": {
+  "badge": "waldfest",
+  "words": [
+   "planks",
+   "cake",
+   "chicken",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 2,
+ "topic": "나무"
+}

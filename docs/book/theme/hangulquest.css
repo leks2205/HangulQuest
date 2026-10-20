@@ -1,0 +1,153 @@
+/* Hangul Quest guide — paper and ink, matching the journal drawn in the mod. */
+
+:root {
+  --hq-paper: #f6efe0;
+  --hq-paper-deep: #efe6d2;
+  --hq-ink: #2a2318;
+  --hq-ink-soft: #6b5c45;
+  --hq-accent: #8c2f39;
+  --hq-accent-soft: #b46a5f;
+  --hq-rule: #d8c8a8;
+}
+
+.light,
+.rust {
+  --bg: var(--hq-paper);
+  --fg: var(--hq-ink);
+  --sidebar-bg: var(--hq-paper-deep);
+  --sidebar-fg: var(--hq-ink);
+  --sidebar-non-existant: #a89878;
+  --sidebar-active: var(--hq-accent);
+  --sidebar-spacer: var(--hq-rule);
+  --scrollbar: var(--hq-rule);
+  --icons: var(--hq-ink-soft);
+  --icons-hover: var(--hq-accent);
+  --links: var(--hq-accent);
+  --inline-code-color: #6a2b33;
+  --theme-popup-bg: var(--hq-paper);
+  --theme-popup-border: var(--hq-rule);
+  --theme-hover: var(--hq-paper-deep);
+  --quote-bg: #f1e7d3;
+  --quote-border: var(--hq-accent-soft);
+  --table-border-color: var(--hq-rule);
+  --table-header-bg: #ece0c8;
+  --table-alternate-bg: #f2e9d8;
+  --searchbar-border-color: var(--hq-rule);
+  --searchbar-bg: #fbf6ea;
+  --searchbar-fg: var(--hq-ink);
+  --searchbar-shadow-color: rgba(42, 35, 24, 0.08);
+  --searchresults-header-fg: var(--hq-ink-soft);
+  --searchresults-border-color: var(--hq-rule);
+  --searchresults-li-bg: #f2e9d8;
+  --search-mark-bg: #e8c98a;
+}
+
+.coal,
+.navy,
+.ayu {
+  --bg: #1b1a19;
+  --fg: #e6ddc9;
+  --sidebar-bg: #141312;
+  --sidebar-fg: #d8cdb6;
+  --sidebar-non-existant: #6d6354;
+  --sidebar-active: #e0a08f;
+  --sidebar-spacer: #35302a;
+  --scrollbar: #3a352e;
+  --icons: #9c907c;
+  --icons-hover: #e0a08f;
+  --links: #e0a08f;
+  --inline-code-color: #f0c9a8;
+  --theme-popup-bg: #1b1a19;
+  --theme-popup-border: #35302a;
+  --theme-hover: #262320;
+  --quote-bg: #24211e;
+  --quote-border: #6f4a44;
+  --table-border-color: #3a352e;
+  --table-header-bg: #262320;
+  --table-alternate-bg: #201e1c;
+  --searchbar-border-color: #3a352e;
+  --searchbar-bg: #201e1c;
+  --searchbar-fg: #e6ddc9;
+  --search-mark-bg: #6f4a44;
+}
+
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+.chapter h1 {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid var(--hq-rule);
+  padding-bottom: 0.4rem;
+}
+
+.chapter h2 {
+  margin-top: 2.4rem;
+  font-weight: 600;
+  color: var(--sidebar-active);
+}
+
+.chapter h3 {
+  margin-top: 1.8rem;
+  font-weight: 600;
+}
+
+.chapter p > code,
+.chapter li > code {
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background: rgba(140, 47, 57, 0.07);
+}
+
+.chapter pre {
+  border-radius: 4px;
+  border-left: 3px solid var(--hq-accent-soft);
+}
+
+.chapter blockquote {
+  border-left: 3px solid var(--quote-border);
+  border-radius: 0 4px 4px 0;
+  font-style: normal;
+}
+
+.chapter table {
+  border-collapse: collapse;
+}
+
+.chapter table th {
+  font-weight: 600;
+  text-align: left;
+}
+
+.chapter table td,
+.chapter table th {
+  padding: 0.35rem 0.6rem;
+}
+
+.chapter img {
+  border-radius: 4px;
+  border: 1px solid var(--hq-rule);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Section labels ("Playing", "Writing questlines") in the sidebar. */
+.sidebar .chapter li.chapter-item.part-title {
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72em;
+  color: var(--sidebar-non-existant);
+}
+
+.sidebar .chapter li a.active {
+  font-weight: 600;
+}
+
+/* Korean titles need the bundled CJK face, not the serif fallback. */
+:lang(ko) {
+  font-family: "Noto Sans CJK KR", "Noto Sans KR", "Malgun Gothic", sans-serif;
+}

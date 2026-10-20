@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_nether_summon_wither",
+ "titleKo": "시들어 버린 언덕",
+ "titleDe": "Umwitherte Höhen",
+ "topic": "nether",
+ "tier": 2,
+ "order": 308,
+ "concepts": [
+  "soul_sand",
+  "adv_item_wither_skeleton_skull",
+  "nether_star"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_get_wither_skull"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:soul_sand",
+    "count": 4
+   },
+   "clue": {
+    "de": "Hol vier Seelensandblöcke aus dem Seelensandtal – daraus wird das T für den Wither."
+   },
+   "hint": {
+    "ko": "영혼 모래는 삽으로 캐요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wither_skeleton_skull",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei Wither-Skelettschädel in der Festung."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "nether_star"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:nether_star",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Setz die Schädel auf den Seelensand und besiege den Wither – sein Stern ist der Beweis."
+   }
+  },
+  "textKo": "시들어 버린 언덕 — 위더를 깨우고 별을 얻었어요.",
+  "textDe": "Umwitherte Höhen — der Wither steigt auf, sein Stern bleibt."
+ },
+ "reward": {
+  "badge": "adv_nether_summon_wither",
+  "words": [
+   "soul_sand",
+   "adv_item_wither_skeleton_skull",
+   "nether_star"
+  ]
+ },
+ "koreanLevel": 3
+}

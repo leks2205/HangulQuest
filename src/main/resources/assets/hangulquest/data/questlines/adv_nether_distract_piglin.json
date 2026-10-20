@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "adv_nether_distract_piglin",
+ "titleKo": "반짝반짝 눈이 부셔",
+ "titleDe": "Oh, wie glänzend!",
+ "topic": "nether",
+ "tier": 2,
+ "order": 293,
+ "concepts": [
+  "gold",
+  "gold_block"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "gold"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_ingot",
+    "count": 9
+   },
+   "clue": {
+    "de": "Schmelz neun Goldbarren – Piglins lieben alles, was glänzt."
+   },
+   "hint": {
+    "ko": "금을 캐서 화로에 구워요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gold_block",
+    "count": 1
+   },
+   "clue": {
+    "de": "Press die neun Barren zu einem einzigen Goldblock zusammen."
+   },
+   "hint": {
+    "ko": "금 블록을 만들어요. 금 아홉 개가 필요해요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:gold_block",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Leg den Goldblock hin und lenk den Piglin mit dem Glanz ab."
+   },
+   "hint": {
+    "ko": "금 블록을 놓아요."
+   }
+  },
+  "textKo": "황금빛에 눈이 먼 피글린! 그 사이에 나는 챙길 걸 챙겨요.",
+  "textDe": "Der Piglin starrt aufs Gold – und du kommst ungestört weiter."
+ },
+ "reward": {
+  "badge": "adv_nether_distract_piglin",
+  "words": [
+   "gold",
+   "gold_block"
+  ]
+ },
+ "koreanLevel": 2
+}

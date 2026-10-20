@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "adv_end_dragon_egg",
+ "titleKo": "그다음 세대",
+ "titleDe": "Die nächste Generation",
+ "topic": "end",
+ "tier": 2,
+ "order": 248,
+ "concepts": [
+  "ender_dragon",
+  "torch",
+  "dragon_egg"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_kill_dragon"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
+   },
+   "clue": {
+    "de": "Besiege den Drachen, dann erscheint das Ei auf dem Portal."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 1
+   },
+   "clue": {
+    "de": "Stell eine Fackel unter das Ei, damit es als Item herabfällt."
+   },
+   "hint": {
+    "ko": "막대기와 석탄으로 만들어요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "dragon_egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dragon_egg",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "그다음 세대 — 드래곤 알을 손에 넣어 다음 세대를 준비해요.",
+  "textDe": "Die nächste Generation — Sichere dir das Drachenei, bevor es verschwindet."
+ },
+ "reward": {
+  "badge": "adv_end_dragon_egg",
+  "words": [
+   "ender_dragon",
+   "torch",
+   "dragon_egg"
+  ]
+ },
+ "koreanLevel": 6
+}

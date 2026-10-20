@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "gartenzaun",
+ "titleKo": "정원 울타리",
+ "titleDe": "Der Gartenzaun",
+ "topic": "울타리",
+ "tier": 3,
+ "order": 146,
+ "concepts": [
+  "fence",
+  "gate",
+  "torch",
+  "lantern"
+ ],
+ "requires": {
+  "minWordsKnown": 30,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "weidepfad",
+   "wollpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence",
+    "count": 6
+   },
+   "clue": {
+    "de": "Setz sechs Zäune."
+   },
+   "hint": {
+    "ko": "울타리는 막대기로 만들어요.",
+    "de": "Zäune bestehen aus Stöcken."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate"
+   },
+   "clue": {
+    "de": "Benutz ein Tor."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:torch",
+    "count": 3
+   },
+   "clue": {
+    "de": "Setz drei Fackeln."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lantern"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lantern",
+    "count": 2
+   },
+   "conditions": [],
+   "hint": {
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
+    "de": "Laternen bestehen aus Fackel und Eisen."
+   }
+  },
+  "textKo": "정원에 랜턴을 걸어요.",
+  "textDe": "Laternen schmücken den Garten."
+ },
+ "reward": {
+  "badge": "gartenzaun",
+  "words": [
+   "fence",
+   "gate",
+   "torch",
+   "lantern"
+  ]
+ },
+ "koreanLevel": 2
+}

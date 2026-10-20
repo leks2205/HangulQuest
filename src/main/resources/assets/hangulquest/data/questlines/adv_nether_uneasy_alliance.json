@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_nether_uneasy_alliance",
+ "titleKo": "쉽지 않은 동행",
+ "titleDe": "Unheilvolle Allianz",
+ "topic": "nether",
+ "tier": 2,
+ "order": 309,
+ "concepts": [
+  "adv_dimension_the_nether",
+  "gunpowder",
+  "adv_item_ghast_tear"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_nether_return_to_sender"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_nether"
+   },
+   "clue": {
+    "de": "Geh in den Nether und such einen Ghast über dem Lavameer."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gunpowder"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:gunpowder",
+    "count": 1
+   },
+   "clue": {
+    "de": "Erlege den Ghast, sein Schießpulver fällt zu Boden."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "adv_item_ghast_tear"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:ghast_tear",
+    "count": 1
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Nimm die Ghast-Träne – der Ghast hat die Oberwelt nicht erreicht."
+   }
+  },
+  "textKo": "쉽지 않은 동행 — 가스트를 지상까지 데려와 쓰러뜨렸어요.",
+  "textDe": "Unheilvolle Allianz — ein Ghast, den die Oberwelt nicht überlebt."
+ },
+ "reward": {
+  "badge": "adv_nether_uneasy_alliance",
+  "words": [
+   "adv_dimension_the_nether",
+   "gunpowder",
+   "adv_item_ghast_tear"
+  ]
+ },
+ "koreanLevel": 3
+}

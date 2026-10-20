@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "w1_02",
+ "titleKo": "무지개 유리",
+ "titleDe": "Regenbogen aus Glas",
+ "topic": "유리",
+ "tier": 1,
+ "order": 1012,
+ "concepts": [
+  "glass",
+  "glass_pane",
+  "dye"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glass",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Glasblöcke."
+   },
+   "hint": {
+    "ko": "유리는 모래를 화로에 구워요.",
+    "de": "Glas entsteht, wenn Sand im Ofen schmilzt."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier Glasblöcke als Fenster in die Wand."
+   },
+   "hint": {
+    "ko": "유리를 벽에 놓아요.",
+    "de": "Setze die Glasblöcke in die Wand."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "dye"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:red_dye",
+    "count": 3
+   },
+   "clue": {
+    "de": "Sammle drei rote Farbstoffe."
+   },
+   "hint": {
+    "ko": "빨간 염료는 꽃으로 만들어요.",
+    "de": "Roter Farbstoff entsteht aus einer Mohnblume."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "glass_pane"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:glass_pane",
+    "count": 4
+   },
+   "conditions": []
+  },
+  "textKo": "유리와 염료로 창문에 무지개를 그려요.",
+  "textDe": "Aus Glas und Farbstoff wird ein Regenbogen im Fenster."
+ },
+ "reward": {
+  "badge": "w1_02",
+  "words": [
+   "glass",
+   "glass_pane",
+   "dye"
+  ]
+ },
+ "koreanLevel": 1
+}

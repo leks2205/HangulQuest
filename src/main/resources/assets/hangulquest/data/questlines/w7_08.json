@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "id": "w7_08",
+ "titleKo": "붉은 벽돌",
+ "titleDe": "Rote Ziegel",
+ "topic": "벽돌",
+ "tier": 2,
+ "order": 1078,
+ "concepts": [
+  "adv_block_nether_bricks",
+  "adv_block_red_nether_bricks",
+  "adv_block_polished_blackstone_bricks",
+  "chiseled_stone_bricks"
+ ],
+ "requires": {
+  "minWordsKnown": 80,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "bibliothekpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "adv_block_nether_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:nether_bricks",
+    "count": 8
+   },
+   "clue": {
+    "de": "Setz acht Netherziegel."
+   },
+   "hint": {
+    "ko": "네더 벽돌은 네더랙을 구워서 만들어요.",
+    "de": "Netherziegel gewinnst du, wenn du Netherrack im Ofen brennst."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_red_nether_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:red_nether_bricks",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier rote Netherziegel."
+   },
+   "hint": {
+    "ko": "붉은 네더 벽돌은 네더 벽돌과 네더 사마귀로 만들어요.",
+    "de": "Rote Netherziegel bestehen aus Netherziegeln und Netherwarzen."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_block_polished_blackstone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:polished_blackstone_bricks",
+    "count": 4
+   },
+   "clue": {
+    "de": "Setz vier polierte Schwarzsteinziegel."
+   },
+   "hint": {
+    "ko": "윤나는 흑암 벽돌은 흑암을 다듬어서 만들어요.",
+    "de": "Polierte Schwarzsteinziegel schleifst du aus Schwarzstein."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:chiseled_stone_bricks",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "붉은 벽돌로 지옥의 도서관을 지어요.",
+  "textDe": "Aus roten Ziegeln entsteht eine Bibliothek im Nether."
+ },
+ "reward": {
+  "badge": "w7_08",
+  "words": [
+   "adv_block_nether_bricks",
+   "adv_block_red_nether_bricks",
+   "adv_block_polished_blackstone_bricks",
+   "chiseled_stone_bricks"
+  ]
+ },
+ "koreanLevel": 4
+}

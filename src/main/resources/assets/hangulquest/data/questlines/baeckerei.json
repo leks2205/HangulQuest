@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "baeckerei",
+ "titleKo": "빵집의 길",
+ "titleDe": "Der Bäckereipfad",
+ "tier": 4,
+ "concepts": [
+  "wheat",
+  "furnace",
+  "bread",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 3,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "essenspfad",
+   "brotpfad",
+   "kraeuterpfad"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:wheat",
+    "count": 3
+   },
+   "clue": {
+    "de": "Ernte drei gelbe Halme."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Öffne den heißen Ort."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "clue": {
+    "de": "Back ein Brot."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 모닥불을 피워 빵을 구워요.",
+  "textDe": "Nachts backst du Brot am Feuer."
+ },
+ "reward": {
+  "badge": "baeckerei",
+  "words": [
+   "wheat",
+   "furnace",
+   "bread"
+  ]
+ },
+ "order": 130,
+ "koreanLevel": 1,
+ "topic": "음식"
+}

@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "w9_02",
+ "titleKo": "별의 왕관",
+ "titleDe": "Die Sternenkrone",
+ "topic": "별",
+ "tier": 2,
+ "order": 1092,
+ "concepts": [
+  "beacon",
+  "gate",
+  "map"
+ ],
+ "requires": {
+  "minWordsKnown": 100,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "sternenkarte"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:map",
+    "count": 1
+   },
+   "clue": {
+    "de": "Zeichne eine Karte, um den Sternen zu folgen.",
+    "ko": "별을 따라가려고 지도를 만들어요."
+   },
+   "hint": {
+    "ko": "지도는 종이와 나침반으로 만들어요.",
+    "de": "Eine Karte entsteht aus Papier und Kompass."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_fence_gate",
+    "count": 2
+   },
+   "clue": {
+    "de": "Stell zwei Tore am Hof der Sterne auf.",
+    "ko": "별의 궁정에 문을 두 개 세워요."
+   },
+   "hint": {
+    "ko": "문은 나무 판자와 막대기로 만들어요.",
+    "de": "Tore bestehen aus Brettern und Stöcken."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "beacon"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:beacon",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "신호기 없이는 별의 길을 밝힐 수 없어요.",
+  "textDe": "Ohne Leuchtfeuer bleibt der Weg der Sterne dunkel."
+ },
+ "reward": {
+  "badge": "w9_02",
+  "words": [
+   "beacon",
+   "gate",
+   "map"
+  ]
+ },
+ "koreanLevel": 5
+}

@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "adv_story_smelt_iron",
+ "titleKo": "철이 철철 넘쳐",
+ "titleDe": "Metallurgie",
+ "topic": "story",
+ "tier": 2,
+ "order": 324,
+ "concepts": [
+  "iron",
+  "furnace"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_story_upgrade_tools"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:iron_ore",
+    "count": 3
+   },
+   "clue": {
+    "de": "Baue drei Eisenerze mit einer Steinspitzhacke ab."
+   },
+   "hint": {
+    "ko": "철 원석은 돌 곡괭이로 캘 수 있어요.",
+    "de": "Eisenerz braucht mindestens eine Steinspitzhacke."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue aus acht Bruchstein einen Ofen."
+   },
+   "hint": {
+    "ko": "화로는 조약돌 여덟 개로 만들어요.",
+    "de": "Ein Ofen braucht acht Bruchstein."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "furnace"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:furnace"
+   },
+   "clue": {
+    "de": "Lege Eisenerz und Kohle in den Ofen."
+   },
+   "hint": {
+    "ko": "화로에 철 원석과 석탄을 넣고 기다려요.",
+    "de": "Eisenerz und Kohle in den Ofen legen."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:iron_ingot",
+    "count": 1
+   },
+   "clue": {
+    "de": "Nimm den fertig geschmolzenen Eisenbarren aus dem Ofen."
+   },
+   "hint": {
+    "ko": "석탄으로 철 원석을 구우면 철 주괴가 돼요.",
+    "de": "Mit Kohle geschmolzenes Erz wird zum Eisenbarren."
+   },
+   "conditions": []
+  },
+  "textKo": "철이 철철 넘쳐 — 화로에서 첫 철 주괴를 얻었어요.",
+  "textDe": "Metallurgie — Der erste Eisenbarren kommt aus dem Ofen."
+ },
+ "reward": {
+  "badge": "adv_story_smelt_iron",
+  "words": [
+   "iron",
+   "furnace"
+  ]
+ },
+ "koreanLevel": 2
+}

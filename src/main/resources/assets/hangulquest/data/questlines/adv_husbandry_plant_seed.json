@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "adv_husbandry_plant_seed",
+ "titleKo": "씨앗이 자라나는 곳",
+ "titleDe": "Hobbygärtner",
+ "topic": "husbandry",
+ "tier": 2,
+ "order": 273,
+ "concepts": [
+  "grass",
+  "nether_wart",
+  "wheat"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_husbandry_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "grass"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:grass_block"
+   },
+   "clue": {
+    "de": "Mach mit der Hacke aus Gras Ackerboden."
+   },
+   "hint": {
+    "ko": "괭이로 잔디를 갈아요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:nether_wart",
+    "count": 1
+   },
+   "clue": {
+    "de": "Pflanze Netherwarze auf Seelensand im Nether."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "wheat"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:wheat",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "씨앗이 자라나는 곳 — 밀 씨앗을 심고 밭을 가꿔요.",
+  "textDe": "Hobbygärtner — Du säst Weizenkörner und pflegst dein Feld."
+ },
+ "reward": {
+  "badge": "adv_husbandry_plant_seed",
+  "words": [
+   "grass",
+   "nether_wart",
+   "wheat"
+  ]
+ },
+ "koreanLevel": 1
+}

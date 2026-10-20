@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "w1_01",
+ "titleKo": "첫 촛불",
+ "titleDe": "Die erste Kerze",
+ "topic": "촛불",
+ "tier": 1,
+ "order": 1011,
+ "concepts": [
+  "candle",
+  "torch",
+  "campfire"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:candle",
+    "count": 2
+   },
+   "clue": {
+    "de": "Sammle zwei Kerzen."
+   },
+   "hint": {
+    "ko": "초는 실과 벌집 조각으로 만들어요.",
+    "de": "Kerzen bestehen aus Faden und Honigwabe."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:candle",
+    "count": 2
+   },
+   "clue": {
+    "de": "Stell nachts zwei Kerzen auf."
+   },
+   "hint": {
+    "ko": "밤에 초를 놓아요.",
+    "de": "Platziere die Kerzen in der Nacht."
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:torch",
+    "count": 4
+   },
+   "clue": {
+    "de": "Hol dir vier Fackeln aus Kohle und Holz."
+   },
+   "hint": {
+    "ko": "횃불은 석탄과 막대기로 만들어요.",
+    "de": "Fackeln machst du aus Kohle und einem Stock."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "촛불과 횃불과 모닥불로 어둠을 밝혀요.",
+  "textDe": "Kerzen, Fackeln und ein Lagerfeuer vertreiben die Dunkelheit."
+ },
+ "reward": {
+  "badge": "w1_01",
+  "words": [
+   "candle",
+   "torch",
+   "campfire"
+  ]
+ },
+ "koreanLevel": 1
+}

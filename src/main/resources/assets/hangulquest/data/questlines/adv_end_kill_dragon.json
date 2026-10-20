@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "adv_end_kill_dragon",
+ "titleKo": "엔드 해방",
+ "titleDe": "Befreie das Ende",
+ "topic": "end",
+ "tier": 2,
+ "order": 252,
+ "concepts": [
+  "bow",
+  "arrow",
+  "ender_dragon"
+ ],
+ "requires": {
+  "minWordsKnown": 20,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "adv_end_root"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bow",
+    "count": 1
+   },
+   "clue": {
+    "de": "Baue einen Bogen, um die Kristalle von den Türmen zu schießen."
+   },
+   "hint": {
+    "ko": "막대기와 실로 만들어요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "arrow"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:arrow",
+    "count": 32
+   },
+   "clue": {
+    "de": "Nimm genug Pfeile mit in die Schlacht."
+   },
+   "hint": {
+    "ko": "부싯돌, 막대기, 깃털이 필요해요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
+   },
+   "conditions": []
+  },
+  "textKo": "엔드 해방 — 엔더 드래곤을 물리쳐 엔드를 해방해요.",
+  "textDe": "Befreie das Ende — Besiege den Enderdrachen über dem Portal."
+ },
+ "reward": {
+  "badge": "adv_end_kill_dragon",
+  "words": [
+   "bow",
+   "arrow",
+   "ender_dragon"
+  ]
+ },
+ "koreanLevel": 6
+}

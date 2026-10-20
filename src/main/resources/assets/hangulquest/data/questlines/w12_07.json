@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "id": "w12_07",
+ "titleKo": "전설의 대장간",
+ "titleDe": "Die Schmiede der Legende",
+ "topic": "전설",
+ "tier": 2,
+ "order": 1127,
+ "concepts": [
+  "flint",
+  "amethyst_shard",
+  "iron_block",
+  "anvil"
+ ],
+ "requires": {
+  "minWordsKnown": 120,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "letzte_reise"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "flint"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:flint",
+    "count": 4
+   },
+   "clue": {
+    "de": "Sammle vier Feuersteine für das Feuer der Legende."
+   },
+   "hint": {
+    "ko": "부싯돌은 자갈을 캐면 가끔 나와요.",
+    "de": "Feuerstein fällt beim Abbau von Kies an."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "amethyst_shard"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:amethyst_shard",
+    "count": 6
+   },
+   "clue": {
+    "de": "Sammle sechs Amethystsplitter für den Griff des Schwertes."
+   },
+   "hint": {
+    "ko": "자수정 조각은 자수정 군집에서 캐요.",
+    "de": "Amethystsplitter gewinnt man aus Amethyst-Clustern."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_block"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_block",
+    "count": 2
+   },
+   "clue": {
+    "de": "Setz zwei Eisenblöcke als Ambossblock in die Schmiede."
+   },
+   "hint": {
+    "ko": "철 블록은 철 조각 아홉 개로 만들어요.",
+    "de": "Ein Eisenblock besteht aus neun Eisenbarren."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "anvil"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "hint": {
+    "ko": "모루는 철 블록 세 개와 철 조각 네 개로 만들어요. 밤에 사용해요.",
+    "de": "Ein Amboss braucht drei Eisenblöcke und vier Barren; nutz ihn nachts."
+   }
+  },
+  "textKo": "밤에 모루를 두드려 전설의 검을 벼려요.",
+  "textDe": "Nachts schmiedet der Amboss das Schwert der Legende."
+ },
+ "reward": {
+  "badge": "w12_07",
+  "words": [
+   "flint",
+   "amethyst_shard",
+   "iron_block",
+   "anvil"
+  ]
+ },
+ "koreanLevel": 6
+}
