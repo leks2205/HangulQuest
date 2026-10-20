@@ -31,20 +31,26 @@ The status line is generated from the goal, so it always answers the question th
 Every condition of a step is spoken inside the sentence itself — `해변에서 모닥불을 놓아요.`, not just
 `모닥불을 놓아요.` — so the text and the check can never disagree.
 
-## Several quests at once
+## Choosing what is in the log
 
-The log holds up to **six** quests. Press `V` to move the highlight; the highlighted quest is the one
-the hint key (`H`), the sidequest and the follow-up chain work on. All tracked quests progress in
-parallel, so mining coal while a torch quest is highlighted still counts for the coal quest if you have
-it in the log.
+The log is yours to curate. In the journal's **Quests** tab, select a trail and tick **Im Log** in its
+detail card: the quest appears in the HUD and starts advancing.
 
-Start more quests from the journal's **Quests** tab: pick a trail and start it. If the log is full, the
-oldest quest that is not highlighted makes way. Finishing a background quest marks it done with a banner
-and leaves the highlight alone; finishing the highlighted quest starts or offers its successor.
+- **Only checked quests advance.** An unticked quest keeps its saved step, counter and hints, but
+  nothing about it is checked against the world — so a quest can never complete behind your back while
+  you are working on a different one.
+- **Up to six** quests fit in the log. Checking a seventh unchecks the oldest one, which keeps its
+  progress and can be checked again later.
+- **`V` moves the highlight.** Hints (`H`), the sidequest and the follow-up chain work on the highlighted
+  quest only.
+- **Finishing the highlighted quest** starts or offers its successor, which is checked into the log
+  automatically. Finishing any other checked quest shows a banner and leaves the highlight alone.
 
-How many rows the HUD shows is `questTrackerRows` in `config/hangulquest/config.json` (1–6, default 4).
+The detail card also has a **Fokus** button for a quest that is already in the log but not highlighted.
 
-## A step
+How many rows the HUD draws is `questTrackerRows` in `config/hangulquest/config.json` (1–6, default 4).
+
+## A step## A step
 
 1. Read the sentence.
 2. Do it. The mod watches the world locally: blocks you break or place, items you gain or eat, what you

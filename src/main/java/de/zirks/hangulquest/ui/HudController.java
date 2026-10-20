@@ -42,6 +42,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private String bannerDe = "";
 	private long bannerUntil;
 	private QuestEngine.HintView hint;
+	private int questLogBottom = 6;
 	private long hintUntil;
 	private long lastHintAt;
 
@@ -450,6 +451,7 @@ public final class HudController implements QuestEngine.Feedback {
 			row += 10;
 		}
 		Draw.label(graphics, font, "H 힌트 · V 전환 · K 일지", x + 6, y + height - 11, Draw.DIM);
+		this.questLogBottom = y + height;
 	}
 
 	private int entryHeight(net.minecraft.client.gui.Font font, QuestEngine.TrackView view,
@@ -534,7 +536,7 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		int width = Math.min(320, mc.getWindow().getGuiScaledWidth() - 16);
 		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = Math.max(72, mc.getWindow().getGuiScaledHeight() / 4);
+		int y = Math.max(questLogBottom + 6, mc.getWindow().getGuiScaledHeight() / 4);
 		int textWidth = width - 14;
 		Component clue = KoText.ko(hint.clueKo() == null ? "" : hint.clueKo());
 		Component simplified = KoText.ko(hint.simplifiedKo() == null ? "" : hint.simplifiedKo());

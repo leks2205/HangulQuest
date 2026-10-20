@@ -84,6 +84,12 @@ public final class JournalScreen extends Screen {
 		super(Component.literal("한글 탐험"));
 	}
 
+	/** Dev-only: opens the journal on a given tab (0 = Info … 4 = Quests), used for screenshots. */
+	public JournalScreen(int initialTab) {
+		this();
+		this.tab = Math.max(0, Math.min(TABS.length - 1, initialTab));
+	}
+
 	@Override
 	public boolean isPauseScreen() {
 		return true;
@@ -821,9 +827,24 @@ public final class JournalScreen extends Screen {
 				Draw.truncated(g, this.font, KoText.ko(preview), x, detailTop + 31,
 						width, INK);
 			}
-			Draw.truncated(g, this.font, Component.literal(progressOf(selected, done)
-							+ (focused ? " · " + quests.statusText() : "")),
+			String liveStatus = focused ? quests.statusText() : "";
+			String detailLine = progressOf(selected, done)
+					+ (liveStatus.isBlank() || liveStatus.contains("/") ? "" : " · " + liveStatus);
+			Draw.truncated(g, this.font, Component.literal(detailLine),
 					x, detailTop + 45, width - 68, INK_FAINT);
+			if (!done) {
+				Questline chosen = selected;
+				checkRow(g, x + width - 156, detailTop + 51, 88, 17, "Im Log",
+						quests.isTracked(chosen.id()), () -> {
+							boolean on = !quests.isTracked(chosen.id());
+							if (!quests.setTracked(chosen.id(), on)) {
+								status = "Quest-Log ist voll (6)";
+							} else {
+								status = on ? "ins Log gelegt: " + chosen.titleDe()
+										: "aus dem Log genommen · Fortschritt bleibt";
+							}
+						});
+			}
 			if (active && !focused && !done) {
 				Questline chosen = selected;
 				button(g, x + width - 62, detailTop + 52, 58, 16, "Fokus", false, () -> {
@@ -1051,6 +1072,29 @@ public final class JournalScreen extends Screen {
 				g.fill(x + 2 + i, y + 2 + i, x + 3 + i, y + 3 + i, 0xFFFF8080);
 			}
 		}
+	}
+
+	/** A checkbox with a hand-drawn tick — safer than relying on a glyph in the font. */
+	private void checkRow(GuiGraphicsExtractor g, int x, int y, int width, int height, String label,
+						  boolean checked, Runnable action) {
+		boolean hover = mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
+		int box = 9;
+		int boxY = y + (height - box) / 2;
+		g.fill(x, boxY, x + box, boxY + box, checked ? 0xFFFFF8E7 : hover ? 0xFFF2E3C2 : PARCHMENT_DARK);
+		g.fill(x, boxY, x + box, boxY + 1, PAGE_EDGE);
+		g.fill(x, boxY + box - 1, x + box, boxY + box, PAGE_EDGE);
+		g.fill(x, boxY, x + 1, boxY + box, PAGE_EDGE);
+		g.fill(x + box - 1, boxY, x + box, boxY + box, PAGE_EDGE);
+		if (checked) {
+			// Tick: two short strokes drawn as 2x2 blocks, readable at any GUI scale.
+			g.fill(x + 2, boxY + 4, x + 4, boxY + 7, RIBBON);
+			g.fill(x + 4, boxY + 6, x + 6, boxY + 8, RIBBON);
+			g.fill(x + 6, boxY + 2, x + 8, boxY + 7, RIBBON);
+			g.fill(x + 7, boxY + 2, x + 8, boxY + 5, RIBBON);
+		}
+		Draw.label(g, this.font, label, x + box + 4, y + (height - this.font.lineHeight) / 2,
+				checked ? INK : INK_SOFT);
+		hits.add(new Hit(x, y, width, height, action));
 	}
 
 	private void button(GuiGraphicsExtractor g, int x, int y, int width, int height, String label,

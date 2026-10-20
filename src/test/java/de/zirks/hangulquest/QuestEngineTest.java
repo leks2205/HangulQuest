@@ -601,9 +601,67 @@ class QuestEngineTest {
 		}
 
 		assertEquals(QuestEngine.MAX_TRACKED, engine.trackedCount());
-		assertFalse(engine.isTracked("trail0"), "the oldest background quest is dropped first");
+		assertFalse(engine.isTracked("trail0"), "the oldest background quest leaves the log first");
+		assertTrue(engine.hasProgress("trail0"), "leaving the log keeps the saved progress");
 		assertTrue(engine.isTracked("trail7"));
 		assertEquals("trail7", engine.activeTrail().id());
+	}
+
+	@Test
+	void untrackedQuestKeepsProgressButDoesNotAdvance() {
+		Path dir = tempDir.resolve("log-checkbox");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline stones = simpleTrail("stones", "minecraft:stone", 3, 10);
+		Questline ores = simpleTrail("ores", "minecraft:coal_ore", 3, 20);
+		QuestEngine engine = new QuestEngine(List.of(stones, ores), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		engine.startTrail("stones", start, recorder);
+		engine.startTrail("ores", start, recorder);
+		engine.tick(obsFor(1_100L, "minecraft:coal_ore"), recorder);
+		assertEquals(1, engine.progressOf("ores"));
+
+		assertTrue(engine.setTracked("ores", false), "a quest can be taken out of the log");
+		assertFalse(engine.isTracked("ores"));
+		assertTrue(engine.hasProgress("ores"));
+		assertEquals("stones", engine.activeTrail().id(), "the next tracked quest takes the focus");
+
+		engine.tick(obsFor(1_200L, "minecraft:coal_ore"), recorder);
+		assertEquals(1, engine.progressOf("ores"), "an unchecked quest does not advance");
+		assertEquals(1, engine.trackedViews().size(), "only tracked quests are listed");
+		assertTrue(engine.trackedViews().stream().noneMatch(view -> view.id().equals("ores")));
+
+		assertTrue(engine.setTracked("ores", true));
+		assertEquals(1, engine.progressOf("ores"), "checking it again resumes where it stopped");
+		assertEquals("ores", engine.activeTrail().id());
+	}
+
+	@Test
+	void focusFollowsTheLogAndNotTheWorld() {
+		Path dir = tempDir.resolve("log-focus");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline stones = simpleTrail("stones", "minecraft:stone", 3, 10);
+		Questline ores = simpleTrail("ores", "minecraft:coal_ore", 3, 20);
+		QuestEngine engine = new QuestEngine(List.of(stones, ores), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		engine.startTrail("stones", start, recorder);
+		engine.startTrail("ores", start, recorder);
+
+		engine.tick(obsFor(1_100L, "minecraft:stone"), recorder);
+
+		assertEquals("ores", engine.activeTrail().id(), "focus does not follow the action");
+		assertEquals(1, engine.progressOf("stones"), "the other checked quest still advances");
+		assertTrue(engine.focus("stones"));
+		assertEquals("stones", engine.activeTrail().id());
 	}
 
 	private static Questline simpleTrail(String id, String block, int count, int order) {

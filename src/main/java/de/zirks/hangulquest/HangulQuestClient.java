@@ -257,7 +257,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 	/** Dev-only: -Dhangulquest.questlogdemo=true fills the quest log with open quests for screenshots. */
 	private void questLogDemo(Observation obs) {
 		questDemoTicks++;
-		if (mc.player == null || quests == null || questDemoTicks != 100) {
+		if (mc.player == null || quests == null) {
+			return;
+		}
+		questLogDemoJournal();
+		if (questDemoTicks != 100) {
 			return;
 		}
 		List<Questline> roots = quests.trails().stream()
@@ -275,7 +279,19 @@ public final class HangulQuestClient implements ClientModInitializer {
 		for (int i = 0; i < roots.size(); i++) {
 			quests.demoProgress(roots.get(i).id(), i == 1 ? 1 : i == 2 ? 0 : i == 3 ? 2 : 1);
 		}
+		// Only two of them are checked into the log, like a player who keeps the rest for later.
+		for (int i = 2; i < roots.size(); i++) {
+			quests.setTracked(roots.get(i).id(), false);
+		}
 		LOG.info("[questlog] tracked {} roots={}", quests.trackedCount(), roots.size());
+	}
+
+	/** Dev-only: opens the journal on the quest tab a moment after filling the log. */
+	private void questLogDemoJournal() {
+		if (questDemoTicks == 180) {
+			mc.setScreenAndShow(new JournalScreen(4));
+			LOG.info("[questlog] journal opened on the quest tab");
+		}
 	}
 
 	/** Dev-only: -Dhangulquest.selftest=true drives the UI for screenshots. */

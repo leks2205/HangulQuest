@@ -21,10 +21,10 @@ import java.util.stream.Collectors;
  * Drives the tracked trails: clue -> goal -> next clue -> ritual finale, plus the
  * hint/sidequest loop that pauses the original quest.
  *
- * <p>Several trails are tracked at once, like a quest log. Each tracked trail keeps its own step,
- * partial counter, hint state and sidequest, and all of them are checked against the same world
- * observation. One trail is <em>focused</em>: the hint key, the sidequest and the follow-up chain work
- * on it. Starting a trail focuses it; finishing the focused trail starts or offers its successor.
+ * <p>The quest log shows a chosen set of trails — the ones the player checked in the journal. Only
+ * those are <em>tracked</em>: their goals are checked against the world and they advance in parallel.
+ * Every other trail keeps its progress but is paused until it is checked again. One tracked trail is
+ * <em>focused</em>: the hint key, the sidequest and the follow-up chain work on it.
  */
 public final class QuestEngine {
 	/** How many trails the quest log holds at once, the focused one included. */
@@ -100,8 +100,10 @@ public final class QuestEngine {
 	private final Logger log;
 	private final SentenceBuilder.Namer namer;
 
-	/** Insertion order: the quest log keeps the order the player started tracking in. */
+	/** Runtime state of every trail the player has started, tracked or not. */
 	private final LinkedHashMap<String, Track> tracks = new LinkedHashMap<>();
+	/** Insertion order of the quest log: what the HUD shows and what is checked against the world. */
+	private final java.util.LinkedHashSet<String> trackedIds = new java.util.LinkedHashSet<>();
 	private String focusedId;
 
 	private long lastHintAt;
@@ -150,19 +152,33 @@ public final class QuestEngine {
 		}
 		if (quests.saved != null) {
 			for (ProgressData.Active snapshot : quests.saved.values()) {
-				if (tracks.size() >= MAX_TRACKED) {
-					break;
-				}
 				Track track = trackOf(snapshot);
 				if (track != null && !tracks.containsKey(track.trail.id())) {
 					tracks.put(track.trail.id(), track);
-					if (focusedId == null) {
-						focusedId = track.trail.id();
-					}
 				}
 			}
 			// Rebuilt from the live tracks on the next persist.
 			quests.saved = new LinkedHashMap<>();
+		}
+		if (quests.tracked != null) {
+			for (String id : quests.tracked) {
+				if (tracks.containsKey(id)) {
+					trackedIds.add(id);
+				}
+			}
+		} else if (focusedId != null) {
+			// Before the log had checkboxes only the active quest advanced; keep it that way.
+			trackedIds.add(focusedId);
+		}
+		if (focusedId != null) {
+			trackedIds.add(focusedId);
+		}
+		if (trackedIds.size() > MAX_TRACKED) {
+			List<String> keep = new ArrayList<>(trackedIds).subList(0, MAX_TRACKED);
+			trackedIds.retainAll(keep);
+		}
+		if (focusedId == null || !trackedIds.contains(focusedId)) {
+			focusedId = trackedIds.isEmpty() ? null : trackedIds.iterator().next();
 		}
 	}
 
@@ -241,8 +257,8 @@ public final class QuestEngine {
 		boolean dirty = false;
 		List<Track> snapshot = new ArrayList<>(tracks.values());
 		for (Track track : snapshot) {
-			if (!tracks.containsKey(track.trail.id())) {
-				continue; // finished while this tick was running
+			if (!tracks.containsKey(track.trail.id()) || !trackedIds.contains(track.trail.id())) {
+				continue; // finished this tick, or not in the quest log
 			}
 			QuestStep step = track.step();
 			if (step == null) {
@@ -471,21 +487,16 @@ public final class QuestEngine {
 		}
 		long now = obs == null ? System.currentTimeMillis() : obs.now;
 		Track existing = tracks.get(trailId);
-		if (existing != null) {
-			focusedId = trailId;
-			persist(now);
-			QuestStep step = existing.step();
-			if (step != null) {
-				feedback.banner(clueKo(existing, step), clueDe(step), true);
-			}
-			return true;
+		if (existing == null) {
+			existing = resumeOrCreate(trail, now);
+			tracks.put(trailId, existing);
 		}
-		while (tracks.size() >= MAX_TRACKED) {
-			dropOldestBackground();
+		if (!trackedIds.contains(trailId) && !makeRoomInLog()) {
+			return false;
 		}
-		Track track = resumeOrCreate(trail, now);
-		tracks.put(trailId, track);
+		trackedIds.add(trailId);
 		focusedId = trailId;
+		Track track = existing;
 		persist(now);
 		QuestStep step = track.step();
 		if (step != null) {
@@ -505,19 +516,30 @@ public final class QuestEngine {
 		return new Track(trail, now);
 	}
 
-	/** Removes the oldest tracked trail that is not focused, so a new quest always fits. */
-	private void dropOldestBackground() {
-		for (Track track : tracks.values()) {
-			if (!track.trail.id().equals(focusedId)) {
-				removeTrack(track.trail.id());
-				return;
+	/**
+	 * Makes room in the quest log by taking the oldest background quest out of it. Its progress is kept,
+	 * so it can be checked again later.
+	 */
+	private boolean makeRoomInLog() {
+		while (trackedIds.size() >= MAX_TRACKED) {
+			String oldest = null;
+			for (String id : trackedIds) {
+				if (!id.equals(focusedId)) {
+					oldest = id;
+					break;
+				}
 			}
+			if (oldest == null) {
+				return false;
+			}
+			trackedIds.remove(oldest);
 		}
-		removeTrack(tracks.keySet().iterator().next());
+		return true;
 	}
 
 	private void removeTrack(String trailId) {
 		tracks.remove(trailId);
+		trackedIds.remove(trailId);
 		if (data.quests.saved != null) {
 			data.quests.saved.remove(trailId);
 		}
@@ -528,7 +550,7 @@ public final class QuestEngine {
 
 	/** Focuses a tracked trail without touching its progress. */
 	public boolean focus(String trailId) {
-		if (!tracks.containsKey(trailId)) {
+		if (!trackedIds.contains(trailId)) {
 			return false;
 		}
 		focusedId = trailId;
@@ -536,17 +558,43 @@ public final class QuestEngine {
 		return true;
 	}
 
-	/** Stops tracking one trail; its progress is dropped. */
-	public void untrack(String trailId) {
-		if (!tracks.containsKey(trailId)) {
-			return;
+	/**
+	 * Adds or removes a trail in the quest log. Checked trails are drawn on the HUD and their goals are
+	 * checked against the world; unchecked trails keep their progress but do not advance.
+	 */
+	public boolean setTracked(String trailId, boolean on) {
+		long now = lastObs == null ? System.currentTimeMillis() : lastObs.now;
+		if (!on) {
+			if (trackedIds.remove(trailId)) {
+				if (trailId.equals(focusedId)) {
+					focusedId = trackedIds.isEmpty() ? null : trackedIds.iterator().next();
+				}
+				persist(now);
+			}
+			return true;
 		}
-		removeTrack(trailId);
-		persist(lastObs == null ? System.currentTimeMillis() : lastObs.now);
+		if (!tracks.containsKey(trailId) && byId(trailId) == null) {
+			return false;
+		}
+		if (!tracks.containsKey(trailId)) {
+			tracks.put(trailId, new Track(byId(trailId), now));
+		}
+		if (!trackedIds.contains(trailId) && !makeRoomInLog()) {
+			return false;
+		}
+		trackedIds.add(trailId);
+		focusedId = trailId;
+		persist(now);
+		return true;
+	}
+
+	/** Takes a trail out of the log; its progress is kept for when it is checked again. */
+	public void untrack(String trailId) {
+		setTracked(trailId, false);
 	}
 
 	public void autoStart(Observation obs, Feedback feedback) {
-		if (!tracks.isEmpty()) {
+		if (!trackedIds.isEmpty()) {
 			return;
 		}
 		Questline best = null;
@@ -571,13 +619,12 @@ public final class QuestEngine {
 		}
 	}
 
-	/** Stops tracking the focused trail (the journal's "Abbrechen"). */
+	/** Takes the focused trail out of the log (the journal's "Abbrechen"); its progress is kept. */
 	public void abandon() {
 		if (focusedId == null) {
 			return;
 		}
-		removeTrack(focusedId);
-		persist(System.currentTimeMillis());
+		setTracked(focusedId, false);
 	}
 
 	// -------------------------------------------------------------------- hint
@@ -682,6 +729,7 @@ public final class QuestEngine {
 		}
 		data.quests.active = focusedSnapshot;
 		data.quests.saved = background;
+		data.quests.tracked = new ArrayList<>(trackedIds);
 		learn.markDirty();
 	}
 
@@ -744,17 +792,31 @@ public final class QuestEngine {
 	}
 
 	public boolean isTracked(String trailId) {
+		return trackedIds.contains(trailId);
+	}
+
+	/** Partial counter of any trail that has a state, tracked or not. */
+	public int progressOf(String trailId) {
+		Track track = tracks.get(trailId);
+		return track == null ? 0 : track.tracker.count;
+	}
+
+	/** True when the trail was started at some point and still has a saved state. */
+	public boolean hasProgress(String trailId) {
 		return tracks.containsKey(trailId);
 	}
 
 	public int trackedCount() {
-		return tracks.size();
+		return trackedIds.size();
 	}
 
 	/** The quest log, focused trail first, then in the order the player added them. */
 	public List<TrackView> trackedViews() {
 		List<TrackView> views = new ArrayList<>();
 		for (Track track : tracks.values()) {
+			if (!trackedIds.contains(track.trail.id())) {
+				continue;
+			}
 			QuestStep step = track.step();
 			if (step == null) {
 				continue;

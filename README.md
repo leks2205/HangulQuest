@@ -64,8 +64,8 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 **Quest trails**
 - **414 questlines**, one JSON file each: a tree **22 levels deep**, 1,505 steps in total, 38 roots, branches that merge again before they continue.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
-- **A quest log, not a single tracker.** Every trail you start stays in the HUD: title, current Korean objective, live status line (`지금 낮 · 밤 필요`, `Y 62 / 140 위`) and a progress bar where the goal counts something. Up to six quests at once, one of them highlighted; `V` cycles the highlight.
-- The highlighted quest is the one the hint key and the sidequest work on, so you can keep several quests open and still ask for help on exactly one of them.
+- **A quest log, not a single tracker.** Tick quests in the journal and the HUD lists them: title, current Korean objective, live status line (`지금 낮 · 밤 필요`, `Y 62 / 140 위`) and a progress bar where the goal counts something. Up to six, one of them highlighted; `V` cycles the highlight.
+- **Only checked quests advance.** An unticked quest keeps its saved progress but is paused, so nothing completes behind your back while you are reading something else. The highlighted quest is the one the hint key and the sidequest work on.
 - Finishing a trail chains onward automatically: the only unlocked child starts, or a HUD card offers up to five follow-ups (`1`–`5`, the first one after 60 s). Leaving a trail pauses it mid-step; coming back resumes that exact step, counter and sidequest state.
 
 **Hints and sidequests**
@@ -116,7 +116,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
   </tr>
   <tr>
     <td><img src="docs/screenshots/wordcard.webp" alt="Word card while looking at a block" /></td>
-    <td><img src="docs/screenshots/quests.webp" alt="Trail tree in the journal" /></td>
+    <td><img src="docs/screenshots/journal-quest-log.webp" alt="Quest tab with the Im Log checkbox" /></td>
   </tr>
 </table>
 
@@ -164,7 +164,7 @@ The full model — every goal type, every condition, how the quest log words its
 | **Wörter** | Your dictionary: Korean, German, status, and where the word came from (curated, vanilla, Lute) |
 | **Lernen** | Flashcards for due words, with the review trail as a shortcut |
 | **Erfolge** | Fifteen achievements with progress |
-| **Quests** | The trail tree: done, active, open and locked nodes with title, level, requirements and progress |
+| **Quests** | The trail tree and a detail card with the **Im Log** checkbox: ticked quests appear on the HUD and advance, unticked ones wait |
 | **Optionen** | HUD, German in quests, quiz size, hints, sound and the quest folder |
 
 ## Writing your own questlines

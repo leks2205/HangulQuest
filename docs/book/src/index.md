@@ -17,8 +17,9 @@ works in single-player and on any server, with or without other players.
 - **414 questlines** and 1,505 steps, arranged in a tree 22 levels deep. The Korean gets harder as you
   go deeper: polite sentences at the top, obligation, emphatic forms, double negatives and finally
   literary Korean near the crown.
-- **A quest log** instead of a single tracker: every open quest with its Korean objective, its
-  conditions and a live progress bar, up to six at a time.
+- **A quest log** instead of a single tracker: tick the quests you want in the journal and the HUD
+  lists them with their Korean objective, their conditions and a live progress bar — up to six, and only
+  the ticked ones advance.
 - **A hint that teaches.** `H` restates the task in level-1 Korean and explains the blocking word,
   then starts a two-question sidequest on it. The original quest waits until you have answered both.
 - **A journal** (`K`) drawn as a worn notebook: your dictionary, due words, achievements, the trail

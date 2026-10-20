@@ -29,6 +29,13 @@ counter (`1/3`) or the dwell percentage. Common causes:
 - **`REACH_BIOME` with a tag** needs the biome family, not a specific biome.
 - **Time conditions** use the world clock: night is night, even underground.
 
+## A quest does not advance
+
+Check the journal's **Quests** tab: only quests with the **Im Log** checkbox ticked are checked against
+the world. A quest that is listed as `○ offen` or `▸ im Log` but not highlighted still advances; one that
+lost its tick does not, on purpose — that is how the mod keeps you from completing quests you are not
+reading.
+
 ## My own questline does not show up
 
 - The file must end in `.json`, must not start with `_`, and must be inside

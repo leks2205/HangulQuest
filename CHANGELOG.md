@@ -4,6 +4,25 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [1.2.0] — 2026-10-20
+
+### Added
+
+- **Checkbox tracking in the journal.** The Quests tab's detail card has an **Im Log** checkbox (and a
+  **Fokus** button for a quest that is already in the log). Checked quests are drawn on the HUD and are
+  the only ones whose goals are checked against the world.
+- The HUD hint panel now always opens below the quest log, whatever its height.
+
+### Changed
+
+- **Only visible quests progress.** A quest that is not checked into the log keeps its saved step,
+  counter, hint state and sidequest, but it does not advance — so quests can no longer complete behind
+  the player's back while another quest is in focus.
+- Checking a seventh quest unchecks the oldest one instead of discarding it; its progress stays saved.
+- Taking a quest out of the log (checkbox, or **Abbrechen**) keeps its progress for later.
+
+[1.2.0]: https://github.com/leks2205/HangulQuest/releases/tag/v1.2.0
+
 ## [1.1.1] — 2026-10-20
 
 ### Fixed

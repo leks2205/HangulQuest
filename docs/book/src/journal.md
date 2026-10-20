@@ -62,11 +62,17 @@ The tree. Each node is one trail, coloured by state:
 - **locked** — shows what it is waiting for (`nach 돌의 길`, or `ab 2 Wörtern`).
 
 Selecting a node shows the detail card: Korean and German title, level, TOPIK band, state, parents,
-children, progress (`2/4`), the live status of the current step, and a start button. Starting a trail
-adds it to the quest log without dropping the ones you already track; starting the highlighted trail
-again only re-highlights it. Parent trails are listed before their children, and the list scrolls.
+children, progress (`2/4`), the live status of the current step, a checkbox and a start button.
 
-<img src="screenshots/quests.webp" alt="Quest tree with locked and open trails" />
+- **Im Log** (checkbox) is the important one: ticked quests are drawn on the HUD and their goals are
+  checked against the world. Unticked quests keep their progress but are paused.
+- **Starten** ticks the quest and starts it; **Fokus** highlights a quest that is already in the log.
+- State reads `▶ aktiv` for the highlighted quest, `▸ im Log` for the other ticked ones, `○ offen` for a
+  quest that is unlocked but not in the log, and `· gesperrt` for a locked branch.
+
+Parent trails are listed before their children, and the list scrolls.
+
+<img src="screenshots/journal-quest-log.webp" alt="Quest tab: trail tree, detail card and the Im Log checkbox" />
 
 ## Optionen
 

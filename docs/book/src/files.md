@@ -24,8 +24,9 @@ Holds, in plain JSON:
 - every word you have met, its SRS level and when it is due,
 - which day keys count for the streak, and your best streak,
 - unlocked achievements with their dates,
-- the active trail, its step, partial counters, sidequest state and hints used,
-- paused trails (`quests.saved`) and completed trails with their badges,
+- the focused trail, its step, partial counters, sidequest state and hints used,
+- the quest log (`quests.tracked`) and every other trail you started (`quests.saved`), all with their
+  progress, plus completed trails with their badges,
 - the last Lute import summary.
 
 It is written atomically (a temporary file is renamed over the old one) and debounced, so a crash mid-write

@@ -34,8 +34,17 @@ public final class ProgressData {
 		public List<String> badges = new ArrayList<>();
 		public List<History> history = new ArrayList<>();
 		public Adaptive adaptive;
-		/** Paused trails: switching away keeps step index, partial progress and hint state. */
+		/**
+		 * Quest states that are not the focused one: tracked-but-background quests, and quests that are
+		 * not in the HUD log at all. Both keep step index, partial progress and hint state; only the
+		 * tracked ones advance.
+		 */
 		public Map<String, Active> saved = new LinkedHashMap<>();
+		/**
+		 * Trails whose rows are shown in the HUD quest log and whose goals are checked against the world.
+		 * {@code null} means "an old save before this field existed": every saved trail is treated as tracked.
+		 */
+		public List<String> tracked;
 	}
 
 	public static final class Active {
