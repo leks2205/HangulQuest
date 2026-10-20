@@ -27,7 +27,7 @@ jobs:
           java-version: "25"
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Tests (engine plus all shipped questlines)
         run: ./gradlew test --no-daemon --stacktrace
