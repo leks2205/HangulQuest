@@ -43,8 +43,9 @@ detail card: the quest appears in the HUD and starts advancing.
   you are working on a different one.
 - **Up to six** quests fit in the log. Checking a seventh unchecks the oldest one, which keeps its
   progress and can be checked again later.
-- **`V` moves the highlight.** Hints (`H`), the sidequest and the follow-up chain work on the highlighted
-  quest only.
+- **`V` moves the highlight.** The list keeps its order — only the gold title moves — so `V` walks through
+  every checked quest and wraps around. Hints (`H`), the sidequest and the follow-up chain work on the
+  highlighted quest only.
 - **Finishing the highlighted quest** starts or offers its successor, which is checked into the log
   automatically. Finishing any other checked quest shows a banner and leaves the highlight alone.
 

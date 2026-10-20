@@ -641,6 +641,35 @@ class QuestEngineTest {
 	}
 
 	@Test
+	void questLogOrderIsStableSoFocusCanCycleThroughEveryQuest() {
+		Path dir = tempDir.resolve("log-order");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline first = simpleTrail("first", "minecraft:stone", 3, 10);
+		Questline second = simpleTrail("second", "minecraft:coal_ore", 3, 20);
+		Questline third = simpleTrail("third", "minecraft:stone", 3, 30);
+		QuestEngine engine = new QuestEngine(List.of(first, second, third), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		engine.startTrail("first", start, recorder);
+		engine.startTrail("second", start, recorder);
+		engine.startTrail("third", start, recorder);
+
+		List<String> order = engine.trackedViews().stream().map(QuestEngine.TrackView::id).toList();
+		assertEquals(List.of("first", "second", "third"), order);
+
+		assertTrue(engine.focus("first"));
+		assertEquals(List.of("first", "second", "third"), engine.trackedViews().stream()
+				.map(QuestEngine.TrackView::id).toList(), "focusing must not reorder the log");
+		assertTrue(engine.focus("second"));
+		assertTrue(engine.focus("third"));
+		assertEquals("third", engine.activeTrail().id());
+	}
+
+	@Test
 	void focusFollowsTheLogAndNotTheWorld() {
 		Path dir = tempDir.resolve("log-focus");
 		ProgressStore store = new ProgressStore(dir, LOG);

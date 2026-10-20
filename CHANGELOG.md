@@ -4,6 +4,17 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [1.3.1] — 2026-10-20
+
+### Fixed
+
+- **`V` only reached two quests.** The focused quest was sorted to the top of the log, so the "next" step
+  always landed on whichever quest had just moved down — with three or more quests the highlight bounced
+  between the first two. The log now keeps a fixed order and only the gold title moves, so `V` visits
+  every checked quest and wraps around.
+
+[1.3.1]: https://github.com/leks2205/HangulQuest/releases/tag/v1.3.1
+
 ## [1.3.0] — 2026-10-20
 
 ### Changed

@@ -810,7 +810,11 @@ public final class QuestEngine {
 		return trackedIds.size();
 	}
 
-	/** The quest log, focused trail first, then in the order the player added them. */
+	/**
+	 * The quest log in the order the player added the quests. The focused one is only marked
+	 * ({@link TrackView#focused()}); it does not move to the top, so cycling the focus visits every
+	 * quest instead of bouncing between the first two.
+	 */
 	public List<TrackView> trackedViews() {
 		List<TrackView> views = new ArrayList<>();
 		for (Track track : tracks.values()) {
@@ -828,7 +832,6 @@ public final class QuestEngine {
 					track.tracker.count, needed(step), countable(step),
 					track.trail.id().equals(focusedId), track.stepIndex, track.stepCount()));
 		}
-		views.sort(Comparator.comparing((TrackView view) -> !view.focused()));
 		return views;
 	}
 
