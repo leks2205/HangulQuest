@@ -5,10 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Whole progress document (schema v2: learning + quests + vocabulary import info). */
+/** Whole progress document (schema v3: learning + quests + vocabulary import info + install metadata). */
 public final class ProgressData {
 	/** Highest schema this build reads and writes; a file with a higher version is opened read-only. */
-	public static final int CURRENT_VERSION = 2;
+	public static final int CURRENT_VERSION = 3;
 
 	public int version = CURRENT_VERSION;
 	public Map<String, WordProgress> words = new LinkedHashMap<>();
@@ -24,11 +24,19 @@ public final class ProgressData {
 		public int correct;
 		public int wrong;
 		public int reviews;
+		/** Sidequests finished, over all sessions. */
+		public int sidequestsCompleted;
+		/** Quest steps finished, over all sessions. */
+		public int questStepsCompleted;
 	}
 
 	public static final class Meta {
 		public long firstPlayed;
 		public long lastPlayed;
+		/** Schema versions this file has been through, ascending. */
+		public List<Integer> schemaHistory = new ArrayList<>();
+		/** Random hex made once per install, local only, for future A/B assignment. */
+		public String installSalt;
 	}
 
 	public static final class QuestData {

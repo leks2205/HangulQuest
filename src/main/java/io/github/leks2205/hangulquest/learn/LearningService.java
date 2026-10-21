@@ -5,9 +5,11 @@ import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Origin;
 import io.github.leks2205.hangulquest.data.Word;
 
-import java.time.LocalDate;
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,13 +19,18 @@ public final class LearningService {
 	private final ProgressData data;
 	private final ProgressStore store;
 	private final Catalog catalog;
-	private int sidequestsCompleted;
-	private int questStepsCompleted;
+	private final Clock clock;
+	private final List<Runnable> resetListeners = new CopyOnWriteArrayList<>();
 
 	public LearningService(ProgressData data, ProgressStore store, Catalog catalog) {
+		this(data, store, catalog, Clock.systemDefaultZone());
+	}
+
+	public LearningService(ProgressData data, ProgressStore store, Catalog catalog, Clock clock) {
 		this.data = data;
 		this.store = store;
 		this.catalog = catalog;
+		this.clock = clock;
 	}
 
 	public ProgressData data() {
@@ -292,21 +299,29 @@ public final class LearningService {
 		return count;
 	}
 
+	/** Today's counts for display; reading never creates a day, only real activity does. */
 	public int todaySeen() {
-		return today().seen;
+		DayCounts day = data.days.get(dayKey());
+		return day == null ? 0 : day.seen;
 	}
 
 	public int todayCorrect() {
-		return today().correct;
+		DayCounts day = data.days.get(dayKey());
+		return day == null ? 0 : day.correct;
 	}
 
+	/** The study day as a key: {@code yyyy-MM-dd}, where the day turns over at 04:00 local time. */
+	public String dayKey() {
+		return Streak.dayKey(LocalDateTime.now(clock));
+	}
+
+	/** The day for recording activity; created on first use. */
 	private DayCounts today() {
-		String key = LocalDate.now().toString();
-		return data.days.computeIfAbsent(key, ignored -> new DayCounts());
+		return data.days.computeIfAbsent(dayKey(), ignored -> new DayCounts());
 	}
 
 	public Streak streak() {
-		return Streak.compute(data.days.keySet(), LocalDate.now());
+		return Streak.compute(data.days.keySet(), Streak.studyDay(LocalDateTime.now(clock)));
 	}
 
 	public int completedTrails() {
@@ -314,21 +329,50 @@ public final class LearningService {
 	}
 
 	public int sidequestsCompleted() {
-		return sidequestsCompleted;
+		return data.totals.sidequestsCompleted;
 	}
 
 	public int questStepsCompleted() {
-		return questStepsCompleted;
+		return data.totals.questStepsCompleted;
 	}
 
 	public void noteSidequestCompleted() {
-		sidequestsCompleted++;
+		data.totals.sidequestsCompleted++;
 		store.markDirty();
 	}
 
 	public void noteQuestStepCompleted() {
-		questStepsCompleted++;
+		data.totals.questStepsCompleted++;
 		store.markDirty();
+	}
+
+	/** Runs after {@link #reset()} so screens can drop what they cached (the dictionary list, for one). */
+	public void onReset(Runnable listener) {
+		resetListeners.add(listener);
+	}
+
+	/**
+	 * Wipes learning progress: words, days, achievements, totals and the adaptive trail. {@code meta.firstPlayed}
+	 * stays, and so do the finished and running quests. Saves the current state first and keeps it as a
+	 * {@code progress.json.backup-pre-reset-*} copy.
+	 *
+	 * @return false when nothing was reset because progress is read-only
+	 */
+	public boolean reset() {
+		if (store.readOnly()) {
+			return false;
+		}
+		store.flush();
+		store.backup("pre-reset");
+		data.words.clear();
+		data.days.clear();
+		data.achievements.clear();
+		data.totals = new ProgressData.Totals();
+		data.quests.adaptive = null;
+		store.markDirty();
+		store.flush();
+		resetListeners.forEach(Runnable::run);
+		return true;
 	}
 
 	public List<Achievements.Achievement> checkAchievements() {

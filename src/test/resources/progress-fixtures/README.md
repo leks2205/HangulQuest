@@ -11,3 +11,6 @@ Rules:
 - `future-v99.json` checks that a file from a newer version is never overwritten, `unknown-fields.json` that
   fields this build does not know survive a save, `corrupt.json` that a broken file is moved aside, and
   `bom.json` that a byte-order mark does not break loading.
+- `v3-sample.json` is the schema v3 shape (`meta.schemaHistory`, `meta.installSalt`, the persisted
+  sidequest and quest-step counters). Older fixtures are migrated to v3 on load; `ProgressMigrationsTest`
+  checks that every migration step is idempotent.

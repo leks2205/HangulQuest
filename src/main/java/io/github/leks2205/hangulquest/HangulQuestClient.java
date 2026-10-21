@@ -152,6 +152,15 @@ public final class HangulQuestClient implements ClientModInitializer {
 		return lastObservation;
 	}
 
+	/** The signed-in account, or null when the session has none (dev, offline); that maps to the default profile. */
+	private java.util.UUID accountId() {
+		try {
+			return mc.getUser().getProfileId();
+		} catch (RuntimeException unavailable) {
+			return null;
+		}
+	}
+
 	@Override
 	public void onInitializeClient() {
 		instance = this;
@@ -163,7 +172,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		config = Config.load(dir.resolve("config.json"));
 		io.github.leks2205.hangulquest.util.Lang.set(config.language);
-		store = new ProgressStore(dir, LOG);
+		store = new ProgressStore(io.github.leks2205.hangulquest.learn.ProfilePaths.open(dir, accountId(), LOG), LOG);
 		hud = new HudController(this);
 		hud.register();
 		sensor = new EnvironmentSensor();

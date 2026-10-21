@@ -3,6 +3,8 @@ package io.github.leks2205.hangulquest.learn;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.leks2205.hangulquest.learn.migrate.Aliases;
+import io.github.leks2205.hangulquest.learn.migrate.ProgressMigrations;
 import io.github.leks2205.hangulquest.util.JsonIO;
 import org.slf4j.Logger;
 
@@ -28,7 +30,8 @@ import java.util.stream.Stream;
  * Loads and saves progress.json. Learner progress must survive every update, so:
  * writes are atomic and forced to disk, fields this build does not know are written back unchanged,
  * a file from a newer version is never overwritten, corrupt files are moved aside instead of replaced,
- * and a daily and a weekly backup are kept in {@code backups/}.
+ * and a daily and a weekly backup are kept in {@code backups/}. Older schemas are brought up to date on
+ * the raw JSON ({@link ProgressMigrations}) before they are bound, after a copy of the old file.
  */
 public final class ProgressStore {
 	static final int DAILY_BACKUPS = 7;
@@ -36,6 +39,8 @@ public final class ProgressStore {
 
 	private final Path file;
 	private final Logger log;
+	private final ProgressMigrations migrations = ProgressMigrations.standard();
+	private final Aliases aliases;
 	private ProgressData data;
 	/** The tree last read from or written to disk; source of the fields this build does not know. */
 	private JsonObject onDisk;
@@ -44,8 +49,13 @@ public final class ProgressStore {
 	private long lastFlush;
 
 	public ProgressStore(Path dir, Logger log) {
+		this(dir, log, Aliases.bundled());
+	}
+
+	public ProgressStore(Path dir, Logger log, Aliases aliases) {
 		this.file = dir.resolve("progress.json");
 		this.log = log;
+		this.aliases = aliases;
 		this.data = load();
 	}
 
@@ -96,33 +106,81 @@ public final class ProgressStore {
 
 	private ProgressData load() {
 		if (!Files.exists(file)) {
-			return new ProgressData();
+			return fresh();
 		}
-		ProgressData loaded = null;
+		JsonObject tree;
+		int version;
 		try {
 			String text = Files.readString(file, StandardCharsets.UTF_8);
-			if (text.startsWith("﻿")) {
+			if (text.startsWith("\uFEFF")) {
 				text = text.substring(1);
 			}
-			JsonObject tree = JsonParser.parseString(text).getAsJsonObject();
-			loaded = JsonIO.GSON.fromJson(tree, ProgressData.class);
-			onDisk = tree;
+			tree = JsonParser.parseString(text).getAsJsonObject();
+			version = ProgressMigrations.versionOf(tree);
 		} catch (IOException | RuntimeException broken) {
 			log.warn("progress.json is unreadable ({}), keeping it aside", broken.toString());
 			quarantine();
-		}
-		if (loaded == null) {
-			onDisk = null;
-			return new ProgressData();
+			return fresh();
 		}
 		rotateBackups();
-		if (loaded.version > ProgressData.CURRENT_VERSION) {
+		if (version > ProgressData.CURRENT_VERSION) {
 			readOnly = true;
 			log.warn("progress.json has schema v{}, this build knows v{}: progress is read-only until you update the mod",
-					loaded.version, ProgressData.CURRENT_VERSION);
-		} else {
-			migrate(loaded);
+					version, ProgressData.CURRENT_VERSION);
+			try {
+				ProgressData newer = normalized(bind(tree));
+				onDisk = tree;
+				return newer;
+			} catch (RuntimeException broken) {
+				log.warn("could not read progress v{}, leaving the file alone: {}", version, broken.toString());
+				return new ProgressData();
+			}
 		}
+		if (version < ProgressData.CURRENT_VERSION) {
+			backupBeforeMigration(version);
+		}
+		try {
+			boolean migrated = migrations.run(tree);
+			boolean renamed = aliases.apply(tree);
+			dirty |= migrated || renamed;
+		} catch (RuntimeException failed) {
+			// the file on disk stays as it is: better an empty read-only session than a lost save
+			readOnly = true;
+			log.warn("could not migrate progress v{}, it stays read-only and unchanged: {}", version, failed.toString());
+			return new ProgressData();
+		}
+		ProgressData loaded;
+		try {
+			loaded = bind(tree);
+		} catch (RuntimeException broken) {
+			log.warn("progress.json is unreadable ({}), keeping it aside", broken.toString());
+			quarantine();
+			return fresh();
+		}
+		onDisk = tree;
+		if (version < ProgressData.CURRENT_VERSION) {
+			log.info("migrated progress v{} -> v{}", version, ProgressData.CURRENT_VERSION);
+		}
+		return normalized(loaded);
+	}
+
+	private static ProgressData bind(JsonObject tree) {
+		ProgressData bound = JsonIO.GSON.fromJson(tree, ProgressData.class);
+		if (bound == null) {
+			throw new IllegalStateException("empty progress document");
+		}
+		return bound;
+	}
+
+	/** A new install: empty progress with its salt and schema history set. */
+	private ProgressData fresh() {
+		onDisk = null;
+		dirty = true;
+		return normalized(new ProgressData());
+	}
+
+	/** Fills what a bound document may lack: empty collections, the install salt, the schema history. */
+	private ProgressData normalized(ProgressData loaded) {
 		loaded.words = loaded.words == null ? new java.util.LinkedHashMap<>() : loaded.words;
 		loaded.days = loaded.days == null ? new java.util.LinkedHashMap<>() : loaded.days;
 		loaded.achievements = loaded.achievements == null ? new java.util.LinkedHashMap<>() : loaded.achievements;
@@ -134,24 +192,30 @@ public final class ProgressStore {
 		loaded.vocab = loaded.vocab == null ? new ProgressData.VocabData() : loaded.vocab;
 		loaded.totals = loaded.totals == null ? new ProgressData.Totals() : loaded.totals;
 		loaded.meta = loaded.meta == null ? new ProgressData.Meta() : loaded.meta;
+		if (!readOnly && loaded.version == ProgressData.CURRENT_VERSION) {
+			if (loaded.meta.installSalt == null || loaded.meta.installSalt.isBlank()) {
+				loaded.meta.installSalt = ProgressMigrations.newSalt();
+				dirty = true;
+			}
+			if (loaded.meta.schemaHistory == null) {
+				loaded.meta.schemaHistory = new ArrayList<>();
+			}
+			if (!loaded.meta.schemaHistory.contains(ProgressData.CURRENT_VERSION)) {
+				loaded.meta.schemaHistory.add(ProgressData.CURRENT_VERSION);
+				dirty = true;
+			}
+		}
 		return loaded;
 	}
 
-	private void migrate(ProgressData loaded) {
-		if (loaded.version >= ProgressData.CURRENT_VERSION) {
-			return;
-		}
+	private void backupBeforeMigration(int version) {
 		try {
-			Path backup = file.resolveSibling("progress.v" + loaded.version + "-backup-"
-					+ LocalStamp.now() + ".json");
+			Path backup = file.resolveSibling("progress.v" + version + "-backup-" + LocalStamp.now() + ".json");
 			Files.copy(file, backup, StandardCopyOption.REPLACE_EXISTING);
-			log.info("migrated progress v{} -> v{} (backup {})", loaded.version, ProgressData.CURRENT_VERSION,
-					backup.getFileName());
-		} catch (IOException ignored) {
-			// still migrate in memory
+			log.info("backed up progress v{} as {}", version, backup.getFileName());
+		} catch (IOException failed) {
+			log.warn("could not back up progress before migrating: {}", failed.toString());
 		}
-		loaded.version = ProgressData.CURRENT_VERSION;
-		dirty = true;
 	}
 
 	private void quarantine() {
