@@ -113,7 +113,7 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 
 	@Override
 	public String ceremony(Goal.Smelt goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.output(), obj)
 				+ " " + verb.past();
 	}
 
@@ -155,9 +155,9 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 	}
 
 	@Override
-	public boolean covers(Goal.Smelt goal, io.github.leks2205.hangulquest.data.Concept concept) {
-		return GoalType.super.covers(goal, concept)
-				|| goal.input() != null && concept.items != null && concept.items.contains(goal.input());
+	public List<Mention> mentions(Goal.Smelt goal) {
+		return goal.input() == null ? List.of(new Mention(ObjectKind.ITEM, goal.output()))
+				: List.of(new Mention(ObjectKind.ITEM, goal.output()), new Mention(ObjectKind.ITEM, goal.input()));
 	}
 
 	@Override
@@ -173,7 +173,8 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 
 	/** "유리를", "스테이크를 세 개": the noun with its marker and the count. */
 	private static String counted(Goal.Smelt goal, SentenceContext c, String name, boolean withCount) {
-		return SentenceBuilder.counted(KoGrammar.eul(name), goal.count(), withCount);
+		String id = name.equals(inputName(goal, c)) ? goal.input() : goal.output();
+		return SentenceBuilder.counted(KoGrammar.eul(name), goal.count(), withCount, id, name);
 	}
 
 	/** The product: the sentence word, unless that word names the input. */

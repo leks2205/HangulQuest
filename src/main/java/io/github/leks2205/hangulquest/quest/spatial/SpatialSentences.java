@@ -37,18 +37,54 @@ public final class SpatialSentences {
 	public static SpatialText placeRel(Goal.PlaceRel goal, String obj, Verb verb, int level, boolean withCounts,
 									   boolean finale, boolean past, SentenceBuilder.Namer namer) {
 		List<String> grammar = new ArrayList<>(goal.relation().grammarIds(Role.TARGET));
-		String noun = anchorNoun(goal.anchor(), namer);
+		String[] names = shorten(anchorNoun(goal.anchor(), namer), obj);
+		String noun = names[0];
+		obj = names[1];
 		if (goal.relation() == Relation.BETWEEN) {
 			noun = betweenAnchor(noun);
 			grammar.add(NUM_NATIVE);
 		}
 		String head = SentenceBuilder.relationPhrase(noun, goal.relation(), Role.TARGET) + " "
-				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), withCounts);
+				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), withCounts,
+						goal.block(), obj);
 		if (withCounts && goal.count() > 1) {
 			grammar.add(NUM_NATIVE);
-			grammar.add(COUNTER_GAE);
+			grammar.add(counterGrammar(goal.block(), obj));
 		}
 		return finish(head, verb, level, finale, past, grammar);
+	}
+
+	/**
+	 * Drops what the two names of a relation sentence share: "참나무 울타리 옆에 참나무 울타리 문을" reads
+	 * "울타리 옆에 문을". The material prefix goes first, then an object name that repeats the anchor.
+	 * Returns {anchor, object}; each keeps at least one word.
+	 */
+	public static String[] shorten(String anchor, String obj) {
+		if (anchor == null || obj == null || anchor.isBlank() || obj.isBlank()) {
+			return new String[]{anchor, obj};
+		}
+		String[] a = anchor.split(" ");
+		String[] o = obj.split(" ");
+		int shared = 0;
+		while (shared < a.length && shared < o.length && a[shared].equals(o[shared])) {
+			shared++;
+		}
+		int cut = Math.min(shared, Math.min(a.length, o.length) - 1);
+		int from = Math.max(0, cut);
+		String anchorRest = String.join(" ", java.util.Arrays.copyOfRange(a, from, a.length));
+		String[] objRest = java.util.Arrays.copyOfRange(o, from, o.length);
+		String[] anchorWords = anchorRest.split(" ");
+		if (objRest.length > anchorWords.length
+				&& java.util.Arrays.equals(java.util.Arrays.copyOfRange(objRest, 0, anchorWords.length), anchorWords)) {
+			objRest = java.util.Arrays.copyOfRange(objRest, anchorWords.length, objRest.length);
+		}
+		return new String[]{anchorRest, String.join(" ", objRest)};
+	}
+
+	private static String counterGrammar(String blockId, String noun) {
+		String counter = io.github.leks2205.hangulquest.quest.Counters.shared().counter(blockId, noun);
+		String id = io.github.leks2205.hangulquest.quest.Counters.shared().grammar(counter);
+		return id == null ? COUNTER_GAE : id;
 	}
 
 	/** "두 횃불": the anchor of 사이 comes twice. */
@@ -73,7 +109,7 @@ public final class SpatialSentences {
 			case PILLAR -> {
 				grammar.add(EURO_MATERIAL);
 				if (withCounts) {
-					head = material + " " + SentenceBuilder.counter(goal.size(), "개") + "로 " + KoGrammar.eul("기둥");
+					head = material + " " + SentenceBuilder.counter(goal.size(), counter(goal.material(), material)) + "로 " + KoGrammar.eul("기둥");
 					grammar.add(NUM_NATIVE);
 					grammar.add(COUNTER_GAE);
 				} else {
@@ -90,7 +126,8 @@ public final class SpatialSentences {
 			}
 			case ROW -> {
 				if (withCounts) {
-					head = KoGrammar.eul(material + " " + SentenceBuilder.counter(goal.size(), "개")) + " 나란히";
+					head = KoGrammar.eul(material + " " + SentenceBuilder.counter(goal.size(), counter(goal.material(), material)))
+							+ " 나란히";
 					grammar.add(NUM_NATIVE);
 					grammar.add(COUNTER_GAE);
 				} else {
@@ -112,16 +149,27 @@ public final class SpatialSentences {
 			grammar.add(NUM_NATIVE);
 			grammar.add(COUNTER_GAE);
 		}
-		String head = SentenceBuilder.relationPhrase(patternNoun(goal.pattern(), material), goal.relation(),
-				Role.TARGET) + " " + SentenceBuilder.objectPhrase(obj, verb);
+		String[] names = shorten(patternNoun(goal.pattern(), material, goal.material()), obj);
+		String head = SentenceBuilder.relationPhrase(names[0], goal.relation(), Role.TARGET) + " "
+				+ SentenceBuilder.objectPhrase(names[1], verb);
 		return finish(head, verb, level, finale, past, grammar);
 	}
 
 	/** The structure as a noun phrase: "조약돌 기둥", "조약돌 피라미드", "조약돌 울타리", "조약돌 세 개" (a row). */
 	public static String patternNoun(Pattern pattern, String material) {
+		return patternNoun(pattern, material, null);
+	}
+
+	/** The counter of a material: 개 for blocks, 장 for carpets (counters.json). */
+	static String counter(String materialSpec, String noun) {
+		return io.github.leks2205.hangulquest.quest.Counters.shared()
+				.counter(BlockSpec.representative(materialSpec), noun);
+	}
+
+	public static String patternNoun(Pattern pattern, String material, String materialId) {
 		String stuff = material == null || material.isBlank() ? "" : material + " ";
 		if (pattern == Pattern.ROW) {
-			return stuff + SentenceBuilder.counter(pattern.defaultSize(), "개");
+			return stuff + SentenceBuilder.counter(pattern.defaultSize(), counter(materialId, material));
 		}
 		return stuff + pattern.ko();
 	}

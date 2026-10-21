@@ -57,6 +57,11 @@ final class NearBlockType implements ConditionType<Condition.NearBlock> {
 	}
 
 	@Override
+	public List<io.github.leks2205.hangulquest.quest.goal.GoalType.Mention> mentions(Condition.NearBlock condition) {
+		return List.of(new io.github.leks2205.hangulquest.quest.goal.GoalType.Mention(io.github.leks2205.hangulquest.quest.goal.ObjectKind.BLOCK, condition.block()));
+	}
+
+	@Override
 	public String prefix(Condition.NearBlock condition, SentenceBuilder.Namer namer) {
 		return SentenceBuilder.nearName(namer.block(condition.block()), "가까이에서 ");
 	}

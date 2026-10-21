@@ -47,6 +47,11 @@ final class InBiomeType implements ConditionType<Condition.InBiome> {
 	}
 
 	@Override
+	public List<io.github.leks2205.hangulquest.quest.goal.GoalType.Mention> mentions(Condition.InBiome condition) {
+		return List.of(new io.github.leks2205.hangulquest.quest.goal.GoalType.Mention(io.github.leks2205.hangulquest.quest.goal.ObjectKind.BIOME, condition.biome()));
+	}
+
+	@Override
 	public String prefix(Condition.InBiome condition, SentenceBuilder.Namer namer) {
 		String name = SentenceBuilder.biomeName(condition.biome(), namer);
 		return name == null ? "그 생물 군계에서 " : name + "에서 ";

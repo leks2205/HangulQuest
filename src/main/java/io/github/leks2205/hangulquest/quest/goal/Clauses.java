@@ -60,7 +60,7 @@ public final class Clauses {
 		GoalType<Goal> type = GoalTypes.of(part);
 		ObjectKind kind = type.objectKind();
 		String obj = switch (kind) {
-			case BLOCK, ITEM, ENTITY -> c.name(kind, type.object(part));
+			case BLOCK, ITEM, ENTITY -> c.nameOfObject(kind, type.object(part));
 			case NONE -> "";
 			default -> {
 				String name = type.objectName(part, c.namer());
@@ -78,7 +78,9 @@ public final class Clauses {
 				parent.subs.add(new GoalEvaluator.Tracker());
 			}
 		}
-		return parent.subs.get(index);
+		GoalEvaluator.Tracker sub = parent.subs.get(index);
+		sub.accepted = parent.accepted;
+		return sub;
 	}
 
 	/** The part as a full sentence at the level, with its full stop. */

@@ -7,7 +7,9 @@ import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.Matching;
+import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
 import io.github.leks2205.hangulquest.sense.EntityFact;
@@ -38,7 +40,9 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 	public List<Field> fields() {
 		return List.of(Field.choice("relation", true, null,
 						Arrays.stream(Relation.values()).map(Enum::name).toArray(String[]::new)),
-				Field.resource("anchor"));
+				Field.resource("anchor"),
+				Field.choice("kind", false, "What the anchor is, when its id could be an item and an entity (chicken).",
+						"block", "item", "entity"));
 	}
 
 	@Override
@@ -49,7 +53,9 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 		} catch (IllegalArgumentException unknown) {
 			relation = Relation.NEXT_TO;
 		}
-		return new Condition.PlayerRel(relation, JsonFields.string(json, "anchor", ""));
+		String kind = JsonFields.string(json, "kind", null);
+		return new Condition.PlayerRel(relation, JsonFields.string(json, "anchor", ""),
+				kind == null || kind.isBlank() ? null : kind.toLowerCase(Locale.ROOT));
 	}
 
 	@Override
@@ -58,6 +64,9 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 		json.addProperty("type", id());
 		json.addProperty("relation", condition.relation().name());
 		json.addProperty("anchor", condition.anchor());
+		if (condition.kind() != null) {
+			json.addProperty("kind", condition.kind());
+		}
 		return json;
 	}
 
@@ -132,9 +141,30 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 
 	@Override
 	public String unmetText(Condition.PlayerRel condition, Observation obs, Catalog catalog) {
-		String name = catalog.byItemId(condition.anchor()).map(word -> word.ko)
-				.or(() -> catalog.byEntityId(condition.anchor()).map(word -> word.ko)).orElse("그것");
+		String name = anchorName(condition, new SentenceBuilder.Namer() {
+			@Override
+			public String biome(String id) {
+				return null;
+			}
+
+			@Override
+			public String entity(String id) {
+				return catalog.byEntityId(id).map(word -> word.ko).orElse(null);
+			}
+
+			@Override
+			public String block(String id) {
+				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+			}
+		});
 		return name + " " + word(condition.relation()) + " 필요";
+	}
+
+	@Override
+	public List<GoalType.Mention> mentions(Condition.PlayerRel condition) {
+		boolean entity = "entity".equals(condition.kind());
+		return List.of(new GoalType.Mention(entity ? ObjectKind.ENTITY : ObjectKind.BLOCK, condition.anchor()),
+				new GoalType.Mention(ObjectKind.ENTITY, condition.anchor()));
 	}
 
 	@Override
@@ -175,10 +205,22 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 		};
 	}
 
-	private static String anchorName(Condition.PlayerRel condition, SentenceBuilder.Namer namer) {
-		String name = namer.block(condition.anchor());
-		if (name == null || name.isBlank()) {
-			name = namer.entity(condition.anchor());
+	/**
+	 * The anchor's name: by its declared kind; without one an entity name wins over an item name, because
+	 * ids like chicken, cod and salmon are animals and food at once and the player stands next to the animal.
+	 */
+	static String anchorName(Condition.PlayerRel condition, SentenceBuilder.Namer namer) {
+		String id = condition.anchor();
+		String name;
+		if ("entity".equals(condition.kind())) {
+			name = namer.entity(id);
+		} else if (condition.kind() != null) {
+			name = "item".equals(condition.kind()) ? namer.item(id) : namer.block(id);
+		} else {
+			name = namer.entity(id);
+			if (name == null || name.isBlank()) {
+				name = namer.block(id);
+			}
 		}
 		return name == null || name.isBlank() ? "그것" : name;
 	}

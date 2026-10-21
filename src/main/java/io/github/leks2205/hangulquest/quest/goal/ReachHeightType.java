@@ -64,7 +64,9 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 	@Override
 	public String korean(Goal.ReachHeight goal, SentenceContext c) {
 		if (goal.minY() > 0) {
-			return SentenceBuilder.phrase("높이 " + goal.minY() + "블록 위로", c.verb(), c.level(), c.finale());
+			// Level 1 has no numbers for a height: climb a hill or a mountain.
+			String where = c.level() <= 1 ? summit(goal.minY()) : "높이 " + goal.minY() + "블록 위로";
+			return SentenceBuilder.phrase(where, c.verb(), c.level(), c.finale());
 		}
 		if (goal.maxY() <= 0) {
 			return SentenceBuilder.phrase("높이 " + goal.maxY() + " 이하로", c.verb(), c.level(), c.finale());
@@ -78,12 +80,17 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 	@Override
 	public String ceremony(Goal.ReachHeight goal, String obj, Verb verb) {
 		if (goal.minY() > 0) {
-			return "높이 " + goal.minY() + "블록 위로 " + Verb.CLIMB.past();
+			return summit(goal.minY()) + " " + Verb.CLIMB.past();
 		}
 		if (goal.maxY() <= 0) {
 			return "높이 " + goal.maxY() + " 이하로 " + Verb.DESCEND.past();
 		}
 		return goal.minY() <= 0 ? "땅 위로 " + Verb.CLIMB.past() : "땅속으로 " + Verb.DESCEND.past();
+	}
+
+	/** "언덕 위로" above sea level, "산 위로" from the height of real mountains (Y 100 and up). */
+	static String summit(int minY) {
+		return (minY >= 100 ? "산" : "언덕") + " 위로";
 	}
 
 	@Override

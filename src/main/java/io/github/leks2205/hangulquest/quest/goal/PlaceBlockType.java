@@ -55,7 +55,7 @@ final class PlaceBlockType implements GoalType<Goal.PlaceBlock> {
 							boolean nightLatch) {
 		List<String> placements = nightLatch ? obs.placedBlocksAtNight : obs.placedBlocks;
 		for (String placed : placements) {
-			if (Matching.matchesBlock(goal.block(), placed)) {
+			if (Matching.accepts(tracker, goal.block(), placed)) {
 				tracker.count++;
 			}
 		}
@@ -85,12 +85,12 @@ final class PlaceBlockType implements GoalType<Goal.PlaceBlock> {
 	@Override
 	public String korean(Goal.PlaceBlock goal, SentenceContext c) {
 		return SentenceBuilder.phrase(SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()),
-				goal.count(), c.withCounts()), c.verb(), c.level(), c.finale());
+				goal.count(), c.withCounts(), goal.block(), c.obj()), c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.PlaceBlock goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.block(), obj)
 				+ " " + verb.past();
 	}
 

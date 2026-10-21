@@ -150,14 +150,37 @@ public interface GoalType<G extends Goal> {
 		return id() + ":" + (object == null ? "" : object) + ":" + verb(goal, VerbTable.shared()).name();
 	}
 
-	/** Whether the taught word names what the goal points at. */
-	default boolean covers(G goal, Concept concept) {
+	/** A thing a goal involves, in any role: the object, an anchor, a recipient, a container, a held item. */
+	record Mention(ObjectKind kind, String id) {
+	}
+
+	/** Everything the goal points at; the default is its object. Types with more roles add them. */
+	default List<Mention> mentions(G goal) {
 		String object = object(goal);
-		return switch (objectKind()) {
-			case BLOCK, ITEM -> object != null
-					&& (concept.items != null && concept.items.contains(object) || object.equals(concept.icon));
-			case ENTITY -> object != null && object.equals(concept.entity);
-			case BIOME -> object == null || object.startsWith("#") || object.equals(concept.biome);
+		return object == null ? List.of() : List.of(new Mention(objectKind(), object));
+	}
+
+	/** Whether the taught word names something the goal involves, in any role. */
+	default boolean covers(G goal, Concept concept) {
+		ObjectKind kind = objectKind();
+		if (kind == ObjectKind.NONE || kind == ObjectKind.DIMENSION || kind == ObjectKind.BIOME && object(goal) == null) {
+			return true; // a height or a dimension has no object the word could miss
+		}
+		return mentions(goal).stream().anyMatch(mention -> covers(mention, concept));
+	}
+
+	/** Whether the concept stands for the mentioned thing: a referent, a family member, its picture or its entity. */
+	static boolean covers(Mention mention, Concept concept) {
+		String id = mention.id();
+		return switch (mention.kind()) {
+			case BLOCK, ITEM -> {
+				String plain = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(id);
+				boolean referent = concept.items != null && concept.items.stream()
+						.anyMatch(item -> item.equals(id) || plain != null && Matching.matchesBlock(plain, item));
+				yield referent || id.equals(concept.icon);
+			}
+			case ENTITY -> id.equals(concept.entity);
+			case BIOME -> id == null || id.startsWith("#") || id.equals(concept.biome);
 			default -> true;
 		};
 	}
@@ -166,7 +189,8 @@ public interface GoalType<G extends Goal> {
 	default void validate(G goal, ValidationContext context) {
 		if (!context.step().teach().isEmpty()) {
 			var first = context.catalog().concept(context.step().teach().get(0));
-			if (first.isPresent() && !covers(goal, first.get())) {
+			if (first.isPresent() && !covers(goal, first.get())
+					&& !conditionsMention(context.step().conditions(), first.get())) {
 				context.problem("the sentence word '" + first.get().ko + "' (" + first.get().id
 						+ ") does not describe the goal " + describe(goal));
 			}
@@ -175,6 +199,19 @@ public interface GoalType<G extends Goal> {
 		if (noun != null && ValidationContext.badId(object(goal))) {
 			context.problem("bad " + noun + " " + object(goal));
 		}
+	}
+
+	private static boolean conditionsMention(List<io.github.leks2205.hangulquest.quest.Condition> conditions,
+											 Concept concept) {
+		for (var condition : conditions) {
+			for (Mention mention : io.github.leks2205.hangulquest.quest.condition.ConditionTypes.of(condition)
+					.mentions(condition)) {
+				if (covers(mention, concept)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private String describe(G goal) {

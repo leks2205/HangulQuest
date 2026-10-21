@@ -159,10 +159,23 @@ final class KoreanFixtures {
 		};
 	}
 
-	/** The finale sentence for a trail, from its last step's goal and conditions. */
+	private static Catalog shared;
+
+	private static synchronized Catalog sharedCatalog() {
+		if (shared == null) {
+			shared = catalog();
+		}
+		return shared;
+	}
+
+	/**
+	 * The finale sentence for a trail, from its last step's goal and conditions. The word the last step
+	 * teaches names what it stands for (우유, not 우유 양동이); every other noun is its registry name.
+	 */
 	static String ceremony(io.github.leks2205.hangulquest.quest.Questline trail) {
 		io.github.leks2205.hangulquest.quest.QuestStep step = trail.finale();
-		return SentenceBuilder.ceremony(step.goal(), null, step.conditions(), registryNamer());
+		Word word = step.teach().isEmpty() ? null : sharedCatalog().byConceptId(step.teach().get(0)).orElse(null);
+		return SentenceBuilder.ceremony(step.goal(), word, step.conditions(), registryNamer());
 	}
 
 	/** The registry id a goal points at, or null for height goals. */

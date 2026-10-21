@@ -59,8 +59,8 @@ final class PutInType implements GoalType<Goal.PutIn> {
 	@Override
 	public boolean evaluate(Goal.PutIn goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (ContainerPutFact fact : obs.putIn) {
-			if (fact.block() != null && Matching.matchesBlock(goal.container(), fact.block())
-					&& Matching.matchesBlock(goal.item(), fact.item())) {
+			if (fact.block() != null && Matching.accepts(tracker, goal.container(), fact.block())
+					&& Matching.accepts(tracker, goal.item(), fact.item())) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}
@@ -85,19 +85,20 @@ final class PutInType implements GoalType<Goal.PutIn> {
 	@Override
 	public String korean(Goal.PutIn goal, SentenceContext c) {
 		String head = container(goal, c) + " 안에 "
-				+ SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts());
+				+ SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts(), goal.item(),
+					item(goal, c));
 		return SentenceBuilder.phrase(head, c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.PutIn goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(KoGrammar.eul(obj), goal.count(), true) + " " + verb.past();
+		return SentenceBuilder.counted(KoGrammar.eul(obj), goal.count(), true, goal.item(), obj) + " " + verb.past();
 	}
 
 	@Override
 	public String ceremony(Goal.PutIn goal, SentenceContext c) {
 		return container(goal, c) + " 안에 "
-				+ SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true) + " " + c.verb().past();
+				+ SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true, goal.item(), item(goal, c)) + " " + c.verb().past();
 	}
 
 	@Override
@@ -130,9 +131,8 @@ final class PutInType implements GoalType<Goal.PutIn> {
 
 	/** The word may teach the item or the container. */
 	@Override
-	public boolean covers(Goal.PutIn goal, Concept concept) {
-		return GoalType.super.covers(goal, concept)
-				|| concept.items != null && concept.items.contains(goal.container());
+	public List<Mention> mentions(Goal.PutIn goal) {
+		return List.of(new Mention(ObjectKind.ITEM, goal.item()), new Mention(ObjectKind.BLOCK, goal.container()));
 	}
 
 	@Override

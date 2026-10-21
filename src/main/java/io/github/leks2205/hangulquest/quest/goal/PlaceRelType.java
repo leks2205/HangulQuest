@@ -67,7 +67,7 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 	@Override
 	public boolean evaluate(Goal.PlaceRel goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		Placements.evaluate(goal.block(), goal.relation(), new Anchor.Block(goal.anchor()), obs, tracker,
+		Placements.evaluate(goal.block(), goal.relation(), new Anchor.Block(tracker.accepted.union(goal.anchor())), obs, tracker,
 				nightLatch);
 		return tracker.count >= Math.max(1, goal.count());
 	}
@@ -127,6 +127,12 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.BLOCK;
+	}
+
+	/** The word may teach the block or the anchor. */
+	@Override
+	public List<Mention> mentions(Goal.PlaceRel goal) {
+		return List.of(new Mention(ObjectKind.BLOCK, goal.block()), new Mention(ObjectKind.BLOCK, goal.anchor()));
 	}
 
 	@Override

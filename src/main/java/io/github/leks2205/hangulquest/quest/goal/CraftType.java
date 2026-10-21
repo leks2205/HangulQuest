@@ -111,13 +111,13 @@ final class CraftType implements GoalType<Goal.Craft> {
 	@Override
 	public String korean(Goal.Craft goal, SentenceContext c) {
 		String head = stationPhrase(goal, c) + materials(goal.with(), c)
-				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()), goal.count(), c.withCounts());
+				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()), goal.count(), c.withCounts(), goal.item(), c.obj());
 		return SentenceBuilder.phrase(head, c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.Craft goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.item(), obj)
 				+ " " + verb.past();
 	}
 
@@ -150,6 +150,20 @@ final class CraftType implements GoalType<Goal.Craft> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.ITEM;
+	}
+
+	/** The word may teach the product, an ingredient or the station. */
+	@Override
+	public List<Mention> mentions(Goal.Craft goal) {
+		List<Mention> all = new ArrayList<>(List.of(new Mention(ObjectKind.ITEM, goal.item())));
+		for (String ingredient : goal.with()) {
+			all.add(new Mention(ObjectKind.ITEM, ingredient));
+		}
+		String station = goal.station() == null ? null : STATIONS.get(goal.station());
+		if (station != null) {
+			all.add(new Mention(ObjectKind.BLOCK, station));
+		}
+		return all;
 	}
 
 	@Override

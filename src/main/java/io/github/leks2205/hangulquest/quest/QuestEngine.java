@@ -4,6 +4,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningSink;
 import io.github.leks2205.hangulquest.learn.ProgressData;
+import io.github.leks2205.hangulquest.quest.goal.Accepted;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.sense.Observation;
@@ -88,6 +89,9 @@ public final class QuestEngine {
 	private final TrackingService tracking;
 	private final StepCompletion completion;
 
+	/** What each step accepts besides its goal's own ids (the referents of its taught word), built on first use. */
+	private final java.util.Map<QuestStep, Accepted> accepted = new java.util.IdentityHashMap<>();
+
 	private Observation lastObs;
 	/** The step that has shown its rule card already. */
 	private QuestStep ruleCardStep;
@@ -116,6 +120,7 @@ public final class QuestEngine {
 	/** Replaces all authored trails (live reload) without losing a tracked one. */
 	public void replaceTrails(List<Questline> replacement) {
 		book.replace(replacement);
+		accepted.clear();
 		text.invalidate();
 		registry.rebind(this::byId);
 	}
@@ -150,6 +155,7 @@ public final class QuestEngine {
 			}
 			int beforeCount = track.tracker.count;
 			long beforeDwell = track.tracker.dwellMs;
+			track.tracker.accepted = acceptedFor(step);
 			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, track.tracker);
 			if (complete) {
 				lastCompletionAssisted = track.tracker.assisted;
@@ -164,6 +170,11 @@ public final class QuestEngine {
 			persist(obs.now);
 			learn.markDirty();
 		}
+	}
+
+	private Accepted acceptedFor(QuestStep step) {
+		return accepted.computeIfAbsent(step, key -> key.teach().isEmpty() ? Accepted.NONE
+				: Accepted.of(key, catalog.concept(key.teach().get(0)).orElse(null)));
 	}
 
 	/** What follows a finished focused trail (also the hook the graph test calls). */

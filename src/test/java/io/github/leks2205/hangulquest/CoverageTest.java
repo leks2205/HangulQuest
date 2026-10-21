@@ -90,6 +90,11 @@ class CoverageTest {
 	/** The metrics of the shipped content, from tools/coverage.py with the shipped lexicon. */
 	static Map<String, Double> shipped(Path scratch) throws IOException {
 		ContentFacts.write(ContentFacts.shipped(scratch), ContentFacts.DUMP);
+		try {
+			VerbFormsDumpTest.write(); // the tool reads the verb forms next to the steps
+		} catch (Exception broken) {
+			throw new IllegalStateException(broken);
+		}
 		QuestScaffoldTest.Run run = QuestScaffoldTest.python("tools/coverage.py", "--steps", ContentFacts.DUMP.toString(),
 				"--csv", ContentFacts.DUMP.resolveSibling("recycling-gaps.csv").toString(), "--json");
 		assertEquals(0, run.exit(), run.output());

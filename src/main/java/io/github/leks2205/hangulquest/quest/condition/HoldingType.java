@@ -56,6 +56,11 @@ final class HoldingType implements ConditionType<Condition.Holding> {
 	}
 
 	@Override
+	public List<io.github.leks2205.hangulquest.quest.goal.GoalType.Mention> mentions(Condition.Holding condition) {
+		return List.of(new io.github.leks2205.hangulquest.quest.goal.GoalType.Mention(io.github.leks2205.hangulquest.quest.goal.ObjectKind.ITEM, condition.item()));
+	}
+
+	@Override
 	public String unmetText(Condition.Holding condition, Observation obs, Catalog catalog) {
 		return "손에 " + QuestStatus.block(condition.item(), catalog) + " 필요";
 	}

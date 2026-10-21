@@ -20,7 +20,12 @@ public final class GoalEvaluator {
 	/** Mutable progress for the currently active goal. */
 	public static final class Tracker {
 		public int count;
+		/** BuildPattern: the most blocks of the structure that stood together so far (status line only). */
+		public int progress;
 		public long dwellMs;
+		/** What the step accepts besides the goal's own ids; set by the engine, never saved. */
+		public io.github.leks2205.hangulquest.quest.goal.Accepted accepted =
+				io.github.leks2205.hangulquest.quest.goal.Accepted.NONE;
 		public String target;
 		/**
 		 * AcquireItem baseline: how many of the item the player held when the step began (or when it
@@ -45,6 +50,7 @@ public final class GoalEvaluator {
 			goalKey = key;
 			goalRef = null;
 			count = 0;
+			progress = 0;
 			dwellMs = 0;
 			target = null;
 			baseCount = -1;
@@ -67,6 +73,7 @@ public final class GoalEvaluator {
 			goalKey = null;
 			goalRef = null;
 			count = 0;
+			progress = 0;
 			dwellMs = 0;
 			target = null;
 			baseCount = -1;
