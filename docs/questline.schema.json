@@ -5,7 +5,21 @@
   "description": "One questline: clues that build on each other, a ritual finale and a reward. Files live in src/main/resources/assets/hangulquest/data/questlines/ or in config/hangulquest/questlines/ inside the player's instance. Korean fields must be Hangul-only.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "id", "titleKo", "titleDe", "topic", "tier", "order", "koreanLevel", "concepts", "requires", "steps", "finale", "reward"],
+  "required": [
+    "schema",
+    "id",
+    "titleKo",
+    "titleDe",
+    "topic",
+    "tier",
+    "order",
+    "koreanLevel",
+    "concepts",
+    "requires",
+    "steps",
+    "finale",
+    "reward"
+  ],
   "definitions": {
     "koreanText": {
       "type": "string",
@@ -21,186 +35,815 @@
       "type": "object",
       "additionalProperties": false,
       "required": [],
-      "anyOf": [{ "required": ["ko"] }, { "required": ["de"] }, { "required": ["en"] }],
+      "anyOf": [
+        {
+          "required": [
+            "ko"
+          ]
+        },
+        {
+          "required": [
+            "de"
+          ]
+        },
+        {
+          "required": [
+            "en"
+          ]
+        }
+      ],
       "properties": {
-        "ko": { "$ref": "#/definitions/koreanText" },
-        "de": { "type": "string", "description": "German line, shown when German is the interface language and translations are on." },
-        "en": { "type": "string", "description": "English line, shown when English is the interface language and translations are on." }
+        "ko": {
+          "$ref": "#/definitions/koreanText"
+        },
+        "de": {
+          "type": "string",
+          "description": "German line, shown when German is the interface language and translations are on."
+        },
+        "en": {
+          "type": "string",
+          "description": "English line, shown when English is the interface language and translations are on."
+        }
       }
     },
     "goal": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "oneOf": [
         {
           "properties": {
-            "type": { "const": "BREAK_BLOCK" },
-            "block": { "$ref": "#/definitions/resourceId" },
-            "count": { "type": "integer", "minimum": 1 },
-            "verb": { "enum": ["MINE", "CHOP", "HARVEST"], "description": "Picks 캐다 / 베다 / 수확하다 in the generated sentence." }
+            "type": {
+              "const": "BREAK_BLOCK"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "verb": {
+              "enum": [
+                "MINE",
+                "CHOP",
+                "HARVEST"
+              ],
+              "description": "Picks 캐다 / 베다 / 수확하다 in the generated sentence."
+            }
           },
-          "required": ["type", "block", "count"],
+          "required": [
+            "type",
+            "block",
+            "count"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "PLACE_BLOCK" },
-            "block": { "$ref": "#/definitions/resourceId" },
-            "count": { "type": "integer", "minimum": 1 }
+            "type": {
+              "const": "PLACE_BLOCK"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
-          "required": ["type", "block", "count"],
+          "required": [
+            "type",
+            "block",
+            "count"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "ACQUIRE_ITEM" },
-            "item": { "$ref": "#/definitions/resourceId" },
-            "count": { "type": "integer", "minimum": 1 }
+            "type": {
+              "const": "ACQUIRE_ITEM"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
-          "required": ["type", "item", "count"],
+          "required": [
+            "type",
+            "item",
+            "count"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "CONSUME_ITEM" },
-            "item": { "$ref": "#/definitions/resourceId" },
-            "count": { "type": "integer", "minimum": 1 }
+            "type": {
+              "const": "CONSUME_ITEM"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
-          "required": ["type", "item", "count"],
+          "required": [
+            "type",
+            "item",
+            "count"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "LOOK_AT_BLOCK" },
-            "block": { "$ref": "#/definitions/resourceId" },
-            "dwellMs": { "type": "integer", "minimum": 100, "maximum": 10000 }
+            "type": {
+              "const": "LOOK_AT_BLOCK"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 10000
+            }
           },
-          "required": ["type", "block", "dwellMs"],
+          "required": [
+            "type",
+            "block",
+            "dwellMs"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "LOOK_AT_ENTITY" },
-            "entity": { "$ref": "#/definitions/resourceId" },
-            "dwellMs": { "type": "integer", "minimum": 100, "maximum": 10000 }
+            "type": {
+              "const": "LOOK_AT_ENTITY"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 10000
+            }
           },
-          "required": ["type", "entity", "dwellMs"],
+          "required": [
+            "type",
+            "entity",
+            "dwellMs"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "DEFEAT_ENTITY" },
-            "entity": { "$ref": "#/definitions/resourceId" },
-            "count": { "type": "integer", "minimum": 1 }
+            "type": {
+              "const": "DEFEAT_ENTITY"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
-          "required": ["type", "entity", "count"],
+          "required": [
+            "type",
+            "entity",
+            "count"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "REACH_BIOME" },
-            "biome": { "$ref": "#/definitions/resourceId" },
-            "dwellMs": { "type": "integer", "minimum": 100, "maximum": 10000 }
+            "type": {
+              "const": "REACH_BIOME"
+            },
+            "biome": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 10000
+            }
           },
-          "required": ["type", "biome", "dwellMs"],
+          "required": [
+            "type",
+            "biome",
+            "dwellMs"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "REACH_DIMENSION" },
-            "dimension": { "$ref": "#/definitions/resourceId" }
+            "type": {
+              "const": "REACH_DIMENSION"
+            },
+            "dimension": {
+              "$ref": "#/definitions/resourceId"
+            }
           },
-          "required": ["type", "dimension"],
+          "required": [
+            "type",
+            "dimension"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "REACH_HEIGHT" },
-            "minY": { "type": "integer", "minimum": -256, "maximum": 512 },
-            "maxY": { "type": "integer", "minimum": -256, "maximum": 512 }
+            "type": {
+              "const": "REACH_HEIGHT"
+            },
+            "minY": {
+              "type": "integer",
+              "minimum": -256,
+              "maximum": 512
+            },
+            "maxY": {
+              "type": "integer",
+              "minimum": -256,
+              "maximum": 512
+            }
           },
-          "required": ["type", "minY", "maxY"],
+          "required": [
+            "type",
+            "minY",
+            "maxY"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "USE_BLOCK" },
-            "block": { "$ref": "#/definitions/resourceId" }
+            "type": {
+              "const": "USE_BLOCK"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            }
           },
-          "required": ["type", "block"],
+          "required": [
+            "type",
+            "block"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "INTERACT_ENTITY" },
-            "entity": { "$ref": "#/definitions/resourceId" }
+            "type": {
+              "const": "INTERACT_ENTITY"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            }
           },
-          "required": ["type", "entity"],
+          "required": [
+            "type",
+            "entity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "PLACE_REL"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "relation": {
+              "enum": [
+                "ON_TOP_OF",
+                "UNDER",
+                "NEXT_TO",
+                "IN_FRONT_OF",
+                "BEHIND",
+                "INSIDE",
+                "OUTSIDE",
+                "BETWEEN",
+                "NEAR"
+              ],
+              "description": "Where the block goes, relative to the anchor."
+            },
+            "anchor": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "block",
+            "relation",
+            "anchor",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "BUILD_PATTERN"
+            },
+            "pattern": {
+              "enum": [
+                "PILLAR",
+                "PYRAMID",
+                "RING",
+                "ROW"
+              ],
+              "description": "The shape to build."
+            },
+            "material": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 4
+            }
+          },
+          "required": [
+            "type",
+            "pattern",
+            "material"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "PLACE_ON_PATTERN"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "relation": {
+              "enum": [
+                "ON_TOP_OF",
+                "UNDER",
+                "NEXT_TO",
+                "IN_FRONT_OF",
+                "BEHIND",
+                "INSIDE",
+                "OUTSIDE",
+                "BETWEEN",
+                "NEAR"
+              ],
+              "description": "Where the block goes, relative to the structure."
+            },
+            "pattern": {
+              "enum": [
+                "PILLAR",
+                "PYRAMID",
+                "RING",
+                "ROW"
+              ],
+              "description": "The shape of the structure."
+            },
+            "material": {
+              "$ref": "#/definitions/resourceId"
+            }
+          },
+          "required": [
+            "type",
+            "block",
+            "relation",
+            "pattern",
+            "material"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "CRAFT"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "station": {
+              "enum": [
+                "cartography",
+                "crafting_table",
+                "grindstone",
+                "inventory2x2",
+                "loom",
+                "smithing",
+                "stonecutter"
+              ],
+              "description": "Where it is made; any crafting screen when left out."
+            },
+            "with": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/resourceId"
+              },
+              "description": "Ingredients named in the sentence (와/과 and (으)로). Only the wording, not checked."
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SMELT"
+            },
+            "input": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "output": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "output",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "GIVE"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "method": {
+              "enum": [
+                "FEED",
+                "USE_WITH",
+                "DROP_NEAR",
+                "TRADE"
+              ],
+              "description": "Only this way of giving counts; DROP_NEAR is spoken as 앞에 … 떨어뜨려요."
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "entity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "PUT_IN"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "container": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "container",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "HOLD_WHILE"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "inner": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/goal"
+                },
+                {
+                  "$ref": "#/definitions/condition"
+                }
+              ],
+              "description": "A goal that only counts while the item is held, or a condition that must hold while walking with it."
+            },
+            "seconds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 600
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "inner"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SEQUENCE"
+            },
+            "parts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/goal"
+              },
+              "minItems": 2,
+              "maxItems": 3,
+              "description": "The goals, in the order they have to happen."
+            },
+            "ordered": {
+              "type": "boolean",
+              "description": "False lets the parts happen in any order (default true)."
+            },
+            "connector": {
+              "enum": [
+                "BEFORE",
+                "AFTER",
+                "THEN"
+              ],
+              "description": "Which Korean connective ties the two parts of an ordered sequence; chosen from the parts when left out."
+            }
+          },
+          "required": [
+            "type",
+            "parts"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "AVOID"
+            },
+            "action": {
+              "$ref": "#/definitions/goal",
+              "description": "The action that must not happen."
+            },
+            "windowSeconds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3600
+            },
+            "during": {
+              "$ref": "#/definitions/condition",
+              "description": "The window only runs, and the action only counts, while this holds."
+            }
+          },
+          "required": [
+            "type",
+            "action"
+          ],
           "additionalProperties": false
         }
       ]
     },
     "condition": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "oneOf": [
         {
           "properties": {
-            "type": { "const": "TIME" },
-            "phase": { "enum": ["DAY", "NIGHT", "DAWN", "DUSK"] }
+            "type": {
+              "const": "TIME"
+            },
+            "phase": {
+              "enum": [
+                "DAY",
+                "NIGHT",
+                "DAWN",
+                "DUSK"
+              ]
+            }
           },
-          "required": ["type", "phase"],
+          "required": [
+            "type",
+            "phase"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "WEATHER" },
-            "weather": { "enum": ["CLEAR", "RAIN", "THUNDER"] }
+            "type": {
+              "const": "WEATHER"
+            },
+            "weather": {
+              "enum": [
+                "CLEAR",
+                "RAIN",
+                "THUNDER"
+              ]
+            }
           },
-          "required": ["type", "weather"],
+          "required": [
+            "type",
+            "weather"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "Y_RANGE" },
-            "minY": { "type": "integer", "minimum": -256, "maximum": 512 },
-            "maxY": { "type": "integer", "minimum": -256, "maximum": 512 }
+            "type": {
+              "const": "Y_RANGE"
+            },
+            "minY": {
+              "type": "integer",
+              "minimum": -256,
+              "maximum": 512
+            },
+            "maxY": {
+              "type": "integer",
+              "minimum": -256,
+              "maximum": 512
+            }
           },
-          "required": ["type", "minY", "maxY"],
+          "required": [
+            "type",
+            "minY",
+            "maxY"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "IN_BIOME" },
-            "biome": { "$ref": "#/definitions/resourceId" }
+            "type": {
+              "const": "IN_BIOME"
+            },
+            "biome": {
+              "$ref": "#/definitions/resourceId"
+            }
           },
-          "required": ["type", "biome"],
+          "required": [
+            "type",
+            "biome"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "IN_DIMENSION" },
-            "dimension": { "$ref": "#/definitions/resourceId" }
+            "type": {
+              "const": "IN_DIMENSION"
+            },
+            "dimension": {
+              "$ref": "#/definitions/resourceId"
+            }
           },
-          "required": ["type", "dimension"],
+          "required": [
+            "type",
+            "dimension"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "NEAR_ENTITY" },
-            "entity": { "$ref": "#/definitions/resourceId" },
-            "radius": { "type": "integer", "minimum": 1, "maximum": 64 }
+            "type": {
+              "const": "NEAR_ENTITY"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "radius": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
           },
-          "required": ["type", "entity"],
+          "required": [
+            "type",
+            "entity"
+          ],
           "additionalProperties": false
         },
         {
           "properties": {
-            "type": { "const": "NEAR_BLOCK" },
-            "block": { "$ref": "#/definitions/resourceId" },
-            "radius": { "type": "integer", "minimum": 1, "maximum": 64 }
+            "type": {
+              "const": "NEAR_BLOCK"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "radius": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
           },
-          "required": ["type", "block"],
+          "required": [
+            "type",
+            "block"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "HOLDING"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            }
+          },
+          "required": [
+            "type",
+            "item"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SKY"
+            },
+            "state": {
+              "enum": [
+                "OPEN",
+                "ROOFED"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "IN_WATER"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "PLAYER_REL"
+            },
+            "relation": {
+              "enum": [
+                "ON_TOP_OF",
+                "UNDER",
+                "NEXT_TO",
+                "IN_FRONT_OF",
+                "BEHIND",
+                "INSIDE",
+                "OUTSIDE",
+                "BETWEEN",
+                "NEAR"
+              ]
+            },
+            "anchor": {
+              "$ref": "#/definitions/resourceId"
+            }
+          },
+          "required": [
+            "type",
+            "relation",
+            "anchor"
+          ],
           "additionalProperties": false
         }
       ]
@@ -208,88 +851,184 @@
     "step": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "teach", "goal"],
+      "required": [
+        "id",
+        "teach",
+        "goal"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-zA-Z0-9_-]{1,24}$" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,24}$"
+        },
         "teach": {
           "type": "array",
           "minItems": 1,
           "maxItems": 3,
-          "items": { "type": "string", "description": "Concept id from concepts.json; the first one supplies the noun of the sentence." }
+          "items": {
+            "type": "string",
+            "description": "Concept id from concepts.json; the first one supplies the noun of the sentence."
+          }
         },
-        "goal": { "$ref": "#/definitions/goal" },
-        "conditions": { "type": "array", "items": { "$ref": "#/definitions/condition" } },
-        "clue": { "$ref": "#/definitions/clue" },
-        "hint": { "$ref": "#/definitions/clue" },
+        "goal": {
+          "$ref": "#/definitions/goal"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/condition"
+          }
+        },
+        "clue": {
+          "$ref": "#/definitions/clue"
+        },
+        "hint": {
+          "$ref": "#/definitions/clue"
+        },
         "bonus": {
           "type": "object",
           "description": "Parsed for forward compatibility; not evaluated in 1.x.",
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "properties": {
-            "type": { "const": "NEAR_STRUCTURE" },
-            "structure": { "type": "string" },
-            "radius": { "type": "number" }
+            "type": {
+              "const": "NEAR_STRUCTURE"
+            },
+            "structure": {
+              "type": "string"
+            },
+            "radius": {
+              "type": "number"
+            }
           }
         }
       }
     }
   },
   "properties": {
-    "schema": { "const": 1 },
+    "schema": {
+      "const": 1
+    },
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9_-]{3,64}$",
       "description": "Stable lowercase id; also the file name and the badge id. Never change it after release."
     },
-    "titleKo": { "$ref": "#/definitions/koreanText" },
+    "titleKo": {
+      "$ref": "#/definitions/koreanText"
+    },
     "titleEn": {
       "type": "string",
       "description": "English title, shown when English is the interface language."
     },
-    "titleDe": { "type": "string", "minLength": 1 },
-    "topic": { "$ref": "#/definitions/koreanText" },
-    "tier": { "type": "integer", "minimum": 1, "maximum": 5 },
-    "order": { "type": "integer", "minimum": 0 },
-    "koreanLevel": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "titleDe": {
+      "type": "string",
+      "minLength": 1
+    },
+    "demo": {
+      "type": "boolean",
+      "description": "Marks a trail that shows off a new kind of task. The game ignores the flag; tools may use it."
+    },
+    "topic": {
+      "$ref": "#/definitions/koreanText"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "koreanLevel": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
     "concepts": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "description": "Concept ids shown in the journal under this trail." }
+      "items": {
+        "type": "string",
+        "description": "Concept ids shown in the journal under this trail."
+      }
     },
     "requires": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["minWordsKnown", "dimension"],
+      "required": [
+        "minWordsKnown",
+        "dimension"
+      ],
       "properties": {
-        "minWordsKnown": { "type": "integer", "minimum": 0 },
-        "dimension": { "$ref": "#/definitions/resourceId" },
+        "minWordsKnown": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dimension": {
+          "$ref": "#/definitions/resourceId"
+        },
         "completed": {
           "type": "array",
           "description": "Parent trail ids. Absent or empty for a root.",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
-    "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/step" } },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/step"
+      }
+    },
     "finale": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["step", "textKo", "textDe"],
-      "additionalProperties": false,
+      "required": [
+        "step",
+        "textKo",
+        "textDe"
+      ],
       "properties": {
-        "step": { "$ref": "#/definitions/step" },
-        "textKo": { "$ref": "#/definitions/koreanText" },
-        "textDe": { "type": "string", "minLength": 1 },
-        "textEn": { "type": "string", "minLength": 1 }
+        "step": {
+          "$ref": "#/definitions/step"
+        },
+        "textKo": {
+          "$ref": "#/definitions/koreanText"
+        },
+        "textDe": {
+          "type": "string",
+          "minLength": 1
+        },
+        "textEn": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "reward": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["badge", "words"],
+      "required": [
+        "badge",
+        "words"
+      ],
       "properties": {
-        "badge": { "type": "string", "minLength": 1 },
-        "words": { "type": "array", "items": { "type": "string" } }
+        "badge": {
+          "type": "string",
+          "minLength": 1
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "override": {

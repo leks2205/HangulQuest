@@ -1,0 +1,4799 @@
+{
+ "schema": 1,
+ "comment": "The grammar ladder as data (roadmap WP3.2). One entry per construction. 'level' is the game level L1-L6; 'curriculumGrade' is a best estimate of the grade (1-6) of the standard curriculum, to be confirmed by a linguist. Every example and cloze may only use constructions at or below its own level ('uses' lists them). 'formDependentHooks' name the Phase T goal types in which this form decides the action. The Korean is a careful first draft until natives have signed it off (see content/review/grammar-review.tsv).",
+ "constructions": [
+  {
+   "id": "L1.eoyo",
+   "form": "-아/어요",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": [],
+   "ruleCard": {
+    "ko": ["횃불을 놓아요.", "빵을 먹어요."],
+    "en": [
+     "Polite everyday ending: stem + 아요 after ㅏ/ㅗ, otherwise 어요 (먹다 → 먹어요, 놓다 → 놓아요).",
+     "Vowel stems contract (가다 → 가요, 보다 → 봐요) and 하다 becomes 해요."
+    ],
+    "de": [
+     "Höfliche Alltagsendung: Stamm + 아요 nach ㅏ/ㅗ, sonst 어요 (먹다 → 먹어요, 놓다 → 놓아요).",
+     "Vokalstämme verschmelzen (가다 → 가요, 보다 → 봐요); 하다 wird zu 해요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 놓아요.",
+     "en": "I place a torch.",
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "빵을 먹어요.",
+     "en": "I eat bread.",
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "문을 열어요.",
+     "en": "I open the door.",
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "흙을 파요.",
+     "en": "I dig dirt.",
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "집에 가요.",
+     "en": "I go home.",
+     "uses": ["L1.eoyo", "L1.e_place"]
+    }
+   ],
+   "generator": "ending:eoyo",
+   "clozeTemplates": [
+    {
+     "sentence": "빵을 먹___",
+     "gloss": "I eat bread.",
+     "answer": "어요",
+     "distractors": ["아요", "해요"],
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "횃불을 놓___",
+     "gloss": "I place a torch.",
+     "answer": "아요",
+     "distractors": ["어요", "해요"],
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "집에 가___",
+     "gloss": "I go home.",
+     "answer": "요",
+     "distractors": ["아요", "어요"],
+     "uses": ["L1.eoyo", "L1.e_place"]
+    },
+    {
+     "sentence": "흙을 파___",
+     "gloss": "I dig dirt.",
+     "answer": "요",
+     "distractors": ["아요", "어요"],
+     "uses": ["L1.eoyo", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Learners keep the dictionary form (먹다) where 먹어요 is needed.", "Vowel harmony slips: 놓어요 instead of 놓아요.",
+    "Contraction slips: 가아요 instead of 가요."
+   ]
+  },
+  {
+   "id": "L1.obj_eul",
+   "form": "을/를",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["횃불을 놓아요.", "상자를 열어요."],
+    "en": [
+     "Marks the thing the action is done to: 을 after a final consonant, 를 after a vowel.",
+     "횃불 → 횃불을 (final ㄹ), 상자 → 상자를 (no final consonant)."
+    ],
+    "de": [
+     "Markiert das Objekt der Handlung: 을 nach Endkonsonant, 를 nach Vokal.",
+     "횃불 → 횃불을 (Endkonsonant ㄹ), 상자 → 상자를 (kein Endkonsonant)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 놓아요.",
+     "en": "I place a torch.",
+     "uses": ["L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "상자를 열어요.",
+     "en": "I open the chest.",
+     "uses": ["L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "빵을 먹어요.",
+     "en": "I eat bread.",
+     "uses": ["L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "물을 마셔요.",
+     "en": "I drink water.",
+     "uses": ["L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "제작대를 만들어요.",
+     "en": "I make a crafting table.",
+     "uses": ["L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:eul_reul",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불___ 놓아요",
+     "gloss": "I place a torch.",
+     "answer": "을",
+     "distractors": ["를", "이"],
+     "uses": ["L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "상자___ 열어요",
+     "gloss": "I open the chest.",
+     "answer": "를",
+     "distractors": ["을", "가"],
+     "uses": ["L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "빵___ 먹어요",
+     "gloss": "I eat bread.",
+     "answer": "을",
+     "distractors": ["를", "이"],
+     "uses": ["L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "제작대___ 만들어요",
+     "gloss": "I make a crafting table.",
+     "answer": "를",
+     "distractors": ["을", "가"],
+     "uses": ["L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Choosing 을 vs 를 by the sound, not by the final consonant of the written word (물 → 물을, 상자 → 상자를).",
+    "Using 이/가 for the object because the English word order feels like a subject.",
+    "Dropping 을/를 in speech is normal; the game keeps it so the role stays visible."
+   ]
+  },
+  {
+   "id": "L1.subj_i",
+   "form": "이/가",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["크리퍼가 와요.", "횃불이 있어요."],
+    "en": [
+     "Marks who or what does or is something: 이 after a final consonant, 가 after a vowel.",
+     "Use it for something new in the scene: 크리퍼가 와요 (a creeper is coming)."
+    ],
+    "de": ["Markiert das Subjekt: 이 nach Endkonsonant, 가 nach Vokal.", "Für Neues in der Szene: 크리퍼가 와요 (ein Creeper kommt)."]
+   },
+   "examples": [
+    {
+     "ko": "크리퍼가 와요.",
+     "en": "A creeper is coming.",
+     "uses": ["L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "좀비가 있어요.",
+     "en": "There is a zombie.",
+     "uses": ["L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "횃불이 있어요.",
+     "en": "There is a torch.",
+     "uses": ["L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "주민이 자요.",
+     "en": "A villager sleeps.",
+     "uses": ["L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "돼지가 먹어요.",
+     "en": "A pig eats.",
+     "uses": ["L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:i_ga",
+   "clozeTemplates": [
+    {
+     "sentence": "크리퍼___ 와요",
+     "gloss": "A creeper is coming.",
+     "answer": "가",
+     "distractors": ["이", "를"],
+     "uses": ["L1.subj_i", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불___ 있어요",
+     "gloss": "There is a torch.",
+     "answer": "이",
+     "distractors": ["가", "을"],
+     "uses": ["L1.subj_i", "L1.obj_eul", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "주민___ 자요",
+     "gloss": "A villager sleeps.",
+     "answer": "이",
+     "distractors": ["가", "을"],
+     "uses": ["L1.subj_i", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "좀비___ 있어요",
+     "gloss": "There is a zombie.",
+     "answer": "가",
+     "distractors": ["이", "를"],
+     "uses": ["L1.subj_i", "L1.obj_eul", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Overusing 은/는 where 이/가 is needed for a newly mentioned thing (L2 contrasts the two).",
+    "Special forms 내가/제가/네가 come later; the game uses mobs and blocks first.",
+    "Putting 이/가 on the object (횃불이 놓아요) instead of 을/를."
+   ]
+  },
+  {
+   "id": "L1.e_place",
+   "form": "에 (장소)",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["집에 가요.", "주민이 동굴에 있어요."],
+    "en": [
+     "에 marks the place where something is or where it goes: 집에 가요 (I go home), 동굴에 있어요 (is in the cave).",
+     "It also marks the target of putting: 상자에 넣어요 (put into the chest)."
+    ],
+    "de": [
+     
+     "에 markiert den Ort, an dem etwas ist oder zu dem man geht: 집에 가요 (ich gehe nach Hause), 동굴에 있어요 (ist in der Höhle).",
+     "Es markiert auch das Ziel beim Hineinlegen: 상자에 넣어요 (in die Truhe legen)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "집에 가요.",
+     "en": "I go home.",
+     "uses": ["L1.e_place", "L1.eoyo"]
+    },
+    {
+     "ko": "주민이 동굴에 있어요.",
+     "en": "The villager is in the cave.",
+     "uses": ["L1.e_place", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "마을에 와요.",
+     "en": "I come to the village.",
+     "uses": ["L1.e_place", "L1.eoyo"]
+    },
+    {
+     "ko": "상자에 사과를 넣어요.",
+     "en": "I put an apple into the chest.",
+     "uses": ["L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "산에 올라가요.",
+     "en": "I climb up the mountain.",
+     "uses": ["L1.e_place", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:e_place",
+   "clozeTemplates": [
+    {
+     "sentence": "집___ 가요",
+     "gloss": "I go home.",
+     "answer": "에",
+     "distractors": ["이", "가"],
+     "uses": ["L1.e_place", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민이 동굴___ 있어요",
+     "gloss": "The villager is in the cave.",
+     "answer": "에",
+     "distractors": ["을", "를"],
+     "uses": ["L1.e_place", "L1.obj_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "상자___ 사과를 넣어요",
+     "gloss": "I put an apple into the chest.",
+     "answer": "에",
+     "distractors": ["을", "를"],
+     "uses": ["L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "마을___ 와요",
+     "gloss": "I come to the village.",
+     "answer": "에",
+     "distractors": ["이", "가"],
+     "uses": ["L1.e_place", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["REACH_BIOME", "PUT_IN"],
+   "teachingNotes": [
+    "The 에 vs 에서 confusion starts here: with 가요, 와요, 있어요, 넣어요 the place always takes 에; 에서 (L2) is for activities.",
+    "Adding 을/를 to the destination (집을 가요) is heard in speech but is not taught.",
+    "에 never changes after a final consonant (집에, 산에)."
+   ]
+  },
+  {
+   "id": "L1.e_time",
+   "form": "에 (시간)",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["밤에 자요.", "아침에 일어나요."],
+    "en": [
+     "Add 에 to a time word to say when: 밤에 (at night), 아침에 (in the morning).",
+     "Words like 지금 (now) and 오늘 (today) take no 에."
+    ],
+    "de": [
+     "Mit 에 hinter einem Zeitwort sagt man, wann: 밤에 (nachts), 아침에 (morgens).",
+     "Wörter wie 지금 (jetzt) und 오늘 (heute) bekommen kein 에."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "밤에 자요.",
+     "en": "I sleep at night.",
+     "uses": ["L1.e_time", "L1.eoyo"]
+    },
+    {
+     "ko": "낮에 일해요.",
+     "en": "I work during the day.",
+     "uses": ["L1.e_time", "L1.eoyo"]
+    },
+    {
+     "ko": "아침에 일어나요.",
+     "en": "I get up in the morning.",
+     "uses": ["L1.e_time", "L1.eoyo"]
+    },
+    {
+     "ko": "저녁에 빵을 먹어요.",
+     "en": "I eat bread in the evening.",
+     "uses": ["L1.e_time", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "밤에 집에 가요.",
+     "en": "I go home at night.",
+     "uses": ["L1.e_time", "L1.e_place", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:e_time",
+   "clozeTemplates": [
+    {
+     "sentence": "밤___ 자요",
+     "gloss": "I sleep at night.",
+     "answer": "에",
+     "distractors": ["이", "가"],
+     "uses": ["L1.e_time", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "아침___ 일어나요",
+     "gloss": "I get up in the morning.",
+     "answer": "에",
+     "distractors": ["이", "가"],
+     "uses": ["L1.e_time", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "낮___ 일해요",
+     "gloss": "I work during the day.",
+     "answer": "에",
+     "distractors": ["이", "가"],
+     "uses": ["L1.e_time", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Adding 에 to 지금, 오늘, 어제, 내일 (오늘에 is wrong).",
+    "밤에 and 밤에는 differ: the second contrasts night with another time (L2).",
+    "Time 에 and place 에 look the same; the noun tells them apart."
+   ]
+  },
+  {
+   "id": "L1.itda_eopda",
+   "form": "있어요/없어요",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.subj_i"],
+   "ruleCard": {
+    "ko": ["횃불이 있어요.", "상자가 없어요."],
+    "en": [
+     "있어요 = there is / someone has; 없어요 = there is not / has not.",
+     "The thing that exists takes 이/가: 소가 있어요 (there is a cow)."
+    ],
+    "de": [
+     "있어요 = es gibt / jemand hat; 없어요 = es gibt nicht / hat nicht.",
+     "Das, was existiert, bekommt 이/가: 소가 있어요 (es gibt eine Kuh)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불이 있어요.",
+     "en": "There is a torch.",
+     "uses": ["L1.itda_eopda", "L1.subj_i"]
+    },
+    {
+     "ko": "상자가 없어요.",
+     "en": "There is no chest.",
+     "uses": ["L1.itda_eopda", "L1.subj_i"]
+    },
+    {
+     "ko": "집에 침대가 있어요.",
+     "en": "There is a bed in the house.",
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.e_place"]
+    },
+    {
+     "ko": "동굴에 좀비가 있어요.",
+     "en": "There is a zombie in the cave.",
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.e_place"]
+    },
+    {
+     "ko": "마을에 주민이 없어요.",
+     "en": "There are no villagers in the village.",
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.e_place"]
+    }
+   ],
+   "generator": "verb:itda_eopda",
+   "clozeTemplates": [
+    {
+     "sentence": "집에 침대___ 있어요",
+     "gloss": "There is a bed in the house.",
+     "answer": "가",
+     "distractors": ["이", "를"],
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.obj_eul", "L1.e_place"]
+    },
+    {
+     "sentence": "동굴에 좀비___ 있어요",
+     "gloss": "There is a zombie in the cave.",
+     "answer": "가",
+     "distractors": ["이", "를"],
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.obj_eul", "L1.e_place"]
+    },
+    {
+     "sentence": "마을에 주민___ 없어요",
+     "gloss": "There are no villagers in the village.",
+     "answer": "이",
+     "distractors": ["가", "을"],
+     "uses": ["L1.itda_eopda", "L1.subj_i", "L1.obj_eul", "L1.e_place"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Saying 안 있어요 instead of 없어요.", "있어요 also means 'stay' (집에 있어요): the place takes 에, not 에서.",
+    "Using 을/를 for the thing that exists (횃불을 있어요)."
+   ]
+  },
+  {
+   "id": "L1.neg_an",
+   "form": "안 + 동사",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["빵을 안 먹어요.", "문을 안 열어요."],
+    "en": ["Put 안 before the verb to say you do not do it: 안 먹어요 (I do not eat).", "With 하다 verbs 안 goes before 하다: 수확 안 해요."],
+    "de": ["Setze 안 vor das Verb, um zu verneinen: 안 먹어요 (ich esse nicht).", "Bei 하다-Verben steht 안 vor 하다: 수확 안 해요."]
+   },
+   "examples": [
+    {
+     "ko": "안 가요.",
+     "en": "I do not go.",
+     "uses": ["L1.neg_an", "L1.eoyo"]
+    },
+    {
+     "ko": "빵을 안 먹어요.",
+     "en": "I do not eat bread.",
+     "uses": ["L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "문을 안 열어요.",
+     "en": "I do not open the door.",
+     "uses": ["L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불을 안 놓아요.",
+     "en": "I do not place a torch.",
+     "uses": ["L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "크리퍼가 안 와요.",
+     "en": "The creeper does not come.",
+     "uses": ["L1.neg_an", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "generator": "adverb:an",
+   "clozeTemplates": [
+    {
+     "sentence": "빵을 ___ 먹어요",
+     "gloss": "I do not eat bread.",
+     "answer": "안",
+     "distractors": ["아니", "않"],
+     "uses": ["L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "문을 ___ 열어요",
+     "gloss": "I do not open the door.",
+     "answer": "안",
+     "distractors": ["아니", "않"],
+     "uses": ["L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "크리퍼가 ___ 와요",
+     "gloss": "The creeper does not come.",
+     "answer": "안",
+     "distractors": ["아니", "않"],
+     "uses": ["L1.neg_an", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["AVOID"],
+   "teachingNotes": [
+    "Putting 안 after the verb (먹어요 안).", "Using 안 for commands: 'do not' as an order is -지 마세요 (L3).",
+    "For 하다 verbs the 안 goes between noun and 하다 (공부 안 해요), not before the noun."
+   ]
+  },
+  {
+   "id": "L1.num_native",
+   "form": "하나, 둘, 셋… / 한, 두, 세, 네",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": [],
+   "ruleCard": {
+    "ko": ["횃불이 두 개 있어요.", "사과가 세 개 있어요."],
+    "en": [
+     "Native numbers count things: 하나, 둘, 셋, 넷, 다섯 … 열, 스물.",
+     "Before a counter they shorten: 하나 → 한, 둘 → 두, 셋 → 세, 넷 → 네, 스물 → 스무."
+    ],
+    "de": [
+     "Native Zahlen zählen Dinge: 하나, 둘, 셋, 넷, 다섯 … 열, 스물.",
+     "Vor einer Zähleinheit werden sie kürzer: 하나 → 한, 둘 → 두, 셋 → 세, 넷 → 네, 스물 → 스무."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불이 한 개 있어요.",
+     "en": "There is one torch.",
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "사과가 두 개 있어요.",
+     "en": "There are two apples.",
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "빵이 세 개 있어요.",
+     "en": "There are three loaves of bread.",
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "상자가 네 개 있어요.",
+     "en": "There are four chests.",
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "돌이 다섯 개 있어요.",
+     "en": "There are five stones.",
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "numeral:native",
+   "clozeTemplates": [
+    {
+     "sentence": "사과가 ___ 개 있어요",
+     "gloss": "There are two apples.",
+     "answer": "두",
+     "distractors": ["둘", "하나"],
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "횃불이 ___ 개 있어요",
+     "gloss": "There are three torches.",
+     "answer": "세",
+     "distractors": ["셋", "하나"],
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "돌이 ___ 개 있어요",
+     "gloss": "There are four stones.",
+     "answer": "네",
+     "distractors": ["넷", "하나"],
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "빵이 ___ 개 있어요",
+     "gloss": "There is one loaf of bread.",
+     "answer": "한",
+     "distractors": ["하나", "둘"],
+     "uses": ["L1.num_native", "L1.counter_gae", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["ACQUIRE_ITEM:count", "PLACE_BLOCK:count"],
+   "teachingNotes": [
+    "Mixing Sino-Korean numbers with counters (이 개, 삼 개): native numbers go with 개/마리.",
+    "Forgetting the short forms 한/두/세/네/스무 before a counter.",
+    "Native numbers stop at 99; from 100 on Sino-Korean numbers are used (L2)."
+   ]
+  },
+  {
+   "id": "L1.counter_gae",
+   "form": "개",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.num_native"],
+   "ruleCard": {
+    "ko": ["상자가 한 개 있어요.", "사과를 세 개 먹어요."],
+    "en": ["개 counts most objects: native number + 개 (한 개, 두 개, 세 개).", "Thing first, then number and counter: 횃불 두 개."],
+    "de": [
+     "개 zählt die meisten Gegenstände: native Zahl + 개 (한 개, 두 개, 세 개).",
+     "Erst die Sache, dann Zahl und Zähleinheit: 횃불 두 개."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불 두 개가 있어요.",
+     "en": "There are two torches.",
+     "uses": ["L1.counter_gae", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "사과를 세 개 먹어요.",
+     "en": "I eat three apples.",
+     "uses": ["L1.counter_gae", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "상자 한 개를 놓아요.",
+     "en": "I place one chest.",
+     "uses": ["L1.counter_gae", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "돌을 다섯 개 캐요.",
+     "en": "I mine five stones.",
+     "uses": ["L1.counter_gae", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "빵을 네 개 먹어요.",
+     "en": "I eat four loaves of bread.",
+     "uses": ["L1.counter_gae", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "counter:gae",
+   "clozeTemplates": [
+    {
+     "sentence": "사과를 세 ___ 먹어요",
+     "gloss": "I eat three apples.",
+     "answer": "개",
+     "distractors": ["마리", "한"],
+     "uses": ["L1.counter_gae", "L1.counter_mari", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "돌을 다섯 ___ 캐요",
+     "gloss": "I mine five stones.",
+     "answer": "개",
+     "distractors": ["마리", "두"],
+     "uses": ["L1.counter_gae", "L1.counter_mari", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불 두 ___가 있어요",
+     "gloss": "There are two torches.",
+     "answer": "개",
+     "distractors": ["마리", "한"],
+     "uses": ["L1.counter_gae", "L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["ACQUIRE_ITEM:count", "PLACE_BLOCK:count"],
+   "teachingNotes": [
+    "Using 개 for animals (돼지 두 개 sounds like two pig items): animals take 마리.",
+    "Both 횃불을 두 개 놓아요 and 횃불 두 개를 놓아요 are fine; the game varies them.",
+    "Other nouns have their own counters (L2); 개 is the safe default for objects."
+   ]
+  },
+  {
+   "id": "L1.counter_mari",
+   "form": "마리",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.num_native"],
+   "ruleCard": {
+    "ko": ["돼지가 두 마리 있어요.", "닭을 세 마리 봐요."],
+    "en": ["마리 counts animals and mobs: 소 한 마리, 닭 세 마리, 좀비 두 마리.", "Animal first, then number + 마리."],
+    "de": ["마리 zählt Tiere und Mobs: 소 한 마리, 닭 세 마리, 좀비 두 마리.", "Erst das Tier, dann Zahl + 마리."]
+   },
+   "examples": [
+    {
+     "ko": "소가 한 마리 있어요.",
+     "en": "There is one cow.",
+     "uses": ["L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "돼지가 두 마리 있어요.",
+     "en": "There are two pigs.",
+     "uses": ["L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "닭이 세 마리 와요.",
+     "en": "Three chickens come.",
+     "uses": ["L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "양을 네 마리 봐요.",
+     "en": "I see four sheep.",
+     "uses": ["L1.counter_mari", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "좀비가 다섯 마리 있어요.",
+     "en": "There are five zombies.",
+     "uses": ["L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "counter:mari",
+   "clozeTemplates": [
+    {
+     "sentence": "돼지가 두 ___ 있어요",
+     "gloss": "There are two pigs.",
+     "answer": "마리",
+     "distractors": ["개", "한"],
+     "uses": ["L1.counter_mari", "L1.counter_gae", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "양을 네 ___ 봐요",
+     "gloss": "I see four sheep.",
+     "answer": "마리",
+     "distractors": ["개", "두"],
+     "uses": ["L1.counter_mari", "L1.counter_gae", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "닭이 세 ___ 와요",
+     "gloss": "Three chickens come.",
+     "answer": "마리",
+     "distractors": ["개", "네"],
+     "uses": ["L1.counter_mari", "L1.counter_gae", "L1.num_native", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["BREED", "FEED"],
+   "teachingNotes": [
+    "Villagers are people and take 명 (L2), never 마리.", "Using 개 for animals.",
+    "Hostile mobs are counted with 마리 too (좀비 두 마리), as players say it."
+   ]
+  },
+  {
+   "id": "L1.copula_ieyo",
+   "form": "이에요/예요",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.subj_i"],
+   "ruleCard": {
+    "ko": ["이것이 횃불이에요.", "저것이 상자예요."],
+    "en": ["'A is B': noun + 이에요 after a final consonant, 예요 after a vowel.", "횃불이에요 (final ㄹ), 상자예요 (no final consonant)."],
+    "de": ["'A ist B': Nomen + 이에요 nach Endkonsonant, 예요 nach Vokal.", "횃불이에요 (Endkonsonant ㄹ), 상자예요 (kein Endkonsonant)."]
+   },
+   "examples": [
+    {
+     "ko": "횃불이에요.",
+     "en": "It is a torch.",
+     "uses": ["L1.copula_ieyo"]
+    },
+    {
+     "ko": "상자예요.",
+     "en": "It is a chest.",
+     "uses": ["L1.copula_ieyo"]
+    },
+    {
+     "ko": "이것이 문이에요.",
+     "en": "This is a door.",
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "ko": "저것이 소예요.",
+     "en": "That over there is a cow.",
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "ko": "그것이 사과예요.",
+     "en": "That is an apple.",
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    }
+   ],
+   "generator": "ending:ieyo",
+   "clozeTemplates": [
+    {
+     "sentence": "이것이 횃불___",
+     "gloss": "This is a torch.",
+     "answer": "이에요",
+     "distractors": ["예요", "이예요"],
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "sentence": "저것이 상자___",
+     "gloss": "That over there is a chest.",
+     "answer": "예요",
+     "distractors": ["이에요", "이예요"],
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "sentence": "그것이 돌___",
+     "gloss": "That is a stone.",
+     "answer": "이에요",
+     "distractors": ["예요", "이예요"],
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "sentence": "이것이 사과___",
+     "gloss": "This is an apple.",
+     "answer": "예요",
+     "distractors": ["이에요", "이예요"],
+     "uses": ["L1.copula_ieyo", "L1.subj_i"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Choosing 이에요/예요 by the spelling of the noun's last syllable only (상자예요, 문이에요).",
+    "Confusing 이에요 (is) with 있어요 (exists).",
+    "이것이 … answers 'which one is …?'; the neutral 'as for this' form 이것은 comes in L2."
+   ]
+  },
+  {
+   "id": "L1.loc_wi_e",
+   "form": "위에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["상자 위에 횃불을 놓아요.", "침대 위에 책이 있어요."],
+    "en": [
+     "위 = on top of / above; with 에 it says where something is or goes: 상자 위에 (on the chest).",
+     "Write the anchor first, then 위에: 침대 위에, 탑 위에."
+    ],
+    "de": [
+     "위 = auf / oberhalb; mit 에 sagt es, wo etwas ist oder hinkommt: 상자 위에 (auf der Truhe).",
+     "Erst der Bezugspunkt, dann 위에: 침대 위에, 탑 위에."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "상자 위에 횃불을 놓아요.",
+     "en": "I place a torch on top of the chest.",
+     "uses": ["L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "침대 위에 책이 있어요.",
+     "en": "There is a book on the bed.",
+     "uses": ["L1.loc_wi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "탑 위에 올라가요.",
+     "en": "I climb up onto the tower.",
+     "uses": ["L1.loc_wi_e", "L1.eoyo"]
+    },
+    {
+     "ko": "화로 위에 사과를 놓아요.",
+     "en": "I place an apple on top of the furnace.",
+     "uses": ["L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "돌 위에 닭이 있어요.",
+     "en": "There is a chicken on the stone.",
+     "uses": ["L1.loc_wi_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "relation:wi",
+   "clozeTemplates": [
+    {
+     "sentence": "상자 ___ 횃불을 놓아요",
+     "gloss": "I place a torch on top of the chest.",
+     "answer": "위에",
+     "distractors": ["아래에", "옆에"],
+     "uses": ["L1.loc_wi_e", "L1.loc_arae_e", "L1.loc_yeop_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "침대 ___ 책이 있어요",
+     "gloss": "There is a book on the bed.",
+     "answer": "위에",
+     "distractors": ["안에", "뒤에"],
+     "uses": ["L1.loc_wi_e", "L1.loc_an_e", "L1.loc_dwi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "탑 ___ 올라가요",
+     "gloss": "I climb up onto the tower.",
+     "answer": "위에",
+     "distractors": ["밖에", "앞에"],
+     "uses": ["L1.loc_wi_e", "L1.loc_bak_e", "L1.loc_ap_e", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:ON_TOP_OF"],
+   "teachingNotes": [
+    "위에 (location) vs 위로 (direction, L2): 에 says where, (으)로 says which way.",
+    "위 and 아래 are easily swapped; check the English before answering.",
+    "Skipping 에 (상자 위 횃불) is heard in speech; the game keeps 위에."
+   ]
+  },
+  {
+   "id": "L1.loc_arae_e",
+   "form": "아래에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["상자 아래에 횃불을 놓아요.", "나무 아래에 앉아요."],
+    "en": ["아래 = under / below; with 에: 상자 아래에 (under the chest).", "밑 means the same and is also common (침대 밑에)."],
+    "de": ["아래 = unter / unterhalb; mit 에: 상자 아래에 (unter der Truhe).", "밑 bedeutet dasselbe und ist ebenfalls häufig (침대 밑에)."]
+   },
+   "examples": [
+    {
+     "ko": "상자 아래에 횃불을 놓아요.",
+     "en": "I place a torch under the chest.",
+     "uses": ["L1.loc_arae_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "침대 아래에 상자가 있어요.",
+     "en": "There is a chest under the bed.",
+     "uses": ["L1.loc_arae_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "나무 아래에 앉아요.",
+     "en": "I sit under the tree.",
+     "uses": ["L1.loc_arae_e", "L1.eoyo"]
+    },
+    {
+     "ko": "다리 아래에 물이 있어요.",
+     "en": "There is water under the bridge.",
+     "uses": ["L1.loc_arae_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "탑 아래에 좀비가 있어요.",
+     "en": "There is a zombie at the foot of the tower.",
+     "uses": ["L1.loc_arae_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "relation:arae",
+   "clozeTemplates": [
+    {
+     "sentence": "상자 ___ 횃불을 놓아요",
+     "gloss": "I place a torch under the chest.",
+     "answer": "아래에",
+     "distractors": ["위에", "옆에"],
+     "uses": ["L1.loc_arae_e", "L1.loc_wi_e", "L1.loc_yeop_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "나무 ___ 앉아요",
+     "gloss": "I sit under the tree.",
+     "answer": "아래에",
+     "distractors": ["위에", "안에"],
+     "uses": ["L1.loc_arae_e", "L1.loc_wi_e", "L1.loc_an_e", "L1.eoyo"]
+    },
+    {
+     "sentence": "다리 ___ 물이 있어요",
+     "gloss": "There is water under the bridge.",
+     "answer": "아래에",
+     "distractors": ["위에", "앞에"],
+     "uses": ["L1.loc_arae_e", "L1.loc_wi_e", "L1.loc_ap_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:UNDER"],
+   "teachingNotes": [
+    "Swapping 위 and 아래 when reading the English.", "아래에 (location) vs 아래로 (direction, L2).",
+    "밑 and 아래 are interchangeable here; the generator may use either."
+   ]
+  },
+  {
+   "id": "L1.loc_yeop_e",
+   "form": "옆에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["문 옆에 횃불을 놓아요.", "침대 옆에 상자가 있어요."],
+    "en": ["옆 = beside / next to; with 에: 문 옆에 (next to the door).", "It means side by side, not in front or behind."],
+    "de": ["옆 = neben; mit 에: 문 옆에 (neben der Tür).", "Es heißt Seite an Seite, nicht davor oder dahinter."]
+   },
+   "examples": [
+    {
+     "ko": "문 옆에 횃불을 놓아요.",
+     "en": "I place a torch next to the door.",
+     "uses": ["L1.loc_yeop_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "침대 옆에 상자가 있어요.",
+     "en": "There is a chest next to the bed.",
+     "uses": ["L1.loc_yeop_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "소 옆에 돼지가 있어요.",
+     "en": "There is a pig next to the cow.",
+     "uses": ["L1.loc_yeop_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "화로 옆에 앉아요.",
+     "en": "I sit next to the furnace.",
+     "uses": ["L1.loc_yeop_e", "L1.eoyo"]
+    },
+    {
+     "ko": "제작대 옆에 서요.",
+     "en": "I stand next to the crafting table.",
+     "uses": ["L1.loc_yeop_e", "L1.eoyo"]
+    }
+   ],
+   "generator": "relation:yeop",
+   "clozeTemplates": [
+    {
+     "sentence": "문 ___ 횃불을 놓아요",
+     "gloss": "I place a torch next to the door.",
+     "answer": "옆에",
+     "distractors": ["위에", "안에"],
+     "uses": ["L1.loc_yeop_e", "L1.loc_wi_e", "L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "침대 ___ 상자가 있어요",
+     "gloss": "There is a chest next to the bed.",
+     "answer": "옆에",
+     "distractors": ["위에", "아래에"],
+     "uses": ["L1.loc_yeop_e", "L1.loc_wi_e", "L1.loc_arae_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "소 ___ 돼지가 있어요",
+     "gloss": "There is a pig next to the cow.",
+     "answer": "옆에",
+     "distractors": ["안에", "위에"],
+     "uses": ["L1.loc_yeop_e", "L1.loc_an_e", "L1.loc_wi_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:NEXT_TO"],
+   "teachingNotes": [
+    "옆 (side by side) vs 앞/뒤 (front/back): no facing direction is needed for 옆.",
+    "근처 (nearby, L2+) is wider than 옆 (touching or adjacent).", "Using 옆 for 'inside' when the anchor is a container."
+   ]
+  },
+  {
+   "id": "L1.loc_ap_e",
+   "form": "앞에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["문 앞에 서요.", "상자 앞에 횃불을 놓아요."],
+    "en": [
+     "앞 = in front of; with 에: 문 앞에 (in front of the door).",
+     "Front means the side the anchor faces: a door, chest, furnace or villager."
+    ],
+    "de": [
+     "앞 = vor; mit 에: 문 앞에 (vor der Tür).",
+     "Vorne ist die Seite, zu der der Bezugspunkt zeigt: Tür, Truhe, Ofen oder Dorfbewohner."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문 앞에 서요.",
+     "en": "I stand in front of the door.",
+     "uses": ["L1.loc_ap_e", "L1.eoyo"]
+    },
+    {
+     "ko": "상자 앞에 횃불을 놓아요.",
+     "en": "I place a torch in front of the chest.",
+     "uses": ["L1.loc_ap_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "화로 앞에 주민이 있어요.",
+     "en": "There is a villager in front of the furnace.",
+     "uses": ["L1.loc_ap_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "주민 앞에 서요.",
+     "en": "I stand in front of the villager.",
+     "uses": ["L1.loc_ap_e", "L1.eoyo"]
+    },
+    {
+     "ko": "집 앞에 나무가 있어요.",
+     "en": "There is a tree in front of the house.",
+     "uses": ["L1.loc_ap_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "relation:ap",
+   "clozeTemplates": [
+    {
+     "sentence": "문 ___ 서요",
+     "gloss": "I stand in front of the door.",
+     "answer": "앞에",
+     "distractors": ["뒤에", "안에"],
+     "uses": ["L1.loc_ap_e", "L1.loc_dwi_e", "L1.loc_an_e", "L1.eoyo"]
+    },
+    {
+     "sentence": "상자 ___ 횃불을 놓아요",
+     "gloss": "I place a torch in front of the chest.",
+     "answer": "앞에",
+     "distractors": ["뒤에", "아래에"],
+     "uses": ["L1.loc_ap_e", "L1.loc_dwi_e", "L1.loc_arae_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민 ___ 서요",
+     "gloss": "I stand in front of the villager.",
+     "answer": "앞에",
+     "distractors": ["옆에", "뒤에"],
+     "uses": ["L1.loc_ap_e", "L1.loc_yeop_e", "L1.loc_dwi_e", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:IN_FRONT_OF"],
+   "teachingNotes": [
+    
+    "앞 and 뒤 depend on which way the anchor faces, not on where the player stands; the game only uses anchors with a clear front.",
+    "앞으로 (forward, L2) and 앞에 (in front) differ like 위로 and 위에.",
+    "앞에 can also mean 'before' in time (L3 teaches 전에 instead)."
+   ]
+  },
+  {
+   "id": "L1.loc_dwi_e",
+   "form": "뒤에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["문 뒤에 크리퍼가 있어요.", "주민 뒤에 서요."],
+    "en": ["뒤 = behind / back; with 에: 문 뒤에 (behind the door).", "Behind means the side opposite to where the anchor faces."],
+    "de": [
+     "뒤 = hinter / Rückseite; mit 에: 문 뒤에 (hinter der Tür).",
+     "Hinten ist die Seite gegenüber der Richtung, in die der Bezugspunkt zeigt."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문 뒤에 크리퍼가 있어요.",
+     "en": "There is a creeper behind the door.",
+     "uses": ["L1.loc_dwi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "침대 뒤에 상자가 있어요.",
+     "en": "There is a chest behind the bed.",
+     "uses": ["L1.loc_dwi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "집 뒤에 나무가 있어요.",
+     "en": "There is a tree behind the house.",
+     "uses": ["L1.loc_dwi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "화로 뒤에 횃불을 놓아요.",
+     "en": "I place a torch behind the furnace.",
+     "uses": ["L1.loc_dwi_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "주민 뒤에 서요.",
+     "en": "I stand behind the villager.",
+     "uses": ["L1.loc_dwi_e", "L1.eoyo"]
+    }
+   ],
+   "generator": "relation:dwi",
+   "clozeTemplates": [
+    {
+     "sentence": "문 ___ 크리퍼가 있어요",
+     "gloss": "There is a creeper behind the door.",
+     "answer": "뒤에",
+     "distractors": ["앞에", "위에"],
+     "uses": ["L1.loc_dwi_e", "L1.loc_ap_e", "L1.loc_wi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "화로 ___ 횃불을 놓아요",
+     "gloss": "I place a torch behind the furnace.",
+     "answer": "뒤에",
+     "distractors": ["앞에", "안에"],
+     "uses": ["L1.loc_dwi_e", "L1.loc_ap_e", "L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "집 ___ 나무가 있어요",
+     "gloss": "There is a tree behind the house.",
+     "answer": "뒤에",
+     "distractors": ["앞에", "안에"],
+     "uses": ["L1.loc_dwi_e", "L1.loc_ap_e", "L1.loc_an_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:BEHIND"],
+   "teachingNotes": [
+    "앞 vs 뒤 are the classic pair to mix up; both refer to the anchor's facing.",
+    "뒤에 can also mean 'after' in time; L3 teaches 후에 for that.",
+    "Learners say 뒤에 for 'in the back of the room' without an anchor; the game always gives one."
+   ]
+  },
+  {
+   "id": "L1.loc_an_e",
+   "form": "안에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["상자 안에 사과를 넣어요.", "집 안에 침대가 있어요."],
+    "en": ["안 = inside; with 에: 상자 안에 (in the chest).", "Do not confuse 안에 (inside) with 안 + verb (not doing): 안 먹어요."],
+    "de": ["안 = innen / in; mit 에: 상자 안에 (in der Truhe).", "Nicht verwechseln: 안에 (drinnen) und 안 + Verb (nicht tun): 안 먹어요."]
+   },
+   "examples": [
+    {
+     "ko": "상자 안에 사과를 넣어요.",
+     "en": "I put an apple inside the chest.",
+     "uses": ["L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "집 안에 침대가 있어요.",
+     "en": "There is a bed inside the house.",
+     "uses": ["L1.loc_an_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "동굴 안에 좀비가 있어요.",
+     "en": "There is a zombie inside the cave.",
+     "uses": ["L1.loc_an_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "화로 안에 석탄을 넣어요.",
+     "en": "I put coal inside the furnace.",
+     "uses": ["L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "상자 안에 빵이 두 개 있어요.",
+     "en": "There are two loaves of bread in the chest.",
+     "uses": ["L1.loc_an_e", "L1.subj_i", "L1.itda_eopda", "L1.num_native", "L1.counter_gae"]
+    }
+   ],
+   "generator": "relation:an",
+   "clozeTemplates": [
+    {
+     "sentence": "상자 ___ 사과를 넣어요",
+     "gloss": "I put an apple inside the chest.",
+     "answer": "안에",
+     "distractors": ["밖에", "위에"],
+     "uses": ["L1.loc_an_e", "L1.loc_bak_e", "L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "집 ___ 침대가 있어요",
+     "gloss": "There is a bed inside the house.",
+     "answer": "안에",
+     "distractors": ["밖에", "앞에"],
+     "uses": ["L1.loc_an_e", "L1.loc_bak_e", "L1.loc_ap_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "화로 ___ 석탄을 넣어요",
+     "gloss": "I put coal inside the furnace.",
+     "answer": "안에",
+     "distractors": ["옆에", "아래에"],
+     "uses": ["L1.loc_an_e", "L1.loc_yeop_e", "L1.loc_arae_e", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:INSIDE", "PUT_IN"],
+   "teachingNotes": [
+    "안에 vs 안 + verb: 상자 안에 넣어요 (put inside) vs 안 넣어요 (do not put).",
+    "넣다 needs a container target (안에); 놓다 takes the surface relations (위에, 옆에).", "안으로 (inward, L2) vs 안에 (location)."
+   ]
+  },
+  {
+   "id": "L1.loc_bak_e",
+   "form": "밖에",
+   "level": 1,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["집 밖에 횃불을 놓아요.", "문 밖에 좀비가 있어요."],
+    "en": [
+     "밖 = outside; with 에: 집 밖에 (outside the house).",
+     "Careful: 밖에 + a negative verb means 'only' (하나밖에 없어요 = there is only one)."
+    ],
+    "de": [
+     "밖 = draußen; mit 에: 집 밖에 (außerhalb des Hauses).",
+     "Vorsicht: 밖에 + verneintes Verb heißt 'nur' (하나밖에 없어요 = es gibt nur eins)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "집 밖에 횃불을 놓아요.",
+     "en": "I place a torch outside the house.",
+     "uses": ["L1.loc_bak_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "문 밖에 좀비가 있어요.",
+     "en": "There is a zombie outside the door.",
+     "uses": ["L1.loc_bak_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "동굴 밖에 나무가 있어요.",
+     "en": "There is a tree outside the cave.",
+     "uses": ["L1.loc_bak_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "상자 밖에 사과가 있어요.",
+     "en": "There is an apple outside the chest.",
+     "uses": ["L1.loc_bak_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "마을 밖에 산이 있어요.",
+     "en": "There is a mountain outside the village.",
+     "uses": ["L1.loc_bak_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "relation:bak",
+   "clozeTemplates": [
+    {
+     "sentence": "집 ___ 횃불을 놓아요",
+     "gloss": "I place a torch outside the house.",
+     "answer": "밖에",
+     "distractors": ["안에", "위에"],
+     "uses": ["L1.loc_bak_e", "L1.loc_an_e", "L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "문 ___ 좀비가 있어요",
+     "gloss": "There is a zombie outside the door.",
+     "answer": "밖에",
+     "distractors": ["안에", "뒤에"],
+     "uses": ["L1.loc_bak_e", "L1.loc_an_e", "L1.loc_dwi_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "마을 ___ 산이 있어요",
+     "gloss": "There is a mountain outside the village.",
+     "answer": "밖에",
+     "distractors": ["안에", "앞에"],
+     "uses": ["L1.loc_bak_e", "L1.loc_an_e", "L1.loc_ap_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:OUTSIDE"],
+   "teachingNotes": [
+    "The homograph 밖에 ('only', needs a negative) is a known trap; teach it as a separate item later.",
+    "밖으로 (outward, L2) vs 밖에 (location).", "Mixing 밖 (outside) with 바깥 (outer side); 밖 is enough here."
+   ]
+  },
+  {
+   "id": "L2.seyo",
+   "form": "-(으)세요",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["문을 여세요.", "횃불을 놓으세요."],
+    "en": [
+     
+     "Polite request or instruction, also honorific: stem + 세요 after a vowel, 으세요 after a final consonant (가세요, 앉으세요).",
+     "ㄹ-stems drop the ㄹ: 열다 → 여세요, 만들다 → 만드세요."
+    ],
+    "de": [
+     "Höfliche Aufforderung, zugleich Ehrenform: Stamm + 세요 nach Vokal, 으세요 nach Endkonsonant (가세요, 앉으세요).",
+     "ㄹ-Stämme verlieren das ㄹ: 열다 → 여세요, 만들다 → 만드세요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 여세요.",
+     "en": "Open the door.",
+     "uses": ["L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "횃불을 놓으세요.",
+     "en": "Place the torch.",
+     "uses": ["L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "여기 앉으세요.",
+     "en": "Sit here.",
+     "uses": ["L2.seyo"]
+    },
+    {
+     "ko": "제작대를 만드세요.",
+     "en": "Make a crafting table.",
+     "uses": ["L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "집에 가세요.",
+     "en": "Go home.",
+     "uses": ["L2.seyo", "L1.e_place"]
+    }
+   ],
+   "generator": "ending:seyo",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 ___",
+     "gloss": "Open the door.",
+     "answer": "여세요",
+     "distractors": ["열세요", "열으세요"],
+     "uses": ["L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "제작대를 ___",
+     "gloss": "Make a crafting table.",
+     "answer": "만드세요",
+     "distractors": ["만들세요", "만들으세요"],
+     "uses": ["L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "횃불을 ___",
+     "gloss": "Place the torch.",
+     "answer": "놓으세요",
+     "distractors": ["놓세요", "놓아세요"],
+     "uses": ["L2.seyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "집에 ___",
+     "gloss": "Go home.",
+     "answer": "가세요",
+     "distractors": ["가으세요", "갈세요"],
+     "uses": ["L2.seyo", "L1.e_place"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "ㄹ-stem slips: 열세요 and 만들세요 instead of 여세요 and 만드세요.", "Irregulars: 줍다 → 주우세요, 걷다 → 걸으세요, 짓다 → 지으세요.",
+    "Honorific replacements such as 드세요 (for 먹다) and 주무세요 (for 자다) come later; 먹으세요 is still understood."
+   ]
+  },
+  {
+   "id": "L2.eseo_activity",
+   "form": "에서 (활동 장소)",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place", "L1.eoyo", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["침대에서 자요.", "화로에서 감자를 구워요."],
+    "en": [
+     "에서 marks the place where an action happens: 침대에서 자요 (I sleep in the bed).",
+     "에 = where something is or goes; 에서 = where you do something."
+    ],
+    "de": [
+     "에서 markiert den Ort, an dem eine Handlung stattfindet: 침대에서 자요 (ich schlafe im Bett).",
+     "에 = wo etwas ist oder wohin man geht; 에서 = wo man etwas tut."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "침대에서 자요.",
+     "en": "I sleep in the bed.",
+     "uses": ["L2.eseo_activity", "L1.eoyo"]
+    },
+    {
+     "ko": "화로에서 감자를 구워요.",
+     "en": "I bake a potato in the furnace.",
+     "uses": ["L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "제작대에서 곡괭이를 만들어요.",
+     "en": "I make a pickaxe at the crafting table.",
+     "uses": ["L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불 아래에서 빵을 먹어요.",
+     "en": "I eat bread under the torch.",
+     "uses": ["L2.eseo_activity", "L1.loc_arae_e", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "집에서 쉬어요.",
+     "en": "I rest at home.",
+     "uses": ["L2.eseo_activity", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:eseo",
+   "clozeTemplates": [
+    {
+     "sentence": "침대___ 자요",
+     "gloss": "I sleep in the bed.",
+     "answer": "에서",
+     "distractors": ["에", "를"],
+     "uses": ["L2.eseo_activity", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "화로___ 감자를 구워요",
+     "gloss": "I bake a potato in the furnace.",
+     "answer": "에서",
+     "distractors": ["에", "를"],
+     "uses": ["L2.eseo_activity", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불 아래___ 빵을 먹어요",
+     "gloss": "I eat bread under the torch.",
+     "answer": "에서",
+     "distractors": ["에", "로"],
+     "uses": ["L2.eseo_activity", "L1.loc_arae_e", "L1.e_place", "L2.euro_direction", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제작대___ 곡괭이를 만들어요",
+     "gloss": "I make a pickaxe at the crafting table.",
+     "answer": "에서",
+     "distractors": ["에", "를"],
+     "uses": ["L2.eseo_activity", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["CRAFT", "SMELT", "CONSUME_ITEM", "USE_BLOCK"],
+   "teachingNotes": [
+    "The core confusion: 에 for being at or going to a place, 에서 for doing something there; 가요, 와요, 있어요 always take 에.",
+    "With an anchor noun the relation word stays: 횃불 아래에서 먹어요 (the place of eating is 'under the torch').",
+    "에서 also means 'from' (동굴에서 나와요); the game introduces that reading separately."
+   ]
+  },
+  {
+   "id": "L2.loc_sai_e",
+   "form": "사이에",
+   "level": 2,
+   "curriculumGrade": 2,
+   "prereq": ["L2.hago_wa_gwa", "L1.num_native", "L1.loc_wi_e"],
+   "ruleCard": {
+    "ko": ["두 횃불 사이에 상자를 놓아요.", "상자와 화로 사이에 서요."],
+    "en": [
+     "사이 = between; it needs two anchors: A와/과 B 사이에, or a counted pair like 두 횃불 사이에.",
+     "As a noun it takes 에 like 위 and 아래."
+    ],
+    "de": [
+     "사이 = zwischen; es braucht zwei Bezugspunkte: A와/과 B 사이에, oder ein gezähltes Paar wie 두 횃불 사이에.",
+     "Als Nomen bekommt es 에 wie 위 und 아래."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "두 횃불 사이에 상자를 놓아요.",
+     "en": "I place a chest between two torches.",
+     "uses": ["L2.loc_sai_e", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "상자와 화로 사이에 서요.",
+     "en": "I stand between the chest and the furnace.",
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.eoyo"]
+    },
+    {
+     "ko": "집과 나무 사이에 길이 있어요.",
+     "en": "There is a path between the house and the tree.",
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "침대와 문 사이에 횃불을 놓아요.",
+     "en": "I place a torch between the bed and the door.",
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "소와 돼지 사이에 닭이 있어요.",
+     "en": "There is a chicken between the cow and the pig.",
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "generator": "relation:sai",
+   "clozeTemplates": [
+    {
+     "sentence": "두 횃불 ___ 상자를 놓아요",
+     "gloss": "I place a chest between two torches.",
+     "answer": "사이에",
+     "distractors": ["옆에", "위에"],
+     "uses": ["L2.loc_sai_e", "L1.loc_yeop_e", "L1.loc_wi_e", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "상자와 화로 ___ 서요",
+     "gloss": "I stand between the chest and the furnace.",
+     "answer": "사이에",
+     "distractors": ["앞에", "안에"],
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.loc_ap_e", "L1.loc_an_e", "L1.eoyo"]
+    },
+    {
+     "sentence": "집과 나무 ___ 길이 있어요",
+     "gloss": "There is a path between the house and the tree.",
+     "answer": "사이에",
+     "distractors": ["뒤에", "밖에"],
+     "uses": ["L2.loc_sai_e", "L2.hago_wa_gwa", "L1.loc_dwi_e", "L1.loc_bak_e", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["PLACE_REL:BETWEEN"],
+   "teachingNotes": [
+    "사이에 needs two anchors or a counted pair; with a single anchor it is wrong.",
+    "사이 also means 'relationship' (사이가 좋아요); 사이로 'through the gap' is a later reading.",
+    "Order: anchor 1 와/과 anchor 2 사이에."
+   ]
+  },
+  {
+   "id": "L2.ege",
+   "form": "에게",
+   "level": 2,
+   "curriculumGrade": 2,
+   "prereq": ["L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["소에게 밀을 줘요.", "주민에게 빵을 줘요."],
+    "en": [
+     "에게 marks who receives something: 소에게 밀을 줘요 (I give wheat to the cow).",
+     "Use it for living receivers; the thing given keeps 을/를."
+    ],
+    "de": [
+     "에게 markiert den Empfänger: 소에게 밀을 줘요 (ich gebe der Kuh Weizen).",
+     "Für Lebewesen als Empfänger; das Gegebene behält 을/를."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "소에게 밀을 줘요.",
+     "en": "I give wheat to the cow.",
+     "uses": ["L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "주민에게 빵을 줘요.",
+     "en": "I give bread to the villager.",
+     "uses": ["L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "돼지에게 당근을 줘요.",
+     "en": "I give a carrot to the pig.",
+     "uses": ["L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "늑대에게 뼈다귀를 줘요.",
+     "en": "I give a bone to the wolf.",
+     "uses": ["L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "말에게 사과를 줘요.",
+     "en": "I give an apple to the horse.",
+     "uses": ["L2.ege", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:ege",
+   "clozeTemplates": [
+    {
+     "sentence": "소___ 밀을 줘요",
+     "gloss": "I give wheat to the cow.",
+     "answer": "에게",
+     "distractors": ["에서", "를"],
+     "uses": ["L2.ege", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민___ 빵을 줘요",
+     "gloss": "I give bread to the villager.",
+     "answer": "에게",
+     "distractors": ["에서", "를"],
+     "uses": ["L2.ege", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "늑대___ 뼈다귀를 줘요",
+     "gloss": "I give a bone to the wolf.",
+     "answer": "에게",
+     "distractors": ["에", "에서"],
+     "uses": ["L2.ege", "L1.e_place", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "돼지___ 당근을 줘요",
+     "gloss": "I give a carrot to the pig.",
+     "answer": "에게",
+     "distractors": ["에서", "을"],
+     "uses": ["L2.ege", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["GIVE", "FEED"],
+   "teachingNotes": [
+    "Living receivers take 에게 (한테 in speech, L3); things take 에: 식물에 물을 줘요.", "Marking the receiver with 에서 or 을/를.",
+    "The thing given keeps 을/를: 밀을 (object), 소에게 (receiver)."
+   ]
+  },
+  {
+   "id": "L2.euro_material",
+   "form": "(으)로 (재료)",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["돌로 탑을 쌓아요.", "나무로 집을 지어요."],
+    "en": [
+     "(으)로 marks the material something is made of: 돌로 탑을 쌓아요 (I build a tower out of stone).",
+     "로 after a vowel or ㄹ (돌로, 모래로), 으로 after other final consonants (흙으로, 얼음으로)."
+    ],
+    "de": [
+     "(으)로 markiert das Material: 돌로 탑을 쌓아요 (ich baue einen Turm aus Stein).",
+     "로 nach Vokal oder ㄹ (돌로, 모래로), 으로 nach anderen Endkonsonanten (흙으로, 얼음으로)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "돌로 탑을 쌓아요.",
+     "en": "I build a tower out of stone.",
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "흙으로 집을 지어요.",
+     "en": "I build a house out of dirt.",
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "나무로 제작대를 만들어요.",
+     "en": "I make a crafting table out of wood.",
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "모래로 피라미드를 쌓아요.",
+     "en": "I build a pyramid out of sand.",
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "얼음으로 다리를 만들어요.",
+     "en": "I make a bridge out of ice.",
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:euro_ro",
+   "clozeTemplates": [
+    {
+     "sentence": "돌___ 탑을 쌓아요",
+     "gloss": "I build a tower out of stone.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L2.euro_material", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "흙___ 집을 지어요",
+     "gloss": "I build a house out of dirt.",
+     "answer": "으로",
+     "distractors": ["로", "에게"],
+     "uses": ["L2.euro_material", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "나무___ 제작대를 만들어요",
+     "gloss": "I make a crafting table out of wood.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L2.euro_material", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "얼음___ 다리를 만들어요",
+     "gloss": "I make a bridge out of ice.",
+     "answer": "으로",
+     "distractors": ["로", "을"],
+     "uses": ["L2.euro_material", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["BUILD_PATTERN", "CRAFT"],
+   "teachingNotes": [
+    "Nouns ending in ㄹ take 로, not 으로 (돌로, 철로).",
+    "The same particle also marks direction (동굴로) and, in L3, tools (곡괭이로); the verb and noun decide the reading.",
+    "The material takes (으)로, the thing built takes 을/를: 돌로 탑을."
+   ]
+  },
+  {
+   "id": "L2.euro_direction",
+   "form": "(으)로 (방향)",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.e_place"],
+   "ruleCard": {
+    "ko": ["동굴로 들어가요.", "문으로 나가요."],
+    "en": [
+     "(으)로 marks the direction or route you move in: 문으로 나가요 (I go out through the door).",
+     "With 위, 아래, 안, 밖, 앞, 뒤 it gives the way: 안으로 (inward), 위로 (upward)."
+    ],
+    "de": [
+     "(으)로 markiert Richtung oder Weg: 문으로 나가요 (ich gehe durch die Tür hinaus).",
+     "Mit 위, 아래, 안, 밖, 앞, 뒤 gibt es die Richtung an: 안으로 (hinein), 위로 (hinauf)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "동굴로 들어가요.",
+     "en": "I go into the cave.",
+     "uses": ["L2.euro_direction", "L1.eoyo"]
+    },
+    {
+     "ko": "문으로 나가요.",
+     "en": "I go out through the door.",
+     "uses": ["L2.euro_direction", "L1.eoyo"]
+    },
+    {
+     "ko": "집 안으로 들어가요.",
+     "en": "I go into the house.",
+     "uses": ["L2.euro_direction", "L1.loc_an_e", "L1.eoyo"]
+    },
+    {
+     "ko": "위로 올라가요.",
+     "en": "I go up.",
+     "uses": ["L2.euro_direction", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불을 들고 동굴 안으로 들어가요.",
+     "en": "I go into the cave holding a torch.",
+     "uses": ["L2.euro_direction", "L2.go_held", "L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:euro_ro",
+   "clozeTemplates": [
+    {
+     "sentence": "문___ 나가요",
+     "gloss": "I go out through the door.",
+     "answer": "으로",
+     "distractors": ["로", "에게"],
+     "uses": ["L2.euro_direction", "L2.ege", "L1.eoyo"]
+    },
+    {
+     "sentence": "동굴___ 들어가요",
+     "gloss": "I go into the cave.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L2.euro_direction", "L2.ege", "L1.eoyo"]
+    },
+    {
+     "sentence": "집 안___ 들어가요",
+     "gloss": "I go into the house.",
+     "answer": "으로",
+     "distractors": ["로", "에게"],
+     "uses": ["L2.euro_direction", "L2.ege", "L1.loc_an_e", "L1.eoyo"]
+    },
+    {
+     "sentence": "아래___ 내려가요",
+     "gloss": "I go down.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L2.euro_direction", "L2.ege", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["HOLD_WHILE", "REACH_BIOME"],
+   "teachingNotes": [
+    "에 names the arrival point, (으)로 the heading or route (문으로 = through the door).",
+    "Places ending in ㄹ take 로: 동굴로, not 동굴으로.", "안으로/밖으로 cross a boundary; 안에/밖에 describe a location."
+   ]
+  },
+  {
+   "id": "L2.go_sequence",
+   "form": "-고 (순서)",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["문을 열고 들어가요.", "돌을 캐고 집을 지어요."],
+    "en": [
+     "Stem + 고 joins actions in order: 문을 열고 들어가요 (I open the door and go in).",
+     "Only the last verb takes the ending; 고 attaches to the bare stem."
+    ],
+    "de": [
+     "Stamm + 고 verbindet Handlungen der Reihe nach: 문을 열고 들어가요 (ich öffne die Tür und gehe hinein).",
+     "Nur das letzte Verb trägt die Endung; 고 hängt am bloßen Stamm."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 열고 들어가요.",
+     "en": "I open the door and go in.",
+     "uses": ["L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "나무를 베고 판자를 만들어요.",
+     "en": "I chop the tree and make planks.",
+     "uses": ["L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불을 놓고 자요.",
+     "en": "I place a torch and sleep.",
+     "uses": ["L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "돌을 캐고 집을 지어요.",
+     "en": "I mine stone and build a house.",
+     "uses": ["L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "돌로 피라미드를 쌓고 그 위에 횃불을 놓아요.",
+     "en": "I build a pyramid out of stone and place a torch on top of it.",
+     "uses": ["L2.go_sequence", "L2.euro_material", "L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "connective:go",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 열___ 들어가요",
+     "gloss": "I open the door and go in.",
+     "answer": "고",
+     "distractors": ["어요", "세요"],
+     "uses": ["L2.go_sequence", "L2.seyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불을 놓___ 자요",
+     "gloss": "I place a torch and sleep.",
+     "answer": "고",
+     "distractors": ["아요", "으세요"],
+     "uses": ["L2.go_sequence", "L2.seyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "돌을 캐___ 집을 지어요",
+     "gloss": "I mine stone and build a house.",
+     "answer": "고",
+     "distractors": ["어요", "세요"],
+     "uses": ["L2.go_sequence", "L2.seyo", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["SEQUENCE"],
+   "teachingNotes": [
+    "Putting the ending on the first verb as well; -고 itself needs none.",
+    "-고 links verbs; between nouns use 와/과 or 하고.",
+    "-고 is a loose sequence; -아/어서 (L4) ties the actions together more tightly."
+   ]
+  },
+  {
+   "id": "L2.go_held",
+   "form": "-고 (들고, 타고)",
+   "level": 2,
+   "curriculumGrade": 2,
+   "prereq": ["L2.go_sequence"],
+   "ruleCard": {
+    "ko": ["횃불을 들고 가요.", "말을 타고 마을에 가요."],
+    "en": [
+     "들고 (from 들다, to hold) + a motion verb: moving while holding something: 횃불을 들고 가요.",
+     "The same pattern works with 타고 (riding) and 입고 (wearing)."
+    ],
+    "de": [
+     "들고 (von 들다, halten) + Bewegungsverb: sich mit etwas in der Hand bewegen: 횃불을 들고 가요.",
+     "Dasselbe Muster gilt für 타고 (reitend) und 입고 (tragend, Kleidung)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 들고 가요.",
+     "en": "I go holding a torch.",
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "활을 들고 서요.",
+     "en": "I stand holding a bow.",
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "책을 들고 집에 가요.",
+     "en": "I go home holding a book.",
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "ko": "말을 타고 마을에 가요.",
+     "en": "I ride a horse to the village.",
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불을 들고 동굴 안으로 들어가요.",
+     "en": "I go into the cave holding a torch.",
+     "uses": ["L2.go_held", "L2.euro_direction", "L1.loc_an_e", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "connective:go_manner",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불을 ___ 동굴에 들어가요",
+     "gloss": "I go into the cave holding a torch.",
+     "answer": "들고",
+     "distractors": ["들어요", "드고"],
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "sentence": "책을 ___ 집에 가요",
+     "gloss": "I go home holding a book.",
+     "answer": "들고",
+     "distractors": ["들어요", "드고"],
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "sentence": "말을 ___ 마을에 가요",
+     "gloss": "I ride a horse to the village.",
+     "answer": "타고",
+     "distractors": ["타요", "탈고"],
+     "uses": ["L2.go_held", "L1.obj_eul", "L1.e_place", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["HOLD_WHILE", "RIDE"],
+   "teachingNotes": [
+    "The ㄹ of 들다 stays before 고 (들고, 만들고); it drops only before ㄴ, ㅂ, ㅅ.",
+    "The same -고 means 'then' (sequence) or 'while holding' (state); the verb pair decides.",
+    "들고 is for carrying in the hand; other ways of carrying use other verbs later."
+   ]
+  },
+  {
+   "id": "L2.eun_neun_topic",
+   "form": "은/는 (주제)",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.subj_i", "L1.copula_ieyo"],
+   "ruleCard": {
+    "ko": ["이것은 횃불이에요.", "상자는 집 안에 있어요."],
+    "en": [
+     "은/는 marks what the sentence is about (the topic): 은 after a final consonant, 는 after a vowel.",
+     "Use it for things already known: 횃불은 상자 옆에 있어요 (as for the torch, it is next to the chest)."
+    ],
+    "de": [
+     "은/는 markiert das Thema des Satzes: 은 nach Endkonsonant, 는 nach Vokal.",
+     "Für Bekanntes: 횃불은 상자 옆에 있어요 (was die Fackel betrifft: sie ist neben der Truhe)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "이것은 횃불이에요.",
+     "en": "This is a torch.",
+     "uses": ["L2.eun_neun_topic", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "횃불은 상자 옆에 있어요.",
+     "en": "The torch is next to the chest.",
+     "uses": ["L2.eun_neun_topic", "L1.loc_yeop_e", "L1.itda_eopda"]
+    },
+    {
+     "ko": "저는 집에 가요.",
+     "en": "I am going home.",
+     "uses": ["L2.eun_neun_topic", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "ko": "상자는 집 안에 있어요.",
+     "en": "The chest is inside the house.",
+     "uses": ["L2.eun_neun_topic", "L1.loc_an_e", "L1.itda_eopda"]
+    },
+    {
+     "ko": "소는 풀을 먹어요.",
+     "en": "Cows eat grass.",
+     "uses": ["L2.eun_neun_topic", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:eun_neun",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불___ 상자 옆에 있어요",
+     "gloss": "The torch is next to the chest.",
+     "answer": "은",
+     "distractors": ["는", "을"],
+     "uses": ["L2.eun_neun_topic", "L1.loc_yeop_e", "L1.obj_eul", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "저___ 집에 가요",
+     "gloss": "I am going home.",
+     "answer": "는",
+     "distractors": ["은", "를"],
+     "uses": ["L2.eun_neun_topic", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "이것___ 횃불이에요",
+     "gloss": "This is a torch.",
+     "answer": "은",
+     "distractors": ["는", "를"],
+     "uses": ["L2.eun_neun_topic", "L1.copula_ieyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "상자___ 집 안에 있어요",
+     "gloss": "The chest is inside the house.",
+     "answer": "는",
+     "distractors": ["은", "를"],
+     "uses": ["L2.eun_neun_topic", "L1.loc_an_e", "L1.obj_eul", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Using 은/는 for a brand-new subject: say 크리퍼가 와요 first, then 크리퍼는 …; the first mention takes 이/가.",
+    "은/는 can replace 이/가 and 을/를 but sits on top of 에, 에서, 에게 (에는, 에서는, 에게는).",
+    "In plain statements 은/는 is just the topic; the contrast reading has its own card."
+   ]
+  },
+  {
+   "id": "L2.eun_neun_contrast",
+   "form": "은/는 (대조)",
+   "level": 2,
+   "curriculumGrade": 2,
+   "prereq": ["L2.eun_neun_topic", "L1.neg_an"],
+   "ruleCard": {
+    "ko": ["돌은 캐요. 흙은 안 파요.", "낮에는 일하고 밤에는 자요."],
+    "en": [
+     "은/는 can also contrast two things: 돌은 캐요, 흙은 안 파요 (stone yes, dirt no).",
+     "After 에, 에서, 에게 it stacks on: 낮에는 일하고 밤에는 자요."
+    ],
+    "de": [
+     "은/는 kann zwei Dinge gegenüberstellen: 돌은 캐요, 흙은 안 파요 (Stein ja, Erde nein).",
+     "Nach 에, 에서, 에게 wird es angehängt: 낮에는 일하고 밤에는 자요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "돌은 캐요. 흙은 안 파요.",
+     "en": "I mine stone. I do not dig dirt.",
+     "uses": ["L2.eun_neun_contrast", "L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "낮에는 일하고 밤에는 자요.",
+     "en": "In the day I work, at night I sleep.",
+     "uses": ["L2.eun_neun_contrast", "L1.e_time", "L2.go_sequence", "L1.eoyo"]
+    },
+    {
+     "ko": "소는 있어요. 돼지는 없어요.",
+     "en": "There are cows, but no pigs.",
+     "uses": ["L2.eun_neun_contrast", "L1.itda_eopda"]
+    },
+    {
+     "ko": "집 안에는 침대가 있어요.",
+     "en": "Inside the house there is a bed.",
+     "uses": ["L2.eun_neun_contrast", "L1.loc_an_e", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "횃불은 놓고 상자는 안 놓아요.",
+     "en": "I place the torch, but not the chest.",
+     "uses": ["L2.eun_neun_contrast", "L2.go_sequence", "L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:eun_neun_contrast",
+   "clozeTemplates": [
+    {
+     "sentence": "돌은 캐요. 흙___ 안 파요",
+     "gloss": "I mine stone, but I do not dig dirt.",
+     "answer": "은",
+     "distractors": ["이", "에"],
+     "uses": ["L2.eun_neun_contrast", "L1.neg_an", "L1.subj_i", "L1.e_place", "L1.eoyo"],
+     "alsoAccept": ["을"]
+    },
+    {
+     "sentence": "낮___ 일하고 밤에는 자요",
+     "gloss": "In the day I work, at night I sleep.",
+     "answer": "에는",
+     "distractors": ["가", "를"],
+     "uses": ["L2.eun_neun_contrast", "L1.e_time", "L2.go_sequence", "L1.subj_i", "L1.obj_eul", "L1.eoyo"],
+     "alsoAccept": ["에"]
+    },
+    {
+     "sentence": "소___ 있어요. 돼지는 없어요",
+     "gloss": "There are cows, but no pigs.",
+     "answer": "는",
+     "distractors": ["를", "에"],
+     "uses": ["L2.eun_neun_contrast", "L1.itda_eopda", "L1.obj_eul", "L1.e_place"],
+     "alsoAccept": ["가"]
+    }
+   ],
+   "formDependentHooks": ["AVOID", "BREAK_BLOCK"],
+   "teachingNotes": [
+    
+    "The contrast reading is optional (돌을 캐요 is also right); the game asks for 은/는 only when the translation contrasts two things.",
+    "Learners overuse 은/는 for new subjects (크리퍼는 와요 as the first mention): use 이/가 there.",
+    "에는 / 에서는 / 에게는 keep the place or role and add contrast; the particle 에 is not dropped."
+   ]
+  },
+  {
+   "id": "L2.go_sipeoyo",
+   "form": "-고 싶어요",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo", "L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["횃불을 놓고 싶어요.", "동굴에 들어가고 싶어요."],
+    "en": ["Stem + 고 싶어요 = I want to …: 먹고 싶어요 (I want to eat).", "The object keeps its 을/를: 빵을 먹고 싶어요."],
+    "de": ["Stamm + 고 싶어요 = ich möchte …: 먹고 싶어요 (ich möchte essen).", "Das Objekt behält 을/를: 빵을 먹고 싶어요."]
+   },
+   "examples": [
+    {
+     "ko": "빵을 먹고 싶어요.",
+     "en": "I want to eat bread.",
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "집을 짓고 싶어요.",
+     "en": "I want to build a house.",
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "동굴에 들어가고 싶어요.",
+     "en": "I want to go into the cave.",
+     "uses": ["L2.go_sipeoyo", "L1.e_place"]
+    },
+    {
+     "ko": "말을 타고 싶어요.",
+     "en": "I want to ride a horse.",
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "횃불을 만들고 싶어요.",
+     "en": "I want to make a torch.",
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:go_sipeo",
+   "clozeTemplates": [
+    {
+     "sentence": "집을 짓___ 싶어요",
+     "gloss": "I want to build a house.",
+     "answer": "고",
+     "distractors": ["어", "는"],
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "빵을 먹___ 싶어요",
+     "gloss": "I want to eat bread.",
+     "answer": "고",
+     "distractors": ["어", "는"],
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "말을 타___ 싶어요",
+     "gloss": "I want to ride a horse.",
+     "answer": "고",
+     "distractors": ["아", "는"],
+     "uses": ["L2.go_sipeoyo", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Using -고 싶어요 for a third person; it states the speaker's own wish (third person: -고 싶어 해요, later).",
+    "싶다 behaves like an adjective: 싶어요, never a verb ending.", "Keep the spacing: 놓고 싶어요, not 놓고싶어요."
+   ]
+  },
+  {
+   "id": "L2.hago_wa_gwa",
+   "form": "하고/와/과",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.obj_eul"],
+   "ruleCard": {
+    "ko": ["사과와 빵을 먹어요.", "소하고 돼지가 있어요."],
+    "en": [
+     "Noun 와/과 noun joins things: 사과와 빵 (apple and bread); 와 after a vowel, 과 after a final consonant.",
+     "하고 does the same after any noun and sounds more spoken; both also mean 'with' a person: 주민과 이야기해요."
+    ],
+    "de": [
+     "Nomen 와/과 Nomen verbindet Dinge: 사과와 빵; 와 nach Vokal, 과 nach Endkonsonant.",
+     "하고 leistet dasselbe nach jedem Nomen und klingt gesprochener; beide heißen auch 'mit' einer Person: 주민과 이야기해요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "사과와 빵을 먹어요.",
+     "en": "I eat an apple and bread.",
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불과 상자를 놓아요.",
+     "en": "I place a torch and a chest.",
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "소하고 돼지가 있어요.",
+     "en": "There are a cow and a pig.",
+     "uses": ["L2.hago_wa_gwa", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "주민과 이야기해요.",
+     "en": "I talk with the villager.",
+     "uses": ["L2.hago_wa_gwa", "L1.eoyo"]
+    },
+    {
+     "ko": "돌하고 흙을 캐요.",
+     "en": "I mine stone and dirt.",
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "particle:wa_gwa",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불___ 상자를 놓아요",
+     "gloss": "I place a torch and a chest.",
+     "answer": "과",
+     "distractors": ["와", "을"],
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "사과___ 빵을 먹어요",
+     "gloss": "I eat an apple and bread.",
+     "answer": "와",
+     "distractors": ["과", "이"],
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민___ 이야기해요",
+     "gloss": "I talk with the villager.",
+     "answer": "과",
+     "distractors": ["와", "을"],
+     "uses": ["L2.hago_wa_gwa", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["CRAFT", "ACQUIRE_ITEM"],
+   "teachingNotes": [
+    "Using 와/과 to join verbs or clauses: actions are joined with -고.",
+    "Put 와/과 after the first noun only; the case particle goes after the last noun (사과와 빵을).",
+    "Choosing 와/과 by sound: 횃불과 (final ㄹ), 사과와 (vowel)."
+   ]
+  },
+  {
+   "id": "L2.counter_more",
+   "form": "명, 송이, 그루, 장, 권, 병…",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.counter_gae", "L1.counter_mari"],
+   "ruleCard": {
+    "ko": ["주민이 세 명 있어요.", "꽃을 두 송이 꺾어요."],
+    "en": [
+     "Many nouns have their own counter: 명 people, 송이 flowers, 그루 trees, 장 flat things, 권 books, 병 bottles.",
+     "Same order as 개: thing + native number + counter (나무 네 그루)."
+    ],
+    "de": [
+     
+     "Viele Nomen haben eine eigene Zähleinheit: 명 Personen, 송이 Blumen, 그루 Bäume, 장 flache Dinge, 권 Bücher, 병 Flaschen.",
+     "Gleiche Reihenfolge wie bei 개: Ding + native Zahl + Zähleinheit (나무 네 그루)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "주민이 세 명 있어요.",
+     "en": "There are three villagers.",
+     "uses": ["L2.counter_more", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "꽃을 두 송이 꺾어요.",
+     "en": "I pick two flowers.",
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "나무를 네 그루 심어요.",
+     "en": "I plant four trees.",
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "책이 한 권 있어요.",
+     "en": "There is one book.",
+     "uses": ["L2.counter_more", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "물약을 두 병 마셔요.",
+     "en": "I drink two potions.",
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "counter:family",
+   "clozeTemplates": [
+    {
+     "sentence": "나무를 네 ___ 심어요",
+     "gloss": "I plant four trees.",
+     "answer": "그루",
+     "distractors": ["송이", "병"],
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민이 세 ___ 있어요",
+     "gloss": "There are three villagers.",
+     "answer": "명",
+     "distractors": ["마리", "그루"],
+     "uses": ["L2.counter_more", "L1.counter_mari", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "책이 한 ___ 있어요",
+     "gloss": "There is one book.",
+     "answer": "권",
+     "distractors": ["장", "병"],
+     "uses": ["L2.counter_more", "L1.num_native", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "꽃을 두 ___ 꺾어요",
+     "gloss": "I pick two flowers.",
+     "answer": "송이",
+     "distractors": ["그루", "장"],
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "물약을 두 ___ 마셔요",
+     "gloss": "I drink two potions.",
+     "answer": "병",
+     "distractors": ["권", "장"],
+     "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["BREED:count", "ACQUIRE_ITEM:count", "PLACE_BLOCK:count"],
+   "teachingNotes": [
+    
+    "Using 개 for everything is understood and never wrong for objects; the game prefers the specific counter once it is taught.",
+    "Villagers and other people take 명, never 마리.", "See counters.json for which Minecraft items use which counter."
+   ]
+  },
+  {
+   "id": "L2.num_sino",
+   "form": "일, 이, 삼 … 십, 백",
+   "level": 2,
+   "curriculumGrade": 1,
+   "prereq": ["L1.copula_ieyo", "L1.num_native"],
+   "ruleCard": {
+    "ko": ["십 초 기다려요.", "레벨이 삼십이에요."],
+    "en": [
+     
+     "Sino-Korean numbers (일, 이, 삼, 사, 오 … 십, 백) are used for seconds, minutes, levels, heights, distances and prices.",
+     "They go before the unit, without a counter: 십 초 (10 seconds), 오십 미터 (50 m)."
+    ],
+    "de": [
+     "Sino-koreanische Zahlen (일, 이, 삼, 사, 오 … 십, 백) stehen bei Sekunden, Minuten, Level, Höhe, Entfernung und Preis.",
+     "Sie stehen vor der Einheit, ohne Zähleinheit: 십 초 (10 Sekunden), 오십 미터 (50 m)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "십 초 기다려요.",
+     "en": "I wait ten seconds.",
+     "uses": ["L2.num_sino", "L1.eoyo"]
+    },
+    {
+     "ko": "백 미터 걸어가요.",
+     "en": "I walk a hundred meters.",
+     "uses": ["L2.num_sino", "L1.eoyo"]
+    },
+    {
+     "ko": "레벨이 삼십이에요.",
+     "en": "The level is thirty.",
+     "uses": ["L2.num_sino", "L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "ko": "높이가 육십 미터예요.",
+     "en": "The height is sixty meters.",
+     "uses": ["L2.num_sino", "L1.copula_ieyo", "L1.subj_i"]
+    },
+    {
+     "ko": "삼 층에 올라가요.",
+     "en": "I go up to the third floor.",
+     "uses": ["L2.num_sino", "L1.e_place", "L1.eoyo"]
+    }
+   ],
+   "generator": "numeral:sino",
+   "clozeTemplates": [
+    {
+     "sentence": "___ 초 기다려요",
+     "gloss": "I wait ten seconds.",
+     "answer": "십",
+     "distractors": ["열", "한"],
+     "uses": ["L2.num_sino", "L1.num_native", "L1.eoyo"]
+    },
+    {
+     "sentence": "___ 미터 걸어가요",
+     "gloss": "I walk a hundred meters.",
+     "answer": "백",
+     "distractors": ["열", "스무"],
+     "uses": ["L2.num_sino", "L1.num_native", "L1.eoyo"]
+    },
+    {
+     "sentence": "레벨이 ___이에요",
+     "gloss": "The level is thirty.",
+     "answer": "삼십",
+     "distractors": ["서른", "세"],
+     "uses": ["L2.num_sino", "L1.num_native", "L1.copula_ieyo", "L1.subj_i"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Native numbers go with counters (두 개), Sino-Korean numbers with units (십 초).",
+    "Clock hours use native numbers (세 시) but minutes use Sino-Korean (십 분); this is taught with time words later.",
+    "From 100 on, numbers are always Sino-Korean."
+   ]
+  },
+  {
+   "id": "L3.past",
+   "form": "-았/었어요",
+   "level": 3,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["횃불을 놓았어요.", "크리퍼가 왔어요."],
+    "en": [
+     "Past tense: stem + 았어요 after ㅏ/ㅗ, 었어요 otherwise; 하다 becomes 했어요.",
+     "Contracted stems stay short: 가다 → 갔어요, 보다 → 봤어요, 주다 → 줬어요."
+    ],
+    "de": [
+     "Vergangenheit: Stamm + 았어요 nach ㅏ/ㅗ, sonst 었어요; 하다 wird zu 했어요.",
+     "Verschmolzene Stämme bleiben kurz: 가다 → 갔어요, 보다 → 봤어요, 주다 → 줬어요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 놓았어요.",
+     "en": "I placed a torch.",
+     "uses": ["L3.past", "L1.obj_eul"]
+    },
+    {
+     "ko": "빵을 먹었어요.",
+     "en": "I ate bread.",
+     "uses": ["L3.past", "L1.obj_eul"]
+    },
+    {
+     "ko": "집을 지었어요.",
+     "en": "I built a house.",
+     "uses": ["L3.past", "L1.obj_eul"]
+    },
+    {
+     "ko": "크리퍼가 왔어요.",
+     "en": "A creeper came.",
+     "uses": ["L3.past", "L1.subj_i"]
+    },
+    {
+     "ko": "동굴에서 좀비를 봤어요.",
+     "en": "I saw a zombie in the cave.",
+     "uses": ["L3.past", "L2.eseo_activity", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:past",
+   "clozeTemplates": [
+    {
+     "sentence": "빵을 먹___",
+     "gloss": "I ate bread.",
+     "answer": "었어요",
+     "distractors": ["았어요", "어요"],
+     "uses": ["L3.past", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불을 놓___",
+     "gloss": "I placed a torch.",
+     "answer": "았어요",
+     "distractors": ["었어요", "아요"],
+     "uses": ["L3.past", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "크리퍼가 ___",
+     "gloss": "A creeper came.",
+     "answer": "왔어요",
+     "distractors": ["오았어요", "왔아요"],
+     "uses": ["L3.past", "L1.subj_i"]
+    },
+    {
+     "sentence": "집을 지___",
+     "gloss": "I built a house.",
+     "answer": "었어요",
+     "distractors": ["았어요", "어요"],
+     "uses": ["L3.past", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Spelling out the contraction: 보았어요 is correct but formal, 봤어요 is normal, 가았어요 is wrong.",
+    "하다 becomes 했어요; the written form 하였어요 sounds stiff in speech.",
+    "Irregular stems: 줍다 → 주웠어요, 듣다 → 들었어요, 모르다 → 몰랐어요."
+   ]
+  },
+  {
+   "id": "L3.future_geoyeyo",
+   "form": "-(으)ㄹ 거예요",
+   "level": 3,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo", "L1.copula_ieyo"],
+   "ruleCard": {
+    "ko": ["내일 동굴에 갈 거예요.", "밤에 집을 지을 거예요."],
+    "en": ["Stem + (으)ㄹ 거예요 = will / is going to: 갈 거예요, 먹을 거예요.", "ㄹ-stems keep their ㄹ (만들 거예요); 줍다 → 주울, 걷다 → 걸을."],
+    "de": ["Stamm + (으)ㄹ 거예요 = werden / vorhaben: 갈 거예요, 먹을 거예요.", "ㄹ-Stämme behalten ㄹ (만들 거예요); 줍다 → 주울, 걷다 → 걸을."]
+   },
+   "examples": [
+    {
+     "ko": "내일 동굴에 갈 거예요.",
+     "en": "I will go to the cave tomorrow.",
+     "uses": ["L3.future_geoyeyo", "L1.e_place"]
+    },
+    {
+     "ko": "횃불을 놓을 거예요.",
+     "en": "I will place a torch.",
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "밤에 집을 지을 거예요.",
+     "en": "I will build a house at night.",
+     "uses": ["L3.future_geoyeyo", "L1.e_time", "L1.obj_eul"]
+    },
+    {
+     "ko": "제작대를 만들 거예요.",
+     "en": "I will make a crafting table.",
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "내일 상자를 열 거예요.",
+     "en": "I will open the chest tomorrow.",
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:future",
+   "clozeTemplates": [
+    {
+     "sentence": "내일 동굴에 ___ 거예요",
+     "gloss": "I will go to the cave tomorrow.",
+     "answer": "갈",
+     "distractors": ["가", "갈을"],
+     "uses": ["L3.future_geoyeyo", "L1.e_place"]
+    },
+    {
+     "sentence": "횃불을 ___ 거예요",
+     "gloss": "I will place a torch.",
+     "answer": "놓을",
+     "distractors": ["놓", "놓아"],
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제작대를 ___ 거예요",
+     "gloss": "I will make a crafting table.",
+     "answer": "만들",
+     "distractors": ["만드", "만들을"],
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "집을 ___ 거예요",
+     "gloss": "I will build a house.",
+     "answer": "지을",
+     "distractors": ["짓을", "지"],
+     "uses": ["L3.future_geoyeyo", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "ㄹ-stem slips: 만들을 거예요 or 만드 거예요 instead of 만들 거예요.",
+    "The same form can be a guess (비가 올 거예요, it will probably rain); the context decides.",
+    "The 거 is pronounced with a tensed first sound, but it is spelled 거."
+   ]
+  },
+  {
+   "id": "L3.gi_jeone",
+   "form": "-기 전에",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo", "L1.e_time"],
+   "ruleCard": {
+    "ko": ["자기 전에 횃불을 놓아요.", "문을 닫기 전에 횃불을 놓아요."],
+    "en": [
+     "Stem + 기 전에 = before doing: 자기 전에 (before sleeping).",
+     "The 기 clause takes no tense; the main verb carries it: 문을 닫기 전에 횃불을 놓았어요."
+    ],
+    "de": [
+     "Stamm + 기 전에 = bevor man etwas tut: 자기 전에 (vor dem Schlafen).",
+     "Der 기-Teil hat keine Zeitform; das Hauptverb trägt sie: 문을 닫기 전에 횃불을 놓았어요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "자기 전에 횃불을 놓아요.",
+     "en": "I place a torch before sleeping.",
+     "uses": ["L3.gi_jeone", "L1.obj_eul"]
+    },
+    {
+     "ko": "문을 닫기 전에 횃불을 놓아요.",
+     "en": "I place a torch before closing the door.",
+     "uses": ["L3.gi_jeone", "L1.obj_eul"]
+    },
+    {
+     "ko": "집에 가기 전에 빵을 먹어요.",
+     "en": "I eat bread before going home.",
+     "uses": ["L3.gi_jeone", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "동굴에 들어가기 전에 횃불을 만들어요.",
+     "en": "I make a torch before entering the cave.",
+     "uses": ["L3.gi_jeone", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "상자를 열기 전에 문을 닫아요.",
+     "en": "I close the door before opening the chest.",
+     "uses": ["L3.gi_jeone", "L1.obj_eul"]
+    }
+   ],
+   "generator": "nominal:gi_jeone",
+   "clozeTemplates": [
+    {
+     "sentence": "자___ 전에 횃불을 놓아요",
+     "gloss": "I place a torch before sleeping.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L3.gi_jeone", "L2.go_sequence", "L3.ji_anayo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "문을 닫___ 전에 횃불을 놓아요",
+     "gloss": "I place a torch before closing the door.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L3.gi_jeone", "L2.go_sequence", "L3.ji_anayo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "집에 가___ 전에 빵을 먹어요",
+     "gloss": "I eat bread before going home.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L3.gi_jeone", "L2.go_sequence", "L3.ji_anayo", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["SEQUENCE:before"],
+   "teachingNotes": [
+    "기 attaches to the bare stem, so ㄹ-stems keep ㄹ: 만들기 전에, 열기 전에.",
+    "Putting a tense in the 기 clause (먹었기 전에) is wrong.",
+    "The pair is 전에 (before) and (으)ㄴ 후에 (after); with nouns: 식사 전에."
+   ]
+  },
+  {
+   "id": "L3.eun_hue",
+   "form": "-(으)ㄴ 후에",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo", "L3.gi_jeone"],
+   "ruleCard": {
+    "ko": ["문을 연 후에 들어가요.", "빵을 먹은 후에 자요."],
+    "en": [
+     "Verb + (으)ㄴ 후에 = after doing: 먹은 후에 (after eating).",
+     "ㄹ-stems lose ㄹ: 열다 → 연 후에, 만들다 → 만든 후에; vowel stems add ㄴ: 가다 → 간 후에."
+    ],
+    "de": [
+     "Verb + (으)ㄴ 후에 = nachdem man etwas getan hat: 먹은 후에 (nach dem Essen).",
+     "ㄹ-Stämme verlieren ㄹ: 열다 → 연 후에, 만들다 → 만든 후에; Vokalstämme erhalten ㄴ: 가다 → 간 후에."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 연 후에 들어가요.",
+     "en": "I go in after opening the door.",
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "ko": "빵을 먹은 후에 자요.",
+     "en": "I sleep after eating bread.",
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "ko": "횃불을 놓은 후에 상자를 열어요.",
+     "en": "I open the chest after placing the torch.",
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "ko": "집을 지은 후에 침대를 만들어요.",
+     "en": "I make a bed after building the house.",
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "ko": "제작대를 만든 후에 곡괭이를 만들어요.",
+     "en": "I make a pickaxe after making a crafting table.",
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    }
+   ],
+   "generator": "nominal:eun_hue",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 ___ 후에 들어가요",
+     "gloss": "I go in after opening the door.",
+     "answer": "연",
+     "distractors": ["열은", "열"],
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "sentence": "빵을 먹___ 후에 자요",
+     "gloss": "I sleep after eating bread.",
+     "answer": "은",
+     "distractors": ["을", "어"],
+     "uses": ["L3.eun_hue", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제작대를 ___ 후에 곡괭이를 만들어요",
+     "gloss": "I make a pickaxe after making a crafting table.",
+     "answer": "만든",
+     "distractors": ["만들은", "만들"],
+     "uses": ["L3.eun_hue", "L1.obj_eul"]
+    },
+    {
+     "sentence": "횃불을 놓___ 후에 상자를 열어요",
+     "gloss": "I open the chest after placing the torch.",
+     "answer": "은",
+     "distractors": ["을", "어"],
+     "uses": ["L3.eun_hue", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["SEQUENCE:after"],
+   "teachingNotes": [
+    "ㄹ-stems: 연, 만든 (not 열은, 만들은).", "After a vowel the form is -ㄴ alone (간 후에, 본 후에).",
+    "-(으)ㄴ 후에 refers to the earlier action; the main verb carries the tense."
+   ]
+  },
+  {
+   "id": "L3.su_itda",
+   "form": "-(으)ㄹ 수 있어요/없어요",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L3.future_geoyeyo"],
+   "ruleCard": {
+    "ko": ["횃불을 만들 수 있어요.", "문을 열 수 없어요."],
+    "en": ["Stem + (으)ㄹ 수 있어요 = can; 수 없어요 = cannot.", "Same stem form as the future: 갈 수 있어요, 먹을 수 있어요, 만들 수 있어요."],
+    "de": ["Stamm + (으)ㄹ 수 있어요 = können; 수 없어요 = nicht können.", "Gleiche Stammform wie beim Futur: 갈 수 있어요, 먹을 수 있어요, 만들 수 있어요."]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 만들 수 있어요.",
+     "en": "I can make a torch.",
+     "uses": ["L3.su_itda", "L1.obj_eul"]
+    },
+    {
+     "ko": "문을 열 수 없어요.",
+     "en": "I cannot open the door.",
+     "uses": ["L3.su_itda", "L1.obj_eul"]
+    },
+    {
+     "ko": "침대에서 잘 수 있어요.",
+     "en": "I can sleep in the bed.",
+     "uses": ["L3.su_itda", "L2.eseo_activity"]
+    },
+    {
+     "ko": "말을 탈 수 있어요.",
+     "en": "I can ride a horse.",
+     "uses": ["L3.su_itda", "L1.obj_eul"]
+    },
+    {
+     "ko": "물 위를 걸을 수 없어요.",
+     "en": "I cannot walk on water.",
+     "uses": ["L3.su_itda", "L1.loc_wi_e", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:su_itda",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불을 만들 ___ 있어요",
+     "gloss": "I can make a torch.",
+     "answer": "수",
+     "distractors": ["것", "번"],
+     "uses": ["L3.su_itda", "L1.obj_eul", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "문을 열 ___ 없어요",
+     "gloss": "I cannot open the door.",
+     "answer": "수",
+     "distractors": ["것", "번"],
+     "uses": ["L3.su_itda", "L1.obj_eul", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "침대에서 ___ 수 있어요",
+     "gloss": "I can sleep in the bed.",
+     "answer": "잘",
+     "distractors": ["자", "자을"],
+     "uses": ["L3.su_itda", "L2.eseo_activity", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "말을 ___ 수 있어요",
+     "gloss": "I can ride a horse.",
+     "answer": "탈",
+     "distractors": ["타", "타을"],
+     "uses": ["L3.su_itda", "L1.obj_eul", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": ["CRAFT", "USE_BLOCK"],
+   "teachingNotes": [
+    "수 is a separate word: 갈 수 있어요 (spacing).", "수 takes no particle here; the object keeps 을/를 (횃불을 만들 수 있어요).",
+    "The same form covers ability and possibility; permission uses -아/어도 돼요 (L5)."
+   ]
+  },
+  {
+   "id": "L3.jima_seyo",
+   "form": "-지 마세요",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L2.seyo", "L1.neg_an"],
+   "ruleCard": {
+    "ko": ["밤에 자지 마세요.", "문을 열지 마세요."],
+    "en": [
+     "Stem + 지 마세요 = please do not …: a polite prohibition for verbs.",
+     "For a plain 'does not' statement use 안 or -지 않아요; 마세요 is only for requests."
+    ],
+    "de": [
+     "Stamm + 지 마세요 = bitte nicht …: höfliches Verbot bei Verben.",
+     "Für 'nicht' in einer Aussage nimmt man 안 oder -지 않아요; 마세요 gibt es nur für Aufforderungen."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "밤에 자지 마세요.",
+     "en": "Do not sleep at night.",
+     "uses": ["L3.jima_seyo", "L1.e_time"]
+    },
+    {
+     "ko": "문을 열지 마세요.",
+     "en": "Do not open the door.",
+     "uses": ["L3.jima_seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "크리퍼 앞에 서지 마세요.",
+     "en": "Do not stand in front of the creeper.",
+     "uses": ["L3.jima_seyo", "L1.loc_ap_e"]
+    },
+    {
+     "ko": "횃불을 부수지 마세요.",
+     "en": "Do not break the torch.",
+     "uses": ["L3.jima_seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "용암 위를 걷지 마세요.",
+     "en": "Do not walk over lava.",
+     "uses": ["L3.jima_seyo", "L1.loc_wi_e", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:jima_seyo",
+   "clozeTemplates": [
+    {
+     "sentence": "밤에 자___ 마세요",
+     "gloss": "Do not sleep at night.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.jima_seyo", "L2.go_sequence", "L1.e_time", "L1.eoyo"]
+    },
+    {
+     "sentence": "문을 열___ 마세요",
+     "gloss": "Do not open the door.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.jima_seyo", "L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불을 부수___ 마세요",
+     "gloss": "Do not break the torch.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.jima_seyo", "L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "용암 위를 걷___ 마세요",
+     "gloss": "Do not walk over lava.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.jima_seyo", "L2.go_sequence", "L1.loc_wi_e", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["AVOID"],
+   "teachingNotes": [
+    "안 gives a statement (밤에 안 자요), 마세요 gives an order; learners say 안 자세요 for 'do not sleep'.",
+    "Only for verbs; for 'is not' with adjectives use -지 않아요.",
+    "The game fails the goal on the forbidden event and lets the player restart it freely."
+   ]
+  },
+  {
+   "id": "L3.euro_instrument",
+   "form": "(으)로 (도구)",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L2.euro_material"],
+   "ruleCard": {
+    "ko": ["곡괭이로 돌을 캐요.", "도끼로 나무를 베요."],
+    "en": [
+     "(으)로 also marks the tool or means: 곡괭이로 돌을 캐요 (I mine stone with a pickaxe).",
+     "Same sound rule as before: 로 after a vowel or ㄹ (활로), 으로 after other final consonants (삽으로)."
+    ],
+    "de": [
+     "(으)로 markiert auch das Werkzeug oder Mittel: 곡괭이로 돌을 캐요 (ich baue Stein mit einer Spitzhacke ab).",
+     "Gleiche Lautregel wie zuvor: 로 nach Vokal oder ㄹ (활로), 으로 nach anderen Endkonsonanten (삽으로)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "곡괭이로 돌을 캐요.",
+     "en": "I mine stone with a pickaxe.",
+     "uses": ["L3.euro_instrument", "L1.obj_eul"]
+    },
+    {
+     "ko": "도끼로 나무를 베요.",
+     "en": "I chop the tree with an axe.",
+     "uses": ["L3.euro_instrument", "L1.obj_eul"]
+    },
+    {
+     "ko": "삽으로 흙을 파요.",
+     "en": "I dig dirt with a shovel.",
+     "uses": ["L3.euro_instrument", "L1.obj_eul"]
+    },
+    {
+     "ko": "활로 좀비를 물리쳐요.",
+     "en": "I defeat the zombie with a bow.",
+     "uses": ["L3.euro_instrument", "L1.obj_eul"]
+    },
+    {
+     "ko": "물로 불을 꺼요.",
+     "en": "I put out the fire with water.",
+     "uses": ["L3.euro_instrument", "L1.obj_eul"]
+    }
+   ],
+   "generator": "particle:euro_ro",
+   "clozeTemplates": [
+    {
+     "sentence": "삽___ 흙을 파요",
+     "gloss": "I dig dirt with a shovel.",
+     "answer": "으로",
+     "distractors": ["로", "에게"],
+     "uses": ["L3.euro_instrument", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "곡괭이___ 돌을 캐요",
+     "gloss": "I mine stone with a pickaxe.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L3.euro_instrument", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "활___ 좀비를 물리쳐요",
+     "gloss": "I defeat the zombie with a bow.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L3.euro_instrument", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "도끼___ 나무를 베요",
+     "gloss": "I chop the tree with an axe.",
+     "answer": "로",
+     "distractors": ["으로", "에게"],
+     "uses": ["L3.euro_instrument", "L2.ege", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["BREAK_BLOCK:tool", "USE_ON", "DEFEAT"],
+   "teachingNotes": [
+    "The tool takes (으)로 and the thing worked on takes 을/를: 곡괭이로 돌을.",
+    "Using 에서 or 와/과 for the tool; 와/과 would mean 'together with'.",
+    "Tool and material share the particle; the noun (곡괭이 vs 돌) tells them apart."
+   ]
+  },
+  {
+   "id": "L3.hante",
+   "form": "한테",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L2.ege"],
+   "ruleCard": {
+    "ko": ["소한테 밀을 줘요.", "주민한테 말해요."],
+    "en": [
+     "한테 does the job of 에게 in speech: 소한테 밀을 줘요.",
+     "Use 에게 in writing and formal text, 한테 when talking; both mark the receiver."
+    ],
+    "de": [
+     "한테 übernimmt in der Sprache die Rolle von 에게: 소한테 밀을 줘요.",
+     "In Texten und formell 에게, im Gespräch 한테; beide markieren den Empfänger."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "소한테 밀을 줘요.",
+     "en": "I give wheat to the cow.",
+     "uses": ["L3.hante", "L1.obj_eul"]
+    },
+    {
+     "ko": "주민한테 빵을 줘요.",
+     "en": "I give bread to the villager.",
+     "uses": ["L3.hante", "L1.obj_eul"]
+    },
+    {
+     "ko": "주민한테 말해요.",
+     "en": "I speak to the villager.",
+     "uses": ["L3.hante"]
+    },
+    {
+     "ko": "말한테 사과를 줘요.",
+     "en": "I give an apple to the horse.",
+     "uses": ["L3.hante", "L1.obj_eul"]
+    },
+    {
+     "ko": "돼지한테 당근을 줬어요.",
+     "en": "I gave a carrot to the pig.",
+     "uses": ["L3.hante", "L3.past", "L1.obj_eul"]
+    }
+   ],
+   "generator": "particle:hante",
+   "clozeTemplates": [
+    {
+     "sentence": "소___ 밀을 줘요",
+     "gloss": "I give wheat to the cow.",
+     "answer": "한테",
+     "distractors": ["에서", "를"],
+     "uses": ["L3.hante", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"],
+     "alsoAccept": ["에게"]
+    },
+    {
+     "sentence": "주민___ 말해요",
+     "gloss": "I speak to the villager.",
+     "answer": "한테",
+     "distractors": ["에서", "를"],
+     "uses": ["L3.hante", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"],
+     "alsoAccept": ["에게"]
+    },
+    {
+     "sentence": "말___ 사과를 줘요",
+     "gloss": "I give an apple to the horse.",
+     "answer": "한테",
+     "distractors": ["에", "에서"],
+     "uses": ["L3.hante", "L1.e_place", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"],
+     "alsoAccept": ["에게"]
+    }
+   ],
+   "formDependentHooks": ["GIVE", "FEED"],
+   "teachingNotes": [
+    "한테 is for speech; written or formal texts use 에게.", "한테서 'from someone' is a different form and comes later.",
+    "Like 에게, 한테 is only for living receivers."
+   ]
+  },
+  {
+   "id": "L3.ji_anayo",
+   "form": "-지 않아요",
+   "level": 3,
+   "curriculumGrade": 2,
+   "prereq": ["L1.neg_an"],
+   "ruleCard": {
+    "ko": ["문을 열지 않아요.", "동굴이 안전하지 않아요."],
+    "en": [
+     "Stem + 지 않아요 = does not / is not; same meaning as 안, slightly more formal and possible with every stem.",
+     "Past: 열지 않았어요. It also works with adjectives: 밝지 않아요."
+    ],
+    "de": [
+     "Stamm + 지 않아요 = tut nicht / ist nicht; gleiche Bedeutung wie 안, etwas formeller und mit jedem Stamm möglich.",
+     "Vergangenheit: 열지 않았어요. Auch mit Adjektiven: 밝지 않아요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 열지 않아요.",
+     "en": "I do not open the door.",
+     "uses": ["L3.ji_anayo", "L1.obj_eul"]
+    },
+    {
+     "ko": "횃불이 밝지 않아요.",
+     "en": "The torch is not bright.",
+     "uses": ["L3.ji_anayo", "L1.subj_i"]
+    },
+    {
+     "ko": "동굴이 안전하지 않아요.",
+     "en": "The cave is not safe.",
+     "uses": ["L3.ji_anayo", "L1.subj_i"]
+    },
+    {
+     "ko": "크리퍼가 오지 않았어요.",
+     "en": "The creeper did not come.",
+     "uses": ["L3.ji_anayo", "L3.past", "L1.subj_i"]
+    },
+    {
+     "ko": "빵을 먹지 않아요.",
+     "en": "I do not eat bread.",
+     "uses": ["L3.ji_anayo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:ji_anayo",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 열___ 않아요",
+     "gloss": "I do not open the door.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.ji_anayo", "L2.go_sequence", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "동굴이 안전하___ 않아요",
+     "gloss": "The cave is not safe.",
+     "answer": "지",
+     "distractors": ["고", "어"],
+     "uses": ["L3.ji_anayo", "L2.go_sequence", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "크리퍼가 오지 않___",
+     "gloss": "The creeper did not come.",
+     "answer": "았어요",
+     "distractors": ["었어요", "아요"],
+     "uses": ["L3.ji_anayo", "L3.past", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["AVOID"],
+   "teachingNotes": [
+    "안 and -지 않아요 mean the same; with 하다 verbs 안 goes before 하다 (공부 안 해요) while -지 않아요 attaches to 하 (공부하지 않아요).",
+    "It states; the order form is -지 마세요.", "않아요 is its own word and carries the tense: 않았어요."
+   ]
+  },
+  {
+   "id": "L4.eoya_haeyo",
+   "form": "-아/어야 해요",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["밤에 횃불을 놓아야 해요.", "문을 닫아야 해요."],
+    "en": ["Stem + 아/어야 해요 = must / have to: 가야 해요, 먹어야 해요.", "It takes the same 아/어 form as -아/어요, then 야 해요: 만들어야 해요, 주워야 해요."],
+    "de": ["Stamm + 아/어야 해요 = müssen: 가야 해요, 먹어야 해요.", "Es nimmt dieselbe 아/어-Form wie -아/어요, dann 야 해요: 만들어야 해요, 주워야 해요."]
+   },
+   "examples": [
+    {
+     "ko": "밤에 횃불을 놓아야 해요.",
+     "en": "I have to place a torch at night.",
+     "uses": ["L4.eoya_haeyo", "L1.e_time", "L1.obj_eul"]
+    },
+    {
+     "ko": "집에 가야 해요.",
+     "en": "I have to go home.",
+     "uses": ["L4.eoya_haeyo", "L1.e_place"]
+    },
+    {
+     "ko": "문을 닫아야 해요.",
+     "en": "I have to close the door.",
+     "uses": ["L4.eoya_haeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "곡괭이를 만들어야 해요.",
+     "en": "I have to make a pickaxe.",
+     "uses": ["L4.eoya_haeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "동굴에 들어가기 전에 횃불을 만들어야 해요.",
+     "en": "I have to make a torch before entering the cave.",
+     "uses": ["L4.eoya_haeyo", "L3.gi_jeone", "L1.e_place", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:eoya_haeyo",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불을 놓___ 해요",
+     "gloss": "I have to place a torch.",
+     "answer": "아야",
+     "distractors": ["어야", "아서"],
+     "uses": ["L4.eoya_haeyo", "L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "문을 닫___ 해요",
+     "gloss": "I have to close the door.",
+     "answer": "아야",
+     "distractors": ["어야", "아서"],
+     "uses": ["L4.eoya_haeyo", "L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "곡괭이를 만들___ 해요",
+     "gloss": "I have to make a pickaxe.",
+     "answer": "어야",
+     "distractors": ["아야", "어서"],
+     "uses": ["L4.eoya_haeyo", "L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "집에 가___ 해요",
+     "gloss": "I have to go home.",
+     "answer": "야",
+     "distractors": ["아야", "어야"],
+     "uses": ["L4.eoya_haeyo", "L1.e_place"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Dropping 야 (가 해요) or swapping it for 서 (가서 해요).", "The spoken variant 아/어야 돼요 means the same.",
+    "Irregular stems: 줍다 → 주워야 해요, 걷다 → 걸어야 해요, 모르다 → 몰라야 해요."
+   ]
+  },
+  {
+   "id": "L4.myeon",
+   "form": "-(으)면",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["밤이 되면 횃불을 놓아요.", "크리퍼를 보면 도망가요."],
+    "en": [
+     "Stem + (으)면 = if / when: 보면 (if you see), 먹으면 (if you eat).",
+     "ㄹ-stems keep their ㄹ (만들면, 열면); ㅂ-stems change: 어둡다 → 어두우면."
+    ],
+    "de": [
+     "Stamm + (으)면 = wenn / falls: 보면 (wenn man sieht), 먹으면 (wenn man isst).",
+     "ㄹ-Stämme behalten ㄹ (만들면, 열면); ㅂ-Stämme ändern sich: 어둡다 → 어두우면."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "밤이 되면 횃불을 놓아요.",
+     "en": "When night comes, I place a torch.",
+     "uses": ["L4.myeon", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "ko": "크리퍼를 보면 도망가요.",
+     "en": "If I see a creeper, I run away.",
+     "uses": ["L4.myeon", "L1.obj_eul"]
+    },
+    {
+     "ko": "배가 고프면 빵을 먹어요.",
+     "en": "If I am hungry, I eat bread.",
+     "uses": ["L4.myeon", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "ko": "비가 오면 집에 있어요.",
+     "en": "If it rains, I stay at home.",
+     "uses": ["L4.myeon", "L1.subj_i", "L1.e_place"]
+    },
+    {
+     "ko": "어두우면 횃불을 놓아요.",
+     "en": "If it is dark, I place a torch.",
+     "uses": ["L4.myeon", "L1.obj_eul"]
+    }
+   ],
+   "generator": "connective:myeon",
+   "clozeTemplates": [
+    {
+     "sentence": "크리퍼를 보___ 도망가요",
+     "gloss": "If I see a creeper, I run away.",
+     "answer": "면",
+     "distractors": ["으면", "아요"],
+     "uses": ["L4.myeon", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "배가 고프___ 빵을 먹어요",
+     "gloss": "If I am hungry, I eat bread.",
+     "answer": "면",
+     "distractors": ["으면", "러"],
+     "uses": ["L4.myeon", "L4.eureo_gayo", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "sentence": "문을 열___ 좀비가 있어요",
+     "gloss": "If I open the door, there is a zombie.",
+     "answer": "면",
+     "distractors": ["으면", "아요"],
+     "uses": ["L4.myeon", "L1.obj_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "어두___ 횃불을 놓아요",
+     "gloss": "If it is dark, I place a torch.",
+     "answer": "우면",
+     "distractors": ["으면", "면"],
+     "uses": ["L4.myeon", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": ["LIGHT_LEVEL"],
+   "teachingNotes": [
+    "ㅂ-stems: 어둡다 → 어두우면, not 어둡으면; ㄷ-stems: 걷다 → 걸으면.",
+    "ㄹ-stems keep ㄹ before 면 (열면, 만들면); the ㄹ drops only before ㅅ, ㅂ, ㄴ.",
+    "It covers both 'if' and 'whenever'; the context decides."
+   ]
+  },
+  {
+   "id": "L4.jiman",
+   "form": "-지만",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo"],
+   "ruleCard": {
+    "ko": ["돌은 단단하지만 흙은 부드러워요.", "동굴은 어둡지만 횃불이 있어요."],
+    "en": ["Stem + 지만 = but / although: 작지만 (small, but …).", "It works with verbs, adjectives and 이다 (낮이지만)."],
+    "de": ["Stamm + 지만 = aber / obwohl: 작지만 (klein, aber …).", "Es passt zu Verben, Adjektiven und 이다 (낮이지만)."]
+   },
+   "examples": [
+    {
+     "ko": "돌은 단단하지만 흙은 부드러워요.",
+     "en": "Stone is hard, but dirt is soft.",
+     "uses": ["L4.jiman", "L2.eun_neun_contrast"]
+    },
+    {
+     "ko": "동굴은 어둡지만 횃불이 있어요.",
+     "en": "The cave is dark, but there is a torch.",
+     "uses": ["L4.jiman", "L2.eun_neun_topic", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "빵은 맛있지만 비싸요.",
+     "en": "The bread is tasty but expensive.",
+     "uses": ["L4.jiman", "L2.eun_neun_topic"]
+    },
+    {
+     "ko": "낮이지만 동굴 안은 어두워요.",
+     "en": "It is daytime, but inside the cave it is dark.",
+     "uses": ["L4.jiman", "L1.copula_ieyo", "L1.loc_an_e", "L2.eun_neun_topic"]
+    },
+    {
+     "ko": "크리퍼는 작지만 위험해요.",
+     "en": "A creeper is small, but dangerous.",
+     "uses": ["L4.jiman", "L2.eun_neun_topic"]
+    }
+   ],
+   "generator": "connective:jiman",
+   "clozeTemplates": [
+    {
+     "sentence": "동굴은 어둡___ 횃불이 있어요",
+     "gloss": "The cave is dark, but there is a torch.",
+     "answer": "지만",
+     "distractors": ["서", "러"],
+     "uses": ["L4.jiman", "L4.eoseo", "L4.eureo_gayo", "L2.eun_neun_topic", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "빵은 맛있___ 비싸요",
+     "gloss": "The bread is tasty but expensive.",
+     "answer": "지만",
+     "distractors": ["서", "러"],
+     "uses": ["L4.jiman", "L4.eoseo", "L4.eureo_gayo", "L2.eun_neun_topic"]
+    },
+    {
+     "sentence": "크리퍼는 작___ 위험해요",
+     "gloss": "A creeper is small, but dangerous.",
+     "answer": "지만",
+     "distractors": ["서", "러"],
+     "uses": ["L4.jiman", "L4.eoseo", "L4.eureo_gayo", "L2.eun_neun_topic"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "지만 does not change with the main clause's tense; the past is 먹었지만.",
+    "Both sides often carry 은/는 to mark the contrast (돌은 …, 흙은 …).", "Do not confuse 지만 (but) with -지 않아요 (not)."
+   ]
+  },
+  {
+   "id": "L4.eoseo",
+   "form": "-아/어서",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo", "L2.go_sequence"],
+   "ruleCard": {
+    "ko": ["어두워서 횃불을 놓아요.", "동굴에 들어가서 석탄을 캐요."],
+    "en": [
+     "Stem + 아/어서 gives a reason or a close sequence: 어두워서 (because it is dark), 가서 (go there and then).",
+     "No past tense inside 서, and no commands in the main clause."
+    ],
+    "de": [
+     "Stamm + 아/어서 nennt einen Grund oder eine enge Abfolge: 어두워서 (weil es dunkel ist), 가서 (hingehen und dann).",
+     "Keine Vergangenheit vor 서 und keine Befehle im Hauptsatz."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "어두워서 횃불을 놓아요.",
+     "en": "It is dark, so I place a torch.",
+     "uses": ["L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "ko": "배가 고파서 빵을 먹어요.",
+     "en": "I am hungry, so I eat bread.",
+     "uses": ["L4.eoseo", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "ko": "동굴에 들어가서 석탄을 캐요.",
+     "en": "I go into the cave and mine coal.",
+     "uses": ["L4.eoseo", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "상자를 열어서 사과를 꺼내요.",
+     "en": "I open the chest and take out an apple.",
+     "uses": ["L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "ko": "추워서 불을 피워요.",
+     "en": "It is cold, so I light a fire.",
+     "uses": ["L4.eoseo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "connective:eoseo",
+   "clozeTemplates": [
+    {
+     "sentence": "어두___ 횃불을 놓아요",
+     "gloss": "It is dark, so I place a torch.",
+     "answer": "워서",
+     "distractors": ["우서", "어서"],
+     "uses": ["L4.eoseo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "배가 고파___ 빵을 먹어요",
+     "gloss": "I am hungry, so I eat bread.",
+     "answer": "서",
+     "distractors": ["고", "면"],
+     "uses": ["L4.eoseo", "L2.go_sequence", "L4.myeon", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "sentence": "추워___ 불을 피워요",
+     "gloss": "It is cold, so I light a fire.",
+     "answer": "서",
+     "distractors": ["고", "면"],
+     "uses": ["L4.eoseo", "L2.go_sequence", "L4.myeon", "L1.obj_eul"]
+    },
+    {
+     "sentence": "동굴에 들어가___ 석탄을 캐요",
+     "gloss": "I go into the cave and mine coal.",
+     "answer": "서",
+     "distractors": ["어요", "세요"],
+     "uses": ["L4.eoseo", "L2.seyo", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["LIGHT_LEVEL"],
+   "teachingNotes": [
+    "Putting the past inside the clause (어두웠어서) is wrong; the main verb carries the tense.",
+    "-아/어서 cannot be followed by an order or a suggestion; -(으)니까 (L5) can.",
+    "서 ties the actions together (go there and then do it); -고 only lists them in order."
+   ]
+  },
+  {
+   "id": "L4.eureo_gayo",
+   "form": "-(으)러 가요",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L1.eoyo", "L1.obj_eul", "L1.e_place"],
+   "ruleCard": {
+    "ko": ["석탄을 캐러 동굴에 가요.", "빵을 사러 마을에 가요."],
+    "en": [
+     "Stem + (으)러 + 가요/와요 = go or come in order to do something: 캐러 가요 (I go to mine).",
+     "The main verb must be a motion verb (가다, 오다, 올라가다)."
+    ],
+    "de": [
+     "Stamm + (으)러 + 가요/와요 = gehen/kommen, um etwas zu tun: 캐러 가요 (ich gehe zum Abbauen).",
+     "Das Hauptverb muss ein Bewegungsverb sein (가다, 오다, 올라가다)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "석탄을 캐러 동굴에 가요.",
+     "en": "I go to the cave to mine coal.",
+     "uses": ["L4.eureo_gayo", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "빵을 사러 마을에 가요.",
+     "en": "I go to the village to buy bread.",
+     "uses": ["L4.eureo_gayo", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "주민을 만나러 가요.",
+     "en": "I go to meet the villager.",
+     "uses": ["L4.eureo_gayo", "L1.obj_eul"]
+    },
+    {
+     "ko": "나무를 베러 숲에 가요.",
+     "en": "I go to the forest to chop trees.",
+     "uses": ["L4.eureo_gayo", "L1.e_place", "L1.obj_eul"]
+    },
+    {
+     "ko": "소를 보러 가요.",
+     "en": "I go to see the cow.",
+     "uses": ["L4.eureo_gayo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "connective:eureo",
+   "clozeTemplates": [
+    {
+     "sentence": "석탄을 캐___ 동굴에 가요",
+     "gloss": "I go to the cave to mine coal.",
+     "answer": "러",
+     "distractors": ["어요", "세요"],
+     "uses": ["L4.eureo_gayo", "L2.seyo", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "빵을 사___ 마을에 가요",
+     "gloss": "I go to the village to buy bread.",
+     "answer": "러",
+     "distractors": ["어요", "세요"],
+     "uses": ["L4.eureo_gayo", "L2.seyo", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "주민을 만나___ 가요",
+     "gloss": "I go to meet the villager.",
+     "answer": "러",
+     "distractors": ["어요", "세요"],
+     "uses": ["L4.eureo_gayo", "L2.seyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "나무를 베___ 숲에 가요",
+     "gloss": "I go to the forest to chop trees.",
+     "answer": "러",
+     "distractors": ["어요", "세요"],
+     "uses": ["L4.eureo_gayo", "L2.seyo", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["REACH_BIOME", "ACQUIRE_ITEM"],
+   "teachingNotes": [
+    "러 works only with motion verbs; other purposes need a different pattern (later).",
+    "ㄹ-stems keep their ㄹ: 만들러, 놀러.", "The destination takes 에: 동굴에 캐러 가요 (not 동굴을)."
+   ]
+  },
+  {
+   "id": "L4.eulgeyo",
+   "form": "-(으)ㄹ게요",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L3.future_geoyeyo"],
+   "ruleCard": {
+    "ko": ["제가 문을 열게요.", "제가 횃불을 놓을게요."],
+    "en": [
+     "Stem + (으)ㄹ게요 = I will (a promise or offer to the listener, decided now).",
+     "Only for 'I/we': 제가 열게요; ㄹ-stems take 게요 directly (열게요, 만들게요)."
+    ],
+    "de": [
+     "Stamm + (으)ㄹ게요 = ich mache das (Versprechen oder Angebot an den Hörer, jetzt entschieden).",
+     "Nur für 'ich/wir': 제가 열게요; ㄹ-Stämme nehmen direkt 게요 (열게요, 만들게요)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "제가 문을 열게요.",
+     "en": "I will open the door.",
+     "uses": ["L4.eulgeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "제가 횃불을 놓을게요.",
+     "en": "I will place the torch.",
+     "uses": ["L4.eulgeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "제가 먼저 갈게요.",
+     "en": "I will go first.",
+     "uses": ["L4.eulgeyo"]
+    },
+    {
+     "ko": "제가 집을 지을게요.",
+     "en": "I will build the house.",
+     "uses": ["L4.eulgeyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "제가 빵을 가져올게요.",
+     "en": "I will bring the bread.",
+     "uses": ["L4.eulgeyo", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:eulgeyo",
+   "clozeTemplates": [
+    {
+     "sentence": "제가 문을 열___",
+     "gloss": "I will open the door.",
+     "answer": "게요",
+     "distractors": ["을게요", "어요"],
+     "uses": ["L4.eulgeyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제가 횃불을 놓___",
+     "gloss": "I will place the torch.",
+     "answer": "을게요",
+     "distractors": ["게요", "아요"],
+     "uses": ["L4.eulgeyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제가 집을 지___",
+     "gloss": "I will build the house.",
+     "answer": "을게요",
+     "distractors": ["게요", "어요"],
+     "uses": ["L4.eulgeyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "제가 빵을 가져___",
+     "gloss": "I will bring the bread.",
+     "answer": "올게요",
+     "distractors": ["오게요", "오을게요"],
+     "uses": ["L4.eulgeyo", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Using it for a third person or in a question; -(으)ㄹ게요 is for the speaker only (the question form is -(으)ㄹ까요?).",
+    "Different from -(으)ㄹ 거예요: 게요 is a promise to the listener, 거예요 a plan or prediction.",
+    "ㄹ-stems: 열게요, 만들게요 (the ㄹ is already there)."
+   ]
+  },
+  {
+   "id": "L4.myeon_an_doeyo",
+   "form": "-(으)면 안 돼요",
+   "level": 4,
+   "curriculumGrade": 2,
+   "prereq": ["L4.myeon", "L1.neg_an"],
+   "ruleCard": {
+    "ko": ["문을 열면 안 돼요.", "불을 만지면 안 돼요."],
+    "en": ["Stem + (으)면 안 돼요 = you must not / it is not allowed.", "It states a rule; compare -지 마세요, which is a direct request."],
+    "de": [
+     "Stamm + (으)면 안 돼요 = man darf nicht / es ist nicht erlaubt.",
+     "Es nennt eine Regel; vergleiche -지 마세요, die direkte Bitte."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 열면 안 돼요.",
+     "en": "You must not open the door.",
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.obj_eul"]
+    },
+    {
+     "ko": "밤에 밖에 나가면 안 돼요.",
+     "en": "You must not go outside at night.",
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.e_time", "L1.loc_bak_e"]
+    },
+    {
+     "ko": "용암에 들어가면 안 돼요.",
+     "en": "You must not get into lava.",
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.e_place"]
+    },
+    {
+     "ko": "크리퍼 옆에 서면 안 돼요.",
+     "en": "You must not stand next to a creeper.",
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.loc_yeop_e"]
+    },
+    {
+     "ko": "횃불을 부수면 안 돼요.",
+     "en": "You must not break the torch.",
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:myeon_an_doeyo",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 열___ 안 돼요",
+     "gloss": "You must not open the door.",
+     "answer": "면",
+     "distractors": ["으면", "지"],
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L3.ji_anayo", "L1.neg_an", "L1.obj_eul"]
+    },
+    {
+     "sentence": "횃불을 부수___ 안 돼요",
+     "gloss": "You must not break the torch.",
+     "answer": "면",
+     "distractors": ["어요", "지"],
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L3.ji_anayo", "L1.neg_an", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "용암에 들어가___ 안 돼요",
+     "gloss": "You must not get into lava.",
+     "answer": "면",
+     "distractors": ["으면", "지"],
+     "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L3.ji_anayo", "L1.neg_an", "L1.e_place"]
+    }
+   ],
+   "formDependentHooks": ["AVOID"],
+   "teachingNotes": [
+    "안 돼요 (not allowed) is not 안 해요 (does not do); 돼요 comes from 되다.",
+    "Spelling: 되어요 contracts to 돼요; 되요 is a common error.", "Softer than -지 마세요; used for rules and warnings."
+   ]
+  },
+  {
+   "id": "L5.adn_past_eun",
+   "form": "-(으)ㄴ + 명사 (동사 과거)",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L3.eun_hue"],
+   "ruleCard": {
+    "ko": ["제가 만든 횃불이에요.", "동굴에서 캔 석탄이에요."],
+    "en": [
+     "Verb stem + (으)ㄴ before a noun = the … that someone did: 만든 횃불 (the torch that I made).",
+     "ㄹ-stems lose ㄹ: 만들다 → 만든, 열다 → 연; irregular: 줍다 → 주운, 짓다 → 지은."
+    ],
+    "de": [
+     "Verbstamm + (으)ㄴ vor einem Nomen = das …, das jemand getan hat: 만든 횃불 (die Fackel, die ich gemacht habe).",
+     "ㄹ-Stämme verlieren ㄹ: 만들다 → 만든, 열다 → 연; unregelmäßig: 줍다 → 주운, 짓다 → 지은."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "제가 만든 횃불이에요.",
+     "en": "It is the torch that I made.",
+     "uses": ["L5.adn_past_eun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "동굴에서 캔 석탄이에요.",
+     "en": "It is coal that I mined in the cave.",
+     "uses": ["L5.adn_past_eun", "L2.eseo_activity", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "어제 먹은 빵이 맛있었어요.",
+     "en": "The bread I ate yesterday was tasty.",
+     "uses": ["L5.adn_past_eun", "L3.past", "L1.subj_i"]
+    },
+    {
+     "ko": "주민이 지은 집이에요.",
+     "en": "It is a house that the villager built.",
+     "uses": ["L5.adn_past_eun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "상자에서 꺼낸 사과예요.",
+     "en": "It is an apple taken out of the chest.",
+     "uses": ["L5.adn_past_eun", "L2.eseo_activity", "L1.copula_ieyo"]
+    }
+   ],
+   "generator": "adnominal:past",
+   "clozeTemplates": [
+    {
+     "sentence": "제가 만___ 횃불이에요",
+     "gloss": "It is the torch that I made.",
+     "answer": "든",
+     "distractors": ["들은", "들"],
+     "uses": ["L5.adn_past_eun", "L5.adn_future_eul", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "동굴에서 ___ 석탄이에요",
+     "gloss": "It is coal that I mined in the cave.",
+     "answer": "캔",
+     "distractors": ["캐는", "캘"],
+     "uses": ["L5.adn_past_eun", "L5.adn_present_neun", "L5.adn_future_eul", "L2.eseo_activity", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "주민이 지___ 집이에요",
+     "gloss": "It is a house that the villager built.",
+     "answer": "은",
+     "distractors": ["는", "을"],
+     "uses": ["L5.adn_past_eun", "L5.adn_present_neun", "L5.adn_future_eul", "L1.copula_ieyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "ㄹ-stems: 만든 (not 만들은), 연 (not 열은).",
+    "With adjectives the same ending -(으)ㄴ is present tense (큰 집); with verbs it is past.",
+    "Korean has no relative pronoun: the whole clause comes before the noun."
+   ]
+  },
+  {
+   "id": "L5.adn_present_neun",
+   "form": "-는 + 명사",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L5.adn_past_eun"],
+   "ruleCard": {
+    "ko": ["횃불을 놓는 주민이에요.", "동굴로 들어가는 길이에요."],
+    "en": [
+     "Verb stem + 는 before a noun = the … that someone does (now or regularly): 먹는 사람.",
+     "ㄹ-stems lose ㄹ before 는: 만들다 → 만드는, 열다 → 여는, 살다 → 사는."
+    ],
+    "de": [
+     "Verbstamm + 는 vor einem Nomen = der/die/das …, was jemand (jetzt oder regelmäßig) tut: 먹는 사람.",
+     "ㄹ-Stämme verlieren ㄹ vor 는: 만들다 → 만드는, 열다 → 여는, 살다 → 사는."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 놓는 주민이에요.",
+     "en": "It is a villager who places torches.",
+     "uses": ["L5.adn_present_neun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "문을 여는 사람이에요.",
+     "en": "It is a person who opens the door.",
+     "uses": ["L5.adn_present_neun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "횃불을 만드는 방법이에요.",
+     "en": "It is a way of making torches.",
+     "uses": ["L5.adn_present_neun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "동굴로 들어가는 길이 있어요.",
+     "en": "There is a path that goes into the cave.",
+     "uses": ["L5.adn_present_neun", "L2.euro_direction", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "밀을 키우는 마을이에요.",
+     "en": "It is a village that grows wheat.",
+     "uses": ["L5.adn_present_neun", "L1.copula_ieyo"]
+    }
+   ],
+   "generator": "adnominal:present",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불을 ___ 주민이에요",
+     "gloss": "It is a villager who places torches.",
+     "answer": "놓는",
+     "distractors": ["놓은", "놓을"],
+     "uses": ["L5.adn_present_neun", "L5.adn_past_eun", "L5.adn_future_eul", "L1.obj_eul", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "문을 ___ 사람이에요",
+     "gloss": "It is a person who opens the door.",
+     "answer": "여는",
+     "distractors": ["열는", "열은"],
+     "uses": ["L5.adn_present_neun", "L1.obj_eul", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "횃불을 ___ 방법이에요",
+     "gloss": "It is a way of making torches.",
+     "answer": "만드는",
+     "distractors": ["만들는", "만들은"],
+     "uses": ["L5.adn_present_neun", "L1.obj_eul", "L1.copula_ieyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "ㄹ-stems: 여는, 만드는 (not 열는, 만들는).", "Adjectives do not take 는: 큰 집, never 크는 집.",
+    "는 covers present and habitual actions, not only what happens right now."
+   ]
+  },
+  {
+   "id": "L5.adn_future_eul",
+   "form": "-(으)ㄹ + 명사",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L5.adn_past_eun", "L3.future_geoyeyo"],
+   "ruleCard": {
+    "ko": ["먹을 빵이 있어요.", "놓을 횃불이 없어요."],
+    "en": [
+     "Verb stem + (으)ㄹ before a noun = the … that someone will do or is meant to do: 먹을 빵 (bread to eat).",
+     "Same form as the future 거예요: 갈 곳 (a place to go), 마실 물 (water to drink)."
+    ],
+    "de": [
+     "Verbstamm + (으)ㄹ vor einem Nomen = das …, was jemand tun wird oder soll: 먹을 빵 (Brot zum Essen).",
+     "Gleiche Form wie beim Futur 거예요: 갈 곳 (ein Ort, an den man geht), 마실 물 (Wasser zum Trinken)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "먹을 빵이 있어요.",
+     "en": "There is bread to eat.",
+     "uses": ["L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "놓을 횃불이 없어요.",
+     "en": "There is no torch to place.",
+     "uses": ["L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "마실 물이 있어요.",
+     "en": "There is water to drink.",
+     "uses": ["L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "지을 집이 없어요.",
+     "en": "There is no house to build.",
+     "uses": ["L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "내일 갈 동굴을 봐요.",
+     "en": "I look at the cave I will go to tomorrow.",
+     "uses": ["L5.adn_future_eul", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "generator": "adnominal:future",
+   "clozeTemplates": [
+    {
+     "sentence": "먹___ 빵이 있어요",
+     "gloss": "There is bread to eat.",
+     "answer": "을",
+     "distractors": ["은", "는"],
+     "uses": ["L5.adn_future_eul", "L5.adn_past_eun", "L5.adn_present_neun", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "마___ 물이 있어요",
+     "gloss": "There is water to drink.",
+     "answer": "실",
+     "distractors": ["시", "시을"],
+     "uses": ["L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "놓___ 횃불이 없어요",
+     "gloss": "There is no torch to place.",
+     "answer": "을",
+     "distractors": ["은", "는"],
+     "uses": ["L5.adn_future_eul", "L5.adn_past_eun", "L5.adn_present_neun", "L1.subj_i", "L1.itda_eopda"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "ㄹ-stems keep ㄹ: 만들 물건, 열 문.", "The head noun and the context separate 'will do' from 'is meant to do'.",
+    "Choose the ending by time: past -(으)ㄴ, present -는, future -(으)ㄹ."
+   ]
+  },
+  {
+   "id": "L5.adn_adj_eun",
+   "form": "-(으)ㄴ + 명사 (형용사)",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L5.adn_past_eun"],
+   "ruleCard": {
+    "ko": ["어두운 동굴이에요.", "높은 탑이 있어요."],
+    "en": [
+     "Adjective stem + (으)ㄴ before a noun: 큰 집 (a big house), 높은 탑 (a high tower).",
+     "ㅂ-adjectives change: 어둡다 → 어두운, 춥다 → 추운; ㄹ-adjectives lose ㄹ: 길다 → 긴."
+    ],
+    "de": [
+     "Adjektivstamm + (으)ㄴ vor einem Nomen: 큰 집 (ein großes Haus), 높은 탑 (ein hoher Turm).",
+     "ㅂ-Adjektive ändern sich: 어둡다 → 어두운, 춥다 → 추운; ㄹ-Adjektive verlieren ㄹ: 길다 → 긴."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "어두운 동굴이에요.",
+     "en": "It is a dark cave.",
+     "uses": ["L5.adn_adj_eun", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "높은 탑이 있어요.",
+     "en": "There is a high tower.",
+     "uses": ["L5.adn_adj_eun", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "큰 상자를 놓아요.",
+     "en": "I place a big chest.",
+     "uses": ["L5.adn_adj_eun", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "뜨거운 용암을 조심하세요.",
+     "en": "Be careful of the hot lava.",
+     "uses": ["L5.adn_adj_eun", "L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "밝은 횃불이 필요해요.",
+     "en": "I need a bright torch.",
+     "uses": ["L5.adn_adj_eun", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "generator": "adnominal:adjective",
+   "clozeTemplates": [
+    {
+     "sentence": "___ 동굴이에요",
+     "gloss": "It is a dark cave.",
+     "answer": "어두운",
+     "distractors": ["어둔", "어둡은"],
+     "uses": ["L5.adn_adj_eun", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "___ 탑이 있어요",
+     "gloss": "There is a high tower.",
+     "answer": "높은",
+     "distractors": ["높는", "높을"],
+     "uses": ["L5.adn_adj_eun", "L5.adn_present_neun", "L5.adn_future_eul", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "___ 용암을 조심하세요",
+     "gloss": "Be careful of the hot lava.",
+     "answer": "뜨거운",
+     "distractors": ["뜨겁은", "뜨건"],
+     "uses": ["L5.adn_adj_eun", "L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "___ 상자를 놓아요",
+     "gloss": "I place a big chest.",
+     "answer": "큰",
+     "distractors": ["크은", "크는"],
+     "uses": ["L5.adn_adj_eun", "L5.adn_present_neun", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["LIGHT_LEVEL"],
+   "teachingNotes": [
+    "ㅂ-adjectives: 어두운 (not 어둡은), 추운, 뜨거운.", "크다 → 큰 and 길다 → 긴 shorten; learn them as pairs.",
+    "Adjectives use -(으)ㄴ for the present; verbs need -는 for the present."
+   ]
+  },
+  {
+   "id": "L5.neun_dongan",
+   "form": "-는 동안",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L5.adn_present_neun", "L2.num_sino"],
+   "ruleCard": {
+    "ko": ["제가 자는 동안 주민이 와요.", "감자를 굽는 동안 기다려요."],
+    "en": [
+     "Verb stem + 는 동안 = while doing: 자는 동안 (while sleeping).",
+     "Noun + 동안 gives a length of time: 십 분 동안 (for ten minutes)."
+    ],
+    "de": [
+     "Verbstamm + 는 동안 = während man etwas tut: 자는 동안 (während man schläft).",
+     "Nomen + 동안 gibt eine Dauer an: 십 분 동안 (zehn Minuten lang)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "제가 자는 동안 주민이 와요.",
+     "en": "While I sleep, a villager comes.",
+     "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "감자를 굽는 동안 기다려요.",
+     "en": "I wait while the potato bakes.",
+     "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "동굴에 있는 동안 횃불을 들어요.",
+     "en": "I hold a torch while I am in the cave.",
+     "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "ko": "집을 짓는 동안 비가 와요.",
+     "en": "It rains while I build the house.",
+     "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "십 분 동안 걸어요.",
+     "en": "I walk for ten minutes.",
+     "uses": ["L5.neun_dongan", "L2.num_sino", "L1.eoyo"]
+    }
+   ],
+   "generator": "nominal:neun_dongan",
+   "clozeTemplates": [
+    {
+     "sentence": "제가 자___ 동안 주민이 와요",
+     "gloss": "While I sleep, a villager comes.",
+     "answer": "는",
+     "distractors": ["은", "을"],
+     "uses": ["L5.neun_dongan", "L5.adn_past_eun", "L5.adn_future_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "집을 짓___ 동안 비가 와요",
+     "gloss": "It rains while I build the house.",
+     "answer": "는",
+     "distractors": ["은", "을"],
+     "uses": ["L5.neun_dongan", "L5.adn_past_eun", "L5.adn_future_eul", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "십 분 ___ 걸어요",
+     "gloss": "I walk for ten minutes.",
+     "answer": "동안",
+     "distractors": ["전에", "후에"],
+     "uses": ["L5.neun_dongan", "L3.gi_jeone", "L3.eun_hue", "L2.num_sino", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["HOLD_WHILE"],
+   "teachingNotes": [
+    "No tense inside the 는 clause: 잤는 동안 is wrong.", "Noun + 동안 (십 분 동안) vs verb + 는 동안 (자는 동안).",
+    "Do not confuse 동안 (a stretch of time) with -(으)ㄹ 때 (a moment)."
+   ]
+  },
+  {
+   "id": "L5.eodo",
+   "form": "-아/어도",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L1.eoyo", "L4.myeon_an_doeyo"],
+   "ruleCard": {
+    "ko": ["문을 열어도 돼요.", "어두워도 괜찮아요."],
+    "en": [
+     "Stem + 아/어도 = even if / although; with 돼요 it asks or gives permission: 열어도 돼요 (you may open it).",
+     "Same 아/어 form as -아/어요: 어두워도, 비가 와도."
+    ],
+    "de": [
+     "Stamm + 아/어도 = auch wenn / obwohl; mit 돼요 erlaubt oder erfragt es: 열어도 돼요 (man darf öffnen).",
+     "Gleiche 아/어-Form wie bei -아/어요: 어두워도, 비가 와도."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "문을 열어도 돼요.",
+     "en": "You may open the door.",
+     "uses": ["L5.eodo", "L1.obj_eul"]
+    },
+    {
+     "ko": "횃불이 없어도 돼요.",
+     "en": "It is fine without a torch.",
+     "uses": ["L5.eodo", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "어두워도 무섭지 않아요.",
+     "en": "Even if it is dark, I am not scared.",
+     "uses": ["L5.eodo", "L3.ji_anayo"]
+    },
+    {
+     "ko": "밤에 밖에 나가도 돼요.",
+     "en": "You may go outside at night.",
+     "uses": ["L5.eodo", "L1.e_time", "L1.loc_bak_e"]
+    },
+    {
+     "ko": "비가 와도 집에 안 가요.",
+     "en": "Even if it rains, I do not go home.",
+     "uses": ["L5.eodo", "L1.subj_i", "L1.e_place", "L1.neg_an"]
+    }
+   ],
+   "generator": "connective:eodo",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 열___ 돼요",
+     "gloss": "You may open the door.",
+     "answer": "어도",
+     "distractors": ["어서", "어요"],
+     "uses": ["L5.eodo", "L4.eoseo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불이 없___ 돼요",
+     "gloss": "It is fine without a torch.",
+     "answer": "어도",
+     "distractors": ["어서", "어요"],
+     "uses": ["L5.eodo", "L4.eoseo", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "어두___ 무섭지 않아요",
+     "gloss": "Even if it is dark, I am not scared.",
+     "answer": "워도",
+     "distractors": ["우도", "어도"],
+     "uses": ["L5.eodo", "L3.ji_anayo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "어도 돼요 asks or gives permission; 으면 안 돼요 (L4) forbids.", "ㅂ-stems: 어두워도, 추워도; 르-stems: 몰라도.",
+    "For concessions (비가 와도) the main clause is the surprise."
+   ]
+  },
+  {
+   "id": "L5.neunde",
+   "form": "-는데/-(으)ㄴ데",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L5.adn_present_neun", "L5.adn_adj_eun"],
+   "ruleCard": {
+    "ko": ["동굴에 들어갔는데 좀비가 있어요.", "횃불이 있는데 빵이 없어요."],
+    "en": [
+     "Verb -는데 / adjective -(으)ㄴ데 sets the scene or adds a mild contrast: 동굴에 갔는데 어두웠어요.",
+     "It often leads into a question or request: 문이 있는데 열어도 돼요?"
+    ],
+    "de": [
+     "Verb -는데 / Adjektiv -(으)ㄴ데 beschreibt die Lage oder setzt einen leichten Gegensatz: 동굴에 갔는데 어두웠어요.",
+     "Oft folgt eine Frage oder Bitte: 문이 있는데 열어도 돼요?"
+    ]
+   },
+   "examples": [
+    {
+     "ko": "동굴에 들어갔는데 좀비가 있어요.",
+     "en": "I went into the cave, and there is a zombie.",
+     "uses": ["L5.neunde", "L3.past", "L1.e_place", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "횃불이 있는데 빵이 없어요.",
+     "en": "I have a torch, but there is no bread.",
+     "uses": ["L5.neunde", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "밖은 어두운데 집 안은 밝아요.",
+     "en": "It is dark outside, but bright inside the house.",
+     "uses": ["L5.neunde", "L5.adn_adj_eun", "L2.eun_neun_contrast", "L1.loc_bak_e", "L1.loc_an_e"]
+    },
+    {
+     "ko": "문이 있는데 열어도 돼요?",
+     "en": "There is a door; may I open it?",
+     "uses": ["L5.neunde", "L5.eodo", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "ko": "지금 밤인데 자지 마세요.",
+     "en": "It is night now, so do not sleep.",
+     "uses": ["L5.neunde", "L3.jima_seyo", "L1.copula_ieyo"]
+    }
+   ],
+   "generator": "connective:neunde",
+   "clozeTemplates": [
+    {
+     "sentence": "동굴에 들어갔___ 좀비가 있어요",
+     "gloss": "I went into the cave, and there is a zombie.",
+     "answer": "는데",
+     "distractors": ["는", "은데"],
+     "uses": ["L5.neunde", "L5.adn_present_neun", "L3.past", "L1.e_place", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "횃불이 있___ 빵이 없어요",
+     "gloss": "I have a torch, but there is no bread.",
+     "answer": "는데",
+     "distractors": ["는", "은데"],
+     "uses": ["L5.neunde", "L5.adn_present_neun", "L1.subj_i", "L1.itda_eopda"]
+    },
+    {
+     "sentence": "밖은 어두___ 집 안은 밝아요",
+     "gloss": "It is dark outside, but bright inside the house.",
+     "answer": "운데",
+     "distractors": ["는데", "은데"],
+     "uses": ["L5.neunde", "L5.adn_adj_eun", "L2.eun_neun_contrast", "L1.loc_bak_e", "L1.loc_an_e", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "After the past stem the ending is -았/었는데 for verbs and adjectives (갔는데, 어두웠는데).",
+    "Verbs take -는데; adjectives and 이다 take -(으)ㄴ데 (어두운데, 밤인데).",
+    "The clause alone sounds unfinished: something always follows."
+   ]
+  },
+  {
+   "id": "L5.eunikka",
+   "form": "-(으)니까",
+   "level": 5,
+   "curriculumGrade": 3,
+   "prereq": ["L4.eoseo", "L2.seyo"],
+   "ruleCard": {
+    "ko": ["어두우니까 횃불을 놓으세요.", "크리퍼가 오니까 도망가세요."],
+    "en": [
+     "Stem + (으)니까 = because / since; unlike 아/어서 it can be followed by an order or a suggestion.",
+     "ㄹ-stems drop ㄹ (만드니까, 여니까); ㅂ-stems: 어두우니까."
+    ],
+    "de": [
+     "Stamm + (으)니까 = weil / da; anders als 아/어서 darf danach eine Aufforderung oder ein Vorschlag stehen.",
+     "ㄹ-Stämme verlieren ㄹ (만드니까, 여니까); ㅂ-Stämme: 어두우니까."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "어두우니까 횃불을 놓으세요.",
+     "en": "It is dark, so place a torch.",
+     "uses": ["L5.eunikka", "L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "밤이니까 집에 가세요.",
+     "en": "It is night, so go home.",
+     "uses": ["L5.eunikka", "L2.seyo", "L1.copula_ieyo", "L1.e_place"]
+    },
+    {
+     "ko": "크리퍼가 오니까 도망가세요.",
+     "en": "A creeper is coming, so run away.",
+     "uses": ["L5.eunikka", "L2.seyo", "L1.subj_i"]
+    },
+    {
+     "ko": "동굴이 위험하니까 들어가지 마세요.",
+     "en": "The cave is dangerous, so do not go in.",
+     "uses": ["L5.eunikka", "L3.jima_seyo", "L1.subj_i"]
+    },
+    {
+     "ko": "문을 열었으니까 들어가세요.",
+     "en": "I opened the door, so go in.",
+     "uses": ["L5.eunikka", "L2.seyo", "L3.past", "L1.obj_eul"]
+    }
+   ],
+   "generator": "connective:eunikka",
+   "clozeTemplates": [
+    {
+     "sentence": "어두___ 횃불을 놓으세요",
+     "gloss": "It is dark, so place a torch.",
+     "answer": "우니까",
+     "distractors": ["워서", "우서"],
+     "uses": ["L5.eunikka", "L4.eoseo", "L2.seyo", "L1.obj_eul"]
+    },
+    {
+     "sentence": "동굴이 위험하___ 들어가지 마세요",
+     "gloss": "The cave is dangerous, so do not go in.",
+     "answer": "니까",
+     "distractors": ["서", "러"],
+     "uses": ["L5.eunikka", "L4.eoseo", "L4.eureo_gayo", "L3.jima_seyo", "L1.subj_i"]
+    },
+    {
+     "sentence": "밤이___ 집에 가세요",
+     "gloss": "It is night, so go home.",
+     "answer": "니까",
+     "distractors": ["서", "러"],
+     "uses": ["L5.eunikka", "L4.eoseo", "L4.eureo_gayo", "L2.seyo", "L1.copula_ieyo", "L1.e_place"]
+    }
+   ],
+   "formDependentHooks": ["AVOID", "LIGHT_LEVEL"],
+   "teachingNotes": [
+    "-아/어서 cannot be followed by an order or a suggestion; 니까 can.", "ㄹ-stems drop ㄹ: 만드니까, 여니까; ㅂ-stems: 어두우니까.",
+    "The past stays inside: 문을 열었으니까 (since I opened the door)."
+   ]
+  },
+  {
+   "id": "L5.hapsyo",
+   "form": "-(스)ㅂ니다",
+   "level": 5,
+   "curriculumGrade": 1,
+   "prereq": ["L1.eoyo", "L2.seyo"],
+   "ruleCard": {
+    "ko": ["횃불을 놓습니다.", "문을 엽니다."],
+    "en": [
+     "Formal polite style: stem + ㅂ니다 after a vowel, 습니다 after a final consonant (갑니다, 놓습니다).",
+     "ㄹ-stems drop ㄹ (엽니다, 만듭니다); questions end in -ㅂ니까 / -습니까."
+    ],
+    "de": [
+     "Förmlich-höfliche Stufe: Stamm + ㅂ니다 nach Vokal, 습니다 nach Endkonsonant (갑니다, 놓습니다).",
+     "ㄹ-Stämme verlieren ㄹ (엽니다, 만듭니다); Fragen enden auf -ㅂ니까 / -습니까."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불을 놓습니다.",
+     "en": "I place the torch.",
+     "uses": ["L5.hapsyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "문을 엽니다.",
+     "en": "I open the door.",
+     "uses": ["L5.hapsyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "마을에 갑니다.",
+     "en": "I go to the village.",
+     "uses": ["L5.hapsyo", "L1.e_place"]
+    },
+    {
+     "ko": "제작대를 만듭니다.",
+     "en": "I make a crafting table.",
+     "uses": ["L5.hapsyo", "L1.obj_eul"]
+    },
+    {
+     "ko": "동굴에 들어갑니까?",
+     "en": "Are you going into the cave?",
+     "uses": ["L5.hapsyo", "L1.e_place"]
+    }
+   ],
+   "generator": "ending:hapsyo",
+   "clozeTemplates": [
+    {
+     "sentence": "문을 엽___",
+     "gloss": "I open the door.",
+     "answer": "니다",
+     "distractors": ["습니다", "어요"],
+     "uses": ["L5.hapsyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불을 놓___",
+     "gloss": "I place the torch.",
+     "answer": "습니다",
+     "distractors": ["니다", "어요"],
+     "uses": ["L5.hapsyo", "L1.obj_eul", "L1.eoyo"]
+    },
+    {
+     "sentence": "마을에 갑___",
+     "gloss": "I go to the village.",
+     "answer": "니다",
+     "distractors": ["습니다", "어요"],
+     "uses": ["L5.hapsyo", "L1.e_place", "L1.eoyo"]
+    },
+    {
+     "sentence": "제작대를 만듭___",
+     "gloss": "I make a crafting table.",
+     "answer": "니다",
+     "distractors": ["습니다", "어요"],
+     "uses": ["L5.hapsyo", "L1.obj_eul", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["INTERACT_ENTITY:speech_level"],
+   "teachingNotes": [
+    "ㄹ-stems: 엽니다, 만듭니다 (not 엽습니다).",
+    "This is the formal register for announcements, elders and strangers; 해요체 stays the everyday default.",
+    "Questions are -ㅂ니까/-습니까, not -ㅂ니다 with a question mark."
+   ]
+  },
+  {
+   "id": "L6.eulsurok",
+   "form": "-(으)ㄹ수록",
+   "level": 6,
+   "curriculumGrade": 5,
+   "prereq": ["L4.myeon", "L5.adn_future_eul"],
+   "ruleCard": {
+    "ko": ["깊이 내려갈수록 어두워요.", "높이 올라갈수록 추워요."],
+    "en": [
+     "Stem + (으)ㄹ수록 = the more …: 갈수록 (the further you go).",
+     "Written without a space; the main clause says what increases: 깊이 갈수록 어두워요."
+    ],
+    "de": [
+     "Stamm + (으)ㄹ수록 = je mehr …: 갈수록 (je weiter man geht).",
+     "Wird zusammengeschrieben; der Hauptsatz nennt, was zunimmt: 깊이 갈수록 어두워요."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "깊이 내려갈수록 어두워요.",
+     "en": "The deeper I go down, the darker it gets.",
+     "uses": ["L6.eulsurok", "L1.eoyo"]
+    },
+    {
+     "ko": "높이 올라갈수록 추워요.",
+     "en": "The higher I climb, the colder it is.",
+     "uses": ["L6.eulsurok", "L1.eoyo"]
+    },
+    {
+     "ko": "횃불이 많을수록 밝아요.",
+     "en": "The more torches there are, the brighter it is.",
+     "uses": ["L6.eulsurok", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "동굴이 깊을수록 위험해요.",
+     "en": "The deeper the cave, the more dangerous.",
+     "uses": ["L6.eulsurok", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "빵을 먹을수록 배가 불러요.",
+     "en": "The more bread I eat, the fuller I get.",
+     "uses": ["L6.eulsurok", "L1.obj_eul", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "generator": "connective:eulsurok",
+   "clozeTemplates": [
+    {
+     "sentence": "깊이 내려___ 어두워요",
+     "gloss": "The deeper I go down, the darker it gets.",
+     "answer": "갈수록",
+     "distractors": ["가는수록", "간수록"],
+     "uses": ["L6.eulsurok", "L5.adn_present_neun", "L5.adn_past_eun", "L1.eoyo"]
+    },
+    {
+     "sentence": "횃불이 많___ 밝아요",
+     "gloss": "The more torches there are, the brighter it is.",
+     "answer": "을수록",
+     "distractors": ["수록", "을수"],
+     "uses": ["L6.eulsurok", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "동굴이 깊___ 위험해요",
+     "gloss": "The deeper the cave, the more dangerous.",
+     "answer": "을수록",
+     "distractors": ["수록", "을수"],
+     "uses": ["L6.eulsurok", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Attach ㄹ수록 to the stem directly; ㄹ-stems keep ㄹ (만들수록, 길수록).",
+    "It needs a changing quantity or state, so it does not fit single events.",
+    "No space: 갈수록 (the more you go) is not 갈 수 (can go)."
+   ]
+  },
+  {
+   "id": "L6.deusi",
+   "form": "-듯이",
+   "level": 6,
+   "curriculumGrade": 5,
+   "prereq": ["L5.adn_present_neun"],
+   "ruleCard": {
+    "ko": ["비가 오듯이 화살이 떨어져요.", "물이 흐르듯이 천천히 걸어요."],
+    "en": [
+     "Stem + 듯이 = as if / just as: 비가 오듯이 (as if it were raining).",
+     "It compares two actions or states and attaches to the bare stem."
+    ],
+    "de": [
+     "Stamm + 듯이 = als ob / so wie: 비가 오듯이 (wie wenn es regnet).",
+     "Es vergleicht zwei Handlungen oder Zustände und hängt am bloßen Stamm."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "비가 오듯이 화살이 떨어져요.",
+     "en": "Arrows fall as if it were raining.",
+     "uses": ["L6.deusi", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "물이 흐르듯이 천천히 걸어요.",
+     "en": "I walk slowly, like flowing water.",
+     "uses": ["L6.deusi", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "ko": "눈이 내리듯이 깃털이 떨어져요.",
+     "en": "Feathers fall like falling snow.",
+     "uses": ["L6.deusi", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "generator": "connective:deusi",
+   "clozeTemplates": [
+    {
+     "sentence": "비가 오___ 화살이 떨어져요",
+     "gloss": "Arrows fall as if it were raining.",
+     "answer": "듯이",
+     "distractors": ["서", "러"],
+     "uses": ["L6.deusi", "L4.eoseo", "L4.eureo_gayo", "L1.subj_i", "L1.eoyo"]
+    },
+    {
+     "sentence": "물이 흐르___ 천천히 걸어요",
+     "gloss": "I walk slowly, like flowing water.",
+     "answer": "듯이",
+     "distractors": ["서", "러"],
+     "uses": ["L6.deusi", "L4.eoseo", "L4.eureo_gayo", "L1.subj_i", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "Attach 듯이 to the bare stem with no tense: 오듯이, 흐르듯이.", "It compares; it does not give a reason (that is -(으)니까).",
+    "It can be shortened to 듯: 비가 오듯."
+   ]
+  },
+  {
+   "id": "L6.gi_maryeon_ida",
+   "form": "-기 마련이다",
+   "level": 6,
+   "curriculumGrade": 6,
+   "prereq": ["L4.myeon", "L3.gi_jeone"],
+   "ruleCard": {
+    "ko": ["쓰면 닳기 마련이에요.", "횃불이 없으면 길을 잃기 마련이에요."],
+    "en": [
+     "Stem + 기 마련이다 = it is only natural that …: 닳기 마련이에요 (it naturally wears out).",
+     "It states what tends to happen by nature or experience, often after -(으)면."
+    ],
+    "de": [
+     "Stamm + 기 마련이다 = es ist ganz natürlich, dass …: 닳기 마련이에요 (es nutzt sich natürlich ab).",
+     "Es nennt, was von Natur aus oder erfahrungsgemäß geschieht, oft nach -(으)면."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "곡괭이는 쓰면 닳기 마련이에요.",
+     "en": "A pickaxe naturally wears out when you use it.",
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L2.eun_neun_topic", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "횃불이 없으면 길을 잃기 마련이에요.",
+     "en": "Without a torch, you are bound to get lost.",
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L1.subj_i", "L1.obj_eul", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "밤이 되면 좀비가 나타나기 마련이에요.",
+     "en": "When night falls, zombies are bound to appear.",
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L1.subj_i", "L1.copula_ieyo"]
+    },
+    {
+     "ko": "동굴이 깊으면 어둡기 마련이에요.",
+     "en": "A deep cave is naturally dark.",
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L1.subj_i", "L1.copula_ieyo"]
+    }
+   ],
+   "generator": "nominal:gi_maryeon",
+   "clozeTemplates": [
+    {
+     "sentence": "쓰면 닳___ 마련이에요",
+     "gloss": "It naturally wears out when you use it.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L2.go_sequence", "L3.ji_anayo", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "횃불이 없으면 길을 잃___ 마련이에요",
+     "gloss": "Without a torch, you are bound to get lost.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L2.go_sequence", "L3.ji_anayo", "L1.subj_i", "L1.obj_eul", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "밤이 되면 좀비가 나타나___ 마련이에요",
+     "gloss": "When night falls, zombies are bound to appear.",
+     "answer": "기",
+     "distractors": ["고", "지"],
+     "uses": ["L6.gi_maryeon_ida", "L4.myeon", "L2.go_sequence", "L3.ji_anayo", "L1.subj_i", "L1.copula_ieyo"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "The predicate is 마련이다 (a noun with 이다): 마련이에요, not 마련해요, which means 'prepare'.",
+    "It describes general tendencies, so it is odd for a single past event.", "It often follows an -(으)면 clause."
+   ]
+  },
+  {
+   "id": "L6.su_bakke_eopda",
+   "form": "-(으)ㄹ 수밖에 없다",
+   "level": 6,
+   "curriculumGrade": 6,
+   "prereq": ["L3.su_itda", "L1.loc_bak_e"],
+   "ruleCard": {
+    "ko": ["횃불이 없으면 돌아갈 수밖에 없어요.", "밤에는 어두울 수밖에 없어요."],
+    "en": [
+     "Stem + (으)ㄹ 수밖에 없어요 = there is no choice but to / cannot help but …: 돌아갈 수밖에 없어요.",
+     "밖에 with a negative (없어요, 않아요) means 'only / nothing but'; compare 밖에 'outside' (L1)."
+    ],
+    "de": [
+     "Stamm + (으)ㄹ 수밖에 없어요 = es bleibt nichts anderes übrig, als …: 돌아갈 수밖에 없어요.",
+     "밖에 mit einer Verneinung (없어요, 않아요) heißt 'nur / nichts außer'; vergleiche 밖에 'draußen' (L1)."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불이 없으면 돌아갈 수밖에 없어요.",
+     "en": "Without a torch, I have no choice but to turn back.",
+     "uses": ["L6.su_bakke_eopda", "L4.myeon", "L1.subj_i"]
+    },
+    {
+     "ko": "밤에는 어두울 수밖에 없어요.",
+     "en": "At night it can only be dark.",
+     "uses": ["L6.su_bakke_eopda", "L2.eun_neun_contrast", "L1.e_time"]
+    },
+    {
+     "ko": "상자가 하나밖에 없어요.",
+     "en": "There is only one chest.",
+     "uses": ["L6.su_bakke_eopda", "L1.subj_i", "L1.num_native"]
+    },
+    {
+     "ko": "크리퍼가 오면 도망갈 수밖에 없어요.",
+     "en": "If a creeper comes, I have no choice but to run away.",
+     "uses": ["L6.su_bakke_eopda", "L4.myeon", "L1.subj_i"]
+    }
+   ],
+   "generator": "nominal:su_bakke",
+   "clozeTemplates": [
+    {
+     "sentence": "횃불이 없으면 돌아갈 ___ 없어요",
+     "gloss": "Without a torch, I have no choice but to turn back.",
+     "answer": "수밖에",
+     "distractors": ["수만", "수에"],
+     "uses": ["L6.su_bakke_eopda", "L4.myeon", "L1.subj_i"]
+    },
+    {
+     "sentence": "크리퍼가 오면 도망갈 ___ 없어요",
+     "gloss": "If a creeper comes, I have no choice but to run away.",
+     "answer": "수밖에",
+     "distractors": ["수만", "수에"],
+     "uses": ["L6.su_bakke_eopda", "L4.myeon", "L1.subj_i"]
+    },
+    {
+     "sentence": "상자가 하나___ 없어요",
+     "gloss": "There is only one chest.",
+     "answer": "밖에",
+     "distractors": ["에", "에서"],
+     "uses": ["L6.su_bakke_eopda", "L1.num_native", "L1.subj_i", "L2.eseo_activity"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "밖에 meaning 'only' needs a negative: 하나밖에 있어요 is wrong.",
+    "The pattern states a conclusion forced by the situation, so it follows a condition or reason.",
+    "Do not confuse 수밖에 없다 (no choice) with 수 없다 (cannot)."
+   ]
+  },
+  {
+   "id": "L6.banmal",
+   "form": "반말 (-아/어)",
+   "level": 6,
+   "curriculumGrade": 5,
+   "prereq": ["L1.eoyo", "L1.copula_ieyo"],
+   "ruleCard": {
+    "ko": ["횃불 놓아.", "문 열어."],
+    "en": [
+     "Casual speech: drop 요 from -아/어요: 먹어요 → 먹어, 가요 → 가, 이에요 → 이야/야.",
+     "Only for close friends, children and younger people; never for strangers or elders."
+    ],
+    "de": [
+     "Lockere Sprechweise: das 요 von -아/어요 weglassen: 먹어요 → 먹어, 가요 → 가, 이에요 → 이야/야.",
+     "Nur unter engen Freunden, bei Kindern und Jüngeren; nie bei Fremden oder Älteren."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "횃불 놓아.",
+     "en": "I place the torch.",
+     "uses": ["L6.banmal", "L1.eoyo"]
+    },
+    {
+     "ko": "문 열어.",
+     "en": "Open the door.",
+     "uses": ["L6.banmal", "L1.eoyo"]
+    },
+    {
+     "ko": "빵 먹어?",
+     "en": "Are you eating bread?",
+     "uses": ["L6.banmal", "L1.eoyo"]
+    },
+    {
+     "ko": "같이 가.",
+     "en": "Let's go together.",
+     "uses": ["L6.banmal", "L1.eoyo"]
+    },
+    {
+     "ko": "이거 횃불이야.",
+     "en": "This is a torch.",
+     "uses": ["L6.banmal", "L1.copula_ieyo"]
+    }
+   ],
+   "generator": "ending:banmal",
+   "clozeTemplates": [
+    {
+     "sentence": "이거 횃불___ (반말)",
+     "gloss": "This is a torch. (casual)",
+     "answer": "이야",
+     "distractors": ["이에요", "예요"],
+     "uses": ["L6.banmal", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "이거 상자___ (반말)",
+     "gloss": "This is a chest. (casual)",
+     "answer": "야",
+     "distractors": ["이에요", "이야"],
+     "uses": ["L6.banmal", "L1.copula_ieyo"]
+    },
+    {
+     "sentence": "문 열___ (반말)",
+     "gloss": "Open the door. (casual)",
+     "answer": "어",
+     "distractors": ["어요", "으세요"],
+     "uses": ["L6.banmal", "L2.seyo", "L1.eoyo"]
+    }
+   ],
+   "formDependentHooks": ["INTERACT_ENTITY:speech_level"],
+   "teachingNotes": [
+    "Using 반말 with strangers or elders is rude; the game only lets child or peer NPCs use it.",
+    "이다: 이야 after a final consonant, 야 after a vowel (횃불이야, 상자야).",
+    "Verbs only lose 요; a question is marked by rising intonation."
+   ]
+  },
+  {
+   "id": "L6.banmal_plain",
+   "form": "-ㄴ/는다 (한다체)",
+   "level": 6,
+   "curriculumGrade": 6,
+   "prereq": ["L1.eoyo", "L3.past"],
+   "ruleCard": {
+    "ko": ["나는 횃불을 놓는다.", "주민이 문을 연다."],
+    "en": [
+     "Plain written style (diaries, books, narration): verb stem + ㄴ다 after a vowel, 는다 after a final consonant.",
+     "ㄹ-stems drop ㄹ (만든다, 연다); the past is -았/었다."
+    ],
+    "de": [
+     "Schlichter Schriftstil (Tagebuch, Bücher, Erzählung): Verbstamm + ㄴ다 nach Vokal, 는다 nach Endkonsonant.",
+     "ㄹ-Stämme verlieren ㄹ (만든다, 연다); Vergangenheit: -았/었다."
+    ]
+   },
+   "examples": [
+    {
+     "ko": "나는 횃불을 놓는다.",
+     "en": "I place the torch.",
+     "uses": ["L6.banmal_plain", "L2.eun_neun_topic", "L1.obj_eul"]
+    },
+    {
+     "ko": "주민이 문을 연다.",
+     "en": "The villager opens the door.",
+     "uses": ["L6.banmal_plain", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "ko": "밤이 된다.",
+     "en": "Night falls.",
+     "uses": ["L6.banmal_plain", "L1.subj_i"]
+    },
+    {
+     "ko": "크리퍼가 온다.",
+     "en": "A creeper comes.",
+     "uses": ["L6.banmal_plain", "L1.subj_i"]
+    },
+    {
+     "ko": "나는 집을 지었다.",
+     "en": "I built a house.",
+     "uses": ["L6.banmal_plain", "L2.eun_neun_topic", "L3.past", "L1.obj_eul"]
+    }
+   ],
+   "generator": "ending:handa",
+   "clozeTemplates": [
+    {
+     "sentence": "주민이 문을 ___ (한다체)",
+     "gloss": "The villager opens the door. (plain written style)",
+     "answer": "연다",
+     "distractors": ["열는다", "엽니다"],
+     "uses": ["L6.banmal_plain", "L5.hapsyo", "L1.subj_i", "L1.obj_eul"]
+    },
+    {
+     "sentence": "크리퍼가 ___ (한다체)",
+     "gloss": "A creeper comes. (plain written style)",
+     "answer": "온다",
+     "distractors": ["오는다", "옵니다"],
+     "uses": ["L6.banmal_plain", "L5.hapsyo", "L1.subj_i"]
+    },
+    {
+     "sentence": "나는 횃불을 ___ (한다체)",
+     "gloss": "I place the torch. (plain written style)",
+     "answer": "놓는다",
+     "distractors": ["놓은다", "놓습니다"],
+     "uses": ["L6.banmal_plain", "L5.hapsyo", "L2.eun_neun_topic", "L1.obj_eul"]
+    }
+   ],
+   "formDependentHooks": [],
+   "teachingNotes": [
+    "한다체 is the narrator's style, not for talking to someone.",
+    "Verbs take -ㄴ/는다; adjectives and 이다 use the plain stem (크다, 횃불이다), taught separately.",
+    "Questions use a different ending (-니? / -는가?) and are not covered here."
+   ]
+  }
+ ]
+}

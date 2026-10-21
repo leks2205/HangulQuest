@@ -6,10 +6,10 @@ This page is generated from the content itself, so the numbers below are what th
 
 | | |
 |---|---|
-| Questlines | **420** |
-| Steps (incl. finales) | **1524** |
+| Questlines | **422** |
+| Steps (incl. finales) | **1534** |
 | Tree levels | **22** |
-| Roots | 38 |
+| Roots | 39 |
 | Merges (more than one parent) | 129 |
 | Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
 
@@ -31,11 +31,19 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `DEFEAT_ENTITY` | 37 | defeat a mob |
 | `CONSUME_ITEM` | 32 | eat or drink an item |
 | `INTERACT_ENTITY` | 27 | interact with a mob |
+| `BUILD_PATTERN` | 2 |  |
+| `PLACE_ON_PATTERN` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
+| `PLACE_REL` | 1 |  |
+| `CRAFT` | 1 |  |
+| `GIVE` | 1 |  |
+| `PUT_IN` | 1 |  |
+| `SEQUENCE` | 1 |  |
+| `HOLD_WHILE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 161 | a time of day |
+| `TIME` | 162 | a time of day |
 | `IN_BIOME` | 28 | a biome |
 | `Y_RANGE` | 8 | an altitude band |
 | `WEATHER` | 5 | the weather |
@@ -43,7 +51,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 ## Levels
 
-### Level 1 · TOPIK 1 · 38 trails
+### Level 1 · TOPIK 1 · 39 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -68,6 +76,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `regenbogenpfad` | 무지개의 길 | Der Regenbogenpfad | 4 | — |
 | `blumentopf` | 화분의 길 | Der Blumentopfpfad | 4 | — |
 | `muschelpfad` | 조개의 길 | Der Muschelpfad | 4 | — |
+| `lighthouse_demo` | 등대 | Der Leuchtturm (Demo) | 5 | — |
 | `w1_01` | 첫 촛불 | Die erste Kerze | 4 | — |
 | `w1_02` | 무지개 유리 | Regenbogen aus Glas | 4 | — |
 | `w1_03` | 노란 꽃밭 | Das gelbe Blumenfeld | 4 | — |
@@ -296,7 +305,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `gestuet` | 마구간의 길 | Das Gestüt | 4 | `pferdehof`, `waldfest` |
 | `ozeanfahrt` | 대양 항해 | Die Ozeanfahrt | 4 | `meerestiefe`, `kuestenfest` |
 
-### Level 7 · TOPIK 3 · 46 trails
+### Level 7 · TOPIK 3 · 47 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -346,6 +355,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `weltmarkt` | 세계 시장 | Der Weltmarkt | 4 | `handelsstrasse`, `schmiedepfad`, `briefpfad` |
 | `weltbaum` | 세계수 | Der Weltbaum | 4 | `waldfest`, `gartenfest`, `alpental`, `familienpfad`, `alchemiepfad` |
 | `tiefseehafen` | 심해 항구 | Der Tiefseehafen | 4 | `ozeanfahrt`, `meerestiefe`, `nachthafen`, `inselpfad` |
+| `village_errands_demo` | 마을 심부름 | Dorf-Besorgungen | 5 | `handelsstrasse` |
 
 ### Level 8 · TOPIK 3 · 40 trails
 

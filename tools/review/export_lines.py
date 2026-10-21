@@ -79,12 +79,19 @@ def to_pointer(path: str) -> str:
     return "/" + "/".join(out)
 
 
+QUESTLINE_FILES: dict[str, str] = {}  # trail id -> file name, filled by load_questlines
+
+
 def load_questlines(data_dir: Path) -> dict[str, dict]:
     result = {}
     for file in sorted((data_dir / "questlines").glob("*.json")):
         if file.name == "index.json":
             continue
-        result[file.stem] = json.loads(file.read_text(encoding="utf-8"))
+        trail = json.loads(file.read_text(encoding="utf-8"))
+        # Keyed by the trail id; the file is named like it, except for the demo trail (mill_demo.json).
+        trail_id = trail.get("id", file.stem)
+        QUESTLINE_FILES[trail_id] = file.name
+        result[trail_id] = trail
     return result
 
 
@@ -153,7 +160,7 @@ def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
             step_id = middle[0] if len(middle) > 1 else ""
             level = trail.get("koreanLevel", int(row["level"] or 1))
             title_en = trail.get("titleEn", "")
-            file = f"questlines/{tid}.json"
+            file = f"questlines/{QUESTLINE_FILES.get(tid, tid + '.json')}"
             context = {"trail": tid, "trailTitle": title_en, "topic": trail.get("topic", ""), "step": step_id,
                        "goal": "", "level": level,
                        "icon": "", "field": field}

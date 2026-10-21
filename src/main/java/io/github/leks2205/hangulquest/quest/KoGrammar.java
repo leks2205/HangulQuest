@@ -46,6 +46,62 @@ public final class KoGrammar {
 		return word + (hasBatchim(word) && !endsInRieul(word) ? "으로" : "로");
 	}
 
+	/** Person/animal recipient: 주민에게, 소에게. */
+	public static String ege(String word) {
+		return word + "에게";
+	}
+
+	/** Activity place: 화로에서, 나무 아래에서. */
+	public static String eseo(String word) {
+		return word + "에서";
+	}
+
+	/**
+	 * Past attributive -(으)ㄴ for a regular stem: 먹 → 먹은, 자 → 잔, 만들 → 만든 (ㄹ drops). The irregular
+	 * ㅂ and ㄷ verbs carry their own form in {@link Verb#attributive()}.
+	 */
+	public static String eun(String stem) {
+		return withFinal(stem, 4, "은");
+	}
+
+	/** Honorific -(으)세요 for a regular stem: 가 → 가세요, 먹 → 먹으세요, 들 → 드세요 (ㄹ drops). */
+	public static String seyo(String stem) {
+		if (stem.isEmpty()) {
+			return "세요";
+		}
+		char last = stem.charAt(stem.length() - 1);
+		if (last < 0xAC00 || last > 0xD7A3) {
+			return stem + "세요";
+		}
+		int jong = (last - 0xAC00) % 28;
+		if (jong == 0) {
+			return stem + "세요";
+		}
+		if (jong == 8) {
+			return stem.substring(0, stem.length() - 1) + (char) (last - 8) + "세요";
+		}
+		return stem + "으세요";
+	}
+
+	/** Puts a final consonant (jong index) on a vowel-final stem, drops a final ㄹ, or appends {@code suffix} after a consonant. */
+	private static String withFinal(String stem, int jongIndex, String suffix) {
+		if (stem.isEmpty()) {
+			return suffix;
+		}
+		char last = stem.charAt(stem.length() - 1);
+		if (last < 0xAC00 || last > 0xD7A3) {
+			return stem + suffix;
+		}
+		int jong = (last - 0xAC00) % 28;
+		if (jong == 0) {
+			return stem.substring(0, stem.length() - 1) + (char) (last + jongIndex);
+		}
+		if (jong == 8) {
+			return stem.substring(0, stem.length() - 1) + (char) (last - 8 + jongIndex);
+		}
+		return stem + suffix;
+	}
+
 	/** Quotation-style attributive: 횃불이라는 / 나무라는. */
 	public static String ira(String word) {
 		return word + (hasBatchim(word) ? "이라는" : "라는");
