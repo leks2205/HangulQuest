@@ -1,46 +1,53 @@
 package io.github.leks2205.hangulquest;
 
 import io.github.leks2205.hangulquest.learn.Srs;
+import io.github.leks2205.hangulquest.learn.fsrs.CardState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/** {@link Srs} is the facade over FSRS: display levels and the cards that old levels start from. */
 class SrsTest {
-	@Test
-	void intervalsGrow() {
-		assertEquals(10 * Srs.MINUTE, Srs.intervalMs(0));
-		assertEquals(Srs.HOUR, Srs.intervalMs(1));
-		assertEquals(3 * Srs.DAY, Srs.intervalMs(4));
-		assertEquals(80 * Srs.DAY, Srs.intervalMs(Srs.MAX_LEVEL));
-	}
+	private static final long NOW = 1_800_000_000_000L;
 
 	@Test
-	void intervalsStrictlyIncreaseWithTheLevel() {
+	void seedStabilityGrowsWithTheLevel() {
+		assertEquals(Srs.MAX_LEVEL + 1, Srs.LEVEL_STABILITY.length);
 		for (int level = 1; level <= Srs.MAX_LEVEL; level++) {
-			assertTrue(Srs.intervalMs(level) > Srs.intervalMs(level - 1),
-					"level " + level + " must wait longer than level " + (level - 1));
+			assertTrue(Srs.LEVEL_STABILITY[level] > Srs.LEVEL_STABILITY[level - 1], "level " + level);
 		}
-		// Out-of-range levels clamp instead of throwing or going backwards.
-		assertEquals(Srs.intervalMs(0), Srs.intervalMs(-3));
-		assertEquals(Srs.intervalMs(Srs.MAX_LEVEL), Srs.intervalMs(Srs.MAX_LEVEL + 5));
+		assertEquals(0.1, Srs.LEVEL_STABILITY[0], 0);
+		assertEquals(35, Srs.LEVEL_STABILITY[Srs.MAX_LEVEL], 0);
 	}
 
 	@Test
-	void levelsSavedByOlderVersionsStayValid() {
-		// Older versions stored 0..6; none of them may be clamped down by the longer ladder.
-		for (int saved = 0; saved <= 6; saved++) {
-			assertEquals(saved + 1, Srs.onCorrect(saved), "a saved level " + saved + " must still advance");
-			assertEquals(saved, Srs.onWrong(saved + 1));
+	void aSeededCardComesBackAsTheSameLevel() {
+		for (int level = 0; level <= Srs.MAX_LEVEL; level++) {
+			CardState card = Srs.seed(level, NOW, Srs.fsrs());
+			assertEquals(level, Srs.levelFor(card.stability), "level " + level);
+			assertEquals(CardState.State.REVIEW, card.state);
+			assertEquals(5, card.difficulty, 0);
+			assertTrue(card.due > NOW);
 		}
+		// out-of-range levels clamp instead of throwing or going backwards
+		assertEquals(0.1, Srs.seed(-3, NOW, Srs.fsrs()).stability, 0);
+		assertEquals(35, Srs.seed(Srs.MAX_LEVEL + 5, NOW, Srs.fsrs()).stability, 0);
 	}
 
 	@Test
-	void correctAdvancesAndWrongRetreats() {
-		assertEquals(1, Srs.onCorrect(0));
-		assertEquals(7, Srs.onCorrect(6));
-		assertEquals(Srs.MAX_LEVEL, Srs.onCorrect(Srs.MAX_LEVEL));
-		assertEquals(0, Srs.onWrong(0));
-		assertEquals(2, Srs.onWrong(3));
+	void aKnownWordStartsAtThirtyDays() {
+		CardState card = Srs.seedKnown(NOW, Srs.fsrs());
+		assertEquals(30, card.stability, 0);
+		assertTrue(card.due - NOW > 21 * Srs.DAY);
+	}
+
+	@Test
+	void theDisplayLevelFollowsStability() {
+		assertEquals(0, Srs.levelFor(0));
+		assertEquals(0, Srs.levelFor(0.15));
+		assertEquals(3, Srs.levelFor(1.5));
+		assertEquals(7, Srs.levelFor(30));
+		assertEquals(Srs.MAX_LEVEL, Srs.levelFor(4000));
 	}
 }

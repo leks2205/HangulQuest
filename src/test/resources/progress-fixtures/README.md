@@ -14,3 +14,8 @@ Rules:
 - `v3-sample.json` is the schema v3 shape (`meta.schemaHistory`, `meta.installSalt`, the persisted
   sidequest and quest-step counters). Older fixtures are migrated to v3 on load; `ProgressMigrationsTest`
   checks that every migration step is idempotent.
+- `v4-sample.json` is the schema v4 shape: every word has an `fsrs` card (stability, difficulty, state, step,
+  reps, lapses, lastReview, due) and some have a `ledger` (encounters, retrievals, contexts, times,
+  recallDays). Older fixtures are migrated to v4 on load: the card is seeded from the old level
+  (stability 0.1, 0.2, 0.5, 1, 2, 4, 8, 16, 35 days for levels 0 to 8, 30 days for a word marked known,
+  difficulty 5, due = max(old dueAt, now)) and `level` is kept. `ProgressMigrationsTest` covers every level.

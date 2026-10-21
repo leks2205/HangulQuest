@@ -36,6 +36,7 @@ public final class QuizSession {
 	private State state = State.IDLE;
 	private Quiz quiz;
 	private long promptUntil;
+	private long activeSince;
 
 	public State state() {
 		return state;
@@ -63,6 +64,12 @@ public final class QuizSession {
 		}
 		quiz = requested;
 		state = State.ACTIVE;
+		activeSince = System.currentTimeMillis();
+	}
+
+	/** When the quiz became answerable (epoch ms); the answer time is measured from here. */
+	public long activeSince() {
+		return activeSince;
 	}
 
 	/** Drops an expired prompt. Records nothing. Returns true when a prompt was dropped. */
@@ -89,6 +96,7 @@ public final class QuizSession {
 			return false;
 		}
 		state = State.ACTIVE;
+		activeSince = System.currentTimeMillis();
 		return true;
 	}
 

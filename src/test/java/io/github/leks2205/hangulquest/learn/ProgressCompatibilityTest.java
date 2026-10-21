@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.leks2205.hangulquest.learn.fsrs.CardState;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,7 +55,7 @@ class ProgressCompatibilityTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample"})
+	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample", "v4-sample"})
 	void everyReleaseSurvivesLoadAndSave(String tag) throws IOException {
 		Path dir = install(tag + ".json");
 		JsonObject original = read(dir.resolve("progress.json"));
@@ -73,17 +74,25 @@ class ProgressCompatibilityTest {
 			assertNull(data.quests.tracked, "an old save must keep meaning 'every saved trail is tracked'");
 		}
 
+		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
+			WordProgress word = entry.getValue();
+			assertNotNull(word.fsrs, entry.getKey() + " has a card after loading");
+			assertEquals(original.getAsJsonObject("words").getAsJsonObject(entry.getKey()).get("level").getAsInt(),
+					word.level, "the old level is kept for display and downgrades");
+		}
+
 		data.totals.reviews++;
 		store.markDirty();
 		store.flush();
 		JsonObject saved = read(dir.resolve("progress.json"));
 		original.getAsJsonObject("totals").addProperty("reviews", data.totals.reviews);
 		original.addProperty("version", ProgressData.CURRENT_VERSION);
+		original.getAsJsonObject("meta").remove("schemaHistory"); // checked below, it grows with each migration
 		assertContains(original, saved, "$");
-		assertEquals(3, saved.get("version").getAsInt(), "every release ends up on the current schema");
+		assertEquals(4, saved.get("version").getAsInt(), "every release ends up on the current schema");
 		JsonObject meta = saved.getAsJsonObject("meta");
 		assertFalse(meta.get("installSalt").getAsString().isBlank());
-		assertEquals(3, meta.getAsJsonArray("schemaHistory").asList().getLast().getAsInt());
+		assertEquals(4, meta.getAsJsonArray("schemaHistory").asList().getLast().getAsInt());
 		assertTrue(saved.getAsJsonObject("totals").has("sidequestsCompleted"));
 		assertTrue(saved.getAsJsonObject("totals").has("questStepsCompleted"));
 
@@ -98,7 +107,7 @@ class ProgressCompatibilityTest {
 		Path dir = install("v3-sample.json");
 		ProgressStore store = new ProgressStore(dir, LOG);
 		assertEquals("9f3c1a7be2d44e60a1b8c5d07f26e913", store.data().meta.installSalt);
-		assertEquals(List.of(2, 3), store.data().meta.schemaHistory);
+		assertEquals(List.of(2, 3, 4), store.data().meta.schemaHistory);
 		assertEquals(4, store.data().totals.sidequestsCompleted);
 		assertEquals(11, store.data().totals.questStepsCompleted);
 		store.markDirty();
@@ -106,9 +115,78 @@ class ProgressCompatibilityTest {
 		JsonObject saved = read(dir.resolve("progress.json"));
 		assertEquals("9f3c1a7be2d44e60a1b8c5d07f26e913", saved.getAsJsonObject("meta").get("installSalt").getAsString());
 		try (Stream<Path> files = Files.list(dir)) {
+			assertTrue(files.anyMatch(path -> path.getFileName().toString().startsWith("progress.v3-backup-")),
+					"a v3 file is backed up before it becomes v4");
+		}
+	}
+
+	@Test
+	void aV3FileGetsCardsSeededFromItsLevels() throws IOException {
+		Path dir = install("v3-sample.json");
+		ProgressData data = new ProgressStore(dir, LOG).data();
+		// level 0 -> 0.1 d, 1 -> 0.2, 3 -> 1, 4 -> 2, known -> 30
+		assertEquals(1.0, data.words.get("concept:stone").fsrs.stability, 0);
+		assertEquals(0.2, data.words.get("concept:torch").fsrs.stability, 0);
+		assertEquals(0.1, data.words.get("concept:cat").fsrs.stability, 0);
+		assertEquals(2.0, data.words.get("lute:나무").fsrs.stability, 0);
+		assertEquals(30.0, data.words.get("lute:고양이").fsrs.stability, 0, "a word marked known starts at 30 days");
+		for (WordProgress word : data.words.values()) {
+			assertEquals(CardState.State.REVIEW, word.fsrs.state);
+			assertEquals(5.0, word.fsrs.difficulty, 0);
+			assertTrue(word.fsrs.due >= word.dueAt, "due is never earlier than the old due time");
+			assertTrue(word.fsrs.due >= word.lastSeenAt);
+		}
+		assertEquals(3, data.words.get("concept:stone").level, "the level stays for display and downgrades");
+	}
+
+	@Test
+	void aV4FileIsLoadedAsItIsAndNeedsNoBackup() throws IOException {
+		Path dir = install("v4-sample.json");
+		ProgressData data = new ProgressStore(dir, LOG).data();
+		CardState stone = data.words.get("concept:stone").fsrs;
+		assertEquals(24.5, stone.stability, 0);
+		assertEquals(4.8, stone.difficulty, 0);
+		assertEquals(CardState.State.REVIEW, stone.state);
+		assertEquals(7, stone.reps);
+		assertEquals(1, stone.lapses);
+		assertEquals(1794400000000L, stone.due);
+		assertEquals(CardState.State.RELEARNING, data.words.get("concept:torch").fsrs.state);
+		assertTrue(data.words.get("concept:cat").fsrs.state == CardState.State.LEARNING);
+		assertEquals(Long.MAX_VALUE, data.words.get("lute:고양이").fsrs.due);
+		ExposureLedger.Entry ledger = data.words.get("concept:stone").ledger;
+		assertEquals(9, ledger.encounters);
+		assertEquals(5, ledger.retrievals);
+		assertEquals(3, ledger.contexts.size());
+		assertEquals(List.of("2026-10-18", "2026-10-19"), ledger.recallDays);
+		assertEquals(List.of(2, 3, 4), data.meta.schemaHistory);
+		try (Stream<Path> files = Files.list(dir)) {
 			assertTrue(files.noneMatch(path -> path.getFileName().toString().contains("-backup-")),
 					"a current file needs no migration backup");
 		}
+	}
+
+	@Test
+	void everyFixtureEndsUpWithACardOnEveryWord() throws IOException {
+		for (String tag : List.of("v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1",
+				"v2.1.0", "v3-sample", "schema-v1", "unknown-fields", "bom")) {
+			Path dir = install(tag + ".json");
+			ProgressData data = new ProgressStore(dir, LOG).data();
+			assertFalse(data.words.isEmpty(), tag);
+			data.words.forEach((id, word) -> assertNotNull(word.fsrs, tag + " " + id));
+		}
+	}
+
+	@Test
+	void aSavedCardSurvivesASaveAndReload() throws IOException {
+		Path dir = install("v4-sample.json");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		store.data().words.get("concept:stone").fsrs.stability = 99.25;
+		store.data().words.get("concept:stone").ledger.recallDays.add("2026-10-20");
+		store.markDirty();
+		store.flush();
+		ProgressData reloaded = new ProgressStore(dir, LOG).data();
+		assertEquals(99.25, reloaded.words.get("concept:stone").fsrs.stability, 0);
+		assertEquals(3, reloaded.words.get("concept:stone").ledger.recallDays.size());
 	}
 
 	@ParameterizedTest
@@ -130,16 +208,16 @@ class ProgressCompatibilityTest {
 	void aV1FileRecordsEveryVersionItWentThrough() throws IOException {
 		Path dir = install("schema-v1.json");
 		ProgressStore store = new ProgressStore(dir, LOG);
-		assertEquals(List.of(1, 2, 3), store.data().meta.schemaHistory);
+		assertEquals(List.of(1, 2, 3, 4), store.data().meta.schemaHistory);
 		store.flush();
-		assertEquals(List.of(1, 2, 3), new ProgressStore(dir, LOG).data().meta.schemaHistory);
+		assertEquals(List.of(1, 2, 3, 4), new ProgressStore(dir, LOG).data().meta.schemaHistory);
 	}
 
 	@Test
 	void aFreshInstallGetsASaltAndHistory() {
 		ProgressStore store = new ProgressStore(tempDir.resolve("fresh"), LOG);
-		assertEquals(3, store.data().version);
-		assertEquals(List.of(3), store.data().meta.schemaHistory);
+		assertEquals(4, store.data().version);
+		assertEquals(List.of(4), store.data().meta.schemaHistory);
 		assertFalse(store.data().meta.installSalt.isBlank());
 	}
 

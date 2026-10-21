@@ -207,8 +207,10 @@ public final class HudController implements QuestEngine.Feedback {
 
 	private QuizOutcome answerReview(int index) {
 		long now = System.currentTimeMillis();
+		int optionCount = session.quiz() == null ? 4 : session.quiz().options().size();
+		long latencyMs = now - session.activeSince();
 		Optional<QuizSession.Result> result = session.answer(index, (wordId, correct) -> {
-			List<Achievements.Achievement> unlocked = hq.learn().answer(wordId, correct, now);
+			List<Achievements.Achievement> unlocked = hq.learn().answerMc(wordId, optionCount, correct, latencyMs, now);
 			lastQuizAt = now;
 			quizResultWord = hq.catalog().byId(wordId).orElse(null);
 			quizResultCorrect = correct;
@@ -369,7 +371,7 @@ public final class HudController implements QuestEngine.Feedback {
 		Random random = new Random();
 		List<String> options = new ArrayList<>();
 		options.add(glossOf(word));
-		for (Word distractor : hq.catalog().distractors(word, 2, random)) {
+		for (Word distractor : hq.catalog().distractors(word, 3, random)) {
 			if (!options.contains(glossOf(distractor))) {
 				options.add(glossOf(distractor));
 			}
