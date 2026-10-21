@@ -70,11 +70,13 @@ public final class AdaptiveTrailGenerator {
 				new Goal.PlaceBlock("minecraft:torch", 1),
 				List.of(new Condition.Time(Condition.Phase.NIGHT)),
 				null, null, null, null, null);
-		return new Questline("adaptive", "복습의 길", io.github.leks2205.hangulquest.util.Tr.t("Der Wiederholungspfad"), 1, concepts,
+		return new Questline("adaptive", "복습의 길", "Der Wiederholungspfad", 1, concepts,
 				Questline.Requires.none(), steps, finale,
 				"밤이 왔어요. 횃불을 들어요. 오늘의 복습을 마쳤어요!",
 				"Die Nacht ist da. Ein Licht entzündet: die Wiederholung ist geschafft.",
-				"adaptive", 900, 2, true);
+				"adaptive", 900, 2, true)
+				.withEnglish("The review path",
+						"Night has fallen. A light is lit: today's review is done.");
 	}
 
 	public static Goal goalFor(Word word) {

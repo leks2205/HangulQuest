@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest;
 
 import io.github.leks2205.hangulquest.config.Config;
+import io.github.leks2205.hangulquest.config.WelcomePolicy;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.ConceptLoader;
@@ -22,6 +23,7 @@ import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.ui.HudController;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.KoText;
+import io.github.leks2205.hangulquest.ui.WelcomeScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -91,6 +93,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private long lookedSince;
 	private long lastAmbientAt;
 	private boolean pendingAutoStart;
+	private boolean welcomeChecked;
 	private long lastTouch;
 	private static final boolean SELFTEST = Boolean.getBoolean("hangulquest.selftest");
 	private static final boolean CELEBRATE_DEMO = Boolean.getBoolean("hangulquest.celebrateDemo");
@@ -228,6 +231,14 @@ public final class HangulQuestClient implements ClientModInitializer {
 		if (now - lastTouch > 20_000L) {
 			lastTouch = now;
 			learn.touch(now);
+		}
+		if (!welcomeChecked && mc.gui.screen() == null) {
+			// Once per game start, on the first world join: the screen never blocks quests.
+			welcomeChecked = true;
+			if (WelcomePolicy.onFirstJoin(config, store.data())) {
+				WelcomeScreen.openOnJoin();
+			}
+			saveConfig();
 		}
 		if (pendingAutoStart) {
 			pendingAutoStart = false;
@@ -527,8 +538,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 		int count = validated.trails().size();
 		LOG.info("questlines reloaded: {} trails, {} problems", count, validated.problems().size());
 		if (hud != null) {
-			hud.banner("새 퀘스트 " + count + "개를 읽었어요.",
-					"Questlinien neu geladen: " + count + ".", true);
+			hud.banner("퀘스트 " + count + "개를 다시 읽었어요.",
+					io.github.leks2205.hangulquest.util.Tr.t("Questlinien neu geladen: ") + count + ".", true);
 		}
 	}
 

@@ -1,7 +1,11 @@
 package io.github.leks2205.hangulquest.config;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import io.github.leks2205.hangulquest.util.JsonIO;
 import io.github.leks2205.hangulquest.util.Lang;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,6 +13,8 @@ import java.nio.file.Path;
 
 /** User settings; unknown/missing fields fall back to the defaults below. */
 public final class Config {
+	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
+
 	public int version = 2;
 	public boolean enabled = true;
 	public boolean hudCards = true;
@@ -29,8 +35,8 @@ public final class Config {
 	public String questTrackerCorner = "TOP_LEFT";
 	/** How many tracked quests the HUD log shows at once (the focused one always counts). */
 	public int questTrackerRows = 4;
-	/** Interface and translation language: "EN" (default) or "DE". */
-	public String language = "EN";
+	/** Interface and translation language: "AUTO" (default, follows Minecraft's language), "EN" or "DE". */
+	public String language = Lang.AUTO;
 	/** Show the English/German line under the Korean quest text. Off by default: Korean only. */
 	public boolean questTranslations = false;
 	/** Legacy field, only read while migrating an old config. */
@@ -39,6 +45,12 @@ public final class Config {
 	public boolean journalTranslations = false;
 	public boolean luteImport = true;
 
+	// Hangul welcome screen (see WelcomePolicy)
+	/** True once the player confirmed, opted out, or the reminder was used up. */
+	public boolean welcomeDone = false;
+	/** How many times the welcome screen has been shown automatically. */
+	public int welcomeShown = 0;
+
 	public static Config load(Path file) {
 		if (!Files.exists(file)) {
 			Config config = new Config();
@@ -46,18 +58,19 @@ public final class Config {
 			return config;
 		}
 		try {
-			Config loaded = JsonIO.read(file, Config.class);
-			if (loaded == null) {
-				return new Config();
+			JsonObject raw = JsonIO.readObject(file);
+			Config loaded = parse(raw);
+			if (!raw.has("language") || raw.get("language").isJsonNull()) {
+				// Write the migrated value back so it survives the next start.
+				loaded.save(file);
 			}
-			loaded.sanitize();
 			return loaded;
 		} catch (IOException | RuntimeException broken) {
 			// Never crash the client because of a bad config; keep the broken file once.
 			try {
 				Files.move(file, file.resolveSibling("config.json.broken-" + System.currentTimeMillis()));
-			} catch (IOException ignored) {
-				// ignore
+			} catch (IOException failed) {
+				LOG.warn("could not set the broken config aside: {}", failed.toString());
 			}
 			Config config = new Config();
 			config.save(file);
@@ -65,11 +78,36 @@ public final class Config {
 		}
 	}
 
+	/**
+	 * Builds a config from the raw JSON. Migrations look at the raw object, not at the field values:
+	 * a field that is missing in the file already holds its default by then.
+	 */
+	public static Config parse(JsonObject raw) {
+		Config loaded = JsonIO.GSON.fromJson(raw, Config.class);
+		if (loaded == null) {
+			loaded = new Config();
+		}
+		JsonElement language = raw.get("language");
+		boolean hasLanguage = language != null && language.isJsonPrimitive()
+				&& !language.getAsString().isBlank();
+		if (!hasLanguage) {
+			// Configs from before the interface language existed only knew "German in quests".
+			JsonElement legacy = raw.get("questGerman");
+			boolean wantedGerman = legacy != null && legacy.isJsonPrimitive() && legacy.getAsBoolean();
+			loaded.language = wantedGerman ? "DE" : Lang.AUTO;
+			if (wantedGerman) {
+				loaded.questTranslations = true;
+			}
+		}
+		loaded.sanitize();
+		return loaded;
+	}
+
 	public void save(Path file) {
 		try {
 			JsonIO.write(file, this);
-		} catch (IOException ignored) {
-			// logging happens in the caller where a logger is available
+		} catch (IOException | RuntimeException failed) {
+			LOG.warn("could not write config {}: {}", file, failed.toString());
 		}
 	}
 
@@ -77,12 +115,8 @@ public final class Config {
 		if (version < 2) {
 			version = 2;
 		}
-		if (language == null || language.isBlank()) {
-			// Old configs only knew "German in quests": honour it, everything else starts in English.
-			language = questGerman ? "DE" : "EN";
-			questTranslations = questTranslations || questGerman;
-		}
-		language = Lang.parse(language).code();
+		language = language == null || language.isBlank() ? Lang.AUTO : Lang.normalise(language);
+		welcomeShown = Math.max(0, welcomeShown);
 		quizIntervalMinutes = clamp(quizIntervalMinutes, 1, 120);
 		questTrackerRows = clamp(questTrackerRows, 1, 6);
 		cardDurationMs = clamp(cardDurationMs, 1000, 20000);

@@ -9,6 +9,12 @@ Hangul Quest is built so that the question "what does it send?" has a short answ
 - Quests are verified from the client's own view of the world. Nothing is requested from the server and
   nothing is reported to it.
 
+## Links
+
+The welcome screen and the journal's *About reading Hangul* page list a few external Hangul lessons.
+A link opens in your browser only when you click it and confirm Minecraft's own "open this link?"
+screen. The mod itself never contacts those sites.
+
 ## What is stored locally
 
 | File | Content |

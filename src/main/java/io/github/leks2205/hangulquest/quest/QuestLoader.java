@@ -102,7 +102,11 @@ public final class QuestLoader {
 				integer(root, "order", 1000),
 				integer(root, "koreanLevel", integer(root, "tier", 1)),
 				false);
-		return trail.withEnglish(string(root, "titleEn", null), string(root, "textEn", null));
+		String finaleEn = string(root, "textEn", null);
+		if (finaleEn == null && finaleDe == null) {
+			finaleEn = "You reached the goal.";
+		}
+		return trail.withEnglish(string(root, "titleEn", null), finaleEn);
 	}
 
 	private static QuestStep parseStep(JsonObject object) {
