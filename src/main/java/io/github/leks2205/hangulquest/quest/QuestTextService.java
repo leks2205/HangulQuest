@@ -131,7 +131,7 @@ final class QuestTextService {
 
 	/** Translation of the clue in the interface language (English or German). */
 	String clueTranslation(QuestStep step) {
-		if (step == null) {
+		if (step == null || step.reverse()) {
 			return "";
 		}
 		return step.clue();

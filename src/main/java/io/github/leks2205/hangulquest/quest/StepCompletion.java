@@ -55,7 +55,7 @@ final class StepCompletion {
 		boolean assisted = track.tracker.assisted;
 		boolean hinted = track.hintUsed;
 		for (int i = 0; i < step.teach().size(); i++) {
-			ExposureLedger.Context context = context(track, step, i == 0 ? "primary" : "secondary");
+			ExposureLedger.Context context = context(track, step, i == 0 ? (step.reverse() ? "reverse" : "primary") : "secondary");
 			catalog.byConceptId(step.teach().get(i))
 					.ifPresent(word -> learn.questStep(word, obs.now, assisted, hinted, context, step.id()));
 		}

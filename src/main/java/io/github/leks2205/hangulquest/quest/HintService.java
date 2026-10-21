@@ -43,6 +43,12 @@ final class HintService {
 		String description = word != null && word.hasDescKo() ? word.descKo : null;
 		boolean known = word != null && learn.isKnown(word.id);
 		boolean started = false;
+		if (step.reverse()) {
+			// A reverse step keeps the word hidden: no word card, no sidequest. The hint still counts as help.
+			track.hintUsed = true;
+			persistence.persist(registry, obs.now);
+			return new QuestEngine.HintView(text.clueKo(step, level), simplified, description, null, false);
+		}
 		if (track.sideQuest == null && !known && word != null && !track.hintUsed) {
 			track.sideQuest = SideQuest.start(word, catalog);
 			track.hintUsed = true;

@@ -30,6 +30,8 @@ public final class QuestStep {
 	private final Bonus bonus;
 	/** Key prefix of this step's text in the lang files; null for a step built in code. */
 	private final String textKey;
+	/** A "find the 돌" step: only the Korean is shown, no icon and no translation. */
+	private final boolean reverse;
 
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String hintKo, String hintDe, Bonus bonus) {
@@ -39,13 +41,20 @@ public final class QuestStep {
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String clueEn,
 					 String hintKo, String hintDe, String hintEn, Bonus bonus) {
-		this(id, teach, goal, conditions, clueKo, clueDe, clueEn, hintKo, hintDe, hintEn, bonus, null);
+		this(id, teach, goal, conditions, clueKo, clueDe, clueEn, hintKo, hintDe, hintEn, bonus, null, false);
+	}
+
+	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
+					 String clueKo, String clueDe, String clueEn,
+					 String hintKo, String hintDe, String hintEn, Bonus bonus, String textKey) {
+		this(id, teach, goal, conditions, clueKo, clueDe, clueEn, hintKo, hintDe, hintEn, bonus, textKey, false);
 	}
 
 	/** The canonical constructor: every field, including the key prefix of the lang texts. */
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String clueEn,
-					 String hintKo, String hintDe, String hintEn, Bonus bonus, String textKey) {
+					 String hintKo, String hintDe, String hintEn, Bonus bonus, String textKey,
+					 boolean reverse) {
 		this.id = id;
 		this.teach = teach == null ? List.of() : List.copyOf(teach);
 		this.goal = goal;
@@ -58,6 +67,7 @@ public final class QuestStep {
 		this.hintEn = hintEn;
 		this.bonus = bonus;
 		this.textKey = textKey;
+		this.reverse = reverse;
 	}
 
 	public String id() {
@@ -106,6 +116,11 @@ public final class QuestStep {
 		return bonus;
 	}
 
+	/** True for a reverse step: the player recognises the target from its Korean name alone. */
+	public boolean reverse() {
+		return reverse;
+	}
+
 	/** Prefix of this step's keys in the lang files; null for a step that only has inline text. */
 	public String textKey() {
 		return textKey;
@@ -141,19 +156,25 @@ public final class QuestStep {
 	/** Copy carrying inline English texts. */
 	public QuestStep withEnglish(String englishClue, String englishHint) {
 		return new QuestStep(id, teach, goal, conditions, clueKo, clueDe, englishClue,
-				hintKo, hintDe, englishHint, bonus, textKey);
+				hintKo, hintDe, englishHint, bonus, textKey, reverse);
 	}
 
 	/** Copy whose lang texts are looked up under this key prefix. */
 	public QuestStep withTextKey(String prefix) {
 		return new QuestStep(id, teach, goal, conditions, clueKo, clueDe, clueEn,
-				hintKo, hintDe, hintEn, bonus, prefix);
+				hintKo, hintDe, hintEn, bonus, prefix, reverse);
 	}
 
 	/** Copy under another step id; the text keys belong to the old id, so they are not carried over. */
 	public QuestStep withId(String newId) {
 		return new QuestStep(newId, teach, goal, conditions, clueKo, clueDe, clueEn,
-				hintKo, hintDe, hintEn, bonus, null);
+				hintKo, hintDe, hintEn, bonus, null, reverse);
+	}
+
+	/** Copy with the reverse flag set. */
+	public QuestStep withReverse(boolean value) {
+		return new QuestStep(id, teach, goal, conditions, clueKo, clueDe, clueEn,
+				hintKo, hintDe, hintEn, bonus, textKey, value);
 	}
 
 	private static String nullToEmpty(String value) {

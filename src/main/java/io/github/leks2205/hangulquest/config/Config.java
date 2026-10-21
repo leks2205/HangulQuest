@@ -15,8 +15,8 @@ import java.nio.file.Path;
 public final class Config {
 	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
 
-	/** 3 added {@code retention} and {@code newWordsPerDay}. */
-	public static final int CURRENT_VERSION = 3;
+	/** 3 added {@code retention} and {@code newWordsPerDay}; 4 added {@code typedCards}. */
+	public static final int CURRENT_VERSION = 4;
 	public static final double MIN_RETENTION = 0.80;
 	public static final double MAX_RETENTION = 0.95;
 	public static final double DEFAULT_RETENTION = 0.88;
@@ -62,6 +62,8 @@ public final class Config {
 	public double retention = DEFAULT_RETENTION;
 	/** New words introduced for study per study day: 5, 10 or 15. */
 	public int newWordsPerDay = DEFAULT_NEW_WORDS;
+	/** Review cards that ask for a typed Korean answer. Off for players who cannot type Korean comfortably. */
+	public boolean typedCards = true;
 
 	// Hangul welcome screen (see WelcomePolicy)
 	/** True once the player confirmed, opted out, or the reminder was used up. */
@@ -130,6 +132,11 @@ public final class Config {
 		JsonElement newWords = raw.get("newWordsPerDay");
 		if (newWords == null || !newWords.isJsonPrimitive() || !newWords.getAsJsonPrimitive().isNumber()) {
 			loaded.newWordsPerDay = DEFAULT_NEW_WORDS;
+		}
+		// Version 3 and older have no typedCards; a missing or broken value means on, the default.
+		JsonElement typed = raw.get("typedCards");
+		if (typed == null || !typed.isJsonPrimitive() || !typed.getAsJsonPrimitive().isBoolean()) {
+			loaded.typedCards = true;
 		}
 		loaded.sanitize();
 		return loaded;
