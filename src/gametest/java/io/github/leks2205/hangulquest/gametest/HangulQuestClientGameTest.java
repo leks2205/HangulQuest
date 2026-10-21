@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.WelcomeScreen;
+import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
@@ -38,6 +39,13 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		context.getInput().pressKey(InputConstants.KEY_K);
 		context.waitForScreen(JournalScreen.class);
 		context.takeScreenshot(shot("02-journal", shots));
+		closeScreen(context);
+
+		// A review card opens in its own screen and closes without recording anything.
+		context.runOnClient(mc -> HangulQuestClient.get().hud().selftestStartQuiz(WORD));
+		context.waitForScreen(QuizScreen.class);
+		context.waitTicks(5);
+		context.takeScreenshot(shot("02b-card", shots));
 		closeScreen(context);
 
 		// Progress made in this session ...
