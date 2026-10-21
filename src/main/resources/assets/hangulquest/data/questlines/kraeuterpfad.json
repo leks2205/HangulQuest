@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "kraeuterpfad",
- "titleKo": "빵과 꽃의 길",
+ "titleKo": "꽃과 감자의 길",
  "topic": "음식",
  "tier": 2,
  "order": 43,
  "concepts": [
-  "gen_end_stone_brick_slab",
-  "gen_chiseled_polished_blackstone",
-  "gen_enchanted_golden_apple"
+  "flower",
+  "potato",
+  "adv2_item_baked_potato"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -21,23 +21,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_stone_brick_slab"
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_stone_brick_slab",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:poppy",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
+   },
+   "clue": {
+    "ko": "해가 떠요. 울타리 옆에 꽃을 심어요."
+   },
+   "hint": {
+    "ko": "울타리 옆에 꽃을 심어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_polished_blackstone"
+    "potato"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:chiseled_polished_blackstone",
-    "dwellMs": 600
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:potato",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "potato"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "input": "minecraft:potato",
+    "output": "minecraft:baked_potato",
+    "count": 1
    }
   }
  ],
@@ -45,23 +71,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_enchanted_golden_apple"
+    "adv2_item_baked_potato"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:enchanted_golden_apple",
+    "item": "minecraft:baked_potato",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:poppy"
+    }
+   ]
   },
-  "textKo": "마법이 부여된 황금 사과를 먹었어요."
+  "textKo": "양귀비 옆에서 구운 감자를 먹었어요."
  },
  "reward": {
   "badge": "kraeuterpfad",
   "words": [
-   "wheat",
    "flower",
-   "bread"
+   "potato",
+   "adv2_item_baked_potato"
   ]
  },
  "koreanLevel": 1

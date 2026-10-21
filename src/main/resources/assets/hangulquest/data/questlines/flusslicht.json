@@ -1,16 +1,15 @@
 {
  "schema": 1,
  "id": "flusslicht",
- "titleKo": "강빛의 길",
+ "titleKo": "종이와 책의 길",
  "topic": "물",
  "tier": 2,
  "order": 45,
  "concepts": [
-  "gen_mangrove_swamp",
-  "fish",
-  "fishing_rod",
-  "gen_waxed_exposed_chiseled_copper",
-  "gen_copper_torch"
+  "river",
+  "planks",
+  "paper",
+  "book"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,76 +22,95 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_swamp"
+    "river"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:mangrove_swamp",
+    "biome": "#minecraft:is_river",
     "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "fish",
-    "fishing_rod"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cod",
-    "count": 1
-   },
-   "clue": {
-    "ko": "낚싯대로 물고기를 잡아요."
-   },
-   "hint": {
-    "ko": "낚싯대는 나무와 실로 만들어요. 물고기를 잡아요."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_waxed_exposed_chiseled_copper"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_chiseled_copper",
-    "count": 2
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:oak_planks",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "paper"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:paper",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "book"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:book",
+    "count": 1,
+    "with": [
+     "minecraft:paper"
+    ]
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_copper_torch"
+    "book"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_torch",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "HOLD_WHILE",
+    "item": "minecraft:book",
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    },
+    "seconds": 10
+   }
   },
-  "textKo": "밤에 구리 횃불을 놓았어요."
+  "textKo": "책을 들고 강에서 걸었어요."
  },
  "reward": {
   "badge": "flusslicht",
   "words": [
    "river",
-   "fish",
-   "torch"
+   "planks",
+   "paper",
+   "book"
   ]
  },
  "koreanLevel": 1

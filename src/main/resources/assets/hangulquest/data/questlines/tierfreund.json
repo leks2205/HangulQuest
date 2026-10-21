@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "tierfreund",
- "titleKo": "동물 친구의 길",
+ "titleKo": "소와 우유의 길",
  "topic": "동물",
  "tier": 1,
  "order": 31,
  "concepts": [
-  "gen_trader_llama",
-  "gen_stray",
-  "gen_donkey"
+  "cow",
+  "bucket",
+  "milk"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -19,47 +19,98 @@
   {
    "id": "s1",
    "teach": [
-    "gen_trader_llama"
+    "cow"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:trader_llama",
+    "entity": "minecraft:cow",
     "dwellMs": 800
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stray"
+    "bucket"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:stray",
-    "dwellMs": 800
+    "type": "CRAFT",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "clue": {
+    "ko": "소가 우유를 줘요. 양동이를 만들어요."
+   },
+   "hint": {
+    "ko": "양동이를 만들어요."
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cow"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_donkey"
+    "cow"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:donkey",
-    "dwellMs": 800
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:cow"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "당나귀를 바라봤어요."
+  "textKo": "낮에 소에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "tierfreund",
   "words": [
    "cow",
-   "chicken",
-   "sheep"
+   "bucket",
+   "milk"
   ]
  },
  "koreanLevel": 1

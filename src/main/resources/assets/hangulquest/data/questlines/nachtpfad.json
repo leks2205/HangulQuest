@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "nachtpfad",
- "titleKo": "밤의 길",
+ "titleKo": "해와 달의 길",
+ "topic": "밤",
  "tier": 1,
+ "order": 50,
  "concepts": [
-  "torch",
-  "moon",
+  "clock",
   "night",
-  "bed",
-  "gen_pale_oak_hanging_sign"
+  "book",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -18,60 +19,43 @@
   {
    "id": "s1",
    "teach": [
-    "torch",
-    "moon",
-    "night"
+    "clock"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:torch",
-    "count": 2
-   },
-   "clue": {
-    "ko": "횃불을 두 개 모아요."
-   },
-   "hint": {
-    "ko": "횃불을 만들어요. 달과 밤을 밝혀요."
+    "type": "CRAFT",
+    "item": "minecraft:clock",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "torch"
+    "clock",
+    "night"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:torch",
-    "dwellMs": 400
-   },
-   "conditions": [
-    {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:clock",
+    "inner": {
      "type": "TIME",
      "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "ko": "밤에 횃불을 1초 동안 바라봐요."
+    },
+    "seconds": 10
    },
    "hint": {
-    "ko": "횃불을 봐요."
+    "ko": "시계를 들고 밤에 걸어요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bed"
+    "book"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_bed",
+    "type": "PUT_IN",
+    "item": "minecraft:book",
+    "container": "minecraft:chest",
     "count": 1
-   },
-   "clue": {
-    "ko": "침대를 하나 만들어요."
-   },
-   "hint": {
-    "ko": "침대를 만들어요."
    }
   }
  ],
@@ -79,12 +63,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_hanging_sign"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_hanging_sign",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:red_bed"
    },
    "conditions": [
     {
@@ -93,18 +76,16 @@
     }
    ]
   },
-  "textKo": "밤에 창백한 참나무 매다는 표지판을 걸었어요."
+  "textKo": "밤에 침대에서 잤어요. 시계를 봤어요. 이제 해가 떠요."
  },
  "reward": {
   "badge": "nachtpfad",
   "words": [
-   "torch",
-   "bed",
-   "moon",
-   "night"
+   "clock",
+   "night",
+   "book",
+   "bed"
   ]
  },
- "order": 50,
- "koreanLevel": 1,
- "topic": "밤"
+ "koreanLevel": 1
 }

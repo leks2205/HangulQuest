@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "id": "steinpfad",
- "titleKo": "돌의 길",
+ "titleKo": "돌과 불의 길",
+ "topic": "돌",
  "tier": 1,
+ "order": 10,
  "concepts": [
-  "stone",
-  "cobblestone",
   "coal",
-  "gen_black_banner"
+  "cobblestone",
+  "torch"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -17,18 +18,18 @@
   {
    "id": "s1",
    "teach": [
-    "stone"
+    "coal"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone",
-    "count": 3
+    "block": "minecraft:coal_ore",
+    "count": 2
    },
    "clue": {
-    "ko": "회색 돌을 세 개 캐요."
+    "ko": "해가 떠요. 석탄을 두 개 캐요."
    },
    "hint": {
-    "ko": "돌을 캐요. 세 개요."
+    "ko": "석탄을 캐요."
    }
   },
   {
@@ -37,32 +38,27 @@
     "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cobblestone",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone",
+    "size": 3
    },
    "clue": {
-    "ko": "조약돌을 세 개 놓아요."
+    "ko": "돌을 캐요. 조약돌 세 개로 기둥을 쌓아요."
    },
    "hint": {
-    "ko": "조약돌을 놓아요."
+    "ko": "조약돌로 기둥을 쌓아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "coal"
+    "torch"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "type": "CRAFT",
+    "item": "minecraft:torch",
     "count": 1
-   },
-   "clue": {
-    "ko": "반짝이는 검은 석탄을 캐요."
-   },
-   "hint": {
-    "ko": "석탄을 캐요."
    }
   }
  ],
@@ -70,12 +66,14 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_black_banner"
+    "torch"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:black_banner",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone"
    },
    "conditions": [
     {
@@ -84,18 +82,15 @@
     }
    ]
   },
-  "textKo": "밤에 검은색 현수막을 걸었어요."
+  "textKo": "밤에 조약돌 기둥 위에 횃불을 놓았어요."
  },
  "reward": {
   "badge": "steinpfad",
   "words": [
-   "stone",
-   "cobblestone",
    "coal",
+   "cobblestone",
    "torch"
   ]
  },
- "order": 10,
- "koreanLevel": 1,
- "topic": "돌"
+ "koreanLevel": 1
 }

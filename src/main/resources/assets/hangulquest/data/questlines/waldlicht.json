@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "waldlicht",
- "titleKo": "숲빛의 길",
+ "titleKo": "유리와 초의 길",
  "topic": "나무",
  "tier": 3,
  "order": 46,
  "concepts": [
   "glass",
-  "gen_lime_wool_slab",
-  "gen_jungle_fence_gate",
-  "gen_orange_stained_glass"
+  "candle",
+  "door"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -26,66 +25,64 @@
     "glass"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:glass",
-    "count": 3
+    "type": "SMELT",
+    "input": "minecraft:sand",
+    "output": "minecraft:glass",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_wool_slab"
+    "glass"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:lime_wool_slab",
-    "dwellMs": 600
+    "type": "PLACE_REL",
+    "block": "minecraft:glass",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_jungle_fence_gate"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_fence_gate",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_REL",
+    "block": "minecraft:candle",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_stained_glass"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_stained_glass",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_door"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "ROOFED"
     }
    ]
   },
-  "textKo": "밤에 주황색 색유리를 놓았어요."
+  "textKo": "지붕 아래에서 참나무 문을 열었어요."
  },
  "reward": {
   "badge": "waldlicht",
   "words": [
-   "log",
-   "flower",
-   "torch"
+   "glass",
+   "candle",
+   "door"
   ]
  },
  "koreanLevel": 1
