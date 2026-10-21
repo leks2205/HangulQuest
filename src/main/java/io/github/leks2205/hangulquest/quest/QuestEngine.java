@@ -250,6 +250,16 @@ public final class QuestEngine {
 
 	// --------------------------------------------------------------------- tick
 
+	/**
+	 * True when the step that was completed last needed creative or spectator mode to progress.
+	 * Valid inside the {@link Feedback} callbacks of that completion; learning grades should skip it.
+	 */
+	private boolean lastCompletionAssisted;
+
+	public boolean lastCompletionAssisted() {
+		return lastCompletionAssisted;
+	}
+
 	public void tick(Observation obs, Feedback feedback) {
 		lastObs = obs;
 		if (tracks.isEmpty()) {
@@ -274,6 +284,7 @@ public final class QuestEngine {
 			long beforeDwell = track.tracker.dwellMs;
 			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, track.tracker);
 			if (complete) {
+				lastCompletionAssisted = track.tracker.assisted;
 				completeStep(track, obs, feedback);
 				dirty = true;
 			} else if (track.tracker.count > beforeCount || track.tracker.dwellMs > beforeDwell) {

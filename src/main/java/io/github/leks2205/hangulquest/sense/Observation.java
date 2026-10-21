@@ -39,11 +39,15 @@ public final class Observation {
 	public String lookedBlock;
 	public String lookedEntity;
 	public String lookedEntityUuid;
+	/** Where the looked-at block is, so NEAR_BLOCK can honour its radius. Null when unknown. */
+	public BlockPos lookedBlockPos;
 	public int hostilesNear;
 	public double nearestHostileDistance = 999;
 
 	public Map<String, Integer> inventory = new HashMap<>();
 	public Map<String, Integer> nearbyEntities = new HashMap<>();
+	/** Distance to the closest entity of each type in {@link #nearbyEntities}; transient, never persisted. */
+	public Map<String, Double> nearestEntityDistance = new HashMap<>();
 	public List<String> brokenBlocks = new ArrayList<>();
 	public List<String> placedBlocks = new ArrayList<>();
 	public List<String> usedBlocks = new ArrayList<>();
@@ -65,6 +69,28 @@ public final class Observation {
 	public List<String> attackedEntities = new ArrayList<>();
 	public List<String> defeatedEntities = new ArrayList<>();
 	public List<String> interactedEntities = new ArrayList<>();
+
+	/**
+	 * Set by the goal evaluator while some tracked step needs a long-range look at an entity, so the
+	 * sensor only does its own camera pick when it is worth it. Read on the following tick.
+	 */
+	public boolean farEntityLookWanted;
+	/**
+	 * True for the first moments after joining or leaving a world: the inventory is still being
+	 * synced, so a rise in item counts is not a gain made by the player.
+	 */
+	public boolean inventorySettling;
+
+	/** Creative and spectator progress counts, but must not feed learning grades. */
+	public boolean assisted() {
+		return creative || spectator;
+	}
+
+	/** Records one nearby entity of this type and keeps the closest distance. */
+	public void addNearby(String id, double distance) {
+		nearbyEntities.merge(id, 1, Integer::sum);
+		nearestEntityDistance.merge(id, distance, Math::min);
+	}
 
 	public Condition.Phase phase() {
 		long time = clockTime % 24000L;
