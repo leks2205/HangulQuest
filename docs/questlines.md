@@ -14,8 +14,7 @@ python3 tools/new_questline.py steinpfad2 --words stone,cobblestone --tier 1 \
 ./gradlew test
 ```
 
-The script writes the file and refreshes `index.json`. The build regenerates the index during
-`processResources` anyway, so `index.json` is never maintained by hand.
+The script writes the file. The mod finds questline files by listing the folder, so there is no index to maintain.
 
 ## The external folder (no restart)
 

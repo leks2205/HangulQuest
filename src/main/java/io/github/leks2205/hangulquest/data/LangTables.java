@@ -85,6 +85,11 @@ public final class LangTables {
 		return load(mc.getResourceManager(), Lang.current());
 	}
 
+	/** Used by the off-thread content loader; reads the interface language once. */
+	public static LangTables load(ResourceManager manager) {
+		return load(manager, Lang.current());
+	}
+
 	/** Loads Korean, English, German and the language of the interface, whichever exist. */
 	static LangTables load(ResourceManager manager, Lang interfaceLanguage) {
 		Map<String, Map<String, String>> tables = new HashMap<>();

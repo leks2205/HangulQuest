@@ -3,19 +3,19 @@ package io.github.leks2205.hangulquest;
 import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.config.WelcomePolicy;
 import io.github.leks2205.hangulquest.data.Catalog;
-import io.github.leks2205.hangulquest.data.Concept;
-import io.github.leks2205.hangulquest.data.ConceptLoader;
-import io.github.leks2205.hangulquest.data.LangTables;
-import io.github.leks2205.hangulquest.data.LuteCsv;
-import io.github.leks2205.hangulquest.data.LuteImport;
+import io.github.leks2205.hangulquest.content.Background;
+import io.github.leks2205.hangulquest.content.Content;
+import io.github.leks2205.hangulquest.content.ContentLoader;
+import io.github.leks2205.hangulquest.content.ContentReloadListener;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.quest.AdaptiveTrailGenerator;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
-import io.github.leks2205.hangulquest.quest.QuestLoader;
+import io.github.leks2205.hangulquest.quest.OverlayReloader;
 import io.github.leks2205.hangulquest.quest.QuestlineStore;
+import io.github.leks2205.hangulquest.quest.QuestlineWatcher;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.sense.EnvironmentSensor;
@@ -30,6 +30,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
@@ -42,6 +43,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FontDescription;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -70,7 +72,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private final Minecraft mc = Minecraft.getInstance();
 	private Path dir;
 	private Path questlineDir;
-	private long questlineSnapshot;
+	private OverlayReloader<QuestValidator.Result> overlayReloader;
+	private QuestlineWatcher watcher;
+	private final java.util.concurrent.atomic.AtomicBoolean loading = new java.util.concurrent.atomic.AtomicBoolean();
+	private boolean contentFailed;
+	private boolean failureBannerPending;
 	private Config config;
 	private ProgressStore store;
 	private Catalog catalog;
@@ -172,6 +178,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		config = Config.load(dir.resolve("config.json"));
 		io.github.leks2205.hangulquest.util.Lang.set(config.language);
 		store = new ProgressStore(io.github.leks2205.hangulquest.learn.ProfilePaths.open(dir, accountId(), LOG), LOG);
+		questlineDir = dir.resolve("questlines");
 		hud = new HudController(this);
 		hud.register();
 		sensor = new EnvironmentSensor();
@@ -193,11 +200,17 @@ public final class HangulQuestClient implements ClientModInitializer {
 			sensor.reset();
 		});
 		ClientLifecycleEvents.CLIENT_STOPPING.register(client -> {
+			if (watcher != null) {
+				watcher.close();
+			}
 			if (store != null) {
 				store.flush();
 			}
 			saveConfig();
 		});
+		// Concepts, language tables and trails load with every resource reload (start-up, F3+T).
+		ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloadListener(id("content"),
+				new ContentReloadListener(this::contentInputs, this::publish, LOG));
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 		ItemTooltipCallback.EVENT.register(this::addTooltip);
 
@@ -479,45 +492,70 @@ public final class HangulQuestClient implements ClientModInitializer {
 				.append(Component.literal(" · " + found.gloss(io.github.leks2205.hangulquest.util.Lang.current())).withStyle(ChatFormatting.GRAY))));
 	}
 
-	/**
-	 * Loads the catalog, learning service and quest engine. Everything is built into locals and
-	 * published together, so a failure never leaves half the services set. A failed load is retried
-	 * with a growing delay; the stack trace is logged and the player told once.
-	 */
+	/** True once the content is published; after a failed first load, retries with a growing delay. */
 	private boolean ensureLoaded() {
 		if (quests != null) {
 			return true;
 		}
-		if (mc.getResourceManager() == null) {
-			return false;
+		if (failureBannerPending && hud != null) {
+			failureBannerPending = false;
+			hud.banner("콘텐츠를 불러오지 못했어요.",
+					io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.hud.load_failed"), false);
 		}
+		if (contentFailed && loadBackoff.mayAttempt(System.currentTimeMillis())) {
+			reloadContent();
+		}
+		return false;
+	}
+
+	private ContentLoader.Inputs contentInputs() {
+		Path luteFile = dir.resolve("vocab").resolve("lute-vocab.csv");
+		return new ContentLoader.Inputs(questlineDir, config.luteImport ? luteFile : null);
+	}
+
+	/**
+	 * Reloads concepts, language tables and trails without a resource reload: parsed on a
+	 * background thread, published on the main thread. Ignored while another load is running.
+	 */
+	public void reloadContent() {
+		if (!loading.compareAndSet(false, true)) {
+			return;
+		}
+		var manager = mc.getResourceManager();
+		ContentLoader.Inputs inputs = contentInputs();
+		Background.executor().execute(() -> {
+			Content content = ContentLoader.prepare(manager, inputs, LOG);
+			mc.execute(() -> {
+				loading.set(false);
+				publish(content);
+			});
+		});
+	}
+
+	/** Re-reads every file of the local questline folder (not only the changed ones). */
+	public void reloadQuestlines() {
+		OverlayReloader<QuestValidator.Result> reloader = overlayReloader;
+		if (reloader != null) {
+			reloader.requestFull();
+		}
+	}
+
+	/**
+	 * Builds the learning service and quest engine from prepared content and publishes everything
+	 * together, so a failure never leaves half the services set. A failed first load is retried with
+	 * a growing delay; a failed reload keeps what is running.
+	 */
+	private void publish(Content content) {
 		long attemptAt = System.currentTimeMillis();
-		if (!loadBackoff.mayAttempt(attemptAt)) {
-			return false;
-		}
 		try {
-			List<Concept> concepts = ConceptLoader.load();
-			LangTables tables = LangTables.load(mc);
-			LuteImport.Result lute = null;
-			Path luteFile = dir.resolve("vocab").resolve("lute-vocab.csv");
-			if (config.luteImport && Files.exists(luteFile)) {
-				try {
-					lute = LuteImport.importRows(LuteCsv.parseFile(luteFile), concepts);
-				} catch (Exception unreadable) {
-					// A bad vocabulary export must not take the whole mod down with it.
-					LOG.warn("could not import {}, continuing without it: {}", luteFile, unreadable.toString());
-				}
+			if (!content.ok()) {
+				throw new IllegalStateException("content could not be prepared", content.failure());
 			}
-			Catalog builtCatalog = Catalog.build(concepts, tables,
-					lute == null ? List.of() : lute.words());
-			LearningService builtLearn = new LearningService(store.data(), store, builtCatalog);
-			Path builtQuestlineDir = dir.resolve("questlines");
-			QuestlineStore.exportShipped(builtQuestlineDir, LOG);
-			long builtSnapshot = QuestlineStore.snapshot(builtQuestlineDir);
-			QuestValidator.Result validated = QuestValidator.validate(
-					QuestlineStore.loadAll(builtQuestlineDir, LOG), builtCatalog, LOG);
+			var builtCatalog = content.catalog();
+			var lute = content.lute();
+			var builtLearn = new LearningService(store.data(), store, builtCatalog);
 			// Today's review trail must exist before the engine restores, or its progress is dropped.
-			List<Questline> trails = new java.util.ArrayList<>(validated.trails());
+			List<Questline> trails = new java.util.ArrayList<>(content.validated().trails());
 			Questline adaptive = AdaptiveTrailGenerator.restore(builtCatalog,
 					store.data().quests.adaptive, io.github.leks2205.hangulquest.learn.Streak.dayKey(java.time.LocalDateTime.now()));
 			if (adaptive != null) {
@@ -531,8 +569,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 				long now = System.currentTimeMillis();
 				builtLearn.seedFromLute(lute.levels(), lute.known(), now);
 				ProgressData.LuteInfo info = new ProgressData.LuteInfo();
-				info.file = luteFile.getFileName().toString();
-				info.mtime = Files.getLastModifiedTime(luteFile).toMillis();
+				info.file = content.luteFile().getFileName().toString();
+				info.mtime = Files.getLastModifiedTime(content.luteFile()).toMillis();
 				info.imported = lute.words().size();
 				info.skipped = lute.skipped();
 				info.phrases = lute.phrases();
@@ -540,48 +578,62 @@ public final class HangulQuestClient implements ClientModInitializer {
 				store.data().vocab.luteImport = info;
 				store.markDirty();
 			}
-			questlineDir = builtQuestlineDir;
-			questlineSnapshot = builtSnapshot;
 			catalog = builtCatalog;
 			learn = builtLearn;
 			quests = builtQuests;
+			contentFailed = false;
+			failureBannerPending = false;
 			loadBackoff.succeeded();
-			LOG.info("questline folder: {} ({} trail files)", questlineDir,
-					QuestlineStore.fileCount(questlineDir));
+			watchQuestlines(content);
 			writeVocabReadme();
-			LOG.info("catalog: {} words ({} curated), {} questlines", catalog.size(), concepts.size(),
-					validated.trails().size());
-			return true;
+			LOG.info("catalog: {} words ({} curated), {} questlines, overlay folder {} ({} files)",
+					catalog.size(), content.concepts().size(), content.validated().trails().size(),
+					questlineDir, QuestlineStore.fileCount(questlineDir));
 		} catch (Exception failed) {
+			if (quests != null) {
+				LOG.warn("content reload failed, keeping the loaded content", failed);
+				return;
+			}
+			contentFailed = true;
 			boolean first = loadBackoff.failed(attemptAt);
 			if (first) {
 				LOG.error("could not initialise hangulquest content, retrying in {} s",
 						LoadBackoff.DELAYS_MS[0] / 1000, failed);
-				hud.banner("콘텐츠를 불러오지 못했어요.",
-						io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.hud.load_failed"), false);
+				failureBannerPending = true;
 			} else {
 				LOG.warn("hangulquest content still not loading (attempt {}), next try in {} s: {}",
 						loadBackoff.failures(), loadBackoff.waitMs(attemptAt) / 1000, failed.toString());
 			}
-			return false;
 		}
 	}
 
-	/** Re-reads config/hangulquest/questlines when a file was added or changed. */
-	public void reloadQuestlinesIfChanged(Observation obs) {
-		if (questlineDir == null || quests == null) {
+	/** Points the overlay reloader at the new content; the folder watcher starts once and stays. */
+	private void watchQuestlines(Content content) {
+		if (overlayReloader != null) {
+			overlayReloader.close();
+		}
+		var builtCatalog = content.catalog();
+		overlayReloader = new OverlayReloader<>(questlineDir, content.overlay(),
+				content.shipped().trails(), trails -> QuestValidator.validate(trails, builtCatalog, LOG),
+				Background.executor(), mc::execute, this::applyOverlay, LOG);
+		if (watcher == null) {
+			watcher = QuestlineWatcher.start(questlineDir, QuestlineWatcher.DEBOUNCE_MS, () -> {
+				OverlayReloader<QuestValidator.Result> reloader = overlayReloader;
+				if (reloader != null) {
+					reloader.request();
+				}
+			}, LOG);
+		}
+	}
+
+	/** Main thread: swaps in the trails after a change in the local folder. */
+	private void applyOverlay(QuestValidator.Result validated) {
+		if (quests == null) {
 			return;
 		}
-		long snapshot = QuestlineStore.snapshot(questlineDir);
-		if (snapshot == questlineSnapshot) {
-			return;
-		}
-		questlineSnapshot = snapshot;
-		QuestValidator.Result validated = QuestValidator.validate(
-				QuestlineStore.loadAll(questlineDir, LOG), catalog, LOG);
 		quests.replaceTrails(validated.trails());
 		if (quests.activeTrail() == null) {
-			quests.autoStart(obs, hud);
+			pendingAutoStart = true;
 		}
 		int count = validated.trails().size();
 		LOG.info("questlines reloaded: {} trails, {} problems", count, validated.problems().size());
@@ -625,13 +677,16 @@ public final class HangulQuestClient implements ClientModInitializer {
 		try {
 			Files.createDirectories(vocabDir);
 			Files.writeString(readme, """
-					Lute-Import für 한글 탐험
-					=======================
+					Lute import for 한글 탐험 (Hangul Quest)
+					=====================================
 
-					Lege hier eine Lute-CSV ab (Term;Übersetzung;Aussprache;Status;Tags).
-					Der Mod liest sie beim Start und übernimmt Status 1–5 sowie 99 (bekannt).
-					Status 0 wird ignoriert. Neu importieren: Optionen → Lute-Import aus/an.
-					Die Datei wird nie verändert.
+					Put a Lute CSV export here as lute-vocab.csv (term;translation;pronunciation;status;tags).
+					The mod reads it at start and takes over statuses 1–5 and 99 (known); status 0 is ignored.
+					To import again, switch the Lute import off and on in the journal settings.
+					The file is never changed.
+
+					Deutsch: Lege hier einen Lute-CSV-Export als lute-vocab.csv ab. Der Mod liest ihn beim Start
+					und verändert die Datei nie.
 					""");
 		} catch (IOException failed) {
 			LOG.warn("could not write vocab README: {}", failed.toString());

@@ -172,17 +172,6 @@ def pick_finale(trail_id: str, trails: dict[str, dict], parents: list[str], own_
     return pool[zlib.crc32(trail_id.encode("utf-8")) % len(pool)], warnings
 
 
-def refresh_index() -> None:
-    names = sorted(
-        name
-        for name in os.listdir(TRAILS)
-        if name.endswith(".json") and not name.startswith("_") and name != "index.json"
-    )
-    with open(os.path.join(TRAILS, "index.json"), "w", encoding="utf-8") as handle:
-        json.dump(names, handle, ensure_ascii=False, indent=1)
-        handle.write("\n")
-
-
 def build(args: argparse.Namespace, concepts: dict, trails: dict[str, dict]) -> tuple[dict, list[str]]:
     ids = [part.strip() for part in args.words.split(",") if part.strip()]
     missing = [concept for concept in ids if concept not in concepts]
@@ -313,8 +302,6 @@ def main() -> int:
     with open(out, "w", encoding="utf-8") as handle:
         json.dump(trail, handle, ensure_ascii=False, indent=1)
         handle.write("\n")
-    if out_dir == TRAILS:
-        refresh_index()
     print(f"wrote {out}")
     for warning in warnings:
         print(f"warning: {warning}", file=sys.stderr)

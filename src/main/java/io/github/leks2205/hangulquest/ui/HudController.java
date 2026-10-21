@@ -42,7 +42,6 @@ public final class HudController implements QuestEngine.Feedback {
 	private final Minecraft mc = Minecraft.getInstance();
 
 	private final Celebration celebration = new Celebration();
-	private int questReloadTicks;
 	private List<Questline> nextChoices = List.of();
 	private long nextChoicesUntil;
 	private Word wordCard;
@@ -88,10 +87,6 @@ public final class HudController implements QuestEngine.Feedback {
 		tickCount++;
 		if (hq.quests() == null || hq.learn() == null) {
 			return;
-		}
-		if (++questReloadTicks >= 40) {
-			questReloadTicks = 0;
-			hq.reloadQuestlinesIfChanged(obs);
 		}
 		long now = System.currentTimeMillis();
 		celebration.tickParticles(mc, now);

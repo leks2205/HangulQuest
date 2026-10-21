@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Checks that the questline index matches the questline files, and that the jar ships them all.
+"""Checks the questline files, and that the jar ships them all.
 
-The old CI check was `at least 414 questline files in the jar`, a number that had to be edited by
-hand and let a half-empty jar through. Now the files on disk are the source of truth:
+The game finds questlines by listing the resource folder, so there is no index file any more.
+The files on disk are the source of truth:
 
-  * every `questlines/*.json` (except `index.json` and `_*.json` templates) is listed in the source
-    `index.json`, and nothing else is;
-  * with --jar, the index inside the built jar lists the same files and the jar contains each one.
+  * every `questlines/*.json` (except `index.json` and `_*.json` templates) parses and has an
+    "id" that matches nothing else (no two files share a trail id);
+  * with --jar, the jar contains exactly those files.
+
+The script keeps its old name because CI calls it.
 
     python3 tools/check_questline_index.py [--jar build/libs/hangulquest-X.jar]
 """
@@ -23,8 +25,12 @@ SOURCE = ROOT / "src" / "main" / "resources" / "assets" / "hangulquest" / "data"
 IN_JAR = "assets/hangulquest/data/questlines/"
 
 
+def is_trail(name: str) -> bool:
+    return name.endswith(".json") and name != "index.json" and not name.startswith("_")
+
+
 def source_files() -> list[str]:
-    return sorted(p.name for p in SOURCE.glob("*.json") if p.name != "index.json" and not p.name.startswith("_"))
+    return sorted(p.name for p in SOURCE.glob("*.json") if is_trail(p.name))
 
 
 def compare(label: str, expected: list[str], actual: list[str]) -> list[str]:
@@ -34,9 +40,27 @@ def compare(label: str, expected: list[str], actual: list[str]) -> list[str]:
     if missing:
         problems.append(f"{label}: missing {len(missing)} file(s): {', '.join(missing[:8])}{' ...' if len(missing) > 8 else ''}")
     if extra:
-        problems.append(f"{label}: {len(extra)} entr(ies) without a source file: {', '.join(extra[:8])}{' ...' if len(extra) > 8 else ''}")
+        problems.append(f"{label}: {len(extra)} file(s) without a source file: {', '.join(extra[:8])}{' ...' if len(extra) > 8 else ''}")
     if len(actual) != len(set(actual)):
         problems.append(f"{label}: duplicate entries")
+    return problems
+
+
+def check_ids(files: list[str]) -> list[str]:
+    problems = []
+    seen: dict[str, str] = {}
+    for name in files:
+        try:
+            trail_id = json.loads((SOURCE / name).read_text(encoding="utf-8")).get("id")
+        except (ValueError, AttributeError) as broken:
+            problems.append(f"{name}: not a questline object ({broken})")
+            continue
+        if not isinstance(trail_id, str) or not trail_id.strip():
+            problems.append(f"{name}: no \"id\"")
+        elif trail_id in seen:
+            problems.append(f"{name}: id \"{trail_id}\" is also used by {seen[trail_id]}")
+        else:
+            seen[trail_id] = name
     return problems
 
 
@@ -46,24 +70,20 @@ def main(argv: list[str]) -> int:
     args = parser.parse_args(argv)
 
     files = source_files()
-    problems = compare("source index.json", files, json.loads((SOURCE / "index.json").read_text(encoding="utf-8")))
+    problems = check_ids(files)
     print(f"{len(files)} questline files on disk")
 
     if args.jar:
         with zipfile.ZipFile(args.jar) as jar:
-            names = jar.namelist()
-            jar_index = json.loads(jar.read(IN_JAR + "index.json").decode("utf-8"))
-            in_jar = sorted(n[len(IN_JAR):] for n in names
-                            if n.startswith(IN_JAR) and n.endswith(".json") and "/" not in n[len(IN_JAR):]
-                            and n != IN_JAR + "index.json" and not n[len(IN_JAR):].startswith("_"))
-        problems += compare("jar index.json", files, jar_index)
+            in_jar = sorted(n[len(IN_JAR):] for n in jar.namelist()
+                            if n.startswith(IN_JAR) and "/" not in n[len(IN_JAR):] and is_trail(n[len(IN_JAR):]))
         problems += compare("jar contents", files, in_jar)
-        print(f"{len(in_jar)} questline files in the jar, {len(jar_index)} in its index")
+        print(f"{len(in_jar)} questline files in the jar")
 
     for problem in problems:
         print("FAIL " + problem)
     if not problems:
-        print("questline index matches the files")
+        print("questline files are consistent")
     return 1 if problems else 0
 
 
