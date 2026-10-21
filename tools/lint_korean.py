@@ -348,8 +348,11 @@ def row_scope(row: dict) -> str:
     return "concepts" if row["id"].startswith("concept.") else "sentences"
 
 
-def lint_rows(rows: list[dict], rules: dict, selected: set[str] | None = None) -> list[dict]:
-    lexicon = Lexicon({r["ko"] for r in rows if r["id"].startswith("concept.") and r["id"].endswith(".ko")
+def lint_rows(rows: list[dict], rules: dict, selected: set[str] | None = None,
+              lexicon_rows: list[dict] | None = None) -> list[dict]:
+    # lexicon_rows lets a caller lint a few rows against the full concept table (see lint_text)
+    source = rows if lexicon_rows is None else lexicon_rows
+    lexicon = Lexicon({r["ko"] for r in source if r["id"].startswith("concept.") and r["id"].endswith(".ko")
                        and HANGUL_RUN.fullmatch(r["ko"].replace(" ", ""))})
     by_id = {r["id"]: r for r in rows}
     ctx = Ctx(rules["lists"], lexicon, by_id)
@@ -373,6 +376,31 @@ def lint_rows(rows: list[dict], rules: dict, selected: set[str] | None = None) -
                     "ko": text, "message": message, "fix": rule["fix"], "allowlisted": False,
                 })
     return findings
+
+
+_CONCEPT_ROWS: list[dict] | None = None
+
+
+def concept_rows() -> list[dict]:
+    """The concept words as lint rows, so a lone sentence is checked against the real noun list."""
+    global _CONCEPT_ROWS
+    if _CONCEPT_ROWS is None:
+        path = DATA_DIR / "concepts.json"
+        data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else []
+        _CONCEPT_ROWS = [{"id": f"concept.{c['id']}.ko", "level": "0", "source": "", "ko": c["ko"], "goal": ""}
+                         for c in data if c.get("ko")]
+    return _CONCEPT_ROWS
+
+
+def lint_text(text: str, row_id: str = "suggestion.clue", level: int | str = "", rules: dict | None = None,
+              goal: str = "") -> list[dict]:
+    """Lint one piece of Korean text with the shipped rules; returns the findings (same shape as lint_rows).
+
+    The scope follows the id the way row_scope does: ids starting with "concept." use the concept
+    rules, everything else the sentence rules. Allowlist entries are not applied.
+    """
+    row = {"id": row_id, "level": str(level), "source": "", "ko": text, "goal": goal}
+    return lint_rows([row], rules or load_rules(), lexicon_rows=concept_rows())
 
 
 def read_rows(path: Path) -> list[dict]:

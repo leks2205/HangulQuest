@@ -1,0 +1,74 @@
+name: 한국어 문장 고치기 제안 / Suggest a Korean correction
+description: 어색하거나 틀린 한국어 문장을 고쳐 주세요. / Fix a Korean line that is wrong or unnatural.
+title: "[Korean] correction: "
+labels: ["korean-review", "korean:correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        고맙습니다! 리뷰 사이트에서 버튼을 눌러 이 양식을 열면 아래 세 칸이 이미 채워져 있어요. 그대로 두고 **고친 문장**과 **이유**만 적어 주세요.
+
+        Thank you! If you came from the review site, the first three fields are already filled in. Leave them as they are and write your **suggested text** and **reason**.
+
+        이 이슈는 공개돼요. 개인 정보는 쓰지 마세요. / This issue is public. Do not post personal details.
+  - type: input
+    id: line-id
+    attributes:
+      label: "문장 번호 / Line id"
+      description: "리뷰 사이트가 채워 줘요. 고치지 마세요. / Filled in by the review site. Do not change it."
+      placeholder: "trail.example.s1.clue"
+    validations:
+      required: true
+  - type: input
+    id: text-hash
+    attributes:
+      label: "확인 코드 / Text hash"
+      description: "리뷰 사이트가 채워 줘요. 고치지 마세요. / Filled in by the review site. Do not change it."
+    validations:
+      required: false
+  - type: input
+    id: current
+    attributes:
+      label: "지금 문장 / Current text"
+      description: "게임에 지금 나오는 문장이에요. / The text the game shows now."
+    validations:
+      required: true
+  - type: input
+    id: suggestion
+    attributes:
+      label: "고친 문장 / Suggested text"
+      description: "이렇게 바꾸면 좋겠어요. 한 줄로 적어 주세요. / One line, the text you would use instead."
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: "이유 / Reason"
+      description: "왜 그렇게 고쳤는지 짧게 적어 주세요. 영어나 한국어 모두 좋아요. / A short reason, in Korean or English."
+    validations:
+      required: true
+  - type: dropdown
+    id: proficiency
+    attributes:
+      label: "한국어 실력 / Your Korean"
+      options:
+        - native (원어민)
+        - fluent (유창함)
+        - teacher (한국어 선생님)
+        - learner (학습자)
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: "크레딧에 쓸 이름 (선택) / Name for the credits (optional)"
+      description: "비워 두면 GitHub 이름을 써요. 이름을 빼고 싶으면 anonymous 라고 적어 주세요. / Leave empty to use your GitHub name. Write anonymous to stay out of the credits."
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "동의 / Agreement"
+      options:
+        - label: "제 제안을 이 프로젝트의 라이선스(MIT)로 써도 좋아요. / My suggestion may be used under the project's MIT licence."
+          required: true

@@ -1,0 +1,21 @@
+# Who must look at a change to the Korean text and to the machinery that judges it.
+# When the project moves to an organisation, add its reviewers team (for example
+# @<org>/korean-reviewers) after the maintainer on these lines, and turn on "Require review from
+# Code Owners" in the branch protection of main.
+
+# Korean text: questlines, vocabulary, verb table
+/src/main/resources/assets/hangulquest/data/questlines/   @leks2205
+/src/main/resources/assets/hangulquest/data/concepts.json @leks2205
+/src/main/resources/assets/hangulquest/data/verbs.json    @leks2205
+/src/main/resources/assets/hangulquest/lang/              @leks2205
+/content/korean/                                          @leks2205
+
+# What decides whether a line is good enough
+/tools/lint/                                              @leks2205
+/tools/lint_korean.py                                     @leks2205
+/tools/review/                                            @leks2205
+/tools/review_site/                                       @leks2205
+/.github/workflows/korean-review-bot.yml                  @leks2205
+/.github/ISSUE_TEMPLATE/korean-*.yml                      @leks2205
+/docs/review/                                             @leks2205
+/README.ko.md                                             @leks2205

@@ -1,0 +1,52 @@
+name: 이 페이지 전체 승인 / Approve a whole review page
+description: 리뷰 사이트의 한 페이지에 있는 문장을 모두 읽었다면 한 번에 승인해 주세요. / Approve every line on one review page at once.
+title: "[Korean] approve page: "
+labels: ["korean-review", "korean:batch-approve"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        페이지에 있는 문장을 **전부 읽고** 자연스럽다고 생각할 때만 눌러 주세요. 어색한 문장이 하나라도 있으면 그 문장에서 **고치기 제안**을 먼저 보내 주세요.
+
+        Use this only after reading **every** line on the page. If one line is wrong, send a correction for it first.
+
+        승인은 만든 지 30일이 지난 GitHub 계정만 세어요. 자기가 쓴 문장은 빠져요. / Only accounts at least 30 days old count; lines you wrote yourself are skipped.
+  - type: input
+    id: page
+    attributes:
+      label: "페이지 / Page"
+      description: "리뷰 사이트가 채워 줘요. 고치지 마세요. / Filled in by the review site. Do not change it."
+    validations:
+      required: true
+  - type: textarea
+    id: lines
+    attributes:
+      label: "문장 목록 / Lines (id@hash)"
+      description: "한 줄에 하나씩이에요. 고치지 마세요. / One per line. Do not change them."
+    validations:
+      required: true
+  - type: dropdown
+    id: proficiency
+    attributes:
+      label: "한국어 실력 / Your Korean"
+      options:
+        - native (원어민)
+        - fluent (유창함)
+        - teacher (한국어 선생님)
+        - learner (학습자)
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: "크레딧에 쓸 이름 (선택) / Name for the credits (optional)"
+      description: "비워 두면 GitHub 이름을 써요. 이름을 빼고 싶으면 anonymous 라고 적어 주세요. / Leave empty to use your GitHub name. Write anonymous to stay out of the credits."
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "확인 / Confirmation"
+      options:
+        - label: "이 페이지의 문장을 모두 읽었고, 모두 자연스러운 한국어라고 생각해요. / I read every line on this page and all of them are natural, correct Korean."
+          required: true

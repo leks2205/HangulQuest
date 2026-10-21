@@ -1,0 +1,94 @@
+name: Korean review bot
+
+# Issue forms from the review site land here. The text of an issue is data: it is read by
+# tools/review/bot.py from the event file and the API, never put into a shell command or a ${{ }}.
+# Only the maintainer labels `accepted`, `rejected` and `recheck` start anything that writes, and the
+# bot checks that the account which added the label has write access.
+
+on:
+  issues:
+    types: [opened, labeled]
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      task:
+        description: What to run
+        type: choice
+        options: [daily, ensure-labels]
+        default: daily
+
+permissions: {}
+
+jobs:
+  triage:
+    name: Check a review issue
+    if: >-
+      github.event_name == 'issues' &&
+      (github.event.action == 'opened' || github.event.label.name == 'recheck')
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      issues: write
+    concurrency:
+      group: korean-review-issue-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Parse, check the line and the hash, lint, label, comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/review/bot.py triage
+
+  accept:
+    name: Apply an accepted correction
+    if: github.event_name == 'issues' && github.event.action == 'labeled' && github.event.label.name == 'accepted'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    concurrency:
+      group: korean-review-write
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open the pull request, or the generator-rule task
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/review/bot.py accept
+
+  daily:
+    name: Daily batch of approvals
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.task == 'daily')
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    concurrency:
+      group: korean-review-write
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect approvals and credits into one pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/review/bot.py daily
+
+  labels:
+    name: Create the review labels
+    if: github.event_name == 'workflow_dispatch' && inputs.task == 'ensure-labels'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/review/bot.py ensure-labels

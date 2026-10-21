@@ -147,3 +147,59 @@ Prefixes in use: `quest:` content, `ui:` interface, `engine:` quest logic, `docs
 
 Be decent. Disagreements about grammar, quest design and Minecraft versions are expected; personal
 attacks, harassment and bigotry are not, and will get a pull request closed and a comment removed.
+
+## Help review Korean
+
+The game shows thousands of Korean lines: quest clues, hints, finale messages, word cards. A linter
+and two AI reviewers check them, but only a person who speaks Korean can say that a line sounds
+natural. You can help without git and without installing anything. A Korean guide is in
+[`docs/review/README.ko.md`](docs/review/README.ko.md).
+
+1. Open the [review site](https://leks2205.github.io/HangulQuest/review/). It shows the Korean first and
+   starts with the lines that matter most (levels 1 and 2, then lines flagged `needs-native`).
+2. Read a line. Press **맞아요 / Looks right**, or **고치기 제안 / Suggest a correction** and write the
+   better line. After reading a whole page you can press **이 페이지 전체 승인 / Approve this page**.
+3. Each button opens a prefilled GitHub issue form (a GitHub account is needed). Leave the prefilled
+   fields as they are, tick the box, submit.
+
+What happens next:
+
+- A bot checks that the line still exists with the same text (every line has a hash, so a form for an
+  older text is answered with the current text), runs the Korean linter on your suggestion and labels
+  the issue.
+- **Approvals** are written to `content/korean/review-status.json` in one pull request per day. An
+  approval counts only from a native, fluent or teacher account at least 30 days old; nobody can
+  approve a line they wrote; one approval per person. A line is *native approved* after two different
+  people approve it, or one **trusted reviewer** (30 accepted suggestions, none reverted, confirmed by
+  the maintainer in `content/korean/reviewers.json`). If the text of a line changes, its approvals
+  and AI verdicts drop and it starts again.
+- **Corrections** wait for the maintainer. With the label `accepted` the bot opens a pull request that
+  changes exactly that one value (JSON pointer) with a `Co-authored-by` credit for you. Many lines are
+  produced by generator rules (`SentenceBuilder`, `verbs.json`); for those the bot opens the task "fix
+  generator rule X (affects N lines)" instead, because a single line cannot be edited by hand.
+- Your name appears on the [credits page](https://leks2205.github.io/HangulQuest/credits.html). Write
+  `anonymous` in the credit field to stay out of it.
+
+Status of a line: `unreviewed` → `lint-ok` → `ai-checked` (Claude and Gemini both said ok) →
+`native-approved`, or `native-flagged`. Lines where an AI said "error" or the two disagreed carry the
+flag `needs-native`. The registry is `content/korean/lines.jsonl` (ids come from the place in the
+source, never from the text).
+
+For maintainers:
+
+```bash
+./gradlew test --offline --tests '*SentenceDumpTest'    # writes build/reports/korean/sentences.tsv
+python3 tools/review/export_lines.py                    # lines.jsonl (add --check in CI)
+python3 tools/review/status.py sync                     # follow text changes, lint, AI verdicts
+python3 tools/review/import_ai.py --reviewer claude review-1.jsonl review-2.jsonl
+python3 tools/review_site/build.py --repo owner/name    # docs/book/book/review/
+python3 tools/review/credits.py                         # credits page and in-game credits.json
+python3 -m unittest discover -s tools/review/tests      # parser, hash check, approvals, site
+```
+
+AI review files are JSONL, one `{"id","verdict":"ok|minor|error","issue","suggestion"}` per line. Set
+the repository once in `--repo` or `REVIEW_REPO` (it is a parameter because the project may move to an
+organisation). One-time setup: run the workflow *Korean review bot* with `ensure-labels`, and allow
+Actions to create pull requests (Settings, Actions, General). Only the maintainer labels `accepted`,
+`rejected` and `recheck` start anything that writes, and the bot verifies the label's author has write
+access. Issue text is only ever data: it is never evaluated or put into a shell command.
