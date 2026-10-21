@@ -79,7 +79,8 @@ public final class Word {
 		if (lang == io.github.leks2205.hangulquest.util.Lang.DE) {
 			return deShort;
 		}
-		return en == null || en.isBlank() ? deShort : en;
+		// A word without an English gloss carries the German one with a visible marker (see the constructor).
+		return en;
 	}
 
 	public boolean hasDescKo() {

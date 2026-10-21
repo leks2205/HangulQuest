@@ -73,10 +73,11 @@ class SideQuestLanguageTest {
 	}
 
 	@Test
-	void glossAccessorFallsBackToGermanWhenThereIsNoEnglish() {
+	void glossAccessorMarksGermanWhenThereIsNoEnglish() {
 		Word noEnglish = new Word("x", "엑스", "Eks", null, "Eks", Category.MISC, 1, "x", null, null, null,
 				null, Origin.CURATED, false, null);
-		assertEquals("Eks", noEnglish.gloss(Lang.EN));
+		assertEquals(Word.UNTRANSLATED_PREFIX + "Eks", noEnglish.gloss(Lang.EN));
+		assertEquals("Eks", noEnglish.gloss(Lang.DE));
 		assertEquals("cat", CAT.gloss(Lang.EN));
 		assertEquals("Katze", CAT.gloss(Lang.DE));
 	}
