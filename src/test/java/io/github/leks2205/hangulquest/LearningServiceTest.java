@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.learn.Srs;
 import io.github.leks2205.hangulquest.learn.WordProgress;
+import io.github.leks2205.hangulquest.learn.fsrs.CardState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -75,7 +76,7 @@ class LearningServiceTest {
 		WordProgress progress = progress();
 		int level = progress.level;
 		long dueAt = progress.dueAt;
-		assertEquals(2, level);
+		CardState card = progress.fsrs.copy();
 
 		for (int i = 0; i < 5; i++) {
 			learn.expose(catalog.byId(STONE).orElseThrow(), T0 + 1000L * (i + 1));
@@ -83,6 +84,7 @@ class LearningServiceTest {
 
 		assertEquals(level, progress.level);
 		assertEquals(dueAt, progress.dueAt);
+		assertEquals(card, progress.fsrs, "encounters leave the FSRS card alone");
 		assertEquals(7, progress.seen);
 		assertEquals(2, progress.correct);
 		assertEquals(2, learn.totalReviews());
@@ -132,30 +134,38 @@ class LearningServiceTest {
 	@Test
 	void answerMovesTheSchedule() {
 		learn.answer(STONE, true, T0);
-		assertEquals(1, progress().level);
-		assertEquals(T0 + Srs.intervalMs(1), progress().dueAt);
+		assertEquals(CardState.State.LEARNING, progress().fsrs.state);
+		assertEquals(T0 + 10 * Srs.MINUTE, progress().dueAt, "the second learning step is ten minutes away");
+		assertEquals(progress().fsrs.due, progress().dueAt, "the old field mirrors the card");
+		assertEquals(Srs.levelFor(progress().fsrs.stability), progress().level);
 
 		learn.answer(STONE, false, T0 + 5);
-		assertEquals(0, progress().level);
-		assertEquals(Srs.retryAt(T0 + 5), progress().dueAt);
+		assertEquals(CardState.State.LEARNING, progress().fsrs.state);
+		assertEquals(0, progress().fsrs.step, "a miss goes back to the first step");
+		assertEquals(T0 + 5 + Srs.MINUTE, progress().dueAt);
 		assertEquals(2, learn.totalReviews());
 	}
 
 	@Test
-	void masteredMeansKnownOrLevelSix() {
-		learn.answer(STONE, true, T0);
-		for (int i = 0; i < Srs.MASTERED_LEVEL - 2; i++) {
-			learn.answer(STONE, true, T0);
+	void theThreeDayCapIsGone() {
+		long t = T0;
+		for (int i = 0; i < 8; i++) {
+			learn.answer(STONE, true, t);
+			t = progress().dueAt;
 		}
-		assertEquals(Srs.MASTERED_LEVEL - 1, progress().level);
-		assertEquals(0, learn.mastered(), "level 5 is no longer mastered");
+		assertTrue(progress().fsrs.due - progress().fsrs.lastReview > 30 * Srs.DAY);
+		assertTrue(progress().fsrs.due - progress().fsrs.lastReview <= 365 * Srs.DAY, "capped at a year");
+	}
 
+	@Test
+	void masteredMeansMarkedKnownOrDurablyKnown() {
 		learn.answer(STONE, true, T0);
-		assertEquals(Srs.MASTERED_LEVEL, progress().level);
-		assertEquals(1, learn.mastered());
+		learn.answer(STONE, true, T0 + 1);
+		assertEquals(0, learn.mastered(), "a couple of right answers do not make a word durably known");
 
 		learn.markKnown("concept:torch", true, T0);
-		assertEquals(2, learn.mastered());
+		assertEquals(1, learn.mastered());
 		assertEquals(Srs.MAX_LEVEL, learn.level("concept:torch"));
+		assertEquals(30, learn.data().words.get("concept:torch").fsrs.stability, 0, "known seeds the stability");
 	}
 }

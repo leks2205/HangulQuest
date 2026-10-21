@@ -20,11 +20,20 @@ screen. The mod itself never contacts those sites.
 | File | Content |
 |---|---|
 | `config/hangulquest/config.json` | your settings |
-| `config/hangulquest/progress.json` | words met, SRS levels, due dates, streak days, achievements, trail state |
+| `config/hangulquest/profiles/<account>/progress.json` | words met, review schedule, due dates, streak days, achievements, trail state |
+| `config/hangulquest/profiles/<account>/reviews.ndjson` | the review log: one line per answer or encounter (word, time, how you answered, how long it took, where it happened) |
 | `config/hangulquest/vocab/lute-vocab.csv` | your Lute export — read, never written |
 | `config/hangulquest/questlines/*.json` | the questlines (shipped copies plus your own) |
 
 That is all. There is no account, no identifier, no machine fingerprint.
+
+## The review log
+
+The scheduler needs to know what you answered and when, so the mod keeps a log next to your progress.
+It is a plain text file you can open, copy or delete. Each month's lines are packed into
+`reviews-YYYY-MM.ndjson.gz` in the same folder. The log stays on your computer: nothing in the mod reads it
+to send it anywhere, and it holds no name, no chat and no coordinates. If `progress.json` is ever lost, the
+log can rebuild the review schedule. Deleting it only costs you that safety net and your own history.
 
 ## Logs
 
