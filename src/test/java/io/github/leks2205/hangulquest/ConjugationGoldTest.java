@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.junit.jupiter.api.Disabled;
+import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -29,8 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * The two gold tables are well-formed and agree with themselves: conjugation-gold.tsv (forms of
  * every verb and adjective we use) and task-sentences-gold.tsv (target sentences for the variety
- * engine). The real comparison with the conjugator is written down but switched off until
- * quest/grammar/Conjugator exists.
+ * engine). conjugatorMatchesTheGoldTable runs every row through quest/grammar/Conjugator.
  */
 class ConjugationGoldTest {
 	private static final String CONJUGATION = "/conjugation-gold.tsv";
@@ -326,33 +325,70 @@ class ConjugationGoldTest {
 		}
 	}
 
-	// --------------------------------------------------------------------------- the conjugator (not written yet)
+	// --------------------------------------------------------------------------- the conjugator
 
 	/**
-	 * Wire this to quest/grammar/Conjugator when it lands, then remove the {@code @Disabled}.
+	 * Gold cells we know the conjugator disagrees with, as "dictionary / column header". Empty means
+	 * every one of the rows matches; an entry needs a comment saying why the gold cell is wrong.
+	 */
+	private static final Set<String> KNOWN_ISSUES = Set.of();
+
+	/**
 	 * {@code form} is one of the column headers above, for example "-아/어요" or "-(으)세요"; the class
-	 * column is only there to explain a mismatch, the conjugator must work from the dictionary form.
+	 * column is only there to explain a mismatch, the conjugator works from the dictionary form alone.
 	 */
 	private static String conjugate(String dictionary, String form) {
-		throw new UnsupportedOperationException("quest/grammar/Conjugator does not exist yet");
+		Conjugator.Word word = Conjugator.of(dictionary);
+		return switch (form) {
+			case "-아/어요" -> word.eoyo();
+			case "-았/었어요" -> word.past();
+			case "-(으)세요" -> word.seyo();
+			case "-고" -> word.go();
+			case "-(으)ㄹ" -> word.future();
+			case "-(으)면" -> word.myeon();
+			case "-아/어서" -> word.aseo();
+			case "-지 마세요" -> word.jimaseyo();
+			default -> throw new IllegalArgumentException("no conjugator form for " + form);
+		};
 	}
 
-	@Disabled("enable when quest/grammar/Conjugator lands")
 	@Test
 	void conjugatorMatchesTheGoldTable() {
 		List<String> misses = new ArrayList<>();
+		Set<String> unexpectedPasses = new HashSet<>(KNOWN_ISSUES);
 		for (String[] row : conjugation()) {
 			for (int i = POLITE; i <= JIMA; i++) {
 				if (row[i].equals("-")) {
 					continue;
 				}
 				String got = conjugate(row[DICT], COLUMNS[i]);
+				String cell = row[DICT] + " / " + COLUMNS[i];
 				if (!row[i].equals(got)) {
-					misses.add(row[DICT] + " (" + row[CLASS] + ") " + COLUMNS[i] + ": expected " + row[i] + ", got " + got);
+					if (!KNOWN_ISSUES.contains(cell)) {
+						misses.add(row[DICT] + " (" + row[CLASS] + ") " + COLUMNS[i] + ": expected " + row[i] + ", got " + got);
+					}
+				} else {
+					unexpectedPasses.remove(cell);
 				}
 			}
 		}
 		assertTrue(misses.isEmpty(), misses.size() + " mismatches:\n" + String.join("\n", misses));
+		assertTrue(unexpectedPasses.isEmpty(), "listed as known issues but they match now: " + unexpectedPasses);
+	}
+
+	@Test
+	void conjugatorClassifiesEveryGoldRowTheWayTheTableDoes() {
+		List<String> misses = new ArrayList<>();
+		for (String[] row : conjugation()) {
+			Conjugator.Irregular expected = Conjugator.Irregular.byId(baseClass(row));
+			if (Conjugator.classify(row[DICT]) != expected) {
+				misses.add(row[DICT] + ": expected " + expected + ", got " + Conjugator.classify(row[DICT]));
+			}
+			if (Conjugator.isAdjective(row[DICT]) != adjective(row)) {
+				misses.add(row[DICT] + ": adjective should be " + adjective(row));
+			}
+		}
+		assertTrue(misses.isEmpty(), misses.size() + " misclassified:\n" + String.join("\n", misses));
 	}
 
 	// --------------------------------------------------------------------------- task-sentences-gold.tsv
