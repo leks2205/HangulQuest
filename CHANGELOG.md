@@ -15,6 +15,10 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- Action variety for quests: goals `CRAFT`, `SMELT`, `GIVE`, `PUT_IN`, `HOLD_WHILE`, `SEQUENCE` (-기 전에,
+  -(으)ㄴ 후에, -고 나서) and `AVOID` (-지 마세요), conditions `HOLDING`, `SKY`, `IN_WATER` and `PLAYER_REL`, the
+  verbs 넣다, 들다, 들어가다, 떨어뜨리다, 닫다, 녹이다, 굽다 and 걷다, and a level-3 demo trail "마을 심부름". Every generated
+  sentence can now report the grammar points it teaches.
 - Daily and weekly backups of `progress.json` in `config/hangulquest/backups/` (the last 7 days and 4 weeks).
 - One progress fixture per released version, loaded and saved by `ProgressCompatibilityTest` to catch any
   change that would drop saved data.

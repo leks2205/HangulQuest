@@ -105,11 +105,24 @@ below the ground uses „내려가다" (descend) instead of climbing.
 | `REACH_HEIGHT` | `minY`, `maxY` | player altitude |
 | `USE_BLOCK` | `block` | right-click on that block |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
+| `CRAFT` | `item`, `count`, optional `station`, optional `with` (ingredient ids, wording only) | taking the result out of a crafting screen |
+| `SMELT` | optional `input` (wording, level 4+), `output`, `count` | taking the result out of a furnace, blast furnace or smoker |
+| `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor |
+| `PUT_IN` | `item`, `container`, `count` | items moved into that container block |
+| `HOLD_WHILE` | `item`, `inner` (a goal, or a condition plus `seconds`) | `inner` only counts with the item in a hand; with a condition: walking with it |
+| `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`) | the parts in order; an event before its turn does not count. Trail level 3 or higher |
+| `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
+
+`SEQUENCE` and `AVOID` teach -기 전에 / -(으)ㄴ 후에 / -고 나서 and -지 마세요, so the English and German
+clue must not give the order or the "not" away („Do the two things in the order the Korean says").
+`SEQUENCE` parts, the `HOLD_WHILE` inner goal and the `AVOID` action are simple goals (no nesting).
 
 ## Conditions (gates)
 
 `TIME` (`DAY`/`NIGHT`/`DAWN`/`DUSK`), `WEATHER` (`CLEAR`/`RAIN`/`THUNDER`), `Y_RANGE`, `NEAR_ENTITY`,
-`NEAR_BLOCK`, `IN_DIMENSION`, `IN_BIOME`. A goal only counts while every condition holds.
+`NEAR_BLOCK`, `IN_DIMENSION`, `IN_BIOME`, `HOLDING` („횃불을 들고"), `SKY` (`OPEN`/`ROOFED`),
+`IN_WATER` („물속에서"), `PLAYER_REL` (`relation`, `anchor`: „나무 아래에서"). A goal only counts while
+every condition holds.
 
 ## Rules
 

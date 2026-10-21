@@ -34,7 +34,8 @@
   "mounts": ["horse", "donkey", "mule", "camel", "strider", "skeleton_horse", "zombie_horse"],
   "pets": ["cat", "wolf"],
   "touchables": ["iron_golem", "snow_golem", "copper_golem"],
-  "item_takers": ["allay"]
+  "item_takers": ["allay"],
+  "bakeables": ["cooked_*", "baked_potato", "dried_kelp", "charcoal", "brick", "nether_brick", "terracotta", "*_glazed_terracotta"]
  },
  "rules": {
   "BREAK_BLOCK": [
@@ -93,6 +94,10 @@
   "LOOK_AT_ENTITY": [{"verb": "WATCH"}],
   "DEFEAT_ENTITY": [{"verb": "DEFEAT"}],
   "REACH_BIOME": [{"verb": "GO"}],
-  "REACH_DIMENSION": [{"verb": "GO"}]
+  "REACH_DIMENSION": [{"verb": "GO"}],
+  "SMELT": [
+   {"family": "bakeables", "verb": "BAKE"},
+   {"verb": "CRAFT"}
+  ]
  }
 }

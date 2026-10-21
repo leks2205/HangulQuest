@@ -180,6 +180,13 @@ final class KoreanFixtures {
 			case Goal.ReachBiome g -> g.biome();
 			case Goal.ReachDimension g -> g.dimension();
 			case Goal.ReachHeight g -> null;
+			case Goal.Craft g -> g.item();
+			case Goal.Smelt g -> g.output();
+			case Goal.Give g -> g.item();
+			case Goal.PutIn g -> g.item();
+			case Goal.HoldWhile g -> g.item();
+			case Goal.Sequence g -> null;
+			case Goal.Avoid g -> g.action() == null ? null : targetOf(g.action());
 		};
 	}
 
@@ -192,10 +199,17 @@ final class KoreanFixtures {
 			case Goal.AcquireItem g -> g.count();
 			case Goal.ConsumeItem g -> g.count();
 			case Goal.DefeatEntity g -> g.count();
+			case Goal.Craft g -> g.count();
+			case Goal.Smelt g -> g.count();
+			case Goal.Give g -> g.count();
+			case Goal.PutIn g -> g.count();
 			default -> 0;
 		};
 		String suffix = switch (goal) {
 			case Goal.ReachHeight g -> g.minY() + ".." + g.maxY();
+			case Goal.Sequence g -> g.parts().stream().map(KoreanFixtures::describe)
+					.collect(java.util.stream.Collectors.joining(" > ", "[", "]"));
+			case Goal.Avoid g -> "[" + (g.action() == null ? "" : describe(g.action())) + "]";
 			default -> count > 0 ? "x" + count : "";
 		};
 		return goal.getClass().getSimpleName() + " " + (target == null ? "" : target + " ") + suffix;
