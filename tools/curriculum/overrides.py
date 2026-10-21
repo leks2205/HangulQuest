@@ -1,0 +1,269 @@
+"""Hand-checked knowledge for tag_lexicon.py.
+
+Everything here is a judgement that the reference lists cannot make for us: which homograph a Minecraft word means,
+words that no list contains (Minecraft coinages, rare compounds), and the semantic sets.
+
+Rules of thumb used throughout:
+  * hanja only where the character string is certain (standard dictionary form); rock words use 巖 like the lists
+  * origin "mc_only" = a name coined for the game (or transliterated from an English game term) that has no
+    established use in Korean; "loan" = an established loanword (블록, 카펫, 좀비, ...)
+  * "mc": the word/phrase is not met outside Minecraft (this feeds the mcOnly tag)
+"""
+from __future__ import annotations
+
+N, S, L, M, X = "native", "sino", "loan", "mixed", "mc_only"
+
+
+def w(origin, hanja="", mc=False, note="", lemma=None, homophone=None, grade_from=None, mod=False):
+    d = {"origin": origin, "hanja": hanja, "mc": mc}
+    if mod:
+        d["mod"] = True
+    if note:
+        d["note"] = note
+    if lemma:
+        d["lemma"] = lemma
+    if homophone:
+        d["homophone"] = homophone
+    if grade_from:
+        d["grade_from"] = grade_from
+    return d
+
+
+# --------------------------------------------------------------------------- word table
+# Keys are surface tokens (or fixed phrases with a space). "lemma" points the grade lookup at another spelling.
+WORDS: dict[str, dict] = {
+    # ---- homographs resolved to the Minecraft sense
+    "반": w(S, "半", homophone=["班"]),
+    "금": w(S, "金", homophone=["native 금 (crack, line)"], note="金 'gold'; a different native word 금 means crack"),
+    "금 간": w(N, lemma="금", note="'cracked': native 금 (crack), not 金"),
+    "조각": w(N, note="'piece/shard', not 彫刻", homophone=["彫刻"]),
+    "조각된": w(S, "彫刻", lemma="조각", note="'chiselled': 彫刻 (sculpture)", mod=True),
+    "초": w(N, note="'candle'; the dictionary files it as native, vinegar 醋 is a different word", homophone=["醋"]),
+    "철": w(S, "鐵", homophone=["native 철 (season)"]),
+    "판": w(S, "板", homophone=["版"]),
+    "지도": w(S, "地圖", homophone=["指導"]),
+    "관": w(S, "管", homophone=["冠", "官", "棺"]),
+    "동상": w(S, "銅像", homophone=["凍傷", "銅賞"]),
+    "수지": w(S, "樹脂", homophone=["收支"]),
+    "투구": w(N, homophone=["投球"]),
+    "키": w(N, note="height"),
+    "호박": w(N, note="pumpkin; the list files it as native", homophone=["琥珀"]),
+    "사과": w(S, "沙果", homophone=["謝過"], note="apple; variant 砂果"),
+    "창": w(S, "槍", homophone=["窓", "唱"], note="spear"),
+    "책장": w(S, "冊欌", homophone=["冊張"]),
+    "유리": w(S, "琉璃", homophone=["有利"]),
+    "발광": w(S, "發光", homophone=["發狂"]),
+    "종": w(S, "鐘", homophone=["native 종 (servant)"]),
+    "소": w(N, homophone=["沼", "素"]),
+    "양": w(S, "羊", homophone=["兩", "量", "陽"], note="sheep is Sino-Korean 羊"),
+    "벌": w(N, homophone=["罰"]),
+    "산": w(S, "山", homophone=["酸", "算"]),
+    "해": w(N, homophone=["害"]),
+    "비": w(N, homophone=["比", "碑"]),
+    "요리하다": w(M, "料理", note="料理 + native 하다", lemma="요리하다"),
+    "염소": w(N, homophone=["鹽素"], note="goat"),
+    "시계": w(S, "時計", homophone=["視界"]),
+    "의식": w(S, "儀式", homophone=["意識"]),
+    "진주": w(S, "眞珠", homophone=["晉州"], note="variant 珍珠"),
+    "별": w(N, homophone=["別"]),
+    "철퇴": w(S, "鐵槌", homophone=["撤退"]),
+    "솔": w(N, homophone=["loan 솔 (sol, note)"], note="brush"),
+    "수정": w(S, "水晶", homophone=["修正", "受精"], note="crystal"),
+    "대구": w(S, "大口", homophone=["大邱"], note="cod"),
+    "병": w(S, "甁", homophone=["病", "丙"]),
+    "통": w(S, "桶", note="barrel", homophone=["native 통"]),
+    "고지": w(S, "高地", homophone=["告知"]),
+    "원시": w(S, "原始", homophone=["遠視"]),
+    "수상한": w(S, "殊常", lemma="수상", note="'suspicious' (殊常), not 受賞", mod=True),
+    "중지": w(S, note="End midlands; hanja not checked", homophone=["中指", "中止"]),
+    "수련": w(S, "睡蓮", homophone=["修鍊"]),
+    "독": w(S, "毒", homophone=["native 독 (jar)"]),
+    "진사": w(S, "辰砂", note="cinnabar 辰砂, not 進士", homophone=["進士"]),
+    # ---- established words missing from the lists
+    "흑요석": w(S, "黑曜石"),
+    "자홍색": w(S, "紫紅色"),
+    "압력판": w(S, "壓力板"),
+    "독서대": w(S, "讀書臺"),
+    "신호기": w(S, "信號機", note="the word is a real one (signal); only the block is Minecraft's"),
+    "해초": w(S, "海草"),
+    "청금석": w(S, "靑金石"),
+    "균사체": w(S, "菌絲體"),
+    "회백토": w(S, "灰白土"),
+    "군집": w(S, "群集"),
+    "앵무조개": w(M, "鸚鵡", note="鸚鵡 + 조개"),
+    "수레국화": w(M, "菊花", note="수레 + 菊花"),
+    "소환사": w(S, "召喚師"),
+    "악지": w(S, "惡地"),
+    "인갑": w(S, "鱗甲"),
+    "쇠뇌": w(M, "弩", note="쇠 + 弩"),
+    "화염구": w(S, "火焰球", mc=True),
+    "점적석": w(S, "點滴石", mc=True),
+    "퇴비통": w(S, "堆肥桶"),
+    "황톳빛": w(M, "黃土", mc=True),
+    "잔딧빛": w(N, mc=True),
+    "개구리불": w(N, mc=True),
+    "역고드름": w(M, "逆", mc=True),
+    "푸른얼음": w(N, mc=True),
+    "흘림잎": w(N, mc=True),
+    "응회암": w(S, "凝灰巖"),
+    "안산암": w(S, "安山巖"),
+    "섬록암": w(S, "閃綠巖"),
+    "감지체": w(S, "感知體", mc=True),
+    "형판": w(S, mc=True),
+    "사방산호": w(S, note="hanja not checked"),
+    "부채형": w(M, note="부채 + 형; 形/型 not checked"),
+    "삼지창": w(S, note="hanja not checked"),
+    "흑암": w(S, mc=True, note="Minecraft's name for blackstone; hanja not checked"),
+    "후렴초": w(S, mc=True),
+    "후렴과": w(S, mc=True),
+    "변명자": w(S, mc=True),
+    "경험치": w(S, mc=True),
+    "돌풍구": w(S, mc=True),
+    "관측기": w(S, mc=True),
+    "발사기": w(S, mc=True),
+    "공급기": w(S, mc=True),
+    "중계기": w(S, mc=True),
+    "전달체": w(S, mc=True),
+    "양조기": w(S, mc=True),
+    "제작기": w(S, mc=True),
+    "제작대": w(S, mc=True),
+    "훈연기": w(S, mc=True),
+    "부여대": w(S, mc=True),
+    "정박기": w(S, mc=True),
+    "파괴수": w(S, mc=True),
+    "주아": w(S, mc=True),
+    "선애기별꽃": w(N, note="plant name; origin of 선 not verified"),
+    "겉날개": w(N, mc=True),
+    "부시": w(N),
+    "짖음": w(N, mc=True),
+    "불탐": w(N, mc=True),
+    "긁개": w(N, mc=True),
+    "불우렁쉥이": w(N),
+    "좀벌레": w(N),
+    "벌레잡이풀": w(N),
+    "자갈투성이": w(N),
+    # ---- loanwords that are real words
+    "테라코타": w(L),
+    "랜턴": w(L),
+    "골렘": w(L),
+    "하네스": w(L),
+    "스켈레톤": w(L),
+    "좀비": w(L),
+    "슬라임": w(L),
+    "사바나": w(L),
+    "켈프": w(L),
+    "아르마딜로": w(L),
+    "아홀로틀": w(L),
+    "오실롯": w(L),
+    "라마": w(L),
+    "스튜": w(L),
+    "주크박스": w(L),
+    "레버": w(L),
+    "티엔티": w(L, note="TNT"),
+    "레깅스": w(L),
+    "맹그로브": w(L),
+    "잭오랜턴": w(L),
+    "알리움": w(L),
+    "큐브": w(L),
+    "코어": w(L),
+    "호퍼": w(L, mc=True),
+    "인스턴스": w(L, mc=True),
+    "리스폰": w(L, mc=True),
+    "레드스톤": w(L, mc=True),
+    # ---- Minecraft coinages and transliterated game terms
+    "네더": w(X, mc=True),
+    "엔드": w(X, mc=True),
+    "엔더": w(X, mc=True),
+    "네더랙": w(X, mc=True),
+    "네더라이트": w(X, mc=True),
+    "엔더맨": w(X, mc=True),
+    "엔더마이트": w(X, mc=True),
+    "크리퍼": w(X, mc=True),
+    "크리킹": w(X, mc=True),
+    "가스트": w(X, mc=True),
+    "블레이즈": w(X, mc=True),
+    "위더": w(X, mc=True),
+    "벡스": w(X, mc=True),
+    "셜커": w(X, mc=True),
+    "스컬크": w(X, mc=True),
+    "피글린": w(X, mc=True),
+    "호글린": w(X, mc=True),
+    "조글린": w(X, mc=True),
+    "스트라이더": w(X, mc=True),
+    "워든": w(X, mc=True),
+    "브리즈": w(X, mc=True),
+    "스니퍼": w(X, mc=True),
+    "알레이": w(X, mc=True),
+    "무시룸": w(X, mc=True),
+    "보그드": w(X, mc=True),
+    "스트레이": w(X, mc=True),
+    "드라운드": w(X, mc=True),
+    "허스크": w(X, mc=True),
+    "팬텀": w(X, mc=True),
+    "가디언": w(X, mc=True),
+    "엘더": w(X, mc=True),
+    "퍼퍼": w(X, mc=True),
+    "프리즈머린": w(X, mc=True),
+    "네사체": w(X, mc=True),
+    "유광": w(S, "有光"),
+    "심층암": w(S, "深層巖", mc=True, note="Minecraft's name for deepslate; 深層 + 巖"),
+    "암": w(S, "巖", homophone=["癌"], note="rock; 癌 is a different word"),
+    "석": w(S, "石", note="stone/mineral suffix"),
+    "드래곤": w(L),
+    "모루": w(N),
+    "흉갑": w(S, "胸甲"),
+    "밀랍칠한": w(M, "蜜蠟漆", mc=True, mod=True),
+    "윤나는": w(M, "潤", mod=True, note="윤(潤) + 나다"),
+    "타이가": w(L),
+    "꽃 핀": w(N, lemma="피다", mod=True),
+}
+
+# surface modifier/inflected token -> dictionary form for the lists
+DERIVED: dict[str, str] = {
+    "녹슨": "녹슬다", "윤나는": "윤나다", "매끄러운": "매끄럽다", "매다는": "매달다", "매달린": "매달리다",
+    "우는": "울다", "구운": "굽다", "어두운": "어둡다", "무거운": "무겁다", "깊고": "깊다", "거친": "거칠다",
+    "얼어붙은": "얼어붙다", "마른": "마르다", "따뜻한": "따뜻하다", "큰": "크다", "작은": "작다",
+    "깊은": "깊다", "붉은": "붉다", "짙은": "짙다", "죽은": "죽다", "먹은": "먹다", "감은": "감다",
+    "뜬": "뜨다", "낀": "끼다", "벗긴": "벗기다", "깎인": "깎이다", "덮인": "덮이다", "달콤한": "달콤하다",
+}
+
+# qualifiers that say nothing about the origin of the thing named
+QUALIFIERS = {"약간", "반"}
+
+COLOURS = {"빨간색", "주황색", "노란색", "연두색", "초록색", "청록색", "파란색", "보라색", "자홍색", "분홍색", "갈색",
+           "검은색", "회색", "하얀색"}
+
+# per-concept pins (id -> origin / hanja / semSet / mcOnly / note / confidence), filled after review
+CONCEPTS: dict[str, dict] = {
+    "bread": {"origin": "loan", "confidence": "medium",
+              "note": "the list files 빵 as native, but it is a loanword (Portuguese pão, via Japanese)"},
+    "potato": {"note": "dictionary label native; the word may trace back to Sino-Korean 甘藷"},
+    "carrot": {"note": "dictionary label native; may trace back to Chinese"},
+    "melon": {"note": "dictionary label native"},
+    "shovel": {"note": "dictionary label native"},
+    "netherrack": {"semSet": "stone"},
+    "jukebox": {"semSet": "decor"},
+    "ladder": {"semSet": "building"},
+    "beehive": {"semSet": "building"},
+    "dragon_egg": {"semSet": "magic"},
+    "note_block": {"mcOnly": True},
+    "item_frame": {"mcOnly": True},
+    "sea_lantern": {"mcOnly": True},
+    "soul_torch": {"mcOnly": True},
+    "soul_sand": {"mcOnly": True},
+    "soul_lantern": {"mcOnly": True},
+    "lava_bucket": {"mcOnly": True},
+    "wolf_armor": {"mcOnly": True},
+    "iron_golem": {"mcOnly": True},
+    "gen_soul_soil": {"mcOnly": True},
+    "gen_soul_campfire": {"mcOnly": True},
+    "gen_smithing_table": {"mcOnly": True},
+    "gen_snow_golem": {"mcOnly": True},
+}
+
+from semsets import (CATEGORY_SEM, MC_ID, MC_MODIFIERS, MC_PHRASES, SEM_HEADS, SEM_ID, SEM_SUFFIX,  # noqa: E402,F401
+                     SEM_WHOLE)
+
+HEAD_SUFFIXES: tuple[str, ...] = (
+    "나무", "잎", "문", "꽃", "병", "암", "석", "상자", "열매", "씨앗", "뿌리", "덩굴", "알", "풀", "가루", "블록",
+    "벽돌", "계단", "담장", "침대", "양털", "구리", "산호", "숲", "섬", "바다", "동굴")
