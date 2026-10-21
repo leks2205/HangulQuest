@@ -1,6 +1,8 @@
 package io.github.leks2205.hangulquest.ui.quiz.cards;
 
 import io.github.leks2205.hangulquest.learn.ReviewMode;
+import io.github.leks2205.hangulquest.learn.fsrs.Fsrs;
+import io.github.leks2205.hangulquest.util.hangul.TypedAnswer;
 
 import java.util.Optional;
 
@@ -42,6 +44,16 @@ public interface Card {
 
 		public static Answer tiles(int jamoOff) {
 			return new Answer(ReviewMode.TILE, jamoOff <= 1, 0, 0, Math.max(0, jamoOff));
+		}
+
+		/**
+		 * A typed answer as {@code TypedAnswer.grade} judged it. {@code jamoOff} is the distance the grader
+		 * used, so a one-jamo slip in a very short word (already another word) stays "further off".
+		 */
+		public static Answer typed(TypedAnswer.Result result) {
+			int grade = result.graded().grade();
+			int off = grade >= Fsrs.GOOD ? 0 : grade == Fsrs.HARD ? 1 : Math.max(2, result.diff().distance());
+			return new Answer(ReviewMode.TYPED, result.graded().correct(), 0, 0, off);
 		}
 	}
 

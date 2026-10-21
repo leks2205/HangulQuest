@@ -61,7 +61,14 @@ public final class QuestEngine {
 	public record TrackView(String id, String titleKo, String titleDe, String titleEn, String topicKey,
 							int koreanLevel,
 							String clueKo, String clueDe, String status, int progress, int needed,
-							boolean countable, boolean focused, int stepIndex, int stepCount) {
+							boolean countable, boolean focused, int stepIndex, int stepCount,
+							boolean reverse) {
+		public TrackView(String id, String titleKo, String titleDe, String titleEn, String topicKey,
+						 int koreanLevel, String clueKo, String clueDe, String status, int progress, int needed,
+						 boolean countable, boolean focused, int stepIndex, int stepCount) {
+			this(id, titleKo, titleDe, titleEn, topicKey, koreanLevel, clueKo, clueDe, status, progress, needed,
+					countable, focused, stepIndex, stepCount, false);
+		}
 	}
 
 	/** The rule card of a construction the player meets for the first time: example lines and the rule. */

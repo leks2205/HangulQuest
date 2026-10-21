@@ -93,6 +93,8 @@ public final class SettingsTab extends JournalTab {
 		host.button(g, x + width - 100, yy - 2, 100, 16, Math.round(hq.config().retention * 100) + "%", false,
 				switchRetention);
 		yy += 18;
+		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.typed_cards"), hq.config().typedCards,
+				value -> hq.config().typedCards = value);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.lute_import"), hq.config().luteImport,
 				value -> hq.config().luteImport = value);
 		yy += 6;

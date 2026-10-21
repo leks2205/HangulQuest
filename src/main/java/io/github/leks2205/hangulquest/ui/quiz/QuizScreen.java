@@ -6,9 +6,11 @@ import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.HudController;
 import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
 import io.github.leks2205.hangulquest.ui.quiz.cards.CardPainter;
+import io.github.leks2205.hangulquest.ui.quiz.cards.TypedCard;
 import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
@@ -77,6 +79,19 @@ public final class QuizScreen extends Screen {
 
 	@Override
 	public boolean keyPressed(KeyEvent event) {
+		if (card instanceof TypedCard typed) {
+			// A typed card owns the keyboard: letters, digits and Enter are its input, only Esc closes.
+			if (event.key() == InputConstants.KEY_ESCAPE) {
+				onClose();
+				return true;
+			}
+			boolean handled = typed.keyPressed(event);
+			typed.takeAnswer().ifPresent(this::record);
+			if (card.finished()) {
+				onClose();
+			}
+			return handled || super.keyPressed(event);
+		}
 		if (event.key() == InputConstants.KEY_ESCAPE
 				|| (hq != null && hq.answerKey() != null && hq.answerKey().matches(event))) {
 			onClose();
@@ -100,6 +115,16 @@ public final class QuizScreen extends Screen {
 			}
 		}
 		return super.keyPressed(event);
+	}
+
+	@Override
+	public boolean keyReleased(KeyEvent event) {
+		return card instanceof TypedCard typed && typed.keyReleased(event) || super.keyReleased(event);
+	}
+
+	@Override
+	public boolean charTyped(CharacterEvent event) {
+		return card instanceof TypedCard typed && typed.charTyped(event) || super.charTyped(event);
 	}
 
 	@Override
@@ -147,19 +172,26 @@ public final class QuizScreen extends Screen {
 		} else {
 			given = card.choose(action);
 		}
-		given.ifPresent(answer -> {
-			QuizOutcome outcome = hud.recordCardAnswer(answer);
-			if (outcome != QuizOutcome.NONE) {
-				lastOutcome = outcome;
-			}
-		});
+		given.ifPresent(this::record);
 		if (card.finished()) {
 			onClose();
 		}
 	}
 
+	private void record(Card.Answer answer) {
+		QuizOutcome outcome = hud.recordCardAnswer(answer);
+		if (outcome != QuizOutcome.NONE) {
+			lastOutcome = outcome;
+		}
+	}
+
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+		if (card instanceof TypedCard typed) {
+			cardHits.clear();
+			typed.paint(graphics, this.font, this.width, this.height);
+			return;
+		}
 		if (card != null) {
 			CardPainter.paint(graphics, this.font, card.view(), this.width, this.height, mouseX, mouseY, cardHits);
 			return;

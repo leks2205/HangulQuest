@@ -132,7 +132,7 @@ class ConfigMigrationTest {
 		Config config = Config.parse(json("{\"version\":2,\"language\":\"en_us\",\"sound\":false}"));
 		assertEquals(0.88, config.retention, 1e-9);
 		assertEquals(10, config.newWordsPerDay);
-		assertEquals(3, config.version);
+		assertEquals(Config.CURRENT_VERSION, config.version);
 		assertFalse(config.sound, "other settings are untouched");
 	}
 
@@ -162,9 +162,9 @@ class ConfigMigrationTest {
 
 		Config loaded = Config.load(file);
 
-		assertEquals(3, loaded.version);
+		assertEquals(Config.CURRENT_VERSION, loaded.version);
 		JsonObject written = json(Files.readString(file));
-		assertEquals(3, written.get("version").getAsInt());
+		assertEquals(Config.CURRENT_VERSION, written.get("version").getAsInt());
 		assertEquals(0.88, written.get("retention").getAsDouble(), 1e-9);
 		assertEquals(10, written.get("newWordsPerDay").getAsInt());
 	}

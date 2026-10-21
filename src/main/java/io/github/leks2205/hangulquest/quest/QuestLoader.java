@@ -159,7 +159,7 @@ public final class QuestLoader {
 				hint == null ? null : string(hint, "ko", null),
 				hint == null ? null : string(hint, "de", null),
 				hint == null ? null : string(hint, "en", null),
-				bonus);
+				bonus, null, flag(object, "reverse"));
 	}
 
 	private static QuestStep parseFinale(JsonObject object) {
@@ -206,6 +206,14 @@ public final class QuestLoader {
 
 	private static int integer(JsonObject object, String key, int fallback) {
 		return JsonFields.integer(object, key, fallback);
+	}
+
+	private static boolean flag(JsonObject object, String key) {
+		try {
+			return object.has(key) && object.get(key).getAsBoolean();
+		} catch (RuntimeException broken) {
+			return false;
+		}
 	}
 
 	private static double number(JsonObject object, String key, double fallback) {

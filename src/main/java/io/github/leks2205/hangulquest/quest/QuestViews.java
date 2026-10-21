@@ -31,7 +31,7 @@ final class QuestViews {
 					track.trail.titleEn(), track.trail.topicKey(), track.trail.koreanLevel(),
 					text.clueKo(step, track.trail.koreanLevel()), text.clueTranslation(step), status,
 					track.tracker.count, type.needed(step.goal()), type.countable(),
-					track.trail.id().equals(registry.focusedId()), track.stepIndex, track.stepCount()));
+					track.trail.id().equals(registry.focusedId()), track.stepIndex, track.stepCount(), step.reverse()));
 		}
 		return views;
 	}

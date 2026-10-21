@@ -26,6 +26,9 @@ public final class CardRecording {
 			case TILE -> {
 				return learn.answerGraded(wordId, Grader.tile(answer.jamoOff()), latencyMs, "card:tile", now);
 			}
+			case TYPED -> {
+				return learn.answerGraded(wordId, Grader.typed(answer.jamoOff()), latencyMs, "card:typed", now);
+			}
 			default -> {
 				return learn.answerMc(wordId, answer.options(), answer.correct(), latencyMs, now);
 			}

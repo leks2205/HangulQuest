@@ -17,6 +17,10 @@ public final class QuestValidator {
 	public record Result(List<Questline> trails, List<String> problems) {
 	}
 
+	/** Goals whose target the player can recognise by looking at it or handling it: the reverse flag fits these. */
+	public static final Set<String> REVERSE_GOALS = Set.of(
+			"LOOK_AT_BLOCK", "LOOK_AT_ENTITY", "BREAK_BLOCK", "ACQUIRE_ITEM", "PLACE_REL");
+
 	private QuestValidator() {
 	}
 
@@ -93,6 +97,10 @@ public final class QuestValidator {
 		}
 		if (step.hintKo() != null && !TextClean.isHangulOnly(step.hintKo())) {
 			problems.add(trail.id() + "/" + step.id() + ": hintKo is not Hangul-only");
+		}
+		if (step.reverse() && !REVERSE_GOALS.contains(GoalTypes.of(step.goal()).id())) {
+			problems.add(trail.id() + "/" + step.id() + ": reverse does not fit a "
+					+ GoalTypes.of(step.goal()).id() + " goal");
 		}
 		ValidationContext context = new ValidationContext(trail.id() + "/" + step.id(), step, catalog,
 				problems, trail.koreanLevel());

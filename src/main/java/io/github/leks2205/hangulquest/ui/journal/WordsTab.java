@@ -1,6 +1,8 @@
 package io.github.leks2205.hangulquest.ui.journal;
 
 import io.github.leks2205.hangulquest.data.Concept;
+import io.github.leks2205.hangulquest.data.HanjaMeanings;
+import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.Srs;
@@ -20,6 +22,10 @@ import java.util.List;
 /** The dictionary: every word, discovered ones first, and a detail page for one word. */
 public final class WordsTab extends JournalTab {
 	private static final int ROW_HEIGHT = 18;
+	/** Most hanja lines, family words per line and warnings the detail page shows. */
+	private static final int MAX_FAMILIES = 4;
+	private static final int MAX_MEMBERS = 6;
+	private static final int MAX_WARNINGS = 2;
 
 	private int scroll;
 	private String selectedWordId;
@@ -73,7 +79,7 @@ public final class WordsTab extends JournalTab {
 	/** The texts of the detail page for one word. */
 	private record Detail(String wordId, long epoch, boolean showDe, int language, int reviews,
 						  Word word, Component fullName, Component sentence, Component description,
-						  String metrics, boolean known) {
+						  String metrics, boolean known, List<Component> family, List<Component> warnings) {
 	}
 
 	public WordsTab(JournalHost host) {
@@ -208,7 +214,20 @@ public final class WordsTab extends JournalTab {
 			yy += 22;
 		}
 		Draw.label(g, host.font(), d.metrics(), x, yy, Ink.INK_FAINT);
-		yy += 20;
+		yy += 14;
+		if (!d.family().isEmpty()) {
+			Draw.label(g, host.font(), I18n.t("hangulquest.ui.words.family"), x, yy, Ink.ACCENT);
+			yy += 11;
+			for (Component line : d.family()) {
+				Draw.truncated(g, host.font(), line, x + 4, yy, width - 4, Ink.INK);
+				yy += 11;
+			}
+			for (Component warning : d.warnings()) {
+				Draw.wrapped(g, host.font(), warning, x + 4, yy, width - 4, Ink.BAD, 2);
+				yy += 22;
+			}
+		}
+		yy += 6;
 		boolean known = d.known();
 		host.button(g, x, yy, 110, 18, known ? I18n.t("hangulquest.ui.words.relearn") : I18n.t("hangulquest.ui.words.mark_known"), false, () -> {
 			host.hq().learn().markKnown(word.id, !known, System.currentTimeMillis());
@@ -244,10 +263,53 @@ public final class WordsTab extends JournalTab {
 		String metrics = progress == null ? I18n.t("hangulquest.ui.words.not_discovered")
 				: I18n.t(progress.known ? "hangulquest.ui.words.metrics_known" : "hangulquest.ui.words.metrics",
 						progress.seen, progress.correct, progress.wrong);
+		MorphemeFamilies.Panel panel = MorphemeFamilies.of(word, LexiconTags.shared(), host.hq().catalog().all(),
+				other -> learn != null && learn.introduced(other.id));
 		detail = new Detail(selectedWordId, host.epoch(), showDe, language(), reviews, word,
 				Component.literal(word.glossFull(Lang.current())), sentence,
 				word.hasDescKo() ? KoText.ko(word.descKo) : null, metrics,
-				progress != null && progress.known);
+				progress != null && progress.known, familyLines(panel), warningLines(panel));
 		return detail;
+	}
+
+	/** One line per hanja of a Sino-Korean word: the character, its meaning and the words that share it. */
+	private static List<Component> familyLines(MorphemeFamilies.Panel panel) {
+		List<Component> lines = new ArrayList<>();
+		HanjaMeanings meanings = HanjaMeanings.shared();
+		for (MorphemeFamilies.Family family : panel.families()) {
+			if (lines.size() >= MAX_FAMILIES) {
+				break;
+			}
+			StringBuilder text = new StringBuilder(family.hanja());
+			String meaning = meanings.meaning(family.hanja());
+			if (!meaning.isEmpty()) {
+				text.append(' ').append(meaning);
+			}
+			if (family.reading() != null) {
+				text.append(" (").append(family.reading()).append(')');
+			}
+			List<MorphemeFamilies.Member> members = family.members();
+			for (int i = 0; i < Math.min(MAX_MEMBERS, members.size()); i++) {
+				text.append(i == 0 ? " · " : ", ").append(members.get(i).ko());
+			}
+			if (members.size() > MAX_MEMBERS) {
+				text.append(" +").append(members.size() - MAX_MEMBERS);
+			}
+			lines.add(KoText.mixed(text.toString()));
+		}
+		return lines;
+	}
+
+	private static List<Component> warningLines(MorphemeFamilies.Panel panel) {
+		List<Component> lines = new ArrayList<>();
+		HanjaMeanings meanings = HanjaMeanings.shared();
+		for (MorphemeFamilies.Warning warning : panel.warnings()) {
+			if (lines.size() >= MAX_WARNINGS) {
+				break;
+			}
+			lines.add(KoText.mixed(I18n.t("hangulquest.ui.words.homophone", warning.reading(), warning.other(),
+					meanings.meaning(warning.other()), warning.otherWordKo())));
+		}
+		return lines;
 	}
 }

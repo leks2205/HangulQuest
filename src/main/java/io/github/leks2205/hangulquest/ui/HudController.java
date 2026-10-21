@@ -449,7 +449,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private QuizSession.Quiz buildQuiz(Word word) {
 		WordProgress progress = hq.learn().data().words.get(word.id);
 		Card card = CardFactory.create(word, progress, hq.catalog(), LexiconTags.shared(), new Random(),
-				hq.learn().productiveUnlockDays(word.id));
+				hq.learn().productiveUnlockDays(word.id), hq.config().typedCards);
 		return QuizSession.Quiz.of(word.id, card);
 	}
 
