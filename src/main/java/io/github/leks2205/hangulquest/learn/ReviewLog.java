@@ -61,7 +61,8 @@ public final class ReviewLog implements AutoCloseable {
 	/**
 	 * One line of the log. {@code grade} is null for exposures; {@code elapsedDays} is the days since the
 	 * previous review of the item (-1 for the first); {@code ctx} says where it happened (trail/step/role
-	 * or the card source); {@code arm} is reserved for experiments and null for now.
+	 * or the card source); {@code arm} lists the active experiment arms of the word
+	 * ({@code expId:arm}, comma-separated), null when there are none.
 	 */
 	public record Event(long t, String item, ReviewKind kind, ReviewMode mode, Integer grade, long latencyMs,
 						int elapsedDays, String ctx, String arm, int v) {
@@ -136,6 +137,11 @@ public final class ReviewLog implements AutoCloseable {
 
 	public Path dir() {
 		return dir;
+	}
+
+	/** False for {@link #disabled()}. */
+	public boolean enabled() {
+		return enabled;
 	}
 
 	public Path file() {
@@ -351,6 +357,12 @@ public final class ReviewLog implements AutoCloseable {
 	 * were not made by reviews (seeded from an old level); it is not changed.
 	 */
 	public static Map<String, CardState> replay(Path profileDir, Fsrs fsrs, Map<String, CardState> start) {
+		return replay(profileDir, ignored -> fsrs, start);
+	}
+
+	/** Same, with the scheduler chosen per word (an experiment may give words different desired retention). */
+	public static Map<String, CardState> replay(Path profileDir, java.util.function.Function<String, Fsrs> fsrsFor,
+												Map<String, CardState> start) {
 		Map<String, CardState> cards = new LinkedHashMap<>();
 		if (start != null) {
 			start.forEach((id, card) -> cards.put(id, card.copy()));
@@ -360,7 +372,8 @@ public final class ReviewLog implements AutoCloseable {
 					|| event.grade() < Fsrs.AGAIN || event.grade() > Fsrs.EASY) {
 				continue;
 			}
-			cards.put(event.item(), fsrs.review(cards.getOrDefault(event.item(), new CardState()), event.grade(), event.t()));
+			cards.put(event.item(), fsrsFor.apply(event.item()).review(cards.getOrDefault(event.item(), new CardState()),
+					event.grade(), event.t()));
 		}
 		return cards;
 	}

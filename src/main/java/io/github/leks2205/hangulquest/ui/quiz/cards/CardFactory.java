@@ -26,8 +26,13 @@ public final class CardFactory {
 
 	/** True once the word's stability is at least three days. Words never reviewed are not unlocked. */
 	public static boolean productiveUnlocked(WordProgress progress) {
+		return productiveUnlocked(progress, UNLOCK_STABILITY_DAYS);
+	}
+
+	/** Same with the stability the word's experiment arm asks for. */
+	public static boolean productiveUnlocked(WordProgress progress, double unlockDays) {
 		return progress != null && !progress.known && progress.fsrs != null && !progress.fsrs.isNew()
-				&& progress.fsrs.stability >= UNLOCK_STABILITY_DAYS;
+				&& progress.fsrs.stability >= unlockDays;
 	}
 
 	/** The kind of card for a word, given what is unlocked and whether tiles can spell it. */
@@ -42,8 +47,14 @@ public final class CardFactory {
 	}
 
 	public static Card create(Word word, WordProgress progress, Catalog catalog, LexiconTags tags, Random random) {
+		return create(word, progress, catalog, tags, random, UNLOCK_STABILITY_DAYS);
+	}
+
+	/** Same, for a word whose experiment arm sets the unlock stability. */
+	public static Card create(Word word, WordProgress progress, Catalog catalog, LexiconTags tags, Random random,
+							  double unlockDays) {
 		CardInfo info = CardInfo.of(catalog, word);
-		Kind kind = choose(productiveUnlocked(progress), SyllableTileCard.eligible(word.ko), random);
+		Kind kind = choose(productiveUnlocked(progress, unlockDays), SyllableTileCard.eligible(word.ko), random);
 		return create(kind, info, catalog.all(), tags, random);
 	}
 

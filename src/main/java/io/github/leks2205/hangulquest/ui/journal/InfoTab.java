@@ -6,8 +6,10 @@ import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.Streak;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.StampMemo;
+import io.github.leks2205.hangulquest.ui.research.PlacementScreen;
 import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 
@@ -26,6 +28,10 @@ public final class InfoTab extends JournalTab {
 	private final Runnable startReview = this::startReview;
 	private final Runnable openQuests = () -> host.openTab(JournalHost.QUEST_TAB);
 	private final Runnable openWelcome = host::openWelcome;
+	private final Runnable openPlacement = () -> {
+		Minecraft mc = Minecraft.getInstance();
+		mc.setScreenAndShow(new PlacementScreen(mc.gui.screen()));
+	};
 
 	public InfoTab(JournalHost host) {
 		super(host);
@@ -70,6 +76,8 @@ public final class InfoTab extends JournalTab {
 		host.button(g, x + 118, yy, 110, 18, I18n.t("hangulquest.ui.info.open_quests"), false, openQuests);
 		yy += 26;
 		host.button(g, x, yy, 228, 18, I18n.t("hangulquest.ui.info.about_hangul"), false, openWelcome);
+		yy += 24;
+		host.button(g, x, yy, 228, 18, I18n.t("hangulquest.ui.info.placement"), false, openPlacement);
 	}
 
 	private void startReview() {

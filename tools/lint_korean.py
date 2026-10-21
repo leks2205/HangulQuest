@@ -358,6 +358,8 @@ def lint_rows(rows: list[dict], rules: dict, selected: set[str] | None = None,
     ctx = Ctx(rules["lists"], lexicon, by_id)
     findings = []
     for row in rows:
+        if row["id"].startswith("pseudo."):
+            continue  # a nonword of the placement test: there is no sentence to lint
         scope = row_scope(row)
         text = row["ko"]
         for rule in rules["rules"]:

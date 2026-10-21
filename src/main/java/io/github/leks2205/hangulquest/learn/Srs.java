@@ -57,7 +57,8 @@ public final class Srs {
 		return seedWithStability(KNOWN_STABILITY, now, fsrs);
 	}
 
-	private static CardState seedWithStability(double stability, long now, Fsrs fsrs) {
+	/** A review-state card with the given stability, due after its natural interval. */
+	public static CardState seedWithStability(double stability, long now, Fsrs fsrs) {
 		CardState card = new CardState();
 		card.state = CardState.State.REVIEW;
 		card.stability = stability;

@@ -9,12 +9,17 @@ import io.github.leks2205.hangulquest.data.Word;
 
 import io.github.leks2205.hangulquest.learn.fsrs.CardState;
 import io.github.leks2205.hangulquest.learn.fsrs.Fsrs;
+import io.github.leks2205.hangulquest.learn.fsrs.FsrsParams;
+import io.github.leks2205.hangulquest.learn.research.Experiments;
+import io.github.leks2205.hangulquest.learn.research.Placement;
+import io.github.leks2205.hangulquest.learn.research.Probes;
 
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
@@ -24,6 +29,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 /** The single place that mutates learning progress; quests and cards call into it. */
 public final class LearningService implements LearningSink {
@@ -47,6 +53,10 @@ public final class LearningService implements LearningSink {
 	/** Semantic sets that got a new word since the game started. */
 	private final Set<String> sessionSets = new HashSet<>();
 	private volatile int newWordsPerDay = Config.DEFAULT_NEW_WORDS;
+	/** Research harness; both stay off until {@link #enableResearch()}. */
+	private volatile Experiments experiments = Experiments.none();
+	private volatile Probes probes;
+	private volatile double configuredRetention = FsrsParams.DEFAULT_RETENTION;
 
 	public LearningService(ProgressData data, ProgressStore store, Catalog catalog) {
 		this(data, store, catalog, Clock.systemDefaultZone());
@@ -72,11 +82,73 @@ public final class LearningService implements LearningSink {
 	/** The learning settings from the config: desired retention (0.80 to 0.95) and new words per day. */
 	public void configure(double retention, int newWords) {
 		fsrs = new Fsrs(fsrs.params().withDesiredRetention(retention));
+		configuredRetention = fsrs.params().desiredRetention();
 		newWordsPerDay = Config.nearestNewWords(newWords);
 	}
 
 	public Fsrs fsrs() {
 		return fsrs;
+	}
+
+	/**
+	 * Turns on the research harness with the experiments from the jar: held-out probes, and the arm of each
+	 * word in the review log and in its scheduling. Off by default so a plain service behaves exactly as the
+	 * settings say; the game switches it on at startup.
+	 */
+	public void enableResearch() {
+		enableResearch(Experiments.shared());
+	}
+
+	public synchronized void enableResearch(Experiments active) {
+		experiments = active;
+		log.flush();
+		probes = Probes.open(log.enabled() ? log.dir() : null, salt(),
+				log.enabled() ? ReviewLog.readAll(log.dir()) : List.of());
+	}
+
+	public Experiments experiments() {
+		return experiments;
+	}
+
+	/** The held-out probes, or null while research is off. */
+	public Probes probes() {
+		return probes;
+	}
+
+	private String salt() {
+		return data.meta.installSalt == null ? "" : data.meta.installSalt;
+	}
+
+	/**
+	 * The scheduler for one word. While the retention experiment is on, the word's arm sets its desired
+	 * retention, unless the player chose a retention of their own in the settings: that choice wins.
+	 */
+	public Fsrs fsrsFor(String wordId) {
+		if (!retentionArmApplies()) {
+			return fsrs;
+		}
+		OptionalDouble arm = experiments.retention(salt(), wordId);
+		return arm.isPresent() ? new Fsrs(fsrs.params().withDesiredRetention(arm.getAsDouble())) : fsrs;
+	}
+
+	private boolean retentionArmApplies() {
+		return Math.abs(configuredRetention - FsrsParams.DEFAULT_RETENTION) < 1e-9;
+	}
+
+	/** What the review log's {@code arm} field says for a word; null without active experiments. */
+	String armTag(String wordId) {
+		return experiments.tag(salt(), wordId, retentionArmApplies() ? Set.of() : Set.of(Experiments.RETENTION));
+	}
+
+	/** Stability in days at which this word's tile and self-graded cards unlock (3 unless an arm says 7). */
+	public double productiveUnlockDays(String wordId) {
+		return experiments.productiveUnlockDays(salt(), wordId);
+	}
+
+	/** True while the word is a held-out probe: not planned, not reviewed, not recalled in quests. */
+	public boolean heldOut(String wordId, long now) {
+		Probes held = probes;
+		return held != null && held.held(wordId, now);
 	}
 
 	public ReviewLog reviewLog() {
@@ -177,7 +249,7 @@ public final class LearningService implements LearningSink {
 		data.totals.seen++;
 		ExposureLedger.encounter(progress, context, now);
 		log.append(new ReviewLog.Event(now, word.id, ReviewKind.WORD, ReviewMode.EXPOSURE, null,
-				Grader.UNKNOWN_LATENCY, elapsedDays(progress, now), label));
+				Grader.UNKNOWN_LATENCY, elapsedDays(progress, now), label, armTag(word.id), ReviewLog.VERSION));
 		store.markDirty();
 	}
 
@@ -194,7 +266,7 @@ public final class LearningService implements LearningSink {
 		ExposureLedger.Context where = context == null ? ExposureLedger.Context.NONE : context;
 		String label = where.trail() + "/" + (step == null ? "" : step) + "/" + where.role();
 		WordProgress existing = data.words.get(word.id);
-		Grader.Graded graded = dueForRecall(existing, now) ? Grader.quest(assisted, hinted) : Grader.EXPOSURE;
+		Grader.Graded graded = dueForRecall(word.id, existing, now) ? Grader.quest(assisted, hinted) : Grader.EXPOSURE;
 		if (!graded.schedules()) {
 			exposeLabelled(word, now, where, label);
 			return;
@@ -207,8 +279,8 @@ public final class LearningService implements LearningSink {
 	}
 
 	/** True when a quest step may count as a recall of this word right now. */
-	private boolean dueForRecall(WordProgress progress, long now) {
-		if (progress == null || progress.known) {
+	private boolean dueForRecall(String wordId, WordProgress progress, long now) {
+		if (progress == null || progress.known || heldOut(wordId, now)) {
 			return false;
 		}
 		if (progress.fsrs == null || progress.fsrs.isNew()) {
@@ -234,6 +306,17 @@ public final class LearningService implements LearningSink {
 	 */
 	public List<Achievements.Achievement> answerMc(String wordId, int optionCount, boolean correct, long latencyMs,
 												   long now) {
+		Probes held = probes;
+		if (held != null && optionCount >= 4) {
+			Probes.Due due = held.dueFor(wordId, now).orElse(null);
+			if (due != null) {
+				// A held-out word is only ever on screen as its probe: log it, never schedule it.
+				List<Achievements.Achievement> earned = recordAnswer(wordId, Grader.probe(correct), latencyMs,
+						due.ctx(), now);
+				held.markDone(wordId, due.days());
+				return earned;
+			}
+		}
 		return recordAnswer(wordId, grader.multipleChoice(optionCount, correct, latencyMs), latencyMs, "quiz", now);
 	}
 
@@ -282,8 +365,12 @@ public final class LearningService implements LearningSink {
 		int elapsed = elapsedDays(progress, now);
 		if (graded.schedules()) {
 			noteGraded(wordId, isFresh(progress), graded.correct(), now);
-			schedule(progress, graded.grade(), now);
+			schedule(progress, wordId, graded.grade(), now);
 			data.totals.reviews++;
+			Probes held = probes;
+			if (held != null && !progress.known && progress.fsrs.stability >= Probes.STABILITY_DAYS) {
+				held.reserveIfEligible(wordId, now);
+			}
 		}
 		if (graded.mode().recall()) {
 			ExposureLedger.retrieval(progress, context, now, graded.correct(), studyDay(now));
@@ -291,14 +378,14 @@ public final class LearningService implements LearningSink {
 			ExposureLedger.encounter(progress, context, now);
 		}
 		log.append(new ReviewLog.Event(now, wordId, ReviewKind.WORD, graded.mode(), graded.grade(), latencyMs,
-				elapsed, label));
+				elapsed, label, armTag(wordId), ReviewLog.VERSION));
 		store.markDirty();
 	}
 
 	/** Moves the FSRS card and keeps the display level and the old due field in step with it. */
-	private void schedule(WordProgress progress, int grade, long now) {
+	private void schedule(WordProgress progress, String wordId, int grade, long now) {
 		CardState before = progress.fsrs != null ? progress.fsrs : Srs.seed(progress.level, now, fsrs);
-		CardState next = fsrs.review(before, grade, now);
+		CardState next = fsrsFor(wordId).review(before, grade, now);
 		progress.fsrs = next;
 		progress.level = progress.known ? Srs.MAX_LEVEL : Srs.levelFor(next.stability);
 		progress.dueAt = progress.known ? Long.MAX_VALUE : next.due;
@@ -444,11 +531,52 @@ public final class LearningService implements LearningSink {
 		store.markDirty();
 	}
 
+	/** The held-out word whose 7- or 30-day probe is due, if any; the HUD asks it as a pop quiz. */
+	public Optional<Probes.Due> dueProbe(long now) {
+		Probes held = probes;
+		return held == null ? Optional.empty() : held.nextDue(now);
+	}
+
+	/**
+	 * Words a placement test says the player knows: each gets a card with three days of stability, so it is
+	 * asked again soon rather than trusted. Words with real review history keep it. Touches no day counts
+	 * and no streak. Returns how many were seeded.
+	 */
+	public int seedFromPlacement(Collection<String> wordIds, long now) {
+		int seeded = 0;
+		for (String id : wordIds) {
+			Optional<Word> word = catalog.byId(id);
+			if (word.isEmpty()) {
+				continue;
+			}
+			WordProgress progress = data.words.get(id);
+			if (progress != null && (progress.known || !isFresh(progress))) {
+				continue;
+			}
+			if (progress == null) {
+				progress = newProgress(word.get(), now);
+				progress.introducedAt = now;
+				data.words.put(id, progress);
+			}
+			progress.fsrs = Srs.seedWithStability(Placement.SEED_STABILITY_DAYS, now, fsrsFor(id));
+			progress.level = Srs.levelFor(progress.fsrs.stability);
+			progress.dueAt = progress.fsrs.due;
+			progress.lastSeenAt = now;
+			log.append(new ReviewLog.Event(now, id, ReviewKind.WORD, ReviewMode.EXPOSURE, null,
+					Grader.UNKNOWN_LATENCY, -1, "placement", armTag(id), ReviewLog.VERSION));
+			seeded++;
+		}
+		if (seeded > 0) {
+			store.markDirty();
+		}
+		return seeded;
+	}
+
 	public List<Word> dueWords(long now, int limit) {
 		List<Map.Entry<String, WordProgress>> due = new ArrayList<>();
 		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
 			WordProgress progress = entry.getValue();
-			if (!progress.known && progress.dueAt <= now) {
+			if (!progress.known && progress.dueAt <= now && !heldOut(entry.getKey(), now)) {
 				due.add(entry);
 			}
 		}
@@ -485,7 +613,7 @@ public final class LearningService implements LearningSink {
 			due.add(new SessionPlanner.Due(word, tags.semSet(word), fresh, retrievability, progress.dueAt,
 					tag == null ? 0 : tag.curriculumGrade(), tag != null && tag.mcOnly()));
 		}
-		return SessionPlanner.rank(due, newWordsLeft(now), sessionSets, limit);
+		return SessionPlanner.rank(due, newWordsLeft(now), sessionSets, limit, id -> heldOut(id, now));
 	}
 
 	/** New words the player may still start today (daily budget, adjusted by the last reviews). */
@@ -501,8 +629,9 @@ public final class LearningService implements LearningSink {
 
 	public int dueCount(long now) {
 		int count = 0;
-		for (WordProgress progress : data.words.values()) {
-			if (!progress.known && progress.dueAt <= now) {
+		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
+			WordProgress progress = entry.getValue();
+			if (!progress.known && progress.dueAt <= now && !heldOut(entry.getKey(), now)) {
 				count++;
 			}
 		}

@@ -388,6 +388,14 @@ public final class HudController implements QuestEngine.Feedback {
 		if (learn == null) {
 			return null;
 		}
+		var probe = learn.dueProbe(System.currentTimeMillis());
+		if (probe.isPresent()) {
+			// A held-out word is asked as a plain four-option question; see LearningService.answerMc.
+			Word probed = hq.catalog().byId(probe.get().wordId()).orElse(null);
+			if (probed != null) {
+				return buildMcQuiz(probed);
+			}
+		}
 		List<Word> due = learn.dueForPlay(System.currentTimeMillis(), 6);
 		if (due.isEmpty()) {
 			return null;
@@ -399,11 +407,12 @@ public final class HudController implements QuestEngine.Feedback {
 	/** The card for a due word: recognition, or a productive card once the word is stable enough. */
 	private QuizSession.Quiz buildQuiz(Word word) {
 		WordProgress progress = hq.learn().data().words.get(word.id);
-		Card card = CardFactory.create(word, progress, hq.catalog(), LexiconTags.shared(), new Random());
+		Card card = CardFactory.create(word, progress, hq.catalog(), LexiconTags.shared(), new Random(),
+				hq.learn().productiveUnlockDays(word.id));
 		return QuizSession.Quiz.of(word.id, card);
 	}
 
-	/** Dev self-test: always recognition, so the right answer is known. */
+	/** Always recognition (four options): the dev self-test, and the held-out probes. */
 	private QuizSession.Quiz buildMcQuiz(Word word) {
 		return QuizSession.Quiz.of(word.id, RecognitionMc4Card.create(CardInfo.of(hq.catalog(), word),
 				hq.catalog().all(), LexiconTags.shared(), new Random()));
