@@ -1,0 +1,29 @@
+{
+	"schema": 1,
+	"comment": "Culture notes tied to the game. An item note shows once, when the player first crafts or holds one of its anchor items; a holiday note shows from 'before' days ahead to 'after' days past each date of the table. The dates are the Gregorian dates of the Korean lunar holidays (Seollal: 1st day of the 1st lunar month, Chuseok: 15th day of the 8th lunar month), in Korea Standard Time; the table ends in 2030. 'ko' is a level 1-2 summary; the title, the translation of the summary and the explanation are the lang keys hangulquest.culture.<id>.title, .summary and .text.",
+	"holidays": {
+		"seollal": {"before": 7, "after": 1, "dates": ["2026-02-17", "2027-02-07", "2028-01-27", "2029-02-13", "2030-02-03"]},
+		"chuseok": {"before": 7, "after": 1, "dates": ["2026-09-25", "2027-09-15", "2028-10-03", "2029-09-22", "2030-09-12"]}
+	},
+	"notes": [
+		{"id": "ondol", "titleKo": "온돌", "icon": "minecraft:furnace", "anchors": ["minecraft:furnace"],
+			"ko": "온돌 방은 바닥이 따뜻해요. 불의 열이 바닥 아래로 가요."},
+		{"id": "hanok", "titleKo": "한옥", "icon": "minecraft:deepslate_tile_stairs",
+			"anchors": ["minecraft:deepslate_tile_stairs", "minecraft:deepslate_tile_slab"],
+			"ko": "한옥은 나무와 기와로 지어요. 지붕 끝이 하늘로 올라가요."},
+		{"id": "jangdok", "titleKo": "장독", "icon": "minecraft:barrel", "anchors": ["minecraft:barrel"],
+			"ko": "장독 안에 된장과 간장이 있어요."},
+		{"id": "hanbok", "titleKo": "한복", "icon": "minecraft:red_dye",
+			"anchors": ["minecraft:red_dye", "minecraft:blue_dye", "minecraft:yellow_dye"],
+			"ko": "한복은 색이 예뻐요. 꽃과 풀로 색을 내요."},
+		{"id": "kimchi", "titleKo": "김치", "icon": "minecraft:fermented_spider_eye",
+			"anchors": ["minecraft:fermented_spider_eye"],
+			"ko": "김치는 배추로 만들어요. 소금과 고춧가루를 넣어요."},
+		{"id": "seollal", "titleKo": "설날", "icon": "minecraft:mushroom_stew", "holiday": "seollal",
+			"ko": "설날에는 가족이 모여요. 떡국을 먹어요."},
+		{"id": "chuseok", "titleKo": "추석", "icon": "minecraft:wheat", "holiday": "chuseok",
+			"ko": "추석에는 보름달이 떠요. 송편을 먹어요."},
+		{"id": "yutnori", "titleKo": "윷놀이", "icon": "minecraft:stick", "anchors": ["minecraft:stick"],
+			"ko": "윷놀이는 윷가락 네 개를 던져요. 도, 개, 걸, 윷, 모가 나와요."}
+	]
+}

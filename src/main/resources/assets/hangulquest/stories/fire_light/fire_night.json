@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "fire_night",
+	"chapter": "fire_light",
+	"level": 1,
+	"titleKo": "첫 밤",
+	"unlock": {"trails": ["nachtpfad"], "minWords": 5},
+	"paragraphs": [
+		"해가 져요. 밤이 와요. 밖이 어두워요.",
+		"집 앞에 있어요. 하늘에 달이 있어요. 별도 있어요.",
+		"무서워요! 하지만 횃불이 있어요.",
+		"횃불을 놓아요. 불이 밝아요. 이제 안 무서워요.",
+		"횃불 옆에 앉아요. 불빛이 따뜻해요. 달도 예뻐요.",
+		"밤이 길어요. 하지만 괜찮아요. 횃불이 있어요."
+	],
+	"words": [
+		"concept:sun", "concept:night", "concept:house", "concept:sky", "concept:moon", "concept:torch",
+		"concept:place"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L1.e_place", "L1.itda_eopda", "L1.neg_an", "L1.loc_ap_e",
+		"L1.loc_yeop_e"
+	]
+}

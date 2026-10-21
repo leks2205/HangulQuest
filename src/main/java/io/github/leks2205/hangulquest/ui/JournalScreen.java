@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.ui.journal.InfoTab;
 import io.github.leks2205.hangulquest.ui.journal.Ink;
 import io.github.leks2205.hangulquest.ui.journal.JournalHost;
 import io.github.leks2205.hangulquest.ui.journal.JournalTab;
+import io.github.leks2205.hangulquest.ui.journal.LibraryTab;
 import io.github.leks2205.hangulquest.ui.journal.QuestTab;
 import io.github.leks2205.hangulquest.ui.journal.SettingsTab;
 import io.github.leks2205.hangulquest.ui.journal.StudyTab;
@@ -25,15 +26,15 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * The deliberately opened journal: overview, dictionary, review, achievements, quests, grammar, settings.
+ * The deliberately opened journal: overview, dictionary, review, achievements, quests, grammar, library, settings.
  * This class is the book itself (cover, tab bar, footer, shared widgets and click areas); each page
  * is a {@link JournalTab} in {@code ui.journal}.
  */
 public final class JournalScreen extends Screen {
 	private static final String[] TABS = {"hangulquest.ui.journal.tab.info", "hangulquest.ui.journal.tab.words",
 			"hangulquest.ui.journal.tab.study", "hangulquest.ui.journal.tab.achievements", "hangulquest.ui.journal.tab.quests",
-			"hangulquest.ui.journal.tab.grammar", "hangulquest.ui.journal.tab.settings"};
-	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —", "— 7 —"};
+			"hangulquest.ui.journal.tab.grammar", "hangulquest.ui.journal.tab.library", "hangulquest.ui.journal.tab.settings"};
+	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —", "— 7 —", "— 8 —"};
 	private static final String[] SPINE = {"한", "글", "일", "지"};
 
 	private final HangulQuestClient hq = HangulQuestClient.get();
@@ -164,7 +165,7 @@ public final class JournalScreen extends Screen {
 		super(Component.literal("한글 탐험"));
 		tabs = new JournalTab[] {
 				new InfoTab(host), new WordsTab(host), new StudyTab(host),
-				new AchievementsTab(host), new QuestTab(host), new GrammarTab(host), new SettingsTab(host)};
+				new AchievementsTab(host), new QuestTab(host), new GrammarTab(host), new LibraryTab(host), new SettingsTab(host)};
 		for (int i = 0; i < tabs.length; i++) {
 			int index = i;
 			tabClicks[i] = () -> {
