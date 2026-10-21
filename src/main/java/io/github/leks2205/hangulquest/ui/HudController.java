@@ -87,7 +87,8 @@ public final class HudController implements QuestEngine.Feedback {
 		long now = System.currentTimeMillis();
 		celebration.tickParticles(mc, now);
 		if (!nextChoices.isEmpty()) {
-			if (hq.quests().activeTrail() != null) {
+			if (hq.quests().pendingNextChoices().isEmpty()) {
+				// picked, or the player went on with another trail; other active trails do not count
 				nextChoices = List.of();
 			} else if (now > nextChoicesUntil) {
 				Questline chosen = nextChoices.get(0);

@@ -2,6 +2,10 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
+import io.github.leks2205.hangulquest.quest.goal.GoalType;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
+import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
 
 import java.util.List;
 
@@ -72,7 +76,7 @@ public final class SentenceBuilder {
 		return prefix(conditions, namer) + core(goal, word, false, 1, false, namer);
 	}
 
-	private static long seconds(long dwellMs) {
+	public static long seconds(long dwellMs) {
 		return Math.max(1L, (dwellMs + 999L) / 1000L);
 	}
 
@@ -82,62 +86,14 @@ public final class SentenceBuilder {
 
 	/** Verb for a goal, from data/verbs.json (explicit {@code verb} on a break goal wins). */
 	public static Verb verbFor(Goal goal) {
-		VerbTable table = VerbTable.shared();
-		return switch (goal) {
-			case Goal.BreakBlock g -> Verb.byId(g.verb(),
-					table.choose("BREAK_BLOCK", g.block(), g.count(), Verb.BREAK));
-			case Goal.PlaceBlock g -> table.choose("PLACE_BLOCK", g.block(), g.count(), Verb.PLACE);
-			case Goal.AcquireItem g -> table.choose("ACQUIRE_ITEM", g.item(), g.count(), Verb.COLLECT);
-			case Goal.ConsumeItem g -> table.choose("CONSUME_ITEM", g.item(), g.count(), Verb.EAT);
-			case Goal.LookAtBlock g -> Verb.WATCH;
-			case Goal.LookAtEntity g -> Verb.WATCH;
-			case Goal.DefeatEntity g -> Verb.DEFEAT;
-			case Goal.ReachBiome g -> Verb.GO;
-			case Goal.ReachDimension g -> Verb.GO;
-			case Goal.ReachHeight g -> g.minY() > 0 || g.maxY() > 0 ? Verb.CLIMB : Verb.DESCEND;
-			case Goal.UseBlock g -> table.choose("USE_BLOCK", g.block(), 1, Verb.USE);
-			case Goal.InteractEntity g -> table.choose("INTERACT_ENTITY", g.entity(), 1, Verb.FEED);
-		};
+		return GoalTypes.of(goal).verb(goal, VerbTable.shared());
 	}
 
 	private static String core(Goal goal, Word word, boolean withCounts, int level, boolean finale,
 							   Namer namer) {
-		String obj = objectName(goal, word, namer);
-		Verb verb = verbFor(goal);
-		return switch (goal) {
-			case Goal.BreakBlock g -> phrase(
-					counted(objectPhrase(obj, verb), g.count(), withCounts), verb, level, finale);
-			case Goal.PlaceBlock g -> phrase(
-					counted(objectPhrase(obj, verb), g.count(), withCounts), verb, level, finale);
-			case Goal.AcquireItem g -> phrase(
-					counted(objectPhrase(obj, verb), g.count(), withCounts), verb, level, finale);
-			case Goal.ConsumeItem g -> phrase(
-					counted(objectPhrase(obj, verb), g.count(), withCounts), verb, level, finale);
-			case Goal.LookAtBlock g -> phrase(KoGrammar.eul(obj) + " " + seconds(g.dwellMs())
-					+ "초 동안", verb, level, finale);
-			case Goal.LookAtEntity g -> phrase(KoGrammar.eul(obj) + " " + seconds(g.dwellMs())
-					+ "초 동안", verb, level, finale);
-			case Goal.DefeatEntity g -> phrase(
-					withCounts ? KoGrammar.eul(obj) + " " + counter(g.count(), "마리") : KoGrammar.eul(obj),
-					verb, level, finale);
-			case Goal.ReachBiome g -> phrase(KoGrammar.euro(obj), verb, level, finale);
-			case Goal.ReachDimension g -> phrase(KoGrammar.euro(dimensionName(g.dimension(), obj)),
-					verb, level, finale);
-			case Goal.ReachHeight g -> {
-				if (g.minY() > 0) {
-					yield phrase("높이 " + g.minY() + "블록 위로", verb, level, finale);
-				}
-				if (g.maxY() <= 0) {
-					yield phrase("높이 " + g.maxY() + " 이하로", verb, level, finale);
-				}
-				if (g.minY() <= 0) {
-					yield phrase("땅 위로", Verb.CLIMB, level, finale);
-				}
-				yield phrase("땅속으로", Verb.DESCEND, level, finale);
-			}
-			case Goal.UseBlock g -> phrase(objectPhrase(obj, verb), verb, level, finale);
-			case Goal.InteractEntity g -> phrase(objectPhrase(obj, verb), verb, level, finale);
-		};
+		GoalType<Goal> type = GoalTypes.of(goal);
+		return type.korean(goal, new SentenceContext(objectName(goal, word, namer),
+				type.verb(goal, VerbTable.shared()), withCounts, level, finale));
 	}
 
 	/**
@@ -146,36 +102,13 @@ public final class SentenceBuilder {
 	 * clue, so it can never describe something other than what was checked.
 	 */
 	public static String ceremony(Goal goal, Word word, List<Condition> conditions, Namer namer) {
-		String obj = objectName(goal, word, namer);
-		Verb verb = verbFor(goal);
-		String body = switch (goal) {
-			case Goal.BreakBlock g -> counted(objectPhrase(obj, verb), g.count(), true) + " " + verb.past();
-			case Goal.PlaceBlock g -> counted(objectPhrase(obj, verb), g.count(), true) + " " + verb.past();
-			case Goal.AcquireItem g -> counted(objectPhrase(obj, verb), g.count(), true) + " " + verb.past();
-			case Goal.ConsumeItem g -> counted(objectPhrase(obj, verb), g.count(), true) + " " + verb.past();
-			case Goal.LookAtBlock g -> KoGrammar.eul(obj) + " " + verb.past();
-			case Goal.LookAtEntity g -> KoGrammar.eul(obj) + " " + verb.past();
-			case Goal.DefeatEntity g -> KoGrammar.eul(obj) + " "
-					+ (g.count() > 1 ? counter(g.count(), "마리") + " " : "") + verb.past();
-			case Goal.ReachBiome g -> obj + "에 " + Verb.ARRIVE.past();
-			case Goal.ReachDimension g -> dimensionName(g.dimension(), obj) + "에 " + Verb.ARRIVE.past();
-			case Goal.ReachHeight g -> {
-				if (g.minY() > 0) {
-					yield "높이 " + g.minY() + "블록 위로 " + Verb.CLIMB.past();
-				}
-				if (g.maxY() <= 0) {
-					yield "높이 " + g.maxY() + " 이하로 " + Verb.DESCEND.past();
-				}
-				yield g.minY() <= 0 ? "땅 위로 " + Verb.CLIMB.past() : "땅속으로 " + Verb.DESCEND.past();
-			}
-			case Goal.UseBlock g -> objectPhrase(obj, verb) + " " + verb.past();
-			case Goal.InteractEntity g -> objectPhrase(obj, verb) + " " + verb.prefix() + verb.past();
-		};
+		GoalType<Goal> type = GoalTypes.of(goal);
+		String body = type.ceremony(goal, objectName(goal, word, namer), type.verb(goal, VerbTable.shared()));
 		return prefix(conditions, namer) + body + ".";
 	}
 
 	/** Frame-aware object marker: 돌을, 주민과, 소에게, 침대에서. */
-	private static String objectPhrase(String obj, Verb verb) {
+	public static String objectPhrase(String obj, Verb verb) {
 		return switch (verb.frame()) {
 			case ACC -> KoGrammar.eul(obj);
 			case COM -> KoGrammar.waGwa(obj);
@@ -190,20 +123,7 @@ public final class SentenceBuilder {
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
 			return word.ko;
 		}
-		String resolved = switch (goal) {
-			case Goal.BreakBlock g -> namer.block(g.block());
-			case Goal.PlaceBlock g -> namer.block(g.block());
-			case Goal.AcquireItem g -> namer.item(g.item());
-			case Goal.ConsumeItem g -> namer.item(g.item());
-			case Goal.LookAtBlock g -> namer.block(g.block());
-			case Goal.UseBlock g -> namer.block(g.block());
-			case Goal.LookAtEntity g -> namer.entity(g.entity());
-			case Goal.DefeatEntity g -> namer.entity(g.entity());
-			case Goal.InteractEntity g -> namer.entity(g.entity());
-			case Goal.ReachBiome g -> biomeName(g.biome(), namer);
-			case Goal.ReachDimension g -> dimension(g.dimension());
-			case Goal.ReachHeight g -> null;
-		};
+		String resolved = GoalTypes.of(goal).objectName(goal, namer);
 		return resolved == null ? "" : resolved;
 	}
 
@@ -211,7 +131,7 @@ public final class SentenceBuilder {
 		return word.category == Category.ACTIONS && word.ko.endsWith("다");
 	}
 
-	private static String dimensionName(String id, String fallback) {
+	public static String dimensionName(String id, String fallback) {
 		String name = dimension(id);
 		return name == null ? fallback : name;
 	}
@@ -229,15 +149,15 @@ public final class SentenceBuilder {
 		};
 	}
 
-	private static String phrase(String head, Verb verb, int level, boolean finale) {
+	public static String phrase(String head, Verb verb, int level, boolean finale) {
 		return head + " " + verbPhrase(verb, level, finale) + ".";
 	}
 
-	private static String counted(String head, int count, boolean withCounts) {
+	public static String counted(String head, int count, boolean withCounts) {
 		return withCounts && count > 1 ? head + " " + counter(count, "개") : head;
 	}
 
-	private static String counter(int count, String counter) {
+	public static String counter(int count, String counter) {
 		return KoGrammar.counter(count, counter);
 	}
 
@@ -247,65 +167,21 @@ public final class SentenceBuilder {
 		}
 		StringBuilder sb = new StringBuilder();
 		for (Condition condition : conditions) {
-			switch (condition) {
-				case Condition.Time t -> sb.append(switch (t.phase()) {
-					case NIGHT -> "밤에 ";
-					case DAY -> "낮에 ";
-					case DAWN -> "새벽에 ";
-					case DUSK -> "저녁에 ";
-				});
-				case Condition.WeatherState w -> sb.append(switch (w.weather()) {
-					case CLEAR -> "맑을 때 ";
-					case RAIN -> "비가 올 때 ";
-					case THUNDER -> "천둥이 칠 때 ";
-				});
-				case Condition.YRange y -> {
-					String where = yRange(y);
-					if (!where.isEmpty()) {
-						sb.append(where).append(' ');
-					}
-				}
-				case Condition.NearEntity n -> sb.append(name(namer.entity(n.entity()), "가까이에서 "));
-				case Condition.NearBlock n -> sb.append(name(namer.block(n.block()), "가까이에서 "));
-				case Condition.InDimension d -> sb.append(dimensionPhrase(d.dimension()));
-				case Condition.InBiome b -> sb.append(biomePhrase(b.biome(), namer));
-			}
+			sb.append(ConditionTypes.of(condition).prefix(condition, namer));
 		}
 		return sb.toString();
 	}
 
-	private static String yRange(Condition.YRange y) {
-		if (y.minY() <= 0 && y.maxY() >= 320) {
-			return "";
-		}
-		if (y.maxY() <= 0) {
-			return "높이 " + y.maxY() + " 이하에서";
-		}
-		if (y.minY() <= 0) {
-			return "땅속에서";
-		}
-		return "높이 " + y.minY() + "블록 위에서";
-	}
-
-	private static String name(String noun, String fallback) {
+	/** "곰 근처에서 ", or {@code fallback} when the thing has no name. */
+	public static String nearName(String noun, String fallback) {
 		if (noun == null || noun.isBlank()) {
 			return fallback;
 		}
 		return noun + (fallback.startsWith("가까이") ? " 근처에서 " : "에서 ");
 	}
 
-	private static String dimensionPhrase(String id) {
-		String name = dimension(id);
-		return name == null ? "다른 차원에서 " : name + "에서 ";
-	}
-
-	private static String biomePhrase(String id, Namer namer) {
-		String name = biomeName(id, namer);
-		return name == null ? "그 생물 군계에서 " : name + "에서 ";
-	}
-
 	/** The three dimensions by their official Korean names. */
-	static String dimension(String id) {
+	public static String dimension(String id) {
 		if (id == null) {
 			return null;
 		}
@@ -317,7 +193,7 @@ public final class SentenceBuilder {
 		};
 	}
 
-	private static String biomeName(String id, Namer namer) {
+	public static String biomeName(String id, Namer namer) {
 		if (id == null) {
 			return null;
 		}
