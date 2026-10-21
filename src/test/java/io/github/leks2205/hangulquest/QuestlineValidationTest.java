@@ -48,10 +48,10 @@ class QuestlineValidationTest {
 	void allShippedQuestlinesValidate() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		List<Questline> loaded = QuestLoader.loadAll();
-		assertEquals(421, loaded.size(), "expected four hundred and twenty authored trails and one demo");
+		assertEquals(422, loaded.size(), "expected four hundred and twenty authored trails and two demos");
 		QuestValidator.Result result = QuestValidator.validate(loaded, catalog, LOG);
 		assertTrue(result.problems().isEmpty(), "questline problems: " + result.problems());
-		assertEquals(421, result.trails().size());
+		assertEquals(422, result.trails().size());
 
 		java.util.Set<String> trailIds = new java.util.HashSet<>();
 		java.util.Map<String, Questline> byId = new java.util.HashMap<>();
@@ -209,6 +209,9 @@ class QuestlineValidationTest {
 					case Goal.ReachHeight g -> List.of("올라", "내려", "가");
 					case Goal.DefeatEntity g -> List.of("물리", "죽", "잡");
 					case Goal.InteractEntity g -> List.of("이야기", "대화", "말", "만나");
+					case Goal.PlaceRel g -> List.of("놓", "심", "걸", "깔");
+					case Goal.BuildPattern g -> List.of("쌓", "놓");
+					case Goal.PlaceOnPattern g -> List.of("놓", "심", "걸", "깔");
 					case Goal.Craft g -> List.of("만들");
 					case Goal.Smelt g -> List.of("만들", "구", "녹");
 					case Goal.Give g -> List.of("주", "떨어뜨");
@@ -353,7 +356,7 @@ class QuestlineValidationTest {
 	void everyValidatedTrailHasAnEnglishTitleAndFinaleWithoutFallback() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		QuestValidator.Result result = QuestValidator.validate(QuestLoader.loadAll(), catalog, LOG);
-		assertEquals(421, result.trails().size());
+		assertEquals(422, result.trails().size());
 		for (Questline trail : result.trails()) {
 			// The raw fields: the fallback getters would hide a lost English text behind German.
 			assertFalse(trail.titleEnRaw() == null || trail.titleEnRaw().isBlank(),

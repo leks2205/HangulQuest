@@ -36,6 +36,9 @@ class VerbVarietyTest {
 	static Map<Integer, Map<Verb, Integer>> counts() {
 		Map<Integer, Map<Verb, Integer>> byLevel = new TreeMap<>();
 		for (Questline trail : QuestLoader.loadAll()) {
+			if (trail.id().endsWith("_demo")) {
+				continue; // a demo shows off a task type, it is not part of the curriculum the ratchet guards
+			}
 			for (QuestStep step : trail.allSteps()) {
 				Verb verb = SentenceBuilder.verbFor(step.goal());
 				byLevel.computeIfAbsent(trail.koreanLevel(), level -> new EnumMap<>(Verb.class))

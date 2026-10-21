@@ -1,0 +1,141 @@
+package io.github.leks2205.hangulquest.quest.spatial;
+
+import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.Goal;
+import io.github.leks2205.hangulquest.quest.QuestStep;
+import io.github.leks2205.hangulquest.quest.Questline;
+import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+/**
+ * Content rules for the spatial goals: the relation word must be in the Korean, the translation must
+ * not give it away, and the materials must be reachable at the trail's level.
+ */
+public final class SpatialRules {
+	/** English words that say where something goes. A translation with one of them gives the task away. */
+	private static final java.util.regex.Pattern EN_RELATION = java.util.regex.Pattern.compile(
+			"\\b(on top|atop|on|above|over|under|underneath|beneath|below|next to|beside|besides|adjacent|"
+					+ "in front|behind|inside|outside|between|near|nearby|around|within)\\b",
+			java.util.regex.Pattern.CASE_INSENSITIVE);
+	private static final java.util.regex.Pattern DE_RELATION = java.util.regex.Pattern.compile(
+			"\\b(oben|auf|über|unter|unterhalb|darunter|darüber|neben|daneben|vor|davor|hinter|dahinter|"
+					+ "innerhalb|innen|drinnen|außerhalb|draußen|zwischen|dazwischen|nahe|nähe|bei)\\b",
+			java.util.regex.Pattern.CASE_INSENSITIVE);
+
+	/** Materials of the Nether and the End; they are out of reach for a beginner. */
+	private static final String[] FAR_AWAY = {"nether", "soul_", "basalt", "blackstone", "crimson", "warped",
+			"glowstone", "magma", "quartz", "shroomlight", "ancient_debris", "end_", "purpur", "chorus", "gilded"};
+
+	/** Levels 1 and 2 stay in the overworld. */
+	private static final int OVERWORLD_ONLY_UP_TO = 2;
+
+	private SpatialRules() {
+	}
+
+	/** The namer the quest text uses, built from a catalog. */
+	public static SentenceBuilder.Namer namer(Catalog catalog) {
+		return new SentenceBuilder.Namer() {
+			@Override
+			public String biome(String id) {
+				return catalog.byBiomeId(id).map(word -> word.ko).orElse(null);
+			}
+
+			@Override
+			public String entity(String id) {
+				return catalog.byEntityId(id).map(word -> word.ko).orElse(null);
+			}
+
+			@Override
+			public String block(String id) {
+				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+			}
+		};
+	}
+
+	/** The relation-revealing word in a translation, or null when it is clean. */
+	public static String leak(String translation) {
+		if (translation == null) {
+			return null;
+		}
+		for (java.util.regex.Pattern pattern : new java.util.regex.Pattern[]{EN_RELATION, DE_RELATION}) {
+			java.util.regex.Matcher found = pattern.matcher(translation);
+			if (found.find()) {
+				return found.group();
+			}
+		}
+		return null;
+	}
+
+	/** True when the Korean has the relation as a place word: " 옆에", " 위에서". */
+	public static boolean namesRelation(String korean, Relation relation) {
+		return korean != null && korean.contains(" " + relation.ko() + "에");
+	}
+
+	/**
+	 * The shared checks of the two relation goals: the generated sentence (and any authored one) names
+	 * the relation, and neither the English nor the German line gives it away.
+	 */
+	public static void checkRelationText(Goal goal, Relation relation, ValidationContext context) {
+		QuestStep step = context.step();
+		Word word = step.teach().isEmpty() ? null : context.catalog().byConceptId(step.teach().get(0)).orElse(null);
+		String generated = SentenceBuilder.normal(goal, word, List.of(), 1, false, namer(context.catalog()));
+		if (!namesRelation(generated, relation)) {
+			context.problem("the Korean sentence does not name the relation " + relation.ko() + ": " + generated);
+		}
+		for (String authored : new String[]{step.clueKo(), step.hintKo()}) {
+			if (authored != null && !authored.isBlank() && !namesRelation(authored, relation)) {
+				context.problem("authored Korean does not name the relation " + relation.ko() + ": " + authored);
+			}
+		}
+		String[] translations = {step.clueEn(), step.clueDe(), step.hintEn(), step.hintDe()};
+		for (String translation : translations) {
+			String leaked = leak(translation);
+			if (leaked != null) {
+				context.problem("the translation gives the relation away ('" + leaked + "'): " + translation);
+			}
+		}
+	}
+
+	/** Whether a block, family or tag can be had at this Korean level (no Nether stuff before level 3). */
+	public static boolean reachable(String blockOrFamily, int koreanLevel) {
+		if (blockOrFamily == null || koreanLevel > OVERWORLD_ONLY_UP_TO) {
+			return true;
+		}
+		String path = blockOrFamily.substring(blockOrFamily.indexOf(':') + 1).toLowerCase(Locale.ROOT);
+		for (String far : FAR_AWAY) {
+			if (path.contains(far)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/** Every block a spatial goal needs from the player or the world. */
+	public static List<String> blocksOf(Goal goal) {
+		return switch (goal) {
+			case Goal.PlaceRel g -> List.of(g.block(), g.anchor());
+			case Goal.BuildPattern g -> List.of(g.material());
+			case Goal.PlaceOnPattern g -> List.of(g.block(), g.material());
+			default -> List.of();
+		};
+	}
+
+	/** The reachability problems of a trail: spatial steps whose blocks are out of reach at its level. */
+	public static List<String> reachabilityProblems(Questline trail) {
+		List<String> problems = new ArrayList<>();
+		for (QuestStep step : trail.allSteps()) {
+			for (String block : blocksOf(step.goal())) {
+				if (!reachable(block, trail.koreanLevel())) {
+					problems.add(trail.id() + "/" + step.id() + ": " + block
+							+ " is out of reach at Korean level " + trail.koreanLevel());
+				}
+			}
+		}
+		return problems;
+	}
+}

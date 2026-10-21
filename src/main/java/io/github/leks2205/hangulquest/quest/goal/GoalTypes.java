@@ -25,6 +25,10 @@ public final class GoalTypes {
 			new ReachHeightType(),
 			new UseBlockType(),
 			new InteractEntityType(),
+			// spatial goals (quest/spatial)
+			new PlaceRelType(),
+			new BuildPatternType(),
+			new PlaceOnPatternType(),
 			// Action variety.
 			new CraftType(),
 			new SmeltType(),

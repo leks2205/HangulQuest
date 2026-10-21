@@ -7,6 +7,8 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.spatial.Relation;
+import io.github.leks2205.hangulquest.quest.spatial.Role;
 
 import java.util.List;
 
@@ -164,6 +166,14 @@ public final class SentenceBuilder {
 			});
 		}
 		return ids;
+	}
+
+	/**
+	 * Anchor noun + location noun + particle: "문 옆에" (the thing goes there), "횃불 아래에서" (the
+	 * activity happens there). The particle comes from the role the place word plays in the task.
+	 */
+	public static String relationPhrase(String anchorNoun, Relation relation, Role role) {
+		return anchorNoun + " " + relation.ko() + role.particle();
 	}
 
 	/** Frame-aware object marker: 돌을, 주민과, 소에게, 침대에서. */
