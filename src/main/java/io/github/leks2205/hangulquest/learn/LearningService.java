@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /** The single place that mutates learning progress; quests and cards call into it. */
-public final class LearningService {
+public final class LearningService implements LearningSink {
 	private final ProgressData data;
 	private final ProgressStore store;
 	private final Catalog catalog;

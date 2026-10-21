@@ -4,6 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -162,45 +164,14 @@ public final class QuestLoader {
 		return parsed;
 	}
 
+	/** Reads a goal object; null for an unknown type. */
 	public static Goal parseGoal(JsonObject object) {
-		String type = string(object, "type", "").toUpperCase(java.util.Locale.ROOT);
-		return switch (type) {
-			case "BREAK_BLOCK" -> new Goal.BreakBlock(string(object, "block", ""), integer(object, "count", 1),
-					string(object, "verb", null));
-			case "PLACE_BLOCK" -> new Goal.PlaceBlock(string(object, "block", ""), integer(object, "count", 1));
-			case "ACQUIRE_ITEM" -> new Goal.AcquireItem(string(object, "item", ""), integer(object, "count", 1));
-			case "CONSUME_ITEM" -> new Goal.ConsumeItem(string(object, "item", ""), integer(object, "count", 1));
-			case "LOOK_AT_BLOCK" -> new Goal.LookAtBlock(string(object, "block", ""),
-					integer(object, "dwellMs", 600));
-			case "LOOK_AT_ENTITY" -> new Goal.LookAtEntity(string(object, "entity", ""),
-					integer(object, "dwellMs", 800));
-			case "DEFEAT_ENTITY" -> new Goal.DefeatEntity(string(object, "entity", ""), integer(object, "count", 1));
-			case "REACH_BIOME" -> new Goal.ReachBiome(string(object, "biome", ""),
-					integer(object, "dwellMs", 1000));
-			case "REACH_DIMENSION" -> new Goal.ReachDimension(string(object, "dimension", ""));
-			case "REACH_HEIGHT" -> new Goal.ReachHeight(integer(object, "minY", 0), integer(object, "maxY", 320));
-			case "USE_BLOCK" -> new Goal.UseBlock(string(object, "block", ""));
-			case "INTERACT_ENTITY" -> new Goal.InteractEntity(string(object, "entity", ""));
-			default -> null;
-		};
+		return GoalTypes.parse(object);
 	}
 
+	/** Reads a condition object; null for an unknown type. */
 	public static Condition parseCondition(JsonObject object) {
-		String type = string(object, "type", "").toUpperCase(java.util.Locale.ROOT);
-		return switch (type) {
-			case "TIME" -> new Condition.Time(Condition.Phase.valueOf(
-					string(object, "phase", "DAY").toUpperCase(java.util.Locale.ROOT)));
-			case "WEATHER" -> new Condition.WeatherState(Condition.Weather.valueOf(
-					string(object, "weather", "CLEAR").toUpperCase(java.util.Locale.ROOT)));
-			case "Y_RANGE" -> new Condition.YRange(integer(object, "minY", 0), integer(object, "maxY", 320));
-			case "NEAR_ENTITY" -> new Condition.NearEntity(string(object, "entity", ""),
-					number(object, "radius", 16));
-			case "NEAR_BLOCK" -> new Condition.NearBlock(string(object, "block", ""),
-					number(object, "radius", 16));
-			case "IN_DIMENSION" -> new Condition.InDimension(string(object, "dimension", ""));
-			case "IN_BIOME" -> new Condition.InBiome(string(object, "biome", ""));
-			default -> null;
-		};
+		return ConditionTypes.parse(object);
 	}
 
 	private static List<Condition> parseConditions(JsonObject step) {
@@ -217,34 +188,19 @@ public final class QuestLoader {
 	}
 
 	private static String string(JsonObject object, String key, String fallback) {
-		return object != null && object.has(key) && !object.get(key).isJsonNull()
-				? object.get(key).getAsString() : fallback;
+		return JsonFields.string(object, key, fallback);
 	}
 
 	private static int integer(JsonObject object, String key, int fallback) {
-		try {
-			return object != null && object.has(key) ? object.get(key).getAsInt() : fallback;
-		} catch (RuntimeException broken) {
-			return fallback;
-		}
+		return JsonFields.integer(object, key, fallback);
 	}
 
 	private static double number(JsonObject object, String key, double fallback) {
-		try {
-			return object != null && object.has(key) ? object.get(key).getAsDouble() : fallback;
-		} catch (RuntimeException broken) {
-			return fallback;
-		}
+		return JsonFields.number(object, key, fallback);
 	}
 
 	private static List<String> strings(JsonObject object, String key) {
-		List<String> values = new ArrayList<>();
-		if (object != null && object.has(key)) {
-			for (JsonElement element : object.getAsJsonArray(key)) {
-				values.add(element.getAsString());
-			}
-		}
-		return values;
+		return JsonFields.strings(object, key);
 	}
 
 	private static void logWarn(String message) {

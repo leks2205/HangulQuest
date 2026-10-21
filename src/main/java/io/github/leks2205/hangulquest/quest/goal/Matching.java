@@ -1,0 +1,120 @@
+package io.github.leks2205.hangulquest.quest.goal;
+
+import io.github.leks2205.hangulquest.quest.GoalEvaluator;
+import io.github.leks2205.hangulquest.sense.Observation;
+
+/** Shared matching rules for goal types: block families, fish and the dwell timer. */
+public final class Matching {
+	private Matching() {
+	}
+
+	/** Beds, doors, planks, fences, wool and logs are interchangeable within their family. */
+	public static boolean matchesBlock(String goal, String observed) {
+		if (goal == null || observed == null) {
+			return false;
+		}
+		if (goal.equals(observed)) {
+			return true;
+		}
+		String family = blockFamily(goal);
+		return !family.isEmpty() && family.equals(blockFamily(observed));
+	}
+
+	public static boolean isBed(String id) {
+		return id != null && blockFamily(id).equals("bed");
+	}
+
+	public static String blockFamily(String id) {
+		int colon = id.indexOf(':');
+		String path = colon >= 0 ? id.substring(colon + 1) : id;
+		if (path.endsWith("_bed")) {
+			return "bed";
+		}
+		if (path.endsWith("_door") && !path.equals("iron_door")) {
+			return "door";
+		}
+		if (path.endsWith("_planks")) {
+			return "planks";
+		}
+		if (path.endsWith("_fence") && !path.endsWith("_fence_gate")) {
+			return "fence";
+		}
+		if (path.endsWith("_wool")) {
+			return "wool";
+		}
+		if (path.endsWith("_log") || path.endsWith("_wood")) {
+			return "log";
+		}
+		if (path.equals("snow") || path.equals("snow_block")) {
+			return "snow";
+		}
+		if (path.equals("campfire") || path.equals("soul_campfire")) {
+			return "campfire";
+		}
+		if (path.equals("chest") || path.equals("trapped_chest")) {
+			return "chest";
+		}
+		if (path.equals("ice") || path.equals("packed_ice") || path.equals("blue_ice")) {
+			return "ice";
+		}
+		if (path.equals("torch") || path.equals("wall_torch")
+				|| path.equals("soul_torch") || path.equals("soul_wall_torch")
+				|| path.equals("redstone_torch") || path.equals("redstone_wall_torch")) {
+			return "torch";
+		}
+		if (isFlower(path)) {
+			return "flower";
+		}
+		String normalized = path.startsWith("deepslate_") ? path.substring("deepslate_".length()) : path;
+		if (normalized.endsWith("_ore")) {
+			return "ore:" + normalized;
+		}
+		return "";
+	}
+
+	private static boolean isFlower(String path) {
+		return switch (path) {
+			case "poppy", "dandelion", "blue_orchid", "allium", "azure_bluet", "oxeye_daisy",
+				 "cornflower", "lily_of_the_valley", "sunflower", "lilac", "rose_bush", "peony",
+				 "torchflower", "pitcher_plant", "red_tulip", "orange_tulip", "white_tulip",
+				 "pink_tulip" -> true;
+			default -> false;
+		};
+	}
+
+	/** Fish and wool are families too: a salmon fills a "fish" step, blue wool a "wool" step. */
+	public static int familyCount(Observation obs, String item) {
+		String path = item == null ? "" : item.substring(item.indexOf(':') + 1);
+		if (path.equals("cod") || path.equals("salmon") || path.equals("tropical_fish")) {
+			return obs.count("minecraft:cod") + obs.count("minecraft:salmon")
+					+ obs.count("minecraft:tropical_fish");
+		}
+		String family = blockFamily(item);
+		if (!family.isEmpty()) {
+			int total = 0;
+			for (String key : obs.inventory.keySet()) {
+				if (family.equals(blockFamily(key))) {
+					total += obs.inventory.getOrDefault(key, 0);
+				}
+			}
+			return total;
+		}
+		return obs.count(item);
+	}
+
+	/** Counts the time the player keeps looking at the same target; true once {@code needed} is reached. */
+	public static boolean dwell(GoalEvaluator.Tracker tracker, String expected, String actual, long needed) {
+		if (actual == null || !actual.equals(expected)) {
+			tracker.target = null;
+			tracker.dwellMs = 0;
+			return false;
+		}
+		if (!actual.equals(tracker.target)) {
+			tracker.target = actual;
+			tracker.dwellMs = 0;
+			return false;
+		}
+		tracker.dwellMs += GoalEvaluator.TICK_MS;
+		return tracker.dwellMs >= Math.max(50, needed);
+	}
+}
