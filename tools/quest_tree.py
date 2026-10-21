@@ -6,9 +6,11 @@ breakdown, and one table per tree level. The file is committed, so readers can s
 tree on GitHub, and CI fails when it is out of date.
 
 Usage:
-    python3 tools/quest_tree.py [--check]
+    python3 tools/quest_tree.py [--check] [--check-depths build/reports/quest-depths.json]
 
 --check exits 1 when the committed report differs from what the content produces.
+--check-depths compares this script's depths and TOPIK bands with the ones the mod computes
+(TrailGraph, Topik): QuestDepthDumpTest writes the JSON, so the two implementations cannot drift apart.
 """
 
 from __future__ import annotations
@@ -187,10 +189,41 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def check_depths(path: str) -> int:
+    """Compares depth_of and band_for with the Java dump {"id": {"depth": n, "level": n}}."""
+    if not os.path.exists(path):
+        print(f"{path} is missing: run ./gradlew test --tests '*QuestDepthDumpTest' first", file=sys.stderr)
+        return 1
+    with open(path, encoding="utf-8") as handle:
+        java = json.load(handle)
+    trails = load_trails()
+    memo: dict[str, int] = {}
+    problems = []
+    for trail_id in sorted(set(trails) | set(java)):
+        if trail_id not in java or trail_id not in trails:
+            problems.append(f"{trail_id}: only in {'the mod' if trail_id in java else 'the JSON files'}")
+            continue
+        depth = depth_of(trail_id, trails, memo)
+        mine = {"depth": depth, "level": band_for(depth)}
+        if java[trail_id] != mine:
+            problems.append(f"{trail_id}: mod {java[trail_id]}, quest_tree.py {mine}")
+    for problem in problems[:20]:
+        print(problem, file=sys.stderr)
+    if problems:
+        print(f"{len(problems)} trail(s) differ between TrailGraph/Topik and quest_tree.py", file=sys.stderr)
+        return 1
+    print(f"quest_tree.py agrees with the mod on {len(trails)} trails")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail when the report is out of date")
+    parser.add_argument("--check-depths", metavar="JSON", help="compare depths with the mod's TrailGraph dump")
     args = parser.parse_args()
+
+    if args.check_depths:
+        return check_depths(args.check_depths)
 
     report = build()
     if args.check:

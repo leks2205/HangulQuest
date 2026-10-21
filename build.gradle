@@ -23,6 +23,19 @@ loom {
 	}
 }
 
+// Client game tests (src/gametest): ./gradlew runClientGameTest, see CONTRIBUTING.md.
+// They are not part of `test` or `build`: they start a real client and need a display.
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = 'hangulquest-gametest'
+		enableGameTests = false
+		enableClientGameTests = true
+		eula = true
+		clearRunDirectory = true
+	}
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"

@@ -1,4 +1,13 @@
 pluginManagement {
+	// Loom is pinned to a release (loom_version in gradle.properties). The plugin id maps straight
+	// to the released jar, so the build does not depend on a marker artifact or on a SNAPSHOT.
+	resolutionStrategy {
+		eachPlugin {
+			if (requested.id.id == 'net.fabricmc.fabric-loom') {
+				useModule("net.fabricmc:fabric-loom:${requested.version}")
+			}
+		}
+	}
 	repositories {
 		maven {
 			name = 'Fabric'

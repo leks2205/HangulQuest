@@ -1,0 +1,74 @@
+[
+ {
+  "id": "torch-night",
+  "concept": "torch",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:torch", "count": 1},
+  "conditions": [{"type": "TIME", "phase": "NIGHT"}],
+  "textKo": "밤에 횃불을 밝혔어요.",
+  "textDe": "Ein Licht in der Nacht: Der Pfad ist zu Ende!",
+  "textEn": "A torch in the night: the trail is complete!"
+ },
+ {
+  "id": "crafting-table-day",
+  "concept": "crafting_table",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:crafting_table", "count": 1},
+  "conditions": [{"type": "TIME", "phase": "DAY"}],
+  "textKo": "낮에 제작대를 놓았어요.",
+  "textDe": "Eine Werkbank im Tageslicht: Der Pfad ist zu Ende!",
+  "textEn": "A crafting table in daylight: the trail is complete!"
+ },
+ {
+  "id": "campfire-dusk",
+  "concept": "campfire",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:campfire", "count": 1},
+  "conditions": [{"type": "TIME", "phase": "DUSK"}],
+  "textKo": "저녁에 모닥불을 피웠어요.",
+  "textDe": "Ein Lagerfeuer im Abendlicht: Der Pfad ist zu Ende!",
+  "textEn": "A campfire at dusk: the trail is complete!"
+ },
+ {
+  "id": "chest",
+  "concept": "chest",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:chest", "count": 1},
+  "conditions": [],
+  "textKo": "상자를 놓았어요.",
+  "textDe": "Eine Truhe für deine Schätze: Der Pfad ist zu Ende!",
+  "textEn": "A chest for your treasures: the trail is complete!"
+ },
+ {
+  "id": "furnace",
+  "concept": "furnace",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:furnace", "count": 1},
+  "conditions": [],
+  "textKo": "화로를 놓았어요.",
+  "textDe": "Ein Ofen für den Anfang: Der Pfad ist zu Ende!",
+  "textEn": "A furnace to begin with: the trail is complete!"
+ },
+ {
+  "id": "bed-dusk",
+  "concept": "bed",
+  "goal": {"type": "PLACE_BLOCK", "block": "minecraft:red_bed", "count": 1},
+  "conditions": [{"type": "TIME", "phase": "DUSK"}],
+  "textKo": "저녁에 빨간색 침대를 놓았어요.",
+  "textDe": "Ein Bett für die Nacht: Der Pfad ist zu Ende!",
+  "textEn": "A bed for the night: the trail is complete!"
+ },
+ {
+  "id": "cow",
+  "concept": "cow",
+  "goal": {"type": "LOOK_AT_ENTITY", "entity": "minecraft:cow", "dwellMs": 800},
+  "conditions": [],
+  "textKo": "소를 바라봤어요.",
+  "textDe": "Eine Kuh sieht dich an: Der Pfad ist zu Ende!",
+  "textEn": "A cow looks back at you: the trail is complete!"
+ },
+ {
+  "id": "sheep",
+  "concept": "sheep",
+  "goal": {"type": "LOOK_AT_ENTITY", "entity": "minecraft:sheep", "dwellMs": 800},
+  "conditions": [],
+  "textKo": "양을 바라봤어요.",
+  "textDe": "Ein Schaf auf der Weide: Der Pfad ist zu Ende!",
+  "textEn": "A sheep in the meadow: the trail is complete!"
+ }
+]
