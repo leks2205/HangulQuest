@@ -5,8 +5,10 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -39,6 +41,21 @@ public final class Celebration {
 	private long start;
 	private long nextBurst;
 
+	// The texts and their wrapped lines only change when a celebration is triggered or the card width does.
+	private Component title;
+	private Component line;
+	private Component line2;
+	private Component german;
+	private Component badgeText;
+	private Font laidOutFont;
+	private int laidOutWidth = -1;
+	private List<FormattedCharSequence> titleLines = List.of();
+	private List<FormattedCharSequence> lineLines = List.of();
+	private List<FormattedCharSequence> line2Lines = List.of();
+	private int titleHeight;
+	private int lineHeight;
+	private int line2Height;
+
 	public void trigger(Kind kind, String titleKo, String lineKo, String line2Ko, String lineDe, String badge,
 						String iconItem) {
 		this.kind = kind;
@@ -50,6 +67,26 @@ public final class Celebration {
 		this.iconItem = iconItem == null ? "" : iconItem;
 		this.start = System.currentTimeMillis();
 		this.nextBurst = this.start;
+		this.title = KoText.ko(this.titleKo);
+		this.line = this.lineKo.isBlank() ? null : KoText.ko(this.lineKo);
+		this.line2 = this.line2Ko.isBlank() ? null : KoText.ko(this.line2Ko);
+		this.german = this.lineDe.isBlank() ? null : Component.literal(this.lineDe);
+		this.badgeText = this.badge.isBlank() ? null : Component.literal(this.badge);
+		this.laidOutWidth = -1;
+	}
+
+	private void layout(Font font, int textWidth) {
+		if (font == laidOutFont && textWidth == laidOutWidth) {
+			return;
+		}
+		laidOutFont = font;
+		laidOutWidth = textWidth;
+		titleLines = Draw.lines(font, title, textWidth);
+		lineLines = line == null ? List.of() : Draw.lines(font, line, textWidth);
+		line2Lines = line2 == null ? List.of() : Draw.lines(font, line2, textWidth);
+		titleHeight = Draw.linesHeight(font, titleLines, 2);
+		lineHeight = Draw.linesHeight(font, lineLines, 3);
+		line2Height = Draw.linesHeight(font, line2Lines, 3);
 	}
 
 	/** Extra bursts for the big celebration while it is on screen. */
@@ -89,13 +126,7 @@ public final class Celebration {
 		int width = Math.min(kind == Kind.TRAIL ? 380 : 320, guiWidth - 16);
 		int textX = iconItem == null || iconItem.isBlank() ? 10 : 32;
 		int textWidth = width - textX - 10;
-		Component title = KoText.ko(titleKo);
-		Component line = lineKo.isBlank() ? null : KoText.ko(lineKo);
-		Component line2 = line2Ko.isBlank() ? null : KoText.ko(line2Ko);
-		Component german = lineDe.isBlank() ? null : Component.literal(lineDe);
-		int titleHeight = Draw.wrappedHeight(font, title, textWidth, 2);
-		int lineHeight = line == null ? 0 : Draw.wrappedHeight(font, line, textWidth, 3);
-		int line2Height = line2 == null ? 0 : Draw.wrappedHeight(font, line2, textWidth, 3);
+		layout(font, textWidth);
 		int germanHeight = german == null ? 0 : font.lineHeight + 1;
 		int height = 12 + titleHeight + (line == null ? 0 : 6 + lineHeight)
 				+ (line2 == null ? 0 : 5 + line2Height)
@@ -116,17 +147,14 @@ public final class Celebration {
 		if (!iconItem.isBlank()) {
 			Draw.itemIcon(graphics, iconItem, x + 10, y + 9);
 		}
-		Draw.wrapped(graphics, font, title, x + textX, cursor, textWidth,
-				withAlpha(Draw.GOLD, alpha), 2);
+		Draw.drawLines(graphics, font, titleLines, x + textX, cursor, withAlpha(Draw.GOLD, alpha), 2);
 		cursor += titleHeight + 6;
 		if (line != null) {
-			Draw.wrapped(graphics, font, line, x + textX, cursor, textWidth,
-					withAlpha(Draw.WHITE, alpha), 3);
+			Draw.drawLines(graphics, font, lineLines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 3);
 			cursor += lineHeight + 5;
 		}
 		if (line2 != null) {
-			Draw.wrapped(graphics, font, line2, x + textX, cursor, textWidth,
-					withAlpha(Draw.WHITE, alpha), 3);
+			Draw.drawLines(graphics, font, line2Lines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 3);
 			cursor += line2Height + 5;
 		}
 		if (german != null) {
@@ -134,8 +162,8 @@ public final class Celebration {
 					withAlpha(Draw.GRAY, alpha), 2);
 			cursor += germanHeight + 2;
 		}
-		if (!badge.isBlank() && kind == Kind.TRAIL) {
-			Draw.truncated(graphics, font, Component.literal(badge), x + 10, y + height - 11,
+		if (badgeText != null && kind == Kind.TRAIL) {
+			Draw.truncated(graphics, font, badgeText, x + 10, y + height - 11,
 					width - 20, withAlpha(Draw.GOLD, alpha));
 		}
 	}
