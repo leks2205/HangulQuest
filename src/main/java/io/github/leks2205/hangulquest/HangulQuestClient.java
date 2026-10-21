@@ -75,6 +75,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private Catalog catalog;
 	private LearningService learn;
 	private QuestEngine quests;
+	private final LoadBackoff loadBackoff = new LoadBackoff();
 	private HudController hud;
 	private EnvironmentSensor sensor;
 	private KeyMapping keyJournal;
@@ -446,11 +447,20 @@ public final class HangulQuestClient implements ClientModInitializer {
 				.append(Component.literal(" · " + io.github.leks2205.hangulquest.util.Tr.pick(found.en, found.deShort)).withStyle(ChatFormatting.GRAY))));
 	}
 
+	/**
+	 * Loads the catalog, learning service and quest engine. Everything is built into locals and
+	 * published together, so a failure never leaves half the services set. A failed load is retried
+	 * with a growing delay; the stack trace is logged and the player told once.
+	 */
 	private boolean ensureLoaded() {
-		if (catalog != null) {
+		if (quests != null) {
 			return true;
 		}
 		if (mc.getResourceManager() == null) {
+			return false;
+		}
+		long attemptAt = System.currentTimeMillis();
+		if (!loadBackoff.mayAttempt(attemptAt)) {
 			return false;
 		}
 		try {
@@ -459,14 +469,35 @@ public final class HangulQuestClient implements ClientModInitializer {
 			LuteImport.Result lute = null;
 			Path luteFile = dir.resolve("vocab").resolve("lute-vocab.csv");
 			if (config.luteImport && Files.exists(luteFile)) {
-				lute = LuteImport.importRows(LuteCsv.parseFile(luteFile), concepts);
+				try {
+					lute = LuteImport.importRows(LuteCsv.parseFile(luteFile), concepts);
+				} catch (Exception unreadable) {
+					// A bad vocabulary export must not take the whole mod down with it.
+					LOG.warn("could not import {}, continuing without it: {}", luteFile, unreadable.toString());
+				}
 			}
-			catalog = Catalog.build(concepts, tables,
+			Catalog builtCatalog = Catalog.build(concepts, tables,
 					lute == null ? List.of() : lute.words());
-			learn = new LearningService(store.data(), store, catalog);
+			LearningService builtLearn = new LearningService(store.data(), store, builtCatalog);
+			Path builtQuestlineDir = dir.resolve("questlines");
+			QuestlineStore.exportShipped(builtQuestlineDir, LOG);
+			long builtSnapshot = QuestlineStore.snapshot(builtQuestlineDir);
+			QuestValidator.Result validated = QuestValidator.validate(
+					QuestlineStore.loadAll(builtQuestlineDir, LOG), builtCatalog, LOG);
+			// Today's review trail must exist before the engine restores, or its progress is dropped.
+			List<Questline> trails = new java.util.ArrayList<>(validated.trails());
+			Questline adaptive = AdaptiveTrailGenerator.restore(builtCatalog,
+					store.data().quests.adaptive, LocalDate.now().toString());
+			if (adaptive != null) {
+				trails.removeIf(trail -> trail.id().equals(adaptive.id()));
+				trails.add(adaptive);
+			}
+			QuestEngine builtQuests = new QuestEngine(trails, builtCatalog, builtLearn, LOG);
+
+			// Nothing above has thrown: apply the progress changes and publish.
 			if (lute != null) {
 				long now = System.currentTimeMillis();
-				learn.seedFromLute(lute.levels(), lute.known(), now);
+				builtLearn.seedFromLute(lute.levels(), lute.known(), now);
 				ProgressData.LuteInfo info = new ProgressData.LuteInfo();
 				info.file = luteFile.getFileName().toString();
 				info.mtime = Files.getLastModifiedTime(luteFile).toMillis();
@@ -477,12 +508,12 @@ public final class HangulQuestClient implements ClientModInitializer {
 				store.data().vocab.luteImport = info;
 				store.markDirty();
 			}
-			questlineDir = dir.resolve("questlines");
-			QuestlineStore.exportShipped(questlineDir, LOG);
-			questlineSnapshot = QuestlineStore.snapshot(questlineDir);
-			QuestValidator.Result validated = QuestValidator.validate(
-					QuestlineStore.loadAll(questlineDir, LOG), catalog, LOG);
-			quests = new QuestEngine(validated.trails(), catalog, learn, LOG);
+			questlineDir = builtQuestlineDir;
+			questlineSnapshot = builtSnapshot;
+			catalog = builtCatalog;
+			learn = builtLearn;
+			quests = builtQuests;
+			loadBackoff.succeeded();
 			LOG.info("questline folder: {} ({} trail files)", questlineDir,
 					QuestlineStore.fileCount(questlineDir));
 			writeVocabReadme();
@@ -490,7 +521,18 @@ public final class HangulQuestClient implements ClientModInitializer {
 					validated.trails().size());
 			return true;
 		} catch (Exception failed) {
-			LOG.error("could not initialise hangulquest content", failed);
+			boolean first = loadBackoff.failed(attemptAt);
+			if (first) {
+				LOG.error("could not initialise hangulquest content, retrying in {} s",
+						LoadBackoff.DELAYS_MS[0] / 1000, failed);
+				hud.banner("콘텐츠를 불러오지 못했어요.",
+						io.github.leks2205.hangulquest.util.Tr.pick(
+								"Content could not be loaded. Trying again shortly.",
+								"Inhalte konnten nicht geladen werden. Neuer Versuch folgt."), false);
+			} else {
+				LOG.warn("hangulquest content still not loading (attempt {}), next try in {} s: {}",
+						loadBackoff.failures(), loadBackoff.waitMs(attemptAt) / 1000, failed.toString());
+			}
 			return false;
 		}
 	}
@@ -526,9 +568,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private void ensureAdaptiveTrail(Observation obs) {
 		String today = LocalDate.now().toString();
 		ProgressData.Adaptive adaptive = store.data().quests.adaptive;
-		if (adaptive != null && today.equals(adaptive.generatedFor)) {
-			quests.byId("adaptive");
-			return;
+		if (adaptive != null && today.equals(adaptive.generatedFor) && quests.byId("adaptive") != null) {
+			return; // rebuilt from the saved concepts before the engine restored
 		}
 		String worldKey = mc.level == null ? "unknown" : mc.level.dimension().identifier() + "@" + today;
 		Questline generated = AdaptiveTrailGenerator.generate(catalog, learn, worldKey, obs.now);

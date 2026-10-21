@@ -58,10 +58,15 @@ public final class QuestValidator {
 				log.warn("skipping questline {}: missing finale", trail.id());
 				continue;
 			}
-			valid.add(new Questline(trail.id(), trail.titleKo(), trail.titleDe(), trail.topic(), trail.tier(),
-					trail.concepts(), trail.requires(), clueSteps, finale,
-					trail.finaleKo(), trail.finaleDe(), trail.badge(), trail.order(),
-					trail.koreanLevel(), trail.adaptive()));
+			valid.add(trail.withSteps(clueSteps, finale));
+		}
+		// Trails that require each other can never unlock; drop them instead of looping over them.
+		TrailGraph graph = TrailGraph.of(valid);
+		if (graph.hasCycle()) {
+			for (String id : graph.cyclic()) {
+				problems.add(id + ": prerequisite cycle");
+			}
+			valid.removeIf(trail -> graph.cyclic().contains(trail.id()));
 		}
 		for (String problem : problems) {
 			log.warn("questline problem: {}", problem);

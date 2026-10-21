@@ -77,6 +77,11 @@ public final class QuestLoader {
 		JsonObject finaleWrapper = root.has("finale") ? root.getAsJsonObject("finale") : null;
 		String finaleKo = finaleWrapper != null ? string(finaleWrapper, "textKo", null) : null;
 		String finaleDe = finaleWrapper != null ? string(finaleWrapper, "textDe", null) : null;
+		// The shipped files carry the ceremony text inside "finale"; a root "textEn" is the older spelling.
+		String finaleEn = finaleWrapper != null ? string(finaleWrapper, "textEn", null) : null;
+		if (finaleEn == null) {
+			finaleEn = string(root, "textEn", null);
+		}
 
 		JsonObject requiresObject = root.has("requires") ? root.getAsJsonObject("requires") : null;
 		Questline.Requires requires = requiresObject == null ? Questline.Requires.none()
@@ -87,9 +92,10 @@ public final class QuestLoader {
 		JsonObject reward = root.has("reward") ? root.getAsJsonObject("reward") : null;
 		String badge = reward != null ? string(reward, "badge", id) : id;
 
-		Questline trail = new Questline(id,
+		return new Questline(id,
 				string(root, "titleKo", id),
 				string(root, "titleDe", id),
+				string(root, "titleEn", null),
 				string(root, "topic", string(root, "titleDe", id)),
 				integer(root, "tier", 1),
 				strings(root, "concepts"),
@@ -98,11 +104,11 @@ public final class QuestLoader {
 				finale,
 				finaleKo == null ? "여기까지 왔어요. 수고했어요!" : finaleKo,
 				finaleDe == null ? "Du hast das Ziel erreicht." : finaleDe,
+				finaleEn,
 				badge,
 				integer(root, "order", 1000),
 				integer(root, "koreanLevel", integer(root, "tier", 1)),
 				false);
-		return trail.withEnglish(string(root, "titleEn", null), string(root, "textEn", null));
 	}
 
 	private static QuestStep parseStep(JsonObject object) {

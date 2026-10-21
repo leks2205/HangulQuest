@@ -20,15 +20,15 @@ public final class Questline {
 	private final String id;
 	private final String titleKo;
 	private final String titleDe;
-	private String titleEn;
+	private final String titleEn;
 	private final int tier;
 	private final List<String> concepts;
 	private final Requires requires;
 	private final List<QuestStep> steps;
-	private QuestStep finale;
+	private final QuestStep finale;
 	private final String finaleKo;
 	private final String finaleDe;
-	private String finaleEn;
+	private final String finaleEn;
 	private final String badge;
 	private final int order;
 	private final int koreanLevel;
@@ -47,9 +47,22 @@ public final class Questline {
 					 List<String> concepts, Requires requires, List<QuestStep> steps,
 					 QuestStep finale, String finaleKo, String finaleDe, String badge, int order,
 					 int koreanLevel, boolean adaptive) {
+		this(id, titleKo, titleDe, null, topic, tier, concepts, requires, steps, finale, finaleKo,
+				finaleDe, null, badge, order, koreanLevel, adaptive);
+	}
+
+	/**
+	 * The canonical constructor: every field, including the English title and finale text. All
+	 * copies go through here (see the {@code with...} methods), so no field can be dropped.
+	 */
+	public Questline(String id, String titleKo, String titleDe, String titleEn, String topic, int tier,
+					 List<String> concepts, Requires requires, List<QuestStep> steps,
+					 QuestStep finale, String finaleKo, String finaleDe, String finaleEn,
+					 String badge, int order, int koreanLevel, boolean adaptive) {
 		this.id = id;
 		this.titleKo = titleKo;
 		this.titleDe = titleDe;
+		this.titleEn = titleEn;
 		this.tier = tier;
 		this.concepts = concepts == null ? List.of() : List.copyOf(concepts);
 		this.requires = requires == null ? Requires.none() : requires;
@@ -57,6 +70,7 @@ public final class Questline {
 		this.finale = finale;
 		this.finaleKo = finaleKo;
 		this.finaleDe = finaleDe;
+		this.finaleEn = finaleEn;
 		this.badge = badge == null ? id : badge;
 		this.order = order;
 		this.koreanLevel = Math.max(1, Math.min(6, koreanLevel));
@@ -89,14 +103,45 @@ public final class Questline {
 		return lang == Lang.DE ? titleDe : titleEn();
 	}
 
-	/** Copy carrying the English title and finale text, used by the loader. */
+	/** The authored English title, null when the trail has none (no fallback to German). */
+	public String titleEnRaw() {
+		return titleEn;
+	}
+
+	/** Copy carrying the English title and finale text. The finale step is left untouched. */
 	public Questline withEnglish(String englishTitle, String englishFinale) {
-		this.titleEn = englishTitle;
-		this.finaleEn = englishFinale;
-		if (finale != null && englishFinale != null) {
-			this.finale = finale.withEnglish(englishFinale, null);
-		}
-		return this;
+		return new Questline(id, titleKo, titleDe, englishTitle, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, englishFinale, badge, order, koreanLevel, adaptive);
+	}
+
+	/** Copy with other clue steps and finale step. */
+	public Questline withSteps(List<QuestStep> newSteps, QuestStep newFinale) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				newSteps, newFinale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+	}
+
+	/** Copy with other prerequisites. */
+	public Questline withRequires(Requires newRequires) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, newRequires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+	}
+
+	/** Copy with another branch topic. */
+	public Questline withTopic(String newTopic) {
+		return new Questline(id, titleKo, titleDe, titleEn, newTopic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+	}
+
+	/** Copy with another tree tier and Korean difficulty. */
+	public Questline withLevels(int newTier, int newKoreanLevel) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, newTier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, newKoreanLevel, adaptive);
+	}
+
+	/** Copy with the adaptive flag set or cleared. */
+	public Questline withAdaptive(boolean newAdaptive) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, newAdaptive);
 	}
 
 	public int tier() {
@@ -125,6 +170,11 @@ public final class Questline {
 
 	public String finaleDe() {
 		return finaleDe;
+	}
+
+	/** The authored English finale text, null when the trail has none (no fallback to German). */
+	public String finaleEnRaw() {
+		return finaleEn;
 	}
 
 	public String finaleEn() {
