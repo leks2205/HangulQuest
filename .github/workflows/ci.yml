@@ -45,6 +45,11 @@ jobs:
           ./gradlew test --no-daemon --tests '*SentenceDumpTest'
           python3 tools/lint_korean.py build/reports/korean/sentences.tsv --fail-on error
 
+      - name: Korean review registry is up to date
+        run: |
+          python3 tools/review/export_lines.py --check
+          python3 tools/review/status.py check
+
       - name: quest_tree.py agrees with the mod's TrailGraph
         run: |
           ./gradlew test --no-daemon --tests '*QuestDepthDumpTest'
