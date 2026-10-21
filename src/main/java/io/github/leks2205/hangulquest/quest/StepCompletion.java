@@ -60,6 +60,11 @@ final class StepCompletion {
 					.ifPresent(word -> learn.questStep(word, obs.now, assisted, hinted, context, step.id()));
 		}
 		learn.noteQuestStepCompleted();
+		List<String> grammar = text.grammarIds(step, track.trail.koreanLevel());
+		if (!grammar.isEmpty()) {
+			learn.grammarStep(grammar, text.effectiveLevel(track.trail.koreanLevel()), obs.now,
+					track.trail.id() + "/" + step.id());
+		}
 		if (track.stepIndex >= track.stepCount() - 1) {
 			finish(track, obs, feedback);
 			return;

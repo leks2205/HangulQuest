@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/** Every verb must produce a well-formed ending at all six TOPIK ladder levels. */
+/** Every verb must produce a well-formed ending at all six levels of the grammar ladder. */
 class GrammarTest {
 	@Test
 	void allVerbsFormEveryLevel() {
@@ -18,17 +18,19 @@ class GrammarTest {
 				assertFalse(phrase.contains("을을") || phrase.contains("를를"), "doubled particle " + where);
 				assertTrue(phrase.startsWith(verb.prefix()), where);
 				switch (level) {
-					case 1 -> assertTrue(phrase.endsWith("요"), where);
-					case 2 -> assertTrue(phrase.endsWith("야 해요"), where);
-					case 3 -> assertTrue(phrase.endsWith("야만 해요"), where);
-					case 4 -> assertTrue(phrase.endsWith("지 않으면 안 돼요"), where);
-					case 5 -> assertTrue(phrase.contains("지 않고서는"), where);
-					case 6 -> assertTrue(phrase.endsWith("수밖에 없어요"), where);
-					default -> {
-					}
+					case 1 -> assertEquals(verb.prefix() + verb.polite(), phrase, where);
+					case 2, 3 -> assertEquals(verb.prefix() + verb.honorific(), phrase, where);
+					default -> assertEquals(verb.prefix() + verb.eoyo() + "야 해요", phrase, where);
 				}
-				if (level == 6 && hasFinalRieul(verb.stem())) {
-					assertEquals(verb.prefix() + verb.stem() + " 수밖에 없어요", phrase, where);
+				assertTrue(level == 1 ? phrase.endsWith("요") : phrase.endsWith("세요") || phrase.endsWith("야 해요"), where);
+				String forced = SentenceBuilder.verbPhrase(verb, level, true);
+				if (level == 6) {
+					assertTrue(forced.endsWith("수밖에 없어요"), where);
+					if (hasFinalRieul(verb.stem())) {
+						assertEquals(verb.prefix() + verb.stem() + " 수밖에 없어요", forced, where);
+					}
+				} else {
+					assertEquals(phrase, forced, "only level 6 has a forced ending: " + where);
 				}
 			}
 		}
@@ -62,9 +64,9 @@ class GrammarTest {
 		assertEquals("먹을", Verb.EAT.future());
 		assertEquals("줄", Verb.FEED.future());
 		assertEquals("올라갈", Verb.CLIMB.future());
-		assertEquals("주울 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.PICK_UP, 6, false));
-		assertEquals("먹이를 줄 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.FEED, 6, false));
-		assertEquals("말을 걸 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.ADDRESS, 6, false));
+		assertEquals("주울 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.PICK_UP, 6, true));
+		assertEquals("먹이를 줄 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.FEED, 6, true));
+		assertEquals("말을 걸 수밖에 없어요", SentenceBuilder.verbPhrase(Verb.ADDRESS, 6, true));
 	}
 
 	@Test

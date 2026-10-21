@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,6 @@ public final class SpatialSentences {
 	public static final String OBJ_EUL = "L1.obj_eul";
 	public static final String PAST = "L3.past";
 	public static final String E_TIME = "L1.e_time";
-
-	/** The ending construction of each ladder level (level 5 is the literary one; it has no entry yet). */
-	private static final String[] ENDING = {null, "L1.eoyo", "L4.eoya_haeyo", "L4.eoya_haeyo",
-			"L4.myeon_an_doeyo", null, "L6.su_bakke_eopda"};
 
 	private SpatialSentences() {
 	}
@@ -163,10 +160,7 @@ public final class SpatialSentences {
 		} else {
 			ko = SentenceBuilder.phrase(head, verb, level, finale);
 			grammar.add(OBJ_EUL);
-			String ending = ENDING[Math.max(1, Math.min(6, level))];
-			if (ending != null) {
-				grammar.add(ending);
-			}
+			grammar.add(Ladder.shared().rung(level).grammar());
 		}
 		return new SpatialText(ko, List.copyOf(grammar));
 	}

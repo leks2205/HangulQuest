@@ -13,6 +13,8 @@ import io.github.leks2205.hangulquest.learn.fsrs.FsrsParams;
 import io.github.leks2205.hangulquest.learn.research.Experiments;
 import io.github.leks2205.hangulquest.learn.research.Placement;
 import io.github.leks2205.hangulquest.learn.research.Probes;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -43,6 +45,7 @@ public final class LearningService implements LearningSink {
 	private volatile Fsrs fsrs;
 	private final Grader grader = new Grader();
 	private final ReviewLog log;
+	private final GrammarProgress grammar = new GrammarProgress();
 	private final List<Runnable> resetListeners = new CopyOnWriteArrayList<>();
 	private final LexiconTags tags = LexiconTags.shared();
 	/** Right or wrong for the newest graded reviews, oldest first; the 85% controller reads it. */
@@ -157,6 +160,64 @@ public final class LearningService implements LearningSink {
 
 	public Grader grader() {
 		return grader;
+	}
+
+	/** What the player has met of the grammar ladder. */
+	public GrammarProgress grammar() {
+		return grammar;
+	}
+
+	@Override
+	public int grammarLevel() {
+		return grammar.level();
+	}
+
+	@Override
+	public boolean grammarMet(String id) {
+		return grammar.met(id);
+	}
+
+	@Override
+	public boolean grammarCardSeen(String id) {
+		return grammar.carded(id);
+	}
+
+	@Override
+	public void grammarStep(List<String> ids, int ladderLevel, long now, String where) {
+		for (String id : GrammarBook.shared().resolve(ids, Ladder.shared())) {
+			grammar.step(id);
+			log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null,
+					Grader.UNKNOWN_LATENCY, -1, where));
+		}
+		grammar.ladderStep(ladderLevel);
+		log.append(new ReviewLog.Event(now, GrammarProgress.LADDER + ladderLevel, ReviewKind.GRAMMAR,
+				ReviewMode.EXPOSURE, null, Grader.UNKNOWN_LATENCY, -1, where));
+		store.markDirty();
+	}
+
+	@Override
+	public void grammarCardShown(String id, long now) {
+		if (!GrammarProgress.isConstruction(id) || grammar.carded(id)) {
+			return;
+		}
+		grammar.cardShown(id);
+		log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null,
+				Grader.UNKNOWN_LATENCY, -1, GrammarProgress.CARD));
+	}
+
+	@Override
+	public void grammarOutcome(String id, Grader.Graded graded, long latencyMs, String source, long now) {
+		if (!GrammarProgress.isConstruction(id)) {
+			return;
+		}
+		grammar.outcome(id, graded.correct());
+		log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, graded.mode(), graded.grade(), latencyMs, -1,
+				source));
+	}
+
+	/** A multiple-choice answer about a construction: graded like a word's, logged, never scheduled. */
+	public void answerGrammarMc(String id, int optionCount, boolean correct, long latencyMs, long now) {
+		grammarOutcome(id, grader.multipleChoice(optionCount, correct, latencyMs), latencyMs, "card:cloze", now);
 	}
 
 	public ProgressData data() {
@@ -419,7 +480,9 @@ public final class LearningService implements LearningSink {
 	private void loadHistory() {
 		try {
 			List<ReviewLog.Event> graded = new ArrayList<>();
-			for (ReviewLog.Event event : ReviewLog.readAll(log.dir())) {
+			List<ReviewLog.Event> history = ReviewLog.readAll(log.dir());
+			grammar.load(history);
+			for (ReviewLog.Event event : history) {
 				if (event.kind() == ReviewKind.WORD && event.grade() != null && event.mode().schedules()) {
 					graded.add(event);
 				}
@@ -732,6 +795,11 @@ public final class LearningService implements LearningSink {
 		data.achievements.clear();
 		data.totals = new ProgressData.Totals();
 		data.quests.adaptive = null;
+		// the review log stays, so a line in it tells the next start that the grammar began again here
+		ReviewLog.Event restart = new ReviewLog.Event(System.currentTimeMillis(), GrammarProgress.RESET,
+				ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null, Grader.UNKNOWN_LATENCY, -1, "reset");
+		grammar.apply(restart);
+		log.append(restart);
 		store.markDirty();
 		store.flush();
 		resetListeners.forEach(Runnable::run);

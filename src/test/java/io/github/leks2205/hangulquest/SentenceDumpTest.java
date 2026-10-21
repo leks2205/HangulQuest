@@ -77,6 +77,8 @@ class SentenceDumpTest {
 		List<Questline> trails = QuestLoader.loadAll();
 		ProgressStore store = new ProgressStore(scratch.resolve("progress"), LOG);
 		LearningService learn = new LearningService(store.data(), store, catalog);
+		// a real player meets the ladder step by step; the dump shows every sentence the content can make
+		learn.grammar().unlockAll();
 		QuestEngine engine = new QuestEngine(trails, catalog, learn, LOG);
 		Feedback feedback = new Feedback();
 		Observation start = new Observation();

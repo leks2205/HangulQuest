@@ -3,8 +3,11 @@ package io.github.leks2205.hangulquest.ui.quiz.cards;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.learn.GrammarProgress;
 import io.github.leks2205.hangulquest.learn.WordProgress;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,6 +21,9 @@ public final class CardFactory {
 	public static final double UNLOCK_STABILITY_DAYS = 3;
 	/** Chance that an unlocked word is asked productively (the rest stays recognition). */
 	public static final double PRODUCTIVE_SHARE = 0.5;
+
+	/** Chance that a review is a grammar cloze, when the player has met a construction that has one. */
+	public static final double GRAMMAR_SHARE = 0.25;
 
 	public enum Kind { MC4, SELF_GRADE, TILES }
 
@@ -74,5 +80,33 @@ public final class CardFactory {
 				return RecognitionMc4Card.create(info, pool, tags, random);
 			}
 		}
+	}
+
+	/** True when this review should try a grammar cloze first. */
+	public static boolean grammarTurn(Random random) {
+		return random.nextDouble() < GRAMMAR_SHARE;
+	}
+
+	/**
+	 * A cloze for a construction the player has met and not yet mastered, the least secure first (lowest
+	 * p(L), a random one among equals). Null when the player has met none.
+	 */
+	public static ClozeGrammarCard grammar(GrammarProgress progress, GrammarBook book, Random random) {
+		List<GrammarBook.Construction> weakest = new ArrayList<>();
+		double lowest = Double.MAX_VALUE;
+		for (GrammarBook.Construction construction : book.all()) {
+			if (construction.clozes().isEmpty() || !progress.met(construction.id()) || progress.mastered(construction.id())) {
+				continue;
+			}
+			double pL = progress.pL(construction.id());
+			if (pL < lowest - 1e-9) {
+				lowest = pL;
+				weakest.clear();
+			}
+			if (pL <= lowest + 1e-9) {
+				weakest.add(construction);
+			}
+		}
+		return weakest.isEmpty() ? null : ClozeGrammarCard.create(weakest.get(random.nextInt(weakest.size())), random);
 	}
 }

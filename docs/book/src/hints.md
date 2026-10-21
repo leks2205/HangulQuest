@@ -12,7 +12,7 @@ gold one, then ask.
 ## What `H` gives you
 
 1. **The same goal, at level 1.** A late trail might say
-   `돌을 세 개 캐지 않고서는 다음 단서를 찾을 수 없어요.` — pressing `H` gives
+   `돌을 세 개 캐야 해요.` — pressing `H` gives
    `돌을 캐요. 세 개요.` The counters stay, the conditions stay spoken, the grammar drops to the
    politest form. Hints never leave level 1.
 2. **The blocking word explained, in Korean.**

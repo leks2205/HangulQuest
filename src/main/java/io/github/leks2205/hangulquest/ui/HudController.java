@@ -11,6 +11,7 @@ import io.github.leks2205.hangulquest.quest.SideQuest;
 import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.WordProgress;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.SafetyGate;
 import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
@@ -21,6 +22,7 @@ import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
 import io.github.leks2205.hangulquest.ui.quiz.cards.CardFactory;
 import io.github.leks2205.hangulquest.ui.quiz.cards.CardInfo;
 import io.github.leks2205.hangulquest.ui.quiz.cards.CardRecording;
+import io.github.leks2205.hangulquest.ui.quiz.cards.ClozeGrammarCard;
 import io.github.leks2205.hangulquest.ui.quiz.cards.RecognitionMc4Card;
 import io.github.leks2205.hangulquest.util.I18n;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
@@ -65,6 +67,11 @@ public final class HudController implements QuestEngine.Feedback {
 	private long tickCount;
 	private final QuestLogView questLog = new QuestLogView();
 	private long lastHintAt;
+	/** The rule card of a construction met for the first time, with its text built once when it appears. */
+	private QuestEngine.RuleCardView ruleCard;
+	private Component ruleCardExamples = Component.empty();
+	private List<Component> ruleCardLines = List.of();
+	private long ruleCardUntil;
 
 	private final QuizSession session = new QuizSession();
 	/** Set when a quiz was requested while another screen (the journal) was still open. */
@@ -115,6 +122,7 @@ public final class HudController implements QuestEngine.Feedback {
 		if (hint != null && now > hintUntil) {
 			hint = null;
 		}
+		tickRuleCard(now);
 		session.tick(now); // an unanswered prompt just disappears; nothing is recorded
 		if (pendingOpen && mc.gui.screen() == null) {
 			pendingOpen = false;
@@ -358,6 +366,32 @@ public final class HudController implements QuestEngine.Feedback {
 		return hint != null;
 	}
 
+	/** Shows the rule card of a construction the focused step uses for the first time, once; it fades by itself. */
+	private void tickRuleCard(long now) {
+		if (ruleCard != null && now > ruleCardUntil) {
+			ruleCard = null;
+		}
+		if (ruleCard != null || mc.gui.screen() != null || !hq.config().enabled || !hq.config().hudCards) {
+			return;
+		}
+		QuestEngine.RuleCardView pending = hq.quests().pendingRuleCard();
+		if (pending == null) {
+			return;
+		}
+		ruleCard = pending;
+		ruleCardUntil = now + 25_000L;
+		ruleCardExamples = KoText.ko(String.join("   ", pending.examplesKo()));
+		ruleCardLines = pending.rule().stream().map(KoText::mixed).toList();
+		hq.quests().ruleCardShown(pending.id());
+	}
+
+	/** Closes the rule card on the hint key; returns true when there was one to close. */
+	public boolean dismissRuleCard() {
+		boolean was = ruleCard != null;
+		ruleCard = null;
+		return was;
+	}
+
 	public void dismissHint() {
 		hint = null;
 	}
@@ -396,11 +430,18 @@ public final class HudController implements QuestEngine.Feedback {
 				return buildMcQuiz(probed);
 			}
 		}
+		Random random = new Random();
+		if (CardFactory.grammarTurn(random)) {
+			ClozeGrammarCard cloze = CardFactory.grammar(learn.grammar(), GrammarBook.shared(), random);
+			if (cloze != null) {
+				return QuizSession.Quiz.of(cloze.construction().id(), cloze);
+			}
+		}
 		List<Word> due = learn.dueForPlay(System.currentTimeMillis(), 6);
 		if (due.isEmpty()) {
 			return null;
 		}
-		Collections.shuffle(due, new Random());
+		Collections.shuffle(due, random);
 		return buildQuiz(due.get(0));
 	}
 
@@ -448,6 +489,9 @@ public final class HudController implements QuestEngine.Feedback {
 			drawQuizPrompt(graphics, now);
 		} else if (quizResultWord != null && now < quizResultUntil) {
 			drawQuizResult(graphics);
+		}
+		if (ruleCard != null && now < ruleCardUntil && !hintVisible && !hq.quests().sidequestActive()) {
+			drawRuleCard(graphics);
 		}
 		if (wordCard != null && now < wordCardUntil && !hintVisible
 				&& !hq.quests().sidequestActive()) {
@@ -584,6 +628,30 @@ public final class HudController implements QuestEngine.Feedback {
 		if (layout.side() != null) {
 			Draw.truncated(graphics, font, layout.side(), x + 7, cursor, textWidth, Draw.GOLD);
 		}
+	}
+
+	private void drawRuleCard(GuiGraphicsExtractor graphics) {
+		var font = mc.font;
+		int width = Math.min(320, mc.getWindow().getGuiScaledWidth() - 16);
+		int textWidth = width - 14;
+		int examplesHeight = Draw.wrappedHeight(font, ruleCardExamples, textWidth, 2);
+		int height = 17 + examplesHeight + 4;
+		for (Component line : ruleCardLines) {
+			height += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
+		}
+		height += font.lineHeight + 6;
+		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
+		int y = Math.max(questLog.bottom() + 6, mc.getWindow().getGuiScaledHeight() / 4);
+		Draw.panel(graphics, x, y, width, height, 0);
+		Draw.korean(graphics, font, "문법 · " + ruleCard.form(), x + 7, y + 5, Draw.GOLD);
+		int cursor = y + 17;
+		Draw.wrapped(graphics, font, ruleCardExamples, x + 7, cursor, textWidth, Draw.WHITE, 2);
+		cursor += examplesHeight + 4;
+		for (Component line : ruleCardLines) {
+			Draw.wrapped(graphics, font, line, x + 7, cursor, textWidth, Draw.GRAY, 3);
+			cursor += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
+		}
+		Draw.label(graphics, font, I18n.t("hangulquest.ui.hud.rule_card_close"), x + 7, cursor + 2, Draw.DIM);
 	}
 
 	private void drawSideQuest(GuiGraphicsExtractor graphics) {

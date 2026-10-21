@@ -2,6 +2,9 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.learn.LearningSink;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.IdentityHashMap;
@@ -12,19 +15,27 @@ import java.util.Map;
  * The text of a step in the language the player sees: the Korean clue and hint (authored or
  * generated), their translation and the finale line. The generated Korean does not depend on the
  * interface language, so it is built once per step and level.
+ *
+ * <p>A trail asks for a Korean level, but the text is written at most one level above what the player
+ * has met (see {@link #effectiveLevel}), so a new player on a hard trail still reads sentences built from
+ * what they have been shown.
  */
 final class QuestTextService {
 	private static final int LEVELS = 6;
 
 	private final Catalog catalog;
+	private final LearningSink learn;
 	private final SentenceBuilder.Namer namer;
 	/** Generated clue sentences, by step and Korean level (index 1..6). */
 	private final Map<QuestStep, String[]> clues = new IdentityHashMap<>();
 	/** Generated hint sentences, by step. */
 	private final Map<QuestStep, String> hints = new IdentityHashMap<>();
+	/** The grammar.json constructions of a generated clue, by step and written level. */
+	private final Map<QuestStep, Map<Integer, List<String>>> grammar = new IdentityHashMap<>();
 
-	QuestTextService(Catalog catalog) {
+	QuestTextService(Catalog catalog, LearningSink learn) {
 		this.catalog = catalog;
+		this.learn = learn;
 		this.namer = new SentenceBuilder.Namer() {
 			@Override
 			public String biome(String id) {
@@ -51,6 +62,34 @@ final class QuestTextService {
 	void invalidate() {
 		clues.clear();
 		hints.clear();
+		grammar.clear();
+	}
+
+	/**
+	 * The level the clue is written at: the trail's, but no more than one above the player's grammar
+	 * level (the new construction), and never below 1.
+	 */
+	int effectiveLevel(int koreanLevel) {
+		int level = Math.max(1, Math.min(LEVELS, koreanLevel));
+		return Math.min(level, Math.max(1, learn.grammarLevel() + 1));
+	}
+
+	/** True when the clue is generated from the goal (so it follows the ladder) and not authored. */
+	private static boolean generated(QuestStep step) {
+		return !(step.conditions().isEmpty() && step.hasClueKo());
+	}
+
+	/** The constructions of grammar.json that the clue of this step carries; none for an authored clue. */
+	List<String> grammarIds(QuestStep step, int koreanLevel) {
+		if (step == null || !generated(step)) {
+			return List.of();
+		}
+		int level = effectiveLevel(koreanLevel);
+		return grammar.computeIfAbsent(step, key -> new java.util.HashMap<>()).computeIfAbsent(level, key -> {
+			List<String> emitted = SentenceBuilder.grammar(step.goal(), firstWord(step), step.conditions(), key,
+					"finale".equals(step.id()), namer);
+			return GrammarBook.shared().resolve(emitted, Ladder.shared());
+		});
 	}
 
 	Word firstWord(QuestStep step) {
@@ -75,10 +114,10 @@ final class QuestTextService {
 		if (step == null) {
 			return "";
 		}
-		if (step.conditions().isEmpty() && step.hasClueKo()) {
+		if (!generated(step)) {
 			return step.clueKo();
 		}
-		int level = Math.max(1, Math.min(LEVELS, koreanLevel));
+		int level = effectiveLevel(koreanLevel);
 		String[] byLevel = clues.computeIfAbsent(step, key -> new String[LEVELS + 1]);
 		String cached = byLevel[level];
 		if (cached == null) {

@@ -1,0 +1,31 @@
+id	level	goal	ko	ending
+break.stone	1	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐요.	L1.eoyo
+break.stone	2	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐세요.	L2.seyo
+break.stone	3	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐세요.	L2.seyo
+break.stone	4	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐야 해요.	L4.eoya_haeyo
+break.stone	5	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐야 해요.	L4.eoya_haeyo
+break.stone	6	{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}	돌을 세 개 캐야 해요.	L4.eoya_haeyo
+give.bread	1	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 줘요.	L1.eoyo
+give.bread	2	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 주세요.	L2.seyo
+give.bread	3	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 주세요.	L2.seyo
+give.bread	4	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 줘야 해요.	L4.eoya_haeyo
+give.bread	5	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 줘야 해요.	L4.eoya_haeyo
+give.bread	6	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	주민에게 빵을 줘야 해요.	L4.eoya_haeyo
+craft.torch	1	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만들어요.	L1.eoyo
+craft.torch	2	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만드세요.	L2.seyo
+craft.torch	3	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만드세요.	L2.seyo
+craft.torch	4	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만들어야 해요.	L4.eoya_haeyo
+craft.torch	5	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만들어야 해요.	L4.eoya_haeyo
+craft.torch	6	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	막대기와 석탄으로 횃불을 만들어야 해요.	L4.eoya_haeyo
+walk.night	1	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸어요.	L1.eoyo
+walk.night	2	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸으세요.	L2.seyo
+walk.night	3	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸으세요.	L2.seyo
+walk.night	4	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸어야 해요.	L4.eoya_haeyo
+walk.night	5	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸어야 해요.	L4.eoya_haeyo
+walk.night	6	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	횃불을 들고 밤에 걸어야 해요.	L4.eoya_haeyo
+bake.steak	1	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구워요.	L1.eoyo
+bake.steak	2	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구우세요.	L2.seyo
+bake.steak	3	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구우세요.	L2.seyo
+bake.steak	4	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구워야 해요.	L4.eoya_haeyo
+bake.steak	5	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구워야 해요.	L4.eoya_haeyo
+bake.steak	6	{"type":"SMELT","output":"minecraft:cooked_beef"}	스테이크를 구워야 해요.	L4.eoya_haeyo

@@ -5,7 +5,9 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningSink;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.util.Lang;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -62,6 +64,10 @@ public final class QuestEngine {
 							boolean countable, boolean focused, int stepIndex, int stepCount) {
 	}
 
+	/** The rule card of a construction the player meets for the first time: example lines and the rule. */
+	public record RuleCardView(String id, String form, List<String> examplesKo, List<String> rule) {
+	}
+
 	private final Catalog catalog;
 	private final LearningSink learn;
 	private final ProgressData data;
@@ -76,6 +82,8 @@ public final class QuestEngine {
 	private final StepCompletion completion;
 
 	private Observation lastObs;
+	/** The step that has shown its rule card already. */
+	private QuestStep ruleCardStep;
 	/**
 	 * True when the step that was completed last needed creative or spectator mode to progress.
 	 * Valid inside the {@link Feedback} callbacks of that completion; learning grades should skip it.
@@ -88,7 +96,7 @@ public final class QuestEngine {
 		this.data = learn.data();
 		this.log = log;
 		this.book = new TrailSet(trails, log);
-		this.text = new QuestTextService(catalog);
+		this.text = new QuestTextService(catalog, learn);
 		this.persistence = new QuestPersistence(learn, catalog, this::byId);
 		this.hints = new HintService(registry, text, persistence, learn, catalog);
 		this.next = new NextQuestPolicy(this, registry, data);
@@ -376,6 +384,33 @@ public final class QuestEngine {
 	public String hintKo(QuestStep step) {
 		Track track = registry.focused();
 		return text.hintKo(step, track == null ? 1 : track.trail.koreanLevel());
+	}
+
+	/**
+	 * The rule card to show for the focused step: the first construction of its clue whose card the player
+	 * has not seen. One card per step, so a step that brings several new forms shows them one after the
+	 * other over the next steps. Null when there is nothing new.
+	 */
+	public RuleCardView pendingRuleCard() {
+		Track track = registry.focused();
+		QuestStep step = track == null ? null : track.step();
+		if (step == null || track.sideQuest != null || step == ruleCardStep) {
+			return null;
+		}
+		GrammarBook book = GrammarBook.shared();
+		for (String id : text.grammarIds(step, track.trail.koreanLevel())) {
+			if (!learn.grammarCardSeen(id)) {
+				GrammarBook.Construction c = book.get(id);
+				return new RuleCardView(id, c.form(), c.ruleCard().ko(), c.ruleCard().lines(Lang.current()));
+			}
+		}
+		return null;
+	}
+
+	/** The card was put on screen: the construction counts as met and the focused step shows no second card. */
+	public void ruleCardShown(String id) {
+		learn.grammarCardShown(id, clock());
+		ruleCardStep = currentStep();
 	}
 
 	/** Dev-only: seeds a partial counter on a tracked trail so UI demos show filled progress bars. */
