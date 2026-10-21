@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest;
 
+import io.github.leks2205.hangulquest.culture.CultureNote;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.ConceptLoader;
@@ -16,6 +17,9 @@ import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.story.ChapterSet;
+import io.github.leks2205.hangulquest.story.Story;
+import io.github.leks2205.hangulquest.story.StoryFixtures;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.slf4j.LoggerFactory;
@@ -140,6 +144,38 @@ class SentenceDumpTest {
 					nonwords.get(i).ko(), ""));
 		}
 		rows.addAll(dialogueRows());
+		rows.addAll(libraryRows());
+		return rows;
+	}
+
+	/**
+	 * The Korean text of the Library: every story paragraph and title, the summary of every culture note and the
+	 * title of every chapter. The goal column says what the line is, so the reviewers see where it appears.
+	 */
+	static List<Row> libraryRows() {
+		List<Row> rows = new ArrayList<>();
+		for (Story story : StoryFixtures.shipped()) {
+			String file = "stories/" + story.chapter() + "/" + story.id() + ".json";
+			rows.add(new Row("story." + story.id() + ".title", story.level(), "authored:" + file + "#titleKo",
+					story.titleKo(), "Story title, chapter " + story.chapter()));
+			for (int i = 0; i < story.paragraphs().size(); i++) {
+				rows.add(new Row("story." + story.id() + ".p" + (i + 1), story.level(),
+						"authored:" + file + "#paragraphs[" + i + "]", story.paragraphs().get(i),
+						"Story paragraph " + (i + 1) + " of " + story.paragraphs().size() + ", chapter " + story.chapter()
+								+ ", graded text: 98% known words, grammar of levels 1 to 2 only"));
+			}
+		}
+		List<CultureNote> notes = StoryFixtures.culture().notes();
+		for (int i = 0; i < notes.size(); i++) {
+			rows.add(new Row("culture." + notes.get(i).id() + ".ko", 2, "authored:culture.json#notes[" + i + "].ko",
+					notes.get(i).ko(), "Culture note summary (the explanation is in the interface language)"));
+		}
+		List<ChapterSet.Chapter> chapters = StoryFixtures.chapters().all();
+		for (int i = 0; i < chapters.size(); i++) {
+			rows.add(new Row("chapter." + chapters.get(i).id() + ".title", chapters.get(i).minLevel(),
+					"authored:chapters.json#chapters[" + i + "].titleKo", chapters.get(i).titleKo(),
+					"Chapter title in the quest tab"));
+		}
 		return rows;
 	}
 
@@ -216,6 +252,25 @@ class SentenceDumpTest {
 			assertFalse(row.ko() == null || row.ko().isBlank(), row.id() + " has no Korean text");
 		}
 		assertTrue(Files.size(REPORT) > 100_000, "the report looks too small: " + Files.size(REPORT));
+	}
+
+	@Test
+	void theDumpHasEveryStoryParagraphCultureSummaryAndChapterTitle() {
+		List<Row> rows = libraryRows();
+		Set<String> ids = new HashSet<>();
+		rows.forEach(row -> ids.add(row.id()));
+		for (Story story : StoryFixtures.shipped()) {
+			assertTrue(ids.contains("story." + story.id() + ".title"), story.id());
+			for (int i = 1; i <= story.paragraphs().size(); i++) {
+				assertTrue(ids.contains("story." + story.id() + ".p" + i), story.id() + " p" + i);
+			}
+		}
+		StoryFixtures.culture().notes().forEach(note -> assertTrue(ids.contains("culture." + note.id() + ".ko"), note.id()));
+		StoryFixtures.chapters().all().forEach(chapter -> assertTrue(ids.contains("chapter." + chapter.id() + ".title"), chapter.id()));
+		assertEquals(rows.size(), ids.size(), "ids are unique");
+		for (Row row : rows) {
+			assertFalse(row.ko().isBlank(), row.id());
+		}
 	}
 
 	@Test

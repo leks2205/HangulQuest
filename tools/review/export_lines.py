@@ -153,6 +153,30 @@ def dialogue_record(row: dict, en: dict, de: dict) -> dict:
     }
 
 
+LIBRARY_PREFIXES = ("story.", "culture.", "chapter.")
+
+
+def library_record(row: dict, en: dict, de: dict, data_dir: Path) -> dict:
+    """A line of the Library: a story title or paragraph (story.<id>.title / .p<N>), the Korean summary of a culture
+    note (culture.<id>.ko) or a chapter title (chapter.<id>.title). The English and German text are lang keys: the
+    id with the prefix hangulquest., except that a culture summary is hangulquest.culture.<id>.summary."""
+    rid = row["id"]
+    kind, ident, part = rid.split(".")
+    key = f"hangulquest.culture.{ident}.summary" if kind == "culture" else "hangulquest." + rid
+    path, _, pointer = row["source"].partition(":")[2].partition("#")
+    icon = ""
+    if kind in ("culture", "chapter"):
+        listing = "notes" if kind == "culture" else "chapters"
+        entries = read_json(data_dir / path, {}).get(listing, [])
+        icon = next((entry.get("icon", "") for entry in entries if entry.get("id") == ident), "")
+    return {
+        "id": rid, "ko": row["ko"], "en": en.get(key, ""), "de": de.get(key, ""),
+        "context": {"trail": "", "trailTitle": "", "topic": "", "step": part, "goal": row["goal"],
+                    "level": int(row["level"] or 1), "icon": icon, "field": kind, "goalKey": row["goal"]},
+        "source": {"kind": "authored", "file": path, "pointer": to_pointer(pointer)},
+    }
+
+
 def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
     trails = load_questlines(data_dir)
     en_lang = read_json(data_dir.parent / "lang" / "en_us.json", {})
@@ -198,6 +222,8 @@ def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
             }
         elif rid.startswith("dialogue."):
             record = dialogue_record(row, en_lang, de_lang)
+        elif rid.startswith(LIBRARY_PREFIXES):
+            record = library_record(row, en_lang, de_lang, data_dir)
         else:
             _, tid, *middle = rid.split(".")
             trail = trails[tid]

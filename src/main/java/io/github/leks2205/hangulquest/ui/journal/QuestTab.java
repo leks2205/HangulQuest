@@ -64,9 +64,15 @@ public final class QuestTab extends JournalTab {
 
 	private final JournalHost.PointClick nodeClick = this::clickNode;
 	private final Runnable[] bandJumps = new Runnable[6];
+	/** The second view, the trails by life situation, beside the tree. */
+	private final ChapterView chapterView;
+	private boolean chapterMode;
+	private final Runnable showTree = () -> chapterMode = false;
+	private final Runnable showChapters = () -> chapterMode = true;
 
 	public QuestTab(JournalHost host) {
 		super(host);
+		chapterView = new ChapterView(host, this::showTrailInTree);
 		for (int band = 0; band < bandJumps.length; band++) {
 			int firstLevel = band * 3;
 			bandJumps[band] = () -> {
@@ -82,13 +88,21 @@ public final class QuestTab extends JournalTab {
 		treeZoom = 1.0F;
 		treePanX = 0;
 		treePanY = 0;
+		chapterView.onOpen();
+	}
+
+	/** A trail picked in the chapter view: back to the tree with that trail selected and its neighbours lit. */
+	private void showTrailInTree(String trailId) {
+		selectedTrailId = trailId;
+		treeHighlight = true;
+		chapterMode = false;
 	}
 
 	// ------------------------------------------------------------------- input
 
 	@Override
 	public boolean keyPressed(int key) {
-		if (key == InputConstants.KEY_F) {
+		if (key == InputConstants.KEY_F && !chapterMode) {
 			fitTree();
 			return true;
 		}
@@ -97,6 +111,9 @@ public final class QuestTab extends JournalTab {
 
 	@Override
 	public boolean mouseClicked(double x, double y, int button) {
+		if (chapterMode) {
+			return false;
+		}
 		// 26.3 uses SDL button numbers: 1 = left, 2 = right, 3 = middle.
 		if (button == 2 && insideTree(x, y)) {
 			// Right-click resets the highlight/selection; left-drag must not.
@@ -137,6 +154,9 @@ public final class QuestTab extends JournalTab {
 
 	@Override
 	public boolean mouseScrolled(double mouseX, double mouseY, double vertical) {
+		if (chapterMode) {
+			return chapterView.mouseScrolled(vertical);
+		}
 		float oldZoom = treeZoom;
 		treeZoom = (float) Math.max(0.25, Math.min(2.2, treeZoom * (vertical > 0 ? 1.12 : 0.89)));
 		double factor = treeZoom / oldZoom;
@@ -182,6 +202,12 @@ public final class QuestTab extends JournalTab {
 		QuestEngine quests = hq.quests();
 		if (quests == null) {
 			Draw.label(g, host.font(), I18n.t("hangulquest.ui.quest.loading"), x, y, Ink.INK_SOFT);
+			return;
+		}
+		host.button(g, x + width - 100, y - 2, 42, 14, I18n.t("hangulquest.ui.chapters.tree"), !chapterMode, showTree);
+		host.button(g, x + width - 56, y - 2, 56, 14, I18n.t("hangulquest.ui.chapters.chapters"), chapterMode, showChapters);
+		if (chapterMode) {
+			chapterView.render(g, x, y + 16, width, height - 16);
 			return;
 		}
 		if (layout == null || !layout.matches(quests.trails())) {

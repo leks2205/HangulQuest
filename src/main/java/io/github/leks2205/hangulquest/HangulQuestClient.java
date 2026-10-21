@@ -21,6 +21,7 @@ import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.sense.EnvironmentSensor;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.story.LibraryHook;
 import io.github.leks2205.hangulquest.ui.HudController;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.KoText;
@@ -217,6 +218,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 		ItemTooltipCallback.EVENT.register(this::addTooltip);
 		DialogueHook.register();
+		LibraryHook.register();
 
 		LOG.info("hangulquest ready (config {})", dir);
 	}
@@ -591,6 +593,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			learn = builtLearn;
 			quests = builtQuests;
 			DialogueHook.publish(content.dialogues());
+			LibraryHook.publish(content.library());
 			contentFailed = false;
 			failureBannerPending = false;
 			loadBackoff.succeeded();

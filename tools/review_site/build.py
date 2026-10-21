@@ -47,6 +47,9 @@ FIELD_TASK = {
     "descKo": "Word card: a short description in simple Korean.",
     "sentenceKo": "Word card: an example sentence.",
     "dialogue": "Villager conversation: a line of the NPC or a reply the player can pick.",
+    "story": "Library story for beginners: the title or one paragraph. Simple, natural Korean in the polite 해요체; only level 1-2 grammar.",
+    "culture": "Culture note in the Library: a short Korean summary (level 1-2). The longer explanation is in the interface language.",
+    "chapter": "Title of a chapter in the quest tab, a life situation such as 집 (house) or 불과 빛 (fire and light).",
 }
 KIND_ORDER = {"authored": 0, "generated": 1, "lexicon": 2}
 NAV = [("index", "처음", "Home"), ("queue", "우선순위", "Priority"), ("levels", "레벨", "Levels"),

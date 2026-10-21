@@ -19,6 +19,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- **Books tab: graded stories, chapters and culture notes.** The journal has a new Books tab (책장). Four short
+  stories (집, 불과 빛, 밭, 동물; 80 to 200 syllables, level 1 to 2 grammar) open when their trails are done and at
+  least 98% of their words are known to the player; a locked story lists the words to learn first. Hovering or
+  clicking a word shows its gloss, and for a conjugated verb its stem, ending and grammar point. Reading a story
+  logs an encounter (never a review) for its words, once per study day. The Quests tab has a second view, the
+  trails by life situation (`data/chapters.json`, written by `tools/assign_chapters.py`) with progress per
+  chapter. Eight culture notes (온돌, 한옥, 장독, 한복, 김치, 설날, 추석, 윷놀이) appear once as a HUD card when the
+  matching item is first crafted or picked up, or, for 설날 and 추석, near their real date (a table for
+  2026 to 2030, no network), and are listed in the Books tab.
 - Action variety for quests: goals `CRAFT`, `SMELT`, `GIVE`, `PUT_IN`, `HOLD_WHILE`, `SEQUENCE` (-기 전에,
   -(으)ㄴ 후에, -고 나서) and `AVOID` (-지 마세요), conditions `HOLDING`, `SKY`, `IN_WATER` and `PLAYER_REL`, the
   verbs 넣다, 들다, 들어가다, 떨어뜨리다, 닫다, 녹이다, 굽다 and 걷다, and a level-3 demo trail "마을 심부름". Every generated
