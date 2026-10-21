@@ -1,0 +1,11 @@
+{
+ "schema": 1,
+ "policy": {
+  "trustedAfterAccepted": 30,
+  "maxReverts": 0,
+  "minAccountAgeDays": 30,
+  "approvalsNeeded": 2,
+  "note": "A reviewer becomes trusted after 30 accepted suggestions without a revert, and only when the maintainer confirms it by setting trusted to true. One approval from a trusted reviewer is enough for native-approved; otherwise two different people are needed. The bot updates accepted and reverted; display and optOut are the reviewer's own choice (credit name in the form)."
+ },
+ "reviewers": {}
+}

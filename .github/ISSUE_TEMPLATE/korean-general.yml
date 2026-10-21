@@ -1,0 +1,57 @@
+name: 한국어 질문과 의견 / Korean style question or comment
+description: 문장 하나로는 말하기 어려운 의견이나 질문을 적어 주세요. / A question or remark about wording, style or the guide that does not fit one line.
+title: "[Korean] question: "
+labels: ["korean-review", "korean:general"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        예를 들어 "해요체와 합니다체 중 무엇이 좋을까요?", "이 단어는 요즘 잘 안 써요" 같은 이야기도 좋아요.
+
+        For example: which speech level fits, or a word that sounds old-fashioned. This issue is public, so please do not post personal details.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "주제 / Topic"
+      options:
+        - 말투 (speech level)
+        - 단어 (word choice)
+        - 조사와 문법 (particles and grammar)
+        - 띄어쓰기와 표기 (spacing and spelling)
+        - 마인크래프트 용어 (Minecraft terms)
+        - 리뷰 안내문 (the review guide itself)
+        - 그 밖에 (other)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: "내용 / Details"
+      description: "한국어나 영어로 적어 주세요. / Korean or English is fine."
+    validations:
+      required: true
+  - type: input
+    id: line-ids
+    attributes:
+      label: "관련 문장 번호 (선택) / Related line ids (optional)"
+      description: "쉼표로 나누어 적어 주세요. / Separate with commas."
+    validations:
+      required: false
+  - type: dropdown
+    id: proficiency
+    attributes:
+      label: "한국어 실력 / Your Korean"
+      options:
+        - native (원어민)
+        - fluent (유창함)
+        - teacher (한국어 선생님)
+        - learner (학습자)
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: "크레딧에 쓸 이름 (선택) / Name for the credits (optional)"
+      description: "비워 두면 GitHub 이름을 써요. 이름을 빼고 싶으면 anonymous 라고 적어 주세요. / Leave empty to use your GitHub name. Write anonymous to stay out of the credits."
+    validations:
+      required: false
