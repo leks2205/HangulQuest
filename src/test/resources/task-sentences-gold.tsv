@@ -129,7 +129,7 @@ SEQUENCE	#beds	-	-	TIME	3	침대를 놓은 후에 자요	L3.eun_hue;L1.obj_eul;L
 SEQUENCE	torch	NEXT_TO	#beds	TIME	3	자기 전에 침대 옆에 횃불을 놓아요	L3.gi_jeone;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
 SEQUENCE	structure:house	-	-	TIME	3	밤이 되기 전에 집을 지어요	L3.gi_jeone;L1.subj_i;L1.obj_eul;L1.eoyo
 SEQUENCE	bone_meal	-	#saplings	NONE	2	묘목을 심고 뼛가루를 뿌려요	L2.go_sequence;L1.obj_eul;L1.eoyo
-SEQUENCE	iron_sword	-	raw_iron	NONE	2	철 원석을 녹이고 철 검을 만들어요	L2.go_sequence;L1.obj_eul;L1.eoyo
+SEQUENCE	iron_sword	-	raw_iron	NONE	2	철 원석을 제련하고 철 검을 만들어요	L2.go_sequence;L1.obj_eul;L1.eoyo
 SEQUENCE	#planks	-	#logs	NONE	2	나무를 베고 판자를 만들어요	L2.go_sequence;L1.obj_eul;L1.eoyo
 SEQUENCE	torch	-	#doors	NONE	2	문을 열고 횃불을 놓아요	L2.go_sequence;L1.obj_eul;L1.eoyo
 AVOID	sleep	-	-	TIME	3	밤에 자지 마세요	L1.e_time;L3.jima_seyo
@@ -138,7 +138,7 @@ AVOID	break	-	torch	NONE	3	횃불을 부수지 마세요	L3.jima_seyo;L1.obj_eul
 AVOID	stand	IN_FRONT_OF	creeper	TARGET	3	크리퍼 앞에 서지 마세요	L3.jima_seyo;L1.loc_ap_e
 AVOID	enter	INSIDE	lava	TARGET	3	용암에 들어가지 마세요	L3.jima_seyo;L1.e_place
 AVOID	walk	ON_TOP_OF	lava	TARGET	3	용암 위를 걷지 마세요	L3.jima_seyo;L1.loc_wi_e;L1.obj_eul
-AVOID	go	OUTSIDE	structure:house	TARGET	3	집 밖에 나가지 마세요	L3.jima_seyo;L1.loc_bak_e
+AVOID	go	OUTSIDE	structure:house	TARGET	3	집 밖으로 나가지 마세요	L3.jima_seyo;L1.loc_bak_e
 AVOID	attack	-	creeper	NONE	3	크리퍼를 때리지 마세요	L3.jima_seyo;L1.obj_eul
 AVOID	sleep	INSIDE	#beds	ACTIVITY_PLACE	3	침대에서 자지 마세요	L3.jima_seyo;L2.eseo_activity
 AVOID	go	OUTSIDE	-	TIME	4	밤에 밖에 나가면 안 돼요	L1.e_time;L1.loc_bak_e;L4.myeon;L4.myeon_an_doeyo
@@ -210,7 +210,7 @@ SEQUENCE	torch	NEXT_TO	#doors	TARGET	2	문 옆에 횃불을 놓고 상자를 열
 GIVE	bread	-	villager	RECIPIENT	5	문을 여는 주민에게 빵을 줘요	L5.adn_present_neun;L2.ege;L1.obj_eul;L1.eoyo
 PLACE_RELATIVE	chest	NEXT_TO	#doors	TARGET	5	횃불을 놓은 문 옆에 상자를 놓아요	L5.adn_past_eun;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
 HOLD_WHILE	torch	INSIDE	region:cave	HELD	5	어두운 동굴 안으로 횃불을 들고 들어가요	L5.adn_adj_eun;L2.euro_direction;L2.go_held;L1.loc_an_e;L1.obj_eul;L1.eoyo
-AVOID	go	OUTSIDE	structure:house	TARGET	5	밤이니까 집 밖에 나가지 마세요	L5.eunikka;L1.copula_ieyo;L1.loc_bak_e;L3.jima_seyo
+AVOID	go	OUTSIDE	structure:house	TARGET	5	밤이니까 집 밖으로 나가지 마세요	L5.eunikka;L1.copula_ieyo;L1.loc_bak_e;L3.jima_seyo
 NEAR	-	BEHIND	#doors	TARGET	5	크리퍼가 오는 동안 문 뒤에 서요	L5.neun_dongan;L5.adn_present_neun;L1.subj_i;L1.loc_dwi_e;L1.eoyo
 GIVE	bread	-	villager	RECIPIENT	5	주민에게 빵을 줍니다	L5.hapsyo;L2.ege;L1.obj_eul
 CONDITION	torch	-	-	CONDITION	6	횃불이 많을수록 밝아요	L6.eulsurok;L1.subj_i;L1.eoyo

@@ -160,7 +160,7 @@
    ],
    "formDependentHooks": [],
    "teachingNotes": [
-    "Choosing 을 vs 를 by the sound, not by the final consonant of the written word (물 → 물을, 상자 → 상자를).",
+    "Choosing 을/를 by the English word instead of the last syllable: final consonant → 을 (물을), vowel → 를 (상자를).",
     "Using 이/가 for the object because the English word order feels like a subject.",
     "Dropping 을/를 in speech is normal; the game keeps it so the role stays visible."
    ]
@@ -837,7 +837,7 @@
    ],
    "formDependentHooks": [],
    "teachingNotes": [
-    "Choosing 이에요/예요 by the spelling of the noun's last syllable only (상자예요, 문이에요).",
+    "Writing 상자이에요 or 문예요: after a final consonant use 이에요 (문이에요), after a vowel use 예요 (상자예요).",
     "Confusing 이에요 (is) with 있어요 (exists).",
     "이것이 … answers 'which one is …?'; the neutral 'as for this' form 이것은 comes in L2."
    ]
@@ -2366,8 +2366,8 @@
    "formDependentHooks": ["BREED:count", "ACQUIRE_ITEM:count", "PLACE_BLOCK:count"],
    "teachingNotes": [
     
-    "Using 개 for everything is understood and never wrong for objects; the game prefers the specific counter once it is taught.",
-    "Villagers and other people take 명, never 마리.", "See counters.json for which Minecraft items use which counter."
+    "Using 개 for everything is understood, but natives say 책 세 권, 꽃 세 송이, 나무 세 그루.",
+    "Villagers and other people take 명, never 마리.", "Animals take 마리 even in a game: 소 두 마리."
    ]
   },
   {
@@ -2914,7 +2914,7 @@
    "teachingNotes": [
     "안 gives a statement (밤에 안 자요), 마세요 gives an order; learners say 안 자세요 for 'do not sleep'.",
     "Only for verbs; for 'is not' with adjectives use -지 않아요.",
-    "The game fails the goal on the forbidden event and lets the player restart it freely."
+    "-지 마세요 goes on verbs only: 밝지 마세요 (an adjective) is wrong; say 불을 켜지 마세요."
    ]
   },
   {
@@ -3641,7 +3641,7 @@
      "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.obj_eul"]
     },
     {
-     "ko": "밤에 밖에 나가면 안 돼요.",
+     "ko": "밤에 밖으로 나가면 안 돼요.",
      "en": "You must not go outside at night.",
      "uses": ["L4.myeon_an_doeyo", "L4.myeon", "L1.neg_an", "L1.e_time", "L1.loc_bak_e"]
     },
@@ -4024,7 +4024,7 @@
      "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.obj_eul", "L1.eoyo"]
     },
     {
-     "ko": "동굴에 있는 동안 횃불을 들어요.",
+     "ko": "동굴에 있는 동안 횃불을 들고 있어요.",
      "en": "I hold a torch while I am in the cave.",
      "uses": ["L5.neun_dongan", "L5.adn_present_neun", "L1.e_place", "L1.obj_eul", "L1.eoyo"]
     },
@@ -4604,9 +4604,9 @@
      "uses": ["L6.su_bakke_eopda", "L2.eun_neun_contrast", "L1.e_time"]
     },
     {
-     "ko": "상자가 하나밖에 없어요.",
-     "en": "There is only one chest.",
-     "uses": ["L6.su_bakke_eopda", "L1.subj_i", "L1.num_native"]
+     "ko": "길이 막혔으니까 돌아갈 수밖에 없어요.",
+     "en": "The path is blocked, so I have no choice but to turn back.",
+     "uses": ["L6.su_bakke_eopda", "L5.eunikka", "L1.subj_i"]
     },
     {
      "ko": "크리퍼가 오면 도망갈 수밖에 없어요.",
@@ -4631,11 +4631,11 @@
      "uses": ["L6.su_bakke_eopda", "L4.myeon", "L1.subj_i"]
     },
     {
-     "sentence": "상자가 하나___ 없어요",
-     "gloss": "There is only one chest.",
-     "answer": "밖에",
-     "distractors": ["에", "에서"],
-     "uses": ["L6.su_bakke_eopda", "L1.num_native", "L1.subj_i", "L2.eseo_activity"]
+     "sentence": "길이 막혔으니까 돌아갈 ___ 없어요",
+     "gloss": "The path is blocked, so I have no choice but to turn back.",
+     "answer": "수밖에",
+     "distractors": ["수만", "수에"],
+     "uses": ["L6.su_bakke_eopda", "L5.eunikka", "L1.subj_i"]
     }
    ],
    "formDependentHooks": [],
