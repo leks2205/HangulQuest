@@ -296,7 +296,7 @@ class SentenceBuilderTest {
 		assertEquals("소에게 먹이를 줘요.", clue(new Goal.InteractEntity("minecraft:cow"), "소"));
 		assertEquals("말을 타요.", clue(new Goal.InteractEntity("minecraft:horse"), "말"));
 		assertEquals("고양이를 쓰다듬어요.", clue(new Goal.InteractEntity("minecraft:cat"), "고양이"));
-		assertEquals("철 골렘에게 말을 걸어요.", clue(new Goal.InteractEntity("minecraft:iron_golem"), "철 골렘"));
+		assertEquals("철 골렘을 만져요.", clue(new Goal.InteractEntity("minecraft:iron_golem"), "철 골렘"));
 		assertEquals("주민과 이야기해요.", clue(new Goal.InteractEntity("minecraft:villager"), "주민"));
 		assertEquals("떠돌이 상인과 이야기해요.",
 				clue(new Goal.InteractEntity("minecraft:wandering_trader"), "떠돌이 상인"));

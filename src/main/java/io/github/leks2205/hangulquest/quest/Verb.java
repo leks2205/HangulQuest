@@ -54,7 +54,9 @@ public enum Verb {
 	THROW("던지다", "던지", "던져", "werfen"),
 	PET("쓰다듬다", "쓰다듬", "쓰다듬어", "streicheln"),
 	RIDE("타다", "타", "타", "reiten"),
-	ADDRESS("걸다", "걸", "걸어", "ansprechen", "말을 ", Frame.DAT);
+	ADDRESS("걸다", "걸", "걸어", "ansprechen", "말을 ", Frame.DAT),
+	TOUCH("만지다", "만지", "만져", "berühren"),
+	GIVE_ITEM("주다", "주", "줘", "geben", "아이템을 ", Frame.DAT);
 
 	/** How the target noun is marked in front of the verb. */
 	public enum Frame {

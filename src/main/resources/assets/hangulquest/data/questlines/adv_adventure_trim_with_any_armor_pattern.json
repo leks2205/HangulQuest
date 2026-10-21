@@ -8,7 +8,7 @@
  "order": 238,
  "concepts": [
   "gen_howl_pottery_sherd",
-  "gen_dirt_path",
+  "gen_smithing_table",
   "adv_block_diamond_chestplate"
  ],
  "requires": {
@@ -40,19 +40,19 @@
   {
    "id": "s2",
    "teach": [
-    "gen_dirt_path"
+    "gen_smithing_table"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dirt_path",
+    "item": "minecraft:smithing_table",
     "count": 1
    },
    "clue": {
-    "de": "Sammle Trampelpfad.",
-    "en": "Collect Dirt Path."
+    "de": "Baue einen Schmiedetisch.",
+    "en": "Make a smithing table."
    },
    "hint": {
-    "en": "Collect Dirt Path."
+    "en": "Make a smithing table."
    }
   }
  ],

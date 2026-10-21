@@ -45,15 +45,16 @@
     "gen_iron_trapdoor"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:iron_trapdoor"
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_trapdoor",
+    "count": 1
    },
    "clue": {
-    "de": "Benutze Eisenfalltür.",
-    "en": "Use Iron Trapdoor."
+    "de": "Bringe eine Eisenfalltür an.",
+    "en": "Put up an iron trapdoor."
    },
    "hint": {
-    "en": "Use Iron Trapdoor."
+    "en": "Put up an iron trapdoor."
    }
   },
   {

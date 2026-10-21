@@ -336,17 +336,18 @@
  },
  {
   "id": "crafting_table",
-  "ko": "작업대",
+  "ko": "제작대",
   "de": "Werkbank",
   "category": "BLOCKS",
   "tier": 1,
   "items": [
    "minecraft:crafting_table"
   ],
-  "sentenceKo": "작업대를 열어요.",
+  "sentenceKo": "제작대를 열어요.",
   "sentenceDe": "Die Werkbank öffnen.",
   "descKo": "물건을 만들어요.",
   "aliases": [
+   "제작대",
    "작업대"
   ],
   "en": "Crafting Table"
@@ -1371,14 +1372,14 @@
  },
  {
   "id": "nether",
-  "ko": "지옥",
+  "ko": "네더",
   "de": "Nether",
   "category": "ENVIRONMENT",
   "tier": 2,
   "items": [],
   "icon": "minecraft:netherrack",
   "entity": null,
-  "sentenceKo": "지옥에 가요.",
+  "sentenceKo": "네더에 가요.",
   "sentenceDe": "In den Nether gehen.",
   "descKo": "아주 더워요. 위험해요.",
   "aliases": [
@@ -1620,7 +1621,7 @@
   "icon": "minecraft:milk_bucket",
   "sentenceKo": "물을 마셔요.",
   "sentenceDe": "Wasser trinken.",
-  "descKo": "물을 몸에 넣어요.",
+  "descKo": "목마를 때 마셔요.",
   "aliases": [
    "마시다"
   ],
@@ -1700,7 +1701,7 @@
   "icon": "minecraft:crafting_table",
   "sentenceKo": "빵을 만들어요.",
   "sentenceDe": "Brot herstellen.",
-  "descKo": "새로운 것을 봐요.",
+  "descKo": "재료로 새 물건을 만들어요.",
   "aliases": [
    "만들다"
   ],
@@ -1764,7 +1765,7 @@
   "icon": "minecraft:iron_shovel",
   "sentenceKo": "땅을 파요.",
   "sentenceDe": "Erde graben.",
-  "descKo": "땅을 내려가요.",
+  "descKo": "땅을 파서 구멍을 만들어요.",
   "aliases": [
    "파다"
   ],
@@ -1829,7 +1830,7 @@
   "tier": 1,
   "items": [],
   "icon": "minecraft:book",
-  "sentenceKo": "친구와 이야기해요.",
+  "sentenceKo": "주민과 이야기해요.",
   "sentenceDe": "Mit einem Freund sprechen.",
   "descKo": "말로 내 생각을 전해요.",
   "aliases": [
@@ -2068,7 +2069,7 @@
   ],
   "sentenceKo": "네더랙을 봐요.",
   "sentenceDe": "Netherrack ansehen.",
-  "descKo": "빨간 돌이에요. 지옥에 있어요.",
+  "descKo": "빨간 돌이에요. 네더에 있어요.",
   "aliases": [
    "네더랙"
   ],
@@ -2265,18 +2266,19 @@
  },
  {
   "id": "note_block",
-  "ko": "음표 블록",
+  "ko": "소리 블록",
   "de": "Notenblock",
   "category": "BUILDING",
   "tier": 2,
   "items": [
    "minecraft:note_block"
   ],
-  "sentenceKo": "음표 블록을 놓아요.",
+  "sentenceKo": "소리 블록을 놓아요.",
   "sentenceDe": "Einen Notenblock setzen.",
   "grammar": "OBJECT",
   "descKo": "소리를 내는 블록이에요.",
   "aliases": [
+   "소리 블록",
    "음표 블록"
   ],
   "en": "Note Block"
@@ -2365,7 +2367,7 @@
   "sentenceKo": "지도 제작대를 써요.",
   "sentenceDe": "Den Kartentisch benutzen.",
   "grammar": "OBJECT",
-  "descKo": "지도를 만들 때 쓰는 작업대예요.",
+  "descKo": "지도를 만들 때 쓰는 제작대예요.",
   "aliases": [
    "지도 제작대"
   ],
@@ -2391,17 +2393,18 @@
  },
  {
   "id": "ink_sac",
-  "ko": "잉크 주머니",
+  "ko": "먹물 주머니",
   "de": "Tintenbeutel",
   "category": "MATERIALS",
   "tier": 2,
   "items": [
    "minecraft:ink_sac"
   ],
-  "sentenceKo": "잉크 주머니를 모아요.",
+  "sentenceKo": "먹물 주머니를 모아요.",
   "sentenceDe": "Einen Tintenbeutel sammeln.",
   "descKo": "오징어에게서 얻어요.",
   "aliases": [
+   "먹물 주머니",
    "잉크 주머니"
   ],
   "en": "Ink Sac"
@@ -2562,17 +2565,18 @@
  },
  {
   "id": "cocoa_beans",
-  "ko": "카카오 콩",
+  "ko": "코코아 콩",
   "de": "Kakaobohnen",
   "category": "MATERIALS",
   "tier": 4,
   "items": [
    "minecraft:cocoa_beans"
   ],
-  "sentenceKo": "카카오 콩을 모아요.",
+  "sentenceKo": "코코아 콩을 모아요.",
   "sentenceDe": "Kakaobohnen sammeln.",
   "descKo": "초콜릿을 만드는 재료예요.",
   "aliases": [
+   "코코아 콩",
    "카카오 콩"
   ],
   "en": "Cocoa Beans"
@@ -2806,7 +2810,7 @@
   "items": [
    "minecraft:soul_sand"
   ],
-  "sentenceKo": "영혼 모래를 캐요.",
+  "sentenceKo": "영혼 모래를 파요.",
   "sentenceDe": "Seelensand abbauen.",
   "descKo": "영혼 계곡에서 나는 모래예요.",
   "aliases": [
@@ -2842,7 +2846,7 @@
   ],
   "sentenceKo": "철 블록을 놓아요.",
   "sentenceDe": "Einen Eisenblock setzen.",
-  "descKo": "철 아홉 개로 만드는 블록이에요.",
+  "descKo": "철 주괴 아홉 개로 만드는 블록이에요.",
   "aliases": [
    "철 블록"
   ],
@@ -2893,7 +2897,7 @@
   ],
   "sentenceKo": "금 블록을 놓아요.",
   "sentenceDe": "Einen Goldblock setzen.",
-  "descKo": "금 아홉 개로 만드는 블록이에요.",
+  "descKo": "금 주괴 아홉 개로 만드는 블록이에요.",
   "aliases": [
    "금 블록"
   ],
@@ -3078,7 +3082,7 @@
   "items": [
    "minecraft:white_carpet"
   ],
-  "sentenceKo": "양탄자를 놓아요.",
+  "sentenceKo": "양탄자를 깔아요.",
   "sentenceDe": "Einen Teppich setzen.",
   "descKo": "바닥에 까는 천이에요.",
   "aliases": [
@@ -3146,7 +3150,7 @@
   "items": [
    "minecraft:oak_sapling"
   ],
-  "sentenceKo": "묘목을 놓아요.",
+  "sentenceKo": "묘목을 심어요.",
   "sentenceDe": "Einen Setzling setzen.",
   "descKo": "작은 나무가 될 거예요.",
   "aliases": [
@@ -3196,7 +3200,7 @@
   "tier": 2,
   "items": [],
   "icon": "minecraft:slime_ball",
-  "sentenceKo": "슬라임 공을 모아요.",
+  "sentenceKo": "슬라임볼을 모아요.",
   "sentenceDe": "Schleimbälle sammeln.",
   "descKo": "초록색 끈적한 동물이에요.",
   "aliases": [
@@ -3655,9 +3659,9 @@
   "items": [
    "minecraft:diamond_boots"
   ],
-  "sentenceKo": "다이아몬드 부츠을/를 봐요.",
+  "sentenceKo": "다이아몬드 부츠를 봐요.",
   "sentenceDe": "Diamantstiefel ansehen.",
-  "descKo": "다이아몬드 부츠",
+  "descKo": "발을 지켜 줘요. 아주 튼튼해요.",
   "aliases": [
    "다이아몬드 부츠"
   ],
@@ -3672,9 +3676,9 @@
   "items": [
    "minecraft:crossbow"
   ],
-  "sentenceKo": "쇠뇌을/를 봐요.",
+  "sentenceKo": "쇠뇌를 봐요.",
   "sentenceDe": "Armbrust ansehen.",
-  "descKo": "쇠뇌",
+  "descKo": "화살을 쏴요. 먼저 장전해야 해요.",
   "aliases": [
    "쇠뇌"
   ],
@@ -3689,9 +3693,9 @@
   "items": [
    "minecraft:sculk_sensor"
   ],
-  "sentenceKo": "스컬크 감지체을/를 봐요.",
+  "sentenceKo": "스컬크 감지체를 봐요.",
   "sentenceDe": "Sculk-Sensor ansehen.",
-  "descKo": "스컬크 감지체",
+  "descKo": "소리와 진동을 느껴요.",
   "aliases": [
    "스컬크 감지체"
   ],
@@ -3706,9 +3710,9 @@
   "items": [
    "minecraft:wind_charge"
   ],
-  "sentenceKo": "돌풍구을/를 봐요.",
+  "sentenceKo": "돌풍구를 봐요.",
   "sentenceDe": "Windkugel ansehen.",
-  "descKo": "돌풍구",
+  "descKo": "던지면 바람이 터져요. 몸이 위로 날아가요.",
   "aliases": [
    "돌풍구"
   ],
@@ -3723,9 +3727,9 @@
   "items": [
    "minecraft:armadillo_scute"
   ],
-  "sentenceKo": "아르마딜로 인갑을/를 봐요.",
+  "sentenceKo": "아르마딜로 인갑을 봐요.",
   "sentenceDe": "Gürteltier-Hornschild ansehen.",
-  "descKo": "아르마딜로 인갑",
+  "descKo": "아르마딜로에게서 얻어요. 늑대 갑옷을 만들어요.",
   "aliases": [
    "아르마딜로 인갑"
   ],
@@ -3740,9 +3744,9 @@
   "items": [
    "minecraft:target"
   ],
-  "sentenceKo": "과녁을/를 봐요.",
+  "sentenceKo": "과녁을 봐요.",
   "sentenceDe": "Zielblock ansehen.",
-  "descKo": "과녁",
+  "descKo": "화살을 맞히면 레드스톤 신호가 나와요.",
   "aliases": [
    "과녁"
   ],
@@ -3757,9 +3761,9 @@
   "items": [
    "minecraft:decorated_pot"
   ],
-  "sentenceKo": "장식된 도자기을/를 봐요.",
+  "sentenceKo": "장식된 도자기를 봐요.",
   "sentenceDe": "Verzierter Krug ansehen.",
-  "descKo": "장식된 도자기",
+  "descKo": "도자기 조각으로 만들어요. 안에 물건을 넣어요.",
   "aliases": [
    "장식된 도자기"
   ],
@@ -3774,9 +3778,9 @@
   "items": [
    "minecraft:crafter"
   ],
-  "sentenceKo": "제작기을/를 봐요.",
+  "sentenceKo": "제작기를 봐요.",
   "sentenceDe": "Werker ansehen.",
-  "descKo": "제작기",
+  "descKo": "레드스톤으로 물건을 자동으로 만들어요.",
   "aliases": [
    "제작기"
   ],
@@ -3791,9 +3795,9 @@
   "items": [
    "minecraft:creaking_heart"
   ],
-  "sentenceKo": "크리킹 심장을/를 봐요.",
+  "sentenceKo": "크리킹 심장을 봐요.",
   "sentenceDe": "Knarzherz ansehen.",
-  "descKo": "크리킹 심장",
+  "descKo": "창백한 정원의 나무 안에 있어요.",
   "aliases": [
    "크리킹 심장"
   ],
@@ -3808,9 +3812,9 @@
   "items": [
    "minecraft:white_banner"
   ],
-  "sentenceKo": "하얀색 현수막을/를 봐요.",
+  "sentenceKo": "하얀색 현수막을 봐요.",
   "sentenceDe": "Weißes Banner ansehen.",
-  "descKo": "하얀색 현수막",
+  "descKo": "하얀색 천으로 만든 현수막이에요. 무늬를 넣을 수 있어요.",
   "aliases": [
    "하얀색 현수막"
   ],
@@ -3825,9 +3829,9 @@
   "items": [
    "minecraft:diamond_sword"
   ],
-  "sentenceKo": "다이아몬드 검을/를 봐요.",
+  "sentenceKo": "다이아몬드 검을 봐요.",
   "sentenceDe": "Diamantschwert ansehen.",
-  "descKo": "다이아몬드 검",
+  "descKo": "아주 강한 검이에요. 몹을 빨리 물리쳐요.",
   "aliases": [
    "다이아몬드 검"
   ],
@@ -3842,9 +3846,9 @@
   "items": [
    "minecraft:sculk_catalyst"
   ],
-  "sentenceKo": "스컬크 촉매을/를 봐요.",
+  "sentenceKo": "스컬크 촉매를 봐요.",
   "sentenceDe": "Sculk-Katalysator ansehen.",
-  "descKo": "스컬크 촉매",
+  "descKo": "몹이 죽으면 스컬크가 퍼져요.",
   "aliases": [
    "스컬크 촉매"
   ],
@@ -3859,9 +3863,9 @@
   "items": [
    "minecraft:copper_bulb"
   ],
-  "sentenceKo": "구리 전구을/를 봐요.",
+  "sentenceKo": "구리 전구를 봐요.",
   "sentenceDe": "Kupferleuchte ansehen.",
-  "descKo": "구리 전구",
+  "descKo": "구리로 만든 전구예요. 빛을 낼 수 있어요.",
   "aliases": [
    "구리 전구"
   ],
@@ -3876,9 +3880,9 @@
   "items": [
    "minecraft:chiseled_tuff"
   ],
-  "sentenceKo": "조각된 응회암을/를 봐요.",
+  "sentenceKo": "조각된 응회암을 봐요.",
   "sentenceDe": "Gemeißelter Tuffstein ansehen.",
-  "descKo": "조각된 응회암",
+  "descKo": "응회암을 다듬은 블록이에요. 시련의 방에 있어요.",
   "aliases": [
    "조각된 응회암"
   ],
@@ -3893,9 +3897,9 @@
   "items": [
    "minecraft:mace"
   ],
-  "sentenceKo": "철퇴을/를 봐요.",
+  "sentenceKo": "철퇴를 봐요.",
   "sentenceDe": "Streitkolben ansehen.",
-  "descKo": "철퇴",
+  "descKo": "높은 곳에서 떨어지며 때리면 아주 강해요.",
   "aliases": [
    "철퇴"
   ],
@@ -3910,9 +3914,9 @@
   "items": [
    "minecraft:chiseled_bookshelf"
   ],
-  "sentenceKo": "조각된 책장을/를 봐요.",
+  "sentenceKo": "조각된 책장을 봐요.",
   "sentenceDe": "Gearbeitetes Bücherregal ansehen.",
-  "descKo": "조각된 책장",
+  "descKo": "책을 여섯 권까지 꽂을 수 있어요.",
   "aliases": [
    "조각된 책장"
   ],
@@ -3927,9 +3931,9 @@
   "items": [
    "minecraft:ominous_trial_key"
   ],
-  "sentenceKo": "불길한 시련 열쇠을/를 봐요.",
+  "sentenceKo": "불길한 시련 열쇠를 봐요.",
   "sentenceDe": "Unheilvoller Prüfungsschlüssel ansehen.",
-  "descKo": "불길한 시련 열쇠",
+  "descKo": "불길한 금고를 열어요.",
   "aliases": [
    "불길한 시련 열쇠"
   ],
@@ -3944,9 +3948,9 @@
   "items": [
    "minecraft:brush"
   ],
-  "sentenceKo": "솔을/를 봐요.",
+  "sentenceKo": "솔을 봐요.",
   "sentenceDe": "Pinsel ansehen.",
-  "descKo": "솔",
+  "descKo": "먼지를 털어요. 유물을 찾을 때 써요.",
   "aliases": [
    "솔"
   ],
@@ -3961,9 +3965,9 @@
   "items": [
    "minecraft:iron_spear"
   ],
-  "sentenceKo": "철 창을/를 봐요.",
+  "sentenceKo": "철 창을 봐요.",
   "sentenceDe": "Eisenspeer ansehen.",
-  "descKo": "철 창",
+  "descKo": "철로 만든 창이에요. 찔러서 공격해요.",
   "aliases": [
    "철 창"
   ],
@@ -3978,9 +3982,9 @@
   "items": [
    "minecraft:trident"
   ],
-  "sentenceKo": "삼지창을/를 봐요.",
+  "sentenceKo": "삼지창을 봐요.",
   "sentenceDe": "Dreizack ansehen.",
-  "descKo": "삼지창",
+  "descKo": "던지는 무기예요. 물속에서도 잘 맞아요.",
   "aliases": [
    "삼지창"
   ],
@@ -3995,9 +3999,9 @@
   "items": [
    "minecraft:totem_of_undying"
   ],
-  "sentenceKo": "불사의 토템을/를 봐요.",
+  "sentenceKo": "불사의 토템을 봐요.",
   "sentenceDe": "Totem der Unsterblichkeit ansehen.",
-  "descKo": "불사의 토템",
+  "descKo": "죽을 때 한 번 살려 줘요.",
   "aliases": [
    "불사의 토템"
   ],
@@ -4012,9 +4016,9 @@
   "items": [
    "minecraft:silence_armor_trim_smithing_template"
   ],
-  "sentenceKo": "대장장이 형판을/를 봐요.",
+  "sentenceKo": "대장장이 형판을 봐요.",
   "sentenceDe": "Schmiedevorlage ansehen.",
-  "descKo": "대장장이 형판",
+  "descKo": "갑옷에 무늬를 넣어요. 고대 도시에 있어요.",
   "aliases": [
    "대장장이 형판"
   ],
@@ -4029,9 +4033,9 @@
   "items": [
    "minecraft:dune_armor_trim_smithing_template"
   ],
-  "sentenceKo": "대장장이 형판을/를 봐요.",
+  "sentenceKo": "대장장이 형판을 봐요.",
   "sentenceDe": "Schmiedevorlage ansehen.",
-  "descKo": "대장장이 형판",
+  "descKo": "갑옷에 무늬를 넣어요. 사막 신전에 있어요.",
   "aliases": [
    "대장장이 형판"
   ],
@@ -4046,9 +4050,9 @@
   "items": [
    "minecraft:trial_key"
   ],
-  "sentenceKo": "시련 열쇠을/를 봐요.",
+  "sentenceKo": "시련 열쇠를 봐요.",
   "sentenceDe": "Prüfungsschlüssel ansehen.",
-  "descKo": "시련 열쇠",
+  "descKo": "시련의 방 금고를 열어요.",
   "aliases": [
    "시련 열쇠"
   ],
@@ -4063,9 +4067,9 @@
   "items": [
    "minecraft:lodestone"
   ],
-  "sentenceKo": "자석석을/를 봐요.",
+  "sentenceKo": "자석석을 봐요.",
   "sentenceDe": "Leitstein ansehen.",
-  "descKo": "자석석",
+  "descKo": "나침반이 이 블록을 가리켜요.",
   "aliases": [
    "자석석"
   ],
@@ -4080,9 +4084,9 @@
   "items": [
    "minecraft:dragon_breath"
   ],
-  "sentenceKo": "드래곤의 숨결을/를 봐요.",
+  "sentenceKo": "드래곤의 숨결을 봐요.",
   "sentenceDe": "Drachenatem ansehen.",
-  "descKo": "드래곤의 숨결",
+  "descKo": "드래곤이 내뿜는 보라색 구름이에요. 병에 담아요.",
   "aliases": [
    "드래곤의 숨결"
   ],
@@ -4097,9 +4101,9 @@
   "items": [
    "minecraft:elytra"
   ],
-  "sentenceKo": "겉날개을/를 봐요.",
+  "sentenceKo": "겉날개를 봐요.",
   "sentenceDe": "Elytren ansehen.",
-  "descKo": "겉날개",
+  "descKo": "등에 달고 하늘을 날아요.",
   "aliases": [
    "겉날개"
   ],
@@ -4114,9 +4118,9 @@
   "items": [
    "minecraft:purpur_block"
   ],
-  "sentenceKo": "퍼퍼 블록을/를 봐요.",
+  "sentenceKo": "퍼퍼 블록을 봐요.",
   "sentenceDe": "Purpurblock ansehen.",
-  "descKo": "퍼퍼 블록",
+  "descKo": "보라색 블록이에요. 엔드 도시에 있어요.",
   "aliases": [
    "퍼퍼 블록"
   ],
@@ -4131,9 +4135,9 @@
   "items": [
    "minecraft:dragon_head"
   ],
-  "sentenceKo": "드래곤 머리을/를 봐요.",
+  "sentenceKo": "드래곤 머리를 봐요.",
   "sentenceDe": "Drachenkopf ansehen.",
-  "descKo": "드래곤 머리",
+  "descKo": "엔드 배에 있어요. 머리에 쓸 수 있어요.",
   "aliases": [
    "드래곤 머리"
   ],
@@ -4148,9 +4152,9 @@
   "items": [
    "minecraft:shulker_shell"
   ],
-  "sentenceKo": "셜커 껍데기을/를 봐요.",
+  "sentenceKo": "셜커 껍데기를 봐요.",
   "sentenceDe": "Shulker-Schale ansehen.",
-  "descKo": "셜커 껍데기",
+  "descKo": "셜커를 물리치면 나와요. 셜커 상자를 만들어요.",
   "aliases": [
    "셜커 껍데기"
   ],
@@ -4165,9 +4169,9 @@
   "items": [
    "minecraft:end_crystal"
   ],
-  "sentenceKo": "엔드 수정을/를 봐요.",
+  "sentenceKo": "엔드 수정을 봐요.",
   "sentenceDe": "Enderkristall ansehen.",
-  "descKo": "엔드 수정",
+  "descKo": "엔드 기둥 위에 있어요. 드래곤을 도와줘요.",
   "aliases": [
    "엔드 수정"
   ],
@@ -4182,9 +4186,9 @@
   "items": [
    "minecraft:end_stone"
   ],
-  "sentenceKo": "엔드 돌을/를 봐요.",
+  "sentenceKo": "엔드 돌을 봐요.",
   "sentenceDe": "Endstein ansehen.",
-  "descKo": "엔드 돌",
+  "descKo": "엔드에 있는 돌이에요. 연한 노란색이에요.",
   "aliases": [
    "엔드 돌"
   ],
@@ -4199,9 +4203,9 @@
   "items": [
    "minecraft:the_end"
   ],
-  "sentenceKo": "minecraft:end_stone을/를 봐요.",
+  "sentenceKo": "엔드에 가요.",
   "sentenceDe": "minecraft:end_stone ansehen.",
-  "descKo": "엔드 차원이에요.",
+  "descKo": "하늘에 돌섬이 떠 있어요. 드래곤이 살아요.",
   "aliases": [
    "엔드"
   ],
@@ -4216,9 +4220,9 @@
   "items": [
    "minecraft:axolotl_bucket"
   ],
-  "sentenceKo": "아홀로틀이 담긴 양동이을/를 봐요.",
+  "sentenceKo": "아홀로틀이 담긴 양동이를 봐요.",
   "sentenceDe": "Axolotleimer ansehen.",
-  "descKo": "아홀로틀이 담긴 양동이",
+  "descKo": "양동이 안에 아홀로틀이 있어요.",
   "aliases": [
    "아홀로틀이 담긴 양동이"
   ],
@@ -4233,9 +4237,9 @@
   "items": [
    "minecraft:golden_carrot"
   ],
-  "sentenceKo": "황금 당근을/를 봐요.",
+  "sentenceKo": "황금 당근을 봐요.",
   "sentenceDe": "Goldene Karotte ansehen.",
-  "descKo": "황금 당근",
+  "descKo": "당근보다 배가 더 불러요.",
   "aliases": [
    "황금 당근"
   ],
@@ -4250,9 +4254,9 @@
   "items": [
    "minecraft:torchflower_seeds"
   ],
-  "sentenceKo": "횃불꽃 씨앗을/를 봐요.",
+  "sentenceKo": "횃불꽃 씨앗을 봐요.",
   "sentenceDe": "Fackelliliensamen ansehen.",
-  "descKo": "횃불꽃 씨앗",
+  "descKo": "심으면 횃불꽃이 자라요.",
   "aliases": [
    "횃불꽃 씨앗"
   ],
@@ -4267,9 +4271,9 @@
   "items": [
    "minecraft:verdant_froglight"
   ],
-  "sentenceKo": "잔딧빛 개구리불을/를 봐요.",
+  "sentenceKo": "잔딧빛 개구리불을 봐요.",
   "sentenceDe": "Junggrünes Froschlicht ansehen.",
-  "descKo": "잔딧빛 개구리불",
+  "descKo": "개구리가 마그마 큐브를 먹으면 나와요. 초록색으로 빛나요.",
   "aliases": [
    "잔딧빛 개구리불"
   ],
@@ -4284,9 +4288,9 @@
   "items": [
    "minecraft:ochre_froglight"
   ],
-  "sentenceKo": "황톳빛 개구리불을/를 봐요.",
+  "sentenceKo": "황톳빛 개구리불을 봐요.",
   "sentenceDe": "Ockernes Froschlicht ansehen.",
-  "descKo": "황톳빛 개구리불",
+  "descKo": "개구리가 마그마 큐브를 먹으면 나와요. 빛나요.",
   "aliases": [
    "황톳빛 개구리불"
   ],
@@ -4301,9 +4305,9 @@
   "items": [
    "minecraft:tropical_fish_bucket"
   ],
-  "sentenceKo": "열대어가 담긴 양동이을/를 봐요.",
+  "sentenceKo": "열대어가 담긴 양동이를 봐요.",
   "sentenceDe": "Tropenfischeimer ansehen.",
-  "descKo": "열대어가 담긴 양동이",
+  "descKo": "양동이 안에 열대어가 있어요.",
   "aliases": [
    "열대어가 담긴 양동이"
   ],
@@ -4318,9 +4322,9 @@
   "items": [
    "minecraft:lead"
   ],
-  "sentenceKo": "끈을/를 봐요.",
+  "sentenceKo": "끈을 봐요.",
   "sentenceDe": "Leine ansehen.",
-  "descKo": "끈",
+  "descKo": "동물을 끌고 갈 때 써요.",
   "aliases": [
    "끈"
   ],
@@ -4335,9 +4339,9 @@
   "items": [
    "minecraft:glow_ink_sac"
   ],
-  "sentenceKo": "발광 먹물 주머니을/를 봐요.",
+  "sentenceKo": "발광 먹물 주머니를 봐요.",
   "sentenceDe": "Leuchttintenbeutel ansehen.",
-  "descKo": "발광 먹물 주머니",
+  "descKo": "표지판 글씨를 빛나게 해요.",
   "aliases": [
    "발광 먹물 주머니"
   ],
@@ -4352,9 +4356,9 @@
   "items": [
    "minecraft:netherite_hoe"
   ],
-  "sentenceKo": "네더라이트 괭이을/를 봐요.",
+  "sentenceKo": "네더라이트 괭이를 봐요.",
   "sentenceDe": "Netherithacke ansehen.",
-  "descKo": "네더라이트 괭이",
+  "descKo": "가장 튼튼한 괭이예요. 땅을 갈아요.",
   "aliases": [
    "네더라이트 괭이"
   ],
@@ -4369,9 +4373,9 @@
   "items": [
    "minecraft:sniffer_egg"
   ],
-  "sentenceKo": "스니퍼 알을/를 봐요.",
+  "sentenceKo": "스니퍼 알을 봐요.",
   "sentenceDe": "Schnüffler-Ei ansehen.",
-  "descKo": "스니퍼 알",
+  "descKo": "이 알에서 스니퍼가 태어나요.",
   "aliases": [
    "스니퍼 알"
   ],
@@ -4386,9 +4390,9 @@
   "items": [
    "minecraft:dried_ghast"
   ],
-  "sentenceKo": "마른 가스트을/를 봐요.",
+  "sentenceKo": "마른 가스트를 봐요.",
   "sentenceDe": "Ausgetrockneter Ghast ansehen.",
-  "descKo": "마른 가스트",
+  "descKo": "물 가까이에 두면 아기 가스트가 나와요.",
   "aliases": [
    "마른 가스트"
   ],
@@ -4403,9 +4407,9 @@
   "items": [
    "minecraft:pitcher_pod"
   ],
-  "sentenceKo": "벌레잡이풀 꼬투리을/를 봐요.",
+  "sentenceKo": "벌레잡이풀 꼬투리를 봐요.",
   "sentenceDe": "Kannenpflanzenkapsel ansehen.",
-  "descKo": "벌레잡이풀 꼬투리",
+  "descKo": "심으면 벌레잡이풀이 자라요.",
   "aliases": [
    "벌레잡이풀 꼬투리"
   ],
@@ -4420,9 +4424,9 @@
   "items": [
    "minecraft:oak_boat"
   ],
-  "sentenceKo": "참나무 보트을/를 봐요.",
+  "sentenceKo": "참나무 보트를 봐요.",
   "sentenceDe": "Eichenholzboot ansehen.",
-  "descKo": "참나무 보트",
+  "descKo": "나무로 만든 배예요. 물 위를 가요.",
   "aliases": [
    "참나무 보트"
   ],
@@ -4437,9 +4441,9 @@
   "items": [
    "minecraft:bee_nest"
   ],
-  "sentenceKo": "벌집을/를 봐요.",
+  "sentenceKo": "벌집을 봐요.",
   "sentenceDe": "Bienennest ansehen.",
-  "descKo": "벌집",
+  "descKo": "꿀벌이 사는 집이에요. 나무 근처에 있어요.",
   "aliases": [
    "벌집"
   ],
@@ -4454,9 +4458,9 @@
   "items": [
    "minecraft:pufferfish_bucket"
   ],
-  "sentenceKo": "복어가 담긴 양동이을/를 봐요.",
+  "sentenceKo": "복어가 담긴 양동이를 봐요.",
   "sentenceDe": "Kugelfischeimer ansehen.",
-  "descKo": "복어가 담긴 양동이",
+  "descKo": "양동이 안에 복어가 있어요.",
   "aliases": [
    "복어가 담긴 양동이"
   ],
@@ -4471,9 +4475,9 @@
   "items": [
    "minecraft:tadpole_bucket"
   ],
-  "sentenceKo": "올챙이가 담긴 양동이을/를 봐요.",
+  "sentenceKo": "올챙이가 담긴 양동이를 봐요.",
   "sentenceDe": "Kaulquappeneimer ansehen.",
-  "descKo": "올챙이가 담긴 양동이",
+  "descKo": "양동이 안에 올챙이가 있어요.",
   "aliases": [
    "올챙이가 담긴 양동이"
   ],
@@ -4488,7 +4492,7 @@
   "items": [
    "minecraft:tnt"
   ],
-  "sentenceKo": "TNT을/를 봐요.",
+  "sentenceKo": "티엔티를 봐요.",
   "sentenceDe": "TNT ansehen.",
   "descKo": "폭발하는 물건이에요.",
   "aliases": [
@@ -4505,9 +4509,9 @@
   "items": [
    "minecraft:stone_axe"
   ],
-  "sentenceKo": "돌 도끼을/를 봐요.",
+  "sentenceKo": "돌 도끼를 봐요.",
   "sentenceDe": "Steinaxt ansehen.",
-  "descKo": "돌 도끼",
+  "descKo": "돌로 만든 도끼예요. 나무를 베어요.",
   "aliases": [
    "돌 도끼"
   ],
@@ -4522,9 +4526,9 @@
   "items": [
    "minecraft:potion"
   ],
-  "sentenceKo": "물약을/를 봐요.",
+  "sentenceKo": "물약을 봐요.",
   "sentenceDe": "Trank ansehen.",
-  "descKo": "물약",
+  "descKo": "마시면 몸에 효과가 생겨요.",
   "aliases": [
    "물약"
   ],
@@ -4539,9 +4543,9 @@
   "items": [
    "minecraft:respawn_anchor"
   ],
-  "sentenceKo": "리스폰 정박기을/를 봐요.",
+  "sentenceKo": "리스폰 정박기를 봐요.",
   "sentenceDe": "Seelenanker ansehen.",
-  "descKo": "리스폰 정박기",
+  "descKo": "네더에서 다시 살아날 곳을 정해요.",
   "aliases": [
    "리스폰 정박기"
   ],
@@ -4556,9 +4560,9 @@
   "items": [
    "minecraft:netherite_boots"
   ],
-  "sentenceKo": "네더라이트 부츠을/를 봐요.",
+  "sentenceKo": "네더라이트 부츠를 봐요.",
   "sentenceDe": "Netheritstiefel ansehen.",
-  "descKo": "네더라이트 부츠",
+  "descKo": "가장 튼튼한 부츠예요. 불에 타지 않아요.",
   "aliases": [
    "네더라이트 부츠"
   ],
@@ -4573,9 +4577,9 @@
   "items": [
    "minecraft:the_nether"
   ],
-  "sentenceKo": "minecraft:map을/를 봐요.",
+  "sentenceKo": "네더에 가요.",
   "sentenceDe": "minecraft:map ansehen.",
-  "descKo": "네더 차원이에요.",
+  "descKo": "불과 용암이 많은 뜨거운 곳이에요.",
   "aliases": [
    "네더"
   ],
@@ -4590,9 +4594,9 @@
   "items": [
    "minecraft:polished_blackstone_bricks"
   ],
-  "sentenceKo": "윤나는 흑암 벽돌을/를 봐요.",
+  "sentenceKo": "윤나는 흑암 벽돌을 봐요.",
   "sentenceDe": "Polierte Schwarzsteinziegel ansehen.",
-  "descKo": "윤나는 흑암 벽돌",
+  "descKo": "검은 돌로 만든 벽돌이에요. 반짝여요.",
   "aliases": [
    "윤나는 흑암 벽돌"
   ],
@@ -4607,9 +4611,9 @@
   "items": [
    "minecraft:nether_bricks"
   ],
-  "sentenceKo": "네더 벽돌을/를 봐요.",
+  "sentenceKo": "네더 벽돌을 봐요.",
   "sentenceDe": "Netherziegel ansehen.",
-  "descKo": "네더 벽돌",
+  "descKo": "어두운 붉은색 벽돌이에요. 네더 요새를 만들어요.",
   "aliases": [
    "네더 벽돌"
   ],
@@ -4624,9 +4628,9 @@
   "items": [
    "minecraft:wither_skeleton_skull"
   ],
-  "sentenceKo": "위더 스켈레톤 해골을/를 봐요.",
+  "sentenceKo": "위더 스켈레톤 해골을 봐요.",
   "sentenceDe": "Wither-Skelettschädel ansehen.",
-  "descKo": "위더 스켈레톤 해골",
+  "descKo": "위더 스켈레톤을 물리치면 가끔 나와요. 위더를 부를 때 써요.",
   "aliases": [
    "위더 스켈레톤 해골"
   ],
@@ -4641,9 +4645,9 @@
   "items": [
    "minecraft:netherite_chestplate"
   ],
-  "sentenceKo": "네더라이트 흉갑을/를 봐요.",
+  "sentenceKo": "네더라이트 흉갑을 봐요.",
   "sentenceDe": "Netheritharnisch ansehen.",
-  "descKo": "네더라이트 흉갑",
+  "descKo": "가장 튼튼한 흉갑이에요. 불에 타지 않아요.",
   "aliases": [
    "네더라이트 흉갑"
   ],
@@ -4658,9 +4662,9 @@
   "items": [
    "minecraft:netherite_helmet"
   ],
-  "sentenceKo": "네더라이트 투구을/를 봐요.",
+  "sentenceKo": "네더라이트 투구를 봐요.",
   "sentenceDe": "Netherithelm ansehen.",
-  "descKo": "네더라이트 투구",
+  "descKo": "가장 튼튼한 투구예요. 불에 타지 않아요.",
   "aliases": [
    "네더라이트 투구"
   ],
@@ -4675,9 +4679,9 @@
   "items": [
    "minecraft:ancient_debris"
   ],
-  "sentenceKo": "고대 잔해을/를 봐요.",
+  "sentenceKo": "고대 잔해를 봐요.",
   "sentenceDe": "Antiker Schrott ansehen.",
-  "descKo": "고대 잔해",
+  "descKo": "네더 깊은 곳에서 나와요. 네더라이트를 만들어요.",
   "aliases": [
    "고대 잔해"
   ],
@@ -4692,9 +4696,9 @@
   "items": [
    "minecraft:blaze_rod"
   ],
-  "sentenceKo": "블레이즈 막대기을/를 봐요.",
+  "sentenceKo": "블레이즈 막대기를 봐요.",
   "sentenceDe": "Lohenrute ansehen.",
-  "descKo": "블레이즈 막대기",
+  "descKo": "블레이즈를 물리치면 나와요. 불꽃처럼 빛나요.",
   "aliases": [
    "블레이즈 막대기"
   ],
@@ -4709,9 +4713,9 @@
   "items": [
    "minecraft:crying_obsidian"
   ],
-  "sentenceKo": "우는 흑요석을/를 봐요.",
+  "sentenceKo": "우는 흑요석을 봐요.",
   "sentenceDe": "Weinender Obsidian ansehen.",
-  "descKo": "우는 흑요석",
+  "descKo": "보라색 눈물이 떨어져요. 리스폰 정박기를 만들어요.",
   "aliases": [
    "우는 흑요석"
   ],
@@ -4726,9 +4730,9 @@
   "items": [
    "minecraft:fire_charge"
   ],
-  "sentenceKo": "화염구을/를 봐요.",
+  "sentenceKo": "화염구를 봐요.",
   "sentenceDe": "Feuerkugel ansehen.",
-  "descKo": "화염구",
+  "descKo": "불을 붙이는 공이에요.",
   "aliases": [
    "화염구"
   ],
@@ -4743,9 +4747,9 @@
   "items": [
    "minecraft:warped_fungus_on_a_stick"
   ],
-  "sentenceKo": "뒤틀린 균 낚싯대을/를 봐요.",
+  "sentenceKo": "뒤틀린 균 낚싯대를 봐요.",
   "sentenceDe": "Wirrpilzrute ansehen.",
-  "descKo": "뒤틀린 균 낚싯대",
+  "descKo": "스트라이더를 타고 움직일 때 써요.",
   "aliases": [
    "뒤틀린 균 낚싯대"
   ],
@@ -4760,9 +4764,9 @@
   "items": [
    "minecraft:red_nether_bricks"
   ],
-  "sentenceKo": "붉은 네더 벽돌을/를 봐요.",
+  "sentenceKo": "붉은 네더 벽돌을 봐요.",
   "sentenceDe": "Rote Netherziegel ansehen.",
-  "descKo": "붉은 네더 벽돌",
+  "descKo": "붉은색 벽돌이에요. 네더 벽돌과 네더 사마귀로 만들어요.",
   "aliases": [
    "붉은 네더 벽돌"
   ],
@@ -4777,9 +4781,9 @@
   "items": [
    "minecraft:ghast_tear"
   ],
-  "sentenceKo": "가스트 눈물을/를 봐요.",
+  "sentenceKo": "가스트 눈물을 봐요.",
   "sentenceDe": "Ghast-Träne ansehen.",
-  "descKo": "가스트 눈물",
+  "descKo": "가스트를 물리치면 나와요. 물약 재료예요.",
   "aliases": [
    "가스트 눈물"
   ],
@@ -4794,9 +4798,9 @@
   "items": [
    "minecraft:enchanted_book"
   ],
-  "sentenceKo": "마법이 부여된 책을/를 봐요.",
+  "sentenceKo": "마법이 부여된 책을 봐요.",
   "sentenceDe": "Verzaubertes Buch ansehen.",
-  "descKo": "마법이 부여된 책",
+  "descKo": "도구에 마법을 더해요.",
   "aliases": [
    "마법이 부여된 책"
   ],
@@ -4811,9 +4815,9 @@
   "items": [
    "minecraft:flint_and_steel"
   ],
-  "sentenceKo": "부싯돌과 부시을/를 봐요.",
+  "sentenceKo": "부싯돌과 부시를 봐요.",
   "sentenceDe": "Feuerzeug ansehen.",
-  "descKo": "부싯돌과 부시",
+  "descKo": "불을 붙일 때 써요.",
   "aliases": [
    "부싯돌과 부시"
   ],
@@ -4828,9 +4832,9 @@
   "items": [
    "minecraft:ender_eye"
   ],
-  "sentenceKo": "엔더의 눈을/를 봐요.",
+  "sentenceKo": "엔더의 눈을 봐요.",
   "sentenceDe": "Enderauge ansehen.",
-  "descKo": "엔더의 눈",
+  "descKo": "던지면 요새를 가리켜요. 엔드 차원문을 열어요.",
   "aliases": [
    "엔더의 눈"
   ],
@@ -4845,9 +4849,9 @@
   "items": [
    "minecraft:wooden_pickaxe"
   ],
-  "sentenceKo": "나무 곡괭이을/를 봐요.",
+  "sentenceKo": "나무 곡괭이를 봐요.",
   "sentenceDe": "Holzspitzhacke ansehen.",
-  "descKo": "나무 곡괭이",
+  "descKo": "나무로 만든 곡괭이예요. 돌을 캘 수 있어요.",
   "aliases": [
    "나무 곡괭이"
   ],
@@ -4862,9 +4866,9 @@
   "items": [
    "minecraft:iron_boots"
   ],
-  "sentenceKo": "철 부츠을/를 봐요.",
+  "sentenceKo": "철 부츠를 봐요.",
   "sentenceDe": "Eisenstiefel ansehen.",
-  "descKo": "철 부츠",
+  "descKo": "철로 만든 신발이에요. 발을 지켜 줘요.",
   "aliases": [
    "철 부츠"
   ],
@@ -4879,9 +4883,9 @@
   "items": [
    "minecraft:diamond_chestplate"
   ],
-  "sentenceKo": "다이아몬드 흉갑을/를 봐요.",
+  "sentenceKo": "다이아몬드 흉갑을 봐요.",
   "sentenceDe": "Diamantharnisch ansehen.",
-  "descKo": "다이아몬드 흉갑",
+  "descKo": "가슴을 지켜 줘요. 아주 튼튼해요.",
   "aliases": [
    "다이아몬드 흉갑"
   ],
@@ -4896,9 +4900,9 @@
   "items": [
    "minecraft:stone_pickaxe"
   ],
-  "sentenceKo": "돌 곡괭이을/를 봐요.",
+  "sentenceKo": "돌 곡괭이를 봐요.",
   "sentenceDe": "Steinspitzhacke ansehen.",
-  "descKo": "돌 곡괭이",
+  "descKo": "돌로 만든 곡괭이예요. 철을 캘 수 있어요.",
   "aliases": [
    "돌 곡괭이"
   ],
@@ -4913,9 +4917,9 @@
   "items": [
    "minecraft:baked_potato"
   ],
-  "sentenceKo": "구운 감자을 봐요.",
+  "sentenceKo": "구운 감자를 봐요.",
   "sentenceDe": "Ofenkartoffel ansehen.",
-  "descKo": "균형 잡힌 식단",
+  "descKo": "화로에 구운 감자예요. 배가 불러요.",
   "aliases": [
    "구운 감자"
   ],
@@ -4930,9 +4934,9 @@
   "items": [
    "minecraft:iron_helmet"
   ],
-  "sentenceKo": "철 투구을 봐요.",
+  "sentenceKo": "철 투구를 봐요.",
   "sentenceDe": "Eisenhelm ansehen.",
-  "descKo": "차려입기",
+  "descKo": "철로 만든 투구예요. 머리를 지켜 줘요.",
   "aliases": [
    "철 투구"
   ],
@@ -4947,9 +4951,9 @@
   "items": [
    "minecraft:diamond_helmet"
   ],
-  "sentenceKo": "다이아몬드 투구을 봐요.",
+  "sentenceKo": "다이아몬드 투구를 봐요.",
   "sentenceDe": "Diamanthelm ansehen.",
-  "descKo": "다이아몬드로 날 감싸줘",
+  "descKo": "머리를 지켜 줘요. 아주 튼튼해요.",
   "aliases": [
    "다이아몬드 투구"
   ],
@@ -11328,7 +11332,7 @@
  },
  {
   "id": "gen_fletching_table",
-  "ko": "화살 작업대",
+  "ko": "화살 제작대",
   "de": "Bognertisch",
   "category": "BLOCKS",
   "tier": 1,

@@ -10,12 +10,13 @@
   "crops": ["wheat", "sugar_cane", "carrots", "potatoes", "beetroots", "nether_wart", "pumpkin", "melon", "sweet_berry_bush", "cocoa"],
   "mushrooms": ["red_mushroom", "brown_mushroom", "*_fungus"],
   "uprootables": ["*_sapling", "*_propagule", "short_grass", "tall_grass", "short_dry_grass", "tall_dry_grass", "fern", "large_fern", "dead_bush", "bush", "azalea", "vine", "weeping_vines", "twisting_vines", "cave_vines*", "hanging_roots", "*_roots", "pale_hanging_moss", "seagrass", "kelp", "lily_pad", "glow_lichen"],
-  "plantables": ["*_sapling", "*_propagule", "*_seeds", "wheat", "carrots", "potatoes", "beetroots", "nether_wart", "sweet_berry_bush", "cocoa", "*_fungus", "crimson_roots", "warped_roots", "nether_sprouts", "mangrove_roots", "bamboo", "cactus", "sugar_cane", "kelp", "seagrass", "azalea", "flowering_azalea", "big_dripleaf", "small_dripleaf", "bush", "vine", "weeping_vines", "twisting_vines", "chorus_plant", "chorus_flower", "short_grass", "tall_grass", "short_dry_grass", "tall_dry_grass", "fern", "large_fern", "brown_mushroom", "red_mushroom", "dandelion", "golden_dandelion", "poppy", "blue_orchid", "allium", "azure_bluet", "red_tulip", "orange_tulip", "white_tulip", "pink_tulip", "oxeye_daisy", "cornflower", "lily_of_the_valley", "torchflower", "sunflower", "lilac", "rose_bush", "peony", "pitcher_plant", "wildflowers", "wither_rose", "closed_eyeblossom", "open_eyeblossom", "spore_blossom"],
+  "plantables": ["*_sapling", "*_propagule", "*_seeds", "wheat", "carrots", "potatoes", "beetroots", "nether_wart", "sweet_berry_bush", "cocoa", "*_fungus", "crimson_roots", "warped_roots", "nether_sprouts", "mangrove_roots", "bamboo", "cactus", "sugar_cane", "kelp", "seagrass", "azalea", "flowering_azalea", "big_dripleaf", "small_dripleaf", "bush", "vine", "weeping_vines", "twisting_vines", "chorus_plant", "chorus_flower", "short_grass", "tall_grass", "short_dry_grass", "tall_dry_grass", "fern", "large_fern", "brown_mushroom", "red_mushroom", "dandelion", "golden_dandelion", "poppy", "blue_orchid", "allium", "azure_bluet", "red_tulip", "orange_tulip", "white_tulip", "pink_tulip", "oxeye_daisy", "cornflower", "lily_of_the_valley", "torchflower", "sunflower", "lilac", "rose_bush", "peony", "pitcher_plant", "wildflowers", "wither_rose", "closed_eyeblossom", "open_eyeblossom"],
   "glass_and_ice": ["glass", "glass_pane", "tinted_glass", "*_stained_glass", "*_stained_glass_pane", "ice", "packed_ice", "blue_ice", "decorated_pot"],
   "carpets_and_rails": ["*_carpet", "rail", "*_rail", "leaf_litter"],
   "hangables": ["*_banner", "*_wall_banner", "painting", "item_frame", "glow_item_frame", "*_hanging_sign"],
   "standing": ["*_sign", "lightning_rod", "end_rod", "*_golem_statue", "*_fence", "*_wall", "candle", "*_candle"],
-  "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "*_bulb"],
+  "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "*_bulb", "spore_blossom"],
+  "found_only": ["chainmail_*"],
   "torches": ["torch", "soul_torch", "redstone_torch"],
   "campfires": ["campfire", "soul_campfire"],
   "cobwebs": ["cobweb"],
@@ -32,7 +33,8 @@
   "traders": ["villager", "wandering_trader"],
   "mounts": ["horse", "donkey", "mule", "camel", "strider", "skeleton_horse", "zombie_horse"],
   "pets": ["cat", "wolf"],
-  "talkables": ["iron_golem", "snow_golem", "copper_golem", "allay"]
+  "touchables": ["iron_golem", "snow_golem", "copper_golem"],
+  "item_takers": ["allay"]
  },
  "rules": {
   "BREAK_BLOCK": [
@@ -61,6 +63,7 @@
    {"verb": "PLACE"}
   ],
   "ACQUIRE_ITEM": [
+   {"family": "found_only", "verb": "OBTAIN"},
    {"family": "crafted", "verb": "CRAFT"},
    {"maxCount": 1, "verb": "OBTAIN"},
    {"verb": "COLLECT"}
@@ -82,7 +85,8 @@
    {"family": "traders", "verb": "TALK"},
    {"family": "mounts", "verb": "RIDE"},
    {"family": "pets", "verb": "PET"},
-   {"family": "talkables", "verb": "ADDRESS"},
+   {"family": "touchables", "verb": "TOUCH"},
+   {"family": "item_takers", "verb": "GIVE_ITEM"},
    {"verb": "FEED"}
   ],
   "LOOK_AT_BLOCK": [{"verb": "WATCH"}],
