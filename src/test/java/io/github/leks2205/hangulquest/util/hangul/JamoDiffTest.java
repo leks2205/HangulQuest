@@ -147,6 +147,15 @@ class JamoDiffTest {
 	}
 
 	@Test
+	void oneJamoOffInAShortWordIsAnotherWord() {
+		// 물 and 불 differ by one jamo but are different words: that is wrong, not a typo.
+		TypedAnswer.Result result = TypedAnswer.grade("물", "불");
+		assertEquals(Fsrs.AGAIN, result.graded().grade());
+		assertFalse(result.graded().correct());
+		assertTrue(result.diff().oneOff());
+	}
+
+	@Test
 	void furtherOffIsAgain() {
 		TypedAnswer.Result result = TypedAnswer.grade("사과", "바나나");
 		assertEquals(Fsrs.AGAIN, result.graded().grade());

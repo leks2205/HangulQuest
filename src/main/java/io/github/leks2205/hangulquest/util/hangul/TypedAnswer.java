@@ -21,7 +21,12 @@ public final class TypedAnswer {
 
 	public static Result grade(String expected, String typed) {
 		JamoDiff diff = JamoDiff.of(expected, typed);
-		return new Result(Grader.typed(diff.distance()), diff);
+		int distance = diff.distance();
+		// In a word of three jamo or fewer (물, 불, 소) one wrong jamo is already another word, not a typo.
+		if (distance == 1 && HangulCompose.toJamo(expected.replace(" ", "")).length() <= 3) {
+			distance = 2;
+		}
+		return new Result(Grader.typed(distance), diff);
 	}
 
 	/** Several spellings are right (a word with a synonym): the closest one decides. */
