@@ -101,6 +101,11 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 	}
 
 	@Override
+	public List<String> grammarIds(Goal.BuildPattern goal, SentenceContext c) {
+		return SpatialSentences.grammarPoints(goal, List.of(), c.level(), c.withCounts(), false);
+	}
+
+	@Override
 	public String status(Goal.BuildPattern goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
 		return "";

@@ -33,6 +33,10 @@ public final class GoalEvaluator {
 		public boolean assisted;
 		public String goalKey;
 		private Goal goalRef;
+		/** Trackers of the sub-goals of a sequence, an avoid or a hold; created by the type on first use. */
+		public List<Tracker> subs;
+		/** Sequence in any order: bit i is set once part i is done. */
+		public long doneMask;
 
 		public void resetFor(String key) {
 			if (key.equals(goalKey)) {
@@ -46,6 +50,8 @@ public final class GoalEvaluator {
 			baseCount = -1;
 			carried = 0;
 			assisted = false;
+			subs = null;
+			doneMask = 0;
 		}
 
 		/** Same as {@link #resetFor(String)} but skips building the key while the goal object is unchanged. */
@@ -66,6 +72,8 @@ public final class GoalEvaluator {
 			baseCount = -1;
 			carried = 0;
 			assisted = false;
+			subs = null;
+			doneMask = 0;
 		}
 	}
 

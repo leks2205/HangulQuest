@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /** Place a block in a relation to a structure the player built: 조약돌 기둥 위에 횃불을 놓아요. */
-final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern>, NamerAware<Goal.PlaceOnPattern> {
+final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 	@Override
 	public String id() {
 		return "PLACE_ON_PATTERN";
@@ -91,23 +91,25 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern>, NamerAw
 
 	@Override
 	public String korean(Goal.PlaceOnPattern goal, SentenceContext c) {
-		return korean(goal, c, SentenceBuilder.Namer.NONE);
-	}
-
-	@Override
-	public String korean(Goal.PlaceOnPattern goal, SentenceContext c, SentenceBuilder.Namer namer) {
-		return SpatialSentences.placeOnPattern(goal, c.obj(), materialName(goal, namer), c.verb(), c.level(),
+		return SpatialSentences.placeOnPattern(goal, c.obj(), materialName(goal, c.namer()), c.verb(), c.level(),
 				c.finale(), false).ko();
 	}
 
 	@Override
 	public String ceremony(Goal.PlaceOnPattern goal, String obj, Verb verb) {
-		return ceremony(goal, obj, verb, SentenceBuilder.Namer.NONE);
+		return SpatialSentences.placeOnPattern(goal, obj, materialName(goal, SentenceBuilder.Namer.NONE), verb, 1,
+				false, true).ko();
 	}
 
 	@Override
-	public String ceremony(Goal.PlaceOnPattern goal, String obj, Verb verb, SentenceBuilder.Namer namer) {
-		return SpatialSentences.placeOnPattern(goal, obj, materialName(goal, namer), verb, 1, false, true).ko();
+	public String ceremony(Goal.PlaceOnPattern goal, SentenceContext c) {
+		return SpatialSentences.placeOnPattern(goal, c.obj(), materialName(goal, c.namer()), c.verb(), 1, false,
+				true).ko();
+	}
+
+	@Override
+	public List<String> grammarIds(Goal.PlaceOnPattern goal, SentenceContext c) {
+		return SpatialSentences.grammarPoints(goal, List.of(), c.level(), c.withCounts(), false);
 	}
 
 	private static String materialName(Goal.PlaceOnPattern goal, SentenceBuilder.Namer namer) {

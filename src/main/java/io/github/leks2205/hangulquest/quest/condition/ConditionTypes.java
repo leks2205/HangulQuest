@@ -19,7 +19,12 @@ public final class ConditionTypes {
 			new InBiomeType(),
 			new InDimensionType(),
 			new NearEntityType(),
-			new NearBlockType());
+			new NearBlockType(),
+			// Action variety.
+			new HoldingType(),
+			new SkyType(),
+			new InWaterType(),
+			new PlayerRelType());
 
 	private static final Map<String, ConditionType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, ConditionType<?>> BY_CLASS = new HashMap<>();

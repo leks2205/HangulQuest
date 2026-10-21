@@ -28,7 +28,15 @@ public final class GoalTypes {
 			// spatial goals (quest/spatial)
 			new PlaceRelType(),
 			new BuildPatternType(),
-			new PlaceOnPatternType());
+			new PlaceOnPatternType(),
+			// Action variety.
+			new CraftType(),
+			new SmeltType(),
+			new GiveType(),
+			new PutInType(),
+			new HoldWhileType(),
+			new SequenceType(),
+			new AvoidType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

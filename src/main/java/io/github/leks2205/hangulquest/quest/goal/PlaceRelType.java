@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /** Place a block in a relation to an anchor block: 문 옆에 횃불을 놓아요. */
-final class PlaceRelType implements GoalType<Goal.PlaceRel>, NamerAware<Goal.PlaceRel> {
+final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 	@Override
 	public String id() {
 		return "PLACE_REL";
@@ -94,23 +94,23 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel>, NamerAware<Goal.Pla
 
 	@Override
 	public String korean(Goal.PlaceRel goal, SentenceContext c) {
-		return korean(goal, c, SentenceBuilder.Namer.NONE);
-	}
-
-	@Override
-	public String korean(Goal.PlaceRel goal, SentenceContext c, SentenceBuilder.Namer namer) {
 		return SpatialSentences.placeRel(goal, c.obj(), c.verb(), c.level(), c.withCounts(), c.finale(), false,
-				namer).ko();
+				c.namer()).ko();
 	}
 
 	@Override
 	public String ceremony(Goal.PlaceRel goal, String obj, Verb verb) {
-		return ceremony(goal, obj, verb, SentenceBuilder.Namer.NONE);
+		return SpatialSentences.placeRel(goal, obj, verb, 1, true, false, true, SentenceBuilder.Namer.NONE).ko();
 	}
 
 	@Override
-	public String ceremony(Goal.PlaceRel goal, String obj, Verb verb, SentenceBuilder.Namer namer) {
-		return SpatialSentences.placeRel(goal, obj, verb, 1, true, false, true, namer).ko();
+	public String ceremony(Goal.PlaceRel goal, SentenceContext c) {
+		return SpatialSentences.placeRel(goal, c.obj(), c.verb(), 1, true, false, true, c.namer()).ko();
+	}
+
+	@Override
+	public List<String> grammarIds(Goal.PlaceRel goal, SentenceContext c) {
+		return SpatialSentences.grammarPoints(goal, List.of(), c.level(), c.withCounts(), false);
 	}
 
 	@Override

@@ -1,0 +1,155 @@
+{
+ "schema": 1,
+ "id": "village_errands_demo",
+ "titleKo": "마을 심부름",
+ "titleDe": "Dorf-Besorgungen",
+ "titleEn": "Village Errands",
+ "topic": "마을",
+ "tier": 2,
+ "order": 700,
+ "concepts": [
+  "bread",
+  "villager",
+  "chest",
+  "bed",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelsstrasse"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:bread",
+    "count": 1,
+    "with": [
+     "minecraft:wheat"
+    ]
+   },
+   "clue": {
+    "de": "Stelle Brot aus Weizen her.",
+    "en": "Craft bread from wheat."
+   },
+   "hint": {
+    "de": "Stelle Brot her.",
+    "en": "Craft bread."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager"
+   },
+   "clue": {
+    "de": "Gib einem Dorfbewohner das Brot.",
+    "en": "Give the bread to a villager."
+   },
+   "hint": {
+    "de": "Gib einem Dorfbewohner Brot.",
+    "en": "Give a villager bread."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:apple",
+    "container": "minecraft:chest",
+    "count": 1
+   },
+   "clue": {
+    "de": "Lege einen Apfel in eine Truhe.",
+    "en": "Put an apple into a chest."
+   },
+   "hint": {
+    "de": "Lege einen Apfel in eine Truhe.",
+    "en": "Put an apple into a chest."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:bread",
+      "count": 1
+     },
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:red_bed"
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   },
+   "clue": {
+    "de": "Mach die zwei Dinge in der Reihenfolge, die der koreanische Satz sagt.",
+    "en": "Do the two things in the order the Korean says."
+   },
+   "hint": {
+    "de": "Mach die zwei Dinge in der Reihenfolge, die der koreanische Satz sagt.",
+    "en": "Do the two things in the order the Korean says."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   },
+   "conditions": [],
+   "clue": {
+    "de": "Geh mit einer Fackel durch die Nacht.",
+    "en": "Walk through the night with a torch."
+   },
+   "hint": {
+    "de": "Geh mit einer Fackel durch die Nacht.",
+    "en": "Walk through the night with a torch."
+   }
+  },
+  "textKo": "횃불을 들고 밤에 걸었어요.",
+  "textDe": "Mit der Fackel durch die Nacht — Zeremonie vollendet.",
+  "textEn": "With a torch through the night, the ritual is complete."
+ },
+ "reward": {
+  "badge": "village_errands_demo",
+  "words": [
+   "bread",
+   "villager",
+   "chest"
+  ]
+ },
+ "koreanLevel": 3
+}
