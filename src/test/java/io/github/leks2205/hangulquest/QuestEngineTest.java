@@ -103,7 +103,99 @@ class QuestEngineTest {
 		assertEquals(1, recorder.steps);
 		assertEquals(1, recorder.trails);
 		assertEquals(0, recorder.sides);
-		assertTrue(learn.isKnown("concept:stone") || learn.data().words.containsKey("concept:stone"));
+		// Doing the steps taught both words, but nobody was quizzed: they are seen, not learned.
+		for (String id : List.of("concept:stone", "concept:torch")) {
+			assertTrue(learn.introduced(id), id + " should be introduced by its step");
+			assertEquals(0, learn.level(id), id + " must not be promoted without recall");
+			assertFalse(learn.isKnown(id));
+			assertEquals(1, learn.data().words.get(id).seen);
+			assertEquals(0, learn.data().words.get(id).correct);
+		}
+		assertEquals(0, learn.totalReviews());
+	}
+
+	@Test
+	void completingAStepNeverMovesTheSchedule() {
+		Path dir = tempDir.resolve("schedule");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		// The player already reviewed the stone twice and marked the torch as known.
+		learn.answer("concept:stone", true, 1_000L);
+		learn.answer("concept:stone", true, 2_000L);
+		learn.markKnown("concept:torch", true, 3_000L);
+		int level = learn.level("concept:stone");
+		long dueAt = learn.data().words.get("concept:stone").dueAt;
+		int torchLevel = learn.level("concept:torch");
+		long torchDueAt = learn.data().words.get("concept:torch").dueAt;
+		int reviews = learn.totalReviews();
+
+		QuestEngine engine = new QuestEngine(List.of(trail()), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 10_000L;
+		engine.startTrail("t", start, recorder);
+		engine.tick(obsFor(10_050L, "minecraft:stone"), recorder);
+		engine.tick(obsFor(10_100L, "minecraft:stone"), recorder);
+		assertEquals("finale", engine.currentStep().id(), "the stone step is done");
+		Observation finale = night();
+		finale.now = 10_150L;
+		finale.placedBlocks.add("minecraft:torch");
+		engine.tick(finale, recorder);
+		assertEquals(1, recorder.trails, "the finale is done too");
+
+		assertEquals(level, learn.level("concept:stone"));
+		assertEquals(dueAt, learn.data().words.get("concept:stone").dueAt);
+		assertEquals(3, learn.data().words.get("concept:stone").seen, "two answers and one encounter");
+		assertEquals(2, learn.data().words.get("concept:stone").correct);
+		assertEquals(torchLevel, learn.level("concept:torch"));
+		assertEquals(torchDueAt, learn.data().words.get("concept:torch").dueAt);
+		assertTrue(learn.isKnown("concept:torch"));
+		assertEquals(reviews, learn.totalReviews());
+	}
+
+	@Test
+	void sidequestAnswersAreOnlyPractice() {
+		Path dir = tempDir.resolve("practice");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = sidequestCatalog();
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		learn.answer("concept:stone", true, 1_000L);
+		int level = learn.level("concept:stone");
+		long dueAt = learn.data().words.get("concept:stone").dueAt;
+		int reviews = learn.totalReviews();
+		QuestEngine engine = new QuestEngine(List.of(trail()), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation obs = night();
+		obs.now = 10_000L;
+		engine.startTrail("t", obs, recorder);
+		assertTrue(engine.hint(obs, recorder).sidequestStarted());
+
+		int wrong = (engine.sideQuest().correctIndex() + 1) % engine.sideQuest().options().size();
+		assertFalse(engine.answerSidequest(wrong, recorder));
+		assertEquals(level, learn.level("concept:stone"), "a wrong guess changes nothing");
+		assertEquals(1, learn.data().words.get("concept:stone").wrong);
+		assertTrue(engine.answerSidequest(engine.sideQuest().correctIndex(), recorder));
+		assertTrue(engine.answerSidequest(engine.sideQuest().correctIndex(), recorder));
+
+		assertFalse(engine.sidequestActive());
+		assertEquals(1, recorder.sides);
+		assertEquals(level, learn.level("concept:stone"), "two right sidequest answers must not promote");
+		assertEquals(dueAt, learn.data().words.get("concept:stone").dueAt);
+		assertEquals(3, learn.data().words.get("concept:stone").correct, "the quiz answer plus two practice answers");
+		assertEquals(reviews, learn.totalReviews(), "practice is not a review");
+		assertFalse(learn.isKnown("concept:stone"));
+	}
+
+	private static Catalog sidequestCatalog() {
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		catalog.add(new Word("mc:item:minecraft:dirt", "흙", "Erde", "Erde", Category.BLOCKS, 1,
+				null, "minecraft:dirt", null, null, null, Origin.MINECRAFT, false, null));
+		catalog.add(new Word("mc:item:minecraft:sand", "모래", "Sand", "Sand", Category.BLOCKS, 1,
+				null, "minecraft:sand", null, null, null, Origin.MINECRAFT, false, null));
+		return catalog;
 	}
 
 	@Test

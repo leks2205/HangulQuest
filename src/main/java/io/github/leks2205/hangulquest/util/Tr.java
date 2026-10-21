@@ -104,6 +104,12 @@ public final class Tr {
 		put("Richtig.", "Correct.");
 		put("Die richtige Antwort steht oben.", "The right answer is at the top.");
 
+		// quiz prompt and screen
+		put("Quiz bereit: %s drücken", "Quiz ready: press %s");
+		put("Mit %s öffnen", "Open with %s");
+		put("%s: antworten · Esc: schließen", "%s: answer · Esc: close");
+		put("Gerade ist nichts zu wiederholen.", "Nothing to review right now.");
+
 		// achievements
 		put("Erstes Wort", "First word");
 		put("10 Wörter", "10 words");

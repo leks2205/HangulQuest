@@ -89,36 +89,69 @@ public final class LearningService {
 		return data.words.containsKey(wordId);
 	}
 
-	/** Regular answer: moves the schedule, counts the day and the totals. */
-	public List<Achievements.Achievement> answer(String wordId, boolean correct, long now) {
-		return answer(wordId, correct, false, now);
+	/**
+	 * An encounter without recall (a quest step taught the word): counts as seen and introduces the
+	 * word, but never touches the level or the due time. Only {@link #answer} moves the schedule.
+	 */
+	public void expose(Word word, long now) {
+		if (word == null) {
+			return;
+		}
+		WordProgress progress = data.words.get(word.id);
+		if (progress == null) {
+			progress = newProgress(word, now);
+			progress.introducedAt = now;
+			data.words.put(word.id, progress);
+		}
+		progress.seen++;
+		progress.lastSeenAt = now;
+		today().seen++;
+		data.totals.seen++;
+		store.markDirty();
 	}
 
-	public List<Achievements.Achievement> answer(String wordId, boolean correct, boolean practice, long now) {
-		WordProgress progress = data.words.get(wordId);
+	/**
+	 * Practice (sidequest answers): the counts move, the schedule and the "known" flag do not. A
+	 * guessed multiple-choice answer is not proof of recall.
+	 */
+	public void practice(String wordId, boolean correct, long now) {
+		WordProgress progress = obtain(wordId, now);
 		if (progress == null) {
-			Optional<Word> word = catalog.byId(wordId);
-			if (word.isEmpty()) {
-				return List.of();
-			}
-			progress = newProgress(word.get(), now);
-			progress.introducedAt = now;
-			data.words.put(wordId, progress);
+			return;
+		}
+		progress.seen++;
+		progress.lastSeenAt = now;
+		DayCounts day = today();
+		day.seen++;
+		data.totals.seen++;
+		if (correct) {
+			progress.correct++;
+			day.correct++;
+			data.totals.correct++;
+		} else {
+			progress.wrong++;
+			data.totals.wrong++;
+		}
+		store.markDirty();
+	}
+
+	/** Real quiz or review answer: the only call that moves the schedule. Never clears "known". */
+	public List<Achievements.Achievement> answer(String wordId, boolean correct, long now) {
+		WordProgress progress = obtain(wordId, now);
+		if (progress == null) {
+			return List.of();
 		}
 		progress.seen++;
 		progress.lastSeenAt = now;
 		if (correct) {
 			progress.correct++;
-			progress.level = practice ? Srs.onPractice(progress.level, true) : Srs.onCorrect(progress.level);
+			progress.level = Srs.onCorrect(progress.level);
 			progress.dueAt = Srs.dueAt(progress.level, now);
 		} else {
 			progress.wrong++;
-			if (!practice) {
-				progress.level = Srs.onWrong(progress.level);
-				progress.dueAt = Srs.retryAt(now);
-			}
+			progress.level = Srs.onWrong(progress.level);
+			progress.dueAt = Srs.retryAt(now);
 		}
-		progress.known = false;
 
 		DayCounts day = today();
 		day.seen++;
@@ -134,16 +167,25 @@ public final class LearningService {
 		return Achievements.evaluate(this);
 	}
 
-	public List<Achievements.Achievement> markKnown(String wordId, boolean known, long now) {
+	/** The saved progress of a word, created from the catalog when it is new; null for unknown ids. */
+	private WordProgress obtain(String wordId, long now) {
 		WordProgress progress = data.words.get(wordId);
 		if (progress == null) {
 			Optional<Word> word = catalog.byId(wordId);
 			if (word.isEmpty()) {
-				return List.of();
+				return null;
 			}
 			progress = newProgress(word.get(), now);
 			progress.introducedAt = now;
 			data.words.put(wordId, progress);
+		}
+		return progress;
+	}
+
+	public List<Achievements.Achievement> markKnown(String wordId, boolean known, long now) {
+		WordProgress progress = obtain(wordId, now);
+		if (progress == null) {
+			return List.of();
 		}
 		progress.known = known;
 		progress.lastSeenAt = now;
@@ -228,7 +270,7 @@ public final class LearningService {
 	public int mastered() {
 		int count = 0;
 		for (WordProgress progress : data.words.values()) {
-			if (progress.known || progress.level >= 5) {
+			if (progress.known || progress.level >= Srs.MASTERED_LEVEL) {
 				count++;
 			}
 		}
