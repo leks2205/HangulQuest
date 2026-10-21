@@ -1,0 +1,148 @@
+{
+ "schema": 1,
+ "id": "lighthouse_demo",
+ "demo": true,
+ "titleKo": "등대",
+ "titleDe": "Der Leuchtturm (Demo)",
+ "topic": "등대",
+ "tier": 1,
+ "order": 990,
+ "concepts": [
+  "cobblestone",
+  "torch",
+  "door"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone",
+    "size": 3
+   },
+   "clue": {
+    "de": "Baue ein Bauwerk — lies den koreanischen Satz, um zu sehen, was.",
+    "en": "Build a structure — read the Korean to see what."
+   },
+   "hint": {
+    "de": "Baue ein Bauwerk — lies den koreanischen Satz, um zu sehen, was.",
+    "en": "Build a structure — read the Korean to see what."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone"
+   },
+   "clue": {
+    "de": "Platziere eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch — read the Korean to see where."
+   },
+   "hint": {
+    "de": "Platziere eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch — read the Korean to see where."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch",
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:torch",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "clue": {
+    "de": "Platziere eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch — read the Korean to see where."
+   },
+   "hint": {
+    "de": "Platziere eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch — read the Korean to see where.",
+    "ko": "문 옆에 횃불을 놓아요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:cobblestone",
+    "size": 3
+   },
+   "clue": {
+    "de": "Baue ein Bauwerk — lies den koreanischen Satz, um zu sehen, was.",
+    "en": "Build a structure — read the Korean to see what."
+   },
+   "hint": {
+    "de": "Baue ein Bauwerk — lies den koreanischen Satz, um zu sehen, was.",
+    "en": "Build a structure — read the Korean to see what."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:cobblestone"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "clue": {
+    "de": "Platziere nachts eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch at night — read the Korean to see where."
+   },
+   "hint": {
+    "de": "Platziere nachts eine Fackel — lies den koreanischen Satz, um zu sehen, wo.",
+    "en": "Place a torch at night — read the Korean to see where."
+   }
+  },
+  "textKo": "밤에 조약돌 울타리 안에 횃불을 놓았어요.",
+  "textDe": "Der Leuchtturm ist fertig. Gut gemacht!",
+  "textEn": "The lighthouse is finished. Well done!"
+ },
+ "reward": {
+  "badge": "lighthouse_demo",
+  "words": [
+   "torch",
+   "cobblestone",
+   "door"
+  ]
+ },
+ "koreanLevel": 1,
+ "titleEn": "The Lighthouse (demo)"
+}

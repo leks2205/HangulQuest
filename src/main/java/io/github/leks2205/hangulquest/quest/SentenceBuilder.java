@@ -5,7 +5,10 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
+import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.spatial.Relation;
+import io.github.leks2205.hangulquest.quest.spatial.Role;
 
 import java.util.List;
 
@@ -92,8 +95,15 @@ public final class SentenceBuilder {
 	private static String core(Goal goal, Word word, boolean withCounts, int level, boolean finale,
 							   Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		return type.korean(goal, new SentenceContext(objectName(goal, word, namer),
-				type.verb(goal, VerbTable.shared()), withCounts, level, finale));
+		return type.korean(goal, context(goal, word, namer, withCounts, level, finale));
+	}
+
+	private static SentenceContext context(Goal goal, Word word, Namer namer, boolean withCounts, int level,
+										   boolean finale) {
+		GoalType<Goal> type = GoalTypes.of(goal);
+		Word named = word == null || isVerbWord(word) ? null : word;
+		return new SentenceContext(objectName(goal, word, namer), type.verb(goal, VerbTable.shared()),
+				withCounts, level, finale, named, namer);
 	}
 
 	/**
@@ -103,8 +113,67 @@ public final class SentenceBuilder {
 	 */
 	public static String ceremony(Goal goal, Word word, List<Condition> conditions, Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		String body = type.ceremony(goal, objectName(goal, word, namer), type.verb(goal, VerbTable.shared()));
+		String body = type.ceremony(goal, context(goal, word, namer, true, 1, true));
 		return prefix(conditions, namer) + body + ".";
+	}
+
+	// ---- Grammar points: which constructions a generated sentence teaches.
+
+	/** A generated clue and the grammar points it carries, e.g. {@code L2.ege}, {@code L3.gi_jeone}. */
+	public record Spoken(String ko, List<String> grammar) {
+	}
+
+	/** Same text as {@link #normal(Goal, Word, List, int, boolean, Namer)}, plus its grammar points. */
+	public static Spoken spoken(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
+								boolean finale, Namer namer) {
+		String ko = normal(goal, word, conditions, koreanLevel, finale, namer);
+		return new Spoken(ko, grammar(goal, word, conditions, koreanLevel, finale, namer));
+	}
+
+	/** The grammar points of the clue: the goal's own, then those of the condition prefixes. */
+	public static List<String> grammar(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
+									   boolean finale, Namer namer) {
+		int level = clampLevel(koreanLevel);
+		List<String> ids = new java.util.ArrayList<>(
+				GoalTypes.of(goal).grammarIds(goal, context(goal, word, namer, true, level, finale)));
+		if (conditions != null) {
+			for (Condition condition : conditions) {
+				ids.addAll(ConditionTypes.of(condition).grammarIds(condition));
+			}
+		}
+		return ids.stream().distinct().toList();
+	}
+
+	/** The ending of the level and the marker of the object: what every sentence has. */
+	public static List<String> baseGrammar(Verb verb, int level, ObjectKind kind) {
+		List<String> ids = new java.util.ArrayList<>(3);
+		ids.add(switch (clampLevel(level)) {
+			case 1 -> "L1.eoyo";
+			case 2 -> "L2.eoya_haeyo";
+			case 3 -> "L3.eoyaman_haeyo";
+			case 4 -> "L4.ji_anh_eumyeon";
+			case 5 -> "L5.ji_anh_goseoneun";
+			default -> "L6.su_bakke";
+		});
+		if (kind == ObjectKind.BIOME || kind == ObjectKind.DIMENSION) {
+			ids.add("L1.euro_direction");
+		} else if (kind != ObjectKind.NONE) {
+			ids.add(switch (verb.frame()) {
+				case ACC -> "L1.eul_reul";
+				case COM -> "L2.wa_gwa_with";
+				case DAT -> "L2.ege";
+				case LOC -> "L2.eseo_activity";
+			});
+		}
+		return ids;
+	}
+
+	/**
+	 * Anchor noun + location noun + particle: "문 옆에" (the thing goes there), "횃불 아래에서" (the
+	 * activity happens there). The particle comes from the role the place word plays in the task.
+	 */
+	public static String relationPhrase(String anchorNoun, Relation relation, Role role) {
+		return anchorNoun + " " + relation.ko() + role.particle();
 	}
 
 	/** Frame-aware object marker: 돌을, 주민과, 소에게, 침대에서. */

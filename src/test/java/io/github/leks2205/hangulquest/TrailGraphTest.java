@@ -67,7 +67,7 @@ class TrailGraphTest {
 	@Test
 	void depthsMatchTheOldAlgorithmOnTheShippedContent() {
 		List<Questline> trails = QuestLoader.loadAll();
-		assertEquals(420, trails.size());
+		assertEquals(422, trails.size());
 		Map<String, Questline> all = new HashMap<>();
 		trails.forEach(trail -> all.put(trail.id(), trail));
 		TrailGraph graph = TrailGraph.of(trails);
@@ -90,9 +90,9 @@ class TrailGraphTest {
 	void buildingEvaluatesEachTrailOnce() {
 		List<Questline> trails = QuestLoader.loadAll();
 		TrailGraph graph = TrailGraph.of(trails);
-		assertEquals(420, graph.evaluations());
+		assertEquals(422, graph.evaluations());
 		assertTrue(graph.evaluations() < 2000);
-		assertEquals(420, graph.topologicalOrder().size());
+		assertEquals(422, graph.topologicalOrder().size());
 	}
 
 	@Test
@@ -196,7 +196,7 @@ class TrailGraphTest {
 		List<Questline> trails = QuestLoader.loadAll();
 		QuestEngine engine = engineFor(trails, "once");
 		TrailGraph first = engine.graph();
-		assertEquals(420, first.evaluations());
+		assertEquals(422, first.evaluations());
 		for (Questline trail : trails) {
 			assertSame(trail, engine.byId(trail.id()));
 		}
@@ -233,7 +233,7 @@ class TrailGraphTest {
 	void advancingAfterACompletionNeverReevaluatesTheGraph() throws Exception {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		List<Questline> trails = QuestValidator.validate(QuestLoader.loadAll(), catalog, LOG).trails();
-		assertEquals(420, trails.size());
+		assertEquals(422, trails.size());
 		QuestEngine engine = engineFor(trails, "advance");
 		TrailGraph graph = engine.graph();
 		Method advance = QuestEngine.class.getDeclaredMethod("advanceAfterCompletion",
@@ -267,7 +267,7 @@ class TrailGraphTest {
 		long elapsedMs = (System.nanoTime() - start) / 1_000_000L;
 		assertTrue(passes > 0);
 		assertSame(graph, engine.graph());
-		assertEquals(420, engine.graph().evaluations(), "no depth was recomputed");
+		assertEquals(422, engine.graph().evaluations(), "no depth was recomputed");
 		// The old recursive walk needed about 2.3 million calls per pass; allow a very generous bound.
 		assertTrue(elapsedMs < 1_500, passes + " passes took " + elapsedMs + " ms");
 	}

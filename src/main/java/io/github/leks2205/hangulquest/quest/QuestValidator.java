@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
 import io.github.leks2205.hangulquest.util.TextClean;
@@ -93,8 +94,12 @@ public final class QuestValidator {
 		if (step.hintKo() != null && !TextClean.isHangulOnly(step.hintKo())) {
 			problems.add(trail.id() + "/" + step.id() + ": hintKo is not Hangul-only");
 		}
-		GoalTypes.of(step.goal()).validate(step.goal(),
-				new ValidationContext(trail.id() + "/" + step.id(), step, catalog, problems));
+		ValidationContext context = new ValidationContext(trail.id() + "/" + step.id(), step, catalog,
+				problems, trail.koreanLevel());
+		GoalTypes.of(step.goal()).validate(step.goal(), context);
+		for (Condition condition : step.conditions()) {
+			ConditionTypes.of(condition).validate(condition, context);
+		}
 		return problems;
 	}
 }
