@@ -70,6 +70,28 @@ public final class Observation {
 	public List<String> defeatedEntities = new ArrayList<>();
 	public List<String> interactedEntities = new ArrayList<>();
 
+	// Observation v2: facts for spatial and give/craft tasks. All transient, never persisted. The lists
+	// start as a shared empty list so a quiet tick allocates nothing; use the add methods to fill them.
+	/** Blocks the player placed this tick, each with a 7x7x7 snapshot of its surroundings. */
+	public List<PlacementFact> placements = List.of();
+	/** Item ids in the hands; null when empty. */
+	public String mainHand;
+	public String offHand;
+	/** Milliseconds the hand has held the same item (0 when empty). */
+	public long mainHandHeldMs;
+	public long offHandHeldMs;
+	public boolean inWater;
+	public boolean canSeeSky;
+	/** A block that stops movement within {@value SkyExposure#ROOF_RANGE} blocks above the head. */
+	public boolean roofed;
+	/** Below the surface heightmap of a dimension that has a sky. */
+	public boolean underground;
+	public List<CraftFact> crafted = List.of();
+	public List<GiveFact> gave = List.of();
+	public List<ContainerPutFact> putIn = List.of();
+	/** Position and facing of the entities counted in {@link #nearbyEntities} (items and orbs excluded). */
+	public List<EntityFact> nearbyEntityPositions = List.of();
+
 	/**
 	 * Set by the goal evaluator while some tracked step needs a long-range look at an entity, so the
 	 * sensor only does its own camera pick when it is worth it. Read on the following tick.
@@ -84,6 +106,36 @@ public final class Observation {
 	/** Creative and spectator progress counts, but must not feed learning grades. */
 	public boolean assisted() {
 		return creative || spectator;
+	}
+
+	public void addPlacement(PlacementFact fact) {
+		placements = grow(placements);
+		placements.add(fact);
+	}
+
+	public void addCrafted(CraftFact fact) {
+		crafted = grow(crafted);
+		crafted.add(fact);
+	}
+
+	public void addGave(GiveFact fact) {
+		gave = grow(gave);
+		gave.add(fact);
+	}
+
+	public void addPutIn(ContainerPutFact fact) {
+		putIn = grow(putIn);
+		putIn.add(fact);
+	}
+
+	public void addEntityPosition(EntityFact fact) {
+		nearbyEntityPositions = grow(nearbyEntityPositions);
+		nearbyEntityPositions.add(fact);
+	}
+
+	/** Swaps the shared empty list for a real one the first time something is added. */
+	private static <T> List<T> grow(List<T> list) {
+		return list.isEmpty() && !(list instanceof ArrayList) ? new ArrayList<>(2) : list;
 	}
 
 	/** Records one nearby entity of this type and keeps the closest distance. */
