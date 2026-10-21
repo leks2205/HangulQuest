@@ -123,6 +123,39 @@ compiles (`./gradlew gametestClasses`). A nightly job on a machine with Xvfb is 
 CI runs the same two steps on Linux with JDK 25, plus the Korean lint, a JSON-schema check on all
 questline files and a check that `tools/quest_tree.py` computes the same depths as the mod.
 
+### Content metrics and the ratchet
+
+The content follows one rule: recycle words, not tasks. Two tools measure it, and
+`content/metrics-baseline.json` records the value of every metric. A change may improve a metric but
+never make it worse: `TaskVarietyTest`, `CoverageTest` and `RecyclingTest` fail on a regression, and
+CI runs the same checks. The roadmap targets (bare steps at most 30/20/10% on levels 1/2/3 and up, no
+goal type above 25% of a level, 10 encounters in 3 roles for every core word, ...) are only printed
+next to the numbers; the tests do not demand them yet.
+
+```bash
+./gradlew test --tests '*StepsDumpTest'      # writes build/reports/content/steps.json
+python3 tools/variety.py                     # task variety: duplicates, object-only twins, bare steps, novelty
+python3 tools/coverage.py                    # unknown words per sentence, hint coverage, word recycling
+python3 tools/variety.py --check             # what CI runs; so does coverage.py --check
+```
+
+`build/reports/content/recycling-gaps.csv` lists the core words that are met too rarely, in too few
+roles or not coming back within 14 days. It is the input for the content briefs.
+
+If a change makes a metric worse on purpose (say, a new level needs plain steps first), rewrite the
+baseline and say why in the commit message:
+
+```bash
+./gradlew test --tests '*StepsDumpTest'
+python3 tools/variety.py --update-baseline   # variety and coverage metrics
+```
+
+`*_demo` trails are measured but exempt from the ratchet. A pull request that changes the Korean
+text of more than 15 trail files or more than 300 Korean strings fails `tools/content_guard.py`
+unless it has the label `mass-change-approved` or a commit message or the PR body references an ADR
+in `docs/decisions/`. Korean that stays byte-identical (only en/de text or the structure moved) does
+not count.
+
 ### Commit messages
 
 Short imperative subject, then a body if the *why* is not obvious:
