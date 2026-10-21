@@ -1,5 +1,7 @@
 package io.github.leks2205.hangulquest;
 
+import io.github.leks2205.hangulquest.audio.AudioService;
+import io.github.leks2205.hangulquest.audio.MinecraftSoundBackend;
 import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.config.WelcomePolicy;
 import io.github.leks2205.hangulquest.data.Catalog;
@@ -84,6 +86,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private QuestEngine quests;
 	private final LoadBackoff loadBackoff = new LoadBackoff();
 	private HudController hud;
+	private AudioService audio;
 	private EnvironmentSensor sensor;
 	private KeyMapping keyJournal;
 	private KeyMapping keyHint;
@@ -144,6 +147,10 @@ public final class HangulQuestClient implements ClientModInitializer {
 		return quests;
 	}
 
+	public AudioService audio() {
+		return audio;
+	}
+
 	public HudController hud() {
 		return hud;
 	}
@@ -179,6 +186,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		io.github.leks2205.hangulquest.util.Lang.set(config.language);
 		store = new ProgressStore(io.github.leks2205.hangulquest.learn.ProfilePaths.open(dir, accountId(), LOG), LOG);
 		questlineDir = dir.resolve("questlines");
+		audio = new AudioService(new MinecraftSoundBackend(mc), () -> config.audio);
 		hud = new HudController(this);
 		hud.register();
 		sensor = new EnvironmentSensor();
