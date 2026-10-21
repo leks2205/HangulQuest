@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
+    # labeled and edited: the mass-change guard reads the label and the PR body, so it must run again
+    types: [opened, synchronize, reopened, labeled, unlabeled, edited]
   workflow_dispatch:
 
 permissions:
@@ -55,6 +57,12 @@ jobs:
           ./gradlew test --no-daemon --tests '*QuestDepthDumpTest'
           python3 tools/quest_tree.py --check-depths build/reports/quest-depths.json
 
+      - name: Content ratchet (task variety and word recycling may only improve)
+        run: |
+          ./gradlew test --no-daemon --tests '*StepsDumpTest'
+          python3 tools/variety.py --check
+          python3 tools/coverage.py --check
+
       - name: Client game tests still compile
         run: ./gradlew gametestClasses --no-daemon
 
@@ -64,6 +72,14 @@ jobs:
         with:
           name: korean-lint
           path: build/reports/korean/
+          if-no-files-found: ignore
+
+      - name: Keep the content reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: content-reports
+          path: build/reports/content/
           if-no-files-found: ignore
 
       - name: Build the mod jar
@@ -77,6 +93,25 @@ jobs:
           # The files on disk are the source of truth: the jar must contain exactly those
           # questline files (the game lists the folder, there is no index), with unique ids.
           python3 tools/check_questline_index.py --jar "$jar"
+
+  guard:
+    name: Mass-change guard
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+
+      # At most 15 trail files or 300 Korean strings per PR, unless the label `mass-change-approved`
+      # is set or an ADR in docs/decisions/ is referenced. GITHUB_BASE_REF is set by Actions.
+      - name: Korean text is not changed in bulk
+        env:
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python3 tools/content_guard.py --self-test
+          python3 tools/content_guard.py
 
   content:
     name: Questline content
