@@ -388,7 +388,7 @@ public final class JournalScreen extends Screen {
 		if (progress.known) {
 			return "★";
 		}
-		return "●".repeat(Math.max(1, Math.min(6, progress.level + 1)));
+		return "●".repeat(Math.max(1, Math.min(io.github.leks2205.hangulquest.learn.Srs.MAX_LEVEL + 1, progress.level + 1)));
 	}
 
 	private List<Word> visibleWords() {

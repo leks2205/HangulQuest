@@ -94,7 +94,7 @@ public final class AdaptiveTrailGenerator {
 				null, null, null, null, null);
 		return new Questline("adaptive", "복습의 길", "Der Wiederholungspfad", 1, concepts,
 				Questline.Requires.none(), steps, finale,
-				"밤이 왔어요. 횃불을 들어요. 오늘의 복습을 마쳤어요!",
+				"밤이 왔어요. 횃불을 밝혔어요. 오늘의 복습을 마쳤어요!",
 				"Die Nacht ist da. Ein Licht entzündet: die Wiederholung ist geschafft.",
 				"adaptive", 900, 2, true)
 				.withEnglish("The review path",
@@ -108,7 +108,8 @@ public final class AdaptiveTrailGenerator {
 		if (word.biomeId != null) {
 			return new Goal.ReachBiome(word.biomeId, 1000);
 		}
-		String item = word.iconItem;
+		// Only a word's referents can be asked for: an icon is an illustration (an apple for 먹다).
+		String item = word.referents.isEmpty() ? null : word.referents.get(0);
 		if (item == null) {
 			return null;
 		}
