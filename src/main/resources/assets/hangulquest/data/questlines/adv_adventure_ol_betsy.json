@@ -9,7 +9,7 @@
  "concepts": [
   "gen_bamboo_stairs",
   "gen_red_wool",
-  "gen_warden"
+  "skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -60,25 +60,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warden"
+    "skeleton"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:warden",
+    "entity": "minecraft:skeleton",
     "count": 1
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Wärter.",
-    "en": "Defeat Warden."
+    "de": "Besiege Skelett.",
+    "en": "Defeat Skeleton."
    },
    "hint": {
-    "en": "Defeat Warden."
+    "en": "Defeat Skeleton."
    }
   },
-  "textKo": "워든라는 길의 의식을 마쳤어요.",
-  "textDe": "Wärter — Zeremonie vollendet.",
-  "textEn": "the ritual of Warden is complete."
+  "textKo": "스켈레톤을 물리쳤어요.",
+  "textDe": "Skelett — Zeremonie vollendet.",
+  "textEn": "the ritual of Skeleton is complete."
  },
  "reward": {
   "badge": "adv_adventure_ol_betsy",

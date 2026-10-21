@@ -8,7 +8,7 @@
  "order": 1122,
  "concepts": [
   "gen_poplar_hanging_sign",
-  "friend",
+  "carved_pumpkin",
   "gen_oxidized_copper_chest",
   "gen_poplar_sign"
  ],
@@ -41,19 +41,19 @@
   {
    "id": "s2",
    "teach": [
-    "friend"
+    "carved_pumpkin"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:player_head",
+    "block": "minecraft:carved_pumpkin",
     "count": 4
    },
    "clue": {
-    "de": "Baue 4× Spielerkopf ab.",
-    "en": "Break 4× Player Head."
+    "de": "Baue 4× Geschnitzter Kürbis ab.",
+    "en": "Break 4× Carved Pumpkin."
    },
    "hint": {
-    "en": "Break 4× Player Head."
+    "en": "Break 4× Carved Pumpkin."
    }
   },
   {
@@ -100,7 +100,7 @@
     "en": "Place 2× Poplar Sign. At night."
    }
   },
-  "textKo": "밤에 포플러나무 표지판라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 포플러나무 표지판을 두 개 세웠어요.",
   "textDe": "Pappelholzschild — Zeremonie vollendet.",
   "textEn": "By night the ritual of Poplar Sign is complete."
  },

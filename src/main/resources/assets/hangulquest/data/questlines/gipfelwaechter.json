@@ -8,7 +8,7 @@
  "concepts": [
   "gen_swamp",
   "gen_glowstone_dust",
-  "nether",
+  "netherrack",
   "gen_white_candle"
  ],
  "requires": {
@@ -60,7 +60,7 @@
   {
    "id": "s3",
    "teach": [
-    "nether"
+    "netherrack"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
@@ -110,7 +110,7 @@
     "en": "Use White Candle. At night. In a fitting biome."
    }
   },
-  "textKo": "밤에 산 지형에서 하얀색 초라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 산에서 하얀색 초를 썼어요.",
   "textDe": "Weiße Kerze — Zeremonie vollendet.",
   "textEn": "By night In the mountains the ritual of White Candle is complete."
  },

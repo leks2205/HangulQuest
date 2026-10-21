@@ -146,8 +146,8 @@ class WaveQaTest {
 					continue; // authored hints are hand written; this guards the generated ones
 				}
 				Word word = catalog.byConceptId(step.teach().get(0)).orElse(null);
-				if (word == null) {
-					continue;
+				if (word == null || word.ko.endsWith("다")) {
+					continue; // verb concepts (걷다, 짓다) are never the object of a generated hint
 				}
 				if (step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.ReachHeight) {
 					continue; // "climb above Y 120" never names a noun

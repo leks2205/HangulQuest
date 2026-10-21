@@ -10,7 +10,7 @@
   "gen_waxed_weathered_cut_copper",
   "gen_wheat_seeds",
   "gen_oak_button",
-  "gen_infested_deepslate"
+  "lectern"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -79,25 +79,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_infested_deepslate"
+    "lectern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_deepslate",
-    "count": 4
+    "block": "minecraft:lectern",
+    "count": 1
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere 4× Befallener Tiefenschiefer.",
-    "en": "Place 4× Infested Deepslate."
+    "de": "Platziere Lesepult.",
+    "en": "Place Lectern."
    },
    "hint": {
-    "en": "Place 4× Infested Deepslate."
+    "en": "Place Lectern."
    }
   },
-  "textKo": "벌레 먹은 심층암라는 길의 의식을 마쳤어요.",
-  "textDe": "Befallener Tiefenschiefer — Zeremonie vollendet.",
-  "textEn": "the ritual of Infested Deepslate is complete."
+  "textKo": "독서대를 놓았어요.",
+  "textDe": "Lesepult — Zeremonie vollendet.",
+  "textEn": "the ritual of Lectern is complete."
  },
  "reward": {
   "badge": "druckerei",

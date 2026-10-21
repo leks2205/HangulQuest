@@ -6,7 +6,7 @@
  "tier": 3,
  "order": 430,
  "concepts": [
-  "gen_deep_dark",
+  "gen_stony_shore",
   "gen_black_wool",
   "gen_sulfur_brick_wall",
   "gen_brown_concrete_slab"
@@ -23,19 +23,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deep_dark"
+    "gen_stony_shore"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:deep_dark",
+    "biome": "minecraft:stony_shore",
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Tiefes Dunkel.",
-    "en": "Reach Deep Dark."
+    "de": "Erreiche Steinige Küste.",
+    "en": "Reach Stony Shore."
    },
    "hint": {
-    "en": "Reach Deep Dark."
+    "en": "Reach Stony Shore."
    }
   },
   {
@@ -100,7 +100,7 @@
     "en": "Place 3× Brown Concrete Slab. At night."
    }
   },
-  "textKo": "밤에 갈색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 갈색 콘크리트 반 블록을 세 개 놓았어요.",
   "textDe": "Braune Betonstufe — Zeremonie vollendet.",
   "textEn": "By night the ritual of Brown Concrete Slab is complete."
  },

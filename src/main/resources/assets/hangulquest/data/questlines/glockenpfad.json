@@ -10,7 +10,7 @@
   "bookshelf",
   "bell",
   "gen_tuff_brick_slab",
-  "gen_infested_cracked_stone_bricks"
+  "gold_block"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -52,7 +52,7 @@
     "en": "Place Bell."
    },
    "hint": {
-    "ko": "종은 금 조각으로 만들어요.",
+    "ko": "종은 금과 막대기로 만들어요.",
     "de": "Glocken bestehen aus Gold.",
     "en": "Place Bell."
    }
@@ -80,25 +80,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_infested_cracked_stone_bricks"
+    "gold_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_cracked_stone_bricks",
+    "block": "minecraft:gold_block",
     "count": 1
    },
    "conditions": [],
    "clue": {
-    "de": "Platziere Befallene rissige Steinziegel.",
-    "en": "Place Infested Cracked Stone Bricks."
+    "de": "Platziere Goldblock.",
+    "en": "Place Block of Gold."
    },
    "hint": {
-    "en": "Place Infested Cracked Stone Bricks."
+    "en": "Place Block of Gold."
    }
   },
-  "textKo": "벌레 먹은 금 간 석재 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Befallene rissige Steinziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Infested Cracked Stone Bricks is complete."
+  "textKo": "금 블록을 놓았어요.",
+  "textDe": "Goldblock — Zeremonie vollendet.",
+  "textEn": "the ritual of Block of Gold is complete."
  },
  "reward": {
   "badge": "glockenpfad",

@@ -40,10 +40,10 @@ public final class QuestStatus {
 			}
 			return switch (condition) {
 				case Condition.Time t -> "지금 " + phase(obs.phase()) + " · " + phase(t.phase()) + " 필요";
-				case Condition.InBiome b -> "지금 " + biome(obs.biome, catalog) + " 지형 · "
-						+ biome(b.biome(), catalog) + " 지형 필요";
+				case Condition.InBiome b -> "지금 " + biome(obs.biome, catalog) + " · "
+						+ biome(b.biome(), catalog) + " 필요";
 				case Condition.InDimension d -> "지금 " + dimension(obs.dimension) + " · "
-						+ dimension(d.dimension()) + " 차원 필요";
+						+ dimension(d.dimension()) + " 필요";
 				case Condition.YRange y -> yText(obs.y, y.minY(), y.maxY());
 				case Condition.NearEntity n -> "가까이에 " + entity(n.entity(), catalog) + " 필요";
 				case Condition.NearBlock n -> "가까이에 " + block(n.block(), catalog) + " 필요";
@@ -67,10 +67,10 @@ public final class QuestStatus {
 			case Goal.LookAtBlock g -> look(tracker.dwellMs, g.dwellMs());
 			case Goal.LookAtEntity g -> look(tracker.dwellMs, g.dwellMs());
 			case Goal.ReachHeight g -> yText(obs.y, g.minY(), g.maxY());
-			case Goal.ReachBiome g -> "현재: " + biome(obs.biome, catalog) + " 지형 · 목표: "
-					+ biome(g.biome(), catalog) + " 지형";
+			case Goal.ReachBiome g -> "현재: " + biome(obs.biome, catalog) + " · 목표: "
+					+ biome(g.biome(), catalog);
 			case Goal.ReachDimension g -> "현재: " + dimension(obs.dimension) + " · 목표: "
-					+ dimension(g.dimension()) + " 차원";
+					+ dimension(g.dimension());
 			case Goal.UseBlock g -> "";
 			case Goal.InteractEntity g -> "";
 		};
@@ -117,12 +117,8 @@ public final class QuestStatus {
 		if (id == null) {
 			return "다른 차원";
 		}
-		return switch (id) {
-			case "minecraft:overworld" -> "지상";
-			case "minecraft:the_nether" -> "지옥";
-			case "minecraft:the_end" -> "엔더";
-			default -> "다른 차원";
-		};
+		String name = SentenceBuilder.dimension(id);
+		return name == null ? "다른 차원" : name;
 	}
 
 	private static String biome(String id, Catalog catalog) {
@@ -140,10 +136,10 @@ public final class QuestStatus {
 				case "#minecraft:is_badlands" -> "메사";
 				case "#minecraft:is_savanna" -> "사바나";
 				case "#minecraft:is_river" -> "강";
-				default -> "그 지형";
+				default -> "그 생물 군계";
 			};
 		}
-		return catalog.byBiomeId(id).map(word -> word.ko).orElse("그 지형");
+		return catalog.byBiomeId(id).map(word -> word.ko).orElse("그 생물 군계");
 	}
 
 	private static String entity(String id, Catalog catalog) {

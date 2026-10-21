@@ -9,7 +9,7 @@
  "concepts": [
   "gen_gray_stained_glass_pane",
   "gen_dripstone_block",
-  "gen_hoglin"
+  "squid"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -60,25 +60,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hoglin"
+    "squid"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:hoglin",
+    "entity": "minecraft:squid",
     "count": 1
    },
    "conditions": [],
    "clue": {
-    "de": "Besiege Hoglin.",
-    "en": "Defeat Hoglin."
+    "de": "Besiege Tintenfisch.",
+    "en": "Defeat Squid."
    },
    "hint": {
-    "en": "Defeat Hoglin."
+    "en": "Defeat Squid."
    }
   },
-  "textKo": "호글린라는 길의 의식을 마쳤어요.",
-  "textDe": "Hoglin — Zeremonie vollendet.",
-  "textEn": "the ritual of Hoglin is complete."
+  "textKo": "오징어를 물리쳤어요.",
+  "textDe": "Tintenfisch — Zeremonie vollendet.",
+  "textEn": "the ritual of Squid is complete."
  },
  "reward": {
   "badge": "adv_husbandry_kill_axolotl_target",

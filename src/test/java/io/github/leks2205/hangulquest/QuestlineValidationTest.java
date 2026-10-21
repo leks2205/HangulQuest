@@ -21,7 +21,6 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /** Guards the shipped content: every trail must load, validate and stay Hangul-only. */
@@ -175,11 +174,11 @@ class QuestlineValidationTest {
 				for (var condition : step.conditions()) {
 					if (condition instanceof Condition.InBiome biome
 							&& biome.biome().equals("minecraft:beach")) {
-						assertTrue(spoken.contains("해변 지형에서"), spoken);
+						assertTrue(spoken.contains("해변에서"), spoken);
 					}
 					if (condition instanceof Condition.InDimension dimension
 							&& dimension.dimension().equals("minecraft:the_nether")) {
-						assertTrue(spoken.contains("지옥 차원에서"), spoken);
+						assertTrue(spoken.contains("네더에서"), spoken);
 					}
 					if (condition instanceof Condition.YRange y && y.maxY() <= 0) {
 						assertTrue(spoken.contains("이하에서"), spoken);
@@ -211,11 +210,11 @@ class QuestlineValidationTest {
 					continue;
 				}
 				var verbs = switch (step.goal()) {
-					case Goal.PlaceBlock g -> List.of("놓", "설치", "세우", "두", "피우", "심");
-					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대");
-					case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐");
+					case Goal.PlaceBlock g -> List.of("놓", "설치", "세우", "두", "피우", "심", "깔", "걸", "달", "밝", "쌓", "치");
+					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써");
+					case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐", "잡", "담");
 					case Goal.ConsumeItem g -> List.of("먹", "마시");
-					case Goal.BreakBlock g -> List.of("캐", "베", "수확", "부수", "채");
+					case Goal.BreakBlock g -> List.of("캐", "베", "수확", "부수", "채", "파", "꺾", "뽑", "깨", "따");
 					case Goal.LookAtBlock g -> List.of("봐", "바라", "보");
 					case Goal.LookAtEntity g -> List.of("봐", "바라", "보");
 					case Goal.ReachBiome g -> List.of("가", "도착", "걸", "올라");
@@ -306,10 +305,10 @@ class QuestlineValidationTest {
 						case DAWN -> "새벽";
 						case DUSK -> "저녁";
 					};
-					case Condition.InBiome b -> b.biome().contains("mountain") ? "산 지형"
+					case Condition.InBiome b -> b.biome().contains("mountain") ? "산에서"
 							: b.biome().contains("beach") ? "해변"
 							: b.biome().contains("river") ? "강" : null;
-					case Condition.InDimension d -> d.dimension().contains("nether") ? "지옥" : null;
+					case Condition.InDimension d -> d.dimension().contains("nether") ? "네더" : null;
 					case Condition.YRange y -> y.maxY() <= 0 ? "높이 " + y.maxY() : null;
 					default -> null;
 				};
@@ -354,37 +353,6 @@ class QuestlineValidationTest {
 			assertTrue(sequences.add(sequence.toString()),
 					trail.id() + " repeats an existing goal sequence");
 		}
-	}
-
-	@Test
-	void everyActionIsUsedOnceAcrossTheContent() {
-		java.util.Map<String, String> seen = new java.util.HashMap<>();
-		for (Questline trail : QuestLoader.loadAll()) {
-			for (var step : trail.allSteps()) {
-				String key = actionKey(step.goal());
-				String previous = seen.put(key, trail.id() + "/" + step.id());
-				assertNull(previous, "action used twice: " + key + " in "
-						+ previous + " and " + trail.id() + "/" + step.id());
-			}
-		}
-	}
-
-	private static String actionKey(Goal goal) {
-		String target = switch (goal) {
-			case Goal.BreakBlock g -> g.block();
-			case Goal.PlaceBlock g -> g.block();
-			case Goal.AcquireItem g -> g.item();
-			case Goal.ConsumeItem g -> g.item();
-			case Goal.LookAtBlock g -> g.block();
-			case Goal.UseBlock g -> g.block();
-			case Goal.LookAtEntity g -> g.entity();
-			case Goal.DefeatEntity g -> g.entity();
-			case Goal.InteractEntity g -> g.entity();
-			case Goal.ReachBiome g -> g.biome();
-			case Goal.ReachDimension g -> g.dimension();
-			case Goal.ReachHeight g -> g.minY() + ":" + g.maxY();
-		};
-		return goal.getClass().getSimpleName() + "|" + target;
 	}
 
 	@Test

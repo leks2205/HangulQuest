@@ -8,7 +8,7 @@
  "concepts": [
   "gen_moss_carpet",
   "gen_black_glazed_terracotta",
-  "gen_infested_stone_bricks",
+  "furnace",
   "gen_green_candle"
  ],
  "requires": {
@@ -58,19 +58,19 @@
   {
    "id": "s3",
    "teach": [
-    "gen_infested_stone_bricks"
+    "furnace"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_stone_bricks",
+    "block": "minecraft:furnace",
     "count": 1
    },
    "clue": {
-    "de": "Platziere Befallene Steinziegel.",
-    "en": "Place Infested Stone Bricks."
+    "de": "Platziere Ofen.",
+    "en": "Place Furnace."
    },
    "hint": {
-    "en": "Place Infested Stone Bricks."
+    "en": "Place Furnace."
    }
   }
  ],
@@ -99,7 +99,7 @@
     "en": "Place 2× Green Candle. At night."
    }
   },
-  "textKo": "밤에 초록색 초라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 초록색 초를 두 개 놓았어요.",
   "textDe": "Grüne Kerze — Zeremonie vollendet.",
   "textEn": "By night the ritual of Green Candle is complete."
  },

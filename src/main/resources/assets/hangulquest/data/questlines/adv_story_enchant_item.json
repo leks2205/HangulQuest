@@ -10,7 +10,7 @@
   "gen_snowy_village_map",
   "enchanting_table",
   "gen_ender_chest",
-  "gen_frogspawn"
+  "adv_item_enchanted_book"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -80,25 +80,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_frogspawn"
+    "adv_item_enchanted_book"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:frogspawn",
+    "item": "minecraft:enchanted_book",
     "count": 1
    },
    "conditions": [],
    "clue": {
-    "de": "Sammle Froschlaich.",
-    "en": "Collect Frogspawn."
+    "de": "Sammle Verzaubertes Buch.",
+    "en": "Collect Enchanted Book."
    },
    "hint": {
-    "en": "Collect Frogspawn."
+    "en": "Collect Enchanted Book."
    }
   },
-  "textKo": "개구리알라는 길의 의식을 마쳤어요.",
-  "textDe": "Froschlaich — Zeremonie vollendet.",
-  "textEn": "the ritual of Frogspawn is complete."
+  "textKo": "마법이 부여된 책을 구했어요.",
+  "textDe": "Verzaubertes Buch — Zeremonie vollendet.",
+  "textEn": "the ritual of Enchanted Book is complete."
  },
  "reward": {
   "badge": "adv_story_enchant_item",

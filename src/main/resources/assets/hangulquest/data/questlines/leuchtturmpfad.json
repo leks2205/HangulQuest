@@ -8,7 +8,7 @@
  "order": 112,
  "concepts": [
   "gen_mud_brick_slab",
-  "gen_infested_mossy_stone_bricks",
+  "lantern",
   "gen_savanna_plateau",
   "gen_red_mushroom_block"
  ],
@@ -42,19 +42,19 @@
   {
    "id": "s2",
    "teach": [
-    "gen_infested_mossy_stone_bricks"
+    "lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_mossy_stone_bricks",
+    "block": "minecraft:lantern",
     "count": 3
    },
    "clue": {
-    "de": "Platziere 3× Befallene bemooste Steinziegel.",
-    "en": "Place 3× Infested Mossy Stone Bricks."
+    "de": "Platziere 3× Laterne.",
+    "en": "Place 3× Lantern."
    },
    "hint": {
-    "en": "Place 3× Infested Mossy Stone Bricks."
+    "en": "Place 3× Lantern."
    }
   },
   {
@@ -96,7 +96,7 @@
     "en": "Place 2× Red Mushroom Block."
    }
   },
-  "textKo": "빨간색 버섯 블록라는 길의 의식을 마쳤어요.",
+  "textKo": "빨간색 버섯 블록을 두 개 쌓았어요.",
   "textDe": "Roter Pilzblock — Zeremonie vollendet.",
   "textEn": "the ritual of Red Mushroom Block is complete."
  },

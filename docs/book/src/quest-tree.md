@@ -27,19 +27,19 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `LOOK_AT_ENTITY` | 71 | look at a mob |
 | `USE_BLOCK` | 63 | use a block |
 | `LOOK_AT_BLOCK` | 61 | look at a block |
-| `REACH_BIOME` | 58 | reach a biome |
+| `REACH_BIOME` | 59 | reach a biome |
 | `DEFEAT_ENTITY` | 37 | defeat a mob |
 | `CONSUME_ITEM` | 32 | eat or drink an item |
 | `INTERACT_ENTITY` | 27 | interact with a mob |
-| `REACH_DIMENSION` | 2 | reach a dimension |
+| `REACH_DIMENSION` | 1 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 160 | a time of day |
+| `TIME` | 161 | a time of day |
 | `IN_BIOME` | 28 | a biome |
 | `Y_RANGE` | 8 | an altitude band |
 | `WEATHER` | 5 | the weather |
-| `IN_DIMENSION` | 3 | a dimension |
+| `IN_DIMENSION` | 2 | a dimension |
 
 ## Levels
 
