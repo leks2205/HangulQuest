@@ -82,7 +82,9 @@ the same world again. They take screenshots into `build/gametest/` and fail the 
 
 ```bash
 ./gradlew runClientGameTest                                    # needs a display
-xvfb-run -a -s "-screen 0 1280x720x24" ./gradlew runClientGameTest   # headless
+# Inside a Wayland session SDL otherwise picks the Wayland driver and finds no display under Xvfb.
+xvfb-run -a -s "-screen 0 1280x720x24" env -u WAYLAND_DISPLAY SDL_VIDEODRIVER=x11 \
+    ./gradlew runClientGameTest                                  # headless
 ```
 
 The run directory is `build/run/clientGameTest`, wiped on every start, so nothing touches your own
