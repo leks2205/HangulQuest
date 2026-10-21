@@ -1,34 +1,31 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.I18n;
+
+import java.util.Locale;
+
 /** Coarse grouping used by the journal and by distractor selection. */
 public enum Category {
-	BLOCKS("Blöcke", "Blocks"),
-	TOOLS("Werkzeuge", "Tools"),
-	FOOD("Nahrung", "Food"),
-	ANIMALS("Tiere", "Animals"),
-	ENVIRONMENT("Umgebung", "Surroundings"),
-	ACTIONS("Handlungen", "Actions"),
-	MATERIALS("Materialien", "Materials"),
-	COMBAT("Kampf", "Combat"),
-	ITEMS("Gegenstände", "Items"),
-	BUILDING("Bauteile", "Building"),
-	MISC("Sonstiges", "Other"),
-	PHRASE("Redewendung", "Phrase");
+	BLOCKS,
+	TOOLS,
+	FOOD,
+	ANIMALS,
+	ENVIRONMENT,
+	ACTIONS,
+	MATERIALS,
+	COMBAT,
+	ITEMS,
+	BUILDING,
+	MISC,
+	PHRASE;
 
-	private final String german;
-	private final String english;
-
-	Category(String german, String english) {
-		this.german = german;
-		this.english = english;
-	}
-
-	public String german() {
-		return german;
+	/** Lang key of the label: {@code hangulquest.ui.category.<name>}. */
+	public String key() {
+		return "hangulquest.ui.category." + name().toLowerCase(Locale.ROOT);
 	}
 
 	/** Label in the interface language. */
 	public String label() {
-		return io.github.leks2205.hangulquest.util.Tr.pick(english, german);
+		return I18n.t(key());
 	}
 }

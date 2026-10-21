@@ -12,8 +12,7 @@ python3 tools/new_questline.py steinpfad2 --words stone,cobblestone --tier 1 \
 ./gradlew test
 ```
 
-Das Skript legt die Datei an und aktualisiert `index.json`. Der Build erzeugt den Index beim
-`processResources`-Schritt ohnehin neu; `index.json` wird also nicht von Hand gepflegt.
+Das Skript legt die Datei an. Der Mod findet Questlinien, indem er den Ordner auflistet; einen Index gibt es nicht mehr.
 
 ## Externer Ordner (ohne Neustart)
 

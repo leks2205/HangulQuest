@@ -15,12 +15,14 @@ import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import io.github.leks2205.hangulquest.ui.quiz.QuizSession;
 import io.github.leks2205.hangulquest.ui.quiz.QuizView;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 
@@ -40,17 +42,21 @@ public final class HudController implements QuestEngine.Feedback {
 	private final Minecraft mc = Minecraft.getInstance();
 
 	private final Celebration celebration = new Celebration();
-	private int questReloadTicks;
 	private List<Questline> nextChoices = List.of();
 	private long nextChoicesUntil;
 	private Word wordCard;
 	private long wordCardUntil;
-	private String bannerKo = "";
-	private String bannerDe = "";
+	private Component wordCardKo;
+	private Component wordCardDe;
+	private Component bannerKoText = Component.empty();
+	private Component bannerDeText = Component.empty();
 	private long bannerUntil;
 	private QuestEngine.HintView hint;
-	private int questLogBottom = 6;
+	private HintLayout hintLayout;
 	private long hintUntil;
+	/** Counts client ticks; the quest log is rebuilt once per tick, not once per frame. */
+	private long tickCount;
+	private final QuestLogView questLog = new QuestLogView();
 	private long lastHintAt;
 
 	private final QuizSession session = new QuizSession();
@@ -71,18 +77,16 @@ public final class HudController implements QuestEngine.Feedback {
 
 	/** The first automatic review should wait a full interval after joining. */
 	public void onWorldJoin() {
+		questLog.invalidate();
 		lastQuizAt = System.currentTimeMillis();
 		session.dismiss();
 		pendingOpen = false;
 	}
 
 	public void tick(Observation obs) {
+		tickCount++;
 		if (hq.quests() == null || hq.learn() == null) {
 			return;
-		}
-		if (++questReloadTicks >= 40) {
-			questReloadTicks = 0;
-			hq.reloadQuestlinesIfChanged(obs);
 		}
 		long now = System.currentTimeMillis();
 		celebration.tickParticles(mc, now);
@@ -129,7 +133,7 @@ public final class HudController implements QuestEngine.Feedback {
 		if (quizView() != null || session.open(System.currentTimeMillis())) {
 			mc.setScreenAndShow(new QuizScreen(this));
 		} else if (!startFromDue()) {
-			banner("지금은 복습할 단어가 없어요.", Tr.t("Gerade ist nichts zu wiederholen."), false);
+			banner("지금은 복습할 단어가 없어요.", I18n.t("hangulquest.ui.hud.nothing_to_review"), false);
 		}
 	}
 
@@ -203,15 +207,17 @@ public final class HudController implements QuestEngine.Feedback {
 
 	private QuizOutcome answerReview(int index) {
 		long now = System.currentTimeMillis();
+		int optionCount = session.quiz() == null ? 4 : session.quiz().options().size();
+		long latencyMs = now - session.activeSince();
 		Optional<QuizSession.Result> result = session.answer(index, (wordId, correct) -> {
-			List<Achievements.Achievement> unlocked = hq.learn().answer(wordId, correct, now);
+			List<Achievements.Achievement> unlocked = hq.learn().answerMc(wordId, optionCount, correct, latencyMs, now);
 			lastQuizAt = now;
 			quizResultWord = hq.catalog().byId(wordId).orElse(null);
 			quizResultCorrect = correct;
 			quizResultUntil = now + 2400L;
 			sound(correct);
 			for (Achievements.Achievement achievement : unlocked) {
-				banner(achievement.ko(), achievement.de(), true);
+				banner(achievement.ko(), achievement.label(), true);
 			}
 		});
 		return result.map(r -> r.correct() ? QuizOutcome.CORRECT : QuizOutcome.WRONG).orElse(QuizOutcome.NONE);
@@ -221,14 +227,19 @@ public final class HudController implements QuestEngine.Feedback {
 
 	@Override
 	public void banner(String ko, String de, boolean success) {
-		bannerKo = ko == null ? "" : ko;
-		bannerDe = de != null && hq.config().questTranslations ? de : "";
+		bannerKoText = KoText.ko(ko == null ? "" : ko);
+		bannerDeText = Component.literal(de != null && hq.config().questTranslations ? de : "");
 		bannerUntil = System.currentTimeMillis() + 3500;
 	}
 
 	@Override
 	public void wordCard(Word word) {
 		wordCard = word;
+		if (word == null) {
+			return;
+		}
+		wordCardKo = KoText.ko(word.ko);
+		wordCardDe = Component.literal(glossOf(word));
 		wordCardUntil = System.currentTimeMillis() + Math.max(1000, hq.config().cardDurationMs);
 	}
 
@@ -244,7 +255,7 @@ public final class HudController implements QuestEngine.Feedback {
 	public void sidequestCompleted(Word word) {
 		String learned = word == null ? "" : io.github.leks2205.hangulquest.quest.KoGrammar.eul(word.ko) + " 배웠어요.";
 		String german = word == null || !hq.config().questTranslations ? ""
-				: io.github.leks2205.hangulquest.util.Tr.t("Nebenquest geschafft: ") + glossOf(word);
+				: I18n.t("hangulquest.ui.quest.sidequest_done", glossOf(word));
 		celebration.trigger(Celebration.Kind.SIDE, "사이드 퀘스트 완료!", learned, "", german, "",
 				word == null ? "" : word.iconItem);
 		celebrationSound(Celebration.Kind.SIDE);
@@ -268,7 +279,7 @@ public final class HudController implements QuestEngine.Feedback {
 	}
 
 	private static String glossOf(Word word) {
-		return io.github.leks2205.hangulquest.util.Tr.pick(word.en, word.deShort);
+		return word.gloss(io.github.leks2205.hangulquest.util.Lang.current());
 	}
 
 	private void celebrationSound(Celebration.Kind kind) {
@@ -310,6 +321,7 @@ public final class HudController implements QuestEngine.Feedback {
 		}
 		lastHintAt = now;
 		this.hint = view;
+		this.hintLayout = null;
 		this.hintUntil = now + 20_000L;
 	}
 
@@ -359,7 +371,7 @@ public final class HudController implements QuestEngine.Feedback {
 		Random random = new Random();
 		List<String> options = new ArrayList<>();
 		options.add(glossOf(word));
-		for (Word distractor : hq.catalog().distractors(word, 2, random)) {
+		for (Word distractor : hq.catalog().distractors(word, 3, random)) {
 			if (!options.contains(glossOf(distractor))) {
 				options.add(glossOf(distractor));
 			}
@@ -377,11 +389,16 @@ public final class HudController implements QuestEngine.Feedback {
 		if (!hq.config().enabled || !hq.config().hudCards) {
 			return;
 		}
+		boolean hudHidden = mc.gui.hud.isHidden();
+		if (!HudVisibility.cards(hudHidden)) {
+			return;
+		}
 		long now = System.currentTimeMillis();
 		if (now < bannerUntil) {
-			drawBanner(graphics, bannerKo, bannerDe);
+			drawBanner(graphics);
 		}
-		if (hq.quests() != null && hq.config().quests && hq.config().questTracker) {
+		if (hq.quests() != null && HudVisibility.questLog(hudHidden,
+				mc.gui.hud.getDebugOverlay().showDebugScreen(), hq.config().quests, hq.config().questTracker)) {
 			drawQuestLog(graphics);
 		}
 		boolean hintVisible = hint != null && now < hintUntil;
@@ -462,115 +479,31 @@ public final class HudController implements QuestEngine.Feedback {
 	 * Questie-style quest log: one compact, background-free list of the tracked quests. Text carries a
 	 * drop shadow instead of a panel, every quest is two tight lines, and counting goals show their
 	 * number inline ("0/3") instead of a bar, so the log stays out of the way of the world.
+	 * The rows are built once per tick; a frame only draws them.
 	 */
 	private void drawQuestLog(GuiGraphicsExtractor graphics) {
-		QuestEngine quests = hq.quests();
-		List<QuestEngine.TrackView> views = quests.trackedViews();
-		if (views.isEmpty()) {
-			return;
+		int rowLimit = hq.config().questTrackerRows;
+		int guiWidth = mc.getWindow().getGuiScaledWidth();
+		if (questLog.due(tickCount, rowLimit, guiWidth)) {
+			questLog.rebuild(mc.font, hq.quests().trackedViews(), rowLimit, guiWidth);
 		}
-		var font = mc.font;
-		int limit = Math.max(1, Math.min(views.size(), hq.config().questTrackerRows));
-		List<QuestEngine.TrackView> shown = views.subList(0, limit);
-		boolean more = views.size() > limit;
-
-		int x = 6;
-		int y = 6;
-		int maxWidth = Math.min(260, mc.getWindow().getGuiScaledWidth() - 16);
-		int width = 120;
-		for (QuestEngine.TrackView view : shown) {
-			width = Math.max(width, Math.min(maxWidth, titleWidth(font, view)));
-			width = Math.max(width, Math.min(maxWidth, objectiveWidth(font, view)));
-		}
-		width = Math.min(maxWidth, width);
-
-		int rowHeight = 24;
-		int height = shown.size() * rowHeight + (more ? 9 : 0);
-
-		int row = y;
-		for (QuestEngine.TrackView view : shown) {
-			drawQuestRow(graphics, view, x, row, width);
-			row += rowHeight;
-		}
-		if (more) {
-			drawShadowed(graphics, font, Component.literal("+" + (views.size() - limit)), x, row,
-					Draw.DIM);
-		}
-		this.questLogBottom = y + height;
+		questLog.draw(graphics, mc.font);
 	}
 
-	private int titleWidth(net.minecraft.client.gui.Font font, QuestEngine.TrackView view) {
-		return font.width(KoText.ko(view.titleKo())) + 8
-				+ font.width(Component.literal(counter(view)));
+	/** A hint card's texts, wrapped lines and heights; rebuilt only for a new hint or a new window width. */
+	private record HintLayout(QuestEngine.HintView source, Font font, int guiWidth, int width,
+							  List<FormattedCharSequence> clue, List<FormattedCharSequence> simplified,
+							  List<FormattedCharSequence> description, Component side,
+							  int clueHeight, int simpleHeight, int descriptionHeight, int height) {
 	}
 
-	private int objectiveWidth(net.minecraft.client.gui.Font font, QuestEngine.TrackView view) {
-		int width = font.width(objective(view));
-		String status = conditionStatus(view);
-		if (!status.isEmpty()) {
-			width += font.width(Component.literal(" · ")) + font.width(KoText.ko(status));
+	private HintLayout hintLayout(Font font) {
+		int guiWidth = mc.getWindow().getGuiScaledWidth();
+		HintLayout cached = hintLayout;
+		if (cached != null && cached.source() == hint && cached.font() == font && cached.guiWidth() == guiWidth) {
+			return cached;
 		}
-		return width;
-	}
-
-	/** The clue plus the count of a counting goal, e.g. "회색 돌을 세 개 캐요. 0/3". */
-	private Component objective(QuestEngine.TrackView view) {
-		Component clue = KoText.ko(view.clueKo());
-		int needed = view.needed();
-		if (!view.countable() || needed <= 1) {
-			return clue;
-		}
-		return Component.empty().append(clue)
-				.append(Component.literal(" " + view.progress() + "/" + needed));
-	}
-
-	/** Only condition messages ("밤 필요") are worth a second sentence; counts are already inline. */
-	private static String conditionStatus(QuestEngine.TrackView view) {
-		String status = view.status();
-		if (status == null || status.isBlank() || status.contains("/")) {
-			return "";
-		}
-		return status;
-	}
-
-	private int drawQuestRow(GuiGraphicsExtractor graphics, QuestEngine.TrackView view, int x, int y,
-							 int width) {
-		var font = mc.font;
-		int color = view.focused() ? Draw.GOLD : Draw.WHITE;
-		drawShadowed(graphics, font, KoText.ko(view.titleKo()), x, y, color);
-		String counter = counter(view);
-		int counterX = x + width - font.width(Component.literal(counter));
-		drawShadowed(graphics, font, Component.literal(counter), counterX, y, Draw.DIM);
-
-		Component objective = objective(view);
-		int objectiveWidth = font.width(objective);
-		String status = conditionStatus(view);
-		Component line = objective;
-		if (!status.isEmpty() && objectiveWidth + 6 + font.width(KoText.ko(status)) <= width) {
-			line = Component.empty().append(objective)
-					.append(Component.literal(" · "))
-					.append(KoText.ko(status));
-		}
-		Draw.truncated(graphics, font, line, x, y + 11, width,
-				view.focused() ? Draw.WHITE : Draw.GRAY, true);
-		return y;
-	}
-
-	/** Flat HUD text with the vanilla drop shadow, which is what makes text readable without a panel. */
-	private static void drawShadowed(GuiGraphicsExtractor graphics, net.minecraft.client.gui.Font font,
-									 Component text, int x, int y, int color) {
-		graphics.text(font, text, x, y, color, true);
-	}
-
-	private static String counter(QuestEngine.TrackView view) {
-		return (view.stepIndex() + 1) + "/" + view.stepCount();
-	}
-
-	private void drawHint(GuiGraphicsExtractor graphics) {
-		var font = mc.font;
-		int width = Math.min(320, mc.getWindow().getGuiScaledWidth() - 16);
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = Math.max(questLogBottom + 6, mc.getWindow().getGuiScaledHeight() / 4);
+		int width = Math.min(320, guiWidth - 16);
 		int textWidth = width - 14;
 		Component clue = KoText.ko(hint.clueKo() == null ? "" : hint.clueKo());
 		Component simplified = KoText.ko(hint.simplifiedKo() == null ? "" : hint.simplifiedKo());
@@ -578,24 +511,40 @@ public final class HudController implements QuestEngine.Feedback {
 				? null : KoText.ko(hint.descriptionKo());
 		Component side = hint.word() == null || !hint.sidequestStarted() ? null
 				: KoText.ko("사이드 퀘스트: " + hint.word().ko + " 알아보기");
-		int clueHeight = Draw.wrappedHeight(font, clue, textWidth, 2);
-		int simpleHeight = Draw.wrappedHeight(font, simplified, textWidth, 2);
-		int descriptionHeight = description == null ? 0 : Draw.wrappedHeight(font, description, textWidth, 2);
+		List<FormattedCharSequence> clueLines = Draw.lines(font, clue, textWidth);
+		List<FormattedCharSequence> simpleLines = Draw.lines(font, simplified, textWidth);
+		List<FormattedCharSequence> descriptionLines = description == null ? null
+				: Draw.lines(font, description, textWidth);
+		int clueHeight = Draw.linesHeight(font, clueLines, 2);
+		int simpleHeight = Draw.linesHeight(font, simpleLines, 2);
+		int descriptionHeight = descriptionLines == null ? 0 : Draw.linesHeight(font, descriptionLines, 2);
 		int sideHeight = side == null ? 0 : font.lineHeight + 2;
 		int height = 18 + clueHeight + 4 + simpleHeight + 4 + descriptionHeight + 2 + sideHeight + 12;
-		Draw.panel(graphics, x, y, width, height, 0);
+		hintLayout = new HintLayout(hint, font, guiWidth, width, clueLines, simpleLines, descriptionLines, side,
+				clueHeight, simpleHeight, descriptionHeight, height);
+		return hintLayout;
+	}
+
+	private void drawHint(GuiGraphicsExtractor graphics) {
+		var font = mc.font;
+		HintLayout layout = hintLayout(font);
+		int width = layout.width();
+		int textWidth = width - 14;
+		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
+		int y = Math.max(questLog.bottom() + 6, mc.getWindow().getGuiScaledHeight() / 4);
+		Draw.panel(graphics, x, y, width, layout.height(), 0);
 		Draw.korean(graphics, font, "힌트", x + 7, y + 5, Draw.GOLD);
 		int cursor = y + 17;
-		Draw.wrapped(graphics, font, clue, x + 7, cursor, textWidth, Draw.DIM, 2);
-		cursor += clueHeight + 4;
-		Draw.wrapped(graphics, font, simplified, x + 7, cursor, textWidth, Draw.WHITE, 2);
-		cursor += simpleHeight + 4;
-		if (description != null) {
-			Draw.wrapped(graphics, font, description, x + 7, cursor, textWidth, Draw.BLUE, 2);
-			cursor += descriptionHeight + 2;
+		Draw.drawLines(graphics, font, layout.clue(), x + 7, cursor, Draw.DIM, 2);
+		cursor += layout.clueHeight() + 4;
+		Draw.drawLines(graphics, font, layout.simplified(), x + 7, cursor, Draw.WHITE, 2);
+		cursor += layout.simpleHeight() + 4;
+		if (layout.description() != null) {
+			Draw.drawLines(graphics, font, layout.description(), x + 7, cursor, Draw.BLUE, 2);
+			cursor += layout.descriptionHeight() + 2;
 		}
-		if (side != null) {
-			Draw.truncated(graphics, font, side, x + 7, cursor, textWidth, Draw.GOLD);
+		if (layout.side() != null) {
+			Draw.truncated(graphics, font, layout.side(), x + 7, cursor, textWidth, Draw.GOLD);
 		}
 	}
 
@@ -649,8 +598,8 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.korean(graphics, font, quizResultWord.ko, x + 30, y + 24, Draw.WHITE);
 		Draw.truncated(graphics, font, Component.literal(glossOf(quizResultWord)), x + 30, y + 39,
 				width - 40, Draw.GRAY);
-		Draw.label(graphics, font, quizResultCorrect ? io.github.leks2205.hangulquest.util.Tr.t("Richtig.")
-				: io.github.leks2205.hangulquest.util.Tr.t("Die richtige Antwort steht oben."),
+		Draw.label(graphics, font, quizResultCorrect ? I18n.t("hangulquest.ui.hud.correct")
+				: I18n.t("hangulquest.ui.hud.right_answer"),
 				x + 8, y + height - 12, Draw.DIM);
 	}
 
@@ -658,7 +607,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private void drawQuizPrompt(GuiGraphicsExtractor graphics, long now) {
 		var font = mc.font;
 		Component title = KoText.ko("복습");
-		Component text = Component.literal(Tr.t("Quiz bereit: %s drücken").formatted(answerKeyLabel()));
+		Component text = Component.literal(I18n.t("hangulquest.ui.hud.quiz_ready", answerKeyLabel()));
 		int width = 10 + font.width(title) + 8 + font.width(text) + 10;
 		int height = 22;
 		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
@@ -675,7 +624,7 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		Component ko = KoText.ko("답을 골라요");
 		graphics.text(font, ko, x, y, Draw.DIM, false);
-		Draw.label(graphics, font, " · " + Tr.t("Mit %s öffnen").formatted(answerKeyLabel()),
+		Draw.label(graphics, font, " · " + I18n.t("hangulquest.ui.hud.open_with", answerKeyLabel()),
 				x + font.width(ko), y, Draw.DIM);
 	}
 
@@ -686,8 +635,8 @@ public final class HudController implements QuestEngine.Feedback {
 
 	private void drawWordCard(GuiGraphicsExtractor graphics, Word word) {
 		var font = mc.font;
-		Component korean = KoText.ko(word.ko);
-		Component german = Component.literal(glossOf(word));
+		Component korean = wordCardKo;
+		Component german = wordCardDe;
 		int textWidth = Math.max(font.width(korean), font.width(german));
 		textWidth = Math.min(textWidth, 220);
 		int width = 28 + textWidth + 7;
@@ -703,14 +652,14 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.truncated(graphics, font, german, x + 27, y + 6 + font.lineHeight, width - 33, Draw.GRAY);
 	}
 
-	private void drawBanner(GuiGraphicsExtractor graphics, String ko, String de) {
+	private void drawBanner(GuiGraphicsExtractor graphics) {
 		var font = mc.font;
 		int width = Math.min(300, mc.getWindow().getGuiScaledWidth() - 12);
 		int height = 34;
 		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
 		int y = mc.getWindow().getGuiScaledHeight() - height - 70;
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.truncated(graphics, font, KoText.ko(ko), x + 8, y + 5, width - 16, Draw.GOLD);
-		Draw.truncated(graphics, font, Component.literal(de), x + 8, y + 17, width - 16, Draw.GRAY);
+		Draw.truncated(graphics, font, bannerKoText, x + 8, y + 5, width - 16, Draw.GOLD);
+		Draw.truncated(graphics, font, bannerDeText, x + 8, y + 17, width - 16, Draw.GRAY);
 	}
 }

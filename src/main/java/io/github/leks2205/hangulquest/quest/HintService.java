@@ -47,6 +47,8 @@ final class HintService {
 			track.sideQuest = SideQuest.start(word, catalog);
 			track.hintUsed = true;
 			feedback.wordCard(word);
+			// The hint shows the word: an encounter in its own context.
+			learn.expose(word, obs.now, StepCompletion.context(track, step, "hint"));
 			persistence.persist(registry, obs.now);
 			started = true;
 		}
@@ -59,10 +61,12 @@ final class HintService {
 		if (track == null || track.sideQuest == null) {
 			return false;
 		}
+		int optionCount = track.sideQuest.options().size();
 		boolean correct = track.sideQuest.answer(index);
 		Word word = track.sideQuest.word();
 		long now = System.currentTimeMillis();
-		learn.practice(word.id, correct, now);
+		// Two or three options: logged and counted, never a schedule change.
+		learn.practice(word.id, optionCount, correct, now);
 		if (track.sideQuest.isDone()) {
 			Word learned = track.sideQuest.word();
 			track.sideQuest = null;

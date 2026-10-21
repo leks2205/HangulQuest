@@ -7,11 +7,19 @@ import net.minecraft.network.chat.Style;
 
 /** Korean text always uses the bundled font; German stays on the default font. */
 public final class KoText {
+	/** The style never changes, so it is built once instead of for every Korean string drawn. */
+	private static Style style;
+
 	private KoText() {
 	}
 
 	public static Style style() {
-		return HangulQuestClient.hangul();
+		Style cached = style;
+		if (cached == null) {
+			cached = HangulQuestClient.hangul();
+			style = cached;
+		}
+		return cached;
 	}
 
 	public static MutableComponent ko(String text) {

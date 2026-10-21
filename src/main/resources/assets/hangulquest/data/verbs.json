@@ -98,12 +98,14 @@
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
+   {"family": "attachables", "verb": "HANG_DOOR"},
    {"verb": "PLACE"}
   ],
   "PLACE_ON_PATTERN": [
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
+   {"family": "attachables", "verb": "HANG_DOOR"},
    {"verb": "PLACE"}
   ],
   "BUILD_PATTERN": [{"verb": "STACK"}]

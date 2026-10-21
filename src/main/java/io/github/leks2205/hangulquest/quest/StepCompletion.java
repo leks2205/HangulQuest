@@ -2,10 +2,13 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.learn.Achievements;
+import io.github.leks2205.hangulquest.learn.ExposureLedger;
 import io.github.leks2205.hangulquest.learn.LearningSink;
 import io.github.leks2205.hangulquest.learn.ProgressData;
+import io.github.leks2205.hangulquest.quest.goal.GoalType;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.sense.Observation;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,7 @@ final class StepCompletion {
 
 	static void unlock(QuestEngine.Feedback feedback, List<Achievements.Achievement> unlocked) {
 		for (Achievements.Achievement achievement : unlocked) {
-			feedback.banner(achievement.ko(), achievement.de(), true);
+			feedback.banner(achievement.ko(), achievement.label(), true);
 			feedback.sound(true);
 		}
 	}
@@ -47,9 +50,14 @@ final class StepCompletion {
 			return;
 		}
 		boolean focused = track.trail.id().equals(registry.focusedId());
-		for (String conceptId : step.teach()) {
-			// Doing the step is an encounter, not recall: it never moves the review schedule.
-			catalog.byConceptId(conceptId).ifPresent(word -> learn.expose(word, obs.now));
+		// Doing the step is an encounter; LearningSink grades it as a recall only for a due word and an
+		// unassisted step (Good, Hard after a hint). A new word is only exposed.
+		boolean assisted = track.tracker.assisted;
+		boolean hinted = track.hintUsed;
+		for (int i = 0; i < step.teach().size(); i++) {
+			ExposureLedger.Context context = context(track, step, i == 0 ? "primary" : "secondary");
+			catalog.byConceptId(step.teach().get(i))
+					.ifPresent(word -> learn.questStep(word, obs.now, assisted, hinted, context, step.id()));
 		}
 		learn.noteQuestStepCompleted();
 		if (track.stepIndex >= track.stepCount() - 1) {
@@ -67,9 +75,22 @@ final class StepCompletion {
 			feedback.stepCompleted("좋아요!", text.clueKo(following, track.trail.koreanLevel()),
 					text.clueTranslation(following));
 		} else {
-			feedback.banner(track.trail.titleKo(), Tr.t("Ziel erreicht · ") + track.trail.title(), true);
+			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.goal_reached", track.trail.title()), true);
 		}
 		feedback.sound(true);
+	}
+
+	/** Where a word was met: goal type, verb, role in the step and trail. */
+	static ExposureLedger.Context context(Track track, QuestStep step, String role) {
+		String goalType = "";
+		String verb = "";
+		if (step.goal() != null) {
+			GoalType<Goal> type = GoalTypes.of(step.goal());
+			goalType = type.id();
+			Verb chosen = type.verb(step.goal(), VerbTable.shared());
+			verb = chosen == null ? "" : chosen.name();
+		}
+		return new ExposureLedger.Context(goalType, verb, role, track.trail.id());
 	}
 
 	private void finish(Track track, Observation obs, QuestEngine.Feedback feedback) {
@@ -95,7 +116,7 @@ final class StepCompletion {
 			feedback.sound(true);
 			advance.after(trailId, obs, feedback);
 		} else {
-			feedback.banner(track.trail.titleKo(), Tr.t("Questline geschafft · ") + track.trail.title(), true);
+			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.line_complete", track.trail.title()), true);
 			feedback.sound(true);
 		}
 	}

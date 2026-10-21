@@ -8,7 +8,6 @@ config/hangulquest/
 ├── progress.json            words, SRS levels, streak, achievements, trail state
 ├── questlines/              one JSON per trail, hot-reloaded
 │   ├── _template.json       starting point for your own trail
-│   ├── index.json           generated file list, rewritten by the build
 │   └── … 420 shipped trails
 └── vocab/
     └── lute-vocab.csv       your Lute export (optional, read-only)

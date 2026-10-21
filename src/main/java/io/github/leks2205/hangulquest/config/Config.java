@@ -35,7 +35,10 @@ public final class Config {
 	public String questTrackerCorner = "TOP_LEFT";
 	/** How many tracked quests the HUD log shows at once (the focused one always counts). */
 	public int questTrackerRows = 4;
-	/** Interface and translation language: "AUTO" (default, follows Minecraft's language), "EN" or "DE". */
+	/**
+	 * Interface and gloss language: "AUTO" (default, follows Minecraft's language) or a language code the mod
+	 * ships text for, such as "en_us" or "de_de". Older configs hold "EN" or "DE"; they are migrated on load.
+	 */
 	public String language = Lang.AUTO;
 	/** Show the English/German line under the Korean quest text. Off by default: Korean only. */
 	public boolean questTranslations = false;
@@ -60,7 +63,8 @@ public final class Config {
 		try {
 			JsonObject raw = JsonIO.readObject(file);
 			Config loaded = parse(raw);
-			if (!raw.has("language") || raw.get("language").isJsonNull()) {
+			JsonElement stored = raw.get("language");
+			if (stored == null || !stored.isJsonPrimitive() || !stored.getAsString().equals(loaded.language)) {
 				// Write the migrated value back so it survives the next start.
 				loaded.save(file);
 			}
@@ -94,7 +98,7 @@ public final class Config {
 			// Configs from before the interface language existed only knew "German in quests".
 			JsonElement legacy = raw.get("questGerman");
 			boolean wantedGerman = legacy != null && legacy.isJsonPrimitive() && legacy.getAsBoolean();
-			loaded.language = wantedGerman ? "DE" : Lang.AUTO;
+			loaded.language = wantedGerman ? Lang.DE.code() : Lang.AUTO;
 			if (wantedGerman) {
 				loaded.questTranslations = true;
 			}

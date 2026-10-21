@@ -1,6 +1,9 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.Lang;
+
 import java.util.List;
+import java.util.Map;
 
 /**
  * One learnable entry. Curated concepts, dynamically named vanilla items/entities
@@ -22,7 +25,10 @@ public final class Word {
 	public final String en;
 	/** True when {@link #en} is only a placeholder built from the German text. */
 	public final boolean untranslated;
+	/** The German gloss only; use {@link #gloss(Lang)} for text shown to the player. */
 	public final String deShort;
+	/** Glosses by language code ({@code es_es}) for languages beyond English and German; may be empty. */
+	public final Map<String, String> glosses;
 	public final Category category;
 	public final int tier;
 	public final String conceptId;
@@ -55,11 +61,19 @@ public final class Word {
 	public Word(String id, String ko, String de, String en, String deShort, Category category, int tier,
 				String conceptId, String iconItem, String entityId, String biomeId,
 				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents) {
+		this(id, ko, de, en, deShort, category, tier, conceptId, iconItem, entityId, biomeId,
+				descKo, origin, phrase, grammar, referents, null);
+	}
+
+	public Word(String id, String ko, String de, String en, String deShort, Category category, int tier,
+				String conceptId, String iconItem, String entityId, String biomeId,
+				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents,
+				Map<String, String> glosses) {
 		this.id = id;
 		this.ko = ko;
 		this.de = de == null ? "" : de;
 		this.untranslated = en == null || en.isBlank();
-		this.en = untranslated ? UNTRANSLATED_PREFIX + this.de : en;
+		this.en = untranslated ? (this.de.isBlank() ? "" : UNTRANSLATED_PREFIX + this.de) : en;
 		this.deShort = deShort == null || deShort.isBlank() ? this.de : deShort;
 		this.category = category == null ? Category.MISC : category;
 		this.tier = tier;
@@ -72,15 +86,28 @@ public final class Word {
 		this.origin = origin;
 		this.phrase = phrase;
 		this.grammar = grammar;
+		this.glosses = glosses == null ? Map.of() : Map.copyOf(glosses);
 	}
 
-	/** Short gloss for quizzes and cards in the given interface language. */
-	public String gloss(io.github.leks2205.hangulquest.util.Lang lang) {
-		if (lang == io.github.leks2205.hangulquest.util.Lang.DE) {
+	/**
+	 * Short gloss for quizzes and cards in the given interface language: the gloss for that language
+	 * code, else English, else German. A word without an English gloss carries the German one with a
+	 * visible marker (see the constructor).
+	 */
+	public String gloss(Lang lang) {
+		String own = glosses.get(lang.code());
+		if (own != null && !own.isBlank()) {
+			return own;
+		}
+		if (lang == Lang.DE && !deShort.isBlank()) {
 			return deShort;
 		}
-		// A word without an English gloss carries the German one with a visible marker (see the constructor).
-		return en;
+		return en.isBlank() ? deShort : en;
+	}
+
+	/** Like {@link #gloss(Lang)}, but with the long German text where the German gloss is shown. */
+	public String glossFull(Lang lang) {
+		return lang == Lang.DE && !de.isBlank() && !glosses.containsKey(lang.code()) ? de : gloss(lang);
 	}
 
 	public boolean hasDescKo() {
@@ -94,6 +121,6 @@ public final class Word {
 
 	@Override
 	public String toString() {
-		return id + "(" + ko + "/" + deShort + ")";
+		return id + "(" + ko + "/" + (deShort.isBlank() ? en : deShort) + ")";
 	}
 }

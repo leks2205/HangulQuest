@@ -5,10 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Whole progress document (schema v3: learning + quests + vocabulary import info + install metadata). */
+/** Whole progress document (schema v4: learning + quests + vocabulary import info + install metadata). */
 public final class ProgressData {
 	/** Highest schema this build reads and writes; a file with a higher version is opened read-only. */
-	public static final int CURRENT_VERSION = 3;
+	public static final int CURRENT_VERSION = 4;
 
 	public int version = CURRENT_VERSION;
 	public Map<String, WordProgress> words = new LinkedHashMap<>();

@@ -74,8 +74,8 @@ jobs:
           jar="$(ls build/libs/hangulquest-*.jar | head -n 1)"
           echo "built: $jar"
           unzip -l "$jar" | tail -n 5
-          # The files on disk are the source of truth: the source index, the jar's index and the
-          # jar's contents must all list exactly those files (no hand-edited minimum count).
+          # The files on disk are the source of truth: the jar must contain exactly those
+          # questline files (the game lists the folder, there is no index), with unique ids.
           python3 tools/check_questline_index.py --jar "$jar"
 
   content:

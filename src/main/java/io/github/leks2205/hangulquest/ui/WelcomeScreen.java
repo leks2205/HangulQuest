@@ -5,7 +5,7 @@ import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.config.WelcomePolicy;
 import io.github.leks2205.hangulquest.data.HangulResources;
 import io.github.leks2205.hangulquest.util.Lang;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
@@ -70,10 +70,7 @@ public final class WelcomeScreen extends Screen {
 	protected void init() {
 		panelWidth = Math.min(380, this.width - 16);
 		int inner = panelWidth - 2 * PAD;
-		bodyLines = this.font.split(Component.literal(Tr.t(
-				"Hangul Quest geht davon aus, dass du Hangul, das koreanische Alphabet, schon lesen kannst. "
-						+ "Es lehrt Wörter und Grammatik, nicht das Alphabet. "
-						+ "Die meisten lernen Hangul in ein paar Stunden.")), inner);
+		bodyLines = this.font.split(Component.literal(I18n.t("hangulquest.ui.welcome.body")), inner);
 
 		int fixed = PAD + 12 + 6 + bodyLines.size() * (this.font.lineHeight + 1) + 8 + 30 + 8
 				+ BUTTON + 4 + BUTTON + 8 + BUTTON + PAD;
@@ -97,12 +94,12 @@ public final class WelcomeScreen extends Screen {
 		y += 30 + 8;
 
 		int x = left + PAD;
-		addRenderableWidget(Button.builder(Component.literal(Tr.t("Ich kann es lesen, los geht's")), button -> {
+		addRenderableWidget(Button.builder(Component.literal(I18n.t("hangulquest.ui.welcome.yes")), button -> {
 			WelcomePolicy.confirmed(config());
 			onClose();
 		}).bounds(x, y, inner, BUTTON).build());
 		y += BUTTON + 4;
-		addRenderableWidget(Button.builder(Component.literal(Tr.t("Noch nicht, wo kann ich es lernen?")), button -> {
+		addRenderableWidget(Button.builder(Component.literal(I18n.t("hangulquest.ui.welcome.not_yet")), button -> {
 			expanded = !expanded;
 			scroll = 0;
 			rebuildWidgets();
@@ -124,14 +121,14 @@ public final class WelcomeScreen extends Screen {
 		y += 8;
 		if (!manual && config() != null && WelcomePolicy.canRemindLater(config())) {
 			int half = (inner - 4) / 2;
-			addRenderableWidget(Button.builder(Component.literal(Tr.t("Später erinnern")), button -> onClose())
+			addRenderableWidget(Button.builder(Component.literal(I18n.t("hangulquest.ui.welcome.later")), button -> onClose())
 					.bounds(x, y, half, BUTTON).build());
-			addRenderableWidget(Button.builder(Component.literal(Tr.t("Nicht mehr anzeigen")), button -> {
+			addRenderableWidget(Button.builder(Component.literal(I18n.t("hangulquest.ui.welcome.never")), button -> {
 				WelcomePolicy.dismissedForGood(config());
 				onClose();
 			}).bounds(x + half + 4, y, inner - half - 4, BUTTON).build());
 		} else {
-			addRenderableWidget(Button.builder(Component.literal(Tr.t("Nicht mehr anzeigen")), button -> {
+			addRenderableWidget(Button.builder(Component.literal(I18n.t("hangulquest.ui.welcome.never")), button -> {
 				WelcomePolicy.dismissedForGood(config());
 				onClose();
 			}).bounds(x, y, inner, BUTTON).build());
@@ -185,7 +182,7 @@ public final class WelcomeScreen extends Screen {
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
 		Draw.panel(graphics, left, top, panelWidth, panelHeight, 0);
-		Draw.label(graphics, this.font, Tr.t("Willkommen bei Hangul Quest"), left + PAD, titleY, Draw.GOLD);
+		Draw.label(graphics, this.font, I18n.t("hangulquest.ui.welcome.title"), left + PAD, titleY, Draw.GOLD);
 		int y = bodyY;
 		for (FormattedCharSequence line : bodyLines) {
 			graphics.text(this.font, line, left + PAD, y, Draw.WHITE, false);
@@ -198,13 +195,13 @@ public final class WelcomeScreen extends Screen {
 		Component sentence = KoText.ko(CHECK_SENTENCE);
 		graphics.text(this.font, sentence, left + (panelWidth - this.font.width(sentence)) / 2, checkY + 5,
 				Draw.WHITE, false);
-		String caption = Tr.t("Kannst du das lesen?");
+		String caption = I18n.t("hangulquest.ui.welcome.caption");
 		graphics.text(this.font, Component.literal(caption),
 				left + (panelWidth - this.font.width(caption)) / 2, checkY + 18, Draw.GRAY, false);
 
 		if (expanded) {
 			Draw.truncated(graphics, this.font,
-					Component.literal(Tr.t("Kostenlos Hangul lernen (öffnet deinen Browser)")),
+					Component.literal(I18n.t("hangulquest.ui.welcome.free_resources")),
 					left + PAD, listHeaderY, inner, Draw.GRAY);
 		}
 		super.extractRenderState(graphics, mouseX, mouseY, delta);

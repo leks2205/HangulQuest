@@ -43,7 +43,7 @@ class SpatialSentencesTest {
 				String[] cells = text.split("\t", -1);
 				Goal goal = GoalTypes.parse(JsonParser.parseString(cells[3]).getAsJsonObject());
 				assertTrue(goal != null, "line " + line + ": unknown goal " + cells[3]);
-				List<String> grammar = cells[5].isBlank() ? List.of() : List.of(cells[5].split(","));
+				List<String> grammar = cells[5].isBlank() ? List.of() : List.of(cells[5].split(";"));
 				rows.add(new Row(line, cells[0], Integer.parseInt(cells[1]), cells[2].equals("1"), goal, cells[4],
 						grammar));
 			}
@@ -109,16 +109,37 @@ class SpatialSentencesTest {
 	}
 
 	@Test
-	void everyClueReportsItsGrammarPoints() {
-		int checked = 0;
+	void everySentenceReportsItsGrammarPoints() {
 		for (Row row : gold()) {
-			if (row.kind().equals("clue") || row.kind().equals("finale")) {
-				assertEquals(row.grammar(), SpatialSentences.grammarPoints(row.goal()),
-						"line " + row.line() + ": " + row.expected());
-				checked++;
+			List<Condition> conditions = row.night() ? List.of(new Condition.Time(Condition.Phase.NIGHT)) : List.of();
+			boolean hint = row.kind().equals("hint");
+			assertEquals(row.grammar(), SpatialSentences.grammarPoints(row.goal(), conditions,
+					hint ? 1 : row.level(), !hint, row.kind().equals("ceremony")),
+					"line " + row.line() + ": " + row.expected());
+		}
+	}
+
+	@Test
+	void everyReportedGrammarIdIsInTheLadder() throws IOException {
+		Set<String> ladder = new java.util.HashSet<>();
+		try (InputStream stream = SpatialSentencesTest.class.getResourceAsStream("/assets/hangulquest/data/grammar.json")) {
+			for (var element : JsonParser.parseString(new String(stream.readAllBytes(), StandardCharsets.UTF_8))
+					.getAsJsonObject().getAsJsonArray("constructions")) {
+				ladder.add(element.getAsJsonObject().get("id").getAsString());
 			}
 		}
-		assertTrue(checked >= 30, "checked " + checked);
+		for (Row row : gold()) {
+			for (String id : row.grammar()) {
+				assertTrue(ladder.contains(id), "line " + row.line() + ": " + id + " is not in grammar.json");
+			}
+		}
+		for (Relation relation : Relation.values()) {
+			for (Role role : Role.values()) {
+				for (String id : relation.grammarIds(role)) {
+					assertTrue(ladder.contains(id), relation + " " + role + ": " + id);
+				}
+			}
+		}
 	}
 
 	@Test
@@ -138,10 +159,11 @@ class SpatialSentencesTest {
 
 	@Test
 	void theGrammarIdsFollowTheRole() {
-		assertEquals("L1.loc_wi_e", Relation.ON_TOP_OF.grammarId(Role.TARGET));
-		assertEquals("L1.loc_wi_eseo", Relation.ON_TOP_OF.grammarId(Role.ACTIVITY_PLACE));
-		assertEquals("L2.sai", Relation.BETWEEN.grammarId(Role.TARGET));
-		assertEquals("L2.sai_eseo", Relation.BETWEEN.grammarId(Role.ACTIVITY_PLACE));
+		assertEquals(List.of("L1.loc_wi_e"), Relation.ON_TOP_OF.grammarIds(Role.TARGET));
+		assertEquals(List.of("L1.loc_wi_e", "L2.eseo_activity"), Relation.ON_TOP_OF.grammarIds(Role.ACTIVITY_PLACE));
+		assertEquals(List.of("L2.loc_sai_e"), Relation.BETWEEN.grammarIds(Role.TARGET));
+		assertEquals(List.of(), Relation.NEAR.grammarIds(Role.TARGET), "근처 has no entry in the ladder");
+		assertEquals(List.of("L2.eseo_activity"), Relation.NEAR.grammarIds(Role.ACTIVITY_PLACE));
 	}
 
 	@Test
@@ -183,5 +205,45 @@ class SpatialSentencesTest {
 		// the default namer knows nothing: the anchor falls back to a neutral word instead of failing
 		Goal goal = new Goal.PlaceRel("minecraft:torch", Relation.NEXT_TO, "minecraft:chest", 1);
 		assertTrue(SentenceBuilder.normal(goal, null, List.of(), 1).startsWith("그것 옆에 "));
+	}
+
+	/**
+	 * The shared task-sentence table (task-sentences-gold.tsv): every one-anchor placement row whose
+	 * objects are plain blocks must come out exactly as the table says (the lever is left out: the table says
+	 * 달아요 beside a door but 놓아요 on a stone, which no object-based verb rule can do).
+	 */
+	@Test
+	void theSharedTaskSentenceTableAgrees() throws IOException {
+		java.util.Map<String, String> block = new java.util.HashMap<>();
+		for (String id : new String[]{"torch", "chest", "furnace", "crafting_table", "stone", "hay_block", "ladder",
+				"apple", "pumpkin", "bell", "painting", "oak_door"}) {
+			block.put(id, "minecraft:" + id);
+		}
+		block.put("#beds", "#minecraft:beds");
+		block.put("#doors", "#minecraft:doors");
+		List<String> wrong = new ArrayList<>();
+		int checked = 0;
+		try (InputStream stream = SpatialSentencesTest.class.getResourceAsStream("/task-sentences-gold.tsv")) {
+			for (String line : new String(stream.readAllBytes(), StandardCharsets.UTF_8).split("\n")) {
+				String[] c = line.split("\t", -1);
+				if (c.length < 8 || !c[0].equals("PLACE_RELATIVE") || !c[4].equals("TARGET") || !c[5].equals("1")) {
+					continue;
+				}
+				String object = c[1].replaceAll(" x\\d+$", "");
+				int count = c[1].matches(".* x\\d+") ? Integer.parseInt(c[1].replaceAll(".* x", "")) : 1;
+				if (!block.containsKey(object) || !block.containsKey(c[3]) || c[2].equals("INSIDE")
+						|| c[2].equals("OUTSIDE") && !c[3].equals("#doors") || c[7].contains("e_time")) {
+					continue;
+				}
+				Goal goal = new Goal.PlaceRel(block.get(object), Relation.valueOf(c[2]), block.get(c[3]), count);
+				String actual = SentenceBuilder.normal(goal, null, List.of(), 1, false, NAMER);
+				checked++;
+				if (!actual.equals(c[6] + ".")) {
+					wrong.add(c[6] + " | generated " + actual);
+				}
+			}
+		}
+		assertTrue(checked >= 20, "only " + checked + " rows compared");
+		assertTrue(wrong.isEmpty(), String.join("\n", wrong));
 	}
 }

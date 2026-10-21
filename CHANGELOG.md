@@ -22,6 +22,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 ### Changed
 
 - `progress.json` is written as compact JSON; it is about a third smaller.
+- Interface text now lives in lang keys (`hangulquest.ui.*` in `lang/en_us.json` and `lang/de_de.json`) and is
+  resolved by the mod itself, so the interface language can differ from the game language. A key a language lacks
+  falls back to English, never German. `util/Tr` stays one release as a deprecated shim.
+- The language setting in `config.json` is now `AUTO` or a language code (`en_us`, `de_de`); old `EN`/`DE`
+  values are migrated on load.
+- Vanilla items and entities become vocabulary from the Korean name alone. `de_de` is no longer required, and
+  the glosses come from English and the language file of the player's interface language.
 
 ## [2.1.0] — 2026-10-20
 

@@ -2,6 +2,8 @@ package io.github.leks2205.hangulquest.quest.spatial;
 
 import io.github.leks2205.hangulquest.util.Lang;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -17,7 +19,7 @@ public enum Relation {
 	INSIDE("안", "inside", "drinnen", "an", 1, false),
 	OUTSIDE("밖", "outside", "draußen", "bak", 1, false),
 	BETWEEN("사이", "between", "dazwischen", "sai", 2, false),
-	NEAR("근처", "near", "in der Nähe", "geuncheo", 2, false);
+	NEAR("근처", "near", "in der Nähe", null, 2, false);
 
 	private final String ko;
 	private final String en;
@@ -51,15 +53,23 @@ public enum Relation {
 	}
 
 	/**
-	 * The grammar-point id of this location noun with its particle, e.g. {@code L1.loc_wi_e} (위에) or
-	 * {@code L1.loc_wi_eseo} (위에서). 사이 and 근처 have no 'loc_' prefix: {@code L2.sai}.
+	 * The grammar-point id of this location noun with 에, e.g. {@code L1.loc_wi_e} (위에) or
+	 * {@code L2.loc_sai_e} (사이에); null for 근처, which has no entry in grammar.json.
 	 */
-	public String grammarId(Role role) {
-		String base = grammarLevel == 1 ? "L1.loc_" + slug : "L2." + slug;
-		return switch (role) {
-			case TARGET -> grammarLevel == 1 ? base + "_e" : base;
-			case ACTIVITY_PLACE -> base + "_eseo";
-		};
+	public String grammarId() {
+		return slug == null ? null : (grammarLevel == 1 ? "L1.loc_" : "L2.loc_") + slug + "_e";
+	}
+
+	/** The ids a phrase with this place word practises: the noun, plus 에서 when the role is an activity place. */
+	public List<String> grammarIds(Role role) {
+		List<String> ids = new ArrayList<>(2);
+		if (grammarId() != null) {
+			ids.add(grammarId());
+		}
+		if (role == Role.ACTIVITY_PLACE) {
+			ids.add("L2.eseo_activity");
+		}
+		return ids;
 	}
 
 	public static Relation byId(String id, Relation fallback) {

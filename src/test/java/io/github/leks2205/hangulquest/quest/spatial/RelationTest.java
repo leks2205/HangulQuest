@@ -302,13 +302,11 @@ class RelationTest {
 			assertEquals(expected[i], all[i].ko());
 			assertFalse(all[i].gloss(Lang.EN).isBlank());
 			assertFalse(all[i].gloss(Lang.DE).isBlank());
-			assertTrue(all[i].grammarId(Role.TARGET).matches("L[12]\\.[a-z_]+"), all[i].grammarId(Role.TARGET));
-			assertFalse(all[i].grammarId(Role.TARGET).equals(all[i].grammarId(Role.ACTIVITY_PLACE)));
+			assertTrue(all[i] == Relation.NEAR || all[i].grammarId().matches("L[12]\\.loc_[a-z]+_e"), all[i].grammarId());
 		}
-		assertEquals("L1.loc_wi_e", Relation.ON_TOP_OF.grammarId(Role.TARGET));
-		assertEquals("L1.loc_yeop_e", Relation.NEXT_TO.grammarId(Role.TARGET));
-		assertEquals("L2.sai", Relation.BETWEEN.grammarId(Role.TARGET));
-		assertEquals("L1.loc_wi_eseo", Relation.ON_TOP_OF.grammarId(Role.ACTIVITY_PLACE));
+		assertEquals("L1.loc_wi_e", Relation.ON_TOP_OF.grammarId());
+		assertEquals("L1.loc_yeop_e", Relation.NEXT_TO.grammarId());
+		assertEquals("L2.loc_sai_e", Relation.BETWEEN.grammarId());
 		assertTrue(Relation.IN_FRONT_OF.needsFacing() && Relation.BEHIND.needsFacing());
 		assertFalse(Relation.NEXT_TO.needsFacing());
 		assertEquals(Relation.UNDER, Relation.byId("under", null));

@@ -1,0 +1,268 @@
+{
+ "schema": 1,
+ "comment": "Which Korean counter fits which noun, plus the number words. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way verbs.json does, so the table can be tested without a loaded registry. Rules are tried top to bottom; the first rule whose family matches wins; the last rule without a family is the default (개). A rule with counter null means: do not generate a counted sentence for this noun until a native has decided. Counters are used with native numerals (한 개, 두 마리); Sino-Korean numbers go with units (십 초). Be conservative: when unsure, 개 for things and no count for people-like mobs. Draft awaiting native sign-off.",
+ "counters": {
+  "gae": {
+   "counter": "개",
+   "for": "most objects, blocks and items (the safe default)",
+   "example": "횃불 두 개",
+   "gloss": "two torches",
+   "grammar": "L1.counter_gae"
+  },
+  "mari": {
+   "counter": "마리",
+   "for": "animals, fish and mobs",
+   "example": "소 세 마리",
+   "gloss": "three cows",
+   "grammar": "L1.counter_mari"
+  },
+  "myeong": {
+   "counter": "명",
+   "for": "people and villagers",
+   "example": "주민 세 명",
+   "gloss": "three villagers",
+   "grammar": "L2.counter_more"
+  },
+  "songi": {
+   "counter": "송이",
+   "for": "flowers (one bloom)",
+   "example": "꽃 두 송이",
+   "gloss": "two flowers",
+   "grammar": "L2.counter_more"
+  },
+  "geuru": {
+   "counter": "그루",
+   "for": "trees and saplings",
+   "example": "참나무 묘목 두 그루",
+   "gloss": "two oak saplings",
+   "grammar": "L2.counter_more"
+  },
+  "jang": {
+   "counter": "장",
+   "for": "flat sheets: maps, paper, paintings, carpets, banners, music discs",
+   "example": "지도 한 장",
+   "gloss": "one map",
+   "grammar": "L2.counter_more"
+  },
+  "gwon": {"counter": "권", "for": "books", "example": "책 세 권", "gloss": "three books", "grammar": "L2.counter_more"},
+  "byeong": {
+   "counter": "병",
+   "for": "bottled liquids such as potions",
+   "example": "물약 두 병",
+   "gloss": "two potions",
+   "grammar": "L2.counter_more"
+  },
+  "jan": {
+   "counter": "잔",
+   "for": "a drink in a cup or glass (words only, no vanilla item)",
+   "example": "물 한 잔",
+   "gloss": "a glass of water",
+   "grammar": "L2.counter_more"
+  },
+  "geureut": {
+   "counter": "그릇",
+   "for": "a bowl of food such as stew or soup",
+   "example": "버섯 스튜 한 그릇",
+   "gloss": "a bowl of mushroom stew",
+   "grammar": "L2.counter_more"
+  },
+  "jaru": {
+   "counter": "자루",
+   "for": "long-handled tools and swords",
+   "example": "철 검 한 자루",
+   "gloss": "one iron sword",
+   "grammar": "L2.counter_more"
+  },
+  "beol": {
+   "counter": "벌",
+   "for": "a set of clothes or armour (words only)",
+   "example": "갑옷 한 벌",
+   "gloss": "a suit of armour",
+   "grammar": "L2.counter_more"
+  },
+  "kyeolle": {
+   "counter": "켤레",
+   "for": "pairs of footwear",
+   "example": "철 부츠 한 켤레",
+   "gloss": "a pair of iron boots",
+   "grammar": "L2.counter_more"
+  },
+  "chae": {
+   "counter": "채",
+   "for": "houses and buildings (words only)",
+   "example": "집 두 채",
+   "gloss": "two houses",
+   "grammar": "L2.counter_more"
+  },
+  "cheok": {
+   "counter": "척",
+   "for": "boats and ships (extra)",
+   "example": "참나무 보트 한 척",
+   "gloss": "one oak boat",
+   "grammar": "L2.counter_more"
+  },
+  "dae": {
+   "counter": "대",
+   "for": "carts and vehicles (extra)",
+   "example": "광산 수레 한 대",
+   "gloss": "one minecart",
+   "grammar": "L2.counter_more"
+  }
+ },
+ "families": {
+  "people": ["villager", "wandering_trader", "player"],
+  "illagers": ["pillager", "vindicator", "evoker", "illusioner"],
+  "animals_and_mobs": [
+   "cow", "mooshroom", "pig", "sheep", "chicken", "horse", "donkey", "mule", "*_horse", "llama", "trader_llama", "cat",
+   "ocelot", "wolf", "fox", "rabbit", "parrot", "turtle", "panda", "polar_bear", "bee", "bat", "frog", "tadpole",
+   "axolotl", "goat", "camel", "armadillo", "sniffer", "strider", "squid", "glow_squid", "dolphin", "allay",
+   "iron_golem", "snow_golem", "copper_golem", "cod", "salmon", "tropical_fish", "pufferfish", "cooked_cod",
+   "cooked_salmon", "zombie", "zombie_villager", "husk", "drowned", "skeleton", "stray", "bogged", "wither_skeleton",
+   "creeper", "spider", "cave_spider", "enderman", "endermite", "silverfish", "witch", "slime", "magma_cube", "ghast",
+   "blaze", "phantom", "guardian", "elder_guardian", "shulker", "vex", "ravager", "hoglin", "zoglin", "piglin",
+   "piglin_brute", "zombified_piglin", "warden", "breeze", "creaking", "wither", "ender_dragon"
+  ],
+  "flowers": [
+   "dandelion", "golden_dandelion", "poppy", "blue_orchid", "allium", "azure_bluet", "red_tulip", "orange_tulip",
+   "white_tulip", "pink_tulip", "oxeye_daisy", "cornflower", "lily_of_the_valley", "torchflower", "sunflower", "lilac",
+   "rose_bush", "peony", "pitcher_plant", "wildflowers", "wither_rose", "closed_eyeblossom", "open_eyeblossom",
+   "spore_blossom", "cactus_flower"
+  ],
+  "saplings": ["*_sapling", "*_propagule", "azalea", "flowering_azalea"],
+  "moss_floor": ["moss_carpet", "pale_moss_carpet"],
+  "flat_sheets": ["paper", "map", "filled_map", "painting", "*_carpet", "*_banner", "music_disc_*"],
+  "books": ["book", "writable_book", "written_book", "enchanted_book", "knowledge_book"],
+  "bottled": ["potion", "splash_potion", "lingering_potion", "honey_bottle", "experience_bottle", "ominous_bottle", "dragon_breath"],
+  "bowls_of_food": ["mushroom_stew", "rabbit_stew", "beetroot_soup", "suspicious_stew"],
+  "long_handled": ["*_sword", "*_pickaxe", "*_axe", "*_shovel", "*_hoe", "*_spear"],
+  "footwear": ["*_boots"],
+  "boats": ["*_boat", "*_chest_boat"],
+  "carts": ["minecart", "*_minecart"]
+ },
+ "rules": [
+  {"family": "people", "counter": "명"},
+  {"family": "illagers", "counter": null},
+  {"family": "animals_and_mobs", "counter": "마리"},
+  {"family": "flowers", "counter": "송이"},
+  {"family": "saplings", "counter": "그루"},
+  {"family": "moss_floor", "counter": "개"},
+  {"family": "flat_sheets", "counter": "장"},
+  {"family": "books", "counter": "권"},
+  {"family": "bottled", "counter": "병"},
+  {"family": "bowls_of_food", "counter": "그릇"},
+  {"family": "long_handled", "counter": "자루"},
+  {"family": "footwear", "counter": "켤레"},
+  {"family": "boats", "counter": "척"},
+  {"family": "carts", "counter": "대"},
+  {"counter": "개"}
+ ],
+ "wordCounters": {
+  "주민": "명",
+  "사람": "명",
+  "플레이어": "명",
+  "상인": "명",
+  "소": "마리",
+  "돼지": "마리",
+  "양": "마리",
+  "닭": "마리",
+  "말": "마리",
+  "동물": "마리",
+  "몹": "마리",
+  "몬스터": "마리",
+  "좀비": "마리",
+  "크리퍼": "마리",
+  "물고기": "마리",
+  "꽃": "송이",
+  "나무": "그루",
+  "묘목": "그루",
+  "지도": "장",
+  "종이": "장",
+  "그림": "장",
+  "양탄자": "장",
+  "현수막": "장",
+  "음반": "장",
+  "책": "권",
+  "물약": "병",
+  "물": "잔",
+  "우유": "잔",
+  "스튜": "그릇",
+  "수프": "그릇",
+  "검": "자루",
+  "곡괭이": "자루",
+  "도끼": "자루",
+  "삽": "자루",
+  "괭이": "자루",
+  "갑옷": "벌",
+  "부츠": "켤레",
+  "장화": "켤레",
+  "집": "채",
+  "건물": "채",
+  "오두막": "채",
+  "보트": "척",
+  "광산 수레": "대"
+ },
+ "numerals": {
+  "native": [
+   {"n": 1, "word": "하나", "attributive": "한"},
+   {"n": 2, "word": "둘", "attributive": "두"},
+   {"n": 3, "word": "셋", "attributive": "세"},
+   {"n": 4, "word": "넷", "attributive": "네"},
+   {"n": 5, "word": "다섯", "attributive": "다섯"},
+   {"n": 6, "word": "여섯", "attributive": "여섯"},
+   {"n": 7, "word": "일곱", "attributive": "일곱"},
+   {"n": 8, "word": "여덟", "attributive": "여덟"},
+   {"n": 9, "word": "아홉", "attributive": "아홉"},
+   {"n": 10, "word": "열", "attributive": "열"},
+   {"n": 11, "word": "열하나", "attributive": "열한"},
+   {"n": 12, "word": "열둘", "attributive": "열두"},
+   {"n": 13, "word": "열셋", "attributive": "열세"},
+   {"n": 14, "word": "열넷", "attributive": "열네"},
+   {"n": 15, "word": "열다섯", "attributive": "열다섯"},
+   {"n": 16, "word": "열여섯", "attributive": "열여섯"},
+   {"n": 17, "word": "열일곱", "attributive": "열일곱"},
+   {"n": 18, "word": "열여덟", "attributive": "열여덟"},
+   {"n": 19, "word": "열아홉", "attributive": "열아홉"},
+   {"n": 20, "word": "스물", "attributive": "스무"}
+  ],
+  "nativeTens": [
+   {"n": 30, "word": "서른"},
+   {"n": 40, "word": "마흔"},
+   {"n": 50, "word": "쉰"},
+   {"n": 60, "word": "예순"},
+   {"n": 70, "word": "일흔"},
+   {"n": 80, "word": "여든"},
+   {"n": 90, "word": "아흔"}
+  ],
+  "nativeNotes": [
+   "Native numbers go with counters and stop at 99; from 100 on use Sino-Korean numbers.",
+   "Only 1, 2, 3, 4 and 20 change before a counter: 한, 두, 세, 네, 스무 (also at the end of 11-14 and 21-24: 열한 개, 스물두 개).",
+   "Compose 21-99 as tens + units: 스물하나 (21), 서른다섯 (35); before a counter 스물한 개, 서른다섯 개."
+  ],
+  "sino": {
+   "digits": ["영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"],
+   "ten": "십",
+   "hundred": "백",
+   "thousand": "천",
+   "tenThousand": "만",
+   "note": "Read digit by digit for ids and coordinates; 11 = 십일, 20 = 이십, 100 = 백 (not 일백), 1000 = 천, 10000 = 만."
+  }
+ },
+ "unitSystems": [
+  {"unit": "초", "system": "sino", "example": "십 초", "gloss": "ten seconds"},
+  {"unit": "분", "system": "sino", "example": "오 분", "gloss": "five minutes"},
+  {"unit": "시간", "system": "native", "example": "두 시간", "gloss": "two hours (duration)"},
+  {"unit": "시", "system": "native", "example": "세 시", "gloss": "three o'clock (clock hours are native)"},
+  {"unit": "일", "system": "sino", "example": "삼 일", "gloss": "three days"},
+  {"unit": "미터", "system": "sino", "example": "백 미터", "gloss": "a hundred meters"},
+  {"unit": "블록 (distance)", "system": "sino", "example": "십 블록", "gloss": "ten blocks away; as a counted object use 개"},
+  {"unit": "층", "system": "sino", "example": "삼 층", "gloss": "third floor"},
+  {"unit": "레벨", "system": "sino", "example": "레벨 삼십", "gloss": "level thirty"},
+  {"unit": "내구도", "system": "sino", "example": "내구도 백", "gloss": "durability one hundred"},
+  {"unit": "높이", "system": "sino", "example": "높이 육십", "gloss": "height (Y level) sixty"},
+  {"unit": "퍼센트", "system": "sino", "example": "오십 퍼센트", "gloss": "fifty percent"},
+  {"unit": "원", "system": "sino", "example": "오백 원", "gloss": "five hundred won"},
+  {"unit": "번", "system": "native", "example": "한 번", "gloss": "once (number of times)"},
+  {"unit": "번째", "system": "native", "example": "두 번째", "gloss": "second (ordinal)"},
+  {"unit": "살", "system": "native", "example": "스무 살", "gloss": "twenty years old"}
+ ]
+}

@@ -1,64 +1,80 @@
 package io.github.leks2205.hangulquest.quest;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystemAlreadyExistsException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Stream;
 
-/** Reads questlines from the jar (index.json lists the files). */
+/**
+ * Parses questline JSON. In the game the files come from the resource manager (see
+ * {@code QuestResources}); {@link #loadAll()} reads the same files from the classpath for tools and tests.
+ */
 public final class QuestLoader {
 	public static final String BASE = "/assets/hangulquest/data/questlines/";
 
 	private QuestLoader() {
 	}
 
+	/** The shipped trails, read from the classpath. */
 	public static List<Questline> loadAll() {
-		List<Questline> trails = new ArrayList<>();
-		for (String file : index()) {
-			try (InputStream stream = QuestLoader.class.getResourceAsStream(BASE + file)) {
-				if (stream == null) {
-					continue;
-				}
-				try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-					JsonObject object = JsonParser.parseReader(reader).getAsJsonObject();
-					Questline trail = parse(object);
-					if (trail != null) {
-						trails.add(trail);
-					}
-				}
-			} catch (Exception broken) {
-				// A broken trail must never take the client down; validation logs it later.
-				logWarn("questline " + file + " is unreadable: " + broken);
-			}
-		}
-		return trails;
+		return QuestlineStore.readShipped(classpathFiles(), org.slf4j.LoggerFactory.getLogger("hangulquest")).trails();
 	}
 
+	/** File names of the shipped trails on the classpath, sorted. */
 	public static List<String> index() {
-		List<String> files = new ArrayList<>();
-		try (InputStream stream = QuestLoader.class.getResourceAsStream(BASE + "index.json")) {
-			if (stream == null) {
+		return new ArrayList<>(classpathFiles().keySet());
+	}
+
+	/** The shipped questline files on the classpath, name to bytes, sorted by name. */
+	public static Map<String, byte[]> classpathFiles() {
+		Map<String, byte[]> files = new TreeMap<>();
+		try {
+			var url = QuestLoader.class.getResource(BASE);
+			if (url == null) {
 				return files;
 			}
-			try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-				JsonArray array = JsonParser.parseReader(reader).getAsJsonArray();
-				for (JsonElement element : array) {
-					files.add(element.getAsString());
-				}
+			URI uri = url.toURI();
+			if ("file".equals(uri.getScheme())) {
+				collect(Path.of(uri), files);
+			} else {
+				collectFromJar(uri, files);
 			}
-		} catch (Exception ignored) {
-			// empty list
+		} catch (Exception broken) {
+			logWarn("could not list the shipped questlines: " + broken);
 		}
 		return files;
+	}
+
+	private static void collectFromJar(URI uri, Map<String, byte[]> files) throws IOException {
+		try (FileSystem jar = FileSystems.newFileSystem(uri, Map.of())) {
+			collect(jar.getPath(BASE), files);
+		} catch (FileSystemAlreadyExistsException shared) {
+			collect(FileSystems.getFileSystem(uri).getPath(BASE), files);
+		}
+	}
+
+	private static void collect(Path directory, Map<String, byte[]> files) throws IOException {
+		try (Stream<Path> stream = Files.list(directory)) {
+			for (Path path : (Iterable<Path>) stream::iterator) {
+				String name = path.getFileName().toString();
+				if (QuestlineStore.isTrailFile(name)) {
+					files.put(name, Files.readAllBytes(path));
+				}
+			}
+		}
 	}
 
 	public static Questline parse(JsonObject root) {
