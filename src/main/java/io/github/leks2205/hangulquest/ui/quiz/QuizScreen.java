@@ -4,6 +4,8 @@ import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.HudController;
+import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
+import io.github.leks2205.hangulquest.ui.quiz.cards.CardPainter;
 import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,6 +15,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Where quizzes, sidequest questions and the next-quest choice are answered. A screen captures the
@@ -22,15 +25,20 @@ import java.util.List;
 public final class QuizScreen extends Screen {
 	private static final int[] NUMBER_KEYS = {
 			InputConstants.KEY_1, InputConstants.KEY_2, InputConstants.KEY_3,
-			InputConstants.KEY_4, InputConstants.KEY_5};
+			InputConstants.KEY_4, InputConstants.KEY_5, InputConstants.KEY_6, InputConstants.KEY_7,
+			InputConstants.KEY_8};
 	private static final int[] NUMPAD_KEYS = {
 			InputConstants.KEY_NUMPAD1, InputConstants.KEY_NUMPAD2, InputConstants.KEY_NUMPAD3,
-			InputConstants.KEY_NUMPAD4, InputConstants.KEY_NUMPAD5};
+			InputConstants.KEY_NUMPAD4, InputConstants.KEY_NUMPAD5, InputConstants.KEY_NUMPAD6,
+			InputConstants.KEY_NUMPAD7, InputConstants.KEY_NUMPAD8};
 	private static final int ROW_HEIGHT = 18;
 
 	private final HudController hud;
 	private final HangulQuestClient hq = HangulQuestClient.get();
 	private final List<int[]> rows = new ArrayList<>();
+	private final List<CardPainter.Hit> cardHits = new ArrayList<>();
+	/** The card that plays a review; it stays on screen for its retry and feedback after the answer is recorded. */
+	private Card card;
 	private QuizOutcome lastOutcome = QuizOutcome.NONE;
 	/** What is shown; read from the controller once per tick and after an answer, not once per frame. */
 	private QuizView view;
@@ -39,6 +47,7 @@ public final class QuizScreen extends Screen {
 		super(Component.literal("한글 탐험"));
 		this.hud = hud;
 		this.view = hud.quizView();
+		this.card = view == null ? null : view.card();
 	}
 
 	@Override
@@ -49,7 +58,12 @@ public final class QuizScreen extends Screen {
 	@Override
 	public void tick() {
 		view = hud.quizView();
-		if (view == null) {
+		if (card != null) {
+			// Once answered the session is idle but the card still has its retry and feedback to show.
+			if (card.finished() || (!card.answered() && (view == null || view.card() != card))) {
+				onClose();
+			}
+		} else if (view == null) {
 			onClose(); // answered, expired elsewhere or finished
 		}
 	}
@@ -74,12 +88,30 @@ public final class QuizScreen extends Screen {
 				return true;
 			}
 		}
+		if (card != null) {
+			if (event.key() == InputConstants.KEY_RETURN || event.key() == InputConstants.KEY_NUMPADENTER
+					|| event.key() == InputConstants.KEY_SPACE) {
+				cardAction(CardPainter.CONFIRM);
+				return true;
+			}
+			if (event.key() == InputConstants.KEY_BACKSPACE) {
+				cardAction(CardPainter.UNDO);
+				return true;
+			}
+		}
 		return super.keyPressed(event);
 	}
 
 	@Override
 	public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
-		if (event.button() == InputConstants.MOUSE_BUTTON_LEFT) {
+		if (event.button() == InputConstants.MOUSE_BUTTON_LEFT && card != null) {
+			for (CardPainter.Hit hit : cardHits) {
+				if (hit.contains(event.x(), event.y())) {
+					cardAction(hit.action());
+					return true;
+				}
+			}
+		} else if (event.button() == InputConstants.MOUSE_BUTTON_LEFT) {
 			for (int i = 0; i < rows.size(); i++) {
 				int[] row = rows.get(i);
 				if (event.x() >= row[0] && event.x() < row[0] + row[2]
@@ -93,6 +125,10 @@ public final class QuizScreen extends Screen {
 	}
 
 	private void choose(int index) {
+		if (card != null) {
+			cardAction(index);
+			return;
+		}
 		QuizOutcome outcome = hud.answerInScreen(index);
 		if (outcome != QuizOutcome.NONE) {
 			lastOutcome = outcome;
@@ -100,8 +136,34 @@ public final class QuizScreen extends Screen {
 		view = hud.quizView();
 	}
 
+	/** Passes an input to the card; its first attempt, if this was one, is recorded through the HUD. */
+	private void cardAction(int action) {
+		Optional<Card.Answer> given;
+		if (action == CardPainter.CONFIRM) {
+			given = card.confirm();
+		} else if (action == CardPainter.UNDO) {
+			card.undo();
+			given = Optional.empty();
+		} else {
+			given = card.choose(action);
+		}
+		given.ifPresent(answer -> {
+			QuizOutcome outcome = hud.recordCardAnswer(answer);
+			if (outcome != QuizOutcome.NONE) {
+				lastOutcome = outcome;
+			}
+		});
+		if (card.finished()) {
+			onClose();
+		}
+	}
+
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+		if (card != null) {
+			CardPainter.paint(graphics, this.font, card.view(), this.width, this.height, mouseX, mouseY, cardHits);
+			return;
+		}
 		if (view == null) {
 			return;
 		}

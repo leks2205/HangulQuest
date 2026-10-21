@@ -150,7 +150,9 @@ class LearningDaysAndResetTest {
 		clock.set("2026-10-21T20:00:00");
 		assertEquals(1, learn.streak().current(), "yesterday still counts until something is played today");
 		clock.set("2026-10-22T20:00:00");
-		assertEquals(0, learn.streak().current());
+		assertEquals(1, learn.streak().current(), "one missed day is covered by a freeze");
+		clock.set("2026-10-25T20:00:00");
+		assertEquals(0, learn.streak().current(), "four missed days are more than two freezes cover");
 	}
 
 	@Test
