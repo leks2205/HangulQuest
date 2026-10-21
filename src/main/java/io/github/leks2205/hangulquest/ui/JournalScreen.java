@@ -331,6 +331,8 @@ public final class JournalScreen extends Screen {
 			tab = 4;
 			scroll = 0;
 		});
+		yy += 26;
+		button(g, x, yy, 228, 18, Tr.t("Über das Lesen von Hangul"), false, () -> WelcomeScreen.openFromJournal(this));
 	}
 
 	private Word wordOfTheDay() {
@@ -428,9 +430,9 @@ public final class JournalScreen extends Screen {
 			yy += 22;
 		}
 		WordProgress progress = hq.learn() == null ? null : hq.learn().data().words.get(word.id);
-		String metrics = progress == null ? "noch nicht entdeckt"
-				: "gesehen " + progress.seen + " · richtig " + progress.correct + " · falsch " + progress.wrong
-				+ (progress.known ? " · bekannt" : "");
+		String metrics = progress == null ? Tr.t("noch nicht entdeckt")
+				: Tr.t("gesehen ") + progress.seen + Tr.t(" · richtig ") + progress.correct + Tr.t(" · falsch ")
+				+ progress.wrong + (progress.known ? Tr.t(" · bekannt") : "");
 		Draw.label(g, this.font, metrics, x, yy, INK_FAINT);
 		yy += 20;
 		boolean known = progress != null && progress.known;
@@ -787,7 +789,7 @@ public final class JournalScreen extends Screen {
 			boolean active = quests.isTracked(selected.id());
 			boolean focused = selected.id().equals(quests.focusedId());
 			String state = done ? Tr.t("✓ fertig") : focused ? Tr.t("▶ aktiv") : active ? Tr.t("▸ im Log")
-					: unlocked ? "○ offen" : "· gesperrt";
+					: unlocked ? Tr.t("○ offen") : Tr.t("· gesperrt");
 			int detailTop = treeBottom;
 			g.fill(x, detailTop, x + width, detailTop + 1, 0x55CBB88F);
 			String title = selected.title();

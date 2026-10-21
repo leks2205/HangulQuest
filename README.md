@@ -133,6 +133,13 @@ Hangul Quest needs **Minecraft 26.3** (Java Edition), **Fabric Loader 0.19.5 or 
 
 Every release ships a `SHA256SUMS` file; on Linux you can verify the download with `sha256sum -c SHA256SUMS`.
 
+**You need to be able to read Hangul (the Korean alphabet) first.** Hangul Quest teaches words and grammar, not the alphabet, and most people learn Hangul in a few hours. The first time you join a world, a short welcome screen asks whether you can read it and, if not, points to free lessons (open it again any time from the journal's Info tab: *About reading Hangul*):
+
+- [How to Study Korean, Unit 0](https://www.howtostudykorean.com/unit0/) (English)
+- [KoreanClass101: Learn the Korean Alphabet](https://www.koreanclass101.com/korean-alphabet) (English)
+- [Ryan Estrada: Learn to Read Korean in 15 Minutes](https://www.ryanestrada.com/learntoreadkoreanin15minutes/) (English, comic)
+- [Koreanischkurs: Einführung in Hangeul](https://koreanischkurs.com/sprache/grundlagen/koreanisches-alphabet-lernen/) (Deutsch)
+
 ## Keys
 
 All keys can be changed in **Options → Controls → Key Binds → 한글 탐험**.

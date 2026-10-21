@@ -33,7 +33,6 @@ public final class Tr {
 		put("Fällig ", "Due ");
 		put("   Serie ", "   Streak ");
 		put(" Tage (best ", " days (best ");
-		put(" gesen, ", " seen, ");
 		put("Heute ", "Today ");
 		put(" gesehen, ", " seen, ");
 		put(" richtig", " correct");
@@ -54,6 +53,10 @@ public final class Tr {
 		put("Wiederholungen erscheinen auch automatisch im Spiel.",
 				"Reviews also appear automatically in game.");
 		put("noch nicht entdeckt", "not discovered yet");
+		put("gesehen ", "seen ");
+		put(" · richtig ", " · correct ");
+		put(" · falsch ", " · wrong ");
+		put(" · bekannt", " · known");
 
 		// quest tree and journal
 		put("Quests laden…", "Loading quests…");
@@ -135,6 +138,26 @@ public final class Tr {
 
 		// adaptive trail
 		put("Der Wiederholungspfad", "The review path");
+		put("Ziel erreicht · ", "Goal reached · ");
+		put("Questline geschafft · ", "Questline complete · ");
+		put("Nebenquest geschafft: ", "Sidequest complete: ");
+		put("Questlinien neu geladen: ", "Questlines reloaded: ");
+
+		// Hangul welcome screen
+		put("Willkommen bei Hangul Quest", "Welcome to Hangul Quest");
+		put("Hangul Quest geht davon aus, dass du Hangul, das koreanische Alphabet, schon lesen kannst. "
+				+ "Es lehrt Wörter und Grammatik, nicht das Alphabet. "
+				+ "Die meisten lernen Hangul in ein paar Stunden.",
+				"Hangul Quest assumes you can already read Hangul, the Korean alphabet. "
+				+ "It teaches words and grammar, not the alphabet. "
+				+ "Most people learn Hangul in a few hours.");
+		put("Kannst du das lesen?", "Can you read this?");
+		put("Ich kann es lesen, los geht's", "I can read it, let's go");
+		put("Noch nicht, wo kann ich es lernen?", "Not yet, where can I learn it?");
+		put("Später erinnern", "Remind me later");
+		put("Nicht mehr anzeigen", "Don't show this again");
+		put("Kostenlos Hangul lernen (öffnet deinen Browser)", "Free ways to learn Hangul (opens your browser)");
+		put("Über das Lesen von Hangul", "About reading Hangul");
 	}
 
 	/** German interface text, or its English version when the interface language is English. */
@@ -146,6 +169,11 @@ public final class Tr {
 			}
 		}
 		return de;
+	}
+
+	/** True when the English interface has its own text for this key (used by the coverage test). */
+	public static boolean hasEnglish(String de) {
+		return ENGLISH.containsKey(de);
 	}
 
 	/** Same, for content that carries both languages already. */

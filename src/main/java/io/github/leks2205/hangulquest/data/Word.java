@@ -49,6 +49,14 @@ public final class Word {
 		this.grammar = grammar;
 	}
 
+	/** Short gloss for quizzes and cards in the given interface language. */
+	public String gloss(io.github.leks2205.hangulquest.util.Lang lang) {
+		if (lang == io.github.leks2205.hangulquest.util.Lang.DE) {
+			return deShort;
+		}
+		return en == null || en.isBlank() ? deShort : en;
+	}
+
 	public boolean hasDescKo() {
 		return descKo != null && !descKo.isBlank();
 	}

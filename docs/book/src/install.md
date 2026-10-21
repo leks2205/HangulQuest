@@ -12,6 +12,24 @@
 Hangul Quest is a **client** mod. Install it in your own `mods` folder, never on a server; it never
 sends a packet, so a server without it behaves exactly the same.
 
+## Before you start: reading Hangul
+
+Hangul Quest assumes you can already **read Hangul**, the Korean alphabet. It teaches words and
+grammar, not the alphabet. Most people learn Hangul in a few hours. The first time you join a world a
+short welcome screen asks whether you can read `고양이가 나무 위에 있어요.`; if you cannot yet, it
+lists free lessons. You can skip it, ask to be reminded once, or switch it off for good, and it never
+blocks a quest. Open it again any time from the journal's Info tab (*About reading Hangul*).
+
+Free ways to learn Hangul:
+
+- [How to Study Korean, Unit 0: Learn How to Read Hangul](https://www.howtostudykorean.com/unit0/) (English)
+- [KoreanClass101: Learn the Korean Alphabet (Hangul)](https://www.koreanclass101.com/korean-alphabet)
+  (English; the lessons are readable without an account, the PDF chart needs a free one)
+- [Ryan Estrada: Learn to Read Korean in 15 Minutes](https://www.ryanestrada.com/learntoreadkoreanin15minutes/)
+  (English, a short comic)
+- [Koreanischkurs: Einführung in Hangeul](https://koreanischkurs.com/sprache/grundlagen/koreanisches-alphabet-lernen/)
+  (Deutsch)
+
 ## Steps
 
 1. **Install Fabric.** Run the [Fabric installer](https://fabricmc.net/use/installer/) for Minecraft
@@ -45,7 +63,8 @@ sha256sum -c SHA256SUMS
   word, and a two-question sidequest. Finishing it brings the quest back.
 - Press `K` for the journal. The **Quests** tab shows the whole tree: what you finished, what is open
   and what the locked branches are waiting for.
-- The interface starts in English; **Optionen** → *Sprache* switches it to German (and back).
+- The interface follows your Minecraft language (German for `de_*`, English otherwise);
+  **Settings** → *Language* switches it to English or German explicitly.
 - If you want a translation line under each quest, switch on *Übersetzungen in Quests* / *Translations
   in quests* in the same tab. It is off by default: the quest itself is always Korean, so the Korean is
   what you learn to read.
