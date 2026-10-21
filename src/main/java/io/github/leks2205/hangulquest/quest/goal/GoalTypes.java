@@ -24,7 +24,11 @@ public final class GoalTypes {
 			new ReachDimensionType(),
 			new ReachHeightType(),
 			new UseBlockType(),
-			new InteractEntityType());
+			new InteractEntityType(),
+			// spatial goals (quest/spatial)
+			new PlaceRelType(),
+			new BuildPatternType(),
+			new PlaceOnPatternType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

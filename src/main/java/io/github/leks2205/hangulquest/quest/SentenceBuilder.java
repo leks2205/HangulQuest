@@ -5,7 +5,10 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
+import io.github.leks2205.hangulquest.quest.goal.NamerAware;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.spatial.Relation;
+import io.github.leks2205.hangulquest.quest.spatial.Role;
 
 import java.util.List;
 
@@ -92,8 +95,15 @@ public final class SentenceBuilder {
 	private static String core(Goal goal, Word word, boolean withCounts, int level, boolean finale,
 							   Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		return type.korean(goal, new SentenceContext(objectName(goal, word, namer),
-				type.verb(goal, VerbTable.shared()), withCounts, level, finale));
+		SentenceContext context = new SentenceContext(objectName(goal, word, namer),
+				type.verb(goal, VerbTable.shared()), withCounts, level, finale);
+		return type instanceof NamerAware<?> aware ? asGoal(aware).korean(goal, context, namer)
+				: type.korean(goal, context);
+	}
+
+	@SuppressWarnings("unchecked")
+	private static NamerAware<Goal> asGoal(NamerAware<?> aware) {
+		return (NamerAware<Goal>) aware;
 	}
 
 	/**
@@ -103,8 +113,19 @@ public final class SentenceBuilder {
 	 */
 	public static String ceremony(Goal goal, Word word, List<Condition> conditions, Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		String body = type.ceremony(goal, objectName(goal, word, namer), type.verb(goal, VerbTable.shared()));
+		String obj = objectName(goal, word, namer);
+		Verb verb = type.verb(goal, VerbTable.shared());
+		String body = type instanceof NamerAware<?> aware ? asGoal(aware).ceremony(goal, obj, verb, namer)
+				: type.ceremony(goal, obj, verb);
 		return prefix(conditions, namer) + body + ".";
+	}
+
+	/**
+	 * Anchor noun + location noun + particle: "문 옆에" (the thing goes there), "횃불 아래에서" (the
+	 * activity happens there). The particle comes from the role the place word plays in the task.
+	 */
+	public static String relationPhrase(String anchorNoun, Relation relation, Role role) {
+		return anchorNoun + " " + relation.ko() + role.particle();
 	}
 
 	/** Frame-aware object marker: 돌을, 주민과, 소에게, 침대에서. */

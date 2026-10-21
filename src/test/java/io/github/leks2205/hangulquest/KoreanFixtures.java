@@ -180,6 +180,9 @@ final class KoreanFixtures {
 			case Goal.ReachBiome g -> g.biome();
 			case Goal.ReachDimension g -> g.dimension();
 			case Goal.ReachHeight g -> null;
+			case Goal.PlaceRel g -> g.block();
+			case Goal.BuildPattern g -> g.material();
+			case Goal.PlaceOnPattern g -> g.block();
 		};
 	}
 
@@ -196,6 +199,9 @@ final class KoreanFixtures {
 		};
 		String suffix = switch (goal) {
 			case Goal.ReachHeight g -> g.minY() + ".." + g.maxY();
+			case Goal.PlaceRel g -> g.relation() + " " + g.anchor() + (g.count() > 1 ? " x" + g.count() : "");
+			case Goal.BuildPattern g -> g.pattern() + " " + g.size();
+			case Goal.PlaceOnPattern g -> g.relation() + " " + g.pattern() + " " + g.material();
 			default -> count > 0 ? "x" + count : "";
 		};
 		return goal.getClass().getSimpleName() + " " + (target == null ? "" : target + " ") + suffix;

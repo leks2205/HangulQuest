@@ -137,6 +137,38 @@
           },
           "required": ["type", "entity"],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": { "const": "PLACE_REL" },
+            "block": { "$ref": "#/definitions/resourceId" },
+            "relation": { "enum": ["ON_TOP_OF", "UNDER", "NEXT_TO", "IN_FRONT_OF", "BEHIND", "INSIDE", "OUTSIDE", "BETWEEN", "NEAR"], "description": "Where the block goes, relative to the anchor." },
+            "anchor": { "$ref": "#/definitions/resourceId" },
+            "count": { "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "block", "relation", "anchor", "count"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": { "const": "BUILD_PATTERN" },
+            "pattern": { "enum": ["PILLAR", "PYRAMID", "RING", "ROW"], "description": "The shape to build." },
+            "material": { "$ref": "#/definitions/resourceId" },
+            "size": { "type": "integer", "minimum": 2, "maximum": 4 }
+          },
+          "required": ["type", "pattern", "material"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": { "const": "PLACE_ON_PATTERN" },
+            "block": { "$ref": "#/definitions/resourceId" },
+            "relation": { "enum": ["ON_TOP_OF", "UNDER", "NEXT_TO", "IN_FRONT_OF", "BEHIND", "INSIDE", "OUTSIDE", "BETWEEN", "NEAR"], "description": "Where the block goes, relative to the structure." },
+            "pattern": { "enum": ["PILLAR", "PYRAMID", "RING", "ROW"], "description": "The shape of the structure." },
+            "material": { "$ref": "#/definitions/resourceId" }
+          },
+          "required": ["type", "block", "relation", "pattern", "material"],
+          "additionalProperties": false
         }
       ]
     },
@@ -247,6 +279,10 @@
       "description": "English title, shown when English is the interface language."
     },
     "titleDe": { "type": "string", "minLength": 1 },
+    "demo": {
+      "type": "boolean",
+      "description": "Marks a trail that shows off a new kind of task. The game ignores the flag; tools may use it."
+    },
     "topic": { "$ref": "#/definitions/koreanText" },
     "tier": { "type": "integer", "minimum": 1, "maximum": 5 },
     "order": { "type": "integer", "minimum": 0 },

@@ -93,6 +93,19 @@
   "LOOK_AT_ENTITY": [{"verb": "WATCH"}],
   "DEFEAT_ENTITY": [{"verb": "DEFEAT"}],
   "REACH_BIOME": [{"verb": "GO"}],
-  "REACH_DIMENSION": [{"verb": "GO"}]
+  "REACH_DIMENSION": [{"verb": "GO"}],
+  "PLACE_REL": [
+   {"family": "plantables", "verb": "PLANT"},
+   {"family": "carpets_and_rails", "verb": "SPREAD"},
+   {"family": "hangables", "verb": "HANG"},
+   {"verb": "PLACE"}
+  ],
+  "PLACE_ON_PATTERN": [
+   {"family": "plantables", "verb": "PLANT"},
+   {"family": "carpets_and_rails", "verb": "SPREAD"},
+   {"family": "hangables", "verb": "HANG"},
+   {"verb": "PLACE"}
+  ],
+  "BUILD_PATTERN": [{"verb": "STACK"}]
  }
 }

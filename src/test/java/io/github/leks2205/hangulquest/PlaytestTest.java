@@ -9,6 +9,7 @@ import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
+import io.github.leks2205.hangulquest.quest.spatial.SpatialWorlds;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.sense.Observation;
 import org.junit.jupiter.api.Test;
@@ -168,8 +169,16 @@ class PlaytestTest {
 			}
 			case Goal.DefeatEntity g -> obs.defeatedEntities.add(g.entity());
 			case Goal.InteractEntity g -> obs.interactedEntities.add(g.entity());
+			case Goal.PlaceRel g -> spatial(obs, g);
+			case Goal.BuildPattern g -> spatial(obs, g);
+			case Goal.PlaceOnPattern g -> spatial(obs, g);
 		}
 		return obs;
+	}
+
+	/** One placement, with the blocks around it that make the spatial goal true. */
+	private static void spatial(Observation obs, Goal goal) {
+		obs.addPlacement(SpatialWorlds.placementFor(goal, obs.phase() == Condition.Phase.NIGHT));
 	}
 
 	private static final class Feedback implements QuestEngine.Feedback {
