@@ -17,7 +17,7 @@ water	물	[물]		rule	native
 lava	용암	[용암]		rule	sino
 snow	눈	[눈]		rule	native
 ice	얼음	[어름]	liaison	rule	native
-torch	횃불	[해뿔]	tensification	lexical	native
+torch	횃불	[홰뿔]	tensification	lexical	native
 crafting_table	제작대	[제작때]	tensification	rule	sino
 furnace	화로	[화로]		rule	sino
 chest	상자	[상자]		rule	sino
@@ -142,7 +142,7 @@ cartography_table	지도 제작대	[지도 제작때]	tensification	rule	sino
 item_frame	아이템 액자	[아이템 액짜]	tensification	rule	mixed
 ink_sac	먹물 주머니	[멍물 주머니]	nasalisation	rule	native
 redstone	레드스톤	[레드스톤]		rule	loan
-redstone_torch	레드스톤 횃불	[레드스톤 해뿔]	tensification	lexical	mixed
+redstone_torch	레드스톤 횃불	[레드스톤 홰뿔]	tensification	lexical	mixed
 lever	레버	[레버]		rule	loan
 snowball	눈덩이	[눈덩이]		rule	native
 dandelion	민들레	[민들레]		rule	native
@@ -162,7 +162,7 @@ amethyst_shard	자수정 조각	[자수정 조각]		rule	mixed
 amethyst_block	자수정 블록	[자수정 블록]		rule	mixed
 height	높이	[노피]	liaison	rule	native
 bat	박쥐	[박쮜]	tensification	rule	native
-soul_torch	영혼 횃불	[영혼 해뿔]	tensification	lexical	mixed
+soul_torch	영혼 횃불	[영혼 홰뿔]	tensification	lexical	mixed
 anvil	모루	[모루]		rule	native
 soul_sand	영혼 모래	[영혼 모래]		rule	mixed
 soul_lantern	영혼 랜턴	[영혼 랜턴]		rule	mixed
@@ -249,7 +249,7 @@ adv_block_end_stone	엔드 돌	[엔드 돌]		rule	mixed
 adv_dimension_the_end	엔드	[엔드]		rule	mc_only
 adv_item_axolotl_bucket	아홀로틀이 담긴 양동이	[아홀로트리 담긴 양동이]	liaison	rule	mixed
 adv_item_golden_carrot	황금 당근	[황금 당근]		rule	mixed
-adv_block_torchflower_seeds	횃불꽃 씨앗	[해뿔꼳 씨앋]	tensification,neutralisation	lexical	native
+adv_block_torchflower_seeds	횃불꽃 씨앗	[홰뿔꼳 씨앋]	tensification,neutralisation	lexical	native
 adv_item_verdant_froglight	잔딧빛 개구리불	[잔디삗 개구리불]	tensification,neutralisation	lexical	native
 adv_item_ochre_froglight	황톳빛 개구리불	[황톧삗 개구리불]	tensification,neutralisation	rule	mixed
 adv_item_tropical_fish_bucket	열대어가 담긴 양동이	[열대어가 담긴 양동이]		rule	mixed
@@ -540,7 +540,7 @@ gen_large_amethyst_bud	큰 자수정 봉오리	[큰 자수정 봉오리]		rule	m
 gen_gray_candle	회색 초	[회색 초]		rule	native
 gen_mangrove_swamp	맹그로브 늪	[맹그로브 늡]	neutralisation	rule	mixed
 gen_waxed_exposed_chiseled_copper	밀랍칠한 약간 녹슨 조각된 구리	[밀랍칠한 약깐 녹쓴 조각뙨 구리]	tensification	rule	native
-gen_copper_torch	구리 횃불	[구리 해뿔]	tensification	lexical	native
+gen_copper_torch	구리 횃불	[구리 홰뿔]	tensification	lexical	native
 gen_donkey	당나귀	[당나귀]		rule	mixed
 gen_cracked_deepslate_bricks	금 간 심층암 벽돌	[금 간 심층암 벽똘]	tensification	rule	mixed
 gen_cyan_dye	청록색 염료	[청녹쌕 염뇨]	tensification,nasalisation	rule	sino
@@ -628,7 +628,7 @@ gen_netherite_upgrade_smithing_template	대장장이 형판	[대장장이 형판
 gen_golden_pickaxe	금 곡괭이	[금 곡꽹이]	tensification	rule	mixed
 gen_weathered_chiseled_copper	녹슨 조각된 구리	[녹쓴 조각뙨 구리]	tensification	rule	native
 gen_cyan_cushion	청록색 방석	[청녹쌕 방석]	tensification,nasalisation	rule	sino
-gen_torchflower	횃불꽃	[해뿔꼳]	tensification,neutralisation	lexical	native
+gen_torchflower	횃불꽃	[홰뿔꼳]	tensification,neutralisation	lexical	native
 gen_dark_oak_planks	짙은 참나무 판자	[지튼 참나무 판자]	liaison	rule	mixed
 gen_golden_shovel	금 삽	[금 삽]		rule	mixed
 gen_chiseled_polished_blackstone	조각된 윤나는 흑암	[조각뙨 윤나는 흐감]	liaison,tensification	rule	mixed
