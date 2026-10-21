@@ -7,7 +7,7 @@
  "order": 360,
  "concepts": [
   "gen_dark_prismarine_slab",
-  "gen_end_barrens",
+  "gen_plains",
   "gen_birch_fence",
   "gen_black_candle"
  ],
@@ -40,19 +40,19 @@
   {
    "id": "s2",
    "teach": [
-    "gen_end_barrens"
+    "gen_plains"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:end_barrens",
+    "biome": "minecraft:plains",
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche End-Kargland.",
-    "en": "Reach End Barrens."
+    "de": "Erreiche Ebene.",
+    "en": "Reach Plains."
    },
    "hint": {
-    "en": "Reach End Barrens."
+    "en": "Reach Plains."
    }
   },
   {
@@ -109,7 +109,7 @@
     "en": "Place Black Candle. At night. In a fitting biome."
    }
   },
-  "textKo": "밤에 산 지형에서 검은색 초라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 산에서 검은색 초를 놓았어요.",
   "textDe": "Schwarze Kerze — Zeremonie vollendet.",
   "textEn": "By night In the mountains the ritual of Black Candle is complete."
  },

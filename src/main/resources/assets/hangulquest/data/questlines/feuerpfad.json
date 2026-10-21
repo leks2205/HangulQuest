@@ -9,7 +9,7 @@
  "concepts": [
   "gen_horn_coral",
   "gen_dark_oak_trapdoor",
-  "adv_item_ancient_debris"
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -58,11 +58,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ancient_debris"
+    "campfire"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:ancient_debris",
+    "block": "minecraft:campfire",
     "count": 1
    },
    "conditions": [
@@ -72,16 +72,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere Antiker Schrott. Nachts.",
-    "en": "Place Ancient Debris. At night."
+    "de": "Platziere Lagerfeuer. Nachts.",
+    "en": "Place Campfire. At night."
    },
    "hint": {
-    "en": "Place Ancient Debris. At night."
+    "en": "Place Campfire. At night."
    }
   },
-  "textKo": "밤에 고대 잔해라는 길의 의식을 마쳤어요.",
-  "textDe": "Antiker Schrott — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Ancient Debris is complete."
+  "textKo": "밤에 모닥불을 피웠어요.",
+  "textDe": "Lagerfeuer — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Campfire is complete."
  },
  "reward": {
   "badge": "feuerpfad",

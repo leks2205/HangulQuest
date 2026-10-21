@@ -7,7 +7,7 @@
  "order": 502,
  "concepts": [
   "gen_cinnabar_brick_stairs",
-  "gen_frogspawn",
+  "cake",
   "fox",
   "gen_glow_berries"
  ],
@@ -40,19 +40,19 @@
   {
    "id": "s2",
    "teach": [
-    "gen_frogspawn"
+    "cake"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:frogspawn",
-    "count": 2
+    "block": "minecraft:cake",
+    "count": 1
    },
    "clue": {
-    "de": "Platziere 2× Froschlaich.",
-    "en": "Place 2× Frogspawn."
+    "de": "Platziere Kuchen.",
+    "en": "Place Cake."
    },
    "hint": {
-    "en": "Place 2× Frogspawn."
+    "en": "Place Cake."
    }
   },
   {
@@ -99,7 +99,7 @@
     "en": "Eat Glow Berries. At night."
    }
   },
-  "textKo": "밤에 발광 열매라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 발광 열매를 먹었어요.",
   "textDe": "Leuchtbeeren — Zeremonie vollendet.",
   "textEn": "By night the ritual of Glow Berries is complete."
  },

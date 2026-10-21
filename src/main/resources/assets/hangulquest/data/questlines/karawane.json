@@ -8,7 +8,7 @@
  "concepts": [
   "gen_sniffer",
   "gen_polished_diorite_stairs",
-  "gen_test_block",
+  "adv_item_lead",
   "gen_jungle_slab"
  ],
  "requires": {
@@ -60,19 +60,19 @@
   {
    "id": "s3",
    "teach": [
-    "gen_test_block"
+    "adv_item_lead"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:test_block",
+    "item": "minecraft:lead",
     "count": 3
    },
    "clue": {
-    "de": "Sammle 3× Testblock.",
-    "en": "Collect 3× Test Block."
+    "de": "Sammle 3× Leine.",
+    "en": "Collect 3× Lead."
    },
    "hint": {
-    "en": "Collect 3× Test Block."
+    "en": "Collect 3× Lead."
    }
   }
  ],
@@ -101,7 +101,7 @@
     "en": "Place 3× Jungle Slab. During the day."
    }
   },
-  "textKo": "낮에 정글나무 반 블록라는 길의 의식을 마쳤어요.",
+  "textKo": "낮에 정글나무 반 블록을 세 개 놓았어요.",
   "textDe": "Tropenholzstufe — Zeremonie vollendet.",
   "textEn": "By day the ritual of Jungle Slab is complete."
  },

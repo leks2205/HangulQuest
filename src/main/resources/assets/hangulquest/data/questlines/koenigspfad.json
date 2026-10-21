@@ -9,7 +9,7 @@
   "gen_cinnabar_stairs",
   "gen_beetroot",
   "gen_terracotta",
-  "gen_test_block"
+  "gen_red_carpet"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -80,11 +80,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_test_block"
+    "gen_red_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:test_block",
+    "block": "minecraft:red_carpet",
     "count": 3
    },
    "conditions": [
@@ -94,16 +94,16 @@
     }
    ],
    "clue": {
-    "de": "Platziere 3× Testblock. Nachts.",
-    "en": "Place 3× Test Block. At night."
+    "de": "Platziere 3× Roter Teppich. Nachts.",
+    "en": "Place 3× Red Carpet. At night."
    },
    "hint": {
-    "en": "Place 3× Test Block. At night."
+    "en": "Place 3× Red Carpet. At night."
    }
   },
-  "textKo": "밤에 테스트 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Testblock — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Test Block is complete."
+  "textKo": "밤에 빨간색 양탄자를 세 개 깔았어요.",
+  "textDe": "Roter Teppich — Zeremonie vollendet.",
+  "textEn": "By night the ritual of Red Carpet is complete."
  },
  "reward": {
   "badge": "koenigspfad",

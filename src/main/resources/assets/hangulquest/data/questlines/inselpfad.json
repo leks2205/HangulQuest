@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 136,
  "concepts": [
-  "gen_crimson_forest",
+  "beach",
   "sand",
   "gen_stripped_cherry_wood",
   "gen_pale_moss_block"
@@ -24,19 +24,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_forest"
+    "beach"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:crimson_forest",
+    "biome": "minecraft:beach",
     "dwellMs": 1000
    },
    "clue": {
-    "de": "Erreiche Karmesinwald.",
-    "en": "Reach Crimson Forest."
+    "de": "Erreiche Strand.",
+    "en": "Reach Beach."
    },
    "hint": {
-    "en": "Reach Crimson Forest."
+    "en": "Reach Beach."
    }
   },
   {
@@ -101,7 +101,7 @@
     "en": "Place 2× Pale Moss Block. At night."
    }
   },
-  "textKo": "밤에 창백한 이끼 블록라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 창백한 이끼 블록을 두 개 쌓았어요.",
   "textDe": "Blassmoosblock — Zeremonie vollendet.",
   "textEn": "By night the ritual of Pale Moss Block is complete."
  },

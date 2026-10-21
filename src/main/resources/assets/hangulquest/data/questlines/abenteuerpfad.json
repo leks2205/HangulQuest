@@ -7,7 +7,7 @@
  "concepts": [
   "gen_music_disc_creator_music_box",
   "obsidian",
-  "nether",
+  "desert",
   "gen_weathered_copper_lantern"
  ],
  "requires": {
@@ -58,18 +58,19 @@
   {
    "id": "s3",
    "teach": [
-    "nether"
+    "desert"
    ],
    "goal": {
-    "type": "REACH_DIMENSION",
-    "dimension": "minecraft:the_nether"
+    "type": "REACH_BIOME",
+    "biome": "minecraft:desert",
+    "dwellMs": 1000
    },
    "clue": {
-    "de": "Geh in die Welt des Feuers.",
-    "en": "Enter minecraft:the_nether."
+    "de": "Erreiche Wüste.",
+    "en": "Reach Desert."
    },
    "hint": {
-    "en": "Enter minecraft:the_nether."
+    "en": "Reach Desert."
    }
   }
  ],
@@ -86,28 +87,28 @@
    },
    "conditions": [
     {
-     "type": "IN_DIMENSION",
-     "dimension": "minecraft:the_nether"
+     "type": "TIME",
+     "phase": "NIGHT"
     }
    ],
    "clue": {
-    "de": "Platziere Verwitterte Kupferlaterne. In einer anderen Dimension.",
-    "en": "Place Weathered Copper Lantern. In another dimension."
+    "de": "Platziere Verwitterte Kupferlaterne. Nachts.",
+    "en": "Place Weathered Copper Lantern. At night."
    },
    "hint": {
-    "en": "Place Weathered Copper Lantern. In another dimension."
+    "en": "Place Weathered Copper Lantern. At night."
    }
   },
-  "textKo": "지옥에서 녹슨 구리 랜턴라는 길의 의식을 마쳤어요.",
+  "textKo": "밤에 녹슨 구리 랜턴을 놓았어요.",
   "textDe": "Verwitterte Kupferlaterne — Zeremonie vollendet.",
-  "textEn": "In the Nether the ritual of Weathered Copper Lantern is complete."
+  "textEn": "By night the ritual of Weathered Copper Lantern is complete."
  },
  "reward": {
   "badge": "abenteuerpfad",
   "words": [
    "diamond",
    "obsidian",
-   "nether",
+   "desert",
    "torch"
   ]
  },

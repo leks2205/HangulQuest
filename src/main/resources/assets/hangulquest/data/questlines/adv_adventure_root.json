@@ -8,7 +8,7 @@
  "order": 223,
  "concepts": [
   "spider",
-  "gen_wither",
+  "creeper",
   "gen_vex"
  ],
  "requires": {
@@ -40,19 +40,19 @@
   {
    "id": "s2",
    "teach": [
-    "gen_wither"
+    "creeper"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:wither",
+    "entity": "minecraft:creeper",
     "count": 2
    },
    "clue": {
-    "de": "Besiege 2× Wither.",
-    "en": "Defeat 2× Wither."
+    "de": "Besiege 2× Creeper.",
+    "en": "Defeat 2× Creeper."
    },
    "hint": {
-    "en": "Defeat 2× Wither."
+    "en": "Defeat 2× Creeper."
    }
   }
  ],
@@ -76,7 +76,7 @@
     "en": "Defeat Vex."
    }
   },
-  "textKo": "벡스라는 길의 의식을 마쳤어요.",
+  "textKo": "벡스를 물리쳤어요.",
   "textDe": "Plagegeist — Zeremonie vollendet.",
   "textEn": "the ritual of Vex is complete."
  },

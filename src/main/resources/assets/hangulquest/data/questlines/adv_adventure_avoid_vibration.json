@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 202,
  "concepts": [
-  "adv_item_sculk_sensor"
+  "note_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,38 +20,38 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_sculk_sensor"
+    "note_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sculk_sensor",
+    "item": "minecraft:note_block",
     "count": 2
    },
    "clue": {
-    "de": "Hole zwei Sculk-Sensoren aus der Tiefe, ohne sie auszulösen.",
-    "en": "Collect 2× Sculk Sensor."
+    "de": "Baue zwei Notenblöcke.",
+    "en": "Collect 2× Note Block."
    },
    "hint": {
-    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요.",
-    "en": "Collect 2× Sculk Sensor."
+    "ko": "나무 판자 여덟 개와 레드스톤 하나로 만들어요.",
+    "en": "Collect 2× Note Block."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_sculk_sensor"
+    "note_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sculk_sensor",
+    "block": "minecraft:note_block",
     "count": 1
    },
    "clue": {
-    "de": "Setze einen der Sensoren vor dir auf den Boden ab.",
-    "en": "Place Sculk Sensor."
+    "de": "Setze einen der Notenblöcke vor dir auf den Boden.",
+    "en": "Place Note Block."
    },
    "hint": {
-    "en": "Place Sculk Sensor."
+    "en": "Place Note Block."
    }
   }
  ],
@@ -59,30 +59,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_sculk_sensor"
+    "note_block"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:sculk_sensor",
+    "block": "minecraft:note_block",
     "dwellMs": 600
    },
    "conditions": [],
    "clue": {
-    "de": "Schleiche auf Zehenspitzen vorbei und sieh den Sensor dabei an.",
-    "en": "Look at Sculk Sensor."
+    "de": "Schleiche an den Notenblock heran und sieh ihn dir an.",
+    "en": "Look at Note Block."
    },
    "hint": {
-    "en": "Look at Sculk Sensor."
+    "en": "Look at Note Block."
    }
   },
-  "textKo": "은밀하게 위대하게 — 스컬크 감지체 앞에서 숨을 죽였어요.",
-  "textDe": "Schleichen 100 — am Sculk-Sensor vorbei, ohne Vibration.",
-  "textEn": "the ritual of Sculk Sensor is complete."
+  "textKo": "은밀하게 위대하게 — 음표 블록 앞에서 숨을 죽였어요.",
+  "textDe": "Schleichen 100 — am Notenblock vorbei, ohne einen Ton.",
+  "textEn": "the ritual of Note Block is complete."
  },
  "reward": {
   "badge": "adv_adventure_avoid_vibration",
   "words": [
-   "adv_item_sculk_sensor"
+   "note_block"
   ]
  },
  "koreanLevel": 2,

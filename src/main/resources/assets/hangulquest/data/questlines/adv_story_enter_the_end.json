@@ -7,7 +7,7 @@
  "tier": 2,
  "order": 313,
  "concepts": [
-  "gen_test_instance_block",
+  "adv_item_ender_eye",
   "stone_bricks",
   "gen_polished_blackstone_wall"
  ],
@@ -22,19 +22,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_test_instance_block"
+    "adv_item_ender_eye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:test_instance_block",
+    "item": "minecraft:ender_eye",
     "count": 12
    },
    "clue": {
-    "de": "Sammle 12× Testinstanzblock.",
-    "en": "Collect 12× Test Instance Block."
+    "de": "Sammle 12× Enderauge.",
+    "en": "Collect 12× Eye of Ender."
    },
    "hint": {
-    "en": "Collect 12× Test Instance Block."
+    "en": "Collect 12× Eye of Ender."
    }
   },
   {
@@ -78,7 +78,7 @@
     "en": "Place 3× Polished Blackstone Wall."
    }
   },
-  "textKo": "윤나는 흑암 담장라는 길의 의식을 마쳤어요.",
+  "textKo": "윤나는 흑암 담장을 세 개 놓았어요.",
   "textDe": "Polierte Schwarzsteinmauer — Zeremonie vollendet.",
   "textEn": "the ritual of Polished Blackstone Wall is complete."
  },

@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "comment": "Which Korean verb fits which object. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
+ "families": {
+  "ores": ["*_ore", "ancient_debris"],
+  "natural_stone": ["stone", "cobblestone", "deepslate", "cobbled_deepslate", "granite", "diorite", "andesite", "tuff", "calcite", "basalt", "smooth_basalt", "blackstone", "netherrack", "end_stone", "obsidian", "crying_obsidian", "sandstone", "red_sandstone", "sulfur", "cinnabar", "magma_block", "prismarine", "dripstone_block", "pointed_dripstone"],
+  "soft_earth": ["dirt", "coarse_dirt", "rooted_dirt", "grass_block", "podzol", "mycelium", "mud", "clay", "gravel", "sand", "red_sand", "soul_sand", "soul_soil", "dirt_path", "farmland"],
+  "logs": ["*_log", "*_wood", "*_stem", "*_hyphae", "bamboo", "bamboo_block"],
+  "flowers": ["dandelion", "golden_dandelion", "poppy", "blue_orchid", "allium", "azure_bluet", "red_tulip", "orange_tulip", "white_tulip", "pink_tulip", "oxeye_daisy", "cornflower", "lily_of_the_valley", "torchflower", "sunflower", "lilac", "rose_bush", "peony", "pitcher_plant", "wildflowers", "wither_rose", "closed_eyeblossom", "open_eyeblossom", "spore_blossom", "flowering_azalea", "cactus_flower"],
+  "crops": ["wheat", "sugar_cane", "carrots", "potatoes", "beetroots", "nether_wart", "pumpkin", "melon", "sweet_berry_bush", "cocoa"],
+  "mushrooms": ["red_mushroom", "brown_mushroom", "*_fungus"],
+  "uprootables": ["*_sapling", "*_propagule", "short_grass", "tall_grass", "short_dry_grass", "tall_dry_grass", "fern", "large_fern", "dead_bush", "bush", "azalea", "vine", "weeping_vines", "twisting_vines", "cave_vines*", "hanging_roots", "*_roots", "pale_hanging_moss", "seagrass", "kelp", "lily_pad", "glow_lichen"],
+  "plantables": ["*_sapling", "*_propagule", "*_seeds", "wheat", "carrots", "potatoes", "beetroots", "nether_wart", "sweet_berry_bush", "cocoa", "*_fungus", "crimson_roots", "warped_roots", "nether_sprouts", "mangrove_roots", "bamboo", "cactus", "sugar_cane", "kelp", "seagrass", "azalea", "flowering_azalea", "big_dripleaf", "small_dripleaf", "bush", "vine", "weeping_vines", "twisting_vines", "chorus_plant", "chorus_flower", "short_grass", "tall_grass", "short_dry_grass", "tall_dry_grass", "fern", "large_fern", "brown_mushroom", "red_mushroom", "dandelion", "golden_dandelion", "poppy", "blue_orchid", "allium", "azure_bluet", "red_tulip", "orange_tulip", "white_tulip", "pink_tulip", "oxeye_daisy", "cornflower", "lily_of_the_valley", "torchflower", "sunflower", "lilac", "rose_bush", "peony", "pitcher_plant", "wildflowers", "wither_rose", "closed_eyeblossom", "open_eyeblossom", "spore_blossom"],
+  "glass_and_ice": ["glass", "glass_pane", "tinted_glass", "*_stained_glass", "*_stained_glass_pane", "ice", "packed_ice", "blue_ice", "decorated_pot"],
+  "carpets_and_rails": ["*_carpet", "rail", "*_rail", "leaf_litter"],
+  "hangables": ["*_banner", "*_wall_banner", "painting", "item_frame", "glow_item_frame", "*_hanging_sign"],
+  "standing": ["*_sign", "lightning_rod", "end_rod", "*_golem_statue", "*_fence", "*_wall", "candle", "*_candle"],
+  "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "*_bulb"],
+  "torches": ["torch", "soul_torch", "redstone_torch"],
+  "campfires": ["campfire", "soul_campfire"],
+  "cobwebs": ["cobweb"],
+  "piles": ["snow", "scaffolding"],
+  "stackable_blocks": ["*_bricks", "bricks", "*_planks", "*_concrete", "*_terracotta", "*_wool", "cobblestone", "stone", "deepslate", "*_block", "hay_block"],
+  "crafted": ["*_pickaxe", "*_axe", "*_shovel", "*_hoe", "*_sword", "*_spear", "*_helmet", "*_chestplate", "*_leggings", "*_boots", "*_boat", "*_chest_boat", "*_door", "*_trapdoor", "*_sign", "*_hanging_sign", "*_fence", "*_fence_gate", "*_stairs", "*_slab", "*_wall", "*_button", "*_pressure_plate", "*_bed", "*_banner", "*_planks", "*_carpet", "*_bricks", "*_stained_glass", "*_stained_glass_pane", "*_concrete_powder", "*_dye", "*_bundle", "*_harness", "*_shulker_box", "polished_*", "chiseled_*", "waxed_*", "bowl", "bucket", "shears", "bow", "crossbow", "shield", "fishing_rod", "flint_and_steel", "compass", "clock", "book", "paper", "item_frame", "painting", "crafting_table", "furnace", "chest", "barrel", "lantern", "torch", "bookshelf", "loom", "composter", "lectern", "jukebox", "cartography_table", "fletching_table", "stonecutter", "lead", "bone_meal", "sugar", "glass_bottle", "charcoal", "note_block", "piston", "sticky_piston", "observer", "dispenser", "dropper", "hopper", "repeater", "comparator", "tnt", "redstone_lamp", "daylight_detector", "lever", "target", "lightning_rod", "campfire", "soul_campfire", "anvil", "brewing_stand", "enchanting_table", "cauldron", "stonecutter", "smoker", "blast_furnace", "grindstone", "smithing_table", "beacon", "ender_chest", "end_crystal", "conduit", "crafter", "copper_bulb", "chiseled_bookshelf", "decorated_pot", "flower_pot", "glass_pane", "sea_lantern"],
+  "drinks": ["potion", "milk_bucket", "honey_bottle", "ominous_bottle", "*_potion"],
+  "throwables": ["wind_charge", "ender_pearl", "snowball", "egg", "fire_charge"],
+  "pressables": ["*_button"],
+  "pullables": ["lever"],
+  "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand"],
+  "bells_and_notes": ["bell", "note_block"],
+  "beds": ["*_bed"],
+  "traders": ["villager", "wandering_trader"],
+  "mounts": ["horse", "donkey", "mule", "camel", "strider", "skeleton_horse", "zombie_horse"],
+  "pets": ["cat", "wolf"],
+  "talkables": ["iron_golem", "snow_golem", "copper_golem", "allay"]
+ },
+ "rules": {
+  "BREAK_BLOCK": [
+   {"family": "ores", "verb": "MINE"},
+   {"family": "natural_stone", "verb": "MINE"},
+   {"family": "soft_earth", "verb": "DIG"},
+   {"family": "logs", "verb": "CHOP"},
+   {"family": "flowers", "verb": "SNAP"},
+   {"family": "crops", "verb": "HARVEST"},
+   {"family": "mushrooms", "verb": "PICK"},
+   {"family": "uprootables", "verb": "PULL"},
+   {"family": "glass_and_ice", "verb": "SHATTER"},
+   {"verb": "BREAK"}
+  ],
+  "PLACE_BLOCK": [
+   {"family": "plantables", "verb": "PLANT"},
+   {"family": "carpets_and_rails", "verb": "SPREAD"},
+   {"family": "hangables", "verb": "HANG"},
+   {"family": "standing", "verb": "STAND"},
+   {"family": "attachables", "verb": "HANG_DOOR"},
+   {"family": "torches", "verb": "LIGHT"},
+   {"family": "campfires", "verb": "KINDLE"},
+   {"family": "cobwebs", "verb": "WEAVE"},
+   {"family": "piles", "verb": "STACK"},
+   {"family": "stackable_blocks", "minCount": 2, "verb": "STACK"},
+   {"verb": "PLACE"}
+  ],
+  "ACQUIRE_ITEM": [
+   {"family": "crafted", "verb": "CRAFT"},
+   {"maxCount": 1, "verb": "OBTAIN"},
+   {"verb": "COLLECT"}
+  ],
+  "CONSUME_ITEM": [
+   {"family": "drinks", "verb": "DRINK"},
+   {"family": "throwables", "verb": "THROW"},
+   {"verb": "EAT"}
+  ],
+  "USE_BLOCK": [
+   {"family": "bells_and_notes", "verb": "RING"},
+   {"family": "beds", "verb": "SLEEP"},
+   {"family": "pressables", "verb": "PRESS"},
+   {"family": "pullables", "verb": "FLIP"},
+   {"family": "openables", "verb": "OPEN"},
+   {"verb": "USE"}
+  ],
+  "INTERACT_ENTITY": [
+   {"family": "traders", "verb": "TALK"},
+   {"family": "mounts", "verb": "RIDE"},
+   {"family": "pets", "verb": "PET"},
+   {"family": "talkables", "verb": "ADDRESS"},
+   {"verb": "FEED"}
+  ],
+  "LOOK_AT_BLOCK": [{"verb": "WATCH"}],
+  "LOOK_AT_ENTITY": [{"verb": "WATCH"}],
+  "DEFEAT_ENTITY": [{"verb": "DEFEAT"}],
+  "REACH_BIOME": [{"verb": "GO"}],
+  "REACH_DIMENSION": [{"verb": "GO"}]
+ }
+}

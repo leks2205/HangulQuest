@@ -7,7 +7,7 @@
  "tier": 3,
  "order": 95,
  "concepts": [
-  "gen_basalt_deltas",
+  "gen_swamp",
   "gen_white_shulker_box",
   "gen_poplar_button"
  ],
@@ -23,11 +23,11 @@
   {
    "id": "s1",
    "teach": [
-    "gen_basalt_deltas"
+    "gen_swamp"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:basalt_deltas",
+    "biome": "minecraft:swamp",
     "dwellMs": 1000
    },
    "conditions": [
@@ -37,11 +37,11 @@
     }
    ],
    "clue": {
-    "de": "Erreiche Basaltdeltas. Im Regen.",
-    "en": "Reach Basalt Deltas. In the rain."
+    "de": "Erreiche Sumpf. Im Regen.",
+    "en": "Reach Swamp. In the rain."
    },
    "hint": {
-    "en": "Reach Basalt Deltas. In the rain."
+    "en": "Reach Swamp. In the rain."
    }
   },
   {
@@ -94,7 +94,7 @@
     "en": "Place Poplar Button. In the rain."
    }
   },
-  "textKo": "포플러나무 버튼라는 길의 의식을 마쳤어요.",
+  "textKo": "비가 올 때 포플러나무 버튼을 놓았어요.",
   "textDe": "Pappelholzknopf — Zeremonie vollendet.",
   "textEn": "the ritual of Poplar Button is complete."
  },

@@ -32,6 +32,20 @@ jobs:
       - name: Tests (engine plus all shipped questlines)
         run: ./gradlew test --no-daemon --stacktrace
 
+      - name: Korean lint (rules self-test, then every generated and authored line)
+        run: |
+          python3 tools/lint_korean.py --self-test
+          ./gradlew test --no-daemon --tests '*SentenceDumpTest'
+          python3 tools/lint_korean.py build/reports/korean/sentences.tsv --fail-on error
+
+      - name: Keep the Korean lint report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: korean-lint
+          path: build/reports/korean/
+          if-no-files-found: ignore
+
       - name: Build the mod jar
         run: ./gradlew build --no-daemon
 
@@ -40,9 +54,9 @@ jobs:
           jar="$(ls build/libs/hangulquest-*.jar | head -n 1)"
           echo "built: $jar"
           unzip -l "$jar" | tail -n 5
-          questlines=$(unzip -l "$jar" | grep -c 'data/questlines/.*\.json' || true)
-          echo "questline files in jar: $questlines"
-          test "$questlines" -ge 414
+          # The files on disk are the source of truth: the source index, the jar's index and the
+          # jar's contents must all list exactly those files (no hand-edited minimum count).
+          python3 tools/check_questline_index.py --jar "$jar"
 
   content:
     name: Questline content
