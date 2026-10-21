@@ -24,7 +24,7 @@ public final class AdaptiveTrailGenerator {
 	public static Questline generate(Catalog catalog, LearningService learn, String worldKey, long now) {
 		long seed = Objects.hash(worldKey, LocalDate.now().toString());
 		Random random = new Random(seed);
-		List<Word> picks = new ArrayList<>(learn.dueWords(now, 16));
+		List<Word> picks = new ArrayList<>(learn.dueForPlay(now, 16));
 		picks.removeIf(word -> word.conceptId == null || word.phrase);
 		Collections.shuffle(picks, random);
 

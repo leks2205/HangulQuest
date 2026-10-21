@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest.ui.journal;
 
 import io.github.leks2205.hangulquest.HangulQuestClient;
+import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.util.I18n;
@@ -27,6 +28,32 @@ public final class SettingsTab extends JournalTab {
 		Lang.set(next);
 		host.hq().saveConfig();
 	};
+	private static final double[] RETENTION_STEPS = {0.80, 0.85, 0.88, 0.90, 0.92, 0.95};
+
+	/** Steps through the retention choices, wrapping round at the end. */
+	private final Runnable switchRetention = () -> {
+		double current = host.hq().config().retention;
+		double next = RETENTION_STEPS[0];
+		for (double step : RETENTION_STEPS) {
+			if (step > current + 1e-9) {
+				next = step;
+				break;
+			}
+		}
+		host.hq().config().retention = next;
+		applyLearning();
+	};
+	private final Runnable switchNewWords = () -> {
+		int[] choices = Config.NEW_WORD_CHOICES;
+		int at = 0;
+		for (int i = 0; i < choices.length; i++) {
+			if (choices[i] == host.hq().config().newWordsPerDay) {
+				at = i;
+			}
+		}
+		host.hq().config().newWordsPerDay = choices[(at + 1) % choices.length];
+		applyLearning();
+	};
 	private final Runnable resetProgress = this::resetProgress;
 
 	public SettingsTab(JournalHost host) {
@@ -51,11 +78,27 @@ public final class SettingsTab extends JournalTab {
 		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.language", Lang.current().label()), x, yy, Ink.INK_SOFT);
 		host.button(g, x + width - 100, yy - 2, 100, 16, language, false, switchLanguage);
 		yy += 18;
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.new_words"), x, yy, Ink.INK_SOFT);
+		host.button(g, x + width - 100, yy - 2, 100, 16, String.valueOf(hq.config().newWordsPerDay), false, switchNewWords);
+		yy += 18;
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.retention"), x, yy, Ink.INK_SOFT);
+		host.button(g, x + width - 100, yy - 2, 100, 16, Math.round(hq.config().retention * 100) + "%", false,
+				switchRetention);
+		yy += 18;
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.lute_import"), hq.config().luteImport,
 				value -> hq.config().luteImport = value);
 		yy += 6;
 		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.reset"), false, resetProgress);
 		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.lute_info", luteInfo()), x, y + height - 10, Ink.INK_FAINT);
+	}
+
+	/** Saves the learning settings and hands them to the running scheduler. */
+	private void applyLearning() {
+		HangulQuestClient hq = host.hq();
+		if (hq.learn() != null) {
+			hq.learn().configure(hq.config().retention, hq.config().newWordsPerDay);
+		}
+		hq.saveConfig();
 	}
 
 	private void resetProgress() {

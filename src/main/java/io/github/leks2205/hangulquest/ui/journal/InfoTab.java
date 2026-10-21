@@ -90,7 +90,8 @@ public final class InfoTab extends JournalTab {
 		Word word = wordOfTheDay(learn);
 		return new Snapshot(
 				I18n.t("hangulquest.ui.info.discovered_mastered", discovered, learn.mastered()),
-				I18n.t("hangulquest.ui.info.due_streak", learn.dueCount(now), streak.current(), streak.best()),
+				I18n.t("hangulquest.ui.info.due_week", learn.dueCount(now), streak.weekDays(), Streak.WEEKLY_GOAL,
+						streak.freezesLeft()),
 				I18n.t("hangulquest.ui.info.today", seen, correct),
 				I18n.t("hangulquest.ui.info.level", level),
 				word, I18n.t("hangulquest.ui.info.word_of_day"),

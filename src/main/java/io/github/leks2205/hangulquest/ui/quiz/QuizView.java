@@ -1,5 +1,7 @@
 package io.github.leks2205.hangulquest.ui.quiz;
 
+import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
+
 import java.util.List;
 
 /**
@@ -12,9 +14,10 @@ import java.util.List;
  * @param promptIcon    item id for the prompt icon, or null for the "?" tile
  * @param options       the answers, in key order (1, 2, 3 ...)
  * @param optionsKorean whether the option text is Korean
+ * @param card          the card that plays a review, or null for the plain list of options
  */
 public record QuizView(Kind kind, String titleKo, String prompt, boolean promptKorean, String promptIcon,
-					   List<Option> options, boolean optionsKorean) {
+					   List<Option> options, boolean optionsKorean, Card card) {
 	public enum Kind { REVIEW, SIDEQUEST, NEXT_QUEST }
 
 	/** One answer; {@code note} is an optional smaller second column (the translation of a quest title). */
@@ -26,5 +29,10 @@ public record QuizView(Kind kind, String titleKo, String prompt, boolean promptK
 
 	public QuizView {
 		options = List.copyOf(options);
+	}
+
+	public QuizView(Kind kind, String titleKo, String prompt, boolean promptKorean, String promptIcon,
+					List<Option> options, boolean optionsKorean) {
+		this(kind, titleKo, prompt, promptKorean, promptIcon, options, optionsKorean, null);
 	}
 }

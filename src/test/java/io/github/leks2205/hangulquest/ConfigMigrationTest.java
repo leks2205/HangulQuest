@@ -124,4 +124,62 @@ class ConfigMigrationTest {
 		Lang.set("DE");
 		assertEquals(Lang.DE, Lang.current());
 	}
+
+	// ------------------------------------------------------------------ learning settings (config v3)
+
+	@Test
+	void anOldConfigGetsTheLearningDefaults() {
+		Config config = Config.parse(json("{\"version\":2,\"language\":\"en_us\",\"sound\":false}"));
+		assertEquals(0.88, config.retention, 1e-9);
+		assertEquals(10, config.newWordsPerDay);
+		assertEquals(3, config.version);
+		assertFalse(config.sound, "other settings are untouched");
+	}
+
+	@Test
+	void retentionIsKeptInsideEightyToNinetyFivePercent() {
+		assertEquals(0.80, Config.parse(json("{\"retention\":0.5}")).retention, 1e-9);
+		assertEquals(0.95, Config.parse(json("{\"retention\":0.999}")).retention, 1e-9);
+		assertEquals(0.90, Config.parse(json("{\"retention\":0.9}")).retention, 1e-9);
+		assertEquals(0.88, Config.parse(json("{\"retention\":null}")).retention, 1e-9, "no number");
+		assertEquals(0.92, Config.parse(json("{\"retention\":92}")).retention, 1e-9, "written as a percentage");
+	}
+
+	@Test
+	void newWordsPerDayIsOneOfFiveTenFifteen() {
+		assertEquals(5, Config.parse(json("{\"newWordsPerDay\":5}")).newWordsPerDay);
+		assertEquals(15, Config.parse(json("{\"newWordsPerDay\":15}")).newWordsPerDay);
+		assertEquals(10, Config.parse(json("{\"newWordsPerDay\":12}")).newWordsPerDay);
+		assertEquals(15, Config.parse(json("{\"newWordsPerDay\":40}")).newWordsPerDay);
+		assertEquals(5, Config.parse(json("{\"newWordsPerDay\":0}")).newWordsPerDay);
+		assertEquals(10, Config.parse(json("{\"newWordsPerDay\":null}")).newWordsPerDay);
+	}
+
+	@Test
+	void loadingAVersionTwoFileWritesTheNewFieldsBack(@TempDir Path dir) throws IOException {
+		Path file = dir.resolve("config.json");
+		Files.writeString(file, "{\"version\":2,\"language\":\"en_us\"}", StandardCharsets.UTF_8);
+
+		Config loaded = Config.load(file);
+
+		assertEquals(3, loaded.version);
+		JsonObject written = json(Files.readString(file));
+		assertEquals(3, written.get("version").getAsInt());
+		assertEquals(0.88, written.get("retention").getAsDouble(), 1e-9);
+		assertEquals(10, written.get("newWordsPerDay").getAsInt());
+	}
+
+	@Test
+	void chosenLearningSettingsSurviveARoundTrip(@TempDir Path dir) {
+		Path file = dir.resolve("config.json");
+		Config config = new Config();
+		config.retention = 0.92;
+		config.newWordsPerDay = 15;
+		config.save(file);
+
+		Config loaded = Config.load(file);
+
+		assertEquals(0.92, loaded.retention, 1e-9);
+		assertEquals(15, loaded.newWordsPerDay);
+	}
 }

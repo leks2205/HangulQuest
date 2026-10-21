@@ -1,7 +1,9 @@
 package io.github.leks2205.hangulquest.learn;
 
+import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Category;
+import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Origin;
 import io.github.leks2205.hangulquest.data.Word;
 
@@ -11,8 +13,13 @@ import io.github.leks2205.hangulquest.learn.fsrs.Fsrs;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,10 +34,19 @@ public final class LearningService implements LearningSink {
 	private final ProgressStore store;
 	private final Catalog catalog;
 	private final Clock clock;
-	private final Fsrs fsrs;
+	private volatile Fsrs fsrs;
 	private final Grader grader = new Grader();
 	private final ReviewLog log;
 	private final List<Runnable> resetListeners = new CopyOnWriteArrayList<>();
+	private final LexiconTags tags = LexiconTags.shared();
+	/** Right or wrong for the newest graded reviews, oldest first; the 85% controller reads it. */
+	private final Deque<Boolean> recentGraded = new ArrayDeque<>();
+	/** Words graded for the first time on {@link #newDay}, which is a study-day key. */
+	private final Set<String> newToday = new HashSet<>();
+	private String newDay = "";
+	/** Semantic sets that got a new word since the game started. */
+	private final Set<String> sessionSets = new HashSet<>();
+	private volatile int newWordsPerDay = Config.DEFAULT_NEW_WORDS;
 
 	public LearningService(ProgressData data, ProgressStore store, Catalog catalog) {
 		this(data, store, catalog, Clock.systemDefaultZone());
@@ -50,6 +66,13 @@ public final class LearningService implements LearningSink {
 		this.fsrs = fsrs;
 		this.log = log != null ? log
 				: store.readOnly() ? ReviewLog.disabled() : ReviewLog.open(store.file().toAbsolutePath().getParent(), clock);
+		loadHistory();
+	}
+
+	/** The learning settings from the config: desired retention (0.80 to 0.95) and new words per day. */
+	public void configure(double retention, int newWords) {
+		fsrs = new Fsrs(fsrs.params().withDesiredRetention(retention));
+		newWordsPerDay = Config.nearestNewWords(newWords);
 	}
 
 	public Fsrs fsrs() {
@@ -258,6 +281,7 @@ public final class LearningService implements LearningSink {
 							  ExposureLedger.Context context, String label, long now) {
 		int elapsed = elapsedDays(progress, now);
 		if (graded.schedules()) {
+			noteGraded(wordId, isFresh(progress), graded.correct(), now);
 			schedule(progress, graded.grade(), now);
 			data.totals.reviews++;
 		}
@@ -278,6 +302,61 @@ public final class LearningService implements LearningSink {
 		progress.fsrs = next;
 		progress.level = progress.known ? Srs.MAX_LEVEL : Srs.levelFor(next.stability);
 		progress.dueAt = progress.known ? Long.MAX_VALUE : next.due;
+	}
+
+	/** A word that was met but never graded: it is a new card. */
+	private static boolean isFresh(WordProgress progress) {
+		return progress.fsrs == null || progress.fsrs.isNew();
+	}
+
+	private synchronized void noteGraded(String wordId, boolean fresh, boolean correct, long now) {
+		recentGraded.addLast(correct);
+		while (recentGraded.size() > SessionPlanner.WINDOW) {
+			recentGraded.removeFirst();
+		}
+		if (fresh) {
+			rollNewDay(studyDay(now));
+			newToday.add(wordId);
+			catalog.byId(wordId).ifPresent(word -> sessionSets.add(tags.semSet(word)));
+		}
+	}
+
+	private void rollNewDay(String day) {
+		if (!day.equals(newDay)) {
+			newDay = day;
+			newToday.clear();
+		}
+	}
+
+	/** Rebuilds the controller's window and today's new words from the review log of earlier sessions. */
+	private void loadHistory() {
+		try {
+			List<ReviewLog.Event> graded = new ArrayList<>();
+			for (ReviewLog.Event event : ReviewLog.readAll(log.dir())) {
+				if (event.kind() == ReviewKind.WORD && event.grade() != null && event.mode().schedules()) {
+					graded.add(event);
+				}
+			}
+			graded.sort(Comparator.comparingLong(ReviewLog.Event::t));
+			Map<String, Long> first = new HashMap<>();
+			for (ReviewLog.Event event : graded) {
+				first.putIfAbsent(event.item(), event.t());
+				recentGraded.addLast(event.grade() > Fsrs.AGAIN);
+				while (recentGraded.size() > SessionPlanner.WINDOW) {
+					recentGraded.removeFirst();
+				}
+			}
+			String today = dayKey();
+			newDay = today;
+			first.forEach((item, at) -> {
+				if (studyDay(at).equals(today)) {
+					newToday.add(item);
+				}
+			});
+		} catch (RuntimeException unreadable) {
+			// A log that cannot be read only costs the controller its history.
+			recentGraded.clear();
+		}
 	}
 
 	/** Days since the previous review of the word; -1 when it has none. */
@@ -382,6 +461,42 @@ public final class LearningService implements LearningSink {
 			catalog.byId(entry.getKey()).ifPresent(words::add);
 		}
 		return words;
+	}
+
+	/**
+	 * The due words ranked for play (quests, the review quiz): reviews first, most forgotten at the top,
+	 * then the new words the daily budget, the 85% controller and the one-per-semantic-set rule allow.
+	 * {@link #dueWords} stays the plain list.
+	 */
+	public synchronized List<Word> dueForPlay(long now, int limit) {
+		List<SessionPlanner.Due> due = new ArrayList<>();
+		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
+			WordProgress progress = entry.getValue();
+			if (progress.known || progress.dueAt > now) {
+				continue;
+			}
+			Word word = catalog.byId(entry.getKey()).orElse(null);
+			if (word == null) {
+				continue;
+			}
+			boolean fresh = isFresh(progress);
+			double retrievability = fresh || progress.fsrs == null ? 1 : fsrs.retrievability(progress.fsrs, now);
+			LexiconTags.Tag tag = tags.tag(word);
+			due.add(new SessionPlanner.Due(word, tags.semSet(word), fresh, retrievability, progress.dueAt,
+					tag == null ? 0 : tag.curriculumGrade(), tag != null && tag.mcOnly()));
+		}
+		return SessionPlanner.rank(due, newWordsLeft(now), sessionSets, limit);
+	}
+
+	/** New words the player may still start today (daily budget, adjusted by the last reviews). */
+	public synchronized int newWordsLeft(long now) {
+		rollNewDay(studyDay(now));
+		return SessionPlanner.newWordsLeft(newWordsPerDay, recentGraded, newToday.size());
+	}
+
+	/** Right or wrong of the newest graded reviews, oldest first. */
+	public synchronized List<Boolean> recentOutcomes() {
+		return List.copyOf(recentGraded);
 	}
 
 	public int dueCount(long now) {
