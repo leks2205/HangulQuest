@@ -2,7 +2,6 @@ package io.github.leks2205.hangulquest.data;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -51,14 +50,14 @@ public final class LangTables {
 		return korean.size();
 	}
 
-	public static LangTables load(Minecraft mc) {
+	public static LangTables load(ResourceManager manager) {
 		Map<String, String> ko = new HashMap<>();
 		Map<String, String> de = new HashMap<>();
 		Map<String, String> en = new HashMap<>();
 		try {
-			read(mc.getResourceManager(), "ko_kr.json", ko);
-			read(mc.getResourceManager(), "de_de.json", de);
-			read(mc.getResourceManager(), "en_us.json", en);
+			read(manager, "ko_kr.json", ko);
+			read(manager, "de_de.json", de);
+			read(manager, "en_us.json", en);
 		} catch (RuntimeException broken) {
 			ko.clear();
 			de.clear();

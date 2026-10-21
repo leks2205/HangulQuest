@@ -52,19 +52,6 @@ processResources {
 	filesMatching('fabric.mod.json') {
 		expand 'version': project.version
 	}
-
-	// Rebuild the questline index so a dropped-in JSON file is loaded without an extra step.
-	doLast {
-		def dir = new File(destinationDir, 'assets/hangulquest/data/questlines')
-		if (dir.exists()) {
-			def files = dir.listFiles()
-					.findAll { it.isFile() && it.name.endsWith('.json') && !it.name.startsWith('_') && it.name != 'index.json' }
-					.collect { it.name }
-					.sort()
-			new File(dir, 'index.json').text = groovy.json.JsonOutput.prettyPrint(
-					groovy.json.JsonOutput.toJson(files)) + '\n'
-		}
-	}
 }
 
 tasks.withType(JavaCompile).configureEach {

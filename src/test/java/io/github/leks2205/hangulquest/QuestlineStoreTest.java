@@ -54,26 +54,34 @@ class QuestlineStoreTest {
 	}
 
 	@Test
-	void exportsShippedTrailsAndReadsNewFiles() throws Exception {
+	void exportWritesOnlyTemplateAndReadme() throws Exception {
 		Path dir = tempDir.resolve("questlines");
 		QuestlineStore.exportShipped(dir, LOG);
 		assertTrue(Files.exists(dir.resolve("README.md")));
 		assertTrue(Files.exists(dir.resolve("_template.json")));
-		assertTrue(Files.exists(dir.resolve("steinpfad.json")));
+		try (var files = Files.list(dir)) {
+			assertEquals(2, files.count(), "no shipped copies may be exported");
+		}
+		// An edited README or template is never overwritten.
+		Files.writeString(dir.resolve("README.md"), "mine", StandardCharsets.UTF_8);
+		QuestlineStore.exportShipped(dir, LOG);
+		assertEquals("mine", Files.readString(dir.resolve("README.md")));
+	}
 
+	@Test
+	void readsNewAndChangedFiles() throws Exception {
+		Path dir = tempDir.resolve("questlines");
+		QuestlineStore.exportShipped(dir, LOG);
 		List<Questline> shipped = QuestlineStore.loadAll(dir, LOG);
 		assertTrue(shipped.size() >= 34);
 
 		Path file = dir.resolve("hottrail.json");
 		Files.writeString(file, json("hottrail", "새 길"), StandardCharsets.UTF_8);
-		long before = QuestlineStore.snapshot(dir);
 		List<Questline> loaded = QuestlineStore.loadAll(dir, LOG);
 		assertEquals(shipped.size() + 1, loaded.size());
 		assertEquals("새 길", find(loaded, "hottrail").titleKo());
 
-		Thread.sleep(20);
 		Files.writeString(file, json("hottrail", "바뀐 길"), StandardCharsets.UTF_8);
-		assertNotEquals(before, QuestlineStore.snapshot(dir));
 		assertEquals("바뀐 길", find(QuestlineStore.loadAll(dir, LOG), "hottrail").titleKo());
 	}
 
