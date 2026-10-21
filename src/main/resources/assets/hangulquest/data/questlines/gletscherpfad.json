@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gletscherpfad",
  "titleKo": "빙하의 길",
- "titleDe": "Der Gletscherpfad",
  "tier": 3,
  "order": 516,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:diorite_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Dioritstufe ab.",
-    "en": "Break 4× Diorite Slab."
-   },
-   "hint": {
-    "en": "Break 4× Diorite Slab."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:honeycomb_block",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Honigwabenblock an.",
-    "en": "Look at Honeycomb Block."
-   },
-   "hint": {
-    "en": "Look at Honeycomb Block."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:witch",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Hexe an.",
-    "en": "Look at Witch."
-   },
-   "hint": {
-    "en": "Look at Witch."
    }
   }
  ],
@@ -95,18 +73,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Zwirbelranken. Nachts. In einem passenden Biom.",
-    "en": "Place Twisting Vines. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Twisting Vines. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 휘어진 덩굴을 심었어요.",
-  "textDe": "Zwirbelranken — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Twisting Vines is complete."
+  "textKo": "밤에 산에서 휘어진 덩굴을 심었어요."
  },
  "reward": {
   "badge": "gletscherpfad",
@@ -118,6 +87,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "산",
- "titleEn": "The Glacier Trail"
+ "topic": "산"
 }

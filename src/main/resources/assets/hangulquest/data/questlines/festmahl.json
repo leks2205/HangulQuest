@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "festmahl",
  "titleKo": "잔치의 길",
- "titleDe": "Das Festmahl",
  "tier": 2,
  "order": 330,
  "concepts": [
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:milk_bucket",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Milch.",
-    "en": "Collect Milk Bucket."
-   },
-   "hint": {
-    "en": "Collect Milk Bucket."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:egg",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle ein Ei.",
-    "en": "Collect Egg."
-   },
-   "hint": {
-    "en": "Collect Egg."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cooked_porkchop",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gebratenes Schweinefleisch.",
-    "en": "Collect Cooked Porkchop."
-   },
-   "hint": {
-    "en": "Collect Cooked Porkchop."
    }
   }
  ],
@@ -89,18 +67,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Iss Gebratenes Schweinefleisch. Nachts.",
-    "en": "Eat Cooked Porkchop. At night."
-   },
-   "hint": {
-    "en": "Eat Cooked Porkchop. At night."
-   }
+   ]
   },
-  "textKo": "밤에 익힌 돼지고기를 먹었어요.",
-  "textDe": "Gebratenes Schweinefleisch — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Cooked Porkchop is complete."
+  "textKo": "밤에 익힌 돼지고기를 먹었어요."
  },
  "reward": {
   "badge": "festmahl",
@@ -111,6 +80,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "음식",
- "titleEn": "The Feast"
+ "topic": "음식"
 }

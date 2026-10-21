@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "ewiges_eis",
  "titleKo": "영원한 얼음",
- "titleDe": "Das ewige Eis",
  "topic": "산",
  "tier": 3,
  "order": 92,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:desert_pyramid_map",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Wüstentempelkarte.",
-    "en": "Collect 2× Desert Pyramid Map."
-   },
-   "hint": {
-    "en": "Collect 2× Desert Pyramid Map."
    }
   },
   {
@@ -52,14 +44,7 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Benutze Weißes Bett. Tagsüber.",
-    "en": "Use White Bed. During the day."
-   },
-   "hint": {
-    "en": "Use White Bed. During the day."
-   }
+   ]
   }
  ],
  "finale": {
@@ -81,18 +66,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Benutze Birkenholztür. Nachts. In einem passenden Biom.",
-    "en": "Use Birch Door. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use Birch Door. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 자작나무 문을 열었어요.",
-  "textDe": "Birkenholztür — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Birch Door is complete."
+  "textKo": "밤에 산에서 자작나무 문을 열었어요."
  },
  "reward": {
   "badge": "ewiges_eis",
@@ -103,6 +79,5 @@
    "eternity"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Eternal Ice"
+ "koreanLevel": 4
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "zuhausepfad",
  "titleKo": "우리 집의 길",
- "titleDe": "Der Zuhause-Pfad",
  "tier": 3,
  "concepts": [
   "gen_oxeye_daisy",
@@ -28,13 +27,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oxeye_daisy",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Margerite.",
-    "en": "Place Oxeye Daisy."
-   },
-   "hint": {
-    "en": "Place Oxeye Daisy."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:cooked_salmon",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Gebratener Lachs.",
-    "en": "Eat Cooked Salmon."
-   },
-   "hint": {
-    "en": "Eat Cooked Salmon."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_glazed_terracotta",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Weiße glasierte Keramik.",
-    "en": "Place 3× White Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Place 3× White Glazed Terracotta."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Angelaufene Kupfergolemstatue. Nachts.",
-    "en": "Place 3× Exposed Copper Golem Statue. At night."
-   },
-   "hint": {
-    "en": "Place 3× Exposed Copper Golem Statue. At night."
-   }
+   ]
   },
-  "textKo": "밤에 약간 녹슨 구리 골렘 동상을 세 개 세웠어요.",
-  "textDe": "Angelaufene Kupfergolemstatue — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Exposed Copper Golem Statue is complete."
+  "textKo": "밤에 약간 녹슨 구리 골렘 동상을 세 개 세웠어요."
  },
  "reward": {
   "badge": "zuhausepfad",
@@ -114,6 +83,5 @@
  },
  "order": 220,
  "koreanLevel": 2,
- "topic": "나무",
- "titleEn": "The Home Trail"
+ "topic": "나무"
 }

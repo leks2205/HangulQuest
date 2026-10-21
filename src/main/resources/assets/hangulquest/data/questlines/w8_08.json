@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_08",
  "titleKo": "별의 문",
- "titleDe": "Das Sternentor",
  "topic": "별",
  "tier": 2,
  "order": 1088,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:tall_grass",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Hohes Gras.",
-    "en": "Collect Tall Grass."
-   },
-   "hint": {
-    "en": "Collect Tall Grass."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:deepslate_lapis_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Tiefenschiefer-Lapislazulierz.",
-    "en": "Place Deepslate Lapis Lazuli Ore."
-   },
-   "hint": {
-    "en": "Place Deepslate Lapis Lazuli Ore."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:birch_sapling",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Birkensetzling.",
-    "en": "Place 3× Birch Sapling."
-   },
-   "hint": {
-    "en": "Place 3× Birch Sapling."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:yellow_banner",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Gelbes Banner.",
-    "en": "Place 4× Yellow Banner."
-   },
-   "hint": {
-    "en": "Place 4× Yellow Banner."
-   }
+   "conditions": []
   },
-  "textKo": "노란색 현수막을 네 개 걸었어요.",
-  "textDe": "Gelbes Banner — Zeremonie vollendet.",
-  "textEn": "the ritual of Yellow Banner is complete."
+  "textKo": "노란색 현수막을 네 개 걸었어요."
  },
  "reward": {
   "badge": "w8_08",
@@ -108,6 +77,5 @@
    "candle"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Star Gate"
+ "koreanLevel": 4
 }

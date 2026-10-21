@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "wuestenstadt",
  "titleKo": "사막 도시의 길",
- "titleDe": "Die Wüstenstadt",
  "topic": "사막 도시",
  "tier": 3,
  "order": 172,
@@ -30,13 +29,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:plains",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Ebene.",
-    "en": "Reach Plains."
-   },
-   "hint": {
-    "en": "Reach Plains."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:smooth_basalt",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Glatter Basalt.",
-    "en": "Place 6× Smooth Basalt."
-   },
-   "hint": {
-    "en": "Place 6× Smooth Basalt."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_concrete_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Rote Betonstufe.",
-    "en": "Place Red Concrete Slab."
-   },
-   "hint": {
-    "en": "Place Red Concrete Slab."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:oak_sign",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Eichenholzschild.",
-    "en": "Place 3× Oak Sign."
-   },
-   "hint": {
-    "en": "Place 3× Oak Sign."
-   }
+   "conditions": []
   },
-  "textKo": "참나무 표지판을 세 개 세웠어요.",
-  "textDe": "Eichenholzschild — Zeremonie vollendet.",
-  "textEn": "the ritual of Oak Sign is complete."
+  "textKo": "참나무 표지판을 세 개 세웠어요."
  },
  "reward": {
   "badge": "wuestenstadt",
@@ -109,6 +78,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Desert City"
+ "koreanLevel": 3
 }

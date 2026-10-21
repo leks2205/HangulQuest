@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "uhrmacher",
  "titleKo": "시계공의 길",
- "titleDe": "Der Uhrmacherpfad",
  "topic": "시계",
  "tier": 3,
  "order": 151,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dragon_head",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Drachenkopf.",
-    "en": "Collect Dragon Head."
-   },
-   "hint": {
-    "en": "Collect Dragon Head."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:yellow_wool_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Gelbe Wollstufe.",
-    "en": "Place 2× Yellow Wool Slab."
-   },
-   "hint": {
-    "en": "Place 2× Yellow Wool Slab."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:orange_candle",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Orange Kerze.",
-    "en": "Place 2× Orange Candle."
-   },
-   "hint": {
-    "en": "Place 2× Orange Candle."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:moss_carpet",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Moosteppich.",
-    "en": "Place 2× Moss Carpet."
-   },
-   "hint": {
-    "en": "Place 2× Moss Carpet."
-   }
+   "conditions": []
   },
-  "textKo": "이끼 바닥을 두 개 깔았어요.",
-  "textDe": "Moosteppich — Zeremonie vollendet.",
-  "textEn": "the ritual of Moss Carpet is complete."
+  "textKo": "이끼 바닥을 두 개 깔았어요."
  },
  "reward": {
   "badge": "uhrmacher",
@@ -109,6 +78,5 @@
    "bell"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Clockmaker Trail"
+ "koreanLevel": 2
 }

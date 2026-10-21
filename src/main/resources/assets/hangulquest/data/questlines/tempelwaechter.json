@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "tempelwaechter",
  "titleKo": "신전의 수호자",
- "titleDe": "Der Tempelwächter",
  "topic": "수호자",
  "tier": 3,
  "order": 114,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_concrete",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Weißer Beton.",
-    "en": "Place White Concrete."
-   },
-   "hint": {
-    "en": "Place White Concrete."
    }
   },
   {
@@ -54,14 +46,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 4× Geschlossene Augenblüte. Nachts.",
-    "en": "Place 4× Closed Eyeblossom. At night."
-   },
-   "hint": {
-    "en": "Place 4× Closed Eyeblossom. At night."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -72,13 +57,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:exposed_copper_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Angelaufene Kupferfalltür.",
-    "en": "Place Exposed Copper Trapdoor."
-   },
-   "hint": {
-    "en": "Place Exposed Copper Trapdoor."
    }
   }
  ],
@@ -93,18 +71,9 @@
     "block": "minecraft:waxed_oxidized_copper_chain",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Gewachste oxidierte Kupferkette.",
-    "en": "Place 2× Waxed Oxidized Copper Chain."
-   },
-   "hint": {
-    "en": "Place 2× Waxed Oxidized Copper Chain."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 산화된 구리 사슬을 두 개 놓았어요.",
-  "textDe": "Gewachste oxidierte Kupferkette — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Oxidized Copper Chain is complete."
+  "textKo": "밀랍칠한 산화된 구리 사슬을 두 개 놓았어요."
  },
  "reward": {
   "badge": "tempelwaechter",
@@ -115,6 +84,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Temple Keeper"
+ "koreanLevel": 4
 }

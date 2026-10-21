@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_heart_transplanter",
  "titleKo": "심장 이식 수술",
- "titleDe": "Herzverpflanzer",
  "topic": "adventure",
  "tier": 2,
  "order": 209,
@@ -26,13 +25,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:creaking_heart",
     "count": 1
-   },
-   "clue": {
-    "de": "Erlege den Knarzer im blassen Eichenwald und nimm sein Herz.",
-    "en": "Collect Creaking Heart."
-   },
-   "hint": {
-    "en": "Collect Creaking Heart."
    }
   },
   {
@@ -44,13 +36,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:creaking_heart",
     "count": 1
-   },
-   "clue": {
-    "de": "Setze das Knarzherz zwischen zwei Stämme aus blasser Eiche.",
-    "en": "Place Creaking Heart."
-   },
-   "hint": {
-    "en": "Place Creaking Heart."
    }
   }
  ],
@@ -65,18 +50,9 @@
     "block": "minecraft:creaking_heart",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Tritt zurück und sieh zu, wie das Herz wieder zu schlagen beginnt.",
-    "en": "Look at Creaking Heart."
-   },
-   "hint": {
-    "en": "Look at Creaking Heart."
-   }
+   "conditions": []
   },
-  "textKo": "심장 이식 수술 — 두 통나무 사이에서 심장이 다시 뛰었어요.",
-  "textDe": "Herzverpflanzer — das Herz schlägt zwischen zwei Stämmen.",
-  "textEn": "the ritual of Creaking Heart is complete."
+  "textKo": "심장 이식 수술 — 두 통나무 사이에서 심장이 다시 뛰었어요."
  },
  "reward": {
   "badge": "adv_adventure_heart_transplanter",
@@ -84,6 +60,5 @@
    "adv_item_creaking_heart"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Heart Transplanter"
+ "koreanLevel": 2
 }

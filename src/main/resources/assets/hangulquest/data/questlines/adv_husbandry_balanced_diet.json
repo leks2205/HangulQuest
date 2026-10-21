@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_balanced_diet",
  "titleKo": "균형 잡힌 식단",
- "titleDe": "Ausgewogene Ernährung",
  "topic": "husbandry",
  "tier": 2,
  "order": 259,
@@ -28,13 +27,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:apple",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss einen Apfel vom Baum.",
-    "en": "Eat Apple."
-   },
-   "hint": {
-    "en": "Eat Apple."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:carrot",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Karotte.",
-    "en": "Eat Carrot."
-   },
-   "hint": {
-    "en": "Eat Carrot."
    }
   }
  ],
@@ -69,17 +54,10 @@
    },
    "conditions": [],
    "hint": {
-    "ko": "황금 당근은 당근과 금 조각 여덟 개로 만들어요.",
-    "de": "Eine goldene Karotte braucht eine Karotte und acht Goldnuggets.",
-    "en": "Eat Golden Carrot."
-   },
-   "clue": {
-    "en": "Eat Golden Carrot."
+    "ko": "황금 당근은 당근과 금 조각 여덟 개로 만들어요."
    }
   },
-  "textKo": "균형 잡힌 식단 — 황금 당근까지 골고루 먹어요.",
-  "textDe": "Ausgewogene Ernährung: Zum Schluss kommt eine goldene Karotte dazu.",
-  "textEn": "the ritual of Golden Carrot is complete."
+  "textKo": "균형 잡힌 식단 — 황금 당근까지 골고루 먹어요."
  },
  "reward": {
   "badge": "adv_husbandry_balanced_diet",
@@ -89,6 +67,5 @@
    "adv_item_golden_carrot"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "A Balanced Diet"
+ "koreanLevel": 2
 }

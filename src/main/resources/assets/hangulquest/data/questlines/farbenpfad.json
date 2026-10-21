@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "farbenpfad",
  "titleKo": "색의 길",
- "titleDe": "Der Farbenpfad",
  "topic": "색",
  "tier": 3,
  "order": 96,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:damaged_anvil",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Beschädigter Amboss.",
-    "en": "Collect 3× Damaged Anvil."
-   },
-   "hint": {
-    "en": "Collect 3× Damaged Anvil."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:smooth_red_sandstone_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Glatte rote Sandsteinstufe.",
-    "en": "Place 3× Smooth Red Sandstone Slab."
-   },
-   "hint": {
-    "en": "Place 3× Smooth Red Sandstone Slab."
    }
   }
  ],
@@ -68,18 +53,9 @@
     "block": "minecraft:coal_ore",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sieh dir Steinkohle an.",
-    "en": "Look at Coal Ore."
-   },
-   "hint": {
-    "en": "Look at Coal Ore."
-   }
+   "conditions": []
   },
-  "textKo": "석탄 광석을 바라봤어요.",
-  "textDe": "Steinkohle — Zeremonie vollendet.",
-  "textEn": "the ritual of Coal Ore is complete."
+  "textKo": "석탄 광석을 바라봤어요."
  },
  "reward": {
   "badge": "farbenpfad",
@@ -88,6 +64,5 @@
    "flower"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Colour Trail"
+ "koreanLevel": 2
 }

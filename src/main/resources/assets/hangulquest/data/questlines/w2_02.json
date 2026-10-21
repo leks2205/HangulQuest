@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w2_02",
  "titleKo": "첫눈 소리",
- "titleDe": "Der Klang des ersten Schnees",
  "topic": "눈",
  "tier": 1,
  "order": 1022,
@@ -27,13 +26,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:brown_concrete",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Brauner Beton ab.",
-    "en": "Break 4× Brown Concrete."
-   },
-   "hint": {
-    "en": "Break 4× Brown Concrete."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:terracotta",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Keramik.",
-    "en": "Collect 8× Terracotta."
-   },
-   "hint": {
-    "en": "Collect 8× Terracotta."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oxidized_chiseled_copper",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Oxidierter gemeißelter Kupferblock.",
-    "en": "Place 2× Oxidized Chiseled Copper."
-   },
-   "hint": {
-    "en": "Place 2× Oxidized Chiseled Copper."
    }
   }
  ],
@@ -89,18 +67,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Blaue Kerze. Nachts.",
-    "en": "Place Blue Candle. At night."
-   },
-   "hint": {
-    "en": "Place Blue Candle. At night."
-   }
+   ]
   },
-  "textKo": "밤에 파란색 초를 놓았어요.",
-  "textDe": "Blaue Kerze — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Blue Candle is complete."
+  "textKo": "밤에 파란색 초를 놓았어요."
  },
  "reward": {
   "badge": "w2_02",
@@ -111,6 +80,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Sound of the First Snow"
+ "koreanLevel": 1
 }

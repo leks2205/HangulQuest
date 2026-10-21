@@ -1,11 +1,23 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.I18n;
+import io.github.leks2205.hangulquest.util.Lang;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/** Curated vocabulary entry as stored in concepts.json. */
+/**
+ * Curated vocabulary entry as stored in concepts.json. The English and German gloss and the sentence
+ * translation live in the lang files ({@code hangulquest.word.<id>.gloss} and {@code .sentence});
+ * a concepts.json that still carries them inline (a resource pack) wins over the keys.
+ */
 public final class Concept {
+	/** Key of a word field in the lang files: {@code gloss} or {@code sentence}. */
+	public static String key(String conceptId, String field) {
+		return "hangulquest.word." + conceptId + "." + field;
+	}
+
 	public String id;
 	public String ko;
 	public String de;
@@ -51,6 +63,21 @@ public final class Concept {
 			return icon;
 		}
 		return items == null || items.isEmpty() ? null : items.get(0);
+	}
+
+	/** Fills the glosses and sentence translations that concepts.json leaves to the lang files. */
+	public void fillText() {
+		if (id == null || id.isBlank()) {
+			return;
+		}
+		de = blank(de) ? I18n.find(Lang.DE.code(), key(id, "gloss")) : de;
+		en = blank(en) ? I18n.find(Lang.EN.code(), key(id, "gloss")) : en;
+		sentenceDe = blank(sentenceDe) ? I18n.find(Lang.DE.code(), key(id, "sentence")) : sentenceDe;
+		sentenceEn = blank(sentenceEn) ? I18n.find(Lang.EN.code(), key(id, "sentence")) : sentenceEn;
+	}
+
+	private static boolean blank(String text) {
+		return text == null || text.isBlank();
 	}
 
 	public Word toWord() {

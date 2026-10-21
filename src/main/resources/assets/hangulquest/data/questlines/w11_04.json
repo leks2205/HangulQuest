@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_04",
  "titleKo": "별의 지도",
- "titleDe": "Die Karte der Sterne",
  "topic": "별",
  "tier": 2,
  "order": 1114,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:magenta_stained_glass",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Magenta Glas.",
-    "en": "Collect 4× Magenta Stained Glass."
-   },
-   "hint": {
-    "en": "Collect 4× Magenta Stained Glass."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dripstone_block",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Tropfsteinblock.",
-    "en": "Place 3× Dripstone Block."
-   },
-   "hint": {
-    "en": "Place 3× Dripstone Block."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:purple_wool_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Violette Wolltreppe.",
-    "en": "Collect Purple Wool Stairs."
-   },
-   "hint": {
-    "en": "Collect Purple Wool Stairs."
    }
   }
  ],
@@ -86,20 +64,12 @@
     "block": "minecraft:purpur_block",
     "count": 8
    },
-   "clue": {
-    "de": "Setz acht Purpurblöcke als Sternenmarke.",
-    "en": "Place 8× Purpur Block."
-   },
    "hint": {
-    "ko": "퍼퍼 블록은 엔드에서만 나와요.",
-    "de": "Purpurblöcke gibt es nur im Ende.",
-    "en": "Place 8× Purpur Block."
+    "ko": "퍼퍼 블록은 엔드에서만 나와요."
    },
    "conditions": []
   },
-  "textKo": "별의 지도를 따라 엔드의 하늘을 날아요.",
-  "textDe": "Du folgst der Karte der Sterne und fliegst durch den Himmel des Endes.",
-  "textEn": "the ritual of Purpur Block is complete."
+  "textKo": "별의 지도를 따라 엔드의 하늘을 날아요."
  },
  "reward": {
   "badge": "w11_04",
@@ -110,6 +80,5 @@
    "adv_block_purpur_block"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Map of the Stars"
+ "koreanLevel": 6
 }

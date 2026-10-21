@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "steinmetz",
  "titleKo": "석공의 길",
- "titleDe": "Der Steinmetzpfad",
  "topic": "석공",
  "tier": 3,
  "order": 160,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:muddy_mangrove_roots",
     "count": 8
-   },
-   "clue": {
-    "de": "Platziere 8× Schlammige Mangrovenwurzeln.",
-    "en": "Place 8× Muddy Mangrove Roots."
-   },
-   "hint": {
-    "en": "Place 8× Muddy Mangrove Roots."
    }
   },
   {
@@ -49,14 +41,8 @@
     "block": "minecraft:chiseled_stone_bricks",
     "count": 2
    },
-   "clue": {
-    "de": "Setz zwei gemeißelte Steinziegel.",
-    "en": "Place 2× Chiseled Stone Bricks."
-   },
    "hint": {
-    "ko": "조각된 석재 벽돌은 석재 벽돌 두 개로 만들어요.",
-    "de": "Gemeißelte Steinziegel bestehen aus zwei Steinziegeln.",
-    "en": "Place 2× Chiseled Stone Bricks."
+    "ko": "조각된 석재 벽돌은 석재 벽돌 두 개로 만들어요."
    }
   },
   {
@@ -68,13 +54,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:conduit",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Aquisator.",
-    "en": "Place 2× Conduit."
-   },
-   "hint": {
-    "en": "Place 2× Conduit."
    }
   }
  ],
@@ -89,17 +68,9 @@
     "item": "minecraft:stone_bricks",
     "count": 6
    },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 6× Stone Bricks."
-   },
-   "hint": {
-    "en": "Collect 6× Stone Bricks."
-   }
+   "conditions": []
   },
-  "textKo": "석재 벽돌을 모아요.",
-  "textDe": "Steinziegel sammeln.",
-  "textEn": "the ritual of Stone Bricks is complete."
+  "textKo": "석재 벽돌을 모아요."
  },
  "reward": {
   "badge": "steinmetz",
@@ -109,6 +80,5 @@
    "chest"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Stonemason Trail"
+ "koreanLevel": 2
 }

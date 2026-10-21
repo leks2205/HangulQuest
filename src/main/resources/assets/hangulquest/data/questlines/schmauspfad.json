@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmauspfad",
  "titleKo": "산해진미의 길",
- "titleDe": "Der Schlemmerpfad",
  "tier": 2,
  "order": 502,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cinnabar_brick_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Zinnoberziegeltreppe.",
-    "en": "Collect Cinnabar Brick Stairs."
-   },
-   "hint": {
-    "en": "Collect Cinnabar Brick Stairs."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cake",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Kuchen.",
-    "en": "Place Cake."
-   },
-   "hint": {
-    "en": "Place Cake."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:sweet_berries",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Süßbeeren.",
-    "en": "Eat Sweet Berries."
-   },
-   "hint": {
-    "en": "Eat Sweet Berries."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Iss Leuchtbeeren. Nachts.",
-    "en": "Eat Glow Berries. At night."
-   },
-   "hint": {
-    "en": "Eat Glow Berries. At night."
-   }
+   ]
   },
-  "textKo": "밤에 발광 열매를 먹었어요.",
-  "textDe": "Leuchtbeeren — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Glow Berries is complete."
+  "textKo": "밤에 발광 열매를 먹었어요."
  },
  "reward": {
   "badge": "schmauspfad",
@@ -113,6 +82,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "음식",
- "titleEn": "The Gourmet Trail"
+ "topic": "음식"
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_lightning_rod_with_villager_no_fire",
  "titleKo": "번개 멈춰!",
- "titleDe": "Überspannungsschutz",
  "topic": "adventure",
  "tier": 2,
  "order": 216,
@@ -28,13 +27,8 @@
     "item": "minecraft:lightning_rod",
     "count": 1
    },
-   "clue": {
-    "de": "Schmiede aus drei Kupferbarren einen Blitzableiter.",
-    "en": "Collect Lightning Rod."
-   },
    "hint": {
-    "ko": "구리 주괴 세 개로 만들어요.",
-    "en": "Collect Lightning Rod."
+    "ko": "구리 주괴 세 개로 만들어요."
    }
   },
   {
@@ -45,13 +39,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:rabbit"
-   },
-   "clue": {
-    "de": "Interagiere mit Kaninchen.",
-    "en": "Talk to Rabbit."
-   },
-   "hint": {
-    "en": "Talk to Rabbit."
    }
   }
  ],
@@ -66,18 +53,9 @@
     "block": "minecraft:lightning_rod",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Stell bei Gewitter den Blitzableiter direkt neben den Dorfbewohner.",
-    "en": "Place Lightning Rod."
-   },
-   "hint": {
-    "en": "Place Lightning Rod."
-   }
+   "conditions": []
   },
-  "textKo": "번개 멈춰! — 피뢰침으로 주민을 번개에서 지켜요.",
-  "textDe": "Überspannungsschutz — Stell den Blitzableiter neben den Dorfbewohner und rette ihn.",
-  "textEn": "the ritual of Lightning Rod is complete."
+  "textKo": "번개 멈춰! — 피뢰침으로 주민을 번개에서 지켜요."
  },
  "reward": {
   "badge": "adv_adventure_lightning_rod_with_villager_no_fire",
@@ -86,6 +64,5 @@
    "villager"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Surge Protector"
+ "koreanLevel": 2
 }

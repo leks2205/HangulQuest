@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_06",
  "titleKo": "도공의 손",
- "titleDe": "Die Hände des Töpfers",
  "topic": "손",
  "tier": 2,
  "order": 1106,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dark_oak_wood",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schwarzeichenholz.",
-    "en": "Collect Dark Oak Wood."
-   },
-   "hint": {
-    "en": "Collect Dark Oak Wood."
    }
   },
   {
@@ -48,14 +40,8 @@
     "item": "minecraft:clay_ball",
     "count": 8
    },
-   "clue": {
-    "de": "Sammle acht Tonklumpen am Flussufer.",
-    "en": "Collect 8× Clay Ball."
-   },
    "hint": {
-    "ko": "점토는 물가의 흙에서 나와요.",
-    "de": "Ton findest du am Ufer unter Wasser.",
-    "en": "Collect 8× Clay Ball."
+    "ko": "점토는 물가의 흙에서 나와요."
    }
   },
   {
@@ -68,14 +54,8 @@
     "block": "minecraft:bricks",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Schau die alte Ziegelmauer im Tempel an.",
-    "en": "Look at Bricks."
-   },
    "hint": {
-    "ko": "벽돌 벽은 오래된 유적의 벽이에요.",
-    "de": "Die Ziegelmauer gehört zu den alten Ruinen.",
-    "en": "Look at Bricks."
+    "ko": "벽돌 벽은 오래된 유적의 벽이에요."
    }
   }
  ],
@@ -90,17 +70,9 @@
     "block": "minecraft:decorated_pot",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Decorated Pot."
-   },
-   "hint": {
-    "en": "Place Decorated Pot."
-   }
+   "conditions": []
   },
-  "textKo": "모래에서 찾은 도자기를 유적에 다시 세워요.",
-  "textDe": "Der bemalte Krug steht wieder in seiner Nische.",
-  "textEn": "the ritual of Decorated Pot is complete."
+  "textKo": "모래에서 찾은 도자기를 유적에 다시 세워요."
  },
  "reward": {
   "badge": "w10_06",
@@ -111,6 +83,5 @@
    "adv_item_decorated_pot"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Potter's Hands"
+ "koreanLevel": 5
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "steinherz",
  "titleKo": "돌심장",
- "titleDe": "Das Steinherz",
  "topic": "돌",
  "tier": 3,
  "order": 83,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:observer",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Beobachter ab.",
-    "en": "Break 3× Observer."
-   },
-   "hint": {
-    "en": "Break 3× Observer."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cherry_boat",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Kirschholzboot.",
-    "en": "Collect 2× Cherry Boat."
-   },
-   "hint": {
-    "en": "Collect 2× Cherry Boat."
    }
   }
  ],
@@ -68,18 +53,9 @@
     "block": "minecraft:open_eyeblossom",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Geöffnete Augenblüte.",
-    "en": "Place 2× Open Eyeblossom."
-   },
-   "hint": {
-    "en": "Place 2× Open Eyeblossom."
-   }
+   "conditions": []
   },
-  "textKo": "뜬 눈망울꽃을 두 개 심었어요.",
-  "textDe": "Geöffnete Augenblüte — Zeremonie vollendet.",
-  "textEn": "the ritual of Open Eyeblossom is complete."
+  "textKo": "뜬 눈망울꽃을 두 개 심었어요."
  },
  "reward": {
   "badge": "steinherz",
@@ -89,6 +65,5 @@
    "furnace"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Stone Heart"
+ "koreanLevel": 2
 }

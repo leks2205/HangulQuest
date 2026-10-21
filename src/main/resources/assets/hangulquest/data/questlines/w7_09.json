@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_09",
  "titleKo": "가스트의 눈물",
- "titleDe": "Ghasttränen",
  "topic": "눈물",
  "tier": 2,
  "order": 1079,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:crimson_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Karmesinstufe.",
-    "en": "Collect 2× Crimson Slab."
-   },
-   "hint": {
-    "en": "Collect 2× Crimson Slab."
    }
   },
   {
@@ -48,14 +40,8 @@
     "block": "minecraft:brewing_stand",
     "count": 1
    },
-   "clue": {
-    "de": "Stell einen Braustand auf.",
-    "en": "Place Brewing Stand."
-   },
    "hint": {
-    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요.",
-    "de": "Ein Braustand besteht aus einer Lohenrute und Bruchstein.",
-    "en": "Place Brewing Stand."
+    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:flow_armor_trim_smithing_template",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Schmiedevorlage.",
-    "en": "Collect 3× Smithing Template."
-   },
-   "hint": {
-    "en": "Collect 3× Smithing Template."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:soul_torch",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Seelenfackel.",
-    "en": "Collect Soul Torch."
-   },
-   "hint": {
-    "en": "Collect Soul Torch."
-   }
+   "conditions": []
   },
-  "textKo": "영혼 횃불을 구했어요.",
-  "textDe": "Seelenfackel — Zeremonie vollendet.",
-  "textEn": "the ritual of Soul Torch is complete."
+  "textKo": "영혼 횃불을 구했어요."
  },
  "reward": {
   "badge": "w7_09",
@@ -110,6 +80,5 @@
    "adv_item_potion"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "Ghast Tears"
+ "koreanLevel": 4
 }

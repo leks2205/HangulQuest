@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_uh_oh",
  "titleKo": "폭탄 받아라",
- "titleDe": "Oh, oh",
  "topic": "husbandry",
  "tier": 2,
  "order": 283,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:gunpowder",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle Schießpulver von erlegten Creepers.",
-    "en": "Collect 5× Gunpowder."
-   },
-   "hint": {
-    "en": "Collect 5× Gunpowder."
    }
   },
   {
@@ -47,13 +39,8 @@
     "item": "minecraft:sand",
     "count": 4
    },
-   "clue": {
-    "de": "Grabe vier Sandblöcke für die TNT-Herstellung aus.",
-    "en": "Collect 4× Sand."
-   },
    "hint": {
-    "ko": "화약 다섯 개와 모래 네 개로 티엔티를 만들어요.",
-    "en": "Collect 4× Sand."
+    "ko": "화약 다섯 개와 모래 네 개로 티엔티를 만들어요."
    }
   }
  ],
@@ -68,17 +55,9 @@
     "block": "minecraft:tnt",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place TNT."
-   },
-   "hint": {
-    "en": "Place TNT."
-   }
+   "conditions": []
   },
-  "textKo": "폭탄 받아라 — 유황 큐브 앞에 티엔티를 놓아요.",
-  "textDe": "Oh, oh — Du legst TNT vor einen Schwefelwürfel, der es verschlingt.",
-  "textEn": "the ritual of TNT is complete."
+  "textKo": "폭탄 받아라 — 유황 큐브 앞에 티엔티를 놓아요."
  },
  "reward": {
   "badge": "adv_husbandry_uh_oh",
@@ -88,6 +67,5 @@
    "adv_item_tnt"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Uh Oh"
+ "koreanLevel": 1
 }

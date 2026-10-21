@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "richterpfad",
  "titleKo": "심판의 길",
- "titleDe": "Der Richterpfad",
  "topic": "심판",
  "tier": 3,
  "order": 123,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oak_wood",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Eichenholz.",
-    "en": "Place 3× Oak Wood."
-   },
-   "hint": {
-    "en": "Place 3× Oak Wood."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:shulker_box",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Shulker-Kiste.",
-    "en": "Place 3× Shulker Box."
-   },
-   "hint": {
-    "en": "Place 3× Shulker Box."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:detector_rail",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Sensorschiene.",
-    "en": "Place 4× Detector Rail."
-   },
-   "hint": {
-    "en": "Place 4× Detector Rail."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:blue_concrete_powder",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Blauer Trockenbeton.",
-    "en": "Place 3× Blue Concrete Powder."
-   },
-   "hint": {
-    "en": "Place 3× Blue Concrete Powder."
-   }
+   "conditions": []
   },
-  "textKo": "파란색 콘크리트 가루를 세 개 놓았어요.",
-  "textDe": "Blauer Trockenbeton — Zeremonie vollendet.",
-  "textEn": "the ritual of Blue Concrete Powder is complete."
+  "textKo": "파란색 콘크리트 가루를 세 개 놓았어요."
  },
  "reward": {
   "badge": "richterpfad",
@@ -109,6 +78,5 @@
    "anvil"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Judge's Trail"
+ "koreanLevel": 5
 }

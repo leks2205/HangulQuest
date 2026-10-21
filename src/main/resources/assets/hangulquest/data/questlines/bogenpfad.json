@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "bogenpfad",
  "titleKo": "활의 길",
- "titleDe": "Der Bogenpfad",
  "topic": "나무",
  "tier": 3,
  "order": 64,
@@ -36,14 +35,10 @@
     "count": 1
    },
    "clue": {
-    "de": "Bau einen Bogen.",
-    "ko": "나무와 실로 활을 만들어요.",
-    "en": "Collect Bow."
+    "ko": "나무와 실로 활을 만들어요."
    },
    "hint": {
-    "ko": "활은 나무와 실로 만들어요.",
-    "de": "Ein Bogen besteht aus Holz und Faden.",
-    "en": "Collect Bow."
+    "ko": "활은 나무와 실로 만들어요."
    }
   },
   {
@@ -59,14 +54,10 @@
     "count": 4
    },
    "clue": {
-    "de": "Sammle vier Pfeile.",
-    "ko": "깃털과 나무로 화살을 만들어요.",
-    "en": "Collect 4× Arrow."
+    "ko": "깃털과 나무로 화살을 만들어요."
    },
    "hint": {
-    "ko": "화살은 깃털, 나무, 부싯돌로 만들어요.",
-    "de": "Pfeile bestehen aus Feder, Holz und Feuerstein.",
-    "en": "Collect 4× Arrow."
+    "ko": "화살은 깃털, 나무, 부싯돌로 만들어요."
    }
   },
   {
@@ -78,13 +69,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:elder_guardian",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Großwächter an.",
-    "en": "Look at Elder Guardian."
-   },
-   "hint": {
-    "en": "Look at Elder Guardian."
    }
   }
  ],
@@ -99,18 +83,9 @@
     "entity": "minecraft:slime",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Schleim.",
-    "en": "Defeat Slime."
-   },
-   "hint": {
-    "en": "Defeat Slime."
-   }
+   "conditions": []
   },
-  "textKo": "슬라임을 물리쳤어요.",
-  "textDe": "Schleim — Zeremonie vollendet.",
-  "textEn": "the ritual of Slime is complete."
+  "textKo": "슬라임을 물리쳤어요."
  },
  "reward": {
   "badge": "bogenpfad",
@@ -120,6 +95,5 @@
    "cow"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Bow Trail"
+ "koreanLevel": 1
 }

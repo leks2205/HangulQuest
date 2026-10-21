@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_repair_wolf_armor",
  "titleKo": "새것처럼",
- "titleDe": "So gut wie neu",
  "topic": "husbandry",
  "tier": 2,
  "order": 275,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:green_banner",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Grünes Banner.",
-    "en": "Collect Green Banner."
-   },
-   "hint": {
-    "en": "Collect Green Banner."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:deepslate_redstone_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tiefenschiefer-Redstone-Erz.",
-    "en": "Collect Deepslate Redstone Ore."
-   },
-   "hint": {
-    "en": "Collect Deepslate Redstone Ore."
    }
   }
  ],
@@ -66,18 +51,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:wandering_trader"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Fahrender Händler.",
-    "en": "Talk to Wandering Trader."
-   },
-   "hint": {
-    "en": "Talk to Wandering Trader."
-   }
+   "conditions": []
   },
-  "textKo": "떠돌이 상인과 이야기했어요.",
-  "textDe": "Fahrender Händler — Zeremonie vollendet.",
-  "textEn": "the ritual of Wandering Trader is complete."
+  "textKo": "떠돌이 상인과 이야기했어요."
  },
  "reward": {
   "badge": "adv_husbandry_repair_wolf_armor",
@@ -87,6 +63,5 @@
    "wolf"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Good as New"
+ "koreanLevel": 2
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kochkunst",
  "titleKo": "요리의 길",
- "titleDe": "Die Kochkunst",
  "tier": 3,
  "order": 512,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:golden_shovel",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Goldschaufel.",
-    "en": "Collect 2× Golden Shovel."
-   },
-   "hint": {
-    "en": "Collect 2× Golden Shovel."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:chiseled_polished_blackstone",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gemeißelter polierter Schwarzstein.",
-    "en": "Collect Chiseled Polished Blackstone."
-   },
-   "hint": {
-    "en": "Collect Chiseled Polished Blackstone."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:tropical_fish",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Tropenfisch.",
-    "en": "Eat Tropical Fish."
-   },
-   "hint": {
-    "en": "Eat Tropical Fish."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kupferkette. Nachts.",
-    "en": "Place Copper Chain. At night."
-   },
-   "hint": {
-    "en": "Place Copper Chain. At night."
-   }
+   ]
   },
-  "textKo": "밤에 구리 사슬을 놓았어요.",
-  "textDe": "Kupferkette — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Copper Chain is complete."
+  "textKo": "밤에 구리 사슬을 놓았어요."
  },
  "reward": {
   "badge": "kochkunst",
@@ -113,6 +82,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "음식",
- "titleEn": "The Art of Cooking"
+ "topic": "음식"
 }

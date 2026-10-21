@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w9_08",
  "titleKo": "왕관의 유산",
- "titleDe": "Das Kronenerbe",
  "topic": "유산",
  "tier": 2,
  "order": 1098,
@@ -30,14 +29,10 @@
     "count": 4
    },
    "clue": {
-    "de": "Stell vier Bücherregale für die Chronik der Krone.",
-    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요.",
-    "en": "Place 4× Bookshelf."
+    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요."
    },
    "hint": {
-    "ko": "책장은 나무 판자와 책으로 만들어요.",
-    "de": "Bücherregale bestehen aus Brettern und Büchern.",
-    "en": "Place 4× Bookshelf."
+    "ko": "책장은 나무 판자와 책으로 만들어요."
    }
   },
   {
@@ -50,14 +45,10 @@
     "block": "minecraft:lectern"
    },
    "clue": {
-    "de": "Trag das Vermächtnis am Lesepult vor.",
-    "ko": "유산을 남기려고 독서대를 사용해요.",
-    "en": "Use Lectern."
+    "ko": "유산을 남기려고 독서대를 사용해요."
    },
    "hint": {
-    "ko": "독서대는 나무 반 블록과 책장으로 만들어요.",
-    "de": "Ein Lesepult braucht eine Holzstufe und ein Bücherregal.",
-    "en": "Use Lectern."
+    "ko": "독서대는 나무 반 블록과 책장으로 만들어요."
    }
   }
  ],
@@ -72,18 +63,9 @@
     "item": "minecraft:waxed_weathered_cut_copper_stairs",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Gewachste verwitterte geschnittene Kupfertreppe.",
-    "en": "Collect 3× Waxed Weathered Cut Copper Stairs."
-   },
-   "hint": {
-    "en": "Collect 3× Waxed Weathered Cut Copper Stairs."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 녹슨 깎인 구리 계단을 세 개 만들었어요.",
-  "textDe": "Gewachste verwitterte geschnittene Kupfertreppe — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Weathered Cut Copper Stairs is complete."
+  "textKo": "밀랍칠한 녹슨 깎인 구리 계단을 세 개 만들었어요."
  },
  "reward": {
   "badge": "w9_08",
@@ -93,6 +75,5 @@
    "lectern"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Crown Heritage"
+ "koreanLevel": 5
 }

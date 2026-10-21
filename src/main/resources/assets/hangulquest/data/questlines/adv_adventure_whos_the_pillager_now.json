@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_whos_the_pillager_now",
  "titleKo": "이제 누가 약탈자지?",
- "titleDe": "Wer ist jetzt der Plünderer?",
  "topic": "adventure",
  "tier": 2,
  "order": 246,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_relic",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cinnabar_bricks",
     "count": 16
-   },
-   "clue": {
-    "de": "Sammle 16× Zinnoberziegel.",
-    "en": "Collect 16× Cinnabar Bricks."
-   },
-   "hint": {
-    "en": "Collect 16× Cinnabar Bricks."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:blaze",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Lohe.",
-    "en": "Defeat Blaze."
-   },
-   "hint": {
-    "en": "Defeat Blaze."
-   }
+   "conditions": []
   },
-  "textKo": "블레이즈를 물리쳤어요.",
-  "textDe": "Lohe — Zeremonie vollendet.",
-  "textEn": "the ritual of Blaze is complete."
+  "textKo": "블레이즈를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_whos_the_pillager_now",
@@ -88,6 +64,5 @@
    "witch"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Who's the Pillager Now?"
+ "koreanLevel": 3
 }

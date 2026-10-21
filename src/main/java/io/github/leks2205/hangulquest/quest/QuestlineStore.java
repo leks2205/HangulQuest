@@ -34,6 +34,9 @@ public final class QuestlineStore {
 			- A file with the "id" of a shipped questline is ignored unless it says "override": true,
 			  so content fixes always reach the game. With "override": true it replaces the shipped one.
 			- A new "id" adds a new questline; prerequisites go in "requires.completed".
+			- English and German text goes inline in the file: "titleEn"/"titleDe", "clue"/"hint" with
+			  "en"/"de", and "textEn"/"textDe" in "finale". The shipped questlines keep this text in the
+			  mod's language files instead; an inline field always wins over those.
 			- Files starting with "_" are ignored. Template: _template.json.
 			- Broken files are logged and ignored; the shipped version stays active.
 

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmiedefeuer",
  "titleKo": "대장간의 불",
- "titleDe": "Das Schmiedefeuer",
  "tier": 4,
  "order": 511,
  "concepts": [
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cracked_deepslate_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rissige Tiefenschieferziegel.",
-    "en": "Collect Cracked Deepslate Bricks."
-   },
-   "hint": {
-    "en": "Collect Cracked Deepslate Bricks."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:chiseled_sulfur",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Gemeißelter Schwefel ab.",
-    "en": "Break 4× Chiseled Sulfur."
-   },
-   "hint": {
-    "en": "Break 4× Chiseled Sulfur."
    }
   },
   {
@@ -72,14 +57,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Bemooste Bruchsteinmauer. Nachts.",
-    "en": "Place 3× Mossy Cobblestone Wall. At night."
-   },
-   "hint": {
-    "en": "Place 3× Mossy Cobblestone Wall. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -98,18 +76,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Entrindetes Akazienholz. Nachts.",
-    "en": "Place Stripped Acacia Wood. At night."
-   },
-   "hint": {
-    "en": "Place Stripped Acacia Wood. At night."
-   }
+   ]
   },
-  "textKo": "밤에 껍질 벗긴 아카시아나무를 놓았어요.",
-  "textDe": "Entrindetes Akazienholz — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Stripped Acacia Wood is complete."
+  "textKo": "밤에 껍질 벗긴 아카시아나무를 놓았어요."
  },
  "reward": {
   "badge": "schmiedefeuer",
@@ -121,6 +90,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "돌",
- "titleEn": "The Forge Fire"
+ "topic": "돌"
 }

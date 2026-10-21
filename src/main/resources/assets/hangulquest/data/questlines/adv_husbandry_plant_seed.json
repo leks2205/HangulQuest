@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_plant_seed",
  "titleKo": "씨앗이 자라나는 곳",
- "titleDe": "Hobbygärtner",
  "topic": "husbandry",
  "tier": 2,
  "order": 273,
@@ -28,13 +27,8 @@
     "type": "USE_BLOCK",
     "block": "minecraft:grass_block"
    },
-   "clue": {
-    "de": "Mach mit der Hacke aus Gras Ackerboden.",
-    "en": "Use Grass Block."
-   },
    "hint": {
-    "ko": "괭이로 잔디를 갈아요.",
-    "en": "Use Grass Block."
+    "ko": "괭이로 잔디를 갈아요."
    }
   },
   {
@@ -46,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:nether_wart",
     "count": 1
-   },
-   "clue": {
-    "de": "Pflanze Netherwarze auf Seelensand im Nether.",
-    "en": "Place Nether Wart."
-   },
-   "hint": {
-    "en": "Place Nether Wart."
    }
   }
  ],
@@ -67,17 +54,9 @@
     "block": "minecraft:wheat",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place 3× Wheat Crops."
-   },
-   "hint": {
-    "en": "Place 3× Wheat Crops."
-   }
+   "conditions": []
   },
-  "textKo": "씨앗이 자라나는 곳 — 밀 씨앗을 심고 밭을 가꿔요.",
-  "textDe": "Hobbygärtner — Du säst Weizenkörner und pflegst dein Feld.",
-  "textEn": "the ritual of Wheat Crops is complete."
+  "textKo": "씨앗이 자라나는 곳 — 밀 씨앗을 심고 밭을 가꿔요."
  },
  "reward": {
   "badge": "adv_husbandry_plant_seed",
@@ -87,6 +66,5 @@
    "wheat"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "A Seedy Place"
+ "koreanLevel": 1
 }

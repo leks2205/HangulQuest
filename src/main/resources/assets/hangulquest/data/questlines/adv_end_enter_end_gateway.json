@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_enter_end_gateway",
  "titleKo": "머나먼 휴양지",
- "titleDe": "Im Transit",
  "topic": "end",
  "tier": 2,
  "order": 250,
@@ -28,13 +27,6 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:silverfish",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege Silberfischchen.",
-    "en": "Defeat Silverfish."
-   },
-   "hint": {
-    "en": "Defeat Silverfish."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ender_pearl",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Enderperlen für den Wurf ins Tor.",
-    "en": "Collect 4× Ender Pearl."
-   },
-   "hint": {
-    "en": "Collect 4× Ender Pearl."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:poplar_pressure_plate",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Pappelholzdruckplatte.",
-    "en": "Place 2× Poplar Pressure Plate."
-   },
-   "hint": {
-    "en": "Place 2× Poplar Pressure Plate."
-   }
+   "conditions": []
   },
-  "textKo": "포플러나무 압력판을 두 개 놓았어요.",
-  "textDe": "Pappelholzdruckplatte — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Pressure Plate is complete."
+  "textKo": "포플러나무 압력판을 두 개 놓았어요."
  },
  "reward": {
   "badge": "adv_end_enter_end_gateway",
@@ -88,6 +64,5 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "Remote Getaway"
+ "koreanLevel": 6
 }

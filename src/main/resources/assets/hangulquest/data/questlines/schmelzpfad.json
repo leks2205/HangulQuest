@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmelzpfad",
  "titleKo": "용광로의 길",
- "titleDe": "Der Schmelzpfad",
  "tier": 2,
  "order": 310,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:piglin_wall_head",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Piglin-Wandkopf ab.",
-    "en": "Break 2× Piglin Wall Head."
-   },
-   "hint": {
-    "en": "Break 2× Piglin Wall Head."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_sandstone",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Roter Sandstein.",
-    "en": "Place Red Sandstone."
-   },
-   "hint": {
-    "en": "Place Red Sandstone."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:red_nether_brick_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rote Netherziegelstufe.",
-    "en": "Collect Red Nether Brick Slab."
-   },
-   "hint": {
-    "en": "Collect Red Nether Brick Slab."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Webstuhl. Nachts.",
-    "en": "Place Loom. At night."
-   },
-   "hint": {
-    "en": "Place Loom. At night."
-   }
+   ]
   },
-  "textKo": "밤에 베틀을 놓았어요.",
-  "textDe": "Webstuhl — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Loom is complete."
+  "textKo": "밤에 베틀을 놓았어요."
  },
  "reward": {
   "badge": "schmelzpfad",
@@ -112,6 +81,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "돌",
- "titleEn": "The Smelting Trail"
+ "topic": "돌"
 }

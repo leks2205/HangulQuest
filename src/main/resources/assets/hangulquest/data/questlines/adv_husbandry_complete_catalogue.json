@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_complete_catalogue",
  "titleKo": "집사 그 자체",
- "titleDe": "Ein kompletter Katerlog",
  "topic": "husbandry",
  "tier": 2,
  "order": 262,
@@ -27,13 +26,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:cat",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Finde im Dorf eine Katze und schau sie dir an.",
-    "en": "Look at Cat."
-   },
-   "hint": {
-    "en": "Look at Cat."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:birch_hanging_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Birkenholzhängeschild.",
-    "en": "Collect 2× Birch Hanging Sign."
-   },
-   "hint": {
-    "en": "Collect 2× Birch Hanging Sign."
    }
   }
  ],
@@ -65,17 +50,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:cat"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Cat."
-   },
-   "hint": {
-    "en": "Talk to Cat."
-   }
+   "conditions": []
   },
-  "textKo": "집사 그 자체 — 대구를 주고 고양이를 길들여요.",
-  "textDe": "Ein kompletter Katerlog: Mit rohem Kabeljau zähmst du die Katze.",
-  "textEn": "the ritual of Cat is complete."
+  "textKo": "집사 그 자체 — 대구를 주고 고양이를 길들여요."
  },
  "reward": {
   "badge": "adv_husbandry_complete_catalogue",
@@ -83,6 +60,5 @@
    "cat"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "A Complete Catalogue"
+ "koreanLevel": 2
 }

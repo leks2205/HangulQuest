@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "faerberei",
  "titleKo": "염색의 길",
- "titleDe": "Der Färberpfad",
  "topic": "염색",
  "tier": 3,
  "order": 163,
@@ -31,14 +30,8 @@
     "item": "minecraft:red_dye",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei roten Farbstoff.",
-    "en": "Collect 3× Red Dye."
-   },
    "hint": {
-    "ko": "빨간 염료는 양귀비나 비트로 만들어요.",
-    "de": "Roter Farbstoff kommt aus Mohn oder Rote Bete.",
-    "en": "Collect 3× Red Dye."
+    "ko": "빨간 염료는 양귀비나 비트로 만들어요."
    }
   },
   {
@@ -49,13 +42,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:stone_button"
-   },
-   "clue": {
-    "de": "Benutze Steinknopf.",
-    "en": "Use Stone Button."
-   },
-   "hint": {
-    "en": "Use Stone Button."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pitcher_plant",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Kannenpflanze.",
-    "en": "Place 4× Pitcher Plant."
-   },
-   "hint": {
-    "en": "Place 4× Pitcher Plant."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:copper_leggings",
     "count": 6
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 6× Kupferbeinschutz.",
-    "en": "Collect 6× Copper Leggings."
-   },
-   "hint": {
-    "en": "Collect 6× Copper Leggings."
-   }
+   "conditions": []
   },
-  "textKo": "구리 레깅스를 여섯 개 만들었어요.",
-  "textDe": "Kupferbeinschutz — Zeremonie vollendet.",
-  "textEn": "the ritual of Copper Leggings is complete."
+  "textKo": "구리 레깅스를 여섯 개 만들었어요."
  },
  "reward": {
   "badge": "faerberei",
@@ -109,6 +79,5 @@
    "wool"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Dyer's Trail"
+ "koreanLevel": 2
 }

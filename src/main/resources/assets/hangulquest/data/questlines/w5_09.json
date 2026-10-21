@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_09",
  "titleKo": "돌 정원의 벽돌",
- "titleDe": "Ziegel im Steingarten",
  "topic": "벽돌",
  "tier": 2,
  "order": 1059,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:moss_block",
     "count": 12
-   },
-   "clue": {
-    "de": "Platziere 12× Moosblock.",
-    "en": "Place 12× Moss Block."
-   },
-   "hint": {
-    "en": "Place 12× Moss Block."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pale_oak_leaves",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Blasseichenlaub.",
-    "en": "Place 4× Pale Oak Leaves."
-   },
-   "hint": {
-    "en": "Place 4× Pale Oak Leaves."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mossy_cobblestone_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Bemooste Bruchsteinmauer.",
-    "en": "Collect Mossy Cobblestone Wall."
-   },
-   "hint": {
-    "en": "Collect Mossy Cobblestone Wall."
    }
   }
  ],
@@ -85,18 +63,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:horse"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Pferd.",
-    "en": "Talk to Horse."
-   },
-   "hint": {
-    "en": "Talk to Horse."
-   }
+   "conditions": []
   },
-  "textKo": "말을 탔어요.",
-  "textDe": "Pferd — Zeremonie vollendet.",
-  "textEn": "the ritual of Horse is complete."
+  "textKo": "말을 탔어요."
  },
  "reward": {
   "badge": "w5_09",
@@ -107,6 +76,5 @@
    "iron_golem"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Bricks in the Stone Garden"
+ "koreanLevel": 3
 }

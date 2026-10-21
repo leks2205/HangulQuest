@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_05",
  "titleKo": "드래곤 알",
- "titleDe": "Das Drachenei",
  "topic": "알",
  "tier": 2,
  "order": 1085,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_lantern",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Kupferlaterne.",
-    "en": "Collect 3× Copper Lantern."
-   },
-   "hint": {
-    "en": "Collect 3× Copper Lantern."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Akazienholzstufe.",
-    "en": "Place 2× Acacia Slab."
-   },
-   "hint": {
-    "en": "Place 2× Acacia Slab."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cherry_leaves",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Kirschlaub.",
-    "en": "Place Cherry Leaves."
-   },
-   "hint": {
-    "en": "Place Cherry Leaves."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:tall_dry_grass",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Hohes Trockengras.",
-    "en": "Place Tall Dry Grass."
-   },
-   "hint": {
-    "en": "Place Tall Dry Grass."
-   }
+   "conditions": []
   },
-  "textKo": "키 큰 마른 잔디를 심었어요.",
-  "textDe": "Hohes Trockengras — Zeremonie vollendet.",
-  "textEn": "the ritual of Tall Dry Grass is complete."
+  "textKo": "키 큰 마른 잔디를 심었어요."
  },
  "reward": {
   "badge": "w8_05",
@@ -108,6 +77,5 @@
    "adv_item_dragon_head"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Dragon Egg"
+ "koreanLevel": 4
 }

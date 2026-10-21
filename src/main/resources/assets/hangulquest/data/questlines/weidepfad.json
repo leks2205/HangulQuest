@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weidepfad",
  "titleKo": "목장의 길",
- "titleDe": "Der Weidepfad",
  "tier": 3,
  "order": 340,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:yellow_candle",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Gelbe Kerze.",
-    "en": "Place 2× Yellow Candle."
-   },
-   "hint": {
-    "en": "Place 2× Yellow Candle."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:warped_fence",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Wirrzaun.",
-    "en": "Place Warped Fence."
-   },
-   "hint": {
-    "en": "Place Warped Fence."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:medium_amethyst_bud",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Mittlere Amethystknospe.",
-    "en": "Collect Medium Amethyst Bud."
-   },
-   "hint": {
-    "en": "Collect Medium Amethyst Bud."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Verwitterter Kupferrost. Nachts.",
-    "en": "Place Weathered Copper Grate. At night."
-   },
-   "hint": {
-    "en": "Place Weathered Copper Grate. At night."
-   }
+   ]
   },
-  "textKo": "밤에 녹슨 구리 격자를 놓았어요.",
-  "textDe": "Verwitterter Kupferrost — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Weathered Copper Grate is complete."
+  "textKo": "밤에 녹슨 구리 격자를 놓았어요."
  },
  "reward": {
   "badge": "weidepfad",
@@ -114,6 +83,5 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "동물",
- "titleEn": "The Pasture Trail"
+ "topic": "동물"
 }

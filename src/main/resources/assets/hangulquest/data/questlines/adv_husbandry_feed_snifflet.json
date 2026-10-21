@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_feed_snifflet",
  "titleKo": "조그만 킁킁이",
- "titleDe": "Schnupperkurs",
  "topic": "husbandry",
  "tier": 2,
  "order": 263,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:sniffer_egg",
     "count": 1
-   },
-   "clue": {
-    "de": "Hol ein Schnüffler-Ei aus einer Truhe im warmen Ozean.",
-    "en": "Collect Sniffer Egg."
-   },
-   "hint": {
-    "en": "Collect Sniffer Egg."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:sniffer_egg",
     "count": 1
-   },
-   "clue": {
-    "de": "Leg das Ei auf Moos und brüte den kleinen Schnüffler aus.",
-    "en": "Place Sniffer Egg."
-   },
-   "hint": {
-    "en": "Place Sniffer Egg."
    }
   }
  ],
@@ -66,18 +51,9 @@
     "item": "minecraft:waxed_weathered_copper_bars",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Gewachstes verwittertes Kupfergitter.",
-    "en": "Collect Waxed Weathered Copper Bars."
-   },
-   "hint": {
-    "en": "Collect Waxed Weathered Copper Bars."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 녹슨 구리 창살을 만들었어요.",
-  "textDe": "Gewachstes verwittertes Kupfergitter — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Weathered Copper Bars is complete."
+  "textKo": "밀랍칠한 녹슨 구리 창살을 만들었어요."
  },
  "reward": {
   "badge": "adv_husbandry_feed_snifflet",
@@ -86,6 +62,5 @@
    "adv_block_torchflower_seeds"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Little Sniffs"
+ "koreanLevel": 2
 }

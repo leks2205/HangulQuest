@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_root",
  "titleKo": "농사",
- "titleDe": "Landwirtschaft",
  "topic": "husbandry",
  "tier": 2,
  "order": 277,
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:wheat",
     "count": 3
-   },
-   "clue": {
-    "de": "Ernte drei reife Weizenpflanzen auf deinem Feld.",
-    "en": "Break 3× Wheat Crops."
-   },
-   "hint": {
-    "en": "Break 3× Wheat Crops."
    }
   },
   {
@@ -47,13 +39,8 @@
     "block": "minecraft:hay_block",
     "count": 1
    },
-   "clue": {
-    "de": "Presse neun Weizen zu einem Heuballen und stelle ihn auf.",
-    "en": "Place Hay Bale."
-   },
    "hint": {
-    "ko": "밀 아홉 개를 조합해요.",
-    "en": "Place Hay Bale."
+    "ko": "밀 아홉 개를 조합해요."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "item": "minecraft:cooked_cod",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Iss Gebratener Kabeljau.",
-    "en": "Eat Cooked Cod."
-   },
-   "hint": {
-    "en": "Eat Cooked Cod."
-   }
+   "conditions": []
   },
-  "textKo": "익힌 대구를 먹었어요.",
-  "textDe": "Gebratener Kabeljau — Zeremonie vollendet.",
-  "textEn": "the ritual of Cooked Cod is complete."
+  "textKo": "익힌 대구를 먹었어요."
  },
  "reward": {
   "badge": "adv_husbandry_root",
@@ -89,6 +67,5 @@
    "bread"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Husbandry"
+ "koreanLevel": 1
 }

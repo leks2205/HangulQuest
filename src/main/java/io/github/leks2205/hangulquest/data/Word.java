@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.List;
@@ -91,13 +92,21 @@ public final class Word {
 
 	/**
 	 * Short gloss for quizzes and cards in the given interface language: the gloss for that language
-	 * code, else English, else German. A word without an English gloss carries the German one with a
-	 * visible marker (see the constructor).
+	 * code (an inline one, else the {@code hangulquest.word.<id>.gloss} key of that language's lang file),
+	 * else English, else German. A word without an English gloss carries the German one with a
+	 * visible marker (see the constructor). English and German are the {@link #en} and {@link #deShort}
+	 * fields, which the concept loader has already filled from the lang files.
 	 */
 	public String gloss(Lang lang) {
 		String own = glosses.get(lang.code());
 		if (own != null && !own.isBlank()) {
 			return own;
+		}
+		if (conceptId != null && lang != Lang.EN && lang != Lang.DE) {
+			own = I18n.find(lang.code(), Concept.key(conceptId, "gloss"));
+			if (own != null) {
+				return own;
+			}
 		}
 		if (lang == Lang.DE && !deShort.isBlank()) {
 			return deShort;

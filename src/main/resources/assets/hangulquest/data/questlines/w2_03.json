@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w2_03",
  "titleKo": "해질녘 언덕",
- "titleDe": "Der Hügel im Abendlicht",
  "topic": "저녁",
  "tier": 1,
  "order": 1023,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_exposed_cut_copper_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gewachste angelaufene geschnittene Kupferstufe.",
-    "en": "Collect Waxed Exposed Cut Copper Slab."
-   },
-   "hint": {
-    "en": "Collect Waxed Exposed Cut Copper Slab."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:crimson_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Karmesinfalltür.",
-    "en": "Place Crimson Trapdoor."
-   },
-   "hint": {
-    "en": "Place Crimson Trapdoor."
    }
   },
   {
@@ -69,14 +54,7 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "de": "Platziere 4× Eichenholzdruckplatte. In der Dämmerung.",
-    "en": "Place 4× Oak Pressure Plate. At dusk."
-   },
-   "hint": {
-    "en": "Place 4× Oak Pressure Plate. At dusk."
-   }
+   ]
   }
  ],
  "finale": {
@@ -95,18 +73,9 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "de": "Platziere Tropenholzknopf. In der Dämmerung.",
-    "en": "Place Jungle Button. At dusk."
-   },
-   "hint": {
-    "en": "Place Jungle Button. At dusk."
-   }
+   ]
   },
-  "textKo": "저녁에 정글나무 버튼을 놓았어요.",
-  "textDe": "Tropenholzknopf — Zeremonie vollendet.",
-  "textEn": "At dusk the ritual of Jungle Button is complete."
+  "textKo": "저녁에 정글나무 버튼을 놓았어요."
  },
  "reward": {
   "badge": "w2_03",
@@ -117,6 +86,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Hill in the Evening Light"
+ "koreanLevel": 1
 }

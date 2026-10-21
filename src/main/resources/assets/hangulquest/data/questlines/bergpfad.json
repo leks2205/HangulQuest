@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "bergpfad",
  "titleKo": "높은 곳의 길",
- "titleDe": "Der Höhenpfad",
  "tier": 1,
  "concepts": [
   "mountain",
@@ -28,14 +27,10 @@
     "dwellMs": 1000
    },
    "clue": {
-    "ko": "산으로 가요.",
-    "de": "Finde einen sehr hohen Ort.",
-    "en": "Reach the mountains."
+    "ko": "산으로 가요."
    },
    "hint": {
-    "ko": "산으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg.",
-    "en": "Reach the mountains."
+    "ko": "산으로 올라가요. 높은 산을 찾아가요."
    }
   },
   {
@@ -49,14 +44,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "산에서 염소를 1초 동안 바라봐요.",
-    "de": "Geh in ein Bergbiom.",
-    "en": "Look at Goat."
+    "ko": "산에서 염소를 1초 동안 바라봐요."
    },
    "hint": {
-    "ko": "높이 올라가요.",
-    "de": "Steig nach oben.",
-    "en": "Look at Goat."
+    "ko": "높이 올라가요."
    }
   },
   {
@@ -70,14 +61,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "하얀 눈을 두 개 파요.",
-    "de": "Hol dir zwei weiße, kalte Dinge.",
-    "en": "Break 2× Snow Block."
+    "ko": "하얀 눈을 두 개 파요."
    },
    "hint": {
-    "ko": "눈을 파요.",
-    "de": "Baue Schnee ab.",
-    "en": "Break 2× Snow Block."
+    "ko": "눈을 파요."
    }
   }
  ],
@@ -101,18 +88,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Schwefelziegel. Nachts. In einem passenden Biom.",
-    "en": "Place Sulfur Bricks. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Sulfur Bricks. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 유황 벽돌을 놓았어요.",
-  "textDe": "Schwefelziegel — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Sulfur Bricks is complete."
+  "textKo": "밤에 산에서 유황 벽돌을 놓았어요."
  },
  "reward": {
   "badge": "bergpfad",
@@ -125,6 +103,5 @@
  },
  "order": 70,
  "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The High Trail"
+ "topic": "산"
 }

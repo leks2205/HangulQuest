@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_enter_the_nether",
  "titleKo": "더 깊은 곳으로",
- "titleDe": "Wir müssen noch tiefer",
  "topic": "story",
  "tier": 2,
  "order": 314,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bone_block",
     "count": 10
-   },
-   "clue": {
-    "de": "Sammle 10× Knochenblock.",
-    "en": "Collect 10× Bone Block."
-   },
-   "hint": {
-    "en": "Collect 10× Bone Block."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:observer",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Beobachter.",
-    "en": "Collect Observer."
-   },
-   "hint": {
-    "en": "Collect Observer."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_fence_gate",
     "count": 10
-   },
-   "clue": {
-    "de": "Platziere 10× Akazienholzzauntor.",
-    "en": "Place 10× Acacia Fence Gate."
-   },
-   "hint": {
-    "en": "Place 10× Acacia Fence Gate."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:poplar_trapdoor",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Pappelholzfalltür.",
-    "en": "Place 3× Poplar Trapdoor."
-   },
-   "hint": {
-    "en": "Place 3× Poplar Trapdoor."
-   }
+   "conditions": []
   },
-  "textKo": "포플러나무 다락문을 세 개 달았어요.",
-  "textDe": "Pappelholzfalltür — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Trapdoor is complete."
+  "textKo": "포플러나무 다락문을 세 개 달았어요."
  },
  "reward": {
   "badge": "adv_story_enter_the_nether",
@@ -107,6 +76,5 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "We Need to Go Deeper"
+ "koreanLevel": 3
 }

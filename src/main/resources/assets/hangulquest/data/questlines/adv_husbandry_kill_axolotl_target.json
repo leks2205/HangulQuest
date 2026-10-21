@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_kill_axolotl_target",
  "titleKo": "우정의 치유력!",
- "titleDe": "Die heilende Kraft der Freundschaft!",
  "topic": "husbandry",
  "tier": 2,
  "order": 266,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:gray_stained_glass_pane",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Graue Glasscheibe.",
-    "en": "Collect Gray Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Collect Gray Stained Glass Pane."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dripstone_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tropfsteinblock.",
-    "en": "Collect Dripstone Block."
-   },
-   "hint": {
-    "en": "Collect Dripstone Block."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:squid",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Tintenfisch.",
-    "en": "Defeat Squid."
-   },
-   "hint": {
-    "en": "Defeat Squid."
-   }
+   "conditions": []
   },
-  "textKo": "오징어를 물리쳤어요.",
-  "textDe": "Tintenfisch — Zeremonie vollendet.",
-  "textEn": "the ritual of Squid is complete."
+  "textKo": "오징어를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_husbandry_kill_axolotl_target",
@@ -88,6 +64,5 @@
    "zombie"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Healing Power of Friendship!"
+ "koreanLevel": 2
 }

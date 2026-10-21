@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_lighten_up",
  "titleKo": "불 좀 켜 줄래?",
- "titleDe": "Aufhellen",
  "topic": "adventure",
  "tier": 2,
  "order": 215,
@@ -27,13 +26,8 @@
     "item": "minecraft:copper_bulb",
     "count": 2
    },
-   "clue": {
-    "de": "Baue zwei Kupferleuchten aus Kupferblöcken, einer Lohenrute und Redstone.",
-    "en": "Collect 2× Copper Bulb."
-   },
    "hint": {
-    "ko": "구리 블록 세 개와 블레이즈 막대기, 레드스톤 가루로 만들어요.",
-    "en": "Collect 2× Copper Bulb."
+    "ko": "구리 블록 세 개와 블레이즈 막대기, 레드스톤 가루로 만들어요."
    }
   },
   {
@@ -45,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:copper_bulb",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz die Kupferleuchten in einen dunklen Gang und lass sie anlaufen.",
-    "en": "Place 2× Copper Bulb."
-   },
-   "hint": {
-    "en": "Place 2× Copper Bulb."
    }
   }
  ],
@@ -66,18 +53,11 @@
     "block": "minecraft:copper_bulb"
    },
    "conditions": [],
-   "clue": {
-    "de": "Schalte die Leuchte mit Redstone ein und schabe dann mit einer Axt über sie.",
-    "en": "Use Copper Bulb."
-   },
    "hint": {
-    "ko": "도끼로 구리 전구를 오른쪽 클릭해요.",
-    "en": "Use Copper Bulb."
+    "ko": "도끼로 구리 전구를 오른쪽 클릭해요."
    }
   },
-  "textKo": "불 좀 켜 줄래? — 구리 전구를 밝혀 방을 환하게 해요.",
-  "textDe": "Aufhellen — Schabe die Kupferleuchte mit der Axt heller.",
-  "textEn": "the ritual of Copper Bulb is complete."
+  "textKo": "불 좀 켜 줄래? — 구리 전구를 밝혀 방을 환하게 해요."
  },
  "reward": {
   "badge": "adv_adventure_lighten_up",
@@ -85,6 +65,5 @@
    "adv_item_copper_bulb"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Lighten Up"
+ "koreanLevel": 3
 }

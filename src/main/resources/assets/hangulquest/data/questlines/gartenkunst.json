@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gartenkunst",
  "titleKo": "정원 예술의 길",
- "titleDe": "Der Gartenkunstpfad",
  "topic": "정원",
  "tier": 3,
  "order": 161,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_sapling",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Akaziensetzling.",
-    "en": "Place 6× Acacia Sapling."
-   },
-   "hint": {
-    "en": "Place 6× Acacia Sapling."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:lime_bed",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Hellgrünes Bett.",
-    "en": "Place 2× Lime Bed."
-   },
-   "hint": {
-    "en": "Place 2× Lime Bed."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:spruce_sapling",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Fichtensetzling.",
-    "en": "Place 3× Spruce Sapling."
-   },
-   "hint": {
-    "en": "Place 3× Spruce Sapling."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:oxidized_copper_bulb",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Oxidierte Kupferleuchte.",
-    "en": "Place 2× Oxidized Copper Bulb."
-   },
-   "hint": {
-    "en": "Place 2× Oxidized Copper Bulb."
-   }
+   "conditions": []
   },
-  "textKo": "산화된 구리 전구를 두 개 놓았어요.",
-  "textDe": "Oxidierte Kupferleuchte — Zeremonie vollendet.",
-  "textEn": "the ritual of Oxidized Copper Bulb is complete."
+  "textKo": "산화된 구리 전구를 두 개 놓았어요."
  },
  "reward": {
   "badge": "gartenkunst",
@@ -109,6 +78,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Garden Craft Trail"
+ "koreanLevel": 2
 }

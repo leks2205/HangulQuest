@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_fishy_business",
  "titleKo": "강태공이 세월을 낚듯",
- "titleDe": "Anglerglück",
  "topic": "husbandry",
  "tier": 2,
  "order": 264,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:string",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Fäden von Spinnen oder aus einer Mine.",
-    "en": "Collect 2× String."
-   },
-   "hint": {
-    "en": "Collect 2× String."
    }
   },
   {
@@ -47,14 +39,8 @@
     "item": "minecraft:fishing_rod",
     "count": 1
    },
-   "clue": {
-    "de": "Baue aus Stöcken und Fäden eine Angel.",
-    "en": "Collect Fishing Rod."
-   },
    "hint": {
-    "ko": "낚싯대는 막대기 세 개와 실 두 개로 만들어요.",
-    "de": "Eine Angel braucht drei Stöcke und zwei Fäden.",
-    "en": "Collect Fishing Rod."
+    "ko": "낚싯대는 막대기 세 개와 실 두 개로 만들어요."
    }
   }
  ],
@@ -69,18 +55,9 @@
     "item": "minecraft:jungle_chest_boat",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Tropenholztruhenboot.",
-    "en": "Collect Jungle Boat with Chest."
-   },
-   "hint": {
-    "en": "Collect Jungle Boat with Chest."
-   }
+   "conditions": []
   },
-  "textKo": "상자가 실린 정글나무 보트를 만들었어요.",
-  "textDe": "Tropenholztruhenboot — Zeremonie vollendet.",
-  "textEn": "the ritual of Jungle Boat with Chest is complete."
+  "textKo": "상자가 실린 정글나무 보트를 만들었어요."
  },
  "reward": {
   "badge": "adv_husbandry_fishy_business",
@@ -90,6 +67,5 @@
    "fish"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Fishy Business"
+ "koreanLevel": 1
 }

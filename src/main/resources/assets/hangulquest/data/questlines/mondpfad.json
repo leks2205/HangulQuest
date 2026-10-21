@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "mondpfad",
  "titleKo": "달빛의 길",
- "titleDe": "Der Mondpfad",
  "tier": 2,
  "order": 505,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:polished_tuff_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Polierte Tuffsteinmauer.",
-    "en": "Collect Polished Tuff Wall."
-   },
-   "hint": {
-    "en": "Collect Polished Tuff Wall."
    }
   },
   {
@@ -52,14 +44,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Geschnittene rote Sandsteinstufe. Nachts.",
-    "en": "Place 3× Cut Red Sandstone Slab. At night."
-   },
-   "hint": {
-    "en": "Place 3× Cut Red Sandstone Slab. At night."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -70,13 +55,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:polished_granite_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Polierte Granitstufe.",
-    "en": "Place 3× Polished Granite Slab."
-   },
-   "hint": {
-    "en": "Place 3× Polished Granite Slab."
    }
   }
  ],
@@ -96,18 +74,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Magenta Bett. Nachts.",
-    "en": "Place Magenta Bed. At night."
-   },
-   "hint": {
-    "en": "Place Magenta Bed. At night."
-   }
+   ]
   },
-  "textKo": "밤에 자홍색 침대를 놓았어요.",
-  "textDe": "Magenta Bett — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Magenta Bed is complete."
+  "textKo": "밤에 자홍색 침대를 놓았어요."
  },
  "reward": {
   "badge": "mondpfad",
@@ -118,6 +87,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "밤",
- "titleEn": "The Moon Trail"
+ "topic": "밤"
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_obtain_crying_obsidian",
  "titleKo": "누가 양파를 써나?",
- "titleDe": "Wer schneidet hier Zwiebeln?",
  "topic": "nether",
  "tier": 2,
  "order": 303,
@@ -28,13 +27,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cut_red_sandstone",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Geschnittener roter Sandstein.",
-    "en": "Place Cut Red Sandstone."
-   },
-   "hint": {
-    "en": "Place Cut Red Sandstone."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:experience_bottle",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Erfahrungsfläschchen.",
-    "en": "Collect 4× Bottle o' Enchanting."
-   },
-   "hint": {
-    "en": "Collect 4× Bottle o' Enchanting."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:moss_block",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Moosblock.",
-    "en": "Collect Moss Block."
-   },
-   "hint": {
-    "en": "Collect Moss Block."
-   }
+   "conditions": []
   },
-  "textKo": "이끼 블록을 구했어요.",
-  "textDe": "Moosblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Moss Block is complete."
+  "textKo": "이끼 블록을 구했어요."
  },
  "reward": {
   "badge": "adv_nether_obtain_crying_obsidian",
@@ -88,6 +64,5 @@
    "adv_item_crying_obsidian"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Who is Cutting Onions?"
+ "koreanLevel": 2
 }

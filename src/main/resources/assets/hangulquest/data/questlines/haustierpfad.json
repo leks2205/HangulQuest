@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "haustierpfad",
  "titleKo": "집동물의 길",
- "titleDe": "Der Haustierpfad",
  "topic": "동물",
  "tier": 3,
  "order": 41,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:spider",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Spinne an.",
-    "en": "Look at Spider."
-   },
-   "hint": {
-    "en": "Look at Spider."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:zoglin",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Zoglin an.",
-    "en": "Look at Zoglin."
-   },
-   "hint": {
-    "en": "Look at Zoglin."
    }
   }
  ],
@@ -68,18 +53,9 @@
     "block": "minecraft:jungle_trapdoor",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Tropenholzfalltür.",
-    "en": "Place Jungle Trapdoor."
-   },
-   "hint": {
-    "en": "Place Jungle Trapdoor."
-   }
+   "conditions": []
   },
-  "textKo": "정글나무 다락문을 달았어요.",
-  "textDe": "Tropenholzfalltür — Zeremonie vollendet.",
-  "textEn": "the ritual of Jungle Trapdoor is complete."
+  "textKo": "정글나무 다락문을 달았어요."
  },
  "reward": {
   "badge": "haustierpfad",
@@ -89,6 +65,5 @@
    "bed"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Pet Trail"
+ "koreanLevel": 1
 }

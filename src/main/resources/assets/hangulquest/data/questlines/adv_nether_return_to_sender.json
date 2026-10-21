@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_return_to_sender",
  "titleKo": "전해지지 않은 러브레터",
- "titleDe": "Zurück zum Absender",
  "topic": "nether",
  "tier": 2,
  "order": 304,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:charcoal",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Holzkohle.",
-    "en": "Collect Charcoal."
-   },
-   "hint": {
-    "en": "Collect Charcoal."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:lime_concrete_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Hellgrüne Betontreppe.",
-    "en": "Collect Lime Concrete Stairs."
-   },
-   "hint": {
-    "en": "Collect Lime Concrete Stairs."
    }
   }
  ],
@@ -68,18 +53,11 @@
     "count": 1
    },
    "conditions": [],
-   "clue": {
-    "de": "Baue aus Schießpulver, Lohenstaub und Kohle eine Feuerkugel für den Ghast.",
-    "en": "Collect Fire Charge."
-   },
    "hint": {
-    "ko": "화약과 블레이즈 가루, 석탄을 섞어요.",
-    "en": "Collect Fire Charge."
+    "ko": "화약과 블레이즈 가루, 석탄을 섞어요."
    }
   },
-  "textKo": "전해지지 않은 러브레터 — 화염구를 만들어 되돌려 보냈어요.",
-  "textDe": "Zurück zum Absender — die Feuerkugel geht zurück.",
-  "textEn": "the ritual of Fire Charge is complete."
+  "textKo": "전해지지 않은 러브레터 — 화염구를 만들어 되돌려 보냈어요."
  },
  "reward": {
   "badge": "adv_nether_return_to_sender",
@@ -89,6 +67,5 @@
    "adv_item_fire_charge"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Return to Sender"
+ "koreanLevel": 2
 }

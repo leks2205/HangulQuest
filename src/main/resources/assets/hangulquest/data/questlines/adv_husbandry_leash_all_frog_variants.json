@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_leash_all_frog_variants",
  "titleKo": "개구리 삼총사 출동!",
- "titleDe": "Wenn die Kerle um die Häuser ziehen",
  "topic": "husbandry",
  "tier": 2,
  "order": 267,
@@ -29,14 +28,8 @@
     "item": "minecraft:tadpole_bucket",
     "count": 1
    },
-   "clue": {
-    "de": "Fang eine Kaulquappe im Wasser mit dem Eimer.",
-    "en": "Collect Bucket of Tadpole."
-   },
    "hint": {
-    "ko": "올챙이는 물에서 빈 양동이를 쓰면 잡혀요.",
-    "de": "Ein leerer Eimer fängt die Kaulquappe im Wasser.",
-    "en": "Collect Bucket of Tadpole."
+    "ko": "올챙이는 물에서 빈 양동이를 쓰면 잡혀요."
    }
   },
   {
@@ -49,14 +42,8 @@
     "item": "minecraft:lead",
     "count": 3
    },
-   "clue": {
-    "de": "Knüpfe drei Leinen aus Fäden und Schleim.",
-    "en": "Collect 3× Lead."
-   },
    "hint": {
-    "ko": "끈은 실 네 개와 슬라임볼 한 개로 만들어요.",
-    "de": "Eine Leine besteht aus vier Fäden und einer Schleimkugel.",
-    "en": "Collect 3× Lead."
+    "ko": "끈은 실 네 개와 슬라임볼 한 개로 만들어요."
    }
   }
  ],
@@ -70,18 +57,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:turtle"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Schildkröte.",
-    "en": "Talk to Turtle."
-   },
-   "hint": {
-    "en": "Talk to Turtle."
-   }
+   "conditions": []
   },
-  "textKo": "거북에게 먹이를 줬어요.",
-  "textDe": "Schildkröte — Zeremonie vollendet.",
-  "textEn": "the ritual of Turtle is complete."
+  "textKo": "거북에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "adv_husbandry_leash_all_frog_variants",
@@ -91,6 +69,5 @@
    "frog"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "When the Squad Hops into Town"
+ "koreanLevel": 2
 }

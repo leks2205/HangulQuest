@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "ziegenpfad",
  "titleKo": "염소의 길",
- "titleDe": "Der Ziegenpfad",
  "topic": "염소",
  "tier": 3,
  "order": 155,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:stripped_poplar_log",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Entrindeter Pappelstamm.",
-    "en": "Place 3× Stripped Poplar Log."
-   },
-   "hint": {
-    "en": "Place 3× Stripped Poplar Log."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:copper_trapdoor",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Kupferfalltür ab.",
-    "en": "Break 2× Copper Trapdoor."
-   },
-   "hint": {
-    "en": "Break 2× Copper Trapdoor."
    }
   },
   {
@@ -72,14 +57,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Netherquarzerz. Nachts.",
-    "en": "Place 2× Nether Quartz Ore. At night."
-   },
-   "hint": {
-    "en": "Place 2× Nether Quartz Ore. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -98,18 +76,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Rosa Wollstufe. Nachts.",
-    "en": "Place Pink Wool Slab. At night."
-   },
-   "hint": {
-    "en": "Place Pink Wool Slab. At night."
-   }
+   ]
   },
-  "textKo": "밤에 분홍색 양털 반 블록을 놓았어요.",
-  "textDe": "Rosa Wollstufe — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Pink Wool Slab is complete."
+  "textKo": "밤에 분홍색 양털 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "ziegenpfad",
@@ -120,6 +89,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Goat Trail"
+ "koreanLevel": 1
 }

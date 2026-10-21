@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_06",
  "titleKo": "산속 호수",
- "titleDe": "Der Bergsee",
  "topic": "호수",
  "tier": 2,
  "order": 1046,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:jungle_button",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Tropenholzknopf ab.",
-    "en": "Break 4× Jungle Button."
-   },
-   "hint": {
-    "en": "Break 4× Jungle Button."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mossy_stone_brick_stairs",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Bemooste Steinziegeltreppe.",
-    "en": "Collect 4× Mossy Stone Brick Stairs."
-   },
-   "hint": {
-    "en": "Collect 4× Mossy Stone Brick Stairs."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_dye",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Blauer Farbstoff.",
-    "en": "Collect Blue Dye."
-   },
-   "hint": {
-    "en": "Collect Blue Dye."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "minY": 90,
      "maxY": 320
     }
-   ],
-   "clue": {
-    "de": "Platziere Angelaufene geschnittene Kupferstufe. Zwischen Y 90 und 320.",
-    "en": "Place Exposed Cut Copper Slab. Between Y 90 and 320."
-   },
-   "hint": {
-    "en": "Place Exposed Cut Copper Slab. Between Y 90 and 320."
-   }
+   ]
   },
-  "textKo": "높이 90블록 위에서 약간 녹슨 깎인 구리 반 블록을 놓았어요.",
-  "textDe": "Angelaufene geschnittene Kupferstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Exposed Cut Copper Slab is complete."
+  "textKo": "높이 90블록 위에서 약간 녹슨 깎인 구리 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "w4_06",
@@ -114,6 +83,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Mountain Lake"
+ "koreanLevel": 2
 }

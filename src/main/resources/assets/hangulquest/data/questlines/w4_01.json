@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_01",
  "titleKo": "산호초의 길",
- "titleDe": "Der Korallenriffpfad",
  "topic": "산호초",
  "tier": 2,
  "order": 1041,
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:grove",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Berghain.",
-    "en": "Reach Grove."
-   },
-   "hint": {
-    "en": "Reach Grove."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:spruce_fence_gate",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Fichtenholzzauntor.",
-    "en": "Place 3× Spruce Fence Gate."
-   },
-   "hint": {
-    "en": "Place 3× Spruce Fence Gate."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:jungle_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Tropenholzschild.",
-    "en": "Collect 2× Jungle Sign."
-   },
-   "hint": {
-    "en": "Collect 2× Jungle Sign."
    }
   }
  ],
@@ -85,18 +63,9 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:diamond_axe",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Diamantaxt.",
-    "en": "Collect Diamond Axe."
-   },
-   "hint": {
-    "en": "Collect Diamond Axe."
    }
   },
-  "textKo": "다이아몬드 도끼를 만들었어요.",
-  "textDe": "Diamantaxt — Zeremonie vollendet.",
-  "textEn": "the ritual of Diamond Axe is complete."
+  "textKo": "다이아몬드 도끼를 만들었어요."
  },
  "reward": {
   "badge": "w4_01",
@@ -107,6 +76,5 @@
    "shell"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Coral Reef Trail"
+ "koreanLevel": 2
 }

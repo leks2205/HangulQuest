@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_03",
  "titleKo": "붉은 여우의 숲",
- "titleDe": "Der Wald des roten Fuchses",
  "topic": "여우",
  "tier": 2,
  "order": 1063,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:quartz_bricks",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Quarzziegel.",
-    "en": "Place 2× Quartz Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Quartz Bricks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_cut_copper_stairs",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle 5× Gewachste geschnittene Kupfertreppe.",
-    "en": "Collect 5× Waxed Cut Copper Stairs."
-   },
-   "hint": {
-    "en": "Collect 5× Waxed Cut Copper Stairs."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:magenta_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Magenta Glasscheibe.",
-    "en": "Place 3× Magenta Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Place 3× Magenta Stained Glass Pane."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:resin_clump",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Harzklumpen.",
-    "en": "Place 3× Resin Clump."
-   },
-   "hint": {
-    "en": "Place 3× Resin Clump."
-   }
+   "conditions": []
   },
-  "textKo": "수지 덩어리를 세 개 놓았어요.",
-  "textDe": "Harzklumpen — Zeremonie vollendet.",
-  "textEn": "the ritual of Resin Clump is complete."
+  "textKo": "수지 덩어리를 세 개 놓았어요."
  },
  "reward": {
   "badge": "w6_03",
@@ -108,6 +77,5 @@
    "leaves"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Forest of the Red Fox"
+ "koreanLevel": 3
 }

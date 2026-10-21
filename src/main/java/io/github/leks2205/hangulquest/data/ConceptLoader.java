@@ -55,6 +55,9 @@ public final class ConceptLoader {
 			JsonArray array = JsonParser.parseReader(reader).getAsJsonArray();
 			for (JsonElement element : array) {
 				Concept concept = JsonIOHolder.GSON.fromJson(element, Concept.class);
+				if (concept != null) {
+					concept.fillText();
+				}
 				if (concept != null && concept.isValid()) {
 					if (concept.aliases == null) {
 						concept.aliases = new ArrayList<>();

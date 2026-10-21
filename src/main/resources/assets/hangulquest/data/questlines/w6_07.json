@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_07",
  "titleKo": "정글의 약초",
- "titleDe": "Kräuter im Dschungel",
  "topic": "정글",
  "tier": 2,
  "order": 1067,
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:sunflower_plains",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Sonnenblumenebene.",
-    "en": "Reach Sunflower Plains."
-   },
-   "hint": {
-    "en": "Reach Sunflower Plains."
    }
   },
   {
@@ -48,14 +40,8 @@
     "block": "minecraft:jungle_log",
     "count": 4
    },
-   "clue": {
-    "de": "Fälle vier Dschungelstämme.",
-    "en": "Break 4× Jungle Log."
-   },
    "hint": {
-    "ko": "정글나무 원목은 키가 커요.",
-    "de": "Dschungelbäume werden sehr hoch.",
-    "en": "Break 4× Jungle Log."
+    "ko": "정글나무 원목은 키가 커요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:red_wool_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Rote Wollstufe.",
-    "en": "Collect 4× Red Wool Slab."
-   },
-   "hint": {
-    "en": "Collect 4× Red Wool Slab."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:smooth_sandstone",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Glatter Sandstein.",
-    "en": "Collect 3× Smooth Sandstone."
-   },
-   "hint": {
-    "en": "Collect 3× Smooth Sandstone."
-   }
+   "conditions": []
   },
-  "textKo": "매끄러운 사암을 세 개 모았어요.",
-  "textDe": "Glatter Sandstein — Zeremonie vollendet.",
-  "textEn": "the ritual of Smooth Sandstone is complete."
+  "textKo": "매끄러운 사암을 세 개 모았어요."
  },
  "reward": {
   "badge": "w6_07",
@@ -110,6 +80,5 @@
    "cocoa_beans"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Herbs in the Jungle"
+ "koreanLevel": 3
 }

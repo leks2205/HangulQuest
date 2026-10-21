@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_08",
  "titleKo": "붉은 벽돌",
- "titleDe": "Rote Ziegel",
  "topic": "벽돌",
  "tier": 2,
  "order": 1078,
@@ -30,14 +29,8 @@
     "block": "minecraft:nether_bricks",
     "count": 8
    },
-   "clue": {
-    "de": "Setz acht Netherziegel.",
-    "en": "Place 8× Nether Bricks."
-   },
    "hint": {
-    "ko": "네더 벽돌은 네더랙을 구워서 만들어요.",
-    "de": "Netherziegel gewinnst du, wenn du Netherrack im Ofen brennst.",
-    "en": "Place 8× Nether Bricks."
+    "ko": "네더 벽돌은 네더랙을 구워서 만들어요."
    }
   },
   {
@@ -50,14 +43,8 @@
     "block": "minecraft:red_nether_bricks",
     "count": 4
    },
-   "clue": {
-    "de": "Setz vier rote Netherziegel.",
-    "en": "Place 4× Red Nether Bricks."
-   },
    "hint": {
-    "ko": "붉은 네더 벽돌은 네더 벽돌과 네더 사마귀로 만들어요.",
-    "de": "Rote Netherziegel bestehen aus Netherziegeln und Netherwarzen.",
-    "en": "Place 4× Red Nether Bricks."
+    "ko": "붉은 네더 벽돌은 네더 벽돌과 네더 사마귀로 만들어요."
    }
   },
   {
@@ -70,14 +57,8 @@
     "block": "minecraft:polished_blackstone_bricks",
     "count": 4
    },
-   "clue": {
-    "de": "Setz vier polierte Schwarzsteinziegel.",
-    "en": "Place 4× Polished Blackstone Bricks."
-   },
    "hint": {
-    "ko": "윤나는 흑암 벽돌은 흑암을 다듬어서 만들어요.",
-    "de": "Polierte Schwarzsteinziegel schleifst du aus Schwarzstein.",
-    "en": "Place 4× Polished Blackstone Bricks."
+    "ko": "윤나는 흑암 벽돌은 흑암을 다듬어서 만들어요."
    }
   }
  ],
@@ -92,18 +73,9 @@
     "block": "minecraft:birch_shelf",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Birkenholzregal.",
-    "en": "Place 2× Birch Shelf."
-   },
-   "hint": {
-    "en": "Place 2× Birch Shelf."
-   }
+   "conditions": []
   },
-  "textKo": "자작나무 선반을 두 개 놓았어요.",
-  "textDe": "Birkenholzregal — Zeremonie vollendet.",
-  "textEn": "the ritual of Birch Shelf is complete."
+  "textKo": "자작나무 선반을 두 개 놓았어요."
  },
  "reward": {
   "badge": "w7_08",
@@ -114,6 +86,5 @@
    "chiseled_stone_bricks"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "Red Bricks"
+ "koreanLevel": 4
 }

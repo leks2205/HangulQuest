@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "reitpfad",
  "titleKo": "말타기의 길",
- "titleDe": "Der Reitpfad",
  "tier": 2,
  "order": 503,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:evoker",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Magier an.",
-    "en": "Look at Evoker."
-   },
-   "hint": {
-    "en": "Look at Evoker."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:fermented_spider_eye",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Fermentiertes Spinnenauge.",
-    "en": "Collect 2× Fermented Spider Eye."
-   },
-   "hint": {
-    "en": "Collect 2× Fermented Spider Eye."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dead_tube_coral_block",
     "count": 8
-   },
-   "clue": {
-    "de": "Platziere 8× Abgestorbener Orgelkorallenblock.",
-    "en": "Place 8× Dead Tube Coral Block."
-   },
-   "hint": {
-    "en": "Place 8× Dead Tube Coral Block."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Türkise Keramik. Nachts.",
-    "en": "Place Cyan Terracotta. At night."
-   },
-   "hint": {
-    "en": "Place Cyan Terracotta. At night."
-   }
+   ]
   },
-  "textKo": "밤에 청록색 테라코타를 놓았어요.",
-  "textDe": "Türkise Keramik — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Cyan Terracotta is complete."
+  "textKo": "밤에 청록색 테라코타를 놓았어요."
  },
  "reward": {
   "badge": "reitpfad",
@@ -112,6 +81,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "동물",
- "titleEn": "The Riding Trail"
+ "topic": "동물"
 }

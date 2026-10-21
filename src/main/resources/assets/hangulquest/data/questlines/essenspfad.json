@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "essenspfad",
  "titleKo": "먹을 것의 길",
- "titleDe": "Der Speisepfad",
  "tier": 1,
  "concepts": [
   "apple",
@@ -26,14 +25,10 @@
     "count": 1
    },
    "clue": {
-    "ko": "빨간 사과를 한 개 구해요.",
-    "de": "Finde etwas Rotes.",
-    "en": "Collect Apple."
+    "ko": "빨간 사과를 한 개 구해요."
    },
    "hint": {
-    "ko": "사과를 구해요.",
-    "de": "Sammle einen Apfel.",
-    "en": "Collect Apple."
+    "ko": "사과를 구해요."
    }
   },
   {
@@ -47,14 +42,10 @@
     "count": 1
    },
    "clue": {
-    "ko": "배가 고파요. 빵을 먹어요.",
-    "de": "Du hast Hunger. Iss Brot.",
-    "en": "Eat Bread."
+    "ko": "배가 고파요. 빵을 먹어요."
    },
    "hint": {
-    "ko": "빵을 먹어요.",
-    "de": "Iss Brot.",
-    "en": "Eat Bread."
+    "ko": "빵을 먹어요."
    }
   },
   {
@@ -68,14 +59,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "고기를 주는 소를 1초 동안 바라봐요.",
-    "de": "Schau das Tier an, das Fleisch gibt.",
-    "en": "Look at Cow."
+    "ko": "고기를 주는 소를 1초 동안 바라봐요."
    },
    "hint": {
-    "ko": "소를 봐요.",
-    "de": "Schau eine Kuh an.",
-    "en": "Look at Cow."
+    "ko": "소를 봐요."
    }
   }
  ],
@@ -94,18 +81,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Benutze Fichtenholztür. Nachts.",
-    "en": "Use Spruce Door. At night."
-   },
-   "hint": {
-    "en": "Use Spruce Door. At night."
-   }
+   ]
   },
-  "textKo": "밤에 가문비나무 문을 열었어요.",
-  "textDe": "Fichtenholztür — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Spruce Door is complete."
+  "textKo": "밤에 가문비나무 문을 열었어요."
  },
  "reward": {
   "badge": "essenspfad",
@@ -118,6 +96,5 @@
  },
  "order": 30,
  "koreanLevel": 1,
- "topic": "음식",
- "titleEn": "The Dining Trail"
+ "topic": "음식"
 }

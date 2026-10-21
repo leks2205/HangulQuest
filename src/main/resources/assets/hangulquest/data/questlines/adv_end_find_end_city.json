@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_find_end_city",
  "titleKo": "게임의 끝에서 만난 도시",
- "titleDe": "Die Stadt am Ende des Spiels",
  "topic": "end",
  "tier": 2,
  "order": 251,
@@ -28,13 +27,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:leaf_litter",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Laubhaufen.",
-    "en": "Place Leaf Litter."
-   },
-   "hint": {
-    "en": "Place Leaf Litter."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:chiseled_sandstone",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Gemeißelter Sandstein an.",
-    "en": "Look at Chiseled Sandstone."
-   },
-   "hint": {
-    "en": "Look at Chiseled Sandstone."
    }
   }
  ],
@@ -67,17 +52,9 @@
     "item": "minecraft:purpur_block",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Collect Purpur Block."
-   },
-   "hint": {
-    "en": "Collect Purpur Block."
-   }
+   "conditions": []
   },
-  "textKo": "게임의 끝에서 만난 도시 — 퍼퍼 블록으로 엔드 도시를 확인해요.",
-  "textDe": "Die Stadt am Ende des Spiels — Ein Purpurblock beweist, dass du die Endstadt gefunden hast.",
-  "textEn": "the ritual of Purpur Block is complete."
+  "textKo": "게임의 끝에서 만난 도시 — 퍼퍼 블록으로 엔드 도시를 확인해요."
  },
  "reward": {
   "badge": "adv_end_find_end_city",
@@ -86,6 +63,5 @@
    "adv_block_purpur_block"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The City at the End of the Game"
+ "koreanLevel": 6
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_04",
  "titleKo": "부두의 배",
- "titleDe": "Das Boot am Kai",
  "topic": "부두",
  "tier": 2,
  "order": 1044,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:resin_brick",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Harzziegel.",
-    "en": "Collect Resin Brick."
-   },
-   "hint": {
-    "en": "Collect Resin Brick."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:exposed_copper_bars",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Angelaufenes Kupfergitter.",
-    "en": "Place Exposed Copper Bars."
-   },
-   "hint": {
-    "en": "Place Exposed Copper Bars."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:nether_brick_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Netherziegelstufe.",
-    "en": "Place 3× Nether Brick Slab."
-   },
-   "hint": {
-    "en": "Place 3× Nether Brick Slab."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_ocean"
     }
-   ],
-   "clue": {
-    "de": "Sammle Hellgrüne glasierte Keramik. In einem passenden Biom.",
-    "en": "Collect Lime Glazed Terracotta. In a fitting biome."
-   },
-   "hint": {
-    "en": "Collect Lime Glazed Terracotta. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "바다에서 연두색 유광 테라코타를 구했어요.",
-  "textDe": "Hellgrüne glasierte Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Lime Glazed Terracotta is complete."
+  "textKo": "바다에서 연두색 유광 테라코타를 구했어요."
  },
  "reward": {
   "badge": "w4_04",
@@ -113,6 +82,5 @@
    "water"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Boat at the Quay"
+ "koreanLevel": 2
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_08",
  "titleKo": "항구의 손님",
- "titleDe": "Der Gast am Hafen",
  "topic": "물",
  "tier": 2,
  "order": 1038,
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:ice_spikes",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Eiszapfentundra.",
-    "en": "Reach Ice Spikes."
-   },
-   "hint": {
-    "en": "Reach Ice Spikes."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:piston",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kolben.",
-    "en": "Collect Piston."
-   },
-   "hint": {
-    "en": "Collect Piston."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:brown_mushroom_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Brauner Pilzblock.",
-    "en": "Collect 2× Brown Mushroom Block."
-   },
-   "hint": {
-    "en": "Collect 2× Brown Mushroom Block."
    }
   }
  ],
@@ -85,18 +63,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:allay"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Hilfsgeist.",
-    "en": "Give the allay an item."
-   },
-   "hint": {
-    "en": "Give the allay an item."
-   }
+   "conditions": []
   },
-  "textKo": "알레이에게 아이템을 줬어요.",
-  "textDe": "Du hast dem Hilfsgeist einen Gegenstand gegeben.",
-  "textEn": "You gave the allay an item."
+  "textKo": "알레이에게 아이템을 줬어요."
  },
  "reward": {
   "badge": "w3_08",
@@ -107,6 +76,5 @@
    "villager"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Guest at the Harbour"
+ "koreanLevel": 2
 }

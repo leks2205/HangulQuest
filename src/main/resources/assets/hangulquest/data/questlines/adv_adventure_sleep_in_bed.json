@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_sleep_in_bed",
  "titleKo": "달콤한 꿈",
- "titleDe": "Träum was Schönes",
  "topic": "adventure",
  "tier": 2,
  "order": 226,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_otherside",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_bed",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell das Bett in dein Schlafzimmer.",
-    "en": "Place Red Bed."
-   },
-   "hint": {
-    "en": "Place Red Bed."
    }
   }
  ],
@@ -65,18 +50,9 @@
     "type": "USE_BLOCK",
     "block": "minecraft:red_bed"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Leg dich ins Bett und schlaf bis zum Morgen.",
-    "en": "Use Red Bed."
-   },
-   "hint": {
-    "en": "Use Red Bed."
-   }
+   "conditions": []
   },
-  "textKo": "달콤한 꿈 — 침대에서 자고 아침을 맞아요.",
-  "textDe": "Träum was Schönes — Schlaf in deinem Bett bis zum Morgen.",
-  "textEn": "the ritual of Red Bed is complete."
+  "textKo": "달콤한 꿈 — 침대에서 자고 아침을 맞아요."
  },
  "reward": {
   "badge": "adv_adventure_sleep_in_bed",
@@ -84,6 +60,5 @@
    "bed"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Sweet Dreams"
+ "koreanLevel": 2
 }

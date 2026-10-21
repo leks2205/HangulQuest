@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_02",
  "titleKo": "사막의 대상단",
- "titleDe": "Die Karawane der Wüste",
  "topic": "사막",
  "tier": 2,
  "order": 1102,
@@ -28,13 +27,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:mule"
-   },
-   "clue": {
-    "de": "Interagiere mit Maultier.",
-    "en": "Talk to Mule."
-   },
-   "hint": {
-    "en": "Talk to Mule."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dark_prismarine_stairs",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Dunkle Prismarintreppe.",
-    "en": "Collect 3× Dark Prismarine Stairs."
-   },
-   "hint": {
-    "en": "Collect 3× Dark Prismarine Stairs."
    }
   },
   {
@@ -65,14 +50,8 @@
     "item": "minecraft:raw_gold",
     "count": 6
    },
-   "clue": {
-    "de": "Hol sechs rohe Goldstücke aus dem Sand.",
-    "en": "Collect 6× Raw Gold."
-   },
    "hint": {
-    "ko": "금은 땅속 광석에서 나와요.",
-    "de": "Gold findest du in den Höhlen unter dem Sand.",
-    "en": "Collect 6× Raw Gold."
+    "ko": "금은 땅속 광석에서 나와요."
    }
   }
  ],
@@ -87,18 +66,9 @@
     "block": "minecraft:dark_prismarine_slab",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Dunkle Prismarinstufe.",
-    "en": "Place Dark Prismarine Slab."
-   },
-   "hint": {
-    "en": "Place Dark Prismarine Slab."
-   }
+   "conditions": []
   },
-  "textKo": "짙은 프리즈머린 반 블록을 놓았어요.",
-  "textDe": "Dunkle Prismarinstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Dark Prismarine Slab is complete."
+  "textKo": "짙은 프리즈머린 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "w10_02",
@@ -109,6 +79,5 @@
    "gold_block"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Desert Caravan"
+ "koreanLevel": 5
 }

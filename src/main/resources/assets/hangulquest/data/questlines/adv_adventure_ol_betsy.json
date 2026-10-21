@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_ol_betsy",
  "titleKo": "부러진 화살",
- "titleDe": "Ich habe die Knarre gesichert",
  "topic": "adventure",
  "tier": 2,
  "order": 218,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bamboo_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Bambustreppe.",
-    "en": "Collect Bamboo Stairs."
-   },
-   "hint": {
-    "en": "Collect Bamboo Stairs."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:red_wool",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Rote Wolle.",
-    "en": "Collect 8× Red Wool."
-   },
-   "hint": {
-    "en": "Collect 8× Red Wool."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:skeleton",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Skelett.",
-    "en": "Defeat Skeleton."
-   },
-   "hint": {
-    "en": "Defeat Skeleton."
-   }
+   "conditions": []
   },
-  "textKo": "스켈레톤을 물리쳤어요.",
-  "textDe": "Skelett — Zeremonie vollendet.",
-  "textEn": "the ritual of Skeleton is complete."
+  "textKo": "스켈레톤을 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_ol_betsy",
@@ -88,6 +64,5 @@
    "zombie"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Ol' Betsy"
+ "koreanLevel": 2
 }

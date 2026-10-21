@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "tierpfad",
  "titleKo": "동물의 길",
- "titleDe": "Der Tierpfad",
  "tier": 1,
  "concepts": [
   "gen_allay",
@@ -24,13 +23,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:allay",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Hilfsgeist an.",
-    "en": "Look at Allay."
-   },
-   "hint": {
-    "en": "Look at Allay."
    }
   },
   {
@@ -44,14 +36,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "분홍색 돼지를 1초 동안 바라봐요.",
-    "de": "Schau das rosafarbene Tier an.",
-    "en": "Look at Pig."
+    "ko": "분홍색 돼지를 1초 동안 바라봐요."
    },
    "hint": {
-    "ko": "돼지를 봐요.",
-    "de": "Schau ein Schwein an.",
-    "en": "Look at Pig."
+    "ko": "돼지를 봐요."
    }
   },
   {
@@ -65,14 +53,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "털이 있는 양을 1초 동안 바라봐요.",
-    "de": "Schau das wollige Tier an.",
-    "en": "Look at Sheep."
+    "ko": "털이 있는 양을 1초 동안 바라봐요."
    },
    "hint": {
-    "ko": "양을 봐요.",
-    "de": "Schau ein Schaf an.",
-    "en": "Look at Sheep."
+    "ko": "양을 봐요."
    }
   }
  ],
@@ -92,18 +76,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kupfererz. Nachts.",
-    "en": "Place Copper Ore. At night."
-   },
-   "hint": {
-    "en": "Place Copper Ore. At night."
-   }
+   ]
   },
-  "textKo": "밤에 구리 광석을 놓았어요.",
-  "textDe": "Kupfererz — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Copper Ore is complete."
+  "textKo": "밤에 구리 광석을 놓았어요."
  },
  "reward": {
   "badge": "tierpfad",
@@ -116,6 +91,5 @@
  },
  "order": 40,
  "koreanLevel": 1,
- "topic": "동물",
- "titleEn": "The Animal Trail"
+ "topic": "동물"
 }

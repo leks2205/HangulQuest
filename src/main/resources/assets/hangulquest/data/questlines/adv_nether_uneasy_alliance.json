@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_uneasy_alliance",
  "titleKo": "쉽지 않은 동행",
- "titleDe": "Unheilvolle Allianz",
  "topic": "nether",
  "tier": 2,
  "order": 309,
@@ -28,13 +27,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:chipped_anvil",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Angeschlagener Amboss.",
-    "en": "Place 2× Chipped Anvil."
-   },
-   "hint": {
-    "en": "Place 2× Chipped Anvil."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:gray_concrete_powder",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Grauer Trockenbeton.",
-    "en": "Collect Gray Concrete Powder."
-   },
-   "hint": {
-    "en": "Collect Gray Concrete Powder."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:waxed_exposed_copper_door",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Gewachste angelaufene Kupfertür.",
-    "en": "Collect Waxed Exposed Copper Door."
-   },
-   "hint": {
-    "en": "Collect Waxed Exposed Copper Door."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 문을 만들었어요.",
-  "textDe": "Gewachste angelaufene Kupfertür — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Exposed Copper Door is complete."
+  "textKo": "밀랍칠한 약간 녹슨 구리 문을 만들었어요."
  },
  "reward": {
   "badge": "adv_nether_uneasy_alliance",
@@ -88,6 +64,5 @@
    "adv_item_ghast_tear"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Uneasy Alliance"
+ "koreanLevel": 3
 }

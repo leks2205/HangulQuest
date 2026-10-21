@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "eiswand",
  "titleKo": "얼음벽의 길",
- "titleDe": "Der Eiswall",
  "tier": 5,
  "order": 506,
  "concepts": [
@@ -31,13 +30,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:birch_sapling",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Birkensetzling ab.",
-    "en": "Break 3× Birch Sapling."
-   },
-   "hint": {
-    "en": "Break 3× Birch Sapling."
    }
   },
   {
@@ -49,13 +41,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:snow_block",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee.",
-    "en": "Look at Snow Block."
-   },
-   "hint": {
-    "en": "Look at Snow Block."
    }
   },
   {
@@ -67,13 +52,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:slime",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Schleim an.",
-    "en": "Look at Slime."
-   },
-   "hint": {
-    "en": "Look at Slime."
    }
   }
  ],
@@ -93,18 +71,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Tropenholzzaun. In einem passenden Biom.",
-    "en": "Place Jungle Fence. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Jungle Fence. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "산에서 정글나무 울타리를 놓았어요.",
-  "textDe": "Tropenholzzaun — Zeremonie vollendet.",
-  "textEn": "In the mountains the ritual of Jungle Fence is complete."
+  "textKo": "산에서 정글나무 울타리를 놓았어요."
  },
  "reward": {
   "badge": "eiswand",
@@ -116,6 +85,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "산",
- "titleEn": "The Ice Wall"
+ "topic": "산"
 }

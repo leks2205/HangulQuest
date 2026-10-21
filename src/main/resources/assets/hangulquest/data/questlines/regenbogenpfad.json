@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "regenbogenpfad",
  "titleKo": "무지개의 길",
- "titleDe": "Der Regenbogenpfad",
  "topic": "무지개",
  "tier": 1,
  "order": 143,
@@ -27,13 +26,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:black_concrete_slab",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Schwarze Betonstufe.",
-    "en": "Place 6× Black Concrete Slab."
-   },
-   "hint": {
-    "en": "Place 6× Black Concrete Slab."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:medium_amethyst_bud",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Mittlere Amethystknospe an.",
-    "en": "Look at Medium Amethyst Bud."
-   },
-   "hint": {
-    "en": "Look at Medium Amethyst Bud."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_leaves",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Akazienlaub.",
-    "en": "Place 4× Acacia Leaves."
-   },
-   "hint": {
-    "en": "Place 4× Acacia Leaves."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "item": "minecraft:waxed_copper_golem_statue",
     "count": 6
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 6× Gewachste Kupfergolemstatue.",
-    "en": "Collect 6× Waxed Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Collect 6× Waxed Copper Golem Statue."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 구리 골렘 동상을 여섯 개 만들었어요.",
-  "textDe": "Gewachste Kupfergolemstatue — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Copper Golem Statue is complete."
+  "textKo": "밀랍칠한 구리 골렘 동상을 여섯 개 만들었어요."
  },
  "reward": {
   "badge": "regenbogenpfad",
@@ -105,6 +74,5 @@
    "glass"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Rainbow Trail"
+ "koreanLevel": 1
 }

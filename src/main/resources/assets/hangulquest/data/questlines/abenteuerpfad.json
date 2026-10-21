@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "abenteuerpfad",
  "titleKo": "모험의 길",
- "titleDe": "Der Abenteuerpfad",
  "tier": 3,
  "concepts": [
   "gen_music_disc_creator_music_box",
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_creator_music_box",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:obsidian",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue einen schwarzen Stein ab.",
-    "en": "Break Obsidian."
-   },
-   "hint": {
-    "en": "Break Obsidian."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:desert",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Wüste.",
-    "en": "Reach Desert."
-   },
-   "hint": {
-    "en": "Reach Desert."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Verwitterte Kupferlaterne. Nachts.",
-    "en": "Place Weathered Copper Lantern. At night."
-   },
-   "hint": {
-    "en": "Place Weathered Copper Lantern. At night."
-   }
+   ]
   },
-  "textKo": "밤에 녹슨 구리 랜턴을 놓았어요.",
-  "textDe": "Verwitterte Kupferlaterne — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Weathered Copper Lantern is complete."
+  "textKo": "밤에 녹슨 구리 랜턴을 놓았어요."
  },
  "reward": {
   "badge": "abenteuerpfad",
@@ -114,6 +83,5 @@
  },
  "order": 210,
  "koreanLevel": 2,
- "topic": "돌",
- "titleEn": "The Adventure Trail"
+ "topic": "돌"
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "ziegelpfad",
  "titleKo": "벽돌의 길",
- "titleDe": "Der Ziegelpfad",
  "topic": "벽돌",
  "tier": 3,
  "order": 157,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_bars",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Kupfergitter.",
-    "en": "Collect 4× Copper Bars."
-   },
-   "hint": {
-    "en": "Collect 4× Copper Bars."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dark_oak_log",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schwarzeichenstamm.",
-    "en": "Place Dark Oak Log."
-   },
-   "hint": {
-    "en": "Place Dark Oak Log."
    }
   },
   {
@@ -67,14 +52,8 @@
     "block": "minecraft:bricks",
     "count": 6
    },
-   "clue": {
-    "de": "Setz sechs Ziegel.",
-    "en": "Place 6× Bricks."
-   },
    "hint": {
-    "ko": "벽돌은 점토를 구워 만들어요.",
-    "de": "Ziegel entstehen aus gebranntem Ton.",
-    "en": "Place 6× Bricks."
+    "ko": "벽돌은 점토를 구워 만들어요."
    }
   }
  ],
@@ -89,18 +68,9 @@
     "block": "minecraft:tinted_glass",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Getöntes Glas.",
-    "en": "Place 4× Tinted Glass."
-   },
-   "hint": {
-    "en": "Place 4× Tinted Glass."
-   }
+   "conditions": []
   },
-  "textKo": "차광 유리를 네 개 놓았어요.",
-  "textDe": "Getöntes Glas — Zeremonie vollendet.",
-  "textEn": "the ritual of Tinted Glass is complete."
+  "textKo": "차광 유리를 네 개 놓았어요."
  },
  "reward": {
   "badge": "ziegelpfad",
@@ -110,6 +80,5 @@
    "stone_bricks"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Brick Trail"
+ "koreanLevel": 2
 }

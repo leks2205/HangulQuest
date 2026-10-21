@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schatzkammer",
  "titleKo": "보물방의 길",
- "titleDe": "Die Schatzkammer",
  "topic": "보물",
  "tier": 3,
  "order": 147,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:purpur_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Purpurstufe.",
-    "en": "Place 3× Purpur Slab."
-   },
-   "hint": {
-    "en": "Place 3× Purpur Slab."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:smooth_sandstone",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Glatter Sandstein.",
-    "en": "Place 2× Smooth Sandstone."
-   },
-   "hint": {
-    "en": "Place 2× Smooth Sandstone."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:yellow_concrete_powder",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Gelber Trockenbeton.",
-    "en": "Place 3× Yellow Concrete Powder."
-   },
-   "hint": {
-    "en": "Place 3× Yellow Concrete Powder."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:sulfur_stairs",
     "count": 5
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 5× Schwefeltreppe.",
-    "en": "Collect 5× Sulfur Stairs."
-   },
-   "hint": {
-    "en": "Collect 5× Sulfur Stairs."
-   }
+   "conditions": []
   },
-  "textKo": "유황 계단을 다섯 개 만들었어요.",
-  "textDe": "Schwefeltreppe — Zeremonie vollendet.",
-  "textEn": "the ritual of Sulfur Stairs is complete."
+  "textKo": "유황 계단을 다섯 개 만들었어요."
  },
  "reward": {
   "badge": "schatzkammer",
@@ -109,6 +78,5 @@
    "diamond"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Treasury"
+ "koreanLevel": 2
 }

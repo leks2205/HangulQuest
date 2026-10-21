@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "saatfeld",
  "titleKo": "씨앗밭의 길",
- "titleDe": "Der Saatfeldpfad",
  "topic": "음식",
  "tier": 2,
  "order": 61,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:netherrack",
     "count": 5
-   },
-   "clue": {
-    "de": "Sammle 5× Netherrack.",
-    "en": "Collect 5× Netherrack."
-   },
-   "hint": {
-    "en": "Collect 5× Netherrack."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:dark_oak_log",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Schwarzeichenstamm an.",
-    "en": "Look at Dark Oak Log."
-   },
-   "hint": {
-    "en": "Look at Dark Oak Log."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:porkchop",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Iss Rohes Schweinefleisch.",
-    "en": "Eat Raw Porkchop."
-   },
-   "hint": {
-    "en": "Eat Raw Porkchop."
-   }
+   "conditions": []
   },
-  "textKo": "익히지 않은 돼지고기를 먹었어요.",
-  "textDe": "Rohes Schweinefleisch — Zeremonie vollendet.",
-  "textEn": "the ritual of Raw Porkchop is complete."
+  "textKo": "익히지 않은 돼지고기를 먹었어요."
  },
  "reward": {
   "badge": "saatfeld",
@@ -88,6 +64,5 @@
    "bread"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Seed Field Trail"
+ "koreanLevel": 2
 }

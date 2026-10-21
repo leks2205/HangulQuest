@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_two_birds_one_arrow",
  "titleKo": "일전쌍조",
- "titleDe": "Zwei auf einen Streich",
  "topic": "adventure",
  "tier": 2,
  "order": 239,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:black_banner",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schwarzes Banner.",
-    "en": "Collect Black Banner."
-   },
-   "hint": {
-    "en": "Collect Black Banner."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:repeater",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Redstone-Verstärker.",
-    "en": "Collect 8× Redstone Repeater."
-   },
-   "hint": {
-    "en": "Collect 8× Redstone Repeater."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:shulker",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege 2× Shulker.",
-    "en": "Defeat 2× Shulker."
-   },
-   "hint": {
-    "en": "Defeat 2× Shulker."
-   }
+   "conditions": []
   },
-  "textKo": "셜커를 두 마리 물리쳤어요.",
-  "textDe": "Shulker — Zeremonie vollendet.",
-  "textEn": "the ritual of Shulker is complete."
+  "textKo": "셜커를 두 마리 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_two_birds_one_arrow",
@@ -88,6 +64,5 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Two Birds, One Arrow"
+ "koreanLevel": 3
 }

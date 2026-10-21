@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gipfelwaechter",
  "titleKo": "봉우리의 수호자",
- "titleDe": "Der Gipfelwächter",
  "tier": 4,
  "order": 450,
  "concepts": [
@@ -30,13 +29,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:swamp",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Sumpf.",
-    "en": "Reach Swamp."
-   },
-   "hint": {
-    "en": "Reach Swamp."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:glowstone_dust",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Leuchtsteinstaub.",
-    "en": "Collect 2× Glowstone Dust."
-   },
-   "hint": {
-    "en": "Collect 2× Glowstone Dust."
    }
   },
   {
@@ -72,14 +57,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Netherrack. Nachts.",
-    "en": "Place Netherrack. At night."
-   },
-   "hint": {
-    "en": "Place Netherrack. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -101,18 +79,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Benutze Weiße Kerze. Nachts. In einem passenden Biom.",
-    "en": "Use White Candle. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use White Candle. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 하얀색 초에 불을 붙였어요.",
-  "textDe": "Weiße Kerze — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of White Candle is complete."
+  "textKo": "밤에 산에서 하얀색 초에 불을 붙였어요."
  },
  "reward": {
   "badge": "gipfelwaechter",
@@ -123,6 +92,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "산",
- "titleEn": "The Summit Keeper"
+ "topic": "산"
 }

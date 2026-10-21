@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_plant_any_sniffer_seed",
  "titleKo": "과거를 심다",
- "titleDe": "Wir säen Geschichte",
  "topic": "husbandry",
  "tier": 2,
  "order": 272,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cherry_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kirschholzfalltür.",
-    "en": "Collect Cherry Trapdoor."
-   },
-   "hint": {
-    "en": "Collect Cherry Trapdoor."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pitcher_pod",
     "count": 1
-   },
-   "clue": {
-    "de": "Suche im Grab des Schnüfflers nach einer Kannenpflanzenkapsel.",
-    "en": "Collect Pitcher Pod."
-   },
-   "hint": {
-    "en": "Collect Pitcher Pod."
    }
   }
  ],
@@ -67,17 +52,9 @@
     "block": "minecraft:poppy",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "en": "Look at Poppy."
-   },
-   "hint": {
-    "en": "Look at Poppy."
-   }
+   "conditions": []
   },
-  "textKo": "과거를 심다 — 심은 고대 씨앗이 꽃으로 피어요.",
-  "textDe": "Wir säen Geschichte — Aus dem alten Samen blüht eine Blume.",
-  "textEn": "the ritual of Poppy is complete."
+  "textKo": "과거를 심다 — 심은 고대 씨앗이 꽃으로 피어요."
  },
  "reward": {
   "badge": "adv_husbandry_plant_any_sniffer_seed",
@@ -87,6 +64,5 @@
    "flower"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Planting the Past"
+ "koreanLevel": 2
 }

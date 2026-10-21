@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_levitate",
  "titleKo": "위쪽 공기 좋은데?",
- "titleDe": "Schöne Aussicht von hier oben",
  "topic": "end",
  "tier": 2,
  "order": 253,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:shulker_shell",
     "count": 2
-   },
-   "clue": {
-    "de": "Erlege Shulker in der Endstadt und nimm ihre Schalen mit.",
-    "en": "Collect 2× Shulker Shell."
-   },
-   "hint": {
-    "en": "Collect 2× Shulker Shell."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:chorus_plant",
     "dwellMs": 700
-   },
-   "clue": {
-    "de": "Sieh dir Choruspflanze an.",
-    "en": "Look at Chorus Plant."
-   },
-   "hint": {
-    "en": "Look at Chorus Plant."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:brown_concrete_powder",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Brauner Trockenbeton.",
-    "en": "Place Brown Concrete Powder."
-   },
-   "hint": {
-    "en": "Place Brown Concrete Powder."
-   }
+   "conditions": []
   },
-  "textKo": "갈색 콘크리트 가루를 놓았어요.",
-  "textDe": "Brauner Trockenbeton — Zeremonie vollendet.",
-  "textEn": "the ritual of Brown Concrete Powder is complete."
+  "textKo": "갈색 콘크리트 가루를 놓았어요."
  },
  "reward": {
   "badge": "adv_end_levitate",
@@ -88,6 +64,5 @@
    "height"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "Great View From Up Here"
+ "koreanLevel": 6
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w12_05",
  "titleKo": "영혼의 문",
- "titleDe": "Das Tor der Seelen",
  "topic": "영혼",
  "tier": 2,
  "order": 1125,
@@ -30,14 +29,8 @@
     "block": "minecraft:soul_sand",
     "count": 6
    },
-   "clue": {
-    "de": "Setz sechs Seelensand als Schwelle des Tores.",
-    "en": "Place 6× Soul Sand."
-   },
    "hint": {
-    "ko": "영혼 모래는 영혼 모래 골짜기에서 파요.",
-    "de": "Seelensand gräbt man im Seelensandtal.",
-    "en": "Place 6× Soul Sand."
+    "ko": "영혼 모래는 영혼 모래 골짜기에서 파요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:copper_golem_statue",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Kupfergolemstatue.",
-    "en": "Place 2× Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Place 2× Copper Golem Statue."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:heartbreak_pottery_sherd",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Herzschmerz-Töpferscherbe.",
-    "en": "Collect Heartbreak Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect Heartbreak Pottery Sherd."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:pale_oak_sign",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Blasseichenholzschild.",
-    "en": "Place Pale Oak Sign."
-   },
-   "hint": {
-    "en": "Place Pale Oak Sign."
-   }
+   "conditions": []
   },
-  "textKo": "창백한 참나무 표지판을 세웠어요.",
-  "textDe": "Blasseichenholzschild — Zeremonie vollendet.",
-  "textEn": "the ritual of Pale Oak Sign is complete."
+  "textKo": "창백한 참나무 표지판을 세웠어요."
  },
  "reward": {
   "badge": "w12_05",
@@ -110,6 +80,5 @@
    "end"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Gate of Souls"
+ "koreanLevel": 6
 }

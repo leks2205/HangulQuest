@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_deflect_arrow",
  "titleKo": "저희는 그런 것 받지 않습니다",
- "titleDe": "Heute nicht, danke",
  "topic": "story",
  "tier": 2,
  "order": 311,
@@ -29,13 +28,8 @@
     "item": "minecraft:shield",
     "count": 1
    },
-   "clue": {
-    "de": "Baue einen Schild aus Brettern und Eisen.",
-    "en": "Collect Shield."
-   },
    "hint": {
-    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요.",
-    "en": "Collect Shield."
+    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요."
    }
   },
   {
@@ -47,13 +41,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:skeleton",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Stell dich einem Skelett mit gezogenem Bogen gegenüber.",
-    "en": "Look at Skeleton."
-   },
-   "hint": {
-    "en": "Look at Skeleton."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "entity": "minecraft:phantom",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Phantom.",
-    "en": "Defeat Phantom."
-   },
-   "hint": {
-    "en": "Defeat Phantom."
-   }
+   "conditions": []
   },
-  "textKo": "팬텀을 물리쳤어요.",
-  "textDe": "Phantom — Zeremonie vollendet.",
-  "textEn": "the ritual of Phantom is complete."
+  "textKo": "팬텀을 물리쳤어요."
  },
  "reward": {
   "badge": "adv_story_deflect_arrow",
@@ -88,6 +66,5 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Not Today, Thank You"
+ "koreanLevel": 3
 }

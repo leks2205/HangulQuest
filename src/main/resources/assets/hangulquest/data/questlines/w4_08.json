@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_08",
  "titleKo": "모래 정원",
- "titleDe": "Der Sandgarten",
  "topic": "모래",
  "tier": 2,
  "order": 1048,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mossy_stone_brick_wall",
     "count": 5
-   },
-   "clue": {
-    "de": "Platziere 5× Bemooste Steinziegelmauer.",
-    "en": "Place 5× Mossy Stone Brick Wall."
-   },
-   "hint": {
-    "en": "Place 5× Mossy Stone Brick Wall."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:armadillo",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Gürteltier an.",
-    "en": "Look at Armadillo."
-   },
-   "hint": {
-    "en": "Look at Armadillo."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:flowering_azalea",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Blühende Azalee.",
-    "en": "Place 3× Flowering Azalea."
-   },
-   "hint": {
-    "en": "Place 3× Flowering Azalea."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ],
-   "clue": {
-    "de": "Sammle Tropenholz. In einem passenden Biom.",
-    "en": "Collect Jungle Wood. In a fitting biome."
-   },
-   "hint": {
-    "en": "Collect Jungle Wood. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "해변에서 정글나무를 구했어요.",
-  "textDe": "Tropenholz — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Jungle Wood is complete."
+  "textKo": "해변에서 정글나무를 구했어요."
  },
  "reward": {
   "badge": "w4_08",
@@ -113,6 +82,5 @@
    "turtle_egg"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Sand Garden"
+ "koreanLevel": 2
 }

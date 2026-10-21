@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_01",
  "titleKo": "첫 촛불",
- "titleDe": "Die erste Kerze",
  "topic": "촛불",
  "tier": 1,
  "order": 1011,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:netherite_shovel",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Netheritschaufel.",
-    "en": "Collect 2× Netherite Shovel."
-   },
-   "hint": {
-    "en": "Collect 2× Netherite Shovel."
    }
   },
   {
@@ -51,14 +43,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Großes Tropfblatt. Nachts.",
-    "en": "Place 2× Big Dripleaf. At night."
-   },
-   "hint": {
-    "en": "Place 2× Big Dripleaf. At night."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -69,13 +54,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:brown_wool_stairs",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Braune Wolltreppe.",
-    "en": "Collect 4× Brown Wool Stairs."
-   },
-   "hint": {
-    "en": "Collect 4× Brown Wool Stairs."
    }
   }
  ],
@@ -90,18 +68,9 @@
     "block": "minecraft:purple_terracotta",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Violette Keramik.",
-    "en": "Place Purple Terracotta."
-   },
-   "hint": {
-    "en": "Place Purple Terracotta."
-   }
+   "conditions": []
   },
-  "textKo": "보라색 테라코타를 놓았어요.",
-  "textDe": "Violette Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Purple Terracotta is complete."
+  "textKo": "보라색 테라코타를 놓았어요."
  },
  "reward": {
   "badge": "w1_01",
@@ -111,6 +80,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The First Candle"
+ "koreanLevel": 1
 }

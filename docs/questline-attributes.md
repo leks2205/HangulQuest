@@ -10,7 +10,7 @@
 
 | Area | Mandatory (never skip) | Optional / free |
 |---|---|---|
-| Identity | unique `id`, non-blank `titleKo`, `titleDe`, `order`, badge | wording, topic name |
+| Identity | unique `id`, non-blank `titleKo`, an English title key (`hangulquest.trail.<id>.title`), `order`, badge | wording, topic name, the German title |
 | Tree | valid `requires.completed`; **previous** unless level 1; **next** unless last level; no cycles | number of parents (1–3), branch shape |
 | Korean level | `koreanLevel == min(5, depth)` and equal to peers on that level | which grammar examples are used |
 | Steps | at least 3 steps, a finale, one clear `goal` per step, `teach` concepts, conditions spoken in Korean | riddle vs. plain clue, number of steps, extra German flavour |
@@ -40,7 +40,7 @@ authoring and for the journal: what each field means, which are required, and wh
 |---|---|---|---|
 | `id` | trail | yes | Stable lowercase id; also the file name and the badge id. Never change it after release. |
 | `titleKo` | trail | yes | Korean title, e.g. `봉우리의 길`. Shown in the tree, journal, banners. |
-| `titleDe` | trail | yes | German title for the German toggle. |
+| `titleDe` | trail | no | Inline German title, for a file of your own. Shipped trails: the key `hangulquest.trail.<id>.title` in `lang/content/de_de.json`. |
 | `topic` | trail | yes (authored, may be derived) | Overarching branch theme, e.g. `산`, `밤`, `바다`, `집`, `handwerk`. Must fit the whole branch, not just one step. |
 | `tier` | trail | yes | `min(5, 1 + parent count)`. Kept for sorting/grouping. |
 
@@ -108,7 +108,7 @@ Every step (`steps[]` and `finale.step`) has:
 | `goal` | yes | What must happen; see the goal table below. |
 | `conditions` | no | Extra requirements that must hold *while* the goal happens. |
 | `clue.ko` | no | Authored Korean clue; if absent, generated. |
-| `clue.de` | no | German clue line (only with the German toggle). |
+| `clue.de` | no | Inline German clue line, for a file of your own. Shipped trails: the key `hangulquest.trail.<id>.step.<step>.clue`. |
 
 Goal types and their live status marker (what the tracker shows):
 
@@ -163,7 +163,8 @@ Rules:
 
 | Field | Required | Meaning |
 |---|---|---|
-| `finale.textKo` / `textDe` | yes | Closing line, spoken at level 5. |
+| `finale.textKo` | yes | Closing line, spoken at level 5. |
+| `finale.textDe` / `textEn` | no | Inline closing line translations, for a file of your own. Shipped trails: the key `hangulquest.trail.<id>.finale`. |
 | `finale.step` | yes | Last step; same goal/condition rules. |
 | `reward.badge` | yes | Badge id (usually the trail id). |
 | `reward.words` | yes | Concept ids rewarded; must be taught or used. |
@@ -172,7 +173,7 @@ Rules:
 
 `QuestlineValidationTest` now fails on:
 - a non-last-level trail without a child (dead end) or a non-first-level trail without a parent
-- a missing German title, order, concept list or badge
+- a missing English title, order, concept list or badge
 - an authored clue that does not name the goal's action
 - `koreanLevel` not equal to `min(5, depth)`
 - unknown concepts/parents, cycles, non-Hangul clues, conditions missing from the Korean text.

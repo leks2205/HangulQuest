@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "blumentopf",
  "titleKo": "화분의 길",
- "titleDe": "Der Blumentopfpfad",
  "topic": "화분",
  "tier": 1,
  "order": 148,
@@ -27,14 +26,8 @@
     "item": "minecraft:flower_pot",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Blumentöpfe.",
-    "en": "Collect 3× Flower Pot."
-   },
    "hint": {
-    "ko": "화분은 벽돌로 만들어요.",
-    "de": "Blumentöpfe bestehen aus Ziegeln.",
-    "en": "Collect 3× Flower Pot."
+    "ko": "화분은 벽돌로 만들어요."
    }
   },
   {
@@ -46,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:flower_pot",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Blumentöpfe.",
-    "en": "Place 3× Flower Pot."
-   },
-   "hint": {
-    "en": "Place 3× Flower Pot."
    }
   },
   {
@@ -64,13 +50,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:prismarine",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Prismarin an.",
-    "en": "Look at Prismarine."
-   },
-   "hint": {
-    "en": "Look at Prismarine."
    }
   }
  ],
@@ -85,18 +64,9 @@
     "block": "minecraft:chiseled_sandstone",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Gemeißelter Sandstein.",
-    "en": "Place Chiseled Sandstone."
-   },
-   "hint": {
-    "en": "Place Chiseled Sandstone."
-   }
+   "conditions": []
   },
-  "textKo": "조각된 사암을 놓았어요.",
-  "textDe": "Gemeißelter Sandstein — Zeremonie vollendet.",
-  "textEn": "the ritual of Chiseled Sandstone is complete."
+  "textKo": "조각된 사암을 놓았어요."
  },
  "reward": {
   "badge": "blumentopf",
@@ -105,6 +75,5 @@
    "flower"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Flower Pot Trail"
+ "koreanLevel": 1
 }

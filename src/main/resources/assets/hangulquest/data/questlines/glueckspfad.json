@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "glueckspfad",
  "titleKo": "보물의 길",
- "titleDe": "Der Schatzpfad",
  "tier": 2,
  "order": 390,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:gold_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue ein Stück Gold ab.",
-    "en": "Break Gold Ore."
-   },
-   "hint": {
-    "en": "Break Gold Ore."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:scaffolding",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Gerüst.",
-    "en": "Collect 2× Scaffolding."
-   },
-   "hint": {
-    "en": "Collect 2× Scaffolding."
    }
   },
   {
@@ -63,13 +48,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:blue_bed"
-   },
-   "clue": {
-    "de": "Benutze Blaues Bett.",
-    "en": "Use Blue Bed."
-   },
-   "hint": {
-    "en": "Use Blue Bed."
    }
   }
  ],
@@ -89,18 +67,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Schwefelziegelstufe. Nachts.",
-    "en": "Place Sulfur Brick Slab. At night."
-   },
-   "hint": {
-    "en": "Place Sulfur Brick Slab. At night."
-   }
+   ]
   },
-  "textKo": "밤에 유황 벽돌 반 블록을 놓았어요.",
-  "textDe": "Schwefelziegelstufe — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Sulfur Brick Slab is complete."
+  "textKo": "밤에 유황 벽돌 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "glueckspfad",
@@ -111,6 +80,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "돌",
- "titleEn": "The Treasure Trail"
+ "topic": "돌"
 }

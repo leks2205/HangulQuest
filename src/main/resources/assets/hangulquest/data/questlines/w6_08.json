@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_08",
  "titleKo": "약초 건조대",
- "titleDe": "Der Kräutertrockenrahmen",
  "topic": "건초",
  "tier": 2,
  "order": 1068,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bamboo_button",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Bambusknopf.",
-    "en": "Collect 6× Bamboo Button."
-   },
-   "hint": {
-    "en": "Collect 6× Bamboo Button."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:brown_shulker_box",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Braune Shulker-Kiste.",
-    "en": "Place 2× Brown Shulker Box."
-   },
-   "hint": {
-    "en": "Place 2× Brown Shulker Box."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cut_copper_stairs",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Geschnittene Kupfertreppe.",
-    "en": "Collect 3× Cut Copper Stairs."
-   },
-   "hint": {
-    "en": "Collect 3× Cut Copper Stairs."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:tube_coral_block",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Orgelkorallenblock.",
-    "en": "Place Tube Coral Block."
-   },
-   "hint": {
-    "en": "Place Tube Coral Block."
-   }
+   "conditions": []
   },
-  "textKo": "관 산호 블록을 놓았어요.",
-  "textDe": "Orgelkorallenblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Tube Coral Block is complete."
+  "textKo": "관 산호 블록을 놓았어요."
  },
  "reward": {
   "badge": "w6_08",
@@ -108,6 +77,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Herb Drying Rack"
+ "koreanLevel": 3
 }

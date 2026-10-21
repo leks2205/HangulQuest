@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "marktpfad",
  "titleKo": "시장의 길",
- "titleDe": "Der Marktpfad",
  "tier": 2,
  "order": 380,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:deepslate_brick_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Tiefenschieferziegelmauer.",
-    "en": "Collect 3× Deepslate Brick Wall."
-   },
-   "hint": {
-    "en": "Collect 3× Deepslate Brick Wall."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_11",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Schallplatte.",
-    "en": "Collect 2× Music Disc."
-   },
-   "hint": {
-    "en": "Collect 2× Music Disc."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:oxidized_copper_door",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Oxidierte Kupfertür.",
-    "en": "Collect 2× Oxidized Copper Door."
-   },
-   "hint": {
-    "en": "Collect 2× Oxidized Copper Door."
    }
   }
  ],
@@ -90,18 +68,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Rote Glasscheibe. Tagsüber.",
-    "en": "Place 3× Red Stained Glass Pane. During the day."
-   },
-   "hint": {
-    "en": "Place 3× Red Stained Glass Pane. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 빨간색 색유리 판을 세 개 놓았어요.",
-  "textDe": "Rote Glasscheibe — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Red Stained Glass Pane is complete."
+  "textKo": "낮에 빨간색 색유리 판을 세 개 놓았어요."
  },
  "reward": {
   "badge": "marktpfad",
@@ -113,6 +82,5 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "마을",
- "titleEn": "The Market Trail"
+ "topic": "마을"
 }

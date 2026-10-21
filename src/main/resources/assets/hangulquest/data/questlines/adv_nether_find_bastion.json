@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_find_bastion",
  "titleKo": "그때가 좋았지",
- "titleDe": "Das waren noch Zeiten …",
  "topic": "nether",
  "tier": 2,
  "order": 296,
@@ -27,13 +26,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:yellow_wool",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Gelbe Wolle.",
-    "en": "Place 2× Yellow Wool."
-   },
-   "hint": {
-    "en": "Place 2× Yellow Wool."
    }
   },
   {
@@ -46,13 +38,8 @@
     "block": "minecraft:polished_blackstone_bricks",
     "dwellMs": 600
    },
-   "clue": {
-    "de": "Halt Ausschau nach schwarzen, polierten Ziegeln: Das ist eine Bastion.",
-    "en": "Look at Polished Blackstone Bricks."
-   },
    "hint": {
-    "ko": "검은 벽돌을 천천히 바라봐요.",
-    "en": "Look at Polished Blackstone Bricks."
+    "ko": "검은 벽돌을 천천히 바라봐요."
    }
   }
  ],
@@ -68,18 +55,11 @@
     "count": 1
    },
    "conditions": [],
-   "clue": {
-    "de": "Brich einen polierten Schwarzsteinziegel aus der Bastion als Beweis.",
-    "en": "Break Polished Blackstone Bricks."
-   },
    "hint": {
-    "ko": "곡괭이로 검은 벽돌을 캐요.",
-    "en": "Break Polished Blackstone Bricks."
+    "ko": "곡괭이로 검은 벽돌을 캐요."
    }
   },
-  "textKo": "보루를 찾았어요! 피글린의 보물이 가득해요.",
-  "textDe": "Eine Bastion gefunden – das waren noch Zeiten.",
-  "textEn": "the ritual of Polished Blackstone Bricks is complete."
+  "textKo": "보루를 찾았어요! 피글린의 보물이 가득해요."
  },
  "reward": {
   "badge": "adv_nether_find_bastion",
@@ -88,6 +68,5 @@
    "adv_block_polished_blackstone_bricks"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Those Were the Days"
+ "koreanLevel": 2
 }

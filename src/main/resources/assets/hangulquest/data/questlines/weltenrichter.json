@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weltenrichter",
  "titleKo": "세계 심판",
- "titleDe": "Der Weltenrichter",
  "topic": "세계 심판",
  "tier": 3,
  "order": 126,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_concrete",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Roter Beton.",
-    "en": "Place 2× Red Concrete."
-   },
-   "hint": {
-    "en": "Place 2× Red Concrete."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:tuff_brick_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Tuffsteinziegelmauer.",
-    "en": "Place Tuff Brick Wall."
-   },
-   "hint": {
-    "en": "Place Tuff Brick Wall."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:exposed_chiseled_copper",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Angelaufener gemeißelter Kupferblock.",
-    "en": "Place 4× Exposed Chiseled Copper."
-   },
-   "hint": {
-    "en": "Place 4× Exposed Chiseled Copper."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:red_sandstone_slab",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Rote Sandsteinstufe.",
-    "en": "Collect Red Sandstone Slab."
-   },
-   "hint": {
-    "en": "Collect Red Sandstone Slab."
-   }
+   "conditions": []
   },
-  "textKo": "붉은 사암 반 블록을 만들었어요.",
-  "textDe": "Rote Sandsteinstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Red Sandstone Slab is complete."
+  "textKo": "붉은 사암 반 블록을 만들었어요."
  },
  "reward": {
   "badge": "weltenrichter",
@@ -109,6 +78,5 @@
    "nether_star"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Judge of Worlds"
+ "koreanLevel": 6
 }

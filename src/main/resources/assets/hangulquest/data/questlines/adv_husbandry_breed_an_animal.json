@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_breed_an_animal",
  "titleKo": "아기는 어떻게 태어나?",
- "titleDe": "Die Hühnchen und die Blümchen",
  "topic": "husbandry",
  "tier": 2,
  "order": 261,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:wheat",
     "count": 2
-   },
-   "clue": {
-    "de": "Ernte zwei Weizen vom Feld.",
-    "en": "Collect 2× Wheat."
-   },
-   "hint": {
-    "en": "Collect 2× Wheat."
    }
   },
   {
@@ -45,13 +37,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:camel"
-   },
-   "clue": {
-    "de": "Interagiere mit Dromedar.",
-    "en": "Talk to Camel."
-   },
-   "hint": {
-    "en": "Talk to Camel."
    }
   }
  ],
@@ -65,17 +50,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:pig"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Pig."
-   },
-   "hint": {
-    "en": "Talk to Pig."
-   }
+   "conditions": []
   },
-  "textKo": "아기는 어떻게 태어나? — 당근을 주면 돼지가 짝을 지어요.",
-  "textDe": "Die Hühnchen und die Blümchen: Mit Karotten finden zwei Schweine zueinander.",
-  "textEn": "the ritual of Pig is complete."
+  "textKo": "아기는 어떻게 태어나? — 당근을 주면 돼지가 짝을 지어요."
  },
  "reward": {
   "badge": "adv_husbandry_breed_an_animal",
@@ -85,6 +62,5 @@
    "pig"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Parrots and the Bats"
+ "koreanLevel": 1
 }

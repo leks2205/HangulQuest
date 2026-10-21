@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_07",
  "titleKo": "반짝이는 자수정",
- "titleDe": "Glitzernder Amethyst",
  "topic": "자수정",
  "tier": 1,
  "order": 1017,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Blaue Glasscheibe.",
-    "en": "Collect 3× Blue Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Collect 3× Blue Stained Glass Pane."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dark_oak_sapling",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Schwarzeichensetzling.",
-    "en": "Place 2× Dark Oak Sapling."
-   },
-   "hint": {
-    "en": "Place 2× Dark Oak Sapling."
    }
   },
   {
@@ -64,14 +49,8 @@
     "block": "minecraft:amethyst_block",
     "dwellMs": 800
    },
-   "clue": {
-    "de": "Schau den Amethystblock im Licht an.",
-    "en": "Look at Block of Amethyst."
-   },
    "hint": {
-    "ko": "자수정 블록은 빛을 반짝여요.",
-    "de": "Amethyst glitzert im Licht.",
-    "en": "Look at Block of Amethyst."
+    "ko": "자수정 블록은 빛을 반짝여요."
    }
   }
  ],
@@ -86,18 +65,9 @@
     "item": "minecraft:golden_nautilus_armor",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Goldener Nautiluspanzer.",
-    "en": "Collect 2× Golden Nautilus Armor."
-   },
-   "hint": {
-    "en": "Collect 2× Golden Nautilus Armor."
-   }
+   "conditions": []
   },
-  "textKo": "금 앵무조개 갑옷을 두 개 모았어요.",
-  "textDe": "Goldener Nautiluspanzer — Zeremonie vollendet.",
-  "textEn": "the ritual of Golden Nautilus Armor is complete."
+  "textKo": "금 앵무조개 갑옷을 두 개 모았어요."
  },
  "reward": {
   "badge": "w1_07",
@@ -107,6 +77,5 @@
    "glass_bottle"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Glittering Amethyst"
+ "koreanLevel": 1
 }

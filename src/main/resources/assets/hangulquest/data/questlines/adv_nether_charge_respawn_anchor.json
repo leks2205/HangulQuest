@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_charge_respawn_anchor",
  "titleKo": "목숨 충전",
- "titleDe": "Nicht ganz „sieben“ Leben",
  "topic": "nether",
  "tier": 2,
  "order": 290,
@@ -28,13 +27,8 @@
     "item": "minecraft:crying_obsidian",
     "count": 3
    },
-   "clue": {
-    "de": "Weinender Obsidian ist der Grundstein des Seelenankers.",
-    "en": "Collect 3× Crying Obsidian."
-   },
    "hint": {
-    "ko": "우는 흑요석을 캐요. 다이아몬드 곡괭이가 필요해요.",
-    "en": "Collect 3× Crying Obsidian."
+    "ko": "우는 흑요석을 캐요. 다이아몬드 곡괭이가 필요해요."
    }
   },
   {
@@ -47,13 +41,8 @@
     "item": "minecraft:respawn_anchor",
     "count": 1
    },
-   "clue": {
-    "de": "Bau aus dem Obsidian und Leuchtstein einen Seelenanker.",
-    "en": "Collect Respawn Anchor."
-   },
    "hint": {
-    "ko": "우는 흑요석 여섯 개와 발광석 세 개로 만들어요.",
-    "en": "Collect Respawn Anchor."
+    "ko": "우는 흑요석 여섯 개와 발광석 세 개로 만들어요."
    }
   }
  ],
@@ -68,18 +57,11 @@
     "block": "minecraft:respawn_anchor"
    },
    "conditions": [],
-   "clue": {
-    "de": "Lade den Anker mit Leuchtstein auf – vier Ladungen, vier Leben.",
-    "en": "Use Respawn Anchor."
-   },
    "hint": {
-    "ko": "리스폰 정박기에 발광석을 사용해요.",
-    "en": "Use Respawn Anchor."
+    "ko": "리스폰 정박기에 발광석을 사용해요."
    }
   },
-  "textKo": "정박기를 가득 채웠어요! 네더에서도 다시 살아날 수 있어요.",
-  "textDe": "Der Seelenanker ist geladen – im Nether bist du jetzt sicher.",
-  "textEn": "the ritual of Respawn Anchor is complete."
+  "textKo": "정박기를 가득 채웠어요! 네더에서도 다시 살아날 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_charge_respawn_anchor",
@@ -88,6 +70,5 @@
    "adv_item_respawn_anchor"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Not Quite \"Nine\" Lives"
+ "koreanLevel": 3
 }

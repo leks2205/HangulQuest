@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_craft_decorated_pot_using_only_sherds",
  "titleKo": "세심한 복원",
- "titleDe": "Behutsame Restaurierung",
  "topic": "adventure",
  "tier": 2,
  "order": 206,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pink_glazed_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rosa glasierte Keramik.",
-    "en": "Collect Pink Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect Pink Glazed Terracotta."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:torchflower_seeds",
     "count": 1
-   },
-   "clue": {
-    "de": "Pinsle in den Ruinen Fackelliliensamen aus dem verdächtigen Sand.",
-    "en": "Collect Torchflower Seeds."
-   },
-   "hint": {
-    "en": "Collect Torchflower Seeds."
    }
   }
  ],
@@ -68,18 +53,11 @@
     "count": 1
    },
    "conditions": [],
-   "clue": {
-    "de": "Setze vier Töpferscherben in die Werkbank – ohne einen einzigen Ziegel.",
-    "en": "Collect Decorated Pot."
-   },
    "hint": {
-    "ko": "도자기 조각 네 개를 십자로 놓아요.",
-    "en": "Collect Decorated Pot."
+    "ko": "도자기 조각 네 개를 십자로 놓아요."
    }
   },
-  "textKo": "세심한 복원 — 조각 네 개로 도자기를 되살렸어요.",
-  "textDe": "Behutsame Restaurierung — vier Scherben, ein heiler Krug.",
-  "textEn": "the ritual of Decorated Pot is complete."
+  "textKo": "세심한 복원 — 조각 네 개로 도자기를 되살렸어요."
  },
  "reward": {
   "badge": "adv_adventure_craft_decorated_pot_using_only_sherds",
@@ -89,6 +67,5 @@
    "adv_item_decorated_pot"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Careful Restoration"
+ "koreanLevel": 3
 }

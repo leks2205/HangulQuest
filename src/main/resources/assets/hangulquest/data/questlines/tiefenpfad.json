@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "tiefenpfad",
  "titleKo": "깊은 광맥의 길",
- "titleDe": "Der Tiefenpfad",
  "tier": 3,
  "order": 510,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:granite_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Granitstufe ab.",
-    "en": "Break 4× Granite Slab."
-   },
-   "hint": {
-    "en": "Break 4× Granite Slab."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mangrove_chest_boat",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Mangrovenholztruhenboot.",
-    "en": "Collect 2× Mangrove Boat with Chest."
-   },
-   "hint": {
-    "en": "Collect 2× Mangrove Boat with Chest."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:diamond_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue einen Diamanterz ab.",
-    "en": "Break Diamond Ore."
-   },
-   "hint": {
-    "en": "Break Diamond Ore."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "minY": -64,
      "maxY": 0
     }
-   ],
-   "clue": {
-    "de": "Platziere Rotes Glas. Zwischen Y -64 und 0.",
-    "en": "Place Red Stained Glass. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place Red Stained Glass. Between Y -64 and 0."
-   }
+   ]
   },
-  "textKo": "높이 0 이하에서 빨간색 색유리를 놓았어요.",
-  "textDe": "Rotes Glas — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Red Stained Glass is complete."
+  "textKo": "높이 0 이하에서 빨간색 색유리를 놓았어요."
  },
  "reward": {
   "badge": "tiefenpfad",
@@ -115,6 +84,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "돌",
- "titleEn": "The Deep Trail"
+ "topic": "돌"
 }

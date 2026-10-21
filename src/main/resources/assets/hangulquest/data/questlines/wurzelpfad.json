@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "wurzelpfad",
  "titleKo": "뿌리의 길",
- "titleDe": "Der Wurzelpfad",
  "topic": "나무",
  "tier": 1,
  "order": 82,
@@ -26,13 +25,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:pink_concrete_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Rosa Betonstufe ab.",
-    "en": "Break 2× Pink Concrete Slab."
-   },
-   "hint": {
-    "en": "Break 2× Pink Concrete Slab."
    }
   },
   {
@@ -44,13 +36,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:flowering_azalea_leaves",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Blühendes Azaleenlaub.",
-    "en": "Place 2× Flowering Azalea Leaves."
-   },
-   "hint": {
-    "en": "Place 2× Flowering Azalea Leaves."
    }
   }
  ],
@@ -65,18 +50,9 @@
     "block": "minecraft:gold_block",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sieh dir Goldblock an.",
-    "en": "Look at Block of Gold."
-   },
-   "hint": {
-    "en": "Look at Block of Gold."
-   }
+   "conditions": []
   },
-  "textKo": "금 블록을 바라봤어요.",
-  "textDe": "Goldblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Block of Gold is complete."
+  "textKo": "금 블록을 바라봤어요."
  },
  "reward": {
   "badge": "wurzelpfad",
@@ -86,6 +62,5 @@
    "flower"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Root Trail"
+ "koreanLevel": 1
 }

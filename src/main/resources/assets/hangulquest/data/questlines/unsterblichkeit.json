@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "unsterblichkeit",
  "titleKo": "불멸의 길",
- "titleDe": "Der Unsterblichkeitspfad",
  "topic": "불멸",
  "tier": 3,
  "order": 127,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:stone_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Steintreppe.",
-    "en": "Collect Stone Stairs."
-   },
-   "hint": {
-    "en": "Collect Stone Stairs."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:fletching_table",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Bognertisch.",
-    "en": "Place 3× Fletching Table."
-   },
-   "hint": {
-    "en": "Place 3× Fletching Table."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:hopper",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Trichter.",
-    "en": "Place Hopper."
-   },
-   "hint": {
-    "en": "Place Hopper."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:bubble_coral_block",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Blasenkorallenblock.",
-    "en": "Place 3× Bubble Coral Block."
-   },
-   "hint": {
-    "en": "Place 3× Bubble Coral Block."
-   }
+   "conditions": []
   },
-  "textKo": "거품 산호 블록을 세 개 쌓았어요.",
-  "textDe": "Blasenkorallenblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Bubble Coral Block is complete."
+  "textKo": "거품 산호 블록을 세 개 쌓았어요."
  },
  "reward": {
   "badge": "unsterblichkeit",
@@ -109,6 +78,5 @@
    "enchanting_table"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Immortality Trail"
+ "koreanLevel": 6
 }

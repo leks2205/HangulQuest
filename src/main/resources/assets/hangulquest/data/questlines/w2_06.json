@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w2_06",
  "titleKo": "별이 뜨는 밤",
- "titleDe": "Die Nacht der Sterne",
  "topic": "밤",
  "tier": 1,
  "order": 1026,
@@ -33,14 +32,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Pappelholz. Nachts.",
-    "en": "Place 3× Poplar Wood. At night."
-   },
-   "hint": {
-    "en": "Place 3× Poplar Wood. At night."
-   }
+   ]
   },
   {
    "id": "s2",
@@ -51,13 +43,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:nether_brick_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Netherziegelmauer.",
-    "en": "Collect Nether Brick Wall."
-   },
-   "hint": {
-    "en": "Collect Nether Brick Wall."
    }
   },
   {
@@ -69,13 +54,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mossy_cobblestone",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bemooster Bruchstein.",
-    "en": "Place 2× Mossy Cobblestone."
-   },
-   "hint": {
-    "en": "Place 2× Mossy Cobblestone."
    }
   }
  ],
@@ -95,18 +73,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Blasseichenholzdruckplatte. Nachts.",
-    "en": "Place 2× Pale Oak Pressure Plate. At night."
-   },
-   "hint": {
-    "en": "Place 2× Pale Oak Pressure Plate. At night."
-   }
+   ]
   },
-  "textKo": "밤에 창백한 참나무 압력판을 두 개 놓았어요.",
-  "textDe": "Blasseichenholzdruckplatte — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Pale Oak Pressure Plate is complete."
+  "textKo": "밤에 창백한 참나무 압력판을 두 개 놓았어요."
  },
  "reward": {
   "badge": "w2_06",
@@ -118,6 +87,5 @@
    "torch"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Night of Stars"
+ "koreanLevel": 1
 }
