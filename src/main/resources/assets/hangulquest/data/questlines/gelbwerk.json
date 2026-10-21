@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gelbwerk",
  "titleKo": "노란 실의 길",
- "titleDe": "Der gelbe Faden",
  "topic": "색",
  "tier": 2,
  "order": 1132,
@@ -31,14 +30,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "노란색 염료를 만들어요.",
-    "de": "Stelle Gelber Farbstoff her.",
-    "en": "Collect 2× Yellow Dye."
+    "ko": "노란색 염료를 만들어요."
    },
    "hint": {
-    "ko": "노란색 염료를 만들어요.",
-    "de": "Stelle Gelber Farbstoff her.",
-    "en": "Collect 2× Yellow Dye."
+    "ko": "노란색 염료를 만들어요."
    }
   },
   {
@@ -52,14 +47,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "노란색 콘크리트를 봐요.",
-    "de": "Sieh dir Gelber Beton an.",
-    "en": "Look at Yellow Concrete."
+    "ko": "노란색 콘크리트를 봐요."
    },
    "hint": {
-    "ko": "노란색 콘크리트를 봐요.",
-    "de": "Sieh dir Gelber Beton an.",
-    "en": "Look at Yellow Concrete."
+    "ko": "노란색 콘크리트를 봐요."
    }
   }
  ],
@@ -79,17 +70,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "en": "Place Yellow Bed. During the day."
-   },
-   "hint": {
-    "en": "Place Yellow Bed. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 노란 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet.",
-  "textEn": "By day the ritual of Yellow Bed is complete."
+  "textKo": "낮에 노란 천을 펼쳤어요."
  },
  "reward": {
   "badge": "gelbwerk",
@@ -98,6 +81,5 @@
    "gen_yellow_concrete",
    "gen_yellow_bed"
   ]
- },
- "titleEn": "The Yellow Thread"
+ }
 }

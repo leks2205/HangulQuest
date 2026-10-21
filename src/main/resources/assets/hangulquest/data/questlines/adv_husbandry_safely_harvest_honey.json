@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_safely_harvest_honey",
  "titleKo": "벌집을 내 집처럼",
- "titleDe": "Sssei unser Gast",
  "topic": "husbandry",
  "tier": 2,
  "order": 278,
@@ -29,13 +28,8 @@
     "block": "minecraft:campfire",
     "count": 1
    },
-   "clue": {
-    "de": "Stelle ein Lagerfeuer unter das Bienennest, damit der Rauch die Bienen beruhigt.",
-    "en": "Place Campfire."
-   },
    "hint": {
-    "ko": "통나무와 석탄과 막대기로 만들어요.",
-    "en": "Place Campfire."
+    "ko": "통나무와 석탄과 막대기로 만들어요."
    }
   },
   {
@@ -47,13 +41,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_strad",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   }
  ],
@@ -67,17 +54,9 @@
     "type": "USE_BLOCK",
     "block": "minecraft:bee_nest"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Use Bee Nest."
-   },
-   "hint": {
-    "en": "Use Bee Nest."
-   }
+   "conditions": []
   },
-  "textKo": "벌집을 내 집처럼 — 연기가 피어오르는 벌집에서 꿀을 받아요.",
-  "textDe": "Sssei unser Gast — Im Rauch zapfst du Honig aus dem Bienennest.",
-  "textEn": "the ritual of Bee Nest is complete."
+  "textKo": "벌집을 내 집처럼 — 연기가 피어오르는 벌집에서 꿀을 받아요."
  },
  "reward": {
   "badge": "adv_husbandry_safely_harvest_honey",
@@ -87,6 +66,5 @@
    "adv_item_bee_nest"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Bee Our Guest"
+ "koreanLevel": 1
 }

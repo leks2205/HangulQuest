@@ -22,7 +22,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "i18n"))
 from common import DATA_DIR, LINES_PATH, SENTENCES_TSV, read_json, text_hash, write_lines  # noqa: E402
+import content_text  # noqa: E402  (the English and German text lives in lang/content/*.json)
 
 GOAL_VERB = {
     "ACQUIRE_ITEM": "Get", "PLACE_BLOCK": "Place", "BREAK_BLOCK": "Break", "LOOK_AT_ENTITY": "Look at",
@@ -83,7 +85,9 @@ QUESTLINE_FILES: dict[str, str] = {}  # trail id -> file name, filled by load_qu
 
 
 def load_questlines(data_dir: Path) -> dict[str, dict]:
+    """The trails with their English and German text put back as inline fields (from the lang files)."""
     result = {}
+    bundles = content_text.load_bundles(data_dir.parent / "lang" / "content")
     for file in sorted((data_dir / "questlines").glob("*.json")):
         if file.name == "index.json":
             continue
@@ -91,7 +95,7 @@ def load_questlines(data_dir: Path) -> dict[str, dict]:
         # Keyed by the trail id; the file is named like it, except for the demo trail (mill_demo.json).
         trail_id = trail.get("id", file.stem)
         QUESTLINE_FILES[trail_id] = file.name
-        result[trail_id] = trail
+        result[trail_id] = content_text.merge_trail(trail, bundles)
     return result
 
 
@@ -126,7 +130,8 @@ def read_tsv(path: Path) -> list[dict]:
 
 def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
     trails = load_questlines(data_dir)
-    concepts = read_json(data_dir / "concepts.json", [])
+    concepts = content_text.merge_concepts(
+        read_json(data_dir / "concepts.json", []), content_text.load_bundles(data_dir.parent / "lang" / "content"))
     concept_index = {c["id"]: i for i, c in enumerate(concepts)}
     levels = concept_levels(trails, concepts)
     records = []

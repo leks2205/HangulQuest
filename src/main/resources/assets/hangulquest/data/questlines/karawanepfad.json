@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "karawanepfad",
  "titleKo": "상단의 길",
- "titleDe": "Die Karawanenstraße",
  "tier": 3,
  "order": 507,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:sea_pickle",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Meeresgurke.",
-    "en": "Collect 4× Sea Pickle."
-   },
-   "hint": {
-    "en": "Collect 4× Sea Pickle."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:netherite_upgrade_smithing_template",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Schmiedevorlage.",
-    "en": "Collect 3× Smithing Template."
-   },
-   "hint": {
-    "en": "Collect 3× Smithing Template."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:golden_pickaxe",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Goldspitzhacke.",
-    "en": "Collect 3× Golden Pickaxe."
-   },
-   "hint": {
-    "en": "Collect 3× Golden Pickaxe."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Verwitterter gemeißelter Kupferblock. Nachts.",
-    "en": "Place Weathered Chiseled Copper. At night."
-   },
-   "hint": {
-    "en": "Place Weathered Chiseled Copper. At night."
-   }
+   ]
   },
-  "textKo": "밤에 녹슨 조각된 구리를 놓았어요.",
-  "textDe": "Verwitterter gemeißelter Kupferblock — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Weathered Chiseled Copper is complete."
+  "textKo": "밤에 녹슨 조각된 구리를 놓았어요."
  },
  "reward": {
   "badge": "karawanepfad",
@@ -114,6 +83,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "마을",
- "titleEn": "The Caravan Road"
+ "topic": "마을"
 }

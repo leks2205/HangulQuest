@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_06",
  "titleKo": "이웃의 밭",
- "titleDe": "Der Acker des Nachbarn",
  "topic": "밭",
  "tier": 2,
  "order": 1036,
@@ -30,14 +29,8 @@
     "item": "minecraft:potato",
     "count": 4
    },
-   "clue": {
-    "de": "Ernte vier Kartoffeln vom Nachbaracker.",
-    "en": "Collect 4× Potato."
-   },
    "hint": {
-    "ko": "감자를 캐요.",
-    "de": "Ernte Kartoffeln.",
-    "en": "Collect 4× Potato."
+    "ko": "감자를 캐요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:blue_ice",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Blaueis.",
-    "en": "Place 6× Blue Ice."
-   },
-   "hint": {
-    "en": "Place 6× Blue Ice."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:exposed_copper",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Angelaufener Kupferblock.",
-    "en": "Place Exposed Copper."
-   },
-   "hint": {
-    "en": "Place Exposed Copper."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:cooked_mutton",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Iss Gebratenes Hammelfleisch.",
-    "en": "Eat Cooked Mutton."
-   },
-   "hint": {
-    "en": "Eat Cooked Mutton."
-   }
+   "conditions": []
   },
-  "textKo": "익힌 양고기를 먹었어요.",
-  "textDe": "Gebratenes Hammelfleisch — Zeremonie vollendet.",
-  "textEn": "the ritual of Cooked Mutton is complete."
+  "textKo": "익힌 양고기를 먹었어요."
  },
  "reward": {
   "badge": "w3_06",
@@ -110,6 +80,5 @@
    "bread"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Neighbour's Field"
+ "koreanLevel": 2
 }

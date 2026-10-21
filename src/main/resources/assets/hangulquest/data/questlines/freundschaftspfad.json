@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "freundschaftspfad",
  "titleKo": "우정의 길",
- "titleDe": "Der Freundschaftspfad",
  "topic": "우정",
  "tier": 1,
  "order": 98,
@@ -27,13 +26,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:endermite",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Endermite an.",
-    "en": "Look at Endermite."
-   },
-   "hint": {
-    "en": "Look at Endermite."
    }
   },
   {
@@ -44,13 +36,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:donkey"
-   },
-   "clue": {
-    "de": "Interagiere mit Esel.",
-    "en": "Talk to Donkey."
-   },
-   "hint": {
-    "en": "Talk to Donkey."
    }
   },
   {
@@ -62,13 +47,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cracked_deepslate_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Rissige Tiefenschieferziegel.",
-    "en": "Place Cracked Deepslate Bricks."
-   },
-   "hint": {
-    "en": "Place Cracked Deepslate Bricks."
    }
   }
  ],
@@ -83,18 +61,9 @@
     "item": "minecraft:cyan_dye",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Türkiser Farbstoff.",
-    "en": "Collect 3× Cyan Dye."
-   },
-   "hint": {
-    "en": "Collect 3× Cyan Dye."
-   }
+   "conditions": []
   },
-  "textKo": "청록색 염료를 세 개 만들었어요.",
-  "textDe": "Türkiser Farbstoff — Zeremonie vollendet.",
-  "textEn": "the ritual of Cyan Dye is complete."
+  "textKo": "청록색 염료를 세 개 만들었어요."
  },
  "reward": {
   "badge": "freundschaftspfad",
@@ -103,6 +72,5 @@
    "flower"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Friendship Trail"
+ "koreanLevel": 1
 }

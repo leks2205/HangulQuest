@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w12_01",
  "titleKo": "시간의 지도",
- "titleDe": "Die Karte der Zeit",
  "topic": "시간",
  "tier": 2,
  "order": 1121,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:netherite_horse_armor",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Netheritener Rossharnisch.",
-    "en": "Collect Netherite Horse Armor."
-   },
-   "hint": {
-    "en": "Collect Netherite Horse Armor."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:polished_deepslate_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Polierte Tiefenschiefermauer.",
-    "en": "Collect Polished Deepslate Wall."
-   },
-   "hint": {
-    "en": "Collect Polished Deepslate Wall."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:gray_concrete_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Graue Betonstufe.",
-    "en": "Place 2× Gray Concrete Slab."
-   },
-   "hint": {
-    "en": "Place 2× Gray Concrete Slab."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Gewachste oxidierte Kupfertür. Nachts.",
-    "en": "Place Waxed Oxidized Copper Door. At night."
-   },
-   "hint": {
-    "en": "Place Waxed Oxidized Copper Door. At night."
-   }
+   ]
   },
-  "textKo": "밤에 밀랍칠한 산화된 구리 문을 달았어요.",
-  "textDe": "Gewachste oxidierte Kupfertür — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Waxed Oxidized Copper Door is complete."
+  "textKo": "밤에 밀랍칠한 산화된 구리 문을 달았어요."
  },
  "reward": {
   "badge": "w12_01",
@@ -113,6 +82,5 @@
    "height"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Map of Time"
+ "koreanLevel": 6
 }

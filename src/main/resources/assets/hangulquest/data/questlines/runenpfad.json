@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "runenpfad",
  "titleKo": "룬의 길",
- "titleDe": "Der Runenpfad",
  "topic": "룬",
  "tier": 3,
  "order": 124,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pale_oak_sign",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Blasseichenholzschild.",
-    "en": "Collect 4× Pale Oak Sign."
-   },
-   "hint": {
-    "en": "Collect 4× Pale Oak Sign."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:sulfur_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schwefelstufe.",
-    "en": "Place Sulfur Slab."
-   },
-   "hint": {
-    "en": "Place Sulfur Slab."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cherry_planks",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Kirschholzbretter.",
-    "en": "Place 6× Cherry Planks."
-   },
-   "hint": {
-    "en": "Place 6× Cherry Planks."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:crimson_hyphae",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Karmesinhyphen.",
-    "en": "Place 2× Crimson Hyphae."
-   },
-   "hint": {
-    "en": "Place 2× Crimson Hyphae."
-   }
+   "conditions": []
   },
-  "textKo": "진홍빛 균사를 두 개 놓았어요.",
-  "textDe": "Karmesinhyphen — Zeremonie vollendet.",
-  "textEn": "the ritual of Crimson Hyphae is complete."
+  "textKo": "진홍빛 균사를 두 개 놓았어요."
  },
  "reward": {
   "badge": "runenpfad",
@@ -109,6 +78,5 @@
    "anvil"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Rune Trail"
+ "koreanLevel": 5
 }

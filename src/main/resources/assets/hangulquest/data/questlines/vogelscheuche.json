@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "vogelscheuche",
  "titleKo": "허수아비의 길",
- "titleDe": "Der Vogelscheuchenpfad",
  "topic": "허수아비",
  "tier": 2,
  "order": 154,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cracked_nether_bricks",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Rissige Netherziegel.",
-    "en": "Place 2× Cracked Nether Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Cracked Nether Bricks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:brain_coral_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Hirnkorallenblock.",
-    "en": "Place Brain Coral Block."
-   },
-   "hint": {
-    "en": "Place Brain Coral Block."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_banner",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Weißes Banner.",
-    "en": "Place 2× White Banner."
-   },
-   "hint": {
-    "en": "Place 2× White Banner."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:golden_hoe",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Goldhacke.",
-    "en": "Collect 3× Golden Hoe."
-   },
-   "hint": {
-    "en": "Collect 3× Golden Hoe."
-   }
+   "conditions": []
   },
-  "textKo": "금 괭이를 세 개 만들었어요.",
-  "textDe": "Goldhacke — Zeremonie vollendet.",
-  "textEn": "the ritual of Golden Hoe is complete."
+  "textKo": "금 괭이를 세 개 만들었어요."
  },
  "reward": {
   "badge": "vogelscheuche",
@@ -108,6 +77,5 @@
    "wheat"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Scarecrow Trail"
+ "koreanLevel": 1
 }

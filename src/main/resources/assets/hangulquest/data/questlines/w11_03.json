@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_03",
  "titleKo": "영원의 모래시계",
- "titleDe": "Die Sanduhr der Ewigkeit",
  "topic": "영원",
  "tier": 2,
  "order": 1113,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:chiseled_deepslate",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gemeißelter Tiefenschiefer.",
-    "en": "Collect Chiseled Deepslate."
-   },
-   "hint": {
-    "en": "Collect Chiseled Deepslate."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_oxidized_copper_golem_statue",
     "count": 18
-   },
-   "clue": {
-    "de": "Sammle 18× Gewachste oxidierte Kupfergolemstatue.",
-    "en": "Collect 18× Waxed Oxidized Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Collect 18× Waxed Oxidized Copper Golem Statue."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:emerald_ore",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Smaragderz.",
-    "en": "Place 2× Emerald Ore."
-   },
-   "hint": {
-    "en": "Place 2× Emerald Ore."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:waxed_copper_lantern",
     "count": 16
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 16× Gewachste Kupferlaterne.",
-    "en": "Place 16× Waxed Copper Lantern."
-   },
-   "hint": {
-    "en": "Place 16× Waxed Copper Lantern."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 구리 랜턴을 열여섯 개 놓았어요.",
-  "textDe": "Gewachste Kupferlaterne — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Copper Lantern is complete."
+  "textKo": "밀랍칠한 구리 랜턴을 열여섯 개 놓았어요."
  },
  "reward": {
   "badge": "w11_03",
@@ -108,6 +77,5 @@
    "glass"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Hourglass of Eternity"
+ "koreanLevel": 6
 }

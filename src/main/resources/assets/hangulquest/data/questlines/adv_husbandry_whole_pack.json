@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_whole_pack",
  "titleKo": "외롭지 못한 늑대",
- "titleDe": "Das ganze Rudel",
  "topic": "husbandry",
  "tier": 2,
  "order": 286,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_wool_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Blaue Wollstufe.",
-    "en": "Collect 4× Blue Wool Slab."
-   },
-   "hint": {
-    "en": "Collect 4× Blue Wool Slab."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cracked_stone_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rissige Steinziegel.",
-    "en": "Collect Cracked Stone Bricks."
-   },
-   "hint": {
-    "en": "Collect Cracked Stone Bricks."
    }
   }
  ],
@@ -66,18 +51,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:armadillo"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Gürteltier.",
-    "en": "Talk to Armadillo."
-   },
-   "hint": {
-    "en": "Talk to Armadillo."
-   }
+   "conditions": []
   },
-  "textKo": "아르마딜로에게 먹이를 줬어요.",
-  "textDe": "Gürteltier — Zeremonie vollendet.",
-  "textEn": "the ritual of Armadillo is complete."
+  "textKo": "아르마딜로에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "adv_husbandry_whole_pack",
@@ -86,6 +62,5 @@
    "wolf_armor"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Whole Pack"
+ "koreanLevel": 2
 }

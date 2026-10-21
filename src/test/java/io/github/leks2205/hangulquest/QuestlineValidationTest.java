@@ -95,7 +95,7 @@ class QuestlineValidationTest {
 						trail.id() + " is a dead end on level " + depth
 								+ " but the tree continues to level " + maxDepth);
 			}
-			assertFalse(trail.titleDe().isBlank(), trail.id() + " has no German title");
+			assertFalse(trail.titleDe().isBlank() || trail.titleDe().equals(trail.id()), trail.id() + " has no title text");
 			assertTrue(trail.order() > 0, trail.id() + " has no order");
 			assertFalse(trail.concepts().isEmpty(), trail.id() + " teaches no concepts");
 			assertFalse(trail.badge().isBlank(), trail.id() + " has no badge");

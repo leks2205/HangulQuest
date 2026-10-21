@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_05",
  "titleKo": "동굴의 숨결",
- "titleDe": "Der Atem der Höhle",
  "topic": "동굴",
  "tier": 2,
  "order": 1055,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:strider",
     "dwellMs": 1200
-   },
-   "clue": {
-    "de": "Sieh dir Schreiter an.",
-    "en": "Look at Strider."
-   },
-   "hint": {
-    "en": "Look at Strider."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:acacia_door",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Akazienholztür.",
-    "en": "Place 2× Acacia Door."
-   },
-   "hint": {
-    "en": "Place 2× Acacia Door."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pink_bed",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Rosa Bett.",
-    "en": "Place 3× Pink Bed."
-   },
-   "hint": {
-    "en": "Place 3× Pink Bed."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:waxed_weathered_copper_door",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Gewachste verwitterte Kupfertür.",
-    "en": "Place 2× Waxed Weathered Copper Door."
-   },
-   "hint": {
-    "en": "Place 2× Waxed Weathered Copper Door."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 녹슨 구리 문을 두 개 달았어요.",
-  "textDe": "Gewachste verwitterte Kupfertür — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Weathered Copper Door is complete."
+  "textKo": "밀랍칠한 녹슨 구리 문을 두 개 달았어요."
  },
  "reward": {
   "badge": "w5_05",
@@ -108,6 +77,5 @@
    "height"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Breath of the Cave"
+ "koreanLevel": 3
 }

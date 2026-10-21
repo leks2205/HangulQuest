@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_03",
  "titleKo": "노란 꽃밭",
- "titleDe": "Das gelbe Blumenfeld",
  "topic": "꽃밭",
  "tier": 1,
  "order": 1013,
@@ -27,14 +26,8 @@
     "item": "minecraft:dandelion",
     "count": 3
    },
-   "clue": {
-    "de": "Pflück drei Löwenzahn.",
-    "en": "Collect 3× Dandelion."
-   },
    "hint": {
-    "ko": "민들레는 노란 꽃이에요.",
-    "de": "Löwenzahn erkennst du an der gelben Blüte.",
-    "en": "Collect 3× Dandelion."
+    "ko": "민들레는 노란 꽃이에요."
    }
   },
   {
@@ -47,14 +40,8 @@
     "block": "minecraft:dandelion",
     "count": 3
    },
-   "clue": {
-    "de": "Setz drei Löwenzahn in die Erde.",
-    "en": "Place 3× Dandelion."
-   },
    "hint": {
-    "ko": "민들레를 흙 위에 심어요.",
-    "de": "Pflanze den Löwenzahn auf Erde.",
-    "en": "Place 3× Dandelion."
+    "ko": "민들레를 흙 위에 심어요."
    }
   },
   {
@@ -66,13 +53,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:loom",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Webstuhl an.",
-    "en": "Look at Loom."
-   },
-   "hint": {
-    "en": "Look at Loom."
    }
   }
  ],
@@ -87,18 +67,9 @@
     "block": "minecraft:chiseled_tuff_bricks",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Gemeißelte Tuffsteinziegel.",
-    "en": "Place 2× Chiseled Tuff Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Chiseled Tuff Bricks."
-   }
+   "conditions": []
   },
-  "textKo": "조각된 응회암 벽돌을 두 개 쌓았어요.",
-  "textDe": "Gemeißelte Tuffsteinziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Chiseled Tuff Bricks is complete."
+  "textKo": "조각된 응회암 벽돌을 두 개 쌓았어요."
  },
  "reward": {
   "badge": "w1_03",
@@ -108,6 +79,5 @@
    "flower"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Yellow Flower Field"
+ "koreanLevel": 1
 }

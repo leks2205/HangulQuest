@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "koenigspfad",
  "titleKo": "왕의 길",
- "titleDe": "Der Königspfad",
  "tier": 4,
  "order": 540,
  "concepts": [
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cinnabar_stairs",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Zinnobertreppe.",
-    "en": "Collect 6× Cinnabar Stairs."
-   },
-   "hint": {
-    "en": "Collect 6× Cinnabar Stairs."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:beetroot",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Rote Bete.",
-    "en": "Eat Beetroot."
-   },
-   "hint": {
-    "en": "Eat Beetroot."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Keramik.",
-    "en": "Place Terracotta."
-   },
-   "hint": {
-    "en": "Place Terracotta."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Roter Teppich. Nachts.",
-    "en": "Place 3× Red Carpet. At night."
-   },
-   "hint": {
-    "en": "Place 3× Red Carpet. At night."
-   }
+   ]
   },
-  "textKo": "밤에 빨간색 양탄자를 세 개 깔았어요.",
-  "textDe": "Roter Teppich — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Red Carpet is complete."
+  "textKo": "밤에 빨간색 양탄자를 세 개 깔았어요."
  },
  "reward": {
   "badge": "koenigspfad",
@@ -114,6 +83,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "나무",
- "titleEn": "The King's Trail"
+ "topic": "나무"
 }

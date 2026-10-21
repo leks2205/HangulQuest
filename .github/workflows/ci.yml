@@ -128,6 +128,9 @@ jobs:
           python3 -m pip install --disable-pip-version-check jsonschema
           python3 tools/validate_schema.py
 
+      - name: Check that shipped English and German text lives in the lang files
+        run: python3 tools/i18n/extract_content.py --check
+
       - name: Check the generated quest tree report
         run: python3 tools/quest_tree.py --check
 

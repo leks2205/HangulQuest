@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_spyglass_at_parrot",
  "titleKo": "새인가?",
- "titleDe": "Ist es ein Vogel?",
  "topic": "adventure",
  "tier": 2,
  "order": 231,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dead_brain_coral_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Abgestorbener Hirnkorallenblock.",
-    "en": "Collect Dead Brain Coral Block."
-   },
-   "hint": {
-    "en": "Collect Dead Brain Coral Block."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:meadow",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Alm.",
-    "en": "Reach Meadow."
-   },
-   "hint": {
-    "en": "Reach Meadow."
    }
   }
  ],
@@ -67,17 +52,9 @@
     "entity": "minecraft:parrot",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "en": "Look at Parrot."
-   },
-   "hint": {
-    "en": "Look at Parrot."
-   }
+   "conditions": []
   },
-  "textKo": "새인가? — 망원경으로 앵무새를 봐요. 색이 알록달록해요.",
-  "textDe": "Ist es ein Vogel? — Durch das Fernrohr siehst du einen bunten Papagei.",
-  "textEn": "the ritual of Parrot is complete."
+  "textKo": "새인가? — 망원경으로 앵무새를 봐요. 색이 알록달록해요."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_parrot",
@@ -87,6 +64,5 @@
    "parrot"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Is It a Bird?"
+ "koreanLevel": 2
 }

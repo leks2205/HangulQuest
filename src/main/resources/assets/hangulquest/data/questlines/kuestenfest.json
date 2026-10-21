@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kuestenfest",
  "titleKo": "바닷가 잔치",
- "titleDe": "Das Küstenfest",
  "tier": 3,
  "order": 430,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:stony_shore",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Steinige Küste.",
-    "en": "Reach Stony Shore."
-   },
-   "hint": {
-    "en": "Reach Stony Shore."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:black_wool",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schwarze Wolle.",
-    "en": "Collect Black Wool."
-   },
-   "hint": {
-    "en": "Collect Black Wool."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:sulfur_brick_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schwefelziegelmauer.",
-    "en": "Place Sulfur Brick Wall."
-   },
-   "hint": {
-    "en": "Place Sulfur Brick Wall."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Braune Betonstufe. Nachts.",
-    "en": "Place 3× Brown Concrete Slab. At night."
-   },
-   "hint": {
-    "en": "Place 3× Brown Concrete Slab. At night."
-   }
+   ]
   },
-  "textKo": "밤에 갈색 콘크리트 반 블록을 세 개 놓았어요.",
-  "textDe": "Braune Betonstufe — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Brown Concrete Slab is complete."
+  "textKo": "밤에 갈색 콘크리트 반 블록을 세 개 놓았어요."
  },
  "reward": {
   "badge": "kuestenfest",
@@ -113,6 +82,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "물",
- "titleEn": "The Coast Festival"
+ "topic": "물"
 }

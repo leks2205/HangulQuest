@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_06",
  "titleKo": "공허의 끝",
- "titleDe": "Am Rand der Leere",
  "topic": "공허",
  "tier": 2,
  "order": 1086,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:end_stone_bricks",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Endsteinziegel.",
-    "en": "Place 2× End Stone Bricks."
-   },
-   "hint": {
-    "en": "Place 2× End Stone Bricks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:basalt",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Basalt.",
-    "en": "Place Basalt."
-   },
-   "hint": {
-    "en": "Place Basalt."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:crimson_fence_gate",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Karmesinzauntor.",
-    "en": "Place 2× Crimson Fence Gate."
-   },
-   "hint": {
-    "en": "Place 2× Crimson Fence Gate."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:suspicious_gravel",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Seltsamer Kies.",
-    "en": "Collect Suspicious Gravel."
-   },
-   "hint": {
-    "en": "Collect Suspicious Gravel."
-   }
+   "conditions": []
   },
-  "textKo": "수상한 자갈을 구했어요.",
-  "textDe": "Seltsamer Kies — Zeremonie vollendet.",
-  "textEn": "the ritual of Suspicious Gravel is complete."
+  "textKo": "수상한 자갈을 구했어요."
  },
  "reward": {
   "badge": "w8_06",
@@ -108,6 +77,5 @@
    "gen_suspicious_gravel"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "At the Edge of the Void"
+ "koreanLevel": 4
 }

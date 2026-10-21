@@ -27,11 +27,15 @@ import os
 import re
 import sys
 import zlib
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.dont_write_bytecode = True
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "i18n"))
 
+import content_text  # noqa: E402  (English and German text lives in lang/content/*.json)
+import extract_content  # noqa: E402  (moves the new trail's text there)
 import quest_tree  # noqa: E402  (shares the depth and TOPIK band logic with the quest tree report)
 
 DATA = os.path.join(ROOT, "src/main/resources/assets/hangulquest/data")
@@ -45,7 +49,7 @@ DRINKS = ("potion", "milk", "honey_bottle", "water")
 
 def load_concepts() -> dict:
     with open(CONCEPTS, encoding="utf-8") as handle:
-        return {entry["id"]: entry for entry in json.load(handle)}
+        return {entry["id"]: entry for entry in content_text.merge_concepts(json.load(handle))}
 
 
 def load_finales() -> list[dict]:
@@ -55,6 +59,7 @@ def load_finales() -> list[dict]:
 
 def load_trails(*dirs: str) -> dict[str, dict]:
     trails: dict[str, dict] = {}
+    bundles = content_text.load_bundles()
     for directory in dict.fromkeys(dirs):
         if not os.path.isdir(directory):
             continue
@@ -63,7 +68,7 @@ def load_trails(*dirs: str) -> dict[str, dict]:
                 continue
             with open(os.path.join(directory, name), encoding="utf-8") as handle:
                 trail = json.load(handle)
-            trails[trail["id"]] = trail
+            trails[trail["id"]] = content_text.merge_trail(trail, bundles)
     return trails
 
 
@@ -303,6 +308,9 @@ def main() -> int:
         json.dump(trail, handle, ensure_ascii=False, indent=1)
         handle.write("\n")
     print(f"wrote {out}")
+    if out_dir == TRAILS:
+        # A shipped trail keeps its English and German text in the lang files, like every other trail.
+        extract_content.run([Path(out).resolve()], concepts_too=False, force=False, check=False)
     for warning in warnings:
         print(f"warning: {warning}", file=sys.stderr)
     if out_dir == TRAILS:

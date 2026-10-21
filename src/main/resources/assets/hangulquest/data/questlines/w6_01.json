@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_01",
  "titleKo": "나이테의 비밀",
- "titleDe": "Das Geheimnis der Jahresringe",
  "topic": "나이테",
  "tier": 2,
  "order": 1061,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:poplar_log",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Pappelstamm ab.",
-    "en": "Break 3× Poplar Log."
-   },
-   "hint": {
-    "en": "Break 3× Poplar Log."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_precipice",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:birch_leaves",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Birkenlaub.",
-    "en": "Place 4× Birch Leaves."
-   },
-   "hint": {
-    "en": "Place 4× Birch Leaves."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:yellow_concrete",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Gelber Beton.",
-    "en": "Place Yellow Concrete."
-   },
-   "hint": {
-    "en": "Place Yellow Concrete."
-   }
+   "conditions": []
   },
-  "textKo": "노란색 콘크리트를 놓았어요.",
-  "textDe": "Gelber Beton — Zeremonie vollendet.",
-  "textEn": "the ritual of Yellow Concrete is complete."
+  "textKo": "노란색 콘크리트를 놓았어요."
  },
  "reward": {
   "badge": "w6_01",
@@ -108,6 +77,5 @@
    "sapling"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Secret of the Rings"
+ "koreanLevel": 3
 }

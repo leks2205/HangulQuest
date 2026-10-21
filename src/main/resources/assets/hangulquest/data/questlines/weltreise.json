@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weltreise",
  "titleKo": "세계 여행의 길",
- "titleDe": "Die Weltreise",
  "tier": 5,
  "order": 460,
  "concepts": [
@@ -31,13 +30,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:end_midlands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche End-Mittelland.",
-    "en": "Reach End Midlands."
-   },
-   "hint": {
-    "en": "Reach End Midlands."
    }
   },
   {
@@ -55,14 +47,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Pappelholzzauntor. Nachts.",
-    "en": "Place Poplar Fence Gate. At night."
-   },
-   "hint": {
-    "en": "Place Poplar Fence Gate. At night."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -73,13 +58,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:the_end",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Das Ende.",
-    "en": "Reach The End."
-   },
-   "hint": {
-    "en": "Reach The End."
    }
   }
  ],
@@ -103,18 +81,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Oranges Pappellaub. Nachts. In einem passenden Biom.",
-    "en": "Place Orange Poplar Leaves. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Orange Poplar Leaves. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 주황색 포플러나무 잎을 놓았어요.",
-  "textDe": "Oranges Pappellaub — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Orange Poplar Leaves is complete."
+  "textKo": "밤에 산에서 주황색 포플러나무 잎을 놓았어요."
  },
  "reward": {
   "badge": "weltreise",
@@ -126,6 +95,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "물",
- "titleEn": "The World Journey"
+ "topic": "물"
 }

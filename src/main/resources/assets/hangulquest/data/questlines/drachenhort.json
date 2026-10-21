@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "drachenhort",
  "titleKo": "용의 보물",
- "titleDe": "Der Drachenhort",
  "topic": "용",
  "tier": 3,
  "order": 113,
@@ -30,13 +29,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:sulfur",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Schwefel ab.",
-    "en": "Break 2× Sulfur."
-   },
-   "hint": {
-    "en": "Break 2× Sulfur."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:stripped_warped_hyphae",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Geschälte Wirrhyphen.",
-    "en": "Collect 8× Stripped Warped Hyphae."
-   },
-   "hint": {
-    "en": "Collect 8× Stripped Warped Hyphae."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:wildflowers",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Wildblumen.",
-    "en": "Place Wildflowers."
-   },
-   "hint": {
-    "en": "Place Wildflowers."
    }
   }
  ],
@@ -94,17 +72,10 @@
     }
    ],
    "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen bestehen aus einer Fackel und Eisennuggets.",
-    "en": "Place 3× Lantern. At night."
-   },
-   "clue": {
-    "en": "Place 3× Lantern. At night."
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요."
    }
   },
-  "textKo": "밤에 랜턴을 세 개 놓아요.",
-  "textDe": "Nachts leuchten drei Laternen am Hort.",
-  "textEn": "By night the ritual of Lantern is complete."
+  "textKo": "밤에 랜턴을 세 개 놓아요."
  },
  "reward": {
   "badge": "drachenhort",
@@ -115,6 +86,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Dragon's Hoard"
+ "koreanLevel": 4
 }

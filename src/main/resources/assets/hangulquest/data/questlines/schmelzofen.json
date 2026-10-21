@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmelzofen",
  "titleKo": "용광로의 불",
- "titleDe": "Das Schmelzfeuer",
  "topic": "돌",
  "tier": 2,
  "order": 60,
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:shulker_box",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Shulker-Kiste ab.",
-    "en": "Break 2× Shulker Box."
-   },
-   "hint": {
-    "en": "Break 2× Shulker Box."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:furnace",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Ofen auf.",
-    "en": "Place Furnace."
-   },
-   "hint": {
-    "en": "Place Furnace."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:purple_stained_glass",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Violettes Glas.",
-    "en": "Place Purple Stained Glass."
-   },
-   "hint": {
-    "en": "Place Purple Stained Glass."
-   }
+   "conditions": []
   },
-  "textKo": "보라색 색유리를 놓았어요.",
-  "textDe": "Violettes Glas — Zeremonie vollendet.",
-  "textEn": "the ritual of Purple Stained Glass is complete."
+  "textKo": "보라색 색유리를 놓았어요."
  },
  "reward": {
   "badge": "schmelzofen",
@@ -88,6 +64,5 @@
    "torch"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Smelting Fire"
+ "koreanLevel": 2
 }

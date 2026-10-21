@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmuckpfad",
  "titleKo": "보석의 길",
- "titleDe": "Der Schmuckpfad",
  "topic": "보석",
  "tier": 3,
  "order": 104,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:jungle_pyramid_map",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Dschungeltempelkarte.",
-    "en": "Collect 3× Jungle Pyramid Map."
-   },
-   "hint": {
-    "en": "Collect 3× Jungle Pyramid Map."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:brown_bed",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Braunes Bett.",
-    "en": "Place 2× Brown Bed."
-   },
-   "hint": {
-    "en": "Place 2× Brown Bed."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:andesite_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Andesittreppe.",
-    "en": "Collect 2× Andesite Stairs."
-   },
-   "hint": {
-    "en": "Collect 2× Andesite Stairs."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:stone_brick_slab",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Steinziegelstufe.",
-    "en": "Place Stone Brick Slab."
-   },
-   "hint": {
-    "en": "Place Stone Brick Slab."
-   }
+   "conditions": []
   },
-  "textKo": "석재 벽돌 반 블록을 놓았어요.",
-  "textDe": "Steinziegelstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Stone Brick Slab is complete."
+  "textKo": "석재 벽돌 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "schmuckpfad",
@@ -109,6 +78,5 @@
    "chest"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Jewellery Trail"
+ "koreanLevel": 3
 }

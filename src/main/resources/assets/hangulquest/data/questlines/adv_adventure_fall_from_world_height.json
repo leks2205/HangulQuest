@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_fall_from_world_height",
  "titleKo": "동굴과 절벽",
- "titleDe": "Höhlen & Klippen",
  "topic": "adventure",
  "tier": 2,
  "order": 208,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_exposed_cut_copper",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gewachster angelaufener geschnittener Kupferblock.",
-    "en": "Collect Waxed Exposed Cut Copper."
-   },
-   "hint": {
-    "en": "Collect Waxed Exposed Cut Copper."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_mushroom",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Roter Pilz.",
-    "en": "Place 3× Red Mushroom."
-   },
-   "hint": {
-    "en": "Place 3× Red Mushroom."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:poplar_log",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Pappelstamm.",
-    "en": "Place 3× Poplar Log."
-   },
-   "hint": {
-    "en": "Place 3× Poplar Log."
-   }
+   "conditions": []
   },
-  "textKo": "포플러나무 원목을 세 개 놓았어요.",
-  "textDe": "Pappelstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Log is complete."
+  "textKo": "포플러나무 원목을 세 개 놓았어요."
  },
  "reward": {
   "badge": "adv_adventure_fall_from_world_height",
@@ -87,6 +63,5 @@
    "height"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Caves & Cliffs"
+ "koreanLevel": 2
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w2_05",
  "titleKo": "계절의 문",
- "titleDe": "Das Tor der Jahreszeiten",
  "topic": "계절",
  "tier": 1,
  "order": 1025,
@@ -27,13 +26,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_slopes",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Verschneite Hänge.",
-    "en": "Reach Snowy Slopes."
-   },
-   "hint": {
-    "en": "Reach Snowy Slopes."
    }
   },
   {
@@ -46,14 +38,8 @@
     "block": "minecraft:oak_leaves",
     "count": 5
    },
-   "clue": {
-    "de": "Pflück fünf Blätter vom Baum.",
-    "en": "Break 5× Oak Leaves."
-   },
    "hint": {
-    "ko": "나뭇잎은 나무에 달려 있어요.",
-    "de": "Blätter hängen an den Bäumen.",
-    "en": "Break 5× Oak Leaves."
+    "ko": "나뭇잎은 나무에 달려 있어요."
    }
   },
   {
@@ -66,14 +52,8 @@
     "block": "minecraft:poppy",
     "count": 3
    },
-   "clue": {
-    "de": "Pflück drei Blumen am Wegrand.",
-    "en": "Break 3× Poppy."
-   },
    "hint": {
-    "ko": "꽃은 땅에서 자라요.",
-    "de": "Blumen wachsen auf der Erde.",
-    "en": "Break 3× Poppy."
+    "ko": "꽃은 땅에서 자라요."
    }
   }
  ],
@@ -93,18 +73,9 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Gewachste Kupferfalltür. In der Dämmerung.",
-    "en": "Place 2× Waxed Copper Trapdoor. At dusk."
-   },
-   "hint": {
-    "en": "Place 2× Waxed Copper Trapdoor. At dusk."
-   }
+   ]
   },
-  "textKo": "저녁에 밀랍칠한 구리 다락문을 두 개 달았어요.",
-  "textDe": "Gewachste Kupferfalltür — Zeremonie vollendet.",
-  "textEn": "At dusk the ritual of Waxed Copper Trapdoor is complete."
+  "textKo": "저녁에 밀랍칠한 구리 다락문을 두 개 달았어요."
  },
  "reward": {
   "badge": "w2_05",
@@ -115,6 +86,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Gate of the Seasons"
+ "koreanLevel": 1
 }

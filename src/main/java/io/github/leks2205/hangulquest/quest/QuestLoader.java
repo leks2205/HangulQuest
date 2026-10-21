@@ -94,14 +94,13 @@ public final class QuestLoader {
 		QuestStep finale = root.has("finale") ? parseFinale(root.getAsJsonObject("finale")) : null;
 		JsonObject finaleWrapper = root.has("finale") ? root.getAsJsonObject("finale") : null;
 		String finaleKo = finaleWrapper != null ? string(finaleWrapper, "textKo", null) : null;
+		// English and German ceremony text are lang keys (hangulquest.trail.<id>.finale); a questline
+		// file may still carry them inline ("textDe" / "textEn" inside "finale"), and then they win.
 		String finaleDe = finaleWrapper != null ? string(finaleWrapper, "textDe", null) : null;
-		// The shipped files carry the ceremony text inside "finale"; a root "textEn" is the older spelling.
+		// A root "textEn" is the older spelling of the same inline field.
 		String finaleEn = finaleWrapper != null ? string(finaleWrapper, "textEn", null) : null;
 		if (finaleEn == null) {
 			finaleEn = string(root, "textEn", null);
-		}
-		if (finaleEn == null && finaleDe == null) {
-			finaleEn = "You reached the goal.";
 		}
 
 		JsonObject requiresObject = root.has("requires") ? root.getAsJsonObject("requires") : null;
@@ -115,16 +114,16 @@ public final class QuestLoader {
 
 		return new Questline(id,
 				string(root, "titleKo", id),
-				string(root, "titleDe", id),
+				string(root, "titleDe", null),
 				string(root, "titleEn", null),
-				string(root, "topic", string(root, "titleDe", id)),
+				string(root, "topic", null),
 				integer(root, "tier", 1),
 				strings(root, "concepts"),
 				requires,
 				steps,
 				finale,
 				finaleKo == null ? "여기까지 왔어요. 수고했어요!" : finaleKo,
-				finaleDe == null ? "Du hast das Ziel erreicht." : finaleDe,
+				finaleDe,
 				finaleEn,
 				badge,
 				integer(root, "order", 1000),
@@ -173,9 +172,7 @@ public final class QuestLoader {
 			return null;
 		}
 		if (!"finale".equals(parsed.id())) {
-			parsed = new QuestStep("finale", parsed.teach(), parsed.goal(), parsed.conditions(),
-					parsed.clueKo(), parsed.clueDe(), parsed.clueEn(),
-					parsed.hintKo(), parsed.hintDe(), parsed.hintEn(), parsed.bonus());
+			parsed = parsed.withId("finale");
 		}
 		return parsed;
 	}

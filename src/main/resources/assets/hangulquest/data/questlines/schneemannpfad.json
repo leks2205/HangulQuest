@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schneemannpfad",
  "titleKo": "눈사람의 길",
- "titleDe": "Der Schneemannpfad",
  "topic": "눈사람",
  "tier": 1,
  "order": 133,
@@ -27,13 +26,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:podzol",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Podsol.",
-    "en": "Place 2× Podzol."
-   },
-   "hint": {
-    "en": "Place 2× Podzol."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:trapped_chest",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Redstone-Truhe.",
-    "en": "Place Trapped Chest."
-   },
-   "hint": {
-    "en": "Place Trapped Chest."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:rooted_dirt",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Wurzelerde an.",
-    "en": "Look at Rooted Dirt."
-   },
-   "hint": {
-    "en": "Look at Rooted Dirt."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "item": "minecraft:orange_glazed_terracotta",
     "count": 8
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 8× Orange glasierte Keramik.",
-    "en": "Collect 8× Orange Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 8× Orange Glazed Terracotta."
-   }
+   "conditions": []
   },
-  "textKo": "주황색 유광 테라코타를 여덟 개 모았어요.",
-  "textDe": "Orange glasierte Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Orange Glazed Terracotta is complete."
+  "textKo": "주황색 유광 테라코타를 여덟 개 모았어요."
  },
  "reward": {
   "badge": "schneemannpfad",
@@ -105,6 +74,5 @@
    "snowball"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Snowman Trail"
+ "koreanLevel": 1
 }

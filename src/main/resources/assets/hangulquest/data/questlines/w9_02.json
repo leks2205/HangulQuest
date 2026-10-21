@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w9_02",
  "titleKo": "별의 왕관",
- "titleDe": "Die Sternenkrone",
  "topic": "별",
  "tier": 2,
  "order": 1092,
@@ -30,14 +29,10 @@
     "count": 1
    },
    "clue": {
-    "de": "Zeichne eine Karte, um den Sternen zu folgen.",
-    "ko": "별을 따라가려고 지도를 만들어요.",
-    "en": "Collect Empty Map."
+    "ko": "별을 따라가려고 지도를 만들어요."
    },
    "hint": {
-    "ko": "지도는 종이와 나침반으로 만들어요.",
-    "de": "Eine Karte entsteht aus Papier und Kompass.",
-    "en": "Collect Empty Map."
+    "ko": "지도는 종이와 나침반으로 만들어요."
    }
   },
   {
@@ -51,14 +46,10 @@
     "count": 2
    },
    "clue": {
-    "de": "Stell zwei Tore am Hof der Sterne auf.",
-    "ko": "별의 궁정에 울타리 문을 두 개 달아요.",
-    "en": "Place 2× Oak Fence Gate."
+    "ko": "별의 궁정에 울타리 문을 두 개 달아요."
    },
    "hint": {
-    "ko": "울타리 문은 나무 판자와 막대기로 만들어요.",
-    "de": "Tore bestehen aus Brettern und Stöcken.",
-    "en": "Place 2× Oak Fence Gate."
+    "ko": "울타리 문은 나무 판자와 막대기로 만들어요."
    }
   }
  ],
@@ -73,18 +64,9 @@
     "block": "minecraft:composter",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Komposter.",
-    "en": "Place Composter."
-   },
-   "hint": {
-    "en": "Place Composter."
-   }
+   "conditions": []
   },
-  "textKo": "퇴비통을 놓았어요.",
-  "textDe": "Komposter — Zeremonie vollendet.",
-  "textEn": "the ritual of Composter is complete."
+  "textKo": "퇴비통을 놓았어요."
  },
  "reward": {
   "badge": "w9_02",
@@ -94,6 +76,5 @@
    "map"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Star Crown"
+ "koreanLevel": 5
 }

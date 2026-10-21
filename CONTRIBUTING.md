@@ -33,6 +33,9 @@ Questlines are data. You do not need to compile anything.
    against the content rules.
 
 3. Write the clues. Korean fields must be Hangul-only (`clue.ko`, `hint.ko`, `textKo`, `titleKo`).
+   The English and German text of a shipped trail is not in the JSON but in
+   `lang/content/en_us.json` and `de_de.json` (keys `hangulquest.trail.<id>.…`); the script has already
+   put the English there, and `python3 tools/i18n/extract_content.py` moves anything you write inline.
    The clue has to name the action *and* the target, and every condition has to be spoken in the
    Korean sentence, or the content tests fail.
 4. Link the trail into the tree: a `next` for everything that is not the last level, a `previous`
@@ -52,8 +55,10 @@ Two rules that are easy to break and hard to notice:
 - **The clue must match the check.** If the goal is `PLACE_BLOCK minecraft:torch`, the sentence
   says to place a torch; it must not ask the player to "make light".
 
-Translations are welcome too: the German `clue.de` / `textDe` lines are optional in the schema, and
-the interface strings live in `src/main/resources/assets/hangulquest/lang/`.
+Translations are welcome too: the interface strings live in `src/main/resources/assets/hangulquest/lang/`,
+and the quest and word text (titles, clues, hints, finale lines, word glosses) in
+`src/main/resources/assets/hangulquest/lang/content/`. Both are flat key/value files, one per language;
+German may have gaps (it falls back to English), English may not.
 
 ## Contributing code
 

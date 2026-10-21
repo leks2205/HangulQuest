@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "glockenpfad",
  "titleKo": "종의 길",
- "titleDe": "Der Glockenpfad",
  "topic": "종",
  "tier": 2,
  "order": 131,
@@ -28,13 +27,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:bookshelf"
-   },
-   "clue": {
-    "de": "Benutze Bücherregal.",
-    "en": "Use Bookshelf."
-   },
-   "hint": {
-    "en": "Use Bookshelf."
    }
   },
   {
@@ -47,14 +39,8 @@
     "block": "minecraft:bell",
     "count": 1
    },
-   "clue": {
-    "de": "Setz eine Glocke.",
-    "en": "Place Bell."
-   },
    "hint": {
-    "ko": "종은 마을에서 찾을 수 있어요.",
-    "de": "Glocken findest du im Dorf.",
-    "en": "You can find a bell in a village."
+    "ko": "종은 마을에서 찾을 수 있어요."
    }
   },
   {
@@ -66,13 +52,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:tuff_brick_slab",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Tuffsteinziegelstufe.",
-    "en": "Collect 4× Tuff Brick Slab."
-   },
-   "hint": {
-    "en": "Collect 4× Tuff Brick Slab."
    }
   }
  ],
@@ -87,18 +66,9 @@
     "block": "minecraft:gold_block",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Goldblock.",
-    "en": "Place Block of Gold."
-   },
-   "hint": {
-    "en": "Place Block of Gold."
-   }
+   "conditions": []
   },
-  "textKo": "금 블록을 놓았어요.",
-  "textDe": "Goldblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Block of Gold is complete."
+  "textKo": "금 블록을 놓았어요."
  },
  "reward": {
   "badge": "glockenpfad",
@@ -108,6 +78,5 @@
    "gold_block"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Bell Trail"
+ "koreanLevel": 2
 }

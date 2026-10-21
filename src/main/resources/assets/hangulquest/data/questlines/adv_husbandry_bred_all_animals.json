@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_bred_all_animals",
  "titleKo": "짝지어주기",
- "titleDe": "Paarweise",
  "topic": "husbandry",
  "tier": 2,
  "order": 260,
@@ -27,13 +26,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:cow"
-   },
-   "clue": {
-    "de": "Füttere zwei Kühe mit Weizen, bis Herzen erscheinen.",
-    "en": "Talk to Cow."
-   },
-   "hint": {
-    "en": "Talk to Cow."
    }
   },
   {
@@ -44,13 +36,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:sheep"
-   },
-   "clue": {
-    "de": "Paare zwei Schafe mit einer Handvoll Weizen.",
-    "en": "Talk to Sheep."
-   },
-   "hint": {
-    "en": "Talk to Sheep."
    }
   }
  ],
@@ -64,17 +49,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:frog"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Frog."
-   },
-   "hint": {
-    "en": "Talk to Frog."
-   }
+   "conditions": []
   },
-  "textKo": "짝지어주기 — 개구리까지 모두 짝을 지어 줘요.",
-  "textDe": "Paarweise: Auch zwei Frösche finden mit Schleimkugeln zueinander.",
-  "textEn": "the ritual of Frog is complete."
+  "textKo": "짝지어주기 — 개구리까지 모두 짝을 지어 줘요."
  },
  "reward": {
   "badge": "adv_husbandry_bred_all_animals",
@@ -84,6 +61,5 @@
    "frog"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Pair by Pair"
+ "koreanLevel": 2
 }

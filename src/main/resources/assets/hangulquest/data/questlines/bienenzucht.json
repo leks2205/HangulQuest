@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "bienenzucht",
  "titleKo": "양봉의 길",
- "titleDe": "Der Bienenzuchtpfad",
  "topic": "양봉",
  "tier": 3,
  "order": 159,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:blackstone",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Schwarzstein.",
-    "en": "Place 2× Blackstone."
-   },
-   "hint": {
-    "en": "Place 2× Blackstone."
    }
   },
   {
@@ -49,14 +41,8 @@
     "item": "minecraft:honey_bottle",
     "count": 2
    },
-   "clue": {
-    "de": "Sammle zwei Honigflaschen.",
-    "en": "Collect 2× Honey Bottle."
-   },
    "hint": {
-    "ko": "꿀이 든 병은 벌집에서 꿀을 모아 만들어요.",
-    "de": "Honigflaschen entstehen aus Honig am Bienenstock.",
-    "en": "Collect 2× Honey Bottle."
+    "ko": "꿀이 든 병은 벌집에서 꿀을 모아 만들어요."
    }
   },
   {
@@ -68,13 +54,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:phantom",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Phantom an.",
-    "en": "Look at Phantom."
-   },
-   "hint": {
-    "en": "Look at Phantom."
    }
   }
  ],
@@ -89,18 +68,9 @@
     "item": "minecraft:polished_andesite_slab",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Polierte Andesitstufe.",
-    "en": "Collect 3× Polished Andesite Slab."
-   },
-   "hint": {
-    "en": "Collect 3× Polished Andesite Slab."
-   }
+   "conditions": []
   },
-  "textKo": "윤나는 안산암 반 블록을 세 개 만들었어요.",
-  "textDe": "Polierte Andesitstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Polished Andesite Slab is complete."
+  "textKo": "윤나는 안산암 반 블록을 세 개 만들었어요."
  },
  "reward": {
   "badge": "bienenzucht",
@@ -111,6 +81,5 @@
    "honey_bottle"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Beekeeping Trail"
+ "koreanLevel": 2
 }

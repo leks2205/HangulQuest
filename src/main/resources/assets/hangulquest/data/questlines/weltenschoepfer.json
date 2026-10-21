@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weltenschoepfer",
  "titleKo": "세계의 창조자",
- "titleDe": "Der Weltenschöpfer",
  "topic": "산",
  "tier": 4,
  "order": 81,
@@ -30,13 +29,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:windswept_hills",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Zerzauste Hügel.",
-    "en": "Reach Windswept Hills."
-   },
-   "hint": {
-    "en": "Reach Windswept Hills."
    }
   },
   {
@@ -54,14 +46,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Weiße Betonstufe. Nachts.",
-    "en": "Place White Concrete Slab. At night."
-   },
-   "hint": {
-    "en": "Place White Concrete Slab. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -80,18 +65,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere Oranger Trockenbeton. Tagsüber.",
-    "en": "Place Orange Concrete Powder. During the day."
-   },
-   "hint": {
-    "en": "Place Orange Concrete Powder. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 주황색 콘크리트 가루를 놓았어요.",
-  "textDe": "Oranger Trockenbeton — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Orange Concrete Powder is complete."
+  "textKo": "낮에 주황색 콘크리트 가루를 놓았어요."
  },
  "reward": {
   "badge": "weltenschoepfer",
@@ -101,6 +77,5 @@
    "bell"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The World Shaper"
+ "koreanLevel": 6
 }

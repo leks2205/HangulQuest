@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "alchemiepfad",
  "titleKo": "연금술의 길",
- "titleDe": "Der Alchemiepfad",
  "topic": "연금술",
  "tier": 3,
  "order": 103,
@@ -28,13 +27,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:cauldron"
-   },
-   "clue": {
-    "de": "Benutz einen Kessel.",
-    "en": "Use Cauldron."
-   },
-   "hint": {
-    "en": "Use Cauldron."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cyan_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Türkise Glasscheibe.",
-    "en": "Collect 3× Cyan Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Collect 3× Cyan Stained Glass Pane."
    }
   },
   {
@@ -65,14 +50,8 @@
     "item": "minecraft:sugar",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Zucker.",
-    "en": "Collect 3× Sugar."
-   },
    "hint": {
-    "ko": "설탕은 사탕수수로 만들어요.",
-    "de": "Zucker wird aus Zuckerrohr gemacht.",
-    "en": "Collect 3× Sugar."
+    "ko": "설탕은 사탕수수로 만들어요."
    }
   }
  ],
@@ -87,17 +66,9 @@
     "block": "minecraft:cauldron",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Cauldron."
-   },
-   "hint": {
-    "en": "Place Cauldron."
-   }
+   "conditions": []
   },
-  "textKo": "가마솥에 재료를 넣어요.",
-  "textDe": "Zutaten kommen in den Kessel.",
-  "textEn": "the ritual of Cauldron is complete."
+  "textKo": "가마솥에 재료를 넣어요."
  },
  "reward": {
   "badge": "alchemiepfad",
@@ -107,6 +78,5 @@
    "sugar"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Alchemy Trail"
+ "koreanLevel": 2
 }

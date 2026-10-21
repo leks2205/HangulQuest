@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w9_03",
  "titleKo": "왕관의 항로",
- "titleDe": "Die Kronenroute",
  "topic": "무역",
  "tier": 2,
  "order": 1093,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:acacia_sapling",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Akaziensetzling.",
-    "en": "Collect 6× Acacia Sapling."
-   },
-   "hint": {
-    "en": "Collect 6× Acacia Sapling."
    }
   },
   {
@@ -47,14 +39,10 @@
     "entity": "minecraft:villager"
    },
    "clue": {
-    "de": "Sprich mit einem Dorfbewohner am Hof.",
-    "ko": "궁정의 주민과 이야기해요.",
-    "en": "Talk to Villager."
+    "ko": "궁정의 주민과 이야기해요."
    },
    "hint": {
-    "ko": "주민은 마을에서 만나요.",
-    "de": "Dorfbewohner trifft man im Dorf.",
-    "en": "Talk to Villager."
+    "ko": "주민은 마을에서 만나요."
    }
   }
  ],
@@ -69,18 +57,9 @@
     "block": "minecraft:poplar_sapling",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Pappelsetzling.",
-    "en": "Place Poplar Sapling."
-   },
-   "hint": {
-    "en": "Place Poplar Sapling."
-   }
+   "conditions": []
   },
-  "textKo": "포플러나무 묘목을 심었어요.",
-  "textDe": "Pappelsetzling — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Sapling is complete."
+  "textKo": "포플러나무 묘목을 심었어요."
  },
  "reward": {
   "badge": "w9_03",
@@ -90,6 +69,5 @@
    "villager"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Crown Route"
+ "koreanLevel": 5
 }

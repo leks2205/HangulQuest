@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_04",
  "titleKo": "용의 섬",
- "titleDe": "Die Dracheninsel",
  "topic": "섬",
  "tier": 2,
  "order": 1084,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cyan_concrete_powder",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Türkiser Trockenbeton.",
-    "en": "Place 2× Cyan Concrete Powder."
-   },
-   "hint": {
-    "en": "Place 2× Cyan Concrete Powder."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:yellow_glazed_terracotta",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Gelbe glasierte Keramik.",
-    "en": "Place 4× Yellow Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Place 4× Yellow Glazed Terracotta."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mangrove_roots",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Mangrovenwurzeln.",
-    "en": "Collect 2× Mangrove Roots."
-   },
-   "hint": {
-    "en": "Collect 2× Mangrove Roots."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:skull_pottery_sherd",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 4× Totenkopf-Töpferscherbe.",
-    "en": "Collect 4× Skull Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect 4× Skull Pottery Sherd."
-   }
+   "conditions": []
   },
-  "textKo": "해골 도자기 조각을 네 개 모았어요.",
-  "textDe": "Totenkopf-Töpferscherbe — Zeremonie vollendet.",
-  "textEn": "the ritual of Skull Pottery Sherd is complete."
+  "textKo": "해골 도자기 조각을 네 개 모았어요."
  },
  "reward": {
   "badge": "w8_04",
@@ -108,6 +77,5 @@
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Dragon Island"
+ "koreanLevel": 4
 }

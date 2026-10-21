@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "druckerei",
  "titleKo": "인쇄소의 길",
- "titleDe": "Der Druckereipfad",
  "topic": "인쇄",
  "tier": 3,
  "order": 152,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_weathered_cut_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Gewachster verwitterter geschnittener Kupferblock.",
-    "en": "Collect 3× Waxed Weathered Cut Copper."
-   },
-   "hint": {
-    "en": "Collect 3× Waxed Weathered Cut Copper."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:wheat_seeds",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Weizenkörner.",
-    "en": "Collect 2× Wheat Seeds."
-   },
-   "hint": {
-    "en": "Collect 2× Wheat Seeds."
    }
   },
   {
@@ -65,13 +50,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:oak_button"
-   },
-   "clue": {
-    "de": "Benutze Eichenholzknopf.",
-    "en": "Use Oak Button."
-   },
-   "hint": {
-    "en": "Use Oak Button."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:lectern",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Lesepult.",
-    "en": "Place Lectern."
-   },
-   "hint": {
-    "en": "Place Lectern."
-   }
+   "conditions": []
   },
-  "textKo": "독서대를 놓았어요.",
-  "textDe": "Lesepult — Zeremonie vollendet.",
-  "textEn": "the ritual of Lectern is complete."
+  "textKo": "독서대를 놓았어요."
  },
  "reward": {
   "badge": "druckerei",
@@ -108,6 +77,5 @@
    "bookshelf"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Printing Trail"
+ "koreanLevel": 2
 }

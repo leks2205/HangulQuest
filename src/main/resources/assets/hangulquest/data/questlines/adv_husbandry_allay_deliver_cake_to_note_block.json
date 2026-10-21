@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_allay_deliver_cake_to_note_block",
  "titleKo": "생일 축하 노래",
- "titleDe": "Geburtstagslied",
  "topic": "husbandry",
  "tier": 2,
  "order": 256,
@@ -28,14 +27,8 @@
     "item": "minecraft:cake",
     "count": 1
    },
-   "clue": {
-    "de": "Backe einen Kuchen für das Geburtstagslied.",
-    "en": "Collect Cake."
-   },
    "hint": {
-    "ko": "케이크는 우유 세 개와 설탕 두 개, 달걀 하나, 밀 세 개로 만들어요.",
-    "de": "Ein Kuchen braucht drei Milch, zwei Zucker, ein Ei und drei Weizen.",
-    "en": "Collect Cake."
+    "ko": "케이크는 우유 세 개와 설탕 두 개, 달걀 하나, 밀 세 개로 만들어요."
    }
   },
   {
@@ -48,14 +41,8 @@
     "block": "minecraft:note_block",
     "count": 1
    },
-   "clue": {
-    "de": "Setz einen Notenblock als Bühne für das Lied.",
-    "en": "Place Note Block."
-   },
    "hint": {
-    "ko": "소리 블록은 판자 여덟 개와 레드스톤 가루 한 개로 만들어요.",
-    "de": "Ein Notenblock besteht aus acht Brettern und einem Redstone.",
-    "en": "Place Note Block."
+    "ko": "소리 블록은 판자 여덟 개와 레드스톤 가루 한 개로 만들어요."
    }
   }
  ],
@@ -70,17 +57,9 @@
     "block": "minecraft:cake",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Cake."
-   },
-   "hint": {
-    "en": "Place Cake."
-   }
+   "conditions": []
   },
-  "textKo": "생일 축하 노래 — 케이크를 소리 블록 앞에 놓아요.",
-  "textDe": "Zum Geburtstagslied legst du den Kuchen an den Notenblock.",
-  "textEn": "the ritual of Cake is complete."
+  "textKo": "생일 축하 노래 — 케이크를 소리 블록 앞에 놓아요."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_cake_to_note_block",
@@ -89,6 +68,5 @@
    "note_block"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Birthday Song"
+ "koreanLevel": 2
 }

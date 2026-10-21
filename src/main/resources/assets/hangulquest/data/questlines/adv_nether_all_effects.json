@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_all_effects",
  "titleKo": "어쩌다 이 지경까지",
- "titleDe": "Wie haben wir das geschafft?",
  "topic": "nether",
  "tier": 2,
  "order": 287,
@@ -28,13 +27,8 @@
     "item": "minecraft:potion",
     "count": 3
    },
-   "clue": {
-    "de": "Brau einen Vorrat: drei Tränke mit ganz verschiedenen Wirkungen.",
-    "en": "Collect 3× Potion."
-   },
    "hint": {
-    "ko": "양조기로 물약 세 개를 만들어요.",
-    "en": "Collect 3× Potion."
+    "ko": "양조기로 물약 세 개를 만들어요."
    }
   },
   {
@@ -47,13 +41,8 @@
     "item": "minecraft:potion",
     "count": 1
    },
-   "clue": {
-    "de": "Trink den ersten Trank und spür, wie die Wirkung einsetzt.",
-    "en": "Eat Potion."
-   },
    "hint": {
-    "ko": "물약을 마셔요.",
-    "en": "Eat Potion."
+    "ko": "물약을 마셔요."
    }
   }
  ],
@@ -69,18 +58,11 @@
     "count": 1
    },
    "conditions": [],
-   "clue": {
-    "de": "Iss den goldenen Apfel dazu – Regeneration und Absorption kommen obendrauf.",
-    "en": "Eat Golden Apple."
-   },
    "hint": {
-    "ko": "황금 사과를 먹어요.",
-    "en": "Eat Golden Apple."
+    "ko": "황금 사과를 먹어요."
    }
   },
-  "textKo": "온몸이 물약 효과로 가득해요. 이게 바로 전부 모은 맛이에요!",
-  "textDe": "Ein Körper voller Effekte – alle Wirkungen auf einmal.",
-  "textEn": "the ritual of Golden Apple is complete."
+  "textKo": "온몸이 물약 효과로 가득해요. 이게 바로 전부 모은 맛이에요!"
  },
  "reward": {
   "badge": "adv_nether_all_effects",
@@ -89,6 +71,5 @@
    "golden_apple"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "How Did We Get Here?"
+ "koreanLevel": 4
 }

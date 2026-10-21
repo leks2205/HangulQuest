@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_08",
  "titleKo": "뿌리 아래의 돌",
- "titleDe": "Der Stein unter den Wurzeln",
  "topic": "뿌리",
  "tier": 2,
  "order": 1058,
@@ -30,14 +29,8 @@
     "block": "minecraft:dirt",
     "count": 8
    },
-   "clue": {
-    "de": "Grabe acht Erde ab.",
-    "en": "Break 8× Dirt."
-   },
    "hint": {
-    "ko": "흙은 삽으로 파요.",
-    "de": "Erde gräbst du mit der Schaufel.",
-    "en": "Break 8× Dirt."
+    "ko": "흙은 삽으로 파요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:waxed_weathered_copper_chain",
     "count": 12
-   },
-   "clue": {
-    "de": "Platziere 12× Gewachste verwitterte Kupferkette.",
-    "en": "Place 12× Waxed Weathered Copper Chain."
-   },
-   "hint": {
-    "en": "Place 12× Waxed Weathered Copper Chain."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cyan_wool_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Türkise Wollstufe.",
-    "en": "Place 3× Cyan Wool Slab."
-   },
-   "hint": {
-    "en": "Place 3× Cyan Wool Slab."
    }
   }
  ],
@@ -94,18 +73,9 @@
      "minY": -64,
      "maxY": 0
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Tiefenschiefer-Kupfererz. Zwischen Y -64 und 0.",
-    "en": "Place 2× Deepslate Copper Ore. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place 2× Deepslate Copper Ore. Between Y -64 and 0."
-   }
+   ]
   },
-  "textKo": "높이 0 이하에서 심층암 구리 광석을 두 개 놓았어요.",
-  "textDe": "Tiefenschiefer-Kupfererz — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Deepslate Copper Ore is complete."
+  "textKo": "높이 0 이하에서 심층암 구리 광석을 두 개 놓았어요."
  },
  "reward": {
   "badge": "w5_08",
@@ -116,6 +86,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Stone Beneath the Roots"
+ "koreanLevel": 3
 }

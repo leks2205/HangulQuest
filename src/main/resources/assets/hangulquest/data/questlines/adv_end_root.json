@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_root",
  "titleKo": "엔드",
- "titleDe": "Das Ende",
  "topic": "end",
  "tier": 2,
  "order": 255,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blaze_rod",
     "count": 6
-   },
-   "clue": {
-    "de": "Hol dir Lohenruten aus der Netherfestung, daraus wird Blazepulver.",
-    "en": "Collect 6× Blaze Rod."
-   },
-   "hint": {
-    "en": "Collect 6× Blaze Rod."
    }
   },
   {
@@ -47,13 +39,8 @@
     "item": "minecraft:ender_eye",
     "count": 12
    },
-   "clue": {
-    "de": "Fülle zwölf Enderaugen für die Rahmen des Portals.",
-    "en": "Collect 12× Eye of Ender."
-   },
    "hint": {
-    "ko": "엔더 진주와 블레이즈 가루로 만들어요.",
-    "en": "Collect 12× Eye of Ender."
+    "ko": "엔더 진주와 블레이즈 가루로 만들어요."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "block": "minecraft:quartz_block",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Quarzblock.",
-    "en": "Place 3× Block of Quartz."
-   },
-   "hint": {
-    "en": "Place 3× Block of Quartz."
-   }
+   "conditions": []
   },
-  "textKo": "석영 블록을 세 개 쌓았어요.",
-  "textDe": "Quarzblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Block of Quartz is complete."
+  "textKo": "석영 블록을 세 개 쌓았어요."
  },
  "reward": {
   "badge": "adv_end_root",
@@ -89,6 +67,5 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The End"
+ "koreanLevel": 6
 }

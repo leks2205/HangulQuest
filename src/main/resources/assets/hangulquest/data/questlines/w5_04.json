@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_04",
  "titleKo": "용광로의 불빛",
- "titleDe": "Das Feuer im Schmelzofen",
  "topic": "화로",
  "tier": 2,
  "order": 1054,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:gray_bed",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Graues Bett.",
-    "en": "Place Gray Bed."
-   },
-   "hint": {
-    "en": "Place Gray Bed."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:dead_brain_coral_wall_fan",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue 8× Abgestorbener Hirnkorallenwandfächer ab.",
-    "en": "Break 8× Dead Brain Coral Wall Fan."
-   },
-   "hint": {
-    "en": "Break 8× Dead Brain Coral Wall Fan."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:birch_button",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Birkenholzknopf.",
-    "en": "Collect 4× Birch Button."
-   },
-   "hint": {
-    "en": "Collect 4× Birch Button."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:detector_rail",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Sensorschiene.",
-    "en": "Collect 3× Detector Rail."
-   },
-   "hint": {
-    "en": "Collect 3× Detector Rail."
-   }
+   "conditions": []
   },
-  "textKo": "감지 레일을 세 개 모았어요.",
-  "textDe": "Sensorschiene — Zeremonie vollendet.",
-  "textEn": "the ritual of Detector Rail is complete."
+  "textKo": "감지 레일을 세 개 모았어요."
  },
  "reward": {
   "badge": "w5_04",
@@ -108,6 +77,5 @@
    "gold"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Fire in the Furnace"
+ "koreanLevel": 3
 }

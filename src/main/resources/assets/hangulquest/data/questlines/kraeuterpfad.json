@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kraeuterpfad",
  "titleKo": "빵과 꽃의 길",
- "titleDe": "Der Brot-und-Blumen-Pfad",
  "topic": "음식",
  "tier": 2,
  "order": 43,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:end_stone_brick_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Endsteinziegelstufe.",
-    "en": "Collect 2× End Stone Brick Slab."
-   },
-   "hint": {
-    "en": "Collect 2× End Stone Brick Slab."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:chiseled_polished_blackstone",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Gemeißelter polierter Schwarzstein an.",
-    "en": "Look at Chiseled Polished Blackstone."
-   },
-   "hint": {
-    "en": "Look at Chiseled Polished Blackstone."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:enchanted_golden_apple",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Iss Verzauberter goldener Apfel.",
-    "en": "Eat Enchanted Golden Apple."
-   },
-   "hint": {
-    "en": "Eat Enchanted Golden Apple."
-   }
+   "conditions": []
   },
-  "textKo": "마법이 부여된 황금 사과를 먹었어요.",
-  "textDe": "Verzauberter goldener Apfel — Zeremonie vollendet.",
-  "textEn": "the ritual of Enchanted Golden Apple is complete."
+  "textKo": "마법이 부여된 황금 사과를 먹었어요."
  },
  "reward": {
   "badge": "kraeuterpfad",
@@ -88,6 +64,5 @@
    "bread"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Bread-and-Blossoms Trail"
+ "koreanLevel": 1
 }

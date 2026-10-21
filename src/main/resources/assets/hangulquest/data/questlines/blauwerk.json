@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "blauwerk",
  "titleKo": "푸른 실의 길",
- "titleDe": "Der blaue Faden",
  "topic": "색",
  "tier": 2,
  "order": 1131,
@@ -31,14 +30,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "수레국화를 두 개 모아요.",
-    "de": "Stelle Kornblume her.",
-    "en": "Collect 2× Cornflower."
+    "ko": "수레국화를 두 개 모아요."
    },
    "hint": {
-    "ko": "수레국화를 모아요.",
-    "de": "Stelle Kornblume her.",
-    "en": "Collect 2× Cornflower."
+    "ko": "수레국화를 모아요."
    }
   },
   {
@@ -52,14 +47,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "수레국화를 봐요.",
-    "de": "Sieh dir Kornblume an.",
-    "en": "Look at Cornflower."
+    "ko": "수레국화를 봐요."
    },
    "hint": {
-    "ko": "수레국화를 봐요.",
-    "de": "Sieh dir Kornblume an.",
-    "en": "Look at Cornflower."
+    "ko": "수레국화를 봐요."
    }
   }
  ],
@@ -79,17 +70,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "en": "Place Blue Bed. At night."
-   },
-   "hint": {
-    "en": "Place Blue Bed. At night."
-   }
+   ]
   },
-  "textKo": "밤에 푸른 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet.",
-  "textEn": "By night the ritual of Blue Bed is complete."
+  "textKo": "밤에 푸른 천을 펼쳤어요."
  },
  "reward": {
   "badge": "blauwerk",
@@ -98,6 +81,5 @@
    "gen_cornflower",
    "gen_blue_bed"
   ]
- },
- "titleEn": "The Blue Thread"
+ }
 }

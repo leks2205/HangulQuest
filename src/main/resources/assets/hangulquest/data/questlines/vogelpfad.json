@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "vogelpfad",
  "titleKo": "새의 길",
- "titleDe": "Der Vogelpfad",
  "topic": "새",
  "tier": 2,
  "order": 105,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:magma_cube",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Magmawürfel an.",
-    "en": "Look at Magma Cube."
-   },
-   "hint": {
-    "en": "Look at Magma Cube."
    }
   },
   {
@@ -48,14 +40,8 @@
     "item": "minecraft:feather",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Federn.",
-    "en": "Collect 3× Feather."
-   },
    "hint": {
-    "ko": "깃털은 닭을 잡으면 얻어요.",
-    "de": "Federn bekommst du von Hühnern.",
-    "en": "Collect 3× Feather."
+    "ko": "깃털은 닭을 잡으면 얻어요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:wither_skeleton",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Wither-Skelett an.",
-    "en": "Look at Wither Skeleton."
-   },
-   "hint": {
-    "en": "Look at Wither Skeleton."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:quartz_bricks",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Quarzziegel.",
-    "en": "Collect 2× Quartz Bricks."
-   },
-   "hint": {
-    "en": "Collect 2× Quartz Bricks."
-   }
+   "conditions": []
   },
-  "textKo": "석영 벽돌을 두 개 만들었어요.",
-  "textDe": "Quarzziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Quartz Bricks is complete."
+  "textKo": "석영 벽돌을 두 개 만들었어요."
  },
  "reward": {
   "badge": "vogelpfad",
@@ -110,6 +80,5 @@
    "egg"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Bird Trail"
+ "koreanLevel": 3
 }

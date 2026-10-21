@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "froschteich",
  "titleKo": "개구리 연못",
- "titleDe": "Der Froschteich",
  "topic": "개구리",
  "tier": 2,
  "order": 139,
@@ -28,13 +27,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:polar_bear",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Eisbär an.",
-    "en": "Look at Polar Bear."
-   },
-   "hint": {
-    "en": "Look at Polar Bear."
    }
   },
   {
@@ -47,14 +39,8 @@
     "item": "minecraft:lily_pad",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Seerosen.",
-    "en": "Collect 3× Lily Pad."
-   },
    "hint": {
-    "ko": "수련잎은 물 위에서 찾아요.",
-    "de": "Seerosen findest du auf dem Wasser.",
-    "en": "Collect 3× Lily Pad."
+    "ko": "수련잎은 물 위에서 찾아요."
    }
   },
   {
@@ -66,13 +52,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:lily_pad",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Seerosen.",
-    "en": "Place 3× Lily Pad."
-   },
-   "hint": {
-    "en": "Place 3× Lily Pad."
    }
   }
  ],
@@ -89,17 +68,10 @@
    },
    "conditions": [],
    "hint": {
-    "ko": "슬라임볼은 슬라임을 물리치면 얻어요.",
-    "de": "Schleimbälle bekommst du von Schleimen.",
-    "en": "Collect 2× Slimeball."
-   },
-   "clue": {
-    "en": "Collect 2× Slimeball."
+    "ko": "슬라임볼은 슬라임을 물리치면 얻어요."
    }
   },
-  "textKo": "연못에서 슬라임볼을 모아요.",
-  "textDe": "Schleimbälle am Teich sammeln.",
-  "textEn": "the ritual of Slimeball is complete."
+  "textKo": "연못에서 슬라임볼을 모아요."
  },
  "reward": {
   "badge": "froschteich",
@@ -109,6 +81,5 @@
    "slime"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Frog Pond"
+ "koreanLevel": 1
 }

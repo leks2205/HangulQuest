@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "pilzpfad",
  "titleKo": "버섯의 길",
- "titleDe": "Der Pilzpfad",
  "topic": "버섯",
  "tier": 2,
  "order": 134,
@@ -29,14 +28,8 @@
     "item": "minecraft:brown_mushroom",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei braune Pilze.",
-    "en": "Collect 3× Brown Mushroom."
-   },
    "hint": {
-    "ko": "버섯은 어두운 숲에서 찾아요.",
-    "de": "Pilze findest du im dunklen Wald.",
-    "en": "Collect 3× Brown Mushroom."
+    "ko": "버섯은 어두운 숲에서 찾아요."
    }
   },
   {
@@ -48,13 +41,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:brown_mushroom",
     "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Pilze.",
-    "en": "Place 2× Brown Mushroom."
-   },
-   "hint": {
-    "en": "Place 2× Brown Mushroom."
    }
   },
   {
@@ -67,14 +53,8 @@
     "item": "minecraft:bowl",
     "count": 2
    },
-   "clue": {
-    "de": "Sammle zwei Schüsseln.",
-    "en": "Collect 2× Bowl."
-   },
    "hint": {
-    "ko": "그릇은 나무 판자로 만들어요.",
-    "de": "Schüsseln bestehen aus Holzbrettern.",
-    "en": "Collect 2× Bowl."
+    "ko": "그릇은 나무 판자로 만들어요."
    }
   }
  ],
@@ -89,17 +69,9 @@
     "block": "minecraft:brown_mushroom_block",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Brown Mushroom Block."
-   },
-   "hint": {
-    "en": "Place Brown Mushroom Block."
-   }
+   "conditions": []
   },
-  "textKo": "버섯 블록으로 큰 버섯을 만들어요.",
-  "textDe": "Ein Pilzblock macht den großen Pilz.",
-  "textEn": "the ritual of Brown Mushroom Block is complete."
+  "textKo": "버섯 블록으로 큰 버섯을 만들어요."
  },
  "reward": {
   "badge": "pilzpfad",
@@ -109,6 +81,5 @@
    "mushroom_block"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Mushroom Trail"
+ "koreanLevel": 1
 }

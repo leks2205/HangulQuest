@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "wollpfad",
  "titleKo": "양털의 길",
- "titleDe": "Der Wollpfad",
  "topic": "동물",
  "tier": 2,
  "order": 44,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:bamboo_door",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bambustür.",
-    "en": "Place 2× Bamboo Door."
-   },
-   "hint": {
-    "en": "Place 2× Bamboo Door."
    }
   },
   {
@@ -50,14 +42,10 @@
     "count": 2
    },
    "clue": {
-    "de": "Sammle zwei Wolle.",
-    "ko": "가위로 양털을 두 개 모아요.",
-    "en": "Collect 2× White Wool."
+    "ko": "가위로 양털을 두 개 모아요."
    },
    "hint": {
-    "ko": "가위로 양털을 깎아요. 가위는 철 두 개로 만들어요.",
-    "de": "Scher die Wolle mit einer Schere aus zwei Eisen.",
-    "en": "Collect 2× White Wool."
+    "ko": "가위로 양털을 깎아요. 가위는 철 두 개로 만들어요."
    }
   }
  ],
@@ -72,18 +60,9 @@
     "block": "minecraft:bamboo_planks",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Bambusbretter.",
-    "en": "Place Bamboo Planks."
-   },
-   "hint": {
-    "en": "Place Bamboo Planks."
-   }
+   "conditions": []
   },
-  "textKo": "대나무 판자를 놓았어요.",
-  "textDe": "Bambusbretter — Zeremonie vollendet.",
-  "textEn": "the ritual of Bamboo Planks is complete."
+  "textKo": "대나무 판자를 놓았어요."
  },
  "reward": {
   "badge": "wollpfad",
@@ -93,6 +72,5 @@
    "bed"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Wool Trail"
+ "koreanLevel": 1
 }

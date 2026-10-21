@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "brandung",
  "titleKo": "파도의 길",
- "titleDe": "Der Brandungspfad",
  "tier": 5,
  "order": 350,
  "concepts": [
@@ -31,13 +30,6 @@
     "type": "REACH_BIOME",
     "biome": "#minecraft:is_ocean",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh zum Ozean.",
-    "en": "Reach the ocean."
-   },
-   "hint": {
-    "en": "Reach the ocean."
    }
   },
   {
@@ -49,13 +41,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:turtle",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Schildkröte an.",
-    "en": "Look at Turtle."
-   },
-   "hint": {
-    "en": "Look at Turtle."
    }
   },
   {
@@ -67,13 +52,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cartography_table",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kartentisch.",
-    "en": "Collect Cartography Table."
-   },
-   "hint": {
-    "en": "Collect Cartography Table."
    }
   }
  ],
@@ -97,18 +75,9 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ],
-   "clue": {
-    "de": "Platziere Spitzer Tropfstein. Nachts. In einem passenden Biom.",
-    "en": "Place Pointed Dripstone. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Pointed Dripstone. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 해변에서 뾰족한 점적석을 놓았어요.",
-  "textDe": "Spitzer Tropfstein — Zeremonie vollendet.",
-  "textEn": "By night On the beach the ritual of Pointed Dripstone is complete."
+  "textKo": "밤에 해변에서 뾰족한 점적석을 놓았어요."
  },
  "reward": {
   "badge": "brandung",
@@ -120,6 +89,5 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "물",
- "titleEn": "The Surf Trail"
+ "topic": "물"
 }

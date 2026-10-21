@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gartenwacht",
  "titleKo": "정원의 수호",
- "titleDe": "Die Gartenwacht",
  "topic": "마을",
  "tier": 3,
  "order": 84,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:waxed_oxidized_copper_bars",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Gewachstes oxidiertes Kupfergitter an.",
-    "en": "Look at Waxed Oxidized Copper Bars."
-   },
-   "hint": {
-    "en": "Look at Waxed Oxidized Copper Bars."
    }
   },
   {
@@ -53,14 +45,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kirschholzstufe. Nachts.",
-    "en": "Place Cherry Slab. At night."
-   },
-   "hint": {
-    "en": "Place Cherry Slab. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -78,18 +63,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Benutze Schleifstein. Nachts.",
-    "en": "Use Grindstone. At night."
-   },
-   "hint": {
-    "en": "Use Grindstone. At night."
-   }
+   ]
   },
-  "textKo": "밤에 숫돌을 썼어요.",
-  "textDe": "Schleifstein — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Grindstone is complete."
+  "textKo": "밤에 숫돌을 썼어요."
  },
  "reward": {
   "badge": "gartenwacht",
@@ -99,6 +75,5 @@
    "bed"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Garden Watch"
+ "koreanLevel": 3
 }

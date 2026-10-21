@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "postpfad",
  "titleKo": "우편의 길",
- "titleDe": "Der Postpfad",
  "topic": "우편",
  "tier": 3,
  "order": 165,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:polished_cinnabar",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Polierter Zinnober.",
-    "en": "Collect 3× Polished Cinnabar."
-   },
-   "hint": {
-    "en": "Collect 3× Polished Cinnabar."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:gray_glazed_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Graue glasierte Keramik.",
-    "en": "Place Gray Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Place Gray Glazed Terracotta."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pink_shulker_box",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Rosa Shulker-Kiste.",
-    "en": "Place Pink Shulker Box."
-   },
-   "hint": {
-    "en": "Place Pink Shulker Box."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:prismarine_brick_stairs",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Prismarinziegeltreppe.",
-    "en": "Collect Prismarine Brick Stairs."
-   },
-   "hint": {
-    "en": "Collect Prismarine Brick Stairs."
-   }
+   "conditions": []
   },
-  "textKo": "프리즈머린 벽돌 계단을 만들었어요.",
-  "textDe": "Prismarinziegeltreppe — Zeremonie vollendet.",
-  "textEn": "the ritual of Prismarine Brick Stairs is complete."
+  "textKo": "프리즈머린 벽돌 계단을 만들었어요."
  },
  "reward": {
   "badge": "postpfad",
@@ -109,6 +78,5 @@
    "compass"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Post Trail"
+ "koreanLevel": 3
 }

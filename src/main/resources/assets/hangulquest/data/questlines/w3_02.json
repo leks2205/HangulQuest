@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_02",
  "titleKo": "이웃의 문",
- "titleDe": "Die Tür des Nachbarn",
  "topic": "집",
  "tier": 2,
  "order": 1032,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:orange_wool_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Orange Wollstufe.",
-    "en": "Place Orange Wool Slab."
-   },
-   "hint": {
-    "en": "Place Orange Wool Slab."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:chorus_fruit",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Chorusfrucht.",
-    "en": "Eat Chorus Fruit."
-   },
-   "hint": {
-    "en": "Eat Chorus Fruit."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mud",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schlamm.",
-    "en": "Place Mud."
-   },
-   "hint": {
-    "en": "Place Mud."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:warped_fence_gate",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Wirrzauntor.",
-    "en": "Place Warped Fence Gate."
-   },
-   "hint": {
-    "en": "Place Warped Fence Gate."
-   }
+   "conditions": []
   },
-  "textKo": "뒤틀린 울타리 문을 달았어요.",
-  "textDe": "Wirrzauntor — Zeremonie vollendet.",
-  "textEn": "the ritual of Warped Fence Gate is complete."
+  "textKo": "뒤틀린 울타리 문을 달았어요."
  },
  "reward": {
   "badge": "w3_02",
@@ -108,6 +77,5 @@
    "chest"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Neighbour's Door"
+ "koreanLevel": 2
 }

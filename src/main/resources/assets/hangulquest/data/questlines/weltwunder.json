@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weltwunder",
  "titleKo": "세계의 불가사의",
- "titleDe": "Das Weltwunder",
  "tier": 5,
  "order": 541,
  "concepts": [
@@ -36,13 +35,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:purple_glazed_terracotta",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Violette glasierte Keramik.",
-    "en": "Collect 3× Purple Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 3× Purple Glazed Terracotta."
    }
   },
   {
@@ -60,14 +52,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 5× Hirnkorallenfächer. Nachts.",
-    "en": "Place 5× Brain Coral Fan. At night."
-   },
-   "hint": {
-    "en": "Place 5× Brain Coral Fan. At night."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -78,13 +63,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:soul_sand_valley",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Seelensandtal.",
-    "en": "Reach Soul Sand Valley."
-   },
-   "hint": {
-    "en": "Reach Soul Sand Valley."
    }
   }
  ],
@@ -108,18 +86,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Entrindeter Birkenstamm. Nachts. In einem passenden Biom.",
-    "en": "Place Stripped Birch Log. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Stripped Birch Log. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 껍질 벗긴 자작나무 원목을 놓았어요.",
-  "textDe": "Entrindeter Birkenstamm — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Stripped Birch Log is complete."
+  "textKo": "밤에 산에서 껍질 벗긴 자작나무 원목을 놓았어요."
  },
  "reward": {
   "badge": "weltwunder",
@@ -131,6 +100,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "돌",
- "titleEn": "The World Wonder"
+ "topic": "돌"
 }

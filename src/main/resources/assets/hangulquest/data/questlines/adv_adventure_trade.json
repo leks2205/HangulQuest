@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_trade",
  "titleKo": "훌륭한 거래군요!",
- "titleDe": "Was für ein Geschäft!",
  "topic": "adventure",
  "tier": 2,
  "order": 235,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:spruce_pressure_plate",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Fichtenholzdruckplatte.",
-    "en": "Collect 3× Spruce Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect 3× Spruce Pressure Plate."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:guardian",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Wächter an.",
-    "en": "Look at Guardian."
-   },
-   "hint": {
-    "en": "Look at Guardian."
    }
   }
  ],
@@ -66,18 +51,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:dolphin"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Delfin.",
-    "en": "Talk to Dolphin."
-   },
-   "hint": {
-    "en": "Talk to Dolphin."
-   }
+   "conditions": []
   },
-  "textKo": "돌고래에게 먹이를 줬어요.",
-  "textDe": "Delfin — Zeremonie vollendet.",
-  "textEn": "the ritual of Dolphin is complete."
+  "textKo": "돌고래에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "adv_adventure_trade",
@@ -86,6 +62,5 @@
    "villager"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "What a Deal!"
+ "koreanLevel": 2
 }

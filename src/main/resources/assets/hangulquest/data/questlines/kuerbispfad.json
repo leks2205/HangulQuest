@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kuerbispfad",
  "titleKo": "호박의 길",
- "titleDe": "Der Kürbispfad",
  "topic": "호박",
  "tier": 1,
  "order": 129,
@@ -26,13 +25,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pumpkin",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Kürbisse.",
-    "en": "Collect 3× Pumpkin."
-   },
-   "hint": {
-    "en": "Collect 3× Pumpkin."
    }
   },
   {
@@ -45,14 +37,8 @@
     "block": "minecraft:pumpkin",
     "count": 2
    },
-   "clue": {
-    "de": "Setz zwei Kürbisse.",
-    "en": "Place 2× Pumpkin."
-   },
    "hint": {
-    "ko": "조각된 호박은 가위로 호박을 깎아 만들어요.",
-    "de": "Geschnitzte Kürbisse entstehen mit einer Schere.",
-    "en": "Place 2× Pumpkin."
+    "ko": "조각된 호박은 가위로 호박을 깎아 만들어요."
    }
   },
   {
@@ -64,13 +50,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:carved_pumpkin",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau einen geschnitzten Kürbis an.",
-    "en": "Look at Carved Pumpkin."
-   },
-   "hint": {
-    "en": "Look at Carved Pumpkin."
    }
   }
  ],
@@ -85,18 +64,9 @@
     "block": "minecraft:purpur_pillar",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Purpursäule.",
-    "en": "Place Purpur Pillar."
-   },
-   "hint": {
-    "en": "Place Purpur Pillar."
-   }
+   "conditions": []
   },
-  "textKo": "퍼퍼 기둥을 놓았어요.",
-  "textDe": "Purpursäule — Zeremonie vollendet.",
-  "textEn": "the ritual of Purpur Pillar is complete."
+  "textKo": "퍼퍼 기둥을 놓았어요."
  },
  "reward": {
   "badge": "kuerbispfad",
@@ -105,6 +75,5 @@
    "carved_pumpkin"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Pumpkin Trail"
+ "koreanLevel": 1
 }

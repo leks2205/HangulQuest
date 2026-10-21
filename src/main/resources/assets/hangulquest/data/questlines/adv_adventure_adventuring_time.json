@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_adventuring_time",
  "titleKo": "모험의 시간",
- "titleDe": "Abenteuerzeit",
  "topic": "adventure",
  "tier": 2,
  "order": 200,
@@ -28,13 +27,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:desert",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Wandere in die Wüste und bleib dort stehen, bis sie als entdeckt gilt.",
-    "en": "Reach Desert."
-   },
-   "hint": {
-    "en": "Reach Desert."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:jungle",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Reise in den Dschungel und halte dich dort eine Weile auf.",
-    "en": "Reach Jungle."
-   },
-   "hint": {
-    "en": "Reach Jungle."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "biome": "minecraft:forest",
     "dwellMs": 1000
    },
-   "conditions": [],
-   "clue": {
-    "de": "Erreiche den Wald als letzten fehlenden Fleck der Biomekarte.",
-    "en": "Reach Forest."
-   },
-   "hint": {
-    "en": "Reach Forest."
-   }
+   "conditions": []
   },
-  "textKo": "모험의 시간 — 숲과 사막과 정글을 모두 걸어서 만났어요.",
-  "textDe": "Abenteuerzeit — Wald, Wüste und Dschungel sind entdeckt.",
-  "textEn": "the ritual of Forest is complete."
+  "textKo": "모험의 시간 — 숲과 사막과 정글을 모두 걸어서 만났어요."
  },
  "reward": {
   "badge": "adv_adventure_adventuring_time",
@@ -88,6 +64,5 @@
    "forest"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Adventuring Time"
+ "koreanLevel": 3
 }

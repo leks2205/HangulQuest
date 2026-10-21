@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_remove_wolf_armor",
  "titleKo": "탁월한 가위질",
- "titleDe": "Schnipp‐schnapp!",
  "topic": "husbandry",
  "tier": 2,
  "order": 274,
@@ -29,13 +28,8 @@
     "item": "minecraft:shears",
     "count": 1
    },
-   "clue": {
-    "de": "Schmiede eine Schere aus zwei Eisenbarren.",
-    "en": "Collect Shears."
-   },
    "hint": {
-    "ko": "철 주괴 두 개로 만들어요.",
-    "en": "Collect Shears."
+    "ko": "철 주괴 두 개로 만들어요."
    }
   },
   {
@@ -47,13 +41,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:jungle_pressure_plate",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tropenholzdruckplatte.",
-    "en": "Collect Jungle Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect Jungle Pressure Plate."
    }
   }
  ],
@@ -67,17 +54,9 @@
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:wolf"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Wolf."
-   },
-   "hint": {
-    "en": "Talk to Wolf."
-   }
+   "conditions": []
   },
-  "textKo": "탁월한 가위질 — 늑대의 갑옷을 가위로 벗겨요.",
-  "textDe": "Schnipp‐schnapp! — Du schneidest dem Wolf die Rüstung vom Leib.",
-  "textEn": "the ritual of Wolf is complete."
+  "textKo": "탁월한 가위질 — 늑대의 갑옷을 가위로 벗겨요."
  },
  "reward": {
   "badge": "adv_husbandry_remove_wolf_armor",
@@ -87,6 +66,5 @@
    "wolf"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Shear Brilliance"
+ "koreanLevel": 2
 }

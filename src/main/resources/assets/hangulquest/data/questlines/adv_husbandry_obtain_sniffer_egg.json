@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_obtain_sniffer_egg",
  "titleKo": "흥미로운 냄새",
- "titleDe": "Ein ungewöhnlicher Geruch",
  "topic": "husbandry",
  "tier": 2,
  "order": 270,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:turtle_helmet",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schildkrötenpanzer.",
-    "en": "Collect Turtle Shell."
-   },
-   "hint": {
-    "en": "Collect Turtle Shell."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:sand",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Halte in einer warmen Ozeanruine nach verdächtigem Sand Ausschau.",
-    "en": "Look at Sand."
-   },
-   "hint": {
-    "en": "Look at Sand."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:redstone_torch",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Redstone-Fackel.",
-    "en": "Collect Redstone Torch."
-   },
-   "hint": {
-    "en": "Collect Redstone Torch."
-   }
+   "conditions": []
   },
-  "textKo": "레드스톤 횃불을 구했어요.",
-  "textDe": "Redstone-Fackel — Zeremonie vollendet.",
-  "textEn": "the ritual of Redstone Torch is complete."
+  "textKo": "레드스톤 횃불을 구했어요."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_sniffer_egg",
@@ -88,6 +64,5 @@
    "adv_item_sniffer_egg"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Smells Interesting"
+ "koreanLevel": 1
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_upgrade_tools",
  "titleKo": "더욱더 좋게",
- "titleDe": "Technischer Fortschritt",
  "topic": "story",
  "tier": 2,
  "order": 325,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:end_stone",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Endstein.",
-    "en": "Collect 3× End Stone."
-   },
-   "hint": {
-    "en": "Collect 3× End Stone."
    }
   },
   {
@@ -46,13 +38,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:decorated_pot"
-   },
-   "clue": {
-    "de": "Benutze Verzierter Krug.",
-    "en": "Use Decorated Pot."
-   },
-   "hint": {
-    "en": "Use Decorated Pot."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cracked_deepslate_tiles",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Rissige Tiefenschieferfliesen.",
-    "en": "Collect 2× Cracked Deepslate Tiles."
-   },
-   "hint": {
-    "en": "Collect 2× Cracked Deepslate Tiles."
    }
   }
  ],
@@ -85,20 +63,12 @@
     "item": "minecraft:stone_pickaxe",
     "count": 1
    },
-   "clue": {
-    "de": "Baue eine Steinspitzhacke an der Werkbank.",
-    "en": "Collect Stone Pickaxe."
-   },
    "hint": {
-    "ko": "돌 곡괭이는 조약돌 세 개와 막대기 두 개로 만들어요.",
-    "de": "Steinspitzhacke: drei Bruchstein und zwei Stöcke.",
-    "en": "Collect Stone Pickaxe."
+    "ko": "돌 곡괭이는 조약돌 세 개와 막대기 두 개로 만들어요."
    },
    "conditions": []
   },
-  "textKo": "더욱더 좋게 — 돌 곡괭이를 들었어요. 이제 더 단단한 것도 캐요.",
-  "textDe": "Technischer Fortschritt — Mit der Steinspitzhacke geht es tiefer.",
-  "textEn": "the ritual of Stone Pickaxe is complete."
+  "textKo": "더욱더 좋게 — 돌 곡괭이를 들었어요. 이제 더 단단한 것도 캐요."
  },
  "reward": {
   "badge": "adv_story_upgrade_tools",
@@ -109,6 +79,5 @@
    "adv_block_stone_pickaxe"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Getting an Upgrade"
+ "koreanLevel": 2
 }

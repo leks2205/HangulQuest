@@ -12,12 +12,10 @@ animals, biomes, verbs and a few abstract words. Each one looks like this:
 {
   "id": "stone",
   "ko": "돌",
-  "de": "Stein",
   "category": "BLOCKS",
   "tier": 1,
   "items": ["minecraft:stone"],
   "sentenceKo": "돌을 캐요.",
-  "sentenceDe": "Stein abbauen.",
   "descKo": "땅에서 나와요. 단단해요.",
   "aliases": ["돌"]
 }
@@ -26,12 +24,12 @@ animals, biomes, verbs and a few abstract words. Each one looks like this:
 | Field | Meaning |
 |---|---|
 | `id` | stable id used by questlines (`"teach": ["stone"]`) |
-| `ko`, `de` | the word in Korean and German |
+| `ko` | the word in Korean. Its English and German gloss is not in this file but in `lang/content/en_us.json` and `de_de.json` (`hangulquest.word.<id>.gloss`); an `en` or `de` field here would still win, for a resource pack that replaces the file |
 | `category` | `BLOCKS`, `MATERIALS`, `TOOLS`, `FOOD`, `ANIMALS`, `COMBAT`, `BUILDING`, `ENVIRONMENT`, `ACTIONS`, `MISC` — used to pick a sensible goal |
 | `tier` | how early the word belongs in the tree |
 | `items` | the game items the concept maps to, so the engine can check goals |
 | `entity` / `biome` | present when the concept is a mob or a biome (`minecraft:cow`, `minecraft:plains`) |
-| `sentenceKo` / `sentenceDe` | a model sentence the mod can fall back on |
+| `sentenceKo` | a model sentence the mod can fall back on; its translation is the key `hangulquest.word.<id>.sentence` |
 | `descKo` | one line in easy Korean used by hints; must be Hangul-only |
 | `aliases` | other spellings that should resolve to this concept |
 

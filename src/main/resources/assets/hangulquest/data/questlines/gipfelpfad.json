@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gipfelpfad",
  "titleKo": "꼭대기의 길",
- "titleDe": "Der Gipfelpfad",
  "tier": 2,
  "concepts": [
   "gen_snowy_taiga",
@@ -27,13 +26,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_taiga",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Verschneite Taiga.",
-    "en": "Reach Snowy Taiga."
-   },
-   "hint": {
-    "en": "Reach Snowy Taiga."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:gray_glazed_terracotta",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Graue glasierte Keramik ab.",
-    "en": "Break 2× Gray Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Break 2× Gray Glazed Terracotta."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:iron_ore",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Eisenerz an.",
-    "en": "Look at Iron Ore."
-   },
-   "hint": {
-    "en": "Look at Iron Ore."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Benutze Schmelzofen. Nachts. In einem passenden Biom.",
-    "en": "Use Blast Furnace. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use Blast Furnace. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 용광로를 열었어요.",
-  "textDe": "Schmelzofen — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Blast Furnace is complete."
+  "textKo": "밤에 산에서 용광로를 열었어요."
  },
  "reward": {
   "badge": "gipfelpfad",
@@ -115,6 +84,5 @@
  },
  "order": 170,
  "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The Summit Trail"
+ "topic": "산"
 }

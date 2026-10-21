@@ -2,14 +2,13 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/leks2205/HangulQuest/main/docs/questline.schema.json",
   "title": "Hangul Quest questline",
-  "description": "One questline: clues that build on each other, a ritual finale and a reward. Files live in src/main/resources/assets/hangulquest/data/questlines/ or in config/hangulquest/questlines/ inside the player's instance. Korean fields must be Hangul-only.",
+  "description": "One questline: clues that build on each other, a ritual finale and a reward. Files live in src/main/resources/assets/hangulquest/data/questlines/ or in config/hangulquest/questlines/ inside the player's instance. Korean fields must be Hangul-only. The English and German text of shipped trails (titles, clues, hints, finale text) is not in the file: it lives in assets/hangulquest/lang/content/<code>.json under hangulquest.trail.<id>.* keys. The inline fields titleEn, titleDe, clue.en/de, hint.en/de and finale.textEn/textDe are still read, for questline files a player or a resource pack adds, and they win over the keys.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema",
     "id",
     "titleKo",
-    "titleDe",
     "topic",
     "tier",
     "order",
@@ -58,11 +57,11 @@
         },
         "de": {
           "type": "string",
-          "description": "German line, shown when German is the interface language and translations are on."
+          "description": "Inline German line for a player's own file, shown when German is the interface language and translations are on. Shipped trails use the keys hangulquest.trail.<id>.step.<step>.clue and .hint. Wins over the key."
         },
         "en": {
           "type": "string",
-          "description": "English line, shown when English is the interface language and translations are on."
+          "description": "Inline English line for a player's own file, shown when English is the interface language and translations are on. Shipped trails use the keys hangulquest.trail.<id>.step.<step>.clue and .hint. Wins over the key."
         }
       }
     },
@@ -920,11 +919,11 @@
     },
     "titleEn": {
       "type": "string",
-      "description": "English title, shown when English is the interface language."
+      "description": "Inline English title for a player's own file; shipped trails use the key hangulquest.trail.<id>.title. Wins over the key."
     },
     "titleDe": {
       "type": "string",
-      "minLength": 1
+      "description": "Inline German title for a player's own file; shipped trails use the key hangulquest.trail.<id>.title. Wins over the key."
     },
     "demo": {
       "type": "boolean",
@@ -991,8 +990,7 @@
       "additionalProperties": false,
       "required": [
         "step",
-        "textKo",
-        "textDe"
+        "textKo"
       ],
       "properties": {
         "step": {
@@ -1003,11 +1001,13 @@
         },
         "textDe": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "Inline German ceremony text for a player's own file; shipped trails use the key hangulquest.trail.<id>.finale. Wins over the key."
         },
         "textEn": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "Inline English ceremony text for a player's own file; shipped trails use the key hangulquest.trail.<id>.finale. Wins over the key."
         }
       }
     },

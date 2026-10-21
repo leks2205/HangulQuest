@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_08",
  "titleKo": "우주의 노래",
- "titleDe": "Das Lied des Kosmos",
  "topic": "노래",
  "tier": 2,
  "order": 1118,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:purpur_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Purpurtreppe.",
-    "en": "Collect Purpur Stairs."
-   },
-   "hint": {
-    "en": "Collect Purpur Stairs."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:blue_wool",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Blaue Wolle.",
-    "en": "Place 4× Blue Wool."
-   },
-   "hint": {
-    "en": "Place 4× Blue Wool."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:brick_wall",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Ziegelsteinmauer.",
-    "en": "Place 2× Brick Wall."
-   },
-   "hint": {
-    "en": "Place 2× Brick Wall."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:cyan_harness",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Türkises Geschirr.",
-    "en": "Collect 2× Cyan Harness."
-   },
-   "hint": {
-    "en": "Collect 2× Cyan Harness."
-   }
+   "conditions": []
   },
-  "textKo": "청록색 하네스를 두 개 만들었어요.",
-  "textDe": "Türkises Geschirr — Zeremonie vollendet.",
-  "textEn": "the ritual of Cyan Harness is complete."
+  "textKo": "청록색 하네스를 두 개 만들었어요."
  },
  "reward": {
   "badge": "w11_08",
@@ -108,6 +77,5 @@
    "adv_item_shulker_shell"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Song of the Cosmos"
+ "koreanLevel": 6
 }

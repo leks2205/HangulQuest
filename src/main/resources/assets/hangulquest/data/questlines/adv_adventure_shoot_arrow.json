@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_shoot_arrow",
  "titleKo": "정조준",
- "titleDe": "Zielübungen",
  "topic": "adventure",
  "tier": 2,
  "order": 225,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:deepslate",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tiefenschiefer.",
-    "en": "Collect Deepslate."
-   },
-   "hint": {
-    "en": "Collect Deepslate."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:redstone_lamp",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Redstone-Lampe.",
-    "en": "Collect 8× Redstone Lamp."
-   },
-   "hint": {
-    "en": "Collect 8× Redstone Lamp."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:wither_skeleton",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Wither-Skelett.",
-    "en": "Defeat Wither Skeleton."
-   },
-   "hint": {
-    "en": "Defeat Wither Skeleton."
-   }
+   "conditions": []
   },
-  "textKo": "위더 스켈레톤을 물리쳤어요.",
-  "textDe": "Wither-Skelett — Zeremonie vollendet.",
-  "textEn": "the ritual of Wither Skeleton is complete."
+  "textKo": "위더 스켈레톤을 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_shoot_arrow",
@@ -88,6 +64,5 @@
    "zombie"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Take Aim"
+ "koreanLevel": 3
 }

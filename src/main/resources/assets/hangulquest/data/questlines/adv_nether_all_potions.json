@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_all_potions",
  "titleKo": "뿅가는 폭탄주",
- "titleDe": "Eine gefährliche Mischung",
  "topic": "nether",
  "tier": 2,
  "order": 288,
@@ -28,13 +27,8 @@
     "item": "minecraft:brewing_stand",
     "count": 1
    },
-   "clue": {
-    "de": "Stell einen Braustand auf – ohne ihn läuft in der Alchemie nichts.",
-    "en": "Collect Brewing Stand."
-   },
    "hint": {
-    "ko": "양조기를 만들어요. 블레이즈 막대기가 필요해요.",
-    "en": "Collect Brewing Stand."
+    "ko": "양조기를 만들어요. 블레이즈 막대기가 필요해요."
    }
   },
   {
@@ -47,13 +41,8 @@
     "item": "minecraft:nether_wart",
     "count": 3
    },
-   "clue": {
-    "de": "Netherwarzen sind die Basis für jeden Trank, den du brauen willst.",
-    "en": "Collect 3× Nether Wart."
-   },
    "hint": {
-    "ko": "네더 사마귀를 모아요. 요새의 계단에서 자라요.",
-    "en": "Collect 3× Nether Wart."
+    "ko": "네더 사마귀를 모아요. 요새의 계단에서 자라요."
    }
   }
  ],
@@ -68,18 +57,11 @@
     "block": "minecraft:brewing_stand"
    },
    "conditions": [],
-   "clue": {
-    "de": "Brau am Stand Trank um Trank, bis jede Sorte fertig in der Flasche ist.",
-    "en": "Use Brewing Stand."
-   },
    "hint": {
-    "ko": "양조기를 사용해요.",
-    "en": "Use Brewing Stand."
+    "ko": "양조기를 사용해요."
    }
   },
-  "textKo": "모든 물약을 다 만들었어요! 이건 진짜 폭탄주예요.",
-  "textDe": "Jede Trank-Sorte gebraut – eine gefährliche Mischung.",
-  "textEn": "the ritual of Brewing Stand is complete."
+  "textKo": "모든 물약을 다 만들었어요! 이건 진짜 폭탄주예요."
  },
  "reward": {
   "badge": "adv_nether_all_potions",
@@ -88,6 +70,5 @@
    "nether_wart"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "A Furious Cocktail"
+ "koreanLevel": 3
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "waldlicht",
  "titleKo": "숲빛의 길",
- "titleDe": "Das Waldlicht",
  "topic": "나무",
  "tier": 3,
  "order": 46,
@@ -30,13 +29,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:glass",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Glas ab.",
-    "en": "Break 3× Glass."
-   },
-   "hint": {
-    "en": "Break 3× Glass."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:lime_wool_slab",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Hellgrüne Wollstufe an.",
-    "en": "Look at Lime Wool Slab."
-   },
-   "hint": {
-    "en": "Look at Lime Wool Slab."
    }
   },
   {
@@ -72,14 +57,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Tropenholzzauntor. Nachts.",
-    "en": "Place 2× Jungle Fence Gate. At night."
-   },
-   "hint": {
-    "en": "Place 2× Jungle Fence Gate. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -98,18 +76,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Oranges Glas. Nachts.",
-    "en": "Place Orange Stained Glass. At night."
-   },
-   "hint": {
-    "en": "Place Orange Stained Glass. At night."
-   }
+   ]
   },
-  "textKo": "밤에 주황색 색유리를 놓았어요.",
-  "textDe": "Oranges Glas — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Orange Stained Glass is complete."
+  "textKo": "밤에 주황색 색유리를 놓았어요."
  },
  "reward": {
   "badge": "waldlicht",
@@ -119,6 +88,5 @@
    "torch"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Forest Light"
+ "koreanLevel": 1
 }

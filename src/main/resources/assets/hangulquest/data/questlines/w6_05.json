@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_05",
  "titleKo": "버섯 그늘",
- "titleDe": "Im Schatten der Pilze",
  "topic": "버섯",
  "tier": 2,
  "order": 1065,
@@ -30,14 +29,8 @@
     "block": "minecraft:red_mushroom",
     "count": 2
    },
-   "clue": {
-    "de": "Brich zwei rote Pilze aus dem feuchten Boden.",
-    "en": "Break 2× Red Mushroom."
-   },
    "hint": {
-    "ko": "빨간 버섯은 어두운 곳에서 자라요.",
-    "de": "Rote Pilze wachsen im Dunkeln.",
-    "en": "Break 2× Red Mushroom."
+    "ko": "빨간 버섯은 어두운 곳에서 자라요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:brown_glazed_terracotta",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Braune glasierte Keramik.",
-    "en": "Collect 3× Brown Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 3× Brown Glazed Terracotta."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:nether_sprouts",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Nethersprossen.",
-    "en": "Place 2× Nether Sprouts."
-   },
-   "hint": {
-    "en": "Place 2× Nether Sprouts."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:gray_shulker_box",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Graue Shulker-Kiste.",
-    "en": "Collect Gray Shulker Box."
-   },
-   "hint": {
-    "en": "Collect Gray Shulker Box."
-   }
+   "conditions": []
   },
-  "textKo": "회색 셜커 상자를 만들었어요.",
-  "textDe": "Graue Shulker-Kiste — Zeremonie vollendet.",
-  "textEn": "the ritual of Gray Shulker Box is complete."
+  "textKo": "회색 셜커 상자를 만들었어요."
  },
  "reward": {
   "badge": "w6_05",
@@ -109,6 +79,5 @@
    "bowl"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "In the Shadow of Mushrooms"
+ "koreanLevel": 3
 }

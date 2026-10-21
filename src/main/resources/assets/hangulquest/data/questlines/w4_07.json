@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_07",
  "titleKo": "항구 시장",
- "titleDe": "Der Hafenmarkt",
  "topic": "시장",
  "tier": 2,
  "order": 1047,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:tinted_glass",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Getöntes Glas.",
-    "en": "Collect 4× Tinted Glass."
-   },
-   "hint": {
-    "en": "Collect 4× Tinted Glass."
    }
   },
   {
@@ -46,13 +38,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:mooshroom"
-   },
-   "clue": {
-    "de": "Interagiere mit Mooshroom.",
-    "en": "Talk to Mooshroom."
-   },
-   "hint": {
-    "en": "Talk to Mooshroom."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_ice",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Blaueis.",
-    "en": "Collect 2× Blue Ice."
-   },
-   "hint": {
-    "en": "Collect 2× Blue Ice."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:azalea",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Azalee.",
-    "en": "Place Azalea."
-   },
-   "hint": {
-    "en": "Place Azalea."
    }
   },
-  "textKo": "진달래를 심었어요.",
-  "textDe": "Azalee — Zeremonie vollendet.",
-  "textEn": "the ritual of Azalea is complete."
+  "textKo": "진달래를 심었어요."
  },
  "reward": {
   "badge": "w4_07",
@@ -106,6 +75,5 @@
    "chest"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Harbour Market"
+ "koreanLevel": 2
 }

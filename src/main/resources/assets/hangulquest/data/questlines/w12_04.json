@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w12_04",
  "titleKo": "지옥의 문",
- "titleDe": "Das Tor zur Hölle",
  "topic": "지옥",
  "tier": 2,
  "order": 1124,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_wool_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Weiße Wollstufe.",
-    "en": "Place White Wool Slab."
-   },
-   "hint": {
-    "en": "Place White Wool Slab."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:polished_diorite_slab",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue 8× Polierte Dioritstufe ab.",
-    "en": "Break 8× Polished Diorite Slab."
-   },
-   "hint": {
-    "en": "Break 8× Polished Diorite Slab."
    }
   },
   {
@@ -66,14 +51,8 @@
     "entity": "minecraft:ghast",
     "count": 1
    },
-   "clue": {
-    "de": "Besiege einen Ghast, der über dem See aus Lava schwebt.",
-    "en": "Defeat Ghast."
-   },
    "hint": {
-    "ko": "가스트는 화살로 물리치고 눈물을 모아요.",
-    "de": "Ghasts besiegt man mit Pfeilen und sammelt ihre Tränen.",
-    "en": "Defeat Ghast."
+    "ko": "가스트는 화살로 물리치고 눈물을 모아요."
    }
   }
  ],
@@ -93,18 +72,9 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_nether"
     }
-   ],
-   "clue": {
-    "de": "Platziere 8× Türkise Wolle. In einer anderen Dimension.",
-    "en": "Place 8× Cyan Wool. In another dimension."
-   },
-   "hint": {
-    "en": "Place 8× Cyan Wool. In another dimension."
-   }
+   ]
   },
-  "textKo": "네더에서 청록색 양털을 여덟 개 쌓았어요.",
-  "textDe": "Türkise Wolle — Zeremonie vollendet.",
-  "textEn": "In the Nether the ritual of Cyan Wool is complete."
+  "textKo": "네더에서 청록색 양털을 여덟 개 쌓았어요."
  },
  "reward": {
   "badge": "w12_04",
@@ -115,6 +85,5 @@
    "magma"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Gate to Hell"
+ "koreanLevel": 6
 }

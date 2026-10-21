@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_03",
  "titleKo": "나그네의 주머니",
- "titleDe": "Der Beutel des Wanderers",
  "topic": "길",
  "tier": 2,
  "order": 1033,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:shelf_mushroom",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Baumpilz.",
-    "en": "Collect Shelf Mushroom."
-   },
-   "hint": {
-    "en": "Collect Shelf Mushroom."
    }
   },
   {
@@ -46,13 +38,6 @@
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:axolotl"
-   },
-   "clue": {
-    "de": "Interagiere mit Axolotl.",
-    "en": "Talk to Axolotl."
-   },
-   "hint": {
-    "en": "Talk to Axolotl."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pink_tulip",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rosa Tulpe.",
-    "en": "Collect Pink Tulip."
-   },
-   "hint": {
-    "en": "Collect Pink Tulip."
    }
   }
  ],
@@ -85,18 +63,9 @@
     "block": "minecraft:spruce_log",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Fichtenstamm.",
-    "en": "Place Spruce Log."
-   },
-   "hint": {
-    "en": "Place Spruce Log."
-   }
+   "conditions": []
   },
-  "textKo": "가문비나무 원목을 놓았어요.",
-  "textDe": "Fichtenstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Spruce Log is complete."
+  "textKo": "가문비나무 원목을 놓았어요."
  },
  "reward": {
   "badge": "w3_03",
@@ -107,6 +76,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Wanderer's Bundle"
+ "koreanLevel": 2
 }

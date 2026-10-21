@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_tactical_fishing",
  "titleKo": "이 대신 잇몸으로",
- "titleDe": "Taktisches Fischen",
  "topic": "husbandry",
  "tier": 2,
  "order": 280,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:danger_pottery_sherd",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gefahren-Töpferscherbe.",
-    "en": "Collect Danger Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect Danger Pottery Sherd."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:birch_door",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Birkenholztür.",
-    "en": "Collect Birch Door."
-   },
-   "hint": {
-    "en": "Collect Birch Door."
    }
   }
  ],
@@ -67,17 +52,9 @@
     "item": "minecraft:pufferfish_bucket",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Collect Bucket of Pufferfish."
-   },
-   "hint": {
-    "en": "Collect Bucket of Pufferfish."
-   }
+   "conditions": []
   },
-  "textKo": "이 대신 잇몸으로 — 양동이로 복어를 잡아요.",
-  "textDe": "Taktisches Fischen — Statt mit der Angel schöpfst du einen Kugelfisch in den Eimer.",
-  "textEn": "the ritual of Bucket of Pufferfish is complete."
+  "textKo": "이 대신 잇몸으로 — 양동이로 복어를 잡아요."
  },
  "reward": {
   "badge": "adv_husbandry_tactical_fishing",
@@ -87,6 +64,5 @@
    "adv_item_pufferfish_bucket"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Tactical Fishing"
+ "koreanLevel": 2
 }

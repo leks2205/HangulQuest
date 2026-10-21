@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_spyglass_at_dragon",
  "titleKo": "비행기인가?",
- "titleDe": "Ist es ein Flugzeug?",
  "topic": "adventure",
  "tier": 2,
  "order": 229,
@@ -29,14 +28,8 @@
     "item": "minecraft:spyglass",
     "count": 1
    },
-   "clue": {
-    "de": "Baue ein Fernrohr aus Kupfer und einem Amethystsplitter.",
-    "en": "Collect Spyglass."
-   },
    "hint": {
-    "ko": "망원경은 구리 주괴 두 개와 자수정 조각 한 개로 만들어요.",
-    "de": "Ein Fernrohr besteht aus zwei Kupferbarren und einem Amethystsplitter.",
-    "en": "Collect Spyglass."
+    "ko": "망원경은 구리 주괴 두 개와 자수정 조각 한 개로 만들어요."
    }
   },
   {
@@ -47,13 +40,6 @@
    "goal": {
     "type": "REACH_DIMENSION",
     "dimension": "minecraft:the_end"
-   },
-   "clue": {
-    "de": "Reise durch das Endportal in die Enddimension.",
-    "en": "Enter minecraft:the_end."
-   },
-   "hint": {
-    "en": "Enter minecraft:the_end."
    }
   }
  ],
@@ -68,17 +54,9 @@
     "entity": "minecraft:ender_dragon",
     "dwellMs": 700
    },
-   "conditions": [],
-   "clue": {
-    "en": "Look at Ender Dragon."
-   },
-   "hint": {
-    "en": "Look at Ender Dragon."
-   }
+   "conditions": []
   },
-  "textKo": "비행기인가? — 망원경으로 엔더 드래곤을 봐요. 날개가 아주 커요.",
-  "textDe": "Ist es ein Flugzeug? — Durch das Fernrohr siehst du den Enderdrachen mit seinen großen Flügeln.",
-  "textEn": "the ritual of Ender Dragon is complete."
+  "textKo": "비행기인가? — 망원경으로 엔더 드래곤을 봐요. 날개가 아주 커요."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_dragon",
@@ -88,6 +66,5 @@
    "ender_dragon"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Is It a Plane?"
+ "koreanLevel": 3
 }

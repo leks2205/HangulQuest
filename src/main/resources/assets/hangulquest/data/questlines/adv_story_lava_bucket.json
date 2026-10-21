@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_lava_bucket",
  "titleKo": "화끈한 화제",
- "titleDe": "Manche mögen’s heiß",
  "topic": "story",
  "tier": 2,
  "order": 318,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:green_dye",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Grüner Farbstoff.",
-    "en": "Collect 3× Green Dye."
-   },
-   "hint": {
-    "en": "Collect 3× Green Dye."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:deepslate_lapis_ore",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tiefenschiefer-Lapislazulierz.",
-    "en": "Collect Deepslate Lapis Lazuli Ore."
-   },
-   "hint": {
-    "en": "Collect Deepslate Lapis Lazuli Ore."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:lava",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Stehe an einem Lavasee und sieh ins Feuer.",
-    "en": "Look at Lava."
-   },
-   "hint": {
-    "en": "Look at Lava."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:black_harness",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Schwarzes Geschirr.",
-    "en": "Collect Black Harness."
-   },
-   "hint": {
-    "en": "Collect Black Harness."
-   }
+   "conditions": []
   },
-  "textKo": "검은색 하네스를 만들었어요.",
-  "textDe": "Schwarzes Geschirr — Zeremonie vollendet.",
-  "textEn": "the ritual of Black Harness is complete."
+  "textKo": "검은색 하네스를 만들었어요."
  },
  "reward": {
   "badge": "adv_story_lava_bucket",
@@ -107,6 +76,5 @@
    "lava"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Hot Stuff"
+ "koreanLevel": 2
 }

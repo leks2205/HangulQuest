@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_brew_potion",
  "titleKo": "물약 양조장",
- "titleDe": "Alchemie",
  "topic": "nether",
  "tier": 2,
  "order": 289,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_glazed_terracotta",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Blaue glasierte Keramik.",
-    "en": "Collect 3× Blue Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 3× Blue Glazed Terracotta."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cyan_shulker_box",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Türkise Shulker-Kiste.",
-    "en": "Collect Cyan Shulker Box."
-   },
-   "hint": {
-    "en": "Collect Cyan Shulker Box."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:crimson_roots",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Karmesinwurzeln.",
-    "en": "Collect Crimson Roots."
-   },
-   "hint": {
-    "en": "Collect Crimson Roots."
-   }
+   "conditions": []
   },
-  "textKo": "진홍빛 뿌리를 구했어요.",
-  "textDe": "Karmesinwurzeln — Zeremonie vollendet.",
-  "textEn": "the ritual of Crimson Roots is complete."
+  "textKo": "진홍빛 뿌리를 구했어요."
  },
  "reward": {
   "badge": "adv_nether_brew_potion",
@@ -88,6 +64,5 @@
    "adv_item_potion"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Local Brewery"
+ "koreanLevel": 3
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w4_02",
  "titleKo": "등대 불빛",
- "titleDe": "Das Leuchtturmlicht",
  "topic": "등대",
  "tier": 2,
  "order": 1042,
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:old_growth_spruce_taiga",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Fichten-Urtaiga.",
-    "en": "Reach Old Growth Spruce Taiga."
-   },
-   "hint": {
-    "en": "Reach Old Growth Spruce Taiga."
    }
   },
   {
@@ -48,14 +40,8 @@
     "entity": "minecraft:squid",
     "count": 2
    },
-   "clue": {
-    "de": "Erlege zwei Tintenfische.",
-    "en": "Defeat 2× Squid."
-   },
    "hint": {
-    "ko": "오징어는 물속에서 헤엄쳐요.",
-    "de": "Tintenfische schwimmen im Wasser.",
-    "en": "Defeat 2× Squid."
+    "ko": "오징어는 물속에서 헤엄쳐요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:white_concrete_stairs",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Weiße Betontreppe.",
-    "en": "Collect 2× White Concrete Stairs."
-   },
-   "hint": {
-    "en": "Collect 2× White Concrete Stairs."
    }
   }
  ],
@@ -93,18 +72,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Roheisenblock. Nachts.",
-    "en": "Place Block of Raw Iron. At night."
-   },
-   "hint": {
-    "en": "Place Block of Raw Iron. At night."
-   }
+   ]
   },
-  "textKo": "밤에 철 원석 블록을 놓았어요.",
-  "textDe": "Roheisenblock — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Block of Raw Iron is complete."
+  "textKo": "밤에 철 원석 블록을 놓았어요."
  },
  "reward": {
   "badge": "w4_02",
@@ -115,6 +85,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Lighthouse Light"
+ "koreanLevel": 2
 }

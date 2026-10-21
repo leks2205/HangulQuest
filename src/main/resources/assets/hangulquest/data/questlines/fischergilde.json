@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "fischergilde",
  "titleKo": "어부 길드의 길",
- "titleDe": "Der Fischergildenpfad",
  "topic": "어부 길드",
  "tier": 3,
  "order": 171,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:tuff_brick_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Tuffsteinziegelmauer.",
-    "en": "Collect 3× Tuff Brick Wall."
-   },
-   "hint": {
-    "en": "Collect 3× Tuff Brick Wall."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:waxed_weathered_copper_golem_statue",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Gewachste verwitterte Kupfergolemstatue.",
-    "en": "Place Waxed Weathered Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Place Waxed Weathered Copper Golem Statue."
    }
   },
   {
@@ -65,13 +50,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:flower_pot"
-   },
-   "clue": {
-    "de": "Benutze Blumentopf.",
-    "en": "Use Flower Pot."
-   },
-   "hint": {
-    "en": "Use Flower Pot."
    }
   }
  ],
@@ -88,17 +66,10 @@
    },
    "conditions": [],
    "hint": {
-    "ko": "연어는 낚시나 바다에서 잡아요.",
-    "de": "Lachs fängst du beim Angeln oder im Meer.",
-    "en": "Collect 2× Raw Salmon."
-   },
-   "clue": {
-    "en": "Collect 2× Raw Salmon."
+    "ko": "연어는 낚시나 바다에서 잡아요."
    }
   },
-  "textKo": "연어를 모아 길드에 팔아요.",
-  "textDe": "Lachs für die Gilde sammeln.",
-  "textEn": "the ritual of Raw Salmon is complete."
+  "textKo": "연어를 모아 길드에 팔아요."
  },
  "reward": {
   "badge": "fischergilde",
@@ -109,6 +80,5 @@
    "salmon"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Fisher's Guild Trail"
+ "koreanLevel": 3
 }

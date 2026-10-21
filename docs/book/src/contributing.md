@@ -12,6 +12,9 @@ Short version:
 - **Interface strings** are keys named `hangulquest.ui.<area>.<name>` in `lang/en_us.json` (the reference)
   and `lang/de_de.json`; arguments are `%s`. A key a language lacks falls back to English. To add a
   language, copy `en_us.json` to `<code>.json`, translate it and list it in `data/languages.json`.
+- **Quest and word text** (trail titles, clues, hints, finale lines, word glosses) is keyed too, in
+  `lang/content/en_us.json` and `lang/content/de_de.json`. The questline JSON holds the Korean only; see the
+  [authoring guide](questlines.md).
 - **Bugs** go to the issue tracker with versions, the questline id and a log excerpt. Security problems
   go through the private advisory form, never a public issue.
 - **Be decent.** Grammar disagreements are expected; harassment is not.

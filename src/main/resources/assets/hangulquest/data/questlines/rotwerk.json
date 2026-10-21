@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "rotwerk",
  "titleKo": "붉은 실의 길",
- "titleDe": "Der rote Faden",
  "topic": "색",
  "tier": 2,
  "order": 1130,
@@ -31,14 +30,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "비트를 두 개 모아요.",
-    "de": "Stelle Rote Bete her.",
-    "en": "Collect 2× Beetroot."
+    "ko": "비트를 두 개 모아요."
    },
    "hint": {
-    "ko": "비트를 모아요.",
-    "de": "Stelle Rote Bete her.",
-    "en": "Collect 2× Beetroot."
+    "ko": "비트를 모아요."
    }
   },
   {
@@ -52,14 +47,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "비트를 봐요.",
-    "de": "Sieh dir Rote Bete an.",
-    "en": "Look at Beetroots."
+    "ko": "비트를 봐요."
    },
    "hint": {
-    "ko": "비트를 봐요.",
-    "de": "Sieh dir Rote Bete an.",
-    "en": "Look at Beetroots."
+    "ko": "비트를 봐요."
    }
   }
  ],
@@ -79,17 +70,9 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "en": "Place Red Banner. At dusk."
-   },
-   "hint": {
-    "en": "Place Red Banner. At dusk."
-   }
+   ]
   },
-  "textKo": "저녁에 붉은 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet.",
-  "textEn": "At dusk the ritual of Red Banner is complete."
+  "textKo": "저녁에 붉은 천을 펼쳤어요."
  },
  "reward": {
   "badge": "rotwerk",
@@ -98,6 +81,5 @@
    "gen_beetroots",
    "gen_red_banner"
   ]
- },
- "titleEn": "The Red Thread"
+ }
 }

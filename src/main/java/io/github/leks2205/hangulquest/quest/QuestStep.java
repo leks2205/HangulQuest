@@ -1,11 +1,18 @@
 package io.github.leks2205.hangulquest.quest;
 
+import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.List;
 import java.util.Objects;
 
-/** One clue step: a Korean instruction, the goal it verifies and the words it teaches. */
+/**
+ * One clue step: a Korean instruction, the goal it verifies and the words it teaches.
+ *
+ * <p>The English and German clue and hint come from the lang files under {@code textKey}
+ * ({@code hangulquest.trail.<id>.step.<sid>}, then {@code .clue} or {@code .hint}). The inline
+ * {@code clueEn}-style fields are what a player's questline file may carry; they win over the keys.
+ */
 public final class QuestStep {
 	public record Bonus(String structure, double radius) {
 	}
@@ -21,6 +28,8 @@ public final class QuestStep {
 	private final String hintDe;
 	private final String hintEn;
 	private final Bonus bonus;
+	/** Key prefix of this step's text in the lang files; null for a step built in code. */
+	private final String textKey;
 
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String hintKo, String hintDe, Bonus bonus) {
@@ -30,6 +39,13 @@ public final class QuestStep {
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String clueEn,
 					 String hintKo, String hintDe, String hintEn, Bonus bonus) {
+		this(id, teach, goal, conditions, clueKo, clueDe, clueEn, hintKo, hintDe, hintEn, bonus, null);
+	}
+
+	/** The canonical constructor: every field, including the key prefix of the lang texts. */
+	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
+					 String clueKo, String clueDe, String clueEn,
+					 String hintKo, String hintDe, String hintEn, Bonus bonus, String textKey) {
 		this.id = id;
 		this.teach = teach == null ? List.of() : List.copyOf(teach);
 		this.goal = goal;
@@ -41,6 +57,7 @@ public final class QuestStep {
 		this.hintDe = hintDe;
 		this.hintEn = hintEn;
 		this.bonus = bonus;
+		this.textKey = textKey;
 	}
 
 	public String id() {
@@ -63,12 +80,14 @@ public final class QuestStep {
 		return clueKo;
 	}
 
+	/** The German clue only (inline field, else its key); null when the step has none. */
 	public String clueDe() {
-		return clueDe;
+		return I18n.own(Lang.DE, key("clue"), clueEn, clueDe);
 	}
 
+	/** The English clue only (inline field, else its key); null when the step has none. */
 	public String clueEn() {
-		return clueEn;
+		return I18n.own(Lang.EN, key("clue"), clueEn, clueDe);
 	}
 
 	public String hintKo() {
@@ -76,15 +95,24 @@ public final class QuestStep {
 	}
 
 	public String hintDe() {
-		return hintDe;
+		return I18n.own(Lang.DE, key("hint"), hintEn, hintDe);
 	}
 
 	public String hintEn() {
-		return hintEn;
+		return I18n.own(Lang.EN, key("hint"), hintEn, hintDe);
 	}
 
 	public Bonus bonus() {
 		return bonus;
+	}
+
+	/** Prefix of this step's keys in the lang files; null for a step that only has inline text. */
+	public String textKey() {
+		return textKey;
+	}
+
+	private String key(String field) {
+		return textKey == null ? null : textKey + "." + field;
 	}
 
 	/** Clue in the current interface language. */
@@ -92,11 +120,9 @@ public final class QuestStep {
 		return clue(Lang.current());
 	}
 
+	/** The clue in a language; English where that language has none, empty when the step has no text. */
 	public String clue(Lang lang) {
-		if (lang == Lang.DE) {
-			return clueDe == null || clueDe.isBlank() ? nullToEmpty(clueEn) : clueDe;
-		}
-		return clueEn == null || clueEn.isBlank() ? nullToEmpty(clueDe) : clueEn;
+		return nullToEmpty(I18n.content(lang, key("clue"), clueEn, clueDe));
 	}
 
 	/** The easier-Korean hint, in the current interface language. */
@@ -105,20 +131,29 @@ public final class QuestStep {
 	}
 
 	public String hint(Lang lang) {
-		if (lang == Lang.DE) {
-			return hintDe == null || hintDe.isBlank() ? nullToEmpty(hintEn) : hintDe;
-		}
-		return hintEn == null || hintEn.isBlank() ? nullToEmpty(hintDe) : hintEn;
+		return nullToEmpty(I18n.content(lang, key("hint"), hintEn, hintDe));
 	}
 
 	public boolean hasClueKo() {
 		return clueKo != null && !clueKo.isBlank();
 	}
 
-	/** Copy carrying the English texts, used by the loader. */
+	/** Copy carrying inline English texts. */
 	public QuestStep withEnglish(String englishClue, String englishHint) {
 		return new QuestStep(id, teach, goal, conditions, clueKo, clueDe, englishClue,
-				hintKo, hintDe, englishHint, bonus);
+				hintKo, hintDe, englishHint, bonus, textKey);
+	}
+
+	/** Copy whose lang texts are looked up under this key prefix. */
+	public QuestStep withTextKey(String prefix) {
+		return new QuestStep(id, teach, goal, conditions, clueKo, clueDe, clueEn,
+				hintKo, hintDe, hintEn, bonus, prefix);
+	}
+
+	/** Copy under another step id; the text keys belong to the old id, so they are not carried over. */
+	public QuestStep withId(String newId) {
+		return new QuestStep(newId, teach, goal, conditions, clueKo, clueDe, clueEn,
+				hintKo, hintDe, hintEn, bonus, null);
 	}
 
 	private static String nullToEmpty(String value) {

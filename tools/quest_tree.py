@@ -23,6 +23,9 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools", "i18n"))
+import content_text  # noqa: E402  (the German title is a lang key, not a field of the trail file)
+
 DATA = os.path.join(ROOT, "src/main/resources/assets/hangulquest/data/questlines")
 OUT = os.path.join(ROOT, "docs/book/src/quest-tree.md")
 
@@ -54,13 +57,14 @@ CONDITION_TEXT = {
 
 def load_trails() -> dict[str, dict]:
     trails: dict[str, dict] = {}
+    bundles = content_text.load_bundles()
     for path in sorted(glob.glob(os.path.join(DATA, "*.json"))):
         name = os.path.basename(path)
         if name.startswith("_") or name == "index.json":
             continue
         with open(path, encoding="utf-8") as handle:
             trail = json.load(handle)
-        trails[trail["id"]] = trail
+        trails[trail["id"]] = content_text.merge_trail(trail, bundles)
     return trails
 
 

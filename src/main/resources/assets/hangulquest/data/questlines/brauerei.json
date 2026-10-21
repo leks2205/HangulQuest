@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "brauerei",
  "titleKo": "양조장의 길",
- "titleDe": "Der Brauereipfad",
  "topic": "양조",
  "tier": 3,
  "order": 158,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:golden_dandelion",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Goldener Löwenzahn.",
-    "en": "Collect 3× Golden Dandelion."
-   },
-   "hint": {
-    "en": "Collect 3× Golden Dandelion."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:iron_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Bringe eine Eisenfalltür an.",
-    "en": "Put up an iron trapdoor."
-   },
-   "hint": {
-    "en": "Put up an iron trapdoor."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_axe",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Kupferaxt.",
-    "en": "Collect 2× Copper Axe."
-   },
-   "hint": {
-    "en": "Collect 2× Copper Axe."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:brown_candle",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Braune Kerze.",
-    "en": "Collect 3× Brown Candle."
-   },
-   "hint": {
-    "en": "Collect 3× Brown Candle."
-   }
+   "conditions": []
   },
-  "textKo": "갈색 초를 세 개 모았어요.",
-  "textDe": "Braune Kerze — Zeremonie vollendet.",
-  "textEn": "the ritual of Brown Candle is complete."
+  "textKo": "갈색 초를 세 개 모았어요."
  },
  "reward": {
   "badge": "brauerei",
@@ -109,6 +78,5 @@
    "sugar"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Brewery Trail"
+ "koreanLevel": 2
 }

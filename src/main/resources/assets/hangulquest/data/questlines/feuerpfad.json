@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "feuerpfad",
  "titleKo": "불의 길",
- "titleDe": "Der Feuerpfad",
  "topic": "불",
  "tier": 1,
  "order": 30,
@@ -26,13 +25,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:horn_coral",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Geweihkoralle ab.",
-    "en": "Break 2× Horn Coral."
-   },
-   "hint": {
-    "en": "Break 2× Horn Coral."
    }
   },
   {
@@ -44,13 +36,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dark_oak_trapdoor",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Schwarzeichenholzfalltür.",
-    "en": "Place 2× Dark Oak Trapdoor."
-   },
-   "hint": {
-    "en": "Place 2× Dark Oak Trapdoor."
    }
   }
  ],
@@ -70,18 +55,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Lagerfeuer. Nachts.",
-    "en": "Place Campfire. At night."
-   },
-   "hint": {
-    "en": "Place Campfire. At night."
-   }
+   ]
   },
-  "textKo": "밤에 모닥불을 피웠어요.",
-  "textDe": "Lagerfeuer — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Campfire is complete."
+  "textKo": "밤에 모닥불을 피웠어요."
  },
  "reward": {
   "badge": "feuerpfad",
@@ -91,6 +67,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Fire Trail"
+ "koreanLevel": 1
 }

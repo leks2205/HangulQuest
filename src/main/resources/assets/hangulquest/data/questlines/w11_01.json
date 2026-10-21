@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_01",
  "titleKo": "별을 심는 밤",
- "titleDe": "Die Nacht, in der Sterne wachsen",
  "topic": "별",
  "tier": 2,
  "order": 1111,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:weathered_copper_bulb",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Verwitterte Kupferleuchte.",
-    "en": "Collect Weathered Copper Bulb."
-   },
-   "hint": {
-    "en": "Collect Weathered Copper Bulb."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:orange_bed",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Oranges Bett.",
-    "en": "Place 2× Orange Bed."
-   },
-   "hint": {
-    "en": "Place 2× Orange Bed."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:resin_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Harzblock.",
-    "en": "Place 4× Block of Resin."
-   },
-   "hint": {
-    "en": "Place 4× Block of Resin."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:deepslate_brick_wall",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Tiefenschieferziegelmauer.",
-    "en": "Place 3× Deepslate Brick Wall."
-   },
-   "hint": {
-    "en": "Place 3× Deepslate Brick Wall."
-   }
+   "conditions": []
   },
-  "textKo": "심층암 벽돌 담장을 세 개 놓았어요.",
-  "textDe": "Tiefenschieferziegelmauer — Zeremonie vollendet.",
-  "textEn": "the ritual of Deepslate Brick Wall is complete."
+  "textKo": "심층암 벽돌 담장을 세 개 놓았어요."
  },
  "reward": {
   "badge": "w11_01",
@@ -108,6 +77,5 @@
    "sky"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Night the Stars Grow"
+ "koreanLevel": 6
 }

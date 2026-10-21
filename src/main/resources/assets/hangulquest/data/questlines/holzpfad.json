@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "holzpfad",
  "titleKo": "나무의 길",
- "titleDe": "Der Holzpfad",
  "tier": 1,
  "concepts": [
   "log",
@@ -26,14 +25,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "통나무를 두 개 베어요.",
-    "de": "Fälle zwei Baumstämme.",
-    "en": "Break 2× Oak Log."
+    "ko": "통나무를 두 개 베어요."
    },
    "hint": {
-    "ko": "통나무를 베어요.",
-    "de": "Fälle einen Stamm.",
-    "en": "Break 2× Oak Log."
+    "ko": "통나무를 베어요."
    }
   },
   {
@@ -47,14 +42,10 @@
     "count": 4
    },
    "clue": {
-    "ko": "나무 판자를 네 개 놓아요.",
-    "de": "Mach das Holz flach.",
-    "en": "Place 4× Oak Planks."
+    "ko": "나무 판자를 네 개 놓아요."
    },
    "hint": {
-    "ko": "판자를 놓아요.",
-    "de": "Platziere Holzbretter.",
-    "en": "Place 4× Oak Planks."
+    "ko": "판자를 놓아요."
    }
   },
   {
@@ -68,14 +59,10 @@
     "count": 1
    },
    "clue": {
-    "ko": "제작대를 한 개 만들어요.",
-    "de": "Hol dir einen Ort zum Herstellen.",
-    "en": "Collect Crafting Table."
+    "ko": "제작대를 한 개 만들어요."
    },
    "hint": {
-    "ko": "제작대를 만들어요.",
-    "de": "Stelle eine Werkbank her.",
-    "en": "Collect Crafting Table."
+    "ko": "제작대를 만들어요."
    }
   }
  ],
@@ -95,18 +82,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kirschholzschild. Nachts.",
-    "en": "Place Cherry Sign. At night."
-   },
-   "hint": {
-    "en": "Place Cherry Sign. At night."
-   }
+   ]
   },
-  "textKo": "밤에 벚나무 표지판을 세웠어요.",
-  "textDe": "Kirschholzschild — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Cherry Sign is complete."
+  "textKo": "밤에 벚나무 표지판을 세웠어요."
  },
  "reward": {
   "badge": "holzpfad",
@@ -119,6 +97,5 @@
  },
  "order": 20,
  "koreanLevel": 1,
- "topic": "나무",
- "titleEn": "The Wood Trail"
+ "topic": "나무"
 }

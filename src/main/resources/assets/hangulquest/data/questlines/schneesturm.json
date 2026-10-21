@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schneesturm",
  "titleKo": "눈보라의 길",
- "titleDe": "Der Schneesturm",
  "topic": "산",
  "tier": 3,
  "order": 88,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:red_mushroom_block",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Roter Pilzblock ab.",
-    "en": "Break 3× Red Mushroom Block."
-   },
-   "hint": {
-    "en": "Break 3× Red Mushroom Block."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:purple_stained_glass_pane",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Violette Glasscheibe an.",
-    "en": "Look at Purple Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Look at Purple Stained Glass Pane."
    }
   }
  ],
@@ -73,18 +58,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Entrindetes Birkenholz. Nachts.",
-    "en": "Place Stripped Birch Wood. At night."
-   },
-   "hint": {
-    "en": "Place Stripped Birch Wood. At night."
-   }
+   ]
   },
-  "textKo": "밤에 껍질 벗긴 자작나무를 놓았어요.",
-  "textDe": "Entrindetes Birkenholz — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Stripped Birch Wood is complete."
+  "textKo": "밤에 껍질 벗긴 자작나무를 놓았어요."
  },
  "reward": {
   "badge": "schneesturm",
@@ -94,6 +70,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Snowstorm"
+ "koreanLevel": 2
 }

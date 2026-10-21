@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "ewige_krone",
  "titleKo": "영원의 왕관",
- "titleDe": "Die ewige Krone",
  "topic": "산",
  "tier": 5,
  "order": 87,
@@ -32,13 +31,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:dark_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Dunkler Wald.",
-    "en": "Reach Dark Forest."
-   },
-   "hint": {
-    "en": "Reach Dark Forest."
    }
   },
   {
@@ -50,13 +42,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:cooked_chicken",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Gebratenes Hühnchen.",
-    "en": "Eat Cooked Chicken."
-   },
-   "hint": {
-    "en": "Eat Cooked Chicken."
    }
   },
   {
@@ -73,14 +58,7 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Benutze Wasserkessel. Tagsüber.",
-    "en": "Use Water Cauldron. During the day."
-   },
-   "hint": {
-    "en": "Use Water Cauldron. During the day."
-   }
+   ]
   }
  ],
  "finale": {
@@ -102,18 +80,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Benutze Zielblock. Nachts. In einem passenden Biom.",
-    "en": "Use Target. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use Target. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 과녁을 썼어요.",
-  "textDe": "Zielblock — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Target is complete."
+  "textKo": "밤에 산에서 과녁을 썼어요."
  },
  "reward": {
   "badge": "ewige_krone",
@@ -126,6 +95,5 @@
    "eternity"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Eternal Crown"
+ "koreanLevel": 6
 }

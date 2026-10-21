@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "ozeanfahrt",
  "titleKo": "대양 항해",
- "titleDe": "Die Ozeanfahrt",
  "tier": 3,
  "order": 523,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_beach",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Verschneiter Strand.",
-    "en": "Reach Snowy Beach."
-   },
-   "hint": {
-    "en": "Reach Snowy Beach."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:windswept_savanna",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Zerzauste Savanne.",
-    "en": "Reach Windswept Savanna."
-   },
-   "hint": {
-    "en": "Reach Windswept Savanna."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:exposed_copper_bulb",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Angelaufene Kupferleuchte.",
-    "en": "Collect Exposed Copper Bulb."
-   },
-   "hint": {
-    "en": "Collect Exposed Copper Bulb."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ],
-   "clue": {
-    "de": "Platziere Busch. In einem passenden Biom.",
-    "en": "Place Bush. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Bush. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "해변에서 덤불을 심었어요.",
-  "textDe": "Busch — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Bush is complete."
+  "textKo": "해변에서 덤불을 심었어요."
  },
  "reward": {
   "badge": "ozeanfahrt",
@@ -114,6 +83,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "물",
- "titleEn": "The Ocean Voyage"
+ "topic": "물"
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_avoid_vibration",
  "titleKo": "은밀하게 위대하게",
- "titleDe": "Schleichen 100",
  "topic": "adventure",
  "tier": 2,
  "order": 202,
@@ -27,13 +26,8 @@
     "item": "minecraft:note_block",
     "count": 2
    },
-   "clue": {
-    "de": "Baue zwei Notenblöcke.",
-    "en": "Collect 2× Note Block."
-   },
    "hint": {
-    "ko": "나무 판자 여덟 개와 레드스톤 가루 한 개로 만들어요.",
-    "en": "Collect 2× Note Block."
+    "ko": "나무 판자 여덟 개와 레드스톤 가루 한 개로 만들어요."
    }
   },
   {
@@ -45,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:note_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Setze einen der Notenblöcke vor dir auf den Boden.",
-    "en": "Place Note Block."
-   },
-   "hint": {
-    "en": "Place Note Block."
    }
   }
  ],
@@ -66,18 +53,9 @@
     "block": "minecraft:note_block",
     "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Schleiche an den Notenblock heran und sieh ihn dir an.",
-    "en": "Look at Note Block."
-   },
-   "hint": {
-    "en": "Look at Note Block."
-   }
+   "conditions": []
   },
-  "textKo": "은밀하게 위대하게 — 소리 블록 앞에서 숨을 죽였어요.",
-  "textDe": "Schleichen 100 — am Notenblock vorbei, ohne einen Ton.",
-  "textEn": "the ritual of Note Block is complete."
+  "textKo": "은밀하게 위대하게 — 소리 블록 앞에서 숨을 죽였어요."
  },
  "reward": {
   "badge": "adv_adventure_avoid_vibration",
@@ -85,6 +63,5 @@
    "note_block"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Sneak 100"
+ "koreanLevel": 2
 }

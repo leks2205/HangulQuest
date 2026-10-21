@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "nachtwache",
  "titleKo": "별빛의 길",
- "titleDe": "Der Sternwachtpfad",
  "tier": 2,
  "order": 360,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dark_prismarine_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Dunkle Prismarinstufe.",
-    "en": "Collect Dark Prismarine Slab."
-   },
-   "hint": {
-    "en": "Collect Dark Prismarine Slab."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:plains",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Ebene.",
-    "en": "Reach Plains."
-   },
-   "hint": {
-    "en": "Reach Plains."
    }
   },
   {
@@ -70,14 +55,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Birkenholzzaun. Nachts.",
-    "en": "Place 3× Birch Fence. At night."
-   },
-   "hint": {
-    "en": "Place 3× Birch Fence. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -100,18 +78,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Schwarze Kerze. Nachts. In einem passenden Biom.",
-    "en": "Place Black Candle. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Black Candle. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 검은색 초를 놓았어요.",
-  "textDe": "Schwarze Kerze — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Black Candle is complete."
+  "textKo": "밤에 산에서 검은색 초를 놓았어요."
  },
  "reward": {
   "badge": "nachtwache",
@@ -123,6 +92,5 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "밤",
- "titleEn": "The Starwatch Trail"
+ "topic": "밤"
 }

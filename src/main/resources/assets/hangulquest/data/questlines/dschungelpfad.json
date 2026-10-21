@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "dschungelpfad",
  "titleKo": "정글의 길",
- "titleDe": "Der Dschungelpfad",
  "topic": "정글",
  "tier": 4,
  "order": 107,
@@ -31,13 +30,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:windswept_forest",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Zerzauster Wald.",
-    "en": "Reach Windswept Forest."
-   },
-   "hint": {
-    "en": "Reach Windswept Forest."
    }
   },
   {
@@ -49,13 +41,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:vex",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Plagegeist an.",
-    "en": "Look at Vex."
-   },
-   "hint": {
-    "en": "Look at Vex."
    }
   },
   {
@@ -68,14 +53,8 @@
     "item": "minecraft:cocoa_beans",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Kakaobohnen.",
-    "en": "Collect 3× Cocoa Beans."
-   },
    "hint": {
-    "ko": "코코아 콩은 정글나무에서 자라요.",
-    "de": "Kakaobohnen wachsen am Dschungelbaum.",
-    "en": "Collect 3× Cocoa Beans."
+    "ko": "코코아 콩은 정글나무에서 자라요."
    }
   }
  ],
@@ -92,17 +71,10 @@
    },
    "conditions": [],
    "hint": {
-    "ko": "정글나무 원목을 베어서 쌓아요.",
-    "de": "Baue Dschungelholz ab und schichte es.",
-    "en": "Place 4× Jungle Log."
-   },
-   "clue": {
-    "en": "Place 4× Jungle Log."
+    "ko": "정글나무 원목을 베어서 쌓아요."
    }
   },
-  "textKo": "정글나무 원목을 쌓아요.",
-  "textDe": "Dschungelholz aufschichten.",
-  "textEn": "the ritual of Jungle Log is complete."
+  "textKo": "정글나무 원목을 쌓아요."
  },
  "reward": {
   "badge": "dschungelpfad",
@@ -112,6 +84,5 @@
    "cocoa_beans"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Jungle Trail"
+ "koreanLevel": 3
 }

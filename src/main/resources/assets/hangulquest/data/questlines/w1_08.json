@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_08",
  "titleKo": "바다의 등불",
- "titleDe": "Das Licht des Meeres",
  "topic": "등불",
  "tier": 1,
  "order": 1018,
@@ -28,14 +27,8 @@
     "item": "minecraft:lantern",
     "count": 2
    },
-   "clue": {
-    "de": "Bau zwei Laternen.",
-    "en": "Collect 2× Lantern."
-   },
    "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen brauchen eine Fackel und Eisenstücke.",
-    "en": "Collect 2× Lantern."
+    "ko": "랜턴은 횃불과 철 조각으로 만들어요."
    }
   },
   {
@@ -47,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cobbled_deepslate_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bruchtiefenschieferstufe.",
-    "en": "Place 2× Cobbled Deepslate Slab."
-   },
-   "hint": {
-    "en": "Place 2× Cobbled Deepslate Slab."
    }
   },
   {
@@ -65,13 +51,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:green_concrete_powder",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Grüner Trockenbeton.",
-    "en": "Collect 2× Green Concrete Powder."
-   },
-   "hint": {
-    "en": "Collect 2× Green Concrete Powder."
    }
   }
  ],
@@ -86,18 +65,9 @@
     "block": "minecraft:pale_oak_fence_gate",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Blasseichenholzzauntor.",
-    "en": "Place 2× Pale Oak Fence Gate."
-   },
-   "hint": {
-    "en": "Place 2× Pale Oak Fence Gate."
-   }
+   "conditions": []
   },
-  "textKo": "창백한 참나무 울타리 문을 두 개 달았어요.",
-  "textDe": "Blasseichenholzzauntor — Zeremonie vollendet.",
-  "textEn": "the ritual of Pale Oak Fence Gate is complete."
+  "textKo": "창백한 참나무 울타리 문을 두 개 달았어요."
  },
  "reward": {
   "badge": "w1_08",
@@ -107,6 +77,5 @@
    "adv_item_glow_ink_sac"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Light of the Sea"
+ "koreanLevel": 1
 }

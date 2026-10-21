@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_02",
  "titleKo": "숲의 약초",
- "titleDe": "Kräuter des Waldes",
  "topic": "약초",
  "tier": 2,
  "order": 1062,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_chiseled_copper",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Gewachster gemeißelter Kupferblock.",
-    "en": "Collect 3× Waxed Chiseled Copper."
-   },
-   "hint": {
-    "en": "Collect 3× Waxed Chiseled Copper."
    }
   },
   {
@@ -48,14 +40,8 @@
     "block": "minecraft:dandelion",
     "count": 2
    },
-   "clue": {
-    "de": "Zupfe zwei Löwenzahn für den Kräuterbeutel.",
-    "en": "Break 2× Dandelion."
-   },
    "hint": {
-    "ko": "민들레는 노란 꽃이에요.",
-    "de": "Löwenzahn erkennst du an der gelben Blüte.",
-    "en": "Break 2× Dandelion."
+    "ko": "민들레는 노란 꽃이에요."
    }
   },
   {
@@ -68,14 +54,8 @@
     "item": "minecraft:red_mushroom",
     "count": 2
    },
-   "clue": {
-    "de": "Suche zwei rote Pilze im Schatten der Bäume.",
-    "en": "Collect 2× Red Mushroom."
-   },
    "hint": {
-    "ko": "버섯은 그늘진 곳에서 자라요.",
-    "de": "Pilze wachsen im Schatten.",
-    "en": "Collect 2× Red Mushroom."
+    "ko": "버섯은 그늘진 곳에서 자라요."
    }
   }
  ],
@@ -90,18 +70,9 @@
     "block": "minecraft:soul_soil",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Seelenerde.",
-    "en": "Place Soul Soil."
-   },
-   "hint": {
-    "en": "Place Soul Soil."
-   }
+   "conditions": []
   },
-  "textKo": "영혼 흙을 놓았어요.",
-  "textDe": "Seelenerde — Zeremonie vollendet.",
-  "textEn": "the ritual of Soul Soil is complete."
+  "textKo": "영혼 흙을 놓았어요."
  },
  "reward": {
   "badge": "w6_02",
@@ -112,6 +83,5 @@
    "flower_pot"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Herbs of the Forest"
+ "koreanLevel": 3
 }

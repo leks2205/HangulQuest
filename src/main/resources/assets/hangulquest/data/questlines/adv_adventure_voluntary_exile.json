@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_voluntary_exile",
  "titleKo": "자진 유배",
- "titleDe": "Freiwilliges Exil",
  "topic": "adventure",
  "tier": 2,
  "order": 243,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:heart_of_the_sea",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Herz des Meeres.",
-    "en": "Collect Heart of the Sea."
-   },
-   "hint": {
-    "en": "Collect Heart of the Sea."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:axolotl",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Axolotl an.",
-    "en": "Look at Axolotl."
-   },
-   "hint": {
-    "en": "Look at Axolotl."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:blue_stained_glass",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Blaues Glas.",
-    "en": "Collect Blue Stained Glass."
-   },
-   "hint": {
-    "en": "Collect Blue Stained Glass."
-   }
+   "conditions": []
   },
-  "textKo": "파란색 색유리를 만들었어요.",
-  "textDe": "Blaues Glas — Zeremonie vollendet.",
-  "textEn": "the ritual of Blue Stained Glass is complete."
+  "textKo": "파란색 색유리를 만들었어요."
  },
  "reward": {
   "badge": "adv_adventure_voluntary_exile",
@@ -88,6 +64,5 @@
    "adv_item_white_banner"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Voluntary Exile"
+ "koreanLevel": 2
 }

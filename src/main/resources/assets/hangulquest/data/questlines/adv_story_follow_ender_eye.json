@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_follow_ender_eye",
  "titleKo": "스무고개",
- "titleDe": "Das fliegende Auge",
  "topic": "story",
  "tier": 2,
  "order": 315,
@@ -29,13 +28,6 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:cave_spider",
     "count": 3
-   },
-   "clue": {
-    "de": "Besiege 3× Höhlenspinne.",
-    "en": "Defeat 3× Cave Spider."
-   },
-   "hint": {
-    "en": "Defeat 3× Cave Spider."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:stripped_spruce_log",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Entrindeter Fichtenstamm.",
-    "en": "Collect 2× Stripped Spruce Log."
-   },
-   "hint": {
-    "en": "Collect 2× Stripped Spruce Log."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:burn_pottery_sherd",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Flammen-Töpferscherbe.",
-    "en": "Collect Burn Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect Burn Pottery Sherd."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:stone_pressure_plate",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Steindruckplatte.",
-    "en": "Collect Stone Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect Stone Pressure Plate."
-   }
+   "conditions": []
   },
-  "textKo": "돌 압력판을 만들었어요.",
-  "textDe": "Steindruckplatte — Zeremonie vollendet.",
-  "textEn": "the ritual of Stone Pressure Plate is complete."
+  "textKo": "돌 압력판을 만들었어요."
  },
  "reward": {
   "badge": "adv_story_follow_ender_eye",
@@ -108,6 +77,5 @@
    "adv_item_ender_eye"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Eye Spy"
+ "koreanLevel": 3
 }

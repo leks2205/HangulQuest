@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "firstpfad",
  "titleKo": "봉우리의 길",
- "titleDe": "Der Gratpfad",
  "tier": 2,
  "order": 370,
  "concepts": [
@@ -28,13 +27,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:cave_spider",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Höhlenspinne an.",
-    "en": "Look at Cave Spider."
-   },
-   "hint": {
-    "en": "Look at Cave Spider."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:smooth_quartz",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Glatter Quarzblock ab.",
-    "en": "Break 3× Smooth Quartz Block."
-   },
-   "hint": {
-    "en": "Break 3× Smooth Quartz Block."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:copper_bars",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Kupfergitter an.",
-    "en": "Look at Copper Bars."
-   },
-   "hint": {
-    "en": "Look at Copper Bars."
    }
   }
  ],
@@ -94,18 +72,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Tropenholzhängeschild. Nachts. In einem passenden Biom.",
-    "en": "Place Jungle Hanging Sign. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Jungle Hanging Sign. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산에서 정글나무 매다는 표지판을 걸었어요.",
-  "textDe": "Tropenholzhängeschild — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Jungle Hanging Sign is complete."
+  "textKo": "밤에 산에서 정글나무 매다는 표지판을 걸었어요."
  },
  "reward": {
   "badge": "firstpfad",
@@ -117,6 +86,5 @@
   ]
  },
  "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The Ridge Trail"
+ "topic": "산"
 }

@@ -1,11 +1,18 @@
 package io.github.leks2205.hangulquest.quest;
 
+import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/** A Schnitzeljagd clue chain with a ritual finale. */
+/**
+ * A Schnitzeljagd clue chain with a ritual finale.
+ *
+ * <p>Title and finale text come from the lang files ({@code hangulquest.trail.<id>.title} and
+ * {@code .finale}); the inline {@code titleEn}-style fields are what a player's questline file may
+ * carry, and they win. Each step reads its own text from {@code hangulquest.trail.<id>.step.<sid>.*}.
+ */
 public final class Questline {
 	public record Requires(int minWordsKnown, String dimension, List<String> completed) {
 		public Requires {
@@ -17,8 +24,12 @@ public final class Questline {
 		}
 	}
 
+	private static final String DEFAULT_FINALE_EN = "You reached the goal.";
+	private static final String DEFAULT_FINALE_DE = "Du hast das Ziel erreicht.";
+
 	private final String id;
 	private final String titleKo;
+	/** Inline German title; null when the text comes from the lang files. */
 	private final String titleDe;
 	private final String titleEn;
 	private final int tier;
@@ -66,15 +77,23 @@ public final class Questline {
 		this.tier = tier;
 		this.concepts = concepts == null ? List.of() : List.copyOf(concepts);
 		this.requires = requires == null ? Requires.none() : requires;
-		this.steps = steps == null ? List.of() : List.copyOf(steps);
-		this.finale = finale;
+		List<QuestStep> keyed = new ArrayList<>();
+		if (steps != null) {
+			for (QuestStep step : steps) {
+				keyed.add(withKey(id, step));
+			}
+		}
+		this.steps = List.copyOf(keyed);
+		this.finale = withKey(id, finale);
 		this.finaleKo = finaleKo;
 		this.finaleDe = finaleDe;
 		this.finaleEn = finaleEn;
 		this.badge = badge == null ? id : badge;
 		this.order = order;
 		this.koreanLevel = Math.max(1, Math.min(6, koreanLevel));
-		this.topic = topic == null || topic.isBlank() ? titleDe : topic;
+		this.topic = topic != null && !topic.isBlank() ? topic
+				: titleDe != null && !titleDe.isBlank() ? titleDe
+				: titleEn != null && !titleEn.isBlank() ? titleEn : id;
 		this.adaptive = adaptive;
 	}
 
@@ -86,12 +105,14 @@ public final class Questline {
 		return titleKo;
 	}
 
+	/** The German title; the English one when German has none. */
 	public String titleDe() {
-		return titleDe;
+		return title(Lang.DE);
 	}
 
+	/** The English title. */
 	public String titleEn() {
-		return titleEn == null || titleEn.isBlank() ? titleDe : titleEn;
+		return title(Lang.EN);
 	}
 
 	/** Title in the current interface language. */
@@ -99,13 +120,15 @@ public final class Questline {
 		return title(Lang.current());
 	}
 
+	/** The title in a language; English where that language has none, the trail id when there is no text. */
 	public String title(Lang lang) {
-		return lang == Lang.DE ? titleDe : titleEn();
+		String text = I18n.content(lang, key("title"), titleEn, titleDe);
+		return text == null ? id : text;
 	}
 
 	/** The authored English title, null when the trail has none (no fallback to German). */
 	public String titleEnRaw() {
-		return titleEn;
+		return I18n.own(Lang.EN, key("title"), titleEn, titleDe);
 	}
 
 	/** Copy carrying the English title and finale text. The finale step is left untouched. */
@@ -169,20 +192,40 @@ public final class Questline {
 	}
 
 	public String finaleDe() {
-		return finaleDe;
+		return finale(Lang.DE);
 	}
 
 	/** The authored English finale text, null when the trail has none (no fallback to German). */
 	public String finaleEnRaw() {
-		return finaleEn;
+		return I18n.own(Lang.EN, key("finale"), finaleEn, finaleDe);
 	}
 
 	public String finaleEn() {
-		return finaleEn == null || finaleEn.isBlank() ? finaleDe : finaleEn;
+		return finale(Lang.EN);
 	}
 
+	/**
+	 * The finale line in a language; English where that language has none. A trail without any text
+	 * gets a plain line, so the ceremony never shows nothing.
+	 */
 	public String finale(Lang lang) {
-		return lang == Lang.DE ? finaleDe : finaleEn();
+		String text = I18n.content(lang, key("finale"), finaleEn, finaleDe);
+		if (text != null) {
+			return text;
+		}
+		return lang == Lang.DE ? DEFAULT_FINALE_DE : DEFAULT_FINALE_EN;
+	}
+
+	private String key(String field) {
+		return "hangulquest.trail." + id + "." + field;
+	}
+
+	/** The step with its key prefix set, unless it already carries one. */
+	private static QuestStep withKey(String trailId, QuestStep step) {
+		if (step == null || step.textKey() != null) {
+			return step;
+		}
+		return step.withTextKey("hangulquest.trail." + trailId + ".step." + step.id());
 	}
 
 	public String badge() {

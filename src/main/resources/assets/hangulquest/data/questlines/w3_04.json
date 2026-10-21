@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_04",
  "titleKo": "마을 잔치",
- "titleDe": "Das Dorffest",
  "topic": "음식",
  "tier": 2,
  "order": 1034,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:waxed_oxidized_copper_trapdoor",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Gewachste oxidierte Kupferfalltür ab.",
-    "en": "Break 3× Waxed Oxidized Copper Trapdoor."
-   },
-   "hint": {
-    "en": "Break 3× Waxed Oxidized Copper Trapdoor."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oxidized_copper_grate",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Oxidierter Kupferrost.",
-    "en": "Place 2× Oxidized Copper Grate."
-   },
-   "hint": {
-    "en": "Place 2× Oxidized Copper Grate."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:muddy_mangrove_roots",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schlammige Mangrovenwurzeln.",
-    "en": "Collect Muddy Mangrove Roots."
-   },
-   "hint": {
-    "en": "Collect Muddy Mangrove Roots."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:mud_brick_wall",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Schlammziegelmauer.",
-    "en": "Place 3× Mud Brick Wall."
-   },
-   "hint": {
-    "en": "Place 3× Mud Brick Wall."
-   }
+   "conditions": []
   },
-  "textKo": "진흙 벽돌 담장을 세 개 놓았어요.",
-  "textDe": "Schlammziegelmauer — Zeremonie vollendet.",
-  "textEn": "the ritual of Mud Brick Wall is complete."
+  "textKo": "진흙 벽돌 담장을 세 개 놓았어요."
  },
  "reward": {
   "badge": "w3_04",
@@ -108,6 +77,5 @@
    "bell"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Village Festival"
+ "koreanLevel": 2
 }

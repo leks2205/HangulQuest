@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "bergwerk",
  "titleKo": "광산의 길",
- "titleDe": "Das Bergwerk",
  "tier": 3,
  "order": 520,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:chiseled_deepslate",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Gemeißelter Tiefenschiefer ab.",
-    "en": "Break 3× Chiseled Deepslate."
-   },
-   "hint": {
-    "en": "Break 3× Chiseled Deepslate."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:piston",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Kolben ab.",
-    "en": "Break 4× Piston."
-   },
-   "hint": {
-    "en": "Break 4× Piston."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:ice",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Eis ab.",
-    "en": "Break 3× Ice."
-   },
-   "hint": {
-    "en": "Break 3× Ice."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "minY": -64,
      "maxY": 0
     }
-   ],
-   "clue": {
-    "de": "Platziere Grüne Betonstufe. Zwischen Y -64 und 0.",
-    "en": "Place Green Concrete Slab. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place Green Concrete Slab. Between Y -64 and 0."
-   }
+   ]
   },
-  "textKo": "높이 0 이하에서 초록색 콘크리트 반 블록을 놓았어요.",
-  "textDe": "Grüne Betonstufe — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Green Concrete Slab is complete."
+  "textKo": "높이 0 이하에서 초록색 콘크리트 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "bergwerk",
@@ -115,6 +84,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "돌",
- "titleEn": "The Mine"
+ "topic": "돌"
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_06",
  "titleKo": "용의 별자리",
- "titleDe": "Das Sternbild des Drachen",
  "topic": "용",
  "tier": 2,
  "order": 1116,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:horn_coral",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Geweihkoralle.",
-    "en": "Place 2× Horn Coral."
-   },
-   "hint": {
-    "en": "Place 2× Horn Coral."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:raw_copper",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rohkupfer.",
-    "en": "Collect Raw Copper."
-   },
-   "hint": {
-    "en": "Collect Raw Copper."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:poisonous_potato",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Giftige Kartoffel.",
-    "en": "Collect 3× Poisonous Potato."
-   },
-   "hint": {
-    "en": "Collect 3× Poisonous Potato."
    }
   }
  ],
@@ -86,20 +64,12 @@
     "block": "minecraft:dragon_head",
     "count": 1
    },
-   "clue": {
-    "de": "Setz den Drachenkopf als Sternbild in die Nacht.",
-    "en": "Place Dragon Head."
-   },
    "hint": {
-    "ko": "드래곤 머리는 엔드 배의 앞머리에 있어요.",
-    "de": "Einen Drachenkopf findest du am Bug eines Endschiffs.",
-    "en": "Place Dragon Head."
+    "ko": "드래곤 머리는 엔드 배의 앞머리에 있어요."
    },
    "conditions": []
   },
-  "textKo": "용의 별자리를 하늘에 세워요.",
-  "textDe": "Du setzt das Sternbild des Drachen an den Himmel.",
-  "textEn": "the ritual of Dragon Head is complete."
+  "textKo": "용의 별자리를 하늘에 세워요."
  },
  "reward": {
   "badge": "w11_06",
@@ -110,6 +80,5 @@
    "adv_item_dragon_head"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Constellation of the Dragon"
+ "koreanLevel": 6
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_kill_mob_near_sculk_catalyst",
  "titleKo": "퍼져간다",
- "titleDe": "Es verbreitet sich",
  "topic": "adventure",
  "tier": 2,
  "order": 214,
@@ -28,13 +27,8 @@
     "item": "minecraft:sculk_catalyst",
     "count": 1
    },
-   "clue": {
-    "de": "Hole einen Sculk-Katalysator mit Behutsamkeit aus einer Sculk-Höhle.",
-    "en": "Collect Sculk Catalyst."
-   },
    "hint": {
-    "ko": "섬세한 손길이 붙은 곡괭이로 부숴야 해요.",
-    "en": "Collect Sculk Catalyst."
+    "ko": "섬세한 손길이 붙은 곡괭이로 부숴야 해요."
    }
   },
   {
@@ -46,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:sculk_catalyst",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz den Katalysator auf den Boden einer tiefen Höhle ab.",
-    "en": "Place Sculk Catalyst."
-   },
-   "hint": {
-    "en": "Place Sculk Catalyst."
    }
   }
  ],
@@ -67,18 +54,9 @@
     "entity": "minecraft:piglin_brute",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Piglin-Barbar.",
-    "en": "Defeat Piglin Brute."
-   },
-   "hint": {
-    "en": "Defeat Piglin Brute."
-   }
+   "conditions": []
   },
-  "textKo": "난폭한 피글린을 물리쳤어요.",
-  "textDe": "Piglin-Barbar — Zeremonie vollendet.",
-  "textEn": "the ritual of Piglin Brute is complete."
+  "textKo": "난폭한 피글린을 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_kill_mob_near_sculk_catalyst",
@@ -87,6 +65,5 @@
    "zombie"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "It Spreads"
+ "koreanLevel": 3
 }

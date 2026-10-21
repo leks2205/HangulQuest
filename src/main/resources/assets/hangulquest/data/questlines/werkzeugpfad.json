@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "werkzeugpfad",
  "titleKo": "도구의 길",
- "titleDe": "Der Werkzeugpfad",
  "topic": "도구",
  "tier": 3,
  "order": 169,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:nether_brick_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Netherziegelstufe.",
-    "en": "Collect Nether Brick Slab."
-   },
-   "hint": {
-    "en": "Collect Nether Brick Slab."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:amethyst_cluster",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Amethysthaufen.",
-    "en": "Place Amethyst Cluster."
-   },
-   "hint": {
-    "en": "Place Amethyst Cluster."
    }
   },
   {
@@ -67,14 +52,8 @@
     "block": "minecraft:crafting_table",
     "count": 1
    },
-   "clue": {
-    "de": "Setz eine Werkbank.",
-    "en": "Place Crafting Table."
-   },
    "hint": {
-    "ko": "제작대는 나무 판자 네 개로 만들어요.",
-    "de": "Eine Werkbank besteht aus vier Holzbrettern.",
-    "en": "Place Crafting Table."
+    "ko": "제작대는 나무 판자 네 개로 만들어요."
    }
   }
  ],
@@ -89,18 +68,9 @@
     "item": "minecraft:gray_bed",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Graues Bett.",
-    "en": "Collect 3× Gray Bed."
-   },
-   "hint": {
-    "en": "Collect 3× Gray Bed."
-   }
+   "conditions": []
   },
-  "textKo": "회색 침대를 세 개 만들었어요.",
-  "textDe": "Graues Bett — Zeremonie vollendet.",
-  "textEn": "the ritual of Gray Bed is complete."
+  "textKo": "회색 침대를 세 개 만들었어요."
  },
  "reward": {
   "badge": "werkzeugpfad",
@@ -111,6 +81,5 @@
    "diamond"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Tool Trail"
+ "koreanLevel": 2
 }

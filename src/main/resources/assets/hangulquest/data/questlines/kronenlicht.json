@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kronenlicht",
  "titleKo": "왕관의 빛",
- "titleDe": "Das Kronenlicht",
  "topic": "산",
  "tier": 5,
  "order": 70,
@@ -34,13 +33,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:end_highlands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche End-Hochland.",
-    "en": "Reach End Highlands."
-   },
-   "hint": {
-    "en": "Reach End Highlands."
    }
   },
   {
@@ -58,14 +50,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Blasenkoralle. Nachts.",
-    "en": "Place 3× Bubble Coral. At night."
-   },
-   "hint": {
-    "en": "Place 3× Bubble Coral. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -84,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Wirrfalltür. Nachts.",
-    "en": "Place 3× Warped Trapdoor. At night."
-   },
-   "hint": {
-    "en": "Place 3× Warped Trapdoor. At night."
-   }
+   ]
   },
-  "textKo": "밤에 뒤틀린 다락문을 세 개 달았어요.",
-  "textDe": "Wirrfalltür — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Warped Trapdoor is complete."
+  "textKo": "밤에 뒤틀린 다락문을 세 개 달았어요."
  },
  "reward": {
   "badge": "kronenlicht",
@@ -105,6 +81,5 @@
    "bed"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Crown Light"
+ "koreanLevel": 4
 }

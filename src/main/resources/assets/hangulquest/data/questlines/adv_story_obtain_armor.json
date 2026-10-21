@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_obtain_armor",
  "titleKo": "차려입기",
- "titleDe": "Mach dich fein",
  "topic": "story",
  "tier": 2,
  "order": 321,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bee_nest",
     "count": 17
-   },
-   "clue": {
-    "de": "Sammle 17× Bienennest.",
-    "en": "Collect 17× Bee Nest."
-   },
-   "hint": {
-    "en": "Collect 17× Bee Nest."
    }
   },
   {
@@ -48,14 +40,8 @@
     "item": "minecraft:iron_helmet",
     "count": 1
    },
-   "clue": {
-    "de": "Schmiede einen Eisenhelm.",
-    "en": "Collect Iron Helmet."
-   },
    "hint": {
-    "ko": "철 투구는 철 주괴 다섯 개로 만들어요.",
-    "de": "Ein Eisenhelm braucht fünf Eisenbarren.",
-    "en": "Collect Iron Helmet."
+    "ko": "철 투구는 철 주괴 다섯 개로 만들어요."
    }
   },
   {
@@ -68,14 +54,8 @@
     "item": "minecraft:iron_boots",
     "count": 1
    },
-   "clue": {
-    "de": "Schmiede ein Paar Eisenstiefel.",
-    "en": "Collect Iron Boots."
-   },
    "hint": {
-    "ko": "철 부츠는 철 주괴 네 개로 만들어요.",
-    "de": "Eisenstiefel brauchen vier Eisenbarren.",
-    "en": "Collect Iron Boots."
+    "ko": "철 부츠는 철 주괴 네 개로 만들어요."
    }
   }
  ],
@@ -90,18 +70,9 @@
     "item": "minecraft:chainmail_helmet",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Kettenhaube.",
-    "en": "Collect Chainmail Helmet."
-   },
-   "hint": {
-    "en": "Collect Chainmail Helmet."
-   }
+   "conditions": []
   },
-  "textKo": "사슬 투구를 구했어요.",
-  "textDe": "Kettenhaube — Zeremonie vollendet.",
-  "textEn": "the ritual of Chainmail Helmet is complete."
+  "textKo": "사슬 투구를 구했어요."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",
@@ -112,6 +83,5 @@
    "iron_chestplate"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Suit Up"
+ "koreanLevel": 2
 }

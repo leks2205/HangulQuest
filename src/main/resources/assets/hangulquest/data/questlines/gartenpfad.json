@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "gartenpfad",
  "titleKo": "정원의 길",
- "titleDe": "Der Gartenpfad",
  "tier": 5,
  "order": 501,
  "concepts": [
@@ -32,13 +31,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:mangrove_propagule",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Mangroven-Keimling ab.",
-    "en": "Break 2× Mangrove Propagule."
-   },
-   "hint": {
-    "en": "Break 2× Mangrove Propagule."
    }
   },
   {
@@ -50,13 +42,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:carrot",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Karotte.",
-    "en": "Collect Carrot."
-   },
-   "hint": {
-    "en": "Collect Carrot."
    }
   },
   {
@@ -68,13 +53,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:deepslate_brick_wall",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Tiefenschieferziegelmauer an.",
-    "en": "Look at Deepslate Brick Wall."
-   },
-   "hint": {
-    "en": "Look at Deepslate Brick Wall."
    }
   }
  ],
@@ -94,18 +72,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Iss Kaninchenragout. Nachts.",
-    "en": "Eat Rabbit Stew. At night."
-   },
-   "hint": {
-    "en": "Eat Rabbit Stew. At night."
-   }
+   ]
   },
-  "textKo": "밤에 토끼 스튜를 먹었어요.",
-  "textDe": "Kaninchenragout — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Rabbit Stew is complete."
+  "textKo": "밤에 토끼 스튜를 먹었어요."
  },
  "reward": {
   "badge": "gartenpfad",
@@ -117,6 +86,5 @@
   ]
  },
  "koreanLevel": 2,
- "topic": "나무",
- "titleEn": "The Garden Trail"
+ "topic": "나무"
 }

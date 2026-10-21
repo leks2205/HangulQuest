@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_09",
  "titleKo": "작은 발견",
- "titleDe": "Kleine Entdeckungen",
  "topic": "발견",
  "tier": 1,
  "order": 1019,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pointed_dripstone",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Spitzer Tropfstein.",
-    "en": "Collect Pointed Dripstone."
-   },
-   "hint": {
-    "en": "Collect Pointed Dripstone."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ender_chest",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Endertruhe.",
-    "en": "Collect 2× Ender Chest."
-   },
-   "hint": {
-    "en": "Collect 2× Ender Chest."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:spruce_hanging_sign",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Fichtenholzhängeschild.",
-    "en": "Collect Spruce Hanging Sign."
-   },
-   "hint": {
-    "en": "Collect Spruce Hanging Sign."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "block": "minecraft:lectern",
     "count": 1
    },
-   "clue": {
-    "de": "Stell ein Lesepult für deine Karte auf.",
-    "en": "Place Lectern."
-   },
-   "conditions": [],
-   "hint": {
-    "en": "Place Lectern."
-   }
+   "conditions": []
   },
-  "textKo": "작은 발견을 액자에 담고 독서대에 올려요.",
-  "textDe": "Deine kleine Entdeckung ist im Rahmen und auf dem Lesepult ausgestellt.",
-  "textEn": "the ritual of Lectern is complete."
+  "textKo": "작은 발견을 액자에 담고 독서대에 올려요."
  },
  "reward": {
   "badge": "w1_09",
@@ -106,6 +75,5 @@
    "lectern"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Small Discoveries"
+ "koreanLevel": 1
 }

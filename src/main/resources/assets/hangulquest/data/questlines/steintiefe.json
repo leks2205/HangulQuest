@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "steintiefe",
  "titleKo": "돌의 깊은 길",
- "titleDe": "Der tiefe Steinpfad",
  "tier": 3,
  "concepts": [
   "gen_black_wool_slab",
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:black_wool_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue Schwarze Wollstufe ab.",
-    "en": "Break Black Wool Slab."
-   },
-   "hint": {
-    "en": "Break Black Wool Slab."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:coal_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Kohleblock.",
-    "en": "Place 2× Block of Coal."
-   },
-   "hint": {
-    "en": "Place 2× Block of Coal."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:poplar_fence",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Pappelholzzaun.",
-    "en": "Place 2× Poplar Fence."
-   },
-   "hint": {
-    "en": "Place 2× Poplar Fence."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "minY": -64,
      "maxY": 0
     }
-   ],
-   "clue": {
-    "de": "Platziere Blasseichensetzling. Zwischen Y -64 und 0.",
-    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
-   }
+   ]
   },
-  "textKo": "높이 0 이하에서 창백한 참나무 묘목을 심었어요.",
-  "textDe": "Blasseichensetzling — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Pale Oak Sapling is complete."
+  "textKo": "높이 0 이하에서 창백한 참나무 묘목을 심었어요."
  },
  "reward": {
   "badge": "steintiefe",
@@ -114,6 +83,5 @@
  },
  "order": 110,
  "koreanLevel": 1,
- "topic": "돌",
- "titleEn": "The Deep Stone Trail"
+ "topic": "돌"
 }

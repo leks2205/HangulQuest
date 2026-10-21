@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "golemwerkstatt",
  "titleKo": "골렘 공방",
- "titleDe": "Die Golemwerkstatt",
  "topic": "골렘",
  "tier": 3,
  "order": 121,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:green_stained_glass",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Grünes Glas.",
-    "en": "Place 4× Green Stained Glass."
-   },
-   "hint": {
-    "en": "Place 4× Green Stained Glass."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cinnabar",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Zinnober.",
-    "en": "Place Cinnabar."
-   },
-   "hint": {
-    "en": "Place Cinnabar."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:breeze",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Böe an.",
-    "en": "Look at Breeze."
-   },
-   "hint": {
-    "en": "Look at Breeze."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:melon",
     "count": 8
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 8× Melone.",
-    "en": "Collect 8× Melon."
-   },
-   "hint": {
-    "en": "Collect 8× Melon."
-   }
+   "conditions": []
   },
-  "textKo": "수박을 여덟 개 모았어요.",
-  "textDe": "Melone — Zeremonie vollendet.",
-  "textEn": "the ritual of Melon is complete."
+  "textKo": "수박을 여덟 개 모았어요."
  },
  "reward": {
   "badge": "golemwerkstatt",
@@ -109,6 +78,5 @@
    "iron"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Golem Workshop"
+ "koreanLevel": 5
 }

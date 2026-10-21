@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w9_04",
  "titleKo": "왕관의 성벽",
- "titleDe": "Die Kronenmauer",
  "topic": "수호",
  "tier": 2,
  "order": 1094,
@@ -30,14 +29,10 @@
     "count": 8
    },
    "clue": {
-    "de": "Zieh im Thronsaal eine Mauer aus acht Steinziegeln.",
-    "ko": "왕관의 방에 석재 벽돌을 여덟 개 놓아요.",
-    "en": "Place 8× Stone Bricks."
+    "ko": "왕관의 방에 석재 벽돌을 여덟 개 놓아요."
    },
    "hint": {
-    "ko": "석재 벽돌은 돌로 만들어요.",
-    "de": "Steinziegel fertigst du aus Stein.",
-    "en": "Place 8× Stone Bricks."
+    "ko": "석재 벽돌은 돌로 만들어요."
    }
   },
   {
@@ -51,14 +46,10 @@
     "count": 1
    },
    "clue": {
-    "de": "Schmiede einen eisernen Brustharnisch für die Wache.",
-    "ko": "왕관을 지키려고 철 흉갑을 챙겨요.",
-    "en": "Collect Iron Chestplate."
+    "ko": "왕관을 지키려고 철 흉갑을 챙겨요."
    },
    "hint": {
-    "ko": "철 흉갑은 철 주괴 여덟 개로 만들어요.",
-    "de": "Ein Eisenharnisch braucht acht Eisenbarren.",
-    "en": "Collect Iron Chestplate."
+    "ko": "철 흉갑은 철 주괴 여덟 개로 만들어요."
    }
   }
  ],
@@ -73,18 +64,9 @@
     "item": "minecraft:lime_carpet",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Hellgrüner Teppich.",
-    "en": "Collect Lime Carpet."
-   },
-   "hint": {
-    "en": "Collect Lime Carpet."
-   }
+   "conditions": []
   },
-  "textKo": "연두색 양탄자를 만들었어요.",
-  "textDe": "Hellgrüner Teppich — Zeremonie vollendet.",
-  "textEn": "the ritual of Lime Carpet is complete."
+  "textKo": "연두색 양탄자를 만들었어요."
  },
  "reward": {
   "badge": "w9_04",
@@ -94,6 +76,5 @@
    "stone_bricks"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Crown Wall"
+ "koreanLevel": 5
 }

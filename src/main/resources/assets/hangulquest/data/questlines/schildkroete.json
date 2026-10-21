@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schildkroete",
  "titleKo": "거북의 길",
- "titleDe": "Der Schildkrötenpfad",
  "topic": "거북",
  "tier": 2,
  "order": 149,
@@ -28,13 +27,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:tadpole",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Kaulquappe an.",
-    "en": "Look at Tadpole."
-   },
-   "hint": {
-    "en": "Look at Tadpole."
    }
   },
   {
@@ -47,14 +39,8 @@
     "item": "minecraft:seagrass",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle drei Seegras.",
-    "en": "Collect 3× Seagrass."
-   },
    "hint": {
-    "ko": "해초는 바다 밑에서 찾아요.",
-    "de": "Seegras findest du am Meeresgrund.",
-    "en": "Collect 3× Seagrass."
+    "ko": "해초는 바다 밑에서 찾아요."
    }
   },
   {
@@ -66,13 +52,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:seagrass",
     "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Seegras.",
-    "en": "Place 3× Seagrass."
-   },
-   "hint": {
-    "en": "Place 3× Seagrass."
    }
   }
  ],
@@ -89,17 +68,10 @@
    },
    "conditions": [],
    "hint": {
-    "ko": "거북 알은 거북이 알을 낳을 때 생겨요.",
-    "de": "Schildkröteneier legt eine Schildkröte.",
-    "en": "Collect Turtle Egg."
-   },
-   "clue": {
-    "en": "Collect Turtle Egg."
+    "ko": "거북 알은 거북이 알을 낳을 때 생겨요."
    }
   },
-  "textKo": "거북 알을 구해요.",
-  "textDe": "Ein Schildkrötenei sammeln.",
-  "textEn": "the ritual of Turtle Egg is complete."
+  "textKo": "거북 알을 구해요."
  },
  "reward": {
   "badge": "schildkroete",
@@ -109,6 +81,5 @@
    "turtle_egg"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Turtle Trail"
+ "koreanLevel": 1
 }

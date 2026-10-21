@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_root",
  "titleKo": "모험",
- "titleDe": "Abenteuer",
  "topic": "adventure",
  "tier": 2,
  "order": 223,
@@ -28,13 +27,6 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:spider",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege Spinne.",
-    "en": "Defeat Spider."
-   },
-   "hint": {
-    "en": "Defeat Spider."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:creeper",
     "count": 2
-   },
-   "clue": {
-    "de": "Besiege 2× Creeper.",
-    "en": "Defeat 2× Creeper."
-   },
-   "hint": {
-    "en": "Defeat 2× Creeper."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:vex",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Plagegeist.",
-    "en": "Defeat Vex."
-   },
-   "hint": {
-    "en": "Defeat Vex."
-   }
+   "conditions": []
   },
-  "textKo": "벡스를 물리쳤어요.",
-  "textDe": "Plagegeist — Zeremonie vollendet.",
-  "textEn": "the ritual of Vex is complete."
+  "textKo": "벡스를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_root",
@@ -88,6 +64,5 @@
    "creeper"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Adventure"
+ "koreanLevel": 2
 }

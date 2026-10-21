@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "purpurwerk",
  "titleKo": "보랏빛 천의 길",
- "titleDe": "Der Purpurstoff",
  "topic": "보라",
  "tier": 3,
  "order": 1133,
@@ -32,14 +31,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "보라색 염료를 만들어요.",
-    "de": "Stelle Violetter Farbstoff her.",
-    "en": "Collect 2× Purple Dye."
+    "ko": "보라색 염료를 만들어요."
    },
    "hint": {
-    "ko": "보라색 염료를 만들어요.",
-    "de": "Stelle Violetter Farbstoff her.",
-    "en": "Collect 2× Purple Dye."
+    "ko": "보라색 염료를 만들어요."
    }
   },
   {
@@ -53,14 +48,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "보라색 양털을 봐요.",
-    "de": "Sieh dir Violette Wolle an.",
-    "en": "Look at Purple Wool."
+    "ko": "보라색 양털을 봐요."
    },
    "hint": {
-    "ko": "보라색 양털을 봐요.",
-    "de": "Sieh dir Violette Wolle an.",
-    "en": "Look at Purple Wool."
+    "ko": "보라색 양털을 봐요."
    }
   }
  ],
@@ -80,17 +71,9 @@
      "type": "TIME",
      "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "en": "Place Purple Wool. At dusk."
-   },
-   "hint": {
-    "en": "Place Purple Wool. At dusk."
-   }
+   ]
   },
-  "textKo": "저녁에 보랏빛 천을 펼쳤어요.",
-  "textDe": "Die Zeremonie ist vollendet.",
-  "textEn": "At dusk the ritual of Purple Wool is complete."
+  "textKo": "저녁에 보랏빛 천을 펼쳤어요."
  },
  "reward": {
   "badge": "purpurwerk",
@@ -99,6 +82,5 @@
    "gen_purple_wool",
    "gen_purple_wool"
   ]
- },
- "titleEn": "The Purple Cloth"
+ }
 }

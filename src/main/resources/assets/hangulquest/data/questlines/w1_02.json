@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w1_02",
  "titleKo": "무지개 유리",
- "titleDe": "Regenbogen aus Glas",
  "topic": "유리",
  "tier": 1,
  "order": 1012,
@@ -27,13 +26,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:poplar_trapdoor",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Pappelholzfalltür.",
-    "en": "Collect 6× Poplar Trapdoor."
-   },
-   "hint": {
-    "en": "Collect 6× Poplar Trapdoor."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dark_oak_sign",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Schwarzeichenholzschild.",
-    "en": "Place 4× Dark Oak Sign."
-   },
-   "hint": {
-    "en": "Place 4× Dark Oak Sign."
    }
   },
   {
@@ -63,13 +48,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mangrove_pressure_plate",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Mangrovenholzdruckplatte.",
-    "en": "Collect 3× Mangrove Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect 3× Mangrove Pressure Plate."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "block": "minecraft:nether_brick_fence",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Netherziegelzaun.",
-    "en": "Place 4× Nether Brick Fence."
-   },
-   "hint": {
-    "en": "Place 4× Nether Brick Fence."
-   }
+   "conditions": []
   },
-  "textKo": "네더 벽돌 울타리를 네 개 놓았어요.",
-  "textDe": "Netherziegelzaun — Zeremonie vollendet.",
-  "textEn": "the ritual of Nether Brick Fence is complete."
+  "textKo": "네더 벽돌 울타리를 네 개 놓았어요."
  },
  "reward": {
   "badge": "w1_02",
@@ -105,6 +74,5 @@
    "dye"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "A Rainbow of Glass"
+ "koreanLevel": 1
 }

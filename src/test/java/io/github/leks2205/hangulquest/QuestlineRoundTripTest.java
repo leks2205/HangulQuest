@@ -10,6 +10,7 @@ import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.QuestlineStore;
+import io.github.leks2205.hangulquest.util.I18n;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.slf4j.LoggerFactory;
@@ -24,14 +25,17 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * The shipped questlines must keep every English text through the loader, the validator and the
- * store's override merge. The assertions read the raw fields: the fallback getters would show the
- * German text instead of failing when an English text goes missing.
+ * store's override merge. The English text is in {@code lang/content/en_us.json}; a questline file
+ * that carries an inline field instead has that one win. The assertions read the English-only
+ * accessors: the fallback getters would show the German text instead of failing when an English text
+ * goes missing.
  */
 class QuestlineRoundTripTest {
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger("questline-roundtrip-test");
@@ -59,12 +63,19 @@ class QuestlineRoundTripTest {
 		return object != null && object.has(key) ? object.getAsJsonObject(key) : null;
 	}
 
+	/** The English text the player should see: the inline field, else the lang key. */
+	private static String expected(String inline, String key) {
+		return inline != null ? inline : I18n.bundle("en_us").get(key);
+	}
+
 	/** Compares every English text of the trail with the JSON it came from. */
 	private static void assertEnglishMatches(JsonObject json, Questline trail, String stage) {
 		String id = trail.id();
-		assertEquals(text(json, "titleEn"), trail.titleEnRaw(), id + " title after " + stage);
+		assertEquals(expected(text(json, "titleEn"), "hangulquest.trail." + id + ".title"),
+				trail.titleEnRaw(), id + " title after " + stage);
 		JsonObject finale = child(json, "finale");
-		assertEquals(text(finale, "textEn"), trail.finaleEnRaw(), id + " finale text after " + stage);
+		assertEquals(expected(text(finale, "textEn"), "hangulquest.trail." + id + ".finale"),
+				trail.finaleEnRaw(), id + " finale text after " + stage);
 
 		JsonArray steps = json.getAsJsonArray("steps");
 		assertEquals(steps.size(), trail.steps().size(), id + " step count after " + stage);
@@ -72,12 +83,14 @@ class QuestlineRoundTripTest {
 			assertStepEnglish(steps.get(i).getAsJsonObject(), trail.steps().get(i), id, stage);
 		}
 		assertStepEnglish(child(finale, "step"), trail.finale(), id, stage);
+		assertNotNull(expected(null, "hangulquest.trail." + id + ".title"), id + " has no English title key");
 	}
 
 	private static void assertStepEnglish(JsonObject json, QuestStep step, String trail, String stage) {
 		String where = trail + "/" + step.id() + " after " + stage;
-		assertEquals(text(child(json, "clue"), "en"), step.clueEn(), "clue " + where);
-		assertEquals(text(child(json, "hint"), "en"), step.hintEn(), "hint " + where);
+		String base = "hangulquest.trail." + trail + ".step." + step.id();
+		assertEquals(expected(text(child(json, "clue"), "en"), base + ".clue"), step.clueEn(), "clue " + where);
+		assertEquals(expected(text(child(json, "hint"), "en"), base + ".hint"), step.hintEn(), "hint " + where);
 	}
 
 	@Test
@@ -143,7 +156,12 @@ class QuestlineRoundTripTest {
 		edited.addProperty("override", true);
 		edited.addProperty("titleEn", "Edited English title");
 		edited.getAsJsonObject("finale").addProperty("textEn", "Edited finale text.");
-		JsonObject firstClue = edited.getAsJsonArray("steps").get(0).getAsJsonObject().getAsJsonObject("clue");
+		JsonObject firstStep = edited.getAsJsonArray("steps").get(0).getAsJsonObject();
+		JsonObject firstClue = child(firstStep, "clue");
+		if (firstClue == null) {
+			firstClue = new JsonObject();
+			firstStep.add("clue", firstClue);
+		}
 		firstClue.addProperty("en", "Edited first clue.");
 		Path folder = tempDir.resolve("edited");
 		Files.createDirectories(folder);
@@ -155,8 +173,8 @@ class QuestlineRoundTripTest {
 		assertEquals("Edited finale text.", trail.finaleEnRaw());
 		assertEquals("Edited first clue.", trail.steps().get(0).clueEn());
 		// The ceremony text must not leak into the finale step's clue.
-		assertEquals(text(child(child(json.get(id), "finale"), "step").getAsJsonObject("clue"), "en"),
-				trail.finale().clueEn());
+		assertEquals(expected(text(child(child(child(json.get(id), "finale"), "step"), "clue"), "en"),
+				"hangulquest.trail." + id + ".step.finale.clue"), trail.finale().clueEn());
 	}
 
 	@Test

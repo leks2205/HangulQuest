@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_sniper_duel",
  "titleKo": "저격 대결",
- "titleDe": "Scharfschützenduell",
  "topic": "adventure",
  "tier": 2,
  "order": 227,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:brown_carpet",
     "count": 16
-   },
-   "clue": {
-    "de": "Sammle 16× Brauner Teppich.",
-    "en": "Collect 16× Brown Carpet."
-   },
-   "hint": {
-    "en": "Collect 16× Brown Carpet."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:orange_concrete_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Orange Betonstufe.",
-    "en": "Place 3× Orange Concrete Slab."
-   },
-   "hint": {
-    "en": "Place 3× Orange Concrete Slab."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:drowned",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Ertrunkener.",
-    "en": "Defeat Drowned."
-   },
-   "hint": {
-    "en": "Defeat Drowned."
-   }
+   "conditions": []
   },
-  "textKo": "드라운드를 물리쳤어요.",
-  "textDe": "Ertrunkener — Zeremonie vollendet.",
-  "textEn": "the ritual of Drowned is complete."
+  "textKo": "드라운드를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_sniper_duel",
@@ -88,6 +64,5 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Sniper Duel"
+ "koreanLevel": 3
 }

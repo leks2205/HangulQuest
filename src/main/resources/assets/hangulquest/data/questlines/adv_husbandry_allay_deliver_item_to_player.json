@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_husbandry_allay_deliver_item_to_player",
  "titleKo": "난 너의 친구야",
- "titleDe": "Du hast ’n Freund in mir",
  "topic": "husbandry",
  "tier": 2,
  "order": 257,
@@ -29,14 +28,8 @@
     "item": "minecraft:cookie",
     "count": 1
    },
-   "clue": {
-    "de": "Backe einen Keks als Geschenk für den Allay.",
-    "en": "Collect Cookie."
-   },
    "hint": {
-    "ko": "쿠키는 밀 두 개와 코코아 콩 하나로 만들어요.",
-    "de": "Ein Keks entsteht aus zwei Weizen und einer Kakaobohne.",
-    "en": "Collect Cookie."
+    "ko": "쿠키는 밀 두 개와 코코아 콩 하나로 만들어요."
    }
   },
   {
@@ -48,13 +41,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:weeping_vines",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Trauerranken.",
-    "en": "Place Weeping Vines."
-   },
-   "hint": {
-    "en": "Place Weeping Vines."
    }
   }
  ],
@@ -69,18 +55,9 @@
     "item": "minecraft:music_disc_stal",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Schallplatte.",
-    "en": "Collect 2× Music Disc."
-   },
-   "hint": {
-    "en": "Collect 2× Music Disc."
-   }
+   "conditions": []
   },
-  "textKo": "음반을 두 개 모았어요.",
-  "textDe": "Schallplatte — Zeremonie vollendet.",
-  "textEn": "the ritual of Music Disc is complete."
+  "textKo": "음반을 두 개 모았어요."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_item_to_player",
@@ -89,6 +66,5 @@
    "note_block"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "You've Got a Friend in Me"
+ "koreanLevel": 1
 }

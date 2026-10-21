@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w3_07",
  "titleKo": "말과 장터",
- "titleDe": "Pferd und Markt",
  "topic": "동물",
  "tier": 2,
  "order": 1037,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:llama",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Lama an.",
-    "en": "Look at Llama."
-   },
-   "hint": {
-    "en": "Look at Llama."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:mangrove_fence_gate",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Mangrovenholzzauntor.",
-    "en": "Collect 3× Mangrove Fence Gate."
-   },
-   "hint": {
-    "en": "Collect 3× Mangrove Fence Gate."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:sulfur",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schwefel.",
-    "en": "Collect Sulfur."
-   },
-   "hint": {
-    "en": "Collect Sulfur."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:lime_wool",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Hellgrüne Wolle.",
-    "en": "Place 4× Lime Wool."
-   },
-   "hint": {
-    "en": "Place 4× Lime Wool."
-   }
+   "conditions": []
   },
-  "textKo": "연두색 양털을 네 개 쌓았어요.",
-  "textDe": "Hellgrüne Wolle — Zeremonie vollendet.",
-  "textEn": "the ritual of Lime Wool is complete."
+  "textKo": "연두색 양털을 네 개 쌓았어요."
  },
  "reward": {
   "badge": "w3_07",
@@ -108,6 +77,5 @@
    "fence"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Horse and Market"
+ "koreanLevel": 2
 }

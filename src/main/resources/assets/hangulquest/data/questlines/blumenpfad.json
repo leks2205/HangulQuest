@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "blumenpfad",
  "titleKo": "꽃의 길",
- "titleDe": "Der Blumenpfad",
  "topic": "꽃",
  "tier": 3,
  "order": 102,
@@ -30,13 +29,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:birch_shelf",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Birkenholzregal an.",
-    "en": "Look at Birch Shelf."
-   },
-   "hint": {
-    "en": "Look at Birch Shelf."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:dandelion",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau einen Löwenzahn an.",
-    "en": "Look at Dandelion."
-   },
-   "hint": {
-    "en": "Look at Dandelion."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:stripped_warped_hyphae",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Geschälte Wirrhyphen.",
-    "en": "Place 2× Stripped Warped Hyphae."
-   },
-   "hint": {
-    "en": "Place 2× Stripped Warped Hyphae."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "item": "minecraft:chiseled_sulfur",
     "count": 5
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 5× Gemeißelter Schwefel.",
-    "en": "Collect 5× Chiseled Sulfur."
-   },
-   "hint": {
-    "en": "Collect 5× Chiseled Sulfur."
-   }
+   "conditions": []
   },
-  "textKo": "조각된 유황을 다섯 개 만들었어요.",
-  "textDe": "Gemeißelter Schwefel — Zeremonie vollendet.",
-  "textEn": "the ritual of Chiseled Sulfur is complete."
+  "textKo": "조각된 유황을 다섯 개 만들었어요."
  },
  "reward": {
   "badge": "blumenpfad",
@@ -107,6 +76,5 @@
    "dandelion"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Flower Trail"
+ "koreanLevel": 1
 }

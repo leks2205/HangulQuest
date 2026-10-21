@@ -14,7 +14,54 @@ python3 tools/new_questline.py steinpfad2 --words stone,cobblestone --tier 1 \
 ./gradlew test
 ```
 
-The script writes the file. The mod finds questline files by listing the folder, so there is no index to maintain.
+The script writes the file and moves its English and German text into the lang files (see below). The
+mod finds questline files by listing the folder, so there is no index to maintain.
+
+## Where the English and German text lives
+
+A shipped questline file holds the Korean text and the structure, and nothing else. The English and
+German text (titles, clues, hints, the finale line) is in two flat files, one per language, so that a
+translator, Weblate or Crowdin only ever touches one file:
+
+```
+src/main/resources/assets/hangulquest/lang/content/en_us.json   English, the reference
+src/main/resources/assets/hangulquest/lang/content/de_de.json   German
+```
+
+The keys are built from the ids in the questline file:
+
+| Key | Text |
+|---|---|
+| `hangulquest.trail.<id>.title` | the trail's title |
+| `hangulquest.trail.<id>.step.<stepId>.clue` | the translation of a step's clue |
+| `hangulquest.trail.<id>.step.<stepId>.hint` | the translation of a step's easy-Korean hint |
+| `hangulquest.trail.<id>.finale` | the line shown when the trail is finished |
+| `hangulquest.word.<conceptId>.gloss` | a word's gloss (`concepts.json` has no English or German left) |
+| `hangulquest.word.<conceptId>.sentence` | the translation of the word's example sentence |
+
+The finale step is the step id `finale`: `hangulquest.trail.<id>.step.finale.clue`. A language file
+may lack any key; the game then shows the English text, never another language. English is complete
+(`ContentTextTest` fails otherwise), German is reported and may have gaps. Arguments, if a text ever
+needs one, are `%s` and must match English. A new language is a new `lang/content/<code>.json` next
+to the interface file `lang/<code>.json`.
+
+**Adding or changing text.** Write English and German inline in the trail file while you work, then run
+
+```bash
+python3 tools/i18n/extract_content.py
+```
+
+It moves every inline `titleEn`/`titleDe`, `clue.en`/`de`, `hint.en`/`de`, `finale.textEn`/`textDe` and
+every concept gloss into the lang files and removes the fields from the JSON (nothing else in the file
+changes). `python3 tools/i18n/extract_content.py --check` fails while shipped files still carry inline
+text; CI runs it. To change an existing line, edit the lang file directly.
+
+**Files of your own.** Questline files in `config/hangulquest/questlines/` and in resource packs may
+keep using the inline fields, and they should: they have no lang file. An inline field always wins over
+a key. A field with inline text (say `clue.en`) hides the keys for that field in every language, so
+a rewritten English clue is never shown next to the shipped German one; add `clue.de` as well to
+translate it. Without any inline text for a title, clue or hint the key of the same trail and step id is
+used, which is what a copy of a shipped file wants.
 
 ## The external folder (no restart)
 
@@ -43,7 +90,6 @@ below the ground uses „내려가다" (descend) instead of climbing.
   "schema": 1,
   "id": "steinpfad",
   "titleKo": "돌의 길",
-  "titleDe": "Der Steinpfad",
   "topic": "돌",
   "tier": 1,
   "order": 10,
@@ -57,8 +103,8 @@ below the ground uses „내려가다" (descend) instead of climbing.
       "teach": ["stone"],
       "goal": { "type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 3 },
       "conditions": [],
-      "clue": { "ko": "단단하고 회색인 것을 세 개 캐요.", "de": "Baue drei harte, graue Dinge ab." },
-      "hint": { "ko": "돌을 캐요. 세 개요.", "de": "Baue Stein ab, drei Stück." }
+      "clue": { "ko": "단단하고 회색인 것을 세 개 캐요." },
+      "hint": { "ko": "돌을 캐요. 세 개요." }
     }
   ],
   "finale": {
@@ -68,15 +114,20 @@ below the ground uses „내려가다" (descend) instead of climbing.
       "goal": { "type": "PLACE_BLOCK", "block": "minecraft:torch", "count": 1 },
       "conditions": [{ "type": "TIME", "phase": "NIGHT" }]
     },
-    "textKo": "어두운 곳에서 빛을 만들었어요.",
-    "textDe": "Du hast im Dunkeln Licht gemacht."
+    "textKo": "어두운 곳에서 빛을 만들었어요."
   },
   "reward": { "badge": "steinpfad", "words": ["stone", "torch"] }
 }
 ```
 
+This is the shipped shape. The matching lang entries are `hangulquest.trail.steinpfad.title`,
+`...step.s1.clue`, `...step.s1.hint` and `...finale`. A file of your own adds the translations inline:
+`"titleEn"`, `"titleDe"`, `"clue": { "ko": …, "en": …, "de": … }`, the same for `hint`, and `"textEn"` and
+`"textDe"` next to `textKo` in the `finale`.
+
 - `clue` and `hint` are optional. Without them the Korean sentence is generated from the goal, with
-  correct particles, counters and time prefixes. Authored sentences are for riddle flavour.
+  correct particles, counters and time prefixes. Authored sentences are for riddle flavour. Their
+  English and German translations are lang keys (or inline fields in a file of your own).
 - `teach` names the words the step introduces; they must exist in `concepts.json`.
 - The `finale` is the last step and is always required.
 - `requires.minWordsKnown` compares against **discovered** words, so the chain stays playable.
@@ -127,7 +178,9 @@ every condition holds.
 
 - Korean fields (`clue.ko`, `hint.ko`, `textKo`, `titleKo`, `topic`) are **Hangul only** — digits and
   punctuation are fine. The test fails otherwise.
-- German text is a translation, not the quest: the player sees Korean first.
+- English and German text is a translation, not the quest: the player sees Korean first. Shipped trails
+  need an English text for the title, every clue and hint and the finale (`ContentTextTest`); German
+  is optional.
 - Exactly one goal per step, the finale included.
 - Step ids are unique within a trail.
 - `concepts` is the list of words shown under the trail in the journal.
@@ -140,6 +193,7 @@ every condition holds.
 ```bash
 ./gradlew test                      # content validation plus engine tests
 python3 tools/validate_schema.py    # shape only, against docs/questline.schema.json
+python3 tools/i18n/extract_content.py --check   # no English/German text left inline in shipped files
 ```
 
 `QuestlineValidationTest` loads every file, checks references, ids, Hangul and the finale, and fails on

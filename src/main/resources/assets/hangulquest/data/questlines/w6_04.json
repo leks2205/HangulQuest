@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w6_04",
  "titleKo": "꿀벌의 숲",
- "titleDe": "Der Wald der Bienen",
  "topic": "꿀벌",
  "tier": 2,
  "order": 1064,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:stone_pressure_plate",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Steindruckplatte.",
-    "en": "Place 3× Stone Pressure Plate."
-   },
-   "hint": {
-    "en": "Place 3× Stone Pressure Plate."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cyan_stained_glass",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Türkises Glas.",
-    "en": "Collect 3× Cyan Stained Glass."
-   },
-   "hint": {
-    "en": "Collect 3× Cyan Stained Glass."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:birch_pressure_plate",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Birkenholzdruckplatte.",
-    "en": "Place Birch Pressure Plate."
-   },
-   "hint": {
-    "en": "Place Birch Pressure Plate."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:honey_bottle",
     "count": 1
    },
-   "clue": {
-    "de": "Trink eine Flasche Honig nach der Arbeit.",
-    "en": "Eat Honey Bottle."
-   },
-   "conditions": [],
-   "hint": {
-    "en": "Eat Honey Bottle."
-   }
+   "conditions": []
   },
-  "textKo": "벌통을 세우고 꿀 한 병을 마셔요.",
-  "textDe": "Stell den Bienenstock auf und trink eine Flasche Honig.",
-  "textEn": "the ritual of Honey Bottle is complete."
+  "textKo": "벌통을 세우고 꿀 한 병을 마셔요."
  },
  "reward": {
   "badge": "w6_04",
@@ -108,6 +77,5 @@
    "honey_bottle"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Forest of the Bees"
+ "koreanLevel": 3
 }

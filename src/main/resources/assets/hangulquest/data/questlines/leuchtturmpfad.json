@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "leuchtturmpfad",
  "titleKo": "등대의 길",
- "titleDe": "Der Leuchtturmpfad",
  "topic": "등대",
  "tier": 3,
  "order": 112,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mud_brick_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Schlammziegelstufe.",
-    "en": "Place 3× Mud Brick Slab."
-   },
-   "hint": {
-    "en": "Place 3× Mud Brick Slab."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:lantern",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Laterne.",
-    "en": "Place 3× Lantern."
-   },
-   "hint": {
-    "en": "Place 3× Lantern."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:savanna_plateau",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Savannenhochebene.",
-    "en": "Reach Savanna Plateau."
-   },
-   "hint": {
-    "en": "Reach Savanna Plateau."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:red_mushroom_block",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Roter Pilzblock.",
-    "en": "Place 2× Red Mushroom Block."
-   },
-   "hint": {
-    "en": "Place 2× Red Mushroom Block."
-   }
+   "conditions": []
   },
-  "textKo": "빨간색 버섯 블록을 두 개 쌓았어요.",
-  "textDe": "Roter Pilzblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Red Mushroom Block is complete."
+  "textKo": "빨간색 버섯 블록을 두 개 쌓았어요."
  },
  "reward": {
   "badge": "leuchtturmpfad",
@@ -109,6 +78,5 @@
    "sea_lantern"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Lighthouse Trail"
+ "koreanLevel": 4
 }

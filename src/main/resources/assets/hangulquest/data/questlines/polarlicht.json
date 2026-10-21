@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "polarlicht",
  "titleKo": "뜨거운 것",
- "titleDe": "Hot Stuff",
  "topic": "용암",
  "tier": 2,
  "order": 91,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_sword",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kupferschwert.",
-    "en": "Collect Copper Sword."
-   },
-   "hint": {
-    "en": "Collect Copper Sword."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:green_wool_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Grüne Wolltreppe.",
-    "en": "Collect Green Wool Stairs."
-   },
-   "hint": {
-    "en": "Collect Green Wool Stairs."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:tuff_bricks",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Tuffsteinziegel.",
-    "en": "Place Tuff Bricks."
-   },
-   "hint": {
-    "en": "Place Tuff Bricks."
    }
   }
  ],
@@ -86,17 +64,9 @@
     "block": "minecraft:magma_block",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place 2× Magma Block."
-   },
-   "hint": {
-    "en": "Place 2× Magma Block."
-   }
+   "conditions": []
   },
-  "textKo": "마그마 블록을 놓아 뜨거운 길을 만들어요.",
-  "textDe": "Magmablöcke für den heißen Weg.",
-  "textEn": "the ritual of Magma Block is complete."
+  "textKo": "마그마 블록을 놓아 뜨거운 길을 만들어요."
  },
  "reward": {
   "badge": "polarlicht",
@@ -107,6 +77,5 @@
    "magma"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Hot Stuff"
+ "koreanLevel": 3
 }

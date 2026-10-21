@@ -21,7 +21,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Interface text from the mod's own language files ({@code assets/hangulquest/lang/<code>.json}).
+ * Interface and content text from the mod's own language files ({@code assets/hangulquest/lang/<code>.json}
+ * for the interface, {@code lang/content/<code>.json} for quest and word text).
  *
  * <p>The interface language can differ from the game language, so this does not go through
  * {@code Component.translatable}: the file for {@link Lang#current()} is read directly and a key it
@@ -32,6 +33,8 @@ public final class I18n {
 	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
 	private static final String FALLBACK = "en_us";
 	private static final String LANG_DIR = "/assets/hangulquest/lang/";
+	/** Quest and word text; kept apart so the interface files stay small. Same flat key/value layout. */
+	private static final String CONTENT_DIR = LANG_DIR + "content/";
 	private static final String INDEX = "/assets/hangulquest/data/languages.json";
 	private static final Pattern ARG = Pattern.compile("%(?:(\\d+)\\$)?s");
 
@@ -71,6 +74,52 @@ public final class I18n {
 	}
 
 	/**
+	 * Text of a content key in exactly one language, with no fallback; null when that language lacks it
+	 * (a blank value counts as missing, so an empty translation field falls back like an absent one).
+	 */
+	public static String find(String code, String key) {
+		String text = key == null ? null : bundle(code).get(key);
+		return text == null || text.isBlank() ? null : text;
+	}
+
+	/**
+	 * The text of one content field (a trail title, a clue...) in exactly one language: the inline field
+	 * of a player's questline file when it has one, else the shipped key. Null when there is none.
+	 *
+	 * <p>Inline fields win over keys. A field that carries any inline text is the file's own wording and
+	 * hides the shipped keys in every language, so a stale shipped German line cannot show next to a
+	 * rewritten English one.
+	 */
+	public static String own(Lang lang, String key, String inlineEn, String inlineDe) {
+		boolean en = filled(inlineEn);
+		boolean de = filled(inlineDe);
+		if (en || de) {
+			String inline = lang == Lang.DE ? inlineDe : lang == Lang.EN ? inlineEn : null;
+			return filled(inline) ? inline : null;
+		}
+		return find(lang.code(), key);
+	}
+
+	/**
+	 * The text of one content field for a language: its own, else English, else German (a field written
+	 * only in German still shows). Null when the field has no text at all.
+	 */
+	public static String content(Lang lang, String key, String inlineEn, String inlineDe) {
+		String text = own(lang, key, inlineEn, inlineDe);
+		if (text == null && lang != Lang.EN) {
+			text = own(Lang.EN, key, inlineEn, inlineDe);
+		}
+		if (text == null && lang != Lang.DE) {
+			text = own(Lang.DE, key, inlineEn, inlineDe);
+		}
+		return text;
+	}
+
+	private static boolean filled(String text) {
+		return text != null && !text.isBlank();
+	}
+
+	/**
 	 * Picks between two texts that content already carries (quest titles and the like): German only
 	 * for the German interface, English for everything else. Goes away when that content moves to keys.
 	 */
@@ -100,15 +149,21 @@ public final class I18n {
 		return !bundle(code).isEmpty();
 	}
 
+	/** The interface file and the content file of a language, one map; either file may be missing. */
 	private static Map<String, String> load(String code) {
-		try (InputStream stream = I18n.class.getResourceAsStream(LANG_DIR + code + ".json")) {
-			if (stream == null) {
-				return Map.of();
+		Map<String, String> merged = new java.util.LinkedHashMap<>();
+		readInto(LANG_DIR + code + ".json", merged);
+		readInto(CONTENT_DIR + code + ".json", merged);
+		return merged.isEmpty() ? Map.of() : Collections.unmodifiableMap(merged);
+	}
+
+	private static void readInto(String path, Map<String, String> into) {
+		try (InputStream stream = I18n.class.getResourceAsStream(path)) {
+			if (stream != null) {
+				into.putAll(readStrings(stream));
 			}
-			return Collections.unmodifiableMap(readStrings(stream));
 		} catch (Exception unreadable) {
-			LOG.warn("could not read language file {}: {}", code, unreadable.toString());
-			return Map.of();
+			LOG.warn("could not read language file {}: {}", path, unreadable.toString());
 		}
 	}
 
