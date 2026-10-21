@@ -54,7 +54,7 @@ class ProgressCompatibilityTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0"})
+	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample"})
 	void everyReleaseSurvivesLoadAndSave(String tag) throws IOException {
 		Path dir = install(tag + ".json");
 		JsonObject original = read(dir.resolve("progress.json"));
@@ -78,12 +78,69 @@ class ProgressCompatibilityTest {
 		store.flush();
 		JsonObject saved = read(dir.resolve("progress.json"));
 		original.getAsJsonObject("totals").addProperty("reviews", data.totals.reviews);
+		original.addProperty("version", ProgressData.CURRENT_VERSION);
 		assertContains(original, saved, "$");
+		assertEquals(3, saved.get("version").getAsInt(), "every release ends up on the current schema");
+		JsonObject meta = saved.getAsJsonObject("meta");
+		assertFalse(meta.get("installSalt").getAsString().isBlank());
+		assertEquals(3, meta.getAsJsonArray("schemaHistory").asList().getLast().getAsInt());
+		assertTrue(saved.getAsJsonObject("totals").has("sidequestsCompleted"));
+		assertTrue(saved.getAsJsonObject("totals").has("questStepsCompleted"));
 
 		ProgressData reloaded = new ProgressStore(dir, LOG).data();
 		assertEquals(data.words.keySet(), reloaded.words.keySet());
 		assertEquals(data.quests.saved.keySet(), reloaded.quests.saved.keySet());
 		assertNoTempFiles(dir);
+	}
+
+	@Test
+	void aV3FileKeepsItsSaltHistoryAndCounters() throws IOException {
+		Path dir = install("v3-sample.json");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		assertEquals("9f3c1a7be2d44e60a1b8c5d07f26e913", store.data().meta.installSalt);
+		assertEquals(List.of(2, 3), store.data().meta.schemaHistory);
+		assertEquals(4, store.data().totals.sidequestsCompleted);
+		assertEquals(11, store.data().totals.questStepsCompleted);
+		store.markDirty();
+		store.flush();
+		JsonObject saved = read(dir.resolve("progress.json"));
+		assertEquals("9f3c1a7be2d44e60a1b8c5d07f26e913", saved.getAsJsonObject("meta").get("installSalt").getAsString());
+		try (Stream<Path> files = Files.list(dir)) {
+			assertTrue(files.noneMatch(path -> path.getFileName().toString().contains("-backup-")),
+					"a current file needs no migration backup");
+		}
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"v1.0.0", "v2.1.0", "schema-v1"})
+	void theSaltIsMadeOnceAndSurvivesRestarts(String fixture) throws IOException {
+		Path dir = install(fixture + ".json");
+		ProgressStore first = new ProgressStore(dir, LOG);
+		String salt = first.data().meta.installSalt;
+		assertEquals(32, salt.length());
+		first.flush();
+		ProgressStore second = new ProgressStore(dir, LOG);
+		second.flush();
+		assertEquals(salt, second.data().meta.installSalt);
+		assertEquals(salt, new ProgressStore(dir, LOG).data().meta.installSalt);
+		assertEquals(salt, read(dir.resolve("progress.json")).getAsJsonObject("meta").get("installSalt").getAsString());
+	}
+
+	@Test
+	void aV1FileRecordsEveryVersionItWentThrough() throws IOException {
+		Path dir = install("schema-v1.json");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		assertEquals(List.of(1, 2, 3), store.data().meta.schemaHistory);
+		store.flush();
+		assertEquals(List.of(1, 2, 3), new ProgressStore(dir, LOG).data().meta.schemaHistory);
+	}
+
+	@Test
+	void aFreshInstallGetsASaltAndHistory() {
+		ProgressStore store = new ProgressStore(tempDir.resolve("fresh"), LOG);
+		assertEquals(3, store.data().version);
+		assertEquals(List.of(3), store.data().meta.schemaHistory);
+		assertFalse(store.data().meta.installSalt.isBlank());
 	}
 
 	@Test

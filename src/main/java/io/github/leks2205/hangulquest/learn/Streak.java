@@ -1,10 +1,24 @@
 package io.github.leks2205.hangulquest.learn;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 /** Daily streak computed from the persisted day keys (real-world dates). */
 public record Streak(int current, int best, String lastDay) {
+	/** Local hour at which a new study day starts, so a session from 23:00 to 01:00 is one day. */
+	public static final int DAY_STARTS_AT_HOUR = 4;
+
+	/** The study day a moment belongs to. */
+	public static LocalDate studyDay(LocalDateTime moment) {
+		return moment.minusHours(DAY_STARTS_AT_HOUR).toLocalDate();
+	}
+
+	/** The persisted key of the study day, {@code yyyy-MM-dd}. */
+	public static String dayKey(LocalDateTime moment) {
+		return studyDay(moment).toString();
+	}
+
 	public static Streak compute(Set<String> dayKeys, LocalDate today) {
 		int best = 0;
 		int run = 0;
