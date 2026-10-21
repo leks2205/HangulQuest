@@ -16,13 +16,17 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
@@ -32,6 +36,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -45,6 +50,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Turns client events plus the per-tick state of the local player into an
@@ -78,6 +84,10 @@ public final class EnvironmentSensor {
 	private final EventBuffer events = new EventBuffer();
 	private final DeathTracker deaths = new DeathTracker();
 	private final DeathTracker.World deathWorld = this::findForDeath;
+
+	/** A young item entity near the player, held until every creature near them has been scanned. */
+	private record SeenItem(int id, String item, int count, double distance) {
+	}
 	private final Map<String, Integer> scratchInventory = new HashMap<>();
 	private Map<String, Integer> lastInventory = new HashMap<>();
 	private long lastDamageAt;
@@ -91,7 +101,20 @@ public final class EnvironmentSensor {
 	private List<String> lastBiomeTagsAtNight = List.of();
 	private long lastBiomeAtNightAt;
 	private long lookedAtNightAt;
-	private Map<BlockPos, net.minecraft.world.level.block.state.BlockState> pendingPlaceRegion = Map.of();
+	private Map<BlockPos, String> pendingPlaceRegion = Map.of();
+	private BlockPos pendingPlaceClicked = BlockPos.ZERO;
+	private BlockPos pendingPlaceFace = BlockPos.ZERO;
+	private final ScreenSensor screens = new ScreenSensor();
+	private final GiveTracker gives = new GiveTracker();
+	private final HeldTracker held = new HeldTracker();
+	private final List<GiveTracker.Target> dropTargets = new ArrayList<>();
+	private final List<SeenItem> seenItems = new ArrayList<>();
+	private final BlockPos.MutableBlockPos probe = new BlockPos.MutableBlockPos();
+	private BlockPos skyPos;
+	private long skyAt;
+	private boolean canSeeSky;
+	private boolean roofed;
+	private boolean underground;
 	private long tick;
 	private int settleTicks = SETTLE_TICKS;
 	/** The previous observation: the evaluator flags on it what the sensor should work out this tick. */
@@ -116,6 +139,10 @@ public final class EnvironmentSensor {
 		lastBedUseAt = 0L;
 		pendingPlaceRegion = Map.of();
 		pendingPlaceNight = false;
+		screens.reset();
+		gives.clear();
+		held.clear();
+		skyPos = null;
 		lookedAtNight = null;
 		lookedAtNightAt = 0L;
 		lastBiomeAtNight = null;
@@ -141,13 +168,16 @@ public final class EnvironmentSensor {
 				}
 				// Snapshot the neighbourhood: the placed block usually appears on the clicked face,
 				// not at the clicked position (campfire, bed, door, torch ...).
-				Map<BlockPos, net.minecraft.world.level.block.state.BlockState> region = new HashMap<>();
+				Map<BlockPos, String> region = new HashMap<>();
 				BlockPos center = hitResult.getBlockPos();
 				for (BlockPos pos : BlockPos.betweenClosed(center.offset(-2, -2, -2), center.offset(2, 2, 2))) {
 					BlockPos key = pos.immutable();
-					region.put(key, level.getBlockState(key));
+					region.put(key, blockId(level.getBlockState(key)));
 				}
 				pendingPlaceRegion = region;
+				pendingPlaceClicked = center;
+				pendingPlaceFace = center.relative(hitResult.getDirection());
+				screens.blockUsed(center, usedBlock, System.currentTimeMillis());
 				pendingPlaceNight = isNight(level);
 			}
 			return InteractionResult.PASS;
@@ -177,10 +207,20 @@ public final class EnvironmentSensor {
 		});
 		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
 			if (level.isClientSide() && entity != null) {
-				events.entityInteracted(entityId(resolve(entity)));
+				Entity target = resolve(entity);
+				String type = entityId(target);
+				events.entityInteracted(type);
+				long now = System.currentTimeMillis();
+				screens.entityUsed(type, target.getUUID(), now);
+				ItemStack heldStack = player.getItemInHand(hand);
+				if (!heldStack.isEmpty()) {
+					boolean food = target instanceof Animal animal && animal.isFood(heldStack);
+					gives.used(itemId(heldStack), type, target.getUUID(), food, now);
+				}
 			}
 			return InteractionResult.PASS;
 		});
+		screens.register();
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			tick++;
 		});
@@ -219,6 +259,8 @@ public final class EnvironmentSensor {
 		obs.rain = level.isRaining();
 		obs.thunder = level.isThundering();
 		obs.idle = player.isSpectator() || isIdle();
+		readHands(obs, player);
+		readSky(obs, player, level);
 
 		readBiome(obs, level);
 		if (obs.phase() == Condition.Phase.NIGHT) {
@@ -267,21 +309,25 @@ public final class EnvironmentSensor {
 		obs.damageRecently = obs.now - lastDamageAt < 4000L;
 
 		if (!pendingPlaceRegion.isEmpty()) {
-			for (var entry : pendingPlaceRegion.entrySet()) {
-				BlockState before = entry.getValue();
-				BlockState now = level.getBlockState(entry.getKey());
-				if (!now.isAir() && !now.getBlock().equals(before.getBlock())) {
-					// Only this tick's observation: the next sense() must not count it again.
-					String placedBlock = blockId(now);
-					obs.placedBlocks.add(placedBlock);
-					if (pendingPlaceNight) {
-						obs.placedBlocksAtNight.add(placedBlock);
-					}
+			List<PlacementDiff.Placed> changed =
+					PlacementDiff.find(pendingPlaceRegion, pos -> blockId(level.getBlockState(pos)));
+			for (PlacementDiff.Placed placed : changed) {
+				// Only this tick's observation: the next sense() must not count it again.
+				obs.placedBlocks.add(placed.block());
+				if (pendingPlaceNight) {
+					obs.placedBlocksAtNight.add(placed.block());
 				}
 			}
+			// The 7x7x7 snapshot is only taken here, once per placement.
+			for (PlacementDiff.Placed placed : PlacementDiff.primary(changed, pendingPlaceFace, pendingPlaceClicked)) {
+				obs.addPlacement(new PlacementFact(placed.block(), placed.pos(), tick, pendingPlaceNight,
+						obs.position, neighborhood(level, placed.pos())));
+			}
+			skyPos = null; // a new block may have made a roof
 			pendingPlaceRegion = Map.of();
 			pendingPlaceNight = false;
 		}
+		screens.tick(obs, player);
 
 		if (lastBiomeAtNightAt > 0 && obs.now - lastBiomeAtNightAt < 3000L) {
 			obs.biomeAtNight = lastBiomeAtNight;
@@ -299,6 +345,44 @@ public final class EnvironmentSensor {
 			obs.lookedBlockAtNight = lookedAtNight;
 		}
 		return obs;
+	}
+
+	private void readHands(Observation obs, LocalPlayer player) {
+		ItemStack main = player.getMainHandItem();
+		ItemStack off = player.getOffhandItem();
+		obs.mainHand = main.isEmpty() ? null : itemId(main);
+		obs.offHand = off.isEmpty() ? null : itemId(off);
+		held.update(obs.mainHand, obs.offHand, obs.now);
+		obs.mainHandHeldMs = held.mainMs(obs.now);
+		obs.offHandHeldMs = held.offMs(obs.now);
+	}
+
+	/**
+	 * Water, sky and roof flags. The sky and roof lookups touch a handful of blocks, so they are only
+	 * redone when the player changes block, every ten ticks, or after a placement.
+	 */
+	private void readSky(Observation obs, LocalPlayer player, ClientLevel level) {
+		obs.inWater = player.isInWater();
+		if (skyPos == null || !skyPos.equals(obs.blockPos) || tick - skyAt >= 10) {
+			skyPos = obs.blockPos;
+			skyAt = tick;
+			int x = obs.blockPos.getX();
+			int z = obs.blockPos.getZ();
+			int eyeY = Mth.floor(player.getEyeY());
+			canSeeSky = SkyExposure.canSeeSky(eyeY, level.getHeight(Heightmap.Types.WORLD_SURFACE, x, z));
+			roofed = SkyExposure.roofed(eyeY, y -> !level.getBlockState(probe.set(x, y, z))
+					.getCollisionShape(level, probe).isEmpty());
+			underground = SkyExposure.underground(level.dimensionType().hasSkyLight(), obs.blockPos.getY(),
+					level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z));
+		}
+		obs.canSeeSky = canSeeSky;
+		obs.roofed = roofed;
+		obs.underground = underground;
+	}
+
+	private BlockNeighborhood neighborhood(ClientLevel level, BlockPos center) {
+		return BlockNeighborhood.capture(center.getX(), center.getY(), center.getZ(),
+				(x, y, z) -> blockId(level.getBlockState(probe.set(x, y, z))));
 	}
 
 	private String dimensionId(ClientLevel level) {
@@ -366,14 +450,38 @@ public final class EnvironmentSensor {
 
 	private void scanEntities(Observation obs, LocalPlayer player, ClientLevel level, boolean night) {
 		AABB nearBox = new AABB(player.blockPosition()).inflate(24.0);
+		boolean watchDrops = gives.hasDropCandidates(obs.now);
 		for (Entity entity : level.getEntities(player, nearBox, candidate -> true)) {
 			double distance = Math.sqrt(entity.distanceToSqr(player));
 			obs.addNearby(entityId(entity), distance);
+			if (entity instanceof ItemEntity dropped) {
+				if (watchDrops && dropped.tickCount <= 40 && distance <= GiveTracker.SPAWN_RANGE) {
+					ItemStack stack = dropped.getItem();
+					seenItems.add(new SeenItem(dropped.getId(), itemId(stack), stack.getCount(), distance));
+				}
+			} else if (!(entity instanceof ExperienceOrb)) {
+				obs.addEntityPosition(new EntityFact(entityId(entity), entity.getUUID(), entity.getX(),
+						entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot()));
+				if (watchDrops && entity instanceof LivingEntity && distance <= GiveTracker.TARGET_RANGE) {
+					dropTargets.add(new GiveTracker.Target(entityId(entity), entity.getUUID(), distance));
+				}
+			}
 			if (entity instanceof Monster && entity.isAlive() && distance <= 12.0) {
 				obs.hostilesNear++;
 				obs.nearestHostileDistance = Math.min(obs.nearestHostileDistance, distance);
 			}
 		}
+		if (!seenItems.isEmpty()) {
+			for (SeenItem seen : seenItems) {
+				GiveFact gave = gives.itemSpawned(seen.id(), seen.item(), seen.count(), seen.distance(),
+						dropTargets, obs.now);
+				if (gave != null) {
+					obs.addGave(gave);
+				}
+			}
+			seenItems.clear();
+		}
+		dropTargets.clear();
 		for (DeathTracker.Kill kill : deaths.poll(obs.now, deathWorld)) {
 			obs.defeatedEntities.add(kill.type());
 			if (night) {
@@ -420,6 +528,12 @@ public final class EnvironmentSensor {
 				? lastInventory : new HashMap<>(scratchInventory);
 		obs.inventory = snapshot;
 		consumption.credit(obs, lastInventory, snapshot, night);
+		if (snapshot != lastInventory && !obs.inventorySettling) {
+			// With a screen open, items move to the cursor and back: not drops.
+			for (GiveFact gave : gives.inventoryChanged(lastInventory, snapshot, obs.now, !obs.screenOpen)) {
+				obs.addGave(gave);
+			}
+		}
 		lastInventory = snapshot;
 	}
 
@@ -476,7 +590,7 @@ public final class EnvironmentSensor {
 		});
 	}
 
-	private static String itemId(ItemStack stack) {
+	static String itemId(ItemStack stack) {
 		return ITEM_IDS.computeIfAbsent(stack.getItem(), item -> {
 			Identifier id = BuiltInRegistries.ITEM.getKey(item);
 			return id == null ? "" : id.toString();
