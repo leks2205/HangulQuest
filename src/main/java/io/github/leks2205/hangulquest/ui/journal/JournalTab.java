@@ -46,6 +46,6 @@ public abstract class JournalTab {
 
 	/** Which language the cached strings of this tab were built for. */
 	protected static int language() {
-		return Lang.current().ordinal();
+		return Lang.current().id();
 	}
 }

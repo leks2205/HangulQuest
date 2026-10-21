@@ -11,7 +11,7 @@ import io.github.leks2205.hangulquest.ui.journal.QuestTab;
 import io.github.leks2205.hangulquest.ui.journal.SettingsTab;
 import io.github.leks2205.hangulquest.ui.journal.StudyTab;
 import io.github.leks2205.hangulquest.ui.journal.WordsTab;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
@@ -29,7 +29,9 @@ import java.util.function.Consumer;
  * is a {@link JournalTab} in {@code ui.journal}.
  */
 public final class JournalScreen extends Screen {
-	private static final String[] TABS = {"Info", "Wörter", "Lernen", "Erfolge", "Quests", "Optionen"};
+	private static final String[] TABS = {"hangulquest.ui.journal.tab.info", "hangulquest.ui.journal.tab.words",
+			"hangulquest.ui.journal.tab.study", "hangulquest.ui.journal.tab.achievements", "hangulquest.ui.journal.tab.quests",
+			"hangulquest.ui.journal.tab.settings"};
 	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —"};
 	private static final String[] SPINE = {"한", "글", "일", "지"};
 
@@ -271,7 +273,7 @@ public final class JournalScreen extends Screen {
 
 		int tabWidth = (panelWidth - 10 - 24) / TABS.length;
 		for (int i = 0; i < TABS.length; i++) {
-			button(graphics, px + 5 + i * tabWidth, py + 5, tabWidth - 2, 16, Tr.t(TABS[i]), i == tab, tabClicks[i]);
+			button(graphics, px + 5 + i * tabWidth, py + 5, tabWidth - 2, 16, I18n.t(TABS[i]), i == tab, tabClicks[i]);
 		}
 
 		showDe = hq != null && hq.config().journalTranslations;

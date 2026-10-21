@@ -9,9 +9,9 @@ Short version:
   [authoring guide](questlines.md) and the [attribute reference](questline-reference.md) first.
 - **Code** is Java 25 on Gradle 9.7.1 and Loom 1.18. `./gradlew test` and `./gradlew build` have to pass;
   CI runs the same on Linux, plus a schema check over every questline file.
-- **Interface strings** live in `util/Tr.java` (one German key, one English value) and in
-  `lang/de_de.json` / `lang/en_us.json`. A missing key falls back to the German text, so adding a
-  language starts there.
+- **Interface strings** are keys named `hangulquest.ui.<area>.<name>` in `lang/en_us.json` (the reference)
+  and `lang/de_de.json`; arguments are `%s`. A key a language lacks falls back to English. To add a
+  language, copy `en_us.json` to `<code>.json`, translate it and list it in `data/languages.json`.
 - **Bugs** go to the issue tracker with versions, the questline id and a log excerpt. Security problems
   go through the private advisory form, never a public issue.
 - **Be decent.** Grammar disagreements are expected; harassment is not.

@@ -4,7 +4,8 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.StampMemo;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
+import io.github.leks2205.hangulquest.util.Lang;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
@@ -52,19 +53,19 @@ public final class StudyTab extends JournalTab {
 			yy += 14;
 		}
 		if (!page.due().isEmpty()) {
-			host.button(g, x, y + height - 30, 150, 18, Tr.t("Jetzt wiederholen"), false, reviewNow);
+			host.button(g, x, y + height - 30, 150, 18, I18n.t("hangulquest.ui.study.review_now"), false, reviewNow);
 		}
-		Draw.label(g, host.font(), Tr.t("Wiederholungen erscheinen auch automatisch im Spiel."), x,
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.study.auto_hint"), x,
 				y + height - 10, Ink.INK_FAINT);
 	}
 
 	private Page build(LearningService learn, long now, int width) {
 		List<Word> words = learn.dueWords(now, LIST_SIZE);
-		String header = words.isEmpty() ? Tr.t("Nichts fällig. Alles im grünen Bereich.")
-				: words.size() + Tr.t(" Karten fällig:");
+		String header = words.isEmpty() ? I18n.t("hangulquest.ui.study.nothing_due")
+				: I18n.t("hangulquest.ui.study.cards_due", words.size());
 		List<Due> due = words.stream()
 				.map(word -> new Due(word, Draw.fit(host.font(),
-						Component.literal(Tr.pick(word.en, word.deShort)), width - 80)))
+						Component.literal(word.gloss(Lang.current())), width - 80)))
 				.toList();
 		return new Page(header, due, width);
 	}

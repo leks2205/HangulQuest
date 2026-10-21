@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.Lang;
 import io.github.leks2205.hangulquest.util.TextClean;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -86,18 +87,11 @@ public final class Catalog {
 				continue;
 			}
 			String key = item.getDescriptionId();
-			if (key == null || !tables.has(key)) {
+			Word word = dynamicWord(id, key, tables, false);
+			if (word == null) {
 				continue;
 			}
-			String ko = tables.ko(key);
-			String de = tables.de(key);
-			String en = tables.en(key);
-			if (!acceptable(ko, de, id)) {
-				continue;
-			}
-			Category category = itemCategory(id.getPath());
-			add(new Word("mc:item:" + id, ko, de, en, de, category, 2, null, id.toString(), null, null,
-					null, Origin.MINECRAFT, false, null));
+			add(word);
 			byTranslationKey.putIfAbsent(key, byItem.get(id.toString()));
 		}
 
@@ -107,33 +101,51 @@ public final class Catalog {
 				continue;
 			}
 			String key = type.getDescriptionId();
-			if (key == null || !tables.has(key)) {
+			Word word = dynamicWord(id, key, tables, true);
+			if (word == null) {
 				continue;
 			}
-			String ko = tables.ko(key);
-			String de = tables.de(key);
-			String en = tables.en(key);
-			if (!acceptable(ko, de, id)) {
-				continue;
-			}
-			Category category = isHostile(id.getPath()) ? Category.COMBAT : Category.ANIMALS;
-			add(new Word("mc:entity:" + id, ko, de, en, de, category, 2, null, null, id.toString(), null,
-					null, Origin.MINECRAFT, false, null));
+			add(word);
 			byTranslationKey.putIfAbsent(key, byEntity.get(id.toString()));
 		}
 	}
 
+	/**
+	 * The word for a vanilla item or entity, or null when it is not learnable. Needs a Korean name;
+	 * the German name, English name and the interface language's name are glosses when present.
+	 */
+	static Word dynamicWord(Identifier id, String key, LangTables tables, boolean entity) {
+		if (key == null || !tables.has(key)) {
+			return null;
+		}
+		String ko = tables.ko(key);
+		String de = tables.de(key);
+		String en = tables.en(key);
+		if (!acceptable(ko, de, id)) {
+			return null;
+		}
+		Map<String, String> others = tables.otherNames(key);
+		if (entity) {
+			Category category = isHostile(id.getPath()) ? Category.COMBAT : Category.ANIMALS;
+			return new Word("mc:entity:" + id, ko, de, en, de, category, 2, null, null, id.toString(), null,
+					null, Origin.MINECRAFT, false, null, List.of(), others);
+		}
+		return new Word("mc:item:" + id, ko, de, en, de, itemCategory(id.getPath()), 2, null, id.toString(),
+				null, null, null, Origin.MINECRAFT, false, null, List.of(id.toString()), others);
+	}
+
 	private static boolean acceptable(String ko, String de, Identifier id) {
-		if (ko == null || de == null || ko.isBlank() || de.isBlank()) {
+		// Korean decides; the German name is only checked when the German file is there.
+		if (ko == null || ko.isBlank()) {
 			return false;
 		}
 		if (!TextClean.hasHangul(ko) || !TextClean.isHangulOnly(ko)) {
 			return false;
 		}
-		if (ko.length() > 40 || de.length() > 60) {
+		if (ko.length() > 40 || (de != null && de.length() > 60)) {
 			return false;
 		}
-		if (ko.equalsIgnoreCase(de) || ko.equals(de)) {
+		if (ko.equalsIgnoreCase(de)) {
 			return false;
 		}
 		return !isTechnical(id.getPath());
@@ -265,9 +277,11 @@ public final class Catalog {
 
 	public List<Word> distractors(Word word, int count, Random random) {
 		List<Word> pool = new ArrayList<>();
+		Lang lang = Lang.current();
+		String own = word.gloss(lang);
 		for (Word candidate : all) {
-			if (candidate.id.equals(word.id) || candidate.phrase || candidate.deShort.isBlank()
-					|| candidate.deShort.equals(word.deShort)) {
+			if (candidate.id.equals(word.id) || candidate.phrase || candidate.gloss(lang).isBlank()
+					|| candidate.gloss(lang).equals(own)) {
 				continue;
 			}
 			if (candidate.category == word.category) {
@@ -276,8 +290,8 @@ public final class Catalog {
 		}
 		if (pool.size() < count) {
 			for (Word candidate : all) {
-				if (candidate.id.equals(word.id) || candidate.phrase || candidate.deShort.isBlank()
-						|| pool.contains(candidate) || candidate.deShort.equals(word.deShort)) {
+				if (candidate.id.equals(word.id) || candidate.phrase || candidate.gloss(lang).isBlank()
+						|| pool.contains(candidate) || candidate.gloss(lang).equals(own)) {
 					continue;
 				}
 				pool.add(candidate);

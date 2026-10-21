@@ -15,7 +15,7 @@ import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import io.github.leks2205.hangulquest.ui.quiz.QuizSession;
 import io.github.leks2205.hangulquest.ui.quiz.QuizView;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -138,7 +138,7 @@ public final class HudController implements QuestEngine.Feedback {
 		if (quizView() != null || session.open(System.currentTimeMillis())) {
 			mc.setScreenAndShow(new QuizScreen(this));
 		} else if (!startFromDue()) {
-			banner("지금은 복습할 단어가 없어요.", Tr.t("Gerade ist nichts zu wiederholen."), false);
+			banner("지금은 복습할 단어가 없어요.", I18n.t("hangulquest.ui.hud.nothing_to_review"), false);
 		}
 	}
 
@@ -220,7 +220,7 @@ public final class HudController implements QuestEngine.Feedback {
 			quizResultUntil = now + 2400L;
 			sound(correct);
 			for (Achievements.Achievement achievement : unlocked) {
-				banner(achievement.ko(), achievement.de(), true);
+				banner(achievement.ko(), achievement.label(), true);
 			}
 		});
 		return result.map(r -> r.correct() ? QuizOutcome.CORRECT : QuizOutcome.WRONG).orElse(QuizOutcome.NONE);
@@ -258,7 +258,7 @@ public final class HudController implements QuestEngine.Feedback {
 	public void sidequestCompleted(Word word) {
 		String learned = word == null ? "" : io.github.leks2205.hangulquest.quest.KoGrammar.eul(word.ko) + " 배웠어요.";
 		String german = word == null || !hq.config().questTranslations ? ""
-				: io.github.leks2205.hangulquest.util.Tr.t("Nebenquest geschafft: ") + glossOf(word);
+				: I18n.t("hangulquest.ui.quest.sidequest_done", glossOf(word));
 		celebration.trigger(Celebration.Kind.SIDE, "사이드 퀘스트 완료!", learned, "", german, "",
 				word == null ? "" : word.iconItem);
 		celebrationSound(Celebration.Kind.SIDE);
@@ -282,7 +282,7 @@ public final class HudController implements QuestEngine.Feedback {
 	}
 
 	private static String glossOf(Word word) {
-		return io.github.leks2205.hangulquest.util.Tr.pick(word.en, word.deShort);
+		return word.gloss(io.github.leks2205.hangulquest.util.Lang.current());
 	}
 
 	private void celebrationSound(Celebration.Kind kind) {
@@ -601,8 +601,8 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.korean(graphics, font, quizResultWord.ko, x + 30, y + 24, Draw.WHITE);
 		Draw.truncated(graphics, font, Component.literal(glossOf(quizResultWord)), x + 30, y + 39,
 				width - 40, Draw.GRAY);
-		Draw.label(graphics, font, quizResultCorrect ? io.github.leks2205.hangulquest.util.Tr.t("Richtig.")
-				: io.github.leks2205.hangulquest.util.Tr.t("Die richtige Antwort steht oben."),
+		Draw.label(graphics, font, quizResultCorrect ? I18n.t("hangulquest.ui.hud.correct")
+				: I18n.t("hangulquest.ui.hud.right_answer"),
 				x + 8, y + height - 12, Draw.DIM);
 	}
 
@@ -610,7 +610,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private void drawQuizPrompt(GuiGraphicsExtractor graphics, long now) {
 		var font = mc.font;
 		Component title = KoText.ko("복습");
-		Component text = Component.literal(Tr.t("Quiz bereit: %s drücken").formatted(answerKeyLabel()));
+		Component text = Component.literal(I18n.t("hangulquest.ui.hud.quiz_ready", answerKeyLabel()));
 		int width = 10 + font.width(title) + 8 + font.width(text) + 10;
 		int height = 22;
 		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
@@ -627,7 +627,7 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		Component ko = KoText.ko("답을 골라요");
 		graphics.text(font, ko, x, y, Draw.DIM, false);
-		Draw.label(graphics, font, " · " + Tr.t("Mit %s öffnen").formatted(answerKeyLabel()),
+		Draw.label(graphics, font, " · " + I18n.t("hangulquest.ui.hud.open_with", answerKeyLabel()),
 				x + font.width(ko), y, Draw.DIM);
 	}
 

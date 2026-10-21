@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /** Curated vocabulary entry as stored in concepts.json. */
 public final class Concept {
@@ -9,6 +10,8 @@ public final class Concept {
 	public String ko;
 	public String de;
 	public String en;
+	/** Optional glosses by language code ({@code "es_es": "gato"}); not used yet, here so content can grow into it. */
+	public Map<String, String> glosses;
 	public String category = "MISC";
 	public int tier = 1;
 	/** Items the word really names (instances of it); empty for animals, places, verbs. */
@@ -55,7 +58,7 @@ public final class Concept {
 		// A blank English gloss stays blank here; Word marks it as untranslated instead of
 		// passing the German text off as English.
 		return new Word("concept:" + id, ko, de, en, de, categoryEnum(), tier, id, iconItem(), entity, biome,
-				descKo, Origin.CURATED, false, grammar, referents);
+				descKo, Origin.CURATED, false, grammar, referents, glosses);
 	}
 
 	public boolean isValid() {

@@ -1,7 +1,6 @@
 package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.util.Lang;
-import io.github.leks2205.hangulquest.util.Tr;
 
 import java.util.List;
 import java.util.Objects;

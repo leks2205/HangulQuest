@@ -39,7 +39,7 @@ public final class AchievementsTab extends JournalTab {
 			boolean unlocked = learn != null && learn.data().achievements.containsKey(achievement.id());
 			int rowY = y + (i - scroll) * ROW_HEIGHT;
 			Draw.label(g, host.font(), unlocked ? "✓" : "·", x, rowY, unlocked ? Ink.GOOD : Ink.INK_FAINT);
-			Draw.label(g, host.font(), achievement.de(), x + 14, rowY, unlocked ? Ink.INK : Ink.INK_FAINT);
+			Draw.label(g, host.font(), achievement.label(), x + 14, rowY, unlocked ? Ink.INK : Ink.INK_FAINT);
 			Draw.label(g, host.font(), achievement.ko(), x + width - 80, rowY, unlocked ? Ink.ACCENT : Ink.INK_FAINT);
 		}
 	}

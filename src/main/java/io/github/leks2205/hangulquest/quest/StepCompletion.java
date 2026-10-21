@@ -5,7 +5,7 @@ import io.github.leks2205.hangulquest.learn.Achievements;
 import io.github.leks2205.hangulquest.learn.LearningSink;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.sense.Observation;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ final class StepCompletion {
 
 	static void unlock(QuestEngine.Feedback feedback, List<Achievements.Achievement> unlocked) {
 		for (Achievements.Achievement achievement : unlocked) {
-			feedback.banner(achievement.ko(), achievement.de(), true);
+			feedback.banner(achievement.ko(), achievement.label(), true);
 			feedback.sound(true);
 		}
 	}
@@ -67,7 +67,7 @@ final class StepCompletion {
 			feedback.stepCompleted("좋아요!", text.clueKo(following, track.trail.koreanLevel()),
 					text.clueTranslation(following));
 		} else {
-			feedback.banner(track.trail.titleKo(), Tr.t("Ziel erreicht · ") + track.trail.title(), true);
+			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.goal_reached", track.trail.title()), true);
 		}
 		feedback.sound(true);
 	}
@@ -95,7 +95,7 @@ final class StepCompletion {
 			feedback.sound(true);
 			advance.after(trailId, obs, feedback);
 		} else {
-			feedback.banner(track.trail.titleKo(), Tr.t("Questline geschafft · ") + track.trail.title(), true);
+			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.line_complete", track.trail.title()), true);
 			feedback.sound(true);
 		}
 	}
