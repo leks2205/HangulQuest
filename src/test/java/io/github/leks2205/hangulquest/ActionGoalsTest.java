@@ -702,8 +702,8 @@ class ActionGoalsTest {
 			spoken.add(SentenceBuilder.normal(step.goal(), CATALOG.byConceptId(step.teach().get(0)).orElse(null),
 					step.conditions(), trail.koreanLevel(), "finale".equals(step.id()), namer));
 		}
-		assertEquals(List.of("밀로 빵을 만들어야만 해요.", "주민에게 빵을 줘야만 해요.", "상자 안에 사과를 넣어야만 해요.",
-				"침대에서 자기 전에 빵을 먹어야만 해요.", "횃불을 들고 밤에 걸어야만 해요."), spoken);
+		assertEquals(List.of("밀로 빵을 만드세요.", "주민에게 빵을 주세요.", "상자 안에 사과를 넣으세요.",
+				"침대에서 자기 전에 빵을 먹으세요.", "횃불을 들고 밤에 걸으세요."), spoken);
 		// The translations do not give the order away.
 		for (QuestStep step : trail.allSteps()) {
 			assertFalse(step.clueEn().toLowerCase().contains("before"), step.clueEn());

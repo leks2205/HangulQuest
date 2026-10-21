@@ -7,6 +7,8 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.grammar.Endings;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
 import io.github.leks2205.hangulquest.quest.spatial.Role;
 
@@ -147,14 +149,7 @@ public final class SentenceBuilder {
 	/** The ending of the level and the marker of the object: what every sentence has. */
 	public static List<String> baseGrammar(Verb verb, int level, ObjectKind kind) {
 		List<String> ids = new java.util.ArrayList<>(3);
-		ids.add(switch (clampLevel(level)) {
-			case 1 -> "L1.eoyo";
-			case 2 -> "L2.eoya_haeyo";
-			case 3 -> "L3.eoyaman_haeyo";
-			case 4 -> "L4.ji_anh_eumyeon";
-			case 5 -> "L5.ji_anh_goseoneun";
-			default -> "L6.su_bakke";
-		});
+		ids.add(Ladder.shared().rung(clampLevel(level)).grammar());
 		if (kind == ObjectKind.BIOME || kind == ObjectKind.DIMENSION) {
 			ids.add("L1.euro_direction");
 		} else if (kind != ObjectKind.NONE) {
@@ -205,21 +200,23 @@ public final class SentenceBuilder {
 		return name == null ? fallback : name;
 	}
 
-	/** Level 1 polite, 2 must, 3 emphatic only-if, 4 double negative, 5 literary, 6 resigned. */
-	static String verbPhrase(Verb verb, int level, boolean finale) {
-		return verb.prefix() + switch (level) {
-			case 2 -> verb.eoyo() + "야 해요";
-			case 3 -> verb.eoyo() + "야만 해요";
-			case 4 -> verb.stem() + "지 않으면 안 돼요";
-			case 5 -> verb.stem() + "지 않고서는 "
-					+ (finale ? "이 길을 끝낼 수 없어요" : "다음 단서를 찾을 수 없어요");
-			case 6 -> verb.future() + " 수밖에 없어요";
-			default -> verb.polite();
-		};
+	/**
+	 * The verb with the instruction ending of the level, from the ladder (ladder.json): -아/어요, then
+	 * -(으)세요, then -아/어야 해요. {@code forced} says the sentence states a forced conclusion, where the
+	 * top level may use -(으)ㄹ 수밖에 없어요; any other sentence keeps the plain instruction.
+	 */
+	static String verbPhrase(Verb verb, int level, boolean forced) {
+		return verb.prefix() + Endings.apply(Ladder.shared().rung(clampLevel(level)).endingFor(forced),
+				verb.dictionary());
 	}
 
 	public static String phrase(String head, Verb verb, int level, boolean finale) {
-		return head + " " + verbPhrase(verb, level, finale) + ".";
+		return head + " " + verbPhrase(verb, level, false) + ".";
+	}
+
+	/** Same, for a sentence that states a forced conclusion ("…, so only … is left"). */
+	public static String forcedPhrase(String head, Verb verb, int level) {
+		return head + " " + verbPhrase(verb, level, true) + ".";
 	}
 
 	public static String counted(String head, int count, boolean withCounts) {

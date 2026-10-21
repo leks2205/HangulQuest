@@ -67,22 +67,22 @@ class SentenceBuilderTest {
 	}
 
 	@Test
-	void koreanLevelRaisesTheEnding() {
+	void koreanLevelFollowsTheLadder() {
 		Goal goal = new Goal.BreakBlock("minecraft:stone", 3, null);
-		assertEquals("돌을 세 개 캐야 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 2));
-		assertEquals("돌을 세 개 캐야만 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 3));
-		assertEquals("돌을 세 개 캐지 않으면 안 돼요.",
-				SentenceBuilder.normal(goal, word("돌"), List.of(), 4));
-		assertEquals("돌을 세 개 캐지 않고서는 다음 단서를 찾을 수 없어요.",
-				SentenceBuilder.normal(goal, word("돌"), List.of(), 5));
-		assertEquals("침대에서 자야 해요.",
+		assertEquals("돌을 세 개 캐요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 1));
+		assertEquals("돌을 세 개 캐세요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 2));
+		assertEquals("돌을 세 개 캐세요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 3));
+		assertEquals("돌을 세 개 캐야 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 4));
+		assertEquals("돌을 세 개 캐야 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 5));
+		assertEquals("돌을 세 개 캐야 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 6));
+		assertEquals("침대에서 자세요.",
 				SentenceBuilder.normal(new Goal.UseBlock("minecraft:red_bed"), word("침대"), List.of(), 2));
-		assertEquals("종을 울려야 해요.",
+		assertEquals("종을 울리세요.",
 				SentenceBuilder.normal(new Goal.UseBlock("minecraft:bell"), word("종"), List.of(), 2));
-		assertEquals("주민과 이야기해야 해요.",
+		assertEquals("주민과 이야기하세요.",
 				SentenceBuilder.normal(new Goal.InteractEntity("minecraft:villager"), word("주민"), List.of(), 2));
-		assertEquals("돌을 세 개 캐지 않고서는 이 길을 끝낼 수 없어요.",
-				SentenceBuilder.normal(goal, word("돌"), List.of(), 5, true));
+		// the finale ends like any other step
+		assertEquals("돌을 세 개 캐야 해요.", SentenceBuilder.normal(goal, word("돌"), List.of(), 5, true));
 	}
 
 	@Test
@@ -156,16 +156,19 @@ class SentenceBuilderTest {
 	}
 
 	@Test
-	void topikSixUsesObligation() {
+	void topikSixInstructsAndOnlyAForcedConclusionIsResigned() {
 		String sentence = SentenceBuilder.normal(new Goal.BreakBlock("minecraft:stone", 1, null),
 				word("돌"), List.of(), 6);
-		assertEquals("돌을 캘 수밖에 없어요.", sentence);
-		assertEquals("해변으로 갈 수밖에 없어요.",
+		assertEquals("돌을 캐야 해요.", sentence);
+		assertEquals("해변으로 가야 해요.",
 				SentenceBuilder.normal(new Goal.ReachBiome("minecraft:beach", 1000), word("해변"),
 						List.of(), 6));
-		assertEquals("상자를 열 수밖에 없어요.",
+		assertEquals("상자를 열어야 해요.",
 				SentenceBuilder.normal(new Goal.UseBlock("minecraft:chest"), word("상자"),
 						List.of(), 6));
+		// the resigned form is kept for a sentence that states a forced conclusion
+		assertEquals("돌을 캘 수밖에 없어요.", SentenceBuilder.forcedPhrase("돌을", Verb.MINE, 6));
+		assertEquals("돌을 캐야 해요.", SentenceBuilder.forcedPhrase("돌을", Verb.MINE, 5));
 	}
 
 	// ------------------------------------------------------------------ numerals and particles
@@ -300,9 +303,9 @@ class SentenceBuilderTest {
 		assertEquals("주민과 이야기해요.", clue(new Goal.InteractEntity("minecraft:villager"), "주민"));
 		assertEquals("떠돌이 상인과 이야기해요.",
 				clue(new Goal.InteractEntity("minecraft:wandering_trader"), "떠돌이 상인"));
-		assertEquals("소에게 먹이를 줘야 해요.", SentenceBuilder.normal(new Goal.InteractEntity("minecraft:cow"),
+		assertEquals("소에게 먹이를 주세요.", SentenceBuilder.normal(new Goal.InteractEntity("minecraft:cow"),
 				word("소"), List.of(), 2));
-		assertEquals("소에게 먹이를 줄 수밖에 없어요.", SentenceBuilder.normal(new Goal.InteractEntity("minecraft:cow"),
+		assertEquals("소에게 먹이를 줘야 해요.", SentenceBuilder.normal(new Goal.InteractEntity("minecraft:cow"),
 				word("소"), List.of(), 6));
 	}
 

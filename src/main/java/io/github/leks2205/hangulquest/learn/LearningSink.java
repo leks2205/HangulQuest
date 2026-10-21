@@ -36,6 +36,42 @@ public interface LearningSink {
 		practice(wordId, 3, correct, now);
 	}
 
+	// ---- grammar: what the player has met of the ladder, derived from the review log.
+	// The defaults describe a player who has met everything, for callers that do not track grammar.
+
+	/** The player's grammar level, 0 for a new player; generated text may use this level plus one. */
+	default int grammarLevel() {
+		return 6;
+	}
+
+	/** Whether the player has met this construction (a step used it, or its rule card was shown). */
+	default boolean grammarMet(String id) {
+		return true;
+	}
+
+	/** Whether the rule card of this construction has been shown already. */
+	default boolean grammarCardSeen(String id) {
+		return true;
+	}
+
+	/**
+	 * A quest step was completed. {@code ids} are the constructions it carried (goal type ids are
+	 * resolved to grammar.json ids on the way in); it counts as one step written at {@code ladderLevel}.
+	 */
+	default void grammarStep(List<String> ids, int ladderLevel, long now, String where) {
+	}
+
+	/** The rule card of a construction was shown (once per construction); it counts as met from here. */
+	default void grammarCardShown(String id, long now) {
+	}
+
+	/**
+	 * A form-dependent outcome for a construction (a cloze answer): logged with kind GRAMMAR and fed to
+	 * the knowledge tracing. It never moves a word's schedule.
+	 */
+	default void grammarOutcome(String id, Grader.Graded graded, long latencyMs, String source, long now) {
+	}
+
 	boolean isKnown(String wordId);
 
 	int discovered();

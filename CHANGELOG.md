@@ -6,6 +6,10 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+### Changed
+
+- **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.
+
 ### Fixed
 
 - **Progress can no longer be lost by an update or a crash.** `progress.json` is written to a unique temp file,

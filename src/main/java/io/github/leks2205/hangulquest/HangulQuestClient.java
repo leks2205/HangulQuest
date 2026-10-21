@@ -401,6 +401,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 			return;
 		}
 		while (keyHint.consumeClick()) {
+			if (hud.dismissRuleCard()) {
+				continue;
+			}
 			QuestEngine.HintView view = quests.hint(obs, hud);
 			if (view != null) {
 				hud.showHint(view, obs.now);

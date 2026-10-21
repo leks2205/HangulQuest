@@ -94,7 +94,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 **Content as data**
 - Questlines are plain JSON under `config/hangulquest/questlines/`, re-read every two seconds: a new file appears in the journal **without restarting the game**, a broken file is logged and ignored, and the shipped version stays active.
 - A JSON schema, a template, a scaffolding script (`tools/new_questline.py`), an authoring guide and a validation test guard every change.
-- Korean difficulty follows the tree: polite `-아/어요` at the top, then obligation, emphatic, double negative and finally literary `-지 않고서는 … 수 없어요`. Hints always stay at the easiest level.
+- Korean difficulty follows the tree: polite `-아/어요` at the top, then the instruction `-(으)세요`, then `-아/어야 해요`; the ladder is data (`data/ladder.json`). A new player reads at most one level above the grammar they have met, and the first use of a construction shows a two-line rule card. Hints always stay at the easiest level.
 
 **Presentation**
 - Three celebration tiers — step, sidequest, trail — with cards, sounds and client-side particles that the server never sees.

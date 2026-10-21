@@ -3,6 +3,7 @@ package io.github.leks2205.hangulquest.ui;
 import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.journal.AchievementsTab;
+import io.github.leks2205.hangulquest.ui.journal.GrammarTab;
 import io.github.leks2205.hangulquest.ui.journal.InfoTab;
 import io.github.leks2205.hangulquest.ui.journal.Ink;
 import io.github.leks2205.hangulquest.ui.journal.JournalHost;
@@ -24,15 +25,15 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * The deliberately opened journal: overview, dictionary, review, achievements, quests, settings.
+ * The deliberately opened journal: overview, dictionary, review, achievements, quests, grammar, settings.
  * This class is the book itself (cover, tab bar, footer, shared widgets and click areas); each page
  * is a {@link JournalTab} in {@code ui.journal}.
  */
 public final class JournalScreen extends Screen {
 	private static final String[] TABS = {"hangulquest.ui.journal.tab.info", "hangulquest.ui.journal.tab.words",
 			"hangulquest.ui.journal.tab.study", "hangulquest.ui.journal.tab.achievements", "hangulquest.ui.journal.tab.quests",
-			"hangulquest.ui.journal.tab.settings"};
-	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —"};
+			"hangulquest.ui.journal.tab.grammar", "hangulquest.ui.journal.tab.settings"};
+	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —", "— 7 —"};
 	private static final String[] SPINE = {"한", "글", "일", "지"};
 
 	private final HangulQuestClient hq = HangulQuestClient.get();
@@ -163,7 +164,7 @@ public final class JournalScreen extends Screen {
 		super(Component.literal("한글 탐험"));
 		tabs = new JournalTab[] {
 				new InfoTab(host), new WordsTab(host), new StudyTab(host),
-				new AchievementsTab(host), new QuestTab(host), new SettingsTab(host)};
+				new AchievementsTab(host), new QuestTab(host), new GrammarTab(host), new SettingsTab(host)};
 		for (int i = 0; i < tabs.length; i++) {
 			int index = i;
 			tabClicks[i] = () -> {

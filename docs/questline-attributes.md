@@ -79,15 +79,17 @@ TOPIK bands over 18 tree levels (gradual, not one TOPIK stage per tree level):
 | 13–15 | 5 |
 | 16–18 | 6 |
 
-Ladder:
+Ladder (data: `data/ladder.json`, the endings come from `quest/grammar/Endings`):
 1. `-아/어요`
-2. `-아/어야 해요`
-3. `-아/어야만 해요`
-4. `-지 않으면 안 돼요`
-5. `-지 않고서는 … 수 없어요`
-6. `-(으)ㄹ 수밖에 없어요` (level 6)
+2. `-(으)세요`
+3. `-(으)세요`, with the connectives of the level where the goal type has them
+4. `-아/어야 해요`
+5. `-아/어야 해요`
+6. `-아/어야 해요`; `-(으)ㄹ 수밖에 없어요` only where a sentence states a forced conclusion
 
-The finale uses level 5 (`… 이 길을 끝낼 수 없어요`). Hints always stay at level 1.
+A player reads at most one level above the grammar they have already met (three steps of a level open the
+next one), so a hard trail can read easier for a new player. The finale ends like any other step. Hints
+always stay at level 1.
 
 ## 4. Theme / branch topic
 

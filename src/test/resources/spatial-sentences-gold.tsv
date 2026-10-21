@@ -15,14 +15,14 @@ clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"BEHIND","anch
 clue	1	0	{"type":"PLACE_REL","block":"minecraft:chest","relation":"NEXT_TO","anchor":"minecraft:furnace","count":1}	화로 옆에 상자를 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_REL","block":"minecraft:crafting_table","relation":"ON_TOP_OF","anchor":"minecraft:chest","count":1}	상자 위에 제작대를 놓아요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":2}	문 옆에 횃불을 두 개 놓아요.	L1.loc_yeop_e;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
-clue	2	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"minecraft:furnace","count":3}	화로 옆에 횃불을 세 개 놓아야 해요.	L1.loc_yeop_e;L1.num_native;L1.counter_gae;L1.obj_eul;L4.eoya_haeyo
+clue	2	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"minecraft:furnace","count":3}	화로 옆에 횃불을 세 개 놓으세요.	L1.loc_yeop_e;L1.num_native;L1.counter_gae;L1.obj_eul;L2.seyo
 hint	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":2}	문 옆에 횃불을 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
-clue	2	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
-clue	3	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야만 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
-clue	4	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓지 않으면 안 돼요.	L1.loc_yeop_e;L1.obj_eul;L4.myeon_an_doeyo
-clue	5	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓지 않고서는 다음 단서를 찾을 수 없어요.	L1.loc_yeop_e;L1.obj_eul
-clue	6	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓을 수밖에 없어요.	L1.loc_yeop_e;L1.obj_eul;L6.su_bakke_eopda
-finale	5	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓지 않고서는 이 길을 끝낼 수 없어요.	L1.loc_yeop_e;L1.obj_eul
+clue	2	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓으세요.	L1.loc_yeop_e;L1.obj_eul;L2.seyo
+clue	3	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓으세요.	L1.loc_yeop_e;L1.obj_eul;L2.seyo
+clue	4	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
+clue	5	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
+clue	6	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
+finale	5	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓아야 해요.	L1.loc_yeop_e;L1.obj_eul;L4.eoya_haeyo
 ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	문 옆에 횃불을 놓았어요.	L1.loc_yeop_e;L3.past;L1.obj_eul
 ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":2}	문 옆에 횃불을 두 개 놓았어요.	L1.loc_yeop_e;L1.num_native;L1.counter_gae;L3.past;L1.obj_eul
 ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:chest","relation":"BETWEEN","anchor":"minecraft:torch","count":1}	두 횃불 사이에 상자를 놓았어요.	L2.loc_sai_e;L1.num_native;L3.past;L1.obj_eul
@@ -30,16 +30,16 @@ ceremony	1	1	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO",
 clue	1	1	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:doors","count":1}	밤에 문 옆에 횃불을 놓아요.	L1.e_time;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:cobblestone","size":3}	조약돌 세 개로 기둥을 쌓아요.	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:stone","size":2}	돌 두 개로 기둥을 쌓아요.	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
-clue	2	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:stone","size":4}	돌 네 개로 기둥을 쌓아야 해요.	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L4.eoya_haeyo
+clue	2	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:stone","size":4}	돌 네 개로 기둥을 쌓으세요.	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L2.seyo
 hint	1	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:stone","size":4}	돌로 기둥을 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:stone","size":3}	돌로 피라미드를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:sand","size":3}	모래로 피라미드를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:dirt","size":3}	흙으로 피라미드를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:cobblestone","size":3}	조약돌로 피라미드를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"#minecraft:planks","size":3}	판자로 피라미드를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
-clue	6	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:stone","size":3}	돌로 피라미드를 쌓을 수밖에 없어요.	L2.euro_material;L1.obj_eul;L6.su_bakke_eopda
+clue	6	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:stone","size":3}	돌로 피라미드를 쌓아야 해요.	L2.euro_material;L1.obj_eul;L4.eoya_haeyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"RING","material":"minecraft:stone","size":3}	돌로 울타리를 쌓아요.	L2.euro_material;L1.obj_eul;L1.eoyo
-clue	3	0	{"type":"BUILD_PATTERN","pattern":"RING","material":"minecraft:cobblestone","size":3}	조약돌로 울타리를 쌓아야만 해요.	L2.euro_material;L1.obj_eul;L4.eoya_haeyo
+clue	3	0	{"type":"BUILD_PATTERN","pattern":"RING","material":"minecraft:cobblestone","size":3}	조약돌로 울타리를 쌓으세요.	L2.euro_material;L1.obj_eul;L2.seyo
 clue	1	0	{"type":"BUILD_PATTERN","pattern":"ROW","material":"minecraft:stone","size":3}	돌 세 개를 나란히 놓아요.	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
 hint	1	0	{"type":"BUILD_PATTERN","pattern":"ROW","material":"minecraft:stone","size":4}	돌을 나란히 놓아요.	L1.obj_eul;L1.eoyo
 ceremony	1	0	{"type":"BUILD_PATTERN","pattern":"PYRAMID","material":"minecraft:stone","size":3}	돌로 피라미드를 쌓았어요.	L2.euro_material;L3.past;L1.obj_eul
@@ -53,9 +53,9 @@ clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"NEXT_T
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"ROW","material":"minecraft:stone"}	돌 세 개 위에 횃불을 놓아요.	L1.loc_wi_e;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"NEAR","pattern":"PYRAMID","material":"minecraft:stone"}	돌 피라미드 근처에 횃불을 놓아요.	L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:chest","relation":"UNDER","pattern":"PILLAR","material":"minecraft:stone"}	돌 기둥 아래에 상자를 놓아요.	L1.loc_arae_e;L1.obj_eul;L1.eoyo
-clue	4	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"PYRAMID","material":"minecraft:stone"}	돌 피라미드 위에 횃불을 놓지 않으면 안 돼요.	L1.loc_wi_e;L1.obj_eul;L4.myeon_an_doeyo
+clue	4	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"PYRAMID","material":"minecraft:stone"}	돌 피라미드 위에 횃불을 놓아야 해요.	L1.loc_wi_e;L1.obj_eul;L4.eoya_haeyo
 clue	1	1	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	밤에 조약돌 울타리 안에 횃불을 놓아요.	L1.e_time;L1.loc_an_e;L1.obj_eul;L1.eoyo
-finale	5	1	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	밤에 조약돌 울타리 안에 횃불을 놓지 않고서는 이 길을 끝낼 수 없어요.	L1.e_time;L1.loc_an_e;L1.obj_eul
+finale	5	1	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	밤에 조약돌 울타리 안에 횃불을 놓아야 해요.	L1.e_time;L1.loc_an_e;L1.obj_eul;L4.eoya_haeyo
 hint	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"PYRAMID","material":"minecraft:stone"}	돌 피라미드 위에 횃불을 놓아요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
 ceremony	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	조약돌 울타리 안에 횃불을 놓았어요.	L1.loc_an_e;L3.past;L1.obj_eul
 ceremony	1	1	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	밤에 조약돌 울타리 안에 횃불을 놓았어요.	L1.e_time;L1.loc_an_e;L3.past;L1.obj_eul
