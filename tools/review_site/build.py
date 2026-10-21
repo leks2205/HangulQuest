@@ -46,6 +46,7 @@ FIELD_TASK = {
     "ko": "Word card: the Korean word.",
     "descKo": "Word card: a short description in simple Korean.",
     "sentenceKo": "Word card: an example sentence.",
+    "dialogue": "Villager conversation: a line of the NPC or a reply the player can pick.",
 }
 KIND_ORDER = {"authored": 0, "generated": 1, "lexicon": 2}
 NAV = [("index", "처음", "Home"), ("queue", "우선순위", "Priority"), ("levels", "레벨", "Levels"),

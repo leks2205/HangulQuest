@@ -4,6 +4,8 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.ConceptLoader;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.dialogue.Dialogue;
+import io.github.leks2205.hangulquest.dialogue.DialogueFixtures;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
@@ -126,6 +128,31 @@ class SentenceDumpTest {
 			if (concept.sentenceKo != null && !concept.sentenceKo.isBlank()) {
 				rows.add(new Row("concept." + concept.id + ".sentenceKo", 0, src + "sentenceKo",
 						concept.sentenceKo, ""));
+			}
+		}
+		rows.addAll(dialogueRows());
+		return rows;
+	}
+
+	/**
+	 * Every line of the villager conversations: what the NPC says and every reply the player can pick,
+	 * with the speaker and speech level in the goal column (the registry shows them to the reviewers).
+	 */
+	static List<Row> dialogueRows() {
+		List<Row> rows = new ArrayList<>();
+		for (Dialogue dialogue : DialogueFixtures.shipped()) {
+			String file = "dialogue/" + dialogue.id() + ".json";
+			for (Dialogue.Node node : DialogueFixtures.sorted(dialogue).values()) {
+				String id = "dialogue." + dialogue.id() + "." + node.id();
+				rows.add(new Row(id, dialogue.level(), "authored:" + file + "#nodes." + node.id() + ".ko", node.ko(),
+						"Dialogue " + node.speaker().id() + " " + node.speechLevel().id()));
+				for (int i = 0; i < node.choices().size(); i++) {
+					Dialogue.Choice choice = node.choices().get(i);
+					String grade = choice.correct() == null ? "ungraded" : choice.correct() ? "right" : "wrong";
+					rows.add(new Row(id + ".c" + (i + 1), dialogue.level(),
+							"authored:" + file + "#nodes." + node.id() + ".choices[" + i + "].ko", choice.ko(),
+							"Dialogue player " + choice.speechLevel().id() + " " + grade));
+				}
 			}
 		}
 		return rows;
