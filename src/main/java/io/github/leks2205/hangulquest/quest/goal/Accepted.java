@@ -21,7 +21,14 @@ public record Accepted(Set<String> from, List<String> items) {
 
 	/** The set for a step: the goal ids that are referents of its first taught concept, and all referents. */
 	public static Accepted of(QuestStep step, Concept first) {
-		if (step == null || step.goal() == null || first == null || first.items == null || first.items.size() < 2) {
+		if (step == null || step.goal() == null || first == null || first.items == null) {
+			return NONE;
+		}
+		List<String> all = new java.util.ArrayList<>(first.items);
+		if (first.covers != null) {
+			all.addAll(first.covers);
+		}
+		if (all.size() < 2) {
 			return NONE;
 		}
 		Set<String> from = new LinkedHashSet<>();
@@ -30,14 +37,14 @@ public record Accepted(Set<String> from, List<String> items) {
 				continue;
 			}
 			String id = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(mention.id());
-			for (String item : first.items) {
+			for (String item : all) {
 				if (item.equals(id) || Matching.matchesBlock(id, item)) {
 					from.add(mention.id());
 					break;
 				}
 			}
 		}
-		return from.isEmpty() ? NONE : new Accepted(Set.copyOf(from), List.copyOf(first.items));
+		return from.isEmpty() ? NONE : new Accepted(Set.copyOf(from), List.copyOf(all));
 	}
 
 	/** True when {@code goalId} is covered by the taught word and {@code observed} is one of its referents. */

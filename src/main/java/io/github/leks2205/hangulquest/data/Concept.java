@@ -30,6 +30,11 @@ public final class Concept {
 	public List<String> items = new ArrayList<>();
 	/** Picture to draw when the word names no item or a different one; defaults to the first item. */
 	public String icon;
+	/**
+	 * Further items a goal teaching this word accepts (any bed for 침대, any log for 통나무), without making the
+	 * word the name of those items in tooltips: their own vanilla names stay.
+	 */
+	public List<String> covers = new ArrayList<>();
 	public String entity;
 	public String biome;
 	public String sentenceKo;

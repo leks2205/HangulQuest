@@ -242,4 +242,18 @@ class AcceptedIdsTest {
 		exact.tick(ate(COD, 1_100L), new Quiet());
 		assertEquals("finale", exact.currentStep().id());
 	}
+
+	@Test
+	void coversWidenTheGoalWithoutRenamingTheItems() {
+		// 침대 lists one bed as its own item and the other colours as covers: any bed fulfils the step.
+		Concept bed = concept("bed", "침대", "minecraft:red_bed");
+		bed.covers = java.util.List.of("minecraft:blue_bed", "minecraft:white_bed");
+		Accepted accepted = Accepted.of(step(new Goal.PlaceBlock("minecraft:red_bed", 1), bed), bed);
+		assertTrue(accepted.matches("minecraft:red_bed", "minecraft:blue_bed"));
+		assertFalse(accepted.matches("minecraft:red_bed", "minecraft:red_wool"));
+		// Covers are not referents: a birch log is never named 통나무 (it keeps its own vanilla name in game).
+		Catalog catalog = Catalog.ofConcepts(io.github.leks2205.hangulquest.data.ConceptLoader.load());
+		assertTrue(catalog.byItemId("minecraft:birch_log").map(word -> !"통나무".equals(word.ko)).orElse(true));
+		assertEquals("통나무", catalog.byItemId("minecraft:oak_log").orElseThrow().ko);
+	}
 }
