@@ -395,8 +395,15 @@ public final class JournalScreen extends Screen {
 		int background = active ? Ink.RIBBON : hover ? 0xFFF2E3C2 : Ink.PARCHMENT_DARK;
 		g.fill(x, y, x + width, y + height, background);
 		g.fill(x, y + height - 1, x + width, y + height, active ? 0xFF5E1A1A : Ink.PAGE_EDGE);
-		Draw.label(g, this.font, label, x + 4, y + (height - this.font.lineHeight) / 2,
-				active ? Ink.CREAM : Ink.INK);
+		int textY = y + (height - this.font.lineHeight) / 2;
+		int color = active ? Ink.CREAM : Ink.INK;
+		if (this.font.width(label) > width - 8) {
+			// Narrow windows: a long tab name ("Achievements") must not run into the next tab.
+			Draw.truncated(g, this.font, net.minecraft.network.chat.Component.literal(label), x + 4, textY,
+					width - 8, color, false);
+		} else {
+			Draw.label(g, this.font, label, x + 4, textY, color);
+		}
 		hits.add(new Hit(x, y, width, height, action, null));
 	}
 }
