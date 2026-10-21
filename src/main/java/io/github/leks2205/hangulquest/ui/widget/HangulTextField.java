@@ -16,7 +16,7 @@ import net.minecraft.network.chat.MutableComponent;
 
 /**
  * A one-line text field that types Korean on any keyboard. The letter keys are read by position
- * (GLFW key codes name US positions), so a German QWERTZ keyboard needs no Z/Y swap; a Korean
+ * (scancodes name US positions), so a German QWERTZ keyboard needs no Z/Y swap; a Korean
  * syllable an OS input method already composed is accepted as it is. A screen forwards
  * {@link #keyPressed}, {@link #keyReleased} and {@link #charTyped} and calls {@link #extractRenderState}.
  *
@@ -25,9 +25,9 @@ import net.minecraft.network.chat.MutableComponent;
  */
 public final class HangulTextField {
 	public static final int HEIGHT = 20;
-	private static final int KEY_TAB = 258;
-	private static final int KEY_LEFT_SHIFT = 340;
-	private static final int KEY_RIGHT_SHIFT = 344;
+	private static final int KEY_TAB = com.mojang.blaze3d.platform.InputConstants.KEY_TAB;
+	private static final int KEY_LEFT_SHIFT = com.mojang.blaze3d.platform.InputConstants.KEY_LSHIFT;
+	private static final int KEY_RIGHT_SHIFT = com.mojang.blaze3d.platform.InputConstants.KEY_RSHIFT;
 	private static final int KEY_W = 22;
 	private static final int KEY_H = 20;
 	private static final int[] ROW_OFFSET = {0, 6, 16};

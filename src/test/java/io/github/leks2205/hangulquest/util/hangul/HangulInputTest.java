@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Key codes here are GLFW's, which name the positions of a US keyboard. A German QWERTZ keyboard
+ * Key codes here are the scancodes Minecraft 26.3 reports, which name the positions of a US keyboard. A German QWERTZ keyboard
  * reports the same codes for the same positions, so these cases are also the QWERTZ cases.
  */
 class HangulInputTest {
@@ -25,7 +25,7 @@ class HangulInputTest {
 	private static HangulInput press(String keys) {
 		HangulInput input = new HangulInput();
 		for (char key : keys.toCharArray()) {
-			input.key(key, 0);
+			input.key(DubeolsikLayout.key(key), 0);
 		}
 		return input;
 	}
@@ -34,7 +34,7 @@ class HangulInputTest {
 	void everyLetterKeyTypesItsJamo() {
 		assertEquals(26, LAYOUT.length);
 		for (String[] row : LAYOUT) {
-			int key = row[0].charAt(0);
+			int key = DubeolsikLayout.key(row[0].charAt(0));
 			assertEquals(row[1].charAt(0), DubeolsikLayout.jamoFor(key, false), row[0]);
 			assertEquals(row[2].charAt(0), DubeolsikLayout.jamoFor(key, true), row[0] + " with Shift");
 		}
@@ -53,7 +53,7 @@ class HangulInputTest {
 
 	@Test
 	void qwertzNeedsNoSwap() {
-		// The key printed Y on a QWERTZ keyboard sits where a US keyboard has Z: GLFW reports KEY_Z for
+		// The key printed Y on a QWERTZ keyboard sits where a US keyboard has Z: the scancode is KEY_Z for
 		// it, and 두벌식 puts ㅋ there. The key printed Z sits at the US Y position and types ㅛ.
 		assertEquals('ㅋ', DubeolsikLayout.jamoFor(DubeolsikLayout.KEY_Z, false));
 		assertEquals('ㅛ', DubeolsikLayout.jamoFor(DubeolsikLayout.KEY_Y, false));
@@ -100,12 +100,12 @@ class HangulInputTest {
 	@Test
 	void shiftTypesTheDoubledConsonants() {
 		HangulInput input = new HangulInput();
-		input.key('Q', SHIFT);
-		input.key('K', 0);
-		input.key('Q', SHIFT);
-		input.key('K', 0);
+		input.key(DubeolsikLayout.key('Q'), SHIFT);
+		input.key(DubeolsikLayout.key('K'), 0);
+		input.key(DubeolsikLayout.key('Q'), SHIFT);
+		input.key(DubeolsikLayout.key('K'), 0);
 		assertEquals("빠빠", input.text());
-		input.key('O', SHIFT);
+		input.key(DubeolsikLayout.key('O'), SHIFT);
 		assertEquals("빠빠ㅒ", input.text());
 	}
 
@@ -127,8 +127,8 @@ class HangulInputTest {
 	@Test
 	void shortcutsAreNotTyped() {
 		HangulInput input = new HangulInput();
-		assertFalse(input.key('A', HangulInput.MOD_CONTROL), "Ctrl+A");
-		assertFalse(input.key('C', HangulInput.MOD_SUPER));
+		assertFalse(input.key(DubeolsikLayout.key('A'), HangulInput.MOD_CONTROL), "Ctrl+A");
+		assertFalse(input.key(DubeolsikLayout.key('C'), HangulInput.MOD_SUPER));
 		assertEquals("", input.text());
 	}
 
@@ -138,7 +138,7 @@ class HangulInputTest {
 		assertTrue(input.korean());
 		assertTrue(input.key(HangulInput.KEY_RIGHT_ALT, 0));
 		assertFalse(input.korean());
-		assertFalse(input.key('G', 0), "in Latin mode the letter comes from the character event");
+		assertFalse(input.key(DubeolsikLayout.key('G'), 0), "in Latin mode the letter comes from the character event");
 		assertTrue(input.character('g'));
 		assertEquals("g", input.text());
 		input.key(HangulInput.KEY_RIGHT_ALT, 0);
@@ -159,7 +159,7 @@ class HangulInputTest {
 	void koreanModeTakesNoLettersFromTheCharacterEvent() {
 		// The key press already typed ㅎ; the 'g' that follows it must not be added again.
 		HangulInput input = new HangulInput();
-		input.key('G', 0);
+		input.key(DubeolsikLayout.key('G'), 0);
 		assertFalse(input.character('g'));
 		assertFalse(input.character('ö'), "a QWERTZ letter key is punctuation position, but still a letter");
 		assertEquals("ㅎ", input.text());
@@ -180,7 +180,7 @@ class HangulInputTest {
 		assertTrue(input.character('한'));
 		assertTrue(input.character('ㄱ'));
 		assertEquals("한ㄱ", input.text());
-		input.key('M', 0);
+		input.key(DubeolsikLayout.key('M'), 0);
 		assertEquals("한그", input.text(), "an IME syllable and the automaton continue each other");
 		input.key(HangulInput.KEY_BACKSPACE, 0);
 		input.key(HangulInput.KEY_BACKSPACE, 0);
@@ -209,20 +209,20 @@ class HangulInputTest {
 		HangulInput input = new HangulInput();
 		input.setMaxLength(3);
 		for (char key : "GKSGKSGKS".toCharArray()) {
-			input.key(key, 0);
+			input.key(DubeolsikLayout.key(key), 0);
 		}
 		assertEquals("한한한".length(), input.text().length());
 		assertEquals("한한한", input.text());
-		input.key('Q', 0);
+		input.key(DubeolsikLayout.key('Q'), 0);
 		assertEquals("한한한", input.text(), "a fourth syllable does not fit");
-		input.key('G', 0);
+		input.key(DubeolsikLayout.key('G'), 0);
 		assertEquals("한한핞", input.text(), "but a key that only extends the last one does");
 		input.key(HangulInput.KEY_BACKSPACE, 0);
 		input.key(HangulInput.KEY_BACKSPACE, 0);
 		assertEquals("한한하", input.text());
-		input.key('M', 0);
+		input.key(DubeolsikLayout.key('M'), 0);
 		assertEquals("한한하", input.text(), "still full: the lone vowel would be a fourth character");
-		input.key('S', 0);
+		input.key(DubeolsikLayout.key('S'), 0);
 		assertEquals("한한한", input.text());
 	}
 }

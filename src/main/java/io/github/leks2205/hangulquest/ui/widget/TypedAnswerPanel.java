@@ -26,8 +26,9 @@ public final class TypedAnswerPanel {
 	private static final int PAD = 8;
 	/** A sentence longer than this many rows of jamo is not drawn as a grid. */
 	private static final int MAX_CHUNKS = 3;
-	private static final int KEY_ENTER = 257;
-	private static final int KEY_KP_ENTER = 335;
+	private static final int KEY_ENTER = com.mojang.blaze3d.platform.InputConstants.KEY_RETURN;
+	/** SDL scancode of the keypad Enter key (no InputConstants name for it in 26.3). */
+	private static final int KEY_KP_ENTER = 88;
 
 	private final String gloss;
 	private final String icon;

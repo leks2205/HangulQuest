@@ -3,19 +3,20 @@ package io.github.leks2205.hangulquest.util.hangul;
 /**
  * What a typing field does with key and character events, without any drawing: the Korean/Latin
  * mode, the 두벌식 keys by position, and text an OS input method delivered already composed.
- * Key codes and modifier bits are GLFW's, so this can be tested without a window.
+ * Key codes and modifier bits are the values Minecraft 26.3 reports (SDL scancodes and SDL modifier masks,
+ * the same as {@code InputConstants}), kept here as plain ints so this can be tested without a window.
  *
  * <p>In Korean mode the letter keys type jamo from {@link DubeolsikLayout}, whatever the keyboard
  * layout. Printable characters that are not letters (space, digits, punctuation) come from the
  * character event, which is layout aware. In Latin mode every character comes from that event.
  */
 public final class HangulInput {
-	public static final int KEY_BACKSPACE = 259;
-	public static final int KEY_RIGHT_ALT = 346;
-	public static final int MOD_SHIFT = 1;
-	public static final int MOD_CONTROL = 2;
-	public static final int MOD_ALT = 4;
-	public static final int MOD_SUPER = 8;
+	public static final int KEY_BACKSPACE = 42;
+	public static final int KEY_RIGHT_ALT = 230;
+	public static final int MOD_SHIFT = 3;
+	public static final int MOD_CONTROL = 192;
+	public static final int MOD_ALT = 768;
+	public static final int MOD_SUPER = 3072;
 	public static final int DEFAULT_MAX_LENGTH = 40;
 
 	private final Dubeolsik automaton = new Dubeolsik();
