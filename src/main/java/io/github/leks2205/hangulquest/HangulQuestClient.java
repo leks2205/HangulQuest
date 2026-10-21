@@ -557,6 +557,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			var lute = content.lute();
 			var builtLearn = new LearningService(store.data(), store, builtCatalog);
 			builtLearn.configure(config.retention, config.newWordsPerDay);
+			builtLearn.enableResearch();
 			// Today's review trail must exist before the engine restores, or its progress is dropped.
 			List<Questline> trails = new java.util.ArrayList<>(content.validated().trails());
 			Questline adaptive = AdaptiveTrailGenerator.restore(builtCatalog,

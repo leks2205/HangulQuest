@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.data.ConceptLoader;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
+import io.github.leks2205.hangulquest.learn.research.Pseudowords;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.QuestStep;
@@ -127,6 +128,12 @@ class SentenceDumpTest {
 				rows.add(new Row("concept." + concept.id + ".sentenceKo", 0, src + "sentenceKo",
 						concept.sentenceKo, ""));
 			}
+		}
+		// The placement test's nonwords: native reviewers confirm that none of them is a real word.
+		List<Pseudowords.Item> nonwords = Pseudowords.load();
+		for (int i = 0; i < nonwords.size(); i++) {
+			rows.add(new Row(nonwords.get(i).id(), 0, "nonword:pseudowords.json#words[" + i + "].ko",
+					nonwords.get(i).ko(), ""));
 		}
 		return rows;
 	}

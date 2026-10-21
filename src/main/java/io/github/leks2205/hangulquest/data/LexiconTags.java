@@ -34,9 +34,16 @@ public final class LexiconTags {
 	private static volatile LexiconTags shared;
 
 	private final Map<String, Tag> tags;
+	/** Concept ids of core words: curriculum grade 1 or 2, or NIKL grade A. */
+	private final java.util.Set<String> core;
 
 	private LexiconTags(Map<String, Tag> tags) {
+		this(tags, java.util.Set.of());
+	}
+
+	private LexiconTags(Map<String, Tag> tags, java.util.Set<String> core) {
 		this.tags = tags;
+		this.core = core;
 	}
 
 	/** Tags keyed by concept id; the instance read from the jar, loaded once. */
@@ -50,7 +57,13 @@ public final class LexiconTags {
 	}
 
 	public static LexiconTags of(Map<String, Tag> tags) {
-		return new LexiconTags(Map.copyOf(tags));
+		java.util.Set<String> core = new java.util.HashSet<>();
+		tags.forEach((id, tag) -> {
+			if (tag.curriculumGrade() >= 1 && tag.curriculumGrade() <= 2) {
+				core.add(id);
+			}
+		});
+		return new LexiconTags(Map.copyOf(tags), core);
 	}
 
 	public static LexiconTags empty() {
@@ -68,6 +81,7 @@ public final class LexiconTags {
 
 	static LexiconTags parse(InputStream stream) throws IOException {
 		Map<String, Tag> tags = new LinkedHashMap<>();
+		java.util.Set<String> core = new java.util.HashSet<>();
 		try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
 			JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
 			JsonObject all = root.getAsJsonObject("tags");
@@ -76,9 +90,13 @@ public final class LexiconTags {
 				tags.put(id, new Tag(string(tag, "semSet"), string(tag, "curriculumBand"), integer(tag, "curriculumGrade"),
 						string(tag, "origin"), strings(tag.get("hanja")), tag.has("mcOnly") && tag.get("mcOnly").getAsBoolean(),
 						integer(tag, "freqRank")));
+				int grade = integer(tag, "curriculumGrade");
+				if ((grade >= 1 && grade <= 2) || "A".equals(string(tag, "nikl"))) {
+					core.add(id);
+				}
 			}
 		}
-		return new LexiconTags(tags);
+		return new LexiconTags(tags, core);
 	}
 
 	private static String string(JsonObject object, String name) {
@@ -99,6 +117,11 @@ public final class LexiconTags {
 			}
 		}
 		return out;
+	}
+
+	/** True for a core word: curriculum grade 1 or 2, or NIKL grade A. Takes a concept id. */
+	public boolean isCore(String conceptId) {
+		return conceptId != null && core.contains(conceptId);
 	}
 
 	/** The tags of a concept id (the part after {@code concept:}), or null. */

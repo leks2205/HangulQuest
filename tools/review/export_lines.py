@@ -141,7 +141,18 @@ def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
         source_raw = row["source"]
         kind_raw, _, rest = source_raw.partition(":")
         record: dict
-        if rid.startswith("concept."):
+        if rid.startswith("pseudo."):
+            # a nonword of the placement test (assets/.../pseudowords.json); reviewers confirm it is NOT a word
+            index = int(rest.split("words[", 1)[1].split("]", 1)[0])
+            record = {
+                "id": rid, "ko": ko, "en": "", "de": "",
+                "context": {"trail": "", "trailTitle": "", "step": "",
+                            "goal": "Nonword of the placement test: a made-up word that must not be a real Korean word",
+                            "level": 0, "icon": "", "field": "ko", "nonword": True},
+                "source": {"kind": "lexicon", "file": "pseudowords.json", "pointer": f"/words/{index}/ko",
+                           "nonword": True},
+            }
+        elif rid.startswith("concept."):
             cid, _, field = rid[len("concept."):].rpartition(".")
             concept = concepts[concept_index[cid]]
             level, first_trail = levels.get(cid, (min(int(concept.get("tier", 1)), 6), ""))

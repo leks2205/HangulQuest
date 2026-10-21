@@ -2,12 +2,19 @@ package io.github.leks2205.hangulquest.ui.journal;
 
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.config.Config;
+import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.learn.ProgressData;
+import io.github.leks2205.hangulquest.learn.research.Export;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +62,7 @@ public final class SettingsTab extends JournalTab {
 		applyLearning();
 	};
 	private final Runnable resetProgress = this::resetProgress;
+	private final Runnable exportResearch = this::exportResearch;
 
 	public SettingsTab(JournalHost host) {
 		super(host);
@@ -89,6 +97,10 @@ public final class SettingsTab extends JournalTab {
 				value -> hq.config().luteImport = value);
 		yy += 6;
 		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.reset"), false, resetProgress);
+		yy += 22;
+		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.export"), false, exportResearch);
+		Draw.truncated(g, host.font(), Component.literal(I18n.t("hangulquest.ui.settings.export_hint")), x + 156, yy + 5,
+				Math.max(20, width - 156), Ink.INK_FAINT);
 		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.lute_info", luteInfo()), x, y + height - 10, Ink.INK_FAINT);
 	}
 
@@ -120,6 +132,24 @@ public final class SettingsTab extends JournalTab {
 		} else {
 			confirmResetUntil = now + 3000;
 			host.status(I18n.t("hangulquest.ui.settings.reset_confirm"));
+		}
+	}
+
+	/** Writes the opt-in research zip into the config folder; nothing is sent anywhere. */
+	private void exportResearch() {
+		HangulQuestClient hq = host.hq();
+		if (hq.learn() == null) {
+			return;
+		}
+		try {
+			hq.learn().reviewLog().flush();
+			Path configFolder = FabricLoader.getInstance().getConfigDir().resolve(HangulQuestClient.MOD_ID);
+			LexiconTags tags = LexiconTags.shared();
+			Path zip = Export.write(hq.learn().reviewLog().dir(), configFolder, LocalDate.now(),
+					id -> hq.catalog().byId(id).map(word -> tags.isCore(word.conceptId)).orElse(false));
+			host.status(I18n.t("hangulquest.ui.settings.export_done", zip.getFileName()));
+		} catch (IOException | RuntimeException failed) {
+			host.status(I18n.t("hangulquest.ui.settings.export_failed"));
 		}
 	}
 

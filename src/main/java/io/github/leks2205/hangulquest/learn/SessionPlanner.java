@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 
 /**
  * Decides which due words are worth the player's time right now. Pure functions of their inputs, so the
@@ -94,9 +95,18 @@ public final class SessionPlanner {
 	 * @param limit        how many words to return at most
 	 */
 	public static List<Word> rank(List<Due> due, int newLeft, Set<String> usedSets, int limit) {
+		return rank(due, newLeft, usedSets, limit, id -> false);
+	}
+
+	/** Same, skipping the words {@code heldOut} says are held-out probes: they are never planned. */
+	public static List<Word> rank(List<Due> due, int newLeft, Set<String> usedSets, int limit,
+								  Predicate<String> heldOut) {
 		List<Due> reviews = new ArrayList<>();
 		List<Due> fresh = new ArrayList<>();
 		for (Due entry : due) {
+			if (heldOut.test(entry.word().id)) {
+				continue;
+			}
 			(entry.fresh() ? fresh : reviews).add(entry);
 		}
 		reviews.sort(Comparator.comparingDouble(Due::retrievability).thenComparingLong(Due::dueAt)
