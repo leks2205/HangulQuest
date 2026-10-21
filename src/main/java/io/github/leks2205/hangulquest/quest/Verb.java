@@ -1,73 +1,75 @@
 package io.github.leks2205.hangulquest.quest;
 
+import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
+
 /**
- * Closed verb set. Stems are stored so the difficulty ladder can build
- * grammatical endings without irregular-verb guesswork:
- * {@code eoyo} takes 아/어 (and 해), {@code stem} takes 지/고서는, and the optional
- * {@code future} form is the -(으)ㄹ stem where it cannot be derived (ㅂ-irregular 줍다 → 주울).
+ * Closed verb set. A verb is its dictionary form, its object frame and its German gloss; every form
+ * the difficulty ladder needs comes from {@link Conjugator}: {@code eoyo} takes 아/어 (and 해),
+ * {@code stem} takes 지/고서는, and {@code future} is the -(으)ㄹ form (줍다 → 주울, 걸다 → 걸).
  * Verbs that always come with a fixed object (먹이를 주다, 말을 걸다) carry it as {@code prefix}.
  */
 public enum Verb {
-	MINE("캐다", "캐", "캐", "abbauen"),
-	CHOP("베다", "베", "베어", "fällen"),
-	HARVEST("수확하다", "수확하", "수확해", "ernten"),
-	PLACE("놓다", "놓", "놓아", "platzieren"),
-	COLLECT("모으다", "모으", "모아", "sammeln"),
-	EAT("먹다", "먹", "먹어", "essen"),
-	DRINK("마시다", "마시", "마셔", "trinken"),
-	LOOK("보다", "보", "봐", "anschauen"),
-	WATCH("바라보다", "바라보", "바라봐", "betrachten"),
-	DEFEAT("물리치다", "물리치", "물리쳐", "besiegen"),
-	GO("가다", "가", "가", "gehen"),
-	CLIMB("올라가다", "올라가", "올라가", "hinaufsteigen"),
-	DESCEND("내려가다", "내려가", "내려가", "hinabsteigen"),
-	OPEN("열다", "열", "열어", "öffnen"),
-	TALK("이야기하다", "이야기하", "이야기해", "sprechen", Frame.COM),
-	SLEEP("자다", "자", "자", "schlafen", Frame.LOC),
-	CRAFT("만들다", "만들", "만들어", "herstellen"),
-	USE("쓰다", "쓰", "써", "benutzen"),
-	RING("울리다", "울리", "울려", "läuten"),
+	MINE("캐다", "abbauen"),
+	CHOP("베다", "fällen"),
+	HARVEST("수확하다", "ernten"),
+	PLACE("놓다", "platzieren"),
+	COLLECT("모으다", "sammeln"),
+	EAT("먹다", "essen"),
+	DRINK("마시다", "trinken"),
+	LOOK("보다", "anschauen"),
+	WATCH("바라보다", "betrachten"),
+	DEFEAT("물리치다", "besiegen"),
+	GO("가다", "gehen"),
+	CLIMB("올라가다", "hinaufsteigen"),
+	DESCEND("내려가다", "hinabsteigen"),
+	OPEN("열다", "öffnen"),
+	TALK("이야기하다", "sprechen", Frame.COM),
+	SLEEP("자다", "schlafen", Frame.LOC),
+	CRAFT("만들다", "herstellen"),
+	USE("쓰다", "benutzen"),
+	RING("울리다", "läuten"),
 
 	// Added for the verb table (verbs.json): the right verb for the right object.
-	BREAK("부수다", "부수", "부숴", "zerstören"),
-	DIG("파다", "파", "파", "graben"),
-	PULL("뽑다", "뽑", "뽑아", "ausreißen"),
-	SNAP("꺾다", "꺾", "꺾어", "pflücken"),
-	PICK("따다", "따", "따", "pflücken"),
-	SHATTER("깨다", "깨", "깨", "zerbrechen"),
-	PLANT("심다", "심", "심어", "pflanzen"),
-	SPREAD("깔다", "깔", "깔아", "auslegen"),
-	HANG("걸다", "걸", "걸어", "aufhängen"),
-	STAND("세우다", "세우", "세워", "aufstellen"),
-	HANG_DOOR("달다", "달", "달아", "anbringen"),
-	STACK("쌓다", "쌓", "쌓아", "stapeln"),
-	LIGHT("밝히다", "밝히", "밝혀", "entzünden"),
-	KINDLE("피우다", "피우", "피워", "anzünden"),
-	OBTAIN("구하다", "구하", "구해", "beschaffen"),
-	PICK_UP("줍다", "줍", "주워", "aufheben", "주울"),
-	WEAVE("치다", "치", "쳐", "spannen"),
-	PRESS("누르다", "누르", "눌러", "drücken"),
-	FLIP("당기다", "당기", "당겨", "ziehen"),
-	SWITCH_ON("켜다", "켜", "켜", "einschalten"),
-	ARRIVE("도착하다", "도착하", "도착해", "ankommen"),
-	FEED("주다", "주", "줘", "füttern", "먹이를 ", Frame.DAT),
-	THROW("던지다", "던지", "던져", "werfen"),
-	PET("쓰다듬다", "쓰다듬", "쓰다듬어", "streicheln"),
-	RIDE("타다", "타", "타", "reiten"),
-	ADDRESS("걸다", "걸", "걸어", "ansprechen", "말을 ", Frame.DAT),
-	TOUCH("만지다", "만지", "만져", "berühren"),
-	GIVE_ITEM("주다", "주", "줘", "geben", "아이템을 ", Frame.DAT),
+	BREAK("부수다", "zerstören"),
+	DIG("파다", "graben"),
+	PULL("뽑다", "ausreißen"),
+	SNAP("꺾다", "pflücken"),
+	PICK("따다", "pflücken"),
+	SHATTER("깨다", "zerbrechen"),
+	PLANT("심다", "pflanzen"),
+	SPREAD("깔다", "auslegen"),
+	HANG("걸다", "aufhängen"),
+	STAND("세우다", "aufstellen"),
+	HANG_DOOR("달다", "anbringen"),
+	STACK("쌓다", "stapeln"),
+	LIGHT("밝히다", "entzünden"),
+	KINDLE("피우다", "anzünden"),
+	OBTAIN("구하다", "beschaffen"),
+	PICK_UP("줍다", "aufheben"),
+	WEAVE("치다", "spannen"),
+	PRESS("누르다", "drücken"),
+	FLIP("당기다", "ziehen"),
+	SWITCH_ON("켜다", "einschalten"),
+	ARRIVE("도착하다", "ankommen"),
+	FEED("주다", "füttern", "먹이를 ", Frame.DAT),
+	THROW("던지다", "werfen"),
+	PET("쓰다듬다", "streicheln"),
+	RIDE("타다", "reiten"),
+	ADDRESS("걸다", "ansprechen", "말을 ", Frame.DAT),
+	TOUCH("만지다", "berühren"),
+	GIVE_ITEM("주다", "geben", "아이템을 ", Frame.DAT),
 
 	// Action variety: give, put in, hold, enter, drop, close, melt, bake, walk.
-	GIVE("주다", "주", "줘", "geben", Frame.DAT),
-	PUT_IN("넣다", "넣", "넣어", "hineinlegen"),
-	HOLD("들다", "들", "들어", "halten"),
-	ENTER("들어가다", "들어가", "들어가", "hineingehen"),
-	DROP_AT("떨어뜨리다", "떨어뜨리", "떨어뜨려", "fallen lassen"),
-	CLOSE("닫다", "닫", "닫아", "schließen"),
-	MELT("녹이다", "녹이", "녹여", "schmelzen"),
-	BAKE("굽다", "굽", "구워", "braten", "구울"),
-	WALK("걷다", "걷", "걸어", "laufen", "걸을");
+	GIVE("주다", "geben", Frame.DAT),
+	PUT_IN("넣다", "hineinlegen"),
+	HOLD("들다", "halten"),
+	ENTER("들어가다", "hineingehen"),
+	DROP_AT("떨어뜨리다", "fallen lassen"),
+	CLOSE("닫다", "schließen"),
+	MELT("녹이다", "schmelzen"),
+	BAKE("굽다", "braten"),
+	WALK("걷다", "laufen");
+
 
 	/** How the target noun is marked in front of the verb. */
 	public enum Frame {
@@ -82,38 +84,25 @@ public enum Verb {
 	}
 
 	private final String dictionary;
-	private final String stem;
-	private final String eoyo;
 	private final String german;
-	private final String future;
 	private final String prefix;
 	private final Frame frame;
+	private final Conjugator.Word word;
 
-	Verb(String dictionary, String stem, String eoyo, String german) {
-		this(dictionary, stem, eoyo, german, null, "", Frame.ACC);
+	Verb(String dictionary, String german) {
+		this(dictionary, german, "", Frame.ACC);
 	}
 
-	Verb(String dictionary, String stem, String eoyo, String german, Frame frame) {
-		this(dictionary, stem, eoyo, german, null, "", frame);
+	Verb(String dictionary, String german, Frame frame) {
+		this(dictionary, german, "", frame);
 	}
 
-	Verb(String dictionary, String stem, String eoyo, String german, String future) {
-		this(dictionary, stem, eoyo, german, future, "", Frame.ACC);
-	}
-
-	Verb(String dictionary, String stem, String eoyo, String german, String prefix, Frame frame) {
-		this(dictionary, stem, eoyo, german, null, prefix, frame);
-	}
-
-	Verb(String dictionary, String stem, String eoyo, String german, String future, String prefix,
-		 Frame frame) {
+	Verb(String dictionary, String german, String prefix, Frame frame) {
 		this.dictionary = dictionary;
-		this.stem = stem;
-		this.eoyo = eoyo;
 		this.german = german;
-		this.future = future;
 		this.prefix = prefix;
 		this.frame = frame;
+		this.word = Conjugator.of(dictionary);
 	}
 
 	public String dictionary() {
@@ -122,17 +111,17 @@ public enum Verb {
 
 	/** Stem for 지 / 지 않고서는. */
 	public String stem() {
-		return stem;
+		return word.stem();
 	}
 
 	/** Stem before 아/어야 / 아/어야만. */
 	public String eoyo() {
-		return eoyo;
+		return word.eo();
 	}
 
 	/** The -(으)ㄹ form (without the following word): 캐 → 캘, 먹 → 먹을, 걸 → 걸, 줍 → 주울. */
 	public String future() {
-		return future != null ? future : eulR(stem);
+		return word.future();
 	}
 
 	/** Fixed object that always precedes the verb ("먹이를 ", "말을 "), or the empty string. */
@@ -144,70 +133,27 @@ public enum Verb {
 		return frame;
 	}
 
-	/**
-	 * The past attributive stem before 후에 and in -(으)ㄴ: 먹 → 먹은, 자 → 잔, 만들 → 만든. The irregular
-	 * ㅂ and ㄷ verbs (굽다, 줍다, 걷다) are spelled out.
-	 */
+	/** The past attributive stem before 후에 and in -(으)ㄴ: 먹 → 먹은, 자 → 잔, 만들 → 만든, 굽 → 구운. */
 	public String attributive() {
-		return switch (this) {
-			case BAKE -> "구운";
-			case PICK_UP -> "주운";
-			case WALK -> "걸은";
-			default -> KoGrammar.eun(stem);
-		};
+		return word.eun();
 	}
 
 	/** Honorific -(으)세요 stem: 들 → 드세요, 굽 → 구우세요, 걷 → 걸으세요. */
 	public String honorific() {
-		return switch (this) {
-			case BAKE -> "구우세요";
-			case PICK_UP -> "주우세요";
-			case WALK -> "걸으세요";
-			default -> KoGrammar.seyo(stem);
-		};
+		return word.seyo();
 	}
 
 	public String polite() {
-		return eoyo + "요";
+		return word.eoyo();
 	}
 
 	/** Past polite: 캐 → 캤어요, 놓아 → 놓았어요, 부숴 → 부쉈어요, 주워 → 주웠어요. */
 	public String past() {
-		return pastStem(eoyo) + "어요";
+		return word.past();
 	}
 
 	public String german() {
 		return german;
-	}
-
-	/** Adds the past marker ㅆ to an 아/어 form; every stored form ends in an open syllable (놓아, 캐, 봐). */
-	private static String pastStem(String form) {
-		char last = form.charAt(form.length() - 1);
-		if (last < 0xAC00 || last > 0xD7A3 || (last - 0xAC00) % 28 != 0) {
-			throw new IllegalStateException("아/어 form must end in an open syllable: " + form);
-		}
-		// ㅆ is final consonant number 20 (0 = none).
-		return form.substring(0, form.length() - 1) + (char) (last + 20);
-	}
-
-	/** Appends the object/obligation marker: 먹 → 먹을, 가 → 갈 (ㄹ becomes the final consonant). */
-	static String eulR(String stem) {
-		if (stem == null || stem.isEmpty()) {
-			return "";
-		}
-		char last = stem.charAt(stem.length() - 1);
-		if (last < 0xAC00 || last > 0xD7A3) {
-			return stem + "ㄹ";
-		}
-		int jong = (last - 0xAC00) % 28;
-		if (jong == 8) {
-			// ㄹ-final stems already end in ㄹ: 열다 → 열 수밖에, 만들다 → 만들 수밖에.
-			return stem;
-		}
-		if (jong != 0) {
-			return stem + "을";
-		}
-		return stem.substring(0, stem.length() - 1) + (char) (last + 8);
 	}
 
 	public static Verb byId(String id, Verb fallback) {
