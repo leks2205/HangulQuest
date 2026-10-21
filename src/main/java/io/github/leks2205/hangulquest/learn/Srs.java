@@ -5,17 +5,21 @@ public final class Srs {
 	public static final long MINUTE = 60_000L;
 	public static final long HOUR = 60 * MINUTE;
 	public static final long DAY = 24 * HOUR;
-	public static final int MAX_LEVEL = 6;
+	public static final int MAX_LEVEL = 8;
+	/** From this level on a word counts as mastered; saved levels 0-6 from older versions stay valid. */
+	public static final int MASTERED_LEVEL = 6;
 
-	/** Delay before the word is due again, by level (0 = fresh). */
+	/** Delay before the word is due again, by level (0 = fresh). Strictly increasing. */
 	private static final long[] INTERVALS = {
 			10 * MINUTE,
-			5 * MINUTE,
-			30 * MINUTE,
-			2 * HOUR,
+			HOUR,
 			8 * HOUR,
 			DAY,
 			3 * DAY,
+			7 * DAY,
+			16 * DAY,
+			35 * DAY,
+			80 * DAY,
 	};
 
 	private Srs() {
@@ -40,10 +44,5 @@ public final class Srs {
 
 	public static long retryAt(long now) {
 		return now + 2 * MINUTE;
-	}
-
-	/** Practice (hint sidequests, ambient cards) never demotes a word. */
-	public static int onPractice(int level, boolean correct) {
-		return correct ? Math.min(MAX_LEVEL, Math.max(0, level) + 1) : Math.max(0, level);
 	}
 }

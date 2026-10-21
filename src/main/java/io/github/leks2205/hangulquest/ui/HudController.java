@@ -1,6 +1,5 @@
 package io.github.leks2205.hangulquest.ui;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.learn.Achievements;
 import io.github.leks2205.hangulquest.learn.LearningService;
@@ -12,6 +11,11 @@ import io.github.leks2205.hangulquest.quest.SideQuest;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.SafetyGate;
+import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
+import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
+import io.github.leks2205.hangulquest.ui.quiz.QuizSession;
+import io.github.leks2205.hangulquest.ui.quiz.QuizView;
+import io.github.leks2205.hangulquest.util.Tr;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -23,9 +27,14 @@ import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
-/** All in-game cards: quest tracker, hint panel, sidequest quiz, review quiz, word card, banner. */
+/**
+ * All in-game cards: quest tracker, hint panel, sidequest question, quiz prompt, word card, banner.
+ * Nothing here reads raw keys: quizzes, sidequest questions and the next-quest choice are answered in
+ * {@link QuizScreen}, which is opened with the rebindable answer key.
+ */
 public final class HudController implements QuestEngine.Feedback {
 	private final HangulQuestClient hq;
 	private final Minecraft mc = Minecraft.getInstance();
@@ -34,8 +43,6 @@ public final class HudController implements QuestEngine.Feedback {
 	private int questReloadTicks;
 	private List<Questline> nextChoices = List.of();
 	private long nextChoicesUntil;
-	private boolean key4;
-	private boolean key5;
 	private Word wordCard;
 	private long wordCardUntil;
 	private String bannerKo = "";
@@ -46,18 +53,13 @@ public final class HudController implements QuestEngine.Feedback {
 	private long hintUntil;
 	private long lastHintAt;
 
-	private Word quizWord;
-	private List<String> quizOptions = List.of();
-	private int quizCorrect;
-	private boolean quizActive;
+	private final QuizSession session = new QuizSession();
+	/** Set when a quiz was requested while another screen (the journal) was still open. */
+	private boolean pendingOpen;
 	private long lastQuizAt;
 	private Word quizResultWord;
 	private boolean quizResultCorrect;
 	private long quizResultUntil;
-
-	private boolean key1;
-	private boolean key2;
-	private boolean key3;
 
 	public HudController(HangulQuestClient hq) {
 		this.hq = hq;
@@ -70,13 +72,14 @@ public final class HudController implements QuestEngine.Feedback {
 	/** The first automatic review should wait a full interval after joining. */
 	public void onWorldJoin() {
 		lastQuizAt = System.currentTimeMillis();
+		session.dismiss();
+		pendingOpen = false;
 	}
 
 	public void tick(Observation obs) {
 		if (hq.quests() == null || hq.learn() == null) {
 			return;
 		}
-		handleNumberKeys();
 		if (++questReloadTicks >= 40) {
 			questReloadTicks = 0;
 			hq.reloadQuestlinesIfChanged(obs);
@@ -100,43 +103,79 @@ public final class HudController implements QuestEngine.Feedback {
 		if (hint != null && now > hintUntil) {
 			hint = null;
 		}
-		if (!quizActive && !hq.quests().sidequestActive() && hq.config().autoQuiz
+		session.tick(now); // an unanswered prompt just disappears; nothing is recorded
+		if (pendingOpen && mc.gui.screen() == null) {
+			pendingOpen = false;
+			if (quizView() != null) {
+				mc.setScreenAndShow(new QuizScreen(this));
+			}
+		}
+		if (session.state() == QuizSession.State.IDLE && !hq.quests().sidequestActive()
+				&& hq.config().autoQuiz
 				&& now - lastQuizAt > Math.max(1, hq.config().quizIntervalMinutes) * 60_000L
 				&& SafetyGate.safeForQuiz(obs)) {
-			startFromDue();
+			offerFromDue(now);
 		}
 	}
 
-	private void handleNumberKeys() {
-		boolean down1 = InputConstants.isKeyDown(InputConstants.KEY_1);
-		boolean down2 = InputConstants.isKeyDown(InputConstants.KEY_2);
-		boolean down3 = InputConstants.isKeyDown(InputConstants.KEY_3);
-		boolean down4 = InputConstants.isKeyDown(InputConstants.KEY_4);
-		boolean down5 = InputConstants.isKeyDown(InputConstants.KEY_5);
-		if (down1 && !key1) {
-			choose(0);
-		} else if (down2 && !key2) {
-			choose(1);
-		} else if (down3 && !key3) {
-			choose(2);
-		} else if (down4 && !key4) {
-			choose(3);
-		} else if (down5 && !key5) {
-			choose(4);
-		}
-		key1 = down1;
-		key2 = down2;
-		key3 = down3;
-		key4 = down4;
-		key5 = down5;
-	}
+	// ------------------------------------------------------------- quiz screen
 
-	private void choose(int index) {
-		if (mc.gui.screen() != null) {
+	/** The answer key: opens whatever is waiting for an answer, or starts a review of due words. */
+	public void openAnswer() {
+		if (mc.gui.screen() != null || hq.quests() == null || hq.learn() == null) {
 			return;
 		}
+		if (quizView() != null || session.open(System.currentTimeMillis())) {
+			mc.setScreenAndShow(new QuizScreen(this));
+		} else if (!startFromDue()) {
+			banner("지금은 복습할 단어가 없어요.", Tr.t("Gerade ist nichts zu wiederholen."), false);
+		}
+	}
+
+	/** What the quiz screen shows now, or null when nothing is waiting for an answer. */
+	public QuizView quizView() {
+		if (hq.quests() == null) {
+			return null;
+		}
+		boolean translations = hq.config().questTranslations;
 		if (!nextChoices.isEmpty()) {
-			if (index < nextChoices.size()) {
+			List<QuizView.Option> options = new ArrayList<>();
+			for (Questline trail : nextChoices) {
+				options.add(new QuizView.Option(trail.titleKo(), translations
+						? trail.title(io.github.leks2205.hangulquest.util.Lang.current()) : ""));
+			}
+			return new QuizView(QuizView.Kind.NEXT_QUEST, "다음 퀘스트", "", true, null, options, true);
+		}
+		SideQuest side = hq.quests().sideQuest();
+		if (hq.quests().sidequestActive() && side != null) {
+			List<QuizView.Option> options = new ArrayList<>();
+			for (String option : side.options()) {
+				options.add(new QuizView.Option(option));
+			}
+			return new QuizView(QuizView.Kind.SIDEQUEST,
+					"사이드 퀘스트 " + (side.stage() == 1 ? "1/2" : "2/2"),
+					side.prompt(), !side.reversed(), null, options, side.reversed());
+		}
+		QuizSession.Quiz quiz = session.state() == QuizSession.State.ACTIVE ? session.quiz() : null;
+		Optional<Word> word = quiz == null ? Optional.empty() : hq.catalog().byId(quiz.wordId());
+		if (word.isEmpty()) {
+			return null;
+		}
+		List<QuizView.Option> options = new ArrayList<>();
+		for (String option : quiz.options()) {
+			options.add(new QuizView.Option(option));
+		}
+		return new QuizView(QuizView.Kind.REVIEW, "복습", word.get().ko, true, null, options, false);
+	}
+
+	/** An answer given in the quiz screen (key 1-5 or a click). The only path that answers anything. */
+	public QuizOutcome answerInScreen(int index) {
+		QuizView view = quizView();
+		if (view == null || index < 0 || index >= view.options().size()) {
+			return QuizOutcome.NONE;
+		}
+		switch (view.kind()) {
+			case NEXT_QUEST -> {
 				Questline chosen = nextChoices.get(index);
 				nextChoices = List.of();
 				Observation obs = hq.lastObservation();
@@ -145,14 +184,36 @@ public final class HudController implements QuestEngine.Feedback {
 					obs.now = System.currentTimeMillis();
 				}
 				hq.quests().startTrail(chosen.id(), obs, this);
+				return QuizOutcome.NONE;
 			}
-			return;
+			case SIDEQUEST -> {
+				return hq.quests().answerSidequest(index, this) ? QuizOutcome.CORRECT : QuizOutcome.WRONG;
+			}
+			default -> {
+				return answerReview(index);
+			}
 		}
-		if (hq.quests().sidequestActive()) {
-			hq.quests().answerSidequest(index, this);
-		} else if (quizActive) {
-			answerQuiz(index);
-		}
+	}
+
+	/** The quiz screen went away: an unanswered review is dropped, nothing is recorded. */
+	public void dismissQuiz() {
+		session.dismiss();
+	}
+
+	private QuizOutcome answerReview(int index) {
+		long now = System.currentTimeMillis();
+		Optional<QuizSession.Result> result = session.answer(index, (wordId, correct) -> {
+			List<Achievements.Achievement> unlocked = hq.learn().answer(wordId, correct, now);
+			lastQuizAt = now;
+			quizResultWord = hq.catalog().byId(wordId).orElse(null);
+			quizResultCorrect = correct;
+			quizResultUntil = now + 2400L;
+			sound(correct);
+			for (Achievements.Achievement achievement : unlocked) {
+				banner(achievement.ko(), achievement.de(), true);
+			}
+		});
+		return result.map(r -> r.correct() ? QuizOutcome.CORRECT : QuizOutcome.WRONG).orElse(QuizOutcome.NONE);
 	}
 
 	// ---------------------------------------------------------------- feedback
@@ -261,23 +322,39 @@ public final class HudController implements QuestEngine.Feedback {
 
 	// ------------------------------------------------------------------ review
 
-	public void startFromDue() {
+	/** A review the player asked for (review key, journal): opens in the quiz screen on the next tick. */
+	public boolean startFromDue() {
+		QuizSession.Quiz quiz = dueQuiz();
+		if (quiz == null) {
+			return false;
+		}
+		session.begin(quiz);
+		pendingOpen = true;
+		return true;
+	}
+
+	/** An automatic review: only a prompt, answerable once the player opens it. */
+	private void offerFromDue(long now) {
+		QuizSession.Quiz quiz = dueQuiz();
+		if (quiz != null && session.offer(quiz, now)) {
+			lastQuizAt = now;
+		}
+	}
+
+	private QuizSession.Quiz dueQuiz() {
 		LearningService learn = hq.learn();
 		if (learn == null) {
-			return;
+			return null;
 		}
 		List<Word> due = learn.dueWords(System.currentTimeMillis(), 6);
 		if (due.isEmpty()) {
-			return;
+			return null;
 		}
 		Collections.shuffle(due, new Random());
-		startQuiz(due.get(0));
+		return buildQuiz(due.get(0));
 	}
 
-	public void startQuiz(Word word) {
-		if (word == null) {
-			return;
-		}
+	private QuizSession.Quiz buildQuiz(Word word) {
 		Random random = new Random();
 		List<String> options = new ArrayList<>();
 		options.add(glossOf(word));
@@ -287,29 +364,7 @@ public final class HudController implements QuestEngine.Feedback {
 			}
 		}
 		Collections.shuffle(options, random);
-		quizWord = word;
-		quizOptions = options;
-		quizCorrect = options.indexOf(glossOf(word));
-		quizActive = true;
-	}
-
-	private void answerQuiz(int index) {
-		if (quizWord == null) {
-			quizActive = false;
-			return;
-		}
-		boolean correct = index == quizCorrect;
-		long now = System.currentTimeMillis();
-		List<Achievements.Achievement> unlocked = hq.learn().answer(quizWord.id, correct, now);
-		quizActive = false;
-		lastQuizAt = now;
-		quizResultWord = quizWord;
-		quizResultCorrect = correct;
-		quizResultUntil = now + 2400L;
-		sound(correct);
-		for (Achievements.Achievement achievement : unlocked) {
-			banner(achievement.ko(), achievement.de(), true);
-		}
+		return new QuizSession.Quiz(word.id, options, options.indexOf(glossOf(word)));
 	}
 
 	// ----------------------------------------------------------------- drawing
@@ -333,16 +388,16 @@ public final class HudController implements QuestEngine.Feedback {
 			drawHint(graphics);
 		} else if (hq.quests() != null && hq.quests().sidequestActive()) {
 			drawSideQuest(graphics);
-		} else if (quizActive) {
-			drawQuiz(graphics);
+		} else if (session.promptVisible(now)) {
+			drawQuizPrompt(graphics, now);
 		} else if (quizResultWord != null && now < quizResultUntil) {
 			drawQuizResult(graphics);
 		}
-		if (wordCard != null && now < wordCardUntil && !quizActive && !hintVisible
+		if (wordCard != null && now < wordCardUntil && !hintVisible
 				&& !hq.quests().sidequestActive()) {
 			drawWordCard(graphics, wordCard);
 		}
-		if (!nextChoices.isEmpty() && mc.gui.screen() == null) {
+		if (!nextChoices.isEmpty()) {
 			drawNextChoices(graphics);
 		}
 		celebration.draw(graphics, mc.font, mc.getWindow().getGuiScaledWidth(),
@@ -370,18 +425,22 @@ public final class HudController implements QuestEngine.Feedback {
 			}
 			rowY += 14;
 		}
-		Draw.label(graphics, font, "1–" + rows + ": 선택", x + 8, y + height - 12, Draw.DIM);
+		drawAnswerHint(graphics, x + 8, y + height - 12);
 	}
 
 	/** Dev self-test helper: start a quiz for a known word. */
 	public void selftestStartQuiz(String wordId) {
-		hq.catalog().byId(wordId).ifPresent(this::startQuiz);
+		hq.catalog().byId(wordId).ifPresent(word -> {
+			session.begin(buildQuiz(word));
+			pendingOpen = true;
+		});
 	}
 
 	/** Dev self-test helper: answer the visible quiz correctly, revealing the icon. */
 	public void selftestRevealQuiz() {
-		if (quizActive) {
-			answerQuiz(quizCorrect);
+		QuizSession.Quiz quiz = session.quiz();
+		if (session.state() == QuizSession.State.ACTIVE && quiz != null) {
+			answerReview(quiz.correctIndex());
 		}
 	}
 
@@ -570,7 +629,7 @@ public final class HudController implements QuestEngine.Feedback {
 						width - 44, Draw.WHITE);
 			}
 		}
-		Draw.korean(graphics, font, "1 2 3   ·   답을 골라요", x + 8, y + height - 12, Draw.DIM);
+		drawAnswerHint(graphics, x + 8, y + height - 12);
 	}
 
 	private void drawQuizResult(GuiGraphicsExtractor graphics) {
@@ -594,24 +653,34 @@ public final class HudController implements QuestEngine.Feedback {
 				x + 8, y + height - 12, Draw.DIM);
 	}
 
-	private void drawQuiz(GuiGraphicsExtractor graphics) {
-		if (quizWord == null) {
-			return;
-		}
+	/** "Quiz ready: press [key]". Shown for a short while, then it simply goes away. */
+	private void drawQuizPrompt(GuiGraphicsExtractor graphics, long now) {
 		var font = mc.font;
-		int width = 300;
-		int height = 112;
+		Component title = KoText.ko("복습");
+		Component text = Component.literal(Tr.t("Quiz bereit: %s drücken").formatted(answerKeyLabel()));
+		int width = 10 + font.width(title) + 8 + font.width(text) + 10;
+		int height = 22;
 		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = (mc.getWindow().getGuiScaledHeight() - height) / 2;
+		int y = 10;
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.korean(graphics, font, "복습", x + 8, y + 6, Draw.GOLD);
-		Draw.question(graphics, font, x + 8, y + 20, 16);
-		Draw.korean(graphics, font, quizWord.ko, x + 30, y + 22, Draw.WHITE);
-		for (int i = 0; i < Math.min(3, quizOptions.size()); i++) {
-			Draw.label(graphics, font, (i + 1) + ".", x + 10, y + 46 + i * 18, Draw.DIM);
-			Draw.truncated(graphics, font, Component.literal(quizOptions.get(i)), x + 28,
-					y + 46 + i * 18, width - 44, Draw.WHITE);
-		}
+		graphics.text(font, title, x + 10, y + 5, Draw.GOLD, false);
+		graphics.text(font, text, x + 10 + font.width(title) + 8, y + 5, Draw.WHITE, false);
+		int left = (int) ((width - 2) * session.promptRemainingMs(now) / QuizSession.PROMPT_MS);
+		graphics.fill(x + 1, y + height - 3, x + 1 + left, y + height - 1, Draw.GOLD);
+	}
+
+	/** The footer of the sidequest and next-quest panels: they are answered in the quiz screen. */
+	private void drawAnswerHint(GuiGraphicsExtractor graphics, int x, int y) {
+		var font = mc.font;
+		Component ko = KoText.ko("답을 골라요");
+		graphics.text(font, ko, x, y, Draw.DIM, false);
+		Draw.label(graphics, font, " · " + Tr.t("Mit %s öffnen").formatted(answerKeyLabel()),
+				x + font.width(ko), y, Draw.DIM);
+	}
+
+	private String answerKeyLabel() {
+		var key = hq.answerKey();
+		return key == null ? "" : "[" + key.getTranslatedKeyMessage().getString() + "]";
 	}
 
 	private void drawWordCard(GuiGraphicsExtractor graphics, Word word) {

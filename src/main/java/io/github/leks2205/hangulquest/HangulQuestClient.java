@@ -82,6 +82,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private KeyMapping keyReview;
 	private KeyMapping keyHud;
 	private KeyMapping keyFocus;
+	private KeyMapping keyAnswer;
 
 	private Observation lastObservation = new Observation();
 	private final Map<String, Long> wordCooldowns = new HashMap<>();
@@ -136,6 +137,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 
 	public HudController hud() {
 		return hud;
+	}
+
+	/** The rebindable key that opens the quiz screen. */
+	public KeyMapping answerKey() {
+		return keyAnswer;
 	}
 
 	public Observation lastObservation() {
@@ -197,6 +203,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 				"key.hangulquest.hud", InputConstants.Type.KEYBOARD, InputConstants.KEY_F8, category));
 		keyFocus = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.hangulquest.focus", InputConstants.Type.KEYBOARD, InputConstants.KEY_V, category));
+		// R: vanilla leaves it unbound (G is "quick actions", O "friends", P "social interactions").
+		keyAnswer = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+				"key.hangulquest.answer", InputConstants.Type.KEYBOARD, InputConstants.KEY_R, category));
 	}
 
 	private void onTick(Minecraft client) {
@@ -366,6 +375,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		while (keyFocus.consumeClick()) {
 			cycleFocus();
+		}
+		while (keyAnswer.consumeClick()) {
+			hud.openAnswer();
 		}
 		while (keyHud.consumeClick()) {
 			config.hudCards = !config.hudCards;

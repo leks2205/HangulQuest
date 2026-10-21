@@ -93,6 +93,11 @@ class PlaytestTest {
 			steps++;
 		}
 		assertTrue(completed(engine), trail.id() + " was not completed");
+		learn.data().words.forEach((id, progress) -> {
+			assertEquals(0, progress.level, trail.id() + " promoted " + id + " without a quiz");
+			assertEquals(0, progress.correct, trail.id() + " counted a correct answer for " + id);
+		});
+		assertEquals(0, learn.totalReviews(), trail.id() + " recorded a review nobody answered");
 		return "completed in " + steps + " steps";
 	}
 

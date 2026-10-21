@@ -294,10 +294,8 @@ public final class QuestEngine {
 		}
 		boolean focused = track.trail.id().equals(focusedId);
 		for (String conceptId : step.teach()) {
-			catalog.byConceptId(conceptId).ifPresent(word -> {
-				learn.introduce(word, obs.now);
-				learn.answer(word.id, true, false, obs.now);
-			});
+			// Doing the step is an encounter, not recall: it never moves the review schedule.
+			catalog.byConceptId(conceptId).ifPresent(word -> learn.expose(word, obs.now));
 		}
 		learn.noteQuestStepCompleted();
 		boolean last = track.stepIndex >= track.stepCount() - 1;
@@ -681,9 +679,7 @@ public final class QuestEngine {
 		boolean correct = track.sideQuest.answer(index);
 		Word word = track.sideQuest.word();
 		long now = System.currentTimeMillis();
-		if (correct) {
-			learn.answer(word.id, true, true, now);
-		}
+		learn.practice(word.id, correct, now);
 		if (track.sideQuest.isDone()) {
 			Word learned = track.sideQuest.word();
 			track.sideQuest = null;
