@@ -52,7 +52,7 @@ final class AcquireItemType implements GoalType<Goal.AcquireItem> {
 	@Override
 	public void beforeTick(Goal.AcquireItem goal, Observation obs, GoalEvaluator.Tracker tracker) {
 		// The baseline is taken even while conditions fail, so items picked up meanwhile count later.
-		GoalEvaluator.baselineAcquired(tracker, Matching.familyCount(obs, goal.item()),
+		GoalEvaluator.baselineAcquired(tracker, Matching.heldCount(obs, goal.item(), tracker),
 				obs.inventorySettling, obs.screenOpen);
 	}
 
@@ -60,7 +60,7 @@ final class AcquireItemType implements GoalType<Goal.AcquireItem> {
 	public boolean evaluate(Goal.AcquireItem goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
 		if (!obs.inventorySettling) {
-			GoalEvaluator.trackAcquired(tracker, Matching.familyCount(obs, goal.item()));
+			GoalEvaluator.trackAcquired(tracker, Matching.heldCount(obs, goal.item(), tracker));
 		}
 		return tracker.count >= Math.max(1, goal.count());
 	}
@@ -83,12 +83,12 @@ final class AcquireItemType implements GoalType<Goal.AcquireItem> {
 	@Override
 	public String korean(Goal.AcquireItem goal, SentenceContext c) {
 		return SentenceBuilder.phrase(SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()),
-				goal.count(), c.withCounts()), c.verb(), c.level(), c.finale());
+				goal.count(), c.withCounts(), goal.item(), c.obj()), c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.AcquireItem goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.item(), obj)
 				+ " " + verb.past();
 	}
 

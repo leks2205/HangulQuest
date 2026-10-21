@@ -65,7 +65,7 @@ public final class SentenceBuilder {
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
-		return prefix(conditions, namer) + core(goal, word, true, clampLevel(koreanLevel), finale, namer);
+		return prefix(conditions, word, namer) + core(goal, word, true, clampLevel(koreanLevel), finale, namer);
 	}
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions) {
@@ -78,7 +78,7 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, List<Condition> conditions, Namer namer) {
-		return prefix(conditions, namer) + core(goal, word, false, 1, false, namer);
+		return prefix(conditions, word, namer) + core(goal, word, false, 1, false, namer);
 	}
 
 	public static long seconds(long dwellMs) {
@@ -105,7 +105,7 @@ public final class SentenceBuilder {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		Word named = word == null || isVerbWord(word) ? null : word;
 		return new SentenceContext(objectName(goal, word, namer), type.verb(goal, VerbTable.shared()),
-				withCounts, level, finale, named, namer);
+				withCounts, level, finale, named, SentenceContext.taught(named, namer));
 	}
 
 	/**
@@ -115,8 +115,16 @@ public final class SentenceBuilder {
 	 */
 	public static String ceremony(Goal goal, Word word, List<Condition> conditions, Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		String body = type.ceremony(goal, context(goal, word, namer, true, 1, true));
-		return prefix(conditions, namer) + body + ".";
+		// The clue may point at the porkchop with the word for the pig; the line that says what was done must not.
+		Word said = word != null && word.entityId != null && word.iconItem != null ? withoutPicture(word) : word;
+		String body = type.ceremony(goal, context(goal, said, namer, true, 1, true));
+		return prefix(conditions, said, namer) + body + ".";
+	}
+
+	private static Word withoutPicture(Word word) {
+		return new Word(word.id, word.ko, word.de, word.untranslated ? "" : word.en, word.deShort, word.category,
+				word.tier, word.conceptId, null, word.entityId, word.biomeId, word.descKo, word.origin,
+				word.phrase, word.grammar, word.referents, word.glosses);
 	}
 
 	// ---- Grammar points: which constructions a generated sentence teaches.
@@ -181,13 +189,25 @@ public final class SentenceBuilder {
 		};
 	}
 
-	/** The noun the player sees: the taught word, or the registry name when a step teaches nothing. */
+	/**
+	 * The noun the player sees: the taught word when it stands for the goal's object (it names it, or is
+	 * drawn with it), else the registry name. A word that covers another role of the goal (the anchor, the
+	 * recipient) is spoken in that role by the goal type.
+	 */
 	private static String objectName(Goal goal, Word word, Namer namer) {
+		GoalType<Goal> type = GoalTypes.of(goal);
 		// A verb concept (보다, 걷다, 짓다) can be taught by a step but is never the object of one.
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
-			return word.ko;
+			ObjectKind kind = type.objectKind();
+			String id = type.object(goal);
+			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY;
+			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id)) {
+				return word.ko;
+			}
+			String registry = type.objectName(goal, namer);
+			return registry == null || registry.isBlank() ? word.ko : registry;
 		}
-		String resolved = GoalTypes.of(goal).objectName(goal, namer);
+		String resolved = type.objectName(goal, namer);
 		return resolved == null ? "" : resolved;
 	}
 
@@ -220,20 +240,26 @@ public final class SentenceBuilder {
 	}
 
 	public static String counted(String head, int count, boolean withCounts) {
-		return withCounts && count > 1 ? head + " " + counter(count, "개") : head;
+		return withCounts && count > 1 ? head + " " + counter(count, Counters.DEFAULT) : head;
+	}
+
+	/** Same, with the counter that fits the thing: 종이 세 장, 꽃 두 송이, 책 한 권 (counters.json). */
+	public static String counted(String head, int count, boolean withCounts, String id, String noun) {
+		return withCounts && count > 1 ? head + " " + counter(count, Counters.shared().counter(id, noun)) : head;
 	}
 
 	public static String counter(int count, String counter) {
 		return KoGrammar.counter(count, counter);
 	}
 
-	private static String prefix(List<Condition> conditions, Namer namer) {
+	private static String prefix(List<Condition> conditions, Word word, Namer namer) {
 		if (conditions == null || conditions.isEmpty()) {
 			return "";
 		}
+		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		StringBuilder sb = new StringBuilder();
 		for (Condition condition : conditions) {
-			sb.append(ConditionTypes.of(condition).prefix(condition, namer));
+			sb.append(ConditionTypes.of(condition).prefix(condition, taught));
 		}
 		return sb.toString();
 	}

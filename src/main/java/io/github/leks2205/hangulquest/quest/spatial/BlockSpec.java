@@ -52,6 +52,14 @@ public final class BlockSpec {
 		if (spec == null || observed == null) {
 			return false;
 		}
+		if (spec.indexOf('|') >= 0) { // a step that accepts every referent of its taught word (see Accepted)
+			for (String part : spec.split("\\|")) {
+				if (matches(part, observed)) {
+					return true;
+				}
+			}
+			return false;
+		}
 		if (isTag(spec)) {
 			String[] tag = TAGS.get(tagPath(spec));
 			return tag != null && tag[0].equals(Matching.blockFamily(observed));
@@ -61,6 +69,9 @@ public final class BlockSpec {
 
 	/** A concrete block that stands for the spec when a name is needed: the oak door for {@code #minecraft:doors}. */
 	public static String representative(String spec) {
+		if (spec != null && spec.indexOf('|') >= 0) {
+			spec = spec.substring(0, spec.indexOf('|'));
+		}
 		if (spec != null && isTag(spec)) {
 			String[] tag = TAGS.get(tagPath(spec));
 			return tag == null ? null : tag[1];

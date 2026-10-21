@@ -24,7 +24,7 @@ public final class Placements {
 		boolean hit = false;
 		Relation wrong = null;
 		for (PlacementFact fact : obs.placements) {
-			if (!Matching.matchesBlock(block, fact.block()) || nightLatch && !fact.night()) {
+			if (!Matching.accepts(tracker, block, fact.block()) || nightLatch && !fact.night()) {
 				continue;
 			}
 			EnumSet<Relation> held = Relations.holding(anchor, fact);

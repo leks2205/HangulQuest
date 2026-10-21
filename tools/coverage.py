@@ -42,6 +42,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "src" / "main" / "resources" / "assets" / "hangulquest" / "data"
 CORE_GAP = ROOT / "content" / "curriculum" / "core-gap.csv"
 GAPS_CSV = ROOT / "build" / "reports" / "content" / "recycling-gaps.csv"
+# Every surface form the game's Conjugator makes for the verbs it knows; VerbFormsDumpTest writes it.
+VERB_FORMS = ROOT / "build" / "reports" / "content" / "verb-forms.json"
+# Verbs of the first-steps list that the game enacts but no concept or curriculum row carries yet.
+ENACTED_EXTRA = ("쌓다", "들다")
 
 # ---- Parameters of the simulated learner. Change one and the baseline has to be rewritten.
 KNOWN_AFTER = 3          # encounters before a word counts as known
@@ -155,6 +159,7 @@ class Lexicon:
         self.forms: dict[str, str] = {}          # surface form (noun, name, alias) -> canonical
         self.verbs: dict[str, str] = {}          # verb stem -> canonical
         self.verb_words: set[str] = set()
+        self.verb_forms: dict[str, str] = {}     # whole conjugated eojeol (걸어요) -> dictionary form (걷다)
         self.words: dict[str, dict] = {}         # canonical -> {"concepts": [...], "core": bool, "gap": bool, ...}
         self.by_id: dict[str, str] = {}          # registry id or concept id -> canonical
         self.max_words = 1
@@ -230,7 +235,27 @@ class Lexicon:
                     lex.add(word, [word], None, core=True, gap=True, verb=row.get("pos") in ("verb", "adjective"),
                             meta={"grade": row.get("grade", ""), "anchor": row.get("minecraftAnchor", ""),
                                   "roles": row.get("suggestedRoles", ""), "pos": row.get("pos", "")})
+        lex.add_verb_forms(VERB_FORMS)
         return lex
+
+    def add_verb_forms(self, path: Path) -> None:
+        """Whole-eojeol forms of the verbs the game conjugates, irregular ones included (걷다 > 걸어요).
+
+        Only verbs the lexicon knows get forms, plus ENACTED_EXTRA, which no concept or curriculum row
+        carries. Only single-eojeol forms of two syllables or more are kept, and a form that is already
+        claimed stays with its first verb.
+        """
+        if not path.exists():
+            return
+        for dictionary in ENACTED_EXTRA:
+            if dictionary not in self.words and dictionary[:-1] not in self.verbs:
+                self.add(dictionary, [dictionary], None, verb=True)
+        for dictionary, forms in json.loads(path.read_text(encoding="utf-8")).get("forms", {}).items():
+            if dictionary not in self.words:
+                continue
+            for form in forms:
+                if len(form) >= 2 and " " not in form:
+                    self.verb_forms.setdefault(form, dictionary)
 
     # --------------------------------------------------------------------------------- tokenizing
 
@@ -266,6 +291,9 @@ class Lexicon:
         for stem, canonical in self.verbs.items():
             if (len(stem) == 1 or word[:1] == stem[:1]) and verb_matches(stem, word):
                 return canonical, 1
+        # what the stem rule cannot see: ㄷ- and ㅂ-irregular forms (걸어요, 구워요), 들다 and 쌓다 if not listed
+        if word in self.verb_forms:
+            return self.verb_forms[word], 1
         return None
 
 
@@ -470,8 +498,12 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--check", action="store_true", help="fail if a metric is worse than the baseline")
     parser.add_argument("--update-baseline", action="store_true", help="rewrite the coverage metrics of the baseline")
     parser.add_argument("--json", action="store_true", help="print the metrics as JSON")
+    parser.add_argument("--tokens", help="print the words the lexicon finds in this text, one per line, and stop")
     args = parser.parse_args(argv)
 
+    if args.tokens is not None:
+        print("\n".join(load_lexicon(args).tokens(args.tokens)[0]))
+        return 0
     trails = variety.load_steps(args.steps)
     lexicon = load_lexicon(args)
     result = compute(trails, False, lexicon)

@@ -170,6 +170,12 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 	}
 
 	@Override
+	public List<Mention> mentions(Goal.Avoid goal) {
+		Goal action = goal.action();
+		return action == null ? List.of() : GoalTypes.of(action).mentions(action);
+	}
+
+	@Override
 	public boolean covers(Goal.Avoid goal, Concept concept) {
 		return goal.action() != null && GoalTypes.of(goal.action()).covers(goal.action(), concept);
 	}

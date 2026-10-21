@@ -12,6 +12,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Fixed
 
+- **Generated Korean names things by what they are.** A gift is named by its own name (a cat shown by a cod no
+  longer gets "고양이에게 고양이를"), an entity anchor is the animal (`chicken` is 닭, not the raw meat; `PLAYER_REL`
+  takes an optional `kind`), a log anchor is 나무 when the step teaches 나무, relation sentences drop the material
+  they repeat ("울타리 옆에 문을 달았어요"), finale lines use the taught word ("우유를 마셨어요"), and counted nouns
+  take their counter from `counters.json` (종이 세 장, 꽃 두 송이). Building a pattern and placing on one now show
+  a status line; a cave biome is entered (들어가요) and a climb reads "언덕 위로 올라가요" at level 1.
+- **A step may teach any role of its goal**, and a word with several referents accepts any of them.
 - **Progress can no longer be lost by an update or a crash.** `progress.json` is written to a unique temp file,
   forced to disk and renamed over the old file. Fields this version does not know are written back unchanged,
   and a file written by a newer version is opened read-only instead of being overwritten.

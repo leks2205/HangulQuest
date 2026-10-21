@@ -42,6 +42,11 @@ public interface ConditionType<C extends Condition> {
 		return List.of();
 	}
 
+	/** The block, item or entity the condition points at: a step may teach the word for it. */
+	default List<io.github.leks2205.hangulquest.quest.goal.GoalType.Mention> mentions(C condition) {
+		return List.of();
+	}
+
 	/** Adds the problems of this condition (a bad id, an anchor that cannot work). */
 	default void validate(C condition, ValidationContext context) {
 	}

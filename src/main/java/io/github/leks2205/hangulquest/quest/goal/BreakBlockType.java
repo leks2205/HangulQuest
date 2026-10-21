@@ -60,7 +60,7 @@ final class BreakBlockType implements GoalType<Goal.BreakBlock> {
 	public boolean evaluate(Goal.BreakBlock goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
 		for (String broken : obs.brokenBlocks) {
-			if (Matching.matchesBlock(goal.block(), broken)) {
+			if (Matching.accepts(tracker, goal.block(), broken)) {
 				tracker.count++;
 			}
 		}
@@ -85,12 +85,12 @@ final class BreakBlockType implements GoalType<Goal.BreakBlock> {
 	@Override
 	public String korean(Goal.BreakBlock goal, SentenceContext c) {
 		return SentenceBuilder.phrase(SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()),
-				goal.count(), c.withCounts()), c.verb(), c.level(), c.finale());
+				goal.count(), c.withCounts(), goal.block(), c.obj()), c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.BreakBlock goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.block(), obj)
 				+ " " + verb.past();
 	}
 

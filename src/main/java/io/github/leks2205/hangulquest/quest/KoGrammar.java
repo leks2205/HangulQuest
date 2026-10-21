@@ -133,7 +133,7 @@ public final class KoGrammar {
 	/** Counters that take native Korean numerals (한 개, 두 마리). */
 	public static boolean isNativeCounter(String counter) {
 		return switch (counter) {
-			case "개", "마리", "명", "그루", "송이", "병", "자루", "장", "권" -> true;
+			case "개", "마리", "명", "그루", "송이", "병", "자루", "장", "권", "잔", "그릇", "켤레", "척", "대", "벌", "채" -> true;
 			default -> false;
 		};
 	}

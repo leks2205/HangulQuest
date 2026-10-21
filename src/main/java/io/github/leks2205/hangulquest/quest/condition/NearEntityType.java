@@ -56,6 +56,11 @@ final class NearEntityType implements ConditionType<Condition.NearEntity> {
 	}
 
 	@Override
+	public List<io.github.leks2205.hangulquest.quest.goal.GoalType.Mention> mentions(Condition.NearEntity condition) {
+		return List.of(new io.github.leks2205.hangulquest.quest.goal.GoalType.Mention(io.github.leks2205.hangulquest.quest.goal.ObjectKind.ENTITY, condition.entity()));
+	}
+
+	@Override
 	public String prefix(Condition.NearEntity condition, SentenceBuilder.Namer namer) {
 		return SentenceBuilder.nearName(namer.entity(condition.entity()), "가까이에서 ");
 	}

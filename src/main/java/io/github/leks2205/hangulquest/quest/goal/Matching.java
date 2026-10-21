@@ -20,6 +20,25 @@ public final class Matching {
 		return !family.isEmpty() && family.equals(blockFamily(observed));
 	}
 
+	/** The goal's own match, or one of the other referents of the word the step teaches. */
+	public static boolean accepts(GoalEvaluator.Tracker tracker, String goal, String observed) {
+		return matchesBlock(goal, observed) || tracker.accepted.matches(goal, observed);
+	}
+
+	/** How many of the item the player holds, counting every referent the step accepts. */
+	public static int heldCount(Observation obs, String item, GoalEvaluator.Tracker tracker) {
+		if (!tracker.accepted.widens(item)) {
+			return familyCount(obs, item);
+		}
+		int total = 0;
+		for (java.util.Map.Entry<String, Integer> entry : obs.inventory.entrySet()) {
+			if (accepts(tracker, item, entry.getKey())) {
+				total += entry.getValue();
+			}
+		}
+		return total;
+	}
+
 	public static boolean isBed(String id) {
 		return id != null && blockFamily(id).equals("bed");
 	}

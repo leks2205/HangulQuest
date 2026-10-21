@@ -836,6 +836,14 @@
             },
             "anchor": {
               "$ref": "#/definitions/resourceId"
+            },
+            "kind": {
+              "enum": [
+                "block",
+                "item",
+                "entity"
+              ],
+              "description": "What the anchor is, when its id could be an item and an entity (chicken)."
             }
           },
           "required": [

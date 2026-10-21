@@ -72,10 +72,14 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 		return new Anchor.Built(goal.pattern(), goal.material());
 	}
 
+	private static Anchor anchor(Goal.PlaceOnPattern goal, GoalEvaluator.Tracker tracker) {
+		return new Anchor.Built(goal.pattern(), tracker.accepted.union(goal.material()));
+	}
+
 	@Override
 	public boolean evaluate(Goal.PlaceOnPattern goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		Placements.evaluate(goal.block(), goal.relation(), anchor(goal), obs, tracker, nightLatch);
+		Placements.evaluate(goal.block(), goal.relation(), anchor(goal, tracker), obs, tracker, nightLatch);
 		return tracker.count >= 1;
 	}
 
@@ -120,7 +124,7 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 	@Override
 	public String status(Goal.PlaceOnPattern goal, Observation obs, GoalEvaluator.Tracker tracker,
 						 Catalog catalog, String word) {
-		return Placements.status(goal.relation(), tracker, obs, 1, false);
+		return Placements.status(goal.relation(), tracker, obs, 1, true);
 	}
 
 	@Override
@@ -131,6 +135,12 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.BLOCK;
+	}
+
+	/** The word may teach the block or the material of the structure. */
+	@Override
+	public List<Mention> mentions(Goal.PlaceOnPattern goal) {
+		return List.of(new Mention(ObjectKind.BLOCK, goal.block()), new Mention(ObjectKind.BLOCK, goal.material()));
 	}
 
 	@Override

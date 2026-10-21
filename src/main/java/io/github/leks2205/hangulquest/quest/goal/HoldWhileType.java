@@ -196,7 +196,20 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 		return id() + ":" + goal.item() + ":" + Verb.HOLD.name() + "+" + what;
 	}
 
-	/** The word may teach what is held or what the inner goal points at. */
+	/** The word may teach what is held or what the inner goal or condition points at. */
+	@Override
+	public List<Mention> mentions(Goal.HoldWhile goal) {
+		List<Mention> all = new ArrayList<>(List.of(new Mention(ObjectKind.ITEM, goal.item())));
+		Goal inner = goal.innerGoal();
+		if (inner != null) {
+			all.addAll(GoalTypes.of(inner).mentions(inner));
+		}
+		if (goal.innerCondition() != null) {
+			all.addAll(ConditionTypes.of(goal.innerCondition()).mentions(goal.innerCondition()));
+		}
+		return all;
+	}
+
 	@Override
 	public boolean covers(Goal.HoldWhile goal, Concept concept) {
 		Goal inner = goal.innerGoal();
@@ -225,7 +238,7 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 	}
 
 	private static String heldName(Goal.HoldWhile goal, SentenceContext c) {
-		String name = c.name(ObjectKind.ITEM, goal.item());
+		String name = c.nameOfObject(ObjectKind.ITEM, goal.item());
 		return name.isEmpty() ? c.obj() : name;
 	}
 

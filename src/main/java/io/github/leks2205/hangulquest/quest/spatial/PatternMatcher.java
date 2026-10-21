@@ -82,6 +82,37 @@ public final class PatternMatcher {
 		return through;
 	}
 
+	/**
+	 * How much of the structure stands: the most cells of it made of the material, over every copy that
+	 * includes the block just placed. 0 when the placed block is not the material.
+	 */
+	public static int progress(BlockNeighborhood around, Pattern pattern, int size, String material) {
+		boolean[] solid = mask(around, material);
+		if (!solid[index(0, 0, 0)]) {
+			return 0;
+		}
+		int best = 0;
+		for (int orientation = 0; orientation < pattern.orientations(); orientation++) {
+			List<Pattern.Cell> cells = pattern.cells(size, orientation);
+			for (Pattern.Cell anchor : cells) {
+				int ox = -anchor.x();
+				int oy = -anchor.y();
+				int oz = -anchor.z();
+				int standing = 0;
+				for (Pattern.Cell cell : cells) {
+					int x = cell.x() + ox;
+					int y = cell.y() + oy;
+					int z = cell.z() + oz;
+					if (Math.abs(x) <= R && Math.abs(y) <= R && Math.abs(z) <= R && solid[index(x, y, z)]) {
+						standing++;
+					}
+				}
+				best = Math.max(best, standing);
+			}
+		}
+		return best;
+	}
+
 	private static boolean fits(boolean[] solid, List<Pattern.Cell> cells, List<Pattern.Cell> inside,
 								int ox, int oy, int oz) {
 		for (Pattern.Cell cell : cells) {

@@ -204,6 +204,15 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	}
 
 	@Override
+	public List<Mention> mentions(Goal.Sequence goal) {
+		List<Mention> all = new ArrayList<>();
+		for (Goal part : goal.parts()) {
+			all.addAll(GoalTypes.of(part).mentions(part));
+		}
+		return all;
+	}
+
+	@Override
 	public boolean covers(Goal.Sequence goal, Concept concept) {
 		return goal.parts().stream().anyMatch(part -> GoalTypes.of(part).covers(part, concept));
 	}

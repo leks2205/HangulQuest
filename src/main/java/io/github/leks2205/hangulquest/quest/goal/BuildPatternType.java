@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
 import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
@@ -68,7 +69,10 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 			if (nightLatch && !fact.night()) {
 				continue;
 			}
-			if (!PatternMatcher.builtWith(fact.around(), goal.pattern(), goal.size(), goal.material()).isEmpty()) {
+			String material = tracker.accepted.union(goal.material());
+			tracker.progress = Math.max(tracker.progress,
+					PatternMatcher.progress(fact.around(), goal.pattern(), goal.size(), material));
+			if (!PatternMatcher.builtWith(fact.around(), goal.pattern(), goal.size(), material).isEmpty()) {
 				tracker.count++;
 			}
 		}
@@ -108,7 +112,8 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 	@Override
 	public String status(Goal.BuildPattern goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
-		return "";
+		int total = goal.pattern().cells(goal.size(), 0).size();
+		return QuestStatus.count(tracker.count >= 1 ? total : Math.min(tracker.progress, total), total);
 	}
 
 	@Override

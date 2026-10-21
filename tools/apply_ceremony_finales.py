@@ -9,6 +9,11 @@ of every trail with --all. Authored finales of the form "Title — sentence" are
     ./gradlew test --offline -q --tests '*SentenceDumpTest'
     python3 tools/apply_ceremony_finales.py [--all] [--csv content/review/korean-fixes-2.2.csv]
 
+After a change of the generator, copy ceremony.tsv aside before and after, then rewrite only the finales
+that still equal the OLD output (an authored finale never does, so it is never touched):
+
+    python3 tools/apply_ceremony_finales.py --regen-from OLD-ceremony.tsv [--dry-run]
+
 Every change is appended to the CSV (id,file,old,new,rule) for the Korean review.
 """
 from __future__ import annotations
@@ -41,6 +46,7 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--all", action="store_true", help="rewrite every non-authored finale, not only the broken template")
     parser.add_argument("--only", help="comma-separated trail ids to rewrite regardless of their current text")
     parser.add_argument("--csv", help="append the changes to this review CSV")
+    parser.add_argument("--regen-from", help="ceremony.tsv of the OLD generator: rewrite only finales equal to it")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
 
@@ -50,11 +56,24 @@ def main(argv: list[str]) -> int:
     sentences = dict(line.rstrip("\n").split("\t", 1) for line in CEREMONY.read_text(encoding="utf-8").splitlines() if line)
 
     only = set(args.only.split(",")) if args.only else set()
+    previous = {}
+    if args.regen_from:
+        previous = dict(line.rstrip("\n").split("\t", 1)
+                        for line in Path(args.regen_from).read_text(encoding="utf-8").splitlines() if line)
     changes = []
     for trail_id, sentence in sentences.items():
         path = questline_file(trail_id)
         data = json.loads(path.read_text(encoding="utf-8"))
         old = data["finale"].get("textKo", "")
+        if args.regen_from:
+            if previous.get(trail_id) != old or old == sentence:
+                continue
+            data["finale"]["textKo"] = sentence
+            if not args.dry_run:
+                path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            changes.append((f"trail.{trail_id}.finale", str(path.relative_to(ROOT)), old, sentence,
+                            "KO003 ceremony-sentence"))
+            continue
         authored = " — " in old and BROKEN not in old and trail_id not in only
         if authored or old == sentence:
             continue

@@ -48,8 +48,15 @@ public sealed interface Condition {
 	record InWater() implements Condition {
 	}
 
-	/** The player stands in this relation to a block or an entity ("나무 아래에서"). */
-	record PlayerRel(io.github.leks2205.hangulquest.quest.spatial.Relation relation, String anchor)
+	/**
+	 * The player stands in this relation to a block or an entity ("나무 아래에서"). {@code kind} says what
+	 * the anchor is ("block", "item" or "entity"); null when the file does not say, and the name then
+	 * prefers an entity (a chicken is the animal, not the raw meat).
+	 */
+	record PlayerRel(io.github.leks2205.hangulquest.quest.spatial.Relation relation, String anchor, String kind)
 			implements Condition {
+		public PlayerRel(io.github.leks2205.hangulquest.quest.spatial.Relation relation, String anchor) {
+			this(relation, anchor, null);
+		}
 	}
 }

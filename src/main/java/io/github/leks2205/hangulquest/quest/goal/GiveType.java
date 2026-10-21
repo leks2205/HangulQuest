@@ -75,7 +75,7 @@ final class GiveType implements GoalType<Goal.Give> {
 	public boolean evaluate(Goal.Give goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (GiveFact fact : obs.gave) {
 			boolean way = goal.method() == null || goal.method().equals(fact.method().name());
-			if (way && goal.entity().equals(fact.targetType()) && Matching.matchesBlock(goal.item(), fact.item())) {
+			if (way && goal.entity().equals(fact.targetType()) && Matching.accepts(tracker, goal.item(), fact.item())) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}
@@ -99,7 +99,8 @@ final class GiveType implements GoalType<Goal.Give> {
 
 	@Override
 	public String korean(Goal.Give goal, SentenceContext c) {
-		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts());
+		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts(), goal.item(),
+				item(goal, c));
 		String who = recipient(goal, c);
 		String head = c.verb() == Verb.DROP_AT ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
 		return SentenceBuilder.phrase(head, c.verb(), c.level(), c.finale());
@@ -107,12 +108,12 @@ final class GiveType implements GoalType<Goal.Give> {
 
 	@Override
 	public String ceremony(Goal.Give goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(KoGrammar.eul(obj), goal.count(), true) + " " + verb.past();
+		return SentenceBuilder.counted(KoGrammar.eul(obj), goal.count(), true, goal.item(), obj) + " " + verb.past();
 	}
 
 	@Override
 	public String ceremony(Goal.Give goal, SentenceContext c) {
-		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true);
+		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true, goal.item(), item(goal, c));
 		String who = recipient(goal, c);
 		String head = c.verb() == Verb.DROP_AT ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
 		return head + " " + c.verb().past();
@@ -151,8 +152,8 @@ final class GiveType implements GoalType<Goal.Give> {
 
 	/** The word may teach the item or the recipient. */
 	@Override
-	public boolean covers(Goal.Give goal, Concept concept) {
-		return GoalType.super.covers(goal, concept) || goal.entity().equals(concept.entity);
+	public List<Mention> mentions(Goal.Give goal) {
+		return List.of(new Mention(ObjectKind.ITEM, goal.item()), new Mention(ObjectKind.ENTITY, goal.entity()));
 	}
 
 	@Override
@@ -166,11 +167,14 @@ final class GiveType implements GoalType<Goal.Give> {
 		}
 	}
 
-	/** The item: the sentence word unless that word is the recipient. */
+	/**
+	 * The gift: the sentence word when it names the item, else the item's own name (its vanilla name or
+	 * the word that has it as a referent). A word that is only drawn with the item never names it: a cat
+	 * shown by a cod must not hand the cat a cat.
+	 */
 	private static String item(Goal.Give goal, SentenceContext c) {
-		boolean wordIsRecipient = c.wordNames(ObjectKind.ENTITY, goal.entity())
-				&& !c.wordNames(ObjectKind.ITEM, goal.item());
-		return wordIsRecipient ? c.name(ObjectKind.ITEM, goal.item()) : c.obj();
+		String name = c.name(ObjectKind.ITEM, goal.item());
+		return name.isEmpty() ? c.obj() : name;
 	}
 
 	private static String recipient(Goal.Give goal, SentenceContext c) {

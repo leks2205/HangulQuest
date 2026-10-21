@@ -171,8 +171,14 @@ clue must not give the order or the "not" away („Do the two things in the orde
 
 `TIME` (`DAY`/`NIGHT`/`DAWN`/`DUSK`), `WEATHER` (`CLEAR`/`RAIN`/`THUNDER`), `Y_RANGE`, `NEAR_ENTITY`,
 `NEAR_BLOCK`, `IN_DIMENSION`, `IN_BIOME`, `HOLDING` („횃불을 들고"), `SKY` (`OPEN`/`ROOFED`),
-`IN_WATER` („물속에서"), `PLAYER_REL` (`relation`, `anchor`: „나무 아래에서"). A goal only counts while
-every condition holds.
+`IN_WATER` („물속에서"), `PLAYER_REL` (`relation`, `anchor`, optional `kind` = `block`/`item`/`entity`:
+„나무 아래에서"; without a `kind` an entity name wins, so `minecraft:chicken` is the animal). A goal only counts
+while every condition holds.
+
+A step may teach the word for any role of its goal or conditions (the object, an anchor, the recipient, the
+container, the held item, a material). When the first taught word has several referents (물고기 = cod, salmon,
+tropical fish) and covers an id of the goal, any of them completes the step; a word with one referent never
+widens the goal.
 
 ## Rules
 

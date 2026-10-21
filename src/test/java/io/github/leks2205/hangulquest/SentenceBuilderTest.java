@@ -269,7 +269,7 @@ class SentenceBuilderTest {
 	@Test
 	void placeVerbFitsTheObject() {
 		assertEquals("묘목을 심어요.", clue(new Goal.PlaceBlock("minecraft:oak_sapling", 1), "묘목"));
-		assertEquals("꽃을 세 개 심어요.", clue(new Goal.PlaceBlock("minecraft:poppy", 3), "꽃"));
+		assertEquals("꽃을 세 송이 심어요.", clue(new Goal.PlaceBlock("minecraft:poppy", 3), "꽃"));
 		assertEquals("양탄자를 깔아요.", clue(new Goal.PlaceBlock("minecraft:red_carpet", 1), "양탄자"));
 		assertEquals("레일을 네 개 깔아요.", clue(new Goal.PlaceBlock("minecraft:rail", 4), "레일"));
 		assertEquals("현수막을 걸어요.", clue(new Goal.PlaceBlock("minecraft:black_banner", 1), "현수막"));

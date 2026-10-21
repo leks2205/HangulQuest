@@ -208,7 +208,9 @@ def check_place_wrong_object(row, text, params, ctx):
 
 
 COUNT_ONE = re.compile(r"(?<![가-힣\d])(?:한 개|하나|1개)(?![가-힣])")
-ANY_COUNT = re.compile(r"\d+\s?(?:개|마리|명)|(?<![가-힣])(?:한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두|열세|열네|열다섯|열여섯|열일곱|열여덟|열아홉|스무)\s?(?:개|마리|명)")
+# the counters of data/counters.json (개 for things, 마리 for animals, 송이 for flowers ...)
+COUNTERS = "개|마리|명|그루|송이|병|자루|장|권|잔|그릇|켤레|척|대|벌|채"
+ANY_COUNT = re.compile(rf"\d+\s?(?:{COUNTERS})|(?<![가-힣])(?:한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두|열세|열네|열다섯|열여섯|열일곱|열여덟|열아홉|스무)\s?(?:{COUNTERS})")
 
 
 def check_collect_count(row, text, params, ctx):

@@ -55,7 +55,7 @@ final class ConsumeItemType implements GoalType<Goal.ConsumeItem> {
 							boolean nightLatch) {
 		List<String> eaten = nightLatch ? obs.consumedItemsAtNight : obs.consumedItems;
 		for (String consumed : eaten) {
-			if (consumed.equals(goal.item())) {
+			if (consumed.equals(goal.item()) || tracker.accepted.matches(goal.item(), consumed)) {
 				tracker.count++;
 			}
 		}
@@ -85,12 +85,12 @@ final class ConsumeItemType implements GoalType<Goal.ConsumeItem> {
 	@Override
 	public String korean(Goal.ConsumeItem goal, SentenceContext c) {
 		return SentenceBuilder.phrase(SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()),
-				goal.count(), c.withCounts()), c.verb(), c.level(), c.finale());
+				goal.count(), c.withCounts(), goal.item(), c.obj()), c.verb(), c.level(), c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.ConsumeItem goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.item(), obj)
 				+ " " + verb.past();
 	}
 

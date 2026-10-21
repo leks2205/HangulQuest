@@ -78,7 +78,7 @@ final class ReachBiomeType implements GoalType<Goal.ReachBiome> {
 
 	@Override
 	public Verb verb(Goal.ReachBiome goal, VerbTable table) {
-		return Verb.GO;
+		return table.choose(id(), goal.biome(), 1, Verb.GO); // a cave is entered (들어가요), not gone to
 	}
 
 	@Override
@@ -88,6 +88,9 @@ final class ReachBiomeType implements GoalType<Goal.ReachBiome> {
 
 	@Override
 	public String ceremony(Goal.ReachBiome goal, String obj, Verb verb) {
+		if (verb == Verb.ENTER) {
+			return KoGrammar.euro(obj) + " " + verb.past();
+		}
 		return obj + "에 " + Verb.ARRIVE.past();
 	}
 

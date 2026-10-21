@@ -17,6 +17,7 @@
   "standing": ["*_sign", "lightning_rod", "end_rod", "*_golem_statue", "*_fence", "*_wall", "candle", "*_candle"],
   "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "*_bulb", "spore_blossom"],
   "found_only": ["chainmail_*"],
+  "cave_biomes": ["dripstone_caves", "lush_caves", "deep_dark"],
   "torches": ["torch", "soul_torch", "redstone_torch"],
   "campfires": ["campfire", "soul_campfire"],
   "cobwebs": ["cobweb"],
@@ -93,7 +94,7 @@
   "LOOK_AT_BLOCK": [{"verb": "WATCH"}],
   "LOOK_AT_ENTITY": [{"verb": "WATCH"}],
   "DEFEAT_ENTITY": [{"verb": "DEFEAT"}],
-  "REACH_BIOME": [{"verb": "GO"}],
+  "REACH_BIOME": [{"family": "cave_biomes", "verb": "ENTER"}, {"verb": "GO"}],
   "REACH_DIMENSION": [{"verb": "GO"}],
   "PLACE_REL": [
    {"family": "plantables", "verb": "PLANT"},

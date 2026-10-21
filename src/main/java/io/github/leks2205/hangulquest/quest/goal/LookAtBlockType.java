@@ -54,8 +54,8 @@ final class LookAtBlockType implements GoalType<Goal.LookAtBlock> {
 	@Override
 	public boolean evaluate(Goal.LookAtBlock goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		String looked = Matching.matchesBlock(goal.block(), obs.lookedBlock) ? goal.block() : null;
-		if (looked == null && nightLatch && Matching.matchesBlock(goal.block(), obs.lookedBlockAtNight)) {
+		String looked = Matching.accepts(tracker, goal.block(), obs.lookedBlock) ? goal.block() : null;
+		if (looked == null && nightLatch && Matching.accepts(tracker, goal.block(), obs.lookedBlockAtNight)) {
 			looked = goal.block();
 		}
 		return Matching.dwell(tracker, goal.block(), looked, goal.dwellMs());
