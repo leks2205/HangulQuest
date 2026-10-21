@@ -1,18 +1,45 @@
 package io.github.leks2205.hangulquest.learn;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.github.leks2205.hangulquest.util.JsonIO;
 import org.slf4j.Logger;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.temporal.IsoFields;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Stream;
 
-/** Loads/saves progress.json with atomic writes, debouncing and corruption handling. */
+/**
+ * Loads and saves progress.json. Learner progress must survive every update, so:
+ * writes are atomic and forced to disk, fields this build does not know are written back unchanged,
+ * a file from a newer version is never overwritten, corrupt files are moved aside instead of replaced,
+ * and a daily and a weekly backup are kept in {@code backups/}.
+ */
 public final class ProgressStore {
+	static final int DAILY_BACKUPS = 7;
+	static final int WEEKLY_BACKUPS = 4;
+
 	private final Path file;
 	private final Logger log;
 	private ProgressData data;
+	/** The tree last read from or written to disk; source of the fields this build does not know. */
+	private JsonObject onDisk;
+	private boolean readOnly;
 	private boolean dirty;
 	private long lastFlush;
 
@@ -30,6 +57,11 @@ public final class ProgressStore {
 		return file;
 	}
 
+	/** True when progress.json was written by a newer version; nothing is saved then. */
+	public boolean readOnly() {
+		return readOnly;
+	}
+
 	public void markDirty() {
 		dirty = true;
 	}
@@ -44,11 +76,20 @@ public final class ProgressStore {
 		if (!dirty) {
 			return;
 		}
+		dirty = false;
+		if (readOnly) {
+			return;
+		}
 		try {
-			JsonIO.write(file, data);
-			dirty = false;
+			JsonObject tree = JsonIO.GSON.toJsonTree(data).getAsJsonObject();
+			if (onDisk != null) {
+				keepUnknown(onDisk, tree, ProgressData.class);
+			}
+			JsonIO.writeCompact(file, tree);
+			onDisk = tree;
 			lastFlush = System.currentTimeMillis();
 		} catch (IOException failed) {
+			dirty = true;
 			log.warn("could not save progress to {}: {}", file, failed.toString());
 		}
 	}
@@ -59,16 +100,37 @@ public final class ProgressStore {
 		}
 		ProgressData loaded = null;
 		try {
-			loaded = JsonIO.read(file, ProgressData.class);
+			String text = Files.readString(file, StandardCharsets.UTF_8);
+			if (text.startsWith("﻿")) {
+				text = text.substring(1);
+			}
+			JsonObject tree = JsonParser.parseString(text).getAsJsonObject();
+			loaded = JsonIO.GSON.fromJson(tree, ProgressData.class);
+			onDisk = tree;
 		} catch (IOException | RuntimeException broken) {
 			log.warn("progress.json is unreadable ({}), keeping it aside", broken.toString());
 			quarantine();
 		}
 		if (loaded == null) {
+			onDisk = null;
 			return new ProgressData();
 		}
-		migrate(loaded);
+		rotateBackups();
+		if (loaded.version > ProgressData.CURRENT_VERSION) {
+			readOnly = true;
+			log.warn("progress.json has schema v{}, this build knows v{}: progress is read-only until you update the mod",
+					loaded.version, ProgressData.CURRENT_VERSION);
+		} else {
+			migrate(loaded);
+		}
+		loaded.words = loaded.words == null ? new java.util.LinkedHashMap<>() : loaded.words;
+		loaded.days = loaded.days == null ? new java.util.LinkedHashMap<>() : loaded.days;
+		loaded.achievements = loaded.achievements == null ? new java.util.LinkedHashMap<>() : loaded.achievements;
 		loaded.quests = loaded.quests == null ? new ProgressData.QuestData() : loaded.quests;
+		loaded.quests.completed = loaded.quests.completed == null ? new java.util.LinkedHashMap<>() : loaded.quests.completed;
+		loaded.quests.saved = loaded.quests.saved == null ? new java.util.LinkedHashMap<>() : loaded.quests.saved;
+		loaded.quests.badges = loaded.quests.badges == null ? new ArrayList<>() : loaded.quests.badges;
+		loaded.quests.history = loaded.quests.history == null ? new ArrayList<>() : loaded.quests.history;
 		loaded.vocab = loaded.vocab == null ? new ProgressData.VocabData() : loaded.vocab;
 		loaded.totals = loaded.totals == null ? new ProgressData.Totals() : loaded.totals;
 		loaded.meta = loaded.meta == null ? new ProgressData.Meta() : loaded.meta;
@@ -76,18 +138,19 @@ public final class ProgressStore {
 	}
 
 	private void migrate(ProgressData loaded) {
-		if (loaded.version >= 2) {
+		if (loaded.version >= ProgressData.CURRENT_VERSION) {
 			return;
 		}
 		try {
 			Path backup = file.resolveSibling("progress.v" + loaded.version + "-backup-"
 					+ LocalStamp.now() + ".json");
 			Files.copy(file, backup, StandardCopyOption.REPLACE_EXISTING);
-			log.info("migrated progress v{} -> v2 (backup {})", loaded.version, backup.getFileName());
+			log.info("migrated progress v{} -> v{} (backup {})", loaded.version, ProgressData.CURRENT_VERSION,
+					backup.getFileName());
 		} catch (IOException ignored) {
 			// still migrate in memory
 		}
-		loaded.version = 2;
+		loaded.version = ProgressData.CURRENT_VERSION;
 		dirty = true;
 	}
 
@@ -110,6 +173,79 @@ public final class ProgressStore {
 					StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException failed) {
 			log.warn("backup failed: {}", failed.toString());
+		}
+	}
+
+	/** Copies the file as loaded into backups/ once per day and once per ISO week, and prunes old copies. */
+	private void rotateBackups() {
+		Path dir = file.resolveSibling("backups");
+		LocalDate today = LocalDate.now();
+		String week = today.get(IsoFields.WEEK_BASED_YEAR) + "-W"
+				+ String.format("%02d", today.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR));
+		try {
+			Files.createDirectories(dir);
+			copyOnce(dir.resolve("progress-day-" + today + ".json"));
+			copyOnce(dir.resolve("progress-week-" + week + ".json"));
+			prune(dir, "progress-day-", DAILY_BACKUPS);
+			prune(dir, "progress-week-", WEEKLY_BACKUPS);
+		} catch (IOException failed) {
+			log.warn("could not rotate progress backups: {}", failed.toString());
+		}
+	}
+
+	private void copyOnce(Path target) throws IOException {
+		if (!Files.exists(target)) {
+			Files.copy(file, target);
+		}
+	}
+
+	private static void prune(Path dir, String prefix, int keep) throws IOException {
+		List<Path> copies;
+		try (Stream<Path> listing = Files.list(dir)) {
+			copies = listing.filter(path -> path.getFileName().toString().startsWith(prefix))
+					.sorted()
+					.toList();
+		}
+		for (int i = 0; i < copies.size() - keep; i++) {
+			Files.deleteIfExists(copies.get(i));
+		}
+	}
+
+	/**
+	 * Copies every field of {@code old} that {@code type} does not declare into {@code fresh}, recursing
+	 * into known objects and into the entries of maps that still exist. Declared fields are never copied
+	 * back, so a value that was cleared on purpose (a finished quest, a removed word) stays cleared.
+	 */
+	static void keepUnknown(JsonObject old, JsonObject fresh, Type type) {
+		if (type instanceof ParameterizedType parameterized && parameterized.getRawType() == Map.class) {
+			Type valueType = parameterized.getActualTypeArguments()[1];
+			for (Map.Entry<String, JsonElement> entry : old.entrySet()) {
+				JsonElement now = fresh.get(entry.getKey());
+				if (now != null && now.isJsonObject() && entry.getValue().isJsonObject()) {
+					keepUnknown(entry.getValue().getAsJsonObject(), now.getAsJsonObject(), valueType);
+				}
+			}
+			return;
+		}
+		if (!(type instanceof Class<?> cls) || !cls.getName().startsWith("io.github.leks2205.hangulquest.")) {
+			return;
+		}
+		Set<String> declared = new HashSet<>();
+		for (Field field : cls.getDeclaredFields()) {
+			if (Modifier.isStatic(field.getModifiers()) || Modifier.isTransient(field.getModifiers())) {
+				continue;
+			}
+			declared.add(field.getName());
+			JsonElement before = old.get(field.getName());
+			JsonElement now = fresh.get(field.getName());
+			if (before != null && now != null && before.isJsonObject() && now.isJsonObject()) {
+				keepUnknown(before.getAsJsonObject(), now.getAsJsonObject(), field.getGenericType());
+			}
+		}
+		for (Map.Entry<String, JsonElement> entry : old.entrySet()) {
+			if (!declared.contains(entry.getKey()) && !fresh.has(entry.getKey())) {
+				fresh.add(entry.getKey(), entry.getValue().deepCopy());
+			}
 		}
 	}
 

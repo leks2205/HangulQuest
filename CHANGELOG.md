@@ -4,6 +4,25 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [Unreleased]
+
+### Fixed
+
+- **Progress can no longer be lost by an update or a crash.** `progress.json` is written to a unique temp file,
+  forced to disk and renamed over the old file. Fields this version does not know are written back unchanged,
+  and a file written by a newer version is opened read-only instead of being overwritten.
+- A byte-order mark at the start of `progress.json` no longer makes it unreadable.
+
+### Added
+
+- Daily and weekly backups of `progress.json` in `config/hangulquest/backups/` (the last 7 days and 4 weeks).
+- One progress fixture per released version, loaded and saved by `ProgressCompatibilityTest` to catch any
+  change that would drop saved data.
+
+### Changed
+
+- `progress.json` is written as compact JSON; it is about a third smaller.
+
 ## [2.1.0] — 2026-10-20
 
 ### Added

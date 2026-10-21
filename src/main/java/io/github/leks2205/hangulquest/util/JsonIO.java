@@ -3,15 +3,19 @@ package io.github.leks2205.hangulquest.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +23,10 @@ import java.util.List;
 public final class JsonIO {
 	public static final Gson GSON = new GsonBuilder()
 			.setPrettyPrinting()
+			.disableHtmlEscaping()
+			.create();
+	/** Same settings without indentation, for large files that are written often. */
+	public static final Gson COMPACT = new GsonBuilder()
 			.disableHtmlEscaping()
 			.create();
 
@@ -47,13 +55,35 @@ public final class JsonIO {
 	}
 
 	public static void write(Path path, Object value) throws IOException {
+		writeString(path, GSON.toJson(value));
+	}
+
+	public static void writeCompact(Path path, JsonElement tree) throws IOException {
+		writeString(path, COMPACT.toJson(tree));
+	}
+
+	/**
+	 * Writes to a unique temp file, forces it to disk, then renames it over the target, so a crash or a
+	 * second writer can never leave a truncated file behind.
+	 */
+	public static void writeString(Path path, String text) throws IOException {
 		Files.createDirectories(path.getParent());
-		Path temp = path.resolveSibling(path.getFileName() + ".tmp");
-		Files.writeString(temp, GSON.toJson(value), StandardCharsets.UTF_8);
+		Path temp = Files.createTempFile(path.getParent(), path.getFileName() + ".", ".tmp");
 		try {
-			Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-		} catch (IOException atomicUnsupported) {
-			Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING);
+			try (FileChannel channel = FileChannel.open(temp, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING)) {
+				ByteBuffer bytes = ByteBuffer.wrap(text.getBytes(StandardCharsets.UTF_8));
+				while (bytes.hasRemaining()) {
+					channel.write(bytes);
+				}
+				channel.force(true);
+			}
+			try {
+				Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+			} catch (IOException atomicUnsupported) {
+				Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING);
+			}
+		} finally {
+			Files.deleteIfExists(temp);
 		}
 	}
 }

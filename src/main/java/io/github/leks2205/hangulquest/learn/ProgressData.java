@@ -7,7 +7,10 @@ import java.util.Map;
 
 /** Whole progress document (schema v2: learning + quests + vocabulary import info). */
 public final class ProgressData {
-	public int version = 2;
+	/** Highest schema this build reads and writes; a file with a higher version is opened read-only. */
+	public static final int CURRENT_VERSION = 2;
+
+	public int version = CURRENT_VERSION;
 	public Map<String, WordProgress> words = new LinkedHashMap<>();
 	public Map<String, DayCounts> days = new LinkedHashMap<>();
 	public Map<String, Long> achievements = new LinkedHashMap<>();
