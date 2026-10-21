@@ -62,7 +62,8 @@ public final class QuestStatus {
 			case Goal.PlaceBlock g -> count(tracker.count, g.count());
 			case Goal.ConsumeItem g -> count(tracker.count, g.count());
 			case Goal.DefeatEntity g -> count(tracker.count, g.count());
-			case Goal.AcquireItem g -> word + " " + GoalEvaluator.heldCount(obs, g.item())
+			// Only items gained since the step began count (GoalEvaluator.baselineAcquired).
+			case Goal.AcquireItem g -> word + " " + Math.min(tracker.count, Math.max(1, g.count()))
 					+ "/" + Math.max(1, g.count());
 			case Goal.LookAtBlock g -> look(tracker.dwellMs, g.dwellMs());
 			case Goal.LookAtEntity g -> look(tracker.dwellMs, g.dwellMs());

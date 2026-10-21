@@ -26,7 +26,7 @@ The status line is generated from the goal, so it always answers the question th
 | `1/3` | one of three stone broken, collected or placed — depending on the goal |
 | `지금 낮 · 밤 필요` | it is day; the step needs night |
 | `Y 62 / 140 위` | you are at Y 62 and the goal wants Y 140 or higher |
-| `지금 평원 지형 · 산 지형 필요` | you are standing in plains, the step wants a mountain biome |
+| `지금 평원 · 산 필요` | you are standing in plains, the step wants a mountain biome |
 | `가까이에 좀비 필요` | no zombie within range yet |
 | `보는 중 … 62%` | keep looking at the block or mob a little longer |
 

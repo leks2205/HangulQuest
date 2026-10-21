@@ -136,8 +136,8 @@ Conditions are checked continuously and must all be true for the goal to count:
 | `TIME` (`DAY/NIGHT/DAWN/DUSK`) | `밤에`, `낮에`, … | `지금 낮 · 밤 필요` |
 | `WEATHER` (`CLEAR/RAIN/THUNDER`) | `비가 올 때` | `날씨가 맞지 않아요 · 비` |
 | `Y_RANGE` | `높이 0 이하에서` / `140블록 위에서` | `Y 62 / 0 이하` |
-| `IN_BIOME` | `해변 지형에서`, `산 지형에서` | `지금 평원 지형 · 산 지형 필요` |
-| `IN_DIMENSION` | `지옥 차원에서` | `지금 지상 · 지옥 차원 필요` |
+| `IN_BIOME` | `해변에서`, `산에서` | `지금 평원 · 산 필요` |
+| `IN_DIMENSION` | `네더에서` | `지금 오버월드 · 네더 필요` |
 | `NEAR_ENTITY` | `좀비 근처에서` | `가까이에 좀비 필요` |
 | `NEAR_BLOCK` | `… 근처에서` | `가까이에 … 필요` |
 

@@ -2,41 +2,6 @@
  "comment": "Findings that wait for a fix in another file. Delete entries as they are fixed; the linter reports entries that no longer match.",
  "entries": [
   {
-   "rule": "KO009",
-   "id": "trail.adv_adventure_spyglass_at_dragon.s1.clue",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.clue",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.hint",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.glueckspfad.s2.clue",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.glueckspfad.s2.hint",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.weltwaechter.s1.clue",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
-   "rule": "KO009",
-   "id": "trail.weltwaechter.s1.hint",
-   "reason": "waits for the icon/referent split (WP0.2): the catalog still resolves the goal item to the verb concept that merely uses it as its picture"
-  },
-  {
    "rule": "KO016",
    "id": "concept.nether.ko",
    "reason": "waits for content/review/concept-ko-fixes-2.2.csv (concepts.json belongs to another work package)"
