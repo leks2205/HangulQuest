@@ -193,6 +193,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			}
 		});
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+			io.github.leks2205.hangulquest.learn.ReviewLog.flushAll();
 			if (store != null) {
 				store.flush();
 			}
@@ -203,6 +204,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			if (watcher != null) {
 				watcher.close();
 			}
+			io.github.leks2205.hangulquest.learn.ReviewLog.flushAll();
 			if (store != null) {
 				store.flush();
 			}
