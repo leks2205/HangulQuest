@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1534** |
+| Steps (incl. finales) | **1547** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,33 +21,37 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 575 | place a block |
-| `ACQUIRE_ITEM` | 511 | collect an item |
-| `BREAK_BLOCK` | 88 | break a block |
-| `LOOK_AT_ENTITY` | 71 | look at a mob |
-| `USE_BLOCK` | 62 | use a block |
-| `LOOK_AT_BLOCK` | 61 | look at a block |
+| `PLACE_BLOCK` | 559 | place a block |
+| `ACQUIRE_ITEM` | 510 | collect an item |
+| `BREAK_BLOCK` | 85 | break a block |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
+| `USE_BLOCK` | 63 | use a block |
 | `REACH_BIOME` | 59 | reach a biome |
+| `LOOK_AT_BLOCK` | 58 | look at a block |
 | `DEFEAT_ENTITY` | 37 | defeat a mob |
-| `CONSUME_ITEM` | 32 | eat or drink an item |
-| `INTERACT_ENTITY` | 27 | interact with a mob |
-| `BUILD_PATTERN` | 2 |  |
-| `PLACE_ON_PATTERN` | 2 |  |
+| `CONSUME_ITEM` | 35 | eat or drink an item |
+| `INTERACT_ENTITY` | 29 | interact with a mob |
+| `PLACE_REL` | 12 |  |
+| `CRAFT` | 10 |  |
+| `BUILD_PATTERN` | 6 |  |
+| `HOLD_WHILE` | 5 |  |
+| `PUT_IN` | 3 |  |
+| `GIVE` | 3 |  |
+| `PLACE_ON_PATTERN` | 3 |  |
+| `SMELT` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
-| `PLACE_REL` | 1 |  |
-| `CRAFT` | 1 |  |
-| `GIVE` | 1 |  |
-| `PUT_IN` | 1 |  |
 | `SEQUENCE` | 1 |  |
-| `HOLD_WHILE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 162 | a time of day |
-| `IN_BIOME` | 28 | a biome |
-| `Y_RANGE` | 8 | an altitude band |
+| `TIME` | 163 | a time of day |
+| `IN_BIOME` | 31 | a biome |
+| `Y_RANGE` | 10 | an altitude band |
+| `PLAYER_REL` | 5 |  |
 | `WEATHER` | 5 | the weather |
+| `HOLDING` | 2 |  |
 | `IN_DIMENSION` | 2 | a dimension |
+| `SKY` | 1 |  |
 
 ## Levels
 
@@ -55,13 +59,13 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `steinpfad` | 돌의 길 | Der Steinpfad | 4 | — |
-| `holzpfad` | 나무의 길 | Der Holzpfad | 4 | — |
-| `essenspfad` | 먹을 것의 길 | Der Speisepfad | 4 | — |
-| `feuerpfad` | 불의 길 | Der Feuerpfad | 3 | — |
-| `tierfreund` | 동물 친구의 길 | Der Tierfreund-Pfad | 3 | — |
-| `tierpfad` | 동물의 길 | Der Tierpfad | 4 | — |
-| `nachtpfad` | 밤의 길 | Der Nachtpfad | 4 | — |
+| `steinpfad` | 돌과 불의 길 | Stein und Feuer | 4 | — |
+| `holzpfad` | 나무 집과 문의 길 | Baumhaus und Tür | 4 | — |
+| `essenspfad` | 사과와 달걀과 소의 길 | Apfel, Ei und Kuh | 4 | — |
+| `feuerpfad` | 물과 불의 길 | Wasser und Feuer | 5 | — |
+| `tierfreund` | 소와 우유의 길 | Kuh und Milch | 5 | — |
+| `tierpfad` | 닭과 돼지와 달걀의 길 | Huhn, Schwein und Ei | 5 | — |
+| `nachtpfad` | 해와 달의 길 | Sonne und Mond | 4 | — |
 | `wasserpfad` | 물의 길 | Der Wasserpfad | 4 | — |
 | `bergpfad` | 높은 곳의 길 | Der Höhenpfad | 4 | — |
 | `dorfpfad` | 마을의 길 | Der Dorfpfad | 4 | — |
@@ -99,12 +103,12 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `brotpfad` | 빵의 길 | Der Brotpfad | 3 | `essenspfad` |
-| `haustierpfad` | 집동물의 길 | Der Haustierpfad | 3 | `tierpfad`, `tierfreund` |
-| `hoehlenlicht` | 동굴의 빛 | Das Höhlenlicht | 3 | `steinpfad` |
-| `kraeuterpfad` | 빵과 꽃의 길 | Der Brot-und-Blumen-Pfad | 3 | `essenspfad` |
-| `wollpfad` | 양털의 길 | Der Wollpfad | 3 | `tierpfad` |
-| `flusslicht` | 강빛의 길 | Das Flusslicht | 4 | `wasserpfad` |
+| `brotpfad` | 밀과 빵의 길 | Weizen und Brot | 4 | `essenspfad` |
+| `haustierpfad` | 고양이의 집 | Das Haus der Katze | 5 | `tierpfad`, `tierfreund` |
+| `hoehlenlicht` | 돌과 횃불의 길 | Stein und Fackel | 4 | `steinpfad` |
+| `kraeuterpfad` | 꽃과 감자의 길 | Blumen und Kartoffeln | 4 | `essenspfad` |
+| `wollpfad` | 양과 양털의 길 | Schaf und Wolle | 4 | `tierpfad` |
+| `flusslicht` | 종이와 책의 길 | Papier und Buch | 5 | `wasserpfad` |
 | `bienenpfad` | 꿀벌의 길 | Der Bienenpfad | 3 | `tierpfad` |
 | `redstonepfad` | 레드스톤의 길 | Der Redstonepfad | 4 | `steinpfad` |
 | `schneeballpfad` | 눈싸움의 길 | Der Schneeballpfad | 4 | `nachtpfad` |
@@ -128,8 +132,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `waldlicht` | 숲빛의 길 | Das Waldlicht | 4 | `hoehlenlicht`, `holzpfad` |
-| `feuerstelle` | 불자리 | Die Feuerstelle | 3 | `brotpfad`, `feuerpfad` |
+| `waldlicht` | 유리와 초의 길 | Glas und Kerze | 4 | `hoehlenlicht`, `holzpfad` |
+| `feuerstelle` | 불과 빵의 길 | Feuer und Brot | 4 | `brotpfad`, `feuerpfad` |
 | `bogenpfad` | 활의 길 | Der Bogenpfad | 4 | `waldhaus`, `tierpfad` |
 | `wetterpfad` | 비의 길 | Der Regenpfad | 3 | `gipfelpfad`, `wasserpfad` |
 | `blumenpfad` | 꽃의 길 | Der Blumenpfad | 4 | `dorfpfad`, `waldhaus` |

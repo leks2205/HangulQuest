@@ -1,13 +1,15 @@
 {
  "schema": 1,
  "id": "tierpfad",
- "titleKo": "동물의 길",
+ "titleKo": "닭과 돼지와 달걀의 길",
+ "topic": "동물",
  "tier": 1,
+ "order": 40,
  "concepts": [
-  "gen_allay",
   "pig",
-  "sheep",
-  "gen_copper_ore"
+  "egg",
+  "fence",
+  "gate"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -17,46 +19,59 @@
   {
    "id": "s1",
    "teach": [
-    "gen_allay"
+    "pig"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:allay",
-    "dwellMs": 800
-   }
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:pig"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:potato"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "pig"
+    "egg"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:pig",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "분홍색 돼지를 1초 동안 바라봐요."
-   },
-   "hint": {
-    "ko": "돼지를 봐요."
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:egg",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sheep"
+    "fence"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sheep",
-    "dwellMs": 800
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:oak_fence",
+    "size": 3
    },
    "clue": {
-    "ko": "털이 있는 양을 1초 동안 바라봐요."
+    "ko": "닭이 달걀을 줘요. 울타리 세 개를 나란히 놓아요."
    },
    "hint": {
-    "ko": "양을 봐요."
+    "ko": "울타리 세 개를 나란히 놓아요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
    }
   }
  ],
@@ -64,32 +79,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_copper_ore"
+    "gate"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_ore",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate"
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "밤에 구리 광석을 놓았어요."
+  "textKo": "낮에 참나무 울타리 문을 열었어요."
  },
  "reward": {
   "badge": "tierpfad",
   "words": [
-   "cow",
    "pig",
-   "sheep",
-   "zombie"
+   "egg",
+   "fence",
+   "gate"
   ]
  },
- "order": 40,
- "koreanLevel": 1,
- "topic": "동물"
+ "koreanLevel": 1
 }

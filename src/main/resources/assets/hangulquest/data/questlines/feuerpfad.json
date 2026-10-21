@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "feuerpfad",
- "titleKo": "불의 길",
+ "titleKo": "물과 불의 길",
  "topic": "불",
  "tier": 1,
  "order": 30,
  "concepts": [
-  "gen_horn_coral",
-  "gen_dark_oak_trapdoor",
-  "campfire"
+  "log",
+  "campfire",
+  "water"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -19,23 +19,69 @@
   {
    "id": "s1",
    "teach": [
-    "gen_horn_coral"
+    "log"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:horn_coral",
+    "block": "minecraft:oak_log",
     "count": 2
+   },
+   "clue": {
+    "ko": "달이 떠요. 통나무를 두 개 베어요."
+   },
+   "hint": {
+    "ko": "통나무를 베어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_trapdoor"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_trapdoor",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:campfire",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:water_bucket",
+    "inner": {
+     "type": "PLACE_REL",
+     "block": "minecraft:campfire",
+     "relation": "NEXT_TO",
+     "anchor": "#minecraft:logs",
+     "count": 1
+    }
+   },
+   "clue": {
+    "ko": "물을 들고 나무 옆에 모닥불을 놓아요."
+   },
+   "hint": {
+    "ko": "물을 들고 나무 옆에 모닥불을 놓아요."
    }
   }
  ],
@@ -46,9 +92,9 @@
     "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "LOOK_AT_BLOCK",
     "block": "minecraft:campfire",
-    "count": 1
+    "dwellMs": 1000
    },
    "conditions": [
     {
@@ -57,14 +103,14 @@
     }
    ]
   },
-  "textKo": "밤에 모닥불을 피웠어요."
+  "textKo": "밤에 모닥불을 바라봤어요."
  },
  "reward": {
   "badge": "feuerpfad",
   "words": [
-   "coal",
-   "torch",
-   "campfire"
+   "log",
+   "campfire",
+   "water"
   ]
  },
  "koreanLevel": 1
