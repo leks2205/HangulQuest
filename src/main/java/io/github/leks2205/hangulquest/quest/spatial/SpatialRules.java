@@ -83,7 +83,8 @@ public final class SpatialRules {
 	public static void checkRelationText(Goal goal, Relation relation, ValidationContext context) {
 		QuestStep step = context.step();
 		Word word = step.teach().isEmpty() ? null : context.catalog().byConceptId(step.teach().get(0)).orElse(null);
-		String generated = SentenceBuilder.normal(goal, word, List.of(), 1, false, namer(context.catalog()));
+		String generated = SentenceBuilder.normal(goal, word, List.of(), 1, false,
+				StepNamer.of(namer(context.catalog()), step));
 		if (!namesRelation(generated, relation)) {
 			context.problem("the Korean sentence does not name the relation " + relation.ko() + ": " + generated);
 		}
@@ -118,10 +119,32 @@ public final class SpatialRules {
 	/** Every block a spatial goal needs from the player or the world. */
 	public static List<String> blocksOf(Goal goal) {
 		return switch (goal) {
-			case Goal.PlaceRel g -> List.of(g.block(), g.anchor());
+			case Goal.PlaceRel g -> {
+				List<String> blocks = new ArrayList<>(List.of(g.block()));
+				if (!StepRef.isRef(g.anchor())) {
+					blocks.add(g.anchor());
+				}
+				if (g.anchor2() != null) {
+					blocks.add(g.anchor2());
+				}
+				yield blocks;
+			}
 			case Goal.BuildPattern g -> List.of(g.material());
 			case Goal.PlaceOnPattern g -> List.of(g.block(), g.material());
 			default -> List.of();
+		};
+	}
+
+	/**
+	 * The block a goal places to finish itself, which a later step can call "아까 놓은" with an {@code @stepId}
+	 * anchor; null for goals that place nothing.
+	 */
+	public static String placedBlock(Goal goal) {
+		return switch (goal) {
+			case Goal.PlaceBlock g -> g.block();
+			case Goal.PlaceRel g -> g.block();
+			case Goal.PlaceOnPattern g -> g.block();
+			case null, default -> null;
 		};
 	}
 

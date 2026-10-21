@@ -32,6 +32,9 @@ public final class QuestStep {
 	private final String textKey;
 	/** A "find the 돌" step: only the Korean is shown, no icon and no translation. */
 	private final boolean reverse;
+	/** The steps of the same trail before this one; set by the trail that holds the step (see {@link #bindEarlier}). */
+	private volatile List<QuestStep> earlier = List.of();
+	private volatile java.util.Map<String, String> placedBefore;
 
 	public QuestStep(String id, List<String> teach, Goal goal, List<Condition> conditions,
 					 String clueKo, String clueDe, String hintKo, String hintDe, Bonus bonus) {
@@ -72,6 +75,37 @@ public final class QuestStep {
 
 	public String id() {
 		return id;
+	}
+
+	/** Called by {@link Questline} with the steps that come before this one, so a step can refer back to them. */
+	void bindEarlier(List<QuestStep> steps) {
+		this.earlier = List.copyOf(steps);
+		this.placedBefore = null;
+	}
+
+	/** The steps of the trail before this one, in order; empty for a step that is not in a trail. */
+	public List<QuestStep> earlier() {
+		return earlier;
+	}
+
+	/**
+	 * The block each earlier step placed to finish itself, by step id: the steps an anchor {@code "@s2"} can
+	 * point at.
+	 */
+	public java.util.Map<String, String> placedBefore() {
+		java.util.Map<String, String> cached = placedBefore;
+		if (cached == null) {
+			java.util.Map<String, String> placed = new java.util.LinkedHashMap<>();
+			for (QuestStep step : earlier) {
+				String block = io.github.leks2205.hangulquest.quest.spatial.SpatialRules.placedBlock(step.goal());
+				if (block != null) {
+					placed.put(step.id(), block);
+				}
+			}
+			cached = java.util.Collections.unmodifiableMap(placed);
+			placedBefore = cached;
+		}
+		return cached;
 	}
 
 	public List<String> teach() {

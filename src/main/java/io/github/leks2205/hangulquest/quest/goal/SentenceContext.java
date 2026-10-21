@@ -139,6 +139,16 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 			public String item(String id) {
 				return wordNames(word, ObjectKind.ITEM, id) ? word.ko : base.item(id);
 			}
+
+			@Override
+			public Placed placedBy(String stepId) {
+				return base.placedBy(stepId);
+			}
+
+			@Override
+			public boolean builtEarlier(String key) {
+				return base.builtEarlier(key);
+			}
 		};
 	}
 }

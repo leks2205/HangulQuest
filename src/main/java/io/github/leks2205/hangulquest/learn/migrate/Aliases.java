@@ -221,6 +221,10 @@ public final class Aliases {
 		if (quest.has("sidequest") && quest.get("sidequest").isJsonObject()) {
 			changed |= rename(quest.getAsJsonObject("sidequest"), "wordId", this::word);
 		}
+		if (trail != null && quest.has("placed") && quest.get("placed").isJsonObject()) {
+			// Where earlier steps put their blocks, by step id: a renamed step keeps its spot.
+			changed |= rekey(quest.getAsJsonObject("placed"), id -> step(trail, id)[1], (first, later) -> later);
+		}
 		return changed;
 	}
 

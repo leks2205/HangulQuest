@@ -42,6 +42,23 @@ public final class GoalEvaluator {
 		public List<Tracker> subs;
 		/** Sequence in any order: bit i is set once part i is done. */
 		public long doneMask;
+		/** Where the last placement that counted toward this step stands (x, y, z); null when none did. */
+		public int[] lastPlaced;
+		/**
+		 * Form mistakes of this step that the learning side has not heard about yet: a right block in the
+		 * wrong relation, an ordered sequence done out of order. Never saved; the engine reports and clears them.
+		 */
+		public int formErrors;
+		/** Mistakes already reported for this step; capped, so spamming placements cannot sink a construction. */
+		public int formErrorsReported;
+		/**
+		 * Blocks the player placed to finish earlier steps of the trail, by step id, as x, y, z. This is the
+		 * memory behind the anchor {@code "@s2"}. It outlives {@link #clear()} (it is per trail, not per
+		 * step) and is saved with the trail's progress.
+		 */
+		public final java.util.Map<String, int[]> placed = new java.util.LinkedHashMap<>();
+		/** The block each earlier placing step of the trail placed, by step id; set by the engine, never saved. */
+		public java.util.Map<String, String> refBlocks = java.util.Map.of();
 
 		public void resetFor(String key) {
 			if (key.equals(goalKey)) {
@@ -58,6 +75,9 @@ public final class GoalEvaluator {
 			assisted = false;
 			subs = null;
 			doneMask = 0;
+			lastPlaced = null;
+			formErrors = 0;
+			formErrorsReported = 0;
 		}
 
 		/** Same as {@link #resetFor(String)} but skips building the key while the goal object is unchanged. */
@@ -81,6 +101,9 @@ public final class GoalEvaluator {
 			assisted = false;
 			subs = null;
 			doneMask = 0;
+			lastPlaced = null;
+			formErrors = 0;
+			formErrorsReported = 0;
 		}
 	}
 

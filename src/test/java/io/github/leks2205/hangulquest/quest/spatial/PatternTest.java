@@ -161,6 +161,143 @@ class PatternTest {
 		assertNotBuilt("three is not four", "###", Pattern.ROW, 4);
 	}
 
+	// ---------------------------------------------------------------------- wall
+
+	@Test
+	void wallsOfThreeSizes() {
+		assertBuilt("wall 2x2", "##\n\n##", Pattern.WALL, 2);
+		assertBuilt("wall 3x2", "###\n\n###", Pattern.WALL, 3);
+		assertBuilt("wall 4x3", "####\n\n####\n\n####", Pattern.WALL, 4);
+		assertBuilt("a 4x3 wall holds a 3x2 wall", "####\n\n####\n\n####", Pattern.WALL, 3);
+		assertBuilt("a 3x2 wall holds a 2x2 wall", "###\n\n###", Pattern.WALL, 2);
+	}
+
+	@Test
+	void wallNearMisses() {
+		assertNotBuilt("a gap in the bottom row", "#.#\n\n###", Pattern.WALL, 3);
+		assertNotBuilt("a corner missing", "###\n\n##.", Pattern.WALL, 3);
+		assertNotBuilt("one row only", "###", Pattern.WALL, 3);
+		assertNotBuilt("too narrow", "##\n\n##", Pattern.WALL, 3);
+		assertNotBuilt("lying flat", "###\n###", Pattern.WALL, 3);
+		assertNotBuilt("other stone in it", "###\n\n#s#", Pattern.WALL, 3);
+		assertNotBuilt("a tower is no wall", "#\n\n#\n\n#", Pattern.WALL, 2);
+		assertNotBuilt("two high is not three", "####\n\n####", Pattern.WALL, 4);
+		assertNotBuilt("2 wide and 3 high", "##\n\n##\n\n##", Pattern.WALL, 3);
+		assertNotBuilt("staggered rows", "##.\n\n.##", Pattern.WALL, 2);
+	}
+
+	// --------------------------------------------------------------------- cross
+
+	@Test
+	void aPlusOfFiveBlocks() {
+		assertBuilt("flat plus", ".#.\n###\n.#.", Pattern.CROSS, 3);
+		assertBuilt("upright plus", ".#.\n\n###\n\n.#.", Pattern.CROSS, 3);
+		// the middle of a full 3x3 completes a plus; a corner of it has no plus through it
+		World blob = world("###\n###\n###");
+		assertTrue(builtAt(blob, new BlockPos(11, 10, 11), Pattern.CROSS, 3, MATERIAL));
+		assertFalse(builtAt(blob, new BlockPos(10, 10, 10), Pattern.CROSS, 3, MATERIAL));
+	}
+
+	@Test
+	void crossNearMisses() {
+		assertNotBuilt("a T", "###\n.#.\n...", Pattern.CROSS, 3);
+		assertNotBuilt("a long T", "###\n.#.\n.#.", Pattern.CROSS, 3);
+		assertNotBuilt("a diagonal X", "#.#\n.#.\n#.#", Pattern.CROSS, 3);
+		assertNotBuilt("an arm missing", ".#.\n##.\n.#.", Pattern.CROSS, 3);
+		assertNotBuilt("the middle missing", ".#.\n#.#\n.#.", Pattern.CROSS, 3);
+		assertNotBuilt("the middle is another stone", ".#.\n#s#\n.#.", Pattern.CROSS, 3);
+		assertNotBuilt("a bar", "###", Pattern.CROSS, 3);
+		assertNotBuilt("an arm one layer up", ".#.\n##.\n.#.\n\n...\n..#\n...", Pattern.CROSS, 3);
+		assertNotBuilt("an upright plus with a gap", ".#.\n\n#.#\n\n.#.", Pattern.CROSS, 3);
+	}
+
+	// -------------------------------------------------------------------- stairs
+
+	private static final String STAIRS_3 = "###\n\n.##\n\n..#";
+	private static final String STAIRS_4 = "####\n\n.###\n\n..##\n\n...#";
+
+	@Test
+	void stairsOfThreeAndFourSteps() {
+		// the four turns of assertBuilt make the stairs rise toward every side
+		assertBuilt("3 steps", STAIRS_3, Pattern.STAIRS, 3);
+		assertBuilt("4 steps", STAIRS_4, Pattern.STAIRS, 4);
+		assertBuilt("4 steps hold 3", STAIRS_4, Pattern.STAIRS, 3);
+	}
+
+	@Test
+	void stairsNearMisses() {
+		assertNotBuilt("two steps", "###\n\n.##", Pattern.STAIRS, 3);
+		assertNotBuilt("floating diagonal", "#..\n\n.#.\n\n..#", Pattern.STAIRS, 3);
+		assertNotBuilt("a hollow step", "###\n\n.#.\n\n..#", Pattern.STAIRS, 3);
+		assertNotBuilt("a flat slab", "###\n\n###", Pattern.STAIRS, 3);
+		assertNotBuilt("a pyramid profile", "###\n\n.#.", Pattern.STAIRS, 3);
+		assertNotBuilt("a step skipped", "###\n\n..#\n\n..#", Pattern.STAIRS, 3);
+		assertNotBuilt("three steps are not four", STAIRS_3, Pattern.STAIRS, 4);
+		assertNotBuilt("other stone in the stairs", "###\n\n.s#\n\n..#", Pattern.STAIRS, 3);
+	}
+
+	@Test
+	void theNewShapesHaveTheirAnchorPoints() {
+		// wall 3x2 along x: the top row, the middle of the bottom row
+		assertEquals(6, Pattern.WALL.cells(3, 0).size());
+		assertEquals(List.of(new Pattern.Cell(0, 2, 0), new Pattern.Cell(1, 2, 0), new Pattern.Cell(2, 2, 0)),
+				Pattern.WALL.top(3, 0));
+		assertEquals(new Pattern.Cell(1, 0, 0), Pattern.WALL.centre(3, 0));
+		assertEquals(new Pattern.Cell(0, 0, 1), Pattern.WALL.centre(3, 1));
+		assertEquals(12, Pattern.WALL.cells(4, 1).size());
+		assertEquals(4, Pattern.WALL.cells(2, 0).size());
+
+		// the plus: five blocks around the middle, flat or upright
+		assertEquals(5, Pattern.CROSS.cells(3, 0).size());
+		assertEquals(new Pattern.Cell(1, 0, 1), Pattern.CROSS.centre(3, 0));
+		assertEquals(new Pattern.Cell(1, 1, 0), Pattern.CROSS.centre(3, 1));
+		assertEquals(new Pattern.Cell(0, 1, 1), Pattern.CROSS.centre(3, 2));
+		assertTrue(Pattern.CROSS.cells(3, 1).contains(new Pattern.Cell(1, 2, 0)));
+		assertEquals(List.of(new Pattern.Cell(1, 3, 0)), Pattern.CROSS.top(3, 1),
+				"an upright plus is topped by its highest arm");
+		assertEquals(5, Pattern.CROSS.top(3, 0).size(), "above every block of a flat plus");
+
+		// stairs: one tread above each column
+		assertEquals(6, Pattern.STAIRS.cells(3, 0).size());
+		assertEquals(10, Pattern.STAIRS.cells(4, 2).size());
+		assertEquals(List.of(new Pattern.Cell(0, 1, 0), new Pattern.Cell(1, 2, 0), new Pattern.Cell(2, 3, 0)),
+				Pattern.STAIRS.top(3, 0));
+		assertEquals(new Pattern.Cell(1, 0, 0), Pattern.STAIRS.centre(3, 0));
+		assertEquals(new Pattern.Cell(0, 0, 1), Pattern.STAIRS.centre(3, 2));
+		assertTrue(Pattern.STAIRS.inside(3, 0).isEmpty() && Pattern.WALL.inside(3, 0).isEmpty()
+				&& Pattern.CROSS.inside(3, 0).isEmpty());
+		assertFalse(Pattern.STAIRS.encloses());
+	}
+
+	@Test
+	void theNewShapesNameThemselvesInKorean() {
+		assertEquals("벽", Pattern.WALL.ko());
+		assertEquals("십자 모양", Pattern.CROSS.ko());
+		assertEquals("계단", Pattern.STAIRS.ko());
+	}
+
+	@Test
+	void sizesOfTheNewShapesFitTheSevenCube() {
+		assertTrue(Pattern.WALL.validSize(2) && Pattern.WALL.validSize(4));
+		assertFalse(Pattern.WALL.validSize(1) || Pattern.WALL.validSize(5));
+		assertTrue(Pattern.CROSS.validSize(3));
+		assertFalse(Pattern.CROSS.validSize(5), "the arms of a 5-wide plus would not all fit around one block");
+		assertTrue(Pattern.STAIRS.validSize(3) && Pattern.STAIRS.validSize(4));
+		assertFalse(Pattern.STAIRS.validSize(2) || Pattern.STAIRS.validSize(5));
+		// every cell of every shape at its largest stays inside the cube around any of its own blocks
+		for (Pattern pattern : new Pattern[]{Pattern.WALL, Pattern.CROSS, Pattern.STAIRS}) {
+			for (int orientation = 0; orientation < pattern.orientations(); orientation++) {
+				List<Pattern.Cell> cells = pattern.cells(pattern.maxSize(), orientation);
+				for (Pattern.Cell from : cells) {
+					for (Pattern.Cell to : cells) {
+						assertTrue(Math.abs(to.x() - from.x()) <= 3 && Math.abs(to.y() - from.y()) <= 3
+								&& Math.abs(to.z() - from.z()) <= 3, pattern + " orientation " + orientation);
+					}
+				}
+			}
+		}
+	}
+
 	// ------------------------------------------------------------- material families
 
 	@Test

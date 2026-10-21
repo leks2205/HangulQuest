@@ -111,6 +111,16 @@ public interface GoalType<G extends Goal> {
 		return SentenceBuilder.baseGrammar(context.verb(), context.level(), objectKind());
 	}
 
+	/**
+	 * The constructions whose form decides this goal: the relation word of a placement, the recipient marker
+	 * of a hand-over, the connective of an ordered sequence, the "don't" of an avoid. Completing the step
+	 * rightly is evidence for them, a slip in the form is evidence against. Ids as {@link #grammarIds}
+	 * emits them (the ladder resolves aliases); empty when no form decides.
+	 */
+	default List<String> decidingForms(G goal) {
+		return List.of();
+	}
+
 	/** The Korean name of the object, or null when there is none. */
 	default String objectName(G goal, SentenceBuilder.Namer namer) {
 		String object = object(goal);

@@ -45,12 +45,14 @@ public final class SpatialWorlds {
 			case INSIDE -> world.put(X + 2, Y, Z, anchor).put(X - 2, Y, Z, anchor)
 					.put(X, Y, Z + 2, anchor).put(X, Y, Z - 2, anchor);
 			case OUTSIDE -> world.put(X + 3, Y, Z, anchor);
-			case BETWEEN -> world.put(X - 1, Y, Z, anchor).put(X + 2, Y, Z, anchor);
+			case BETWEEN -> world.put(X - 1, Y, Z, anchor).put(X + 2, Y, Z,
+					g.anchor2() == null ? anchor : BlockSpec.representative(g.anchor2()));
 			case NEAR -> world.put(X + 2, Y + 1, Z + 2, anchor);
 		}
 		world.put(X, Y, Z, BlockSpec.representative(g.block()));
-		return verified(world.placed(new BlockPos(X, Y, Z), night, player), new Anchor.Block(g.anchor()),
-				g.relation());
+		Anchor.Block first = new Anchor.Block(g.anchor());
+		return verified(world.placed(new BlockPos(X, Y, Z), night, player),
+				g.anchor2() == null ? first : new Anchor.Pair(first, new Anchor.Block(g.anchor2())), g.relation());
 	}
 
 	private static PlacementFact build(Goal.BuildPattern g, boolean night) {

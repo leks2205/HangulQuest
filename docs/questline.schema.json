@@ -333,11 +333,17 @@
               "description": "Where the block goes, relative to the anchor."
             },
             "anchor": {
-              "$ref": "#/definitions/resourceId"
+              "type": "string",
+              "pattern": "^(#?[a-z0-9_.-]+:[a-z0-9_./-]+|@[A-Za-z0-9_-]+)$",
+              "description": "The block, family or tag the relation is measured against, or @stepId for the block placed in that earlier step of the trail (trail level 5 or higher)."
             },
             "count": {
               "type": "integer",
               "minimum": 1
+            },
+            "anchor2": {
+              "$ref": "#/definitions/resourceId",
+              "description": "With BETWEEN: the second block, so the Korean says A와/과 B 사이에 instead of 두 A 사이에."
             }
           },
           "required": [
@@ -359,7 +365,10 @@
                 "PILLAR",
                 "PYRAMID",
                 "RING",
-                "ROW"
+                "ROW",
+                "WALL",
+                "CROSS",
+                "STAIRS"
               ],
               "description": "The shape to build."
             },
@@ -406,7 +415,10 @@
                 "PILLAR",
                 "PYRAMID",
                 "RING",
-                "ROW"
+                "ROW",
+                "WALL",
+                "CROSS",
+                "STAIRS"
               ],
               "description": "The shape of the structure."
             },

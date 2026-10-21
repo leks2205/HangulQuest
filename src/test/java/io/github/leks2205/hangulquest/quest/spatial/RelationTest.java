@@ -291,6 +291,112 @@ class RelationTest {
 		assertEquals(Relation.NEXT_TO, Relations.wrongRelation(Relation.INSIDE, held));
 	}
 
+	// ------------------------------------------------------------- walls, plus, stairs
+
+	private static final Anchor WALL = new Anchor.Built(Pattern.WALL, COBBLE);
+	private static final Anchor CROSS = new Anchor.Built(Pattern.CROSS, COBBLE);
+	private static final Anchor STAIRS = new Anchor.Built(Pattern.STAIRS, COBBLE);
+
+	@Test
+	void relationsToAWall() {
+		for (Pattern.Cell top : Pattern.WALL.top(3, 0)) {
+			assertHolds(Relation.ON_TOP_OF, WALL, torchBeside(Pattern.WALL, top, 0, 0, 0));
+		}
+		assertNotHolds(Relation.ON_TOP_OF, WALL, torchBeside(Pattern.WALL, new Pattern.Cell(1, 3, 0), 0, 0, 0),
+				"a block higher than the top is in the air");
+		assertHolds(Relation.NEXT_TO, WALL, torchBeside(Pattern.WALL, new Pattern.Cell(-1, 0, 0), 0, 0, 0));
+		// the wall is one block thick: its other side counts too
+		assertHolds(Relation.NEXT_TO, WALL, torchBeside(Pattern.WALL, new Pattern.Cell(1, 1, 1), 0, 0, 0));
+		assertHolds(Relation.UNDER, WALL, torchBeside(Pattern.WALL, new Pattern.Cell(0, 0, 0), 0, 1, 0));
+		assertNotHolds(Relation.NEXT_TO, WALL, torchBeside(Pattern.WALL, new Pattern.Cell(0, 0, 2), 0, 0, 0));
+	}
+
+	@Test
+	void relationsToAPlusAndToStairs() {
+		assertHolds(Relation.ON_TOP_OF, CROSS, torchBeside(Pattern.CROSS, new Pattern.Cell(1, 1, 1), 0, 0, 0));
+		assertHolds(Relation.NEXT_TO, CROSS, torchBeside(Pattern.CROSS, new Pattern.Cell(0, 0, 0), 0, 0, 0));
+		assertNotHolds(Relation.NEXT_TO, CROSS, torch(), "no plus at all");
+
+		// a torch on every tread is on the stairs; one beside the lowest step is next to them
+		for (Pattern.Cell tread : Pattern.STAIRS.top(3, 0)) {
+			assertHolds(Relation.ON_TOP_OF, STAIRS, torchBeside(Pattern.STAIRS, tread, 0, 0, 0));
+		}
+		assertHolds(Relation.NEXT_TO, STAIRS, torchBeside(Pattern.STAIRS, new Pattern.Cell(-1, 0, 0), 0, 0, 0));
+		assertNotHolds(Relation.ON_TOP_OF, STAIRS, torchBeside(Pattern.STAIRS, new Pattern.Cell(0, 2, 0), 0, 0, 0),
+				"two above the first step is in the air");
+		assertFalse(Relations.supported(Relation.INSIDE, STAIRS) || Relations.supported(Relation.BETWEEN, WALL));
+	}
+
+	// ------------------------------------------------- between two different blocks
+
+	private static final String FURNACE = "minecraft:furnace";
+	private static final Anchor CHEST_AND_FURNACE = new Anchor.Pair(new Anchor.Block(CHEST), new Anchor.Block(FURNACE));
+
+	@Test
+	void betweenTwoDifferentBlocks() {
+		PlacementFact alongX = torch(at(-1, 0, 0), CHEST, at(2, 0, 0), FURNACE);
+		assertHolds(Relation.BETWEEN, CHEST_AND_FURNACE, alongX);
+		// whichever block is on which side
+		assertHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), FURNACE, at(2, 0, 0), CHEST));
+		assertHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(0, 0, -3), CHEST, at(0, 0, 1), FURNACE));
+		// two chests enclose it, but that is 'between two chests', not between a chest and a furnace
+		PlacementFact twoChests = torch(at(-1, 0, 0), CHEST, at(2, 0, 0), CHEST);
+		assertHolds(Relation.BETWEEN, CHESTS, twoChests);
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, twoChests);
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), CHEST));
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), CHEST, at(0, 0, 2), FURNACE),
+				"a right angle does not enclose it");
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), CHEST, at(2, 1, 0), FURNACE),
+				"the furnace is a level higher");
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), CHEST, at(4, 0, 0), FURNACE),
+				"4 away is out of the cube");
+		assertNotHolds(Relation.BETWEEN, CHEST_AND_FURNACE, torch(at(-1, 0, 0), CHEST, at(2, 0, 0), COBBLE));
+	}
+
+	@Test
+	void onlyBetweenFitsTwoBlocksAndTheOtherRelationsShowAsSlips() {
+		assertTrue(Relations.supported(Relation.BETWEEN, CHEST_AND_FURNACE));
+		for (Relation relation : Relation.values()) {
+			assertEquals(relation == Relation.BETWEEN, Relations.supported(relation, CHEST_AND_FURNACE), relation.name());
+		}
+		// next to one of the two is a wrong answer for 'between'
+		EnumSet<Relation> held = Relations.holding(CHEST_AND_FURNACE, torch(at(1, 0, 0), FURNACE));
+		assertEquals(Relation.NEXT_TO, Relations.wrongRelation(Relation.BETWEEN, held));
+		held = Relations.holding(CHEST_AND_FURNACE, torch(at(0, -1, 0), CHEST));
+		assertEquals(Relation.ON_TOP_OF, Relations.wrongRelation(Relation.BETWEEN, held));
+	}
+
+	// ----------------------------------------------------- the block of an earlier step
+
+	@Test
+	void aBlockPlacedInAnEarlierStepIsAPoint() {
+		PlacementFact fact = torch();
+		Anchor.Placed below = new Anchor.Placed("s2", 10, 9, 10);
+		assertHolds(Relation.ON_TOP_OF, below, fact);
+		assertHolds(Relation.UNDER, new Anchor.Placed("s2", 10, 11, 10), fact);
+		for (int[] beside : new int[][]{{11, 10, 10}, {9, 10, 10}, {10, 10, 11}, {10, 10, 9}}) {
+			assertHolds(Relation.NEXT_TO, new Anchor.Placed("s2", beside[0], beside[1], beside[2]), fact);
+		}
+		Anchor.Placed diagonal = new Anchor.Placed("s2", 11, 10, 11);
+		assertNotHolds(Relation.NEXT_TO, diagonal, fact);
+		assertHolds(Relation.NEAR, diagonal, fact);
+		assertNotHolds(Relation.NEAR, new Anchor.Placed("s2", 14, 10, 10), fact, "4 away is not near");
+		assertNotHolds(Relation.ON_TOP_OF, new Anchor.Placed("s2", 10, 8, 10), fact);
+		assertEquals(EnumSet.noneOf(Relation.class), Relations.holding(new Anchor.Placed("s2", 10, 10, 10), fact),
+				"the block itself is not beside itself");
+		assertEquals("@s2", below.key());
+	}
+
+	@Test
+	void anEarlierBlockHasNoFrontAndNoInside() {
+		Anchor.Placed placed = new Anchor.Placed("s2", 0, 0, 0);
+		for (Relation relation : Relation.values()) {
+			boolean fits = relation == Relation.ON_TOP_OF || relation == Relation.UNDER || relation == Relation.NEXT_TO
+					|| relation == Relation.NEAR;
+			assertEquals(fits, Relations.supported(relation, placed), relation.name());
+		}
+	}
+
 	// ------------------------------------------------------------------- the words
 
 	@Test

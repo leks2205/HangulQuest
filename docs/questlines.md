@@ -155,6 +155,9 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `REACH_HEIGHT` | `minY`, `maxY` | player altitude |
 | `USE_BLOCK` | `block` | right-click on that block |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
+| `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
+| `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
+| `PLACE_ON_PATTERN` | `block`, `relation`, `pattern`, `material` | a placement of `block` in that relation to a structure built from `material` |
 | `CRAFT` | `item`, `count`, optional `station`, optional `with` (ingredient ids, wording only) | taking the result out of a crafting screen |
 | `SMELT` | optional `input` (wording, level 4+), `output`, `count` | taking the result out of a furnace, blast furnace or smoker |
 | `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor |
@@ -163,9 +166,30 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`) | the parts in order; an event before its turn does not count. Trail level 3 or higher |
 | `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
 
+**Relations and anchors.** The Korean names the relation (`문 옆에`, `기둥 위에`) in every form of the
+sentence, and the English and German clue must not give it away. A relation goal is graded: finishing the step
+is a right outcome for the location noun (`L1.loc_yeop_e` for `NEXT_TO`, `L2.loc_sai_e` for `BETWEEN`, ...),
+and a right block in the wrong relation is a wrong one (at most three per step). `BETWEEN` has one anchor
+(`두 횃불 사이에`) or two different ones: `"anchor": "minecraft:chest", "anchor2": "minecraft:furnace"` says
+`상자와 화로 사이에` (와/과 by the final sound; the pair is one task whichever way round it is written).
+
+**The block of an earlier step.** `"anchor": "@s2"` points at the block that finished step `s2` of the same
+trail, which must be a `PLACE_BLOCK`, `PLACE_REL` or `PLACE_ON_PATTERN` step before this one. The sentence says
+`아까 놓은 횃불 옆에` (the verb of that step as a past -(으)ㄴ, so the trail needs `koreanLevel` 5 or higher).
+Only `ON_TOP_OF`, `UNDER`, `NEXT_TO` and `NEAR` fit a single spot. The engine remembers where the block stood
+and saves it with the trail (`placed` on the saved quest); if the memory is missing, any block of the kind that
+step placed will do.
+
+**Level 3 connectives.** Where a task has two natural parts, a trail of level 3 says both with -고: a `CRAFT`
+with `with` ingredients reads `막대기와 석탄을 모으고 횃불을 만드세요`, and a `PLACE_ON_PATTERN` whose structure no
+earlier step of the trail built reads `돌로 기둥을 쌓고 그 위에 횃불을 놓으세요`. Other levels and the hint keep the
+single clause.
+
 `SEQUENCE` and `AVOID` teach -기 전에 / -(으)ㄴ 후에 / -고 나서 and -지 마세요, so the English and German
 clue must not give the order or the "not" away („Do the two things in the order the Korean says").
 `SEQUENCE` parts, the `HOLD_WHILE` inner goal and the `AVOID` action are simple goals (no nesting).
+Finishing a `GIVE` (에게), an ordered `SEQUENCE` (its connective) or an `AVOID` (-지 마세요) rightly is a right
+outcome for that construction; doing an ordered sequence out of order is a wrong one.
 
 ## Conditions (gates)
 

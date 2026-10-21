@@ -156,7 +156,9 @@ public final class QuestEngine {
 			int beforeCount = track.tracker.count;
 			long beforeDwell = track.tracker.dwellMs;
 			track.tracker.accepted = acceptedFor(step);
+			track.tracker.refBlocks = step.placedBefore();
 			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, track.tracker);
+			completion.formMisses(track, obs);
 			if (complete) {
 				lastCompletionAssisted = track.tracker.assisted;
 				completion.complete(track, obs, feedback);

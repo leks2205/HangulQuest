@@ -51,7 +51,7 @@ class ProgressMigrationsTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"schema-v1", "v1.0.0", "v2.1.0", "unknown-fields", "v3-sample", "v4-sample"})
+	@ValueSource(strings = {"schema-v1", "v1.0.0", "v2.1.0", "unknown-fields", "v3-sample", "v4-sample", "v4-placed"})
 	void runningTwiceChangesNothingTheSecondTime(String name) throws IOException {
 		JsonObject tree = fixture(name);
 		ProgressMigrations.standard().run(tree);

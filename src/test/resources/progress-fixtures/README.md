@@ -19,3 +19,7 @@ Rules:
   recallDays). Older fixtures are migrated to v4 on load: the card is seeded from the old level
   (stability 0.1, 0.2, 0.5, 1, 2, 4, 8, 16, 35 days for levels 0 to 8, 30 days for a word marked known,
   difficulty 5, due = max(old dueAt, now)) and `level` is kept. `ProgressMigrationsTest` covers every level.
+- `v4-placed.json` is `v4-sample.json` plus `quests.active.placed` and a `placed` map on a saved quest: the
+  block that finished an earlier step, by step id, as `[x, y, z]` (the memory behind a step's `"@s1"` anchor,
+  "아까 놓은 횃불 옆에"). The field is optional and was added without a version bump: a file without it means
+  "nothing remembered", and a build that does not know it keeps it (`unknown-fields.json`).

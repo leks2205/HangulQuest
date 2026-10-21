@@ -64,6 +64,12 @@ public final class ProgressData {
 		public int goalProgress;
 		public boolean hintUsed;
 		public Side sidequest;
+		/**
+		 * Where the block that finished an earlier step stands (x, y, z), by step id: the memory behind an
+		 * "@stepId" anchor. Left out when the trail has none. Added without a version bump: a file without
+		 * it reads as "nothing remembered", and a build that does not know it keeps it.
+		 */
+		public Map<String, int[]> placed;
 		public long startedAt;
 		public long lastSeenAt;
 	}

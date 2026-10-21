@@ -91,6 +91,13 @@ final class QuestPersistence {
 			}
 		}
 		track.hintUsed = snapshot.hintUsed;
+		if (snapshot.placed != null) {
+			snapshot.placed.forEach((stepId, at) -> {
+				if (stepId != null && at != null && at.length == 3) {
+					track.tracker.placed.put(stepId, at.clone());
+				}
+			});
+		}
 		track.lastSeenAt = snapshot.lastSeenAt == 0 ? snapshot.startedAt : snapshot.lastSeenAt;
 		QuestStep step = track.step();
 		if (step != null) {
@@ -136,6 +143,10 @@ final class QuestPersistence {
 		snapshot.stepId = step == null ? null : step.id();
 		snapshot.goalProgress = track.tracker.count;
 		snapshot.hintUsed = track.hintUsed;
+		if (!track.tracker.placed.isEmpty()) {
+			snapshot.placed = new LinkedHashMap<>();
+			track.tracker.placed.forEach((stepId, at) -> snapshot.placed.put(stepId, at.clone()));
+		}
 		snapshot.startedAt = track.startedAt;
 		snapshot.lastSeenAt = now;
 		if (track.sideQuest != null) {
