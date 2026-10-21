@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.HudController;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.KeyEvent;
@@ -161,6 +161,6 @@ public final class QuizScreen extends Screen {
 
 	private static String footer(int shown) {
 		String keys = shown <= 1 ? "1" : "1–" + shown;
-		return Tr.t("%s: antworten · Esc: schließen").formatted(keys);
+		return I18n.t("hangulquest.ui.quiz.keys", keys);
 	}
 }

@@ -39,7 +39,7 @@ class ConfigMigrationTest {
 	@Test
 	void oldConfigWithoutLanguageButGermanQuestsBecomesGerman() {
 		Config config = Config.parse(json("{\"version\":1,\"questGerman\":true}"));
-		assertEquals("DE", config.language);
+		assertEquals("de_de", config.language);
 		assertTrue(config.questTranslations);
 	}
 
@@ -53,20 +53,21 @@ class ConfigMigrationTest {
 
 	@Test
 	void anExplicitLanguageIsNeverOverridden() {
-		assertEquals("EN", Config.parse(json("{\"language\":\"EN\",\"questGerman\":true}")).language);
-		assertEquals("DE", Config.parse(json("{\"language\":\"de\"}")).language);
+		assertEquals("en_us", Config.parse(json("{\"language\":\"EN\",\"questGerman\":true}")).language);
+		assertEquals("de_de", Config.parse(json("{\"language\":\"de\"}")).language);
+		assertEquals("es_es", Config.parse(json("{\"language\":\"es_ES\"}")).language);
 		assertEquals("AUTO", Config.parse(json("{\"language\":\"auto\"}")).language);
 	}
 
 	@Test
 	void aBlankOrNullLanguageCountsAsMissing() {
-		assertEquals("DE", Config.parse(json("{\"language\":\"\",\"questGerman\":true}")).language);
+		assertEquals("de_de", Config.parse(json("{\"language\":\"\",\"questGerman\":true}")).language);
 		assertEquals("AUTO", Config.parse(json("{\"language\":null}")).language);
 	}
 
 	@Test
 	void anUnknownLanguageFallsBackToEnglish() {
-		assertEquals("EN", Config.parse(json("{\"language\":\"fr\"}")).language);
+		assertEquals("en_us", Config.parse(json("{\"language\":\"fr\"}")).language);
 	}
 
 	@Test
@@ -74,10 +75,20 @@ class ConfigMigrationTest {
 		Path file = dir.resolve("config.json");
 		Files.writeString(file, "{\"version\":1,\"questGerman\":true}", StandardCharsets.UTF_8);
 		Config loaded = Config.load(file);
-		assertEquals("DE", loaded.language);
-		assertEquals("DE", json(Files.readString(file)).get("language").getAsString());
+		assertEquals("de_de", loaded.language);
+		assertEquals("de_de", json(Files.readString(file)).get("language").getAsString());
 		// A second start reads the stored value, not the legacy flag.
-		assertEquals("DE", Config.load(file).language);
+		assertEquals("de_de", Config.load(file).language);
+	}
+
+	@Test
+	void theOldTwoLetterLanguageValuesAreMigratedToCodesAndWrittenBack(@TempDir Path dir) throws IOException {
+		Path file = dir.resolve("config.json");
+		Files.writeString(file, "{\"version\":2,\"language\":\"DE\"}", StandardCharsets.UTF_8);
+		assertEquals("de_de", Config.load(file).language);
+		assertEquals("de_de", json(Files.readString(file)).get("language").getAsString());
+		Files.writeString(file, "{\"version\":2,\"language\":\"EN\"}", StandardCharsets.UTF_8);
+		assertEquals("en_us", Config.load(file).language);
 	}
 
 	@Test
@@ -109,7 +120,7 @@ class ConfigMigrationTest {
 		locale[0] = "en_us";
 		assertEquals(Lang.EN, Lang.current());
 		locale[0] = "ko_kr";
-		assertEquals(Lang.EN, Lang.current());
+		assertEquals("ko_kr", Lang.current().code());
 		Lang.set("DE");
 		assertEquals(Lang.DE, Lang.current());
 	}

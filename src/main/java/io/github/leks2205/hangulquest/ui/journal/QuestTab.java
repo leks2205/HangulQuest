@@ -10,7 +10,7 @@ import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 
@@ -181,7 +181,7 @@ public final class QuestTab extends JournalTab {
 		HangulQuestClient hq = host.hq();
 		QuestEngine quests = hq.quests();
 		if (quests == null) {
-			Draw.label(g, host.font(), Tr.t("Quests laden…"), x, y, Ink.INK_SOFT);
+			Draw.label(g, host.font(), I18n.t("hangulquest.ui.quest.loading"), x, y, Ink.INK_SOFT);
 			return;
 		}
 		if (layout == null || !layout.matches(quests.trails())) {
@@ -194,13 +194,13 @@ public final class QuestTab extends JournalTab {
 		int highlighted = layout.indexOf(selectedTrailId);
 
 		if (headerCount != layout.size() || headerLanguage != language) {
-			header = Tr.t("Questbaum · ") + layout.size() + Tr.t(" Linien");
+			header = I18n.t("hangulquest.ui.quest.tree_header", layout.size());
 			headerCount = layout.size();
 			headerLanguage = language;
 		}
 		int percent = Math.round(treeZoom * 100);
 		if (legendPercent != percent || legendLanguage != language) {
-			legend = Tr.t("✓ ▶ ○ ★  Rad:Zoom  Ziehen  F:Fit  ") + percent + "%";
+			legend = I18n.t("hangulquest.ui.quest.tree_legend", percent);
 			legendPercent = percent;
 			legendLanguage = language;
 		}
@@ -386,7 +386,7 @@ public final class QuestTab extends JournalTab {
 	private void drawTooltip(GuiGraphicsExtractor g, int index, int x, int y, int width, int language) {
 		if (tipIndex != index || tipLanguage != language) {
 			Questline trail = layout.trail(index);
-			tipText = trail.title() + Tr.t(" · Stufe ") + layout.depth(index) + " · TOPIK " + trail.koreanLevel();
+			tipText = I18n.t("hangulquest.ui.quest.tip", trail.title(), layout.depth(index), trail.koreanLevel());
 			tipWidth = host.font().width(tipText) + 8;
 			tipIndex = index;
 			tipLanguage = language;
@@ -415,10 +415,10 @@ public final class QuestTab extends JournalTab {
 		boolean unlocked = nodeStates.has(index, NodeStates.UNLOCKED);
 		boolean tracked = nodeStates.has(index, NodeStates.TRACKED);
 		boolean focused = selected.id().equals(quests.focusedId());
-		String state = done ? Tr.t("✓ fertig") : focused ? Tr.t("▶ aktiv") : tracked ? Tr.t("▸ im Log")
-				: unlocked ? Tr.t("○ offen") : Tr.t("· gesperrt");
-		String title = selected.title() + Tr.t(" · Stufe ") + layout.depth(index)
-				+ Tr.t(" · TOPIK ") + selected.koreanLevel() + " · " + state;
+		String state = done ? I18n.t("hangulquest.ui.quest.state.done") : focused ? I18n.t("hangulquest.ui.quest.state.active") : tracked ? I18n.t("hangulquest.ui.quest.state.in_log")
+				: unlocked ? I18n.t("hangulquest.ui.quest.state.open") : I18n.t("hangulquest.ui.quest.state.locked");
+		String title = I18n.t("hangulquest.ui.quest.title_line", selected.title(), layout.depth(index),
+				selected.koreanLevel(), state);
 
 		int[] parents = layout.parents(index);
 		int[] dependents = layout.dependents(index);
@@ -430,8 +430,8 @@ public final class QuestTab extends JournalTab {
 		for (int child : dependents) {
 			childTitles.add(layout.trail(child).title());
 		}
-		String nav = Tr.t("Vorher: ") + (parentTitles.isEmpty() ? "—" : String.join(", ", parentTitles))
-				+ Tr.t("   Danach: ") + (childTitles.isEmpty() ? "—" : String.join(", ", childTitles));
+		String nav = I18n.t("hangulquest.ui.quest.nav", parentTitles.isEmpty() ? "—" : String.join(", ", parentTitles),
+				childTitles.isEmpty() ? "—" : String.join(", ", childTitles));
 
 		List<QuestStep> steps = selected.allSteps();
 		String preview = steps.isEmpty() ? "" : quests.clueKo(steps.get(0));
@@ -447,7 +447,7 @@ public final class QuestTab extends JournalTab {
 				dependents.length == 0 ? null : layout.trail(dependents[0]).id(),
 				preview == null || preview.isBlank() ? null : KoText.ko(preview),
 				Component.literal(progress),
-				reason.isEmpty() ? null : Component.literal(Tr.t("Gesperrt: ") + reason));
+				reason.isEmpty() ? null : Component.literal(I18n.t("hangulquest.ui.quest.locked_reason", reason)));
 		return detail;
 	}
 
@@ -471,23 +471,23 @@ public final class QuestTab extends JournalTab {
 		Draw.truncated(g, host.font(), d.progress(), x, detailTop + 45, width - 68, Ink.INK_FAINT);
 		Questline chosen = d.trail();
 		if (!d.done()) {
-			host.checkRow(g, x + width - 156, detailTop + 51, 88, 17, Tr.t("Im Log"), d.tracked(), () -> {
+			host.checkRow(g, x + width - 156, detailTop + 51, 88, 17, I18n.t("hangulquest.ui.quest.in_log"), d.tracked(), () -> {
 				boolean on = !quests.isTracked(chosen.id());
 				if (!quests.setTracked(chosen.id(), on)) {
-					host.status(Tr.t("Quest-Log ist voll (6)"));
+					host.status(I18n.t("hangulquest.ui.quest.log_full"));
 				} else {
-					host.status(on ? Tr.t("ins Log gelegt: ") + chosen.title()
-							: Tr.t("aus dem Log genommen · Fortschritt bleibt"));
+					host.status(on ? I18n.t("hangulquest.ui.quest.added_to_log", chosen.title())
+							: I18n.t("hangulquest.ui.quest.removed_from_log"));
 				}
 			});
 		}
 		if (d.tracked() && !d.focused() && !d.done()) {
-			host.button(g, x + width - 62, detailTop + 52, 58, 16, Tr.t("Fokus"), false, () -> {
+			host.button(g, x + width - 62, detailTop + 52, 58, 16, I18n.t("hangulquest.ui.quest.focus"), false, () -> {
 				quests.focus(chosen.id());
-				host.status(Tr.t("Fokus: ") + chosen.title());
+				host.status(I18n.t("hangulquest.ui.quest.focus_status", chosen.title()));
 			});
 		} else if (d.unlocked() && !d.tracked() && !d.done()) {
-			host.button(g, x + width - 62, detailTop + 52, 58, 16, Tr.t("Starten"), false, () -> {
+			host.button(g, x + width - 62, detailTop + 52, 58, 16, I18n.t("hangulquest.ui.quest.start"), false, () -> {
 				Observation obs = new Observation();
 				obs.now = System.currentTimeMillis();
 				quests.startTrail(chosen.id(), obs, host.hq().hud());
@@ -530,7 +530,7 @@ public final class QuestTab extends JournalTab {
 	private String lockReason(Questline trail, QuestEngine quests) {
 		LearningService learn = host.hq().learn();
 		if (learn != null && learn.discovered() < trail.requires().minWordsKnown()) {
-			return Tr.t("ab ") + trail.requires().minWordsKnown() + Tr.t(" Wörtern");
+			return I18n.t("hangulquest.ui.quest.requires_words", trail.requires().minWordsKnown());
 		}
 		List<String> missing = new ArrayList<>();
 		for (String parentId : trail.requires().completed()) {
@@ -540,6 +540,6 @@ public final class QuestTab extends JournalTab {
 				missing.add(parent == null ? parentId : (host.showDe() ? parent.title() : parent.titleKo()));
 			}
 		}
-		return missing.isEmpty() ? "" : Tr.t("nach ") + String.join(", ", missing);
+		return missing.isEmpty() ? "" : I18n.t("hangulquest.ui.quest.requires_after", String.join(", ", missing));
 	}
 }

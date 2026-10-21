@@ -372,7 +372,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		QuestEngine.TrackView next = views.get((index + 1) % views.size());
 		if (quests.focus(next.id())) {
-			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.Tr.pick(next.titleEn(), next.titleDe()), true);
+			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()), true);
 		}
 	}
 
@@ -459,7 +459,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		hud.wordCard(word);
 		lastAmbientAt = now;
 		for (var achievement : learn.checkAchievements()) {
-			hud.banner(achievement.ko(), achievement.de(), true);
+			hud.banner(achievement.ko(), achievement.label(), true);
 		}
 	}
 
@@ -476,7 +476,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		word.ifPresent(found -> lines.add(Component.empty()
 				.append(KoText.ko(found.ko))
-				.append(Component.literal(" · " + io.github.leks2205.hangulquest.util.Tr.pick(found.en, found.deShort)).withStyle(ChatFormatting.GRAY))));
+				.append(Component.literal(" · " + found.gloss(io.github.leks2205.hangulquest.util.Lang.current())).withStyle(ChatFormatting.GRAY))));
 	}
 
 	/**
@@ -558,9 +558,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 				LOG.error("could not initialise hangulquest content, retrying in {} s",
 						LoadBackoff.DELAYS_MS[0] / 1000, failed);
 				hud.banner("콘텐츠를 불러오지 못했어요.",
-						io.github.leks2205.hangulquest.util.Tr.pick(
-								"Content could not be loaded. Trying again shortly.",
-								"Inhalte konnten nicht geladen werden. Neuer Versuch folgt."), false);
+						io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.hud.load_failed"), false);
 			} else {
 				LOG.warn("hangulquest content still not loading (attempt {}), next try in {} s: {}",
 						loadBackoff.failures(), loadBackoff.waitMs(attemptAt) / 1000, failed.toString());
@@ -589,7 +587,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		LOG.info("questlines reloaded: {} trails, {} problems", count, validated.problems().size());
 		if (hud != null) {
 			hud.banner("퀘스트 " + count + "개를 다시 읽었어요.",
-					io.github.leks2205.hangulquest.util.Tr.t("Questlinien neu geladen: ") + count + ".", true);
+					io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.quest.reloaded", count), true);
 		}
 	}
 

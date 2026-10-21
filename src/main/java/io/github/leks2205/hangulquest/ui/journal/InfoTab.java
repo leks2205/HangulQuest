@@ -6,7 +6,8 @@ import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.Streak;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.StampMemo;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
+import io.github.leks2205.hangulquest.util.Lang;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 
@@ -34,7 +35,7 @@ public final class InfoTab extends JournalTab {
 	public void render(GuiGraphicsExtractor g, int x, int y, int width, int height) {
 		LearningService learn = host.hq().learn();
 		if (learn == null) {
-			Draw.label(g, host.font(), Tr.t("Lernsystem lädt…"), x, y, Ink.INK_SOFT);
+			Draw.label(g, host.font(), I18n.t("hangulquest.ui.info.loading"), x, y, Ink.INK_SOFT);
 			return;
 		}
 		long now = System.currentTimeMillis();
@@ -65,10 +66,10 @@ public final class InfoTab extends JournalTab {
 			yy += 22;
 		}
 
-		host.button(g, x, yy, 110, 18, Tr.t("Wiederholen"), false, startReview);
-		host.button(g, x + 118, yy, 110, 18, Tr.t("Quests öffnen"), false, openQuests);
+		host.button(g, x, yy, 110, 18, I18n.t("hangulquest.ui.info.review"), false, startReview);
+		host.button(g, x + 118, yy, 110, 18, I18n.t("hangulquest.ui.info.open_quests"), false, openQuests);
 		yy += 26;
-		host.button(g, x, yy, 228, 18, Tr.t("Über das Lesen von Hangul"), false, openWelcome);
+		host.button(g, x, yy, 228, 18, I18n.t("hangulquest.ui.info.about_hangul"), false, openWelcome);
 	}
 
 	private void startReview() {
@@ -88,13 +89,12 @@ public final class InfoTab extends JournalTab {
 		int correct = today == null ? 0 : today.correct;
 		Word word = wordOfTheDay(learn);
 		return new Snapshot(
-				Tr.t("Entdeckt ") + discovered + Tr.t("   Beherrscht ") + learn.mastered(),
-				Tr.t("Fällig ") + learn.dueCount(now) + Tr.t("   Serie ") + streak.current()
-						+ Tr.t(" Tage (best ") + streak.best() + ")",
-				Tr.t("Heute ") + seen + Tr.t(" gesehen, ") + correct + Tr.t(" richtig"),
-				Tr.t("Stufe ") + level + Tr.t(" von 10"),
-				word, Tr.t("Wort des Tages"),
-				word == null ? Component.empty() : Component.literal(Tr.pick(word.en, word.deShort)));
+				I18n.t("hangulquest.ui.info.discovered_mastered", discovered, learn.mastered()),
+				I18n.t("hangulquest.ui.info.due_streak", learn.dueCount(now), streak.current(), streak.best()),
+				I18n.t("hangulquest.ui.info.today", seen, correct),
+				I18n.t("hangulquest.ui.info.level", level),
+				word, I18n.t("hangulquest.ui.info.word_of_day"),
+				word == null ? Component.empty() : Component.literal(word.gloss(Lang.current())));
 	}
 
 	private Word wordOfTheDay(LearningService learn) {

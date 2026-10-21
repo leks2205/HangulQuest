@@ -7,7 +7,8 @@ import io.github.leks2205.hangulquest.learn.Srs;
 import io.github.leks2205.hangulquest.learn.WordProgress;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
-import io.github.leks2205.hangulquest.util.Tr;
+import io.github.leks2205.hangulquest.util.I18n;
+import io.github.leks2205.hangulquest.util.Lang;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
@@ -125,7 +126,7 @@ public final class WordsTab extends JournalTab {
 		listFirst = scroll;
 		listEnd = end;
 		host.hit(x, y, width, (end - scroll) * ROW_HEIGHT, rowClick);
-		Draw.label(g, host.font(), words.size() + Tr.t(" Wörter · Mausrad scrollt"), x, y + height - 10,
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.words.count_hint", words.size()), x, y + height - 10,
 				Ink.INK_FAINT);
 	}
 
@@ -161,7 +162,7 @@ public final class WordsTab extends JournalTab {
 			Word word = current.words.get(index);
 			LearningService learn = host.hq().learn();
 			row = new Row(word, learn != null && learn.introduced(word.id),
-					Draw.fit(host.font(), Component.literal(Tr.pick(word.en, word.deShort)), current.glossWidth),
+					Draw.fit(host.font(), Component.literal(word.gloss(Lang.current())), current.glossWidth),
 					levelDots(word.id));
 			current.rows[index] = row;
 		}
@@ -209,12 +210,12 @@ public final class WordsTab extends JournalTab {
 		Draw.label(g, host.font(), d.metrics(), x, yy, Ink.INK_FAINT);
 		yy += 20;
 		boolean known = d.known();
-		host.button(g, x, yy, 110, 18, known ? Tr.t("Wieder lernen") : Tr.t("Als bekannt"), false, () -> {
+		host.button(g, x, yy, 110, 18, known ? I18n.t("hangulquest.ui.words.relearn") : I18n.t("hangulquest.ui.words.mark_known"), false, () -> {
 			host.hq().learn().markKnown(word.id, !known, System.currentTimeMillis());
 			host.changed();
-			host.status(known ? Tr.t("Wird wieder gelernt.") : Tr.t("Als bekannt markiert."));
+			host.status(known ? I18n.t("hangulquest.ui.words.status_relearn") : I18n.t("hangulquest.ui.words.status_known"));
 		});
-		host.button(g, x + 118, yy, 90, 18, Tr.t("Zurück"), false, () -> selectedWordId = null);
+		host.button(g, x + 118, yy, 90, 18, I18n.t("hangulquest.ui.words.back"), false, () -> selectedWordId = null);
 	}
 
 	/** The detail texts for the selected word, rebuilt only when something they show may have changed. */
@@ -240,11 +241,11 @@ public final class WordsTab extends JournalTab {
 					: KoText.ko(concept.sentenceKo);
 		}
 		WordProgress progress = learn == null ? null : learn.data().words.get(word.id);
-		String metrics = progress == null ? Tr.t("noch nicht entdeckt")
-				: Tr.t("gesehen ") + progress.seen + Tr.t(" · richtig ") + progress.correct + Tr.t(" · falsch ")
-				+ progress.wrong + (progress.known ? Tr.t(" · bekannt") : "");
+		String metrics = progress == null ? I18n.t("hangulquest.ui.words.not_discovered")
+				: I18n.t(progress.known ? "hangulquest.ui.words.metrics_known" : "hangulquest.ui.words.metrics",
+						progress.seen, progress.correct, progress.wrong);
 		detail = new Detail(selectedWordId, host.epoch(), showDe, language(), reviews, word,
-				Component.literal(Tr.pick(word.en, word.de)), sentence,
+				Component.literal(word.glossFull(Lang.current())), sentence,
 				word.hasDescKo() ? KoText.ko(word.descKo) : null, metrics,
 				progress != null && progress.known);
 		return detail;
