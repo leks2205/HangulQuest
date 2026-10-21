@@ -79,11 +79,27 @@ class GoalEvaluatorTest {
 		Observation obs = observation();
 		obs.inventory.put("minecraft:apple", 5);
 		GoalEvaluator.tick(goal, List.of(), obs, tracker);
+		obs.screenOpen = true;
 		obs.inventory.remove("minecraft:apple"); // stack picked up with the cursor
 		assertFalse(GoalEvaluator.tick(goal, List.of(), obs, tracker));
 		obs.inventory.put("minecraft:apple", 5); // and put back
 		assertFalse(GoalEvaluator.tick(goal, List.of(), obs, tracker));
 		assertEquals(0, tracker.count);
+	}
+
+	@Test
+	void acquireBaselineFollowsTheStackDownWhenItemsAreUsed() {
+		GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
+		Goal goal = new Goal.AcquireItem("minecraft:apple", 2);
+		Observation obs = observation();
+		obs.inventory.put("minecraft:apple", 5);
+		GoalEvaluator.tick(goal, List.of(), obs, tracker);
+		obs.inventory.put("minecraft:apple", 3); // two eaten, no menu open
+		assertFalse(GoalEvaluator.tick(goal, List.of(), obs, tracker));
+		obs.inventory.put("minecraft:apple", 4);
+		assertFalse(GoalEvaluator.tick(goal, List.of(), obs, tracker));
+		obs.inventory.put("minecraft:apple", 5);
+		assertTrue(GoalEvaluator.tick(goal, List.of(), obs, tracker), "eating must not block later gains");
 	}
 
 	@Test

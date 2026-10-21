@@ -169,7 +169,7 @@ public final class GoalEvaluator {
 		}
 		if (goal instanceof Goal.AcquireItem g) {
 			// The baseline is taken even while conditions fail, so items picked up meanwhile count later.
-			baselineAcquired(tracker, familyCount(obs, g.item()), obs.inventorySettling);
+			baselineAcquired(tracker, familyCount(obs, g.item()), obs.inventorySettling, obs.screenOpen);
 		}
 		int countBefore = tracker.count;
 		long dwellBefore = tracker.dwellMs;
@@ -289,11 +289,13 @@ public final class GoalEvaluator {
 	 * Only {@code count} is persisted (as goalProgress). After a restart the step is re-baselined at
 	 * whatever the player holds then, with the saved count carried over. Trade-off: items picked up
 	 * after the last save but before the restart are not credited, and neither are items that were
-	 * already held when the game restarted. Items consumed from the baseline stack (crafting, eating)
-	 * mean more must be gained before progress resumes.
+	 * already held when the game restarted. When the held count drops below the baseline while no menu
+	 * is open (eating, placing, dropping, or a crafting menu that was closed), the baseline follows it
+	 * down, so using the item never blocks progress. Inside a menu it stays put, because a stack on the
+	 * cursor is not in the inventory and putting it back must not count as a gain.
 	 */
-	static void baselineAcquired(Tracker tracker, int held, boolean settling) {
-		if (tracker.baseCount < 0 || settling) {
+	static void baselineAcquired(Tracker tracker, int held, boolean settling, boolean screenOpen) {
+		if (tracker.baseCount < 0 || settling || (held < tracker.baseCount && !screenOpen)) {
 			tracker.baseCount = held;
 			tracker.carried = tracker.count;
 		}
