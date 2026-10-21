@@ -14,6 +14,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
+import java.util.Set;
 
 /** Merged vocabulary: curated concepts, dynamic vanilla names and imported Lute words. */
 public final class Catalog {
@@ -51,7 +52,8 @@ public final class Catalog {
 		return catalog;
 	}
 
-	public void add(Word word) {		if (word == null || word.id == null) {
+	public void add(Word word) {
+		if (word == null || word.id == null) {
 			return;
 		}
 		Word previous = byId.putIfAbsent(word.id, word);
@@ -59,8 +61,9 @@ public final class Catalog {
 			return;
 		}
 		all.add(word);
-		if (word.iconItem != null) {
-			byItem.putIfAbsent(word.iconItem, word);
+		// Only what the word names, never its picture: gunpowder must not resolve to 크리퍼.
+		for (String item : word.referents) {
+			byItem.putIfAbsent(item, word);
 		}
 		if (word.entityId != null) {
 			byEntity.putIfAbsent(word.entityId, word);
@@ -133,20 +136,39 @@ public final class Catalog {
 		if (ko.equalsIgnoreCase(de) || ko.equals(de)) {
 			return false;
 		}
-		String path = id.getPath();
-		for (String skip : TECHNICAL) {
-			if (path.contains(skip)) {
-				return false;
-			}
-		}
-		return true;
+		return !isTechnical(id.getPath());
 	}
 
-	private static final String[] TECHNICAL = {
-			"spawn_egg", "banner_pattern", "smithing_template", "music_disc", "debug",
-			"command_block", "structure_block", "jigsaw", "barrier", "light", "test_",
-			"knowledge_book", "infested", "air", "moving_piston", "player_head"
-	};
+	/** Exact ids that are not learnable vocabulary. */
+	private static final Set<String> TECHNICAL_IDS = Set.of(
+			"air", "cave_air", "void_air", "light", "barrier", "jigsaw", "structure_block",
+			"command_block", "chain_command_block", "repeating_command_block", "command_block_minecart",
+			"debug_stick", "knowledge_book", "moving_piston", "player_head", "test_block",
+			"test_instance_block");
+	private static final String[] TECHNICAL_PREFIXES = {"music_disc_", "infested_", "debug_", "test_"};
+	private static final String[] TECHNICAL_SUFFIXES = {"_spawn_egg", "_banner_pattern", "_smithing_template"};
+
+	/**
+	 * Whether a registry path is a technical or creative-only entry. Exact ids and
+	 * prefix/suffix rules only: a substring test would also drop stairs (air), light_gray_*,
+	 * light_blue_*, lightning_rod and daylight_detector.
+	 */
+	static boolean isTechnical(String path) {
+		if (TECHNICAL_IDS.contains(path)) {
+			return true;
+		}
+		for (String prefix : TECHNICAL_PREFIXES) {
+			if (path.startsWith(prefix)) {
+				return true;
+			}
+		}
+		for (String suffix : TECHNICAL_SUFFIXES) {
+			if (path.endsWith(suffix)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	private static Category itemCategory(String path) {
 		String lower = path.toLowerCase(Locale.ROOT);
@@ -196,6 +218,7 @@ public final class Catalog {
 		return byId("concept:" + conceptId);
 	}
 
+	/** The word that names this item. Resolves by referent only; a word's icon never counts. */
 	public Optional<Word> byItemId(String itemId) {
 		return Optional.ofNullable(itemId == null ? null : byItem.get(itemId));
 	}

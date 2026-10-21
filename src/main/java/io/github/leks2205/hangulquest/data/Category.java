@@ -2,21 +2,25 @@ package io.github.leks2205.hangulquest.data;
 
 /** Coarse grouping used by the journal and by distractor selection. */
 public enum Category {
-	BLOCKS("Blöcke"),
-	TOOLS("Werkzeuge"),
-	FOOD("Nahrung"),
-	ANIMALS("Tiere"),
-	ENVIRONMENT("Umgebung"),
-	ACTIONS("Handlungen"),
-	MATERIALS("Materialien"),
-	COMBAT("Kampf"),
-	MISC("Sonstiges"),
-	PHRASE("Redewendung");
+	BLOCKS("Blöcke", "Blocks"),
+	TOOLS("Werkzeuge", "Tools"),
+	FOOD("Nahrung", "Food"),
+	ANIMALS("Tiere", "Animals"),
+	ENVIRONMENT("Umgebung", "Surroundings"),
+	ACTIONS("Handlungen", "Actions"),
+	MATERIALS("Materialien", "Materials"),
+	COMBAT("Kampf", "Combat"),
+	ITEMS("Gegenstände", "Items"),
+	BUILDING("Bauteile", "Building"),
+	MISC("Sonstiges", "Other"),
+	PHRASE("Redewendung", "Phrase");
 
 	private final String german;
+	private final String english;
 
-	Category(String german) {
+	Category(String german, String english) {
 		this.german = german;
+		this.english = english;
 	}
 
 	public String german() {
@@ -25,6 +29,6 @@ public enum Category {
 
 	/** Label in the interface language. */
 	public String label() {
-		return io.github.leks2205.hangulquest.util.Tr.t(german);
+		return io.github.leks2205.hangulquest.util.Tr.pick(english, german);
 	}
 }

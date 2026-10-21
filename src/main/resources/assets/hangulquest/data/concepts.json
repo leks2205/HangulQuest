@@ -50,7 +50,7 @@
   "aliases": [
    "잔디"
   ],
-  "en": "Grass Block"
+  "en": "grass"
  },
  {
   "id": "sand",
@@ -102,7 +102,7 @@
    "통나무",
    "나무"
   ],
-  "en": "Oak Log"
+  "en": "log"
  },
  {
   "id": "tree",
@@ -110,16 +110,15 @@
   "de": "Baum",
   "category": "BLOCKS",
   "tier": 1,
-  "items": [
-   "minecraft:oak_sapling"
-  ],
+  "items": [],
+  "icon": "minecraft:oak_sapling",
   "sentenceKo": "나무를 베어요.",
   "sentenceDe": "Einen Baum fällen.",
   "descKo": "키가 커요. 잎이 있어요.",
   "aliases": [
    "나무"
   ],
-  "en": "Oak Sapling"
+  "en": "tree"
  },
  {
   "id": "planks",
@@ -136,7 +135,7 @@
   "aliases": [
    "판자"
   ],
-  "en": "Oak Planks"
+  "en": "planks"
  },
  {
   "id": "cobblestone",
@@ -191,7 +190,7 @@
   "aliases": [
    "철"
   ],
-  "en": "Iron Ingot"
+  "en": "iron"
  },
  {
   "id": "gold",
@@ -211,7 +210,7 @@
   "aliases": [
    "금"
   ],
-  "en": "Gold Ingot"
+  "en": "gold"
  },
  {
   "id": "diamond",
@@ -255,16 +254,15 @@
   "de": "Wasser",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:water_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:water_bucket",
   "sentenceKo": "물을 마셔요.",
   "sentenceDe": "Wasser trinken.",
   "descKo": "투명해요. 마실 수 있어요.",
   "aliases": [
    "물"
   ],
-  "en": "Water Bucket"
+  "en": "water"
  },
  {
   "id": "lava",
@@ -273,16 +271,16 @@
   "category": "ENVIRONMENT",
   "tier": 2,
   "items": [
-   "minecraft:lava_bucket",
    "minecraft:lava"
   ],
+  "icon": "minecraft:lava_bucket",
   "sentenceKo": "용암을 봐요.",
   "sentenceDe": "Lava ansehen.",
   "descKo": "아주 뜨거워요. 빨간색이에요.",
   "aliases": [
    "용암"
   ],
-  "en": "Lava Bucket"
+  "en": "lava"
  },
  {
   "id": "snow",
@@ -300,7 +298,7 @@
   "aliases": [
    "눈"
   ],
-  "en": "Snow Block"
+  "en": "snow"
  },
  {
   "id": "ice",
@@ -402,7 +400,7 @@
   "aliases": [
    "침대"
   ],
-  "en": "Red Bed"
+  "en": "bed"
  },
  {
   "id": "door",
@@ -419,7 +417,7 @@
   "aliases": [
    "문"
   ],
-  "en": "Oak Door"
+  "en": "door"
  },
  {
   "id": "ladder",
@@ -538,7 +536,7 @@
   "aliases": [
    "꽃"
   ],
-  "en": "Poppy"
+  "en": "flower"
  },
  {
   "id": "mushroom",
@@ -556,7 +554,7 @@
   "aliases": [
    "버섯"
   ],
-  "en": "Red Mushroom"
+  "en": "mushroom"
  },
  {
   "id": "pickaxe",
@@ -573,7 +571,7 @@
   "aliases": [
    "곡괭이"
   ],
-  "en": "Iron Pickaxe"
+  "en": "pickaxe"
  },
  {
   "id": "axe",
@@ -590,7 +588,7 @@
   "aliases": [
    "도끼"
   ],
-  "en": "Iron Axe"
+  "en": "axe"
  },
  {
   "id": "shovel",
@@ -607,7 +605,7 @@
   "aliases": [
    "삽"
   ],
-  "en": "Iron Shovel"
+  "en": "shovel"
  },
  {
   "id": "hoe",
@@ -624,7 +622,7 @@
   "aliases": [
    "괭이"
   ],
-  "en": "Iron Hoe"
+  "en": "hoe"
  },
  {
   "id": "sword",
@@ -641,7 +639,7 @@
   "aliases": [
    "검"
   ],
-  "en": "Iron Sword"
+  "en": "sword"
  },
  {
   "id": "bow",
@@ -829,7 +827,7 @@
   "aliases": [
    "소고기"
   ],
-  "en": "Steak"
+  "en": "beef"
  },
  {
   "id": "pork",
@@ -846,7 +844,7 @@
   "aliases": [
    "돼지고기"
   ],
-  "en": "Cooked Porkchop"
+  "en": "pork"
  },
  {
   "id": "chicken_meat",
@@ -863,7 +861,7 @@
   "aliases": [
    "닭고기"
   ],
-  "en": "Cooked Chicken"
+  "en": "chicken meat"
  },
  {
   "id": "milk",
@@ -871,16 +869,15 @@
   "de": "Milch",
   "category": "FOOD",
   "tier": 1,
-  "items": [
-   "minecraft:milk_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:milk_bucket",
   "sentenceKo": "우유를 마셔요.",
   "sentenceDe": "Milch trinken.",
   "descKo": "하얘요. 마실 수 있어요.",
   "aliases": [
    "우유"
   ],
-  "en": "Milk Bucket"
+  "en": "milk"
  },
  {
   "id": "honey",
@@ -888,16 +885,15 @@
   "de": "Honig",
   "category": "FOOD",
   "tier": 2,
-  "items": [
-   "minecraft:honey_bottle"
-  ],
+  "items": [],
+  "icon": "minecraft:honey_bottle",
   "sentenceKo": "꿀을 마셔요.",
   "sentenceDe": "Honig trinken.",
   "descKo": "달아요. 벌이 만들어요.",
   "aliases": [
    "꿀"
   ],
-  "en": "Honey Bottle"
+  "en": "honey"
  },
  {
   "id": "melon",
@@ -914,7 +910,7 @@
   "aliases": [
    "수박"
   ],
-  "en": "Melon Slice"
+  "en": "watermelon"
  },
  {
   "id": "cow",
@@ -922,9 +918,8 @@
   "de": "Kuh",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:beef"
-  ],
+  "items": [],
+  "icon": "minecraft:beef",
   "entity": "minecraft:cow",
   "sentenceKo": "소를 봐요.",
   "sentenceDe": "Eine Kuh ansehen.",
@@ -932,7 +927,7 @@
   "aliases": [
    "소"
   ],
-  "en": "Raw Beef"
+  "en": "cow"
  },
  {
   "id": "pig",
@@ -940,9 +935,8 @@
   "de": "Schwein",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:porkchop"
-  ],
+  "items": [],
+  "icon": "minecraft:porkchop",
   "entity": "minecraft:pig",
   "sentenceKo": "돼지를 봐요.",
   "sentenceDe": "Ein Schwein ansehen.",
@@ -950,7 +944,7 @@
   "aliases": [
    "돼지"
   ],
-  "en": "Raw Porkchop"
+  "en": "pig"
  },
  {
   "id": "sheep",
@@ -958,9 +952,8 @@
   "de": "Schaf",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:mutton"
-  ],
+  "items": [],
+  "icon": "minecraft:mutton",
   "entity": "minecraft:sheep",
   "sentenceKo": "양을 봐요.",
   "sentenceDe": "Ein Schaf ansehen.",
@@ -968,7 +961,7 @@
   "aliases": [
    "양"
   ],
-  "en": "Raw Mutton"
+  "en": "sheep"
  },
  {
   "id": "chicken",
@@ -976,9 +969,8 @@
   "de": "Huhn",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:chicken"
-  ],
+  "items": [],
+  "icon": "minecraft:chicken",
   "entity": "minecraft:chicken",
   "sentenceKo": "닭을 봐요.",
   "sentenceDe": "Ein Huhn ansehen.",
@@ -986,7 +978,7 @@
   "aliases": [
    "닭"
   ],
-  "en": "Raw Chicken"
+  "en": "chicken"
  },
  {
   "id": "horse",
@@ -994,9 +986,8 @@
   "de": "Pferd",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:saddle"
-  ],
+  "items": [],
+  "icon": "minecraft:saddle",
   "entity": "minecraft:horse",
   "sentenceKo": "말을 봐요.",
   "sentenceDe": "Ein Pferd ansehen.",
@@ -1004,7 +995,7 @@
   "aliases": [
    "말"
   ],
-  "en": "Saddle"
+  "en": "horse"
  },
  {
   "id": "wolf",
@@ -1012,9 +1003,8 @@
   "de": "Wolf",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:bone"
-  ],
+  "items": [],
+  "icon": "minecraft:bone",
   "entity": "minecraft:wolf",
   "sentenceKo": "늑대를 봐요.",
   "sentenceDe": "Einen Wolf ansehen.",
@@ -1022,7 +1012,7 @@
   "aliases": [
    "늑대"
   ],
-  "en": "Bone"
+  "en": "wolf"
  },
  {
   "id": "cat",
@@ -1030,9 +1020,8 @@
   "de": "Katze",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:cod"
-  ],
+  "items": [],
+  "icon": "minecraft:cod",
   "entity": "minecraft:cat",
   "sentenceKo": "고양이를 봐요.",
   "sentenceDe": "Eine Katze ansehen.",
@@ -1040,7 +1029,7 @@
   "aliases": [
    "고양이"
   ],
-  "en": "Raw Cod"
+  "en": "cat"
  },
  {
   "id": "rabbit",
@@ -1048,9 +1037,8 @@
   "de": "Kaninchen",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:rabbit_foot"
-  ],
+  "items": [],
+  "icon": "minecraft:rabbit_foot",
   "entity": "minecraft:rabbit",
   "sentenceKo": "토끼를 봐요.",
   "sentenceDe": "Ein Kaninchen ansehen.",
@@ -1058,7 +1046,7 @@
   "aliases": [
    "토끼"
   ],
-  "en": "Rabbit's Foot"
+  "en": "rabbit"
  },
  {
   "id": "fox",
@@ -1066,9 +1054,8 @@
   "de": "Fuchs",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:sweet_berries"
-  ],
+  "items": [],
+  "icon": "minecraft:sweet_berries",
   "entity": "minecraft:fox",
   "sentenceKo": "여우를 봐요.",
   "sentenceDe": "Einen Fuchs ansehen.",
@@ -1076,7 +1063,7 @@
   "aliases": [
    "여우"
   ],
-  "en": "Sweet Berries"
+  "en": "fox"
  },
  {
   "id": "bee",
@@ -1084,9 +1071,8 @@
   "de": "Biene",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:honeycomb"
-  ],
+  "items": [],
+  "icon": "minecraft:honeycomb",
   "entity": "minecraft:bee",
   "sentenceKo": "벌을 봐요.",
   "sentenceDe": "Eine Biene ansehen.",
@@ -1094,7 +1080,7 @@
   "aliases": [
    "벌"
   ],
-  "en": "Honeycomb"
+  "en": "bee"
  },
  {
   "id": "turtle",
@@ -1102,9 +1088,8 @@
   "de": "Schildkröte",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:scute"
-  ],
+  "items": [],
+  "icon": "minecraft:scute",
   "entity": "minecraft:turtle",
   "sentenceKo": "거북을 봐요.",
   "sentenceDe": "Eine Schildkröte ansehen.",
@@ -1112,7 +1097,7 @@
   "aliases": [
    "거북"
   ],
-  "en": "Scute"
+  "en": "turtle"
  },
  {
   "id": "squid",
@@ -1120,9 +1105,8 @@
   "de": "Tintenfisch",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:ink_sac"
-  ],
+  "items": [],
+  "icon": "minecraft:ink_sac",
   "entity": "minecraft:squid",
   "sentenceKo": "오징어를 봐요.",
   "sentenceDe": "Einen Tintenfisch ansehen.",
@@ -1130,7 +1114,7 @@
   "aliases": [
    "오징어"
   ],
-  "en": "Ink Sac"
+  "en": "squid"
  },
  {
   "id": "zombie",
@@ -1138,9 +1122,8 @@
   "de": "Zombie",
   "category": "COMBAT",
   "tier": 1,
-  "items": [
-   "minecraft:rotten_flesh"
-  ],
+  "items": [],
+  "icon": "minecraft:rotten_flesh",
   "entity": "minecraft:zombie",
   "sentenceKo": "좀비를 물리쳐요.",
   "sentenceDe": "Einen Zombie besiegen.",
@@ -1148,7 +1131,7 @@
   "aliases": [
    "좀비"
   ],
-  "en": "Rotten Flesh"
+  "en": "zombie"
  },
  {
   "id": "skeleton",
@@ -1156,9 +1139,8 @@
   "de": "Skelett",
   "category": "COMBAT",
   "tier": 1,
-  "items": [
-   "minecraft:bone"
-  ],
+  "items": [],
+  "icon": "minecraft:bone",
   "entity": "minecraft:skeleton",
   "sentenceKo": "스켈레톤을 물리쳐요.",
   "sentenceDe": "Ein Skelett besiegen.",
@@ -1166,7 +1148,7 @@
   "aliases": [
    "스켈레톤"
   ],
-  "en": "Bone"
+  "en": "skeleton"
  },
  {
   "id": "creeper",
@@ -1174,9 +1156,8 @@
   "de": "Creeper",
   "category": "COMBAT",
   "tier": 1,
-  "items": [
-   "minecraft:gunpowder"
-  ],
+  "items": [],
+  "icon": "minecraft:gunpowder",
   "entity": "minecraft:creeper",
   "sentenceKo": "크리퍼를 물리쳐요.",
   "sentenceDe": "Einen Creeper besiegen.",
@@ -1184,7 +1165,7 @@
   "aliases": [
    "크리퍼"
   ],
-  "en": "Gunpowder"
+  "en": "Creeper"
  },
  {
   "id": "spider",
@@ -1192,9 +1173,8 @@
   "de": "Spinne",
   "category": "COMBAT",
   "tier": 1,
-  "items": [
-   "minecraft:string"
-  ],
+  "items": [],
+  "icon": "minecraft:string",
   "entity": "minecraft:spider",
   "sentenceKo": "거미를 물리쳐요.",
   "sentenceDe": "Eine Spinne besiegen.",
@@ -1202,7 +1182,7 @@
   "aliases": [
    "거미"
   ],
-  "en": "String"
+  "en": "spider"
  },
  {
   "id": "enderman",
@@ -1210,9 +1190,8 @@
   "de": "Enderman",
   "category": "COMBAT",
   "tier": 2,
-  "items": [
-   "minecraft:ender_pearl"
-  ],
+  "items": [],
+  "icon": "minecraft:ender_pearl",
   "entity": "minecraft:enderman",
   "sentenceKo": "엔더맨을 물리쳐요.",
   "sentenceDe": "Einen Enderman besiegen.",
@@ -1220,7 +1199,7 @@
   "aliases": [
    "엔더맨"
   ],
-  "en": "Ender Pearl"
+  "en": "Enderman"
  },
  {
   "id": "witch",
@@ -1228,9 +1207,8 @@
   "de": "Hexe",
   "category": "COMBAT",
   "tier": 2,
-  "items": [
-   "minecraft:glass_bottle"
-  ],
+  "items": [],
+  "icon": "minecraft:glass_bottle",
   "entity": "minecraft:witch",
   "sentenceKo": "마녀를 물리쳐요.",
   "sentenceDe": "Eine Hexe besiegen.",
@@ -1238,7 +1216,7 @@
   "aliases": [
    "마녀"
   ],
-  "en": "Glass Bottle"
+  "en": "witch"
  },
  {
   "id": "villager",
@@ -1246,9 +1224,8 @@
   "de": "Dorfbewohner",
   "category": "ANIMALS",
   "tier": 1,
-  "items": [
-   "minecraft:emerald"
-  ],
+  "items": [],
+  "icon": "minecraft:emerald",
   "entity": "minecraft:villager",
   "sentenceKo": "주민과 이야기해요.",
   "sentenceDe": "Mit einem Dorfbewohner sprechen.",
@@ -1256,7 +1233,7 @@
   "aliases": [
    "주민"
   ],
-  "en": "Emerald"
+  "en": "villager"
  },
  {
   "id": "forest",
@@ -1264,9 +1241,8 @@
   "de": "Wald",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:oak_sapling"
-  ],
+  "items": [],
+  "icon": "minecraft:oak_sapling",
   "biome": "minecraft:forest",
   "sentenceKo": "숲에 가요.",
   "sentenceDe": "In den Wald gehen.",
@@ -1274,7 +1250,7 @@
   "aliases": [
    "숲"
   ],
-  "en": "Oak Sapling"
+  "en": "forest"
  },
  {
   "id": "ocean",
@@ -1282,9 +1258,8 @@
   "de": "Ozean",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:water_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:water_bucket",
   "biome": "#minecraft:is_ocean",
   "sentenceKo": "바다에 가요.",
   "sentenceDe": "Zum Ozean gehen.",
@@ -1292,7 +1267,7 @@
   "aliases": [
    "바다"
   ],
-  "en": "Water Bucket"
+  "en": "ocean"
  },
  {
   "id": "river",
@@ -1300,9 +1275,8 @@
   "de": "Fluss",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:lily_pad"
-  ],
+  "items": [],
+  "icon": "minecraft:lily_pad",
   "biome": "#minecraft:is_river",
   "sentenceKo": "강에 가요.",
   "sentenceDe": "Zum Fluss gehen.",
@@ -1310,7 +1284,7 @@
   "aliases": [
    "강"
   ],
-  "en": "Lily Pad"
+  "en": "river"
  },
  {
   "id": "mountain",
@@ -1318,9 +1292,8 @@
   "de": "Berg",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:stone"
-  ],
+  "items": [],
+  "icon": "minecraft:stone",
   "biome": "#minecraft:is_mountain",
   "sentenceKo": "산에 올라가요.",
   "sentenceDe": "Auf einen Berg steigen.",
@@ -1328,7 +1301,7 @@
   "aliases": [
    "산"
   ],
-  "en": "Stone"
+  "en": "mountain"
  },
  {
   "id": "desert",
@@ -1336,9 +1309,8 @@
   "de": "Wüste",
   "category": "ENVIRONMENT",
   "tier": 2,
-  "items": [
-   "minecraft:sand"
-  ],
+  "items": [],
+  "icon": "minecraft:sand",
   "biome": "minecraft:desert",
   "sentenceKo": "사막에 가요.",
   "sentenceDe": "In die Wüste gehen.",
@@ -1346,7 +1318,7 @@
   "aliases": [
    "사막"
   ],
-  "en": "Sand"
+  "en": "desert"
  },
  {
   "id": "beach",
@@ -1354,9 +1326,8 @@
   "de": "Strand",
   "category": "ENVIRONMENT",
   "tier": 2,
-  "items": [
-   "minecraft:sand"
-  ],
+  "items": [],
+  "icon": "minecraft:sand",
   "biome": "minecraft:beach",
   "sentenceKo": "해변에 가요.",
   "sentenceDe": "Zum Strand gehen.",
@@ -1364,7 +1335,7 @@
   "aliases": [
    "해변"
   ],
-  "en": "Sand"
+  "en": "beach"
  },
  {
   "id": "cave",
@@ -1372,16 +1343,15 @@
   "de": "Höhle",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:torch"
-  ],
+  "items": [],
+  "icon": "minecraft:torch",
   "sentenceKo": "동굴에 가요.",
   "sentenceDe": "In eine Höhle gehen.",
   "descKo": "어두워요. 돌이 많아요.",
   "aliases": [
    "동굴"
   ],
-  "en": "Torch"
+  "en": "cave"
  },
  {
   "id": "village",
@@ -1389,16 +1359,15 @@
   "de": "Dorf",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:bell"
-  ],
+  "items": [],
+  "icon": "minecraft:bell",
   "sentenceKo": "마을에 가요.",
   "sentenceDe": "In ein Dorf gehen.",
   "descKo": "사람과 집이 있어요.",
   "aliases": [
    "마을"
   ],
-  "en": "Bell"
+  "en": "village"
  },
  {
   "id": "nether",
@@ -1406,9 +1375,8 @@
   "de": "Nether",
   "category": "ENVIRONMENT",
   "tier": 2,
-  "items": [
-   "minecraft:netherrack"
-  ],
+  "items": [],
+  "icon": "minecraft:netherrack",
   "entity": null,
   "sentenceKo": "지옥에 가요.",
   "sentenceDe": "In den Nether gehen.",
@@ -1416,7 +1384,7 @@
   "aliases": [
    "지옥"
   ],
-  "en": "Netherrack"
+  "en": "the Nether"
  },
  {
   "id": "end",
@@ -1424,16 +1392,15 @@
   "de": "Ende",
   "category": "ENVIRONMENT",
   "tier": 3,
-  "items": [
-   "minecraft:ender_pearl"
-  ],
+  "items": [],
+  "icon": "minecraft:ender_pearl",
   "sentenceKo": "엔드에 가요.",
   "sentenceDe": "Ins Ende gehen.",
   "descKo": "어두운 곳이에요.",
   "aliases": [
    "엔드"
   ],
-  "en": "Ender Pearl"
+  "en": "the End"
  },
  {
   "id": "sky",
@@ -1441,16 +1408,15 @@
   "de": "Himmel",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:sunflower"
-  ],
+  "items": [],
+  "icon": "minecraft:sunflower",
   "sentenceKo": "하늘을 봐요.",
   "sentenceDe": "Den Himmel ansehen.",
   "descKo": "위에 있어요. 파란색이에요.",
   "aliases": [
    "하늘"
   ],
-  "en": "Sunflower"
+  "en": "sky"
  },
  {
   "id": "sun",
@@ -1458,16 +1424,15 @@
   "de": "Sonne",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:sunflower"
-  ],
+  "items": [],
+  "icon": "minecraft:sunflower",
   "sentenceKo": "해를 봐요.",
   "sentenceDe": "Die Sonne ansehen.",
   "descKo": "밝아요. 낮에 있어요.",
   "aliases": [
    "해"
   ],
-  "en": "Sunflower"
+  "en": "sun"
  },
  {
   "id": "moon",
@@ -1475,16 +1440,15 @@
   "de": "Mond",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:clock"
-  ],
+  "items": [],
+  "icon": "minecraft:clock",
   "sentenceKo": "달을 봐요.",
   "sentenceDe": "Den Mond ansehen.",
   "descKo": "밤에 있어요. 하얘요.",
   "aliases": [
    "달"
   ],
-  "en": "Clock"
+  "en": "moon"
  },
  {
   "id": "rain",
@@ -1492,16 +1456,15 @@
   "de": "Regen",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:water_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:water_bucket",
   "sentenceKo": "비가 와요.",
   "sentenceDe": "Es regnet.",
   "descKo": "하늘에서 물이 와요.",
   "aliases": [
    "비"
   ],
-  "en": "Water Bucket"
+  "en": "rain"
  },
  {
   "id": "thunder",
@@ -1509,16 +1472,15 @@
   "de": "Donner",
   "category": "ENVIRONMENT",
   "tier": 2,
-  "items": [
-   "minecraft:lightning_rod"
-  ],
+  "items": [],
+  "icon": "minecraft:lightning_rod",
   "sentenceKo": "천둥이 쳐요.",
   "sentenceDe": "Es donnert.",
   "descKo": "큰 소리가 나요.",
   "aliases": [
    "천둥"
   ],
-  "en": "Lightning Rod"
+  "en": "thunder"
  },
  {
   "id": "night",
@@ -1526,16 +1488,15 @@
   "de": "Nacht",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:torch"
-  ],
+  "items": [],
+  "icon": "minecraft:torch",
   "sentenceKo": "밤이에요.",
   "sentenceDe": "Es ist Nacht.",
   "descKo": "어두워요. 달이 있어요.",
   "aliases": [
    "밤"
   ],
-  "en": "Torch"
+  "en": "night"
  },
  {
   "id": "day",
@@ -1543,16 +1504,15 @@
   "de": "Tag",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:sunflower"
-  ],
+  "items": [],
+  "icon": "minecraft:sunflower",
   "sentenceKo": "낮이에요.",
   "sentenceDe": "Es ist Tag.",
   "descKo": "밝아요. 해가 있어요.",
   "aliases": [
    "낮"
   ],
-  "en": "Sunflower"
+  "en": "day"
  },
  {
   "id": "house",
@@ -1560,16 +1520,15 @@
   "de": "Haus",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [
-   "minecraft:oak_planks"
-  ],
+  "items": [],
+  "icon": "minecraft:oak_planks",
   "sentenceKo": "집을 지어요.",
   "sentenceDe": "Ein Haus bauen.",
   "descKo": "사람이 살아요.",
   "aliases": [
    "집"
   ],
-  "en": "Oak Planks"
+  "en": "house"
  },
  {
   "id": "mine",
@@ -1577,16 +1536,15 @@
   "de": "abbauen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:iron_pickaxe"
-  ],
+  "items": [],
+  "icon": "minecraft:iron_pickaxe",
   "sentenceKo": "돌을 캐요.",
   "sentenceDe": "Stein abbauen.",
   "descKo": "돌을 얻어요.",
   "aliases": [
    "캐다"
   ],
-  "en": "Iron Pickaxe"
+  "en": "to mine"
  },
  {
   "id": "chop",
@@ -1594,16 +1552,15 @@
   "de": "fällen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:iron_axe"
-  ],
+  "items": [],
+  "icon": "minecraft:iron_axe",
   "sentenceKo": "나무를 베어요.",
   "sentenceDe": "Einen Baum fällen.",
   "descKo": "나무를 얻어요.",
   "aliases": [
    "베다"
   ],
-  "en": "Iron Axe"
+  "en": "to chop down"
  },
  {
   "id": "place",
@@ -1611,16 +1568,15 @@
   "de": "platzieren",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:oak_planks"
-  ],
+  "items": [],
+  "icon": "minecraft:oak_planks",
   "sentenceKo": "블록을 놓아요.",
   "sentenceDe": "Einen Block platzieren.",
   "descKo": "블록을 땅에 둬요.",
   "aliases": [
    "놓다"
   ],
-  "en": "Oak Planks"
+  "en": "to place"
  },
  {
   "id": "collect",
@@ -1628,16 +1584,15 @@
   "de": "sammeln",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:chest"
-  ],
+  "items": [],
+  "icon": "minecraft:chest",
   "sentenceKo": "물건을 모아요.",
   "sentenceDe": "Dinge sammeln.",
   "descKo": "여러 개를 가져요.",
   "aliases": [
    "모으다"
   ],
-  "en": "Chest"
+  "en": "to collect"
  },
  {
   "id": "eat",
@@ -1645,16 +1600,15 @@
   "de": "essen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:apple"
-  ],
+  "items": [],
+  "icon": "minecraft:apple",
   "sentenceKo": "음식을 먹어요.",
   "sentenceDe": "Essen essen.",
   "descKo": "배를 채워요.",
   "aliases": [
    "먹다"
   ],
-  "en": "Apple"
+  "en": "to eat"
  },
  {
   "id": "drink",
@@ -1662,16 +1616,15 @@
   "de": "trinken",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:milk_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:milk_bucket",
   "sentenceKo": "물을 마셔요.",
   "sentenceDe": "Wasser trinken.",
   "descKo": "물을 몸에 넣어요.",
   "aliases": [
    "마시다"
   ],
-  "en": "Milk Bucket"
+  "en": "to drink"
  },
  {
   "id": "look",
@@ -1679,16 +1632,15 @@
   "de": "anschauen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:spyglass"
-  ],
+  "items": [],
+  "icon": "minecraft:spyglass",
   "sentenceKo": "하늘을 봐요.",
   "sentenceDe": "Den Himmel anschauen.",
   "descKo": "눈으로 봐요.",
   "aliases": [
    "보다"
   ],
-  "en": "Spyglass"
+  "en": "to look at"
  },
  {
   "id": "walk",
@@ -1696,16 +1648,15 @@
   "de": "gehen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:leather_boots"
-  ],
+  "items": [],
+  "icon": "minecraft:leather_boots",
   "sentenceKo": "천천히 걸어요.",
   "sentenceDe": "Langsam gehen.",
   "descKo": "발로 움직여요.",
   "aliases": [
    "걷다"
   ],
-  "en": "Leather Boots"
+  "en": "to walk"
  },
  {
   "id": "swim",
@@ -1713,16 +1664,15 @@
   "de": "schwimmen",
   "category": "ACTIONS",
   "tier": 2,
-  "items": [
-   "minecraft:water_bucket"
-  ],
+  "items": [],
+  "icon": "minecraft:water_bucket",
   "sentenceKo": "물에서 수영해요.",
   "sentenceDe": "Im Wasser schwimmen.",
   "descKo": "물에서 움직여요.",
   "aliases": [
    "수영하다"
   ],
-  "en": "Water Bucket"
+  "en": "to swim"
  },
  {
   "id": "sleep",
@@ -1730,16 +1680,15 @@
   "de": "schlafen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:red_bed"
-  ],
+  "items": [],
+  "icon": "minecraft:red_bed",
   "sentenceKo": "밤에 자요.",
   "sentenceDe": "Nachts schlafen.",
   "descKo": "밤에 눈을 감아요.",
   "aliases": [
    "자다"
   ],
-  "en": "Red Bed"
+  "en": "to sleep"
  },
  {
   "id": "make",
@@ -1747,16 +1696,15 @@
   "de": "herstellen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:crafting_table"
-  ],
+  "items": [],
+  "icon": "minecraft:crafting_table",
   "sentenceKo": "빵을 만들어요.",
   "sentenceDe": "Brot herstellen.",
   "descKo": "새로운 것을 봐요.",
   "aliases": [
    "만들다"
   ],
-  "en": "Crafting Table"
+  "en": "to make"
  },
  {
   "id": "open",
@@ -1764,16 +1712,15 @@
   "de": "öffnen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:chest"
-  ],
+  "items": [],
+  "icon": "minecraft:chest",
   "sentenceKo": "문을 열어요.",
   "sentenceDe": "Eine Tür öffnen.",
   "descKo": "안을 볼 수 있어요.",
   "aliases": [
    "열다"
   ],
-  "en": "Chest"
+  "en": "to open"
  },
  {
   "id": "fight",
@@ -1781,16 +1728,15 @@
   "de": "kämpfen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:iron_sword"
-  ],
+  "items": [],
+  "icon": "minecraft:iron_sword",
   "sentenceKo": "좀비와 싸워요.",
   "sentenceDe": "Gegen einen Zombie kämpfen.",
   "descKo": "몹을 물리쳐요.",
   "aliases": [
    "싸우다"
   ],
-  "en": "Iron Sword"
+  "en": "to fight"
  },
  {
   "id": "climb",
@@ -1798,16 +1744,15 @@
   "de": "hinaufsteigen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:ladder"
-  ],
+  "items": [],
+  "icon": "minecraft:ladder",
   "sentenceKo": "산에 올라가요.",
   "sentenceDe": "Auf den Berg steigen.",
   "descKo": "위로 가요.",
   "aliases": [
    "올라가다"
   ],
-  "en": "Ladder"
+  "en": "to climb"
  },
  {
   "id": "dig",
@@ -1815,16 +1760,15 @@
   "de": "graben",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:iron_shovel"
-  ],
+  "items": [],
+  "icon": "minecraft:iron_shovel",
   "sentenceKo": "땅을 파요.",
   "sentenceDe": "Erde graben.",
   "descKo": "땅을 내려가요.",
   "aliases": [
    "파다"
   ],
-  "en": "Iron Shovel"
+  "en": "to dig"
  },
  {
   "id": "build",
@@ -1832,16 +1776,15 @@
   "de": "bauen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:scaffolding"
-  ],
+  "items": [],
+  "icon": "minecraft:scaffolding",
   "sentenceKo": "집을 지어요.",
   "sentenceDe": "Ein Haus bauen.",
   "descKo": "블록으로 만들어요.",
   "aliases": [
    "짓다"
   ],
-  "en": "Scaffolding"
+  "en": "to build"
  },
  {
   "id": "cook",
@@ -1849,16 +1792,15 @@
   "de": "kochen",
   "category": "ACTIONS",
   "tier": 2,
-  "items": [
-   "minecraft:campfire"
-  ],
+  "items": [],
+  "icon": "minecraft:campfire",
   "sentenceKo": "고기를 요리해요.",
   "sentenceDe": "Fleisch kochen.",
   "descKo": "불로 음식을 만들어요.",
   "aliases": [
    "요리하다"
   ],
-  "en": "Campfire"
+  "en": "to cook"
  },
  {
   "id": "fish",
@@ -1877,7 +1819,7 @@
   "aliases": [
    "낚시하다"
   ],
-  "en": "Raw Cod"
+  "en": "fish"
  },
  {
   "id": "talk",
@@ -1885,16 +1827,15 @@
   "de": "sprechen",
   "category": "ACTIONS",
   "tier": 1,
-  "items": [
-   "minecraft:book"
-  ],
+  "items": [],
+  "icon": "minecraft:book",
   "sentenceKo": "친구와 이야기해요.",
   "sentenceDe": "Mit einem Freund sprechen.",
   "descKo": "말로 내 생각을 전해요.",
   "aliases": [
    "이야기하다"
   ],
-  "en": "Book"
+  "en": "to talk"
  },
  {
   "id": "friend",
@@ -1902,16 +1843,15 @@
   "de": "Freund",
   "category": "MISC",
   "tier": 1,
-  "items": [
-   "minecraft:player_head"
-  ],
+  "items": [],
+  "icon": "minecraft:player_head",
   "sentenceKo": "친구를 봐요.",
   "sentenceDe": "Einen Freund ansehen.",
   "descKo": "나와 가까운 사람이에요.",
   "aliases": [
    "친구"
   ],
-  "en": "Player Head"
+  "en": "friend"
  },
  {
   "id": "book",
@@ -1996,7 +1936,7 @@
   "aliases": [
    "양털"
   ],
-  "en": "White Wool"
+  "en": "wool"
  },
  {
   "id": "feather",
@@ -2157,9 +2097,8 @@
   "de": "Ziege",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:goat_horn"
-  ],
+  "items": [],
+  "icon": "minecraft:goat_horn",
   "entity": "minecraft:goat",
   "sentenceKo": "염소를 봐요.",
   "sentenceDe": "Eine Ziege ansehen.",
@@ -2167,7 +2106,7 @@
   "aliases": [
    "염소"
   ],
-  "en": "Goat Horn"
+  "en": "goat"
  },
  {
   "id": "clock",
@@ -2201,7 +2140,7 @@
   "aliases": [
    "울타리"
   ],
-  "en": "Oak Fence"
+  "en": "fence"
  },
  {
   "id": "crown",
@@ -2209,9 +2148,8 @@
   "de": "Krone",
   "category": "MISC",
   "tier": 5,
-  "items": [
-   "minecraft:golden_helmet"
-  ],
+  "items": [],
+  "icon": "minecraft:golden_helmet",
   "sentenceKo": "왕관을 써요.",
   "sentenceDe": "Eine Krone tragen.",
   "grammar": "OBJECT",
@@ -2219,7 +2157,7 @@
   "aliases": [
    "왕관"
   ],
-  "en": "Golden Helmet"
+  "en": "crown"
  },
  {
   "id": "ritual",
@@ -2227,9 +2165,8 @@
   "de": "Ritual",
   "category": "MISC",
   "tier": 5,
-  "items": [
-   "minecraft:candle"
-  ],
+  "items": [],
+  "icon": "minecraft:candle",
   "sentenceKo": "의식을 해요.",
   "sentenceDe": "Ein Ritual ausführen.",
   "grammar": "OBJECT",
@@ -2237,7 +2174,7 @@
   "aliases": [
    "의식"
   ],
-  "en": "Candle"
+  "en": "ritual"
  },
  {
   "id": "eternity",
@@ -2245,9 +2182,8 @@
   "de": "Ewigkeit",
   "category": "MISC",
   "tier": 6,
-  "items": [
-   "minecraft:clock"
-  ],
+  "items": [],
+  "icon": "minecraft:clock",
   "sentenceKo": "영원히 남아요.",
   "sentenceDe": "Für immer bleiben.",
   "grammar": "ADVERB",
@@ -2255,7 +2191,7 @@
   "aliases": [
    "영원"
   ],
-  "en": "Clock"
+  "en": "eternity"
  },
  {
   "id": "creation",
@@ -2263,9 +2199,8 @@
   "de": "Schöpfung",
   "category": "ACTIONS",
   "tier": 6,
-  "items": [
-   "minecraft:crafting_table"
-  ],
+  "items": [],
+  "icon": "minecraft:crafting_table",
   "sentenceKo": "새것을 창조해요.",
   "sentenceDe": "Neues erschaffen.",
   "grammar": "OBJECT",
@@ -2273,7 +2208,7 @@
   "aliases": [
    "창조"
   ],
-  "en": "Crafting Table"
+  "en": "creation"
  },
  {
   "id": "world",
@@ -2281,9 +2216,8 @@
   "de": "Welt",
   "category": "ENVIRONMENT",
   "tier": 5,
-  "items": [
-   "minecraft:grass_block"
-  ],
+  "items": [],
+  "icon": "minecraft:grass_block",
   "sentenceKo": "세계를 봐요.",
   "sentenceDe": "Die Welt sehen.",
   "grammar": "OBJECT",
@@ -2291,7 +2225,7 @@
   "aliases": [
    "세계"
   ],
-  "en": "Grass Block"
+  "en": "world"
  },
  {
   "id": "flint",
@@ -2417,7 +2351,7 @@
   "aliases": [
    "지도"
   ],
-  "en": "Empty Map"
+  "en": "map"
  },
  {
   "id": "cartography_table",
@@ -2488,7 +2422,7 @@
   "aliases": [
    "레드스톤"
   ],
-  "en": "Redstone Dust"
+  "en": "redstone"
  },
  {
   "id": "redstone_torch",
@@ -2615,9 +2549,8 @@
   "de": "Dschungel",
   "category": "ENVIRONMENT",
   "tier": 4,
-  "items": [
-   "minecraft:jungle_log"
-  ],
+  "items": [],
+  "icon": "minecraft:jungle_log",
   "biome": "minecraft:jungle",
   "sentenceKo": "정글에 가요.",
   "sentenceDe": "In den Dschungel gehen.",
@@ -2625,7 +2558,7 @@
   "aliases": [
    "정글"
   ],
-  "en": "Jungle Log"
+  "en": "jungle"
  },
  {
   "id": "cocoa_beans",
@@ -2650,9 +2583,8 @@
   "de": "Papagei",
   "category": "ANIMALS",
   "tier": 3,
-  "items": [
-   "minecraft:parrot_spawn_egg"
-  ],
+  "items": [],
+  "icon": "minecraft:parrot_spawn_egg",
   "entity": "minecraft:parrot",
   "sentenceKo": "앵무새를 봐요.",
   "sentenceDe": "Einen Papagei ansehen.",
@@ -2660,7 +2592,7 @@
   "aliases": [
    "앵무새"
   ],
-  "en": "Parrot Spawn Egg"
+  "en": "parrot"
  },
  {
   "id": "jungle_log",
@@ -2804,16 +2736,15 @@
   "de": "Höhe",
   "category": "ENVIRONMENT",
   "tier": 2,
-  "items": [
-   "minecraft:ladder"
-  ],
+  "items": [],
+  "icon": "minecraft:ladder",
   "sentenceKo": "높이 올라가요.",
   "sentenceDe": "In die Höhe steigen.",
   "descKo": "위로 얼마나 높은지를 말해요.",
   "aliases": [
    "높이"
   ],
-  "en": "Ladder"
+  "en": "height"
  },
  {
   "id": "bat",
@@ -2821,9 +2752,8 @@
   "de": "Fledermaus",
   "category": "ANIMALS",
   "tier": 3,
-  "items": [
-   "minecraft:bat_spawn_egg"
-  ],
+  "items": [],
+  "icon": "minecraft:bat_spawn_egg",
   "entity": "minecraft:bat",
   "sentenceKo": "박쥐를 봐요.",
   "sentenceDe": "Eine Fledermaus ansehen.",
@@ -2831,7 +2761,7 @@
   "aliases": [
    "박쥐"
   ],
-  "en": "Bat Spawn Egg"
+  "en": "bat"
  },
  {
   "id": "soul_torch",
@@ -2941,9 +2871,8 @@
   "de": "Eisengolem",
   "category": "ANIMALS",
   "tier": 4,
-  "items": [
-   "minecraft:iron_block"
-  ],
+  "items": [],
+  "icon": "minecraft:iron_block",
   "entity": "minecraft:iron_golem",
   "sentenceKo": "철 골렘을 봐요.",
   "sentenceDe": "Einen Eisengolem ansehen.",
@@ -2951,7 +2880,7 @@
   "aliases": [
    "철 골렘"
   ],
-  "en": "Block of Iron"
+  "en": "Iron Golem"
  },
  {
   "id": "gold_block",
@@ -3155,7 +3084,7 @@
   "aliases": [
    "양탄자"
   ],
-  "en": "White Carpet"
+  "en": "carpet"
  },
  {
   "id": "mushroom_block",
@@ -3172,7 +3101,7 @@
   "aliases": [
    "버섯 블록"
   ],
-  "en": "Brown Mushroom Block"
+  "en": "mushroom block"
  },
  {
   "id": "bamboo",
@@ -3206,7 +3135,7 @@
   "aliases": [
    "나뭇잎"
   ],
-  "en": "Oak Leaves"
+  "en": "leaves"
  },
  {
   "id": "sapling",
@@ -3223,7 +3152,7 @@
   "aliases": [
    "묘목"
   ],
-  "en": "Oak Sapling"
+  "en": "sapling"
  },
  {
   "id": "frog",
@@ -3231,9 +3160,8 @@
   "de": "Frosch",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:frog_spawn_egg"
-  ],
+  "items": [],
+  "icon": "minecraft:frog_spawn_egg",
   "entity": "minecraft:frog",
   "sentenceKo": "개구리를 봐요.",
   "sentenceDe": "Einen Frosch ansehen.",
@@ -3241,7 +3169,7 @@
   "aliases": [
    "개구리"
   ],
-  "en": "Frog Spawn Egg"
+  "en": "frog"
  },
  {
   "id": "lily_pad",
@@ -3266,16 +3194,15 @@
   "de": "Schleim",
   "category": "ANIMALS",
   "tier": 2,
-  "items": [
-   "minecraft:slime_ball"
-  ],
+  "items": [],
+  "icon": "minecraft:slime_ball",
   "sentenceKo": "슬라임 공을 모아요.",
   "sentenceDe": "Schleimbälle sammeln.",
   "descKo": "초록색 끈적한 동물이에요.",
   "aliases": [
    "슬라임"
   ],
-  "en": "Slimeball"
+  "en": "slime"
  },
  {
   "id": "sunflower",
@@ -3343,7 +3270,7 @@
   "aliases": [
    "문"
   ],
-  "en": "Oak Fence Gate"
+  "en": "gate"
  },
  {
   "id": "flower_pot",
@@ -3411,7 +3338,7 @@
   "aliases": [
    "조개"
   ],
-  "en": "Nautilus Shell"
+  "en": "shell"
  },
  {
   "id": "prismarine",
@@ -3428,7 +3355,7 @@
   "aliases": [
    "프리즈머린"
   ],
-  "en": "Prismarine Shard"
+  "en": "prismarine"
  },
  {
   "id": "hay_block",
@@ -3496,7 +3423,7 @@
   "aliases": [
    "점토"
   ],
-  "en": "Clay Ball"
+  "en": "clay"
  },
  {
   "id": "brewing_stand",
@@ -3598,7 +3525,7 @@
   "aliases": [
    "염료"
   ],
-  "en": "Red Dye"
+  "en": "dye"
  },
  {
   "id": "compass",
@@ -3649,7 +3576,7 @@
   "aliases": [
    "연어"
   ],
-  "en": "Raw Salmon"
+  "en": "salmon"
  },
  {
   "id": "lava_bucket",
@@ -3691,9 +3618,8 @@
   "de": "Enderdrache",
   "category": "ANIMALS",
   "tier": 5,
-  "items": [
-   "minecraft:dragon_egg"
-  ],
+  "items": [],
+  "icon": "minecraft:dragon_egg",
   "entity": "minecraft:ender_dragon",
   "sentenceKo": "엔더 드래곤을 물리쳐요.",
   "sentenceDe": "Den Enderdrachen besiegen.",
@@ -3701,7 +3627,7 @@
   "aliases": [
    "엔더 드래곤"
   ],
-  "en": "Dragon Egg"
+  "en": "Ender Dragon"
  },
  {
   "id": "dragon_egg",
@@ -5035,9 +4961,8 @@
   "de": "Ghast",
   "category": "ANIMALS",
   "tier": 4,
-  "items": [
-   "minecraft:ghast_tear"
-  ],
+  "items": [],
+  "icon": "minecraft:ghast_tear",
   "entity": "minecraft:ghast",
   "sentenceKo": "가스트를 봐요.",
   "sentenceDe": "Einen Ghast ansehen.",
@@ -5045,7 +4970,7 @@
   "aliases": [
    "가스트"
   ],
-  "en": "Ghast Tear"
+  "en": "Ghast"
  },
  {
   "id": "gen_music_disc_creator_music_box",
