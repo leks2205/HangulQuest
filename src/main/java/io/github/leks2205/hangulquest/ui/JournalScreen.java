@@ -15,6 +15,7 @@ import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.TopicResolver;
+import io.github.leks2205.hangulquest.quest.TrailGraph;
 import io.github.leks2205.hangulquest.sense.Observation;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
@@ -511,9 +512,10 @@ public final class JournalScreen extends Screen {
 		for (Questline trail : trails) {
 			byId.put(trail.id(), trail);
 		}
+		TrailGraph graph = quests.graph();
 		Map<String, Integer> depths = new HashMap<>();
 		for (Questline trail : trails) {
-			depthOf(trail, byId, depths);
+			depths.put(trail.id(), graph.depth(trail.id()));
 		}
 		int maxLevel = 1;
 		for (int depth : depths.values()) {
@@ -900,22 +902,6 @@ public final class JournalScreen extends Screen {
 		treeZoom = Math.max(0.18F, Math.min(1.0F, Math.min(fitX, fitY)));
 		treePanX = 0;
 		treePanY = 0;
-	}
-
-	private int depthOf(Questline trail, Map<String, Questline> byId, Map<String, Integer> memo) {
-		Integer known = memo.get(trail.id());
-		if (known != null) {
-			return known;
-		}
-		int depth = 1;
-		for (String parentId : trail.requires().completed()) {
-			Questline parent = byId.get(parentId);
-			if (parent != null) {
-				depth = Math.max(depth, depthOf(parent, byId, memo) + 1);
-			}
-		}
-		memo.put(trail.id(), depth);
-		return depth;
 	}
 
 	// ----------------------------------------------------------------- settings

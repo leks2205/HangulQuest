@@ -9,6 +9,7 @@ import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Topik;
+import io.github.leks2205.hangulquest.quest.TrailGraph;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.util.TextClean;
 import org.junit.jupiter.api.Test;
@@ -59,11 +60,14 @@ class QuestlineValidationTest {
 			trailIds.add(trail.id());
 			byId.put(trail.id(), trail);
 		}
+		TrailGraph graph = TrailGraph.of(result.trails());
+		assertFalse(graph.hasCycle(), "questline dependency cycle: " + graph.cyclic());
 		java.util.Map<String, Integer> depths = new java.util.HashMap<>();
 		int maxDepth = 0;
 		boolean multiParent = false;
 		for (Questline trail : result.trails()) {
-			int depth = depth(trail, byId, depths, new java.util.HashSet<>());
+			int depth = graph.depth(trail.id());
+			depths.put(trail.id(), depth);
 			maxDepth = Math.max(maxDepth, depth);
 			if (trail.requires().completed().size() >= 3) {
 				multiParent = true;
@@ -121,24 +125,6 @@ class QuestlineValidationTest {
 				}
 			}
 		}
-	}
-
-	private static int depth(Questline trail, java.util.Map<String, Questline> byId,
-							 java.util.Map<String, Integer> memo, java.util.Set<String> path) {
-		Integer cached = memo.get(trail.id());
-		if (cached != null) {
-			return cached;
-		}
-		assertTrue(path.add(trail.id()), "questline dependency cycle at " + trail.id());
-		int depth = 1;
-		for (String parent : trail.requires().completed()) {
-			Questline parentTrail = byId.get(parent);
-			assertNotNull(parentTrail, trail.id() + " requires unknown trail " + parent);
-			depth = Math.max(depth, depth(parentTrail, byId, memo, path) + 1);
-		}
-		path.remove(trail.id());
-		memo.put(trail.id(), depth);
-		return depth;
 	}
 
 	@Test
@@ -388,12 +374,16 @@ class QuestlineValidationTest {
 	}
 
 	@Test
-	void everyTrailHasAnEnglishTitleAndFinale() {
-		for (Questline trail : QuestLoader.loadAll()) {
-			assertFalse(trail.titleEn() == null || trail.titleEn().isBlank(),
-					trail.id() + " has no English title");
-			assertFalse(trail.finaleEn() == null || trail.finaleEn().isBlank(),
-					trail.id() + " has no English finale text");
+	void everyValidatedTrailHasAnEnglishTitleAndFinaleWithoutFallback() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		QuestValidator.Result result = QuestValidator.validate(QuestLoader.loadAll(), catalog, LOG);
+		assertEquals(420, result.trails().size());
+		for (Questline trail : result.trails()) {
+			// The raw fields: the fallback getters would hide a lost English text behind German.
+			assertFalse(trail.titleEnRaw() == null || trail.titleEnRaw().isBlank(),
+					trail.id() + " lost its English title");
+			assertFalse(trail.finaleEnRaw() == null || trail.finaleEnRaw().isBlank(),
+					trail.id() + " lost its English finale text");
 		}
 	}
 

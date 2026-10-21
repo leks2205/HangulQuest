@@ -94,7 +94,9 @@ public final class QuestEngine {
 		}
 	}
 
-	private final List<Questline> trails;
+	private List<Questline> trails;
+	/** Lookup, parents, children and depth of {@link #trails}, rebuilt whenever the list changes. */
+	private TrailGraph graph;
 	private final Catalog catalog;
 	private final LearningService learn;
 	private final ProgressData data;
@@ -111,11 +113,12 @@ public final class QuestEngine {
 	private Observation lastObs;
 
 	public QuestEngine(List<Questline> trails, Catalog catalog, LearningService learn, Logger log) {
-		this.trails = new ArrayList<>(trails);
+		this.trails = List.copyOf(trails);
 		this.catalog = catalog;
 		this.learn = learn;
 		this.data = learn.data();
 		this.log = log;
+		this.graph = buildGraph();
 		this.namer = new SentenceBuilder.Namer() {
 			@Override
 			public String biome(String id) {
@@ -219,11 +222,11 @@ public final class QuestEngine {
 	/** Replaces all authored trails (live reload) without losing a tracked one. */
 	public void replaceTrails(List<Questline> replacement) {
 		Questline adaptive = byId("adaptive");
-		trails.clear();
-		trails.addAll(replacement);
-		if (adaptive != null && byId("adaptive") == null) {
-			trails.add(adaptive);
+		List<Questline> next = new ArrayList<>(replacement);
+		if (adaptive != null && next.stream().noneMatch(trail -> trail.id().equals("adaptive"))) {
+			next.add(adaptive);
 		}
+		setTrails(next);
 		for (Track track : tracks.values()) {
 			Questline updated = byId(track.trail.id());
 			if (updated == null) {
@@ -244,8 +247,24 @@ public final class QuestEngine {
 	}
 
 	public void addTrail(Questline trail) {
-		trails.removeIf(existing -> existing.id().equals(trail.id()));
-		trails.add(trail);
+		List<Questline> next = new ArrayList<>(trails);
+		next.removeIf(existing -> existing.id().equals(trail.id()));
+		next.add(trail);
+		setTrails(next);
+	}
+
+	private void setTrails(List<Questline> next) {
+		trails = List.copyOf(next);
+		graph = buildGraph();
+	}
+
+	private TrailGraph buildGraph() {
+		TrailGraph built = TrailGraph.of(trails);
+		if (built.hasCycle()) {
+			log.warn("questlines require each other in a cycle, their tree level falls back to 1: {}",
+					built.cyclic());
+		}
+		return built;
 	}
 
 	// --------------------------------------------------------------------- tick
@@ -367,10 +386,9 @@ public final class QuestEngine {
 		// Stay on the same tree level, taking the most similar unfinished topic; only then climb.
 		Questline finished = byId(completedId);
 		if (finished != null) {
-			Map<String, Questline> all = trails.stream()
-					.collect(Collectors.toMap(Questline::id, java.util.function.Function.identity()));
-			int startDepth = depthOf(finished, all);
-			int maxDepth = trails.stream().mapToInt(trail -> depthOf(trail, all)).max().orElse(startDepth);
+			Map<String, Questline> all = graph.byId();
+			int startDepth = graph.depth(finished.id());
+			int maxDepth = graph.maxDepth();
 			Comparator<Questline> bestFirst = Comparator
 					.comparingInt((Questline trail) -> topicSimilarity(trail, finished, all)).reversed()
 					.thenComparingInt(Questline::order);
@@ -382,7 +400,7 @@ public final class QuestEngine {
 						.filter(trail -> !tracks.containsKey(trail.id()))
 						.filter(trail -> !isCompleted(trail.id()))
 						.filter(this::unlocked)
-						.filter(trail -> depthOf(trail, all) == currentDepth)
+						.filter(trail -> graph.depth(trail.id()) == currentDepth)
 						.filter(trail -> topicSimilarity(trail, finished, all) > 0)
 						.sorted(bestFirst)
 						.toList();
@@ -435,26 +453,6 @@ public final class QuestEngine {
 				.sorted(Comparator.comparingInt(Questline::order))
 				.toList();
 		offerNext(fallback, obs, feedback);
-	}
-
-	/** Tree level: roots are 1, a trail is one deeper than its deepest parent. */
-	private int depthOf(Questline trail, Map<String, Questline> all) {
-		return depthOf(trail, all, new java.util.HashSet<>());
-	}
-
-	private int depthOf(Questline trail, Map<String, Questline> all, Set<String> seen) {
-		if (!seen.add(trail.id())) {
-			return 1; // defensive: a cycle would be rejected by validation
-		}
-		int depth = 1;
-		for (String parentId : trail.requires().completed()) {
-			Questline parent = all.get(parentId);
-			if (parent != null) {
-				depth = Math.max(depth, 1 + depthOf(parent, all, seen));
-			}
-		}
-		seen.remove(trail.id());
-		return depth;
 	}
 
 	/** 3 = same branch topic, 1 = sibling (shares a parent), 0 = unrelated. */
@@ -768,12 +766,12 @@ public final class QuestEngine {
 	}
 
 	public Questline byId(String trailId) {
-		for (Questline trail : trails) {
-			if (trail.id().equals(trailId)) {
-				return trail;
-			}
-		}
-		return null;
+		return graph.byId(trailId);
+	}
+
+	/** Lookup, parents, children and tree depth of the current trail list. */
+	public TrailGraph graph() {
+		return graph;
 	}
 
 	public boolean unlocked(Questline trail) {

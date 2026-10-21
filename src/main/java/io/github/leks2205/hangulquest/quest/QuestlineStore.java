@@ -109,11 +109,10 @@ public final class QuestlineStore {
 								shipped.requires().minWordsKnown(),
 								shipped.requires().dimension(),
 								new ArrayList<>(parents));
-						trail = new Questline(trail.id(), trail.titleKo(), trail.titleDe(),
-								root.has("topic") ? trail.topic() : shipped.topic(),
-								shipped.tier(), trail.concepts(), requires,
-								trail.steps(), trail.finale(), trail.finaleKo(), trail.finaleDe(),
-								trail.badge(), trail.order(), shipped.koreanLevel(), false);
+						trail = trail.withRequires(requires)
+								.withTopic(root.has("topic") ? trail.topic() : shipped.topic())
+								.withLevels(shipped.tier(), shipped.koreanLevel())
+								.withAdaptive(false);
 					}
 					byId.put(trail.id(), trail);
 				} catch (Exception broken) {
