@@ -8,14 +8,16 @@ MIT; weights MIT), and compute the character error rate against the text after s
 are normalised. Clips above the threshold, clips with an implausible length, and clips whose
 pronunciation form disagrees are listed in <out>/audio-blocklist.json, and build_pack.py leaves them out.
 
-Pronunciation check: if a concept in concepts.json or lexicon-tags.json carries a bracket form
-("pron": "[종노]", as WP4.4 will add), the transcript may match either the spelling or that form.
-Without such a field the check is skipped.
+Pronunciation check: content/korean/pronunciation-review.tsv holds the standard pronunciation of every
+concept (written by PronunciationReviewTest from quest/grammar/Pronunciation, columns id, ko, pron, ...).
+Where it differs from the spelling ("[종노]"), the transcript may match either the spelling or that form.
+Without the file the check is skipped.
 
 Isolated one-syllable words are hard for any ASR (homophones), so a high CER there does not prove a bad
 clip; the blocklist is a conservative filter and the numbers go to the 5% native review sample.
 """
 import argparse
+import csv
 import datetime
 import json
 import os
@@ -26,7 +28,7 @@ from pathlib import Path
 
 import numpy as np
 
-from common import DATA, MODELS, OUT, cer, normalise, read_jsonl
+from common import MODELS, OUT, REPO, cer, normalise, read_jsonl
 
 os.environ.setdefault("HF_HOME", str(MODELS))
 
@@ -86,18 +88,20 @@ def decode(path: Path, pad: float = 0.5) -> np.ndarray:
     return np.concatenate([silence, audio, silence])
 
 
-def pron_forms():
-    """concept id -> pronunciation form, from whichever data file has one."""
+PRON_REVIEW = REPO / "content/korean/pronunciation-review.tsv"
+
+
+def pron_forms(path=PRON_REVIEW):
+    """concept id -> pronunciation without brackets, for the concepts that are not said as they are written."""
     forms = {}
-    concepts = json.loads((DATA / "concepts.json").read_text(encoding="utf-8"))
-    for c in concepts:
-        if c.get("pron"):
-            forms[c["id"]] = c["pron"]
-    tags = json.loads((DATA / "lexicon-tags.json").read_text(encoding="utf-8"))["tags"]
-    for cid, tag in tags.items():
-        if tag.get("pron"):
-            forms[cid] = tag["pron"]
-    return {cid: re.sub(r"[\[\]]", "", f) for cid, f in forms.items()}
+    if not Path(path).exists():
+        return forms
+    with open(path, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            pron = re.sub(r"[\[\]]", "", row.get("pron", ""))
+            if pron and pron != row.get("ko"):
+                forms[row["id"]] = pron
+    return forms
 
 
 def stats(values):
