@@ -12,6 +12,7 @@ import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.WordProgress;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Pronunciation;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.SafetyGate;
 import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
@@ -57,6 +58,8 @@ public final class HudController implements QuestEngine.Feedback {
 	private long wordCardUntil;
 	private Component wordCardKo;
 	private Component wordCardDe;
+	/** The bracket form under the word; null when it is said as written. */
+	private Component wordCardPron;
 	private Component bannerKoText = Component.empty();
 	private Component bannerDeText = Component.empty();
 	private long bannerUntil;
@@ -277,6 +280,11 @@ public final class HudController implements QuestEngine.Feedback {
 		}
 		wordCardKo = KoText.ko(word.ko);
 		wordCardDe = Component.literal(glossOf(word));
+		String bracket = Pronunciation.of(word.ko, word.conceptId, LexiconTags.shared()).bracket();
+		wordCardPron = bracket == null ? null : KoText.ko(bracket);
+		if (hq.audio() != null) {
+			hq.audio().playAmbient(word.conceptId); // at most once per 10 s, silent without the voice pack
+		}
 		wordCardUntil = System.currentTimeMillis() + Math.max(1000, hq.config().cardDurationMs);
 	}
 
@@ -743,10 +751,14 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		Component korean = wordCardKo;
 		Component german = wordCardDe;
+		boolean pron = wordCardPron != null;
 		int textWidth = Math.max(font.width(korean), font.width(german));
+		if (pron) {
+			textWidth = Math.max(textWidth, font.width(wordCardPron));
+		}
 		textWidth = Math.min(textWidth, 220);
 		int width = 28 + textWidth + 7;
-		int height = 6 + font.lineHeight * 2 + 5;
+		int height = 6 + font.lineHeight * (pron ? 3 : 2) + 5;
 		int screenWidth = mc.getWindow().getGuiScaledWidth();
 		int screenHeight = mc.getWindow().getGuiScaledHeight();
 		width = Math.min(width, screenWidth - 12);
@@ -755,7 +767,12 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.panel(graphics, x, y, width, height, 0);
 		Draw.itemIcon(graphics, word.iconItem, x + 6, y + (height - 16) / 2);
 		Draw.truncated(graphics, font, korean, x + 27, y + 5, width - 33, Draw.WHITE);
-		Draw.truncated(graphics, font, german, x + 27, y + 6 + font.lineHeight, width - 33, Draw.GRAY);
+		int line = y + 6 + font.lineHeight;
+		if (pron) {
+			Draw.truncated(graphics, font, wordCardPron, x + 27, line, width - 33, Draw.DIM);
+			line += font.lineHeight + 1;
+		}
+		Draw.truncated(graphics, font, german, x + 27, line, width - 33, Draw.GRAY);
 	}
 
 	private void drawBanner(GuiGraphicsExtractor graphics) {

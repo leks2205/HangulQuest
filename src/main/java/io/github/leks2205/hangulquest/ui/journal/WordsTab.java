@@ -7,6 +7,7 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.Srs;
 import io.github.leks2205.hangulquest.learn.WordProgress;
+import io.github.leks2205.hangulquest.quest.grammar.Pronunciation;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
 import io.github.leks2205.hangulquest.util.I18n;
@@ -79,7 +80,8 @@ public final class WordsTab extends JournalTab {
 	/** The texts of the detail page for one word. */
 	private record Detail(String wordId, long epoch, boolean showDe, int language, int reviews,
 						  Word word, Component fullName, Component sentence, Component description,
-						  String metrics, boolean known, List<Component> family, List<Component> warnings) {
+						  String metrics, boolean known, List<Component> family, List<Component> warnings,
+						  String pron, Component ruleTag, boolean listen) {
 	}
 
 	public WordsTab(JournalHost host) {
@@ -198,6 +200,14 @@ public final class WordsTab extends JournalTab {
 		Word word = d.word();
 		Draw.itemIcon(g, word.iconItem, x, y);
 		Draw.korean(g, host.font(), word.ko, x + 22, y + 3, Ink.ACCENT);
+		if (d.pron() != null) {
+			Draw.korean(g, host.font(), d.pron(), x + 22 + host.font().width(KoText.ko(word.ko)) + 8, y + 3, Ink.INK_SOFT);
+		}
+		if (d.listen()) {
+			String label = I18n.t("hangulquest.ui.audio.listen");
+			int w = Math.max(40, host.font().width(label) + 12);
+			host.button(g, x + width - w, y, w, 14, label, false, () -> host.hq().audio().playWord(word.conceptId));
+		}
 		int yy;
 		if (d.showDe()) {
 			Draw.wrapped(g, host.font(), d.fullName(), x + 22, y + 17, width - 24, Ink.INK, 2);
@@ -212,6 +222,10 @@ public final class WordsTab extends JournalTab {
 		if (d.description() != null) {
 			Draw.wrapped(g, host.font(), d.description(), x, yy, width, Ink.ACCENT, 2);
 			yy += 22;
+		}
+		if (d.ruleTag() != null) {
+			Draw.truncated(g, host.font(), d.ruleTag(), x, yy, width, Ink.INK_FAINT);
+			yy += 11;
 		}
 		Draw.label(g, host.font(), d.metrics(), x, yy, Ink.INK_FAINT);
 		yy += 14;
@@ -265,11 +279,26 @@ public final class WordsTab extends JournalTab {
 						progress.seen, progress.correct, progress.wrong);
 		MorphemeFamilies.Panel panel = MorphemeFamilies.of(word, LexiconTags.shared(), host.hq().catalog().all(),
 				other -> learn != null && learn.introduced(other.id));
+		Pronunciation.Result pron = Pronunciation.of(word.ko, word.conceptId, LexiconTags.shared());
+		boolean listen = host.hq().audio() != null && host.hq().audio().hasWord(word.conceptId);
 		detail = new Detail(selectedWordId, host.epoch(), showDe, language(), reviews, word,
 				Component.literal(word.glossFull(Lang.current())), sentence,
 				word.hasDescKo() ? KoText.ko(word.descKo) : null, metrics,
-				progress != null && progress.known, familyLines(panel), warningLines(panel));
+				progress != null && progress.known, familyLines(panel), warningLines(panel),
+				pron.bracket(), ruleTag(pron), listen);
 		return detail;
+	}
+
+	/** The rules behind a pronunciation, each as the grammar term and a short gloss: "비음화 nasalisation · ...". */
+	static Component ruleTag(Pronunciation.Result pron) {
+		if (!pron.differs() || pron.rules().isEmpty()) {
+			return null;
+		}
+		StringBuilder text = new StringBuilder();
+		for (Pronunciation.Rule rule : pron.rules()) {
+			text.append(text.length() == 0 ? "" : " · ").append(rule.ko()).append(' ').append(I18n.t(rule.key()));
+		}
+		return KoText.mixed(text.toString());
 	}
 
 	/** One line per hanja of a Sino-Korean word: the character, its meaning and the words that share it. */

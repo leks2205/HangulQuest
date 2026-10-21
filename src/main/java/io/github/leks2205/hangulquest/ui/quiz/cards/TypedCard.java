@@ -129,14 +129,24 @@ public final class TypedCard implements Card {
 				List.of(), 0, List.of(), "", panel.hint(), feedback);
 	}
 
-	/** Draws the card centred on the screen. */
-	public void paint(GuiGraphicsExtractor graphics, Font font, int screenWidth, int screenHeight) {
+	/**
+	 * Draws the card centred on the screen. With {@code listen} the answered card gets a "listen" button, whose
+	 * click area goes into {@code hits}.
+	 */
+	public void paint(GuiGraphicsExtractor graphics, Font font, int screenWidth, int screenHeight, int mouseX,
+					  int mouseY, boolean listen, List<CardPainter.Hit> hits) {
+		hits.clear();
+		boolean button = listen && answered;
 		int width = Math.min(WIDTH, screenWidth - 12);
-		int height = 22 + panel.height(font, width);
+		int panelHeight = panel.height(font, width);
+		int height = 22 + panelHeight + (button ? 18 : 0);
 		int x = (screenWidth - width) / 2;
 		int y = Math.max(4, (screenHeight - height) / 2);
 		Draw.panel(graphics, x, y, width, height, 0);
 		Draw.korean(graphics, font, view().titleKo(), x + 8, y + 6, Draw.GOLD);
 		panel.extractRenderState(graphics, font, x, y + 20, width);
+		if (button) {
+			hits.add(CardPainter.listenButton(graphics, font, x + width - 8, y + 20 + panelHeight, mouseX, mouseY));
+		}
 	}
 }

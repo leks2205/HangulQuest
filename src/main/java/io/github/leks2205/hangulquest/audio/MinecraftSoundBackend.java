@@ -2,10 +2,16 @@ package io.github.leks2205.hangulquest.audio;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.resources.Identifier;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 
-/** Plays through the game's {@code SoundManager}. Events come from the optional voice pack's {@code sounds.json}. */
+/**
+ * Plays through the game's {@code SoundManager}. Events come from the optional voice pack's {@code sounds.json}.
+ * The clips use the sound category "Voice/Speech" (so its slider and the master slider set the volume), played
+ * flat and relative to the listener like a UI sound.
+ */
 public final class MinecraftSoundBackend implements SoundBackend {
 	private static final String NAMESPACE = "hangulquest";
 
@@ -35,7 +41,8 @@ public final class MinecraftSoundBackend implements SoundBackend {
 	public void play(String event, float volume) {
 		Identifier id = Identifier.tryBuild(NAMESPACE, event);
 		if (id != null) {
-			mc.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvent.createVariableRangeEvent(id), 1.0F, volume));
+			mc.getSoundManager().play(new SimpleSoundInstance(id, SoundSource.VOICE, volume, 1.0F, RandomSource.create(),
+					false, 0, SoundInstance.Attenuation.NONE, 0.0, 0.0, 0.0, true));
 		}
 	}
 }

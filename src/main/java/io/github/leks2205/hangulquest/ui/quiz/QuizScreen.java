@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.HudController;
 import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
+import io.github.leks2205.hangulquest.ui.quiz.cards.CardAudio;
 import io.github.leks2205.hangulquest.ui.quiz.cards.CardPainter;
 import io.github.leks2205.hangulquest.ui.quiz.cards.TypedCard;
 import io.github.leks2205.hangulquest.util.I18n;
@@ -41,6 +42,8 @@ public final class QuizScreen extends Screen {
 	private final List<CardPainter.Hit> cardHits = new ArrayList<>();
 	/** The card that plays a review; it stays on screen for its retry and feedback after the answer is recorded. */
 	private Card card;
+	/** Speaks the card's word when the answer shows, and again on the listen key or button. */
+	private final CardAudio cardAudio;
 	private QuizOutcome lastOutcome = QuizOutcome.NONE;
 	/** What is shown; read from the controller once per tick and after an answer, not once per frame. */
 	private QuizView view;
@@ -50,6 +53,8 @@ public final class QuizScreen extends Screen {
 		this.hud = hud;
 		this.view = hud.quizView();
 		this.card = view == null ? null : view.card();
+		var word = card == null || card.info() == null ? null : card.info().word();
+		this.cardAudio = new CardAudio(hq == null ? null : hq.audio(), word == null ? null : word.conceptId);
 	}
 
 	@Override
@@ -85,8 +90,13 @@ public final class QuizScreen extends Screen {
 				onClose();
 				return true;
 			}
+			if (typed.answered() && event.key() == InputConstants.KEY_L) {
+				cardAudio.replay(); // the field is closed by now, so L is not a letter
+				return true;
+			}
 			boolean handled = typed.keyPressed(event);
 			typed.takeAnswer().ifPresent(this::record);
+			cardAudio.update(card.phase());
 			if (card.finished()) {
 				onClose();
 			}
@@ -95,6 +105,10 @@ public final class QuizScreen extends Screen {
 		if (event.key() == InputConstants.KEY_ESCAPE
 				|| (hq != null && hq.answerKey() != null && hq.answerKey().matches(event))) {
 			onClose();
+			return true;
+		}
+		if (card != null && event.key() == InputConstants.KEY_L && CardAudio.showsAnswer(card.phase())) {
+			cardAudio.replay();
 			return true;
 		}
 		for (int i = 0; i < NUMBER_KEYS.length; i++) {
@@ -163,6 +177,10 @@ public final class QuizScreen extends Screen {
 
 	/** Passes an input to the card; its first attempt, if this was one, is recorded through the HUD. */
 	private void cardAction(int action) {
+		if (action == CardPainter.LISTEN) {
+			cardAudio.replay();
+			return;
+		}
 		Optional<Card.Answer> given;
 		if (action == CardPainter.CONFIRM) {
 			given = card.confirm();
@@ -173,6 +191,7 @@ public final class QuizScreen extends Screen {
 			given = card.choose(action);
 		}
 		given.ifPresent(this::record);
+		cardAudio.update(card.phase());
 		if (card.finished()) {
 			onClose();
 		}
@@ -188,12 +207,12 @@ public final class QuizScreen extends Screen {
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
 		if (card instanceof TypedCard typed) {
-			cardHits.clear();
-			typed.paint(graphics, this.font, this.width, this.height);
+			typed.paint(graphics, this.font, this.width, this.height, mouseX, mouseY, cardAudio.listenable(), cardHits);
 			return;
 		}
 		if (card != null) {
-			CardPainter.paint(graphics, this.font, card.view(), this.width, this.height, mouseX, mouseY, cardHits);
+			CardPainter.paint(graphics, this.font, card.view(), this.width, this.height, mouseX, mouseY, cardHits,
+					cardAudio.listenable());
 			return;
 		}
 		if (view == null) {

@@ -36,6 +36,20 @@ class TextMetrics(unittest.TestCase):
         self.assertNotEqual(a, common.sha1("흙", "sohee", "m"))
         self.assertNotEqual(a, common.sha1("돌", "sohee", "m2"))
 
+    def test_pronunciation_forms_come_from_the_review_table(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            table = Path(tmp) / "pron.tsv"
+            table.write_text("id\tko\tpron\trules\tsource\torigin\n"
+                             "stone\t돌\t[돌]\t\trule\tnative\n"
+                             "soup\t국물\t[궁물]\tnasalisation\trule\tnative\n", encoding="utf-8")
+            self.assertEqual(qa.pron_forms(table), {"soup": "궁물"})
+            self.assertEqual(qa.pron_forms(Path(tmp) / "missing.tsv"), {})
+
+    def test_shipped_review_table_has_forms(self):
+        forms = qa.pron_forms()
+        self.assertGreater(len(forms), 100)
+        self.assertEqual(forms["dirt"], "흑")
+
     def test_implausible_lengths_are_caught(self):
         self.assertFalse(render.plausible("돌", 6.0))
         self.assertTrue(render.plausible("돌", 0.5))
