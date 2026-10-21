@@ -52,7 +52,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -520,7 +519,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			// Today's review trail must exist before the engine restores, or its progress is dropped.
 			List<Questline> trails = new java.util.ArrayList<>(validated.trails());
 			Questline adaptive = AdaptiveTrailGenerator.restore(builtCatalog,
-					store.data().quests.adaptive, LocalDate.now().toString());
+					store.data().quests.adaptive, io.github.leks2205.hangulquest.learn.Streak.dayKey(java.time.LocalDateTime.now()));
 			if (adaptive != null) {
 				trails.removeIf(trail -> trail.id().equals(adaptive.id()));
 				trails.add(adaptive);
@@ -599,7 +598,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 	}
 
 	private void ensureAdaptiveTrail(Observation obs) {
-		String today = LocalDate.now().toString();
+		// The study day (it turns over at 04:00), so the review trail lasts as long as the streak day.
+		String today = io.github.leks2205.hangulquest.learn.Streak.dayKey(java.time.LocalDateTime.now());
 		ProgressData.Adaptive adaptive = store.data().quests.adaptive;
 		if (adaptive != null && today.equals(adaptive.generatedFor) && quests.byId("adaptive") != null) {
 			return; // rebuilt from the saved concepts before the engine restored
