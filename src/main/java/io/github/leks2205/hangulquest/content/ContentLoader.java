@@ -6,8 +6,10 @@ import io.github.leks2205.hangulquest.data.ConceptLoader;
 import io.github.leks2205.hangulquest.data.LangTables;
 import io.github.leks2205.hangulquest.data.LuteCsv;
 import io.github.leks2205.hangulquest.data.LuteImport;
+import io.github.leks2205.hangulquest.dialogue.DialogueContent;
 import io.github.leks2205.hangulquest.quest.QuestResources;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
+import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.QuestlineOverlay;
 import io.github.leks2205.hangulquest.quest.QuestlineStore;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -16,6 +18,7 @@ import org.slf4j.Logger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /** The prepare phase of a content load. Pure with respect to the game state: safe off the main thread. */
 public final class ContentLoader {
@@ -53,10 +56,12 @@ public final class ContentLoader {
 			overlay.refresh(inputs.questlineDir());
 			QuestValidator.Result validated = QuestValidator.validate(
 					QuestlineStore.merge(shipped.trails(), overlay.files(), log), catalog, log);
+			DialogueContent dialogues = DialogueContent.load(manager, catalog,
+					validated.trails().stream().map(Questline::id).collect(Collectors.toSet()), log);
 			log.info("content prepared in {} ms: {} concepts, {} words, {} shipped trails, {} overlay files",
 					(System.nanoTime() - started) / 1_000_000L, concepts.size(), catalog.size(),
 					shipped.trails().size(), overlay.files().size());
-			return new Content(concepts, tables, catalog, lute, luteFile, shipped, overlay, validated, null);
+			return new Content(concepts, tables, catalog, lute, luteFile, shipped, overlay, validated, dialogues, null);
 		} catch (Throwable failed) {
 			return Content.failed(failed);
 		}

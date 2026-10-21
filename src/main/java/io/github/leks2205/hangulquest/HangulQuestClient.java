@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.content.Content;
 import io.github.leks2205.hangulquest.content.ContentLoader;
 import io.github.leks2205.hangulquest.content.ContentReloadListener;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.dialogue.DialogueHook;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
@@ -215,6 +216,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 				new ContentReloadListener(this::contentInputs, this::publish, LOG));
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 		ItemTooltipCallback.EVENT.register(this::addTooltip);
+		DialogueHook.register();
 
 		LOG.info("hangulquest ready (config {})", dir);
 	}
@@ -585,6 +587,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 			catalog = builtCatalog;
 			learn = builtLearn;
 			quests = builtQuests;
+			DialogueHook.publish(content.dialogues());
 			contentFailed = false;
 			failureBannerPending = false;
 			loadBackoff.succeeded();

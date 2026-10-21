@@ -4,6 +4,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.LangTables;
 import io.github.leks2205.hangulquest.data.LuteImport;
+import io.github.leks2205.hangulquest.dialogue.DialogueContent;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.QuestlineOverlay;
 import io.github.leks2205.hangulquest.quest.QuestlineStore;
@@ -19,10 +20,10 @@ import java.util.List;
 public record Content(List<Concept> concepts, LangTables tables, Catalog catalog,
 					  LuteImport.Result lute, Path luteFile,
 					  QuestlineStore.Shipped shipped, QuestlineOverlay overlay,
-					  QuestValidator.Result validated, Throwable failure) {
+					  QuestValidator.Result validated, DialogueContent dialogues, Throwable failure) {
 
 	public static Content failed(Throwable failure) {
-		return new Content(null, null, null, null, null, null, null, null, failure);
+		return new Content(null, null, null, null, null, null, null, null, null, failure);
 	}
 
 	public boolean ok() {

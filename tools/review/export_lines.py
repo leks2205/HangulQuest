@@ -128,8 +128,35 @@ def read_tsv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle, delimiter="\t", quoting=csv.QUOTE_NONE))
 
 
+SPEECH_LEVELS = {"haeyo": "해요체 (haeyo)", "banmal": "반말 (banmal)", "hapsyo": "합쇼체 (hapsyo)"}
+
+
+def dialogue_record(row: dict, en: dict, de: dict) -> dict:
+    """A villager conversation line. Ids are dialogue.<file>.<node>[.c<N>]; the English and German
+    gloss are the lang keys hangulquest.<id>; the goal column is 'Dialogue <speaker> <level> [right|wrong|ungraded]'."""
+    rid = row["id"]
+    _, file, node, *reply = rid.split(".")
+    _, speaker, level, *grade = row["goal"].split()
+    if reply:
+        goal = f"Reply the player can pick in speech level {SPEECH_LEVELS[level]}"
+        goal += {"right": ": the right form here.", "wrong": ": the wrong form here (the lesson is the speech level).",
+                 "ungraded": "."}[grade[0]]
+    else:
+        goal = f"Line of the {speaker} in a conversation, speech level {SPEECH_LEVELS[level]}."
+    path = row["source"].partition(":")[2]
+    key = "hangulquest." + rid
+    return {
+        "id": rid, "ko": row["ko"], "en": en.get(key, ""), "de": de.get(key, ""),
+        "context": {"trail": "", "trailTitle": "", "topic": "", "step": node, "goal": goal,
+                    "level": int(row["level"] or 1), "icon": "", "field": "dialogue", "goalKey": row["goal"]},
+        "source": {"kind": "authored", "file": path.split("#", 1)[0], "pointer": to_pointer(path.split("#", 1)[1])},
+    }
+
+
 def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
     trails = load_questlines(data_dir)
+    en_lang = read_json(data_dir.parent / "lang" / "en_us.json", {})
+    de_lang = read_json(data_dir.parent / "lang" / "de_de.json", {})
     concepts = content_text.merge_concepts(
         read_json(data_dir / "concepts.json", []), content_text.load_bundles(data_dir.parent / "lang" / "content"))
     concept_index = {c["id"]: i for i, c in enumerate(concepts)}
@@ -169,6 +196,8 @@ def build_records(rows: list[dict], data_dir: Path = DATA_DIR) -> list[dict]:
                 "source": {"kind": "lexicon", "file": "concepts.json",
                            "pointer": f"/{concept_index[cid]}/{field}"},
             }
+        elif rid.startswith("dialogue."):
+            record = dialogue_record(row, en_lang, de_lang)
         else:
             _, tid, *middle = rid.split(".")
             trail = trails[tid]
