@@ -14,26 +14,50 @@ public final class GoalEvaluator {
 		public int count;
 		public long dwellMs;
 		public String target;
+		/**
+		 * AcquireItem baseline: how many of the item the player held when the step began (or when it
+		 * was restored). {@code -1} means "not taken yet"; the next tick takes it.
+		 */
 		public int baseCount = -1;
+		/** The gained count that was already known when the baseline was taken (restored progress). */
+		public int carried;
+		/** Sticky for the current step: some progress was made in creative or spectator mode. */
+		public boolean assisted;
 		public String goalKey;
+		private Goal goalRef;
 
 		public void resetFor(String key) {
 			if (key.equals(goalKey)) {
 				return;
 			}
 			goalKey = key;
+			goalRef = null;
 			count = 0;
 			dwellMs = 0;
 			target = null;
 			baseCount = -1;
+			carried = 0;
+			assisted = false;
+		}
+
+		/** Same as {@link #resetFor(String)} but skips building the key while the goal object is unchanged. */
+		void resetFor(Goal goal) {
+			if (goal == goalRef) {
+				return;
+			}
+			resetFor(key(goal));
+			goalRef = goal;
 		}
 
 		public void clear() {
 			goalKey = null;
+			goalRef = null;
 			count = 0;
 			dwellMs = 0;
 			target = null;
 			baseCount = -1;
+			carried = 0;
+			assisted = false;
 		}
 	}
 
@@ -102,25 +126,73 @@ public final class GoalEvaluator {
 		};
 	}
 
+	/**
+	 * The nearest entity of that type must be within {@code radius} of the player. When the sensor
+	 * did not record a distance (hand-built observations), presence in the scan is enough.
+	 */
 	private static boolean nearEntity(Observation obs, String entity, double radius) {
-		return radius >= 0 && obs.nearbyEntities.getOrDefault(entity, 0) > 0;
+		if (radius < 0 || obs.nearbyEntities.getOrDefault(entity, 0) <= 0) {
+			return false;
+		}
+		Double distance = obs.nearestEntityDistance.get(entity);
+		return distance == null || distance <= radius;
 	}
 
+	/** The block the player looks at must be within {@code radius} of the player's position. */
 	private static boolean nearBlock(Observation obs, String block, double radius) {
-		return radius >= 0 && block != null && block.equals(obs.lookedBlock);
+		if (radius < 0 || block == null || !block.equals(obs.lookedBlock)) {
+			return false;
+		}
+		if (obs.lookedBlockPos == null) {
+			return true;
+		}
+		return obs.position.distanceToSqr(obs.lookedBlockPos.getX() + 0.5,
+				obs.lookedBlockPos.getY() + 0.5, obs.lookedBlockPos.getZ() + 0.5) <= radius * radius;
 	}
 
-	/** Advances the tracker; returns true when the goal is satisfied. */
+	/**
+	 * True when this goal needs the sensor to pick entities along the camera ray far beyond
+	 * vanilla's reach (the ender dragon, a ghast, a parrot through the spyglass).
+	 */
+	public static boolean needsFarEntityLook(Goal goal) {
+		return goal instanceof Goal.LookAtEntity;
+	}
+
+	/**
+	 * Advances the tracker; returns true when the goal is satisfied. Progress made in creative or
+	 * spectator mode still counts, but marks the tracker {@link Tracker#assisted}.
+	 */
 	public static boolean tick(Goal goal, List<Condition> conditions, Observation obs, Tracker tracker) {
-		tracker.resetFor(key(goal));
+		tracker.resetFor(goal);
+		if (needsFarEntityLook(goal)) {
+			obs.farEntityLookWanted = true;
+		}
+		if (goal instanceof Goal.AcquireItem g) {
+			// The baseline is taken even while conditions fail, so items picked up meanwhile count later.
+			baselineAcquired(tracker, familyCount(obs, g.item()), obs.inventorySettling);
+		}
+		int countBefore = tracker.count;
+		long dwellBefore = tracker.dwellMs;
+		boolean complete = evaluate(goal, conditions, obs, tracker);
+		if (obs.assisted() && (complete || tracker.count > countBefore || tracker.dwellMs > dwellBefore)) {
+			tracker.assisted = true;
+		}
+		return complete;
+	}
+
+	private static boolean evaluate(Goal goal, List<Condition> conditions, Observation obs, Tracker tracker) {
 		boolean nightLatch = (goal instanceof Goal.UseBlock || goal instanceof Goal.PlaceBlock
 				|| goal instanceof Goal.LookAtBlock || goal instanceof Goal.ConsumeItem
 				|| goal instanceof Goal.DefeatEntity || goal instanceof Goal.ReachBiome)
 				&& hasNightCondition(conditions)
 				&& !conditionsMet(conditions, obs)
 				&& conditionsMetIgnoringTime(conditions, obs);
+		// Being in bed is proof of the night, even after the server skipped to morning. It excuses the
+		// time-of-day condition only: biome, dimension and the rest must still hold.
 		boolean sleepingProof = goal instanceof Goal.UseBlock use
-				&& obs.sleeping && isBed(use.block());
+				&& obs.sleeping && isBed(use.block())
+				&& hasNightCondition(conditions)
+				&& conditionsMetIgnoringTime(conditions, obs);
 		if (!conditionsMet(conditions, obs) && !nightLatch && !sleepingProof) {
 			return false;
 		}
@@ -143,8 +215,10 @@ public final class GoalEvaluator {
 				yield tracker.count >= Math.max(1, g.count());
 			}
 			case Goal.AcquireItem g -> {
-				// Already-held items count: a step says "have X", not "find X more".
-				yield familyCount(obs, g.item()) >= Math.max(1, g.count());
+				if (!obs.inventorySettling) {
+					trackAcquired(tracker, familyCount(obs, g.item()));
+				}
+				yield tracker.count >= Math.max(1, g.count());
 			}
 			case Goal.ConsumeItem g -> {
 				List<String> eaten = nightLatch ? obs.consumedItemsAtNight : obs.consumedItems;
@@ -203,6 +277,31 @@ public final class GoalEvaluator {
 				yield tracker.count >= 1;
 			}
 		};
+	}
+
+	/**
+	 * Counts only items gained since the step began. The first tick of a step (and every tick while
+	 * the inventory is still syncing after a world change) takes the held count as the baseline;
+	 * afterwards {@code count = carried + (held - baseline)}, never going down. Shuffling stacks in a
+	 * menu or dropping and re-collecting items therefore earns nothing, because only a rise above the
+	 * baseline counts.
+	 * <p>
+	 * Only {@code count} is persisted (as goalProgress). After a restart the step is re-baselined at
+	 * whatever the player holds then, with the saved count carried over. Trade-off: items picked up
+	 * after the last save but before the restart are not credited, and neither are items that were
+	 * already held when the game restarted. Items consumed from the baseline stack (crafting, eating)
+	 * mean more must be gained before progress resumes.
+	 */
+	static void baselineAcquired(Tracker tracker, int held, boolean settling) {
+		if (tracker.baseCount < 0 || settling) {
+			tracker.baseCount = held;
+			tracker.carried = tracker.count;
+		}
+	}
+
+	/** Raises the gained count; run only while the step's conditions hold. */
+	static void trackAcquired(Tracker tracker, int held) {
+		tracker.count = Math.max(tracker.count, tracker.carried + held - tracker.baseCount);
 	}
 
 	/** Beds, doors, planks, fences, wool and logs are interchangeable within their family. */

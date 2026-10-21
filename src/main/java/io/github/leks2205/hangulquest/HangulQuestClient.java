@@ -178,6 +178,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 				store.flush();
 			}
 			lastObservation = new Observation();
+			sensor.reset();
 		});
 		ClientLifecycleEvents.CLIENT_STOPPING.register(client -> {
 			if (store != null) {

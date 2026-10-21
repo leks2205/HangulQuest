@@ -79,6 +79,12 @@ class PlaytestTest {
 			QuestStep step = engine.currentStep();
 			assertTrue(step != null, trail.id() + " lost its active step");
 			Observation obs = observation(step, now);
+			if (step.goal() instanceof Goal.AcquireItem) {
+				// Items already held do not count: the first tick of the step takes the baseline.
+				Observation baseline = new Observation();
+				baseline.now = now;
+				engine.tick(baseline, new Feedback(engine));
+			}
 			boolean advanced = false;
 			for (int tick = 0; tick < 40 && !advanced; tick++) {
 				now += 60L;
