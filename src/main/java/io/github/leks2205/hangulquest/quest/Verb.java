@@ -56,7 +56,18 @@ public enum Verb {
 	RIDE("타다", "타", "타", "reiten"),
 	ADDRESS("걸다", "걸", "걸어", "ansprechen", "말을 ", Frame.DAT),
 	TOUCH("만지다", "만지", "만져", "berühren"),
-	GIVE_ITEM("주다", "주", "줘", "geben", "아이템을 ", Frame.DAT);
+	GIVE_ITEM("주다", "주", "줘", "geben", "아이템을 ", Frame.DAT),
+
+	// Action variety: give, put in, hold, enter, drop, close, melt, bake, walk.
+	GIVE("주다", "주", "줘", "geben", Frame.DAT),
+	PUT_IN("넣다", "넣", "넣어", "hineinlegen"),
+	HOLD("들다", "들", "들어", "halten"),
+	ENTER("들어가다", "들어가", "들어가", "hineingehen"),
+	DROP_AT("떨어뜨리다", "떨어뜨리", "떨어뜨려", "fallen lassen"),
+	CLOSE("닫다", "닫", "닫아", "schließen"),
+	MELT("녹이다", "녹이", "녹여", "schmelzen"),
+	BAKE("굽다", "굽", "구워", "braten", "구울"),
+	WALK("걷다", "걷", "걸어", "laufen", "걸을");
 
 	/** How the target noun is marked in front of the verb. */
 	public enum Frame {
@@ -131,6 +142,29 @@ public enum Verb {
 
 	public Frame frame() {
 		return frame;
+	}
+
+	/**
+	 * The past attributive stem before 후에 and in -(으)ㄴ: 먹 → 먹은, 자 → 잔, 만들 → 만든. The irregular
+	 * ㅂ and ㄷ verbs (굽다, 줍다, 걷다) are spelled out.
+	 */
+	public String attributive() {
+		return switch (this) {
+			case BAKE -> "구운";
+			case PICK_UP -> "주운";
+			case WALK -> "걸은";
+			default -> KoGrammar.eun(stem);
+		};
+	}
+
+	/** Honorific -(으)세요 stem: 들 → 드세요, 굽 → 구우세요, 걷 → 걸으세요. */
+	public String honorific() {
+		return switch (this) {
+			case BAKE -> "구우세요";
+			case PICK_UP -> "주우세요";
+			case WALK -> "걸으세요";
+			default -> KoGrammar.seyo(stem);
+		};
 	}
 
 	public String polite() {

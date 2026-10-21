@@ -30,4 +30,26 @@ public sealed interface Condition {
 
 	record InBiome(String biome) implements Condition {
 	}
+
+	// ---- Action variety.
+
+	enum SkyState {
+		OPEN, ROOFED
+	}
+
+	/** The item is in a hand. */
+	record Holding(String item) implements Condition {
+	}
+
+	/** Open sky above the player, or a roof within reach. */
+	record Sky(SkyState state) implements Condition {
+	}
+
+	record InWater() implements Condition {
+	}
+
+	/** The player stands in this relation to a block or an entity ("나무 아래에서"). */
+	record PlayerRel(io.github.leks2205.hangulquest.quest.spatial.Relation relation, String anchor)
+			implements Condition {
+	}
 }

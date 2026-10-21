@@ -48,10 +48,10 @@ class QuestlineValidationTest {
 	void allShippedQuestlinesValidate() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		List<Questline> loaded = QuestLoader.loadAll();
-		assertEquals(420, loaded.size(), "expected four hundred and twenty authored trails");
+		assertEquals(421, loaded.size(), "expected four hundred and twenty authored trails and one demo");
 		QuestValidator.Result result = QuestValidator.validate(loaded, catalog, LOG);
 		assertTrue(result.problems().isEmpty(), "questline problems: " + result.problems());
-		assertEquals(420, result.trails().size());
+		assertEquals(421, result.trails().size());
 
 		java.util.Set<String> trailIds = new java.util.HashSet<>();
 		java.util.Map<String, Questline> byId = new java.util.HashMap<>();
@@ -89,7 +89,8 @@ class QuestlineValidationTest {
 				assertFalse(trail.requires().completed().isEmpty(),
 						trail.id() + " is not on level 1 but has no previous quest");
 			}
-			if (depth < maxDepth && depth < 18 && !trail.id().startsWith("adv_") && !trail.id().startsWith("w")) {
+			if (depth < maxDepth && depth < 18 && !trail.id().startsWith("adv_") && !trail.id().startsWith("w")
+					&& !trail.id().endsWith("_demo")) {
 				assertTrue(children.getOrDefault(trail.id(), 0) > 0,
 						trail.id() + " is a dead end on level " + depth
 								+ " but the tree continues to level " + maxDepth);
@@ -208,6 +209,13 @@ class QuestlineValidationTest {
 					case Goal.ReachHeight g -> List.of("올라", "내려", "가");
 					case Goal.DefeatEntity g -> List.of("물리", "죽", "잡");
 					case Goal.InteractEntity g -> List.of("이야기", "대화", "말", "만나");
+					case Goal.Craft g -> List.of("만들");
+					case Goal.Smelt g -> List.of("만들", "구", "녹");
+					case Goal.Give g -> List.of("주", "떨어뜨");
+					case Goal.PutIn g -> List.of("넣");
+					case Goal.HoldWhile g -> List.of("들");
+					case Goal.Sequence g -> List.of("전에", "후에", "나서", "고");
+					case Goal.Avoid g -> List.of("마세요");
 				};
 				boolean namesAction = verbs.stream().anyMatch(ko::contains);
 				assertTrue(namesAction, trail.id() + "/" + step.id()
@@ -345,7 +353,7 @@ class QuestlineValidationTest {
 	void everyValidatedTrailHasAnEnglishTitleAndFinaleWithoutFallback() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		QuestValidator.Result result = QuestValidator.validate(QuestLoader.loadAll(), catalog, LOG);
-		assertEquals(420, result.trails().size());
+		assertEquals(421, result.trails().size());
 		for (Questline trail : result.trails()) {
 			// The raw fields: the fallback getters would hide a lost English text behind German.
 			assertFalse(trail.titleEnRaw() == null || trail.titleEnRaw().isBlank(),

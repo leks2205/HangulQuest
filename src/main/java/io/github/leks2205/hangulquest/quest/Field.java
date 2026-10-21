@@ -15,7 +15,15 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 		/** A namespaced id such as minecraft:stone, or a tag. */
 		RESOURCE_ID,
 		INTEGER,
-		ENUM
+		ENUM,
+		// Action variety: lists, flags and nested goals or conditions.
+		RESOURCE_LIST,
+		BOOLEAN,
+		GOAL,
+		GOAL_LIST,
+		CONDITION,
+		/** A goal or a condition, told apart by its {@code type}. */
+		GOAL_OR_CONDITION
 	}
 
 	public static Field resource(String name) {
@@ -35,6 +43,36 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 		return new Field(name, Kind.ENUM, required, null, null, List.of(values), description);
 	}
 
+	public static Field optionalResource(String name) {
+		return new Field(name, Kind.RESOURCE_ID, false, null, null, List.of(), null);
+	}
+
+	/** An optional list of namespaced ids. */
+	public static Field resourceList(String name, String description) {
+		return new Field(name, Kind.RESOURCE_LIST, false, null, null, List.of(), description);
+	}
+
+	public static Field flag(String name, String description) {
+		return new Field(name, Kind.BOOLEAN, false, null, null, List.of(), description);
+	}
+
+	public static Field goal(String name, boolean required, String description) {
+		return new Field(name, Kind.GOAL, required, null, null, List.of(), description);
+	}
+
+	/** A list of goals with {@code min}..{@code max} entries. */
+	public static Field goalList(String name, int min, int max, String description) {
+		return new Field(name, Kind.GOAL_LIST, true, min, max, List.of(), description);
+	}
+
+	public static Field condition(String name, boolean required, String description) {
+		return new Field(name, Kind.CONDITION, required, null, null, List.of(), description);
+	}
+
+	public static Field goalOrCondition(String name, String description) {
+		return new Field(name, Kind.GOAL_OR_CONDITION, true, null, null, List.of(), description);
+	}
+
 	/** The JSON schema of this property. */
 	public JsonObject schema() {
 		JsonObject schema = new JsonObject();
@@ -51,6 +89,32 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 				JsonArray array = new JsonArray();
 				values.forEach(array::add);
 				schema.add("enum", array);
+			}
+			case RESOURCE_LIST -> {
+				schema.addProperty("type", "array");
+				JsonObject items = new JsonObject();
+				items.addProperty("$ref", "#/definitions/resourceId");
+				schema.add("items", items);
+			}
+			case BOOLEAN -> schema.addProperty("type", "boolean");
+			case GOAL -> schema.addProperty("$ref", "#/definitions/goal");
+			case CONDITION -> schema.addProperty("$ref", "#/definitions/condition");
+			case GOAL_LIST -> {
+				schema.addProperty("type", "array");
+				JsonObject items = new JsonObject();
+				items.addProperty("$ref", "#/definitions/goal");
+				schema.add("items", items);
+				schema.addProperty("minItems", min);
+				schema.addProperty("maxItems", max);
+			}
+			case GOAL_OR_CONDITION -> {
+				JsonArray either = new JsonArray();
+				for (String ref : List.of("goal", "condition")) {
+					JsonObject option = new JsonObject();
+					option.addProperty("$ref", "#/definitions/" + ref);
+					either.add(option);
+				}
+				schema.add("oneOf", either);
 			}
 		}
 		if (description != null) {

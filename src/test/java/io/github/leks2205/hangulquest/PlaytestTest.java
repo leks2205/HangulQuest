@@ -10,7 +10,14 @@ import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
+import io.github.leks2205.hangulquest.quest.spatial.Relation;
+import io.github.leks2205.hangulquest.sense.ContainerPutFact;
+import io.github.leks2205.hangulquest.sense.CraftFact;
+import io.github.leks2205.hangulquest.sense.EntityFact;
+import io.github.leks2205.hangulquest.sense.GiveFact;
 import io.github.leks2205.hangulquest.sense.Observation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.slf4j.LoggerFactory;
@@ -20,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -64,6 +72,17 @@ class PlaytestTest {
 		assertTrue(failures.isEmpty(), "unplayable trails:\n" + String.join("\n", failures));
 	}
 
+	@Test
+	void theVillageErrandsDemoUsesTheNewActionTypes() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		Questline trail = QuestLoader.loadAll().stream()
+				.filter(t -> t.id().equals("village_errands_demo")).findFirst().orElseThrow();
+		assertEquals(3, trail.koreanLevel());
+		List<String> kinds = trail.allSteps().stream().map(step -> step.goal().getClass().getSimpleName()).toList();
+		assertEquals(List.of("Craft", "Give", "PutIn", "Sequence", "HoldWhile"), kinds);
+		System.out.println("PLAYTEST village_errands_demo -> " + play(trail, catalog));
+	}
+
 	private String play(Questline trail, Catalog catalog) {
 		Path dir = tempDir.resolve(trail.id() + "-" + Math.abs(trail.id().hashCode()));
 		ProgressStore store = new ProgressStore(dir, LoggerFactory.getLogger("playtest"));
@@ -86,8 +105,14 @@ class PlaytestTest {
 				engine.tick(baseline, new Feedback(engine));
 			}
 			boolean advanced = false;
-			for (int tick = 0; tick < 40 && !advanced; tick++) {
+			// A sequence is played part by part, a few ticks of each part's facts; timed goals need longer.
+			List<Goal> phases = step.goal() instanceof Goal.Sequence sequence
+					? sequence.parts() : List.of(step.goal());
+			for (int tick = 0; tick < ticksFor(step.goal()) && !advanced; tick++) {
 				now += 60L;
+				if (phases.size() > 1) {
+					obs = observation(phases.get(Math.min(phases.size() - 1, tick / 3)), step.conditions(), now);
+				}
 				obs.now = now;
 				engine.tick(obs, new Feedback(engine));
 				advanced = completed(engine)
@@ -111,36 +136,84 @@ class PlaytestTest {
 		return engine.activeTrail() == null && engine.currentStep() == null;
 	}
 
+	/** Ticks to drive a step. A goal that has to last needs its seconds: a tick is 50 ms of game time. */
+	private static int ticksFor(Goal goal) {
+		return switch (goal) {
+			case Goal.HoldWhile g when g.innerCondition() != null -> g.seconds() * 20 + 20;
+			case Goal.Avoid g -> g.windowSeconds() * 20 + 20;
+			default -> 40;
+		};
+	}
+
 	private static Observation observation(QuestStep step, long now) {
+		return observation(step.goal(), step.conditions(), now);
+	}
+
+	private static Observation observation(Goal goal, List<Condition> conditions, long now) {
 		Observation obs = new Observation();
 		obs.now = now;
 		obs.dimension = "minecraft:overworld";
 		obs.y = 64;
 		obs.clockTime = 1000L;
-		for (Condition condition : step.conditions()) {
-			switch (condition) {
-				case Condition.Time t -> obs.clockTime = switch (t.phase()) {
-					case DAY -> 1000L;
-					case NIGHT -> 14000L;
-					case DAWN -> 23000L;
-					case DUSK -> 12000L;
-				};
-				case Condition.WeatherState w -> {
-					obs.rain = w.weather() != Condition.Weather.CLEAR;
-					obs.thunder = w.weather() == Condition.Weather.THUNDER;
-				}
-				case Condition.YRange y -> obs.y = y.minY();
-				case Condition.InBiome b -> {
-					obs.biome = b.biome().startsWith("#") ? "minecraft:stony_peaks" : b.biome();
-					obs.biomeTags.add(b.biome().startsWith("#")
-							? b.biome().substring(1) : b.biome());
-				}
-				case Condition.InDimension d -> obs.dimension = d.dimension();
-				case Condition.NearEntity n -> obs.nearbyEntities.put(n.entity(), 1);
-				case Condition.NearBlock n -> obs.lookedBlock = n.block();
-			}
+		for (Condition condition : conditions) {
+			applyCondition(obs, condition);
 		}
-		switch (step.goal()) {
+		applyGoal(obs, goal);
+		return obs;
+	}
+
+	private static void applyCondition(Observation obs, Condition condition) {
+		switch (condition) {
+			case Condition.Time t -> obs.clockTime = switch (t.phase()) {
+				case DAY -> 1000L;
+				case NIGHT -> 14000L;
+				case DAWN -> 23000L;
+				case DUSK -> 12000L;
+			};
+			case Condition.WeatherState w -> {
+				obs.rain = w.weather() != Condition.Weather.CLEAR;
+				obs.thunder = w.weather() == Condition.Weather.THUNDER;
+			}
+			case Condition.YRange y -> obs.y = y.minY();
+			case Condition.InBiome b -> {
+				obs.biome = b.biome().startsWith("#") ? "minecraft:stony_peaks" : b.biome();
+				obs.biomeTags.add(b.biome().startsWith("#")
+						? b.biome().substring(1) : b.biome());
+			}
+			case Condition.InDimension d -> obs.dimension = d.dimension();
+			case Condition.NearEntity n -> obs.nearbyEntities.put(n.entity(), 1);
+			case Condition.NearBlock n -> obs.lookedBlock = n.block();
+			case Condition.Holding h -> obs.mainHand = h.item();
+			case Condition.Sky s -> {
+				obs.canSeeSky = s.state() == Condition.SkyState.OPEN;
+				obs.roofed = s.state() == Condition.SkyState.ROOFED;
+			}
+			case Condition.InWater w -> obs.inWater = true;
+			case Condition.PlayerRel r -> standNextTo(obs, r.relation(), r.anchor());
+		}
+	}
+
+	/** Puts the player where PLAYER_REL is true: next to a looked-at block, or an entity that faces south. */
+	private static void standNextTo(Observation obs, Relation relation, String anchor) {
+		obs.lookedBlock = anchor;
+		obs.lookedBlockPos = new BlockPos(10, 64, 10);
+		obs.position = switch (relation) {
+			case ON_TOP_OF -> new Vec3(10.5, 65.0, 10.5);
+			case UNDER -> new Vec3(10.5, 62.0, 10.5);
+			case NEXT_TO -> new Vec3(12.0, 64.0, 10.5);
+			case INSIDE -> new Vec3(10.5, 64.0, 10.5);
+			case OUTSIDE -> new Vec3(14.5, 64.0, 10.5);
+			case IN_FRONT_OF -> new Vec3(10.0, 64.0, 12.0);
+			case BEHIND -> new Vec3(10.0, 64.0, 8.0);
+			default -> new Vec3(13.0, 64.0, 10.5);
+		};
+		if (relation == Relation.IN_FRONT_OF || relation == Relation.BEHIND) {
+			obs.addEntityPosition(new EntityFact(anchor, UUID.randomUUID(), 10.0, 64.0, 10.0, 0.0F, 0.0F));
+		}
+	}
+
+	private static void applyGoal(Observation obs, Goal goal) {
+		switch (goal) {
 			case Goal.BreakBlock g -> {
 				for (int i = 0; i < Math.max(1, g.count()); i++) obs.brokenBlocks.add(g.block());
 			}
@@ -168,8 +241,33 @@ class PlaytestTest {
 			}
 			case Goal.DefeatEntity g -> obs.defeatedEntities.add(g.entity());
 			case Goal.InteractEntity g -> obs.interactedEntities.add(g.entity());
+			case Goal.Craft g -> obs.addCrafted(new CraftFact(g.item(), Math.max(1, g.count()),
+					g.station() == null ? "crafting_table" : g.station()));
+			case Goal.Smelt g -> obs.addCrafted(new CraftFact(g.output(), Math.max(1, g.count()), "furnace"));
+			case Goal.Give g -> obs.addGave(new GiveFact(g.item(), Math.max(1, g.count()), g.entity(),
+					UUID.randomUUID(), g.method() == null ? GiveFact.Method.USE_WITH
+					: GiveFact.Method.valueOf(g.method())));
+			case Goal.PutIn g -> obs.addPutIn(new ContainerPutFact(g.item(), Math.max(1, g.count()),
+					g.container(), BlockPos.ZERO));
+			case Goal.HoldWhile g -> {
+				obs.mainHand = g.item();
+				obs.idle = false;
+				if (g.innerGoal() != null) {
+					applyGoal(obs, g.innerGoal());
+				}
+				if (g.innerCondition() != null) {
+					applyCondition(obs, g.innerCondition());
+				}
+			}
+			// The play loop feeds a sequence part by part; this is only the first part.
+			case Goal.Sequence g -> applyGoal(obs, g.parts().get(0));
+			// Nothing to do for an avoid: the window just has to run out.
+			case Goal.Avoid g -> {
+				if (g.during() != null) {
+					applyCondition(obs, g.during());
+				}
+			}
 		}
-		return obs;
 	}
 
 	private static final class Feedback implements QuestEngine.Feedback {

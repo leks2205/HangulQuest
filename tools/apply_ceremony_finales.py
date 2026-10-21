@@ -25,6 +25,17 @@ CEREMONY = ROOT / "build" / "reports" / "korean" / "ceremony.tsv"
 BROKEN = "라는 길의 의식을 마쳤어요"
 
 
+def questline_file(trail_id: str) -> Path:
+    """The file of a trail: <id>.json, or the file whose "id" says so (the demo trail is in mill_demo.json)."""
+    path = QUESTLINES / f"{trail_id}.json"
+    if path.is_file():
+        return path
+    for other in sorted(QUESTLINES.glob("*.json")):
+        if other.name != "index.json" and json.loads(other.read_text(encoding="utf-8")).get("id") == trail_id:
+            return other
+    return path
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--all", action="store_true", help="rewrite every non-authored finale, not only the broken template")
@@ -41,7 +52,7 @@ def main(argv: list[str]) -> int:
     only = set(args.only.split(",")) if args.only else set()
     changes = []
     for trail_id, sentence in sentences.items():
-        path = QUESTLINES / f"{trail_id}.json"
+        path = questline_file(trail_id)
         data = json.loads(path.read_text(encoding="utf-8"))
         old = data["finale"].get("textKo", "")
         authored = " — " in old and BROKEN not in old and trail_id not in only

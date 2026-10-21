@@ -98,6 +98,19 @@ public interface GoalType<G extends Goal> {
 	/** The past-tense finale body, without the condition prefix and the full stop. */
 	String ceremony(G goal, String obj, Verb verb);
 
+	/** The past-tense finale with the whole sentence context; types with more than one noun override this. */
+	default String ceremony(G goal, SentenceContext context) {
+		return ceremony(goal, context.obj(), context.verb());
+	}
+
+	/**
+	 * The grammar points the clue of this goal teaches, as ids such as {@code L2.ege}. The default is the
+	 * ending of the level and the marker of the object; types add what is special about them.
+	 */
+	default List<String> grammarIds(G goal, SentenceContext context) {
+		return SentenceBuilder.baseGrammar(context.verb(), context.level(), objectKind());
+	}
+
 	/** The Korean name of the object, or null when there is none. */
 	default String objectName(G goal, SentenceBuilder.Namer namer) {
 		String object = object(goal);
@@ -128,7 +141,10 @@ public interface GoalType<G extends Goal> {
 
 	ObjectKind objectKind();
 
-	/** Type, object and verb as one string: two steps with the same signature ask for the same task. */
+	/**
+	 * Type, object and verb as one string: two steps with the same signature ask for the same task.
+	 * Types with more than one target or sub-goal (give, put in, sequences) put all of them in.
+	 */
 	default String taskSignature(G goal) {
 		String object = object(goal);
 		return id() + ":" + (object == null ? "" : object) + ":" + verb(goal, VerbTable.shared()).name();

@@ -24,7 +24,15 @@ public final class GoalTypes {
 			new ReachDimensionType(),
 			new ReachHeightType(),
 			new UseBlockType(),
-			new InteractEntityType());
+			new InteractEntityType(),
+			// Action variety.
+			new CraftType(),
+			new SmeltType(),
+			new GiveType(),
+			new PutInType(),
+			new HoldWhileType(),
+			new SequenceType(),
+			new AvoidType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();
