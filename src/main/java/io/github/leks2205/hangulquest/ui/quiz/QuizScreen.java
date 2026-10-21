@@ -32,10 +32,13 @@ public final class QuizScreen extends Screen {
 	private final HangulQuestClient hq = HangulQuestClient.get();
 	private final List<int[]> rows = new ArrayList<>();
 	private QuizOutcome lastOutcome = QuizOutcome.NONE;
+	/** What is shown; read from the controller once per tick and after an answer, not once per frame. */
+	private QuizView view;
 
 	public QuizScreen(HudController hud) {
 		super(Component.literal("한글 탐험"));
 		this.hud = hud;
+		this.view = hud.quizView();
 	}
 
 	@Override
@@ -45,7 +48,8 @@ public final class QuizScreen extends Screen {
 
 	@Override
 	public void tick() {
-		if (hud.quizView() == null) {
+		view = hud.quizView();
+		if (view == null) {
 			onClose(); // answered, expired elsewhere or finished
 		}
 	}
@@ -93,11 +97,11 @@ public final class QuizScreen extends Screen {
 		if (outcome != QuizOutcome.NONE) {
 			lastOutcome = outcome;
 		}
+		view = hud.quizView();
 	}
 
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
-		QuizView view = hud.quizView();
 		if (view == null) {
 			return;
 		}

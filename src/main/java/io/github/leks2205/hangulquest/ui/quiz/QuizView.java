@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * What the quiz screen shows right now: a review question, a sidequest question or the choice of the
- * next quest. Plain data, rebuilt every frame by the HUD controller, which owns the real state.
+ * next quest. Plain data, rebuilt by the HUD controller (which owns the real state) whenever the screen asks.
  *
  * @param titleKo       the heading, already Korean
  * @param prompt        the question, or empty when the options are the whole content
