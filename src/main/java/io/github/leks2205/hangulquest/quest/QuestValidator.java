@@ -134,7 +134,9 @@ public final class QuestValidator {
 	private static boolean covers(io.github.leks2205.hangulquest.data.Concept concept, Goal goal) {
 		String item = goalItem(goal);
 		if (item != null) {
-			return concept.items != null && concept.items.contains(item);
+			// The icon still counts here: shipped trails teach words through their picture item
+			// (see Concept.icon). Drop this once those steps are regenerated.
+			return concept.items != null && concept.items.contains(item) || item.equals(concept.icon);
 		}
 		String entity = goalEntity(goal);
 		if (entity != null) {

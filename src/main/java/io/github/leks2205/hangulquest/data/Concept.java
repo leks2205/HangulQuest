@@ -11,7 +11,10 @@ public final class Concept {
 	public String en;
 	public String category = "MISC";
 	public int tier = 1;
+	/** Items the word really names (instances of it); empty for animals, places, verbs. */
 	public List<String> items = new ArrayList<>();
+	/** Picture to draw when the word names no item or a different one; defaults to the first item. */
+	public String icon;
 	public String entity;
 	public String biome;
 	public String sentenceKo;
@@ -29,11 +32,30 @@ public final class Concept {
 		}
 	}
 
+	/** False when {@code category} names no {@link Category}, so {@link #categoryEnum()} would fall back to MISC. */
+	public boolean hasKnownCategory() {
+		try {
+			Category.valueOf(category);
+			return true;
+		} catch (RuntimeException unknown) {
+			return false;
+		}
+	}
+
+	/** The picture for this word: the explicit icon, else the first item it names. */
+	public String iconItem() {
+		if (icon != null && !icon.isBlank()) {
+			return icon;
+		}
+		return items == null || items.isEmpty() ? null : items.get(0);
+	}
+
 	public Word toWord() {
-		String icon = items == null || items.isEmpty() ? null : items.get(0);
-		String english = en == null || en.isBlank() ? de : en;
-		return new Word("concept:" + id, ko, de, english, de, categoryEnum(), tier, id, icon, entity, biome,
-				descKo, Origin.CURATED, false, grammar);
+		List<String> referents = items == null ? List.of() : items;
+		// A blank English gloss stays blank here; Word marks it as untranslated instead of
+		// passing the German text off as English.
+		return new Word("concept:" + id, ko, de, en, de, categoryEnum(), tier, id, iconItem(), entity, biome,
+				descKo, Origin.CURATED, false, grammar, referents);
 	}
 
 	public boolean isValid() {
