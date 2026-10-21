@@ -8,13 +8,20 @@ import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.SideQuest;
+import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.learn.WordProgress;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.SafetyGate;
 import io.github.leks2205.hangulquest.ui.quiz.QuizOutcome;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import io.github.leks2205.hangulquest.ui.quiz.QuizSession;
 import io.github.leks2205.hangulquest.ui.quiz.QuizView;
+import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
+import io.github.leks2205.hangulquest.ui.quiz.cards.CardFactory;
+import io.github.leks2205.hangulquest.ui.quiz.cards.CardInfo;
+import io.github.leks2205.hangulquest.ui.quiz.cards.CardRecording;
+import io.github.leks2205.hangulquest.ui.quiz.cards.RecognitionMc4Card;
 import io.github.leks2205.hangulquest.util.I18n;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.DeltaTracker;
@@ -170,7 +177,7 @@ public final class HudController implements QuestEngine.Feedback {
 		for (String option : quiz.options()) {
 			options.add(new QuizView.Option(option));
 		}
-		return new QuizView(QuizView.Kind.REVIEW, "복습", word.get().ko, true, null, options, false);
+		return new QuizView(QuizView.Kind.REVIEW, "복습", word.get().ko, true, null, options, false, quiz.card());
 	}
 
 	/** An answer given in the quiz screen (key 1-5 or a click). The only path that answers anything. */
@@ -205,7 +212,29 @@ public final class HudController implements QuestEngine.Feedback {
 		session.dismiss();
 	}
 
+	/**
+	 * The first attempt on the open card, from the quiz screen. The one place a card's answer is recorded:
+	 * a retry or the feedback afterwards never comes here.
+	 */
+	public QuizOutcome recordCardAnswer(Card.Answer answer) {
+		long now = System.currentTimeMillis();
+		Optional<QuizSession.Result> result = session.answer(answer, now, (wordId, given, latencyMs) -> {
+			List<Achievements.Achievement> unlocked = CardRecording.record(hq.learn(), wordId, given, latencyMs, now);
+			lastQuizAt = now;
+			sound(given.correct());
+			for (Achievements.Achievement achievement : unlocked) {
+				banner(achievement.ko(), achievement.label(), true);
+			}
+		});
+		return result.map(r -> r.correct() ? QuizOutcome.CORRECT : QuizOutcome.WRONG).orElse(QuizOutcome.NONE);
+	}
+
 	private QuizOutcome answerReview(int index) {
+		QuizSession.Quiz open = session.quiz();
+		if (open != null && open.card() != null) {
+			Optional<Card.Answer> given = open.card().choose(index);
+			return given.isPresent() ? recordCardAnswer(given.get()) : QuizOutcome.NONE;
+		}
 		long now = System.currentTimeMillis();
 		int optionCount = session.quiz() == null ? 4 : session.quiz().options().size();
 		long latencyMs = now - session.activeSince();
@@ -359,7 +388,7 @@ public final class HudController implements QuestEngine.Feedback {
 		if (learn == null) {
 			return null;
 		}
-		List<Word> due = learn.dueWords(System.currentTimeMillis(), 6);
+		List<Word> due = learn.dueForPlay(System.currentTimeMillis(), 6);
 		if (due.isEmpty()) {
 			return null;
 		}
@@ -367,17 +396,17 @@ public final class HudController implements QuestEngine.Feedback {
 		return buildQuiz(due.get(0));
 	}
 
+	/** The card for a due word: recognition, or a productive card once the word is stable enough. */
 	private QuizSession.Quiz buildQuiz(Word word) {
-		Random random = new Random();
-		List<String> options = new ArrayList<>();
-		options.add(glossOf(word));
-		for (Word distractor : hq.catalog().distractors(word, 3, random)) {
-			if (!options.contains(glossOf(distractor))) {
-				options.add(glossOf(distractor));
-			}
-		}
-		Collections.shuffle(options, random);
-		return new QuizSession.Quiz(word.id, options, options.indexOf(glossOf(word)));
+		WordProgress progress = hq.learn().data().words.get(word.id);
+		Card card = CardFactory.create(word, progress, hq.catalog(), LexiconTags.shared(), new Random());
+		return QuizSession.Quiz.of(word.id, card);
+	}
+
+	/** Dev self-test: always recognition, so the right answer is known. */
+	private QuizSession.Quiz buildMcQuiz(Word word) {
+		return QuizSession.Quiz.of(word.id, RecognitionMc4Card.create(CardInfo.of(hq.catalog(), word),
+				hq.catalog().all(), LexiconTags.shared(), new Random()));
 	}
 
 	// ----------------------------------------------------------------- drawing
@@ -449,7 +478,7 @@ public final class HudController implements QuestEngine.Feedback {
 	/** Dev self-test helper: start a quiz for a known word. */
 	public void selftestStartQuiz(String wordId) {
 		hq.catalog().byId(wordId).ifPresent(word -> {
-			session.begin(buildQuiz(word));
+			session.begin(buildMcQuiz(word));
 			pendingOpen = true;
 		});
 	}
@@ -458,7 +487,7 @@ public final class HudController implements QuestEngine.Feedback {
 	public void selftestRevealQuiz() {
 		QuizSession.Quiz quiz = session.quiz();
 		if (session.state() == QuizSession.State.ACTIVE && quiz != null) {
-			answerReview(quiz.correctIndex());
+			answerReview(quiz.card() instanceof RecognitionMc4Card mc ? mc.correctIndex() : quiz.correctIndex());
 		}
 	}
 

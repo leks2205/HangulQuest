@@ -1,5 +1,7 @@
 package io.github.leks2205.hangulquest.ui.quiz;
 
+import io.github.leks2205.hangulquest.ui.quiz.cards.Card;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,10 +19,22 @@ public final class QuizSession {
 
 	public enum State { IDLE, PROMPT, ACTIVE }
 
-	/** One multiple-choice question about a word. */
-	public record Quiz(String wordId, List<String> options, int correctIndex) {
+	/**
+	 * One question about a word. A plain multiple-choice quiz has options and a correct index; a quiz
+	 * with a {@code card} is driven by the card instead and its options may be empty.
+	 */
+	public record Quiz(String wordId, List<String> options, int correctIndex, Card card) {
 		public Quiz {
 			options = List.copyOf(options);
+		}
+
+		public Quiz(String wordId, List<String> options, int correctIndex) {
+			this(wordId, options, correctIndex, null);
+		}
+
+		/** A quiz that is played on this card. */
+		public static Quiz of(String wordId, Card card) {
+			return new Quiz(wordId, List.of(), -1, card);
 		}
 	}
 
@@ -31,6 +45,12 @@ public final class QuizSession {
 	@FunctionalInterface
 	public interface Recorder {
 		void record(String wordId, boolean correct);
+	}
+
+	/** Where a card's first attempt goes; the production implementation records it with the learning service. */
+	@FunctionalInterface
+	public interface CardRecorder {
+		void record(String wordId, Card.Answer answer, long latencyMs);
 	}
 
 	private State state = State.IDLE;
@@ -113,6 +133,22 @@ public final class QuizSession {
 		Result result = new Result(quiz.wordId(), index == quiz.correctIndex());
 		clear();
 		recorder.record(result.wordId(), result.correct());
+		return Optional.of(result);
+	}
+
+	/**
+	 * The card counterpart of {@link #answer(int, Recorder)}: records the first attempt on the open card,
+	 * with the time since the quiz became answerable. The card carries on (retry, feedback) on its own
+	 * and is never recorded again.
+	 */
+	public Optional<Result> answer(Card.Answer answer, long now, CardRecorder recorder) {
+		if (state != State.ACTIVE || quiz == null || quiz.card() == null || answer == null) {
+			return Optional.empty();
+		}
+		Result result = new Result(quiz.wordId(), answer.correct());
+		long latencyMs = Math.max(0, now - activeSince);
+		clear();
+		recorder.record(result.wordId(), answer, latencyMs);
 		return Optional.of(result);
 	}
 

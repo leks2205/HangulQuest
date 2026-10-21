@@ -8,7 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-/** Small, purely cosmetic achievement set (journal badges only, no gameplay effects). */
+/**
+ * Small, purely cosmetic achievement set (journal badges only, no gameplay effects). Each one states a fact
+ * about what the player has done ("100 reviews"); none pays out anything, and none is ever taken away.
+ * The ids are saved in progress files and must not change.
+ */
 public final class Achievements {
 	/**
 	 * {@code key} is the lang key of the label. It is resolved on every {@link #label()} call,
@@ -36,6 +40,10 @@ public final class Achievements {
 					service -> service.mastered() >= 10),
 			new Achievement("reviews_100", "복습 백 번", "hangulquest.ui.achievement.reviews_100", "minecraft:clock",
 					service -> service.totalReviews() >= 100),
+			new Achievement("reviews_300", "복습 삼백 번", "hangulquest.ui.achievement.reviews_300", "minecraft:clock",
+					service -> service.totalReviews() >= 300),
+			new Achievement("weekly_goal", "이번 주 목표", "hangulquest.ui.achievement.weekly_goal", "minecraft:lantern",
+					service -> service.streak().weeklyGoalMet()),
 			new Achievement("streak_3", "사흘 연속", "hangulquest.ui.achievement.streak_3", "minecraft:torch",
 					service -> service.streak().current() >= 3),
 			new Achievement("streak_7", "일주일 연속", "hangulquest.ui.achievement.streak_7", "minecraft:campfire",

@@ -15,7 +15,16 @@ import java.nio.file.Path;
 public final class Config {
 	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
 
-	public int version = 2;
+	/** 3 added {@code retention} and {@code newWordsPerDay}. */
+	public static final int CURRENT_VERSION = 3;
+	public static final double MIN_RETENTION = 0.80;
+	public static final double MAX_RETENTION = 0.95;
+	public static final double DEFAULT_RETENTION = 0.88;
+	/** The choices offered for new words per study day. */
+	public static final int[] NEW_WORD_CHOICES = {5, 10, 15};
+	public static final int DEFAULT_NEW_WORDS = 10;
+
+	public int version = CURRENT_VERSION;
 	public boolean enabled = true;
 	public boolean hudCards = true;
 	public boolean tooltips = true;
@@ -48,6 +57,12 @@ public final class Config {
 	public boolean journalTranslations = false;
 	public boolean luteImport = true;
 
+	// Learning
+	/** Desired recall probability when a card comes due, 0.80 to 0.95 (FSRS). Higher means more reviews. */
+	public double retention = DEFAULT_RETENTION;
+	/** New words introduced for study per study day: 5, 10 or 15. */
+	public int newWordsPerDay = DEFAULT_NEW_WORDS;
+
 	// Hangul welcome screen (see WelcomePolicy)
 	/** True once the player confirmed, opted out, or the reminder was used up. */
 	public boolean welcomeDone = false;
@@ -64,8 +79,12 @@ public final class Config {
 			JsonObject raw = JsonIO.readObject(file);
 			Config loaded = parse(raw);
 			JsonElement stored = raw.get("language");
-			if (stored == null || !stored.isJsonPrimitive() || !stored.getAsString().equals(loaded.language)) {
-				// Write the migrated value back so it survives the next start.
+			JsonElement storedVersion = raw.get("version");
+			boolean oldVersion = storedVersion == null || !storedVersion.isJsonPrimitive()
+					|| storedVersion.getAsInt() < CURRENT_VERSION;
+			if (oldVersion || stored == null || !stored.isJsonPrimitive()
+					|| !stored.getAsString().equals(loaded.language)) {
+				// Write the migrated values back so they survive the next start.
 				loaded.save(file);
 			}
 			return loaded;
@@ -103,6 +122,15 @@ public final class Config {
 				loaded.questTranslations = true;
 			}
 		}
+		// Version 2 and older have neither learning setting; Gson left the defaults in place.
+		JsonElement retention = raw.get("retention");
+		if (retention == null || !retention.isJsonPrimitive() || !retention.getAsJsonPrimitive().isNumber()) {
+			loaded.retention = DEFAULT_RETENTION;
+		}
+		JsonElement newWords = raw.get("newWordsPerDay");
+		if (newWords == null || !newWords.isJsonPrimitive() || !newWords.getAsJsonPrimitive().isNumber()) {
+			loaded.newWordsPerDay = DEFAULT_NEW_WORDS;
+		}
 		loaded.sanitize();
 		return loaded;
 	}
@@ -116,9 +144,15 @@ public final class Config {
 	}
 
 	public void sanitize() {
-		if (version < 2) {
-			version = 2;
+		if (version < CURRENT_VERSION) {
+			version = CURRENT_VERSION;
 		}
+		if (retention > 1 && retention <= 100) {
+			retention /= 100; // written as a percentage by hand
+		}
+		retention = Double.isNaN(retention) ? DEFAULT_RETENTION
+				: Math.round(Math.max(MIN_RETENTION, Math.min(MAX_RETENTION, retention)) * 100) / 100.0;
+		newWordsPerDay = nearestNewWords(newWordsPerDay);
 		language = language == null || language.isBlank() ? Lang.AUTO : Lang.normalise(language);
 		welcomeShown = Math.max(0, welcomeShown);
 		quizIntervalMinutes = clamp(quizIntervalMinutes, 1, 120);
@@ -130,6 +164,17 @@ public final class Config {
 		if (questTrackerCorner == null) {
 			questTrackerCorner = "TOP_LEFT";
 		}
+	}
+
+	/** The offered choice closest to {@code value}; the smaller one when two are equally close. */
+	public static int nearestNewWords(int value) {
+		int best = NEW_WORD_CHOICES[0];
+		for (int choice : NEW_WORD_CHOICES) {
+			if (Math.abs(choice - value) < Math.abs(best - value)) {
+				best = choice;
+			}
+		}
+		return best;
 	}
 
 	private static int clamp(int value, int min, int max) {
