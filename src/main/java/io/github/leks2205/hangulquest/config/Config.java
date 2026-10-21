@@ -36,6 +36,8 @@ public final class Config {
 	public boolean biomeCards = true;
 	public boolean timeCards = true;
 	public boolean sound = true;
+	/** Spoken words from the optional "Hangul Quest Voices" pack. Does nothing while the pack is not loaded. */
+	public boolean audio = true;
 	public String hudCorner = "BOTTOM_RIGHT";
 
 	// Quests
@@ -137,6 +139,9 @@ public final class Config {
 		JsonElement typed = raw.get("typedCards");
 		if (typed == null || !typed.isJsonPrimitive() || !typed.getAsJsonPrimitive().isBoolean()) {
 			loaded.typedCards = true;
+		}
+		if (!raw.has("audio") && raw.has("sound") && !loaded.sound) {
+			loaded.audio = false; // whoever muted the mod's sounds does not want voices either
 		}
 		loaded.sanitize();
 		return loaded;
