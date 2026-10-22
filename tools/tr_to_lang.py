@@ -104,7 +104,7 @@ EXTRA = {
                                  "seen %s · correct %s · wrong %s · known"),
     U + "study.cards_due": ("%s Karten fällig:", "%s cards due:"),
     U + "quest.tree_header": ("Questbaum · %s Linien", "Quest tree · %s trails"),
-    U + "quest.tree_legend": ("✓ ▶ ○ ★  Rad:Zoom  Ziehen  F:Fit  %s%%", "✓ ▶ ○ ★  wheel:zoom  drag  F:fit  %s%%"),
+    U + "quest.tree_legend": ("Rad:Zoom  Ziehen  F:Fit  %s%%", "wheel:zoom  drag  F:fit  %s%%"),
     U + "quest.tip": ("%s · Stufe %s · TOPIK %s", "%s · tier %s · TOPIK %s"),
     U + "quest.title_line": ("%s · Stufe %s · TOPIK %s · %s", "%s · tier %s · TOPIK %s · %s"),
     U + "quest.nav": ("Vorher: %s   Danach: %s", "Before: %s   After: %s"),

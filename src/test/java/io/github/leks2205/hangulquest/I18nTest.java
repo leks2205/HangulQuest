@@ -118,7 +118,7 @@ class I18nTest {
 		Lang.set("DE");
 		assertEquals("Heute 3 gesehen, 2 richtig", I18n.t("hangulquest.ui.info.today", 3, 2));
 		Lang.set("EN");
-		assertEquals("✓ ▶ ○ ★  wheel:zoom  drag  F:fit  120%", I18n.t("hangulquest.ui.quest.tree_legend", 120));
+		assertEquals("wheel:zoom  drag  F:fit  120%", I18n.t("hangulquest.ui.quest.tree_legend", 120));
 	}
 
 	@Test

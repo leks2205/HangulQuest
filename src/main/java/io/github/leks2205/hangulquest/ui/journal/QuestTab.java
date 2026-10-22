@@ -13,12 +13,15 @@ import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
 import io.github.leks2205.hangulquest.util.I18n;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.ToIntFunction;
 
 /**
  * The quest tree with zoom, pan and a detail panel. The tree's shape is laid out once per trail
@@ -28,8 +31,15 @@ import java.util.Map;
  */
 public final class QuestTab extends JournalTab {
 	private static final int DETAIL_HEIGHT = 76;
+	private static final int SCROLL_STEP = 14;
 	private static final int CONNECTOR = 0x667A5A38;
 	private static final int HIGHLIGHT = 0xFFB98A2E;
+	// the card states: in the log (solid), can start (parchment with a border), waits behind another (faded)
+	private static final int CARD_LOG = 0xFF7A3616;
+	private static final int CARD_LOG_STRIPE = 0xFFE0B33A;
+	private static final int CARD_OPEN = 0xFFEBDDB8;
+	private static final int CARD_WAITS = 0xFFF1E8D3;
+	private static final int STRIPE_WAITS = 0xFFC9B88F;
 
 	/** The selected trail's texts and flags, valid for one selection, one progress state and one second-ish. */
 	private record Detail(int index, NodeStates states, boolean showDe, int language, long bucket,
@@ -56,6 +66,8 @@ public final class QuestTab extends JournalTab {
 	private Map<String, TrailVisibility.State> layoutVisibility;
 	private boolean layoutShowAll;
 	private boolean layoutCompleted;
+	/** The view width the cards were laid out for: more or fewer fit when the window changes. */
+	private int layoutWidth;
 	private int hiddenCount;
 	private int completedCount;
 	/** The finished trails are folded away; this unfolds them into the tree. */
@@ -68,12 +80,17 @@ public final class QuestTab extends JournalTab {
 	private int headerLanguage = -1;
 	private int headerCount = -1;
 	private String legend = "";
+	private String legendLog = "";
+	private String legendOpen = "";
+	private String legendNext = "";
 	private int legendPercent = -1;
 	private int legendLanguage = -1;
 	private int tipIndex = -1;
 	private int tipLanguage = -1;
 	private String tipText = "";
 	private int tipWidth;
+	/** A card's title as one line plus the rest, by title and text width; cleared with the layout and the font. */
+	private final Map<String, String[]> cardTitles = new HashMap<>();
 
 	private final JournalHost.PointClick nodeClick = this::clickNode;
 	private final Runnable[] bandJumps = new Runnable[6];
@@ -103,6 +120,7 @@ public final class QuestTab extends JournalTab {
 		treePanX = 0;
 		treePanY = 0;
 		fitPending = true;
+		cardTitles.clear();
 		chapterView.onOpen();
 	}
 
@@ -159,6 +177,7 @@ public final class QuestTab extends JournalTab {
 			// Horizontal follows the mouse; vertical is inverted because originY = treeTop - treePanY.
 			treePanX += dragX;
 			treePanY -= dragY;
+			clampPan();
 			return true;
 		}
 		return false;
@@ -175,6 +194,12 @@ public final class QuestTab extends JournalTab {
 	public boolean mouseScrolled(double mouseX, double mouseY, double vertical) {
 		if (chapterMode) {
 			return chapterView.mouseScrolled(vertical);
+		}
+		if (layout != null && layout.cards()) {
+			// cards keep their size so the titles stay readable: the wheel scrolls
+			treePanY -= vertical * SCROLL_STEP;
+			clampPan();
+			return true;
 		}
 		float oldZoom = treeZoom;
 		treeZoom = (float) Math.max(0.25, Math.min(2.2, treeZoom * (vertical > 0 ? 1.12 : 0.89)));
@@ -202,8 +227,23 @@ public final class QuestTab extends JournalTab {
 		return true;
 	}
 
+	/** Cards only scroll up and down, and only as far as there is more to see. */
+	private void clampPan() {
+		if (layout == null || !layout.cards()) {
+			return;
+		}
+		treePanX = 0;
+		treePanY = Math.max(0, Math.min(treePanY, layout.baseHeight() + 8 - treeViewH));
+	}
+
 	private void fitTree() {
 		if (layout == null || layout.baseWidth() <= 0 || layout.baseHeight() <= 0) {
+			return;
+		}
+		if (layout.cards()) { // the cards are laid out to fit the width; what does not fit below is scrolled to
+			treeZoom = 1.0F;
+			treePanX = 0;
+			treePanY = 0;
 			return;
 		}
 		float fitX = (treeViewW - 18.0F) / layout.baseWidth();
@@ -229,7 +269,7 @@ public final class QuestTab extends JournalTab {
 			chapterView.render(g, x, y + 16, width, height - 16);
 			return;
 		}
-		rebuildLayout(quests);
+		rebuildLayout(quests, width);
 		NodeStates nodeStates = states(quests);
 		int language = language();
 		int highlighted = layout.indexOf(selectedTrailId);
@@ -242,7 +282,10 @@ public final class QuestTab extends JournalTab {
 		}
 		int percent = Math.round(treeZoom * 100);
 		if (legendPercent != percent || legendLanguage != language) {
-			legend = I18n.t("hangulquest.ui.quest.tree_legend", percent);
+			legend = I18n.t(layout.cards() ? "hangulquest.ui.quest.legend_scroll" : "hangulquest.ui.quest.tree_legend", percent);
+			legendLog = I18n.t("hangulquest.ui.quest.legend_in_log");
+			legendOpen = I18n.t("hangulquest.ui.quest.legend_open");
+			legendNext = I18n.t("hangulquest.ui.quest.legend_next");
 			legendPercent = percent;
 			legendLanguage = language;
 		}
@@ -276,6 +319,7 @@ public final class QuestTab extends JournalTab {
 			}
 		}
 
+		clampPan();
 		double originX = x + width / 2.0 - layout.baseWidth() * treeZoom / 2.0 + treePanX;
 		double originY = treeTop + 4 - treePanY;
 		layout.project(originX, originY, treeZoom);
@@ -320,6 +364,7 @@ public final class QuestTab extends JournalTab {
 			dimUnconnected(g, connected, x, width, treeTop);
 		}
 		g.disableScissor();
+		drawScrollbar(g, x + width - 3, treeTop);
 
 		// Hide anything that was panned into the detail area.
 		g.fill(x, treeBottom, x + width, y + height, Ink.PARCHMENT);
@@ -339,12 +384,12 @@ public final class QuestTab extends JournalTab {
 	 * the ones in the log and the ones waiting directly behind them (and the finished ones when unfolded). The
 	 * levels are counted among the shown trails, so the first row is always the top of what is on screen.
 	 */
-	private void rebuildLayout(QuestEngine quests) {
+	private void rebuildLayout(QuestEngine quests, int viewWidth) {
 		boolean showAll = host.hq().config().showAllTrails;
 		Map<String, TrailVisibility.State> visibility = quests.visibility();
 		List<Questline> trails = quests.trails();
 		if (layout != null && layoutTrails == trails && layoutVisibility == visibility && layoutShowAll == showAll
-				&& layoutCompleted == showCompleted) {
+				&& layoutCompleted == showCompleted && (showAll || layoutWidth == viewWidth)) {
 			return;
 		}
 		List<Questline> shown = new ArrayList<>(trails.size());
@@ -358,7 +403,11 @@ public final class QuestTab extends JournalTab {
 				shown.add(trail);
 			}
 		}
-		layout = QuestTreeLayout.build(shown, showAll ? quests.graph() : TrailGraph.of(shown));
+		// the whole tree is too big for titles: small dots; the few trails that matter now are titled cards
+		layout = showAll ? QuestTreeLayout.build(shown, quests.graph())
+				: QuestTreeLayout.buildCards(shown, TrailGraph.of(shown), viewWidth);
+		layoutWidth = viewWidth;
+		cardTitles.clear();
 		layoutTrails = trails;
 		layoutVisibility = visibility;
 		layoutShowAll = showAll;
@@ -391,6 +440,9 @@ public final class QuestTab extends JournalTab {
 	}
 
 	private void drawConnectors(GuiGraphicsExtractor g, boolean[] connected) {
+		if (layout.cards() && connected == null) {
+			return; // in rows of cards the lines would cross other cards; they show for the selected trail
+		}
 		int right = treeViewX + treeViewW;
 		int bottom = treeViewY + treeViewH;
 		int nodeHeight = layout.nodeHeight();
@@ -432,6 +484,16 @@ public final class QuestTab extends JournalTab {
 			if (left + nodeWidth < x || left > x + width || top + nodeHeight < treeTop || top > treeBottom) {
 				continue;
 			}
+			if (layout.cards()) {
+				drawCard(g, nodeStates, i, left, top, nodeWidth, nodeHeight, current);
+				if (i == highlighted) {
+					outline(g, left, top, nodeWidth, nodeHeight);
+				}
+				if (layout.contains(i, host.mouseX(), host.mouseY())) {
+					hovered = i;
+				}
+				continue;
+			}
 			boolean done = nodeStates.has(i, NodeStates.DONE);
 			boolean unlocked = nodeStates.has(i, NodeStates.UNLOCKED);
 			boolean active = nodeStates.has(i, NodeStates.TRACKED);
@@ -461,16 +523,110 @@ public final class QuestTab extends JournalTab {
 				g.fill(left + nodeWidth - 4, top + 1, left + nodeWidth, top + 4, 0xFFE0B33A);
 			}
 			if (i == highlighted) {
-				g.fill(left - 1, top - 1, left + nodeWidth + 1, top, HIGHLIGHT);
-				g.fill(left - 1, top + nodeHeight, left + nodeWidth + 1, top + nodeHeight + 1, HIGHLIGHT);
-				g.fill(left - 1, top, left, top + nodeHeight, HIGHLIGHT);
-				g.fill(left + nodeWidth, top, left + nodeWidth + 1, top + nodeHeight, HIGHLIGHT);
+				outline(g, left, top, nodeWidth, nodeHeight);
 			}
 			if (layout.contains(i, host.mouseX(), host.mouseY())) {
 				hovered = i;
 			}
 		}
 		return hovered;
+	}
+
+	private static void outline(GuiGraphicsExtractor g, int left, int top, int width, int height) {
+		g.fill(left - 1, top - 1, left + width + 1, top, HIGHLIGHT);
+		g.fill(left - 1, top + height, left + width + 1, top + height + 1, HIGHLIGHT);
+		g.fill(left - 1, top, left, top + height, HIGHLIGHT);
+		g.fill(left + width, top, left + width + 1, top + height, HIGHLIGHT);
+	}
+
+	/**
+	 * One trail as a card: a stripe in the colour of its state (see the legend), its Korean title in the Hangul font on
+	 * up to two lines, cut with an ellipsis. In the log is solid and dark, can start is parchment with a border, waiting
+	 * is faded. The translation is in the tooltip and the detail panel.
+	 */
+	private void drawCard(GuiGraphicsExtractor g, NodeStates nodeStates, int index, int left, int top, int width,
+						  int height, int current) {
+		boolean done = nodeStates.has(index, NodeStates.DONE);
+		boolean tracked = nodeStates.has(index, NodeStates.TRACKED);
+		boolean waits = nodeStates.has(index, NodeStates.NEXT);
+		boolean open = nodeStates.has(index, NodeStates.UNLOCKED);
+		int fill = tracked ? CARD_LOG : done ? 0xFFDCE6CF : waits || !open ? CARD_WAITS : CARD_OPEN;
+		int border = tracked ? CARD_LOG : done ? Ink.GOOD : waits || !open ? 0xFFD0C09C : 0xFF8A6A44;
+		int stripe = tracked ? CARD_LOG_STRIPE : done || open ? Ink.GOOD : STRIPE_WAITS;
+		int ink = tracked ? Ink.CREAM : done ? Ink.GOOD : waits || !open ? 0xFF7A6747 : Ink.INK;
+		g.fill(left, top, left + width, top + height, border);
+		g.fill(left + 1, top + 1, left + width - 1, top + height - 1, fill);
+		g.fill(left + 1, top + 1, left + 4, top + height - 1, stripe);
+		if (nodeStates.has(index, NodeStates.RECOMMENDED) && current >= 0) {
+			g.fill(left + width - 5, top + 1, left + width - 1, top + 5, 0xFFE0B33A);
+		}
+		int textX = left + 7;
+		int textWidth = width - 10;
+		String[] title = cardTitle(index, textWidth);
+		int lineHeight = host.font().lineHeight;
+		int lines = title[1].isEmpty() ? 1 : 2;
+		int textY = top + (height - lines * lineHeight - (lines - 1)) / 2 + 1;
+		Draw.truncated(g, host.font(), KoText.ko(title[0]), textX, textY, textWidth, ink, false);
+		if (lines == 2) {
+			Draw.truncated(g, host.font(), KoText.ko(title[1]), textX, textY + lineHeight + 1, textWidth, ink, false);
+		}
+	}
+
+	/**
+	 * The Korean title as [first line, rest]: the first line breaks at the last space that fits, or in the middle
+	 * of a long word; the rest is cut with an ellipsis when it is drawn. Cached per card width.
+	 */
+	private String[] cardTitle(int index, int textWidth) {
+		Questline trail = layout.trail(index);
+		String key = trail.id() + '|' + textWidth;
+		String[] cached = cardTitles.get(key);
+		if (cached != null) {
+			return cached;
+		}
+		String title = trail.titleKo() == null || trail.titleKo().isBlank() ? trail.title() : trail.titleKo();
+		String[] lines = splitTitle(title, textWidth, host.font());
+		cardTitles.put(key, lines);
+		return lines;
+	}
+
+	static String[] splitTitle(String title, int width, Font font) {
+		return splitTitle(title, width, text -> font.width(KoText.ko(text)));
+	}
+
+	static String[] splitTitle(String title, int width, ToIntFunction<String> measure) {
+		if (measure.applyAsInt(title) <= width) {
+			return new String[] {title, ""};
+		}
+		int fits = 0;
+		for (int end = 1; end <= title.length(); end++) {
+			if (measure.applyAsInt(title.substring(0, end)) > width) {
+				break;
+			}
+			fits = end;
+		}
+		fits = Math.max(1, fits);
+		int cut = fits;
+		if (title.charAt(cut) != ' ') {
+			int space = title.lastIndexOf(' ', cut - 1);
+			cut = space > 0 ? space : fits;
+		}
+		return new String[] {title.substring(0, cut).trim(), title.substring(cut).trim()};
+	}
+
+	/** A thin bar at the right edge when there are more cards than fit in the view. */
+	private void drawScrollbar(GuiGraphicsExtractor g, int barX, int top) {
+		if (!layout.cards()) {
+			return;
+		}
+		int content = layout.baseHeight() + 8;
+		int view = treeViewH;
+		if (content <= view) {
+			return;
+		}
+		int thumb = Math.max(12, view * view / content);
+		int thumbTop = top + (int) Math.round((view - thumb) * (treePanY / (content - view)));
+		g.fill(barX, top, barX + 2, top + view, 0x33000000);
+		g.fill(barX, thumbTop, barX + 2, thumbTop + thumb, Ink.INK_FAINT);
 	}
 
 	private void dimUnconnected(GuiGraphicsExtractor g, boolean[] connected, int x, int width, int treeTop) {
@@ -584,7 +740,7 @@ public final class QuestTab extends JournalTab {
 			Draw.truncated(g, host.font(), d.preview(), x, detailTop + 31, width, Ink.INK);
 		}
 		Draw.truncated(g, host.font(), d.progress(), x, detailTop + 45, width - 68, Ink.INK_FAINT);
-		Draw.truncated(g, host.font(), Component.literal(legend), x, detailTop + 63, width - 160, Ink.INK_FAINT, false);
+		drawLegend(g, x, detailTop + 63, width - 160);
 		Questline chosen = d.trail();
 		if (!d.done()) {
 			host.checkRow(g, x + width - 156, detailTop + 51, 88, 17, I18n.t("hangulquest.ui.quest.in_log"), d.tracked(), () -> {
@@ -612,6 +768,28 @@ public final class QuestTab extends JournalTab {
 		} else if (!d.unlocked() && d.lock() != null) {
 			Draw.truncated(g, host.font(), d.lock(), x + width - 150, detailTop + 45, 146, Ink.BAD);
 		}
+	}
+
+	/** What the card stripes mean (cards), then the keys. The tree of dots has the keys only. */
+	private void drawLegend(GuiGraphicsExtractor g, int x, int y, int maxWidth) {
+		int at = x;
+		if (layout.cards()) {
+			at = swatch(g, at, y, CARD_LOG, CARD_LOG, CARD_LOG_STRIPE, legendLog);
+			at = swatch(g, at, y, CARD_OPEN, 0xFF8A6A44, Ink.GOOD, legendOpen);
+			at = swatch(g, at, y, CARD_WAITS, 0xFFD0C09C, STRIPE_WAITS, legendNext);
+		}
+		if (at - x < maxWidth) {
+			Draw.truncated(g, host.font(), Component.literal(legend), at, y, maxWidth - (at - x), Ink.INK_FAINT, false);
+		}
+	}
+
+	/** A small card in miniature with its name; returns where the next one starts. */
+	private int swatch(GuiGraphicsExtractor g, int x, int y, int fill, int border, int stripe, String label) {
+		g.fill(x, y, x + 9, y + 8, border);
+		g.fill(x + 1, y + 1, x + 8, y + 7, fill);
+		g.fill(x + 1, y + 1, x + 4, y + 7, stripe);
+		Draw.label(g, host.font(), label, x + 12, y, Ink.INK_FAINT);
+		return x + 12 + host.font().width(label) + 8;
 	}
 
 	/** Completed steps within this trail, e.g. "2/4" — active or paused. */

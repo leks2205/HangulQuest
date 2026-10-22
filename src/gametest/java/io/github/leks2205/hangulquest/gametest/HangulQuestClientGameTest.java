@@ -102,6 +102,18 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		// The quest tab on a fresh profile: the tracked trails, the ones that can start, the greyed follow-ups.
 		openJournal(context, JournalHost.QUEST_TAB);
 		context.takeScreenshot(shot("02e-quests-fresh", shots));
+		// A larger window at GUI scale 2 fits more cards per row; every title must stay readable there too.
+		context.runOnClient(mc -> {
+			mc.options.guiScale().set(2);
+			mc.getWindow().setWindowed(1280, 720);
+		});
+		context.waitTicks(10);
+		context.takeScreenshot(shot("02e2-quests-fresh-1280x720", shots));
+		context.runOnClient(mc -> {
+			mc.options.guiScale().set(0);
+			mc.getWindow().setWindowed(854, 480);
+		});
+		context.waitTicks(10);
 		closeScreen(context);
 
 		// One finished trail: it folds into "Completed (1)" and its follow-ups open up.

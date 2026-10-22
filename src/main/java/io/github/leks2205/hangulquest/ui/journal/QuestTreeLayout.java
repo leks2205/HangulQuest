@@ -29,6 +29,48 @@ public final class QuestTreeLayout {
 	static final int NODE_HEIGHT = 20;
 	static final int ROW_GAP = 28;
 
+	/** A card is no narrower than this, so a Korean title stays legible (about six syllables on a line). */
+	public static final int MIN_CARD_WIDTH = 56;
+	/** ... and no wider than this, so a wide window does not stretch the cards. */
+	public static final int MAX_CARD_WIDTH = 92;
+	/** At most this many cards side by side; more wrap into the next row. */
+	public static final int MAX_COLUMNS = 10;
+	public static final int CARD_HEIGHT = 22;
+	public static final int CARD_GAP = 3;
+	/** Extra space between the rows of two tree levels, so "can start" and "waits" read as groups. */
+	static final int LEVEL_GAP = 6;
+
+	/**
+	 * The geometry of one layout, in layout units (the screen at zoom 1).
+	 * @param slotWidth   distance between the left edges of two neighbours in a row
+	 * @param rowStep     distance between the tops of two rows
+	 * @param levelGap    extra distance where a new tree level starts
+	 * @param columns     nodes per row before the row wraps
+	 * @param cards       cards with a title (left-aligned grid, no minimum size) instead of tiny tree dots
+	 */
+	private record Grid(int slotWidth, int nodeWidth, int nodeHeight, int rowStep, int levelGap, int columns,
+						boolean cards) {
+		static final Grid DOTS = new Grid(SLOT, NODE_WIDTH, NODE_HEIGHT, ROW_GAP, 0, Integer.MAX_VALUE, false);
+
+		static Grid cards(int viewWidth) {
+			int width = cardWidth(viewWidth);
+			return new Grid(width + CARD_GAP, width, CARD_HEIGHT, CARD_HEIGHT + CARD_GAP, LEVEL_GAP,
+					cardColumns(viewWidth), true);
+		}
+	}
+
+	/** How many cards fit side by side in a view this wide (in GUI pixels): 1 to {@link #MAX_COLUMNS}. */
+	public static int cardColumns(int viewWidth) {
+		return Math.max(1, Math.min(MAX_COLUMNS, (viewWidth + CARD_GAP) / (MIN_CARD_WIDTH + CARD_GAP)));
+	}
+
+	/** The width of a card in a view this wide: the columns share the width, within the card size limits. */
+	public static int cardWidth(int viewWidth) {
+		int share = (viewWidth + CARD_GAP) / cardColumns(viewWidth) - CARD_GAP;
+		return Math.max(MIN_CARD_WIDTH, Math.min(MAX_CARD_WIDTH, share));
+	}
+
+	private final Grid grid;
 	private final List<Questline> source;
 	private final Questline[] trails;
 	private final Map<String, Integer> indexById;
@@ -59,7 +101,8 @@ public final class QuestTreeLayout {
 	private boolean[] connectedSet;
 	private int connectedFor = -2;
 
-	private QuestTreeLayout(List<Questline> source, List<Questline> sorted, TrailGraph graph) {
+	private QuestTreeLayout(List<Questline> source, List<Questline> sorted, TrailGraph graph, Grid grid) {
+		this.grid = grid;
 		this.source = source;
 		int count = sorted.size();
 		this.trails = sorted.toArray(new Questline[0]);
@@ -147,10 +190,12 @@ public final class QuestTreeLayout {
 		for (List<Integer> row : rowLists) {
 			maxRow = Math.max(maxRow, row.size());
 		}
-		baseWidth = SLOT * maxRow;
-		baseHeight = (levels - 1) * ROW_GAP + NODE_HEIGHT;
+		maxRow = Math.min(maxRow, grid.columns());
+		baseWidth = grid.slotWidth() * maxRow - (grid.cards() ? CARD_GAP : 0);
 		baseCx = new int[count];
 		baseTop = new int[count];
+		int rowTop = 0;
+		int bottom = 0;
 		for (int level = 0; level < levels; level++) {
 			List<Integer> row = rowLists.get(level);
 			if (level > 0) {
@@ -159,14 +204,23 @@ public final class QuestTreeLayout {
 								: xIndex[primaryParent[node]])
 						.thenComparingInt(node -> node));
 			}
-			int startX = (baseWidth - SLOT * row.size()) / 2;
-			for (int k = 0; k < row.size(); k++) {
-				int node = row.get(k);
-				xIndex[node] = k;
-				baseCx[node] = startX + SLOT * k + SLOT / 2;
-				baseTop[node] = level * ROW_GAP;
+			for (int from = 0; from < row.size(); from += grid.columns()) {
+				int inRow = Math.min(grid.columns(), row.size() - from);
+				// the tree centres each row under the one above; cards sit in a grid from the left
+				int startX = grid.cards() ? 0 : (baseWidth - grid.slotWidth() * inRow) / 2;
+				for (int k = from; k < from + inRow; k++) {
+					int node = row.get(k);
+					xIndex[node] = k;
+					baseCx[node] = startX + grid.slotWidth() * (k - from)
+							+ (grid.cards() ? grid.nodeWidth() : grid.slotWidth()) / 2;
+					baseTop[node] = rowTop;
+				}
+				bottom = rowTop + grid.nodeHeight();
+				rowTop += grid.rowStep();
 			}
+			rowTop += grid.levelGap();
 		}
+		baseHeight = Math.max(bottom, grid.nodeHeight());
 		screenCx = new int[count];
 		screenTop = new int[count];
 	}
@@ -181,6 +235,18 @@ public final class QuestTreeLayout {
 
 	/** Lays out the trails; {@code graph} must be the graph of the same list. */
 	public static QuestTreeLayout build(List<Questline> trails, TrailGraph graph) {
+		return build(trails, graph, Grid.DOTS);
+	}
+
+	/**
+	 * Lays the trails out as titled cards for a view this wide: one block of rows per tree level, at most
+	 * {@link #MAX_COLUMNS} cards per row and fewer where the view is narrow. A level with more trails wraps.
+	 */
+	public static QuestTreeLayout buildCards(List<Questline> trails, TrailGraph graph, int viewWidth) {
+		return build(trails, graph, Grid.cards(viewWidth));
+	}
+
+	private static QuestTreeLayout build(List<Questline> trails, TrailGraph graph, Grid grid) {
 		List<Questline> sorted = new ArrayList<>();
 		Set<String> seen = new HashSet<>();
 		for (Questline trail : trails) {
@@ -189,7 +255,7 @@ public final class QuestTreeLayout {
 			}
 		}
 		sorted.sort(Comparator.comparingInt(Questline::order).thenComparing(Questline::id));
-		return new QuestTreeLayout(trails, sorted, graph);
+		return new QuestTreeLayout(trails, sorted, graph, grid);
 	}
 
 	/**
@@ -263,6 +329,34 @@ public final class QuestTreeLayout {
 		return dependents[index];
 	}
 
+	/** True for the card layout, false for the tree of small dots. */
+	public boolean cards() {
+		return grid.cards();
+	}
+
+	/** Cards per row of this layout; the dots do not wrap. */
+	public int columns() {
+		return grid.columns();
+	}
+
+	/** Width of a node at zoom 1. */
+	public int baseNodeWidth() {
+		return grid.nodeWidth();
+	}
+
+	public int baseNodeHeight() {
+		return grid.nodeHeight();
+	}
+
+	/** Left edge of a node at zoom 1, before it is projected. */
+	public int baseLeft(int index) {
+		return baseCx[index] - grid.nodeWidth() / 2;
+	}
+
+	public int baseTop(int index) {
+		return baseTop[index];
+	}
+
 	public int baseWidth() {
 		return baseWidth;
 	}
@@ -285,8 +379,8 @@ public final class QuestTreeLayout {
 		projectedY = originY;
 		projectedZoom = zoom;
 		projections++;
-		nodeWidth = Math.max(10, (int) Math.round(NODE_WIDTH * zoom));
-		nodeHeight = Math.max(8, (int) Math.round(NODE_HEIGHT * zoom));
+		nodeWidth = Math.max(grid.cards() ? 1 : 10, (int) Math.round(grid.nodeWidth() * zoom));
+		nodeHeight = Math.max(grid.cards() ? 1 : 8, (int) Math.round(grid.nodeHeight() * zoom));
 		for (int i = 0; i < trails.length; i++) {
 			screenCx[i] = (int) Math.round(originX + baseCx[i] * zoom);
 			screenTop[i] = (int) Math.round(originY + baseTop[i] * zoom);
