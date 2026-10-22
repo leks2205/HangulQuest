@@ -21,6 +21,8 @@ Metrics (ratchet scope: every trail except *_demo, which is measured but exempt)
   bareShare.<L>         plain place/collect/break steps with no relation, condition, holding or sequence
   topTypeShare.<L>      share of the most used goal type; roadmap: at most 25%
   distinctTypes.<L>     goal types in use; roadmap: at least 6
+  formDependentShare.<L> steps whose Korean form decides the action (a relation word, the recipient marker, a
+                        connective, a "don't"); roadmap: at least 30% from level 2 on, reported only at level 1
 
 The learner path is the trail graph in topological order, lower Korean level first, then `order`.
 """
@@ -45,6 +47,7 @@ BARE_TARGET = {1: 0.30, 2: 0.20}  # level 3 and up: 0.10
 TYPE_CAP = 0.25
 MIN_TYPES = 6
 BOREDOM_TARGET = 0.20
+FORM_TARGET = 0.30  # level 2 and up; level 1 is reported, never demanded
 
 
 # ---------------------------------------------------------------------------------------------- data
@@ -140,14 +143,17 @@ def compute(trails: list[dict], include_demo: bool = False) -> dict[str, float]:
     total: Counter = Counter()
     bare: Counter = Counter()
     types: dict[int, Counter] = defaultdict(Counter)
+    forms: Counter = Counter()
     for level, step in steps:
         total[level] += 1
         bare[level] += 1 if step["bare"] else 0
+        forms[level] += 1 if step.get("formDependent") else 0
         types[level][step["goalType"]] += 1
     for level in sorted(total):
         out[f"variety.bareShare.{level}"] = bare[level] / total[level]
         out[f"variety.topTypeShare.{level}"] = max(types[level].values()) / total[level]
         out[f"variety.distinctTypes.{level}"] = len(types[level])
+        out[f"variety.formDependentShare.{level}"] = forms[level] / total[level]
     return out
 
 
@@ -171,6 +177,8 @@ def spec(key: str) -> tuple[str, float]:
         return "lower", TYPE_CAP
     if base == "distinctTypes":
         return "higher", MIN_TYPES
+    if base == "formDependentShare":
+        return "higher", FORM_TARGET if int(level) >= 2 else 0
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import coverage  # noqa: E402  (the coverage metrics know their own targets)
     return coverage.spec(key)

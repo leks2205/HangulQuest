@@ -74,8 +74,11 @@ avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecr
 cond.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
 cond.sky.open	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.sky.open.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
-cond.sky.open.l3	3	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	하늘이 보이는 곳에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity,L3.neun_attr
-hold.sky.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 하늘이 보이는 곳에서 걸으세요.	L2.go_state,L2.seyo,L2.eseo_activity,L3.neun_attr
+cond.sky.open.l3	3	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l4	4	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l5	5	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	하늘이 보이는 곳에서 빵을 먹어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.eseo_activity,L5.adn_present_neun
+hold.sky.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 밖에서 걸으세요.	L2.go_state,L2.seyo,L2.eseo_activity
+hold.sky.l5	5	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 하늘이 보이는 곳에서 걸어야 해요.	L2.go_state,L4.eoya_haeyo,L2.eseo_activity,L5.adn_present_neun
 cond.sky.roofed	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"ROOFED"}]	지붕 아래에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.water	1	-	{"type":"BREAK_BLOCK","block":"minecraft:stone"}	[{"type":"IN_WATER"}]	물속에서 돌을 캐요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.rel.under	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"PLAYER_REL","relation":"UNDER","anchor":"minecraft:oak_log"}]	참나무 원목 아래에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity

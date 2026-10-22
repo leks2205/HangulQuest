@@ -56,8 +56,8 @@ final class SkyType implements ConditionType<Condition.Sky> {
 		return condition.state() == Condition.SkyState.OPEN ? "하늘이 보이는 곳에서 " : "지붕 아래에서 ";
 	}
 
-	/** Levels 1 and 2 say 밖에서; the adnominal 하늘이 보이는 곳에서 is a level 3 construction. */
-	private static final int OUTSIDE_UP_TO = 2;
+	/** Levels 1 to 4 say 밖에서; 하늘이 보이는 곳에서 holds an adnominal (보이는), a level 5 construction. */
+	private static final int OUTSIDE_UP_TO = 4;
 
 	@Override
 	public String prefix(Condition.Sky condition, SentenceBuilder.Namer namer, int level) {
@@ -87,6 +87,6 @@ final class SkyType implements ConditionType<Condition.Sky> {
 	@Override
 	public List<String> grammarIds(Condition.Sky condition) {
 		return condition.state() == Condition.SkyState.OPEN
-				? List.of("L2.eseo_activity", "L3.neun_attr") : List.of("L2.eseo_activity");
+				? List.of("L2.eseo_activity", "L5.adn_present_neun") : List.of("L2.eseo_activity");
 	}
 }

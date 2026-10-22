@@ -84,12 +84,16 @@ final class VarietyMetrics {
 		Map<Integer, Integer> total = new TreeMap<>();
 		Map<Integer, Integer> bare = new TreeMap<>();
 		Map<Integer, Map<String, Integer>> types = new TreeMap<>();
+		Map<Integer, Integer> forms = new TreeMap<>();
 		for (int i = 0; i < steps.size(); i++) {
 			ContentFacts.Step step = steps.get(i);
 			int level = levels.get(i);
 			total.merge(level, 1, Integer::sum);
 			if (step.bare()) {
 				bare.merge(level, 1, Integer::sum);
+			}
+			if (step.formDependent()) {
+				forms.merge(level, 1, Integer::sum);
 			}
 			types.computeIfAbsent(level, key -> new HashMap<>()).merge(step.goalType(), 1, Integer::sum);
 		}
@@ -99,6 +103,7 @@ final class VarietyMetrics {
 			out.put("variety.topTypeShare." + level,
 					types.get(level).values().stream().mapToInt(Integer::intValue).max().orElse(0) / n);
 			out.put("variety.distinctTypes." + level, (double) types.get(level).size());
+			out.put("variety.formDependentShare." + level, forms.getOrDefault(level, 0) / n);
 		}
 		return out;
 	}

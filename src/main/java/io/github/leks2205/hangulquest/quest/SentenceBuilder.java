@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
 import io.github.leks2205.hangulquest.quest.grammar.Endings;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
@@ -71,6 +72,11 @@ public final class SentenceBuilder {
 			return null;
 		}
 
+		/** The namer without the words the step teaches: what the registry calls things (꽃 stands for the poppy). */
+		default Namer untaught() {
+			return this;
+		}
+
 		/** Name of an item (for acquire and consume goals); defaults to the block lookup. */
 		default String item(String id) {
 			return block(id);
@@ -98,8 +104,8 @@ public final class SentenceBuilder {
 	public static String normal(Goal goal, Word word, Word verbWord, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
 		int level = clampLevel(koreanLevel);
-		return prefix(goal, conditions, word, namer, level)
-				+ core(goal, word, verbWord, conditions, true, level, finale, namer);
+		return attach(prefix(goal, conditions, word, namer, level), core(goal, word, verbWord, conditions, true, level,
+				finale, namer), level);
 	}
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions) {
@@ -116,8 +122,8 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
-		return prefix(goal, conditions, word, namer, 1)
-				+ core(goal, word, verbWord, conditions, false, 1, false, namer);
+		return attach(prefix(goal, conditions, word, namer, 1), core(goal, word, verbWord, conditions, false, 1, false,
+				namer), 1);
 	}
 
 	/**
@@ -161,6 +167,17 @@ public final class SentenceBuilder {
 				withCounts, level, finale, named, SentenceContext.taught(named, namer));
 	}
 
+	/**
+	 * Whether a clue says the word a step teaches: a noun as it is, a verb in any conjugated form (올라가요 for
+	 * 올라가다, 구워요 for 굽다), because a clue never holds the dictionary form of its verb.
+	 */
+	public static boolean mentions(String clue, Word word) {
+		if (clue == null || word == null || word.ko == null || word.ko.isBlank()) {
+			return false;
+		}
+		return clue.contains(word.ko) || word.ko.endsWith("다") && Conjugator.contains(clue, word.ko);
+	}
+
 	/** The verb word among what a step teaches: the word itself when it is one, else null. */
 	private static Word verbWord(Word word) {
 		return word != null && isVerbWord(word) ? word : null;
@@ -196,7 +213,7 @@ public final class SentenceBuilder {
 		// The clue may point at the porkchop with the word for the pig; the line that says what was done must not.
 		Word said = word != null && word.entityId != null && word.iconItem != null ? withoutPicture(word) : word;
 		String body = type.ceremony(goal, context(goal, said, verbWord, conditions, namer, true, 1, true));
-		return prefix(goal, conditions, said, namer, 1) + body + ".";
+		return attach(prefix(goal, conditions, said, namer, 1), body, 1) + ".";
 	}
 
 	private static Word withoutPicture(Word word) {
@@ -347,19 +364,87 @@ public final class SentenceBuilder {
 		return KoGrammar.counter(count, counter);
 	}
 
-	private static String prefix(Goal goal, List<Condition> conditions, Word word, Namer namer, int level) {
+	/**
+	 * The phrases the conditions put in front of a sentence, in order. A phrase that says a place with 에서 also
+	 * keeps the place noun ("높이 90블록 위"), so a body that starts with a place of its own can take it as a
+	 * modifier instead of doubling the 에서 ({@link #attach}).
+	 */
+	record Front(List<String> phrases, List<String> places) {
+		static final Front NONE = new Front(List.of(), List.of());
+
+		String text() {
+			return String.join("", phrases);
+		}
+	}
+
+	/** Words that open a body with 에서 although they are no place a modifier could stand in front of. */
+	private static final java.util.Set<String> ADVERB_PLACES = java.util.Set.of("밖에서", "안에서", "물속에서",
+			"땅속에서", "여기에서", "그곳에서", "거기에서");
+
+	/**
+	 * The front and the body as one sentence. When the last place phrase of the front meets a body that starts
+	 * with a place of its own, the two 에서 would double ("높이 90블록 위에서 침대에서 자요"): the first becomes a
+	 * modifier of the second, bare at levels 1-2 and with 의 from level 3 ("높이 90블록 위 침대에서",
+	 * "높이 90블록 위의 침대에서"), and moves right in front of it.
+	 */
+	static String attach(Front front, String body, int level) {
+		int merge = -1;
+		String first = body.contains(" ") ? body.substring(0, body.indexOf(' ')) : body;
+		if (!ADVERB_PLACES.contains(first)) {
+			String head = openingPlace(body);
+			if (head != null) {
+				for (int i = front.places().size() - 1; i >= 0; i--) {
+					if (front.places().get(i) != null) {
+						merge = i;
+						break;
+					}
+				}
+			}
+		}
+		if (merge < 0) {
+			return front.text() + body;
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < front.phrases().size(); i++) {
+			if (i != merge) {
+				sb.append(front.phrases().get(i));
+			}
+		}
+		return sb + front.places().get(merge) + (level >= 3 ? "의 " : " ") + body;
+	}
+
+	/** The place a body opens with ("침대에서", "석재 절단기에서"), or null: the words up to the first one ending in 에서. */
+	private static String openingPlace(String body) {
+		int cut = body.indexOf("에서 ");
+		if (cut <= 0) {
+			return null;
+		}
+		String head = body.substring(0, cut);
+		// only a noun phrase: no object, topic or verb before the 에서 ("횃불을 들고 물속에서" is not one)
+		for (String word : head.split(" ")) {
+			if (word.matches(".*[을를은는이가고서며도만]$")) {
+				return null;
+			}
+		}
+		return head;
+	}
+
+	private static Front prefix(Goal goal, List<Condition> conditions, Word word, Namer namer, int level) {
 		if (conditions == null || conditions.isEmpty()) {
-			return "";
+			return Front.NONE;
 		}
 		GoalType<Goal> type = GoalTypes.of(goal);
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-		StringBuilder sb = new StringBuilder();
+		List<String> phrases = new java.util.ArrayList<>();
+		List<String> places = new java.util.ArrayList<>();
 		for (Condition condition : conditions) {
 			if (!type.says(goal, condition)) { // 바다에서 수영해요 already says IN_WATER
-				sb.append(ConditionTypes.of(condition).prefix(condition, taught, level));
+				ConditionType<Condition> conditionType = ConditionTypes.of(condition);
+				phrases.add(conditionType.prefix(condition, taught, level));
+				places.add(conditionType.placeNoun(condition, taught));
 			}
 		}
-		return sb.toString();
+		return new Front(phrases, places);
 	}
 
 	/** The phrases the conditions put in front of the goal ("밤에", "해변에서"), one per condition that has one. */
@@ -417,6 +502,10 @@ public final class SentenceBuilder {
 			if (conditionType.words(condition, taught).stream().anyMatch(clue::contains)) {
 				continue;
 			}
+			String place = conditionType.placeNoun(condition, taught);
+			if (place != null && (clue.contains(place + " ") || clue.contains(place + "의 "))) {
+				continue; // "높이 90블록 위의 침대에서 자요" says it as a modifier
+			}
 			missing.add(phrase);
 		}
 		return missing;
@@ -432,11 +521,21 @@ public final class SentenceBuilder {
 
 	public static String authored(Goal goal, String clue, List<Condition> conditions, Word word, Namer namer,
 								  int level) {
-		StringBuilder front = new StringBuilder();
+		List<String> phrases = new java.util.ArrayList<>();
+		List<String> places = new java.util.ArrayList<>();
+		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		for (String phrase : missingPhrases(goal, clue, conditions, word, namer, level)) {
-			front.append(phrase).append(' ');
+			phrases.add(phrase + ' ');
+			String place = null;
+			for (Condition condition : conditions) {
+				ConditionType<Condition> type = ConditionTypes.of(condition);
+				if (type.prefix(condition, taught, clampLevel(level)).trim().equals(phrase)) {
+					place = type.placeNoun(condition, taught);
+				}
+			}
+			places.add(place);
 		}
-		return front + clue;
+		return attach(new Front(phrases, places), clue, clampLevel(level));
 	}
 
 	/** "곰 근처에서 ", or {@code fallback} when the thing has no name. */

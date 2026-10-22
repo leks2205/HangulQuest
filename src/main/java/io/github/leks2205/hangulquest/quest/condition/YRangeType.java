@@ -53,6 +53,12 @@ final class YRangeType implements ConditionType<Condition.YRange> {
 		return where.isEmpty() ? "" : where + ' ';
 	}
 
+	@Override
+	public String placeNoun(Condition.YRange condition, SentenceBuilder.Namer namer) {
+		String where = yRange(condition);
+		return where.endsWith("에서") && !where.equals("땅속에서") ? where.substring(0, where.length() - 2) : null;
+	}
+
 	private static String yRange(Condition.YRange y) {
 		if (y.minY() <= 0 && y.maxY() >= 320) {
 			return "";

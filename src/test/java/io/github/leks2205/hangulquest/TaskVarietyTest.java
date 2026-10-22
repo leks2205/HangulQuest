@@ -65,10 +65,15 @@ class TaskVarietyTest {
 	// -------------------------------------------------------------- synthetic content
 
 	private static ContentFacts.Step step(String goalType, String object, String verb, boolean bare, String... mechanics) {
+		return step(goalType, object, verb, bare, false, mechanics);
+	}
+
+	private static ContentFacts.Step step(String goalType, String object, String verb, boolean bare,
+										  boolean formDependent, String... mechanics) {
 		String shape = goalType + ":" + verb;
 		String signature = goalType + ":" + object + ":" + verb;
 		return new ContentFacts.Step("s", goalType, signature, shape, verb, object, "", List.of(),
-				List.of(mechanics), bare, List.of("L1.eoyo"), List.of(), List.of(), "x", "x");
+				List.of(mechanics), bare, formDependent, List.of("L1.eoyo"), List.of(), List.of(), "x", "x");
 	}
 
 	private static ContentFacts.Trail trail(String id, int level, int order, boolean demo, List<String> requires,
@@ -183,6 +188,39 @@ class TaskVarietyTest {
 		assertEquals(1.0, values.get("variety.topTypeShare.2"));
 		assertEquals(1.0, values.get("variety.distinctTypes.2"));
 		assertFalse(values.containsKey("variety.bareShare.3"), "a level without content has no numbers");
+	}
+
+	@Test
+	void formDependentStepsAreCountedPerLevel() {
+		var rel = step("PLACE_REL", "minecraft:torch", "PLACE", false, true, "goal:PLACE_REL");
+		var avoid = step("AVOID", "minecraft:bed", "SLEEP", false, true, "goal:AVOID");
+		var level1 = trail("a", 1, 1, false, List.of(), place("minecraft:a"), rel, place("minecraft:b"), place("minecraft:c"));
+		var level2 = trail("b", 2, 1, false, List.of(), rel, avoid, place("minecraft:d"));
+		Map<String, Double> values = VarietyMetrics.compute(List.of(level1, level2), false);
+		assertEquals(0.25, values.get("variety.formDependentShare.1"));
+		assertEquals(2.0 / 3, values.get("variety.formDependentShare.2"), 1e-9);
+		assertFalse(values.containsKey("variety.formDependentShare.3"));
+	}
+
+	@Test
+	void theFormDependentShareWantsThirtyPercentFromLevelTwoOn() throws IOException {
+		assumeTrue(QuestScaffoldTest.python("-c", "pass").exit() == 0, "python3 is not available");
+		var rel = step("PLACE_REL", "minecraft:torch", "PLACE", false, true, "goal:PLACE_REL");
+		var content = List.of(trail("a", 1, 1, false, List.of(), place("minecraft:a")),
+				trail("b", 2, 1, false, List.of(), rel, place("minecraft:b")));
+		Path dump = scratch.resolve("forms-steps.json");
+		ContentFacts.write(content, dump);
+		Path baseline = scratch.resolve("forms-baseline.json");
+		QuestScaffoldTest.Run update = QuestScaffoldTest.python("tools/variety.py", "--steps", dump.toString(),
+				"--baseline", baseline.toString(), "--update-baseline");
+		assertEquals(0, update.exit(), update.output());
+		JsonObject metrics = JsonParser.parseString(Files.readString(baseline)).getAsJsonObject().getAsJsonObject("metrics");
+		assertEquals(0.0, metrics.getAsJsonObject("variety.formDependentShare.1").get("value").getAsDouble());
+		assertEquals(0.0, metrics.getAsJsonObject("variety.formDependentShare.1").get("target").getAsDouble(),
+				"reported at level 1, never demanded");
+		assertEquals("higher", metrics.getAsJsonObject("variety.formDependentShare.2").get("better").getAsString());
+		assertEquals(0.30, metrics.getAsJsonObject("variety.formDependentShare.2").get("target").getAsDouble());
+		assertEquals(0.5, metrics.getAsJsonObject("variety.formDependentShare.2").get("value").getAsDouble());
 	}
 
 	@Test

@@ -37,8 +37,10 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.JukeboxBlock;
@@ -115,6 +117,7 @@ public final class EnvironmentSensor {
 	private final GiveTracker gives = new GiveTracker();
 	private final HeldTracker held = new HeldTracker();
 	private final ToggleTracker toggles = new ToggleTracker();
+	private final ToggleTracker lights = new ToggleTracker();
 	private long musicAt;
 	private double musicDistance = -1;
 	private final List<GiveTracker.Target> dropTargets = new ArrayList<>();
@@ -153,6 +156,7 @@ public final class EnvironmentSensor {
 		gives.clear();
 		held.clear();
 		toggles.clear();
+		lights.clear();
 		musicAt = 0L;
 		musicDistance = -1;
 		skyPos = null;
@@ -177,6 +181,7 @@ public final class EnvironmentSensor {
 				// The only source of block-use events (the callback fires once per hand).
 				events.blockUsed(usedBlock, isNight(level), hand == InteractionHand.MAIN_HAND);
 				toggles.clicked(hitResult.getBlockPos(), usedBlock, openState(state), System.currentTimeMillis());
+				lights.clicked(hitResult.getBlockPos(), usedBlock, litState(state), System.currentTimeMillis());
 				if (usedBlock.endsWith("_bed")) {
 					lastBedUseAt = System.currentTimeMillis();
 				}
@@ -223,7 +228,7 @@ public final class EnvironmentSensor {
 			if (level.isClientSide() && entity != null) {
 				Entity target = resolve(entity);
 				String type = entityId(target);
-				events.entityInteracted(type);
+				events.entityInteracted(type, target.getUUID());
 				long now = System.currentTimeMillis();
 				screens.entityUsed(type, target.getUUID(), now);
 				ItemStack heldStack = player.getItemInHand(hand);
@@ -281,6 +286,9 @@ public final class EnvironmentSensor {
 		obs.vehicle = vehicle == null ? null : entityId(resolve(vehicle));
 		if (!toggles.idle()) {
 			toggles.poll(pos -> openState(level.getBlockState(pos)), obs.now, obs::addOpened, obs::addClosed);
+		}
+		if (!lights.idle()) {
+			lights.poll(pos -> litState(level.getBlockState(pos)), obs.now, obs::addLit, obs::addSnuffed);
 		}
 		if (wantMusic) {
 			readMusic(obs, player, level);
@@ -412,6 +420,13 @@ public final class EnvironmentSensor {
 		Block block = state.getBlock();
 		boolean hand = block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof FenceGateBlock;
 		return hand && state.hasProperty(BlockStateProperties.OPEN) ? state.getValue(BlockStateProperties.OPEN) : null;
+	}
+
+	/** The {@code lit} state of a candle, candle cake or campfire; null for every other block. */
+	private static Boolean litState(BlockState state) {
+		Block block = state.getBlock();
+		boolean flame = block instanceof AbstractCandleBlock || block instanceof CampfireBlock;
+		return flame && state.hasProperty(BlockStateProperties.LIT) ? state.getValue(BlockStateProperties.LIT) : null;
 	}
 
 	/**

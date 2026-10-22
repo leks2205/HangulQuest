@@ -39,7 +39,7 @@ class CoverageTest {
 	static ContentFacts.Trail trail(String id, int order, String clue, String hint, String finale,
 									ContentFacts.Target... targets) {
 		ContentFacts.Step step = new ContentFacts.Step("s1", "PLACE_BLOCK", "PLACE_BLOCK:x:PLACE", "PLACE_BLOCK:PLACE",
-				"PLACE", "x", "", List.of(), List.of("goal:PLACE_BLOCK"), true, List.of("L1.eoyo"), List.of(),
+				"PLACE", "x", "", List.of(), List.of("goal:PLACE_BLOCK"), true, false, List.of("L1.eoyo"), List.of(),
 				List.of(targets), clue, hint);
 		return new ContentFacts.Trail(id, 1, order, false, List.of(), "", finale, List.of(step));
 	}

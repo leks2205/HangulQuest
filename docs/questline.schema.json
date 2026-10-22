@@ -297,9 +297,10 @@
             "change": {
               "enum": [
                 "OPEN",
-                "CLOSE"
+                "CLOSE",
+                "LIT"
               ],
-              "description": "Open or close a door, trapdoor or fence gate: the block must really change state. Without it any use of the block counts."
+              "description": "Open or close a door, trapdoor or fence gate, or light a candle or campfire (LIT): the block must really change state. Without it any use of the block counts, except that a candle has to be lit."
             }
           },
           "required": [

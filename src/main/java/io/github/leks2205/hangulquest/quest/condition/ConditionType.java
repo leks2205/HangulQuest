@@ -40,6 +40,15 @@ public interface ConditionType<C extends Condition> {
 	}
 
 	/**
+	 * For a prefix that says a place with 에서 ("해변에서 "): the place noun alone ("해변"), so that a sentence whose
+	 * body starts with a place of its own can use it as a modifier instead of doubling the 에서; null for every
+	 * phrase that is no place noun (밖에서, 땅속에서, 가까이에서).
+	 */
+	default String placeNoun(C condition, SentenceBuilder.Namer namer) {
+		return null;
+	}
+
+	/**
 	 * Ways an authored clue says the condition in its own words, without the phrase ("밤에 " as "한밤에" or
 	 * "밤이 되면"): when the clue holds one of them, the phrase is not put in front. Kept to forms that cannot be
 	 * another word (밤 is also a chestnut, 낮다 is "low"), so a plain "밤을 먹어요" still gets "밤에".

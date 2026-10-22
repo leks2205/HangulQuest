@@ -10,6 +10,19 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 - **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.
 
+### Fixed (generator wave 4)
+
+- **Limits from the fifth and sixth content batches.** Lighting a candle is checked (the `lit` state flips; `USE_BLOCK`
+  with `change` `LIT`, the default for candles); a baby only counts as bred when it stands within 4 blocks of two
+  of the animals the player fed; the open sky says 밖에서 up to level 4 and 하늘이 보이는 곳에서 from level 5, with
+  grammar ids that exist; a height or a place condition before a place of the goal's own no longer doubles the
+  에서 (높이 90블록 위 침대에서); a word for a whole kind does not name two different things of one sentence (꽃
+  옆에 민들레를); the clue says a second taught noun when it was met before; an authored clue may hold a verb in
+  any conjugated form; the German giveaway check ignores "bei"; heights have a band in their task signature;
+  used blocks get their own verb (제작대를 열어요, 주크박스를 틀어요, 리스폰 정박기를 충전해요, ...) instead of 쓰다;
+  `pronunciation-exceptions.json` has a `crossWord` switch; `steps.json` and `tools/variety.py` have the share of
+  form-dependent steps per level.
+
 ### Fixed
 
 - **Generator limits from the second content batch.** An authored clue now wins on a step with conditions (the

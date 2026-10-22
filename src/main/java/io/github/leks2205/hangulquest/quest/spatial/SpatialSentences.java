@@ -43,6 +43,7 @@ public final class SpatialSentences {
 	public static SpatialText placeRel(Goal.PlaceRel goal, String obj, Verb verb, int level, boolean withCounts,
 									   boolean finale, boolean past, SentenceBuilder.Namer namer) {
 		List<String> grammar = new ArrayList<>(goal.relation().grammarIds(Role.TARGET));
+		obj = apartFromAnchors(goal, obj, namer);
 		String noun;
 		if (goal.anchor2() != null) {
 			noun = KoGrammar.waGwa(anchorNoun(goal.anchor(), namer)) + " " + anchorNoun(goal.anchor2(), namer);
@@ -69,6 +70,37 @@ public final class SpatialSentences {
 			grammar.add(counterGrammar(goal.block(), obj));
 		}
 		return finish(head, verb, level, finale, past, grammar);
+	}
+
+	/**
+	 * A word for a whole kind names every member of it: with 꽃 taught, a dandelion next to a poppy would read
+	 * "꽃 옆에 꽃을". When the object and an anchor are different things that get the same name, the object keeps
+	 * its own ("꽃 옆에 민들레를"), so the sentence says which is which.
+	 */
+	private static String apartFromAnchors(Goal.PlaceRel goal, String obj, SentenceBuilder.Namer namer) {
+		if (obj == null || obj.isBlank()) {
+			return obj;
+		}
+		String own = BlockSpec.representative(goal.block());
+		List<String> anchors = new ArrayList<>();
+		anchors.add(goal.anchor());
+		if (goal.anchor2() != null) {
+			anchors.add(goal.anchor2());
+		}
+		for (String anchor : anchors) {
+			String said = StepRef.isRef(anchor) ? placedName(anchor, namer) : anchorNoun(anchor, namer);
+			String anchorBlock = StepRef.isRef(anchor) ? placedBlock(anchor, namer) : BlockSpec.representative(anchor);
+			if (said.equals(obj) && own != null && !own.equals(anchorBlock)) {
+				String registry = namer.untaught().block(own);
+				return registry == null || registry.isBlank() ? obj : registry;
+			}
+		}
+		return obj;
+	}
+
+	private static String placedBlock(String ref, SentenceBuilder.Namer namer) {
+		SentenceBuilder.Namer.Placed placed = namer.placedBy(StepRef.stepId(ref));
+		return placed == null ? null : BlockSpec.representative(placed.block());
 	}
 
 	/** "아까 놓은 ": the earlier step's verb as a past attributive, whatever that step did (놓다, 달다, 쌓다). */

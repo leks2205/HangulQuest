@@ -21,11 +21,15 @@ import java.util.List;
  * Raise young animals: "소를 키워요". The sensor sees two things: the player feeding (or at least using an
  * item on) an animal of the kind, and a baby of that kind (the synced "young" flag) that was not there
  * before. A baby that shows up within two minutes of a feeding is the result of it. Babies that were already
- * near when the step began, or that wander in later than the window, do not count.
+ * near when the step began, or that wander in later than the window, do not count. The baby also has to
+ * stand within {@value #PARENT_RANGE} blocks of two of the animals the player fed: a calf next to the
+ * player, born in the next pen, is no result of this feeding.
  */
 final class BreedType implements GoalType<Goal.Breed> {
 	/** How long after the last feeding a new baby is taken to come from it. */
 	private static final long WINDOW_MS = 120_000L;
+	/** A baby is born where its parents stand; they come together to within about three blocks first. */
+	static final double PARENT_RANGE = 4.0;
 
 	@Override
 	public String id() {
@@ -61,30 +65,58 @@ final class BreedType implements GoalType<Goal.Breed> {
 		return goal.entity() + "/" + goal.count();
 	}
 
-	private static boolean fed(Goal.Breed goal, Observation obs) {
-		if (obs.interactedEntities.contains(goal.entity())) {
-			return true;
+	/** Notes the animals of the kind the player fed (or used an item on) this tick; true if there were any. */
+	private static boolean fed(Goal.Breed goal, Observation obs, GoalEvaluator.Tracker tracker) {
+		boolean fed = false;
+		for (int i = 0; i < obs.interactedEntities.size(); i++) {
+			if (goal.entity().equals(obs.interactedEntities.get(i))) {
+				fed = true;
+				if (i < obs.interactedUuids.size() && obs.interactedUuids.get(i) != null) {
+					tracker.parents.putIfAbsent(obs.interactedUuids.get(i).toString(), null);
+				}
+			}
 		}
 		for (GiveFact gave : obs.gave) {
 			if (gave.method() == GiveFact.Method.FEED && goal.entity().equals(gave.targetType())) {
-				return true;
+				fed = true;
+				if (gave.targetUuid() != null) {
+					tracker.parents.putIfAbsent(gave.targetUuid().toString(), null);
+				}
 			}
 		}
-		return false;
+		return fed;
+	}
+
+	/** Two fed animals stand within {@value #PARENT_RANGE} blocks of the baby. */
+	private static boolean bornToTheFed(EntityFact baby, GoalEvaluator.Tracker tracker) {
+		int near = 0;
+		for (double[] at : tracker.parents.values()) {
+			if (at != null && Math.sqrt(Math.pow(at[0] - baby.x(), 2) + Math.pow(at[1] - baby.y(), 2)
+					+ Math.pow(at[2] - baby.z(), 2)) <= PARENT_RANGE) {
+				near++;
+			}
+		}
+		return near >= 2;
 	}
 
 	@Override
 	public boolean evaluate(Goal.Breed goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
-		if (fed(goal, obs)) {
+		if (fed(goal, obs, tracker)) {
 			tracker.mark = obs.now;
+		}
+		for (EntityFact fact : obs.nearbyEntityPositions) { // where the fed animals stand now
+			if (!fact.baby() && tracker.parents.containsKey(fact.uuid().toString())) {
+				tracker.parents.put(fact.uuid().toString(), new double[] {fact.x(), fact.y(), fact.z()});
+			}
 		}
 		for (EntityFact fact : obs.nearbyEntityPositions) {
 			if (!fact.baby() || !goal.entity().equals(fact.type())) {
 				continue;
 			}
-			// the first sight of a baby: counted when a feeding is fresh, else it was simply there
+			// the first sight of a baby: counted when a feeding is fresh and the fed pair stands around it,
+			// else it was simply there (or belongs to other animals)
 			if (tracker.marks.add(fact.uuid().toString()) && tracker.mark != 0L
-					&& obs.now - tracker.mark <= WINDOW_MS) {
+					&& obs.now - tracker.mark <= WINDOW_MS && bornToTheFed(fact, tracker)) {
 				tracker.count++;
 			}
 		}

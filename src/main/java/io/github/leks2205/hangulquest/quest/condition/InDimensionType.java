@@ -53,6 +53,11 @@ final class InDimensionType implements ConditionType<Condition.InDimension> {
 	}
 
 	@Override
+	public String placeNoun(Condition.InDimension condition, SentenceBuilder.Namer namer) {
+		return SentenceBuilder.dimension(condition.dimension());
+	}
+
+	@Override
 	public String unmetText(Condition.InDimension condition, Observation obs, Catalog catalog) {
 		return "지금 " + QuestStatus.dimension(obs.dimension) + " · "
 				+ QuestStatus.dimension(condition.dimension()) + " 필요";

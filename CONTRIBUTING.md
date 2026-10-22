@@ -139,8 +139,11 @@ as 2, the target is at most 3, so a batch may use a third occurrence. Below the 
 the bar. `TaskVarietyTest`, `CoverageTest` and `RecyclingTest` fail on a regression, and CI runs the
 same checks (`tools/variety.py` and `tools/coverage.py` for Python, `MetricsBaseline` for Java: keep the
 two rules identical). The roadmap targets (bare steps at most 30/20/10% on levels 1/2/3 and up, no goal
-type above 25% of a level, 10 encounters in 3 roles for every core word, ...) are printed next to the
-numbers.
+type above 25% of a level, at least 30% form-dependent steps on every level from 2 up, 10 encounters in
+3 roles for every core word, ...) are printed next to the numbers. A step is *form-dependent* when the Korean
+form decides which action is right (a relation word such as 옆에, the recipient marker of 에게, a connective
+like -기 전에, the "don't" of -지 마세요); `variety.formDependentShare.<level>` is their share, written to
+`steps.json` as `formDependent` from `GoalType.decidingForms`. Level 1 is reported, never demanded.
 
 ```bash
 ./gradlew test --tests '*StepsDumpTest'      # writes build/reports/content/steps.json

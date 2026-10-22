@@ -16,7 +16,9 @@ import java.util.List;
 /**
  * Use a block: open a door, ring a bell, sleep in a bed. With {@code change} a door, trapdoor or fence gate
  * has to change state the way the verb says (열어요, 닫아요); the sensor compares its {@code open} state
- * before and after the click.
+ * before and after the click. {@code LIT} does the same for a candle or a campfire (켜요, 피워요): its
+ * {@code lit} state has to flip on. A candle without a {@code change} is lit by default, because the verb
+ * of the table is 켜다 and "초를 켜요" is a checked goal, not a click on the wick.
  */
 final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
@@ -32,8 +34,9 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
 	public List<Field> fields() {
 		return List.of(Field.resource("block"),
-				Field.choice("change", false, "Open or close a door, trapdoor or fence gate: the block must really "
-						+ "change state. Without it any use of the block counts.", "OPEN", "CLOSE"));
+				Field.choice("change", false, "Open or close a door, trapdoor or fence gate, or light a candle or "
+						+ "campfire (LIT): the block must really change state. Without it any use of the block counts, "
+						+ "except that a candle has to be lit.", "OPEN", "CLOSE", "LIT"));
 	}
 
 	@Override
@@ -62,9 +65,16 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
 	public boolean evaluate(Goal.UseBlock goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		if (goal.change() != null) {
-			for (String changed : goal.change().equals("CLOSE") ? obs.closedBlocks : obs.openedBlocks) {
-				if (Matching.matchesBlock(goal.block(), changed)) {
+		String change = effectiveChange(goal);
+		if (change != null) {
+			List<String> changes = switch (change) {
+				case "CLOSE" -> obs.closedBlocks;
+				case "LIT" -> obs.litBlocks;
+				default -> obs.openedBlocks;
+			};
+			for (String changed : changes) {
+				if (change.equals("LIT") ? Matching.accepts(tracker, goal.block(), changed)
+						: Matching.matchesBlock(goal.block(), changed)) {
 					tracker.count++;
 				}
 			}
@@ -82,6 +92,15 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 		return tracker.count >= 1;
 	}
 
+	/** The change the goal checks: its own, or LIT for a candle (the table speaks 켜다 for candles). */
+	static String effectiveChange(Goal.UseBlock goal) {
+		if (goal.change() != null) {
+			return goal.change();
+		}
+		return Matching.isCandle(goal.block()) && VerbTable.shared().choose("USE_BLOCK", goal.block(), 1, Verb.USE)
+				== Verb.SWITCH_ON ? "LIT" : null;
+	}
+
 	@Override
 	public boolean nightLatchable() {
 		return true;
@@ -96,7 +115,11 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
 	public Verb verb(Goal.UseBlock goal, VerbTable table) {
 		if (goal.change() != null) {
-			return goal.change().equals("CLOSE") ? Verb.CLOSE : Verb.OPEN;
+			return switch (goal.change()) {
+				case "CLOSE" -> Verb.CLOSE;
+				case "LIT" -> Matching.isCandle(goal.block()) ? Verb.SWITCH_ON : Verb.KINDLE;
+				default -> Verb.OPEN;
+			};
 		}
 		return table.choose(id(), goal.block(), 1, Verb.USE);
 	}
@@ -153,8 +176,12 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 	public void validate(Goal.UseBlock goal, ValidationContext context) {
 		GoalType.super.validate(goal, context);
 		if (goal.change() != null) {
-			if (!goal.change().equals("OPEN") && !goal.change().equals("CLOSE")) {
-				context.problem("change must be OPEN or CLOSE, not " + goal.change());
+			if (goal.change().equals("LIT")) {
+				if (!Matching.isFlame(goal.block())) {
+					context.problem("a " + goal.block() + " has no flame to light; use a candle or a campfire");
+				}
+			} else if (!goal.change().equals("OPEN") && !goal.change().equals("CLOSE")) {
+				context.problem("change must be OPEN, CLOSE or LIT, not " + goal.change());
 			} else if (!handOpened(goal.block())) {
 				context.problem("a " + goal.block() + " does not open or close by hand; use a wooden door, "
 						+ "trapdoor or fence gate");

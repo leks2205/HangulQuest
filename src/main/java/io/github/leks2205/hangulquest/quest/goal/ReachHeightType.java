@@ -119,6 +119,26 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		return null;
 	}
 
+	/**
+	 * A height has no object, so the band is its handle: a descent, the ground, a hill (Y 63 to 79), and the
+	 * heights 80, 90 and 100 and up (a mountain). Two climbs of different bands are two tasks.
+	 */
+	@Override
+	public String taskSignature(Goal.ReachHeight goal) {
+		return id() + "::" + verb(goal, VerbTable.shared()).name() + ":" + band(goal);
+	}
+
+	static String band(Goal.ReachHeight goal) {
+		if (descends(goal)) {
+			return "down";
+		}
+		int y = goal.minY();
+		if (y <= 0) {
+			return "ground";
+		}
+		return y >= 100 ? "100+" : y >= 90 ? "90" : y >= 80 ? "80" : "hill";
+	}
+
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.NONE;

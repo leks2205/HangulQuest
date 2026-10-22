@@ -27,7 +27,7 @@ final class QuestTextService {
 	private final LearningSink learn;
 	private final SentenceBuilder.Namer namer;
 	/** Generated clue sentences, by step and Korean level (index 1..6). */
-	private final Map<QuestStep, String[]> clues = new IdentityHashMap<>();
+	private final Map<QuestStep, Map<String, String>> clues = new IdentityHashMap<>();
 	/** Generated hint sentences, by step. */
 	private final Map<QuestStep, String> hints = new IdentityHashMap<>();
 	/** The grammar.json constructions of a generated clue, by step and written level. */
@@ -95,11 +95,17 @@ final class QuestTextService {
 			return List.of();
 		}
 		int level = effectiveLevel(koreanLevel);
+		SentenceBuilder.Namer clueNamer = clueNamer(step);
 		return grammar.computeIfAbsent(step, key -> new java.util.HashMap<>()).computeIfAbsent(level, key -> {
 			List<String> emitted = SentenceBuilder.grammar(step.goal(), firstWord(step), verbWord(step),
-					step.conditions(), key, "finale".equals(step.id()), namerFor(step));
+					step.conditions(), key, "finale".equals(step.id()), clueNamer);
 			return GrammarBook.shared().resolve(emitted, Ladder.shared());
 		});
+	}
+
+	/** The step's namer plus the extra nouns the clue may say ({@link ClueWords}). */
+	private SentenceBuilder.Namer clueNamer(QuestStep step) {
+		return ClueWords.namer(namerFor(step), ClueWords.extras(step, catalog, learn::isKnown));
 	}
 
 	Word firstWord(QuestStep step) {
@@ -147,8 +153,12 @@ final class QuestTextService {
 			return step.clueKo();
 		}
 		int level = effectiveLevel(koreanLevel);
-		String[] byLevel = clues.computeIfAbsent(step, key -> new String[LEVELS + 1]);
-		String cached = byLevel[level];
+		SentenceBuilder.Namer clueNamer = clueNamer(step);
+		// what the player knows can change which nouns the clue says, so the key holds them
+		List<Word> extras = ClueWords.extras(step, catalog, learn::isKnown);
+		String cacheKey = level + extras.stream().map(word -> word.id).toList().toString();
+		Map<String, String> byLevel = clues.computeIfAbsent(step, key -> new java.util.HashMap<>());
+		String cached = byLevel.get(cacheKey);
 		if (cached == null) {
 			// Every condition must show up in the Korean sentence: generated text guarantees it, and an
 			// authored clue gets the phrases it lacks.
@@ -156,8 +166,8 @@ final class QuestTextService {
 					? SentenceBuilder.authored(step.goal(), step.clueKo(), step.conditions(), firstWord(step),
 							namerFor(step), level)
 					: SentenceBuilder.normal(step.goal(), firstWord(step), verbWord(step), step.conditions(),
-							level, "finale".equals(step.id()), namerFor(step));
-			byLevel[level] = cached;
+							level, "finale".equals(step.id()), clueNamer);
+			byLevel.put(cacheKey, cached);
 		}
 		return cached;
 	}

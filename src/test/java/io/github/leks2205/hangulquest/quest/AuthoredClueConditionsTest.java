@@ -68,11 +68,11 @@ class AuthoredClueConditionsTest {
 	void everyConditionIsSpokenWhatEverTheAuthoredText() {
 		for (String clue : List.of("횃불을 놓아요.", "밤에 횃불을 놓아요.", "횃불을 조용히 놓아요.")) {
 			QuestStep step = step(clue, NIGHT, OPEN_SKY);
-			String said = text.clueKo(step, 3);
+			String said = text.clueKo(step, 5);
 			assertTrue(said.contains(clue), said);
 			assertTrue(said.contains("밤에"), said);
 			assertTrue(said.contains("하늘이 보이는 곳에서"), said);
-			assertTrue(SentenceBuilder.missingPhrases(said, step.conditions(), text.firstWord(step), text.namer(), 3)
+			assertTrue(SentenceBuilder.missingPhrases(said, step.conditions(), text.firstWord(step), text.namer(), 5)
 					.isEmpty(), said);
 		}
 	}
@@ -81,10 +81,11 @@ class AuthoredClueConditionsTest {
 	void theConditionWordingFollowsTheLevelOfTheClue() {
 		QuestStep step = step("횃불을 놓아요.", OPEN_SKY);
 		assertEquals("밖에서 횃불을 놓아요.", text.clueKo(step, 1));
-		assertEquals("하늘이 보이는 곳에서 횃불을 놓아요.", text.clueKo(step, 3));
-		// a clue that already says the long form needs nothing at level 3
+		assertEquals("밖에서 횃불을 놓아요.", text.clueKo(step, 3));
+		assertEquals("하늘이 보이는 곳에서 횃불을 놓아요.", text.clueKo(step, 5));
+		// a clue that already says the long form needs nothing at level 5
 		QuestStep long_ = step("하늘이 보이는 곳에서 횃불을 놓아요.", OPEN_SKY);
-		assertEquals("하늘이 보이는 곳에서 횃불을 놓아요.", text.clueKo(long_, 3));
+		assertEquals("하늘이 보이는 곳에서 횃불을 놓아요.", text.clueKo(long_, 5));
 	}
 
 	@Test

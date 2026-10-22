@@ -59,7 +59,7 @@ final class ContentFacts {
 
 	record Step(String id, String goalType, String signature, String shape, String verb, String object,
 				String relation, List<String> conditions, List<String> mechanics, boolean bare,
-				List<String> grammar, List<String> teach, List<Target> targets, String clueKo, String hintKo) {
+				boolean formDependent, List<String> grammar, List<String> teach, List<Target> targets, String clueKo, String hintKo) {
 	}
 
 	record Trail(String id, int level, int order, boolean demo, List<String> requires, String titleKo,
@@ -136,9 +136,11 @@ final class ContentFacts {
 		boolean bare = step.conditions().isEmpty() && (goal instanceof Goal.PlaceBlock
 				|| goal instanceof Goal.BreakBlock || goal instanceof Goal.AcquireItem);
 		String relation = relation(goal);
+		// the Korean form decides which action is right: a relation word, a recipient, a connective, a "don't"
+		boolean formDependent = !type.decidingForms(goal).isEmpty();
 		return new Step(step.id(), type.id(), signature, shape, SentenceBuilder.verbFor(goal).name(),
 				type.object(goal), relation == null ? "" : relation, List.copyOf(conditions),
-				List.copyOf(mechanics), bare, List.copyOf(grammar), List.copyOf(step.teach()),
+				List.copyOf(mechanics), bare, formDependent, List.copyOf(grammar), List.copyOf(step.teach()),
 				List.copyOf(targets), clueKo, hintKo);
 	}
 
@@ -355,6 +357,7 @@ final class ContentFacts {
 				s.add("conditions", strings(step.conditions()));
 				s.add("mechanics", strings(step.mechanics()));
 				s.addProperty("bare", step.bare());
+				s.addProperty("formDependent", step.formDependent());
 				s.add("grammar", strings(step.grammar()));
 				s.add("teach", strings(step.teach()));
 				JsonArray targets = new JsonArray();
@@ -392,7 +395,8 @@ final class ContentFacts {
 						s.get("signature").getAsString(), s.get("shape").getAsString(), s.get("verb").getAsString(),
 						s.get("object").getAsString().isEmpty() ? null : s.get("object").getAsString(),
 						s.get("relation").getAsString(), list(s, "conditions"), list(s, "mechanics"),
-						s.get("bare").getAsBoolean(), list(s, "grammar"), list(s, "teach"), targets,
+						s.get("bare").getAsBoolean(), s.has("formDependent") && s.get("formDependent").getAsBoolean(),
+						list(s, "grammar"), list(s, "teach"), targets,
 						s.get("clueKo").getAsString(), s.get("hintKo").getAsString()));
 			}
 			trails.add(new Trail(t.get("id").getAsString(), t.get("level").getAsInt(), t.get("order").getAsInt(),

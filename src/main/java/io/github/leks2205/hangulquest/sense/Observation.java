@@ -69,6 +69,8 @@ public final class Observation {
 	public List<String> attackedEntities = new ArrayList<>();
 	public List<String> defeatedEntities = new ArrayList<>();
 	public List<String> interactedEntities = new ArrayList<>();
+	/** The uuid of each entity in {@link #interactedEntities}, same order; null where it is not known. */
+	public List<java.util.UUID> interactedUuids = new ArrayList<>();
 
 	// Observation v2: facts for spatial and give/craft tasks. All transient, never persisted. The lists
 	// start as a shared empty list so a quiet tick allocates nothing; use the add methods to fill them.
@@ -97,6 +99,10 @@ public final class Observation {
 	public List<String> openedBlocks = List.of();
 	/** The same for the ones the player closed. */
 	public List<String> closedBlocks = List.of();
+	/** Candles and campfires the player lit this tick (the {@code lit} state flipped on after a click). */
+	public List<String> litBlocks = List.of();
+	/** The same for the ones the player put out. */
+	public List<String> snuffedBlocks = List.of();
 	/** Entity id of what the player sits in or rides (a horse, a boat, a minecart); null on foot. */
 	public String vehicle;
 	/** Distance to the nearest jukebox that is playing a disc; -1 when none is near or no scan was asked for. */
@@ -165,6 +171,16 @@ public final class Observation {
 	public void addClosed(String block) {
 		closedBlocks = grow(closedBlocks);
 		closedBlocks.add(block);
+	}
+
+	public void addLit(String block) {
+		litBlocks = grow(litBlocks);
+		litBlocks.add(block);
+	}
+
+	public void addSnuffed(String block) {
+		snuffedBlocks = grow(snuffedBlocks);
+		snuffedBlocks.add(block);
 	}
 
 	public void addEntityPosition(EntityFact fact) {

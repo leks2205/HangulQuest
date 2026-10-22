@@ -14,6 +14,7 @@ public final class EventBuffer {
 	private final List<String> usedItems = new ArrayList<>();
 	private final List<String> attacked = new ArrayList<>();
 	private final List<String> interacted = new ArrayList<>();
+	private final List<java.util.UUID> interactedUuids = new ArrayList<>();
 
 	public void blockBroken(String block) {
 		broken.add(block);
@@ -42,7 +43,12 @@ public final class EventBuffer {
 	}
 
 	public void entityInteracted(String entity) {
+		entityInteracted(entity, null);
+	}
+
+	public void entityInteracted(String entity, java.util.UUID uuid) {
 		interacted.add(entity);
+		interactedUuids.add(uuid);
 	}
 
 	/** Appends the buffered events to the observation and empties the buffer. */
@@ -53,6 +59,7 @@ public final class EventBuffer {
 		drain(usedItems, obs.usedItems);
 		drain(attacked, obs.attackedEntities);
 		drain(interacted, obs.interactedEntities);
+		drain(interactedUuids, obs.interactedUuids);
 	}
 
 	public void clear() {
@@ -62,9 +69,10 @@ public final class EventBuffer {
 		usedItems.clear();
 		attacked.clear();
 		interacted.clear();
+		interactedUuids.clear();
 	}
 
-	private static void drain(List<String> from, List<String> to) {
+	private static <T> void drain(List<T> from, List<T> to) {
 		if (!from.isEmpty()) {
 			to.addAll(from);
 			from.clear();

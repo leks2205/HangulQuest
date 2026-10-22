@@ -58,6 +58,11 @@ final class InBiomeType implements ConditionType<Condition.InBiome> {
 	}
 
 	@Override
+	public String placeNoun(Condition.InBiome condition, SentenceBuilder.Namer namer) {
+		return SentenceBuilder.biomeName(condition.biome(), namer);
+	}
+
+	@Override
 	public List<String> words(Condition.InBiome condition, SentenceBuilder.Namer namer) {
 		String name = SentenceBuilder.biomeName(condition.biome(), namer);
 		return name == null ? List.of() : List.of(name + "에서", name + "에", name + "으로", name + "로");

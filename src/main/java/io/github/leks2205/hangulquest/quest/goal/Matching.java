@@ -63,6 +63,21 @@ public final class Matching {
 		return goal.equals(observed) || !family.isEmpty() && family.equals(vehicleFamily(observed));
 	}
 
+	/** A candle (or one on a cake), which is lit with flint and steel and put out by hand. */
+	public static boolean isCandle(String id) {
+		if (id == null) {
+			return false;
+		}
+		String path = id.substring(id.indexOf(':') + 1);
+		return path.equals("candle") || path.endsWith("_candle") || path.equals("candle_cake")
+				|| path.endsWith("_candle_cake");
+	}
+
+	/** Blocks with a {@code lit} state the player can change by hand: candles and campfires. */
+	public static boolean isFlame(String id) {
+		return isCandle(id) || id != null && blockFamily(id).equals("campfire");
+	}
+
 	public static boolean isBed(String id) {
 		return id != null && blockFamily(id).equals("bed");
 	}

@@ -120,7 +120,7 @@ class GoalTypeRegistryTest {
 		assertNotEquals(signature, GoalTypes.of(place).taskSignature(place));
 
 		Goal height = new Goal.ReachHeight(80, 320);
-		assertEquals("REACH_HEIGHT::CLIMB", GoalTypes.of(height).taskSignature(height));
+		assertEquals("REACH_HEIGHT::CLIMB:80", GoalTypes.of(height).taskSignature(height));
 	}
 
 	@Test

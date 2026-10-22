@@ -30,12 +30,39 @@ import java.util.Set;
  * <li>{@code stems}: verb stems ending in ㄴ or ㅁ, whose ending is tensed (신다 gives 신따);</li>
  * <li>{@code sinoWords}: Sino-Korean words inside a phrase whose own origin the phrase tag does not show
  *     (철사 in 철사 덫 갈고리), so the ㄹ rule tenses ㅅ ㄷ ㅈ in them (철사 gives 철싸).</li>
+ * <li>{@code crossWord}: how the sound rules treat two words of a phrase, see {@link CrossWord}.</li>
  * </ul>
  */
 public final class PronunciationExceptions {
 	public static final String RESOURCE = "/assets/hangulquest/data/pronunciation-exceptions.json";
 	private static final PronunciationExceptions EMPTY = new PronunciationExceptions(Map.of(), Map.of(), Set.of(),
-			Set.of());
+			Set.of(), CrossWord.MIXED);
+
+	/**
+	 * What happens where one word of a phrase meets the next: carrying a final over to a vowel (liaison),
+	 * ㅎ and its aspiration, and the nasalisation of ㄱ ㄷ ㅂ before ㄴ ㅁ. Whether names of items count as one
+	 * unit for these is a style choice that the native review decides, so the data file has the switch.
+	 */
+	public enum CrossWord {
+		/**
+		 * As the standard describes it for two words: nasalisation and the ㅎ initial are applied, a final is
+		 * carried over only before ㅏ ㅓ ㅗ ㅜ ㅟ (밭 아래 [바다래]) and a ㅎ final is not touched. The default.
+		 */
+		MIXED,
+		/** All three as inside a word: every final is carried over, a ㅎ final aspirates (좋은 집 [조은 집]). */
+		ALL,
+		/** None of them: a word keeps its own sounds and only its final is neutralised (밭 아래 [받 아래]). */
+		NONE;
+
+		static CrossWord byId(String id) {
+			for (CrossWord mode : values()) {
+				if (mode.name().equalsIgnoreCase(id)) {
+					return mode;
+				}
+			}
+			throw new IllegalArgumentException("crossWord must be mixed, all or none, not " + id);
+		}
+	}
 
 	/** A whole word spelled out; the rules are ids of {@link Pronunciation.Rule}. */
 	public record Override(String pron, List<Pronunciation.Rule> rules) {
@@ -53,16 +80,18 @@ public final class PronunciationExceptions {
 	private final Map<String, Marked> joins;
 	private final Set<String> stems;
 	private final Set<String> sinoWords;
+	private final CrossWord crossWord;
 
 	record Marked(int at, Join join) {
 	}
 
 	private PronunciationExceptions(Map<String, Override> overrides, Map<String, Marked> joins, Set<String> stems,
-									Set<String> sinoWords) {
+									Set<String> sinoWords, CrossWord crossWord) {
 		this.overrides = overrides;
 		this.joins = joins;
 		this.stems = stems;
 		this.sinoWords = sinoWords;
+		this.crossWord = crossWord;
 	}
 
 	public static PronunciationExceptions shared() {
@@ -122,8 +151,10 @@ public final class PronunciationExceptions {
 					sinoWords.add(word.getAsString());
 				}
 			}
+			CrossWord crossWord = root.has("crossWord") ? CrossWord.byId(root.get("crossWord").getAsString())
+					: CrossWord.MIXED;
 			return new PronunciationExceptions(Map.copyOf(overrides), Map.copyOf(joins), Set.copyOf(stems),
-					Set.copyOf(sinoWords));
+					Set.copyOf(sinoWords), crossWord);
 		}
 	}
 
@@ -139,6 +170,15 @@ public final class PronunciationExceptions {
 			}
 			into.put(text.replace("|", ""), new Marked(bar, join));
 		}
+	}
+
+	public CrossWord crossWord() {
+		return crossWord;
+	}
+
+	/** The same exceptions with another {@code crossWord}, to compare the modes on the real data. */
+	public PronunciationExceptions withCrossWord(CrossWord mode) {
+		return new PronunciationExceptions(overrides, joins, stems, sinoWords, mode);
 	}
 
 	/** The spelled-out pronunciation of an eojeol, or null. */

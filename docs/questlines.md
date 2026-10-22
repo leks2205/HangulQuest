@@ -78,9 +78,9 @@ The template is `_template.json`.
 ## Conditions are spoken in the sentence
 
 `conditions` always end up in the Korean text: `TIME` (밤에/낮에/새벽에/저녁에), `WEATHER`, `Y_RANGE`
-(„땅 아래에서", „120블록보다 높은 곳에서"), `IN_BIOME` („해변에서"), `IN_DIMENSION` („지옥에서",
-„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"), `SKY` („밖에서" on levels 1 and 2, „하늘이 보이는
-곳에서" from level 3). A step without an authored clue uses the generated sentence, which speaks every
+(„땅 아래에서", „120블록보다 높은 곳에서"; before a place of the goal's own it modifies it: „높이 90블록 위 침대에서", from level 3 „…위의 침대에서"), `IN_BIOME` („해변에서"), `IN_DIMENSION` („지옥에서",
+„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"), `SKY` („밖에서" on levels 1 to 4, „하늘이 보이는
+곳에서" from level 5). A step without an authored clue uses the generated sentence, which speaks every
 condition. An authored clue wins also on a step with conditions: it is shown as written, and a condition
 phrase it does not contain is put in front of it, so no condition can be missing from the text. A clue that
 says the condition in its own words does not get the phrase again: 밤에 / 한밤에 / 밤이 for `TIME` night, 비가 for
@@ -157,7 +157,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `REACH_BIOME` | `biome` (id or `#tag`), `dwellMs` | the biome you are standing in |
 | `REACH_DIMENSION` | `dimension` | dimension |
 | `REACH_HEIGHT` | `minY`, `maxY` (a ceiling below sea level, `maxY` under 63, asks for a descent: 아래로 내려가요; from level 2 `높이 40 이하로 내려가세요`) | player altitude |
-| `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요) | right-click on that block; with `change` the sensor compares the block's `open` state before and after the click |
+| `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요; `LIT`: a candle or campfire that really catches fire, 켜요 / 피워요; a candle without `change` means `LIT`) | right-click on that block; with `change` the sensor compares the block's `open` (or `lit`) state before and after the click |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
 | `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
 | `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`; a ring is a 담, and only fence blocks make a 울타리: `울타리를 쳐요`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
@@ -175,7 +175,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `HEAR` | `source` (`minecraft:jukebox` or `minecraft:note_block`), `radius` (2–16), `dwellMs` | a jukebox with a disc in it within `radius` blocks for `dwellMs` (the sensor scans the block entities around the player twice a second, only while such a step is tracked), or a struck note block |
 | `LIE_DOWN` | `block` (a bed), `dwellMs` | the sleeping pose in that bed for `dwellMs`; the night does not have to pass (a night condition is excused once the server skipped it, as for 자요) |
 | `WAIT` | `seconds`, optional `until` (`NIGHT`/`DAY`) | staying within three blocks of the spot where the wait began; walking away starts over. With `until` also that part of the day. A place to wait near is a condition (`NEAR_BLOCK`) |
-| `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind |
+| `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind, and within 4 blocks of two of the animals fed |
 | `MOUNT` | `entity`, `dwellMs` | the vehicle state of the player: a boat or minecart is sat in (앉아요), an animal is ridden (타요); every boat is one boat |
 | `SWIM` | `blocks` | blocks covered while the player is in water (a jump of more than eight blocks between two ticks is not swimming) |
 

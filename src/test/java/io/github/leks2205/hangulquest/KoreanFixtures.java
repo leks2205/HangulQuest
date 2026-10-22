@@ -197,8 +197,11 @@ final class KoreanFixtures {
 				break;
 			}
 		}
-		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(),
-				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer(catalog), step));
+		// the nouns the clue says besides the first (a new player knows none of the others)
+		SentenceBuilder.Namer clueNamer = io.github.leks2205.hangulquest.quest.ClueWords.namer(
+				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer(catalog), step),
+				io.github.leks2205.hangulquest.quest.ClueWords.extras(step, catalog, id -> false));
+		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(), clueNamer);
 	}
 
 	/** The registry id a goal points at, or null for height goals. */

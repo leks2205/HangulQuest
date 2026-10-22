@@ -289,10 +289,9 @@ class QuestlineValidationTest {
 				if (ko == null || step.teach().isEmpty()) {
 					continue;
 				}
-				String word = catalog.byConceptId(step.teach().get(0)).map(w -> w.ko).orElse("");
+				var word = catalog.byConceptId(step.teach().get(0)).orElse(null);
 				// a verb is in the clue as a conjugated form (올라가요 for 올라가다)
-				assertTrue(word.isBlank() || ko.contains(word)
-						|| word.endsWith("다") && io.github.leks2205.hangulquest.quest.grammar.Conjugator.contains(ko, word),
+				assertTrue(word == null || SentenceBuilder.mentions(ko, word),
 						trail.id() + "/" + step.id() + " clue omits the taught word " + word + ": " + ko);
 			}
 		}
