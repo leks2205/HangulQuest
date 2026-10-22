@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest.ui;
 
 import io.github.leks2205.hangulquest.quest.QuestEngine.TrackView;
+import io.github.leks2205.hangulquest.util.I18n;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,5 +44,17 @@ class QuestLogTextTest {
 	void theStatusJoinsTheLineOnlyWhenItFits() {
 		assertTrue(QuestLogText.statusFits(100, 6, 30, 136));
 		assertFalse(QuestLogText.statusFits(100, 6, 30, 135));
+	}
+
+	@Test
+	void theSituationalRowCarriesAMarkerAndOthersDoNot() {
+		TrackView plain = view(false, 0, 1, "", 0, 4);
+		TrackView here = new TrackView(plain.id(), plain.titleKo(), plain.titleDe(), plain.titleEn(), plain.topicKey(),
+				plain.koreanLevel(), plain.clueKo(), plain.clueDe(), "", 0, 1, false, false, 0, 4, false, true);
+
+		assertEquals("", QuestLogText.situationalMarker(plain));
+		assertEquals(I18n.t("hangulquest.ui.hud.situational"), QuestLogText.situationalMarker(here));
+		assertFalse(QuestLogText.situationalMarker(here).isBlank(), "the translation is not empty");
+		assertEquals("상황", QuestLogText.SITUATIONAL_KO);
 	}
 }

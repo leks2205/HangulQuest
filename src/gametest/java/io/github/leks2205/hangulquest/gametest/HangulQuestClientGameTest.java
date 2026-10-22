@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.HudWindows;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.WelcomeScreen;
+import io.github.leks2205.hangulquest.ui.journal.JournalHost;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
@@ -22,6 +23,8 @@ import java.nio.file.Path;
  */
 public final class HangulQuestClientGameTest implements FabricClientGameTest {
 	private static final String WORD = "concept:stone";
+	/** The journal's last tab. */
+	private static final int SETTINGS_TAB = 7;
 
 	@Override
 	public void runTest(ClientGameTestContext context) {
@@ -52,7 +55,8 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		// A HUD window stays until the hint key closes it, and that press is not a hint.
 		context.runOnClient(mc -> {
 			HangulQuestClient.get().hud().windows().clear();
-			HangulQuestClient.get().hud().banner("창문", "window", true);
+			HangulQuestClient.get().hud().banner("창문을 열고 신선한 공기를 마셔요. 밖에서 해가 떠요.",
+					"Open the window and breathe the fresh air. The sun is rising outside, so the whole day is ahead of you.", true);
 		});
 		context.waitTicks(5);
 		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top() != null),
@@ -70,6 +74,13 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 				"the hint key should close the window");
 		check(context.computeOnClient(mc -> !HangulQuestClient.get().quests().hintUsed()),
 				"closing a window must not count as a hint");
+		// A wide card squeezed in beside the quest log wraps its text instead of covering the log.
+		context.runOnClient(mc -> {
+			HangulQuestClient.get().hud().windows().clear();
+			HangulQuestClient.get().hud().selftestCelebration(io.github.leks2205.hangulquest.ui.Celebration.Kind.TRAIL);
+		});
+		context.waitTicks(30);
+		context.takeScreenshot(shot("02c2-wide-window", shots));
 		context.runOnClient(mc -> HangulQuestClient.get().hud().windows().clear());
 		context.waitTicks(2);
 		// with nothing open the same key is a hint, and its panel is a window too
@@ -87,6 +98,39 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 						|| HangulQuestClient.get().hud().windows().top().kind() != HudWindows.Kind.HINT),
 				"the hint key should close the hint panel without asking for another hint");
 		context.runOnClient(mc -> HangulQuestClient.get().hud().windows().clear());
+
+		// The quest tab on a fresh profile: the tracked trails, the ones that can start, the greyed follow-ups.
+		openJournal(context, JournalHost.QUEST_TAB);
+		context.takeScreenshot(shot("02e-quests-fresh", shots));
+		closeScreen(context);
+
+		// One finished trail: it folds into "Completed (1)" and its follow-ups open up.
+		context.runOnClient(mc -> {
+			var quests = HangulQuestClient.get().quests();
+			String id = quests.focusedId();
+			HangulQuestClient.get().learn().data().quests.completed.put(id, System.currentTimeMillis());
+			quests.untrack(id);
+			HangulQuestClient.get().learn().markDirty();
+		});
+		openJournal(context, JournalHost.QUEST_TAB);
+		context.takeScreenshot(shot("02f-quests-one-done", shots));
+		closeScreen(context);
+
+		openJournal(context, SETTINGS_TAB);
+		context.takeScreenshot(shot("02g-settings", shots));
+		closeScreen(context);
+
+		// Night is a context the situational slot reacts to once it has held for a while.
+		world.getServer().runCommand("time set midnight");
+		for (int waited = 0; waited < 60 && context.computeOnClient(mc -> HangulQuestClient.get().quests().situationalId()) == null; waited++) {
+			context.waitTicks(20);
+		}
+		context.waitTicks(10);
+		check(context.computeOnClient(mc -> HangulQuestClient.get().quests().situationalId()) != null,
+				"a night trail should take the situational slot after the context held");
+		context.runOnClient(mc -> HangulQuestClient.get().hud().windows().clear());
+		context.waitTicks(5);
+		context.takeScreenshot(shot("02h-situational", shots));
 
 		// Progress made in this session ...
 		context.runOnClient(mc -> HangulQuestClient.get().learn().markKnown(WORD, true, System.currentTimeMillis()));
@@ -110,6 +154,12 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 					"the welcome screen must not count a second showing");
 			context.takeScreenshot(shot("04-rejoined", shots));
 		}
+	}
+
+	private static void openJournal(ClientGameTestContext context, int tab) {
+		context.runOnClient(mc -> mc.setScreenAndShow(new JournalScreen(tab)));
+		context.waitForScreen(JournalScreen.class);
+		context.waitTicks(5);
 	}
 
 	private static void closeScreen(ClientGameTestContext context) {

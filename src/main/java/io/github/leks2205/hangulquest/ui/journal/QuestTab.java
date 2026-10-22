@@ -61,6 +61,8 @@ public final class QuestTab extends JournalTab {
 	/** The finished trails are folded away; this unfolds them into the tree. */
 	private boolean showCompleted;
 	private NodeStates states;
+	/** The tree is fitted to the view once the view's size is known, after it was opened or its trails changed. */
+	private boolean fitPending = true;
 	private Detail detail;
 	private String header = "";
 	private int headerLanguage = -1;
@@ -100,6 +102,7 @@ public final class QuestTab extends JournalTab {
 		treeZoom = 1.0F;
 		treePanX = 0;
 		treePanY = 0;
+		fitPending = true;
 		chapterView.onOpen();
 	}
 
@@ -243,8 +246,8 @@ public final class QuestTab extends JournalTab {
 			legendPercent = percent;
 			legendLanguage = language;
 		}
-		Draw.label(g, host.font(), header, x, y, Ink.ACCENT);
-		Draw.label(g, host.font(), legend, x + 110, y, Ink.INK_FAINT);
+		// the title stops before the Tree and Chapters buttons; the key legend sits at the foot of the page
+		Draw.truncated(g, host.font(), Component.literal(header), x, y, width - 106, Ink.ACCENT, false);
 
 		// The second row: what the tree leaves out, and how to get it back.
 		int showAllWidth = Math.min(150, Math.max(90, width / 3));
@@ -254,9 +257,10 @@ public final class QuestTab extends JournalTab {
 					hq.saveConfig();
 				});
 		if (completedCount > 0 && !hq.config().showAllTrails) {
-			host.button(g, x + showAllWidth + 8, y + 12, 100, 13, I18n.t(showCompleted
-					? "hangulquest.ui.quest.completed_hide" : "hangulquest.ui.quest.completed_show", completedCount),
-					showCompleted, toggleCompleted);
+			String fold = I18n.t(showCompleted
+					? "hangulquest.ui.quest.completed_hide" : "hangulquest.ui.quest.completed_show", completedCount);
+			host.button(g, x + showAllWidth + 8, y + 12, Math.min(width - showAllWidth - 8, host.font().width(fold) + 10),
+					13, fold, showCompleted, toggleCompleted);
 		}
 
 		int treeTop = y + 28;
@@ -265,6 +269,12 @@ public final class QuestTab extends JournalTab {
 		treeViewY = treeTop;
 		treeViewW = width;
 		treeViewH = Math.max(20, treeBottom - treeTop);
+		if (fitPending) { // a new set of trails: show all of it, so the first look is the whole picture
+			fitPending = false;
+			if (!layoutShowAll) {
+				fitTree();
+			}
+		}
 
 		double originX = x + width / 2.0 - layout.baseWidth() * treeZoom / 2.0 + treePanX;
 		double originY = treeTop + 4 - treePanY;
@@ -353,6 +363,7 @@ public final class QuestTab extends JournalTab {
 		layoutVisibility = visibility;
 		layoutShowAll = showAll;
 		layoutCompleted = showCompleted;
+		fitPending = true;
 		hiddenCount = showAll ? 0 : trails.size() - shown.size() - (showCompleted ? 0 : done);
 		completedCount = done;
 		states = null;
@@ -573,6 +584,7 @@ public final class QuestTab extends JournalTab {
 			Draw.truncated(g, host.font(), d.preview(), x, detailTop + 31, width, Ink.INK);
 		}
 		Draw.truncated(g, host.font(), d.progress(), x, detailTop + 45, width - 68, Ink.INK_FAINT);
+		Draw.truncated(g, host.font(), Component.literal(legend), x, detailTop + 63, width - 160, Ink.INK_FAINT, false);
 		Questline chosen = d.trail();
 		if (!d.done()) {
 			host.checkRow(g, x + width - 156, detailTop + 51, 88, 17, I18n.t("hangulquest.ui.quest.in_log"), d.tracked(), () -> {

@@ -37,6 +37,11 @@ public final class WindowChrome {
 		return WindowPlacement.resolve(guiWidth, guiHeight, x, y, width, height, soft);
 	}
 
+	/** The width a window gets beside the quest log: what it wants, or the free space to the right of the log. */
+	public static int widthFor(int guiWidth, int wanted, java.util.List<WindowPlacement.Rect> soft) {
+		return WindowPlacement.widthBeside(guiWidth, wanted, soft);
+	}
+
 	/** "[H] 닫기 · close" at the bottom left, "+N" at the bottom right when more windows wait. */
 	public static void footer(GuiGraphicsExtractor graphics, Font font, int x, int y, int width, int height, Info info) {
 		int line = y + height - font.lineHeight - 3;

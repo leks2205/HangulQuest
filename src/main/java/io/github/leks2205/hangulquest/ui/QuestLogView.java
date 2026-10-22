@@ -17,7 +17,7 @@ final class QuestLogView {
 	private static final int MARGIN = 6;
 
 	private record Row(FormattedCharSequence title, FormattedCharSequence counter, int counterWidth,
-					   FormattedCharSequence line, boolean focused) {
+					   FormattedCharSequence line, boolean focused, FormattedCharSequence marker, int markerWidth) {
 	}
 
 	private final RefreshGate gate = new RefreshGate();
@@ -66,6 +66,7 @@ final class QuestLogView {
 		Component[] counters = new Component[limit];
 		Component[] objectives = new Component[limit];
 		Component[] statuses = new Component[limit];
+		Component[] markers = new Component[limit];
 		int[] objectiveWidths = new int[limit];
 		int[] statusWidths = new int[limit];
 		int fullWidth = 120;
@@ -82,7 +83,13 @@ final class QuestLogView {
 				statuses[i] = KoText.ko(status);
 				statusWidths[i] = font.width(statuses[i]);
 			}
-			int titleWidth = font.width(titles[i]) + 8 + font.width(counters[i]);
+			String marker = QuestLogText.situationalMarker(view);
+			if (view.situational()) {
+				markers[i] = Component.empty().append(KoText.ko(QuestLogText.SITUATIONAL_KO))
+						.append(Component.literal(marker.isEmpty() ? "" : " " + marker));
+			}
+			int markerWidth = markers[i] == null ? 0 : font.width(markers[i]) + 6;
+			int titleWidth = font.width(titles[i]) + 8 + markerWidth + font.width(counters[i]);
 			int objectiveWidth = objectiveWidths[i] + (statuses[i] == null ? 0 : separatorWidth + statusWidths[i]);
 			fullWidth = Math.max(fullWidth, Math.min(maxWidth, titleWidth));
 			fullWidth = Math.max(fullWidth, Math.min(maxWidth, objectiveWidth));
@@ -97,7 +104,9 @@ final class QuestLogView {
 				line = Component.empty().append(objectives[i]).append(separator).append(statuses[i]);
 			}
 			built[i] = new Row(titles[i].getVisualOrderText(), counters[i].getVisualOrderText(),
-					font.width(counters[i]), Draw.fit(font, line, width), views.get(i).focused());
+					font.width(counters[i]), Draw.fit(font, line, width), views.get(i).focused(),
+					markers[i] == null ? null : markers[i].getVisualOrderText(),
+					markers[i] == null ? 0 : font.width(markers[i]));
 		}
 		rows = built;
 		more = views.size() > limit
@@ -110,6 +119,10 @@ final class QuestLogView {
 		for (Row entry : rows) {
 			Draw.text(graphics, font, entry.title(), MARGIN, row, entry.focused() ? Draw.GOLD : Draw.WHITE, true);
 			Draw.text(graphics, font, entry.counter(), MARGIN + width - entry.counterWidth(), row, Draw.DIM, true);
+			if (entry.marker() != null) { // "상황 here": this row follows where the player is
+				Draw.text(graphics, font, entry.marker(), MARGIN + width - entry.counterWidth() - 6 - entry.markerWidth(),
+						row, Draw.BLUE, true);
+			}
 			Draw.text(graphics, font, entry.line(), MARGIN, row + 11,
 					entry.focused() ? Draw.WHITE : Draw.GRAY, true);
 			row += ROW_HEIGHT;
