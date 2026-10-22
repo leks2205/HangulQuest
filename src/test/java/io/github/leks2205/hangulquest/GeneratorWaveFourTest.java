@@ -254,7 +254,7 @@ class GeneratorWaveFourTest {
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, NIGHT, HIGH));
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자세요.", clue(BED, "bed", 2, NIGHT, HIGH));
 		// from level 3 with 의
-		assertEquals("밤에 높이 구십 블록 위의 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
+		assertEquals("밤에 높이 구십 블록 위의 빨간색 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
 		// the height first in the list still ends up next to the place
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH, NIGHT));
 		// the hint and the finale line say it the same way
@@ -279,7 +279,7 @@ class GeneratorWaveFourTest {
 	void i4_otherPlaceConditionsMergeLikewise() {
 		Goal apple = new Goal.TakeOut("minecraft:apple", "minecraft:chest", 1);
 		assertEquals("해변 상자에서 사과를 꺼내요.", clue(apple, null, 1, new Condition.InBiome("minecraft:beach")));
-		assertEquals("네더의 침대에서 자세요.", clue(BED, "bed", 3, new Condition.InDimension("minecraft:the_nether")));
+		assertEquals("네더의 빨간색 침대에서 자세요.", clue(BED, "bed", 3, new Condition.InDimension("minecraft:the_nether")));
 		assertEquals("북극곰 근처 침대에서 자요.", clue(BED, "bed", 1, new Condition.NearEntity("minecraft:polar_bear", 8)));
 	}
 

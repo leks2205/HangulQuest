@@ -24,8 +24,8 @@ trail.adv_nether_fast_travel.s1.clue	네더에서 흑요석 네 개로 기둥을
 trail.adv_nether_fast_travel.s1.hint	네더에서 흑요석으로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:obsidian PILLAR 4
 trail.adv_nether_fast_travel.s2.clue	네더에서 나침반을 들고 흑요석 근처에서 걸으세요.	clue, generated; HoldWhile minecraft:compass 
 trail.adv_nether_fast_travel.s2.hint	네더에서 나침반을 들고 흑요석 근처에서 걸어요.	hint, generated; HoldWhile minecraft:compass 
-trail.adv_nether_fast_travel.s3.clue	네더에서 침대에 눕지 마세요.	clue, generated; Avoid minecraft:red_bed [LieDown minecraft:red_bed ]
-trail.adv_nether_fast_travel.s3.hint	네더에서 침대에 눕지 마세요.	hint, generated; Avoid minecraft:red_bed [LieDown minecraft:red_bed ]
+trail.adv_nether_fast_travel.s3.clue	네더에서 빨간색 침대에 눕지 마세요.	clue, generated; Avoid minecraft:red_bed [LieDown minecraft:red_bed ]
+trail.adv_nether_fast_travel.s3.hint	네더에서 빨간색 침대에 눕지 마세요.	hint, generated; Avoid minecraft:red_bed [LieDown minecraft:red_bed ]
 trail.adv_nether_fast_travel.finale.clue	오버월드로 간 후에 네더로 가세요.	clue, generated; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
 trail.adv_nether_fast_travel.finale.hint	오버월드로 간 후에 네더로 가요.	hint, generated; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
 trail.adv_nether_fast_travel.finale	오버월드로 간 후에 네더로 갔어요. 네더에서 한 걸음은 오버월드의 여덟 걸음과 같아요.	finale line, authored; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]

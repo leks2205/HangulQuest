@@ -194,7 +194,7 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 	 * covers keeps its full name (영혼 랜턴, 영혼 모닥불), unless the word is drawn with that very item.
 	 */
 	public static String stand(Word word, ObjectKind kind, String id, SentenceBuilder.Namer base) {
-		String general = Tiers.qualify(id, word.ko);
+		String general = Tiers.exact(id, word.ko);
 		SentenceBuilder.Namer registryNamer = base.untaught();
 		String registry = kind == ObjectKind.ITEM ? registryNamer.item(id) : registryNamer.block(id);
 		if (registry == null || registry.equals(word.ko) || !registry.endsWith(word.ko) || !general.equals(word.ko)) {
@@ -202,7 +202,8 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		}
 		String colour = Colours.leadingColour(registry);
 		if (colour != null && !word.ko.startsWith(colour)) {
-			return colour + " " + general;
+			// levels 1 and 2 leave the colour out (and the goal then takes any colour of the family)
+			return Colours.kept() ? colour + " " + general : general;
 		}
 		// a soul torch or campfire is of the same family as the plain one but not the same thing (blue fire): it keeps its
 		// name, while a spruce door is any door

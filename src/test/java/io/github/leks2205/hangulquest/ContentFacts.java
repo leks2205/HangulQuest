@@ -152,7 +152,8 @@ final class ContentFacts {
 				|| goal instanceof Goal.BreakBlock || goal instanceof Goal.AcquireItem);
 		String relation = relation(goal);
 		// the Korean form decides which action is right: a relation word, a recipient, a connective, a "don't"
-		boolean formDependent = !DecidingForms.of(step, level).isEmpty();
+		boolean formDependent = !DecidingForms.of(step, level).isEmpty()
+				|| !DecidingForms.ofColour(step, grammar).isEmpty();
 		return new Step(step.id(), type.id(), signature, shape, SentenceBuilder.verbFor(goal).name(),
 				type.object(goal), relation == null ? "" : relation, List.copyOf(conditions),
 				List.copyOf(mechanics), bare, formDependent, List.copyOf(grammar), List.copyOf(step.teach()),

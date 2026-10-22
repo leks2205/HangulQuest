@@ -100,10 +100,10 @@ trail.eiskrone.finale	밤에 금 블록을 바라봤어요. 금은 반짝여요.
 trail.himmelswarte.title	하늘 관측소	title, authored; 
 trail.himmelswarte.s1.clue	밖에서 높이 110블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|SKY:OPEN
 trail.himmelswarte.s1.hint	밖에서 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|SKY:OPEN
-trail.himmelswarte.s2.clue	양털로 벽을 쌓으세요.	clue, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
-trail.himmelswarte.s2.hint	양털로 벽을 쌓아요.	hint, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
-trail.himmelswarte.s3.clue	양털 벽 위에 바다 랜턴을 놓으세요.	clue, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
-trail.himmelswarte.s3.hint	양털 벽 위에 바다 랜턴을 놓아요.	hint, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
+trail.himmelswarte.s2.clue	하얀색 양털로 벽을 쌓으세요.	clue, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
+trail.himmelswarte.s2.hint	하얀색 양털로 벽을 쌓아요.	hint, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
+trail.himmelswarte.s3.clue	하얀색 양털 벽 위에 바다 랜턴을 놓으세요.	clue, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
+trail.himmelswarte.s3.hint	하얀색 양털 벽 위에 바다 랜턴을 놓아요.	hint, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
 trail.himmelswarte.finale.clue	바다 랜턴 근처에서 밤까지 기다리세요.	clue, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
 trail.himmelswarte.finale.hint	바다 랜턴 근처에서 밤까지 기다려요.	hint, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
 trail.himmelswarte.finale	바다 랜턴 근처에서 밤까지 기다렸어요. 밤하늘에 달이 떠요.	finale, authored; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
@@ -142,8 +142,8 @@ trail.weltreise.finale	참나무 보트를 들고 늪으로 갔어요.	finale, a
 trail.wolkenstadt.title	구름 도시	title, authored; 
 trail.wolkenstadt.s1.clue	높이 100블록 위에서 양털로 피라미드를 쌓으세요.	clue, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320
 trail.wolkenstadt.s1.hint	높이 100블록 위에서 양털로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320
-trail.wolkenstadt.s2.clue	양털 피라미드 위에 엔드 막대기를 세우세요.	clue, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
-trail.wolkenstadt.s2.hint	양털 피라미드 위에 엔드 막대기를 세워요.	hint, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
+trail.wolkenstadt.s2.clue	하얀색 양털 피라미드 위에 엔드 막대기를 세우세요.	clue, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
+trail.wolkenstadt.s2.hint	하얀색 양털 피라미드 위에 엔드 막대기를 세워요.	hint, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
 trail.wolkenstadt.s3.clue	높이 100블록 위에서 양털을 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:white_wool:BREAK
 trail.wolkenstadt.s3.hint	높이 100블록 위에서 양털을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:white_wool:BREAK
 trail.wolkenstadt.finale.clue	양털을 들고 높이 150블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:white_wool

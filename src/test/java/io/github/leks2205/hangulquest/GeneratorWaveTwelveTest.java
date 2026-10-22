@@ -447,17 +447,17 @@ class GeneratorWaveTwelveTest {
 		assertEquals("파란색 침대를 놓아야 해요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:blue_bed", 1), word("bed"),
 				List.of(), 4, false, REGISTRY));
 		assertEquals("파란색 침대를 놓으세요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:blue_bed", 1), word("bed"),
-				List.of(), 2, false, REGISTRY));
+				List.of(), 3, false, REGISTRY));
 		assertEquals("노란색 침대를 놓으세요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:yellow_bed", 1), word("bed"),
-				List.of(), 2, false, REGISTRY));
+				List.of(), 3, false, REGISTRY));
 	}
 
 	@Test
-	void i23_aTaughtWordKeepsTheColourOfEveryColouredVariant() {
+	void i23_aTaughtWordKeepsTheColourOfEveryColouredVariantFromLevelThree() {
 		assertEquals("빨간색 침대를 놓으세요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:red_bed", 1), word("bed"),
-				List.of(), 2, false, REGISTRY));
+				List.of(), 3, false, REGISTRY));
 		assertTrue(SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:red_candle", 1), word("candle"),
-				List.of(), 2, false, REGISTRY).startsWith("빨간색 초"));
+				List.of(), 3, false, REGISTRY).startsWith("빨간색 초"));
 		assertEquals("빨간 침대를 놓아야 해요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:red_bed", 1), word("bed"),
 				List.of(), 5, false, REGISTRY));
 	}
@@ -484,10 +484,16 @@ class GeneratorWaveTwelveTest {
 	}
 
 	@Test
-	void i17_aHintSpeaksTheColourAsANounLikeTheClueOfLevelOne() {
+	void i17_aHintSpeaksTheColourAsANounWhenTheClueSaysItAtAll() {
 		assertEquals("검은색 양털을 놓아요.", SentenceBuilder.hint(new Goal.PlaceBlock("minecraft:black_wool", 1), null, List.of(), REGISTRY));
-		assertEquals("파란색 침대를 놓아요.", SentenceBuilder.hint(new Goal.PlaceBlock("minecraft:blue_bed", 1), word("bed"), List.of(), REGISTRY));
-		assertEquals("하얀색 양털을 놓아요.", SentenceBuilder.hint(new Goal.PlaceBlock("minecraft:white_wool", 1), word("wool"), List.of(), REGISTRY));
+		Word bed = word("bed");
+		Word wool = word("wool");
+		Goal blue = new Goal.PlaceBlock("minecraft:blue_bed", 1);
+		Goal white = new Goal.PlaceBlock("minecraft:white_wool", 1);
+		assertEquals("파란색 침대를 놓아요.", SentenceBuilder.hint(blue, bed, null, List.of(), REGISTRY, 3));
+		assertEquals("파란색 침대를 놓아요.", SentenceBuilder.hint(blue, bed, null, List.of(), REGISTRY, 5), "a hint stays a noun");
+		assertEquals("하얀색 양털을 놓아요.", SentenceBuilder.hint(white, wool, null, List.of(), REGISTRY, 4));
+		assertEquals("침대를 놓아요.", SentenceBuilder.hint(blue, bed, null, List.of(), REGISTRY, 2), "level 2 leaves the colour out");
 	}
 
 	// ------------------------------------------------------------ 18. a chest can be opened

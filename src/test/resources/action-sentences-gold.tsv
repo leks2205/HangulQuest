@@ -52,7 +52,7 @@ putin.diamond.l3	3	-	{"type":"PUT_IN","item":"minecraft:diamond","container":"mi
 putin.word.chest	1	chest	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc_an_e
 putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어야 해요.	L4.eoya_haeyo,L1.eul_reul,L1.loc_an_e
 seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빨간색 침대에서 자기 전에 빵을 드세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
-seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 빨간색 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
+seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.then	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베고 나서 참나무 판자를 만들어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
 seq.before.door	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	참나무 문을 열기 전에 횃불을 놓아요.	L1.eoyo,L3.gi_jeone,L1.eul_reul
 seq.after.stone	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 세 개 캔 후에 화로를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul
@@ -68,7 +68,7 @@ avoid.bread	3	-	{"type":"AVOID","action":{"type":"CONSUME_ITEM","item":"minecraf
 avoid.torch.night	3	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 횃불을 놓지 마세요.	L3.jima,L1.eul_reul
 avoid.zombie	3	-	{"type":"AVOID","action":{"type":"DEFEAT_ENTITY","entity":"minecraft:zombie"}}	-	좀비를 물리치지 마세요.	L3.jima,L1.eul_reul
 avoid.stone.water	4	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:stone"},"during":{"type":"IN_WATER"}}	-	물속에서 돌을 캐지 마세요.	L3.jima,L1.eul_reul,L2.eseo_activity
-avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 빨간색 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
+avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 avoid.craft	3	-	{"type":"AVOID","action":{"type":"CRAFT","item":"minecraft:torch"}}	-	횃불을 만들지 마세요.	L3.jima,L1.eul_reul
 avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"DAY"}}	-	낮에 빨간색 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 cond.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
@@ -105,7 +105,7 @@ takeout.apple	1	-	{"type":"TAKE_OUT","item":"minecraft:apple","container":"minec
 takeout.bread.three	1	-	{"type":"TAKE_OUT","item":"minecraft:bread","container":"minecraft:chest","count":3}	-	상자에서 빵을 세 개 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellMs":3000}	-	주크박스 근처에서 노래를 들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.note	1	-	{"type":"HEAR","source":"minecraft:note_block","radius":10,"dwellMs":3000}	-	소리 블록의 소리를 들어요.	L1.eoyo,L1.eul_reul
-lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	빨간색 침대에 누워요.	L1.eoyo,L1.e_place
+lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	침대에 누워요.	L1.eoyo,L1.e_place
 wait.short	1	-	{"type":"WAIT","seconds":5}	-	잠깐 기다려요.	L1.eoyo
 wait.ten.l2	2	-	{"type":"WAIT","seconds":10}	-	십 초 동안 기다리세요.	L2.seyo,L2.num_sino
 wait.night	1	-	{"type":"WAIT","seconds":5,"until":"NIGHT"}	-	밤까지 기다려요.	L1.eoyo
@@ -219,3 +219,15 @@ w11.colour.black.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:black_wool"}	-	
 w11.colour.purple.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:purple_wool"}	-	보라색 양털을 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo
 w11.colour.l4.noun	4	-	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo
 w11.colour.taught.l5	5	red	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo
+w12b.colour.l2.dropped	2	bed	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	침대를 놓으세요.	L2.seyo,L1.eul_reul
+w12b.colour.l3.noun	3	bed	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓으세요.	L2.seyo,L1.eul_reul
+w12b.colour.l4.noun	4	bed	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓아야 해요.	L4.eoya_haeyo,L1.eul_reul
+w12b.colour.l5.adjective	5	bed	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간 침대를 놓아야 해요.	L4.eoya_haeyo,L1.eul_reul,L5.adn_adj_eun
+w12b.colour.wool.l1.dropped	1	wool	{"type":"PLACE_BLOCK","block":"minecraft:white_wool"}	-	양털을 놓아요.	L1.eoyo,L1.eul_reul
+w12b.colour.wool.l3.noun	3	wool	{"type":"PLACE_BLOCK","block":"minecraft:white_wool"}	-	하얀색 양털을 놓으세요.	L2.seyo,L1.eul_reul
+w12b.colour.candle.l2.dropped	2	candle	{"type":"PLACE_BLOCK","block":"minecraft:gray_candle"}	-	초를 세우세요.	L2.seyo,L1.eul_reul
+w12b.colour.candle.l4.noun	4	candle	{"type":"PLACE_BLOCK","block":"minecraft:gray_candle"}	-	회색 초를 세워야 해요.	L4.eoya_haeyo,L1.eul_reul
+w12b.colour.carpet.l1.dropped	1	carpet	{"type":"PLACE_BLOCK","block":"minecraft:yellow_carpet"}	-	양탄자를 깔아요.	L1.eoyo,L1.eul_reul
+w12b.colour.anchor.l5	5	-	{"type":"PLACE_REL","block":"minecraft:soul_torch","relation":"NEXT_TO","anchor":"minecraft:blue_bed","count":1}	-	파란 침대 옆에 영혼 횃불을 놓아야 해요.	L1.loc_yeop_e,L1.obj_eul,L4.eoya_haeyo,L5.adn_adj_eun
+w12b.colour.dye.craft.l6	6	-	{"type":"CRAFT","item":"minecraft:purple_dye","count":1,"with":["minecraft:blue_dye","minecraft:red_dye"]}	-	파란 염료와 빨간 염료로 보라색 염료를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.wa_gwa,L2.euro_material,L5.adn_adj_eun
+w12b.colour.dye.craft.l2	2	dye	{"type":"CRAFT","item":"minecraft:purple_dye","count":1,"with":["minecraft:blue_dye","minecraft:red_dye"]}	-	파란색 염료와 빨간색 염료로 보라색 염료를 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.euro_material

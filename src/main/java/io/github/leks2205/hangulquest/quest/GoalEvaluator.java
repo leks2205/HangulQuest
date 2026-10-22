@@ -161,7 +161,7 @@ public final class GoalEvaluator {
 		return false;
 	}
 
-	private static boolean conditionsMetIgnoringTime(List<Condition> conditions, Observation obs) {
+	private static boolean conditionsMetIgnoringTime(List<Condition> conditions, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
 		if (conditions == null) {
 			return true;
 		}
@@ -169,7 +169,7 @@ public final class GoalEvaluator {
 			if (ConditionTypes.of(condition).timeOfDay()) {
 				continue;
 			}
-			if (!conditionMet(condition, obs)) {
+			if (!conditionMet(condition, obs, accepted)) {
 				return false;
 			}
 		}
@@ -177,11 +177,15 @@ public final class GoalEvaluator {
 	}
 
 	public static boolean conditionsMet(List<Condition> conditions, Observation obs) {
+		return conditionsMet(conditions, obs, io.github.leks2205.hangulquest.quest.goal.Accepted.NONE);
+	}
+
+	public static boolean conditionsMet(List<Condition> conditions, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
 		if (conditions == null || conditions.isEmpty()) {
 			return true;
 		}
 		for (Condition condition : conditions) {
-			if (!conditionMet(condition, obs)) {
+			if (!conditionMet(condition, obs, accepted)) {
 				return false;
 			}
 		}
@@ -190,6 +194,10 @@ public final class GoalEvaluator {
 
 	public static boolean conditionMet(Condition condition, Observation obs) {
 		return ConditionTypes.of(condition).met(condition, obs);
+	}
+
+	public static boolean conditionMet(Condition condition, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
+		return ConditionTypes.of(condition).met(condition, obs, accepted);
 	}
 
 	/**
@@ -250,14 +258,14 @@ public final class GoalEvaluator {
 		List<Condition> conditions = playerConditions(goal, allConditions);
 		boolean nightLatch = type.nightLatchable()
 				&& hasNightCondition(conditions)
-				&& !conditionsMet(conditions, obs)
-				&& conditionsMetIgnoringTime(conditions, obs);
+				&& !conditionsMet(conditions, obs, tracker.accepted)
+				&& conditionsMetIgnoringTime(conditions, obs, tracker.accepted);
 		// Being in bed is proof of the night, even after the server skipped to morning. It excuses the
 		// time-of-day condition only: biome, dimension and the rest must still hold.
 		boolean sleepingProof = type.excusesTimeCondition(goal, obs)
 				&& hasNightCondition(conditions)
-				&& conditionsMetIgnoringTime(conditions, obs);
-		if (!conditionsMet(conditions, obs) && !nightLatch && !sleepingProof) {
+				&& conditionsMetIgnoringTime(conditions, obs, tracker.accepted);
+		if (!conditionsMet(conditions, obs, tracker.accepted) && !nightLatch && !sleepingProof) {
 			if (clauseBroken(goal, conditions, obs, tracker)) {
 				tracker.conditionSlips++;
 			}
@@ -281,7 +289,7 @@ public final class GoalEvaluator {
 			return false;
 		}
 		for (Condition condition : conditions) {
-			if (!conditionMet(condition, obs) && !io.github.leks2205.hangulquest.quest.condition.ConditionForms.hasClause(condition)) {
+			if (!conditionMet(condition, obs, tracker.accepted) && !io.github.leks2205.hangulquest.quest.condition.ConditionForms.hasClause(condition)) {
 				return false;
 			}
 		}

@@ -84,7 +84,7 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 	@Override
 	public boolean evaluate(Goal.HoldWhile goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		boolean holding = Hands.holds(obs, goal.item());
+		boolean holding = Hands.holds(tracker, obs, goal.item());
 		if (goal.innerGoal() != null) {
 			GoalEvaluator.Tracker sub = Clauses.sub(tracker, 0, 1);
 			if (!holding) {

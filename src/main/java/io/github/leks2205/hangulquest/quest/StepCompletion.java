@@ -76,7 +76,10 @@ final class StepCompletion {
 		rememberPlaced(track, step);
 		if (!assisted) {
 			Graded graded = Grader.quest(false, hinted);
-			for (String id : DecidingForms.of(step, text.effectiveLevel(track.trail.koreanLevel()))) {
+			List<String> deciding = new java.util.ArrayList<>(
+					DecidingForms.of(step, text.effectiveLevel(track.trail.koreanLevel())));
+			deciding.addAll(DecidingForms.ofColour(step, grammar));
+			for (String id : deciding) {
 				learn.grammarOutcome(id, graded, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
 			}
 		}
