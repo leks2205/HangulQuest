@@ -6,9 +6,11 @@
  "tier": 3,
  "order": 88,
  "concepts": [
-  "gen_red_mushroom_block",
-  "gen_purple_stained_glass_pane",
-  "gen_stripped_birch_wood"
+  "gen_snowy_slopes",
+  "planks",
+  "furnace",
+  "carpet",
+  "meat"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,53 +24,111 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_mushroom_block"
+    "gen_snowy_slopes"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:red_mushroom_block",
-    "count": 3
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_slopes",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_stained_glass_pane"
+    "planks"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:purple_stained_glass_pane",
-    "dwellMs": 600
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:birch_planks",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_slopes"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "furnace",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:furnace",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:birch_planks"
    }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "carpet",
+    "furnace"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:gray_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:furnace",
+    "count": 1
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "meat"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "output": "minecraft:cooked_mutton",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:furnace"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_birch_wood"
+    "meat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_birch_wood",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_mutton",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:furnace"
     }
    ]
   },
-  "textKo": "밤에 껍질 벗긴 자작나무를 놓았어요."
+  "textKo": "고기를 먹었어요. 밖은 추워요. 안은 따뜻해요."
  },
  "reward": {
   "badge": "schneesturm",
   "words": [
-   "ice",
-   "snow",
-   "campfire"
+   "gen_snowy_slopes",
+   "furnace",
+   "meat"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.euro_material",
+  "L2.eun_neun_contrast"
+ ]
 }

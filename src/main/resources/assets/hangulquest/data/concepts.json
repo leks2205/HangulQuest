@@ -6958,6 +6958,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:meadow",
+  "descKo": "풀과 꽃이 많은 산이에요.",
   "aliases": []
  },
  {
@@ -8784,6 +8785,7 @@
   "items": [
    "minecraft:spruce_door"
   ],
+  "descKo": "가문비나무로 만든 문이에요.",
   "aliases": []
  },
  {
@@ -9122,6 +9124,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:polar_bear",
+  "descKo": "눈 위에 살아요. 하얗고 커요.",
   "aliases": []
  },
  {
@@ -9772,6 +9775,7 @@
   "items": [
    "minecraft:lily_of_the_valley"
   ],
+  "descKo": "하얗고 작은 꽃이에요.",
   "aliases": []
  },
  {
@@ -10163,6 +10167,7 @@
   "items": [
    "minecraft:white_stained_glass"
   ],
+  "descKo": "하얀색 유리예요. 빛이 들어와요.",
   "aliases": []
  },
  {
@@ -11050,6 +11055,7 @@
   "items": [
    "minecraft:granite"
   ],
+  "descKo": "붉은색이 섞인 돌이에요. 단단해요.",
   "aliases": []
  },
  {
@@ -12216,6 +12222,7 @@
   "items": [
    "minecraft:orange_bed"
   ],
+  "descKo": "주황색 침대예요. 밤에 자요.",
   "aliases": []
  },
  {
@@ -12935,6 +12942,17 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:snowy_slopes",
+  "descKo": "눈이 많은 산이에요. 춥고 하얘요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_frozen_peaks",
+  "ko": "얼어붙은 봉우리",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "biome": "minecraft:frozen_peaks",
+  "descKo": "아주 높은 산이에요. 눈과 얼음이 많아요.",
   "aliases": []
  },
  {
@@ -13185,6 +13203,29 @@
   "items": [
    "minecraft:blue_ice"
   ],
+  "descKo": "아주 단단한 얼음이에요. 파란색이에요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_powder_snow",
+  "ko": "가루눈",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:powder_snow"
+  ],
+  "descKo": "아주 부드러운 눈이에요. 발이 빠져요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_powder_snow_bucket",
+  "ko": "가루눈 양동이",
+  "category": "ITEMS",
+  "tier": 1,
+  "items": [
+   "minecraft:powder_snow_bucket"
+  ],
+  "descKo": "양동이 안에 가루눈이 있어요.",
   "aliases": []
  },
  {
@@ -13243,6 +13284,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:grove",
+  "descKo": "눈이 오는 숲이에요. 산에 있어요.",
   "aliases": []
  },
  {
@@ -13620,6 +13662,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:birch_forest",
+  "descKo": "하얀 나무가 많은 숲이에요.",
   "aliases": []
  },
  {

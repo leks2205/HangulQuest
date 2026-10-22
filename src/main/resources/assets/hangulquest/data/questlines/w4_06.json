@@ -6,10 +6,11 @@
  "tier": 2,
  "order": 1046,
  "concepts": [
-  "gen_jungle_button",
-  "gen_mossy_stone_brick_stairs",
-  "gen_blue_dye",
-  "gen_exposed_cut_copper_slab"
+  "gen_meadow",
+  "water",
+  "swim",
+  "lake",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,33 +23,60 @@
   {
    "id": "s1",
    "teach": [
-    "gen_jungle_button"
+    "gen_meadow"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:jungle_button",
-    "count": 4
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:meadow",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mossy_stone_brick_stairs"
+    "water"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_stone_brick_stairs",
-    "count": 4
+    "type": "PLACE_REL",
+    "block": "minecraft:fern",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_blue_dye"
+    "swim",
+    "lake"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_dye",
+    "type": "SWIM",
+    "blocks": 20
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:cyan_banner",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
     "count": 1
    }
   }
@@ -57,31 +85,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_cut_copper_slab"
+    "wait"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_cut_copper_slab",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10
    },
    "conditions": [
     {
-     "type": "Y_RANGE",
-     "minY": 90,
-     "maxY": 320
+     "type": "TIME",
+     "phase": "DUSK"
+    },
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:water"
     }
    ]
   },
-  "textKo": "높이 90블록 위에서 약간 녹슨 깎인 구리 반 블록을 놓았어요."
+  "textKo": "저녁에 물 근처에서 10초 동안 기다렸어요."
  },
  "reward": {
   "badge": "w4_06",
   "words": [
-   "ice",
-   "clay",
-   "bucket",
-   "campfire"
+   "lake",
+   "water",
+   "gen_meadow"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.eseo_activity"
+ ]
 }

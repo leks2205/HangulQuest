@@ -1,0 +1,1816 @@
+{
+ "batch": "BATCH-012",
+ "brief": "content/briefs/BATCH-012.md",
+ "chapter": "mountains, ice and night (level 2)",
+ "note": "Built on phase0 at the BATCH-012 brief, then merged with phase0 after BATCH-010 and its review fixes landed. `metrics` compares the baseline I started from (56e9e87), the baseline after BATCH-010 and the rebaselined values. The per-trail grammar lists are in the trail files.",
+ "summary": {
+  "trails": 15,
+  "steps": 77,
+  "bareSteps": 2,
+  "formDependentSteps": 30,
+  "formDependentShareOwn": 0.3896,
+  "topGoalType": "PLACE_REL",
+  "topGoalTypeShare": 0.182,
+  "goalTypes": {
+   "PLACE_REL": 14,
+   "PLACE_ON_PATTERN": 12,
+   "BUILD_PATTERN": 8,
+   "REACH_BIOME": 7,
+   "CRAFT": 7,
+   "REACH_HEIGHT": 4,
+   "LOOK_AT_ENTITY": 4,
+   "HOLD_WHILE": 4,
+   "GIVE": 3,
+   "USE_BLOCK": 3,
+   "LOOK_AT_BLOCK": 2,
+   "WAIT": 2,
+   "ACQUIRE_ITEM": 2,
+   "SEQUENCE": 1,
+   "SMELT": 1,
+   "CONSUME_ITEM": 1,
+   "SWIM": 1,
+   "LIE_DOWN": 1
+  }
+ },
+ "metrics": {
+  "coverage.recycling.seenShare": {
+   "before": 0.706161,
+   "phase0AfterBatch010": 0.71564,
+   "after": 0.725118
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.151659,
+   "phase0AfterBatch010": 0.161137,
+   "after": 0.165877
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.929293,
+   "phase0AfterBatch010": 0.929427,
+   "after": 0.931635
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.961371,
+   "phase0AfterBatch010": 0.962363,
+   "after": 0.96432
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.919192,
+   "phase0AfterBatch010": 0.89414,
+   "after": 0.88005
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.054293,
+   "phase0AfterBatch010": 0.05293,
+   "after": 0.052206
+  },
+  "variety.bareShare.2": {
+   "before": 0.387029,
+   "phase0AfterBatch010": 0.301455,
+   "after": 0.242545
+  },
+  "variety.boredomIndex": {
+   "before": 0.062539,
+   "phase0AfterBatch010": 0.058638,
+   "after": 0.05597
+  },
+  "variety.distinctTypes.2": {
+   "before": 26.0,
+   "phase0AfterBatch010": 28.0,
+   "after": 28.0
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.146444,
+   "phase0AfterBatch010": 0.214137,
+   "after": 0.264414
+  },
+  "variety.noveltyShare": {
+   "before": 0.557143,
+   "phase0AfterBatch010": 0.57619,
+   "after": 0.597619
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 116.0,
+   "phase0AfterBatch010": 109.0,
+   "after": 105.0
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.240586,
+   "phase0AfterBatch010": 0.205821,
+   "after": 0.184891
+  }
+ },
+ "trails": [
+  {
+   "id": "wanderpfad",
+   "title": "산길의 길",
+   "titleEn": "The Wanderer's Trail",
+   "topic": "산",
+   "order": 62,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad",
+    "gipfelpfad"
+   ],
+   "project": "Go to a mountain on a clear day, climb and plant a spruce sapling, put a sign beside it, build a granite pillar and put a candle on top at night.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.go_sequence",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "밤에 화강암 기둥 위에 초를 세웠어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "GO",
+     "teach": [
+      "mountain"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "맑을 때 산으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 산으로 가요.",
+     "clueEn": "Go to the mountain in clear weather."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "climb",
+      "sapling"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "산 위로 올라가고 가문비나무 묘목을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "산 위로 올라가고 묘목을 심어요.",
+     "clueEn": "Do the two things in the order the Korean says."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "sapling"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "묘목 옆에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "묘목 옆에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "gen_granite"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "산에서 화강암 세 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 화강암으로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar of granite on the mountain."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "STAND",
+     "teach": [
+      "candle"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 화강암 기둥 위에 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 화강암 기둥 위에 초를 세워요.",
+     "clueEn": "At night, put a red candle — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "schneesturm",
+   "title": "눈보라의 길",
+   "titleEn": "The Snowstorm",
+   "topic": "산",
+   "order": 88,
+   "koreanLevel": 2,
+   "requires": [
+    "eiswand",
+    "gletscherpfad"
+   ],
+   "project": "On a snowy slope: a ring wall of birch planks, a furnace inside it with a rug in front, cook meat there and eat it by the fire.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.euro_material",
+    "L2.eun_neun_contrast"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "고기를 먹었어요. 밖은 추워요. 안은 따뜻해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [],
+     "verb": "GO",
+     "teach": [
+      "gen_snowy_slopes"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "눈 덮인 비탈로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "눈 덮인 비탈로 가요.",
+     "clueEn": "Go to the snowy slope."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:snowy_slopes"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "눈 덮인 비탈에서 판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "눈 덮인 비탈에서 판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of birch planks on the snowy slope."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "furnace",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 안에 화로를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 안에 화로를 놓아요.",
+     "clueEn": "Put a furnace — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "furnace"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "화로 앞에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 앞에 양탄자를 깔아요.",
+     "clueEn": "Spread a carpet — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:furnace"
+     ],
+     "verb": "BAKE",
+     "teach": [
+      "meat"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "화로 근처에서 고기를 구우세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 근처에서 고기를 구워요.",
+     "clueEn": "Cook mutton in the furnace."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:furnace"
+     ],
+     "verb": "EAT",
+     "teach": [
+      "meat"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "화로 근처에서 고기를 드세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 근처에서 고기를 먹어요.",
+     "clueEn": "Eat the cooked mutton near the furnace."
+    }
+   ]
+  },
+  {
+   "id": "eiswand",
+   "title": "얼음벽의 길",
+   "titleEn": "The Ice Wall",
+   "topic": "산",
+   "order": 506,
+   "koreanLevel": 2,
+   "requires": [
+    "firstpfad",
+    "schneeballpfad",
+    "schneemannpfad",
+    "ziegenpfad"
+   ],
+   "project": "Craft ladders, put one next to the ice, climb high with a ladder in hand, look at the blue ice, hang a banner beside the ladder.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "사다리 옆에 청록색 현수막을 걸었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "ladder"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "사다리를 세 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "사다리를 만들어요.",
+     "clueEn": "Craft three ladders."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "ladder",
+      "ice"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "얼음 옆에 사다리를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "얼음 옆에 사다리를 놓아요.",
+     "clueEn": "Put a ladder — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:ladder"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "climb",
+      "ladder"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "사다리를 들고 높이 100블록 위로 올라가세요.",
+     "clueSource": "generated",
+     "hintKo": "사다리를 들고 산 위로 올라가요.",
+     "clueEn": "Climb high while you hold a ladder."
+    },
+    {
+     "id": "s4",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "gen_blue_ice"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "푸른얼음을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "푸른얼음을 1초 동안 바라봐요.",
+     "clueEn": "Look at the blue ice for a second."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "ladder"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "사다리 옆에 청록색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "사다리 옆에 청록색 현수막을 걸어요.",
+     "clueEn": "Hang a cyan banner — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "gletscherpfad",
+   "title": "빙하의 길",
+   "titleEn": "The Glacier Trail",
+   "topic": "산",
+   "order": 516,
+   "koreanLevel": 2,
+   "requires": [
+    "eiswand",
+    "firstpfad"
+   ],
+   "project": "Frozen peaks by day, two fences, a fence on a snow block with a sign beside it, and a polar bear to end with.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "북극곰을 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_frozen_peaks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "낮에 얼어붙은 봉우리로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 얼어붙은 봉우리로 가요.",
+     "clueEn": "Go to the frozen peaks in the daytime."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "울타리를 두 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리를 만들어요.",
+     "clueEn": "Craft two fences."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "fence",
+      "snow_block"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "눈 블록 위에 울타리를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "눈 블록 위에 울타리를 세워요.",
+     "clueEn": "Put up a fence — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 옆에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 옆에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "gen_polar_bear"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "북극곰을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "북극곰을 1초 동안 바라봐요.",
+     "clueEn": "Look at the polar bear for a second."
+    }
+   ]
+  },
+  {
+   "id": "gipfelwaechter",
+   "title": "봉우리의 수호자",
+   "titleEn": "The Summit Keeper",
+   "topic": "산",
+   "order": 450,
+   "koreanLevel": 2,
+   "requires": [
+    "firstpfad",
+    "glueckspfad",
+    "gipfelblick"
+   ],
+   "project": "A watchtower: climb at night, build a pillar of planks on the mountain, hang a banner beside it, put a copper torch on top, keep watch for ten seconds.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.eseo_activity",
+    "L2.num_sino"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 구리 횃불 근처에서 10초 동안 기다렸어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "climb",
+      "mountain"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 높이 110블록 위로 올라가세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 산 위로 올라가요.",
+     "clueEn": "Climb high at night."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "산에서 판자 네 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 판자로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar of planks on the mountain."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 기둥 옆에 회색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 기둥 옆에 회색 현수막을 걸어요.",
+     "clueEn": "Hang a gray banner — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gen_copper_torch",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 판자 기둥 위에 구리 횃불을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 판자 기둥 위에 구리 횃불을 놓아요.",
+     "clueEn": "At night, put a copper torch — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:copper_torch",
+      "TIME:NIGHT"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 구리 횃불 근처에서 10초 동안 기다리세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 구리 횃불 근처에서 잠깐 기다려요.",
+     "clueEn": "At night, wait ten seconds near the copper torch."
+    }
+   ]
+  },
+  {
+   "id": "alpental",
+   "title": "알펜 계곡",
+   "titleEn": "The Alpine Valley",
+   "topic": "동물",
+   "order": 509,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad"
+   ],
+   "project": "A goat on the mountain, a fenced pen in the meadow with a cauldron as trough, melon seeds for a chicken, a cow by the cauldron.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.ege"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "가마솥 근처에서 소를 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain",
+      "TIME:DAY"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "goat"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "산에서 낮에 염소를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 낮에 염소를 1초 동안 바라봐요.",
+     "clueEn": "Look at a goat on the mountain in the daytime."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:meadow"
+     ],
+     "verb": "FENCE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "목초지에서 울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "목초지에서 울타리를 쳐요.",
+     "clueEn": "Build a fence ring in the meadow."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "cauldron",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 안에 가마솥을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 안에 가마솥을 놓아요.",
+     "clueEn": "Put a cauldron — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "chicken"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "닭에게 수박씨를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "닭에게 수박씨를 줘요.",
+     "clueEn": "Give melon seeds to a chicken."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:cauldron"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "cow"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가마솥 근처에서 소를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "가마솥 근처에서 소를 1초 동안 바라봐요.",
+     "clueEn": "Look at a cow near the cauldron."
+    }
+   ]
+  },
+  {
+   "id": "w4_06",
+   "title": "산속 호수",
+   "titleEn": "The Mountain Lake",
+   "topic": "호수",
+   "order": 1046,
+   "koreanLevel": 2,
+   "requires": [
+    "alpental"
+   ],
+   "project": "A meadow lake at the foot of the mountains: a fern and a banner beside the water, an evening swim, ten quiet seconds.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "저녁에 물 근처에서 10초 동안 기다렸어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_meadow"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "낮에 목초지로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 목초지로 가요.",
+     "clueEn": "Go to the meadow in the daytime."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "water"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "물 옆에 고사리를 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "물 옆에 고사리를 심어요.",
+     "clueEn": "Plant a fern — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "SWIM",
+     "relation": null,
+     "conditions": [
+      "TIME:DUSK"
+     ],
+     "verb": "SWIM",
+     "teach": [
+      "swim",
+      "lake"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "저녁에 물에서 20블록 수영하세요.",
+     "clueSource": "generated",
+     "hintKo": "저녁에 물에서 수영해요.",
+     "clueEn": "At dusk, swim twenty blocks in the water."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "water"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "물 옆에 청록색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "물 옆에 청록색 현수막을 걸어요.",
+     "clueEn": "Hang a cyan banner — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:water",
+      "TIME:DUSK"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "저녁에 물 근처에서 10초 동안 기다리세요.",
+     "clueSource": "generated",
+     "hintKo": "저녁에 물 근처에서 잠깐 기다려요.",
+     "clueEn": "At dusk, wait ten seconds near the water."
+    }
+   ]
+  },
+  {
+   "id": "mondpfad",
+   "title": "달빛의 길",
+   "titleEn": "The Moon Trail",
+   "topic": "밤",
+   "order": 505,
+   "koreanLevel": 2,
+   "requires": [
+    "nachtwache"
+   ],
+   "project": "A night walk to a birch forest, a gravel path with a candle beside and a candle on it, a fox, and the last candle lit.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 하얀색 초를 켰어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_birch_forest"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 자작나무 숲으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 자작나무 숲으로 가요.",
+     "clueEn": "Go to the birch forest at night."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gravel"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 자갈 세 개를 나란히 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 자갈을 나란히 놓아요.",
+     "clueEn": "At night, lay three pieces of gravel in a row."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "STAND",
+     "teach": [
+      "candle",
+      "gravel"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 자갈 세 개 옆에 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 자갈 세 개 옆에 초를 세워요.",
+     "clueEn": "At night, put a white candle — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "STAND",
+     "teach": [
+      "candle",
+      "gravel"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 자갈 세 개 위에 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 자갈 세 개 위에 초를 세워요.",
+     "clueEn": "At night, put a gray candle — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "fox"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 여우를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 여우를 1초 동안 바라봐요.",
+     "clueEn": "At night, look at a fox for a second."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "SWITCH_ON",
+     "teach": [
+      "gen_white_candle"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 하얀색 초를 켜세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 하얀색 초를 켜요.",
+     "clueEn": "At night, light the white candle."
+    }
+   ]
+  },
+  {
+   "id": "sternwarte",
+   "title": "달빛 정원",
+   "titleEn": "The Moon Garden",
+   "topic": "달빛",
+   "order": 515,
+   "koreanLevel": 2,
+   "requires": [
+    "mondpfad",
+    "nachtwache"
+   ],
+   "project": "An observatory: a brick pillar with a glass roof, lilies of the valley by the bricks, a spyglass crafted at night, a night walk with it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "벽돌 근처에서 망원경을 들고 밤에 걸었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "벽돌 네 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar of four bricks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_white_stained_glass",
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌 기둥 위에 하얀색 색유리를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌 기둥 위에 하얀색 색유리를 놓아요.",
+     "clueEn": "Put stained glass — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLANT",
+     "teach": [
+      "gen_lily_of_the_valley",
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 벽돌 옆에 은방울꽃을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 벽돌 옆에 은방울꽃을 심어요.",
+     "clueEn": "At night, plant a lily of the valley — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "make"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 망원경을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 망원경을 만들어요.",
+     "clueEn": "At night, craft a spyglass."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:bricks"
+     ],
+     "verb": "WALK",
+     "teach": [
+      "walk"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "벽돌 근처에서 망원경을 들고 밤에 걸으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌 근처에서 망원경을 들고 밤에 걸어요.",
+     "clueEn": "Walk near the bricks at night with the spyglass in your hand."
+    }
+   ]
+  },
+  {
+   "id": "sternenhaus",
+   "title": "별의 집",
+   "titleEn": "The Star House",
+   "topic": "밤",
+   "order": 440,
+   "koreanLevel": 2,
+   "requires": [
+    "nachtwache",
+    "dorfhaus"
+   ],
+   "project": "A house under the stars: a ring wall, a door, a bed inside, glass on top, and a night in the bed.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.eun_neun_contrast"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "밤에 침대에 누웠어요. 낮은 밝아요. 밤은 어두워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of mangrove planks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "gen_spruce_door",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 옆에 가문비나무 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 옆에 가문비나무 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 안에 침대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 안에 침대를 놓아요.",
+     "clueEn": "Put a bed — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "glass",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 위에 유리를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 위에 유리를 놓아요.",
+     "clueEn": "Put glass — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LIE_DOWN",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "LIE",
+     "teach": [
+      "bed",
+      "lie_down"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 침대에 누우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 침대에 누워요.",
+     "clueEn": "At night, lie down on the bed."
+    }
+   ]
+  },
+  {
+   "id": "w3_09",
+   "title": "등불의 이웃",
+   "titleEn": "The Lantern Neighbours",
+   "topic": "등불",
+   "order": 1039,
+   "koreanLevel": 2,
+   "requires": [
+    "mondpfad"
+   ],
+   "project": "A jack o'lantern in front of the door at night, a pumpkin pie for a neighbour, the door opened by the light.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 잭오랜턴 근처에서 문을 열었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_jack_o_lantern"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "잭오랜턴을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "잭오랜턴을 만들어요.",
+     "clueEn": "Craft a jack o'lantern."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gen_jack_o_lantern",
+      "door"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 문 앞에 잭오랜턴을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 문 앞에 잭오랜턴을 놓아요.",
+     "clueEn": "At night, put a jack o'lantern — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "villager",
+      "gen_pumpkin_pie"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "주민에게 호박 파이를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "주민 앞에 호박 파이를 놓아요.",
+     "clueEn": "Give a pumpkin pie to a villager."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:jack_o_lantern",
+      "TIME:NIGHT"
+     ],
+     "verb": "OPEN",
+     "teach": [
+      "door",
+      "open"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 잭오랜턴 근처에서 문을 여세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 잭오랜턴 근처에서 문을 열어요.",
+     "clueEn": "At night, open the door near the jack o'lantern."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_sleep_in_bed",
+   "title": "달콤한 꿈",
+   "titleEn": "Sweet Dreams",
+   "topic": "adventure",
+   "order": 226,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "Craft an orange bed, put it by a chest, a rug in front of it, sleep in it at night.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 주황색 침대에서 잤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_orange_bed"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "주황색 침대를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "주황색 침대를 만들어요.",
+     "clueEn": "Craft a bed."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_orange_bed",
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 옆에 주황색 침대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 옆에 주황색 침대를 놓아요.",
+     "clueEn": "Put the bed — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "bed"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "침대 앞에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "침대 앞에 양탄자를 깔아요.",
+     "clueEn": "Spread a carpet — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "SLEEP",
+     "teach": [
+      "gen_orange_bed",
+      "sleep"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 주황색 침대에서 자세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 주황색 침대에서 자요.",
+     "clueEn": "At night, sleep in the bed."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_fall_from_world_height",
+   "title": "동굴과 절벽",
+   "titleEn": "Caves & Cliffs",
+   "topic": "adventure",
+   "order": 208,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "Go to the grove, get a bucket of powder snow and put it on stone as a soft landing, climb high, come back down with the bucket in hand.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.go_held",
+    "L2.num_sino"
+   ],
+   "formDependentSteps": 1,
+   "finaleKo": "높은 곳에서 가루눈 위로 떨어졌어요. 눈은 부드러워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [],
+     "verb": "GO",
+     "teach": [
+      "gen_grove"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "산림으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "산림으로 가요.",
+     "clueEn": "Go to the grove."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "OBTAIN",
+     "teach": [
+      "gen_powder_snow_bucket"
+     ],
+     "bare": true,
+     "formDependent": false,
+     "clueKo": "가루눈 양동이를 구하세요.",
+     "clueSource": "generated",
+     "hintKo": "가루눈 양동이를 구해요.",
+     "clueEn": "Get a bucket of powder snow."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_powder_snow",
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "돌 위에 가루눈을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌 위에 가루눈을 놓아요.",
+     "clueEn": "Put the powder snow — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "climb"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "맑을 때 높이 120블록 위로 올라가세요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 산 위로 올라가요.",
+     "clueEn": "Climb high in clear weather."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:bucket"
+     ],
+     "verb": "DESCEND",
+     "teach": [
+      "go_down"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "양동이를 들고 높이 62 이하로 내려가세요.",
+     "clueSource": "generated",
+     "hintKo": "양동이를 들고 아래로 내려가요.",
+     "clueEn": "Go down while you hold the bucket."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_spyglass_at_parrot",
+   "title": "새인가?",
+   "titleEn": "Is It a Bird?",
+   "topic": "adventure",
+   "order": 231,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "Sparse jungle by day, craft a spyglass, walk with it, plant a sapling by a log, wheat seeds for a parrot, look at the parrot through the spyglass.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.ege",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 1,
+   "finaleKo": "망원경을 들고 앵무새를 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "jungle"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "낮에 정글로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 정글로 가요.",
+     "clueEn": "Go to the jungle in the daytime."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "make"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "망원경을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "망원경을 만들어요.",
+     "clueEn": "Craft a spyglass."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "WALK",
+     "teach": [
+      "walk"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "망원경을 들고 낮에 걸으세요.",
+     "clueSource": "generated",
+     "hintKo": "망원경을 들고 낮에 걸어요.",
+     "clueEn": "Walk around in the daytime with the spyglass in your hand."
+    },
+    {
+     "id": "s4",
+     "goal": "HOLD_WHILE",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "sapling",
+      "log"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "망원경을 들고 통나무 옆에 묘목을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "망원경을 들고 통나무 옆에 묘목을 심어요.",
+     "clueEn": "Hold the spyglass and plant a sapling — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "parrot"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "앵무새에게 밀 씨앗을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "앵무새에게 밀 씨앗을 줘요.",
+     "clueEn": "Give wheat seeds to a parrot."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "parrot",
+      "look"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "망원경을 들고 앵무새를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "망원경을 들고 앵무새를 1초 동안 바라봐요.",
+     "clueEn": "Hold the spyglass and look at the parrot for a second."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_honey_block_slide",
+   "title": "달콤함에 몸을 맡기다",
+   "titleEn": "Sticky Situation",
+   "topic": "adventure",
+   "order": 211,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "Four bottles of honey make a honey block; a pillar of planks, the honey block beside it, a sign, and a look at the block.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.counter_more"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "꿀 블록을 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "honey_bottle"
+     ],
+     "bare": true,
+     "formDependent": false,
+     "clueKo": "꿀이 든 병을 네 병 모으세요.",
+     "clueSource": "generated",
+     "hintKo": "꿀이 든 병을 모아요.",
+     "clueEn": "Get four bottles of honey."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "honey_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "꿀 블록을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "꿀 블록을 만들어요.",
+     "clueEn": "Craft a honey block."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "판자 네 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar of planks."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "honey_block",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 기둥 옆에 꿀 블록을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 기둥 옆에 꿀 블록을 놓아요.",
+     "clueEn": "Put the honey block — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "honey_block"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "꿀 블록 옆에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "꿀 블록 옆에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "honey_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "꿀 블록을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "꿀 블록을 1초 동안 바라봐요.",
+     "clueEn": "Look at the honey block for a second."
+    }
+   ]
+  }
+ ],
+ "finales": {
+  "authored": [
+   "schneesturm",
+   "sternenhaus",
+   "adv_adventure_fall_from_world_height"
+  ],
+  "generatedFinalesOfAll": "303 of 422"
+ },
+ "newWordsWithDescKo": [
+  "gen_frozen_peaks (new)",
+  "gen_powder_snow (new)",
+  "gen_powder_snow_bucket (new)",
+  "gen_snowy_slopes",
+  "gen_blue_ice",
+  "gen_polar_bear",
+  "gen_granite",
+  "gen_meadow",
+  "gen_grove",
+  "gen_birch_forest",
+  "gen_white_stained_glass",
+  "gen_lily_of_the_valley",
+  "gen_spruce_door",
+  "gen_orange_bed"
+ ],
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: three entries inserted (gen_frozen_peaks, gen_powder_snow, gen_powder_snow_bucket) and descKo lines added to the gen_ concepts above that had none; nothing reformatted.",
+  "lexicon-tags.json: three hand-written entries for the new concepts, without a curriculum band (so no never-met core word is added).",
+  "lang/content/en_us.json and de_de.json: the step, finale and gloss keys of the 15 trails and the three new words.",
+  "src/test/resources/content-baseline.json: gipfelwaechter, gletscherpfad and sternenhaus leave reachabilityDebt (their old steps needed Nether items); the three ids were the only change of mine, BATCH-010's removals merged cleanly.",
+  "content/korean/pronunciation-review.tsv, lines.jsonl, review-status.json, docs/book/src/quest-tree.md and content/metrics-baseline.json regenerated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "A HOLDING condition on an item without a curated concept cannot be spoken by the validator's namer (QuestlineValidationTest.everyConditionAppearsInTheKoreanClue uses Catalog.ofConcepts, so \"망원경을 들고\" counts as missing), and IconReferentTest forbids giving the spyglass a concept with its item. The spyglass trails use HOLD_WHILE (goal, no condition) instead; a HOLDING condition would need the namer to fall back on names.json.",
+  "HOLD_WHILE with a WAIT inner goal cannot be driven by PlaytestTest (\"8초 남았어요\"), so the observatory finale is a night walk with the spyglass near the bricks (HOLD_WHILE with a TIME inner condition and seconds) and cannot say 기다리세요.",
+  "PLACE_ON_PATTERN on a ROW prints \"세 개\" whatever the size of the built row (a four-block row gave \"자갈 세 개 옆에 …\"), so mondpfad builds a row of three.",
+  "REACH_HEIGHT can only ask for a descent when the ceiling is below sea level (\"높이 62 이하로 내려가세요\"). A fall from a mountain to the surface at Y 64 or more has no goal, and nothing in the generator says 떨어지다; the fall trail's finale is authored for that reason, and its goal is only satisfiable where the terrain dips under Y 62.",
+  "A SEQUENCE part does not get the taught word: \"산 위로 올라가고 가문비나무 묘목을 심으세요\" names the exact sapling while its hint says 묘목.",
+  "Condition objects take the key `weather` (WEATHER) and `phase` (TIME); a WEATHER condition written with `phase` was accepted by the loader and only tools/validate_schema.py caught it.",
+  "Finale uniqueness (finalTextsAndAuthoredCluesAreUnique) collides for the plainest closing lines: \"밤에 침대에서 잤어요\" (sternenpfad) and \"밤에 초를 켰어요\" (w1_01) blocked two trails, so those steps name the exact thing (주황색 침대, 하얀색 초). The generator has no way to vary a finale other than naming a variant.",
+  "Pairs saturated by earlier trails and by BATCH-010 (PLACE torch, lantern and hay block, KINDLE campfire, STAND candle and oak sign, GIVE carrot, wheat and sugar to a horse, CRAFT clock, WATCH sheep and cat, GO to a river or the ocean) forced unusual picks: gravel rows, a cauldron as a trough, a jack o'lantern, a planks pillar. Seven pairs of mine now sit exactly at the limit of 3 (STAND spruce_sign, PLACE ladder, WATCH goat, PLANT lily_of_the_valley, PLACE furnace, PLACE jack_o_lantern, PLACE glass).",
+  "A new word is unknown for its first three sentences, so two new words in one sentence break the \"one unknown word\" rule until one of them has been met three times. The learner path puts the adv_adventure_* trails (order 208 to 231) right after the first level-2 trails, which leaves them almost no known words; the spyglass is met three times (craft, two HOLD_WHILE steps) before the finale for that reason.",
+  "HOLD_WHILE is listed as a form-dependent goal in the brief, but in code only PLACE_REL, PLACE_ON_PATTERN, GIVE and an ordered SEQUENCE are; the four HOLD_WHILE steps count as normal steps."
+ ],
+ "openIssues": [
+  "Reachability in the first week: the spyglass needs an amethyst shard (a geode) and copper, so adv_adventure_spyglass_at_parrot is only reachable if a geode turns up near the start; the brief assumes it is. The sparse jungle (parrots), frozen peaks, snowy slopes and the grove each need a mountain or jungle region near spawn. Honey needs bees, bottles and a flower field, candles need honeycomb, the bucket of powder snow needs an iron bucket and a snowy biome.",
+  "The fall finale (\"양동이를 들고 높이 62 이하로 내려가세요\") is only reachable where the surface drops under Y 62 near the player, and the sensor does not check the landing or the survival.",
+  "w4_06 has no lake biome to ask for: the lake is a meadow with water beside it. Polar bears (gletscherpfad) spawn in snowy plains and ice spikes, not on the peaks, so the finale may need a walk.",
+  "Three finales are authored (schneesturm, sternenhaus, fall) for the 은/는 contrast and 떨어지다. 303 of 422 finales are generated against a minimum of 296.",
+  "wanderpfad keeps the exact sapling in the clue (가문비나무 묘목) while the hint says 묘목: the weakness above.",
+  "The brief's 위/아래/앞/뒤 of creatures is not used: a creature as an anchor moves, so every 앞 anchor here is a facing block (door, bed, furnace).",
+  "BATCH-010 landed while I worked: its two removals from reachabilityDebt and mine merged without a clash; the baseline numbers in `metrics` show all three stages."
+ ]
+}

@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "mondpfad",
  "titleKo": "달빛의 길",
+ "topic": "밤",
  "tier": 2,
  "order": 505,
  "concepts": [
-  "gen_polished_tuff_wall",
-  "gen_cut_red_sandstone_slab",
-  "gen_polished_granite_slab",
-  "gen_magenta_bed"
+  "gen_birch_forest",
+  "gravel",
+  "candle",
+  "fox",
+  "gen_white_candle"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -21,23 +23,30 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polished_tuff_wall"
+    "gen_birch_forest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_tuff_wall",
-    "count": 1
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:birch_forest",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cut_red_sandstone_slab"
+    "gravel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cut_red_sandstone_slab",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:gravel",
+    "size": 3
    },
    "conditions": [
     {
@@ -49,25 +58,15 @@
   {
    "id": "s3",
    "teach": [
-    "gen_polished_granite_slab"
+    "candle",
+    "gravel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_granite_slab",
-    "count": 3
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_magenta_bed"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_bed",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_candle",
+    "relation": "NEXT_TO",
+    "pattern": "ROW",
+    "material": "minecraft:gravel"
    },
    "conditions": [
     {
@@ -76,16 +75,74 @@
     }
    ]
   },
-  "textKo": "밤에 자홍색 침대를 놓았어요."
+  {
+   "id": "s4",
+   "teach": [
+    "candle",
+    "gravel"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:gray_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:gravel"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "fox"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:fox",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_white_candle"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:white_candle"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 하얀색 초를 켰어요."
  },
  "reward": {
   "badge": "mondpfad",
   "words": [
-   "clock",
-   "torch",
-   "bed"
+   "moon",
+   "gravel",
+   "candle"
   ]
  },
  "koreanLevel": 2,
- "topic": "밤"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction"
+ ]
 }

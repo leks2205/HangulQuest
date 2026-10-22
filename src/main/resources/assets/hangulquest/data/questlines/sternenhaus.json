@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "sternenhaus",
  "titleKo": "별의 집",
+ "topic": "밤",
  "tier": 3,
  "order": 440,
  "concepts": [
-  "gen_crimson_roots",
-  "iron",
-  "gen_lukewarm_ocean",
-  "gen_raw_copper_block"
+  "planks",
+  "gen_spruce_door",
+  "bed",
+  "glass",
+  "lie_down"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,40 +24,55 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_roots"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_roots",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:mangrove_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "iron"
+    "gen_spruce_door",
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_ore",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:spruce_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:mangrove_planks"
+   }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lukewarm_ocean"
+    "bed",
+    "planks"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:lukewarm_ocean",
-    "dwellMs": 1000
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cyan_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:mangrove_planks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "glass",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:glass",
+    "relation": "ON_TOP_OF",
+    "pattern": "RING",
+    "material": "minecraft:mangrove_planks"
    }
   }
  ],
@@ -63,12 +80,13 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_raw_copper_block"
+    "bed",
+    "lie_down"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:raw_copper_block",
-    "count": 3
+    "type": "LIE_DOWN",
+    "block": "minecraft:cyan_bed",
+    "dwellMs": 3000
    },
    "conditions": [
     {
@@ -77,17 +95,20 @@
     }
    ]
   },
-  "textKo": "밤에 구리 원석 블록을 세 개 쌓았어요."
+  "textKo": "밤에 침대에 누웠어요. 낮은 밝아요. 밤은 어두워요."
  },
  "reward": {
   "badge": "sternenhaus",
   "words": [
+   "house",
    "bed",
-   "torch",
-   "climb",
-   "night"
+   "door"
   ]
  },
  "koreanLevel": 2,
- "topic": "밤"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eun_neun_contrast"
+ ]
 }

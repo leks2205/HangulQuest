@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "alpental",
  "titleKo": "알펜 계곡",
+ "topic": "동물",
  "tier": 2,
  "order": 509,
  "concepts": [
   "goat",
-  "cow",
-  "gen_sulfur_wall",
-  "gen_stonecutter"
+  "fence",
+  "cauldron",
+  "chicken",
+  "cow"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -26,41 +28,7 @@
    "goal": {
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:goat",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "cow"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_sulfur_wall"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_wall",
-    "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_stonecutter"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:stonecutter"
+    "dwellMs": 1000
    },
    "conditions": [
     {
@@ -69,20 +37,87 @@
     },
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "산에서 밤에 석재 절단기를 열었어요."
+  {
+   "id": "s2",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cauldron",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cauldron",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "chicken"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:melon_seeds",
+    "entity": "minecraft:chicken",
+    "count": 1
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cow",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:cauldron"
+    }
+   ]
+  },
+  "textKo": "가마솥 근처에서 소를 바라봤어요."
  },
  "reward": {
   "badge": "alpental",
   "words": [
    "goat",
-   "cow",
-   "campfire"
+   "cauldron",
+   "chicken"
   ]
  },
  "koreanLevel": 2,
- "topic": "동물"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

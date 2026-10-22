@@ -6,7 +6,10 @@
  "tier": 2,
  "order": 211,
  "concepts": [
-  "honey_block"
+  "honey_bottle",
+  "honey_block",
+  "planks",
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -19,15 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "honey_block"
+    "honey_bottle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honey_block",
-    "count": 1
-   },
-   "hint": {
-    "ko": "꿀이 든 병 네 개를 제작대 네 칸에 놓아요."
+    "item": "minecraft:honey_bottle",
+    "count": 4
    }
   },
   {
@@ -36,8 +36,48 @@
     "honey_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "CRAFT",
+    "item": "minecraft:honey_block",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:bamboo_planks",
+    "size": 4
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "honey_block",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
     "block": "minecraft:honey_block",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:bamboo_planks"
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "sign",
+    "honey_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:jungle_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:honey_block",
     "count": 1
    }
   }
@@ -51,17 +91,23 @@
    "goal": {
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:honey_block",
-    "dwellMs": 600
-   },
-   "conditions": []
+    "dwellMs": 1000
+   }
   },
-  "textKo": "달콤함에 몸을 맡기다 — 꿀 블록 벽을 타고 미끄러졌어요."
+  "textKo": "꿀 블록을 바라봤어요."
  },
  "reward": {
   "badge": "adv_adventure_honey_block_slide",
   "words": [
-   "honey_block"
+   "honey_block",
+   "honey_bottle",
+   "planks"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.counter_more"
+ ]
 }

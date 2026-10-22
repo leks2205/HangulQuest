@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1597** |
+| Steps (incl. finales) | **1619** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,48 +21,48 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 395 | collect an item |
-| `PLACE_BLOCK` | 376 | place a block |
-| `PLACE_REL` | 104 |  |
-| `CRAFT` | 89 |  |
-| `BREAK_BLOCK` | 81 | break a block |
-| `LOOK_AT_ENTITY` | 63 | look at a mob |
+| `ACQUIRE_ITEM` | 389 | collect an item |
+| `PLACE_BLOCK` | 351 | place a block |
+| `PLACE_REL` | 118 |  |
+| `CRAFT` | 96 |  |
+| `BREAK_BLOCK` | 77 | break a block |
+| `LOOK_AT_ENTITY` | 62 | look at a mob |
+| `REACH_BIOME` | 59 | reach a biome |
 | `USE_BLOCK` | 58 | use a block |
-| `REACH_BIOME` | 56 | reach a biome |
-| `LOOK_AT_BLOCK` | 47 | look at a block |
+| `PLACE_ON_PATTERN` | 51 |  |
+| `BUILD_PATTERN` | 49 |  |
 | `CONSUME_ITEM` | 46 | eat or drink an item |
-| `BUILD_PATTERN` | 41 |  |
-| `GIVE` | 39 |  |
-| `PLACE_ON_PATTERN` | 39 |  |
+| `LOOK_AT_BLOCK` | 44 | look at a block |
+| `GIVE` | 42 |  |
 | `DEFEAT_ENTITY` | 35 | defeat a mob |
 | `INTERACT_ENTITY` | 23 | interact with a mob |
 | `PUT_IN` | 22 |  |
-| `SMELT` | 18 |  |
-| `HOLD_WHILE` | 13 |  |
-| `WAIT` | 9 |  |
-| `REACH_HEIGHT` | 9 | reach an altitude |
-| `SEQUENCE` | 6 |  |
+| `SMELT` | 19 |  |
+| `HOLD_WHILE` | 17 |  |
+| `REACH_HEIGHT` | 13 | reach an altitude |
+| `WAIT` | 11 |  |
+| `SEQUENCE` | 7 |  |
+| `SWIM` | 6 |  |
 | `TRADE` | 5 |  |
-| `SWIM` | 5 |  |
 | `TAKE_OUT` | 4 |  |
 | `MOUNT` | 4 |  |
 | `BREED` | 3 |  |
 | `TRANSIT` | 3 |  |
-| `LIE_DOWN` | 2 |  |
+| `LIE_DOWN` | 3 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `EQUIP` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 231 | a time of day |
-| `IN_BIOME` | 51 | a biome |
+| `TIME` | 241 | a time of day |
+| `IN_BIOME` | 52 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `HOLDING` | 35 |  |
-| `Y_RANGE` | 20 | an altitude band |
+| `HOLDING` | 37 |  |
+| `Y_RANGE` | 19 | an altitude band |
 | `SKY` | 18 |  |
-| `WEATHER` | 14 | the weather |
+| `WEATHER` | 16 | the weather |
+| `NEAR_BLOCK` | 14 | a block nearby |
 | `IN_WATER` | 7 |  |
-| `NEAR_BLOCK` | 7 | a block nearby |
 | `NEAR_ENTITY` | 2 | a mob nearby |
 | `IN_DIMENSION` | 2 | a dimension |
 
@@ -186,7 +186,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `saatfeld` | 씨 뿌리는 밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
-| `wanderpfad` | 산길의 길 | Der Wanderpfad | 4 | `weidepfad`, `gipfelpfad` |
+| `wanderpfad` | 산길의 길 | Der Wanderpfad | 5 | `weidepfad`, `gipfelpfad` |
 | `nachthafen` | 밤 항구의 길 | Der Nachthafen | 5 | `brandung`, `nachtpfad` |
 | `farbenpfad` | 색의 길 | Der Farbenpfad | 3 | `weidepfad`, `wollpfad` |
 | `glockenpfad` | 종의 길 | Der Glockenpfad | 4 | `marktpfad` |
@@ -211,13 +211,13 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `schmelzpfad` | 화로의 길 | Der Schmelzpfad | 4 | `steintiefe` |
 | `adv_story_upgrade_tools` | 더욱더 좋게 | Technischer Fortschritt | 4 | `adv_story_mine_stone` |
 | `festmahl` | 잔치의 길 | Das Festmahl | 5 | `baeckerei` |
-| `sternenhaus` | 별의 집 | Das Sternenhaus | 4 | `nachtwache`, `dorfhaus` |
+| `sternenhaus` | 별의 집 | Das Sternenhaus | 5 | `nachtwache`, `dorfhaus` |
 | `gartenpfad` | 정원의 길 | Der Gartenpfad | 4 | `dorfhaus`, `bienenpfad`, `kuerbispfad`, `pilzpfad`, `fuchsbau` |
 | `reitpfad` | 말타기의 길 | Der Reitpfad | 4 | `weidepfad` |
 | `riffpfad` | 물결의 길 | Der Riffpfad | 5 | `brandung` |
-| `mondpfad` | 달빛의 길 | Der Mondpfad | 4 | `nachtwache` |
-| `eiswand` | 얼음벽의 길 | Der Eiswall | 4 | `firstpfad`, `schneeballpfad`, `schneemannpfad`, `ziegenpfad` |
-| `alpental` | 알펜 계곡 | Das Alpental | 4 | `weidepfad` |
+| `mondpfad` | 달빛의 길 | Der Mondpfad | 6 | `nachtwache` |
+| `eiswand` | 얼음벽의 길 | Der Eiswall | 5 | `firstpfad`, `schneeballpfad`, `schneemannpfad`, `ziegenpfad` |
+| `alpental` | 알펜 계곡 | Das Alpental | 5 | `weidepfad` |
 | `kuestenwacht` | 해안 초소 | Die Küstenwacht | 4 | `brandung` |
 
 ### Level 5 · TOPIK 2 · 44 trails
@@ -249,8 +249,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `steinbruch` | 채석장의 길 | Der Steinbruch | 4 | `schmelzpfad` |
 | `pferdehof` | 말 목장의 길 | Der Pferdehof | 4 | `reitpfad`, `weidepfad`, `bogenpfad` |
 | `meerestiefe` | 바다 깊은 길 | Die Meerestiefe | 5 | `riffpfad`, `fischerpfad` |
-| `sternwarte` | 달빛 정원 | Der Mondgarten | 4 | `mondpfad`, `nachtwache` |
-| `gletscherpfad` | 빙하의 길 | Der Gletscherpfad | 4 | `eiswand`, `firstpfad` |
+| `sternwarte` | 달빛 정원 | Der Mondgarten | 5 | `mondpfad`, `nachtwache` |
+| `gletscherpfad` | 빙하의 길 | Der Gletscherpfad | 5 | `eiswand`, `firstpfad` |
 | `w3_01` | 장터의 길 | Der Marktweg | 4 | `schmelzpfad` |
 | `w3_02` | 이웃의 문 | Die Tür des Nachbarn | 4 | `zuhausepfad` |
 | `w3_03` | 나그네의 주머니 | Der Beutel des Wanderers | 4 | `abenteuerpfad` |
@@ -265,7 +265,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w4_03` | 달빛 낚시 | Das Mondlichtangeln | 5 | `mondpfad` |
 | `w4_04` | 부두의 배 | Das Boot am Kai | 4 | `wanderpfad` |
 | `w4_05` | 밤바다 등불 | Lichter am Nachtmeer | 5 | `nachthafen` |
-| `w4_06` | 산속 호수 | Der Bergsee | 4 | `alpental` |
+| `w4_06` | 산속 호수 | Der Bergsee | 5 | `alpental` |
 | `w4_07` | 항구 시장 | Der Hafenmarkt | 5 | `festmahl` |
 | `w4_08` | 모래 정원 | Der Sandgarten | 5 | `gartenpfad` |
 
@@ -274,7 +274,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `steinherz` | 돌심장 | Das Steinherz | 4 | `steintiefe`, `schmelzofen` |
-| `schneesturm` | 눈보라의 길 | Der Schneesturm | 3 | `eiswand`, `gletscherpfad` |
+| `schneesturm` | 눈보라의 길 | Der Schneesturm | 6 | `eiswand`, `gletscherpfad` |
 | `kartenpfad` | 지도의 길 | Der Kartenpfad | 3 | `handelspfad`, `karawanepfad` |
 | `alchemiepfad` | 꿀단지의 길 | Der Honigtopfpfad | 4 | `schmelzofen`, `schmauspfad` |
 | `steinmetz` | 석공의 길 | Der Steinmetzpfad | 5 | `festungpfad`, `schatzkammer` |
@@ -286,17 +286,17 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_adventure_avoid_vibration` | 은밀하게 위대하게 | Schleichen 100 | 3 | `adv_adventure_root` |
 | `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 3 | `adv_adventure_root` |
 | `adv_adventure_crafters_crafting_crafters` | 제작기 제 자신 제작기 | Werker werkeln Werker | 3 | `adv_adventure_root` |
-| `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 3 | `adv_adventure_root` |
+| `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 5 | `adv_adventure_root` |
 | `adv_adventure_heart_transplanter` | 심장 이식 수술 | Herzverpflanzer | 3 | `adv_adventure_root` |
-| `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 3 | `adv_adventure_root` |
+| `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 6 | `adv_adventure_root` |
 | `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 3 | `adv_adventure_root` |
 | `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 3 | `adv_adventure_root` |
 | `adv_adventure_minecraft_trials_edition` | 인생은 시련의 연속 | Minecraft: Prüfungs‐Edition | 3 | `adv_adventure_root` |
 | `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 3 | `adv_adventure_root` |
 | `adv_adventure_read_power_of_chiseled_bookshelf` | 책의 힘 | Spannung in jedem Band | 3 | `adv_adventure_root` |
 | `adv_adventure_salvage_sherd` | 소중한 잔해 | Achtung vor dem Alten | 3 | `adv_adventure_root` |
-| `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 3 | `adv_adventure_root` |
-| `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 3 | `adv_adventure_root` |
+| `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 4 | `adv_adventure_root` |
+| `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 6 | `adv_adventure_root` |
 | `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 4 | `adv_adventure_root` |
 | `adv_adventure_trim_with_any_armor_pattern` | 유행의 선도자 | Ein neues Aussehen | 3 | `adv_adventure_root` |
 | `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 3 | `adv_adventure_root` |
@@ -313,7 +313,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_story_iron_tools` | 이젠 철 좀 들어라 | Zu viel Eisen im Blut | 4 | `adv_story_smelt_iron` |
 | `adv_story_lava_bucket` | 화끈한 화제 | Manche mögen’s heiß | 4 | `adv_story_smelt_iron` |
 | `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 5 | `adv_story_smelt_iron` |
-| `gipfelwaechter` | 봉우리의 수호자 | Der Gipfelwächter | 4 | `firstpfad`, `glueckspfad`, `gipfelblick` |
+| `gipfelwaechter` | 봉우리의 수호자 | Der Gipfelwächter | 5 | `firstpfad`, `glueckspfad`, `gipfelblick` |
 | `tiefenpfad` | 깊은 광맥의 길 | Der Tiefenpfad | 5 | `kohlenpfad`, `schmelzpfad` |
 | `gartenfest` | 정원 잔치 | Das Gartenfest | 4 | `gartenpfad`, `waldfest`, `waldlicht`, `saatfeld`, `musikpfad`, `freundschaftspfad`, `blumenpfad`, `kerzenpfad`, `apfelpfad`, `sonnenblume`, `milchpfad`, `regenbogenpfad`, `gartenzaun`, `blumentopf`, `blumenkranz`, `uhrmacher`, `muschelpfad`, `vogelscheuche`, `pferderennen` |
 | `schmiedefeuer` | 대장간의 불 | Das Schmiedefeuer | 5 | `schmiedepfad`, `kohlenpfad`, `steinbruch` |
