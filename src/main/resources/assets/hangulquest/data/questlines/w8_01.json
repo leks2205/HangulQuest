@@ -6,10 +6,8 @@
  "tier": 2,
  "order": 1081,
  "concepts": [
-  "gen_pale_hanging_moss",
-  "gen_wooden_hoe",
-  "gen_stripped_mangrove_log",
-  "gen_spruce_fence"
+  "obsidian",
+  "go"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +20,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_hanging_moss"
+    "obsidian"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:pale_hanging_moss",
-    "count": 3
-   }
+    "block": "minecraft:obsidian",
+    "count": 3,
+    "verb": "BREAK"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:diamond_pickaxe"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_wooden_hoe"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wooden_hoe",
-    "count": 2
-   }
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "EAST"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_mangrove_log"
+    "go"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_mangrove_log",
-    "count": 4
-   }
+    "type": "WALK",
+    "direction": "EAST",
+    "blocks": 10
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_fence"
+    "obsidian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_fence",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:obsidian",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "가문비나무 울타리를 놓았어요."
+  "textKo": "흑요석을 바라봤어요. 흑요석은 단단해요."
  },
  "reward": {
   "badge": "w8_01",
   "words": [
    "obsidian",
-   "flint",
-   "torch",
-   "end"
+   "go"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.go_state",
+  "L2.go_sequence",
+  "L2.euro_direction",
+  "L2.num_sino"
+ ]
 }

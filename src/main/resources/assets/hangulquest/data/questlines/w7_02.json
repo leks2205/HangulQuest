@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "w7_02",
- "titleKo": "불꽃의 검",
- "topic": "검",
+ "titleKo": "금빛 과녁",
+ "topic": "과녁",
  "tier": 2,
  "order": 1072,
  "concepts": [
-  "gen_cherry_slab",
-  "gen_honeycomb_block",
-  "gen_creeper_head",
-  "gen_waxed_exposed_copper_bulb"
+  "adv_item_crossbow",
+  "adv_item_target",
+  "gold_ore",
+  "gold_ingot"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +22,109 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_slab"
+    "adv_item_crossbow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_slab",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:crossbow",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_ingot"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_honeycomb_block"
+    "adv_item_target",
+    "adv_item_crossbow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honeycomb_block",
-    "count": 2
-   }
+    "type": "SHOOT",
+    "weapon": "minecraft:crossbow",
+    "block": "minecraft:target",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_creeper_head"
+    "adv_item_target"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:creeper_head",
-    "count": 1
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:target",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "EAST"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_bulb"
+    "gold_ore",
+    "gold_ingot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper_bulb",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:gold_ore",
+      "count": 1
+     },
+     {
+      "type": "SMELT",
+      "output": "minecraft:gold_ingot",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EOSEO"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 전구를 만들었어요."
+  "textKo": "밤에 금 광석을 캐서 화로에서 금 주괴를 만들었어요. 금은 노란색이에요."
  },
  "reward": {
   "badge": "w7_02",
   "words": [
-   "adv_item_blaze_rod",
-   "adv_item_fire_charge",
-   "gold_block",
-   "sword"
+   "adv_item_crossbow",
+   "adv_item_target",
+   "gold_ore",
+   "gold_ingot"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L2.euro_material",
+  "L4.myeon",
+  "L2.num_sino",
+  "L2.go_sequence",
+  "L4.eoseo",
+  "L2.eseo_activity"
+ ]
 }

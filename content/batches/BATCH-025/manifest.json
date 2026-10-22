@@ -1,0 +1,765 @@
+{
+ "batch": "BATCH-025",
+ "brief": "content/briefs/BATCH-025.md",
+ "chapter": "small poems III: a mood in four steps (level 4; every trail is level 4 by tree depth)",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 37,
+  "formDependentShareOwn": 0.6167
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w7_01",
+   "title": "불의 문",
+   "order": 1071,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.go_sequence",
+    "L2.go_state",
+    "L2.euro_direction",
+    "L2.num_sino"
+   ],
+   "finaleKo": "북쪽으로 십 블록 갔어요. 불은 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:flint_and_steel:CRAFT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 부싯돌과 부시를 만들어야 해요.",
+     "hintKo": "밤에 부싯돌과 부시를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:iron_door:HANG_DOOR|FACING:NORTH",
+     "formDependent": false,
+     "clueKo": "북쪽을 보고 철 문을 달아야 해요.",
+     "hintKo": "북쪽을 보고 철 문을 달아요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:candle:SWITCH_ON|HOLDING:minecraft:flint_and_steel",
+     "formDependent": false,
+     "clueKo": "부싯돌과 부시를 들고 초를 켜야 해요.",
+     "hintKo": "부싯돌과 부시를 들고 초를 켜요."
+    },
+    {
+     "id": "finale",
+     "goal": "WALK",
+     "signature": "WALK:NORTH:GO",
+     "formDependent": false,
+     "clueKo": "북쪽으로 십 블록 가야 해요.",
+     "hintKo": "북쪽으로 가요."
+    }
+   ]
+  },
+  {
+   "id": "w7_02",
+   "title": "금빛 과녁",
+   "order": 1072,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L2.euro_material",
+    "L4.myeon",
+    "L2.num_sino",
+    "L2.go_sequence",
+    "L4.eoseo",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "밤에 금 광석을 캐서 화로에서 금 주괴를 만들었어요. 금은 노란색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:crossbow:CRAFT|HOLDING:minecraft:iron_ingot",
+     "formDependent": false,
+     "clueKo": "철 주괴를 들고 쇠뇌를 만들어야 해요.",
+     "hintKo": "철 주괴를 들고 쇠뇌를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:crossbow:minecraft:target:HIT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 쇠뇌로 과녁을 맞혀야 해요.",
+     "hintKo": "맑을 때 쇠뇌로 과녁을 맞혀요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:target:WATCH|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 과녁을 일 초 동안 바라봐야 해요.",
+     "hintKo": "동쪽을 보고 과녁을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:gold_ore:MINE>SMELT:minecraft:gold_ingot:CRAFT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 금 광석을 캐서 화로에서 금 주괴를 만들어야 해요.",
+     "hintKo": "밤에 금 광석을 캐서 화로에서 금 주괴를 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w7_03",
+   "title": "모루의 길",
+   "order": 1073,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.aseo",
+    "L4.myeon",
+    "L2.go_state"
+   ],
+   "finaleKo": "모루를 만들었어요. 모루는 작지만 무거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:iron_ingot:MELT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 철 원석을 녹여서 철 주괴를 세 개 만들어야 해요.",
+     "hintKo": "낮에 화로에서 철 주괴를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_block:CRAFT|HOLDING:minecraft:iron_ingot",
+     "formDependent": false,
+     "clueKo": "철 주괴를 들고 철 블록을 만들어야 해요.",
+     "hintKo": "철 주괴를 들고 철 블록을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_helmet:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 철 투구를 만들어야 해요.",
+     "hintKo": "비가 올 때 철 투구를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:anvil:CRAFT",
+     "formDependent": false,
+     "clueKo": "모루를 만들어야 해요.",
+     "hintKo": "모루를 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w7_04",
+   "title": "화로의 온기",
+   "order": 1074,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eureo_gayo",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L4.myeon",
+    "L2.num_sino",
+    "L4.eoseo",
+    "L1.loc_an_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "훈연기 안에 감자를 넣어서 구운 감자를 꺼냈어요. 훈연기는 음식을 구워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:meadow:GO>BREAK_BLOCK:minecraft:potatoes:HARVEST|HOLDING:minecraft:iron_hoe,IN_BIOME:minecraft:meadow",
+     "formDependent": true,
+     "clueKo": "철 괭이를 들고 감자를 수확하러 목초지로 가야 해요.",
+     "hintKo": "철 괭이를 들고 감자를 수확하러 목초지로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:smoker:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 훈연기를 만들어야 해요.",
+     "hintKo": "비가 올 때 훈연기를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:smoker:WATCH|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 훈연기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "저녁에 훈연기를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:PUT_IN:minecraft:potato>minecraft:smoker:PUT_IN>TAKE_OUT:minecraft:baked_potato<minecraft:smoker:TAKE_OUT",
+     "formDependent": true,
+     "clueKo": "훈연기 안에 감자를 넣어서 훈연기에서 구운 감자를 꺼내야 해요.",
+     "hintKo": "훈연기 안에 감자를 넣어서 훈연기에서 구운 감자를 꺼내요."
+    }
+   ]
+  },
+  {
+   "id": "w7_05",
+   "title": "영혼의 등불",
+   "order": 1075,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eureo_gayo",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L4.myeon"
+   ],
+   "finaleKo": "밤에 영혼 모닥불을 피웠어요. 영혼 불꽃은 파란색이지만 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:soul_sand_valley:GO>BREAK_BLOCK:minecraft:soul_sand:DIG|HOLDING:minecraft:iron_pickaxe,IN_BIOME:minecraft:soul_sand_valley",
+     "formDependent": true,
+     "clueKo": "철 곡괭이를 들고 영혼 모래를 파러 영혼 모래 골짜기로 가야 해요.",
+     "hintKo": "철 곡괭이를 들고 영혼 모래를 파러 영혼 모래 골짜기로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:soul_torch:CRAFT|HOLDING:minecraft:soul_sand",
+     "formDependent": false,
+     "clueKo": "영혼 모래를 들고 영혼 횃불을 만들어야 해요.",
+     "hintKo": "영혼 모래를 들고 영혼 횃불을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:soul_campfire:CRAFT",
+     "formDependent": false,
+     "clueKo": "영혼 모닥불을 만들어야 해요.",
+     "hintKo": "영혼 모닥불을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:soul_campfire:KINDLE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 영혼 모닥불을 피워야 해요.",
+     "hintKo": "밤에 영혼 모닥불을 피워요."
+    }
+   ]
+  },
+  {
+   "id": "w7_06",
+   "title": "마그마의 길",
+   "order": 1076,
+   "koreanLevel": 4,
+   "grammar": [
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L4.eoya_haeyo",
+    "L1.loc_wi_e",
+    "L1.eul_reul",
+    "L2.euro_direction",
+    "L2.num_sino"
+   ],
+   "finaleKo": "남쪽으로 이십 블록 갔어요. 마그마 블록은 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:ROW/4:minecraft:netherrack:PLACE",
+     "formDependent": false,
+     "clueKo": "네더랙 네 개를 나란히 놓아야 해요.",
+     "hintKo": "네더랙을 나란히 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:magma_block:ON_TOP_OF:ROW/minecraft:netherrack/4:PLACE",
+     "formDependent": true,
+     "clueKo": "네더랙 네 개 위에 마그마 블록을 놓아야 해요.",
+     "hintKo": "네더랙 네 개 위에 마그마 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:lava_bucket:OBTAIN",
+     "formDependent": false,
+     "clueKo": "용암 양동이를 구해야 해요.",
+     "hintKo": "용암 양동이를 구해요."
+    },
+    {
+     "id": "finale",
+     "goal": "WALK",
+     "signature": "WALK:SOUTH:GO",
+     "formDependent": false,
+     "clueKo": "남쪽으로 이십 블록 가야 해요.",
+     "hintKo": "남쪽으로 가요."
+    }
+   ]
+  },
+  {
+   "id": "w7_07",
+   "title": "동쪽의 장미",
+   "order": 1077,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L4.myeon",
+    "L1.eul_reul",
+    "L2.go_sequence",
+    "L1.loc_yeop_e",
+    "L1.obj_eul"
+   ],
+   "finaleKo": "꽃 옆에 분홍색 양털을 놓았어요. 장미는 빨간색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 동쪽으로 이십 블록 가야 해요.",
+     "hintKo": "낮에 동쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:jungle_sapling:PLANT|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 묘목을 심어야 해요.",
+     "hintKo": "동쪽을 보고 묘목을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:rose_bush:PLANT",
+     "formDependent": false,
+     "clueKo": "장미 덤불을 두 송이 심어야 해요.",
+     "hintKo": "장미 덤불을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:pink_wool:NEXT_TO:#minecraft:flowers:PLACE",
+     "formDependent": true,
+     "clueKo": "꽃 옆에 분홍색 양털을 놓아야 해요.",
+     "hintKo": "꽃 옆에 분홍색 양털을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w7_08",
+   "title": "붉은 벽돌",
+   "order": 1078,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.num_sino",
+    "L4.eoseo"
+   ],
+   "finaleKo": "벽돌을 만들어서 벽돌 계단을 놓았어요. 벽돌은 빨간색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:bricks:COLLECT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 벽돌을 네 개 모아야 해요.",
+     "hintKo": "비가 올 때 벽돌을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:brick_wall:STAND|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 벽돌 담장을 세 개 세워야 해요.",
+     "hintKo": "밤에 벽돌 담장을 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:bricks:WATCH|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 벽돌을 일 초 동안 바라봐야 해요.",
+     "hintKo": "새벽에 벽돌을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:bricks:CRAFT>PLACE_BLOCK:minecraft:brick_stairs:PLACE",
+     "formDependent": true,
+     "clueKo": "벽돌을 만들어서 벽돌 계단을 놓아야 해요.",
+     "hintKo": "벽돌을 만들어서 벽돌 계단을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w7_09",
+   "title": "천둥의 노래",
+   "order": 1079,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.num_sino"
+   ],
+   "finaleKo": "천둥이 칠 때 피뢰침을 바라봤어요. 피뢰침은 구리로 만들어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:raw_copper:COLLECT",
+     "formDependent": false,
+     "clueKo": "구리 원석을 세 개 모아야 해요.",
+     "hintKo": "구리 원석을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:lightning_rod:CRAFT|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치면 피뢰침을 만들어야 해요.",
+     "hintKo": "천둥이 칠 때 피뢰침을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:90|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 높이 구십 블록 위로 올라가야 해요.",
+     "hintKo": "맑을 때 언덕 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:lightning_rod:WATCH|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치면 피뢰침을 일 초 동안 바라봐야 해요.",
+     "hintKo": "천둥이 칠 때 피뢰침을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w8_01",
+   "title": "흑요석 문",
+   "order": 1081,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.go_state",
+    "L2.go_sequence",
+    "L2.euro_direction",
+    "L2.num_sino"
+   ],
+   "finaleKo": "흑요석을 바라봤어요. 흑요석은 단단해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:obsidian:BREAK|HOLDING:minecraft:diamond_pickaxe,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 다이아몬드 곡괭이를 들고 흑요석을 세 개 부숴야 해요.",
+     "hintKo": "낮에 다이아몬드 곡괭이를 들고 흑요석을 부숴요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:obsidian:PLACE|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 흑요석을 네 개 놓아야 해요.",
+     "hintKo": "동쪽을 보고 흑요석을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 동쪽으로 십 블록 가야 해요.",
+     "hintKo": "밤에 동쪽으로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:obsidian:WATCH",
+     "formDependent": false,
+     "clueKo": "흑요석을 일 초 동안 바라봐야 해요.",
+     "hintKo": "흑요석을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w8_02",
+   "title": "엔더의 눈",
+   "order": 1082,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L4.myeon"
+   ],
+   "finaleKo": "석재 벽돌을 바라봤어요. 엔더의 눈은 날아가요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:ender_eye:CRAFT|HOLDING:minecraft:ender_pearl",
+     "formDependent": false,
+     "clueKo": "엔더 진주를 들고 엔더의 눈을 만들어야 해요.",
+     "hintKo": "엔더 진주를 들고 엔더의 눈을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:WEST:GO|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 서쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "밤에 서쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:cracked_stone_bricks:BREAK|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 금 간 석재 벽돌을 부숴야 해요.",
+     "hintKo": "낮에 금 간 석재 벽돌을 부숴요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:stone_bricks:WATCH",
+     "formDependent": false,
+     "clueKo": "석재 벽돌을 일 초 동안 바라봐야 해요.",
+     "hintKo": "석재 벽돌을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w8_03",
+   "title": "양털 그림",
+   "order": 1083,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L1.loc_yeop_e",
+    "L2.loc_sai_e",
+    "L2.hago_wa_gwa"
+   ],
+   "finaleKo": "통나무와 돌 사이에 보라색 양털을 놓았어요. 양털은 양에게서 얻어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:gray_wool:STACK|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 회색 양털을 두 개 쌓아야 해요.",
+     "hintKo": "맑을 때 회색 양털을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:green_wool:ON_TOP_OF:minecraft:dirt:PLACE",
+     "formDependent": true,
+     "clueKo": "흙 위에 초록색 양털을 놓아야 해요.",
+     "hintKo": "흙 위에 초록색 양털을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:brown_wool:NEXT_TO:#minecraft:logs:PLACE",
+     "formDependent": true,
+     "clueKo": "통나무 옆에 갈색 양털을 놓아야 해요.",
+     "hintKo": "통나무 옆에 갈색 양털을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:purple_wool:BETWEEN:minecraft:oak_log+minecraft:stone:PLACE",
+     "formDependent": true,
+     "clueKo": "통나무와 돌 사이에 보라색 양털을 놓아야 해요.",
+     "hintKo": "통나무와 돌 사이에 보라색 양털을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w8_04",
+   "title": "작은 섬",
+   "order": 1084,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eureo_gayo",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.go_state",
+    "L2.eseo_activity",
+    "L1.e_place"
+   ],
+   "finaleKo": "맑을 때 배에 앉았어요. 배는 물 위에 떠요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:mushroom_fields:GO>BREAK_BLOCK:minecraft:brown_mushroom:PICK|IN_BIOME:minecraft:mushroom_fields,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 버섯을 두 개 따러 버섯 들판으로 가야 해요.",
+     "hintKo": "밤에 버섯을 따러 버섯 들판으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:birch_boat:CRAFT|HOLDING:minecraft:birch_planks",
+     "formDependent": false,
+     "clueKo": "자작나무 판자를 들고 배를 만들어야 해요.",
+     "hintKo": "자작나무 판자를 들고 배를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "SWIM",
+     "signature": "SWIM::SWIM|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 물에서 십오 블록 수영해야 해요.",
+     "hintKo": "비가 올 때 물에서 수영해요."
+    },
+    {
+     "id": "finale",
+     "goal": "MOUNT",
+     "signature": "MOUNT:minecraft:birch_boat:SIT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 배에 앉아야 해요.",
+     "hintKo": "맑을 때 배에 앉아요."
+    }
+   ]
+  },
+  {
+   "id": "w8_05",
+   "title": "알의 노래",
+   "order": 1085,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L4.myeon",
+    "L2.euro_material",
+    "L2.go_state"
+   ],
+   "finaleKo": "비가 올 때 케이크를 먹었어요. 케이크는 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:chicken:WATCH|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 닭을 일 초 동안 바라봐야 해요.",
+     "hintKo": "저녁에 닭을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:egg:minecraft:target:HIT:far",
+     "formDependent": false,
+     "clueKo": "십 블록 이상 떨어진 곳에서 달걀로 과녁을 맞혀야 해요.",
+     "hintKo": "멀리서 달걀로 과녁을 맞혀요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:sugar:CRAFT|HOLDING:minecraft:sugar_cane",
+     "formDependent": false,
+     "clueKo": "사탕수수를 들고 설탕을 만들어야 해요.",
+     "hintKo": "사탕수수를 들고 설탕을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "signature": "CONSUME_ITEM:minecraft:cake:EAT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 케이크를 먹어야 해요.",
+     "hintKo": "비가 올 때 케이크를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "w8_06",
+   "title": "하늘의 끝",
+   "order": 1086,
+   "koreanLevel": 4,
+   "grammar": [
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L4.eoya_haeyo",
+    "L1.loc_wi_e",
+    "L4.myeon",
+    "L2.eseo_activity",
+    "L2.euro_direction"
+   ],
+   "finaleKo": "맑을 때 높은 곳에서 물로 뛰어내렸어요. 물은 아래로 흘러요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:pale_oak_planks:STACK",
+     "formDependent": false,
+     "clueKo": "판자 세 개로 기둥을 쌓아야 해요.",
+     "hintKo": "판자로 기둥을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:pale_oak_sign:ON_TOP_OF:PILLAR/minecraft:pale_oak_planks:STAND",
+     "formDependent": true,
+     "clueKo": "판자 기둥 위에 표지판을 세워야 해요.",
+     "hintKo": "판자 기둥 위에 표지판을 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:90|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 높이 구십 블록 위로 올라가야 해요.",
+     "hintKo": "새벽에 언덕 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "FALL",
+     "signature": "FALL:minecraft:water:JUMP_DOWN|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 높은 곳에서 물로 뛰어내려야 해요.",
+     "hintKo": "맑을 때 높은 곳에서 물로 뛰어내려요."
+    }
+   ]
+  }
+ ]
+}

@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1076,
  "concepts": [
-  "gen_emerald_block",
-  "gen_oxidized_copper",
-  "gen_white_bed",
-  "gen_waxed_exposed_copper_chain"
+  "netherrack",
+  "magma",
+  "lava_bucket",
+  "go"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +22,78 @@
   {
    "id": "s1",
    "teach": [
-    "gen_emerald_block"
+    "netherrack"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald_block",
-    "count": 1
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:netherrack",
+    "size": 4
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_copper"
+    "magma",
+    "netherrack"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:oxidized_copper",
-    "count": 8
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:magma_block",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:netherrack",
+    "size": 4
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_bed"
+    "lava_bucket"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_bed",
-    "count": 3
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lava_bucket",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_chain"
+    "go"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_chain",
-    "count": 1
+    "type": "WALK",
+    "direction": "SOUTH",
+    "blocks": 20
    },
    "conditions": []
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 사슬을 놓았어요."
+  "textKo": "남쪽으로 이십 블록 갔어요. 마그마 블록은 뜨거워요."
  },
  "reward": {
   "badge": "w7_06",
   "words": [
-   "lava_bucket",
    "netherrack",
    "magma",
-   "ghast"
+   "lava_bucket",
+   "go"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L4.eoya_haeyo",
+  "L1.loc_wi_e",
+  "L1.eul_reul",
+  "L2.euro_direction",
+  "L2.num_sino"
+ ]
 }
