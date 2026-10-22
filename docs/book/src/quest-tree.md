@@ -331,7 +331,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_adventure_craft_decorated_pot_using_only_sherds` | 세심한 복원 | Behutsame Restaurierung | 3 | `adv_adventure_salvage_sherd` |
 | `adv_adventure_hero_of_the_village` | 마을 지키기 | Das Dorf verteidigen | 4 | `adv_adventure_voluntary_exile` |
 | `adv_adventure_kill_all_mobs` | 몬스터 사냥 | Monsterjagd | 4 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_kill_mob_near_sculk_catalyst` | 숲의 밤사냥 | Nachtjagd im Wald | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_kill_mob_near_sculk_catalyst` | 숲의 밤 사냥 | Nachtjagd im Wald | 4 | `adv_adventure_kill_a_mob` |
 | `adv_adventure_lighten_up` | 사냥꾼의 불빛 | Das Licht des Jägers | 4 | `adv_adventure_minecraft_trials_edition` |
 | `adv_adventure_overoverkill` | 철 도끼의 힘 | Die Kraft der Eisenaxt | 4 | `adv_adventure_minecraft_trials_edition` |
 | `adv_adventure_play_jukebox_in_meadows` | 사운드 오브 뮤직 | Deine Welt sind die Berge | 3 | `adv_adventure_sleep_in_bed` |

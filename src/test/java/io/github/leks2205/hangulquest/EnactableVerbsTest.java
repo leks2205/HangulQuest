@@ -301,7 +301,7 @@ class EnactableVerbsTest {
 		Goal down = new Goal.ReachHeight(-64, 40);
 		assertEquals("아래로 내려가요.", clue(down, "go_down"));
 		assertEquals(Verb.DESCEND, SentenceBuilder.verbFor(down));
-		assertEquals("높이 40 이하로 내려가세요.", clue(down, "go_down", 2));
+		assertEquals("높이 40블록 이하로 내려가세요.", clue(down, "go_down", 2));
 		assertEquals("아래로 내려갔어요.", ceremony(down, "go_down"));
 		// a goal above sea level still climbs, the open goal too
 		assertEquals(Verb.CLIMB, SentenceBuilder.verbFor(new Goal.ReachHeight(80, 320)));

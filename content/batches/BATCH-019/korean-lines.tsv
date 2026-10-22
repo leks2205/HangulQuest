@@ -8,7 +8,7 @@ trail.adv_adventure_arbalistic.s3.clue	쇠뇌를 들고 울타리를 부수지 �
 trail.adv_adventure_arbalistic.s3.hint	쇠뇌를 들고 울타리를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:oak_fence:BREAK
 trail.adv_adventure_arbalistic.finale.clue	쇠뇌를 들고 좀비를 한 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:zombie:DEFEAT|HOLDING:minecraft:crossbow
 trail.adv_adventure_arbalistic.finale.hint	쇠뇌를 들고 좀비를 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:zombie:DEFEAT|HOLDING:minecraft:crossbow
-trail.adv_adventure_arbalistic.finale	쇠뇌로 좀비를 한 마리 물리쳤어요. 이제 쇠뇌로 사냥할 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:zombie:DEFEAT|HOLDING:minecraft:crossbow
+trail.adv_adventure_arbalistic.finale	쇠뇌를 들고 좀비를 한 마리 물리쳤어요.	finale, authored; DEFEAT_ENTITY:minecraft:zombie:DEFEAT|HOLDING:minecraft:crossbow
 trail.adv_adventure_blowback.title	방패로 막기	title, authored; 
 trail.adv_adventure_blowback.s1.clue	방패를 들고 숲에서 걸으세요.	clue, generated; HOLD_WHILE:minecraft:shield:HOLD+IN_BIOME
 trail.adv_adventure_blowback.s1.hint	방패를 들고 숲에서 걸어요.	hint, generated; HOLD_WHILE:minecraft:shield:HOLD+IN_BIOME
@@ -28,7 +28,7 @@ trail.adv_adventure_bullseye.s4.clue	과녁 옆에 레드스톤 조명을 놓으
 trail.adv_adventure_bullseye.s4.hint	과녁 옆에 레드스톤 조명을 놓아요.	hint, generated; PLACE_REL:minecraft:redstone_lamp:NEXT_TO:minecraft:target:PLACE
 trail.adv_adventure_bullseye.finale.clue	활을 들고 과녁을 일 초 동안 바라보세요.	clue, generated; LOOK_AT_BLOCK:minecraft:target:WATCH|HOLDING:minecraft:bow
 trail.adv_adventure_bullseye.finale.hint	활을 들고 과녁을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK:minecraft:target:WATCH|HOLDING:minecraft:bow
-trail.adv_adventure_bullseye.finale	활을 들고 과녁을 바라봤어요. 이제 화살을 쏠 수 있어요.	finale, authored; LOOK_AT_BLOCK:minecraft:target:WATCH|HOLDING:minecraft:bow
+trail.adv_adventure_bullseye.finale	활을 들고 과녁을 일 초 동안 바라봤어요.	finale, authored; LOOK_AT_BLOCK:minecraft:target:WATCH|HOLDING:minecraft:bow
 trail.adv_adventure_kill_all_mobs.title	몬스터 사냥	title, authored; 
 trail.adv_adventure_kill_all_mobs.s1.clue	철 검을 만드세요.	clue, generated; ACQUIRE_ITEM:minecraft:iron_sword:CRAFT
 trail.adv_adventure_kill_all_mobs.s1.hint	철 검을 만들어요.	hint, generated; ACQUIRE_ITEM:minecraft:iron_sword:CRAFT
@@ -39,7 +39,7 @@ trail.adv_adventure_kill_all_mobs.s3.hint	거미를 물리치기 전에 좀비�
 trail.adv_adventure_kill_all_mobs.finale.clue	밤에 철 검을 들고 좀비를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:zombie:WATCH|HOLDING:minecraft:iron_sword,TIME:NIGHT
 trail.adv_adventure_kill_all_mobs.finale.hint	밤에 철 검을 들고 좀비를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:zombie:WATCH|HOLDING:minecraft:iron_sword,TIME:NIGHT
 trail.adv_adventure_kill_all_mobs.finale	검을 들고 밤에 좀비를 바라봤어요. 좀비는 밤에 나타나요.	finale, authored; LOOK_AT_ENTITY:minecraft:zombie:WATCH|HOLDING:minecraft:iron_sword,TIME:NIGHT
-trail.adv_adventure_kill_mob_near_sculk_catalyst.title	숲의 밤사냥	title, authored; 
+trail.adv_adventure_kill_mob_near_sculk_catalyst.title	숲의 밤 사냥	title, authored; 
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s1.clue	밤에 숲으로 가세요.	clue, generated; REACH_BIOME:minecraft:forest:GO|TIME:NIGHT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s1.hint	밤에 숲으로 가요.	hint, generated; REACH_BIOME:minecraft:forest:GO|TIME:NIGHT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s2.clue	모닥불을 만든 후에 밤까지 기다리세요.	clue, generated; SEQUENCE:CRAFT:minecraft:campfire:CRAFT>WAIT::WAIT
@@ -68,7 +68,7 @@ trail.adv_adventure_overoverkill.s3.clue	철 도끼를 들고 문을 부수지 �
 trail.adv_adventure_overoverkill.s3.hint	철 도끼를 들고 문을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:oak_door:BREAK
 trail.adv_adventure_overoverkill.finale.clue	철 도끼를 들고 양을 두 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_axe
 trail.adv_adventure_overoverkill.finale.hint	철 도끼를 들고 양을 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_axe
-trail.adv_adventure_overoverkill.finale	도끼로 양을 두 마리 물리쳤어요. 이제 도끼로 사냥할 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_axe
+trail.adv_adventure_overoverkill.finale	철 도끼를 들고 양을 두 마리 물리쳤어요.	finale, authored; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_axe
 trail.adv_adventure_revaulting.title	사냥꾼의 저녁	title, authored; 
 trail.adv_adventure_revaulting.s1.clue	철 검을 들고 소를 한 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:cow:DEFEAT|HOLDING:minecraft:iron_sword
 trail.adv_adventure_revaulting.s1.hint	철 검을 들고 소를 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:cow:DEFEAT|HOLDING:minecraft:iron_sword
@@ -78,7 +78,7 @@ trail.adv_adventure_revaulting.s3.clue	상자 옆에 모닥불을 피우세요.	
 trail.adv_adventure_revaulting.s3.hint	상자 옆에 모닥불을 피워요.	hint, generated; PLACE_REL:minecraft:campfire:NEXT_TO:minecraft:chest:KINDLE
 trail.adv_adventure_revaulting.finale.clue	밤에 상자에서 소고기를 꺼내세요.	clue, generated; TAKE_OUT:minecraft:cooked_beef<minecraft:chest:TAKE_OUT|TIME:NIGHT
 trail.adv_adventure_revaulting.finale.hint	밤에 상자에서 소고기를 꺼내요.	hint, generated; TAKE_OUT:minecraft:cooked_beef<minecraft:chest:TAKE_OUT|TIME:NIGHT
-trail.adv_adventure_revaulting.finale	밤에 상자에서 소고기를 꺼냈어요. 모닥불 옆에서 먹을 수 있어요.	finale, authored; TAKE_OUT:minecraft:cooked_beef<minecraft:chest:TAKE_OUT|TIME:NIGHT
+trail.adv_adventure_revaulting.finale	밤에 상자에서 소고기를 꺼냈어요. 모닥불은 고기를 구워요.	finale, authored; TAKE_OUT:minecraft:cooked_beef<minecraft:chest:TAKE_OUT|TIME:NIGHT
 trail.adv_adventure_shoot_arrow.title	첫 화살	title, authored; 
 trail.adv_adventure_shoot_arrow.s1.clue	실을 세 개 모으세요.	clue, generated; ACQUIRE_ITEM:minecraft:string:COLLECT
 trail.adv_adventure_shoot_arrow.s1.hint	실을 모아요.	hint, generated; ACQUIRE_ITEM:minecraft:string:COLLECT
@@ -88,7 +88,7 @@ trail.adv_adventure_shoot_arrow.s3.clue	활을 들고 건초 더미를 부수지
 trail.adv_adventure_shoot_arrow.s3.hint	활을 들고 건초 더미를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:hay_block:BREAK
 trail.adv_adventure_shoot_arrow.finale.clue	밤에 활을 들고 스켈레톤을 한 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow,TIME:NIGHT
 trail.adv_adventure_shoot_arrow.finale.hint	밤에 활을 들고 스켈레톤을 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow,TIME:NIGHT
-trail.adv_adventure_shoot_arrow.finale	활을 들고 밤에 스켈레톤을 물리쳤어요. 이제 활로 사냥할 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow,TIME:NIGHT
+trail.adv_adventure_shoot_arrow.finale	밤에 활을 들고 스켈레톤을 한 마리 물리쳤어요. 스켈레톤은 활을 써요.	finale, authored; DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow,TIME:NIGHT
 trail.adv_adventure_sniper_duel.title	산 위의 활	title, authored; 
 trail.adv_adventure_sniper_duel.s1.clue	활을 들고 높이 120블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:bow
 trail.adv_adventure_sniper_duel.s1.hint	활을 들고 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:bow
@@ -108,7 +108,7 @@ trail.adv_adventure_spear_many_mobs.s3.clue	철 창을 들고 상자를 부수�
 trail.adv_adventure_spear_many_mobs.s3.hint	철 창을 들고 상자를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:chest:BREAK
 trail.adv_adventure_spear_many_mobs.finale.clue	철 창을 들고 양을 세 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_spear
 trail.adv_adventure_spear_many_mobs.finale.hint	철 창을 들고 양을 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_spear
-trail.adv_adventure_spear_many_mobs.finale	창으로 양을 세 마리 물리쳤어요. 고기는 모닥불에서 요리할 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_spear
+trail.adv_adventure_spear_many_mobs.finale	철 창을 들고 양을 세 마리 물리쳤어요. 고기는 모닥불에서 구워요.	finale, authored; DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_spear
 trail.adv_adventure_throw_trident.title	물가의 사냥	title, authored; 
 trail.adv_adventure_throw_trident.s1.clue	강으로 가세요.	clue, generated; REACH_BIOME:minecraft:river:GO
 trail.adv_adventure_throw_trident.s1.hint	강으로 가요.	hint, generated; REACH_BIOME:minecraft:river:GO
@@ -116,7 +116,7 @@ trail.adv_adventure_throw_trident.s2.clue	강에서 밤까지 기다린 후에 �
 trail.adv_adventure_throw_trident.s2.hint	강에서 밤까지 기다린 후에 드라운드를 일 초 동안 바라봐요.	hint, generated; SEQUENCE:WAIT::WAIT>LOOK_AT_ENTITY:minecraft:drowned:WATCH|IN_BIOME:minecraft:river
 trail.adv_adventure_throw_trident.finale.clue	철 검을 들고 드라운드를 한 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:drowned:DEFEAT|HOLDING:minecraft:iron_sword
 trail.adv_adventure_throw_trident.finale.hint	철 검을 들고 드라운드를 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:drowned:DEFEAT|HOLDING:minecraft:iron_sword
-trail.adv_adventure_throw_trident.finale	검을 들고 드라운드를 물리쳤어요. 가끔 삼지창이 나와요. 삼지창은 던질 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:drowned:DEFEAT|HOLDING:minecraft:iron_sword
+trail.adv_adventure_throw_trident.finale	철 검을 들고 드라운드를 한 마리 물리쳤어요. 드라운드에게서 가끔 삼지창이 나와요. 삼지창은 던질 수 있어요.	finale, authored; DEFEAT_ENTITY:minecraft:drowned:DEFEAT|HOLDING:minecraft:iron_sword
 trail.adv_adventure_two_birds_one_arrow.title	차례로 두 마리	title, authored; 
 trail.adv_adventure_two_birds_one_arrow.s1.clue	밤에 거미를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:spider:WATCH|TIME:NIGHT
 trail.adv_adventure_two_birds_one_arrow.s1.hint	밤에 거미를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:spider:WATCH|TIME:NIGHT
@@ -136,7 +136,7 @@ trail.adv_adventure_very_very_frightening.s3.clue	피뢰침을 부수지 마세�
 trail.adv_adventure_very_very_frightening.s3.hint	피뢰침을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:lightning_rod:BREAK
 trail.adv_adventure_very_very_frightening.finale.clue	피뢰침 근처에서 밤까지 기다리세요.	clue, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:lightning_rod
 trail.adv_adventure_very_very_frightening.finale.hint	피뢰침 근처에서 밤까지 기다려요.	hint, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:lightning_rod
-trail.adv_adventure_very_very_frightening.finale	피뢰침 옆에서 밤을 기다렸어요. 번개가 하늘에서 쳐요. 피뢰침이 번개를 받아요.	finale, authored; WAIT::WAIT|NEAR_BLOCK:minecraft:lightning_rod
+trail.adv_adventure_very_very_frightening.finale	피뢰침 근처에서 밤까지 기다렸어요. 피뢰침은 번개를 받아요.	finale, authored; WAIT::WAIT|NEAR_BLOCK:minecraft:lightning_rod
 trail.wolfpfad.title	늑대의 길	title, authored; 
 trail.wolfpfad.s1.clue	밤에 늑대를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:wolf:WATCH|TIME:NIGHT
 trail.wolfpfad.s1.hint	밤에 늑대를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:wolf:WATCH|TIME:NIGHT
@@ -146,4 +146,4 @@ trail.wolfpfad.s3.clue	늑대 근처에서 침대를 부수지 마세요.	clue, 
 trail.wolfpfad.s3.hint	늑대 근처에서 침대를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK
 trail.wolfpfad.finale.clue	늑대에게 돼지고기를 주세요.	clue, generated; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE
 trail.wolfpfad.finale.hint	늑대에게 돼지고기를 줘요.	hint, generated; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE
-trail.wolfpfad.finale	늑대에게 돼지고기를 줬어요. 늑대는 고기를 좋아해요. 늑대는 빨리 달려요.	finale, authored; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE
+trail.wolfpfad.finale	늑대에게 돼지고기를 줬어요. 늑대는 고기를 좋아해요.	finale, authored; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE

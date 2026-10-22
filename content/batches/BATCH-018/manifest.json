@@ -293,7 +293,7 @@
      "goal": "HOLD_WHILE",
      "signature": "HOLD_WHILE:minecraft:ender_eye:HOLD+REACH_HEIGHT::DESCEND:down",
      "formDependent": false,
-     "clueKo": "엔더의 눈을 들고 높이 40 이하로 내려가세요.",
+     "clueKo": "엔더의 눈을 들고 높이 40블록 이하로 내려가세요.",
      "hintKo": "엔더의 눈을 들고 아래로 내려가요."
     }
    ],
@@ -925,7 +925,7 @@
   "A sequence repeats the object of both parts in full (다이아몬드 투구를 만든 후에 다이아몬드 투구를 쓰세요); a pronoun or an omitted object would read better.",
   "Counts above 20 are printed as digits plus a counter (24장, 22개) instead of a native or Sino-Korean number; the batch kept every count at 20 or below.",
   "ACQUIRE_ITEM prints 만드세요 for craftable items (하얀색 현수막, 끈) although any acquisition counts, and a CRAFT goal on the same item is a duplicate signature.",
-  "REACH_HEIGHT inside HOLD_WHILE prints \"높이 40 이하로 내려가세요\" in the clue and 아래로 내려가요 in the hint (digits in the clue).",
+  "REACH_HEIGHT inside HOLD_WHILE printed \"높이 40 이하로 내려가세요\" in the clue (fixed in the ling-review pass: the unit 블록 is now printed for every descent) and 아래로 내려가요 in the hint (digits in the clue).",
   "unknownOverOneShare counts every multi-word vanilla name as one unknown word, so a sentence with two new item names (철 문 옆에 돌 버튼을) is over the limit; the lesson is to anchor on a known word (문, 제작대) or to space the new words.",
   "The duplicate-signature and verb-object-pair ratchets use the whole path: many natural steps (CRAFT paper, PLACE chest or barrel, DEFEAT enderman) are already taken, so a batch needs conditions (TIME, SKY, HOLDING, NEAR_BLOCK) or other objects to stay unique.",
   "A TRADE count is checked against what the villager pays (selling) or hands over (buying), not what the clue says; the vanilla amounts per offer (24 paper, 20 wheat, 15 beetroot) can exceed the clue count."
