@@ -366,6 +366,22 @@ class StaleAndEditTest(Fake):
         self.run_tool("adopt", "--lang", "de_de", "--state", "proofread")
         self.assertEqual(self.status("de_de")["hangulquest.ui.back"]["state"], "proofread")
 
+    def test_adopt_refresh_rerecords_text_rewritten_with_the_english_only(self):
+        write_json(self.repo.lang_path("de_de", True), {"hangulquest.trail.t1.title": "Der Pfad",
+                                                         "hangulquest.trail.t1.step.s1.clue": "Sammle eine Schallplatte."})
+        self.run_tool("adopt", "--lang", "de_de", "--state", "proofread")
+        self.change_english("hangulquest.trail.t1.title", "The Trail")
+        self.change_english("hangulquest.trail.t1.step.s1.clue", "Collect a Music Disc.")
+        content = core.read_bundle(self.repo, "de_de", True)
+        content["hangulquest.trail.t1.title"] = "Der neue Pfad"     # rewritten together with the English
+        write_json(self.repo.lang_path("de_de", True), content)
+        self.run_tool("adopt", "--lang", "de_de", "--state", "proofread")
+        out, _ = self.run_tool("status", "--lang", "de_de", "--json")
+        self.assertEqual(json.loads(out)[0]["states"]["stale"], 2, "without --refresh both stay stale")
+        self.run_tool("adopt", "--lang", "de_de", "--state", "proofread", "--refresh")
+        out, _ = self.run_tool("status", "--lang", "de_de", "--json")
+        self.assertEqual(json.loads(out)[0]["states"]["stale"], 1, "only the untouched German stays stale")
+
 
 class ProofreadTest(Fake):
     def setUp(self):

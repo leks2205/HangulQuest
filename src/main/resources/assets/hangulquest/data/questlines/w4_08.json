@@ -6,10 +6,11 @@
  "tier": 2,
  "order": 1048,
  "concepts": [
-  "gen_mossy_stone_brick_wall",
-  "gen_armadillo",
-  "gen_flowering_azalea",
-  "gen_jungle_wood"
+  "sand",
+  "gen_cactus",
+  "water",
+  "fence",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,47 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mossy_stone_brick_wall"
+    "sand"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_stone_brick_wall",
-    "count": 5
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_armadillo"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:armadillo",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_flowering_azalea"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:flowering_azalea",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
     "count": 3
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_jungle_wood"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_wood",
-    "count": 1
    },
    "conditions": [
     {
@@ -71,16 +37,74 @@
     }
    ]
   },
-  "textKo": "해변에서 정글나무를 구했어요."
+  {
+   "id": "s2",
+   "teach": [
+    "gen_cactus"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:cactus",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:sugar_cane",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:jungle_fence",
+    "size": 3
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "flower",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:allium",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:jungle_fence"
+   }
+  },
+  "textKo": "울타리 안에 꽃을 심었어요."
  },
  "reward": {
   "badge": "w4_08",
   "words": [
    "sand",
-   "turtle",
-   "glass",
-   "turtle_egg"
+   "gen_cactus",
+   "fence",
+   "flower"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

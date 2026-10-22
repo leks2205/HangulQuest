@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1038,
  "concepts": [
-  "gen_ice_spikes",
-  "gen_piston",
-  "mushroom_block",
-  "gen_allay"
+  "salmon",
+  "carpet",
+  "cat"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,59 +21,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_ice_spikes"
+    "salmon"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:ice_spikes",
-    "dwellMs": 1000
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:salmon",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_piston"
+    "carpet"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:piston",
+    "type": "PLACE_REL",
+    "block": "minecraft:cyan_carpet",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
     "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "mushroom_block"
+    "cat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_mushroom_block",
-    "count": 2
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_allay"
+    "cat",
+    "salmon"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:allay"
+    "type": "GIVE",
+    "item": "minecraft:salmon",
+    "entity": "minecraft:cat",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "알레이에게 아이템을 줬어요."
+  "textKo": "낮에 고양이에게 연어를 줬어요."
  },
  "reward": {
   "badge": "w3_08",
   "words": [
-   "beach",
-   "fishing_rod",
-   "fish",
-   "villager"
+   "salmon",
+   "carpet",
+   "cat"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

@@ -447,8 +447,16 @@ def cmd_adopt(args) -> int:
     status = core.read_status(repo, code)
     added = 0
     for key, row in rows.items():
-        if bundle.get(key) and key not in status["keys"]:
-            status["keys"][key] = core.new_entry(row, bundle[key], args.state, [args.by] if args.by else [])
+        text = bundle.get(key)
+        if not text:
+            continue
+        entry = status["keys"].get(key)
+        # --refresh: a key whose English and own text both changed since it was recorded was rewritten together
+        # with the English (a content batch writes both); a text left behind by an English edit stays stale.
+        refreshed = (args.refresh and entry is not None and entry.get("src") != row["src"]
+                     and entry.get("txt") != core.text_hash(text))
+        if entry is None or refreshed:
+            status["keys"][key] = core.new_entry(row, text, args.state, [args.by] if args.by else [])
             added += 1
     write_status_for(repo, code, status)
     print(f"{code}: {added} key(s) recorded as {args.state}")
@@ -616,6 +624,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--lang", required=True)
     p.add_argument("--state", required=True)
     p.add_argument("--by")
+    p.add_argument("--refresh", action="store_true",
+                   help="also re-record stale keys whose own text changed with the English")
     p.set_defaults(run=cmd_adopt)
 
     p = sub.add_parser("approve", help="community approval of keys")
