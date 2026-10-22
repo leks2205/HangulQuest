@@ -7,6 +7,8 @@ import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
+import io.github.leks2205.hangulquest.quest.TrailGraph;
+import io.github.leks2205.hangulquest.quest.TrailVisibility;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
@@ -49,6 +51,15 @@ public final class QuestTab extends JournalTab {
 	private int treeBottom;
 
 	private QuestTreeLayout layout;
+	/** What the layout was built from: rebuilt when any of these changes. */
+	private List<Questline> layoutTrails;
+	private Map<String, TrailVisibility.State> layoutVisibility;
+	private boolean layoutShowAll;
+	private boolean layoutCompleted;
+	private int hiddenCount;
+	private int completedCount;
+	/** The finished trails are folded away; this unfolds them into the tree. */
+	private boolean showCompleted;
 	private NodeStates states;
 	private Detail detail;
 	private String header = "";
@@ -67,6 +78,7 @@ public final class QuestTab extends JournalTab {
 	/** The second view, the trails by life situation, beside the tree. */
 	private final ChapterView chapterView;
 	private boolean chapterMode;
+	private final Runnable toggleCompleted = () -> showCompleted = !showCompleted;
 	private final Runnable showTree = () -> chapterMode = false;
 	private final Runnable showChapters = () -> chapterMode = true;
 
@@ -93,6 +105,10 @@ public final class QuestTab extends JournalTab {
 
 	/** A trail picked in the chapter view: back to the tree with that trail selected and its neighbours lit. */
 	private void showTrailInTree(String trailId) {
+		QuestEngine quests = host.hq().quests();
+		if (quests != null && quests.visibility().get(trailId) == TrailVisibility.State.COMPLETED) {
+			showCompleted = true; // a finished trail is folded away until it is asked for
+		}
 		selectedTrailId = trailId;
 		treeHighlight = true;
 		chapterMode = false;
@@ -210,18 +226,15 @@ public final class QuestTab extends JournalTab {
 			chapterView.render(g, x, y + 16, width, height - 16);
 			return;
 		}
-		if (layout == null || !layout.matches(quests.trails())) {
-			layout = QuestTreeLayout.build(quests.trails(), quests.graph());
-			states = null;
-			detail = null;
-		}
+		rebuildLayout(quests);
 		NodeStates nodeStates = states(quests);
 		int language = language();
 		int highlighted = layout.indexOf(selectedTrailId);
 
-		if (headerCount != layout.size() || headerLanguage != language) {
-			header = I18n.t("hangulquest.ui.quest.tree_header", layout.size());
-			headerCount = layout.size();
+		if (headerCount != layout.size() * 1009 + hiddenCount || headerLanguage != language) {
+			header = hiddenCount == 0 ? I18n.t("hangulquest.ui.quest.tree_header", layout.size())
+					: I18n.t("hangulquest.ui.quest.tree_header_filtered", layout.size(), layout.size() + hiddenCount);
+			headerCount = layout.size() * 1009 + hiddenCount;
 			headerLanguage = language;
 		}
 		int percent = Math.round(treeZoom * 100);
@@ -233,7 +246,20 @@ public final class QuestTab extends JournalTab {
 		Draw.label(g, host.font(), header, x, y, Ink.ACCENT);
 		Draw.label(g, host.font(), legend, x + 110, y, Ink.INK_FAINT);
 
-		int treeTop = y + 13;
+		// The second row: what the tree leaves out, and how to get it back.
+		int showAllWidth = Math.min(150, Math.max(90, width / 3));
+		host.checkRow(g, x, y + 13, showAllWidth, 12, I18n.t("hangulquest.ui.quest.show_all"),
+				hq.config().showAllTrails, () -> {
+					hq.config().showAllTrails = !hq.config().showAllTrails;
+					hq.saveConfig();
+				});
+		if (completedCount > 0 && !hq.config().showAllTrails) {
+			host.button(g, x + showAllWidth + 8, y + 12, 100, 13, I18n.t(showCompleted
+					? "hangulquest.ui.quest.completed_hide" : "hangulquest.ui.quest.completed_show", completedCount),
+					showCompleted, toggleCompleted);
+		}
+
+		int treeTop = y + 28;
 		treeBottom = y + height - DETAIL_HEIGHT;
 		treeViewX = x;
 		treeViewY = treeTop;
@@ -244,8 +270,8 @@ public final class QuestTab extends JournalTab {
 		double originY = treeTop + 4 - treePanY;
 		layout.project(originX, originY, treeZoom);
 
-		// TOPIK bands: faint separators at the band starts.
-		int levels = layout.levels();
+		// TOPIK bands: faint separators at the band starts. They need the real tree levels, so only the full tree has them.
+		int levels = layoutShowAll ? layout.levels() : 0;
 		for (int band = 0; band < 6; band++) {
 			int firstLevel = band * 3;
 			if (firstLevel >= levels) {
@@ -298,6 +324,41 @@ public final class QuestTab extends JournalTab {
 		}
 	}
 
+	/**
+	 * Lays out what the tree shows: everything with "show all trails", otherwise the trails that can be started,
+	 * the ones in the log and the ones waiting directly behind them (and the finished ones when unfolded). The
+	 * levels are counted among the shown trails, so the first row is always the top of what is on screen.
+	 */
+	private void rebuildLayout(QuestEngine quests) {
+		boolean showAll = host.hq().config().showAllTrails;
+		Map<String, TrailVisibility.State> visibility = quests.visibility();
+		List<Questline> trails = quests.trails();
+		if (layout != null && layoutTrails == trails && layoutVisibility == visibility && layoutShowAll == showAll
+				&& layoutCompleted == showCompleted) {
+			return;
+		}
+		List<Questline> shown = new ArrayList<>(trails.size());
+		int done = 0;
+		for (Questline trail : trails) {
+			TrailVisibility.State state = visibility.get(trail.id());
+			if (state == TrailVisibility.State.COMPLETED) {
+				done++;
+			}
+			if (showAll || TrailVisibility.drawn(state) || (showCompleted && state == TrailVisibility.State.COMPLETED)) {
+				shown.add(trail);
+			}
+		}
+		layout = QuestTreeLayout.build(shown, showAll ? quests.graph() : TrailGraph.of(shown));
+		layoutTrails = trails;
+		layoutVisibility = visibility;
+		layoutShowAll = showAll;
+		layoutCompleted = showCompleted;
+		hiddenCount = showAll ? 0 : trails.size() - shown.size() - (showCompleted ? 0 : done);
+		completedCount = done;
+		states = null;
+		detail = null;
+	}
+
 	private NodeStates states(QuestEngine quests) {
 		LearningService learn = host.hq().learn();
 		ProgressData.QuestData progress = learn == null ? null : learn.data().quests;
@@ -311,8 +372,10 @@ public final class QuestTab extends JournalTab {
 				discovered, tracked, focused, active)) {
 			return current;
 		}
+		Map<String, TrailVisibility.State> visibility = quests.visibility();
 		states = NodeStates.build(layout, completed, discovered, tracked, focused,
-				quests::unlocked, quests::isTracked, active);
+				quests::unlocked, quests::isTracked, active,
+				id -> visibility.get(id) == TrailVisibility.State.NEXT);
 		return states;
 	}
 
@@ -361,6 +424,7 @@ public final class QuestTab extends JournalTab {
 			boolean done = nodeStates.has(i, NodeStates.DONE);
 			boolean unlocked = nodeStates.has(i, NodeStates.UNLOCKED);
 			boolean active = nodeStates.has(i, NodeStates.TRACKED);
+			boolean greyed = nodeStates.has(i, NodeStates.NEXT);
 			int fill = active ? Ink.ACCENT : done ? Ink.GOOD : unlocked ? 0xFF8A6A44 : 0xFFD8C9A8;
 			if (zoomedOut) {
 				fill = layout.color(i);
@@ -376,6 +440,11 @@ public final class QuestTab extends JournalTab {
 			} else {
 				g.fill(layout.cx(i) - 2, top + nodeHeight / 2 - 1, layout.cx(i) + 2, top + nodeHeight / 2 + 1,
 						Ink.CREAM);
+			}
+			if (greyed) {
+				g.fill(left, top, left + nodeWidth, top + nodeHeight, 0x99F3EAD8);
+			} else if (active) {
+				g.fill(left + 1, top + 1, left + 4, top + 4, Ink.CREAM); // the marker of a quest in the log
 			}
 			if (nodeStates.has(i, NodeStates.RECOMMENDED) && current >= 0) {
 				g.fill(left + nodeWidth - 4, top + 1, left + nodeWidth, top + 4, 0xFFE0B33A);
@@ -412,7 +481,11 @@ public final class QuestTab extends JournalTab {
 	private void drawTooltip(GuiGraphicsExtractor g, int index, int x, int y, int width, int language) {
 		if (tipIndex != index || tipLanguage != language) {
 			Questline trail = layout.trail(index);
-			tipText = I18n.t("hangulquest.ui.quest.tip", trail.title(), layout.depth(index), trail.koreanLevel());
+			tipText = I18n.t("hangulquest.ui.quest.tip", trail.title(), depthOf(index), trail.koreanLevel());
+			if (states != null && states.has(index, NodeStates.NEXT)) {
+				String waits = lockReason(trail, host.hq().quests());
+				tipText = waits.isEmpty() ? tipText : tipText + " · " + waits;
+			}
 			tipWidth = host.font().width(tipText) + 8;
 			tipIndex = index;
 			tipLanguage = language;
@@ -425,6 +498,11 @@ public final class QuestTab extends JournalTab {
 	}
 
 	// ----------------------------------------------------------------- detail
+
+	/** The tree level of a trail in the whole tree, whatever part of it is on screen. */
+	private int depthOf(int index) {
+		return host.hq().quests().graph().depth(layout.trail(index).id());
+	}
 
 	private Detail detail(QuestEngine quests, NodeStates nodeStates, int index) {
 		boolean showDe = host.showDe();
@@ -443,7 +521,7 @@ public final class QuestTab extends JournalTab {
 		boolean focused = selected.id().equals(quests.focusedId());
 		String state = done ? I18n.t("hangulquest.ui.quest.state.done") : focused ? I18n.t("hangulquest.ui.quest.state.active") : tracked ? I18n.t("hangulquest.ui.quest.state.in_log")
 				: unlocked ? I18n.t("hangulquest.ui.quest.state.open") : I18n.t("hangulquest.ui.quest.state.locked");
-		String title = I18n.t("hangulquest.ui.quest.title_line", selected.title(), layout.depth(index),
+		String title = I18n.t("hangulquest.ui.quest.title_line", selected.title(), depthOf(index),
 				selected.koreanLevel(), state);
 
 		int[] parents = layout.parents(index);

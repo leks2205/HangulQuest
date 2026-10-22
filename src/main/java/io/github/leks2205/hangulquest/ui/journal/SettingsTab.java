@@ -64,8 +64,14 @@ public final class SettingsTab extends JournalTab {
 	public void render(GuiGraphicsExtractor g, int x, int y, int width, int height) {
 		HangulQuestClient hq = host.hq();
 		int yy = y;
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.quests"), hq.config().quests, value -> hq.config().quests = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.quest_tracker"), hq.config().questTracker,
+		// The two quest-picker switches share the rows of the quest switches, so the page keeps its height.
+		int half = width / 2;
+		host.toggle(g, x + half, yy, width - half, I18n.t("hangulquest.ui.settings.auto_pick_quests"),
+				hq.config().autoPickQuests, value -> hq.config().autoPickQuests = value);
+		yy = host.toggle(g, x, yy, half, I18n.t("hangulquest.ui.settings.quests"), hq.config().quests, value -> hq.config().quests = value);
+		host.toggle(g, x + half, yy, width - half, I18n.t("hangulquest.ui.settings.show_all_trails"),
+				hq.config().showAllTrails, value -> hq.config().showAllTrails = value);
+		yy = host.toggle(g, x, yy, half, I18n.t("hangulquest.ui.settings.quest_tracker"), hq.config().questTracker,
 				value -> hq.config().questTracker = value);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.hud_cards"), hq.config().hudCards, value -> hq.config().hudCards = value);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.tooltips"), hq.config().tooltips, value -> hq.config().tooltips = value);

@@ -23,3 +23,8 @@ Rules:
   block that finished an earlier step, by step id, as `[x, y, z]` (the memory behind a step's `"@s1"` anchor,
   "아까 놓은 횃불 옆에"). The field is optional and was added without a version bump: a file without it means
   "nothing remembered", and a build that does not know it keeps it (`unknown-fields.json`).
+- `v4-autotrack.json` is `v4-placed.json` plus the quest picker's fields in `quests`: `auto` (the tracked trails the game
+  picked; the rest of `tracked` the player chose), `situational` (the trail in the situational slot, also in `auto`),
+  `dismissed` (trails the player took out of the log, by `playMs` at that moment) and `playMs`. All four are optional and
+  were added without a version bump: a file without them means "the player chose every tracked trail" and "nothing
+  dismissed", and a build that does not know them keeps them (`unknown-fields.json`). `AutoTrackFixtureTest` covers it.

@@ -169,7 +169,7 @@ class QuestLogTest {
 		}
 		assertFalse(engine.isTracked("t6"));
 		assertFalse(engine.hasProgress("t6"), "a declined quest leaves no state behind");
-		assertEquals("t5", engine.focusedId());
+		assertEquals("t" + (QuestEngine.MAX_TRACKED - 1), engine.focusedId());
 	}
 
 	// ------------------------------------------------------------- next quest

@@ -62,6 +62,13 @@ final class QuestPersistence {
 		if (focusedId != null) {
 			registry.restoreTracked(focusedId);
 		}
+		if (quests.auto != null) {
+			for (String id : quests.auto) {
+				if (registry.isTracked(id)) {
+					registry.restoreAuto(id, id.equals(quests.situational));
+				}
+			}
+		}
 		registry.normalize();
 	}
 
@@ -125,6 +132,8 @@ final class QuestPersistence {
 		data.quests.active = focusedSnapshot;
 		data.quests.saved = background;
 		data.quests.tracked = new ArrayList<>(registry.trackedIds());
+		data.quests.auto = new ArrayList<>(registry.autoIds());
+		data.quests.situational = registry.situationalId();
 		learn.markDirty();
 	}
 

@@ -15,7 +15,10 @@ import java.nio.file.Path;
 public final class Config {
 	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
 
-	/** 3 added {@code retention} and {@code newWordsPerDay}; 4 added {@code typedCards}; 5 added {@code autoCloseWindows}. */
+	/**
+	 * 3 added {@code retention} and {@code newWordsPerDay}; 4 added {@code typedCards}; 5 added
+	 * {@code autoCloseWindows}, {@code autoPickQuests} and {@code showAllTrails}.
+	 */
 	public static final int CURRENT_VERSION = 5;
 	public static final double MIN_RETENTION = 0.80;
 	public static final double MAX_RETENTION = 0.95;
@@ -64,6 +67,10 @@ public final class Config {
 	/** Journal shows German translations only when the eye button is on. */
 	public boolean journalTranslations = false;
 	public boolean luteImport = true;
+	/** The game tracks quests for the player: three regular slots and one situational (see NextQuestPolicy). */
+	public boolean autoPickQuests = true;
+	/** The journal's quest tree draws every trail, not only what can be started and what waits behind it. */
+	public boolean showAllTrails = false;
 
 	// Learning
 	/** Desired recall probability when a card comes due, 0.80 to 0.95 (FSRS). Higher means more reviews. */
@@ -145,6 +152,15 @@ public final class Config {
 		JsonElement typed = raw.get("typedCards");
 		if (typed == null || !typed.isJsonPrimitive() || !typed.getAsJsonPrimitive().isBoolean()) {
 			loaded.typedCards = true;
+		}
+		// Version 4 and older have neither quest switch; a missing or broken value means the default.
+		JsonElement autoPick = raw.get("autoPickQuests");
+		if (autoPick == null || !autoPick.isJsonPrimitive() || !autoPick.getAsJsonPrimitive().isBoolean()) {
+			loaded.autoPickQuests = true;
+		}
+		JsonElement showAll = raw.get("showAllTrails");
+		if (showAll == null || !showAll.isJsonPrimitive() || !showAll.getAsJsonPrimitive().isBoolean()) {
+			loaded.showAllTrails = false;
 		}
 		// Version 4 and older have no autoCloseWindows; a missing or broken value means off, the default.
 		JsonElement autoClose = raw.get("autoCloseWindows");

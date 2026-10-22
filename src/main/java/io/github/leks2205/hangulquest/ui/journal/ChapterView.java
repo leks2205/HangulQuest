@@ -3,6 +3,7 @@ package io.github.leks2205.hangulquest.ui.journal;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.Questline;
+import io.github.leks2205.hangulquest.quest.TrailVisibility;
 import io.github.leks2205.hangulquest.story.ChapterSet;
 import io.github.leks2205.hangulquest.story.LibraryHook;
 import io.github.leks2205.hangulquest.ui.Draw;
@@ -14,6 +15,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -84,9 +86,11 @@ final class ChapterView {
 		ChapterSet chapters = LibraryHook.content().chapters();
 		long stamp = StampMemo.perSecond(System.currentTimeMillis(), host.epoch(), language());
 		Page page = memo.value(stamp);
-		int version = learn.data().quests.completed.size() + 31 * quests.trails().size();
+		boolean showAll = host.hq().config().showAllTrails;
+		int version = learn.data().quests.completed.size() + 31 * quests.trails().size()
+				+ 977 * System.identityHashCode(quests.visibility()) + (showAll ? 1 : 0);
 		if (page == null || page.version() != version) {
-			List<Entry> built = build(chapters, quests, learn);
+			List<Entry> built = build(chapters, quests, learn, showAll);
 			page = memo.store(stamp, new Page(built, I18n.t("hangulquest.ui.chapters.header", built.size()), version));
 			trailMemo.clear();
 		}
@@ -108,11 +112,19 @@ final class ChapterView {
 		renderList(g, x, y, width, height);
 	}
 
-	private List<Entry> build(ChapterSet chapters, QuestEngine quests, LearningService learn) {
+	/** The chapters with something to show: a trail that is not hidden (all of them with "show all trails"). */
+	private List<Entry> build(ChapterSet chapters, QuestEngine quests, LearningService learn, boolean showAll) {
 		List<Entry> out = new ArrayList<>();
+		Map<String, TrailVisibility.State> visibility = quests.visibility();
 		for (ChapterSet.Progress progress : chapters.progress(trail -> quests.byId(trail) != null,
 				trail -> learn.data().quests.completed.containsKey(trail))) {
 			ChapterSet.Chapter chapter = progress.chapter();
+			if (!showAll && chapter.trails().stream().noneMatch(id -> {
+				TrailVisibility.State state = visibility.get(id);
+				return state != null && state != TrailVisibility.State.HIDDEN;
+			})) {
+				continue;
+			}
 			String levels = chapter.minLevel() == chapter.maxLevel() ? "L" + chapter.minLevel()
 					: I18n.t("hangulquest.ui.chapters.levels", chapter.minLevel(), chapter.maxLevel());
 			String gloss = I18n.t(chapter.titleKey());
@@ -219,9 +231,11 @@ final class ChapterView {
 	private List<TrailRow> trailRows(ChapterSet.Chapter chapter, QuestEngine quests, LearningService learn) {
 		List<TrailRow> rows = new ArrayList<>();
 		Lang lang = Lang.current();
+		boolean showAll = host.hq().config().showAllTrails;
+		Map<String, TrailVisibility.State> visibility = quests.visibility();
 		for (String id : chapter.trails()) {
 			Questline trail = quests.byId(id);
-			if (trail == null) {
+			if (trail == null || (!showAll && visibility.get(id) == TrailVisibility.State.HIDDEN)) {
 				continue;
 			}
 			State state = learn.data().quests.completed.containsKey(id) ? State.DONE

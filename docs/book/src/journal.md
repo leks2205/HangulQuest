@@ -54,12 +54,20 @@ German name and progress. They are a nudge, not a gate: nothing in the mod requi
 
 ## Quests
 
-The tree. Each node is one trail, coloured by state:
+The tree. Each node is one trail, coloured by state. It shows only what is useful now: the trails you can
+start, the ones in your quest log, and, greyed out, the ones waiting directly behind them. Everything
+further away is hidden, and finished trails are folded into a "완료 · Completed" button. Tick "Show all
+trails" (here or in Settings) for the whole map.
 
 - **done** — finished, badge earned,
-- **active** — one of the trails in your quest log (the HUD shows up to six),
+- **active** — one of the trails in your quest log (up to four: three regular slots and one situational),
 - **open** — unlocked but not started,
-- **locked** — shows what it is waiting for (`nach 돌의 길`, or `ab 2 Wörtern`).
+- **locked** (greyed) — shows what it is waiting for (`nach 돌의 길`, or `ab 2 Wörtern`).
+
+The game keeps the quest log filled: three regular quests that fit the start of the game (wood, stone, food)
+and, when you finish one, the next one right after it. A fourth slot follows where you are: a snow trail in
+the snow, a cave trail underground. Quests you tick yourself are never replaced; take one out and it stays
+out for 30 minutes of play. Switch "Pick quests automatically" off in Settings to choose everything yourself.
 
 Selecting a node shows the detail card: Korean and German title, level, TOPIK band, state, parents,
 children, progress (`2/4`), the live status of the current step, a checkbox and a start button.

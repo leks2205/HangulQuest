@@ -593,6 +593,13 @@ public final class HangulQuestClient implements ClientModInitializer {
 				trails.add(adaptive);
 			}
 			QuestEngine builtQuests = new QuestEngine(trails, builtCatalog, builtLearn, LOG);
+			builtQuests.setAutoPick(() -> config.autoPickQuests);
+			builtQuests.setTranslations(() -> config.questTranslations);
+			builtQuests.setPopupsExpire(() -> config.autoCloseWindows);
+			io.github.leks2205.hangulquest.story.ChapterSet chapters = content.library().chapters();
+			builtQuests.setChapters(trail -> chapters.ofTrail(trail)
+							.map(io.github.leks2205.hangulquest.story.ChapterSet.Chapter::id).orElse(null),
+					chapters.all().stream().map(io.github.leks2205.hangulquest.story.ChapterSet.Chapter::id).toList());
 
 			// Nothing above has thrown: apply the progress changes and publish.
 			if (lute != null) {

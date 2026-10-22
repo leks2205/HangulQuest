@@ -18,8 +18,9 @@ works in single-player and on any server, with or without other players.
   go deeper: polite sentences at the top, obligation, emphatic forms, double negatives and finally
   literary Korean near the crown.
 - **A quest log** instead of a single tracker: tick the quests you want in the journal and the HUD
-  lists them with their Korean objective, their conditions and a live progress bar — up to six, and only
-  the ticked ones advance.
+  lists them with their Korean objective, their conditions and a live progress bar — up to four (three
+  regular slots and one for the place you are in), and only the ticked ones advance. The game fills the
+  slots for you unless you switch "Pick quests automatically" off.
 - **A hint that teaches.** `H` restates the task in level-1 Korean and explains the blocking word,
   then starts a two-question sidequest on it. The original quest waits until you have answered both.
 - **A journal** (`K`) drawn as a worn notebook: your dictionary, due words, achievements, the trail

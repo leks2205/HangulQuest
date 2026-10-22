@@ -56,6 +56,21 @@ public final class ProgressData {
 		 * {@code null} means "an old save before this field existed": every saved trail is treated as tracked.
 		 */
 		public List<String> tracked;
+		/**
+		 * The tracked trails the game picked for the player; the rest of {@code tracked} the player chose.
+		 * Added without a version bump: a file without it means "the player chose every one", and a build that
+		 * does not know it keeps it. Only these may be replaced by the quest picker; a chosen trail never is.
+		 */
+		public List<String> auto;
+		/** The tracked trail that sits in the situational slot (it is in {@code auto} too); null when empty. */
+		public String situational;
+		/**
+		 * Trails the player took out of the log, by the {@link #playMs} at that moment. The picker leaves them out
+		 * for 30 minutes of play or until the next finished trail. Added without a version bump, like {@code auto}.
+		 */
+		public Map<String, Long> dismissed;
+		/** Milliseconds of play the quest picker has seen (clipped per tick, so a paused game does not count). */
+		public long playMs;
 	}
 
 	public static final class Active {
