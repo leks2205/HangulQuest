@@ -49,6 +49,20 @@ public final class StoryValidator {
 		if (new HashSet<>(story.words()).size() != story.words().size()) {
 			problems.add(where + ": a word is listed twice");
 		}
+		if (story.glossed().size() > Story.MAX_GLOSSED) {
+			problems.add(where + ": glossed lists " + story.glossed().size() + " words, at most " + Story.MAX_GLOSSED);
+		}
+		if (new HashSet<>(story.glossed()).size() != story.glossed().size()) {
+			problems.add(where + ": a glossed word is listed twice");
+		}
+		for (String id : story.glossed()) {
+			if (env.wordExists() != null && !env.wordExists().test(id)) {
+				problems.add(where + ": glossed names the unknown word " + id);
+			}
+			if (!story.words().contains(id)) {
+				problems.add(where + ": glossed word " + id + " is not in the words list");
+			}
+		}
 		if (env.keyExists() != null) {
 			if (!env.keyExists().test(story.titleKey())) {
 				problems.add(where + ": missing language key " + story.titleKey());

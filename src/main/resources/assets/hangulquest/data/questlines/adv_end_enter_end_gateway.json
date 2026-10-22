@@ -9,7 +9,7 @@
   "ender_pearl",
   "go",
   "adv_block_end_stone",
-  "gen_end_midlands"
+  "gen_end_gateway"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -75,16 +75,20 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_end_midlands"
+    "gen_end_gateway"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:end_midlands",
-    "dwellMs": 1000
+    "type": "ENTER_GATEWAY",
+    "block": "minecraft:end_gateway"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   ]
   },
-  "textKo": "엔드 중지로 갔어요. 엔드 관문은 멀리 있는 섬으로 이어져요."
+  "textKo": "엔드 관문에 들어갔어요. 엔드 관문은 멀리 있는 섬으로 이어져요."
  },
  "reward": {
   "badge": "adv_end_enter_end_gateway",
@@ -92,7 +96,7 @@
    "ender_pearl",
    "go",
    "adv_block_end_stone",
-   "gen_end_midlands"
+   "gen_end_gateway"
   ]
  },
  "koreanLevel": 6,

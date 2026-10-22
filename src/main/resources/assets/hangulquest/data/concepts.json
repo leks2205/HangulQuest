@@ -3895,6 +3895,7 @@
   "items": [
    "minecraft:end_crystal"
   ],
+  "entity": "minecraft:end_crystal",
   "sentenceKo": "엔드 수정을 봐요.",
   "descKo": "엔드 기둥 위에 있어요. 드래곤을 도와줘요.",
   "aliases": [
@@ -12756,6 +12757,16 @@
   "tier": 1,
   "items": [
    "minecraft:end_rod"
+  ],
+  "aliases": []
+ },
+ {
+  "id": "gen_end_gateway",
+  "ko": "엔드 관문",
+  "category": "BLOCKS",
+  "tier": 1,
+  "items": [
+   "minecraft:end_gateway"
   ],
   "aliases": []
  },

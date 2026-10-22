@@ -36,6 +36,11 @@ class StoryCoverageDumpTest {
 
 	@Test
 	void writesWhatEachStoryNeeds() throws IOException {
+		write();
+	}
+
+	/** Also what StoryOpenabilityTest runs before it asks tools/story_coverage.py. */
+	static void write() throws IOException {
 		Catalog catalog = KoreanFixtures.catalog();
 		StoryLexicon lexicon = StoryFixtures.lexicon();
 		StoryVocabulary nothingKnown = StoryVocabulary.of(catalog, lexicon, id -> false, Lang.EN);
@@ -66,6 +71,7 @@ class StoryCoverageDumpTest {
 			entry.addProperty("minWords", story.unlock().minWords());
 			entry.add("trails", PLAIN.toJsonTree(story.unlock().trails()));
 			entry.addProperty("total", total);
+			entry.add("glossed", PLAIN.toJsonTree(story.glossed()));
 			entry.add("needs", PLAIN.toJsonTree(needs));
 			entry.add("unresolved", PLAIN.toJsonTree(unresolved));
 			out.add(entry);

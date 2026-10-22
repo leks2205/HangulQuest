@@ -6,6 +6,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+- **Every Library story can open.** Stories may now gloss up to three everyday words (a graded reader): the words count
+  as known for the 98% rule, show their meaning next to them in the reader, and reading the story teaches them like a
+  quest step does. Fifteen stories that could never open now do (most with glossed words, four with a later unlock
+  trail, three with a small text change), and a test keeps all of them open on the canonical path.
+- **Three End trails check the real thing.** Placing four end crystals (끝 아녔어?), entering an end gateway
+  (머나먼 휴양지) and having the levitation effect at height 100 or more (위쪽 공기 좋은데?).
+
 ## [3.0.0] — unreleased (release candidate 3.0.0-rc.12)
 
 **New in rc.12: the content rebuild is complete.**

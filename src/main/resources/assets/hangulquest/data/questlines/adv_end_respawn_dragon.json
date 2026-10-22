@@ -67,13 +67,18 @@
     "adv_item_end_crystal"
    ],
    "goal": {
-    "type": "CRAFT",
-    "item": "minecraft:end_crystal",
+    "type": "PLACE_ENTITY",
+    "entity": "minecraft:end_crystal",
     "count": 4
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   ]
   },
-  "textKo": "엔드 수정을 네 개 만들었어요. 엔드 수정으로 드래곤을 다시 불러요."
+  "textKo": "엔드 수정을 네 개 놓았어요. 엔드 수정으로 드래곤을 다시 불러요."
  },
  "reward": {
   "badge": "adv_end_respawn_dragon",

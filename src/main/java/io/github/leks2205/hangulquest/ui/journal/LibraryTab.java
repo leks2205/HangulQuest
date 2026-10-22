@@ -66,7 +66,10 @@ public final class LibraryTab extends JournalTab {
 	}
 
 	/** A word of the reading page and where it sits, relative to the top of the text. */
-	private record Placed(StoryText.Token token, int x, int y, int width) {
+	private record Placed(StoryText.Token token, int x, int y, int width, String note) {
+		Placed(StoryText.Token token, int x, int y, int width) {
+			this(token, x, y, width, null);
+		}
 	}
 
 	private record Gloss(List<FormattedCharSequence> lines, int y) {
@@ -312,9 +315,19 @@ public final class LibraryTab extends JournalTab {
 				continue;
 			}
 			StoryText.Token token = placed.token();
+			if (placed.note() != null) {
+				Draw.label(g, font, placed.note(), textX + placed.x(), screenY, Ink.INK_FAINT);
+				continue;
+			}
+			boolean glossed = status.isGlossed(token);
 			int color = !token.word() || token.known() ? Ink.INK
 					: token.state() == DialogueCoverage.State.UNRESOLVED ? Ink.BAD : Ink.ACCENT;
 			Draw.korean(g, font, token.text(), textX + placed.x(), screenY, color);
+			if (glossed) {
+				// a glossed word is underlined all the time, its gloss stands behind it
+				g.fill(textX + placed.x(), screenY + font.lineHeight, textX + placed.x() + placed.width(),
+						screenY + font.lineHeight + 1, Ink.ACCENT);
+			}
 			boolean over = token.word() && inside(host.mouseX(), host.mouseY(), textX + placed.x(), screenY - 1, placed.width(),
 					font.lineHeight + 2);
 			if (over && host.mouseY() >= textY && host.mouseY() < textY + textHeight) {
@@ -383,6 +396,18 @@ public final class LibraryTab extends JournalTab {
 				}
 				words.add(new Placed(token, cursorX, cursorY, wordWidth));
 				cursorX += wordWidth + space;
+				if (status.isGlossed(token) && token.gloss() != null) {
+					// the gloss of a glossed word is always on the page, not only on hover
+					String note = "(" + token.gloss() + ")";
+					int noteWidth = font.width(note);
+					if (cursorX + noteWidth > width) {
+						cursorX = 0;
+						cursorY += lineStep;
+					}
+					words.add(new Placed(new StoryText.Token(note, false, token.state(), null, null, null), cursorX, cursorY,
+							noteWidth, note));
+					cursorX += noteWidth + space;
+				}
 			}
 			cursorY += lineStep;
 			if (showGloss) {

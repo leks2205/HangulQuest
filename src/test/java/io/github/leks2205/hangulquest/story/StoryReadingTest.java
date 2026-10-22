@@ -116,4 +116,50 @@ class StoryReadingTest {
 		assertEquals(0, broken.size(), "a damaged file starts empty");
 		assertEquals(2, StoryReading.open(learn, catalog, broken, story, T0, "2026-10-21"));
 	}
+
+	/** The calls a story makes on the learning side, by word id: "expose" or "questStep". */
+	private static java.util.Map<String, String> calls(java.util.function.Consumer<io.github.leks2205.hangulquest.learn.LearningSink> body,
+													  io.github.leks2205.hangulquest.learn.LearningSink real) {
+		java.util.Map<String, String> seen = new java.util.LinkedHashMap<>();
+		io.github.leks2205.hangulquest.learn.LearningSink spy = (io.github.leks2205.hangulquest.learn.LearningSink)
+				java.lang.reflect.Proxy.newProxyInstance(StoryReadingTest.class.getClassLoader(),
+						new Class<?>[] {io.github.leks2205.hangulquest.learn.LearningSink.class}, (proxy, method, args) -> {
+							if (method.getName().equals("expose") || method.getName().equals("questStep")) {
+								String id = ((io.github.leks2205.hangulquest.data.Word) args[0]).id;
+								seen.put(id, method.getName() + (method.getName().equals("questStep") ? ":assisted=" + args[2] : ""));
+							}
+							try {
+								return method.invoke(real, args);
+							} catch (java.lang.reflect.InvocationTargetException wrapped) {
+								throw wrapped.getCause();
+							}
+						});
+		body.accept(spy);
+		return seen;
+	}
+
+	@Test
+	void aGlossedWordIsTaughtTheWayAQuestStepTeachesAndNeverGradedAsRecall() {
+		Story glossed = new Story("house_first", "house", 1, "나의 첫 집", new Story.Unlock(List.of(), 0),
+				List.of("나무를 베어요."), List.of("concept:tree", "concept:stone"), List.of(), List.of("concept:stone"));
+		java.util.Map<String, String> seen = calls(spy -> StoryReading.open(spy, catalog, readLog, glossed, T0, "2026-10-21"), learn);
+
+		assertEquals("expose", seen.get("concept:tree"));
+		assertEquals("questStep:assisted=true", seen.get("concept:stone"), "the gloss was an aid, so it is not a recall");
+		WordProgress progress = learn.data().words.get("concept:stone");
+		assertNotNull(progress, "the glossed word is introduced");
+		assertEquals(1, progress.seen);
+		assertEquals(0, progress.level);
+		assertEquals(0, learn.totalReviews());
+		assertEquals(List.of("story||reading|house_first"), ExposureLedger.of(progress).contexts);
+	}
+
+	@Test
+	void readingTwiceTheSameDayDoesNotTeachTheGlossedWordAgain() {
+		Story glossed = new Story("house_first", "house", 1, "나의 첫 집", new Story.Unlock(List.of(), 0),
+				List.of("나무를 베어요."), List.of("concept:stone"), List.of(), List.of("concept:stone"));
+		StoryReading.open(learn, catalog, readLog, glossed, T0, "2026-10-21");
+		StoryReading.open(learn, catalog, readLog, glossed, T0, "2026-10-21");
+		assertEquals(1, learn.data().words.get("concept:stone").seen);
+	}
 }

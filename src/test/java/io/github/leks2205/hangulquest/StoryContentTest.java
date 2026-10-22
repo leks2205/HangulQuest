@@ -158,6 +158,38 @@ class StoryContentTest {
 	}
 
 	@Test
+	void glossedWordsReallyAppearInTheTextAndAreAtMostThree() {
+		StoryVocabulary everything = vocabulary(id -> true);
+		int glossedStories = 0;
+		for (Story story : stories) {
+			assertTrue(story.glossed().size() <= Story.MAX_GLOSSED, story.id());
+			Set<String> used = tokens(story, everything).stream().map(StoryText.Token::id).collect(Collectors.toSet());
+			for (String id : story.glossed()) {
+				assertTrue(used.contains(id), story.id() + ": glossed " + id + " is not in the text");
+			}
+			glossedStories += story.glossed().isEmpty() ? 0 : 1;
+		}
+		assertTrue(glossedStories > 0, "the stories that cannot open otherwise use the field");
+	}
+
+	@Test
+	void aGlossedWordOpensTheStoryForAPlayerWhoKnowsTheRest() {
+		for (Story story : stories) {
+			if (story.glossed().isEmpty()) {
+				continue;
+			}
+			Set<String> knows = new LinkedHashSet<>(story.words());
+			knows.removeAll(story.glossed());
+			StoryCoverage.Status status = StoryCoverage.status(story, vocabulary(knows::contains), trail -> true,
+					story.unlock().minWords());
+			assertTrue(status.open(), story.id() + " should open with its glossed words unknown: " + status.coverage());
+			assertTrue(status.newWords().isEmpty(), story.id());
+			long shown = status.paragraphs().stream().flatMap(List::stream).filter(status::isGlossed).count();
+			assertTrue(shown >= story.glossed().size(), story.id() + ": every glossed word shows in the reader");
+		}
+	}
+
+	@Test
 	void aStoryOpensWhenItsWordsAreKnownAndItsTrailsAreDone() {
 		for (Story story : stories) {
 			Set<String> words = new LinkedHashSet<>(story.words());

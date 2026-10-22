@@ -18,6 +18,10 @@ Words the lexicon file marks as known always count. Lists the words that hold a 
   python3 tools/story_coverage.py            the table
   python3 tools/story_coverage.py --words    also the missing words of every story below 98%
   python3 tools/story_coverage.py --check    exit 1 when a story stays below 98% for the taught learner even at the end
+  python3 tools/story_coverage.py --check-open   exit 1 when a story is below 98% or below its minWords at its unlock
+                                             point on the canonical path (the gate: every story can open)
+
+A story's glossed words (at most three, explained in the reader) count as known everywhere above.
 """
 from __future__ import annotations
 
@@ -92,9 +96,11 @@ def evaluate(lexicon: coverage.Lexicon, story: dict, trails: list[dict]) -> dict
         return word is not None and enc.get(word, 0) >= need
 
     needs, total = story["needs"], story["total"]
-    taught_share, _ = share(needs, total, is_taught)
-    met_share, _ = share(needs, total, is_met)
-    both_share, missing = share(needs, total, lambda w: is_taught(w) or is_met(w))
+    # a glossed word is explained in the reader and counts as known for the unlock rule
+    glossed = set(story.get("glossed", []))
+    taught_share, _ = share(needs, total, lambda w: w in glossed or is_taught(w))
+    met_share, _ = share(needs, total, lambda w: w in glossed or is_met(w))
+    both_share, missing = share(needs, total, lambda w: w in glossed or is_taught(w) or is_met(w))
     return {"taught": taught_share, "met": met_share, "both": both_share, "words": len(taught), "missing": missing}
 
 
@@ -118,7 +124,7 @@ def teaching_trails(lexicon: coverage.Lexicon, path: list[dict], stories: list[d
     return first
 
 
-def run(show_words: bool, check: bool, propose: bool = False) -> int:
+def run(show_words: bool, check: bool, propose: bool = False, check_open: bool = False) -> int:
     if not TOKENS.exists():
         sys.exit(f"{TOKENS} is missing. Write it first: ./gradlew test --tests '*StoryCoverageDumpTest'")
     stories = json.loads(TOKENS.read_text(encoding="utf-8"))
@@ -129,6 +135,7 @@ def run(show_words: bool, check: bool, propose: bool = False) -> int:
     print(f"{'story':16} {'lv':>2} {'unlock':>7} | {'path':>6} {'minimal':>7} {'end':>6} | at the unlock point: "
           f"{'taught':>6} {'met3':>6} | words/min")
     never: list[str] = []
+    closed: list[str] = []
     details: list[str] = []
     for story in stories:
         wanted = story["trails"]
@@ -136,6 +143,7 @@ def run(show_words: bool, check: bool, propose: bool = False) -> int:
         if absent:
             print(f"{story['id']:16} unlock trails missing: {absent}")
             never.append(story["id"])
+            closed.append(story["id"])
             continue
         point = max(index[t] for t in wanted)
         canon = evaluate(lexicon, story, path[:point + 1])
@@ -150,6 +158,8 @@ def run(show_words: bool, check: bool, propose: bool = False) -> int:
               f"{canon['words']}/{story['minWords']}{' LOW' if canon['words'] < story['minWords'] else ''}")
         if end["both"] < REQUIRED:
             never.append(story["id"])
+        if canon["both"] < REQUIRED or canon["words"] < story["minWords"]:
+            closed.append(story["id"])
         if canon["both"] < REQUIRED or minimal["both"] < REQUIRED:
             details.append(f"{story['id']}: unknown at the unlock point on the canonical path "
                            f"{[w.split(':', 1)[1] for w in canon['missing']]}; for the minimal player "
@@ -174,7 +184,9 @@ def run(show_words: bool, check: bool, propose: bool = False) -> int:
         print("\n".join(details))
     if never:
         print(f"\nnever reach {REQUIRED}% even after the whole graph: {never}")
-    return 1 if (check and never) else 0
+    if closed:
+        print(f"\nclosed at the unlock point on the canonical path: {closed}")
+    return 1 if ((check and never) or (check_open and closed)) else 0
 
 
 def main(argv: list[str]) -> int:
@@ -182,8 +194,10 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--words", action="store_true", help="list the missing words of stories below 98%%")
     parser.add_argument("--propose", action="store_true", help="for stories below 98%%, the trails that teach the words")
     parser.add_argument("--check", action="store_true", help="exit 1 when a story never reaches 98%% for the taught learner")
+    parser.add_argument("--check-open", action="store_true",
+                        help="exit 1 when a story is closed at its unlock point on the canonical path")
     args = parser.parse_args(argv)
-    return run(args.words, args.check, args.propose)
+    return run(args.words, args.check, args.propose, args.check_open)
 
 
 if __name__ == "__main__":

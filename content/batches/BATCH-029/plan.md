@@ -9,11 +9,11 @@ Brief: `content/briefs/BATCH-029.md` on top of `L456-PLAN.md`. Fifteen trails; i
 | adv_end_kill_dragon | bow then arrows, two endermen with a sword in hand, a bow hit on the dragon, the dragon defeated | yes (DEFEAT ender_dragon) |
 | adv_end_dragon_breath | glass bottles by day, a look at the dragon with a bottle in hand, a wait near the dragon, dragon's breath obtained | yes (ACQUIRE dragon_breath) |
 | adv_end_dragon_egg | a piston by day, a piston placed facing north, a look at the egg with a pickaxe, the egg obtained | yes (ACQUIRE dragon_egg) |
-| adv_end_enter_end_gateway | pearls at night, thirty blocks east with a pearl, end stone seen, the End Midlands reached | partly: no goal sees the gateway; the outer ring is the proxy |
+| adv_end_enter_end_gateway | pearls at night, thirty blocks east with a pearl, end stone seen, an end gateway entered in the End (ENTER_GATEWAY, seen as the throw from beside the gateway) | yes (the gateway throw) |
 | adv_end_find_end_city | the End Highlands with a pearl, purpur broken with a pickaxe in hand, an end rod seen, a purpur pillar seen | partly: no goal sees a structure; blocks that only an End city has are the proxy |
 | adv_end_elytra | a shulker with a shield in hand, a brewing stand in the highlands, rockets crafted with paper in hand, the elytra obtained | yes (ACQUIRE elytra) |
-| adv_end_levitate | a shulker seen with a shield, two shells, a purpur pillar, height 100 or more in the End | partly: the height is checked, the levitation effect is not |
-| adv_end_respawn_dragon | a ghast defeated with a bow, tears, eyes of ender, four end crystals crafted | no: placing crystals on the portal is not a goal; the trail ends at crafting them and says only that |
+| adv_end_levitate | a shulker seen with a shield, two shells, a purpur pillar, the levitation effect at height 100 or more in the End (HAVE_EFFECT with a height condition) | nearly: the effect and the height are checked, the 50 blocks of rise are not |
+| adv_end_respawn_dragon | a ghast defeated with a bow, tears, eyes of ender, four end crystals set down in the End (PLACE_ENTITY) | nearly: four crystals placed in the End are checked, not that they stand on the exit portal |
 | w11_01 to w11_05 | five small poems: stars (sea lanterns, end rods), a moonlit voyage, an hourglass, a star map, a galaxy altar | n/a |
 
 Constructions: -(으)면 on time and weather (15 clues), -는 동안 on HOLD_WHILE (5) and WAIT (1), -아/어도 on AVOID (1), -지 마세요 AVOID (2), -기 전에/-(으)ㄴ 후에 SEQUENCE (2), -아/어서 (via 녹여서, 1), WALK (3), FACING (several), HOLDING. No time or weather condition sits on a step that must be done in the End. No level-6 flavour needed -(으)ㄹ수록 other than in the levitate finale.

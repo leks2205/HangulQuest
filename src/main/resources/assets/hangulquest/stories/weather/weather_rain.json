@@ -4,7 +4,7 @@
 	"chapter": "weather",
 	"level": 2,
 	"titleKo": "비 오는 날",
-	"unlock": {"trails": ["wetterpfad"], "minWords": 12},
+	"unlock": {"trails": ["wetterpfad", "inselpfad"], "minWords": 12},
 	"paragraphs": [
 		"오늘은 비가 와요. 하늘이 어두워요.",
 		"저는 낚싯대를 들고 강으로 가요. 강 옆에 앉아요.",
@@ -16,6 +16,7 @@
 		"concept:rain", "concept:sky", "concept:fishing_rod", "concept:river", "concept:go", "concept:fish",
 		"concept:catch", "concept:small", "concept:big", "concept:house", "concept:bake"
 	],
+	"glossed": ["concept:catch", "concept:small", "concept:big"],
 	"grammar": [
 		"L1.eoyo", "L1.loc_an_e", "L1.loc_bak_e", "L1.loc_yeop_e", "L1.obj_eul",
 		"L1.subj_i", "L2.eseo_activity", "L2.eun_neun_topic", "L2.go_sequence"

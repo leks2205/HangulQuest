@@ -4,22 +4,23 @@
 	"chapter": "house",
 	"level": 1,
 	"titleKo": "나의 첫 집",
-	"unlock": {"trails": ["holzpfad"], "minWords": 8},
+	"unlock": {"trails": ["holzpfad", "feuerpfad", "haustierpfad", "hoehlenlicht", "waldlicht"], "minWords": 8},
 	"paragraphs": [
-		"아침이에요. 숲에 있어요. 오늘 집을 지어요.",
+		"아침이에요. 밖에 있어요. 오늘 집을 지어요.",
 		"먼저 나무를 베어요. 통나무가 많아요. 판자를 만들어요.",
-		"숲 옆에 돌이 있어요. 그리고 돌을 캐요.",
+		"나무 옆에 돌이 있어요. 그리고 돌을 캐요.",
 		"이제 집을 지어요. 집에 문을 달아요. 유리도 놓아요.",
 		"집 안에 침대를 놓아요. 상자도 놓아요. 마지막에 횃불을 놓아요.",
 		"집이 따뜻해요. 침대에 누워요. 이제 자요. 정말 좋아요!"
 	],
 	"words": [
-		"concept:forest", "concept:house", "concept:build", "concept:tree", "concept:chop", "concept:log",
-		"concept:make", "concept:planks", "concept:stone", "concept:mine", "concept:door", "concept:place",
-		"concept:glass", "concept:bed", "concept:chest", "concept:torch", "concept:sleep"
+		"concept:house", "concept:build", "concept:tree", "concept:chop", "concept:log", "concept:make",
+		"concept:planks", "concept:stone", "concept:mine", "concept:door", "concept:place", "concept:glass",
+		"concept:bed", "concept:chest", "concept:torch", "concept:sleep"
 	],
+	"glossed": ["concept:build", "concept:chop", "concept:sleep"],
 	"grammar": [
 		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L1.e_place", "L1.itda_eopda", "L1.copula_ieyo",
-		"L1.loc_yeop_e", "L1.loc_an_e"
+		"L1.loc_yeop_e", "L1.loc_an_e", "L1.loc_bak_e"
 	]
 }

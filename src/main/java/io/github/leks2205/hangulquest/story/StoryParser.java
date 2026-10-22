@@ -79,7 +79,7 @@ public final class StoryParser {
 		Story.Unlock unlock = new Story.Unlock(JsonFields.strings(unlockJson, "trails"),
 				Math.max(0, JsonFields.integer(unlockJson, "minWords", 0)));
 		Story story = new Story(id, chapter, level, titleKo, unlock, paragraphs, strings(root, "words"),
-				strings(root, "grammar"));
+				strings(root, "grammar"), strings(root, "glossed"));
 		return new Parsed(story, problems);
 	}
 
