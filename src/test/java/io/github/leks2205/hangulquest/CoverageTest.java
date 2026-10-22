@@ -290,6 +290,35 @@ class CoverageTest {
 	}
 
 	@Test
+	void theLongestVerbStemWinsWhenAShorterOneIsItsPrefix() throws IOException {
+		requirePython();
+		Path lexicon = scratch.resolve("prefixes.json");
+		// the short verbs come first, as a lexicon that lists 쓰다 before 쓰다듬다 would
+		Files.writeString(lexicon, """
+				[{"id":"use","ko":"쓰다","verb":true},{"id":"hold","ko":"들다","verb":true},
+				 {"id":"lower","ko":"내리다","verb":true},{"id":"pet","ko":"쓰다듬다","verb":true},
+				 {"id":"enter","ko":"들어가다","verb":true},{"id":"descend","ko":"내려가다","verb":true}]""",
+				StandardCharsets.UTF_8);
+		for (String[] row : new String[][] {{"쓰다듬으세요", "쓰다듬다"}, {"쓰다듬어요", "쓰다듬다"}, {"쓰세요", "쓰다"},
+				{"들어가요", "들어가다"}, {"들어가세요", "들어가다"}, {"들어요", "들다"}, {"드세요", "들다"},
+				{"내려가요", "내려가다"}, {"내려가세요", "내려가다"}, {"내려요", "내리다"}}) {
+			QuestScaffoldTest.Run run = QuestScaffoldTest.python("tools/coverage.py", "--lexicon", lexicon.toString(),
+					"--tokens", row[0]);
+			assertEquals(0, run.exit(), run.output());
+			assertEquals(row[1], run.output().strip().replace("\n", " "), row[0]);
+		}
+	}
+
+	@Test
+	void petIsAWordOfTheShippedLexiconSoPettingIsNotReadAsWriting() throws IOException {
+		requirePython();
+		QuestScaffoldTest.Run run = QuestScaffoldTest.python("tools/coverage.py", "--tokens", "늑대를 쓰다듬으세요");
+		assertEquals(0, run.exit(), run.output());
+		assertTrue(run.output().contains("쓰다듬다") && !run.output().contains("쓰다\n") && !run.output().matches("(?s).*\\b쓰다\\s*$"),
+				run.output());
+	}
+
+	@Test
 	void theCheckPassesWhenNothingIsWorse() throws IOException {
 		requirePython();
 		List<ContentFacts.Trail> trails = List.of(trail("a", 1, "돌과 횃불을 놓아요.", "돌을 놓아요."));

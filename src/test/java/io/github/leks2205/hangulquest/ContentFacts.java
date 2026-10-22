@@ -59,7 +59,16 @@ final class ContentFacts {
 
 	record Step(String id, String goalType, String signature, String shape, String verb, String object,
 				String relation, List<String> conditions, List<String> mechanics, boolean bare,
-				boolean formDependent, List<String> grammar, List<String> teach, List<Target> targets, String clueKo, String hintKo) {
+				boolean formDependent, List<String> grammar, List<String> teach, List<Target> targets, String clueKo, String hintKo,
+				List<String> pairs) {
+		/** A step of one action: its (verb, object) pair is the step's own. */
+		Step(String id, String goalType, String signature, String shape, String verb, String object,
+			 String relation, List<String> conditions, List<String> mechanics, boolean bare,
+			 boolean formDependent, List<String> grammar, List<String> teach, List<Target> targets, String clueKo,
+			 String hintKo) {
+			this(id, goalType, signature, shape, verb, object, relation, conditions, mechanics, bare, formDependent,
+					grammar, teach, targets, clueKo, hintKo, object == null ? List.of() : List.of(verb + " " + object));
+		}
 	}
 
 	/** {@code grammar} is the trail-level list its file declares ("grammar": [...]); empty when it has none. */
@@ -146,7 +155,24 @@ final class ContentFacts {
 		return new Step(step.id(), type.id(), signature, shape, SentenceBuilder.verbFor(goal).name(),
 				type.object(goal), relation == null ? "" : relation, List.copyOf(conditions),
 				List.copyOf(mechanics), bare, formDependent, List.copyOf(grammar), List.copyOf(step.teach()),
-				List.copyOf(targets), clueKo, hintKo);
+				List.copyOf(targets), clueKo, hintKo, pairs(goal));
+	}
+
+	/**
+	 * The (verb, object) pairs a step asks for: its own, or, for a sequence, those of its parts (which the pair limit
+	 * used to miss: "apple, then ride" is a GIVE apple and a RIDE horse like any other).
+	 */
+	static List<String> pairs(Goal goal) {
+		List<String> pairs = new ArrayList<>();
+		if (goal instanceof Goal.Sequence sequence) {
+			sequence.parts().forEach(part -> pairs.addAll(pairs(part)));
+		} else {
+			String object = GoalTypes.of(goal).object(goal);
+			if (object != null) {
+				pairs.add(SentenceBuilder.verbFor(goal).name() + " " + object);
+			}
+		}
+		return pairs;
 	}
 
 	private static String conditionSuffix(List<String> keys) {
@@ -314,6 +340,7 @@ final class ContentFacts {
 			}
 			case Goal.Swim g -> {
 			}
+			case Goal.Fall g -> add(into, "landing", g.landing());
 		}
 	}
 
@@ -375,6 +402,7 @@ final class ContentFacts {
 					targets.add(o);
 				}
 				s.add("targets", targets);
+				s.add("pairs", strings(step.pairs()));
 				s.addProperty("clueKo", step.clueKo());
 				s.addProperty("hintKo", step.hintKo());
 				steps.add(s);
@@ -404,7 +432,8 @@ final class ContentFacts {
 						s.get("relation").getAsString(), list(s, "conditions"), list(s, "mechanics"),
 						s.get("bare").getAsBoolean(), s.has("formDependent") && s.get("formDependent").getAsBoolean(),
 						list(s, "grammar"), list(s, "teach"), targets,
-						s.get("clueKo").getAsString(), s.get("hintKo").getAsString()));
+						s.get("clueKo").getAsString(), s.get("hintKo").getAsString(),
+						s.has("pairs") ? list(s, "pairs") : List.of()));
 			}
 			trails.add(new Trail(t.get("id").getAsString(), t.get("level").getAsInt(), t.get("order").getAsInt(),
 					t.get("demo").getAsBoolean(), list(t, "requires"), t.get("titleKo").getAsString(),

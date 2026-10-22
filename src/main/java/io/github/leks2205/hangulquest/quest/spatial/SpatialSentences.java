@@ -178,6 +178,20 @@ public final class SpatialSentences {
 	 * The name of a block or a tag, or null. A tag is said with the taught word when that names it, else
 	 * with its everyday word (꽃, 통나무: {@link BlockSpec#tagWord}), so clue and finale agree.
 	 */
+	/**
+	 * The name of the material a structure is made of: the word of the kind that covers it whenever the registry name
+	 * ends in that word (울타리 for the spruce fence, 판자 for spruce planks), else the name itself. The kind adds no word
+	 * the name did not have, and the wood is not the point of a fence ring or a plank wall.
+	 */
+	public static String materialName(String spec, SentenceBuilder.Namer namer) {
+		String name = blockName(spec, namer);
+		String plain = BlockSpec.representative(spec);
+		String kind = plain == null || name == null ? null : namer.kindWord(plain);
+		// a colour is part of what the material is (빨간색 양탄자), the wood or the tier in front is not (가문비나무 울타리)
+		return kind != null && name.endsWith(" " + kind) && !name.substring(0, name.length() - kind.length()).contains("색")
+				? kind : name;
+	}
+
 	public static String blockName(String spec, SentenceBuilder.Namer namer) {
 		if (spec == null) {
 			return null;
@@ -283,7 +297,7 @@ public final class SpatialSentences {
 		}
 		// Both names stay whole: a stone-brick pillar with stone-brick stairs is "석재 벽돌 기둥 앞에 석재 벽돌 계단을",
 		// not "기둥 앞에 계단을", which hides the material that the sentence is about.
-		String head = SentenceBuilder.relationPhrase(patternNoun(goal.pattern(), material, goal.material()),
+		String head = SentenceBuilder.relationPhrase(patternNoun(goal.pattern(), goal.size(), material, goal.material()),
 				goal.relation(), Role.TARGET) + " " + SentenceBuilder.objectPhrase(obj, verb);
 		return finish(head, verb, level, finale, past, grammar);
 	}
@@ -320,9 +334,14 @@ public final class SpatialSentences {
 	}
 
 	public static String patternNoun(Pattern pattern, String material, String materialId) {
+		return patternNoun(pattern, pattern.defaultSize(), material, materialId);
+	}
+
+	/** Same for a structure of a given size: a row of four is "자갈 네 개", the count of the blocks that were built. */
+	public static String patternNoun(Pattern pattern, int size, String material, String materialId) {
 		String stuff = material == null || material.isBlank() ? "" : material + " ";
 		if (pattern == Pattern.ROW) {
-			return stuff + SentenceBuilder.counter(pattern.defaultSize(), counter(materialId, material));
+			return stuff + SentenceBuilder.counter(size, counter(materialId, material));
 		}
 		if (pattern == Pattern.RING && materialId != null && Pattern.ringOfFences(materialId)) {
 			return stuff.isBlank() ? "울타리" : stuff.strip(); // a ring of fences is the fence, not a "fence fence"

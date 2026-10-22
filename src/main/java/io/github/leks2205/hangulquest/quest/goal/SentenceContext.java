@@ -154,6 +154,22 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		return new SentenceContext(partObj, partVerb, withCounts, partLevel, finale, word, namer);
 	}
 
+	/**
+	 * Whether the word is a descriptor (a colour) that goes in front of the name of this id: it is listed among the
+	 * ids the word covers. A colour is no name for the dye or the wool, it describes it.
+	 */
+	public static boolean describes(Word word, String id) {
+		return word != null && id != null && "DESCRIPTOR".equals(word.grammar) && word.covers.contains(id);
+	}
+
+	/** The name with the descriptor in front: 염료 becomes 빨간색 염료; a name that already says it is left alone. */
+	private static String described(Word word, String id, String name) {
+		if (name == null || name.isBlank() || !describes(word, id) || name.contains(word.ko)) {
+			return name;
+		}
+		return word.ko + " " + name;
+	}
+
 	/** A namer that says the taught word for the ids it names and defers to {@code base} for the rest. */
 	public static SentenceBuilder.Namer taught(Word word, SentenceBuilder.Namer base) {
 		if (word == null || word.ko == null || word.ko.isBlank()) {
@@ -172,17 +188,24 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 			@Override
 			public String block(String id) {
-				return wordNames(word, ObjectKind.BLOCK, id, base) ? Tiers.qualify(id, word.ko) : base.block(id);
+				return wordNames(word, ObjectKind.BLOCK, id, base) ? Tiers.qualify(id, word.ko)
+						: described(word, id, base.block(id));
 			}
 
 			@Override
 			public String item(String id) {
-				return wordNames(word, ObjectKind.ITEM, id, base) ? Tiers.qualify(id, word.ko) : base.item(id);
+				return wordNames(word, ObjectKind.ITEM, id, base) ? Tiers.qualify(id, word.ko)
+						: described(word, id, base.item(id));
 			}
 
 			@Override
 			public String owner(String id) {
 				return base.owner(id);
+			}
+
+			@Override
+			public String kindWord(String id) {
+				return base.kindWord(id);
 			}
 
 			@Override

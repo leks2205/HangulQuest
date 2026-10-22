@@ -179,7 +179,9 @@ public final class BlockSpec {
 	private static final java.util.Set<String> ENTITY_ANCHORS = java.util.Set.of("minecraft:villager",
 			"minecraft:wandering_trader", "minecraft:iron_golem", "minecraft:snow_golem", "minecraft:cow",
 			"minecraft:pig", "minecraft:sheep", "minecraft:chicken", "minecraft:horse", "minecraft:donkey",
-			"minecraft:llama", "minecraft:cat", "minecraft:wolf", "minecraft:fox", "minecraft:armor_stand");
+			"minecraft:llama", "minecraft:cat", "minecraft:wolf", "minecraft:fox", "minecraft:armor_stand",
+			"minecraft:rabbit", "minecraft:frog", "minecraft:goat", "minecraft:turtle", "minecraft:bee",
+			"minecraft:mule", "minecraft:parrot", "minecraft:axolotl");
 
 	/** True for the id of a creature a placement is measured against; every other spec is a block, family or tag. */
 	public static boolean isEntityAnchor(String spec) {

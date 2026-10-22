@@ -15,6 +15,11 @@ import java.util.Locale;
 /** Clear sky, rain or thunder. */
 final class WeatherType implements ConditionType<Condition.WeatherState> {
 	@Override
+	public int rank() {
+		return 1;
+	}
+
+	@Override
 	public String id() {
 		return "WEATHER";
 	}

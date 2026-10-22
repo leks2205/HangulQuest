@@ -27,6 +27,11 @@ public record QuestFile(String name, String digest, Questline trail, boolean ove
 		String digest = digest(bytes);
 		try {
 			JsonObject root = JsonParser.parseString(new String(bytes, StandardCharsets.UTF_8)).getAsJsonObject();
+			// a misspelt or missing field in a goal or condition makes the file unreadable, with the trail and step named
+			java.util.List<String> fieldProblems = StrictFields.problems(root);
+			if (!fieldProblems.isEmpty()) {
+				return new QuestFile(name, digest, null, false, false, false, String.join("; ", fieldProblems));
+			}
 			Questline trail = QuestLoader.parse(root);
 			if (trail == null) {
 				return new QuestFile(name, digest, null, false, false, false, "no id");

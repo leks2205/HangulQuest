@@ -59,8 +59,8 @@ final class VarietyMetrics {
 		// (verb, object) pairs.
 		Map<String, Integer> pairs = new HashMap<>();
 		for (ContentFacts.Step step : steps) {
-			if (step.object() != null) {
-				pairs.merge(step.verb() + " " + step.object(), 1, Integer::sum);
+			for (String pair : step.pairs()) { // a sequence counts the pairs of its parts
+				pairs.merge(pair, 1, Integer::sum);
 			}
 		}
 		int max = pairs.values().stream().mapToInt(Integer::intValue).max().orElse(0);

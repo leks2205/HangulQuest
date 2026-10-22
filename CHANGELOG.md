@@ -18,6 +18,16 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
+  onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
+  the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is
+  put on a creature (늑대에게 갑옷을 입히세요) and dye colours a sheep (파란색 염료로 양을 염색하세요). A name that ends in its
+  own counter is counted with 개 (꿀이 든 병을 네 개), a row has the size that was built, conditions are spoken in a fixed
+  order (time, weather, place, what is held), seconds of a look are spoken as 삼 초, a sequence says a shared object once
+  and teaches its word in every part, a colour stands in front of the dye or the wool, and the material of a fence ring
+  or a plank pillar is the kind word (울타리, 판자). Goals and conditions refuse unknown or missing fields. Rabbits,
+  frogs, goats, turtles, bees, mules, parrots and axolotls can anchor a placement.
+
 - **Generator wave 8** (what the harbour and village batches found). Writing on a sign is a goal (`USE_BLOCK`, `WRITE`: the
   edit screen closed with text), a ringing bell can be heard (`HEAR` on `minecraft:bell`), a trade has a direction (the
   particle 에게서 / 에게 decides it, the wrong way round is a slip), `NEAR_ENTITY` can count people and animals (주민 두 명,

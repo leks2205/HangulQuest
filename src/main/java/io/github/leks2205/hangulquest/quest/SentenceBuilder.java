@@ -73,6 +73,14 @@ public final class SentenceBuilder {
 			return null;
 		}
 
+		/**
+		 * The hand-made word for the kind this block or item belongs to (울타리 for the spruce fence, whose own name is
+		 * 가문비나무 울타리), or null. A structure made of a material says the kind when the kind covers it.
+		 */
+		default String kindWord(String id) {
+			return null;
+		}
+
 		/** The namer without the words the step teaches: what the registry calls things (꽃 stands for the poppy). */
 		default Namer untaught() {
 			return this;
@@ -145,6 +153,15 @@ public final class SentenceBuilder {
 
 	public static long seconds(long dwellMs) {
 		return Math.max(1L, (dwellMs + 999L) / 1000L);
+	}
+
+	/**
+	 * How long a look lasts, as the clue says it: "삼 초 동안". The seconds are a Sino-Korean numeral with the unit,
+	 * the same as a wait ("십 초 동안"); the live countdown in the status line stays in digits.
+	 */
+	public static String secondsPhrase(long dwellMs) {
+		long seconds = seconds(dwellMs);
+		return (seconds > 999 ? seconds + "초" : KoGrammar.sino((int) seconds) + " 초") + " 동안";
 	}
 
 	private static int clampLevel(int level) {
@@ -318,6 +335,11 @@ public final class SentenceBuilder {
 			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY
 					|| kind == ObjectKind.BIOME;
 			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id, namer)) {
+				if (typed && SentenceContext.describes(word, id)) {
+					// a colour never stands for the thing: 빨간색 염료, not 빨간색
+					String named = type.objectName(goal, SentenceContext.taught(word, namer));
+					return named == null || named.isBlank() ? word.ko : named;
+				}
 				return Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);
@@ -458,10 +480,19 @@ public final class SentenceBuilder {
 		return head;
 	}
 
+	/** The conditions in the order they are spoken: time, weather, place, what is held (see {@link ConditionType#rank}). */
+	static List<Condition> spokenOrder(List<Condition> conditions) {
+		if (conditions == null || conditions.size() < 2) {
+			return conditions;
+		}
+		return conditions.stream().sorted(java.util.Comparator.comparingInt(c -> ConditionTypes.of(c).rank())).toList();
+	}
+
 	private static Front prefix(Goal goal, List<Condition> conditions, Word word, Namer namer, int level) {
 		if (conditions == null || conditions.isEmpty()) {
 			return Front.NONE;
 		}
+		conditions = spokenOrder(conditions);
 		GoalType<Goal> type = GoalTypes.of(goal);
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		List<String> phrases = new java.util.ArrayList<>();
@@ -498,7 +529,7 @@ public final class SentenceBuilder {
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 			GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-			for (Condition condition : conditions) {
+			for (Condition condition : spokenOrder(conditions)) {
 				if (type != null && type.says(goal, condition)) {
 					continue;
 				}
@@ -529,7 +560,7 @@ public final class SentenceBuilder {
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-		for (Condition condition : conditions) {
+		for (Condition condition : spokenOrder(conditions)) {
 			if (type != null && type.says(goal, condition)) {
 				continue;
 			}

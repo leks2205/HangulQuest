@@ -1,7 +1,7 @@
 id	ko	context
 trail.farbenpfad.title	색의 길	title, authored; project: Dye a sheep blue, craft blue wool, build a pillar of it, plant a flower beside it, top the pillar with a red candle; the finale contrasts the two colours.
-trail.farbenpfad.s1.clue	양에게 파란색 염료를 주세요.	clue, generated; Give minecraft:blue_dye x1
-trail.farbenpfad.s1.hint	양에게 파란색 염료를 줘요.	hint, generated; Give minecraft:blue_dye x1
+trail.farbenpfad.s1.clue	파란색 염료로 양을 염색하세요.	clue, generated; Give minecraft:blue_dye x1
+trail.farbenpfad.s1.hint	파란색 염료로 양을 염색해요.	hint, generated; Give minecraft:blue_dye x1
 trail.farbenpfad.s2.clue	파란색 양털을 만드세요.	clue, generated; Craft minecraft:blue_wool x1
 trail.farbenpfad.s2.hint	파란색 양털을 만들어요.	hint, generated; Craft minecraft:blue_wool x1
 trail.farbenpfad.s3.clue	파란색 양털 세 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:blue_wool PILLAR 3
@@ -84,8 +84,8 @@ trail.schatzkammer.s3.clue	두 횃불 사이에 금 블록을 놓으세요.	clue
 trail.schatzkammer.s3.hint	두 횃불 사이에 금 블록을 놓아요.	hint, generated; PlaceRel minecraft:gold_block BETWEEN minecraft:torch
 trail.schatzkammer.s4.clue	금 블록 옆에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:jungle_sign NEXT_TO minecraft:gold_block
 trail.schatzkammer.s4.hint	금 블록 옆에 표지판을 세워요.	hint, generated; PlaceRel minecraft:jungle_sign NEXT_TO minecraft:gold_block
-trail.schatzkammer.finale.clue	금 블록을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:gold_block 
-trail.schatzkammer.finale.hint	금 블록을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:gold_block 
+trail.schatzkammer.finale.clue	금 블록을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:gold_block 
+trail.schatzkammer.finale.hint	금 블록을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:gold_block 
 trail.schatzkammer.finale	금 블록을 바라봤어요.	finale, generated; LookAtBlock minecraft:gold_block 
 trail.gartenkunst.title	정원 예술의 길	title, authored; project: Flower beds: a dirt cross with a pink tulip, a dirt pyramid with an orange tulip, and a gravel path between the flowers and the fence.
 trail.gartenkunst.s1.clue	흙으로 십자 모양을 만드세요.	clue, generated; BuildPattern minecraft:dirt CROSS 3
@@ -106,8 +106,8 @@ trail.faerberei.s2.clue	화로 옆에 가마솥을 놓으세요.	clue, generated
 trail.faerberei.s2.hint	화로 옆에 가마솥을 놓아요.	hint, generated; PlaceRel minecraft:cauldron NEXT_TO minecraft:furnace
 trail.faerberei.s3.clue	주황색 양털을 만드세요.	clue, generated; Craft minecraft:orange_wool x1
 trail.faerberei.s3.hint	주황색 양털을 만들어요.	hint, generated; Craft minecraft:orange_wool x1
-trail.faerberei.s4.clue	양에게 주황색 염료를 주세요.	clue, generated; Give minecraft:orange_dye x1
-trail.faerberei.s4.hint	양에게 주황색 염료를 줘요.	hint, generated; Give minecraft:orange_dye x1
+trail.faerberei.s4.clue	주황색 염료로 양을 염색하세요.	clue, generated; Give minecraft:orange_dye x1
+trail.faerberei.s4.hint	주황색 염료로 양을 염색해요.	hint, generated; Give minecraft:orange_dye x1
 trail.faerberei.finale.clue	울타리 위에 주황색 양털을 놓으세요.	clue, generated; PlaceRel minecraft:orange_wool ON_TOP_OF #minecraft:fences
 trail.faerberei.finale.hint	울타리 위에 주황색 양털을 놓아요.	hint, generated; PlaceRel minecraft:orange_wool ON_TOP_OF #minecraft:fences
 trail.faerberei.finale	울타리 위에 주황색 양털을 놓았어요.	finale, generated; PlaceRel minecraft:orange_wool ON_TOP_OF #minecraft:fences
@@ -142,8 +142,8 @@ trail.adv_adventure_read_power_of_chiseled_bookshelf.s2.clue	책을 여섯 권 �
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s2.hint	책을 만들어요.	hint, generated; AcquireItem minecraft:book x6
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s3.clue	상자 옆에 조각된 책장을 놓으세요.	clue, generated; PlaceRel minecraft:chiseled_bookshelf NEXT_TO minecraft:chest
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s3.hint	상자 옆에 조각된 책장을 놓아요.	hint, generated; PlaceRel minecraft:chiseled_bookshelf NEXT_TO minecraft:chest
-trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.clue	조각된 책장을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:chiseled_bookshelf 
-trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.hint	조각된 책장을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:chiseled_bookshelf 
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.clue	조각된 책장을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:chiseled_bookshelf 
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.hint	조각된 책장을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:chiseled_bookshelf 
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s5.clue	조각된 책장 안에 책을 여섯 권 넣으세요.	clue, generated; PutIn minecraft:book x6
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s5.hint	조각된 책장 안에 책을 넣어요.	hint, generated; PutIn minecraft:book x6
 trail.adv_adventure_read_power_of_chiseled_bookshelf.finale.clue	조각된 책장 위에 독서대를 놓으세요.	clue, generated; PlaceRel minecraft:lectern ON_TOP_OF minecraft:chiseled_bookshelf
@@ -160,8 +160,8 @@ trail.adv_husbandry_obtain_netherite_hoe.finale.clue	울타리 안에 조각된 
 trail.adv_husbandry_obtain_netherite_hoe.finale.hint	울타리 안에 조각된 호박을 놓아요.	hint, generated; PlaceOnPattern minecraft:carved_pumpkin INSIDE RING minecraft:dark_oak_fence
 trail.adv_husbandry_obtain_netherite_hoe.finale	울타리 안에 조각된 호박을 놓았어요.	finale, generated; PlaceOnPattern minecraft:carved_pumpkin INSIDE RING minecraft:dark_oak_fence
 trail.adv_story_lava_bucket.title	화끈한 화제	title, authored; project: Look at lava, put dirt beside it as a barrier, fill a bucket with lava and climb up with it, then fuel a furnace with it.
-trail.adv_story_lava_bucket.s1.clue	용암을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:lava 
-trail.adv_story_lava_bucket.s1.hint	용암을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:lava 
+trail.adv_story_lava_bucket.s1.clue	용암을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:lava 
+trail.adv_story_lava_bucket.s1.hint	용암을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:lava 
 trail.adv_story_lava_bucket.s2.clue	용암 옆에 흙을 놓으세요.	clue, generated; PlaceRel minecraft:dirt NEXT_TO minecraft:lava
 trail.adv_story_lava_bucket.s2.hint	용암 옆에 흙을 놓아요.	hint, generated; PlaceRel minecraft:dirt NEXT_TO minecraft:lava
 trail.adv_story_lava_bucket.s3.clue	용암 양동이를 구하고 높이 70블록 위로 올라가세요.	clue, generated; Sequence [AcquireItem minecraft:lava_bucket x1 > ReachHeight 70..200]
@@ -178,6 +178,6 @@ trail.gartenpfad.s3.clue	퇴비통을 채우세요.	clue, generated; UseBlock mi
 trail.gartenpfad.s3.hint	퇴비통을 채워요.	hint, generated; UseBlock minecraft:composter 
 trail.gartenpfad.s4.clue	두 꽃 사이에 벌통을 놓으세요.	clue, generated; PlaceRel minecraft:beehive BETWEEN #minecraft:flowers
 trail.gartenpfad.s4.hint	두 꽃 사이에 벌통을 놓아요.	hint, generated; PlaceRel minecraft:beehive BETWEEN #minecraft:flowers
-trail.gartenpfad.finale.clue	민들레 근처에서 꿀벌을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:bee 
-trail.gartenpfad.finale.hint	민들레 근처에서 꿀벌을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:bee 
+trail.gartenpfad.finale.clue	민들레 근처에서 꿀벌을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:bee 
+trail.gartenpfad.finale.hint	민들레 근처에서 꿀벌을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:bee 
 trail.gartenpfad.finale	민들레 근처에서 꿀벌을 바라봤어요.	finale, generated; LookAtEntity minecraft:bee 

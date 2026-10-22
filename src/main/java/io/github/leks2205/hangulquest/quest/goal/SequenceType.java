@@ -339,7 +339,37 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 			text.append(clause).append(' ');
 		}
 		Goal main = parts.get(finite);
-		text.append(past ? Clauses.ceremony(main, c) : Clauses.sentence(main, c, c.level()));
-		return text.toString();
+		String last = past ? Clauses.ceremony(main, c) : Clauses.sentence(main, c, c.level());
+		if (parts.size() == 2) {
+			last = withoutRepeatedObject(parts.get(1 - finite), main, text.toString(), last);
+		}
+		return text + last;
+	}
+
+	/**
+	 * Two parts on the same thing say it once: "가죽 장화를 만들고 신으세요", not "가죽 장화를 만들고 가죽 장화를 신으세요".
+	 * Only when both parts point at the same id, both are the bare "object + verb" (no count, no second noun: "상자를
+	 * 만들고 넣으세요" would not say what goes in), and the second sentence opens with the very phrase the first one does.
+	 */
+	private static String withoutRepeatedObject(Goal clausePart, Goal main, String clause, String last) {
+		String object = GoalTypes.of(main).object(main);
+		if (object == null || !object.equals(GoalTypes.of(clausePart).object(clausePart))) {
+			return last;
+		}
+		String objectPhrase = openingObject(clause);
+		if (objectPhrase == null || !last.startsWith(objectPhrase)) {
+			return last;
+		}
+		String clauseRest = clause.substring(objectPhrase.length()).strip();
+		String lastRest = last.substring(objectPhrase.length());
+		// what is left of each sentence is the verb alone: a count or a second noun stays in the sentence
+		return clauseRest.isEmpty() || clauseRest.contains(" ") || lastRest.isBlank() || lastRest.contains(" ") ? last
+				: lastRest;
+	}
+
+	/** The words up to the first object marker 을/를 ("가죽 장화를 "), or null when the text does not open with one. */
+	private static String openingObject(String text) {
+		java.util.regex.Matcher marker = java.util.regex.Pattern.compile("^([^ ]+ )*?[^ ]*[을를] ").matcher(text);
+		return marker.find() ? marker.group() : null;
 	}
 }

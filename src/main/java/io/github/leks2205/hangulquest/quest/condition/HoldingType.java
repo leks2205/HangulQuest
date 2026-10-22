@@ -17,6 +17,11 @@ import java.util.List;
 /** An item is in a hand: "횃불을 들고 빵을 먹어요". */
 final class HoldingType implements ConditionType<Condition.Holding> {
 	@Override
+	public int rank() {
+		return 3;
+	}
+
+	@Override
 	public String id() {
 		return "HOLDING";
 	}

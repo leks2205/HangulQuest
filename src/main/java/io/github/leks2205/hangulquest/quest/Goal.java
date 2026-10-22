@@ -66,8 +66,18 @@ public sealed interface Goal {
 	record BuildPattern(Pattern pattern, String material, int size) implements Goal {
 	}
 
-	/** Place a block {@code relation} to a structure the player built from {@code material}. */
-	record PlaceOnPattern(String block, Relation relation, Pattern pattern, String material) implements Goal {
+	/**
+	 * Place a block {@code relation} to a structure the player built from {@code material}. {@code size} is the
+	 * size of that structure (a row of four); 0 means the size of its kind.
+	 */
+	record PlaceOnPattern(String block, Relation relation, Pattern pattern, String material, int size) implements Goal {
+		public PlaceOnPattern {
+			size = size <= 0 && pattern != null ? pattern.defaultSize() : size;
+		}
+
+		public PlaceOnPattern(String block, Relation relation, Pattern pattern, String material) {
+			this(block, relation, pattern, material, 0);
+		}
 	}
 
 	// ---- Action variety: craft, smelt, give, put in a container, hold, sequences, avoid.
@@ -119,6 +129,13 @@ public sealed interface Goal {
 
 	/** Sit in a boat or minecart, or ride a horse or pig, for {@code dwellMs}. */
 	record Mount(String entity, long dwellMs) implements Goal {
+	}
+
+	/**
+	 * Jump from a height: fall at least {@code blocks} blocks and land without losing health (a soft block or
+	 * water), or, when {@code landing} names a soft block (powder snow, hay, slime, water), land on that block.
+	 */
+	record Fall(int blocks, String landing) implements Goal {
 	}
 
 	/** Swim {@code blocks} blocks in water. */

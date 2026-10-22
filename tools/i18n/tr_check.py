@@ -86,10 +86,21 @@ def _hits(text: str, code: str, order: bool, words: dict | None = None) -> list[
     found_words: list[str] = []
     for entry in sorted(config.get("order" if order else "relation", []), key=len, reverse=True):
         pattern = _pattern(entry, substring)
+        particle = entry.lower() in {p.lower() for p in config.get("clauseEndParticles", [])}
         for found in pattern.finditer(normal):
+            if particle and _ends_clause(normal, found.end()):
+                continue  # "Stelle ein Schild auf.": the particle of a separable verb, not the place
             found_words.append(found.group(0))
         normal = pattern.sub(" ", normal)
     return found_words
+
+
+_CLAUSE_END = re.compile(r"\s*(?:$|[.,;:!?…]|[—–]|\s-\s)")
+
+
+def _ends_clause(text: str, end: int) -> bool:
+    """Whether nothing but punctuation, a dash or the end of the text follows (a word that ends its clause)."""
+    return _CLAUSE_END.match(text, end) is not None
 
 
 def has_list(code: str, words: dict | None = None) -> bool:

@@ -206,6 +206,12 @@ public final class Reach {
 			}
 			case Goal.Hear g -> acc.place("music");
 			case Goal.Swim g -> acc.place("water");
+			case Goal.Fall g -> {
+				acc.place("height");
+				if (g.landing() != null) {
+					block(g.landing(), acc);
+				}
+			}
 			case Goal.LieDown g -> acc.place("night");
 			case Goal.Wait g -> {
 				if (g.until() != null) {

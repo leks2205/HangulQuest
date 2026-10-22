@@ -14,8 +14,8 @@ trail.nachthafen.finale	밤에 배를 탔어요.	finale, generated; Mount minecr
 trail.adv_husbandry_tactical_fishing.title	이 대신 잇몸으로	title, authored; project: Make a bucket from iron, watch a fish, and scoop a cod into the bucket without a rod.
 trail.adv_husbandry_tactical_fishing.s1.clue	물 근처에서 철 주괴로 양동이를 만드세요.	clue, generated; Craft minecraft:bucket x1
 trail.adv_husbandry_tactical_fishing.s1.hint	물 근처에서 철 주괴로 양동이를 만들어요.	hint, generated; Craft minecraft:bucket x1
-trail.adv_husbandry_tactical_fishing.s2.clue	낮에 바다에서 물고기를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cod 
-trail.adv_husbandry_tactical_fishing.s2.hint	낮에 바다에서 물고기를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cod 
+trail.adv_husbandry_tactical_fishing.s2.clue	낮에 바다에서 물고기를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cod 
+trail.adv_husbandry_tactical_fishing.s2.hint	낮에 바다에서 물고기를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cod 
 trail.adv_husbandry_tactical_fishing.finale.clue	대구가 담긴 양동이를 구하세요.	clue, generated; AcquireItem minecraft:cod_bucket x1
 trail.adv_husbandry_tactical_fishing.finale.hint	대구가 담긴 양동이를 구해요.	hint, generated; AcquireItem minecraft:cod_bucket x1
 trail.adv_husbandry_tactical_fishing.finale	이 대신 잇몸으로 — 양동이로 물고기를 잡았어요. 물은 차가워요.	finale, authored; AcquireItem minecraft:cod_bucket x1
@@ -24,8 +24,8 @@ trail.adv_husbandry_axolotl_in_a_bucket.s1.clue	낮에 무성한 동굴로 가�
 trail.adv_husbandry_axolotl_in_a_bucket.s1.hint	무성한 동굴로 가요.	hint, authored; ReachBiome minecraft:lush_caves 
 trail.adv_husbandry_axolotl_in_a_bucket.s2.clue	물 옆에 구리 횃불을 놓으세요.	clue, generated; PlaceRel minecraft:copper_torch NEXT_TO minecraft:water
 trail.adv_husbandry_axolotl_in_a_bucket.s2.hint	물 옆에 구리 횃불을 놓아요.	hint, generated; PlaceRel minecraft:copper_torch NEXT_TO minecraft:water
-trail.adv_husbandry_axolotl_in_a_bucket.s3.clue	물속에서 아홀로틀을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:axolotl 
-trail.adv_husbandry_axolotl_in_a_bucket.s3.hint	물속에서 아홀로틀을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:axolotl 
+trail.adv_husbandry_axolotl_in_a_bucket.s3.clue	물속에서 아홀로틀을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:axolotl 
+trail.adv_husbandry_axolotl_in_a_bucket.s3.hint	물속에서 아홀로틀을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:axolotl 
 trail.adv_husbandry_axolotl_in_a_bucket.finale.clue	아홀로틀이 담긴 양동이를 구하세요.	clue, generated; AcquireItem minecraft:axolotl_bucket x1
 trail.adv_husbandry_axolotl_in_a_bucket.finale.hint	아홀로틀이 담긴 양동이를 구해요.	hint, generated; AcquireItem minecraft:axolotl_bucket x1
 trail.adv_husbandry_axolotl_in_a_bucket.finale	귀여운 포식자 — 물속 아홀로틀을 양동이로 잡았어요.	finale, authored; AcquireItem minecraft:axolotl_bucket x1
@@ -36,8 +36,8 @@ trail.riffpfad.s2.clue	낮에 물에서 20블록 수영하세요.	clue, generate
 trail.riffpfad.s2.hint	낮에 물에서 수영해요.	hint, generated; Swim 
 trail.riffpfad.s3.clue	물속에서 모래 위에 켈프를 심으세요.	clue, generated; PlaceRel minecraft:kelp ON_TOP_OF minecraft:sand
 trail.riffpfad.s3.hint	물속에서 모래 위에 켈프를 심어요.	hint, generated; PlaceRel minecraft:kelp ON_TOP_OF minecraft:sand
-trail.riffpfad.s4.clue	물속에서 돌고래를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:dolphin 
-trail.riffpfad.s4.hint	물속에서 돌고래를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:dolphin 
+trail.riffpfad.s4.clue	물속에서 돌고래를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:dolphin 
+trail.riffpfad.s4.hint	물속에서 돌고래를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:dolphin 
 trail.riffpfad.finale.clue	돌고래에게 물고기를 주세요.	clue, generated; Give minecraft:cod x1
 trail.riffpfad.finale.hint	돌고래에게 물고기를 줘요.	hint, generated; Give minecraft:cod x1
 trail.riffpfad.finale	돌고래에게 물고기를 줬어요.	finale, generated; Give minecraft:cod x1
@@ -78,14 +78,14 @@ trail.w3_08.s1.clue	낚싯대를 들고 연어를 두 마리 모으세요.	clue,
 trail.w3_08.s1.hint	낚싯대를 들고 연어를 모아요.	hint, generated; AcquireItem minecraft:salmon x2
 trail.w3_08.s2.clue	판자 위에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:cyan_carpet ON_TOP_OF #minecraft:planks
 trail.w3_08.s2.hint	판자 위에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:cyan_carpet ON_TOP_OF #minecraft:planks
-trail.w3_08.s3.clue	해변에서 고양이를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cat 
-trail.w3_08.s3.hint	해변에서 고양이를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cat 
+trail.w3_08.s3.clue	해변에서 고양이를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cat 
+trail.w3_08.s3.hint	해변에서 고양이를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cat 
 trail.w3_08.finale.clue	낮에 고양이에게 연어를 주세요.	clue, generated; Give minecraft:salmon x1
 trail.w3_08.finale.hint	낮에 고양이에게 연어를 줘요.	hint, generated; Give minecraft:salmon x1
 trail.w3_08.finale	낮에 고양이에게 연어를 줬어요.	finale, generated; Give minecraft:salmon x1
 trail.w4_01.title	산호초의 길	title, authored; project: The reef: watch a turtle, plant seagrass and kelp on the sand underwater, and swim in clear weather.
-trail.w4_01.s1.clue	물속에서 거북을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:turtle 
-trail.w4_01.s1.hint	물속에서 거북을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:turtle 
+trail.w4_01.s1.clue	물속에서 거북을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:turtle 
+trail.w4_01.s1.hint	물속에서 거북을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:turtle 
 trail.w4_01.s2.clue	물속에서 모래 위에 해초를 심으세요.	clue, generated; PlaceRel minecraft:seagrass ON_TOP_OF minecraft:sand
 trail.w4_01.s2.hint	물속에서 모래 위에 해초를 심어요.	hint, generated; PlaceRel minecraft:seagrass ON_TOP_OF minecraft:sand
 trail.w4_01.s3.clue	물속에서 모래 옆에 켈프를 심으세요.	clue, generated; PlaceRel minecraft:kelp NEXT_TO minecraft:sand
@@ -136,8 +136,8 @@ trail.w4_05.s3.clue	밤에 울타리 옆에 검은색 현수막을 거세요.	cl
 trail.w4_05.s3.hint	밤에 울타리 옆에 검은색 현수막을 걸어요.	hint, generated; PlaceOnPattern minecraft:black_banner NEXT_TO RING minecraft:birch_fence
 trail.w4_05.s4.clue	밤에 물에서 20블록 수영하세요.	clue, generated; Swim 
 trail.w4_05.s4.hint	밤에 물에서 수영해요.	hint, generated; Swim 
-trail.w4_05.finale.clue	밤에 물속에서 오징어를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:squid 
-trail.w4_05.finale.hint	밤에 물속에서 오징어를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:squid 
+trail.w4_05.finale.clue	밤에 물속에서 오징어를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:squid 
+trail.w4_05.finale.hint	밤에 물속에서 오징어를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:squid 
 trail.w4_05.finale	밤에 물속에서 오징어를 바라봤어요.	finale, generated; LookAtEntity minecraft:squid 
 trail.w4_07.title	항구 시장	title, authored; project: The market: a barrel on the beach with a yellow banner beside it, a fish in the barrel, a fish sold, cooked cod given to a villager.
 trail.w4_07.s1.clue	해변에서 통을 만드세요.	clue, generated; Craft minecraft:barrel x1

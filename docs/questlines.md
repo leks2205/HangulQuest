@@ -147,6 +147,9 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
   continuations sit above their parents).
 - `requires.completed` lists parent trail ids: the trail unlocks only when all of them are finished.
   Locked trails say what they are waiting for in the journal.
+- Goals and conditions are strict about their fields: an unknown field (`{"type":"WEATHER","phase":"CLEAR"}`) or a
+  missing required one makes the file unreadable, and the log names the trail and the step
+  (`probe/s1 condition WEATHER: unknown field 'phase' ...`). The fields of each type are in the schema.
 
 ## Goal types
 
@@ -163,13 +166,13 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `REACH_DIMENSION` | `dimension` | dimension |
 | `REACH_HEIGHT` | `minY`, `maxY` (a ceiling below sea level, `maxY` under 63, asks for a descent: 아래로 내려가요; from level 2 `높이 40 이하로 내려가세요`) | player altitude |
 | `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요; `LIT`: a candle or campfire that really catches fire, 켜요 / 피워요; a candle without `change` means `LIT`; `WRITE`: a sign whose edit screen is closed with text on it, 표지판에 글을 써요, or 표지판에 이름을 써요 when the step teaches 이름; a sign without `change` means `WRITE`) | right-click on that block; with `change` the sensor compares the block's `open` (or `lit`) state before and after the click; for `WRITE` it watches the sign edit screen and the client copy of the sign |
-| `INTERACT_ENTITY` | `entity` | interaction with the mob |
+| `INTERACT_ENTITY` | `entity` | interaction with the mob. The item in the hand decides the verb when a `HOLDING` condition names a tool that does something to that creature: shears on a sheep 가위로 양털을 깎아요, a lead 끈으로 소를 묶어요, a brush on an armadillo 솔로 아르마딜로를 닦아요, shears on a wolf in armour 가위로 늑대의 갑옷을 벗겨요. The tool phrase replaces 가위를 들고; any other item keeps feeding or petting |
 | `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
 | `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`; a ring is a 담, and only fence blocks make a 울타리: `울타리를 쳐요`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
-| `PLACE_ON_PATTERN` | `block`, `relation`, `pattern`, `material` | a placement of `block` in that relation to a structure built from `material` |
+| `PLACE_ON_PATTERN` | `block`, `relation`, `pattern`, `material`, optional `size` (the size of the structure; a row of four reads 자갈 네 개 옆에) | a placement of `block` in that relation to a structure built from `material` |
 | `CRAFT` | `item`, `count`, optional `station`, optional `with` (ingredient ids, wording only) | taking the result out of a crafting screen |
 | `SMELT` | optional `input` (wording, level 4+), `output`, `count` | taking the result out of a furnace, blast furnace or smoker |
-| `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor. A villager takes no item by right-click: without a `method` only a drop it picks up (the item entity is gone, nobody took it back, the villager is still near) or a `TRADE` counts, and the hint says `주민 앞에 빵을 놓아요`; a wandering trader only takes a `TRADE`. The validator refuses `FEED`/`USE_WITH` for both |
+| `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor. With `USE_WITH`, wolf armour on a wolf and horse armour on a horse are put on (늑대에게 갑옷을 입히세요) and dye on a sheep colours it (파란색 염료로 양을 염색하세요). A villager takes no item by right-click: without a `method` only a drop it picks up (the item entity is gone, nobody took it back, the villager is still near) or a `TRADE` counts, and the hint says `주민 앞에 빵을 놓아요`; a wandering trader only takes a `TRADE`. The validator refuses `FEED`/`USE_WITH` for both |
 | `PUT_IN` | `item`, `container`, `count` | items moved into that container block |
 | `TAKE_OUT` | `item`, `container`, `count` | items moved out of that container block (the container lost them and the player gained them; an item put in a moment before does not count) |
 | `EQUIP` | `item` (a helmet, chestplate, leggings or boots, or the tag of a slot: `#minecraft:chest_armor`), optional `change` (`ON` the default, `OFF`) | the four armour slots of the player: on counts when the slot was seen without the piece and then has it, off the other way round (a piece already worn when the step begins has to come off first). 투구를 써요, 갑옷을 입어요, 바지를 입어요, 신발을 신어요; 벗어요 for `OFF` |
@@ -183,6 +186,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `WAIT` | `seconds`, optional `until` (`NIGHT`/`DAY`) | staying within three blocks of the spot where the wait began; walking away starts over. With `until` also that part of the day. A place to wait near is a condition (`NEAR_BLOCK`) |
 | `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind, and within 4 blocks of two of the animals fed |
 | `MOUNT` | `entity`, `dwellMs` | the vehicle state of the player: a boat or minecart is sat in (앉아요), an animal is ridden (타요); every boat is one boat |
+| `FALL` | `blocks` (4–250), optional `landing` (a soft block: powder snow, hay, slime, honey, water) | the distance fallen since the feet left the ground (the longest value before the game resets it on the landing). With `landing` the player has to land on or in that block; without it the health must not drop (read 0.3 s after the landing, when the damage has arrived). 높은 곳에서 가루눈 위로 뛰어내리세요; 10블록 높이에서 안 다치고 뛰어내리세요 |
 | `SWIM` | `blocks` | blocks covered while the player is in water (a jump of more than eight blocks between two ticks is not swimming) |
 
 **Tiers.** One word stands for a tool or an armour piece in every material (곡괭이, 도끼, 삽, 괭이, 검; 투구, 갑옷, 바지,

@@ -68,8 +68,8 @@ trail.festmahl.s1.clue	판자 세 개를 나란히 놓으세요.	generated; Buil
 trail.festmahl.s1.hint	판자를 나란히 놓아요.	generated; BuildPattern minecraft:birch_planks ROW 3
 trail.festmahl.s2.clue	제작대 옆에서 밀과 설탕으로 케이크를 만드세요.	generated; Craft minecraft:cake x1
 trail.festmahl.s2.hint	제작대 옆에서 밀과 설탕으로 케이크를 만들어요.	generated; Craft minecraft:cake x1
-trail.festmahl.s3.clue	자작나무 판자 세 개 위에 케이크를 놓으세요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
-trail.festmahl.s3.hint	자작나무 판자 세 개 위에 케이크를 놓아요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
+trail.festmahl.s3.clue	판자 세 개 위에 케이크를 놓으세요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
+trail.festmahl.s3.hint	판자 세 개 위에 케이크를 놓아요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
 trail.festmahl.s4.clue	고기를 구우세요.	generated; Smelt minecraft:cooked_porkchop x1
 trail.festmahl.s4.hint	고기를 구워요.	generated; Smelt minecraft:cooked_porkchop x1
 trail.festmahl.finale.clue	케이크 옆에서 고기를 먹으세요.	generated; ConsumeItem minecraft:cooked_porkchop x1
@@ -120,8 +120,8 @@ trail.milchpfad.finale	상자 안에 우유를 넣었어요. 우유는 맛있어
 trail.obstgarten.title	과수원의 길	authored
 trail.obstgarten.s1.clue	울타리를 치세요.	generated; BuildPattern minecraft:birch_fence RING 3
 trail.obstgarten.s1.hint	울타리를 쳐요.	generated; BuildPattern minecraft:birch_fence RING 3
-trail.obstgarten.s2.clue	자작나무 울타리 안에 묘목을 심으세요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
-trail.obstgarten.s2.hint	자작나무 울타리 안에 묘목을 심어요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
+trail.obstgarten.s2.clue	울타리 안에 묘목을 심으세요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
+trail.obstgarten.s2.hint	울타리 안에 묘목을 심어요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
 trail.obstgarten.s3.clue	울타리 옆에 묘목을 심으세요.	generated; PlaceRel minecraft:birch_sapling NEXT_TO #minecraft:fences
 trail.obstgarten.s3.hint	울타리 옆에 묘목을 심어요.	generated; PlaceRel minecraft:birch_sapling NEXT_TO #minecraft:fences
 trail.obstgarten.s4.clue	밖에서 사과를 두 개 모으세요.	generated; AcquireItem minecraft:apple x2

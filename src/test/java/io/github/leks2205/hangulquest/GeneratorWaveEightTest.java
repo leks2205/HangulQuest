@@ -110,7 +110,7 @@ class GeneratorWaveEightTest {
 	void i8_theWordForFishNamesTheCodTheSalmonAndTheTropicalFish() {
 		for (String fish : List.of("minecraft:cod", "minecraft:salmon", "minecraft:tropical_fish")) {
 			Goal look = new Goal.LookAtEntity(fish, 3000);
-			assertEquals("물고기를 3초 동안 바라봐요.", clue(look, "fish", 1), fish);
+			assertEquals("물고기를 삼 초 동안 바라봐요.", clue(look, "fish", 1), fish);
 			assertEquals(List.of(), problems(look, "fish"), fish + " needs no biome condition");
 			assertEquals("물고기를 바라봤어요.", SentenceBuilder.ceremony(look, word("fish"), List.of(), NAMES), fish);
 		}

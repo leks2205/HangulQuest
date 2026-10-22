@@ -5,12 +5,12 @@
  "metrics": {
   "coverage.recycling.medianEncounters": {"value": 4.0, "better": "higher", "target": 10},
   "coverage.recycling.medianRetrievals": {"value": 0.0, "better": "higher", "target": 3},
-  "coverage.recycling.seenShare": {"value": 0.745283, "better": "higher", "target": 1.0},
-  "coverage.recycling.targetMetShare": {"value": 0.169811, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintFullyKnownShare": {"value": 0.942459, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintWordCoverage": {"value": 0.971304, "better": "higher", "target": 1.0},
-  "coverage.sentences.meanUnknown": {"value": 0.844337, "better": "lower", "target": 1},
-  "coverage.sentences.unknownOverOneShare": {"value": 0.050273, "better": "lower", "target": 0},
+  "coverage.recycling.seenShare": {"value": 0.75, "better": "higher", "target": 1.0},
+  "coverage.recycling.targetMetShare": {"value": 0.165094, "better": "higher", "target": 1.0},
+  "coverage.sentences.hintFullyKnownShare": {"value": 0.940642, "better": "higher", "target": 1.0},
+  "coverage.sentences.hintWordCoverage": {"value": 0.970926, "better": "higher", "target": 1.0},
+  "coverage.sentences.meanUnknown": {"value": 0.846154, "better": "lower", "target": 1},
+  "coverage.sentences.unknownOverOneShare": {"value": 0.050878, "better": "lower", "target": 0},
   "variety.bareShare.1": {"value": 0.062972, "better": "lower", "target": 0.3},
   "variety.bareShare.2": {"value": 0.102752, "better": "lower", "target": 0.2},
   "variety.bareShare.3": {"value": 0.694524, "better": "lower", "target": 0.1},
@@ -26,7 +26,7 @@
   "variety.distinctTypes.6": {"value": 10.0, "better": "higher", "target": 6},
   "variety.duplicateSignatures": {"value": 5.0, "better": "lower", "target": 0},
   "variety.formDependentShare.1": {"value": 0.198992, "better": "higher", "target": 0},
-  "variety.formDependentShare.2": {"value": 0.379817, "better": "higher", "target": 0.3},
+  "variety.formDependentShare.2": {"value": 0.376147, "better": "higher", "target": 0.3},
   "variety.formDependentShare.3": {"value": 0.0, "better": "higher", "target": 0.3},
   "variety.formDependentShare.4": {"value": 0.0, "better": "higher", "target": 0.3},
   "variety.formDependentShare.5": {"value": 0.0, "better": "higher", "target": 0.3},
@@ -39,7 +39,7 @@
   "variety.topTypeShare.4": {"value": 0.520661, "better": "lower", "target": 0.25},
   "variety.topTypeShare.5": {"value": 0.515464, "better": "lower", "target": 0.25},
   "variety.topTypeShare.6": {"value": 0.486111, "better": "lower", "target": 0.25},
-  "variety.verbObjectMax": {"value": 6.0, "better": "lower", "target": 3},
-  "variety.verbObjectPairsOver3": {"value": 5.0, "better": "lower", "target": 0}
+  "variety.verbObjectMax": {"value": 7.0, "better": "lower", "target": 3},
+  "variety.verbObjectPairsOver3": {"value": 12.0, "better": "lower", "target": 0}
  }
 }

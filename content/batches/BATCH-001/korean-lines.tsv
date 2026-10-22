@@ -22,8 +22,8 @@ trail.holzpfad.finale	나무 집에 문을 달았어요.	finale line, authored
 trail.essenspfad.title	사과와 달걀과 소의 길	title, authored; project: A farm picnic: find an apple, feed the chicken, eat the apple next to the cow.
 trail.essenspfad.s1.clue	사과를 구해요.	clue, generated; ACQUIRE_ITEM
 trail.essenspfad.s1.hint	사과를 구해요.	hint, generated; ACQUIRE_ITEM
-trail.essenspfad.s2.clue	낮에 닭을 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
-trail.essenspfad.s2.hint	낮에 닭을 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.essenspfad.s2.clue	낮에 닭을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.essenspfad.s2.hint	낮에 닭을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
 trail.essenspfad.s3.clue	닭에게 밀 씨앗을 줘요.	clue, generated; GIVE
 trail.essenspfad.s3.hint	닭에게 밀 씨앗을 줘요.	hint, generated; GIVE
 trail.essenspfad.finale.clue	소 옆에서 사과를 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
@@ -38,12 +38,12 @@ trail.feuerpfad.s3.clue	강에서 물을 구해요.	clue, generated; ACQUIRE_ITE
 trail.feuerpfad.s3.hint	강에서 물을 구해요.	hint, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
 trail.feuerpfad.s4.clue	물을 들고 나무 옆에 모닥불을 놓아요.	clue, authored; HOLD_WHILE NEXT_TO
 trail.feuerpfad.s4.hint	물을 들고 나무 옆에 모닥불을 놓아요.	hint, authored; HOLD_WHILE NEXT_TO
-trail.feuerpfad.finale.clue	밤에 모닥불을 1초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK  TIME:NIGHT
-trail.feuerpfad.finale.hint	밤에 모닥불을 1초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK  TIME:NIGHT
+trail.feuerpfad.finale.clue	밤에 모닥불을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK  TIME:NIGHT
+trail.feuerpfad.finale.hint	밤에 모닥불을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK  TIME:NIGHT
 trail.feuerpfad.finale	밤에 모닥불을 바라봤어요.	finale line, generated
 trail.tierfreund.title	소와 우유의 길	title, authored; project: Meet the cow: make a bucket, get milk next to her, drink it, feed her.
-trail.tierfreund.s1.clue	낮에 소를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
-trail.tierfreund.s1.hint	낮에 소를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.tierfreund.s1.clue	낮에 소를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.tierfreund.s1.hint	낮에 소를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
 trail.tierfreund.s2.clue	소가 우유를 줘요. 양동이를 만들어요.	clue, authored; CRAFT
 trail.tierfreund.s2.hint	양동이를 만들어요.	hint, authored; CRAFT
 trail.tierfreund.s3.clue	소 옆에서 우유를 구해요.	clue, generated; ACQUIRE_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
@@ -76,8 +76,8 @@ trail.tierpfad.finale.clue	낮에 문을 열어요.	clue, generated; USE_BLOCK  
 trail.tierpfad.finale.hint	낮에 문을 열어요.	hint, generated; USE_BLOCK  TIME:DAY
 trail.tierpfad.finale	낮에 참나무 울타리 문을 열었어요.	finale line, generated
 trail.haustierpfad.title	고양이의 집	title, authored; project: A house for the cat: befriend it with a salmon, craft planks, a bed inside, a flower outside.
-trail.haustierpfad.s1.clue	낮에 고양이를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
-trail.haustierpfad.s1.hint	낮에 고양이를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.haustierpfad.s1.clue	낮에 고양이를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.haustierpfad.s1.hint	낮에 고양이를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
 trail.haustierpfad.s2.clue	고양이에게 물고기를 줘요.	clue, generated; GIVE
 trail.haustierpfad.s2.hint	고양이에게 물고기를 줘요.	hint, generated; GIVE
 trail.haustierpfad.s3.clue	고양이 집을 지어요. 판자를 만들어요.	clue, authored; CRAFT
@@ -108,8 +108,8 @@ trail.kraeuterpfad.finale.clue	꽃 옆에서 구운 감자를 먹어요.	clue, g
 trail.kraeuterpfad.finale.hint	꽃 옆에서 구운 감자를 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:poppy
 trail.kraeuterpfad.finale	양귀비 옆에서 구운 감자를 먹었어요.	finale line, generated
 trail.wollpfad.title	양과 양털의 길	title, authored; project: From the sheep to a bed: wool, a bed, a chest behind it.
-trail.wollpfad.s1.clue	양을 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
-trail.wollpfad.s1.hint	양을 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.wollpfad.s1.clue	양을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.wollpfad.s1.hint	양을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
 trail.wollpfad.s2.clue	양털을 구해요.	clue, generated; ACQUIRE_ITEM
 trail.wollpfad.s2.hint	양털을 구해요.	hint, generated; ACQUIRE_ITEM
 trail.wollpfad.s3.clue	달이 떠요. 양털과 판자로 침대를 만들어요.	clue, authored; CRAFT

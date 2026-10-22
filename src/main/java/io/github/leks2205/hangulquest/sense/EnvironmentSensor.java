@@ -433,6 +433,12 @@ public final class EnvironmentSensor {
 	 */
 	private void readSky(Observation obs, LocalPlayer player, ClientLevel level) {
 		obs.inWater = player.isInWater();
+		obs.onGround = player.onGround();
+		obs.fallDistance = (float) player.fallDistance;
+		// a falling player is the landing the tick it stops: the block it is in (water, powder snow), else the one below
+		BlockPos feet = player.blockPosition();
+		var inside = level.getBlockState(feet);
+		obs.landedOn = !inside.isAir() ? blockId(inside) : blockId(level.getBlockState(feet.below()));
 		if (skyPos == null || !skyPos.equals(obs.blockPos) || tick - skyAt >= 10) {
 			skyPos = obs.blockPos;
 			skyAt = tick;
@@ -637,7 +643,7 @@ public final class EnvironmentSensor {
 				}
 			} else if (!(entity instanceof ExperienceOrb)) {
 				obs.addEntityPosition(new EntityFact(entityId(entity), entity.getUUID(), entity.getX(),
-						entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot(),
+						entity.getY(), entity.getZ(), facingYaw(entity), entity.getXRot(),
 						entity instanceof LivingEntity living && living.isBaby()));
 				if (watchDrops && entity instanceof LivingEntity && distance <= GiveTracker.TARGET_RANGE) {
 					dropTargets.add(new GiveTracker.Target(entityId(entity), entity.getUUID(), distance));
@@ -765,6 +771,11 @@ public final class EnvironmentSensor {
 
 	private static boolean isRangedWeapon(String itemId) {
 		return itemId.endsWith("bow") || itemId.equals("minecraft:trident");
+	}
+
+	/** Which way a creature faces: the yaw of its body, not of its head (a frog or a rabbit turns the head alone). */
+	private static float facingYaw(Entity entity) {
+		return entity instanceof LivingEntity living ? living.yBodyRot : entity.getYRot();
 	}
 
 	private static String blockId(BlockState state) {

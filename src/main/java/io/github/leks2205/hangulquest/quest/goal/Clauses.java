@@ -50,7 +50,7 @@ public final class Clauses {
 			"\\b(not|don'?t|do not|never|avoid|without|stop|nicht|nie|kein\\w*|vermeide\\w*|ohne|unterlass\\w*)\\b",
 			Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CHARACTER_CLASS);
 	private static final Pattern ORDER_WORDS = Pattern.compile(
-			"\\b(before|after|then|first|afterwards|until|vor|bevor|nach|nachdem|danach|dann|zuerst|erst)\\b",
+			"\\b(before|after|then|first|afterwards|until|vor|bevor|nach\\s+(?:dem|der|einem|einer|diesem|dieser|den)|nachdem|danach|dann|zuerst|erst)\\b",
 			Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CHARACTER_CLASS);
 
 	private Clauses() {

@@ -271,7 +271,7 @@ class GeneratorWaveThreeTest {
 		assertEquals("물 위에 수련잎을 놓아요.", clue(new Goal.PlaceRel("minecraft:lily_pad", Relation.ON_TOP_OF,
 				"minecraft:water", 1), null));
 		Goal look = new Goal.LookAtBlock("minecraft:water", 800);
-		assertEquals("물을 1초 동안 바라봐요.", clue(look, "water"));
+		assertEquals("물을 일 초 동안 바라봐요.", clue(look, "water"));
 		assertEquals(List.of(), problems(look, List.of(), "water"));
 		Observation obs = new Observation();
 		assertFalse(GoalEvaluator.tick(look, List.of(), obs, new GoalEvaluator.Tracker()));
@@ -346,7 +346,8 @@ class GeneratorWaveThreeTest {
 		assertEquals("판자 기둥 위에 횃불을 놓아요.", clue(tag, null));
 		Goal build = new Goal.BuildPattern(Pattern.PILLAR, "minecraft:dark_oak_planks", 3);
 		assertEquals("판자 세 개로 기둥을 쌓아요.", clue(build, "planks"));
-		assertTrue(clue(pillar, null).contains("짙은 참나무 판자"), "without the word it is the registry name");
+		// wave 9: the word of the kind that covers the planks is said whether it is taught or not
+		assertEquals("판자 기둥 위에 횃불을 놓아요.", clue(pillar, null));
 	}
 
 	// ----------------------------------------------------------------- 16. every placing verb names the action

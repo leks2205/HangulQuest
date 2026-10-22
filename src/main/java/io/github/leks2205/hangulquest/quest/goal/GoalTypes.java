@@ -48,7 +48,9 @@ public final class GoalTypes {
 			new SwimType(),
 			new TradeType(),
 			// Wave 6: wearing armour.
-			new EquipType());
+			new EquipType(),
+			// Wave 9: jumping from a height.
+			new FallType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

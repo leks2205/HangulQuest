@@ -51,7 +51,7 @@ class SentenceBuilderTest {
 
 	@Test
 	void lookAndReachAndInteract() {
-		assertEquals("소를 1초 동안 바라봐요.",
+		assertEquals("소를 일 초 동안 바라봐요.",
 				SentenceBuilder.normal(new Goal.LookAtEntity("minecraft:cow", 800), word("소"), List.of()));
 		assertEquals("숲으로 가요.",
 				SentenceBuilder.normal(new Goal.ReachBiome("minecraft:forest", 1000), word("숲"), List.of()));
@@ -200,7 +200,7 @@ class SentenceBuilderTest {
 		assertEquals("사과를 21개 모아요.", clue(new Goal.AcquireItem("minecraft:apple", 21), "사과"));
 		assertEquals("좀비를 세 마리 물리쳐요.", clue(new Goal.DefeatEntity("minecraft:zombie", 3), "좀비"));
 		// Seconds and heights stay Sino-Korean.
-		assertEquals("돌을 2초 동안 바라봐요.", clue(new Goal.LookAtBlock("minecraft:stone", 1500), "돌"));
+		assertEquals("돌을 이 초 동안 바라봐요.", clue(new Goal.LookAtBlock("minecraft:stone", 1500), "돌"));
 	}
 
 	@Test
