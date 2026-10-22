@@ -172,7 +172,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor. A villager takes no item by right-click: without a `method` only a drop it picks up (the item entity is gone, nobody took it back, the villager is still near) or a `TRADE` counts, and the hint says `주민 앞에 빵을 놓아요`; a wandering trader only takes a `TRADE`. The validator refuses `FEED`/`USE_WITH` for both |
 | `PUT_IN` | `item`, `container`, `count` | items moved into that container block |
 | `TAKE_OUT` | `item`, `container`, `count` | items moved out of that container block (the container lost them and the player gained them; an item put in a moment before does not count) |
-| `EQUIP` | `item` (a helmet, chestplate, leggings or boots), optional `change` (`ON` the default, `OFF`) | the four armour slots of the player: on counts when the slot was seen without the piece and then has it, off the other way round (a piece already worn when the step begins has to come off first). 투구를 써요, 갑옷을 입어요, 바지를 입어요, 신발을 신어요; 벗어요 for `OFF` |
+| `EQUIP` | `item` (a helmet, chestplate, leggings or boots, or the tag of a slot: `#minecraft:chest_armor`), optional `change` (`ON` the default, `OFF`) | the four armour slots of the player: on counts when the slot was seen without the piece and then has it, off the other way round (a piece already worn when the step begins has to come off first). 투구를 써요, 갑옷을 입어요, 바지를 입어요, 신발을 신어요; 벗어요 for `OFF` |
 | `HOLD_WHILE` | `item`, `inner` (a goal, or a condition plus `seconds`) | `inner` only counts with the item in a hand; with a condition: walking with it |
 | `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`/`AND`) | the parts in order; an event before its turn does not count. Trail level 3 or higher; at level 2 only the plain -고: parts in any order, or `"ordered": true` with `"connector": "AND"` (문을 닫고 횃불을 놓으세요), where the order is checked and the step counts as form-dependent |
 | `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
@@ -187,8 +187,11 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 
 **Tiers.** One word stands for a tool or an armour piece in every material (곡괭이, 도끼, 삽, 괭이, 검; 투구, 갑옷, 바지,
 신발), and a goal that asks for one material says it: with 곡괭이 taught, `iron_pickaxe` reads `철 곡괭이를 만드세요`
-(`quest/goal/Tiers`; the material words are the first word of the vanilla names). The goal is exact then: a wooden
-pickaxe does not finish a step that says 철 곡괭이.
+(`quest/goal/Tiers`). The goal is exact then: a wooden pickaxe does not finish a step that says 철 곡괭이. The name
+printed is always the official one (`names.json`): `iron_chestplate` reads 철 흉갑 (not "철 갑옷"), the leggings 철 레깅스,
+the boots 철 부츠, and the leather set 가죽 모자, 가죽 조끼, 가죽 바지, 가죽 장화. The general word keeps the sentence
+when the goal is any piece of the slot: `EQUIP` on `#minecraft:chest_armor` (also `head_armor`, `leg_armor`,
+`foot_armor`) says 갑옷을 입으세요 and takes every material.
 
 **Relations and anchors.** The Korean names the relation (`문 옆에`, `기둥 위에`) in every form of the
 sentence, and the English and German clue must not give it away. A relation goal is graded: finishing the step
@@ -198,7 +201,7 @@ and a right block in the wrong relation is a wrong one (at most three per step).
 `상자와 화로 사이에` (와/과 by the final sound; the pair is one task whichever way round it is written).
 Blocks with a front can be the anchor of 앞 and 뒤: doors, chests, furnaces, beds, stairs, barrels, workstations, signs, banners, pumpkins, bells; a pillar, a wall or a fence cannot. So can a creature that faces a way (`minecraft:villager`, an iron golem, a cow, a wolf ...: 주민 앞에 횃불을 놓아요; 앞, 뒤, 옆 and 근처 only). 밖 is a deciding form (a block put outside when 안 was asked is a slip), 근처 is not. Fluids are anchors too (`minecraft:water` is 물, `minecraft:lava` is 용암: `물 옆에 횃불을 놓아요`). A tag
 (`#minecraft:doors`, `logs`, `planks`, `wool`, `fences`, `beds`, `torches`, `chests`, `flowers`, `saplings`,
-`leaves`) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 묘목, 나뭇잎): the
+`leaves`; for `EQUIP` also `head_armor`, `chest_armor`, `leg_armor`, `foot_armor`) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 묘목, 나뭇잎): the
 curated concept whose items and covers are the largest set inside the tag. The finale line uses the same word
 as the clue, and a word the step teaches (나무 for the logs) wins in both.
 

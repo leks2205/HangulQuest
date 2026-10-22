@@ -9,6 +9,7 @@ import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.WornItems;
 
@@ -71,10 +72,11 @@ final class EquipType implements GoalType<Goal.Equip> {
 
 	/** The armour slot an item goes in ({@code head}, {@code chest}, {@code legs}, {@code feet}), or null. */
 	static String slot(String item) {
-		if (item == null) {
+		String id = BlockSpec.representative(item); // #minecraft:chest_armor stands for a chestplate
+		if (id == null) {
 			return null;
 		}
-		String path = item.substring(item.indexOf(':') + 1);
+		String path = id.substring(id.indexOf(':') + 1);
 		if (path.endsWith("_helmet")) {
 			return WornItems.HEAD;
 		}
@@ -109,7 +111,7 @@ final class EquipType implements GoalType<Goal.Equip> {
 		if (off(goal)) {
 			return Verb.TAKE_OFF;
 		}
-		return table.choose(id(), goal.item(), 1, Verb.PUT_ON);
+		return table.choose(id(), BlockSpec.representative(goal.item()), 1, Verb.PUT_ON);
 	}
 
 	@Override
@@ -137,6 +139,12 @@ final class EquipType implements GoalType<Goal.Equip> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.ITEM;
+	}
+
+	/** Any helmet, any chestplate: {@code #minecraft:chest_armor} says 갑옷 and takes every material. */
+	@Override
+	public boolean tagObject() {
+		return true;
 	}
 
 	@Override

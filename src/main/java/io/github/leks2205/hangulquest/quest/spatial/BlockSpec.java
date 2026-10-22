@@ -37,7 +37,12 @@ public final class BlockSpec {
 			Map.entry("chests", family("chest", "minecraft:chest")),
 			Map.entry("flowers", family("flower", "minecraft:poppy")),
 			Map.entry("saplings", suffix("_sapling", "minecraft:oak_sapling")),
-			Map.entry("leaves", suffix("_leaves", "minecraft:oak_leaves")));
+			Map.entry("leaves", suffix("_leaves", "minecraft:oak_leaves")),
+			// armour, for EQUIP: any piece of one slot (the vanilla item tags)
+			Map.entry("head_armor", suffix("_helmet", "minecraft:iron_helmet")),
+			Map.entry("chest_armor", suffix("_chestplate", "minecraft:iron_chestplate")),
+			Map.entry("leg_armor", suffix("_leggings", "minecraft:iron_leggings")),
+			Map.entry("foot_armor", suffix("_boots", "minecraft:iron_boots")));
 
 	private BlockSpec() {
 	}

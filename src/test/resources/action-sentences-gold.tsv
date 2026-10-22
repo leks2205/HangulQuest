@@ -126,15 +126,20 @@ smelt.raw.three	1	-	{"type":"SMELT","input":"minecraft:raw_gold","output":"minec
 smelt.raw.l4	4	-	{"type":"SMELT","input":"minecraft:raw_copper","output":"minecraft:copper_ingot"}	-	구리 원석을 녹여서 구리 주괴를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L4.aseo
 smelt.cook.word	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken"}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul
 equip.helmet	1	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet"}	-	철 투구를 써요.	L1.eoyo,L1.eul_reul
-equip.armor	1	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 갑옷을 입어요.	L1.eoyo,L1.eul_reul
-equip.leggings	1	leggings	{"type":"EQUIP","item":"minecraft:diamond_leggings"}	-	다이아몬드 바지를 입어요.	L1.eoyo,L1.eul_reul
-equip.shoes	1	shoes	{"type":"EQUIP","item":"minecraft:leather_boots"}	-	가죽 신발을 신어요.	L1.eoyo,L1.eul_reul
+equip.armor	1	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 흉갑을 입어요.	L1.eoyo,L1.eul_reul
+equip.leggings	1	leggings	{"type":"EQUIP","item":"minecraft:diamond_leggings"}	-	다이아몬드 레깅스를 입어요.	L1.eoyo,L1.eul_reul
+equip.shoes	1	shoes	{"type":"EQUIP","item":"minecraft:leather_boots"}	-	가죽 장화를 신어요.	L1.eoyo,L1.eul_reul
 equip.chestplate.untaught	1	-	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 흉갑을 입어요.	L1.eoyo,L1.eul_reul
 equip.helmet.l2	2	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet"}	-	철 투구를 쓰세요.	L2.seyo,L1.eul_reul
-equip.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 갑옷을 입으세요.	L2.seyo,L1.eul_reul
-equip.shoes.l2	2	shoes	{"type":"EQUIP","item":"minecraft:iron_boots"}	-	철 신발을 신으세요.	L2.seyo,L1.eul_reul
+equip.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 흉갑을 입으세요.	L2.seyo,L1.eul_reul
+equip.shoes.l2	2	shoes	{"type":"EQUIP","item":"minecraft:iron_boots"}	-	철 부츠를 신으세요.	L2.seyo,L1.eul_reul
 equip.off.helmet	1	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet","change":"OFF"}	-	철 투구를 벗어요.	L1.eoyo,L1.eul_reul
-equip.off.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate","change":"OFF"}	-	철 갑옷을 벗으세요.	L2.seyo,L1.eul_reul
+equip.off.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate","change":"OFF"}	-	철 흉갑을 벗으세요.	L2.seyo,L1.eul_reul
+equip.any.armor	1	armor	{"type":"EQUIP","item":"#minecraft:chest_armor"}	-	갑옷을 입어요.	L1.eoyo,L1.eul_reul
+equip.any.armor.l2	2	armor	{"type":"EQUIP","item":"#minecraft:chest_armor"}	-	갑옷을 입으세요.	L2.seyo,L1.eul_reul
+equip.any.shoes	1	shoes	{"type":"EQUIP","item":"#minecraft:foot_armor"}	-	신발을 신어요.	L1.eoyo,L1.eul_reul
+equip.any.leggings.l2	2	leggings	{"type":"EQUIP","item":"#minecraft:leg_armor"}	-	바지를 입으세요.	L2.seyo,L1.eul_reul
+equip.any.helmet	1	helmet	{"type":"EQUIP","item":"#minecraft:head_armor"}	-	투구를 써요.	L1.eoyo,L1.eul_reul
 trade.buy	1	-	{"type":"TRADE","item":"minecraft:apple","entity":"minecraft:villager","direction":"BUY","count":1}	-	주민에게서 사과를 사요.	L1.eoyo,L1.eul_reul,L2.ege_source
 trade.buy.l2	2	-	{"type":"TRADE","item":"minecraft:apple","entity":"minecraft:villager","direction":"BUY","count":1}	-	주민에게서 사과를 사세요.	L2.seyo,L1.eul_reul,L2.ege_source
 trade.buy.three	1	-	{"type":"TRADE","item":"minecraft:bread","entity":"minecraft:villager","direction":"BUY","count":3}	-	주민에게서 빵을 세 개 사요.	L1.eoyo,L1.eul_reul,L2.ege_source
