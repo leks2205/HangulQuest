@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "gipfelblick",
  "titleKo": "정상의 전망",
+ "topic": "산",
  "tier": 3,
  "order": 512,
  "concepts": [
-  "gen_sulfur_caves",
-  "gen_acacia_slab",
-  "gen_gray_wool",
-  "gen_pink_concrete"
+  "mountain",
+  "climb",
+  "gen_oak_sign",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,75 +23,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sulfur_caves"
+    "mountain",
+    "climb"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:sulfur_caves",
-    "dwellMs": 1000
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ],
+   "hint": {
+    "ko": "산 위로 올라가요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_acacia_slab"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:acacia_slab",
-    "dwellMs": 600
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_gray_wool"
+    "gen_oak_sign"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_wool",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_pink_concrete"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_concrete",
+    "block": "minecraft:oak_sign",
     "count": 1
    },
    "conditions": [
     {
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
-    },
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:pink_bed",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:oak_sign",
+    "count": 1
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:pink_bed"
+   },
+   "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
+   ],
+   "clue": {
+    "ko": "밤에 산 위의 침대에서 자요."
+   },
+   "hint": {
+    "ko": "밤에 산 위의 침대에서 자요."
+   }
   },
-  "textKo": "산에서 밤에 분홍색 콘크리트를 놓았어요."
+  "textKo": "밤에 산 위의 침대에서 잤어요."
  },
  "reward": {
   "badge": "gipfelblick",
   "words": [
    "mountain",
-   "snow",
-   "torch"
+   "climb",
+   "gen_oak_sign",
+   "bed"
   ]
  },
- "koreanLevel": 1,
- "topic": "산"
+ "koreanLevel": 1
 }

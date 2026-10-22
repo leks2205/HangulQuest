@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "weidepfad",
  "titleKo": "목장의 길",
+ "topic": "동물",
  "tier": 3,
  "order": 340,
  "concepts": [
-  "gen_yellow_candle",
-  "gen_warped_fence",
-  "gen_medium_amethyst_bud",
-  "gen_weathered_copper_grate"
+  "horse",
+  "cow",
+  "beef"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -22,34 +22,44 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_candle"
+    "horse"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_candle",
-    "count": 2
-   }
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:horse"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_warped_fence"
+    "cow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_fence",
+    "type": "GIVE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:cow",
     "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_medium_amethyst_bud"
+    "beef"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:medium_amethyst_bud",
+    "type": "SMELT",
+    "input": "minecraft:beef",
+    "output": "minecraft:cooked_beef",
     "count": 1
+   },
+   "hint": {
+    "ko": "소고기를 구워요."
    }
   }
  ],
@@ -57,31 +67,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_copper_grate"
+    "beef"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_grate",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_beef",
     "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "밤에 녹슨 구리 격자를 놓았어요."
+  "textKo": "낮에 소고기를 먹었어요."
  },
  "reward": {
   "badge": "weidepfad",
   "words": [
    "horse",
    "cow",
-   "leather",
-   "campfire"
+   "beef"
   ]
  },
- "koreanLevel": 1,
- "topic": "동물"
+ "koreanLevel": 1
 }

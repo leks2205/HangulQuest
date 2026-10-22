@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "brandung",
  "titleKo": "파도의 길",
+ "topic": "물",
  "tier": 5,
  "order": 350,
  "concepts": [
+  "adv_item_oak_boat",
   "ocean",
-  "turtle",
-  "cartography_table",
-  "gen_pointed_dripstone"
+  "fish",
+  "map"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -24,70 +25,77 @@
   {
    "id": "s1",
    "teach": [
-    "ocean"
-   ],
-   "goal": {
-    "type": "REACH_BIOME",
-    "biome": "#minecraft:is_ocean",
-    "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "turtle"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:turtle",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "cartography_table"
+    "adv_item_oak_boat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cartography_table",
-    "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_pointed_dripstone"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pointed_dripstone",
+    "item": "minecraft:oak_boat",
     "count": 1
    },
    "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
     {
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
    ]
   },
-  "textKo": "밤에 해변에서 뾰족한 점적석을 놓았어요."
+  {
+   "id": "s2",
+   "teach": [
+    "ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cod",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:map",
+    "count": 1
+   }
+  },
+  "textKo": "지도를 만들었어요."
  },
  "reward": {
   "badge": "brandung",
   "words": [
+   "adv_item_oak_boat",
    "ocean",
-   "turtle",
-   "squid",
-   "campfire"
+   "fish",
+   "map"
   ]
  },
- "koreanLevel": 1,
- "topic": "물"
+ "koreanLevel": 1
 }

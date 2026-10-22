@@ -6,9 +6,8 @@
  "tier": 2,
  "order": 320,
  "concepts": [
-  "adv_item_wooden_pickaxe",
-  "gen_exposed_copper",
-  "gen_lime_carpet",
+  "stone",
+  "adv_block_stone_pickaxe",
   "cobblestone"
  ],
  "requires": {
@@ -22,37 +21,40 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_wooden_pickaxe"
+    "stone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wooden_pickaxe",
-    "count": 1
-   },
-   "hint": {
-    "ko": "나무 곡괭이는 판자 세 개와 막대기 두 개로 만들어요."
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_copper"
+    "adv_block_stone_pickaxe"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:exposed_copper",
-    "count": 8
-   }
+    "type": "CRAFT",
+    "item": "minecraft:stone_pickaxe",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:cobblestone"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_carpet"
+    "cobblestone"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:lime_carpet",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cobblestone",
+    "count": 8
    }
   }
  ],
@@ -60,24 +62,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cobblestone"
+    "stone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cobblestone",
-    "count": 3
-   },
-   "conditions": []
+    "type": "SMELT",
+    "input": "minecraft:cobblestone",
+    "output": "minecraft:stone",
+    "count": 1
+   }
   },
-  "textKo": "석기 시대 — 조약돌을 캐서 돌 도구를 만들 수 있어요."
+  "textKo": "화로에서 돌을 만들었어요."
  },
  "reward": {
   "badge": "adv_story_mine_stone",
   "words": [
    "adv_item_wooden_pickaxe",
    "stone",
-   "coal",
-   "cobblestone"
+   "cobblestone",
+   "furnace"
   ]
  },
  "koreanLevel": 1

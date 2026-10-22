@@ -6,10 +6,9 @@
  "tier": 3,
  "order": 155,
  "concepts": [
-  "gen_stripped_poplar_log",
-  "gen_copper_trapdoor",
-  "gen_nether_quartz_ore",
-  "gen_pink_wool_slab"
+  "mountain",
+  "goat",
+  "planks"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,70 +22,72 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stripped_poplar_log"
+    "mountain"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_poplar_log",
-    "count": 3
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_mountain",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_copper_trapdoor"
+    "goat"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:copper_trapdoor",
-    "count": 2
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_nether_quartz_ore"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_quartz_ore",
-    "count": 2
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 800
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_planks",
+    "size": 3
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pink_wool_slab"
+    "goat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_wool_slab",
-    "count": 1
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:goat"
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
-   ]
+   ],
+   "hint": {
+    "ko": "밀을 들고 염소에게 먹이를 줘요."
+   }
   },
-  "textKo": "밤에 분홍색 양털 반 블록을 놓았어요."
+  "textKo": "낮에 염소에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "ziegenpfad",
   "words": [
+   "mountain",
    "goat",
-   "snow",
-   "torch",
-   "campfire"
+   "planks"
   ]
  },
  "koreanLevel": 1

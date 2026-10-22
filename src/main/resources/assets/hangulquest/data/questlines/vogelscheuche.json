@@ -6,10 +6,8 @@
  "tier": 2,
  "order": 154,
  "concepts": [
-  "gen_cracked_nether_bricks",
-  "gen_brain_coral_block",
-  "adv_item_white_banner",
-  "gen_golden_hoe"
+  "hay_block",
+  "carved_pumpkin"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -22,34 +20,44 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cracked_nether_bricks"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_nether_bricks",
+    "type": "CRAFT",
+    "item": "minecraft:hay_block",
     "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brain_coral_block"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral_block",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block",
+    "size": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_white_banner"
+    "carved_pumpkin"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_banner",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carved_pumpkin",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
+   "hint": {
+    "ko": "가위를 들고 조각된 호박을 구해요."
    }
   }
  ],
@@ -57,24 +65,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_golden_hoe"
+    "carved_pumpkin"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_hoe",
-    "count": 3
-   },
-   "conditions": []
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carved_pumpkin",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block"
+   }
   },
-  "textKo": "금 괭이를 세 자루 만들었어요."
+  "textKo": "건초 더미 기둥 위에 조각된 호박을 놓았어요."
  },
  "reward": {
   "badge": "vogelscheuche",
   "words": [
    "hay_block",
-   "carved_pumpkin",
-   "torch",
-   "wheat"
+   "carved_pumpkin"
   ]
  },
  "koreanLevel": 1
