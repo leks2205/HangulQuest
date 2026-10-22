@@ -102,7 +102,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w1_09` | 작은 발견 | Eine kleine Entdeckung | 4 | — |
 | `w2_01` | 비 그친 하늘 | Der Himmel nach dem Regen | 4 | — |
 | `w2_02` | 첫눈 소리 | Das Geräusch des ersten Schnees | 4 | — |
-| `w2_03` | 해질녘 언덕 | Der Hügel bei Sonnenuntergang | 4 | — |
+| `w2_03` | 해 질 녘 언덕 | Der Hügel bei Sonnenuntergang | 4 | — |
 | `w2_04` | 빗속의 불빛 | Licht im Regen | 4 | — |
 | `w2_05` | 계절의 문 | Die Tür der Jahreszeiten | 4 | — |
 | `w2_06` | 별이 뜨는 밤 | Eine Sternennacht | 4 | — |
