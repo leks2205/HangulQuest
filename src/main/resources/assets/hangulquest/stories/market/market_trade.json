@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "market_trade",
+	"chapter": "market",
+	"level": 4,
+	"titleKo": "시장에서",
+	"unlock": {"trails": ["marktpfad", "adv_adventure_trade_at_world_height"], "minWords": 120},
+	"paragraphs": [
+		"오늘 저는 밀을 많이 수확했어요. 밀을 들고 시장에 갔어요.",
+		"시장에는 주민이 많았어요. 퇴비통 옆 주민은 밀을 사요.",
+		"저는 주민에게 밀을 줬어요. 주민은 저에게 에메랄드를 줬어요.",
+		"에메랄드로 빵을 샀어요. 에메랄드가 있으면 시장에서 빵을 살 수 있어요.",
+		"저는 빵을 먹었어요. 맛있었어요. 내일 또 시장에 갈 거예요."
+	],
+	"words": [
+		"concept:wheat", "concept:market", "concept:go", "concept:villager", "concept:gen_composter",
+		"concept:beside", "concept:buy", "concept:emerald", "concept:bread", "concept:eat", "concept:tomorrow"
+	],
+	"glossed": ["concept:tomorrow"],
+	"grammar": [
+		"L1.eoyo", "L1.itda_eopda", "L1.obj_eul", "L1.subj_i", "L2.ege", "L2.eseo_activity", "L2.eun_neun_topic",
+		"L2.go_sequence", "L3.future_geoyeyo", "L3.past", "L3.su_itda", "L4.myeon"
+	]
+}

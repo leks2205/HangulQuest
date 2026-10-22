@@ -37,7 +37,7 @@ final class QuestLogText {
 	}
 
 	/** The Korean word of the marker on the row of the situational trail: "here". */
-	static final String SITUATIONAL_KO = "상황";
+	static final String SITUATIONAL_KO = "여기";
 
 	/** The marker's translation in the interface language, or "" for a row that is not the situational one. */
 	static String situationalMarker(TrackView view) {

@@ -189,4 +189,18 @@ public sealed interface Goal {
 	/** Stay without the action for the window; doing it restarts the window. */
 	record Avoid(Goal action, int windowSeconds, Condition during) implements Goal {
 	}
+
+	// ---- Wave 13: what the client can see of the End.
+
+	/** Place {@code count} of a creature-like object the player sets down (an end crystal), seen as it appears. */
+	record PlaceEntity(String entity, int count) implements Goal {
+	}
+
+	/** Step into an end gateway: the player is thrown a long way from beside one. */
+	record EnterGateway(String block) implements Goal {
+	}
+
+	/** Have a status effect (levitation) on the player. */
+	record HaveEffect(String effect) implements Goal {
+	}
 }

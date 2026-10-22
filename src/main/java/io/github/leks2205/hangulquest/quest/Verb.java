@@ -124,7 +124,10 @@ public enum Verb {
 	HIT("맞히다", "treffen"),
 
 	// Water and lava from a bucket are poured (ㅅ-irregular: 부어요, 부으세요).
-	POUR("붓다", "gießen");
+	POUR("붓다", "gießen"),
+
+	// Wave 13: an effect is received.
+	RECEIVE("받다", "erhalten");
 
 
 	/** How the target noun is marked in front of the verb. */

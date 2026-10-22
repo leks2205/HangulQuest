@@ -56,7 +56,7 @@ class SentenceDumpTest {
 	@TempDir
 	Path tempDir;
 
-	private static final class Feedback implements QuestEngine.Feedback {
+	static final class Feedback implements QuestEngine.Feedback {
 		@Override
 		public void wordCard(Word word) {
 		}

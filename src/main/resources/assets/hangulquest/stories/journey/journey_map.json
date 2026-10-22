@@ -1,0 +1,28 @@
+{
+	"schema": 1,
+	"id": "journey_map",
+	"chapter": "journey",
+	"level": 4,
+	"titleKo": "정글로 가는 길",
+	"unlock": {"trails": ["dschungelpfad", "kartenpfad", "adv_adventure_use_lodestone", "bergwerk"], "minWords": 60},
+	"paragraphs": [
+		"저는 정글로 가야 했어요. 길이 멀었어요.",
+		"그래서 먼저 나침반을 만들었어요. 나침반은 철 주괴 네 개와 레드스톤 한 개로 만들어요.",
+		"그리고 종이 여덟 개와 나침반으로 지도를 만들었어요.",
+		"해가 지면 밤이 돼요. 그래서 횃불을 들고 걸었어요.",
+		"정글에 도착해서 앵무새를 보러 갔어요. 앵무새는 정글에 살아요.",
+		"지도를 보면 길을 찾을 수 있어요. 저는 지도를 보고 집으로 갔어요."
+	],
+	"words": [
+		"concept:jungle", "concept:go", "concept:road", "concept:far", "concept:compass", "concept:make",
+		"concept:iron_ingot", "concept:redstone", "concept:paper", "concept:eight", "concept:map", "concept:sun",
+		"concept:night", "concept:torch", "concept:walk", "concept:parrot", "concept:look", "concept:live",
+		"concept:find", "concept:house"
+	],
+	"glossed": ["concept:far", "concept:live", "concept:find"],
+	"grammar": [
+		"L1.eoyo", "L1.itda_eopda", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic",
+		"L2.go_sequence", "L2.hago_wa_gwa", "L3.past", "L3.su_itda", "L4.eoseo",
+		"L4.eoya_haeyo", "L4.eureo_gayo", "L4.myeon"
+	]
+}

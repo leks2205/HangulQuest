@@ -1,0 +1,26 @@
+{
+	"schema": 1,
+	"id": "nether_piglin",
+	"chapter": "nether",
+	"level": 5,
+	"titleKo": "피글린과 금",
+	"unlock": {"trails": ["adv_nether_distract_piglin", "adv_nether_loot_bastion"], "minWords": 28},
+	"paragraphs": [
+		"네더에서 저는 피글린을 만났어요. 피글린은 금을 좋아해요.",
+		"저는 금 주괴를 피글린에게 줬어요. 그러면 피글린이 물건을 줘요.",
+		"피글린이 주는 물건은 매번 달라요. 저는 기다리는 동안 피글린을 봤어요.",
+		"피글린 근처에서 상자를 열면 안 돼요. 피글린이 공격하니까 조심해야 해요.",
+		"저는 상자를 열지 않았어요. 저는 물건을 받고 행복했어요. 네더는 뜨겁지만 금은 멋져요."
+	],
+	"words": [
+		"concept:nether", "concept:gen_piglin", "concept:meet", "concept:gold", "concept:gold_ingot", "concept:wait",
+		"concept:look", "concept:chest", "concept:open", "concept:receive", "concept:hot"
+	],
+	"glossed": ["concept:meet", "concept:receive"],
+	"grammar": [
+		"L1.eoyo", "L1.neg_an", "L1.obj_eul", "L1.subj_i", "L2.ege",
+		"L2.eseo_activity", "L2.eun_neun_topic", "L2.go_sequence", "L3.ji_anayo", "L3.past",
+		"L4.eoya_haeyo", "L4.jiman", "L4.myeon", "L4.myeon_an_doeyo", "L5.adn_present_neun",
+		"L5.eunikka", "L5.neun_dongan"
+	]
+}

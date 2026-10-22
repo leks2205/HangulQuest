@@ -1,0 +1,43 @@
+{
+	"schema": 1,
+	"id": "smithy",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "professions": [ "minecraft:weaponsmith", "minecraft:toolsmith" ], "baby": false},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "smith",
+			"ko": "안녕하세요! 저는 대장장이예요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "smith",
+			"ko": "뭐가 필요해요?",
+			"choices": [
+				{"ko": "검이 필요해요.", "next": "sword"},
+				{"ko": "곡괭이가 필요해요.", "next": "pickaxe"}
+			]
+		},
+		"sword": {
+			"speaker": "smith",
+			"ko": "철 두 개와 막대기 한 개가 필요해요.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:sword", "concept:iron", "concept:stick"]}
+			],
+			"next": "bye"
+		},
+		"pickaxe": {
+			"speaker": "smith",
+			"ko": "철 세 개와 막대기 두 개가 필요해요.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:pickaxe", "concept:iron", "concept:stick"]}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "smith",
+			"ko": "잘 가요! 또 만나요!",
+			"end": true
+		}
+	}
+}

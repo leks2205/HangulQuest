@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "field_water",
+	"chapter": "field",
+	"level": 4,
+	"titleKo": "밭 옆의 물",
+	"unlock": {"trails": ["saatfeld", "adv_husbandry_balanced_diet"], "minWords": 80},
+	"paragraphs": [
+		"오늘 저는 밭을 만들었어요. 먼저 괭이를 들고 흙을 밭으로 만들었어요.",
+		"밭 옆에 물이 없었어요. 물이 없으면 밀이 잘 자라지 않아요.",
+		"그래서 양동이로 밭 옆에 물을 놓았어요. 그리고 밀 씨앗을 심었어요.",
+		"밭 옆에 울타리도 만들었어요. 울타리가 있으면 동물이 밭에 들어가지 않아요.",
+		"이제 기다려요. 밀이 자라면 수확할 거예요. 수확해서 빵을 만들 거예요."
+	],
+	"words": [
+		"concept:make", "concept:hoe", "concept:dirt", "concept:water", "concept:wheat", "concept:bucket",
+		"concept:place", "concept:gen_wheat_seeds", "concept:fence", "concept:enter", "concept:wait",
+		"concept:bread"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.loc_yeop_e", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic", "L2.go_sequence",
+		"L3.future_geoyeyo", "L3.ji_anayo", "L3.past", "L4.eoseo", "L4.myeon"
+	]
+}

@@ -83,7 +83,9 @@ final class GiveType implements GoalType<Goal.Give> {
 	public boolean evaluate(Goal.Give goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (GiveFact fact : obs.gave) {
 			boolean way = counts(goal, fact);
-			if (way && goal.entity().equals(fact.targetType()) && Matching.accepts(tracker, goal.item(), fact.item())) {
+			boolean item = specific(goal) ? goal.item().equals(fact.item())
+					: Matching.accepts(tracker, goal.item(), fact.item());
+			if (way && goal.entity().equals(fact.targetType()) && item) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}
@@ -232,6 +234,14 @@ final class GiveType implements GoalType<Goal.Give> {
 		}
 	}
 
+	/**
+	 * The one flower an iron golem is about: a poppy. Any flower would be "꽃", but the golem's gift is that very one,
+	 * so the sentence names it and the check wants it (the taught word does not widen it).
+	 */
+	static boolean specific(Goal.Give goal) {
+		return "minecraft:iron_golem".equals(goal.entity()) && "minecraft:poppy".equals(goal.item());
+	}
+
 	/** The item is put down in front of the recipient (떨어뜨려요, 놓아요) instead of handed over (줘요). */
 	private static boolean inFront(Goal.Give goal, SentenceContext c) {
 		return c.verb() == Verb.DROP_AT || PLACE_NEAR.equals(goal.method());
@@ -243,6 +253,12 @@ final class GiveType implements GoalType<Goal.Give> {
 	 * shown by a cod must not hand the cat a cat.
 	 */
 	private static String item(Goal.Give goal, SentenceContext c) {
+		if (specific(goal)) {
+			String own = c.namer().untaught().item(goal.item());
+			if (own != null && !own.isBlank()) {
+				return own;
+			}
+		}
 		String name = c.name(ObjectKind.ITEM, goal.item());
 		return name.isEmpty() ? c.obj() : name;
 	}

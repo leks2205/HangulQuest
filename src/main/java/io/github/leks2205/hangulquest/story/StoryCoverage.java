@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Predicate;
 
 /**
@@ -29,10 +30,16 @@ public final class StoryCoverage {
 
 	/** Everything the Library shows about one story. */
 	public record Status(Story story, List<String> missingTrails, int wordsMet, boolean wordsEnough,
-						 Coverage coverage, List<StoryText.Token> newWords, List<List<StoryText.Token>> paragraphs) {
+						 Coverage coverage, List<StoryText.Token> newWords, List<List<StoryText.Token>> paragraphs,
+						 Set<String> glossed) {
 		/** True when the story can be read. */
 		public boolean open() {
 			return missingTrails.isEmpty() && wordsEnough && coverage.meets();
+		}
+
+		/** True for a word the reader shows with its gloss: glossed by the story and still new to the player. */
+		public boolean isGlossed(StoryText.Token token) {
+			return token.word() && !token.known() && token.id() != null && glossed.contains(token.id());
 		}
 	}
 
@@ -40,12 +47,17 @@ public final class StoryCoverage {
 	}
 
 	public static Coverage of(List<StoryText.Token> tokens) {
+		return of(tokens, Set.of());
+	}
+
+	/** Like {@link #of(List)}, with the glossed words counted as known: the reader explains them in place. */
+	public static Coverage of(List<StoryText.Token> tokens, Set<String> glossed) {
 		int total = 0;
 		int known = 0;
 		for (StoryText.Token token : tokens) {
 			if (token.word()) {
 				total++;
-				if (token.known()) {
+				if (token.known() || (token.id() != null && glossed.contains(token.id()))) {
 					known++;
 				}
 			}
@@ -71,14 +83,16 @@ public final class StoryCoverage {
 				missing.add(trail);
 			}
 		}
-		return new Status(story, missing, wordsMet, wordsMet >= story.unlock().minWords(), of(all), newWords(all), paragraphs);
+		Set<String> glossed = Set.copyOf(story.glossed());
+		return new Status(story, missing, wordsMet, wordsMet >= story.unlock().minWords(), of(all, glossed),
+				newWords(all, glossed), paragraphs, glossed);
 	}
 
-	/** The words that keep a story closed, each once and in reading order. */
-	static List<StoryText.Token> newWords(List<StoryText.Token> tokens) {
+	/** The words that keep a story closed, each once and in reading order; a glossed word does not. */
+	static List<StoryText.Token> newWords(List<StoryText.Token> tokens, Set<String> glossed) {
 		Map<String, StoryText.Token> seen = new LinkedHashMap<>();
 		for (StoryText.Token token : tokens) {
-			if (token.word() && !token.known()) {
+			if (token.word() && !token.known() && (token.id() == null || !glossed.contains(token.id()))) {
 				seen.putIfAbsent(token.id() != null ? token.id() : token.text(), token);
 			}
 		}

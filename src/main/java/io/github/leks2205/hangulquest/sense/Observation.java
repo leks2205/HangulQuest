@@ -138,6 +138,12 @@ public final class Observation {
 	 */
 	public Map<String, Integer> nearBlocksWanted = new HashMap<>();
 	/** Distance to the nearest block of each wanted spec that lies within its radius; a spec with none is absent. */
+	/** Status effects on the player (minecraft:levitation); read every tick. */
+	public java.util.Set<String> effects = java.util.Set.of();
+	/** True on the tick the player was thrown from beside an end gateway. */
+	public boolean gatewayUsed;
+	/** Creatures the player set down this tick (minecraft:end_crystal). */
+	public final List<String> placedEntities = new ArrayList<>();
 	public Map<String, Double> nearestBlock = Map.of();
 	/** Set while a tracked step looks at water or lava, which the vanilla crosshair pick passes through. */
 	public boolean fluidLookWanted;

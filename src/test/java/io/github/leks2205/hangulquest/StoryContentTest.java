@@ -60,22 +60,36 @@ class StoryContentTest {
 	}
 
 	@Test
-	void thereIsAStoryForEachOfTheFourFirstChapters() {
+	void thereIsAStoryForEachOfTheFirstSevenChapters() {
 		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
-		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals")), chapters.toString());
+		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals", "colors", "market", "meals")),
+				chapters.toString());
 		assertEquals(stories.size(), stories.stream().map(Story::id).distinct().count(), "story ids are unique");
 	}
 
 	@Test
-	void eachStoryIsEightyToTwoHundredSyllablesAtLevelOneOrTwo() {
+	void thereAreStoriesForTheLaterChaptersToo() {
+		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
+		assertTrue(chapters.containsAll(Set.of("weather", "cave", "journey", "sea", "festival", "nether", "end")),
+				chapters.toString());
+	}
+
+	@Test
+	void theGradedStoriesReachLevelsOneToSix() {
+		Set<Integer> levels = stories.stream().map(Story::level).collect(Collectors.toSet());
+		assertTrue(levels.containsAll(Set.of(1, 2, 3, 4, 5, 6)), levels.toString());
+	}
+
+	@Test
+	void eachStoryIsEightyToFourHundredSyllablesAtALevelOfTheLadder() {
 		for (Story story : stories) {
-			assertTrue(story.syllables() >= 80 && story.syllables() <= 200, story.id() + " has " + story.syllables());
-			assertTrue(story.level() >= 1 && story.level() <= 2, story.id() + " is level " + story.level());
+			assertTrue(story.syllables() >= 80 && story.syllables() <= 400, story.id() + " has " + story.syllables());
+			assertTrue(story.level() >= 1 && story.level() <= 6, story.id() + " is level " + story.level());
 		}
 	}
 
 	@Test
-	void aStoryUsesNoGrammarAboveItsLevel() {
+	void aStoryUsesNoGrammarAboveItsLevelAndEachOfLevelThreeUpShowsOneOfItsOwn() {
 		GrammarBook book = GrammarBook.shared();
 		for (Story story : stories) {
 			int highest = 0;
@@ -83,8 +97,30 @@ class StoryContentTest {
 				assertTrue(book.get(id) != null, story.id() + " names the unknown construction " + id);
 				highest = Math.max(highest, book.get(id).level());
 			}
-			assertTrue(highest <= 2, story.id() + " uses level " + highest + " grammar");
 			assertTrue(highest <= story.level(), story.id() + " is level " + story.level() + " but uses level " + highest);
+			if (story.level() >= 3) {
+				assertEquals(story.level(), highest, story.id() + " should use a construction of its own level");
+			}
+		}
+	}
+
+	@Test
+	void theTextOfALevelThreeUpStoryShowsAConstructionOfItsOwnLevel() {
+		// The list can claim a rule the text never uses: read the rules off the text itself.
+		StoryVocabulary everything = vocabulary(id -> true);
+		GrammarBook book = GrammarBook.shared();
+		for (Story story : stories) {
+			if (story.level() < 3) {
+				continue;
+			}
+			int highest = 0;
+			for (StoryText.Token token : tokens(story, everything)) {
+				if (token.breakdown() != null && !token.breakdown().grammar().isEmpty()
+						&& book.get(token.breakdown().grammar()) != null) {
+					highest = Math.max(highest, book.get(token.breakdown().grammar()).level());
+				}
+			}
+			assertEquals(story.level(), highest, story.id() + ": the text shows no construction of level " + story.level());
 		}
 	}
 
@@ -118,6 +154,38 @@ class StoryContentTest {
 			Set<String> missing = new LinkedHashSet<>(rules);
 			missing.removeAll(story.grammar());
 			assertTrue(missing.isEmpty(), story.id() + ": the text shows " + missing + " but the grammar list does not");
+		}
+	}
+
+	@Test
+	void glossedWordsReallyAppearInTheTextAndAreAtMostThree() {
+		StoryVocabulary everything = vocabulary(id -> true);
+		int glossedStories = 0;
+		for (Story story : stories) {
+			assertTrue(story.glossed().size() <= Story.MAX_GLOSSED, story.id());
+			Set<String> used = tokens(story, everything).stream().map(StoryText.Token::id).collect(Collectors.toSet());
+			for (String id : story.glossed()) {
+				assertTrue(used.contains(id), story.id() + ": glossed " + id + " is not in the text");
+			}
+			glossedStories += story.glossed().isEmpty() ? 0 : 1;
+		}
+		assertTrue(glossedStories > 0, "the stories that cannot open otherwise use the field");
+	}
+
+	@Test
+	void aGlossedWordOpensTheStoryForAPlayerWhoKnowsTheRest() {
+		for (Story story : stories) {
+			if (story.glossed().isEmpty()) {
+				continue;
+			}
+			Set<String> knows = new LinkedHashSet<>(story.words());
+			knows.removeAll(story.glossed());
+			StoryCoverage.Status status = StoryCoverage.status(story, vocabulary(knows::contains), trail -> true,
+					story.unlock().minWords());
+			assertTrue(status.open(), story.id() + " should open with its glossed words unknown: " + status.coverage());
+			assertTrue(status.newWords().isEmpty(), story.id());
+			long shown = status.paragraphs().stream().flatMap(List::stream).filter(status::isGlossed).count();
+			assertTrue(shown >= story.glossed().size(), story.id() + ": every glossed word shows in the reader");
 		}
 	}
 
@@ -173,6 +241,18 @@ class StoryContentTest {
 		ChapterSet chapters = StoryFixtures.chapters();
 		for (Story story : stories) {
 			assertTrue(chapters.byId(story.chapter()).isPresent(), story.id());
+		}
+	}
+
+	@Test
+	void everyStoryLineIsInTheKoreanReviewRegistry() throws java.io.IOException {
+		String registry = java.nio.file.Files.readString(java.nio.file.Path.of("content/korean/lines.jsonl"));
+		for (Story story : stories) {
+			assertTrue(registry.contains("\"id\":\"story." + story.id() + ".title\""), story.id() + " title is not exported");
+			for (int i = 0; i < story.paragraphs().size(); i++) {
+				assertTrue(registry.contains("\"id\":\"story." + story.id() + ".p" + (i + 1) + "\""),
+						story.id() + " paragraph " + (i + 1) + " is not exported; run tools/review/export_lines.py");
+			}
 		}
 	}
 }

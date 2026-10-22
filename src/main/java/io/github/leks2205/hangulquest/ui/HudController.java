@@ -398,8 +398,13 @@ public final class HudController implements QuestEngine.Feedback {
 
 	@Override
 	public void trailCompleted(Questline trail) {
+		trailCompleted(trail, trail.finaleKo());
+	}
+
+	@Override
+	public void trailCompleted(Questline trail, String finaleKo) {
 		celebrate(Celebration.Kind.TRAIL, "퀘스트 완료!",
-				trail.titleKo(), trail.finaleKo(),
+				trail.titleKo(), finaleKo,
 				hq.config().questTranslations ? trail.finale(io.github.leks2205.hangulquest.util.Lang.current()) : "",
 				hq.config().questTranslations ? "★ " + trail.title(io.github.leks2205.hangulquest.util.Lang.current()) : "", "");
 		celebrationSound(Celebration.Kind.TRAIL);

@@ -1,0 +1,26 @@
+{
+	"schema": 1,
+	"id": "weather_snow",
+	"chapter": "weather",
+	"level": 3,
+	"titleKo": "눈이 온 아침",
+	"unlock": {"trails": ["polarlicht"], "minWords": 25},
+	"paragraphs": [
+		"어젯밤에 눈이 많이 왔어요. 아침에 땅 위에 눈이 있었어요.",
+		"저는 눈덩이를 들었어요. 던지기 전에 여우를 봤어요.",
+		"여우는 눈 속에 있었어요. 저는 눈덩이를 던지지 않았어요. 여우는 산으로 갔어요.",
+		"밖은 추웠어요. 저는 모닥불 옆에 앉았어요. 모닥불은 따뜻했어요.",
+		"저는 집 옆에 눈 블록을 놓았어요. 눈 블록은 차가웠어요. 저는 집으로 들어갔어요. 집 안은 정말 따뜻했어요."
+	],
+	"words": [
+		"concept:snow", "concept:ground", "concept:above", "concept:snowball",
+		"concept:throw", "concept:fox", "concept:look", "concept:interior", "concept:mountain",
+		"concept:go", "concept:cold_weather", "concept:campfire", "concept:house", "concept:snow_block", "concept:place",
+		"concept:cold_touch", "concept:enter"
+	],
+	"glossed": ["concept:ground", "concept:interior", "concept:cold_weather"],
+	"grammar": [
+		"L1.loc_yeop_e", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic", "L3.gi_jeone",
+		"L3.ji_anayo", "L3.past"
+	]
+}

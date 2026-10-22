@@ -183,7 +183,8 @@ public final class Clauses {
 				|| part instanceof Goal.Smelt || part instanceof Goal.Give || part instanceof Goal.PutIn
 				|| part instanceof Goal.TakeOut
 				|| part instanceof Goal.UseBlock || part instanceof Goal.InteractEntity
-				|| part instanceof Goal.ConsumeItem;
+				|| part instanceof Goal.ConsumeItem || part instanceof Goal.PlaceEntity
+				|| part instanceof Goal.EnterGateway;
 	}
 
 	/** Checks the registry ids of a part without comparing it to the taught word. */

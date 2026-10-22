@@ -136,4 +136,17 @@ final class InteractEntityType implements GoalType<Goal.InteractEntity> {
 	public ObjectKind objectKind() {
 		return ObjectKind.ENTITY;
 	}
+
+	/**
+	 * A golem touched with an empty hand does nothing (an iron golem takes an iron ingot, a snow golem loses its pumpkin
+	 * to shears), and 만지다 fits no other creature. The goal would count a click that changes nothing, so it is refused.
+	 */
+	@Override
+	public void validate(Goal.InteractEntity goal, ValidationContext context) {
+		GoalType.super.validate(goal, context);
+		if (verb(goal, VerbTable.shared(), context.step().conditions()) == Verb.TOUCH) {
+			context.problem("a click on " + goal.entity() + " changes nothing; give it something (GIVE) instead of "
+					+ "touching it");
+		}
+	}
 }

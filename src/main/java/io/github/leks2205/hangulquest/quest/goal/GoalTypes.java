@@ -53,7 +53,11 @@ public final class GoalTypes {
 			new FallType(),
 			// Wave 10: shooting and throwing, going in a compass direction.
 			new ShootType(),
-			new WalkType());
+			new WalkType(),
+			// Wave 13: the End (an end crystal set down, an end gateway entered) and a status effect.
+			new PlaceEntityType(),
+			new EnterGatewayType(),
+			new HaveEffectType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

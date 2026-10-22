@@ -141,4 +141,45 @@ class StoryCoverageTest {
 		assertEquals(2, status.paragraphs().size());
 		assertEquals(2, status.paragraphs().get(0).size());
 	}
+
+	private static Story glossedStory(List<String> glossed, String... paragraphs) {
+		return new Story("test", "house", 1, "시험", new Story.Unlock(List.of(), 0), List.of(paragraphs), List.of(), List.of(),
+				glossed);
+	}
+
+	@Test
+	void aGlossedWordCountsAsKnownForTheRuleButStaysMarkedInTheReader() {
+		Story plain = glossedStory(List.of(), text(49, 0) + " 횃불을");
+		StoryVocabulary stone = vocabulary(Set.of("concept:stone"));
+
+		assertTrue(StoryCoverage.status(plain, stone, trail -> true, 0).open(), "49 of 50 is the plain threshold");
+		Story needs = glossedStory(List.of("concept:torch"), text(24, 0) + " 횃불을");
+		assertFalse(StoryCoverage.status(glossedStory(List.of(), text(24, 0) + " 횃불을"), stone, trail -> true, 0).open(),
+				"one unknown in 25 is 96%");
+		StoryCoverage.Status status = StoryCoverage.status(needs, stone, trail -> true, 0);
+		assertTrue(status.open(), "the glossed word counts as known: " + status.coverage());
+		assertEquals(100, status.coverage().percent());
+		assertTrue(status.newWords().isEmpty(), "nothing is left to learn first");
+		StoryText.Token torch = status.paragraphs().get(0).get(24);
+		assertEquals("concept:torch", torch.id());
+		assertFalse(torch.known(), "the token itself is still new: the reader highlights it");
+		assertTrue(status.isGlossed(torch));
+		assertFalse(status.isGlossed(status.paragraphs().get(0).get(0)));
+	}
+
+	@Test
+	void aGlossedWordTheLearnerKnowsIsNotHighlighted() {
+		Story story = glossedStory(List.of("concept:torch"), "횃불을 돌을");
+		StoryCoverage.Status status = StoryCoverage.status(story, vocabulary(Set.of("concept:stone", "concept:torch")),
+				trail -> true, 0);
+		assertFalse(status.isGlossed(status.paragraphs().get(0).get(0)));
+	}
+
+	@Test
+	void glossingOneWordDoesNotHideAnother() {
+		Story story = glossedStory(List.of("concept:torch"), text(10, 0) + " 횃불을 문을");
+		StoryCoverage.Status status = StoryCoverage.status(story, vocabulary(Set.of("concept:stone")), trail -> true, 0);
+		assertFalse(status.open());
+		assertEquals(List.of("concept:door"), status.newWords().stream().map(StoryText.Token::id).toList());
+	}
 }

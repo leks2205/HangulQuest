@@ -380,7 +380,7 @@ class GeneratorWaveTwelveTest {
 
 	@Test
 	void i9_aHeightIsStillAHillOrAMountainOnTheFirstLevel() {
-		assertEquals("언덕 위로 올라가요.", clue(new Goal.ReachHeight(80, 320), 1));
+		assertEquals("언덕 위로 올라가요.", clue(new Goal.ReachHeight(70, 320), 1));
 	}
 
 	// ------------------------------------------------------------ 10. the beacon is used, not opened

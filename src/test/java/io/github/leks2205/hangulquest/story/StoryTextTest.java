@@ -96,7 +96,38 @@ class StoryTextTest {
 			assertNotNull(token.gloss(), form);
 			checked++;
 		}
-		assertEquals(3 * 11 + 1, checked, "three forms for each of the eleven verbs, and 먹으세요 next to 드세요");
+		assertTrue(checked >= 3 * 11 + 1, "at least three forms for each of the eleven verbs, and 먹으세요 next to 드세요, then the later levels");
+	}
+
+	@Test
+	void theEndingsOfLevelsThreeToSixNameTheirConstruction() {
+		assertEquals(new StoryText.Breakdown("놓다", "놓", "-았/었어요", "L3.past"), first("놓았어요").breakdown());
+		assertEquals(new StoryText.Breakdown("쓰다", "쓰", "-았/었어요", "L3.past"), first("썼어요").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-기", "L3.gi_jeone"), first("먹기").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)면", "L4.myeon"), first("먹으면").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-아/어서", "L4.eoseo"), first("만들어서").breakdown());
+		assertEquals(new StoryText.Breakdown("걷다", "걷", "-아/어서", "L4.eoseo"), first("걸어서").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)ㄴ", "L5.adn_past_eun"), first("먹은").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-는", "L5.adn_present_neun"), first("만드는").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)ㄹ", "L5.adn_future_eul"), first("먹을").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-(으)ㄹ수록", "L6.eulsurok"), first("만들수록").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-지", "L3.ji_anayo"), first("먹지").breakdown());
+		for (String form : List.of("놓았어요", "먹기", "먹으면", "만들어서", "먹은", "만드는", "먹을", "만들수록")) {
+			assertEquals(State.UNKNOWN, first(form).state(), form + " is the verb, and the player does not know it yet");
+			assertEquals(State.KNOWN, first(form, "concept:place", "concept:eat", "concept:make").state(), form);
+		}
+	}
+
+	@Test
+	void theCopulaHasAPastForm() {
+		StoryText.Token token = first("집이었어요", "concept:house");
+		assertEquals(State.KNOWN, token.state());
+		assertEquals("L3.past", token.breakdown().grammar());
+	}
+
+	@Test
+	void aParticleOfTheSourceCanFollowAnEojeolThatMeansFrom() {
+		assertEquals(new StoryText.Breakdown("돌", "돌", "에게서", "L2.ege"), first("돌에게서").breakdown());
 	}
 
 	@Test
@@ -166,5 +197,49 @@ class StoryTextTest {
 		StoryText.Token token = StoryText.analyze("문을", vocabulary).get(0);
 		assertEquals(State.KNOWN, token.state());
 		assertEquals("concept:gate", token.id());
+	}
+	@Test
+	void theFormsOfLevelsThreeToSixAreTracedBackToo() {
+		assertEquals(new StoryText.Breakdown("놓다", "놓", "-았/었어요", "L3.past"), first("놓았어요").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-기", "L3.gi_jeone"), first("먹기").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-(으)면", "L4.myeon"), first("만들면").breakdown());
+		assertEquals(new StoryText.Breakdown("짓다", "짓", "-아/어서", "L4.eoseo"), first("지어서").breakdown());
+		assertEquals(new StoryText.Breakdown("열다", "열", "-(으)ㄹ수록", "L6.eulsurok"), first("열수록").breakdown());
+		assertEquals("L5.adn_present_neun", first("먹는").breakdown().grammar());
+	}
+
+	@Test
+	void aNounOrFunctionWordWinsOverAFormOfALaterLevelThatIsSpelledTheSame() {
+		// 안 can be read as the -(으)ㄴ form of a verb (알다): the lexicon word is meant
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("know", "알다", "to know", "wissen", "ACTIONS")));
+		StoryVocabulary vocabulary = StoryVocabulary.of(catalog, LEXICON, id -> true, Lang.EN);
+		assertEquals("lexicon:not", StoryText.analyze("안", vocabulary).get(0).id());
+		assertEquals("concept:know", StoryText.analyze("알아요", vocabulary).get(0).id());
+	}
+
+	@Test
+	void beforeSuOrHuEOrTheFutureGeoTheAdnominalIsNotALevelFiveConstruction() {
+		StoryLexicon lexicon = StoryLexicon.parse("""
+				{"words": [
+				 {"id": "can", "forms": ["수"], "tails": ["", "가"], "grammar": "L3.su_itda", "known": true, "en": "way", "de": "Weg"},
+				 {"id": "exist", "verb": "있다", "known": true, "en": "to be", "de": "sein"},
+				 {"id": "when", "forms": ["때"], "known": true, "en": "when", "de": "wenn"}
+				]}""");
+		StoryVocabulary vocabulary = StoryVocabulary.of(CATALOG, lexicon, id -> true, Lang.EN);
+		assertEquals("L3.su_itda", StoryText.analyze("먹을 수 있어요", vocabulary).get(0).breakdown().grammar());
+		assertEquals("", StoryText.analyze("먹을 때", vocabulary).get(0).breakdown().grammar());
+		assertEquals("L5.adn_future_eul", StoryText.analyze("먹을 집", vocabulary).get(0).breakdown().grammar());
+	}
+
+	@Test
+	void aNameOfSeveralWordsIsOneWordWithItsParticle() {
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("ender_dragon", "엔더 드래곤", "Ender Dragon", "Enderdrache", "ANIMALS")));
+		List<StoryText.Token> tokens = StoryText.analyze("엔더 드래곤을 봐요", StoryVocabulary.of(catalog, LEXICON, id -> true, Lang.EN));
+		assertEquals(2, tokens.size());
+		assertEquals("엔더 드래곤을", tokens.get(0).text());
+		assertEquals("concept:ender_dragon", tokens.get(0).id());
+		assertEquals("L1.obj_eul", tokens.get(0).breakdown().grammar());
+		StoryText.Token alone = StoryText.analyze("엔더", StoryVocabulary.of(catalog, LEXICON, id -> true, Lang.EN)).get(0);
+		assertEquals(State.UNRESOLVED, alone.state(), "half a name is not the name");
 	}
 }

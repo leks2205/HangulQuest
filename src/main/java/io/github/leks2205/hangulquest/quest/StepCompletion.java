@@ -119,6 +119,7 @@ final class StepCompletion {
 	void formMisses(Track track, Observation obs) {
 		GoalEvaluator.Tracker tracker = track.tracker;
 		conditionMisses(track, obs);
+		colourMisses(track, obs);
 		if (tracker.formErrors <= 0) {
 			return;
 		}
@@ -150,6 +151,27 @@ final class StepCompletion {
 		}
 		tracker.conditionSlipsReported += fresh;
 		for (String id : DecidingForms.ofConditions(step, text.effectiveLevel(track.trail.koreanLevel()))) {
+			for (int i = 0; i < fresh; i++) {
+				learn.grammarOutcome(id, MISS, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
+			}
+		}
+	}
+
+	/** The act done in the wrong colour: a slip against the colour adjective the clue read, on the same terms. */
+	private void colourMisses(Track track, Observation obs) {
+		GoalEvaluator.Tracker tracker = track.tracker;
+		if (tracker.colourSlips <= 0) {
+			return;
+		}
+		int fresh = Math.min(tracker.colourSlips, MAX_MISSES - tracker.colourSlipsReported);
+		tracker.colourSlips = 0;
+		QuestStep step = track.step();
+		if (fresh <= 0 || step == null || tracker.assisted || obs.assisted()) {
+			return;
+		}
+		tracker.colourSlipsReported += fresh;
+		List<String> written = text.grammarIds(step, track.trail.koreanLevel());
+		for (String id : DecidingForms.ofColour(step, written)) {
 			for (int i = 0; i < fresh; i++) {
 				learn.grammarOutcome(id, MISS, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
 			}
@@ -207,7 +229,7 @@ final class StepCompletion {
 		persistence.persist(registry, obs.now);
 		StepCompletion.unlock(feedback, learn.checkAchievements());
 		if (focused) {
-			feedback.trailCompleted(track.trail);
+			feedback.trailCompleted(track.trail, text.finaleKo(track.trail));
 			feedback.sound(true);
 		} else {
 			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.line_complete", track.trail.title()), true);

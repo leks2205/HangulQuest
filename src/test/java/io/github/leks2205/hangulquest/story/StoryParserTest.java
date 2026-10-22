@@ -89,4 +89,44 @@ class StoryParserTest {
 		assertTrue(StoryValidator.validate(story, StoryValidator.Env.none()).stream()
 				.anyMatch(problem -> problem.contains("listed twice")));
 	}
+
+	private static final String GLOSSED = """
+			{"id": "house_first", "chapter": "house", "level": 1, "titleKo": "나의 첫 집",
+			 "unlock": {"trails": [], "minWords": 0},
+			 "paragraphs": ["집을 지어요."],
+			 "words": ["concept:house", "concept:build"], "grammar": [], "glossed": ["concept:build"]}""";
+
+	@Test
+	void glossedWordsAreReadAndAnOldFileHasNone() {
+		assertEquals(List.of("concept:build"), StoryParser.parse("house", "house_first", json(GLOSSED)).story().glossed());
+		assertTrue(StoryParser.parse("house", "house_first", json(GOOD)).story().glossed().isEmpty());
+	}
+
+	private static StoryValidator.Env wordsExist() {
+		return new StoryValidator.Env(null, null, null, id -> id.startsWith("concept:"), null);
+	}
+
+	@Test
+	void glossedWordsMustExistBeInTheWordListAndBeAtMostThree() {
+		Story base = StoryParser.parse("house", "house_first", json(GLOSSED)).story();
+		assertTrue(StoryValidator.validate(base, wordsExist()).isEmpty());
+
+		Story unknown = new Story(base.id(), base.chapter(), base.level(), base.titleKo(), base.unlock(), base.paragraphs(),
+				List.of("concept:house", "gone"), base.grammar(), List.of("gone"));
+		assertTrue(StoryValidator.validate(unknown, wordsExist()).stream().anyMatch(p -> p.contains("glossed") && p.contains("gone")),
+				"a glossed id the catalog does not have");
+
+		Story outside = new Story(base.id(), base.chapter(), base.level(), base.titleKo(), base.unlock(), base.paragraphs(),
+				List.of("concept:house"), base.grammar(), List.of("concept:build"));
+		assertTrue(StoryValidator.validate(outside, wordsExist()).stream().anyMatch(p -> p.contains("not in the words list")));
+
+		List<String> four = List.of("concept:a", "concept:b", "concept:c", "concept:d");
+		Story many = new Story(base.id(), base.chapter(), base.level(), base.titleKo(), base.unlock(), base.paragraphs(),
+				four, base.grammar(), four);
+		assertTrue(StoryValidator.validate(many, wordsExist()).stream().anyMatch(p -> p.contains("at most 3")));
+
+		Story twice = new Story(base.id(), base.chapter(), base.level(), base.titleKo(), base.unlock(), base.paragraphs(),
+				List.of("concept:build"), base.grammar(), List.of("concept:build", "concept:build"));
+		assertTrue(StoryValidator.validate(twice, wordsExist()).stream().anyMatch(p -> p.contains("twice")));
+	}
 }

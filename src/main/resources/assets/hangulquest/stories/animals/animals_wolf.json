@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "animals_wolf",
+	"chapter": "animals",
+	"level": 4,
+	"titleKo": "나의 늑대",
+	"unlock": {"trails": ["wolfpfad", "karawane"], "minWords": 140},
+	"paragraphs": [
+		"어제 저는 숲에 갔어요. 숲에 늑대가 있었어요. 저는 뼈를 들었어요.",
+		"늑대에게 뼈를 줬어요. 뼈를 계속 주면 늑대가 제 친구가 돼요.",
+		"이제 늑대는 제 친구예요. 제가 가면 늑대도 같이 가요. 우리는 같이 걸어요.",
+		"밤에 좀비가 오면 늑대가 싸워요. 그래서 밤에도 무섭지 않아요.",
+		"저는 집에 와서 침대에 누웠어요. 늑대는 집 앞에 앉았어요."
+	],
+	"words": [
+		"concept:yesterday", "concept:forest", "concept:go", "concept:wolf", "concept:bone", "concept:friend",
+		"concept:walk", "concept:night", "concept:zombie", "concept:fight", "concept:house", "concept:bed"
+	],
+	"glossed": ["concept:yesterday", "concept:fight"],
+	"grammar": [
+		"L1.copula_ieyo", "L1.eoyo", "L1.loc_ap_e", "L1.obj_eul", "L1.subj_i", "L2.ege", "L2.eun_neun_topic",
+		"L3.ji_anayo", "L3.past", "L4.eoseo", "L4.myeon"
+	]
+}

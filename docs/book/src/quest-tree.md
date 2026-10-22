@@ -22,7 +22,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Goal | Steps | What the player does |
 |---|---:|---|
 | `PLACE_REL` | 232 |  |
-| `CRAFT` | 212 |  |
+| `CRAFT` | 211 |  |
 | `ACQUIRE_ITEM` | 137 | collect an item |
 | `BUILD_PATTERN` | 114 |  |
 | `PLACE_ON_PATTERN` | 114 |  |
@@ -32,14 +32,14 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `LOOK_AT_BLOCK` | 66 | look at a block |
 | `BREAK_BLOCK` | 59 | break a block |
 | `HOLD_WHILE` | 57 |  |
-| `REACH_BIOME` | 57 | reach a biome |
 | `AVOID` | 57 |  |
+| `REACH_BIOME` | 56 | reach a biome |
 | `PLACE_BLOCK` | 55 | place a block |
 | `USE_BLOCK` | 52 | use a block |
 | `CONSUME_ITEM` | 42 | eat or drink an item |
 | `PUT_IN` | 36 |  |
 | `WAIT` | 36 |  |
-| `REACH_HEIGHT` | 33 | reach an altitude |
+| `REACH_HEIGHT` | 32 | reach an altitude |
 | `SMELT` | 30 |  |
 | `DEFEAT_ENTITY` | 27 | defeat a mob |
 | `TRADE` | 24 |  |
@@ -56,6 +56,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `FALL` | 5 |  |
 | `REACH_DIMENSION` | 3 | reach a dimension |
 | `TRANSIT` | 3 |  |
+| `ENTER_GATEWAY` | 1 |  |
+| `HAVE_EFFECT` | 1 |  |
+| `PLACE_ENTITY` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
@@ -64,8 +67,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `WEATHER` | 80 | the weather |
 | `IN_BIOME` | 71 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `IN_DIMENSION` | 43 | a dimension |
-| `Y_RANGE` | 36 | an altitude band |
+| `IN_DIMENSION` | 45 | a dimension |
+| `Y_RANGE` | 37 | an altitude band |
 | `NEAR_BLOCK` | 27 | a block nearby |
 | `SKY` | 27 |  |
 | `NEAR_ENTITY` | 21 | a mob nearby |

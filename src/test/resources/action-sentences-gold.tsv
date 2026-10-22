@@ -231,3 +231,10 @@ w12b.colour.carpet.l1.dropped	1	carpet	{"type":"PLACE_BLOCK","block":"minecraft:
 w12b.colour.anchor.l5	5	-	{"type":"PLACE_REL","block":"minecraft:soul_torch","relation":"NEXT_TO","anchor":"minecraft:blue_bed","count":1}	-	파란 침대 옆에 영혼 횃불을 놓아야 해요.	L1.loc_yeop_e,L1.obj_eul,L4.eoya_haeyo,L5.adn_adj_eun
 w12b.colour.dye.craft.l6	6	-	{"type":"CRAFT","item":"minecraft:purple_dye","count":1,"with":["minecraft:blue_dye","minecraft:red_dye"]}	-	파란 염료와 빨간 염료로 보라색 염료를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.wa_gwa,L2.euro_material,L5.adn_adj_eun
 w12b.colour.dye.craft.l2	2	dye	{"type":"CRAFT","item":"minecraft:purple_dye","count":1,"with":["minecraft:blue_dye","minecraft:red_dye"]}	-	파란색 염료와 빨간색 염료로 보라색 염료를 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.euro_material
+w13.crystal.l1	1	-	{"type":"PLACE_ENTITY","entity":"minecraft:end_crystal","count":1}	-	엔드 수정을 놓아요.	L1.eoyo,L1.eul_reul
+w13.crystal.l4	4	-	{"type":"PLACE_ENTITY","entity":"minecraft:end_crystal","count":1}	-	엔드 수정을 놓아야 해요.	L4.eoya_haeyo,L1.eul_reul
+w13.gateway.l1	1	-	{"type":"ENTER_GATEWAY","block":"minecraft:end_gateway"}	-	엔드 관문에 들어가요.	L1.eoyo,L1.e_place
+w13.effect.l3	3	-	{"type":"HAVE_EFFECT","effect":"minecraft:levitation"}	-	공중 부양 효과를 받으세요.	L2.seyo,L1.eul_reul
+w13.pumpkin.made	1	-	{"type":"ACQUIRE_ITEM","item":"minecraft:carved_pumpkin","count":1}	-	조각된 호박을 만들어요.	L1.eoyo,L1.eul_reul
+w13.height.high	1	-	{"type":"REACH_HEIGHT","minY":90,"maxY":320}	-	높은 곳으로 올라가요.	L1.eoyo
+w13.golem.poppy	1	flower	{"type":"GIVE","item":"minecraft:poppy","entity":"minecraft:iron_golem","method":"DROP_NEAR","count":1}	-	철 골렘 앞에 양귀비를 떨어뜨려요.	L1.eoyo,L1.eul_reul,L1.loc.ap

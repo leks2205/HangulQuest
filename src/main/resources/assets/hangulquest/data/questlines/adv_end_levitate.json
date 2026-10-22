@@ -9,7 +9,7 @@
   "gen_shulker",
   "adv_item_shulker_shell",
   "adv_block_purpur_block",
-  "sky"
+  "height"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -66,21 +66,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sky"
+    "height"
    ],
    "goal": {
-    "type": "REACH_HEIGHT",
-    "minY": 100,
-    "maxY": 320
+    "type": "HAVE_EFFECT",
+    "effect": "minecraft:levitation"
    },
    "conditions": [
     {
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_end"
+    },
+    {
+     "type": "Y_RANGE",
+     "minY": 100,
+     "maxY": 320
     }
    ]
   },
-  "textKo": "엔드에서 높은 곳으로 올라갔어요. 높이 올라갈수록 땅이 멀어져요."
+  "textKo": "엔드에서 공중 부양 효과를 받았어요. 높이 올라갈수록 땅이 멀어져요."
  },
  "reward": {
   "badge": "adv_end_levitate",
@@ -88,7 +92,7 @@
    "gen_shulker",
    "adv_item_shulker_shell",
    "adv_block_purpur_block",
-   "sky"
+   "height"
   ]
  },
  "koreanLevel": 6,

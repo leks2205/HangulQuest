@@ -253,6 +253,9 @@ final class KoreanFixtures {
 			case Goal.Equip g -> g.item();
 			case Goal.Shoot g -> g.entity() != null ? g.entity() : g.block();
 			case Goal.Walk g -> null;
+			case Goal.PlaceEntity g -> g.entity();
+			case Goal.EnterGateway g -> g.block();
+			case Goal.HaveEffect g -> null;
 		};
 	}
 

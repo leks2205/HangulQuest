@@ -196,19 +196,29 @@ class ContentTextTest {
 
 	@Test
 	void missingGermanFallsBackToEnglish() {
-		String found = null;
-		for (Questline trail : QuestLoader.loadAll()) {
-			for (QuestStep step : trail.allSteps()) {
-				String key = TRAIL + trail.id() + ".step." + step.id() + ".hint";
-				if (english().containsKey(key) && !german().containsKey(key)) {
-					found = key;
-					assertEquals(english().get(key), step.hint(Lang.DE), key);
-					assertNull(step.hintDe(), "hintDe() is the German text only");
-					assertEquals(english().get(key), step.hintEn(), key);
+		// A trail written for this test, so the check never depends on which shipped hints still lack German.
+		Questline trail = QuestLoader.parse(JsonParser.parseString("""
+				{"id":"hint_without_german","titleKo":"길","steps":[{"id":"s1","teach":["stone"],
+				 "goal":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":1},
+				 "hint":{"en":"Mine a stone."}}],
+				 "finale":{"step":{"id":"finale","goal":{"type":"PLACE_BLOCK","block":"minecraft:torch","count":1}}}}""")
+				.getAsJsonObject());
+		QuestStep step = trail.steps().get(0);
+		assertEquals("Mine a stone.", step.hint(Lang.DE));
+		assertNull(step.hintDe(), "hintDe() is the German text only");
+		assertEquals("Mine a stone.", step.hintEn());
+		// ... and a shipped hint that has German text shows it
+		boolean shown = false;
+		for (Questline shipped : QuestLoader.loadAll()) {
+			for (QuestStep other : shipped.allSteps()) {
+				String key = TRAIL + shipped.id() + ".step." + other.id() + ".hint";
+				if (german().containsKey(key)) {
+					assertEquals(german().get(key), other.hint(Lang.DE), key);
+					shown = true;
 				}
 			}
 		}
-		assertNotNull(found, "every hint has German text, so the fallback is untested");
+		assertTrue(shown, "no shipped hint has German text at all");
 	}
 
 	@Test

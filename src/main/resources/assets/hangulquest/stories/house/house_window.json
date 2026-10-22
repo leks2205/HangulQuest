@@ -1,0 +1,26 @@
+{
+	"schema": 1,
+	"id": "house_window",
+	"chapter": "house",
+	"level": 3,
+	"titleKo": "집의 첫 창문",
+	"unlock": {"trails": ["glasfenster", "w3_02"], "minWords": 110},
+	"paragraphs": [
+		"오늘 아침에 저는 집에 있었어요. 집에는 문과 침대와 횃불이 있었어요. 하지만 유리판은 없었어요.",
+		"그래서 저는 해변에 갔어요. 해변에는 모래가 많았어요. 저는 모래를 많이 모았어요.",
+		"집에 왔어요. 화로에 석탄과 모래를 넣었어요. 조금 기다렸어요. 그리고 화로에서 유리를 꺼냈어요.",
+		"유리로 유리판을 만들었어요. 유리판을 놓기 전에 집이 조금 어두웠어요. 저는 유리판을 집에 놓았어요.",
+		"저는 침대 옆에 화분도 놓았어요. 화분에 꽃을 심었어요.",
+		"이제 유리판이 창문이에요. 집이 밝아요. 저는 침대에 누워요. 정말 좋아요!"
+	],
+	"words": [
+		"concept:house", "concept:door", "concept:bed", "concept:torch", "concept:glass_pane", "concept:beach",
+		"concept:go", "concept:sand", "concept:collect", "concept:furnace", "concept:coal", "concept:put_in",
+		"concept:wait", "concept:glass", "concept:take_out", "concept:make", "concept:place", "concept:flower_pot",
+		"concept:flower", "concept:window"
+	],
+	"grammar": [
+		"L1.copula_ieyo", "L1.eoyo", "L1.loc_yeop_e", "L1.obj_eul", "L1.subj_i", "L2.eseo_activity",
+		"L2.eun_neun_topic", "L2.hago_wa_gwa", "L3.gi_jeone", "L3.past"
+	]
+}

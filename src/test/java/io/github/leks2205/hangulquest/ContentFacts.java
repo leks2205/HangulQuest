@@ -333,6 +333,10 @@ final class ContentFacts {
 					targets(g.action(), into);
 				}
 			}
+			case Goal.PlaceEntity g -> add(into, "object", g.entity());
+			case Goal.EnterGateway g -> add(into, "object", g.block());
+			case Goal.HaveEffect g -> {
+			}
 			case Goal.ReachDimension g -> {
 			}
 			case Goal.ReachHeight g -> {

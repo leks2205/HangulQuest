@@ -55,7 +55,7 @@ class ProgressCompatibilityTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample", "v4-sample", "v4-placed", "v4-autotrack", "v3.0.0-rc.12", "v3.0.0-rc.11", "v3.0.0-rc.10", "v3.0.0-rc.9", "v3.0.0-rc.8", "v3.0.0-rc.7", "v3.0.0-rc.6", "v3.0.0-rc.5", "v3.0.0-rc.4", "v3.0.0-rc.3", "v3.0.0-rc.2", "v3.0.0-rc.1", "v4-hvpt"})
+	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample", "v4-sample", "v4-placed", "v4-autotrack", "v3.0.0", "v3.0.0-rc.12", "v3.0.0-rc.11", "v3.0.0-rc.10", "v3.0.0-rc.9", "v3.0.0-rc.8", "v3.0.0-rc.7", "v3.0.0-rc.6", "v3.0.0-rc.5", "v3.0.0-rc.4", "v3.0.0-rc.3", "v3.0.0-rc.2", "v3.0.0-rc.1", "v4-hvpt"})
 	void everyReleaseSurvivesLoadAndSave(String tag) throws IOException {
 		Path dir = install(tag + ".json");
 		JsonObject original = read(dir.resolve("progress.json"));

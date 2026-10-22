@@ -6,7 +6,8 @@
 	"environment": "client",
 	"entrypoints": {
 		"fabric-client-gametest": [
-			"io.github.leks2205.hangulquest.gametest.HangulQuestClientGameTest"
+			"io.github.leks2205.hangulquest.gametest.HangulQuestClientGameTest",
+			"io.github.leks2205.hangulquest.gametest.StoreScreenshotsGameTest"
 		]
 	},
 	"depends": {
