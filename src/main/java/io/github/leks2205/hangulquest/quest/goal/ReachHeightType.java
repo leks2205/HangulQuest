@@ -120,10 +120,18 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		return placed ? "높은 곳으로" : summit(minY);
 	}
 
-	/** "언덕 위로" above sea level, "산 위로" from the height of real mountains (Y 100 and up). */
+	/**
+	 * "언덕 위로" a little above sea level, "산 위로" from the height of real mountains (Y 100 and up). In between (Y 80
+	 * to 99) it is higher than a hill and lower than a mountain, so the place is only called a high one.
+	 */
 	static String summit(int minY) {
-		return (minY >= 100 ? "산" : "언덕") + " 위로";
+		if (minY >= 100) {
+			return "산 위로";
+		}
+		return minY >= HIGH_GROUND ? "높은 곳으로" : "언덕 위로";
 	}
+
+	private static final int HIGH_GROUND = 80;
 
 	@Override
 	public String status(Goal.ReachHeight goal, Observation obs, GoalEvaluator.Tracker tracker,

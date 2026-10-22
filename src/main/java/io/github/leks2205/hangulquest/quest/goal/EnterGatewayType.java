@@ -78,15 +78,15 @@ final class EnterGatewayType implements GoalType<Goal.EnterGateway> {
 
 	@Override
 	public List<String> grammarIds(Goal.EnterGateway goal, SentenceContext c) {
-		List<String> ids = new java.util.ArrayList<>(GoalType.super.grammarIds(goal, c));
-		ids.add("L1.e_place");
+		List<String> ids = new java.util.ArrayList<>(SentenceBuilder.baseGrammar(c.verb(), c.level(), ObjectKind.NONE));
+		ids.add("L1.e_place"); // 관문에: the place the body goes to, not an object marker
 		return ids;
 	}
 
 	@Override
 	public String status(Goal.EnterGateway goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
-		return "엔드 관문 옆에서 들어가세요";
+		return "엔드 관문 옆에 서서 들어가세요";
 	}
 
 	@Override

@@ -97,6 +97,10 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 				continue;
 			}
 			String id = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(mention.id());
+			if (step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.Give give && GiveType.specific(give)
+					&& mention.id().equals(give.item())) {
+				continue; // the golem's poppy is named and checked as a poppy, not as any flower
+			}
 			if (Tiers.isGeneralWordOf(id, first.ko)) {
 				continue; // the sentence names the tier (철 곡괭이): only that one counts
 			}

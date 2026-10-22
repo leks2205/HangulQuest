@@ -81,6 +81,13 @@ final class HaveEffectType implements GoalType<Goal.HaveEffect> {
 	}
 
 	@Override
+	public List<String> grammarIds(Goal.HaveEffect goal, SentenceContext c) {
+		List<String> ids = new java.util.ArrayList<>(SentenceBuilder.baseGrammar(c.verb(), c.level(), ObjectKind.NONE));
+		ids.add("L1.eul_reul"); // 효과를
+		return ids;
+	}
+
+	@Override
 	public String status(Goal.HaveEffect goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
 		return name(goal) + " 효과 필요";
