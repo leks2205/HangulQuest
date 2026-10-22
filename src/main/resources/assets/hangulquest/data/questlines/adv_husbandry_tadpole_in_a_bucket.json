@@ -9,7 +9,8 @@
   "gen_swamp",
   "frog",
   "swim",
-  "bucket"
+  "bucket",
+  "water"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -62,7 +63,8 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bucket"
+    "bucket",
+    "water"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
@@ -74,9 +76,15 @@
      "type": "IN_BIOME",
      "biome": "minecraft:swamp"
     }
-   ]
+   ],
+   "clue": {
+    "ko": "늪에서 물 양동이를 구해요."
+   },
+   "hint": {
+    "ko": "늪에서 물 양동이를 구해요."
+   }
   },
-  "textKo": "늪에서 양동이를 구했어요."
+  "textKo": "늪에서 물 양동이를 구했어요."
  },
  "reward": {
   "badge": "adv_husbandry_tadpole_in_a_bucket",
