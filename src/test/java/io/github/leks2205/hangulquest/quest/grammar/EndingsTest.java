@@ -27,7 +27,7 @@ class EndingsTest {
 	private static final Map<String, String> FOR_EAT = Map.ofEntries(
 			Map.entry("ending:eoyo", "먹어요"),
 			Map.entry("ending:past", "먹었어요"),
-			Map.entry("ending:seyo", "먹으세요"),
+			Map.entry("ending:seyo", "드세요"),
 			Map.entry("ending:future", "먹을 거예요"),
 			Map.entry("ending:go_sipeo", "먹고 싶어요"),
 			Map.entry("ending:su_itda", "먹을 수 있어요"),

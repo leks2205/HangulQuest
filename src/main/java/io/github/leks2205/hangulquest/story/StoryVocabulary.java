@@ -118,6 +118,9 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 		verbs.putIfAbsent(word.eoyo(), new VerbMatch(hit, dictionary, word.stem(), Ending.EOYO, eoyoGrammar));
 		if (!word.adjective()) {
 			verbs.putIfAbsent(word.seyo(), new VerbMatch(hit, dictionary, word.stem(), Ending.SEYO, Ending.SEYO.grammar()));
+			// a story may say 먹으세요 where the generator says 드세요
+			verbs.putIfAbsent(word.plainSeyo(), new VerbMatch(hit, dictionary, word.stem(), Ending.SEYO,
+					Ending.SEYO.grammar()));
 		}
 		verbs.putIfAbsent(word.go(), new VerbMatch(hit, dictionary, word.stem(), Ending.GO, Ending.GO.grammar()));
 	}

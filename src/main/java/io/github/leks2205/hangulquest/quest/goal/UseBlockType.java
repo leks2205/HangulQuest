@@ -9,6 +9,7 @@ import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
@@ -126,8 +127,27 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 
 	@Override
 	public String korean(Goal.UseBlock goal, SentenceContext c) {
-		return SentenceBuilder.phrase(SentenceBuilder.objectPhrase(c.obj(), c.verb()), c.verb(), c.level(),
+		return SentenceBuilder.phrase(tool(c) + SentenceBuilder.objectPhrase(c.obj(), c.verb()), c.verb(), c.level(),
 				c.finale());
+	}
+
+	/**
+	 * The request form of 갈다 is 가세요, the same as 가다 (to go): "흙을 가세요" is a trap. Where the ending is
+	 * -(으)세요 the tilling sentence names its tool, which no one goes with: "괭이로 흙을 가세요". The other endings
+	 * (갈아요, 갈아야 해요) cannot be mistaken.
+	 */
+	private static String tool(SentenceContext c) {
+		boolean request = c.verb() == Verb.TILL && "ending:seyo".equals(Ladder.shared().rung(c.level()).ending());
+		return request ? "괭이로 " : "";
+	}
+
+	@Override
+	public List<String> grammarIds(Goal.UseBlock goal, SentenceContext c) {
+		List<String> ids = new java.util.ArrayList<>(GoalType.super.grammarIds(goal, c));
+		if (!tool(c).isEmpty()) {
+			ids.add("L3.euro_instrument");
+		}
+		return ids;
 	}
 
 	@Override

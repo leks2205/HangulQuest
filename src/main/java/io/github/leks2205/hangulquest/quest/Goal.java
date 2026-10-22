@@ -149,7 +149,7 @@ public sealed interface Goal {
 	record HoldWhile(String item, Goal innerGoal, Condition innerCondition, int seconds) implements Goal {
 	}
 
-	/** Do the parts one after the other ({@code ordered}) or in any order. {@code connector} is BEFORE, AFTER, THEN or null. */
+	/** Do the parts one after the other ({@code ordered}) or in any order. {@code connector} is BEFORE, AFTER, THEN, AND (the plain -고) or null. */
 	record Sequence(List<Goal> parts, boolean ordered, String connector) implements Goal {
 		public Sequence {
 			parts = parts == null ? List.of() : List.copyOf(parts);

@@ -342,7 +342,7 @@ class ConjugationGoldTest {
 		return switch (form) {
 			case "-아/어요" -> word.eoyo();
 			case "-았/었어요" -> word.past();
-			case "-(으)세요" -> word.seyo();
+			case "-(으)세요" -> word.plainSeyo(); // 먹다 is 드세요 in the generator; the gold is the regular form
 			case "-고" -> word.go();
 			case "-(으)ㄹ" -> word.future();
 			case "-(으)면" -> word.myeon();

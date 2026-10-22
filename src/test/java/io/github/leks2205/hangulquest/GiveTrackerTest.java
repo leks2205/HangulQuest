@@ -74,9 +74,9 @@ class GiveTrackerTest {
 		assertTrue(tracker.hasDropCandidates(1_050L));
 
 		GiveFact gave = tracker.itemSpawned(41, "minecraft:bread", 1, 1.2,
-				List.of(new GiveTracker.Target("minecraft:villager", VILLAGER, 2.5)), 1_100L);
+				List.of(new GiveTracker.Target("minecraft:pig", VILLAGER, 2.5)), 1_100L);
 
-		assertEquals(new GiveFact("minecraft:bread", 1, "minecraft:villager", VILLAGER, GiveFact.Method.DROP_NEAR),
+		assertEquals(new GiveFact("minecraft:bread", 1, "minecraft:pig", VILLAGER, GiveFact.Method.DROP_NEAR),
 				gave);
 		assertFalse(tracker.hasDropCandidates(1_100L), "the drop is used up");
 	}

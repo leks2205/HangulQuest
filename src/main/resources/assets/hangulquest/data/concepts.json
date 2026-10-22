@@ -217,7 +217,7 @@
    "minecraft:iron_ore",
    "minecraft:deepslate_iron_ore"
   ],
-  "covers": [
+  "accepts": [
    "minecraft:raw_iron"
   ],
   "sentenceKo": "철을 모아요.",
@@ -554,6 +554,9 @@
   "tier": 1,
   "items": [
    "minecraft:carrot"
+  ],
+  "covers": [
+   "minecraft:carrots"
   ],
   "sentenceKo": "당근을 먹어요.",
   "descKo": "주황색이에요. 먹을 수 있어요.",
@@ -2414,6 +2417,9 @@
   "items": [
    "minecraft:cocoa_beans"
   ],
+  "covers": [
+   "minecraft:cocoa"
+  ],
   "sentenceKo": "코코아 콩을 모아요.",
   "descKo": "초콜릿을 만드는 재료예요.",
   "aliases": [
@@ -3027,6 +3033,9 @@
   "tier": 2,
   "items": [
    "minecraft:sweet_berries"
+  ],
+  "covers": [
+   "minecraft:sweet_berry_bush"
   ],
   "sentenceKo": "달콤한 열매를 모아요.",
   "descKo": "숲에서 자라는 빨간 열매예요.",
@@ -3873,6 +3882,9 @@
   "items": [
    "minecraft:torchflower_seeds"
   ],
+  "covers": [
+   "minecraft:torchflower_crop"
+  ],
   "sentenceKo": "횃불꽃 씨앗을 봐요.",
   "descKo": "심으면 횃불꽃이 자라요.",
   "aliases": [
@@ -3998,6 +4010,9 @@
   "tier": 3,
   "items": [
    "minecraft:pitcher_pod"
+  ],
+  "covers": [
+   "minecraft:pitcher_crop"
   ],
   "sentenceKo": "벌레잡이풀 꼬투리를 봐요.",
   "descKo": "심으면 벌레잡이풀이 자라요.",
@@ -9971,6 +9986,9 @@
   "tier": 1,
   "items": [
    "minecraft:beetroot"
+  ],
+  "covers": [
+   "minecraft:beetroots"
   ],
   "aliases": []
  },

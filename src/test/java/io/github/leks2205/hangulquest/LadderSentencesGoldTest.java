@@ -87,7 +87,9 @@ class LadderSentencesGoldTest {
 	void theHintStaysAtLevelOne() throws IOException {
 		for (Row row : rows()) {
 			String hint = SentenceBuilder.hint(row.goal(), null, List.of(), KoreanFixtures.registryNamer());
-			String level1 = SentenceBuilder.normal(row.goal(), null, List.of(), 1, false, KoreanFixtures.registryNamer());
+			// a hint may say how a thing is done where the clue only says what (a gift to a villager is put down)
+			Goal shown = io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(row.goal()).forHint(row.goal());
+			String level1 = SentenceBuilder.normal(shown, null, List.of(), 1, false, KoreanFixtures.registryNamer());
 			assertEquals(level1.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""), hint.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""),
 					row.id() + " hint");
 			assertTrue(hint.endsWith("요."), row.id() + " hint is not -아/어요: " + hint);

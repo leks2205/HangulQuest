@@ -118,17 +118,18 @@ final class TradeType implements GoalType<Goal.Trade> {
 		return head(goal, c, true) + " " + c.verb().past();
 	}
 
-	/** "주민에게 빵을 (세 개)": the merchant, then the thing. */
+	/** "주민에게 밀을 (세 개) 팔아요", "주민에게서 빵을 (세 개) 사요": the merchant, then the thing. A buyer gets it from the seller. */
 	private static String head(Goal.Trade goal, SentenceContext c, boolean withCounts) {
 		String merchant = c.name(ObjectKind.ENTITY, goal.entity());
-		return KoGrammar.ege(merchant.isEmpty() ? "주민" : merchant) + " "
+		String who = merchant.isEmpty() ? "주민" : merchant;
+		return (sell(goal) ? KoGrammar.ege(who) : KoGrammar.egeseo(who)) + " "
 				+ SentenceBuilder.counted(KoGrammar.eul(c.obj()), goal.count(), withCounts, goal.item(), c.obj());
 	}
 
 	@Override
 	public List<String> grammarIds(Goal.Trade goal, SentenceContext c) {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
-		ids.add("L2.ege");
+		ids.add(sell(goal) ? "L2.ege" : "L2.ege_source");
 		return ids;
 	}
 

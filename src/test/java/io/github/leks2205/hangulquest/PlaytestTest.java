@@ -302,7 +302,9 @@ class PlaytestTest {
 					g.station() == null ? "crafting_table" : g.station()));
 			case Goal.Smelt g -> obs.addCrafted(new CraftFact(g.output(), Math.max(1, g.count()), "furnace"));
 			case Goal.Give g -> obs.addGave(new GiveFact(g.item(), Math.max(1, g.count()), g.entity(),
-					UUID.randomUUID(), g.method() == null ? GiveFact.Method.USE_WITH
+					UUID.randomUUID(), g.method() == null
+					? "minecraft:villager".equals(g.entity()) ? GiveFact.Method.DROP_NEAR
+					: "minecraft:wandering_trader".equals(g.entity()) ? GiveFact.Method.TRADE : GiveFact.Method.USE_WITH
 					: GiveFact.Method.valueOf(g.method())));
 			case Goal.PutIn g -> obs.addPutIn(new ContainerPutFact(g.item(), Math.max(1, g.count()),
 					g.container(), BlockPos.ZERO));

@@ -31,13 +31,15 @@ final class Lexicon {
 	private final Map<Irregular, List<String>> suffixes;
 	private final Set<String> wa;
 	private final Set<String> adjectives;
+	private final Map<String, String> honorific;
 
 	Lexicon(Map<String, Irregular> exact, Map<Irregular, List<String>> suffixes, Set<String> wa,
-			Set<String> adjectives) {
+			Set<String> adjectives, Map<String, String> honorific) {
 		this.exact = exact;
 		this.suffixes = suffixes;
 		this.wa = wa;
 		this.adjectives = adjectives;
+		this.honorific = honorific;
 	}
 
 	private static Lexicon load() {
@@ -68,8 +70,14 @@ final class Lexicon {
 		for (Map.Entry<String, JsonElement> entry : root.getAsJsonObject("suffix").entrySet()) {
 			suffixes.put(Irregular.byId(entry.getKey()), strings(entry.getValue().getAsJsonArray()));
 		}
+		Map<String, String> honorific = new HashMap<>();
+		if (root.has("honorific")) {
+			for (Map.Entry<String, JsonElement> entry : root.getAsJsonObject("honorific").entrySet()) {
+				honorific.put(entry.getKey(), entry.getValue().getAsString());
+			}
+		}
 		return new Lexicon(exact, suffixes, new HashSet<>(strings(root.getAsJsonArray("wa"))),
-				new HashSet<>(strings(root.getAsJsonArray("adjectives"))));
+				new HashSet<>(strings(root.getAsJsonArray("adjectives"))), Map.copyOf(honorific));
 	}
 
 	private static List<String> strings(JsonArray array) {
@@ -94,6 +102,11 @@ final class Lexicon {
 			}
 		}
 		return null;
+	}
+
+	/** The -(으)세요 form of a verb that has a word of its own for it (먹다 is 드세요), or null. */
+	String honorific(String dictionary) {
+		return honorific.get(dictionary);
 	}
 
 	boolean takesWa(String dictionary) {

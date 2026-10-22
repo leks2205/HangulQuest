@@ -245,8 +245,9 @@ class ConjugatorTest {
 		assertEquals("간다", w("가다").handa());
 		assertEquals("갈게요", w("가다").eulgeyo());
 		assertEquals("가세요", w("가다").seyo());
-		// 먹다 stays 먹으세요; 드세요 is a note in the gold table, not a Conjugator form
-		assertEquals("먹으세요", w("먹다").seyo());
+		// 먹다 asks for 드세요 (the honorific list of irregulars.json); the regular form is plainSeyo
+		assertEquals("드세요", w("먹다").seyo());
+		assertEquals("먹으세요", w("먹다").plainSeyo());
 		assertEquals("들", w("들다").future());
 		assertEquals("드세요", w("들다").seyo());
 	}

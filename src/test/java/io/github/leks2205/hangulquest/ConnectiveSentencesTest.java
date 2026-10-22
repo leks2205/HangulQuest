@@ -132,17 +132,17 @@ class ConnectiveSentencesTest {
 	@Test
 	void otherLevelsAndTheHintNameTheStructureAsItIs() {
 		Goal goal = onPattern(Relation.ON_TOP_OF, Pattern.PILLAR, STONE);
-		assertEquals("돌 기둥 위에 횃불을 놓아요.", say(goal, 1));
-		assertEquals("돌 기둥 위에 횃불을 놓으세요.", say(goal, 2));
-		assertEquals("돌 기둥 위에 횃불을 놓아야 해요.", say(goal, 4));
-		assertEquals("돌 기둥 위에 횃불을 놓아요.", SentenceBuilder.hint(goal, null, List.of(), namer));
-		assertEquals("돌 기둥 위에 횃불을 놓았어요.", SentenceBuilder.ceremony(goal, null, List.of(), namer));
+		assertEquals("돌기둥 위에 횃불을 놓아요.", say(goal, 1));
+		assertEquals("돌기둥 위에 횃불을 놓으세요.", say(goal, 2));
+		assertEquals("돌기둥 위에 횃불을 놓아야 해요.", say(goal, 4));
+		assertEquals("돌기둥 위에 횃불을 놓아요.", SentenceBuilder.hint(goal, null, List.of(), namer));
+		assertEquals("돌기둥 위에 횃불을 놓았어요.", SentenceBuilder.ceremony(goal, null, List.of(), namer));
 	}
 
 	@Test
 	void relationsAndShapesThatDoNotReadAsOneSentenceStayPlain() {
-		assertEquals("돌 기둥 아래에 횃불을 놓으세요.", say(onPattern(Relation.UNDER, Pattern.PILLAR, STONE), 3));
-		assertEquals("돌 담 밖에 횃불을 놓으세요.", say(onPattern(Relation.OUTSIDE, Pattern.RING, STONE), 3));
+		assertEquals("돌기둥 아래에 횃불을 놓으세요.", say(onPattern(Relation.UNDER, Pattern.PILLAR, STONE), 3));
+		assertEquals("돌담 밖에 횃불을 놓으세요.", say(onPattern(Relation.OUTSIDE, Pattern.RING, STONE), 3));
 		assertEquals("돌 피라미드 근처에 횃불을 놓으세요.", say(onPattern(Relation.NEAR, Pattern.PYRAMID, STONE), 3));
 		assertEquals("돌 세 개 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.ROW, STONE), 3));
 	}
@@ -153,7 +153,7 @@ class ConnectiveSentencesTest {
 		Goal place = onPattern(Relation.ON_TOP_OF, Pattern.PILLAR, STONE);
 		Questline trail = trail(build, place);
 		QuestStep second = trail.step("s2");
-		assertEquals("돌 기둥 위에 횃불을 놓으세요.",
+		assertEquals("돌기둥 위에 횃불을 놓으세요.",
 				SentenceBuilder.normal(second.goal(), null, List.of(), 3, false, StepNamer.of(namer, second)));
 
 		// a pillar of something else was not built: this one has to be
@@ -165,7 +165,7 @@ class ConnectiveSentencesTest {
 		// a structure an earlier step already stood a torch on counts as built, too
 		Goal firstPlace = onPattern(Relation.NEXT_TO, Pattern.PILLAR, STONE);
 		QuestStep later = trail(firstPlace, place).step("s2");
-		assertEquals("돌 기둥 위에 횃불을 놓으세요.",
+		assertEquals("돌기둥 위에 횃불을 놓으세요.",
 				SentenceBuilder.normal(later.goal(), null, List.of(), 3, false, StepNamer.of(namer, later)));
 		// and an earlier step of another shape does not
 		QuestStep wall = trail(new Goal.BuildPattern(Pattern.WALL, STONE, 3), place).step("s2");

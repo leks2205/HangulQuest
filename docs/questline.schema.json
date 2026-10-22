@@ -622,9 +622,10 @@
               "enum": [
                 "BEFORE",
                 "AFTER",
-                "THEN"
+                "THEN",
+                "AND"
               ],
-              "description": "Which Korean connective ties the two parts of an ordered sequence; chosen from the parts when left out."
+              "description": "Which Korean connective ties the two parts of an ordered sequence; chosen from the parts when left out. AND is the plain -고 (level 2); the order is checked all the same."
             }
           },
           "required": [

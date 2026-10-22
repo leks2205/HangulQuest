@@ -172,7 +172,7 @@ class GrammarOutcomeFeedTest {
 	void aRecipientIsDecidedByEge() {
 		play(2, new Goal.Give("minecraft:bread", "minecraft:villager", null, 1));
 		Observation gave = new Observation();
-		gave.addGave(new GiveFact("minecraft:bread", 1, "minecraft:villager", UUID.randomUUID(), GiveFact.Method.USE_WITH));
+		gave.addGave(new GiveFact("minecraft:bread", 1, "minecraft:villager", UUID.randomUUID(), GiveFact.Method.DROP_NEAR));
 		tick(gave);
 		assertEquals(1, learn.grammar().answers("L2.ege"));
 		assertEquals(GrammarProgress.update(PRIOR, true), learn.grammar().pL("L2.ege"), 1e-9);

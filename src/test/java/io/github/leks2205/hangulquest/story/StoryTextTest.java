@@ -96,7 +96,7 @@ class StoryTextTest {
 			assertNotNull(token.gloss(), form);
 			checked++;
 		}
-		assertEquals(3 * 11, checked, "three forms for each of the eleven verbs");
+		assertEquals(3 * 11 + 1, checked, "three forms for each of the eleven verbs, and 먹으세요 next to 드세요");
 	}
 
 	@Test
