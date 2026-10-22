@@ -159,6 +159,14 @@ public final class PronunciationExceptions {
 		return sinoWords.contains(eojeol);
 	}
 
+	/**
+	 * Same, knowing whether the word stands in a longer phrase. An entry written {@code 갈색*} counts only inside
+	 * a phrase (갈색 양탄자), so the word on its own stays as the tags of its concept say.
+	 */
+	boolean isSino(String eojeol, boolean inPhrase) {
+		return sinoWords.contains(eojeol) || inPhrase && sinoWords.contains(eojeol + "*");
+	}
+
 	public int size() {
 		return overrides.size() + joins.size() + stems.size() + sinoWords.size();
 	}

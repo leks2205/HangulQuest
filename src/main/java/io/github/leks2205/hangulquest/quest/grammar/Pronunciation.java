@@ -119,6 +119,7 @@ public final class Pronunciation {
 		Set<Rule> rules = EnumSet.noneOf(Rule.class);
 		boolean lexical = false;
 		List<List<Syl>> eojeols = new ArrayList<>();
+		boolean inPhrase = text.contains(" ");
 		for (String word : text.split(" +")) {
 			if (word.isEmpty()) {
 				continue;
@@ -131,7 +132,7 @@ public final class Pronunciation {
 			} else {
 				List<Syl> syllables = parse(word);
 				// the Sino-Korean rule goes by the origin of this word, not of the phrase around it
-				boolean wordSino = sino || exceptions.isSino(word);
+				boolean wordSino = sino || exceptions.isSino(word, inPhrase);
 				lexical |= inside(syllables, word, wordSino, exceptions, rules);
 				eojeols.add(syllables);
 			}
