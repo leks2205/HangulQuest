@@ -14,8 +14,9 @@ import sys
 import zipfile
 from pathlib import Path
 
-KINDS = ("item", "block", "entity", "biome")  # the first kind wins when two share an English name
-NAME_KEY = re.compile(r"^(item|block|entity|biome)\.minecraft\.[a-z0-9_]+$")
+KINDS = ("item", "block", "entity", "biome", "advancements")  # the first kind wins when two share an English name
+# Advancement titles count too: the advancement trails carry the vanilla title, which has an official translation.
+NAME_KEY = re.compile(r"^(item|block|entity|biome)\.minecraft\.[a-z0-9_]+$|^(advancements)\.[a-z0-9_.]+\.title$")
 WORD = re.compile(r"[A-Za-z0-9][A-Za-z0-9'’\-]*")
 MAX_WORDS = 6
 
@@ -79,11 +80,12 @@ class Glossary:
         for kind in KINDS:
             for key, en in english.items():
                 match = NAME_KEY.match(key)
-                if not match or match.group(1) != kind or not isinstance(en, str) or "%" in en:
+                if not match or (match.group(1) or match.group(2)) != kind or not isinstance(en, str) or "%" in en:
                     continue
                 local = target.get(key)
                 if isinstance(local, str) and local.strip() and "%" not in local:
-                    names.setdefault(en.casefold(), (en, local))
+                    # match on the words only, so titles with punctuation ("Caves & Cliffs", "…Goat!") are found
+                    names.setdefault(" ".join(WORD.findall(en)).casefold(), (en, local))
         self.names = names
         self.longest = max((len(name.split()) for name in names), default=1)
 

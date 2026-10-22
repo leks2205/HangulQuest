@@ -93,8 +93,8 @@ class I18nTest {
 	@Test
 	void aGameLanguageWithoutTextKeepsItsCodeAndShowsEnglish() {
 		Lang.set(Lang.AUTO);
-		Lang.setLocaleSource(() -> "fr_fr");
-		assertEquals("fr_fr", Lang.current().code());
+		Lang.setLocaleSource(() -> "la_la");
+		assertEquals("la_la", Lang.current().code());
 		assertEquals("Review now", I18n.t(REVIEW));
 		Lang.setLocaleSource(() -> "ko_kr");
 		assertEquals("Review now", I18n.t(REVIEW));
@@ -102,9 +102,9 @@ class I18nTest {
 
 	@Test
 	void anExplicitLanguageWithoutTextIsEnglish() {
-		Lang.set("fr");
+		Lang.set("la");
 		assertSame(Lang.EN, Lang.current());
-		assertEquals("en_us", Lang.normalise("fr"));
+		assertEquals("en_us", Lang.normalise("la"));
 		assertEquals("de_de", Lang.normalise("DE"));
 		assertEquals("en_us", Lang.normalise("EN"));
 		assertEquals("es_es", Lang.normalise("es_ES"));
@@ -136,7 +136,7 @@ class I18nTest {
 	void theLanguageIndexNamesTheLanguagesInThemselves() {
 		assertEquals("Deutsch", Lang.DE.label());
 		assertEquals("English", Lang.EN.label());
-		assertEquals("fr_fr", Lang.of("fr_fr").label());
+		assertEquals("la_la", Lang.of("la_la").label());
 	}
 
 	@Test

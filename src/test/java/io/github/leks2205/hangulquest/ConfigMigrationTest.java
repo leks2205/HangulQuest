@@ -67,7 +67,7 @@ class ConfigMigrationTest {
 
 	@Test
 	void anUnknownLanguageFallsBackToEnglish() {
-		assertEquals("en_us", Config.parse(json("{\"language\":\"fr\"}")).language);
+		assertEquals("en_us", Config.parse(json("{\"language\":\"la\"}")).language);
 	}
 
 	@Test
