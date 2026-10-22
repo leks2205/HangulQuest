@@ -6,6 +6,7 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -158,8 +159,38 @@ public final class DialogueValidator {
 		if (node.grammar() != null && !(graded && right)) {
 			problems.add(where + ": a graded node needs a right and a wrong choice marked");
 		}
+		checkSpeechTask(node, where, problems);
 		if (node.grammar() == null && graded) {
 			problems.add(where + ": choices are marked right or wrong but the node names no grammar point");
+		}
+	}
+
+	/** The speech-level constructions of grammar.json and the level each one teaches. */
+	private static final Map<String, SpeechLevel> TASKS = Map.of("L5.hapsyo", SpeechLevel.HAPSYO,
+			"L6.banmal", SpeechLevel.BANMAL);
+
+	/**
+	 * A node that grades 합쇼체 or 반말 is asked by someone who speaks that level, the right answer is in that level and
+	 * no wrong answer is: the player is graded on talking the way the listener is talked to.
+	 */
+	private static void checkSpeechTask(Dialogue.Node node, String where, List<String> problems) {
+		SpeechLevel taught = node.grammar() == null ? null : TASKS.get(node.grammar());
+		if (taught == null) {
+			return;
+		}
+		if (node.speaker().level() != taught) {
+			problems.add(where + ": the task teaches " + taught.id() + " but " + node.speaker().id() + " speaks "
+					+ node.speaker().level().id());
+		}
+		for (int i = 0; i < node.choices().size(); i++) {
+			Dialogue.Choice choice = node.choices().get(i);
+			String at = where + ".c" + (i + 1);
+			if (Boolean.TRUE.equals(choice.correct()) && choice.speechLevel() != taught) {
+				problems.add(at + ": the right choice must be " + taught.id() + ", not " + choice.speechLevel().id());
+			}
+			if (choice.wrong() && choice.speechLevel() == taught) {
+				problems.add(at + ": a wrong choice cannot be " + taught.id() + ", the level the task asks for");
+			}
 		}
 	}
 

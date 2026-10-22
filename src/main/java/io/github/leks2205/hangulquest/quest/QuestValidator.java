@@ -4,6 +4,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+import io.github.leks2205.hangulquest.quest.grammar.Constructions;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.util.TextClean;
@@ -67,6 +68,7 @@ public final class QuestValidator {
 				log.warn("skipping questline {}: missing finale", trail.id());
 				continue;
 			}
+			problems.addAll(constructionProblems(trail));
 			valid.add(trail.withSteps(clueSteps, finale).withGrammar(knownGrammar(trail, problems, log)));
 		}
 		// Trails that require each other can never unlock; drop them instead of looping over them.
@@ -81,6 +83,23 @@ public final class QuestValidator {
 			log.warn("questline problem: {}", problem);
 		}
 		return new Result(valid, problems);
+	}
+
+	/**
+	 * The authored Korean of the trail against the level and role rules of the upper constructions. These are
+	 * reported, but the step stays: a player's own trail is told, not cut.
+	 */
+	private static List<String> constructionProblems(Questline trail) {
+		List<String> problems = new ArrayList<>();
+		int level = trail.koreanLevel();
+		for (QuestStep step : trail.allSteps()) {
+			String where = trail.id() + "/" + step.id();
+			problems.addAll(Constructions.problems(where + " clue", step.clueKo(), Constructions.Role.CLUE, level));
+			problems.addAll(Constructions.problems(where + " hint", step.hintKo(), Constructions.Role.HINT, level));
+		}
+		problems.addAll(Constructions.problems(trail.id() + "/finale text", trail.finaleKo(),
+				Constructions.Role.FINALE, level));
+		return problems;
 	}
 
 	/**

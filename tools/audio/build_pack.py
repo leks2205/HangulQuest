@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the optional "Hangul Quest Voices" resource pack from rendered clips.
 
-  build_pack.py [--out <render dir>] [--dist <folder>] [--blocklist extra.json ...]
+  build_pack.py [--out <render dir>] [--dist <folder>] [--texts texts.jsonl] [--blocklist extra.json ...]
 
 Layout (resource pack format 97 for Minecraft 26.3):
   pack.mcmeta
@@ -12,6 +12,8 @@ Layout (resource pack format 97 for Minecraft 26.3):
 The mod only plays "hangulquest:word.<conceptId>"; the game picks one of the listed voices at random.
 Clips on a blocklist (qa.py writes one, native reviewers add more) are left out; an event without any
 clip left is not written, so the mod stays silent for it.
+With --texts (JSONL from select_texts.py) only clips whose id is in the list and whose text still matches are
+packed; a clip of a text that was removed or reworded is dropped, the rest of the render folder is kept as cache.
 Zip goes outside the repo, into <dist> (default ~/hangulquest-audio/dist).
 """
 import argparse
@@ -20,7 +22,7 @@ import re
 import zipfile
 from pathlib import Path
 
-from common import DIST, OUT
+from common import DIST, OUT, read_jsonl, sha1
 
 PACK_FORMAT = 97  # resource_major in the 26.3 version.json
 NAME = "Hangul Quest Voices"
@@ -50,15 +52,18 @@ def load_blocklists(paths):
     return blocked
 
 
-def build(render_dir: Path, dist: Path, extra_blocklists=()):
+def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None):
     manifest = json.loads((render_dir / "manifest.json").read_text(encoding="utf-8"))
     blocked = load_blocklists([render_dir / "audio-blocklist.json", *extra_blocklists])
 
+    current = {r["id"]: sha1(r["ko"]) for r in read_jsonl(texts)} if texts else None
     events, files, kept = {}, [], {}
     for voice, vdata in sorted(manifest["voices"].items()):
         for cid, entry in sorted(vdata["entries"].items()):
             src = render_dir / voice / f"{entry['hash']}.ogg"
             if (voice, cid) in blocked or not src.exists() or not SAFE.fullmatch(cid):
+                continue
+            if current is not None and current.get(cid) != entry.get("text_sha1"):
                 continue
             events.setdefault(cid, {"sounds": []})["sounds"].append({"name": f"hangulquest:ko/{voice}/{cid}"})
             files.append((src, f"assets/hangulquest/sounds/ko/{voice}/{cid}.ogg"))
@@ -101,9 +106,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--dist", default=str(DIST))
+    ap.add_argument("--texts", help="JSONL of the current texts; clips of other texts are left out")
     ap.add_argument("--blocklist", nargs="*", default=[])
     args = ap.parse_args()
-    build(Path(args.out), Path(args.dist), args.blocklist)
+    build(Path(args.out), Path(args.dist), args.blocklist, args.texts)
 
 
 if __name__ == "__main__":

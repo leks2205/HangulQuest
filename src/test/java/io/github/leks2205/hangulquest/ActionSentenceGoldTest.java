@@ -125,6 +125,8 @@ class ActionSentenceGoldTest {
 					case "BEFORE" -> "기 전에";
 					case "AFTER" -> "후에";
 					case "AND" -> "고 ";
+					case "EOSEO" -> "서 ";
+					case "EUREO" -> "러 ";
 					default -> "고 나서";
 				} : "고 ";
 				assertTrue(hint.contains(connective), row.id() + " hint lost its connective: " + hint);

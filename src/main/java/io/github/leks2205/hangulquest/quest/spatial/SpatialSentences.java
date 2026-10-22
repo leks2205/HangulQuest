@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
 import io.github.leks2205.hangulquest.quest.Condition;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForm;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
@@ -356,7 +357,7 @@ public final class SpatialSentences {
 		return grammarPoints(goal, List.of(), 1, true, false);
 	}
 
-	/** The ids of the sentence the generator builds for these settings (conditions add 에 for the time). */
+	/** The ids of the sentence the generator builds for these settings (a time condition adds 에, or -(으)면 from level 4). */
 	public static List<String> grammarPoints(Goal goal, List<Condition> conditions, int level, boolean withCounts,
 											 boolean past) {
 		SentenceBuilder.Namer namer = SentenceBuilder.Namer.NONE;
@@ -367,7 +368,8 @@ public final class SpatialSentences {
 			default -> List.of();
 		});
 		if (!ids.isEmpty() && conditions.stream().anyMatch(c -> c instanceof Condition.Time)) {
-			ids.add(0, E_TIME);
+			// from level 4 the time is a clause: 밤이 되면 (see ConditionForms), not the 에 of "밤에"
+			ids.add(0, !past && level >= ConditionForm.IF.minLevel() ? ConditionForm.IF.grammar() : E_TIME);
 		}
 		return ids;
 	}

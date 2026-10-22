@@ -286,7 +286,7 @@ def _ending_class(sentence: str) -> str | None:
         return "해요체"
     if re.search(r"[^니]다$", s) or re.search(r"[는ㄴ]다$", s):
         return "한다체"
-    if re.search(r"(?:해|어|아|야|지|네|래|니|냐|자)$", s) and len(s) > 3:
+    if re.search(r"(?:해|어|아|야|지|네|래|니|냐|자|라)$", s) and len(s) > 3:
         return "반말"
     return None
 

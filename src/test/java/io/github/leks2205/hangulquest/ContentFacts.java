@@ -9,6 +9,7 @@ import com.google.gson.JsonParser;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.Condition;
+import io.github.leks2205.hangulquest.quest.DecidingForms;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.QuestStep;
@@ -151,7 +152,7 @@ final class ContentFacts {
 				|| goal instanceof Goal.BreakBlock || goal instanceof Goal.AcquireItem);
 		String relation = relation(goal);
 		// the Korean form decides which action is right: a relation word, a recipient, a connective, a "don't"
-		boolean formDependent = !type.decidingForms(goal).isEmpty();
+		boolean formDependent = !DecidingForms.of(step, level).isEmpty();
 		return new Step(step.id(), type.id(), signature, shape, SentenceBuilder.verbFor(goal).name(),
 				type.object(goal), relation == null ? "" : relation, List.copyOf(conditions),
 				List.copyOf(mechanics), bare, formDependent, List.copyOf(grammar), List.copyOf(step.teach()),

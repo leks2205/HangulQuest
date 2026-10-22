@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 
 import java.util.ArrayList;
@@ -23,7 +24,11 @@ public final class Clauses {
 		AND("L2.go_and"),
 		THEN("L3.go_naseo"),
 		AFTER("L3.eun_hue"),
-		BEFORE("L3.gi_jeone");
+		BEFORE("L3.gi_jeone"),
+		/** -아/어서: the first thing is done and the second uses it ("돌을 캐서 화로를 만들어요"). */
+		EOSEO("L4.eoseo"),
+		/** -(으)러: the purpose of the trip ("돌을 캐러 산으로 가요"); the clause is the act, the sentence the trip. */
+		EUREO("L4.eureo_gayo");
 
 		private final String grammar;
 
@@ -35,13 +40,15 @@ public final class Clauses {
 			return grammar;
 		}
 
-		/** The verb joined to what follows: 닫기 전에, 먹은 후에, 놓고 나서, 놓고. */
+		/** The verb joined to what follows: 닫기 전에, 먹은 후에, 놓고 나서, 놓고, 캐서, 캐러. */
 		String attach(Verb verb) {
 			return switch (this) {
 				case AND -> verb.stem() + "고";
 				case THEN -> verb.stem() + "고 나서";
 				case AFTER -> verb.attributive() + " 후에";
 				case BEFORE -> verb.stem() + "기 전에";
+				case EOSEO -> Conjugator.of(verb.dictionary()).aseo();
+				case EUREO -> Conjugator.of(verb.dictionary()).eureo();
 			};
 		}
 	}

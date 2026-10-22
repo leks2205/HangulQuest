@@ -13,6 +13,7 @@ import build_pack  # noqa: E402
 import common  # noqa: E402
 import qa  # noqa: E402
 import render  # noqa: E402
+import select_texts  # noqa: E402
 
 
 class TextMetrics(unittest.TestCase):
@@ -106,6 +107,59 @@ class PackBuild(unittest.TestCase):
             with zipfile.ZipFile(build_pack.build(root, dist)) as zf:
                 text = (zf.read("manifest.json") + zf.read("NOTICE.txt")).decode("utf-8")
             self.assertNotIn("/home/", text)
+
+    def test_pack_drops_clips_of_texts_that_changed_or_are_gone(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, dist = Path(tmp) / "out", Path(tmp) / "dist"
+            root.mkdir()
+            self.make_render(root)
+            texts = Path(tmp) / "texts.jsonl"
+            # dirt was reworded, stone is unchanged
+            texts.write_text('{"id": "word.stone", "ko": "돌"}\n{"id": "word.dirt", "ko": "진흙"}\n', encoding="utf-8")
+            with zipfile.ZipFile(build_pack.build(root, dist, texts=texts)) as zf:
+                sounds = json.loads(zf.read("assets/hangulquest/sounds.json"))
+            self.assertIn("word.stone", sounds)
+            self.assertNotIn("word.dirt", sounds)
+            # dirt is gone from the list altogether
+            texts.write_text('{"id": "word.stone", "ko": "돌"}\n', encoding="utf-8")
+            with zipfile.ZipFile(build_pack.build(root, dist, texts=texts)) as zf:
+                self.assertNotIn("assets/hangulquest/sounds/ko/male1/word.dirt.ogg", zf.namelist())
+            with zipfile.ZipFile(build_pack.build(root, dist)) as zf:
+                self.assertIn("assets/hangulquest/sounds/ko/male1/word.dirt.ogg", zf.namelist())
+
+
+class Selection(unittest.TestCase):
+    ROWS = [{"id": "word.stone", "ko": "돌"}, {"id": "word.dirt", "ko": "흙"}, {"id": "word.sand", "ko": "모래"}]
+
+    def manifest(self, **voices):
+        return {"voices": {v: {"entries": {cid: {"text_sha1": common.sha1(ko)} for cid, ko in ents.items()}}
+                           for v, ents in voices.items()}}
+
+    def test_missing_is_what_lacks_a_clip_for_the_same_text_in_any_voice(self):
+        m = self.manifest(sohee={"word.stone": "돌", "word.dirt": "흙"}, male1={"word.stone": "돌", "word.dirt": "진흙"})
+        self.assertEqual([r["id"] for r in select_texts.missing(self.ROWS, m)], ["word.dirt", "word.sand"])
+
+    def test_everything_is_missing_without_a_manifest(self):
+        self.assertEqual(select_texts.missing(self.ROWS, {}), self.ROWS)
+
+    def test_all_sentences_keep_the_same_filter_as_the_sample(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tsv = Path(tmp) / "s.tsv"
+            lines = ["id\tlevel\tsource\tko\tgoal",
+                     "a\t1\tauthored:x\t돌을 캐요.\t",
+                     "b\t1\tauthored:x\t돌을 캐요.\t",           # duplicate
+                     "c\t1\tgenerated:clue\t흙을 캐세요.\t",     # generated
+                     "d\t2\tauthored:x\t모험의 길\t",            # no end mark
+                     "e\t2\tauthored:x\t집을 지어요!\t"]
+            tsv.write_text("\n".join(lines) + "\n", encoding="utf-8")
+            everything = select_texts.pick_sentences(None, tsv)
+            self.assertEqual([r["ko"] for r in everything], ["돌을 캐요.", "집을 지어요!"])
+            self.assertEqual(len(select_texts.pick_sentences(1, tsv)), 1)
+            self.assertTrue(everything[0]["id"].startswith("sentence."))
+
+    def test_a_repeat_render_uses_other_seeds(self):
+        self.assertEqual(render.seed_for("sohee", 0, 0), render.seed_for("sohee", 0, 0))
+        self.assertNotEqual(render.seed_for("sohee", 0, 0), render.seed_for("sohee", 0, 0, "redo"))
 
 
 if __name__ == "__main__":

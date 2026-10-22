@@ -2,6 +2,8 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForm;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForms;
 import io.github.leks2205.hangulquest.quest.condition.ConditionType;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
@@ -113,6 +115,12 @@ public final class SentenceBuilder {
 	public static String normal(Goal goal, Word word, Word verbWord, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
 		int level = clampLevel(koreanLevel);
+		return Colours.modifiers(plain(goal, word, verbWord, conditions, level, finale, namer), word, level);
+	}
+
+	/** The clue before the colours turn into adjectives (level 5). */
+	private static String plain(Goal goal, Word word, Word verbWord, List<Condition> conditions, int level,
+								boolean finale, Namer namer) {
 		return attach(prefix(goal, conditions, word, namer, level), core(goal, word, verbWord, conditions, true, level,
 				finale, namer), level);
 	}
@@ -242,6 +250,33 @@ public final class SentenceBuilder {
 				word.phrase, word.grammar, word.referents, word.glosses, word.covers);
 	}
 
+	// ---- Flavour: a timeless fact of the game that a goal can carry, for a finale or a hint.
+
+	/** Where the air gets cold: the temperature of a biome falls from this height up. */
+	private static final int COLD_FROM_Y = 80;
+
+	/** The level of -(으)ㄹ수록. */
+	private static final int FLAVOUR_LEVEL = 6;
+
+	/**
+	 * A true fact the goal's place makes worth saying, in the upper grammar, or empty. It is a flavour sentence for a
+	 * finale or a hint ({@code Constructions}), never the instruction and never a claim about what was done. Today
+	 * a climb to the cold heights carries one: "높이 올라갈수록 추워져요." (-(으)ㄹ수록).
+	 */
+	public static java.util.Optional<String> flavour(Goal goal, int koreanLevel) {
+		if (goal instanceof Goal.ReachHeight climb && clampLevel(koreanLevel) >= FLAVOUR_LEVEL
+				&& climb.minY() >= COLD_FROM_Y) {
+			return java.util.Optional.of("높이 " + Conjugator.of("올라가다").eulsurok() + " " + Conjugator.of("춥다").eo()
+					+ "져요.");
+		}
+		return java.util.Optional.empty();
+	}
+
+	/** The grammar points of {@link #flavour}; empty when the goal has none. */
+	public static List<String> flavourGrammar(Goal goal, int koreanLevel) {
+		return flavour(goal, koreanLevel).isPresent() ? List.of("L6.eulsurok") : List.of();
+	}
+
 	// ---- Grammar points: which constructions a generated sentence teaches.
 
 	/** A generated clue and the grammar points it carries, e.g. {@code L2.ege}, {@code L3.gi_jeone}. */
@@ -273,13 +308,25 @@ public final class SentenceBuilder {
 		List<String> ids = new java.util.ArrayList<>(
 				type.grammarIds(goal, context(goal, word, verbWord, conditions, namer, true, level, finale)));
 		if (conditions != null) {
-			for (Condition condition : conditions) {
-				if (!type.says(goal, condition)) {
+			List<Condition> spoken = spokenOrder(conditions);
+			List<ConditionForm> forms = conditionForms(goal, conditions, level);
+			int at = 0;
+			for (Condition condition : spoken) {
+				if (type.says(goal, condition)) {
+					continue;
+				}
+				ConditionForm form = forms.get(at++);
+				if (form != ConditionForm.PLAIN) {
+					ids.add(form.grammar());
+				} else {
 					ids.addAll(type.takesOver(goal, condition)
 							? ConditionTypes.of(condition).targetGrammarIds(condition, level)
 							: ConditionTypes.of(condition).grammarIds(condition, level));
 				}
 			}
+		}
+		if (Colours.applies(plain(goal, word, verbWord, conditions, level, finale, namer), word, level)) {
+			ids.add("L5.adn_adj_eun"); // 빨간 침대: the colour is an adjective in front of the noun
 		}
 		return ids.stream().distinct().toList();
 	}
@@ -493,23 +540,68 @@ public final class SentenceBuilder {
 		if (conditions == null || conditions.isEmpty()) {
 			return Front.NONE;
 		}
-		conditions = spokenOrder(conditions);
-		GoalType<Goal> type = GoalTypes.of(goal);
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		List<String> phrases = new java.util.ArrayList<>();
 		List<String> places = new java.util.ArrayList<>();
-		for (Condition condition : conditions) {
-			if (!type.says(goal, condition)) { // 바다에서 수영해요 already says IN_WATER
-				ConditionType<Condition> conditionType = ConditionTypes.of(condition);
-				phrases.add(phraseOf(goal, condition, taught, level));
-				places.add(conditionType.placeNoun(condition, taught));
-			}
+		for (Said said : said(goal, conditions, taught, level)) {
+			phrases.add(said.phrase());
+			places.add(said.place());
 		}
 		return new Front(phrases, places);
 	}
 
+	/** One condition as the sentence says it: the phrase, the form it is in and the place noun it names. */
+	private record Said(Condition condition, String phrase, ConditionForm form, String place) {
+	}
+
 	/**
-	 * The phrase of one condition. A goal that checks the condition on its target (a block placed under a roof)
+	 * The conditions the sentence of {@code goal} does not say by itself, in spoken order, with their phrases. From
+	 * level 4 the first time or weather condition is a clause ({@link ConditionForms}); the others stay plain.
+	 */
+	private static List<Said> said(Goal goal, List<Condition> conditions, Namer taught, int level) {
+		int shown = clampLevel(level);
+		GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
+		List<Condition> spoken = new java.util.ArrayList<>();
+		List<Condition> clauses = new java.util.ArrayList<>();
+		for (Condition condition : spokenOrder(conditions)) {
+			if (type != null && type.says(goal, condition)) { // 바다에서 수영해요 already says IN_WATER
+				continue;
+			}
+			spoken.add(condition);
+			if (type == null || !type.takesOver(goal, condition)) {
+				clauses.add(condition);
+			}
+		}
+		List<ConditionForm> forms = ConditionForms.choose(goal instanceof Goal.Wait, clauses, shown);
+		List<Said> out = new java.util.ArrayList<>();
+		for (Condition condition : spoken) {
+			ConditionType<Condition> conditionType = ConditionTypes.of(condition);
+			int at = clauses.indexOf(condition);
+			ConditionForm form = at < 0 ? ConditionForm.PLAIN : forms.get(at);
+			String clause = ConditionForms.phrase(condition, taught, form);
+			if (clause != null) {
+				out.add(new Said(condition, clause, form, null));
+			} else {
+				out.add(new Said(condition, phraseOf(goal, condition, taught, shown), ConditionForm.PLAIN,
+						conditionType.placeNoun(condition, taught)));
+			}
+		}
+		return out;
+	}
+
+	/**
+	 * The forms the conditions of a step are spoken in at this level, for the conditions the goal does not say by
+	 * itself (PLAIN for the ones that have no clause). The grammar points and the deciding forms follow from them.
+	 */
+	public static List<ConditionForm> conditionForms(Goal goal, List<Condition> conditions, int level) {
+		if (conditions == null || conditions.isEmpty()) {
+			return List.of();
+		}
+		return said(goal, conditions, Namer.NONE, level).stream().map(Said::form).toList();
+	}
+
+	/**
+	 * The plain phrase of one condition. A goal that checks the condition on its target (a block placed under a roof)
 	 * names that target's place instead of the player's.
 	 */
 	private static String phraseOf(Goal goal, Condition condition, Namer taught, int level) {
@@ -529,12 +621,8 @@ public final class SentenceBuilder {
 		List<String> phrases = new java.util.ArrayList<>();
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-			GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-			for (Condition condition : spokenOrder(conditions)) {
-				if (type != null && type.says(goal, condition)) {
-					continue;
-				}
-				String phrase = phraseOf(goal, condition, taught, clampLevel(level)).trim();
+			for (Said said : said(goal, conditions, taught, level)) {
+				String phrase = said.phrase().trim();
 				if (!phrase.isEmpty()) {
 					phrases.add(phrase);
 				}
@@ -555,29 +643,30 @@ public final class SentenceBuilder {
 	 */
 	public static List<String> missingPhrases(Goal goal, String clue, List<Condition> conditions, Word word,
 											  Namer namer, int level) {
-		List<String> missing = new java.util.ArrayList<>();
+		return missing(goal, clue, conditions, word, namer, level).stream().map(said -> said.phrase().trim()).toList();
+	}
+
+	private static List<Said> missing(Goal goal, String clue, List<Condition> conditions, Word word, Namer namer,
+									  int level) {
+		List<Said> missing = new java.util.ArrayList<>();
 		if (conditions == null) {
 			return missing;
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-		GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-		for (Condition condition : spokenOrder(conditions)) {
-			if (type != null && type.says(goal, condition)) {
-				continue;
-			}
-			ConditionType<Condition> conditionType = ConditionTypes.of(condition);
-			String phrase = phraseOf(goal, condition, taught, clampLevel(level)).trim();
+		for (Said said : said(goal, conditions, taught, level)) {
+			ConditionType<Condition> conditionType = ConditionTypes.of(said.condition());
+			String phrase = said.phrase().trim();
 			if (phrase.isEmpty() || clue.contains(phrase)) {
 				continue;
 			}
-			if (conditionType.words(condition, taught).stream().anyMatch(clue::contains)) {
+			if (conditionType.words(said.condition(), taught).stream().anyMatch(clue::contains)) {
 				continue;
 			}
-			String place = conditionType.placeNoun(condition, taught);
+			String place = said.place();
 			if (place != null && (clue.contains(place + " ") || clue.contains(place + "의 "))) {
 				continue; // "높이 90블록 위의 침대에서 자요" says it as a modifier
 			}
-			missing.add(phrase);
+			missing.add(said);
 		}
 		return missing;
 	}
@@ -594,17 +683,9 @@ public final class SentenceBuilder {
 								  int level) {
 		List<String> phrases = new java.util.ArrayList<>();
 		List<String> places = new java.util.ArrayList<>();
-		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-		for (String phrase : missingPhrases(goal, clue, conditions, word, namer, level)) {
-			phrases.add(phrase + ' ');
-			String place = null;
-			for (Condition condition : conditions) {
-				ConditionType<Condition> type = ConditionTypes.of(condition);
-				if (phraseOf(goal, condition, taught, clampLevel(level)).trim().equals(phrase)) {
-					place = type.placeNoun(condition, taught);
-				}
-			}
-			places.add(place);
+		for (Said said : missing(goal, clue, conditions, word, namer, level)) {
+			phrases.add(said.phrase().trim() + ' ');
+			places.add(said.place());
 		}
 		return attach(new Front(phrases, places), clue, clampLevel(level));
 	}

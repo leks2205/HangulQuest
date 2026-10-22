@@ -289,9 +289,35 @@ public final class Conjugator {
 			return stem + "습니다";
 		}
 
+		/** -(스)ㅂ니까 (the question of 합쇼체): 먹습니까, 갑니까, 엽니까. */
+		public String hapnikka() {
+			String statement = hapnida();
+			return statement.substring(0, statement.length() - "니다".length()) + "니까";
+		}
+
+		/** The past of 합쇼체: 먹었습니다, 갔습니다. */
+		public String hapnidaPast() {
+			return pastStem() + "습니다";
+		}
+
 		/** 반말 -아/어: 먹어, 가. */
 		public String banmal() {
 			return eo();
+		}
+
+		/** The past of 반말: 먹었어, 갔어. */
+		public String banmalPast() {
+			return pastStem() + "어";
+		}
+
+		/** The 반말 suggestion -자 (verbs): 먹자, 가자, 만들자; consonant-initial, so no irregular stem change. */
+		public String ja() {
+			return stem() + "자";
+		}
+
+		/** The 반말 command -아/어라 (verbs): 먹어라, 가라, 와라, 해라. */
+		public String eora() {
+			return eo() + "라";
 		}
 
 		/** The plain written style (한다체): 먹는다, 간다, 연다; an adjective keeps the dictionary form. */
@@ -323,9 +349,9 @@ public final class Conjugator {
 			return stem() + "기 마련이에요";
 		}
 
-		/** -는 동안: 먹는 동안, 만드는 동안. */
+		/** -는 동안: 먹는 동안, 만드는 동안; an adjective takes -(으)ㄴ (큰 동안, 맑은 동안), 있다/없다 stay -는. */
 		public String neunDongan() {
-			return plainN() + "는 동안";
+			return neun() + " 동안";
 		}
 
 		// ----------------------------------------------------------------------- building blocks

@@ -6,7 +6,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.7)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.8)
+
+**New in rc.8: the grammar for levels 4 to 6.**
+- **Level 4:** conditions become "if/when" clauses (밤이 되면 횃불을 놓아야 해요), steps join with -아/어서
+  (돌을 캐서 화로를 만들어야 해요), and purpose trips use -(으)러 가요 (나무를 베러 숲으로 가야 해요).
+- **Level 5:** colour adjectives (빨간 침대), "while" clauses (해가 지는 동안 기다려야 해요) and "even if"
+  (밤이 되어도 자지 마세요).
+- **Level 6:** "the higher, the colder" (높이 올라갈수록 추워져요), plus forms for formal and casual speech.
+- A new check keeps each construction at its own level and in the right kind of line.
 
 **New in rc.7: new kinds of quests, ready for level 4.**
 - **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg

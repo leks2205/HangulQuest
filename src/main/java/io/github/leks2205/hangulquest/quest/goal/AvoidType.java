@@ -11,6 +11,8 @@ import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForm;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForms;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.sense.Observation;
 
@@ -136,7 +138,12 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 			ids.addAll(actionIds.subList(Math.min(1, actionIds.size()), actionIds.size()));
 		}
 		if (goal.during() != null) {
-			ids.addAll(ConditionTypes.of(goal.during()).grammarIds(goal.during(), c.level()));
+			ConditionForm form = ConditionForms.forAvoid(goal.during(), c.level());
+			if (form != ConditionForm.PLAIN) {
+				ids.add(form.grammar());
+			} else {
+				ids.addAll(ConditionTypes.of(goal.during()).grammarIds(goal.during(), c.level()));
+			}
 		}
 		return ids;
 	}
@@ -206,8 +213,15 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 		Clauses.checkClueDoesNotTeach(context, true);
 	}
 
-	/** "밤에 ": the window condition spoken in front, or "". */
+	/**
+	 * "밤에 ": the window condition spoken in front, or "". Level 4 says it as -(으)면 ("밤이 되면 …"), from level 5
+	 * as -아/어도 ("밤이 되어도 자지 마세요"): the action is wrong although the condition holds.
+	 */
 	private static String duringPhrase(Goal.Avoid goal, SentenceContext c) {
-		return goal.during() == null ? "" : ConditionTypes.of(goal.during()).prefix(goal.during(), c.namer(), c.level());
+		if (goal.during() == null) {
+			return "";
+		}
+		String clause = ConditionForms.phrase(goal.during(), c.namer(), ConditionForms.forAvoid(goal.during(), c.level()));
+		return clause != null ? clause : ConditionTypes.of(goal.during()).prefix(goal.during(), c.namer(), c.level());
 	}
 }
