@@ -6,9 +6,19 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-### Added
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.9)
 
-- **Sound forge (소리 대장간)**, a listening mini-game in the journal's Study tab for the sounds that sound alike to an
+**New in rc.9: level 4 begins, and the sound forge.**
+- **30 level-4 trails:** the far kingdoms (the End and the dragon, an ocean monument, a library, a lighthouse, the star
+  map, a trading fleet, the cloud path) and 15 small poems. About half of their steps now depend on the Korean form:
+  밤이 되면 …, 돌을 캐서 …, 꽃을 꺾으러 … 가야 해요.
+- **Sound forge (소리 대장간):** a listening game in the journal's Study tab for ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and
+  ㅓ ㅗ. A run is 60 trials in a random voice, and you hear both sounds again after each answer. A listening test before
+  and after uses voices that never appear in training. The sounds come from the optional voices pack. They are
+  synthetic for now, and recordings by native speakers would make them better.
+- **The voices pack** now covers every word, but no sentences until the mod plays them (about 44 MB).
+
+**Sound forge, technical details:** a listening mini-game in the journal's Study tab for the sounds that sound alike to an
   English or German ear: ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and ㅓ ㅗ (never ㅐ ㅔ). A voice says a syllable or a word, you
   pick which of two or three it was (keys 1 2 3, R to hear it again, or click), and you hear both sounds again with the
   answer. A run is 60 trials in a random voice each time. A 30-trial listening test before and after (8 to 10 runs over at
@@ -18,8 +28,6 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
   `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
   is the base for a later pitch view.
-
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.8)
 
 **New in rc.8: the grammar for levels 4 to 6.**
 - **Level 4:** conditions become "if/when" clauses (밤이 되면 횃불을 놓아야 해요), steps join with -아/어서
