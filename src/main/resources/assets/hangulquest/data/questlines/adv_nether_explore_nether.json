@@ -6,7 +6,6 @@
  "tier": 2,
  "order": 294,
  "concepts": [
-  "gen_weathered_copper_chest",
   "netherrack",
   "soul_sand"
  ],
@@ -21,13 +20,20 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weathered_copper_chest"
+    "netherrack"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_chest",
-    "count": 2
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:netherrack",
+    "count": 3,
+    "verb": "MINE"
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -35,13 +41,36 @@
     "netherrack"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:netherrack",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:dirt",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:netherrack",
+    "count": 1
    },
-   "hint": {
-    "ko": "네더랙을 캐요. 곡괭이가 필요해요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:soul_sand",
+    "count": 3,
+    "verb": "DIG"
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
@@ -51,24 +80,32 @@
     "soul_sand"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:soul_sand",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:gravel",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:soul_sand",
+    "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "영혼 모래를 파요. 삽이 필요해요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "네더의 명소를 둘러봤어요! 뜨겁지만 정말 멋졌어요."
+  "textKo": "네더에서 영혼 모래 위에 자갈을 놓았어요. 네더는 뜨거워요. 하지만 멋져요."
  },
  "reward": {
   "badge": "adv_nether_explore_nether",
   "words": [
-   "adv_dimension_the_nether",
    "netherrack",
    "soul_sand"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L1.loc_yeop_e",
+  "L1.loc_wi_e",
+  "L3.past"
+ ]
 }

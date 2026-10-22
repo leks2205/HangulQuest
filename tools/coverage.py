@@ -50,6 +50,8 @@ ENACTED_EXTRA = ("쌓다", "들다", "쓰다듬다")
 
 # ---- Parameters of the simulated learner. Change one and the baseline has to be rewritten.
 KNOWN_AFTER = 3          # encounters before a word counts as known
+BOUND_KNOWN_AFTER = 1    # a counter (개, 명, 마리) or a native numeral (둘, 셋) is known once it has been met: it only
+#                          ever stands next to the thing it counts, and the grammar of the sentence teaches it
 TRAILS_PER_DAY = 2       # the pace of the canonical learner
 RETRIEVAL_DAYS = 14      # window after the first encounter in which a return counts as a retrieval
 ENCOUNTER_TARGET = 10    # roadmap: at least 10 encounters per core word
@@ -59,8 +61,10 @@ MAX_UNKNOWN = 1          # roadmap: at most one unknown word per sentence
 COUNT_HINTS = False      # hints are shown on request only, so they are no encounter by default
 HINT_SEES_CLUE = True    # the words of the clue the learner has just read are fine in the hint
 
+BOUND_SETS = ("counter", "number")   # the semSet of the lexicon tags that makes a word a bound form
+
 PARAMS = {
-    "knownAfter": KNOWN_AFTER, "trailsPerDay": TRAILS_PER_DAY, "retrievalDays": RETRIEVAL_DAYS,
+    "knownAfter": KNOWN_AFTER, "boundKnownAfter": BOUND_KNOWN_AFTER, "trailsPerDay": TRAILS_PER_DAY, "retrievalDays": RETRIEVAL_DAYS,
     "encounterTarget": ENCOUNTER_TARGET, "roleTarget": ROLE_TARGET, "retrievalTarget": RETRIEVAL_TARGET,
     "maxUnknown": MAX_UNKNOWN, "countHints": COUNT_HINTS, "hintSeesClue": HINT_SEES_CLUE,
 }
@@ -171,6 +175,7 @@ class Lexicon:
         self.words: dict[str, dict] = {}         # canonical -> {"concepts": [...], "core": bool, "gap": bool, ...}
         self.by_id: dict[str, str] = {}          # registry id or concept id -> canonical
         self.max_words = 1
+        self.bound: set[str] = set()             # counters and native numerals: known after BOUND_KNOWN_AFTER encounters
 
     def add(self, canonical: str, forms: list[str], concept: str | None, core: bool = False, gap: bool = False,
             ids: list[str] | None = None, meta: dict | None = None, verb: bool | None = None) -> None:
@@ -203,6 +208,8 @@ class Lexicon:
         for entry in entries:
             lex.add(entry["ko"], [entry["ko"], *entry.get("aliases", [])], entry.get("id"), entry.get("core", False),
                     entry.get("gap", False), entry.get("ids", []), entry.get("meta"), entry.get("verb"))
+            if entry.get("bound"):
+                lex.bound.add(entry["ko"])
         return lex
 
     @staticmethod
@@ -218,6 +225,8 @@ class Lexicon:
                 if concept.get(field):
                     ids.append(concept[field])
             is_verb = concept.get("category") == "ACTIONS" and concept["ko"].endswith("다")
+            if tag.get("semSet") in BOUND_SETS:
+                lex.bound.add(concept["ko"])
             lex.add(concept["ko"], [concept["ko"], *concept.get("aliases", [])], concept["id"], core=core, ids=ids,
                     verb=is_verb, meta={"band": tag.get("curriculumBand") or "", "grade": tag.get("curriculumGrade") or "",
                           "nikl": tag.get("nikl") or "", "mcOnly": tag.get("mcOnly", False)})
@@ -337,14 +346,17 @@ def simulate(trails: list[dict], lexicon: Lexicon, include_demo: bool = False) -
         day = day_of(trail_index)
         for step_index, step in enumerate(trail["steps"]):
             clue = tokens(step["clueKo"])
-            unknown = [w for w in clue if encounters[w] < KNOWN_AFTER]
+            def known(word: str) -> bool:
+                return encounters[word] >= (BOUND_KNOWN_AFTER if word in lexicon.bound else KNOWN_AFTER)
+
+            unknown = [w for w in clue if not known(w)]
             sentences.append({"trail": trail["id"], "step": step["id"], "level": trail["level"], "ko": step["clueKo"],
                               "words": len(clue), "unknown": unknown})
 
             hint_words = tokens(step["hintKo"]) if step["hintKo"] else []
             if hint_words:
                 seen_now = set(clue) if HINT_SEES_CLUE else set()
-                missing = [w for w in hint_words if encounters[w] < KNOWN_AFTER and w not in seen_now]
+                missing = [w for w in hint_words if not known(w) and w not in seen_now]
                 hints.append({"trail": trail["id"], "step": step["id"], "ko": step["hintKo"],
                               "words": len(hint_words), "missing": missing})
 

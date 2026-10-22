@@ -133,7 +133,10 @@ class ActionSentenceGoldTest {
 				assertTrue(hint.endsWith("지 마세요."), row.id() + " hint lost the 'not': " + hint);
 			}
 			boolean saysHow = GoalTypes.of(row.goal()).forHint(row.goal()) != row.goal();
-			if (!(row.goal() instanceof Goal.Smelt) && !saysHow) {
+			if (row.goal() instanceof Goal.Equip && row.word() != null && !row.word().equals("-")) {
+				// the hint says the general word that was taught (투구, 신발) where the clue names the exact piece
+				assertTrue(hint.contains(word(row.word()).ko), row.id() + " hint omits the taught word: " + hint);
+			} else if (!(row.goal() instanceof Goal.Smelt) && !saysHow) {
 				// Counts go away in the hint, nothing else changes at level 1.
 				assertEquals(clue.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""), hint.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""),
 						row.id());
@@ -192,6 +195,7 @@ class ActionSentenceGoldTest {
 				new Forms(Verb.CLOSE, "닫다", "닫아요", "닫았어요", "닫을", "닫은", "닫으세요"),
 				new Forms(Verb.MELT, "녹이다", "녹여요", "녹였어요", "녹일", "녹인", "녹이세요"),
 				new Forms(Verb.BAKE, "굽다", "구워요", "구웠어요", "구울", "구운", "구우세요"),
+				new Forms(Verb.POUR, "붓다", "부어요", "부었어요", "부을", "부은", "부으세요"),
 				new Forms(Verb.GIVE, "주다", "줘요", "줬어요", "줄", "준", "주세요"),
 				new Forms(Verb.WALK, "걷다", "걸어요", "걸었어요", "걸을", "걸은", "걸으세요"),
 				// Existing verbs the sequences lean on.

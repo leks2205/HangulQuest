@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1066,
  "concepts": [
-  "gen_red_wool_slab",
-  "adv_item_bee_nest",
-  "gen_gray_carpet",
-  "gen_barrel"
+  "planks",
+  "gen_oak_stairs",
+  "high",
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,65 +22,83 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_wool_slab"
+    "planks"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:red_wool_slab",
-    "count": 6
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:mangrove_planks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_bee_nest"
+    "gen_oak_stairs"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bee_nest",
-    "count": 3
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_stairs",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:planks",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_gray_carpet"
+    "high"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_carpet",
-    "count": 3
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 85,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_barrel"
+    "sign"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:barrel",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:mangrove_sign",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:mangrove_planks",
+    "size": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 통을 놓았어요."
+  "textKo": "판자 기둥 위에 표지판을 세웠어요. 전망대는 높아요."
  },
  "reward": {
   "badge": "w6_06",
   "words": [
-   "leaves",
-   "ladder",
-   "height",
-   "lantern"
+   "planks",
+   "gen_oak_stairs",
+   "sign"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_wi_e",
+  "L2.go_sequence"
+ ]
 }

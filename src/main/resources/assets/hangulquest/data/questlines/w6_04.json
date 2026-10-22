@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1064,
  "concepts": [
-  "gen_stone_pressure_plate",
-  "gen_cyan_stained_glass",
-  "gen_birch_pressure_plate",
+  "forest",
+  "flower",
+  "bee",
+  "beehive",
   "honey_bottle"
  ],
  "requires": {
@@ -22,35 +23,55 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stone_pressure_plate"
+    "forest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_pressure_plate",
-    "count": 3
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:birch_forest",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cyan_stained_glass"
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_stained_glass",
-    "count": 3
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:azure_bluet",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:logs",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_birch_pressure_plate"
+    "bee",
+    "beehive"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:birch_pressure_plate",
-    "count": 1
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:beehive",
+     "count": 1
+    },
+    "windowSeconds": 30
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:bee"
+    }
+   ]
   }
  ],
  "finale": {
@@ -66,16 +87,24 @@
    },
    "conditions": []
   },
-  "textKo": "벌통을 세우고 꿀 한 병을 마셔요."
+  "textKo": "꿀이 든 병을 마셨어요. 꿀은 유리병에 담아요."
  },
  "reward": {
   "badge": "w6_04",
   "words": [
    "bee",
-   "honeycomb",
    "beehive",
-   "honey_bottle"
+   "flower"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.jima",
+  "L1.eul_reul",
+  "L2.num_sino"
+ ]
 }

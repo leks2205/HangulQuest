@@ -86,11 +86,14 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 		return true;
 	}
 
-	/** A row is laid out (놓다), a cross is made (만들다); stairs are piled up (쌓다) like everything else. */
+	/**
+	 * A row is laid out like a single block of that material (놓다, but rails and carpets are laid: 깔다), a cross is
+	 * made (만들다); stairs are piled up (쌓다) like everything else.
+	 */
 	@Override
 	public Verb verb(Goal.BuildPattern goal, VerbTable table) {
 		if (goal.pattern() == Pattern.ROW) {
-			return Verb.PLACE;
+			return table.choose("PLACE_BLOCK", goal.material(), 1, Verb.PLACE);
 		}
 		if (goal.pattern() == Pattern.CROSS) {
 			return Verb.CRAFT;

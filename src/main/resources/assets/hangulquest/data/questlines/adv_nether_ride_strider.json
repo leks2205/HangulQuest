@@ -6,8 +6,8 @@
  "tier": 2,
  "order": 305,
  "concepts": [
-  "gen_vine",
   "saddle",
+  "gen_strider",
   "adv_item_warped_fungus_on_a_stick"
  ],
  "requires": {
@@ -21,26 +21,41 @@
   {
    "id": "s1",
    "teach": [
-    "gen_vine"
+    "saddle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:vine",
-    "count": 3
+    "type": "TAKE_OUT",
+    "item": "minecraft:saddle",
+    "container": "minecraft:chest",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "saddle"
+    "gen_strider"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:saddle",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:strider",
+    "dwellMs": 800
    },
-   "hint": {
-    "ko": "안장은 요새 상자나 낚시로 얻어요."
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_warped_fungus_on_a_stick"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:warped_fungus_on_a_stick",
+    "count": 1
    }
   }
  ],
@@ -48,27 +63,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_warped_fungus_on_a_stick"
+    "gen_strider"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_fungus_on_a_stick",
-    "count": 1
+    "type": "MOUNT",
+    "entity": "minecraft:strider",
+    "dwellMs": 2000
    },
-   "conditions": [],
-   "hint": {
-    "ko": "낚싯대와 뒤틀린 균으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "두 발 달린 보트 — 뒤틀린 균 낚싯대로 스트라이더를 몰았어요."
+  "textKo": "네더에서 스트라이더를 탔어요. 이제 용암 위를 지나갈 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_ride_strider",
   "words": [
-   "adv_dimension_the_nether",
    "saddle",
+   "gen_strider",
    "adv_item_warped_fungus_on_a_stick"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.eseo_activity",
+  "L3.su_itda"
+ ]
 }

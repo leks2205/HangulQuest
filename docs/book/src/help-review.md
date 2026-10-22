@@ -17,5 +17,10 @@ reviewers approve it, or one trusted reviewer.
 
 Your name goes on the [credits](credits.md) page, unless you write `anonymous` in the form.
 
+**Where it stands:** the linter checks every line, and two AI reviewers (Claude and Gemini, blind to each other)
+have read part of them. **No line has been approved by a native speaker yet.** This site says so, and
+every line you approve or correct moves that number. Translations (German, Spanish, French) have their own pages on
+the review site and a **Translation correction** form.
+
 The full rules for reviewers (and the Korean guide) are in
 [CONTRIBUTING.md](https://github.com/leks2205/HangulQuest/blob/main/CONTRIBUTING.md#help-review-korean).

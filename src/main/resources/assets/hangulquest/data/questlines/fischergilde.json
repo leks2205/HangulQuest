@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 171,
  "concepts": [
-  "gen_tuff_brick_wall",
-  "gen_waxed_weathered_copper_golem_statue",
-  "flower_pot",
-  "salmon"
+  "fishing_rod",
+  "fish",
+  "gen_cooked_cod",
+  "gen_smoker"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,62 +23,98 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tuff_brick_wall"
+    "fishing_rod"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tuff_brick_wall",
-    "count": 3
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:fishing_rod",
+      "count": 1
+     },
+     {
+      "type": "LOOK_AT_BLOCK",
+      "block": "minecraft:water",
+      "dwellMs": 800
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_weathered_copper_golem_statue"
+    "fish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_golem_statue",
-    "count": 1
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 10
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    },
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:water"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "flower_pot"
+    "gen_cooked_cod"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:flower_pot"
-   }
+    "type": "TRADE",
+    "item": "minecraft:cooked_cod",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 6
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "salmon"
+    "gen_smoker"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:salmon",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:smoker",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "연어는 낚시나 바다에서 잡아요."
-   }
+   "conditions": []
   },
-  "textKo": "연어를 모아 길드에 팔아요."
+  "textKo": "물 옆에 훈연기를 놓았어요. 훈연기는 음식을 구워요."
  },
  "reward": {
   "badge": "fischergilde",
   "words": [
-   "cod",
-   "chest",
-   "bell",
-   "salmon"
+   "fishing_rod",
+   "fish",
+   "gen_cooked_cod"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L2.seyo",
+  "L2.num_sino",
+  "L2.go_state",
+  "L2.ege_source",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

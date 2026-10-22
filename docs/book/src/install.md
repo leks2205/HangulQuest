@@ -34,8 +34,9 @@ Free ways to learn Hangul:
 
 1. **Install Fabric.** Run the [Fabric installer](https://fabricmc.net/use/installer/) for Minecraft
    26.3 and start the game once with the new profile so the folder exists.
-2. **Download the mod.** Take `hangulquest-1.0.0.jar` from the
-   [latest release](https://github.com/leks2205/HangulQuest/releases/latest).
+2. **Download the mod.** Take `hangulquest-<version>.jar` from the
+   [releases page](https://github.com/leks2205/HangulQuest/releases). Release candidates (`3.0.0-rc.N`) are
+   marked as pre-releases and do not show up under "latest".
 3. **Download Fabric API** for 26.3 from [Modrinth](https://modrinth.com/mod/fabric-api) or CurseForge.
 4. **Copy both jars** into your `mods` folder:
    - Windows: `%appdata%\.minecraft\mods`
@@ -50,23 +51,23 @@ Each release page carries a `SHA256SUMS` file with the hash of every asset:
 
 ```bash
 sha256sum -c SHA256SUMS
-# hangulquest-1.0.0.jar: OK
+# hangulquest-<version>.jar: OK
 ```
 
 ## First five minutes
 
-- The quest log sits in the top-left corner and lists every quest you have open: one Korean sentence
-  each, a progress bar where the goal counts something, and a status line that says what is still
+- The quest log sits in the top-left corner. The game picks up to four quests for you (three regular ones and one
+  that follows where you are); each shows one Korean sentence, a progress bar where the goal counts something, and a status line that says what is still
   missing (`지금 낮 · 밤 필요` — "it is day now, night is needed"). `V` moves the highlight; `H` helps
   with the highlighted quest.
 - Press `H` whenever a word is unknown. You get the same task in easier Korean, an explanation of the
-  word, and a two-question sidequest. Finishing it brings the quest back.
+  word, and a two-question sidequest. Finishing it brings the quest back. When a window is open (a hint, a rule
+  card, a banner), `H` closes it first; windows stay until you do.
 - Press `K` for the journal. The **Quests** tab shows the whole tree: what you finished, what is open
   and what the locked branches are waiting for.
-- The interface follows your Minecraft language (German for `de_*`, English otherwise);
-  **Settings** → *Language* switches it to English or German explicitly.
-- If you want a translation line under each quest, switch on *Übersetzungen in Quests* / *Translations
-  in quests* in the same tab. It is off by default: the quest itself is always Korean, so the Korean is
+- The interface follows your Minecraft language (English, German, Spanish or French; anything else gets English);
+  **Settings** → *Language* switches it explicitly.
+- If you want a translation line under each quest, switch on *Translations in quests* in the same tab. It is off by default: the quest itself is always Korean, so the Korean is
   what you learn to read.
 
 ## Updating
@@ -74,6 +75,11 @@ sha256sum -c SHA256SUMS
 Replace the jar in `mods` with the new one. Progress lives in `config/hangulquest/` and survives an
 update; the mod backs the file up before it migrates a format. If a new version needs a newer
 Minecraft or Fabric API, the release notes say so.
+
+**From 2.x to 3.0:** progress is converted when you first start the game. It now lives per Minecraft account in
+`config/hangulquest/profiles/<account>/`; your old `progress.json` is copied there and never changed or deleted. To
+roll back, put the 2.1.0 jar back and delete `config/hangulquest/config.json`; the CHANGELOG has the full notes. Copy
+the `config/hangulquest/` folder before updating if you want to be sure.
 
 ## Uninstalling
 
@@ -89,7 +95,9 @@ that folder too if you want a clean slate. Nothing was ever written outside it.
 - **Other client mods.** It draws its own HUD and journal and does not replace vanilla screens, so it
   coexists with HUD mods; if two trackers overlap, move the quest tracker to another corner in the
   journal's options.
-- **German interface.** The UI strings are German today, the quest text Korean. An English UI is on
-  the [contribution list](../CONTRIBUTING.md).
-- **Not in scope:** pronunciation audio, romanisation, Korean keyboard input (every answer is
-  multiple choice), and anything that would need the server's cooperation.
+- **Languages.** English, German, Spanish and French interfaces; a text a language lacks is shown in English. Spanish
+  and French cover only part of the quest text so far.
+- **Voices.** Pronunciation audio is an optional separate resource pack ("Hangul Quest Voices"); without it the
+  mod is silent.
+- **Not in scope:** romanisation (Hangul is a prerequisite), speech recognition, and anything that would need
+  the server's cooperation.

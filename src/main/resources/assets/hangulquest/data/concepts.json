@@ -4172,16 +4172,16 @@
  },
  {
   "id": "adv_item_tnt",
-  "ko": "티엔티",
+  "ko": "TNT",
   "category": "MISC",
   "tier": 3,
   "items": [
    "minecraft:tnt"
   ],
-  "sentenceKo": "티엔티를 봐요.",
+  "sentenceKo": "TNT를 봐요.",
   "descKo": "폭발하는 물건이에요.",
   "aliases": [
-   "티엔티"
+   "TNT"
   ]
  },
  {
@@ -6936,6 +6936,7 @@
   "items": [
    "minecraft:redstone_lamp"
   ],
+  "descKo": "레드스톤 신호가 오면 빛나요.",
   "aliases": []
  },
  {
@@ -6984,6 +6985,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:drowned",
+  "descKo": "물속에서 나와요. 좀비와 비슷해요.",
   "aliases": []
  },
  {
@@ -7078,6 +7080,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:pillager",
+  "descKo": "쇠뇌를 쏘는 나쁜 주민이에요.",
   "aliases": []
  },
  {
@@ -7128,6 +7131,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:strider",
+  "descKo": "네더에 살아요. 용암 위를 걸어요.",
   "aliases": []
  },
  {
@@ -7227,6 +7231,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:piglin",
+  "descKo": "네더에 살아요. 금을 좋아해요.",
   "aliases": []
  },
  {
@@ -7296,6 +7301,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:blaze",
+  "descKo": "불을 쏘는 몬스터예요. 네더 요새에 있어요.",
   "aliases": []
  },
  {
@@ -7732,6 +7738,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:armadillo",
+  "descKo": "사바나에 살아요. 솔로 인갑을 얻어요.",
   "aliases": []
  },
  {
@@ -8201,6 +8208,7 @@
   "items": [
    "minecraft:stone_pressure_plate"
   ],
+  "descKo": "밟으면 신호가 나와요.",
   "aliases": []
  },
  {
@@ -8221,6 +8229,7 @@
   "items": [
    "minecraft:spider_eye"
   ],
+  "descKo": "거미에게서 얻어요.",
   "aliases": []
  },
  {
@@ -11785,6 +11794,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:river",
+  "descKo": "물이 흘러요.",
   "aliases": []
  },
  {
@@ -12053,6 +12063,7 @@
   "items": [
    "minecraft:fletching_table"
   ],
+  "descKo": "화살을 만들 때 써요.",
   "aliases": []
  },
  {
@@ -13445,6 +13456,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:savanna",
+  "descKo": "풀이 많은 따뜻한 땅이에요.",
   "aliases": []
  },
  {
@@ -15113,6 +15125,82 @@
   "items": [
    "minecraft:basalt"
   ],
+  "aliases": []
+ },
+ {
+  "id": "gen_blaze_powder",
+  "ko": "블레이즈 가루",
+  "category": "ITEMS",
+  "tier": 3,
+  "items": [
+   "minecraft:blaze_powder"
+  ],
+  "descKo": "양조기의 연료예요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_glowstone",
+  "ko": "발광석",
+  "category": "BLOCKS",
+  "tier": 3,
+  "items": [
+   "minecraft:glowstone"
+  ],
+  "descKo": "밝게 빛나는 블록이에요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_netherite_ingot",
+  "ko": "네더라이트 주괴",
+  "category": "MATERIALS",
+  "tier": 3,
+  "items": [
+   "minecraft:netherite_ingot"
+  ],
+  "descKo": "아주 단단한 금속이에요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_minecart",
+  "ko": "광산 수레",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:minecart"
+  ],
+  "descKo": "레일 위를 달려요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_item_frame",
+  "ko": "아이템 액자",
+  "category": "MISC",
+  "tier": 3,
+  "items": [
+   "minecraft:item_frame"
+  ],
+  "descKo": "물건을 벽에 걸어 둬요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_lapis_lazuli",
+  "ko": "청금석",
+  "category": "MATERIALS",
+  "tier": 3,
+  "items": [
+   "minecraft:lapis_lazuli"
+  ],
+  "descKo": "파란색 보석이에요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_zombie_villager",
+  "ko": "좀비 주민",
+  "category": "ANIMALS",
+  "tier": 3,
+  "items": [],
+  "entity": "minecraft:zombie_villager",
+  "descKo": "좀비가 된 주민이에요.",
   "aliases": []
  }
 ]

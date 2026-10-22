@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 166,
  "concepts": [
-  "gen_dried_kelp_block",
-  "gen_smooth_quartz_slab",
-  "dirt",
-  "goat"
+  "wolf",
+  "beef",
+  "bed",
+  "pork"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +23,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dried_kelp_block"
+    "wolf"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dried_kelp_block",
-    "count": 2
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:wolf",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_quartz_slab"
+    "beef"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:smooth_quartz_slab",
-    "count": 3
-   }
+    "type": "GIVE",
+    "item": "minecraft:cooked_beef",
+    "entity": "minecraft:wolf",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:forest"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "dirt"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dirt",
-    "count": 1
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:red_bed",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:wolf"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "goat"
+    "pork"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:goat_horn",
+    "type": "GIVE",
+    "item": "minecraft:cooked_porkchop",
+    "entity": "minecraft:wolf",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "염소 뿔을 구했어요."
+  "textKo": "늑대에게 돼지고기를 줬어요. 늑대는 고기를 좋아해요."
  },
  "reward": {
   "badge": "wolfpfad",
   "words": [
    "wolf",
-   "bone",
-   "chest",
-   "wolf_armor"
+   "beef",
+   "bed"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L2.ege",
+  "L3.jima",
+  "L3.past"
+ ]
 }

@@ -6,16 +6,6 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-### Changed
-
-- **HUD windows stay until the hint key closes them.** The hint panel, rule cards, culture notes, word cards,
-  banners and toasts, the quiz prompt, the next-quest popup and the completion cards no longer time out. One
-  press of the hint key closes exactly one window (the top one); more waiting windows show a "+N" badge, and a
-  repeat of an open or waiting window is not queued twice. Closing a window is never a hint: the press does not
-  reach the hint service, so it does not mark the step as helped, start a sidequest or change the grading. Each
-  window shows its key ("[H] 닫기 · close") and none covers the crosshair or the hotbar. The new setting
-  `autoCloseWindows` (journal: "Auto-close windows", off by default) brings back the old timeouts.
-
 ### Added
 
 - **Sound forge (소리 대장간)**, a listening mini-game in the journal's Study tab for the sounds that sound alike to an
@@ -28,6 +18,26 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
   `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
   is the base for a later pitch view.
+
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.7)
+
+**New in rc.7: new kinds of quests, ready for level 4.**
+- **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg
+  (활로 과녁을 맞히세요), some from far away or with one arrow through two mobs.
+- **Compass directions:** walk north, south, east or west (북쪽으로 이십 블록 가세요), or face a direction while doing
+  something.
+- **"Don't" works on creatures too:** 주민을 물리치지 마세요.
+- **More natural numbers:** heights and distances use Sino-Korean numbers (높이 백 블록), and counts up to 99 use native
+  numbers (스물네 개).
+- Sequences no longer repeat the same object twice, and swimming in the ocean reads 바다에서 수영하세요.
+- Six flavour lines from the last two batches now state plain facts.
+
+**New in rc.6: level 3 is complete.**
+- All 108 level-3 trails are rebuilt, and nearly half of their steps now depend on the Korean form.
+- The last two batches are small mood trails: miners and smiths, caves and gems, forest herbs, foxes and bees. There
+  are also three watchtowers.
+- Finale lines were tightened after review: no plans, and no claims the quest doesn't check.
+
 - **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
   onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
   the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is
@@ -37,138 +47,181 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   and teaches its word in every part, a colour stands in front of the dye or the wool, and the material of a fence ring
   or a plank pillar is the kind word (울타리, 판자). Goals and conditions refuse unknown or missing fields. Rabbits,
   frogs, goats, turtles, bees, mules, parrots and axolotls can anchor a placement.
+**New in rc.5:**
+- **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an
+  observatory, the far north.
+- **Wonders of the world:** the world market, a giant tree, a pyramid, a harbour, the pirate's chest, desert and
+  jungle temples, a desert town.
+- **Level 3 meets its grammar goal:** more than a third of its steps now depend on the Korean form (before/after,
+  "don't").
+- **French covers every rebuilt trail**, proofread.
 
-- **Generator wave 8** (what the harbour and village batches found). Writing on a sign is a goal (`USE_BLOCK`, `WRITE`: the
-  edit screen closed with text), a ringing bell can be heard (`HEAR` on `minecraft:bell`), a trade has a direction (the
-  particle 에게서 / 에게 decides it, the wrong way round is a slip), `NEAR_ENTITY` can count people and animals (주민 두 명,
-  소 세 마리), 물고기 names the cod, salmon and tropical fish, 배 names every boat and raft, tags for signs, candles,
-  carpets and windows are spoken with their word, 모래와 물 사이에 works for plants on a shore, seconds are spoken as
-  십 초, and the words 가족 and 창문 exist. The playtest drives creature anchors and sequences.
+**New in rc.4:** two more level-3 batches.
+- The village heroes: curing a zombie villager, the iron golem, the raid patrol, enchanting, the ender eye, diamond
+  gear, and the trade, post and fishing guilds.
+- The hunter: bow, crossbow, spear and shield, night hunts, the wolf.
 
-- **A translation pipeline in the repository** (`tools/i18n/translate.py`). English is the source and Korean is
-  never translated. `export` writes packets of rows (English, the Korean line next to it, kind, placeholders, a
-  length limit for labels, and a glossary of the official Minecraft names read from a local game install);
-  `import` checks every translated row (placeholders, Hangul, untranslated English, length, and for clues that hide
-  where or what, the per-language relation words in `relation_words.json`) and writes `lang/<code>.json` and
-  `lang/content/<code>.json` in English key order. `content/translations/<code>-status.json` tracks each key as
-  `machine`, `proofread` or `community-approved`, and a key whose English changes is `stale`;
-  `export --changed-only` translates only what is missing or stale. `proofread-export` and `proofread-import`
-  take a second pass. A **Translation correction** issue form, a CONTRIBUTING section, a translation page per
-  language on the review site, `LangCompletenessTest` (coverage per language, both files for every listed
-  language, no extra keys, matching placeholders, drawable characters) and `LangPickerTest` (the settings button
-  steps through every language in `languages.json`, each by its own name).
+Finale lines across levels 3 and 4 now claim only what the quest checks. Pouring water reads 붓다, and rails laid in
+a row read 깔다.
 
-### Changed
+**New in rc.3:** the second level-3 batch: the first diamond, the jewellers' guild, amethyst and the crystal smithy,
+the mine with rails and a minecart, the respawn anchor, wither skeletons and the bastion. The first four level-4
+trails arrive with it (brewing, a stronger potion, a beacon base, the skull tower), using the level-4 ending
+-아/어야 해요.
 
-- **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.
+**New in rc.2:** the first level-3 batch. The way into the Nether is rebuilt: obsidian, the portal, piglins and
+gold, the fortress and blaze rods, the bastion, striders, crying obsidian and ancient debris. Level 3 brings
+"before" and "after" (-기 전에, -(으)ㄴ 후에), "don't" (-지 마세요) and "can" (-(으)ㄹ 수 있어요). The Nether
+branch now starts after the lava-bucket trail. Several BATCH-015 finale lines were corrected so they claim only
+what the quest checks.
 
-### Added and fixed (generator wave 6)
+Hangul Quest 3.0 rebuilds the curriculum around what a player does in the world, replaces the old review ladder
+with a real spaced-repetition scheduler, and opens the Korean text to review by native speakers. It needs
+Minecraft 26.3, Fabric Loader 0.19.5+, Fabric API 0.162.0+26.3 and Java 25, like 2.1.0.
 
-- **Limits from the first level-2 batches.** A trail may list the constructions it practises (`"grammar": [...]`, checked
-  against `grammar.json`, dumped into `steps.json`; the 15 smithy trails carry theirs). The iron and gold chains have
-  words (철 광석, 철 원석, 철 주괴, 금 ...); 철 stays the core word. A tool or armour goal that asks for one tier says it
-  (철 곡괭이, 나무 도끼, 철 흉갑; 투구, 갑옷, 바지, 신발 are words too) and is exact. Exact pieces use the vanilla name (철 흉갑, 철 레깅스, 철 부츠, 가죽 조끼), and `EQUIP` on `#minecraft:chest_armor` and its siblings keeps the general word (갑옷을 입어요) and takes every material. New goal `EQUIP` reads the four armour
-  slots (투구를 써요, 갑옷을 입어요, 신발을 신어요, 벗어요). 밖 is a deciding form; 앞 and 뒤 take stairs, workstations,
-  barrels, signs, banners, pumpkins and creatures (주민 앞에) as anchors. Compound pattern names are spelled as
-  표준국어대사전 does (돌담, 돌기둥) and the shortener keeps a shared material (석재 벽돌 기둥 옆에 석재 벽돌 계단을). Signs,
-  armour stands and single pillars are stood (세우다), hanging signs are fitted (달다). A plain -고 sequence is a level-2
-  sentence. The request to eat is 드세요, to till is 괭이로 흙을 가세요, to buy is 주민에게서 사세요; a villager takes a
-  dropped item it picks up, not a right-click. The German giveaway check looks at the step's own relation, as separate
-  words, and leaves out what its conditions say (unter der Erde). A concept without a German gloss that a trail teaches
-  now fails a test by name.
+### Before you update (read this)
 
-### Fixed (generator wave 5)
+- **Your progress is kept.** Words, review state, streak, achievements, finished and started trails, the quest log
+  and the options are all converted when you first start 3.0. Nothing is reset.
+- **Saves are converted and backed up.** Progress is now stored per Minecraft account in
+  `config/hangulquest/profiles/<account-id>/progress.json` (schema 4). The first time a profile opens, your old
+  `config/hangulquest/progress.json` is **copied** into it; the old file is never moved, changed or deleted. Before
+  an old-format file is converted the mod also writes `progress.v<N>-backup-<time>.json` next to it, and daily and
+  weekly copies are kept in `backups/`. A word's old level stays in the file, and its new review card starts from
+  it (a word you had marked known starts at 30 days), so nothing comes due all at once. `config.json` is upgraded
+  in place (version 5).
+- **Trails that were rebuilt keep their state.** The curriculum was rebuilt trail by trail. Finished trails stay
+  finished; a renamed trail, step or word is mapped to its new id, and retired content is flagged, never deleted.
+- **How to roll back.** Close the game, put the 2.1.0 jar back into `mods/`, and delete
+  `config/hangulquest/config.json` (it is rebuilt with defaults). 2.1.0 reads the untouched
+  `config/hangulquest/progress.json`, so you are back where you were before updating. What you learned in 3.0 stays
+  in the `profiles/` folder and is not carried back. To go back to a state inside 3.0, copy one of the backup files
+  over the profile's `progress.json`. A copy of the whole `config/hangulquest/` folder made before updating is the
+  safest rollback of all.
+- **Release candidate.** This is a pre-release. Please report anything that looks wrong.
 
-- **Limits from the seventh content batch.** 요리하다 names the food that goes in (감자를 요리해요), not the baked
-  product; the held item of a HOLDING phrase uses the taught word in the clue as in the hint (배를 들고); stairs are
-  piled up (계단을 쌓아요); a block placed under a roof is checked on the block (`PlacementFact.roofed`) and said as
-  지붕 아래에 통을 놓아요; 표지판 (every sign and hanging sign) and 괭이 (every hoe) are words; `NEAR_BLOCK` is a
-  proximity scan (twice a second, only while a step asks) instead of a stare; a wait shows the seconds left in the
-  status line and in the hint. `tools/coverage.py` counts a taught word as an encounter only when the clue, the hint,
-  the title or the finale line says it, and reads 팔아요 as 팔다.
+### For players
 
-### Fixed (generator wave 4)
+**What changes in play**
 
-- **Limits from the fifth and sixth content batches.** Lighting a candle is checked (the `lit` state flips; `USE_BLOCK`
-  with `change` `LIT`, the default for candles); a baby only counts as bred when it stands within 4 blocks of two
-  of the animals the player fed; the open sky says 밖에서 up to level 4 and 하늘이 보이는 곳에서 from level 5, with
-  grammar ids that exist; a height or a place condition before a place of the goal's own no longer doubles the
-  에서 (높이 90블록 위 침대에서); a word for a whole kind does not name two different things of one sentence (꽃
-  옆에 민들레를); the clue says a second taught noun when it was met before; an authored clue may hold a verb in
-  any conjugated form; the German giveaway check ignores "bei"; heights have a band in their task signature;
-  used blocks get their own verb (제작대를 열어요, 주크박스를 틀어요, 리스폰 정박기를 충전해요, ...) instead of 쓰다;
-  `pronunciation-exceptions.json` has a `crossWord` switch; `steps.json` and `tools/variety.py` have the share of
-  form-dependent steps per level.
+- **Windows stay until you close them.** The hint, rule cards, culture notes, word cards, banners, toasts, the
+  quiz prompt, the next-quest popup and the completion cards no longer time out. One press of the hint key (`H`)
+  closes exactly one window, the top one; waiting windows show a "+N" badge; a repeat is not queued twice. Closing a
+  window is never a hint and never changes grading. Each window shows its key (`[H] 닫기 · close`) and none covers
+  the crosshair or the hotbar. *Settings → Auto-close windows* brings back the old timeouts (off by default).
+- **The game fills your quest log.** Three regular quests that fit the start of the game, and a fourth slot that
+  follows where you are (a snow trail in the snow, a cave trail underground). When you finish one, the next one
+  follows. Quests you tick yourself are never replaced, and a quest you take out stays out for 30 minutes of play.
+  *Settings → Pick quests automatically* turns this off.
+- **A readable quest tree.** The tree shows what matters now: trails you can start, the ones in your log and,
+  greyed out, those waiting directly behind them. Finished trails fold into one "완료 · Completed" button, and
+  *Show all trails* shows the whole map. A locked trail says what it is waiting for. There is also a second view by
+  life situation (house, fire and light, field, animals, ...).
+- **A welcome screen and the Hangul prerequisite.** The first time you join a world, a short screen asks whether
+  you can read Hangul and, if not, points to free lessons. The mod teaches words and grammar, not the alphabet.
+  Skip it, ask to be reminded once, or switch it off; it never blocks a quest. It stays in the journal's Info tab.
+- **The curriculum was rebuilt.** The 420 trails of 2.x were mostly generated and repeated themselves. Over 200
+  trails of levels 1 and 2 were rewritten in batches of 15 around one small idea each (the first steps, the village,
+  the kitchen and the feast, the smithy, the sea and harbour, animals and pets, colours and the garden, mountains,
+  ice and night, and more), with the words recycled on purpose. The rebuild goes on in the 3.x releases. The tree has
+  422 trails and 1,661 steps in a quest tree 22 trails deep; the word catalog has about 1,300 concepts.
+- **A grammar ladder that teaches.** Each Korean level has one instruction ending: level 1 `-아/어요`, levels 2 and 3
+  `-(으)세요`, levels 4 to 6 `-아/어야 해요`. You read at most one level above the grammar you have met; a new
+  construction shows a two-line rule card once, the journal has a grammar book, and the review quiz has grammar cloze
+  cards. Hints always stay at level 1.
+- **New things to do.** Trails now ask you to craft, smelt, give, put into a chest, hold while doing something, do
+  things in a sequence ("before", "after", "and then"), avoid something, place things next to or between other things
+  or in a wall, cross or stair pattern, light a candle, breed animals, trade (the direction of 에게서 / 에게 is
+  checked), write on a sign, hear a bell or a jukebox, wait, swim, lie down, mount, take out, go in and out, put
+  armour on, shear, dye and tie animals, and jump from a height onto snow. Every sentence still says every condition.
+- **A real review scheduler.** Reviews use FSRS-6 instead of the seven-step ladder, with a retention setting and 5, 10
+  or 15 new words a day. Cards are multiple choice with four options, self-graded recall, syllable tiles and, for
+  stable words, **typing** with a 두벌식 keyboard (also on QWERTZ). The streak is gentle: a weekly goal of four days
+  and two automatic freezes a month. Mastery needs recall on three study days.
+- **Reading and people.** A Books tab with graded stories (a word must be known to 98% before a story opens) and
+  eight culture notes; villagers you sneak-click talk Korean, with speech-level choices (반말 to a child, 합쇼체 to a
+  librarian). Verbs get their forms from a morphology engine; the word list shows Sino-Korean families.
+- **Pronunciation in brackets.** Where the spelling hides the sound, the card shows the sound in Hangul
+  (횃불 [홰뿔]). There is no romanisation.
+- **Four interface languages.** English, German, Spanish and French (see below).
+- **Privacy is unchanged.** No network code, no telemetry. The optional research export is manual only, hashes ids
+  and shows a consent text.
+
+**Languages shipped**
+
+| Language | Interface | Quest text | State |
+|---|---|---|---|
+| English | complete | complete | the source language |
+| Deutsch | complete | about 88% | proofread (Gemini draft, Claude second pass) |
+| Español | complete | about half | proofread (Gemini draft, Claude second pass) |
+| Français | complete | about a third | proofread (Gemini draft, Claude second pass); the rest of the quest text **falls back to English** |
+
+A text a language lacks is shown in English, never in German. The quest itself is always Korean. Coverage is measured
+against all 6,068 rows of the current content and moves with every new content batch. No translation has been
+approved by a native speaker yet.
+
+**The optional voices pack**
+
+"Hangul Quest Voices" is a separate resource pack with machine-made clips for words. It is **not part of the mod jar**
+and has its own download and project page. Without it the mod is silent, as before. Drop it into `resourcepacks/` and
+switch it on; a listen key plays a word when the pack has a clip for it. The clips are made offline with an open
+text-to-speech model and checked by a speech-recognition round trip. They are **not** native recordings. `audio` in
+`config.json` switches playback off.
+
+### Korean text and its review
+
+- Every Korean line, authored, generated or from the word catalog (6,536 lines in this build), passes the project's
+  Korean linter, and each line has an id, its context and a status.
+- **Two independent AI reviewers** (Claude and Gemini, blind to each other) have checked **365 lines, about 6%**, and
+  both said "fine" for all of them. The rest are lint-checked only. New content batches get a dual review; the registry
+  is updated as the reports are imported.
+- **No line is native-approved yet.** Nobody who speaks Korean natively has signed off on any line, and the review
+  site says so ("AI checked", not "native approved").
+- **The GitHub review path.** A static review site lists every Korean line with its context. Anyone with a GitHub
+  account presses **Looks right** or **Suggest a correction**, which opens a prefilled issue form. A line becomes
+  native-approved with two approvals from accounts at least 30 days old, or one from a trusted reviewer; nobody can
+  approve their own line. The review bot turns accepted corrections into pull requests that the maintainer merges.
+  A change in the Korean text sends the line back to "unreviewed". Reviewers are credited on the site.
+- Translations have the same loop: a **Translation correction** form and a page per language.
+
+### For contributors and translators
+
+- **A content pipeline with gates.** Content comes in batches of at most 15 trails from a written brief, with the
+  batch folder (manifest, lint, coverage delta, both reviews). CI runs the tests, the Korean linter, the schema
+  check, a metrics ratchet (task variety and word recycling may only improve), a mass-change guard and the review
+  registry check.
+- **Goals and conditions are registries.** A new goal is a record in the sealed `Goal`, one type class and one line
+  in `GoalTypes.ALL`; conditions work the same way. The loader is strict: an unknown or missing field makes a trail
+  unloadable. The generator learned from every batch (nine waves): authored clues with conditions, general words that
+  cover several items, official Minecraft names for exact tiers, counters, a fixed order of conditions, seconds in
+  words, tool-dependent verbs on creatures and more. `tools/variety.py` and `tools/coverage.py` report the numbers.
+- **Translation pipeline in the repository** (`tools/i18n/translate.py`, no external platform). English is the source
+  and Korean is never translated. `export` writes packets, `import` checks every row (placeholders, Hangul,
+  untranslated English, length, giveaway words), `proofread-export` / `-import` take a second pass, and
+  `content/translations/<code>-status.json` tracks each key as `machine`, `proofread`, `community-approved` or
+  `stale` (the English changed). New languages are listed with `translate.py ship`. `LangCompletenessTest` and
+  `LangPickerTest` guard coverage and the settings button.
+- **Progress safety.** Migrations are idempotent and run on the raw JSON; unknown fields survive; a file from a newer
+  version opens read-only; there is one fixture per release and per schema change (`ProgressCompatibilityTest`),
+  and `tools/new_fixture.sh <tag>` writes the one a release needs.
+- **Releases.** `release.yml` checks that the tag equals `mod_version` and that the progress fixture for the tag
+  exists, builds the jar, writes checksums, uses this section as the release text and marks versions with a hyphen
+  (`3.0.0-rc.1`) as pre-releases. `docs/release-checklist.md` is the manual part. The voices pack is released
+  separately.
+- **Tests.** An end-to-end client game test (new world, welcome screen, trail, quiz, save, reload), a playtest that
+  drives the goal types, and content QA in the unit tests.
+- A research harness (held-out probes, per-word experiments, an analysis script) runs locally; the data leaves the machine only if the player exports it by hand.
 
 ### Fixed
 
-- **Generator limits from the second content batch.** An authored clue now wins on a step with conditions (the
-  condition phrases it lacks are put in front); a word that covers a block (묘목: any sapling) is accepted by the
-  validator; `BREAK_BLOCK` takes any breaking verb of `verbs.json` (파요, 꺾어요, ...) and a block tag
-  (`#minecraft:flowers`); water and lava are anchors (물 옆에), and a tag anchor is spoken with its everyday word
-  (꽃, 통나무, 묘목, 나뭇잎) in the clue and in the finale; snow blocks have their own word (눈 블록); an open sky
-  is "밖에서" on levels 1 and 2; the note block is struck (쳐요) and the bell rung; 창살, 밀짚 and 숨결 are tensed
-  and 철사 tensifies inside a phrase. A content metric that meets its roadmap target no longer fails the ratchet.
-- **Generated Korean names things by what they are.** A gift is named by its own name (a cat shown by a cod no
-  longer gets "고양이에게 고양이를"), an entity anchor is the animal (`chicken` is 닭, not the raw meat; `PLAYER_REL`
-  takes an optional `kind`), a log anchor is 나무 when the step teaches 나무, relation sentences drop the material
-  they repeat ("울타리 옆에 문을 달았어요"), finale lines use the taught word ("우유를 마셨어요"), and counted nouns
-  take their counter from `counters.json` (종이 세 장, 꽃 두 송이). Building a pattern and placing on one now show
-  a status line; a cave biome is entered (들어가요) and a climb reads "언덕 위로 올라가요" at level 1.
-- **A step may teach any role of its goal**, and a word with several referents accepts any of them.
-- **Progress can no longer be lost by an update or a crash.** `progress.json` is written to a unique temp file,
-  forced to disk and renamed over the old file. Fields this version does not know are written back unchanged,
-  and a file written by a newer version is opened read-only instead of being overwritten.
-- A byte-order mark at the start of `progress.json` no longer makes it unreadable.
+- Progress can no longer be lost by an update or a crash: `progress.json` is written to a temp file, forced to disk
+  and renamed; fields this version does not know are written back; a byte-order mark no longer makes it unreadable.
+- Typing now works in the real game (Minecraft 26.3 reports SDL scancodes, not GLFW codes); the daily review trail
+  and the streak turn over at 04:00; opening the journal no longer starts a streak day; the quiz no longer gives
+  credit without recall.
+- German text no longer leaks into the English interface.
 
-### Added
-
-- **The everyday words the mod lacked, and the verbs a player can do.** The 150 common words of the curriculum
-  list that had no concept (사람, 위, 안, 하나, 빨간색, 열쇠, 듣다, 눕다, ...) are concepts now, with tags and
-  English and German glosses: place words, numbers, counters, directions and colours are lexicon entries (colours
-  stand for their dye and wool), foods and vehicles cover the items of the game. New goals: `TAKE_OUT` (꺼내다),
-  `TRANSIT` (들어가다, 나가다, 나오다: the sky above the player flips), `HEAR` (듣다: a playing jukebox or a
-  struck note block), `LIE_DOWN` (눕다), `WAIT` (기다리다), `BREED` (키우다), `MOUNT` (앉다, 타다) and `SWIM`
-  (수영하다); `USE_BLOCK` takes `change` (`OPEN`/`CLOSE`, the door state really changes), a descent reads
-  "아래로 내려가요", a step that teaches 요리하다 cooks food in the furnace ("닭고기를 요리해요") and a sea with the
-  water condition reads "바다에서 수영해요". The sensor sees door states, the vehicle, a playing jukebox, taken-out
-  items and baby animals (`sense/README.md`). An authored clue that says its condition in its own words keeps its
-  text. Progress files are unchanged.
-- **Generator limits from the third to the fifth content batch.** A step that teaches a word of another kind on
-  a biome says the biome (개구리 on a swamp: 늪으로 가요), biome words have covers (동굴: the lush caves) and a
-  word speaks every id it covers (묘목 for any sapling) except where the item has a word of its own (눈 블록 is
-  never 눈); a ring of blocks is a 담 and only fences make a 울타리 (울타리를 쳐요); a torch is placed (놓아요), a
-  candle switched on (켜요), a campfire kindled (피워요); stone, glass and ores in the furnace name their input
-  (화로에서 조약돌을 구워요, 철을 녹여요); a covered fish accepts the cooked form of every fish; `PLAYER_REL` takes
-  a tag; water can be looked at; a verb may be the first taught word; the hint of a multi-word step names every
-  noun; a new `TRADE` goal (사요, 팔아요). The finale fixture picks nouns the way the clue does.
-- **Books tab: graded stories, chapters and culture notes.** The journal has a new Books tab (책장). Four short
-  stories (집, 불과 빛, 밭, 동물; 80 to 200 syllables, level 1 to 2 grammar) open when their trails are done and at
-  least 98% of their words are known to the player; a locked story lists the words to learn first. Hovering or
-  clicking a word shows its gloss, and for a conjugated verb its stem, ending and grammar point. Reading a story
-  logs an encounter (never a review) for its words, once per study day. The Quests tab has a second view, the
-  trails by life situation (`data/chapters.json`, written by `tools/assign_chapters.py`) with progress per
-  chapter. Eight culture notes (온돌, 한옥, 장독, 한복, 김치, 설날, 추석, 윷놀이) appear once as a HUD card when the
-  matching item is first crafted or picked up, or, for 설날 and 추석, near their real date (a table for
-  2026 to 2030, no network), and are listed in the Books tab.
-- Action variety for quests: goals `CRAFT`, `SMELT`, `GIVE`, `PUT_IN`, `HOLD_WHILE`, `SEQUENCE` (-기 전에,
-  -(으)ㄴ 후에, -고 나서) and `AVOID` (-지 마세요), conditions `HOLDING`, `SKY`, `IN_WATER` and `PLAYER_REL`, the
-  verbs 넣다, 들다, 들어가다, 떨어뜨리다, 닫다, 녹이다, 굽다 and 걷다, and a level-3 demo trail "마을 심부름". Every generated
-  sentence can now report the grammar points it teaches.
-- Daily and weekly backups of `progress.json` in `config/hangulquest/backups/` (the last 7 days and 4 weeks).
-- One progress fixture per released version, loaded and saved by `ProgressCompatibilityTest` to catch any
-  change that would drop saved data.
-
-### Changed
-
-- `progress.json` is written as compact JSON; it is about a third smaller.
-- Interface text now lives in lang keys (`hangulquest.ui.*` in `lang/en_us.json` and `lang/de_de.json`) and is
-  resolved by the mod itself, so the interface language can differ from the game language. A key a language lacks
-  falls back to English, never German. `util/Tr` stays one release as a deprecated shim.
-- The language setting in `config.json` is now `AUTO` or a language code (`en_us`, `de_de`); old `EN`/`DE`
-  values are migrated on load.
-- Vanilla items and entities become vocabulary from the Korean name alone. `de_de` is no longer required, and
-  the glosses come from English and the language file of the player's interface language.
+[3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0
 
 ## [2.1.0] — 2026-10-20
 

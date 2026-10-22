@@ -4,16 +4,16 @@
 
 # 한글 탐험 · Hangul Quest
 
-**Learn Korean by playing Minecraft.** Korean instructions, easier-Korean hints that start a sidequest, and 420 authored quest trails in a tree that climbs from "break three stone" to literary Korean.
+**Learn Korean by playing Minecraft.** Korean instructions, easier-Korean hints that start a sidequest, and 422 quest trails in a tree that climbs from "break three stone" to harder grammar. Six Korean levels, one instruction ending each, and a real spaced-repetition scheduler behind them.
 
 Client-only Fabric mod. No server component, no packets, no chat, no telemetry.
 
-[**Download**](../../releases/latest) · [**Guide**](https://leks2205.github.io/HangulQuest/) · [Features](#features) · [Install](#install) · [Writing questlines](#writing-your-own-questlines) · [Report a bug](../../issues/new/choose)
+[**Download**](../../releases) · [**Guide**](https://leks2205.github.io/HangulQuest/) · [Features](#features) · [Install](#install) · [Writing questlines](#writing-your-own-questlines) · [Report a bug](../../issues/new/choose)
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-26.3-3c8527)
 ![Fabric](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-dbbd8b)
 ![Java](https://img.shields.io/badge/Java-25-b7410e?logo=openjdk&logoColor=white)
-![Questlines](https://img.shields.io/badge/questlines-420-16a34a)
+![Questlines](https://img.shields.io/badge/questlines-422-16a34a)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Telemetry](https://img.shields.io/badge/telemetry-none-16a34a)
 [![CI](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml/badge.svg)](https://github.com/leks2205/HangulQuest/actions/workflows/ci.yml)
@@ -55,20 +55,22 @@ Most language-learning mods put vocabulary lists in a book and ask you to read t
 
 *"Mine three stone."* — and the world is where you prove you understood it. Finish the step and the next sentence appears; finish the trail and a ritual finale (a torch on a mountain at night, a bell rung at dawn) closes it with a gold card, fireworks and a badge.
 
-When a word blocks you, `H` restates the same task in **simpler Korean**, explains the unknown word in easy Korean, and hands you a two-question **sidequest**. The original quest waits until you have answered both. Nothing is ever translated into a language you can read at a glance — an English or German line only appears if you switch it on.
+When a word blocks you, `H` restates the same task in **simpler Korean**, explains the unknown word in easy Korean, and hands you a two-question **sidequest**. The original quest waits until you have answered both. Nothing is ever translated into a language you can read at a glance — an English, German, Spanish or French line only appears if you switch it on.
 
 Everything happens on your own client. The mod never talks to a server, so it works unchanged in single-player and on any server, with or without other players.
 
 ## Features
 
 **Quest trails**
-- **420 questlines**, one JSON file each: a tree **22 levels deep**, 1,524 steps in total, 38 roots, branches that merge again before they continue.
-- **Every action is used once.** No two steps in the whole mod ask for the same thing: one quest collects wool, another shears a sheep, another dyes it purple — the sweep replaced 1,109 duplicated goals with unique ones.
-- **Chains that build a thing.** The colour branch is a real path: red, blue and yellow dye quests unlock the purple and orange wool quests, and those unlock the rainbow banner.
+- **422 questlines**, one JSON file each: a tree **22 levels deep**, 1,661 steps in total, 39 roots, branches that merge again before they continue. Over 200 of them were rewritten by hand-briefed batches around one small idea each (the first steps, the village, the kitchen, the smithy, the harbour, animals, colours, mountains); the rebuild goes on.
+- **Words come back on purpose.** A trail teaches a few new words and recycles words from earlier trails; a content ratchet in CI keeps task variety and word recycling from getting worse.
+- **31 kinds of goal**: break, place, collect, craft, smelt, give, put in, look at, breed, trade, write on a sign, light a candle, hear a bell, wear armour, jump onto snow, sequences ("before", "after") and more. Every condition is spoken in the sentence.
 - Each trail is a small Schnitzeljagd — three to five clues that build on each other, then a **ritual finale** that is always completable. No structure, chest, coordinate or rare biome is ever required.
-- **A quest log, not a single tracker.** Tick quests in the journal and they appear top-left as a short, background-free list: title, current Korean objective, the count right after it (`1/3`) and a status line when a condition is missing. Up to six, one of them highlighted; `V` cycles the highlight.
-- **Only checked quests advance.** An unticked quest keeps its saved progress but is paused, so nothing completes behind your back while you are reading something else. The highlighted quest is the one the hint key and the sidequest work on.
-- Finishing a trail chains onward automatically: the only unlocked child starts, or a HUD card offers up to five follow-ups (`1`–`5`, the first one after 60 s). Leaving a trail pauses it mid-step; coming back resumes that exact step, counter and sidequest state.
+- **A quest log that fills itself.** Up to four quests top-left (three regular ones that fit the start of the game, one that follows where you are), as a short, background-free list: title, current Korean objective, the count right after it (`1/3`) and a status line when a condition is missing. Finishing one brings the next. Tick quests in the journal to choose yourself, or switch *Pick quests automatically* off; `V` cycles the highlight.
+- **Only tracked quests advance.** A quest you took out keeps its saved progress but is paused, so nothing completes behind your back.
+- Finishing a trail chains onward automatically: the only unlocked child starts, or a card offers up to five follow-ups (`1`–`5`). Leaving a trail pauses it mid-step; coming back resumes that exact step.
+- **A readable quest tree.** It shows the trails you can start, the ones in your log and, greyed out, the ones waiting behind them; finished trails fold away.
+- **Windows stay until you close them.** Hints, rule cards, culture notes and banners wait for `H`, one window per press, and never change your grade. *Auto-close windows* brings the old timeouts back.
 
 **Hints and sidequests**
 - `H` restates the goal in **level-1 Korean** (always simpler than the quest) plus a one-line description of the blocking word, also in easy Korean.
@@ -77,28 +79,31 @@ Everything happens on your own client. The mod never talks to a server, so it wo
 - Quiz cards hide the item icon behind a `?` until you answer, so the picture never gives the answer away.
 
 **Vocabulary**
-- 1,132 concepts: 293 hand-written ones (blocks, tools, food, animals, biomes, verbs) with Korean, German, an easy-Korean description and aliases, plus one entry per rarer object, generated from the game's name files.
-- Every vanilla item, block, entity and biome name that has a Korean, English and German name, generated from the game's own language files.
+- About 1,300 concepts: hand-written ones (blocks, tools, food, animals, biomes, verbs, everyday words) with Korean, an easy-Korean description and aliases, plus one entry per rarer object, generated from the game's name files. Glosses live in the language files.
+- Every vanilla item, block, entity and biome name, taken from the game's own language files, so the official Korean names are used.
 - **Lute import**: drop your Lute export at `config/hangulquest/vocab/lute-vocab.csv` and your own words and learning states become quest vocabulary — read-only, the mod never writes to your file.
 
 **Learning layer**
-- Leitner-style spaced repetition with due words, a streak and fifteen achievements; review cards appear in-game only when you are standing still, so nothing interrupts a fight.
-- A daily **adaptive review trail** built from the words due today, seeded by world and date so it is stable for the day.
-- Progress that survives restarts: hints used, sidequest state, partial counters and badges are all stored per step.
+- **FSRS-6 scheduling** with a retention setting and 5, 10 or 15 new words a day. Four-option cards, self-graded recall, syllable tiles and, for words that are stable, **typing** on a built-in 두벌식 keyboard. Review cards appear in-game only when you are standing still, so nothing interrupts a fight.
+- A gentle streak (a weekly goal, two automatic freezes a month), fifteen achievements, a daily **review trail** and graded **stories** that unlock when you know 98% of their words.
+- **A grammar ladder**: each Korean level has one instruction ending (`-아/어요`, then `-(으)세요`, then `-아/어야 해요`). A new construction shows a two-line rule card once, and the journal has a grammar book.
+- Villagers talk Korean when you sneak and right-click them, with speech-level choices.
+- Progress that survives restarts, updates and crashes: per Minecraft account, written atomically, backed up before a migration and kept in daily and weekly copies.
 
 **Journal**
 - A journal that is a worn notebook: leather cover, stitched spine, ribbon, cream paper and flat ink text instead of the shadowed Minecraft font.
-- Six tabs: info, dictionary, learning, achievements, the trail tree and options.
+- Eight tabs: info, words, study, achievements, quests, grammar, books and settings.
 - Translations are hidden by default; the eye in the corner reveals them.
 
 **Content as data**
 - Questlines are plain JSON under `config/hangulquest/questlines/`, re-read every two seconds: a new file appears in the journal **without restarting the game**, a broken file is logged and ignored, and the shipped version stays active.
 - A JSON schema, a template, a scaffolding script (`tools/new_questline.py`), an authoring guide and a validation test guard every change.
-- Korean difficulty follows the tree: polite `-아/어요` at the top, then the instruction `-(으)세요`, then `-아/어야 해요`; the ladder is data (`data/ladder.json`). A new player reads at most one level above the grammar they have met, and the first use of a construction shows a two-line rule card. Hints always stay at the easiest level.
+- Korean difficulty follows the tree through six levels; the ladder is data (`data/ladder.json`). A new player reads at most one level above the grammar they have met. Hints always stay at the easiest level.
 
 **Presentation**
 - Three celebration tiers — step, sidequest, trail — with cards, sounds and client-side particles that the server never sees.
-- **English or German interface** (English by default; *Optionen* → *Sprache* switches to Deutsch), and a translation line in quest text, banners and celebrations that stays **off** until you enable it (*Optionen* → *Übersetzungen in Quests*).
+- **English, German, Spanish or French interface** (it follows the game language and falls back to English; *Settings* → *Language* steps through them), and a translation line in quest text, banners and celebrations that stays **off** until you enable it. German is mostly complete; Spanish and French are proofread but cover part of the quest text, and the rest falls back to English. No translation is native-approved yet.
+- **Optional voices.** A separate resource pack, "Hangul Quest Voices", adds machine-made clips for words. It is not in the jar, the mod is silent without it, and the clips are not native recordings.
 - A bundled Korean font (a Noto Sans CJK KR subset), so Hangul looks the same everywhere instead of falling back to the 6-pixel unifont.
 
 ## Screenshots
@@ -131,7 +136,9 @@ Hangul Quest needs **Minecraft 26.3** (Java Edition), **Fabric Loader 0.19.5 or 
 3. Download [Fabric API](https://modrinth.com/mod/fabric-api) for 26.3 and put it in the same folder.
 4. Start the game and enter any world — the first questline starts by itself.
 
-Every release ships a `SHA256SUMS` file; on Linux you can verify the download with `sha256sum -c SHA256SUMS`.
+Every release ships a `SHA256SUMS` file; on Linux you can verify the download with `sha256sum -c SHA256SUMS`. Release candidates (`3.0.0-rc.N`) are marked as pre-releases and are not what "latest" points to: open the [releases page](../../releases) to find them.
+
+**Updating from 2.x:** your progress is converted and backed up the first time you start 3.0, and the old file is kept untouched. The CHANGELOG has the details and how to roll back.
 
 **You need to be able to read Hangul (the Korean alphabet) first.** Hangul Quest teaches words and grammar, not the alphabet, and most people learn Hangul in a few hours. The first time you join a world, a short welcome screen asks whether you can read it and, if not, points to free lessons (open it again any time from the journal's Info tab: *About reading Hangul*):
 
@@ -147,19 +154,20 @@ All keys can be changed in **Options → Controls → Key Binds → 한글 탐�
 | Key | Action |
 |---|---|
 | `K` | Open the journal |
-| `H` | Show the hint (and start the sidequest if the word is new) |
+| `H` | Close the top window, or show the hint (and start the sidequest if the word is new) |
 | `J` | Review due words now |
+| `R` | Answer a waiting review prompt |
 | `F8` | Toggle the HUD |
 | `V` | Cycle the highlighted quest in the log |
-| `1`–`3`, `1`–`5` | Answer in a quiz or sidequest, pick the next trail |
+| `1`–`4`, `1`–`5` | Answer in a quiz or sidequest, pick the next trail |
 
 ## How a quest works
 
-1. **Clue.** The quest log shows the objective of every quest you have open — one Korean sentence each. Every condition is spoken inside the sentence — `해변에서 모닥불을 놓아요.`, "place a campfire *on the beach*" — so text and check can never disagree.
-2. **Do it.** The mod verifies the goal locally: blocks broken or placed, items gained or eaten, a block or mob looked at long enough, a biome, a dimension, an altitude, a right-click, an interaction. Twelve goal types, seven condition types, nothing that needs the server's trust.
+1. **Clue.** The quest log shows the objective of every quest you are tracking — one Korean sentence each. Every condition is spoken inside the sentence — `해변에서 모닥불을 놓아요.`, "place a campfire *on the beach*" — so text and check can never disagree.
+2. **Do it.** The mod verifies the goal locally: blocks broken or placed, items gained or eaten, a block or mob looked at long enough, a biome, a dimension, an altitude, a right-click, an interaction. 31 goal types, 11 condition types, nothing that needs the server's trust.
 3. **Stuck?** `H`. Simpler Korean, the word explained, a sidequest so it sticks.
 4. **Done.** A step card names the next clue. The finale ends with a gold card, a fanfare, fireworks and a badge; the next trail starts.
-5. **Later.** Due words come back as flashcards, and the generated review trail turns them into a quest again.
+5. **Later.** Due words come back as cards, and the generated review trail turns them into a quest again.
 
 The full model — every goal type, every condition, how the quest log words its status lines, what the tests enforce — is in the **[guide](https://leks2205.github.io/HangulQuest/)**.
 
@@ -169,12 +177,14 @@ The full model — every goal type, every condition, how the quest log words its
 
 | Tab | What is in it |
 |---|---|
-| **Info** | Words discovered and mastered, due today, streak, level, word of the day |
-| **Words / Wörter** | Your dictionary: Korean, the translation, status, and where the word came from (curated, vanilla, Lute) |
-| **Lernen** | Flashcards for due words, with the review trail as a shortcut |
-| **Erfolge** | Fifteen achievements with progress |
-| **Quests** | The trail tree and a detail card with the **Im Log** checkbox: ticked quests appear on the HUD and advance, unticked ones wait |
-| **Settings / Optionen** | Language, HUD, translations in quests, quiz size, hints, sound and the quest folder |
+| **Info** | Words discovered and mastered, due today, streak, level, word of the day, "About reading Hangul" |
+| **Words** | Your dictionary: Korean, the translation, status, and where the word came from (curated, vanilla, Lute) |
+| **Study** | Cards for due words, with the review trail as a shortcut |
+| **Achievements** | Fifteen achievements with progress |
+| **Quests** | The trail tree and a detail card with the **In log** checkbox: ticked quests appear on the HUD and advance, unticked ones wait |
+| **Grammar** | The constructions you have met, with their rule cards |
+| **Books** | Graded stories and culture notes |
+| **Settings** | Language, HUD, auto-close windows, automatic quests, translations in quests, new words per day, retention, sound and the quest folder |
 
 ## Writing your own questlines
 
@@ -231,15 +241,16 @@ References: [`docs/questline.schema.json`](docs/questline.schema.json), the [aut
 
 | Path | What's in it |
 |---|---|
-| `src/main/java/…/quest` | Engine, loader, validator, sentence builder, Korean grammar, TOPIK bands, adaptive trail |
-| `src/main/java/…/learn` | Progress store, spaced repetition, streak, achievements |
+| `src/main/java/…/quest` | Engine facade, goal and condition registries, loader, validator, sentence builder, Korean grammar and morphology, adaptive trail |
+| `src/main/java/…/learn` | Progress store and migrations, FSRS, review log, streak, achievements |
 | `src/main/java/…/sense` | World sensors (blocks, items, look, biome, dimension, height) and the safety gate |
 | `src/main/java/…/ui` | Quest log HUD, journal screen, celebrations, Korean text drawing |
 | `src/main/java/…/data` | Concept catalog, vanilla names, Lute CSV import |
-| `src/main/resources/assets/hangulquest/data` | `concepts.json`, `names.json` and 420 questline files |
-| `docs/` | Authoring guide, attribute reference, JSON schema, screenshots, the mdBook guide |
-| `tools/` | Questline scaffolding, font subsetting, name extraction, quest tree report |
-| `src/test/java` | 15 test classes: engine, grammar, SRS, store, content validation and content QA |
+| `src/main/resources/assets/hangulquest/data` | `concepts.json`, `names.json`, the grammar ladder and 422 questline files |
+| `docs/` | Authoring guide, attribute reference, JSON schema, screenshots, the mdBook guide, the release checklist |
+| `content/` | Content briefs and batches, the Korean line registry and its review status, translation status |
+| `tools/` | Questline scaffolding, the Korean linter, review and translation pipelines, the review site, coverage and variety reports, audio pack tools |
+| `src/test/java` | Unit tests: engine, grammar, SRS, store and migrations, content validation and content QA; `src/gametest` has the client game test |
 
 ## Building from source
 
@@ -248,7 +259,7 @@ You need JDK 25; the wrapper pins Gradle 9.7.1 and Loom 1.18.
 ```bash
 git clone https://github.com/leks2205/HangulQuest.git
 cd HangulQuest
-./gradlew test          # engine tests plus validation of all 420 questlines
+./gradlew test          # engine tests plus validation of all 422 questlines
 ./gradlew build         # jar in build/libs/
 ./gradlew runClient     # development client
 ```
@@ -267,15 +278,16 @@ mdbook build docs/book                    # output in docs/book/book
 
 - Built for exactly **Minecraft 26.3**. Other versions are untested; the mod uses named 26.3 classes and will not load elsewhere without changes.
 - **Client-only.** It works in single-player and on servers that do not have it. Installing it on a server does nothing.
-- Quest text is always Korean. The interface and the optional translation line are English by default, with German one switch away; per-quest line authoring in more languages is the obvious next step; see [CONTRIBUTING.md](CONTRIBUTING.md).
-- No pronunciation audio, no romanisation and no Korean keyboard input — every answer is multiple choice.
+- Quest text is always Korean. The interface and the optional translation line follow your language (English, German, Spanish, French) and fall back to English where a language has gaps; translations are drafted by AI and proofread by AI, not yet approved by native speakers; see [CONTRIBUTING.md](CONTRIBUTING.md).
+- No romanisation (Hangul is a prerequisite) and no speech recognition. Typing a word is optional; audio needs the separate voices pack.
+- **The Korean is checked by a linter and two AI reviewers, not yet by native speakers.** The review site and the CONTRIBUTING guide show how to help.
 - Goals are limited to what a client can see. There is no "find this structure" or "open this chest" requirement, which is what keeps every trail finishable.
-- Progress lives in `config/hangulquest/progress.json`. It is backed up before a migration and a corrupt file is renamed rather than overwritten, but it is not synced between machines.
+- Progress lives in `config/hangulquest/progress.json`. It lives in `config/hangulquest/profiles/<account>/`, is backed up before a migration and a corrupt file is renamed rather than overwritten, but it is not synced between machines.
 
 ## Privacy
 
 - No telemetry, no analytics, no account, no network requests. The mod talks to nothing.
-- What it stores stays in your instance: `config/hangulquest/config.json`, `progress.json` and `vocab/lute-vocab.csv`.
+- What it stores stays in your instance: `config/hangulquest/config.json`, the per-account `progress.json` with its review log, and `vocab/lute-vocab.csv`. The optional research export is a zip you create yourself.
 - The mod's log lines contain quest ids and file paths, never chat, player names or server addresses.
 - Screenshots in this repository were taken in a clean test world.
 

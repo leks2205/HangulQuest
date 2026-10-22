@@ -6,8 +6,9 @@
  "tier": 2,
  "order": 299,
  "concepts": [
-  "gen_dead_tube_coral_fan",
-  "gold_block",
+  "helmet",
+  "gen_gilded_blackstone",
+  "gen_barrel",
   "chest"
  ],
  "requires": {
@@ -21,27 +22,50 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dead_tube_coral_fan"
+    "helmet"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_tube_coral_fan",
-    "count": 4
-   }
+    "type": "EQUIP",
+    "item": "minecraft:golden_helmet"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gold_block"
+    "gen_gilded_blackstone"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:gold_block",
-    "count": 2
+    "block": "minecraft:gilded_blackstone",
+    "count": 3,
+    "verb": "MINE"
    },
-   "hint": {
-    "ko": "금 블록은 곡괭이로 캐요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_barrel"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:barrel"
+    },
+    "windowSeconds": 15,
+    "during": {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:piglin"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -54,17 +78,26 @@
     "type": "USE_BLOCK",
     "block": "minecraft:chest"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "돼지와 전쟁 — 보루의 상자를 열고 금을 챙겼어요."
+  "textKo": "네더에서 상자를 열었어요. 피글린은 돼지처럼 생겼어요."
  },
  "reward": {
   "badge": "adv_nether_loot_bastion",
   "words": [
-   "gold",
-   "gold_block",
+   "helmet",
+   "gen_piglin",
    "chest"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L3.jima"
+ ]
 }

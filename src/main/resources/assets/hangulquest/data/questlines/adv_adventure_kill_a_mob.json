@@ -7,7 +7,8 @@
  "order": 212,
  "concepts": [
   "sword",
-  "gen_endermite",
+  "door",
+  "creeper",
   "zombie"
  ],
  "requires": {
@@ -24,24 +25,42 @@
     "sword"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:iron_sword",
     "count": 1
    },
-   "hint": {
-    "ko": "철 주괴 두 개와 막대기 하나로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_endermite"
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:armor_stand",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "creeper"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:endermite",
-    "count": 1
-   }
+    "entity": "minecraft:creeper",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
@@ -53,19 +72,28 @@
    "goal": {
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:zombie",
-    "count": 1
+    "count": 2
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "몬스터 사냥꾼 — 처음으로 몬스터를 쓰러뜨렸어요."
+  "textKo": "밤에 좀비를 물리쳤어요. 몬스터 사냥꾼이 됐어요."
  },
  "reward": {
   "badge": "adv_adventure_kill_a_mob",
   "words": [
    "sword",
-   "skeleton",
-   "zombie"
+   "door",
+   "creeper"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e"
+ ]
 }

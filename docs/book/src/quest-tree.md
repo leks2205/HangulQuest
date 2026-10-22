@@ -7,13 +7,13 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1661** |
+| Steps (incl. finales) | **1735** |
 | Tree levels | **22** |
 | Roots | 39 |
-| Merges (more than one parent) | 129 |
-| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
+| Merges (more than one parent) | 130 |
+| Vocabulary | hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
 
-A trail's `koreanLevel` is the TOPIK band of its depth: levels 1–3 speak polite Korean, 4–6 add obligation, 7–9 emphatic forms, 10–12 the double negative, 13–15 literary forms and 16 and deeper the `-(으)ㄹ 수밖에 없어요` band.
+A trail's `koreanLevel` (1 to 6) follows its depth in the tree and picks the instruction ending of `data/ladder.json`: level 1 speaks `-아/어요`, levels 2 and 3 `-(으)세요`, levels 4 to 6 `-아/어야 해요` (level 6 may use `-(으)ㄹ 수밖에 없어요` where a sentence states a forced conclusion).
 
 ## Goals and conditions
 
@@ -21,51 +21,52 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 348 | collect an item |
-| `PLACE_BLOCK` | 323 | place a block |
-| `PLACE_REL` | 151 |  |
-| `CRAFT` | 111 |  |
-| `BREAK_BLOCK` | 74 | break a block |
-| `PLACE_ON_PATTERN` | 72 |  |
-| `BUILD_PATTERN` | 64 |  |
-| `REACH_BIOME` | 60 | reach a biome |
-| `USE_BLOCK` | 60 | use a block |
-| `LOOK_AT_ENTITY` | 59 | look at a mob |
-| `GIVE` | 53 |  |
-| `CONSUME_ITEM` | 45 | eat or drink an item |
-| `LOOK_AT_BLOCK` | 43 | look at a block |
-| `DEFEAT_ENTITY` | 34 | defeat a mob |
-| `PUT_IN` | 27 |  |
-| `INTERACT_ENTITY` | 20 | interact with a mob |
-| `SMELT` | 20 |  |
-| `HOLD_WHILE` | 18 |  |
-| `REACH_HEIGHT` | 14 | reach an altitude |
-| `WAIT` | 14 |  |
-| `SEQUENCE` | 12 |  |
-| `BREED` | 9 |  |
-| `SWIM` | 6 |  |
-| `TRADE` | 5 |  |
+| `ACQUIRE_ITEM` | 214 | collect an item |
+| `PLACE_BLOCK` | 207 | place a block |
+| `PLACE_REL` | 204 |  |
+| `CRAFT` | 152 |  |
+| `PLACE_ON_PATTERN` | 105 |  |
+| `BUILD_PATTERN` | 99 |  |
+| `SEQUENCE` | 72 |  |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
+| `GIVE` | 64 |  |
+| `BREAK_BLOCK` | 64 | break a block |
+| `REACH_BIOME` | 59 | reach a biome |
+| `LOOK_AT_BLOCK` | 51 | look at a block |
+| `USE_BLOCK` | 50 | use a block |
+| `CONSUME_ITEM` | 43 | eat or drink an item |
+| `AVOID` | 41 |  |
+| `HOLD_WHILE` | 34 |  |
+| `PUT_IN` | 33 |  |
+| `DEFEAT_ENTITY` | 25 | defeat a mob |
+| `REACH_HEIGHT` | 25 | reach an altitude |
+| `SMELT` | 24 |  |
+| `WAIT` | 20 |  |
+| `TRADE` | 19 |  |
+| `INTERACT_ENTITY` | 17 | interact with a mob |
+| `BREED` | 10 |  |
+| `TAKE_OUT` | 7 |  |
+| `MOUNT` | 7 |  |
+| `SWIM` | 7 |  |
 | `LIE_DOWN` | 4 |  |
-| `TAKE_OUT` | 4 |  |
-| `MOUNT` | 4 |  |
+| `EQUIP` | 4 |  |
+| `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
-| `HEAR` | 2 |  |
-| `REACH_DIMENSION` | 1 | reach a dimension |
-| `EQUIP` | 1 |  |
+| `FALL` | 2 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 243 | a time of day |
-| `IN_BIOME` | 54 | a biome |
+| `TIME` | 261 | a time of day |
+| `HOLDING` | 85 |  |
+| `IN_BIOME` | 65 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `HOLDING` | 43 |  |
-| `SKY` | 20 |  |
-| `Y_RANGE` | 19 | an altitude band |
-| `NEAR_BLOCK` | 18 | a block nearby |
-| `WEATHER` | 16 | the weather |
-| `NEAR_ENTITY` | 13 | a mob nearby |
-| `IN_WATER` | 7 |  |
-| `IN_DIMENSION` | 2 | a dimension |
+| `IN_DIMENSION` | 38 | a dimension |
+| `Y_RANGE` | 33 | an altitude band |
+| `SKY` | 24 |  |
+| `WEATHER` | 23 | the weather |
+| `NEAR_BLOCK` | 23 | a block nearby |
+| `NEAR_ENTITY` | 20 | a mob nearby |
+| `IN_WATER` | 9 |  |
 
 ## Levels
 
@@ -201,7 +202,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_husbandry_balanced_diet` | 균형 잡힌 식단 | Ausgewogene Ernährung | 4 | `adv_husbandry_plant_seed` |
 | `adv_husbandry_bred_all_animals` | 짝지어주기 | Paarweise | 6 | `adv_husbandry_breed_an_animal` |
 | `adv_husbandry_complete_catalogue` | 집사 그 자체 | Ein kompletter Katerlog | 4 | `adv_husbandry_tame_an_animal` |
-| `adv_husbandry_feed_snifflet` | 돼지 우리 | Der Schweinestall | 4 | `adv_husbandry_obtain_sniffer_egg` |
+| `adv_husbandry_feed_snifflet` | 돼지우리 | Der Schweinestall | 4 | `adv_husbandry_obtain_sniffer_egg` |
 | `adv_husbandry_leash_all_frog_variants` | 개구리 삼총사 출동! | Wenn die Kerle um die Häuser ziehen | 5 | `adv_husbandry_tadpole_in_a_bucket` |
 | `adv_husbandry_obtain_netherite_hoe` | 괭이의 길 | Der Hackenpfad | 4 | `adv_husbandry_plant_seed` |
 | `adv_husbandry_remove_wolf_armor` | 탁월한 가위질 | Schnipp‐schnapp! | 4 | `adv_husbandry_tame_an_animal` |
@@ -221,7 +222,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `alpental` | 알펜 계곡 | Das Alpental | 5 | `weidepfad` |
 | `kuestenwacht` | 해안 초소 | Die Küstenwacht | 4 | `brandung` |
 
-### Level 5 · TOPIK 2 · 44 trails
+### Level 5 · TOPIK 2 · 43 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -232,12 +233,11 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `ziegelpfad` | 벽돌의 길 | Der Ziegelpfad | 5 | `alpental`, `gartenpfad` |
 | `brauerei` | 지하 저장고의 길 | Der Kellerpfad | 4 | `alpental`, `gartenpfad` |
 | `bienenzucht` | 양봉의 길 | Der Bienenzuchtpfad | 4 | `alpental`, `gartenpfad` |
-| `adv_adventure_root` | 모험 | Abenteuer | 3 | `abenteuerpfad` |
+| `adv_adventure_root` | 모험 | Abenteuer | 5 | `abenteuerpfad` |
 | `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 4 | `adv_husbandry_tactical_fishing` |
 | `adv_husbandry_froglights` | 개구리 연못의 밤 | Eine Nacht am Froschteich | 5 | `adv_husbandry_leash_all_frog_variants` |
 | `adv_husbandry_plant_any_sniffer_seed` | 토끼 밭 | Das Kaninchenbeet | 6 | `adv_husbandry_feed_snifflet` |
 | `adv_husbandry_wax_off` | 밀랍을 벗기자 | Polieren | 5 | `adv_husbandry_wax_on` |
-| `adv_nether_root` | 네더 | Nether | 3 | `abenteuerpfad` |
 | `adv_story_smelt_iron` | 철이 철철 넘쳐 | Metallurgie | 4 | `adv_story_upgrade_tools` |
 | `glueckspfad` | 보물의 길 | Der Schatzpfad | 5 | `abenteuerpfad` |
 | `familienpfad` | 가족의 길 | Der Familienpfad | 4 | `zuhausepfad`, `haustierpfad` |
@@ -270,7 +270,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w4_07` | 항구 시장 | Der Hafenmarkt | 5 | `festmahl` |
 | `w4_08` | 모래 정원 | Der Sandgarten | 5 | `gartenpfad` |
 
-### Level 6 · TOPIK 2 · 48 trails
+### Level 6 · TOPIK 2 · 40 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -284,33 +284,25 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `gerberei` | 가죽 공방의 길 | Die Gerberei | 5 | `festungpfad`, `schatzkammer` |
 | `obstgarten` | 과수원의 길 | Der Obstgarten | 5 | `festungpfad`, `schatzkammer` |
 | `werkzeugpfad` | 도구의 길 | Der Werkzeugpfad | 4 | `festungpfad`, `schatzkammer` |
-| `adv_adventure_avoid_vibration` | 은밀하게 위대하게 | Schleichen 100 | 3 | `adv_adventure_root` |
-| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 3 | `adv_adventure_root` |
+| `adv_adventure_avoid_vibration` | 소리 경보 | Der leise Alarm | 4 | `adv_adventure_root` |
+| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 5 | `adv_adventure_root` |
 | `adv_adventure_crafters_crafting_crafters` | 제작기 제 자신 제작기 | Werker, die Werker herstellen | 5 | `adv_adventure_root` |
 | `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 5 | `adv_adventure_root` |
-| `adv_adventure_heart_transplanter` | 심장 이식 수술 | Herzverpflanzer | 3 | `adv_adventure_root` |
+| `adv_adventure_heart_transplanter` | 망루 | Der Wachturm | 5 | `adv_adventure_root` |
 | `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 6 | `adv_adventure_root` |
-| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 3 | `adv_adventure_root` |
-| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 3 | `adv_adventure_root` |
-| `adv_adventure_minecraft_trials_edition` | 인생은 시련의 연속 | Minecraft: Prüfungs‐Edition | 3 | `adv_adventure_root` |
-| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 3 | `adv_adventure_root` |
+| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 4 | `adv_adventure_root` |
+| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 6 | `adv_adventure_root` |
+| `adv_adventure_minecraft_trials_edition` | 훈련장 | Der Übungsplatz | 5 | `adv_adventure_root` |
+| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 5 | `adv_adventure_root` |
 | `adv_adventure_read_power_of_chiseled_bookshelf` | 책의 힘 | Die Macht der Bücher | 6 | `adv_adventure_root` |
-| `adv_adventure_salvage_sherd` | 소중한 잔해 | Achtung vor dem Alten | 3 | `adv_adventure_root` |
+| `adv_adventure_salvage_sherd` | 여행 준비 | Reisevorbereitungen | 4 | `adv_adventure_root` |
 | `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 4 | `adv_adventure_root` |
 | `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 6 | `adv_adventure_root` |
 | `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 4 | `adv_adventure_root` |
-| `adv_adventure_trim_with_any_armor_pattern` | 유행의 선도자 | Ein neues Aussehen | 3 | `adv_adventure_root` |
-| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 3 | `adv_adventure_root` |
-| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 3 | `adv_adventure_root` |
+| `adv_adventure_trim_with_any_armor_pattern` | 멋쟁이 | Der Modefan | 4 | `adv_adventure_root` |
+| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 6 | `adv_adventure_root` |
+| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 5 | `adv_adventure_root` |
 | `adv_husbandry_kill_axolotl_target` | 양털 깎는 날 | Schertag | 4 | `adv_husbandry_axolotl_in_a_bucket` |
-| `adv_nether_distract_piglin` | 반짝반짝 눈이 부셔 | Oh, wie glänzend! | 3 | `adv_nether_root` |
-| `adv_nether_fast_travel` | 천 리 길도 한 걸음 | Subraumtransport | 3 | `adv_nether_root` |
-| `adv_nether_find_bastion` | 그때가 좋았지 | Das waren noch Zeiten … | 3 | `adv_nether_root` |
-| `adv_nether_find_fortress` | 끔찍한 요새 | Eine schreckliche Festung | 3 | `adv_nether_root` |
-| `adv_nether_obtain_ancient_debris` | 깊이 파묻힌 잔해 | Verborgen in den Tiefen | 3 | `adv_nether_root` |
-| `adv_nether_obtain_crying_obsidian` | 누가 양파를 써나? | Wer schneidet hier Zwiebeln? | 3 | `adv_nether_root` |
-| `adv_nether_return_to_sender` | 전해지지 않은 러브레터 | Zurück zum Absender | 3 | `adv_nether_root` |
-| `adv_nether_ride_strider` | 두 발 달린 보트 | Mach diesem „Boot“ Beine | 3 | `adv_nether_root` |
 | `adv_story_iron_tools` | 이젠 철 좀 들어라 | Zu viel Eisen im Blut | 4 | `adv_story_smelt_iron` |
 | `adv_story_lava_bucket` | 화끈한 화제 | Heiße Sache | 4 | `adv_story_smelt_iron` |
 | `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 5 | `adv_story_smelt_iron` |
@@ -323,89 +315,88 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `gestuet` | 마구간의 길 | Das Gestüt | 4 | `pferdehof`, `waldfest` |
 | `ozeanfahrt` | 대양 항해 | Die Ozeanfahrt | 4 | `meerestiefe`, `kuestenfest` |
 
-### Level 7 · TOPIK 3 · 47 trails
+### Level 7 · TOPIK 3 · 40 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 3 | `gartenfest`, `nachtwache` |
-| `eiskrone` | 북극 여우 | Der Polarfuchs | 4 | `schneesturm` |
-| `schmuckpfad` | 보석의 길 | Der Schmuckpfad | 4 | `handelsstrasse`, `schmelzofen` |
+| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 4 | `gartenfest`, `nachtwache` |
+| `eiskrone` | 얼음 왕관 | Die Eiskrone | 5 | `schneesturm` |
+| `schmuckpfad` | 보석의 길 | Der Juwelenpfad | 4 | `handelsstrasse`, `schmelzofen` |
 | `vogelpfad` | 새의 길 | Der Vogelpfad | 4 | `gartenfest` |
 | `wolfpfad` | 늑대의 길 | Der Wolfspfad | 4 | `gartenfest`, `schmiedefeuer` |
-| `adv_adventure_adventuring_time` | 모험의 시간 | Abenteuerzeit | 3 | `adv_adventure_sleep_in_bed` |
-| `adv_adventure_arbalistic` | 명사수 | Armbrustschütze | 3 | `adv_adventure_ol_betsy` |
-| `adv_adventure_blowback` | 역풍 | Gegenwind | 3 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_craft_decorated_pot_using_only_sherds` | 세심한 복원 | Behutsame Restaurierung | 3 | `adv_adventure_salvage_sherd` |
-| `adv_adventure_hero_of_the_village` | 마을의 영웅 | Dorfheld | 3 | `adv_adventure_voluntary_exile` |
-| `adv_adventure_kill_all_mobs` | 몬스터 도감 | Meisterjäger | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_kill_mob_near_sculk_catalyst` | 퍼져간다 | Es verbreitet sich | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_lighten_up` | 불 좀 켜 줄래? | Aufhellen | 3 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_overoverkill` | 하늘에서 철퇴가 내린다면 | Großmeister des Kampfes | 3 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_play_jukebox_in_meadows` | 사운드 오브 뮤직 | Deine Welt sind die Berge | 3 | `adv_adventure_sleep_in_bed` |
-| `adv_adventure_shoot_arrow` | 정조준 | Zielübungen | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_spear_many_mobs` | 몹 꼬치 | Fünf auf einen Spieß | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_spyglass_at_ghast` | 풍선인가? | Ist es ein Ballon? | 3 | `adv_adventure_spyglass_at_parrot` |
-| `adv_adventure_summon_iron_golem` | 도우미 고용 | Das 1. Gesetz der Robotik | 3 | `adv_adventure_trade` |
-| `adv_adventure_throw_trident` | 준비하시고... 쏘세요! | Ein Witz zum Wegwerfen | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_totem_of_undying` | 죽음을 초월한 자 | Post mortem | 3 | `adv_adventure_kill_a_mob` |
-| `adv_adventure_trade_at_world_height` | 최고의 거래 | Sternenhändler | 3 | `adv_adventure_trade` |
-| `adv_adventure_trim_with_all_exclusive_armor_patterns` | 형판 좋은 대장장이 | Schmieden mit Stil | 3 | `adv_adventure_trim_with_any_armor_pattern` |
-| `adv_adventure_two_birds_one_arrow` | 일전쌍조 | Zwei auf einen Streich | 3 | `adv_adventure_ol_betsy` |
-| `adv_adventure_under_lock_and_key` | 열쇠로 잠금 해제 | Hinter Schloss und Riegel | 3 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 토끼처럼 가볍게 | Leicht wie ein Kaninchen | 3 | `adv_adventure_sleep_in_bed` |
-| `adv_adventure_who_needs_rockets` | 누가 로켓이 필요하대? | Wer braucht schon Raketen? | 3 | `adv_adventure_minecraft_trials_edition` |
+| `adv_adventure_adventuring_time` | 여행의 시작 | Der Beginn einer Reise | 4 | `adv_adventure_sleep_in_bed` |
+| `adv_adventure_arbalistic` | 쇠뇌 사냥 | Jagd mit der Armbrust | 4 | `adv_adventure_ol_betsy` |
+| `adv_adventure_blowback` | 방패로 막기 | Mit dem Schild abwehren | 3 | `adv_adventure_minecraft_trials_edition` |
+| `adv_adventure_craft_decorated_pot_using_only_sherds` | 도자기 만들기 | Einen Krug herstellen | 4 | `adv_adventure_salvage_sherd` |
+| `adv_adventure_hero_of_the_village` | 마을 지키기 | Das Dorf verteidigen | 4 | `adv_adventure_voluntary_exile` |
+| `adv_adventure_kill_all_mobs` | 몬스터 사냥 | Monsterjagd | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_kill_mob_near_sculk_catalyst` | 숲의 밤 사냥 | Nachtjagd im Wald | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_lighten_up` | 사냥꾼의 불빛 | Das Licht des Jägers | 4 | `adv_adventure_minecraft_trials_edition` |
+| `adv_adventure_overoverkill` | 철 도끼의 힘 | Die Kraft der Eisenaxt | 4 | `adv_adventure_minecraft_trials_edition` |
+| `adv_adventure_play_jukebox_in_meadows` | 목초지의 음악 | Musik auf der Alm | 4 | `adv_adventure_sleep_in_bed` |
+| `adv_adventure_shoot_arrow` | 첫 화살 | Der erste Pfeil | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_spear_many_mobs` | 창 사냥 | Die Speerjagd | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_spyglass_at_ghast` | 네더의 망원경 | Das Fernrohr im Nether | 4 | `adv_adventure_spyglass_at_parrot` |
+| `adv_adventure_summon_iron_golem` | 마을 지킴이 | Der Dorfwächter | 4 | `adv_adventure_trade` |
+| `adv_adventure_throw_trident` | 물가의 사냥 | Jagd am Wasser | 3 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_totem_of_undying` | 불사의 토템 | Das Totem der Unsterblichkeit | 4 | `adv_adventure_kill_a_mob` |
+| `adv_adventure_trade_at_world_height` | 높은 곳의 시장 | Der Markt in der Höhe | 3 | `adv_adventure_trade` |
+| `adv_adventure_trim_with_all_exclusive_armor_patterns` | 구리 장비 | Kupferausrüstung | 3 | `adv_adventure_trim_with_any_armor_pattern` |
+| `adv_adventure_two_birds_one_arrow` | 차례로 두 마리 | Zwei nacheinander | 4 | `adv_adventure_ol_betsy` |
+| `adv_adventure_under_lock_and_key` | 철 문과 버튼 | Eisentür und Knopf | 4 | `adv_adventure_minecraft_trials_edition` |
+| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 가죽 장화와 가루눈 | Lederstiefel und Pulverschnee | 4 | `adv_adventure_sleep_in_bed` |
+| `adv_adventure_who_needs_rockets` | 로켓 없이 뛰어내리기 | Springen ohne Rakete | 4 | `adv_adventure_minecraft_trials_edition` |
 | `adv_adventure_whos_the_pillager_now` | 이제 누가 약탈자지? | Wer ist jetzt der Plünderer? | 3 | `adv_adventure_ol_betsy` |
-| `adv_nether_charge_respawn_anchor` | 목숨 충전 | Nicht ganz „sieben“ Leben | 3 | `adv_nether_obtain_crying_obsidian` |
-| `adv_nether_explore_nether` | 화끈한 관광 명소 | Heißbegehrte Reiseziele | 3 | `adv_nether_ride_strider` |
-| `adv_nether_get_wither_skull` | 으스스한 스켈레톤 | Nicht den Kopf verlieren | 3 | `adv_nether_find_fortress` |
-| `adv_nether_loot_bastion` | 돼지와 전쟁 | Kampfschweine | 3 | `adv_nether_find_bastion` |
-| `adv_nether_netherite_armor` | 잔해로 날 감싸줘 | Bedeck mich mit Schrott | 3 | `adv_nether_obtain_ancient_debris` |
-| `adv_nether_obtain_blaze_rod` | 포화 속으로 | Spiel mit dem Feuer | 3 | `adv_nether_find_fortress` |
-| `adv_nether_ride_strider_in_overworld_lava` | 고향 같은 편안함 | Ganz wie zu Hause | 3 | `adv_nether_ride_strider` |
-| `adv_nether_uneasy_alliance` | 쉽지 않은 동행 | Unheilvolle Allianz | 3 | `adv_nether_return_to_sender` |
-| `adv_story_deflect_arrow` | 저희는 그런 것 받지 않습니다 | Heute nicht, danke | 3 | `adv_story_obtain_armor` |
+| `adv_nether_root` | 네더 | Nether | 4 | `abenteuerpfad`, `adv_story_lava_bucket` |
+| `adv_story_deflect_arrow` | 방패와 화살 | Schild und Pfeil | 3 | `adv_story_obtain_armor` |
 | `adv_story_form_obsidian` | 아이스 버킷 챌린지 | Ice Bucket Challenge | 4 | `adv_story_lava_bucket` |
-| `adv_story_mine_diamond` | 다이아몬드다! | Diamanten! | 3 | `adv_story_iron_tools` |
+| `adv_story_mine_diamond` | 다이아몬드다! | Diamanten! | 4 | `adv_story_iron_tools` |
 | `weltreise` | 세계 여행의 길 | Die Weltreise | 4 | `kuestenfest`, `sternenhaus`, `gipfelwaechter`, `kartenpfad` |
-| `bergwerk` | 광산의 길 | Das Bergwerk | 4 | `tiefenpfad`, `gletscherpfad` |
+| `bergwerk` | 광산의 길 | Der Bergwerkspfad | 4 | `tiefenpfad`, `gletscherpfad` |
 | `festtafel` | 잔칫상 | Die Festtafel | 4 | `gartenfest`, `kochkunst` |
-| `observatorium` | 별의 축제 | Das Sternenfest | 4 | `sternwarte`, `gipfelwaechter` |
+| `observatorium` | 별 관측소 | Die Sternwarte | 4 | `sternwarte`, `gipfelwaechter` |
 | `weltmarkt` | 세계 시장 | Der Weltmarkt | 4 | `handelsstrasse`, `schmiedepfad`, `briefpfad` |
 | `weltbaum` | 세계수 | Der Weltbaum | 4 | `waldfest`, `gartenfest`, `alpental`, `familienpfad`, `alchemiepfad` |
 | `tiefseehafen` | 심해 항구 | Der Tiefseehafen | 4 | `ozeanfahrt`, `meerestiefe`, `nachthafen`, `inselpfad` |
 | `village_errands_demo` | 마을 심부름 | Dorf-Besorgungen | 5 | `handelsstrasse` |
 
-### Level 8 · TOPIK 3 · 40 trails
+### Level 8 · TOPIK 3 · 46 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `frostwacht` | 철 갑옷의 길 | Suit Up | 4 | `eiskrone` |
+| `frostwacht` | 눈 속의 탑 | Der Turm im Schnee | 4 | `eiskrone` |
 | `tempelpfad` | 사막 신전의 길 | Der Wüstentempel | 4 | `weltbaum`, `weltreise` |
 | `dschungelpfad` | 정글의 길 | Der Dschungelpfad | 4 | `gartenwacht`, `tiefseehafen`, `bambuspfad` |
 | `handelsgilde` | 상인 길드의 길 | Der Handelsgildenpfad | 4 | `weltmarkt`, `gartenfest` |
 | `postpfad` | 우편의 길 | Der Postpfad | 4 | `weltmarkt`, `gartenfest` |
-| `schmuckgilde` | 보석 길드의 길 | Der Schmuckgildenpfad | 4 | `gartenfest`, `weltmarkt` |
+| `schmuckgilde` | 보석 길드의 길 | Der Weg der Juwelierzunft | 4 | `gartenfest`, `weltmarkt` |
 | `fischergilde` | 어부 길드의 길 | Der Fischergildenpfad | 4 | `gartenfest`, `weltmarkt` |
-| `adv_adventure_bullseye` | 명중 | Volltreffer! | 3 | `adv_adventure_shoot_arrow` |
-| `adv_adventure_revaulting` | 불길에 뛰어드는 나 | Panzerknacker | 3 | `adv_adventure_under_lock_and_key` |
-| `adv_adventure_sniper_duel` | 저격 대결 | Scharfschützenduell | 3 | `adv_adventure_shoot_arrow` |
-| `adv_adventure_spyglass_at_dragon` | 비행기인가? | Ist es ein Flugzeug? | 3 | `adv_adventure_spyglass_at_ghast` |
-| `adv_adventure_very_very_frightening` | 동에 번쩍 서에 번쩍 | Blitzezucken, Donnerkrach | 3 | `adv_adventure_throw_trident` |
-| `adv_nether_brew_potion` | 물약 양조장 | Alchemie | 3 | `adv_nether_obtain_blaze_rod` |
-| `adv_nether_summon_wither` | 시들어 버린 언덕 | Umwitherte Höhen | 3 | `adv_nether_get_wither_skull` |
-| `adv_story_enchant_item` | 마법 부여자 | Verzauberer | 4 | `adv_story_mine_diamond` |
+| `adv_adventure_bullseye` | 과녁 세우기 | Der Zielblock | 5 | `adv_adventure_shoot_arrow` |
+| `adv_adventure_revaulting` | 사냥꾼의 저녁 | Das Abendessen des Jägers | 4 | `adv_adventure_under_lock_and_key` |
+| `adv_adventure_sniper_duel` | 산 위의 활 | Der Bogen auf dem Berg | 4 | `adv_adventure_shoot_arrow` |
+| `adv_adventure_spyglass_at_dragon` | 산 위의 망원경 | Das Fernrohr auf dem Berg | 4 | `adv_adventure_spyglass_at_ghast` |
+| `adv_adventure_very_very_frightening` | 피뢰침 | Der Blitzableiter | 4 | `adv_adventure_throw_trident` |
+| `adv_nether_distract_piglin` | 반짝반짝 눈이 부셔 | Oh, wie glänzend! | 4 | `adv_nether_root` |
+| `adv_nether_fast_travel` | 천 리 길도 한 걸음 | Subraumtransport | 4 | `adv_nether_root` |
+| `adv_nether_find_bastion` | 그때가 좋았지 | Das waren noch Zeiten … | 4 | `adv_nether_root` |
+| `adv_nether_find_fortress` | 끔찍한 요새 | Eine schreckliche Festung | 4 | `adv_nether_root` |
+| `adv_nether_obtain_ancient_debris` | 깊이 파묻힌 잔해 | Verborgen in den Tiefen | 5 | `adv_nether_root` |
+| `adv_nether_obtain_crying_obsidian` | 누가 양파를 써나? | Wer schneidet hier Zwiebeln? | 4 | `adv_nether_root` |
+| `adv_nether_return_to_sender` | 전해지지 않은 러브레터 | Zurück zum Absender | 4 | `adv_nether_root` |
+| `adv_nether_ride_strider` | 두 발 달린 보트 | Mach diesem „Boot“ Beine | 4 | `adv_nether_root` |
+| `adv_story_enchant_item` | 마법 부여대 | Der Zaubertisch | 3 | `adv_story_mine_diamond` |
 | `adv_story_enter_the_nether` | 더 깊은 곳으로 | Wir müssen noch tiefer | 4 | `adv_story_form_obsidian` |
-| `adv_story_shiny_gear` | 다이아몬드로 날 감싸줘 | Bedeck mich mit Diamanten | 4 | `adv_story_mine_diamond` |
+| `adv_story_shiny_gear` | 다이아몬드 장비 | Diamantausrüstung | 4 | `adv_story_mine_diamond` |
 | `kristallhoehle` | 수정 동굴 | Die Kristallhöhle | 4 | `bergwerk`, `glueckspfad`, `steinherz` |
 | `riesenfest` | 큰 잔치 | Das Riesenfest | 4 | `festtafel`, `waldfest`, `kochkunst`, `farbenpfad`, `vogelpfad` |
 | `karawane` | 대상단 | Die Karawane | 4 | `gestuet`, `weltmarkt`, `schmuckpfad` |
 | `himmelswarte` | 하늘 관측소 | Die Himmelswarte | 4 | `observatorium`, `sternenhaus` |
 | `grossesmeer` | 큰 바다 | Das Große Meer | 4 | `tiefseehafen`, `ozeanfahrt` |
 | `hafenwacht` | 조선소의 길 | Der Werftpfad | 4 | `tiefseehafen`, `kuestenwacht` |
-| `w5_01` | 광부의 등불 | Die Grubenlampe | 3 | `bergwerk` |
+| `w5_01` | 광부의 등불 | Die Grubenlampe | 4 | `bergwerk` |
 | `w5_02` | 쇠를 두드리는 손 | Hände, die Eisen schmieden | 4 | `schmuckpfad` |
 | `w5_03` | 깊은 돌의 노래 | Das Lied des tiefen Steins | 4 | `eiskrone` |
-| `w5_04` | 용광로의 불빛 | Das Feuer im Schmelzofen | 4 | `festtafel` |
+| `w5_04` | 화로의 불빛 | Das Feuer im Ofen | 4 | `festtafel` |
 | `w5_05` | 동굴의 숨결 | Der Atem der Höhle | 4 | `observatorium` |
 | `w5_06` | 땅속의 보석 | Der Schatz in der Tiefe | 4 | `weltmarkt` |
 | `w5_07` | 물속의 자갈 | Kies unter Wasser | 4 | `tiefseehafen` |
@@ -416,23 +407,29 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w6_03` | 붉은 여우의 숲 | Der Wald des roten Fuchses | 4 | `wolfpfad` |
 | `w6_04` | 꿀벌의 숲 | Der Wald der Bienen | 4 | `vogelpfad` |
 | `w6_05` | 버섯 그늘 | Im Schatten der Pilze | 4 | `bergwerk` |
-| `w6_06` | 숲의 전망대 | Die Waldkanzel | 4 | `observatorium` |
+| `w6_06` | 숲의 전망대 | Der Aussichtspunkt im Wald | 4 | `observatorium` |
 | `w6_07` | 정글의 약초 | Kräuter im Dschungel | 4 | `weltreise` |
-| `w6_08` | 약초 건조대 | Der Kräutertrockenrahmen | 4 | `festtafel` |
+| `w6_08` | 밀 건조대 | Das Weizentrockengestell | 4 | `festtafel` |
 
-### Level 9 · TOPIK 3 · 12 trails
+### Level 9 · TOPIK 3 · 18 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `polarlicht` | 뜨거운 것 | Hot Stuff | 4 | `frostwacht` |
+| `polarlicht` | 북쪽의 얼음 | Das Eis im Norden | 5 | `frostwacht` |
 | `piratenpfad` | 해적의 길 | Der Piratenpfad | 4 | `tempelpfad`, `tiefseehafen` |
-| `vulkanpfad` | 화산의 길 | Der Vulkanpfad | 4 | `tempelpfad`, `eiswand` |
-| `wolkenstadt` | 구름 도시의 길 | Die Wolkenstadt | 4 | `gartenfest`, `handelsgilde` |
+| `vulkanpfad` | 화산의 길 | Der Vulkanpfad | 5 | `tempelpfad`, `eiswand` |
+| `wolkenstadt` | 구름 도시 | Die Wolkenstadt | 4 | `gartenfest`, `handelsgilde` |
 | `wuestenstadt` | 사막 도시의 길 | Die Wüstenstadt | 4 | `karawane`, `handelsgilde` |
-| `adv_nether_all_potions` | 뿅가는 폭탄주 | Eine gefährliche Mischung | 3 | `adv_nether_brew_potion` |
-| `adv_nether_create_beacon` | 신호기 꾸리기 | Den Nachbarn heimleuchten | 3 | `adv_nether_summon_wither` |
-| `adv_story_cure_zombie_villager` | 좀비 의사 | Zombiearzt | 3 | `adv_story_enter_the_nether` |
-| `adv_story_follow_ender_eye` | 스무고개 | Das fliegende Auge | 4 | `adv_story_enter_the_nether` |
+| `adv_nether_charge_respawn_anchor` | 목숨 충전 | Neun Leben, fast | 5 | `adv_nether_obtain_crying_obsidian` |
+| `adv_nether_explore_nether` | 화끈한 관광 명소 | Heißbegehrte Reiseziele | 4 | `adv_nether_ride_strider` |
+| `adv_nether_get_wither_skull` | 으스스한 스켈레톤 | Gruseliges Skelett | 3 | `adv_nether_find_fortress` |
+| `adv_nether_loot_bastion` | 돼지와 전쟁 | Krieg der Schweine | 4 | `adv_nether_find_bastion` |
+| `adv_nether_netherite_armor` | 네더라이트 투구 | Der erste Netheritschatz | 4 | `adv_nether_obtain_ancient_debris` |
+| `adv_nether_obtain_blaze_rod` | 포화 속으로 | Spiel mit dem Feuer | 4 | `adv_nether_find_fortress` |
+| `adv_nether_ride_strider_in_overworld_lava` | 고향 같은 편안함 | Ganz wie zu Hause | 3 | `adv_nether_ride_strider` |
+| `adv_nether_uneasy_alliance` | 가스트 눈물 사냥 | Auf Tränenjagd | 3 | `adv_nether_return_to_sender` |
+| `adv_story_cure_zombie_villager` | 좀비 주민 돕기 | Dem Zombiedorfbewohner helfen | 5 | `adv_story_enter_the_nether` |
+| `adv_story_follow_ender_eye` | 엔더의 눈 만들기 | Ein Enderauge herstellen | 5 | `adv_story_enter_the_nether` |
 | `koenigspfad` | 왕의 길 | Der Königspfad | 4 | `riesenfest`, `karawane`, `weltmarkt` |
 | `weltwunder` | 세계의 불가사의 | Das Weltwunder | 4 | `kristallhoehle`, `himmelswarte`, `weltbaum`, `wanderpfad`, `gartenwacht`, `wetterpfad`, `tempelpfad`, `dschungelpfad`, `lavapfad` |
 | `kristallschmiede` | 수정 대장간 | Die Kristallschmiede | 4 | `kristallhoehle`, `schmiedefeuer`, `schmelzofen`, `redstonepfad` |
@@ -444,19 +441,21 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `ewiges_eis` | 영원한 얼음 | Das ewige Eis | 3 | `polarlicht`, `kristallschmiede` |
 | `pyramidenpfad` | 피라미드의 길 | Der Pyramidenpfad | 4 | `piratenpfad`, `tempelpfad` |
 | `bibliothekpfad` | 도서관의 길 | Der Bibliothekspfad | 4 | `piratenpfad`, `vogelpfad` |
-| `adv_nether_all_effects` | 어쩌다 이 지경까지 | Wie haben wir das geschafft? | 3 | `adv_nether_all_potions` |
-| `adv_nether_create_full_beacon` | 신호자 | Leuchtturmwärter | 3 | `adv_nether_create_beacon` |
+| `adv_nether_brew_potion` | 물약 양조장 | Alchemie | 5 | `adv_nether_obtain_blaze_rod` |
+| `adv_nether_summon_wither` | 해골 탑 | Der Schädelturm | 4 | `adv_nether_get_wither_skull` |
 | `adv_story_enter_the_end` | 이걸로 끝이야? | Das Ende? | 3 | `adv_story_follow_ender_eye` |
 | `wolkenpfad` | 구름의 길 | Der Wolkenpfad | 4 | `weltwunder`, `observatorium`, `weltreise`, `windpfad` |
 | `unendlichereise` | 끝없는 여행 | Die Unendliche Reise | 4 | `koenigspfad`, `weltwunder`, `grossesmeer`, `piratenpfad` |
 
-### Level 11 · TOPIK 4 · 13 trails
+### Level 11 · TOPIK 4 · 15 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `leuchtturmpfad` | 등대의 길 | Der Leuchtturmpfad | 4 | `pyramidenpfad`, `tiefseehafen` |
 | `drachenhort` | 용의 보물 | Der Drachenhort | 4 | `bibliothekpfad`, `pyramidenpfad` |
 | `tempelwaechter` | 신전의 수호자 | Der Tempelwächter | 4 | `pyramidenpfad`, `bibliothekpfad` |
+| `adv_nether_all_potions` | 더 강한 물약 | Ein stärkerer Trank | 3 | `adv_nether_brew_potion` |
+| `adv_nether_create_beacon` | 철 블록과 영혼 랜턴 | Eisenblöcke und Seelenlaterne | 4 | `adv_nether_summon_wither` |
 | `reisekrone` | 여행의 왕관 | Die Reisekrone | 4 | `koenigspfad`, `unendlichereise`, `wolkenpfad`, `kristallschmiede`, `hafenwacht` |
 | `w7_01` | 불의 문 | Das Feuertor | 3 | `unendlichereise` |
 | `w7_03` | 모루의 길 | Der Ambosspfad | 3 | `ewiges_eis` |
@@ -468,13 +467,15 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w8_03` | 엔더 진주의 길 | Der Pfad der Enderperle | 4 | `bibliothekpfad` |
 | `w8_06` | 공허의 끝 | Am Rand der Leere | 4 | `wolkenpfad` |
 
-### Level 12 · TOPIK 4 · 11 trails
+### Level 12 · TOPIK 4 · 13 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `kronenlicht` | 왕관의 빛 | Das Kronenlicht | 3 | `reisekrone`, `vulkanpfad`, `tempelwaechter`, `handelsgilde`, `gerberei`, `postpfad`, `werkzeugpfad` |
 | `sternenkarte` | 별자리 지도 | Die Sternenkarte | 4 | `drachenhort`, `leuchtturmpfad` |
 | `handelsflotte` | 무역선의 길 | Die Handelsflotte | 4 | `leuchtturmpfad`, `tempelwaechter` |
+| `adv_nether_all_effects` | 어쩌다 이 지경까지 | Wie haben wir das geschafft? | 3 | `adv_nether_all_potions` |
+| `adv_nether_create_full_beacon` | 신호자 | Leuchtturmwärter | 3 | `adv_nether_create_beacon` |
 | `w7_02` | 불꽃의 검 | Die Flammenklinge | 4 | `drachenhort` |
 | `w7_04` | 화로의 온기 | Die Wärme des Ofens | 4 | `reisekrone` |
 | `w7_05` | 영혼의 등불 | Das Seelenlicht | 4 | `leuchtturmpfad` |

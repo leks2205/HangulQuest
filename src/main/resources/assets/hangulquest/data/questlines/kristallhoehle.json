@@ -5,10 +5,9 @@
  "tier": 4,
  "order": 530,
  "concepts": [
-  "gen_pale_moss_carpet",
-  "gen_brown_bed",
-  "gen_poplar_trapdoor",
-  "gen_tuff_slab"
+  "amethyst_block",
+  "gen_amethyst_cluster",
+  "gen_tinted_glass"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,66 +22,96 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_moss_carpet"
+    "amethyst_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_moss_carpet",
-    "count": 2
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:amethyst_block",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 30
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_bed"
+    "gen_amethyst_cluster"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:brown_bed",
+    "block": "minecraft:amethyst_cluster",
     "count": 2
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_poplar_trapdoor"
+    "gen_tinted_glass"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:poplar_trapdoor",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:tinted_glass",
+      "count": 1
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:tinted_glass",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tuff_slab"
+    "gen_tinted_glass"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:tuff_slab",
+    "type": "PLACE_REL",
+    "block": "minecraft:tinted_glass",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:amethyst_block",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 30
     }
    ]
   },
-  "textKo": "밤에 응회암 반 블록을 놓았어요."
+  "textKo": "자수정 블록 위에 차광 유리를 놓았어요. 차광 유리는 빛을 막아요."
  },
  "reward": {
   "badge": "kristallhoehle",
   "words": [
-   "diamond",
-   "gold",
-   "obsidian",
-   "torch"
+   "amethyst_block",
+   "gen_tinted_glass"
   ]
  },
  "koreanLevel": 3,
- "topic": "돌"
+ "topic": "돌",
+ "grammar": [
+  "L2.seyo",
+  "L2.num_sino",
+  "L3.eun_hue",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.su_itda"
+ ]
 }

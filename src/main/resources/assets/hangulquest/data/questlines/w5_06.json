@@ -7,9 +7,8 @@
  "order": 1056,
  "concepts": [
   "gold",
-  "gen_dried_kelp",
-  "gen_blue_harness",
-  "gen_mud"
+  "amethyst_shard",
+  "amethyst_block"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -29,6 +28,12 @@
     "block": "minecraft:deepslate_gold_ore",
     "count": 3
    },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_pickaxe"
+    }
+   ],
    "hint": {
     "ko": "금은 철 곡괭이로 캐요."
    }
@@ -36,49 +41,79 @@
   {
    "id": "s2",
    "teach": [
-    "gen_dried_kelp"
+    "amethyst_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dried_kelp",
-    "count": 3
-   }
+    "item": "minecraft:amethyst_shard",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_blue_harness"
+    "amethyst_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_harness",
-    "count": 4
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:amethyst_block",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mud"
+    "amethyst_block"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:mud",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:amethyst_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:stone",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
   },
-  "textKo": "진흙을 세 개 팠어요."
+  "textKo": "높이 0 이하에서 돌 위에 자수정 블록을 놓았어요. 보석은 단단해요."
  },
  "reward": {
   "badge": "w5_06",
   "words": [
    "gold",
-   "emerald",
    "amethyst_shard",
-   "diamond"
+   "amethyst_block"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L2.num_sino",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }

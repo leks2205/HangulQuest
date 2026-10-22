@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "weltwunder",
  "titleKo": "세계의 불가사의",
+ "topic": "돌",
  "tier": 5,
  "order": 541,
  "concepts": [
-  "gen_purple_glazed_terracotta",
-  "gen_brain_coral_fan",
-  "gen_soul_sand_valley",
-  "gen_stripped_birch_log"
+  "sandstone",
+  "gen_red_sandstone",
+  "gold_block"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -29,76 +29,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_glazed_terracotta"
+    "sandstone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_glazed_terracotta",
-    "count": 3
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:sandstone",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brain_coral_fan"
+    "sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral_fan",
-    "count": 5
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:sandstone",
+     "count": 1
+    },
+    "windowSeconds": 30
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_soul_sand_valley"
+    "gen_red_sandstone"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:soul_sand_valley",
-    "dwellMs": 1000
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "STAIRS",
+    "material": "minecraft:red_sandstone",
+    "size": 4
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_birch_log"
+    "gold_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_birch_log",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:gold_block",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:sandstone",
+    "size": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 산에서 껍질 벗긴 자작나무 원목을 놓았어요."
+  "textKo": "사암 피라미드 위에 금 블록을 놓았어요. 금은 무거워요."
  },
  "reward": {
   "badge": "weltwunder",
   "words": [
-   "diamond",
-   "torch",
-   "climb",
-   "night"
+   "sandstone",
+   "gen_red_sandstone"
   ]
  },
  "koreanLevel": 3,
- "topic": "돌"
+ "grammar": [
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L2.seyo",
+  "L3.jima",
+  "L1.eul_reul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }

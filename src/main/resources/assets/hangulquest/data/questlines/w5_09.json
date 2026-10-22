@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1059,
  "concepts": [
-  "gen_moss_block",
-  "gen_pale_oak_leaves",
-  "gen_mossy_cobblestone_wall",
-  "horse"
+  "stone_bricks",
+  "planks",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,59 +21,91 @@
   {
    "id": "s1",
    "teach": [
-    "gen_moss_block"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:moss_block",
-    "count": 12
-   }
+    "type": "CRAFT",
+    "item": "minecraft:stone_bricks",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:stone"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pale_oak_leaves"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_leaves",
-    "count": 4
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:jungle_planks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mossy_cobblestone_wall"
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_cobblestone_wall",
-    "count": 1
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:poppy",
+     "count": 1,
+     "verb": "PICK"
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "horse"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:horse"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:stone_bricks",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:jungle_planks",
+    "size": 3
    },
    "conditions": []
   },
-  "textKo": "말을 탔어요."
+  "textKo": "판자 담 안에 석재 벽돌을 놓았어요. 석재 벽돌은 돌로 만들어요."
  },
  "reward": {
   "badge": "w5_09",
   "words": [
    "stone_bricks",
-   "chiseled_stone_bricks",
-   "pickaxe",
-   "iron_golem"
+   "planks",
+   "flower"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L3.jima",
+  "L1.loc_an_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }

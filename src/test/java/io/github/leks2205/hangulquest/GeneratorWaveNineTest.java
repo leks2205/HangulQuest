@@ -162,8 +162,8 @@ class GeneratorWaveNineTest {
 	@Test
 	void i5_aFallThatCostsNothingNamesTheHeightFromLevelTwo() {
 		assertEquals("높은 곳에서 안 다치고 뛰어내려요.", clue(FALL_UNHURT, 1));
-		assertEquals("10블록 높이에서 안 다치고 뛰어내리세요.", clue(FALL_UNHURT, 2));
-		assertEquals("10블록 높이에서 다치지 않고 뛰어내리세요.", clue(FALL_UNHURT, 3));
+		assertEquals("십 블록 높이에서 안 다치고 뛰어내리세요.", clue(FALL_UNHURT, 2));
+		assertEquals("십 블록 높이에서 다치지 않고 뛰어내리세요.", clue(FALL_UNHURT, 3));
 		assertEquals("높은 곳에서 안 다치고 뛰어내려요.", SentenceBuilder.hint(FALL_UNHURT, null, List.of(), REGISTRY));
 		assertEquals("높은 곳에서 안 다치고 뛰어내렸어요.", SentenceBuilder.ceremony(FALL_UNHURT, null, List.of(), REGISTRY));
 	}
@@ -453,7 +453,7 @@ class GeneratorWaveNineTest {
 		// the registry names keep the wood where no word stands for the kind
 		assertEquals("가문비나무 울타리를 쳐요.", SentenceBuilder.normal(ring, null, List.of(), 1, false, REGISTRY));
 		// a colour is what the material is: the carpet row stays red
-		assertEquals("빨간색 양탄자 세 장을 나란히 놓아요.", SentenceBuilder.normal(new Goal.BuildPattern(Pattern.ROW,
+		assertEquals("빨간색 양탄자 세 장을 나란히 깔아요.", SentenceBuilder.normal(new Goal.BuildPattern(Pattern.ROW,
 				"minecraft:red_carpet", 3), null, List.of(), 1, false, NAMES));
 		// and a block no kind covers keeps its name
 		assertEquals("화강암 기둥 위에 횃불을 놓으세요.", SentenceBuilder.normal(new Goal.PlaceOnPattern("minecraft:torch",

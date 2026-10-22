@@ -138,6 +138,19 @@ public sealed interface Goal {
 	record Fall(int blocks, String landing) implements Goal {
 	}
 
+	/**
+	 * Shoot or throw a projectile: {@code weapon} is the item in the hand (bow, crossbow, trident, snowball, egg).
+	 * With neither {@code entity} nor {@code block} it is enough to fire {@code count} of them; with a creature or a
+	 * block (the target block) the projectile has to strike it. {@code minDistance} is the least distance in blocks
+	 * (0: any), {@code pierce} how many creatures one projectile must strike (0 or 1: one).
+	 */
+	record Shoot(String weapon, String entity, String block, int count, int minDistance, int pierce) implements Goal {
+	}
+
+	/** Walk {@code blocks} blocks in a compass direction: NORTH, SOUTH, EAST or WEST. */
+	record Walk(String direction, int blocks) implements Goal {
+	}
+
 	/** Swim {@code blocks} blocks in water. */
 	record Swim(int blocks) implements Goal {
 	}

@@ -65,6 +65,7 @@ class CoverageTest {
 				 {"id":"door","ko":"문","core":true,"ids":["minecraft:oak_door"]},
 				 {"id":"shovel","ko":"삽","core":true,"ids":["minecraft:iron_shovel"]},
 				 {"id":"chest","ko":"상자","core":false,"ids":["minecraft:chest"]},
+				 {"id":"counter_person","ko":"명","core":false,"bound":true},
 				 {"id":"place","ko":"놓다","core":false,"verb":true},
 				 {"id":"craft","ko":"만들다","core":false,"verb":true}]""";
 	}
@@ -151,6 +152,15 @@ class CoverageTest {
 		m = run(scratch, four, scratch.resolve("gaps.csv"), "--json").metrics();
 		assertEquals(0.75, m.get("coverage.sentences.unknownOverOneShare"));
 		assertEquals(9.0 / 4, m.get("coverage.sentences.meanUnknown"));
+	}
+
+	@Test
+	void aCounterIsKnownOnceItHasBeenMet() throws IOException {
+		requirePython();
+		// 명 is bound to the thing it counts: met once, it no longer counts as unknown; 돌 and 놓다 need three
+		List<ContentFacts.Trail> two = List.of(trail("a", 1, "돌을 두 명 놓아요.", ""), trail("b", 2, "돌을 두 명 놓아요.", ""));
+		Map<String, Double> m = run(scratch, two, scratch.resolve("gaps.csv"), "--json").metrics();
+		assertEquals((3.0 + 2.0) / 2, m.get("coverage.sentences.meanUnknown"), "명 is unknown only the first time");
 	}
 
 	@Test

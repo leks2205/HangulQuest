@@ -1,0 +1,415 @@
+{
+ "batch": "BATCH-023",
+ "brief": "content/briefs/BATCH-023.md",
+ "chapter": "small poems II: a mood in four steps (level 3; every trail is level 3 by tree depth 8)",
+ "summary": {
+  "trails": 8,
+  "steps": 32,
+  "formDependentSteps": 19,
+  "formDependentShareOwn": 0.5938
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w6_01",
+   "title": "나이테의 비밀",
+   "order": 1061,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.go_state",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.eun_hue"
+   ],
+   "finaleKo": "가문비나무 원목을 두 개 벤 후에 판자를 네 개 만들었어요. 나무는 자라요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:birch_log:WATCH|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 통나무를 일 초 동안 바라보세요.",
+     "hintKo": "낮에 통나무를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:birch_log:CHOP|HOLDING:minecraft:iron_axe",
+     "formDependent": false,
+     "clueKo": "철 도끼를 들고 자작나무 원목을 세 개 베세요.",
+     "hintKo": "철 도끼를 들고 자작나무 원목을 베어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:spruce_sapling:NEXT_TO:#minecraft:logs:PLANT",
+     "formDependent": true,
+     "clueKo": "통나무 옆에 묘목을 심으세요.",
+     "hintKo": "통나무 옆에 묘목을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:spruce_log:CHOP>CRAFT:minecraft:spruce_planks:CRAFT",
+     "formDependent": true,
+     "clueKo": "가문비나무 원목을 두 개 벤 후에 판자를 네 개 만드세요.",
+     "hintKo": "가문비나무 원목을 벤 후에 판자를 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w6_02",
+   "title": "숲의 약초",
+   "order": 1062,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.loc.an",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.jima",
+    "L3.eun_hue",
+    "L1.euro_direction"
+   ],
+   "finaleKo": "꽃을 두 송이 꺾은 후에 염료를 두 개 만들었어요. 꽃은 색이 많아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:glass_bottle>minecraft:barrel:PUT_IN|WEATHER:RAIN",
+     "formDependent": false,
+     "clueKo": "비가 올 때 통 안에 유리병을 두 개 넣으세요.",
+     "hintKo": "비가 올 때 통 안에 유리병을 넣어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:lily_of_the_valley:NEXT_TO:#minecraft:fences:PLANT",
+     "formDependent": true,
+     "clueKo": "울타리 옆에 꽃을 심으세요.",
+     "hintKo": "울타리 옆에 꽃을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:dandelion:SNAP|IN_BIOME:minecraft:flower_forest",
+     "formDependent": true,
+     "clueKo": "꽃 숲에서 꽃을 꺾지 마세요.",
+     "hintKo": "꽃 숲에서 꽃을 꺾지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:dandelion:SNAP>CRAFT:minecraft:yellow_dye:CRAFT",
+     "formDependent": true,
+     "clueKo": "꽃을 두 송이 꺾은 후에 염료를 두 개 만드세요.",
+     "hintKo": "꽃을 꺾은 후에 염료를 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w6_03",
+   "title": "붉은 여우의 숲",
+   "order": 1063,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.ege",
+    "L3.eun_hue",
+    "L2.num_sino"
+   ],
+   "finaleKo": "밤까지 기다린 후에 여우를 일 초 동안 바라봤어요. 여우는 빨라요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:taiga:GO|TIME:DUSK",
+     "formDependent": false,
+     "clueKo": "저녁에 타이가로 가세요.",
+     "hintKo": "저녁에 타이가로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:sweet_berries:COLLECT",
+     "formDependent": false,
+     "clueKo": "달콤한 열매를 네 개 모으세요.",
+     "hintKo": "달콤한 열매를 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:sweet_berries>minecraft:fox:GIVE|IN_BIOME:minecraft:taiga",
+     "formDependent": true,
+     "clueKo": "타이가에서 여우에게 달콤한 열매를 주세요.",
+     "hintKo": "타이가에서 여우에게 달콤한 열매를 줘요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:WAIT::WAIT>LOOK_AT_ENTITY:minecraft:fox:WATCH",
+     "formDependent": true,
+     "clueKo": "밤까지 기다린 후에 여우를 일 초 동안 바라보세요.",
+     "hintKo": "밤까지 기다린 후에 여우를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w6_04",
+   "title": "꿀벌의 숲",
+   "order": 1064,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.eul_reul",
+    "L2.num_sino"
+   ],
+   "finaleKo": "꿀이 든 병을 마셨어요. 꿀은 유리병에 담아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:birch_forest:GO|WEATHER:CLEAR",
+     "formDependent": false,
+     "clueKo": "맑을 때 숲으로 가세요.",
+     "hintKo": "맑을 때 숲으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:azure_bluet:NEXT_TO:#minecraft:logs:PLANT",
+     "formDependent": true,
+     "clueKo": "통나무 옆에 꽃을 심으세요.",
+     "hintKo": "통나무 옆에 꽃을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:beehive:BREAK|NEAR_ENTITY:minecraft:bee",
+     "formDependent": true,
+     "clueKo": "꿀벌 근처에서 벌통을 부수지 마세요.",
+     "hintKo": "꿀벌 근처에서 벌통을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "signature": "CONSUME_ITEM:minecraft:honey_bottle:DRINK",
+     "formDependent": false,
+     "clueKo": "꿀이 든 병을 마시세요.",
+     "hintKo": "꿀이 든 병을 마셔요."
+    }
+   ]
+  },
+  {
+   "id": "w6_05",
+   "title": "버섯 그늘",
+   "order": 1065,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.eseo_activity",
+    "L1.loc_arae_e",
+    "L1.obj_eul",
+    "L3.eun_hue"
+   ],
+   "finaleKo": "버섯 스튜를 만든 후에 먹었어요. 스튜는 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:brown_mushroom:COLLECT|SKY:ROOFED",
+     "formDependent": false,
+     "clueKo": "지붕 아래에서 버섯을 세 개 모으세요.",
+     "hintKo": "지붕 아래에서 버섯을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:red_mushroom:UNDER:#minecraft:leaves:PLANT",
+     "formDependent": true,
+     "clueKo": "나뭇잎 아래에 버섯을 심으세요.",
+     "hintKo": "나뭇잎 아래에 버섯을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:bowl:CRAFT",
+     "formDependent": false,
+     "clueKo": "그릇을 두 개 만드세요.",
+     "hintKo": "그릇을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:mushroom_stew:CRAFT>CONSUME_ITEM:minecraft:mushroom_stew:EAT",
+     "formDependent": true,
+     "clueKo": "버섯 스튜를 만든 후에 버섯 스튜를 드세요.",
+     "hintKo": "버섯 스튜를 만든 후에 버섯 스튜를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "w6_06",
+   "title": "숲의 전망대",
+   "order": 1066,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.loc_wi_e",
+    "L2.go_sequence"
+   ],
+   "finaleKo": "판자 기둥 위에 표지판을 세웠어요. 전망대는 높아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:mangrove_planks:STACK",
+     "formDependent": false,
+     "clueKo": "판자 세 개로 기둥을 쌓으세요.",
+     "hintKo": "판자로 기둥을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:oak_stairs:NEXT_TO:#minecraft:planks:PLACE",
+     "formDependent": true,
+     "clueKo": "판자 옆에 참나무 계단을 놓으세요.",
+     "hintKo": "판자 옆에 참나무 계단을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:80|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 높이 85블록 위로 올라가세요.",
+     "hintKo": "낮에 언덕 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:mangrove_sign:ON_TOP_OF:PILLAR/minecraft:mangrove_planks:STAND",
+     "formDependent": true,
+     "clueKo": "판자 기둥 위에 표지판을 세우세요.",
+     "hintKo": "판자 기둥 위에 표지판을 세워요."
+    }
+   ]
+  },
+  {
+   "id": "w6_07",
+   "title": "정글의 약초",
+   "order": 1067,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L2.ege",
+    "L1.eul_reul",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.eun_hue"
+   ],
+   "finaleKo": "수박을 수확한 후에 먹었어요. 수박은 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:bamboo_jungle:GO|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 정글로 가세요.",
+     "hintKo": "낮에 정글로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:glass_bottle>minecraft:villager:GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 유리병을 주세요.",
+     "hintKo": "주민 앞에 유리병을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:bamboo:NEXT_TO:minecraft:jungle_log:PLANT",
+     "formDependent": true,
+     "clueKo": "정글나무 원목 옆에 대나무를 심으세요.",
+     "hintKo": "정글나무 원목 옆에 대나무를 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:melon:HARVEST>CONSUME_ITEM:minecraft:melon_slice:EAT",
+     "formDependent": true,
+     "clueKo": "수박을 수확한 후에 수박을 드세요.",
+     "hintKo": "수박을 수확한 후에 수박을 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "w6_08",
+   "title": "밀 건조대",
+   "order": 1068,
+   "koreanLevel": 3,
+   "grammar": [
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L2.seyo",
+    "L1.loc_wi_e",
+    "L3.jima",
+    "L1.eul_reul",
+    "L3.eun_hue"
+   ],
+   "finaleKo": "밀을 세 개 모은 후에 빵을 만들었어요. 빵은 밀로 만들어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:ROW/3:minecraft:birch_fence:STAND|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 울타리 세 개를 나란히 세우세요.",
+     "hintKo": "낮에 울타리를 나란히 세워요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:copper_lantern:ON_TOP_OF:ROW/minecraft:birch_fence:PLACE",
+     "formDependent": true,
+     "clueKo": "울타리 세 개 위에 구리 랜턴을 놓으세요.",
+     "hintKo": "울타리 세 개 위에 구리 랜턴을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:birch_fence:BREAK|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "맑을 때 울타리를 부수지 마세요.",
+     "hintKo": "맑을 때 울타리를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:wheat:COLLECT>CRAFT:minecraft:bread:CRAFT",
+     "formDependent": true,
+     "clueKo": "밀을 세 개 모은 후에 빵을 만드세요.",
+     "hintKo": "밀을 모은 후에 빵을 만들어요."
+    }
+   ]
+  }
+ ]
+}

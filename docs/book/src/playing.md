@@ -33,27 +33,38 @@ The status line is generated from the goal, so it always answers the question th
 Every condition of a step is spoken inside the sentence itself — `해변에서 모닥불을 놓아요.`, not just
 `모닥불을 놓아요.` — so the text and the check can never disagree.
 
-## Choosing what is in the log
+## What is in the log
 
-The log is yours to curate. In the journal's **Quests** tab, select a trail and tick **Im Log** in its
-detail card: the quest appears in the HUD and starts advancing.
+The game keeps the log filled for you. It holds up to **four** quests: three regular ones that fit the start of the
+game (wood, stone, food) and a fourth, situational slot that follows where you are (a snow trail in the snow, a
+cave trail underground). When you finish one, the next one follows. A message says when the game has picked quests
+for you.
 
-- **Only checked quests advance.** An unticked quest keeps its saved step, counter and hints, but
-  nothing about it is checked against the world — so a quest can never complete behind your back while
-  you are working on a different one.
-- **Up to six** quests fit in the log. Checking a seventh unchecks the oldest one, which keeps its
-  progress and can be checked again later.
-- **`V` moves the highlight.** The list keeps its order — only the gold title moves — so `V` walks through
-  every checked quest and wraps around. Hints (`H`), the sidequest and the follow-up chain work on the
-  highlighted quest only.
-- **Finishing the highlighted quest** starts or offers its successor, which is checked into the log
-  automatically. Finishing any other checked quest shows a banner and leaves the highlight alone.
+You can still curate it. In the journal's **Quests** tab, select a trail and tick **In log** in its detail card: the
+quest appears in the HUD and starts advancing.
 
-The detail card also has a **Fokus** button for a quest that is already in the log but not highlighted.
+- **Quests you tick yourself are never replaced** by the game. A quest you take out stays out for 30 minutes of play.
+- **Only tracked quests advance.** An untracked quest keeps its saved step, counter and hints, but nothing about it is
+  checked against the world, so a quest can never complete behind your back while you work on a different one.
+- **`V` moves the highlight.** The list keeps its order, only the gold title moves, so `V` walks through every
+  tracked quest and wraps around. Hints (`H`), the sidequest and the follow-up chain work on the highlighted quest only.
+- **Finishing the highlighted quest** starts or offers its successor. Finishing any other tracked quest shows a banner
+  and leaves the highlight alone.
+- **Settings → Pick quests automatically** switches the game's choice off; then the log holds only what you tick.
 
-How many rows the HUD draws is `questTrackerRows` in `config/hangulquest/config.json` (1–6, default 4).
+The detail card also has a **Focus** button for a quest that is in the log but not highlighted.
 
-## A step## A step
+How many rows the HUD draws is `questTrackerRows` in `config/hangulquest/config.json` (1 to 6, default 4).
+
+## Windows stay until you close them
+
+Hints, rule cards, culture notes, word cards, banners, the quiz prompt, the next-quest popup and the completion
+cards no longer disappear on a timer. Each shows its key (`[H] 닫기 · close`); **one press of `H` closes exactly one
+window, the top one**. If more are waiting, a "+N" badge says how many. Closing a window is never a hint: the press
+does not mark the step as helped, start a sidequest or change the grading. No window covers the crosshair or the
+hotbar. If you prefer the old behaviour, switch **Settings → Auto-close windows** on.
+
+## A step
 
 1. Read the sentence.
 2. Do it. The mod watches the world locally: blocks you break or place, items you gain or eat, what you
@@ -70,7 +81,7 @@ can do in any world — light a torch on a mountain at night, ring a bell at daw
 beach. That is deliberate. No trail ever asks for a structure, a chest, a coordinate or a rare biome, so
 no trail can be unfinishable because of world generation.
 
-Finishing the finale gives the big card: the trail's Korean title, the closing line, the German line if
+Finishing the finale gives the big card: the trail's Korean title, the closing line, the translation line if
 you enabled it, the badge, a fanfare, a level-up sound and fireworks. The badge stays in the journal.
 
 ## What happens next
@@ -90,7 +101,7 @@ The vanilla HUD stays as it is. Hangul Quest adds three non-modal elements:
 
 - the **quest log** (top-left by default),
 - the **word card** when you look at a block or mob that is in your vocabulary,
-- **celebration cards**, which animate in and out and never capture input.
+- **windows and celebration cards** (hints, rule cards, banners, the quiz prompt), which never capture input.
 
 All of them can be moved or switched off in the journal's options; `F8` hides the quest HUD entirely
 while you build.
@@ -100,11 +111,12 @@ while you build.
 | Key | Action | Change it under |
 |---|---|---|
 | `K` | Open the journal | Controls → Key Binds → 한글 탐험 |
-| `H` | Show the hint / start the sidequest | same |
+| `H` | Close the top window; otherwise show the hint / start the sidequest | same |
 | `J` | Review due words now | same |
+| `R` | Answer a waiting review prompt | same |
 | `V` | Move the highlight through the quest log | same |
 | `F8` | Toggle the quest HUD | same |
-| `1`–`3` | Answer a quiz or sidequest question | same |
+| `1`–`4` | Answer a quiz or sidequest question | same |
 | `1`–`5` | Pick the next trail | same |
 | `Esc` | Close the journal or a card | — |
 

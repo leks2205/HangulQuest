@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "tiefseehafen",
  "titleKo": "심해 항구",
+ "topic": "바다",
  "tier": 5,
  "order": 533,
  "concepts": [
   "gen_warm_ocean",
-  "creeper",
-  "gen_spruce_sign",
-  "gen_cinnabar_wall"
+  "planks",
+  "sea_lantern",
+  "boat"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -30,59 +31,74 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:warm_ocean",
     "dwellMs": 1000
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "creeper"
+    "planks"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:creeper",
-    "dwellMs": 800
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:cherry_planks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_sign"
+    "sea_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_sign",
-    "count": 1
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:sea_lantern",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:cherry_planks"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cinnabar_wall"
+    "boat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar_wall",
-    "count": 1
+    "type": "MOUNT",
+    "entity": "minecraft:birch_boat",
+    "dwellMs": 1000
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "밤에 진사 담장을 놓았어요."
+  "textKo": "낮에 배에 앉았어요. 바다는 넓어요."
  },
  "reward": {
   "badge": "tiefseehafen",
   "words": [
-   "ocean",
-   "squid",
-   "campfire"
+   "gen_warm_ocean",
+   "planks",
+   "sea_lantern"
   ]
  },
  "koreanLevel": 3,
- "topic": "물"
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L1.e_place",
+  "L3.past"
+ ]
 }

@@ -5,8 +5,8 @@ catalog the quest engine draws from.
 
 ## 1. Curated concepts
 
-`src/main/resources/assets/hangulquest/data/concepts.json` holds **1,132 concept entries**: 293 hand-written ones — blocks, tools, food,
-animals, biomes, verbs and a few abstract words. Each one looks like this:
+`src/main/resources/assets/hangulquest/data/concepts.json` holds about **1,300 concept entries**: hand-written ones (blocks, tools, food,
+animals, biomes, verbs, everyday words) and one generated entry per rarer object. Each one looks like this:
 
 ```json
 {
@@ -24,7 +24,7 @@ animals, biomes, verbs and a few abstract words. Each one looks like this:
 | Field | Meaning |
 |---|---|
 | `id` | stable id used by questlines (`"teach": ["stone"]`) |
-| `ko` | the word in Korean. Its English and German gloss is not in this file but in `lang/content/en_us.json` and `de_de.json` (`hangulquest.word.<id>.gloss`); an `en` or `de` field here would still win, for a resource pack that replaces the file |
+| `ko` | the word in Korean. Its gloss in each language is not in this file but in `lang/content/<code>.json` (`en_us`, `de_de`, `es_es`, `fr_fr`) (`hangulquest.word.<id>.gloss`); an `en` or `de` field here would still win, for a resource pack that replaces the file |
 | `category` | `BLOCKS`, `MATERIALS`, `TOOLS`, `FOOD`, `ANIMALS`, `COMBAT`, `BUILDING`, `ENVIRONMENT`, `ACTIONS`, `MISC` — used to pick a sensible goal |
 | `tier` | how early the word belongs in the tree |
 | `items` | the game items the concept maps to, so the engine can check goals |
@@ -39,7 +39,7 @@ is built from.
 ## 2. Vanilla names
 
 The game already ships Korean and German names for every item, block, entity and biome. `names.json`
-is generated from those two language files with `tools/extract_names.py` — names only, no assets. It
+is generated from those language files with `tools/extract_names.py` — names only, no assets. It
 gives the mod thousands of words it can use in quests without a human writing them down.
 
 ## 3. Your Lute vocabulary

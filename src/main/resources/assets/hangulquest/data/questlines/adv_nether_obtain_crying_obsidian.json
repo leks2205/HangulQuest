@@ -6,9 +6,8 @@
  "tier": 2,
  "order": 303,
  "concepts": [
-  "gen_cut_red_sandstone",
-  "gen_experience_bottle",
-  "gen_moss_block"
+  "adv_item_crying_obsidian",
+  "obsidian"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +20,96 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cut_red_sandstone"
+    "adv_item_crying_obsidian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cut_red_sandstone",
-    "count": 1
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:crying_obsidian",
+    "dwellMs": 600
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_experience_bottle"
+    "adv_item_crying_obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:experience_bottle",
-    "count": 4
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:crying_obsidian",
+    "count": 2,
+    "verb": "MINE"
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_crying_obsidian"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:crying_obsidian",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:obsidian",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_moss_block"
+    "adv_item_crying_obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:moss_block",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:crying_obsidian",
+      "count": 1,
+      "verb": "MINE"
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:respawn_anchor",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "이끼 블록을 구했어요."
+  "textKo": "우는 흑요석을 캔 후에 리스폰 정박기를 만들었어요. 나중에 충전할 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_obtain_crying_obsidian",
   "words": [
-   "adv_dimension_the_nether",
-   "gold",
    "adv_item_crying_obsidian"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L1.loc_yeop_e",
+  "L3.su_itda"
+ ]
 }

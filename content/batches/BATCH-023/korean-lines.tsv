@@ -1,0 +1,9 @@
+id	ko	context
+trail.w6_01.finale	가문비나무 원목을 두 개 벤 후에 판자를 네 개 만들었어요. 나무는 자라요.	finale, authored; Sequence [BreakBlock minecraft:spruce_log x2 > Craft minecraft:spruce_planks x4]
+trail.w6_02.finale	꽃을 두 송이 꺾은 후에 염료를 두 개 만들었어요. 꽃은 색이 다양해요.	finale, authored; Sequence [BreakBlock minecraft:dandelion x2 > Craft minecraft:yellow_dye x2]
+trail.w6_03.finale	밤까지 기다린 후에 여우를 일 초 동안 바라봤어요. 여우는 빨라요.	finale, authored; Sequence [Wait until NIGHT > LookAtEntity minecraft:fox]
+trail.w6_04.finale	꿀이 든 병을 마셨어요. 꿀은 유리병에 담아요.	finale, authored; ConsumeItem minecraft:honey_bottle x1
+trail.w6_05.finale	버섯 스튜를 만든 후에 먹었어요. 스튜는 그릇에 담아요.	finale, authored; Sequence [Craft minecraft:mushroom_stew x1 > ConsumeItem minecraft:mushroom_stew x1]
+trail.w6_06.finale	판자 기둥 위에 표지판을 세웠어요. 전망대는 높아요.	finale, authored; PlaceOnPattern minecraft:mangrove_sign ON_TOP_OF PILLAR minecraft:mangrove_planks
+trail.w6_07.finale	수박을 수확한 후에 먹었어요. 수박은 달아요.	finale, authored; Sequence [BreakBlock minecraft:melon x1 > ConsumeItem minecraft:melon_slice x1]
+trail.w6_08.finale	밀을 세 개 모은 후에 빵을 만들었어요. 빵은 밀로 만들어요.	finale, authored; Sequence [AcquireItem minecraft:wheat x3 > Craft minecraft:bread x1]

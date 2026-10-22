@@ -6,10 +6,10 @@
  "tier": 4,
  "order": 107,
  "concepts": [
-  "gen_windswept_forest",
-  "gen_vex",
-  "cocoa_beans",
-  "jungle_log"
+  "jungle",
+  "jungle_log",
+  "gen_dispenser",
+  "parrot"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,65 +24,103 @@
   {
    "id": "s1",
    "teach": [
-    "gen_windswept_forest"
+    "jungle"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:windswept_forest",
+    "biome": "minecraft:jungle",
     "dwellMs": 1000
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_vex"
+    "jungle_log"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:vex",
-    "dwellMs": 800
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:jungle_log",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_axe"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "cocoa_beans"
+    "gen_dispenser"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cocoa_beans",
-    "count": 3
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:dispenser",
+     "count": 1
+    },
+    "windowSeconds": 30
    },
-   "hint": {
-    "ko": "코코아 콩은 정글나무에서 자라요."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:jungle"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "jungle_log"
+    "parrot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_log",
-    "count": 4
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:parrot",
+      "dwellMs": 1000
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:bamboo",
+      "count": 3
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "정글나무 원목을 베어서 쌓아요."
-   }
+   "conditions": []
   },
-  "textKo": "정글나무 원목을 쌓아요."
+  "textKo": "앵무새를 일 초 동안 바라본 후에 대나무를 세 개 모았어요. 앵무새는 정글에 살아요."
  },
  "reward": {
   "badge": "dschungelpfad",
   "words": [
    "jungle",
-   "parrot",
-   "cocoa_beans"
+   "jungle_log",
+   "gen_dispenser"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L3.jima",
+  "L3.eun_hue",
+  "L2.num_sino",
+  "L3.past"
+ ]
 }

@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "hafenwacht",
  "titleKo": "조선소의 길",
+ "topic": "조선",
  "tier": 3,
  "order": 544,
  "concepts": [
-  "gen_chiseled_nether_bricks",
-  "gen_waxed_copper_golem_statue",
-  "gen_white_shulker_box",
-  "gen_gray_concrete"
+  "boat",
+  "bell",
+  "gate",
+  "night"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,60 +23,94 @@
   {
    "id": "s1",
    "teach": [
-    "gen_chiseled_nether_bricks"
+    "boat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_nether_bricks",
-    "count": 6
-   }
+    "type": "CRAFT",
+    "item": "minecraft:mangrove_boat",
+    "count": 2
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_copper_golem_statue"
+    "bell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_golem_statue",
-    "count": 4
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:bell",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_shulker_box"
+    "gate"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:white_shulker_box"
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:oak_fence_gate",
+     "change": "OPEN"
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bell"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_concrete"
+    "night"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_concrete",
-    "count": 6
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "WAIT",
+      "seconds": 20,
+      "until": "NIGHT"
+     },
+     {
+      "type": "HEAR",
+      "source": "minecraft:bell",
+      "radius": 8,
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "회색 콘크리트를 여섯 개 모았어요."
+  "textKo": "밤까지 기다린 후에 종소리를 들었어요. 밤은 어두워요."
  },
  "reward": {
   "badge": "hafenwacht",
   "words": [
-   "planks",
-   "fence",
-   "crafting_table",
-   "iron"
+   "boat",
+   "bell",
+   "gate"
   ]
  },
  "koreanLevel": 3,
- "topic": "조선"
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.jima",
+  "L3.eun_hue",
+  "L3.past"
+ ]
 }

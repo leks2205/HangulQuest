@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 170,
  "concepts": [
-  "gen_oxidized_copper_lantern",
-  "gen_bubble_coral_block",
-  "gen_mangrove_leaves",
-  "gen_waxed_oxidized_copper_golem_statue"
+  "gold_ingot",
+  "gen_lapis_lazuli",
+  "amethyst_block",
+  "gen_barrel"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +23,76 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oxidized_copper_lantern"
+    "gold_ingot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_copper_lantern",
-    "count": 4
-   }
+    "type": "TRADE",
+    "item": "minecraft:gold_ingot",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bubble_coral_block"
+    "gen_lapis_lazuli"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bubble_coral_block",
-    "count": 4
-   }
+    "type": "TRADE",
+    "item": "minecraft:lapis_lazuli",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mangrove_leaves"
+    "amethyst_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_leaves",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:amethyst_block",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_golem_statue"
+    "gen_barrel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_golem_statue",
+    "type": "PLACE_REL",
+    "block": "minecraft:amethyst_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:barrel",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "밀랍칠한 산화된 구리 골렘 동상을 세웠어요."
+  "textKo": "통 위에 자수정 블록을 놓았어요. 이제 길드에서 보석을 살 수 있어요."
  },
  "reward": {
   "badge": "schmuckgilde",
   "words": [
-   "gold",
-   "emerald",
-   "anvil",
-   "chest"
+   "gold_ingot",
+   "gen_lapis_lazuli",
+   "amethyst_block"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.ege_source",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.su_itda"
+ ]
 }

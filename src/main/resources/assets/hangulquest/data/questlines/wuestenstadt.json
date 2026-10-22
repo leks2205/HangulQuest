@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 172,
  "concepts": [
-  "gen_plains",
-  "gen_smooth_basalt",
-  "gen_red_concrete_slab",
-  "gen_oak_sign"
+  "villager",
+  "sandstone",
+  "door",
+  "bread"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +23,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_plains"
+    "villager"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:plains",
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:villager",
     "dwellMs": 1000
-   }
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:desert"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_basalt"
+    "sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_basalt",
-    "count": 6
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:sandstone",
+    "size": 4
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_red_concrete_slab"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_concrete_slab",
-    "count": 1
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:acacia_door",
+    "relation": "NEXT_TO",
+    "pattern": "WALL",
+    "material": "minecraft:sandstone"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oak_sign"
+    "bread"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_sign",
-    "count": 3
+    "type": "TRADE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 9
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:desert"
+    }
+   ]
   },
-  "textKo": "참나무 표지판을 세 개 세웠어요."
+  "textKo": "사막에서 주민에게서 빵을 아홉 개 샀어요."
  },
  "reward": {
   "badge": "wuestenstadt",
   "words": [
-   "desert",
+   "villager",
    "sandstone",
-   "chest",
-   "lantern"
+   "door"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.loc_yeop_e",
+  "L2.go_sequence",
+  "L2.ege_source",
+  "L3.past"
+ ]
 }

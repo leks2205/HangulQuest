@@ -28,6 +28,11 @@ Rules:
   `dismissed` (trails the player took out of the log, by `playMs` at that moment) and `playMs`. All four are optional and
   were added without a version bump: a file without them means "the player chose every tracked trail" and "nothing
   dismissed", and a build that does not know them keeps them (`unknown-fields.json`). `AutoTrackFixtureTest` covers it.
+- `v3.0.0-rc.1.json` is the first release-candidate fixture. Every release tag, release candidates included, needs
+  `<tag>.json` (`release.yml` refuses a tag without one). Do not write it by hand: `tools/new_fixture.sh <tag>` loads
+  `v4-autotrack.json` through the real `ProgressStore`, saves it and lists the result in `ProgressCompatibilityTest`
+  (`WriteFixtureTest` does the work when `HANGULQUEST_WRITE_FIXTURE` is set). While the schema stays at v4 the file
+  equals `v4-autotrack.json`; when the schema changes, a new sample and a migration test come first (rule above).
 - `v4-hvpt.json` is `v4-autotrack.json` plus the sound forge's record, `hvpt`: `startedAt`, `sessions` (finished runs by
   start time: `t`, `phase` PRE/TRAIN/POST, `trials`, `correct`, `byContrast`) and `contrasts` (lifetime training tally
   per contrast). It also carries fields no build knows (`packNote`, `heardVia`, a `note` in a tally). `hvpt` is optional

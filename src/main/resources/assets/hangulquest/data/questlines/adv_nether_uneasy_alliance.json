@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_nether_uneasy_alliance",
- "titleKo": "쉽지 않은 동행",
+ "titleKo": "가스트 눈물 사냥",
  "topic": "nether",
  "tier": 2,
  "order": 309,
  "concepts": [
-  "gen_chipped_anvil",
-  "gen_gray_concrete_powder",
-  "gen_waxed_exposed_copper_door"
+  "ghast",
+  "bow",
+  "adv_item_ghast_tear"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +21,85 @@
   {
    "id": "s1",
    "teach": [
-    "gen_chipped_anvil"
+    "ghast"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chipped_anvil",
-    "count": 2
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ghast",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    },
+    {
+     "type": "Y_RANGE",
+     "minY": 32,
+     "maxY": 128
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gray_concrete_powder"
+    "bow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_concrete_powder",
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ghast",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_door"
+    "adv_item_ghast_tear"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper_door",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:ghast_tear",
+      "count": 1
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:ghast_tear",
+      "container": "minecraft:chest",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 문을 만들었어요."
+  "textKo": "가스트 눈물을 상자에 넣었어요. 나중에 물약을 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_uneasy_alliance",
   "words": [
-   "adv_dimension_the_nether",
-   "gunpowder",
+   "ghast",
    "adv_item_ghast_tear"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.num_sino",
+  "L2.go_state",
+  "L3.eun_hue",
+  "L1.loc_an_e",
+  "L3.su_itda"
+ ]
 }

@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1063,
  "concepts": [
-  "gen_quartz_bricks",
-  "gen_waxed_cut_copper_stairs",
-  "gen_magenta_stained_glass_pane",
-  "gen_resin_clump"
+  "gen_taiga",
+  "sweet_berries",
+  "fox",
+  "night"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,60 +22,94 @@
   {
    "id": "s1",
    "teach": [
-    "gen_quartz_bricks"
+    "gen_taiga"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:quartz_bricks",
-    "count": 2
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:taiga",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_cut_copper_stairs"
+    "sweet_berries"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_cut_copper_stairs",
-    "count": 5
-   }
+    "item": "minecraft:sweet_berries",
+    "count": 4
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_magenta_stained_glass_pane"
+    "fox"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_stained_glass_pane",
-    "count": 3
-   }
+    "type": "GIVE",
+    "item": "minecraft:sweet_berries",
+    "entity": "minecraft:fox",
+    "method": "FEED",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:taiga"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_resin_clump"
+    "night"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:resin_clump",
-    "count": 3
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "WAIT",
+      "seconds": 20,
+      "until": "NIGHT"
+     },
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:fox",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "수지 덩어리를 세 개 놓았어요."
+  "textKo": "밤까지 기다린 후에 여우를 일 초 동안 바라봤어요. 여우는 빨라요."
  },
  "reward": {
   "badge": "w6_03",
   "words": [
-   "fox",
+   "gen_taiga",
    "sweet_berries",
-   "rabbit",
-   "leaves"
+   "fox"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.ege",
+  "L3.eun_hue",
+  "L2.num_sino"
+ ]
 }

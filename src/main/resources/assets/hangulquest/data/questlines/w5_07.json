@@ -7,9 +7,9 @@
  "order": 1057,
  "concepts": [
   "gravel",
-  "gen_stone_shovel",
-  "gen_vindicator",
-  "gen_birch_forest"
+  "squid",
+  "gen_mud",
+  "flint"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -27,8 +27,14 @@
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:gravel",
-    "count": 8
+    "count": 8,
+    "verb": "DIG"
    },
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ],
    "hint": {
     "ko": "자갈은 삽으로 파요."
    }
@@ -36,49 +42,86 @@
   {
    "id": "s2",
    "teach": [
-    "gen_stone_shovel"
+    "squid"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stone_shovel",
-    "count": 3
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:squid",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_vindicator"
+    "gen_mud"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:vindicator",
-    "dwellMs": 800
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:mud",
+     "count": 1,
+     "verb": "DIG"
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "IN_WATER"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_birch_forest"
+    "flint"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:birch_forest",
-    "dwellMs": 1000
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:flint",
+      "count": 2
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:flint",
+      "container": "minecraft:chest",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
    },
    "conditions": []
   },
-  "textKo": "자작나무 숲에 도착했어요."
+  "textKo": "상자 안에 부싯돌을 두 개 넣기 전에 부싯돌을 두 개 모았어요. 부싯돌과 부시로 불을 피울 수 있어요."
  },
  "reward": {
   "badge": "w5_07",
   "words": [
    "gravel",
-   "flint",
    "squid",
-   "ocean"
+   "gen_mud"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.eseo_activity",
+  "L2.num_sino",
+  "L3.jima",
+  "L3.gi_jeone",
+  "L1.loc_an_e",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

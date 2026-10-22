@@ -1,14 +1,13 @@
 {
  "schema": 1,
  "id": "adv_nether_summon_wither",
- "titleKo": "시들어 버린 언덕",
+ "titleKo": "해골 탑",
  "topic": "nether",
  "tier": 2,
  "order": 308,
  "concepts": [
   "soul_sand",
-  "gen_red_stained_glass_pane",
-  "gen_brown_concrete"
+  "adv_item_wither_skeleton_skull"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -26,46 +25,70 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:soul_sand",
-    "count": 4
+    "count": 5
    },
-   "hint": {
-    "ko": "영혼 모래는 삽으로 파요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_stained_glass_pane"
+    "soul_sand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_stained_glass_pane",
-    "count": 3
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "CROSS",
+    "material": "minecraft:soul_sand",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_wither_skeleton_skull"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:wither_skeleton_skull",
+    "relation": "ON_TOP_OF",
+    "pattern": "CROSS",
+    "material": "minecraft:soul_sand"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_concrete"
+    "adv_item_wither_skeleton_skull"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_concrete",
-    "count": 1
+    "type": "AVOID",
+    "action": {
+     "type": "PLACE_BLOCK",
+     "block": "minecraft:wither_skeleton_skull",
+     "count": 1
+    },
+    "windowSeconds": 30
    },
    "conditions": []
   },
-  "textKo": "갈색 콘크리트를 구했어요."
+  "textKo": "위더 스켈레톤 해골을 더 놓지 않았어요. 위더는 아직 없어요."
  },
  "reward": {
   "badge": "adv_nether_summon_wither",
   "words": [
    "soul_sand",
-   "adv_item_wither_skeleton_skull",
-   "nether_star"
+   "adv_item_wither_skeleton_skull"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L3.jima"
+ ]
 }

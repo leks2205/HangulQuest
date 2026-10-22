@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_spyglass_at_ghast",
- "titleKo": "풍선인가?",
+ "titleKo": "네더의 망원경",
  "topic": "adventure",
  "tier": 2,
  "order": 230,
  "concepts": [
-  "gen_cherry_chest_boat",
-  "gen_waxed_cut_copper",
+  "gen_nether_wastes",
+  "look",
+  "adv_dimension_the_nether",
   "ghast"
  ],
  "requires": {
@@ -21,24 +22,59 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_chest_boat"
+    "gen_nether_wastes"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_chest_boat",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:spyglass",
+      "count": 1
+     },
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:nether_wastes",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_cut_copper"
+    "look"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_cut_copper",
-    "count": 3
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:spyglass",
+    "inner": {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    },
+    "seconds": 10
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_dimension_the_nether"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 70,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
@@ -52,17 +88,36 @@
     "entity": "minecraft:ghast",
     "dwellMs": 700
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:spyglass"
+    },
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "망원경으로 가스트를 봐요. 하늘을 나는 커다란 몬스터예요."
+  "textKo": "네더에서 망원경을 들고 가스트를 바라봤어요. 가스트는 하늘을 날아요."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_ghast",
   "words": [
+   "gen_nether_wastes",
    "look",
-   "nether",
+   "adv_dimension_the_nether",
    "ghast"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.gi_jeone",
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.euro_direction",
+  "L2.go_state",
+  "L2.num_sino",
+  "L3.past"
+ ]
 }

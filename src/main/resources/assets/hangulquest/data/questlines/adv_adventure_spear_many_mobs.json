@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_spear_many_mobs",
- "titleKo": "몹 꼬치",
+ "titleKo": "창 사냥",
  "topic": "adventure",
  "tier": 2,
  "order": 228,
  "concepts": [
   "adv_item_iron_spear",
-  "gen_stray",
-  "gen_bogged"
+  "leather",
+  "chest",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,48 +25,94 @@
     "adv_item_iron_spear"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:iron_spear",
     "count": 1
    },
-   "hint": {
-    "ko": "철 창은 철과 막대기로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stray"
+    "leather"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:stray",
-    "count": 2
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:cow",
+      "count": 2
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:leather",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:chest",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "HOLDING",
+     "item": "minecraft:iron_spear"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bogged"
+    "sheep"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:bogged",
+    "entity": "minecraft:sheep",
     "count": 3
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_spear"
+    }
+   ]
   },
-  "textKo": "보그드를 세 마리 물리쳤어요."
+  "textKo": "철 창을 들고 양을 세 마리 물리쳤어요. 고기는 모닥불에서 구워요."
  },
  "reward": {
   "badge": "adv_adventure_spear_many_mobs",
   "words": [
    "adv_item_iron_spear",
-   "zombie",
-   "skeleton"
+   "leather",
+   "chest"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.eun_hue",
+  "L3.jima",
+  "L2.go_state",
+  "L3.past",
+  "L3.su_itda",
+  "L3.euro_instrument"
+ ]
 }

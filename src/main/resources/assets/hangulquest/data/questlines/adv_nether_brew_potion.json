@@ -6,9 +6,11 @@
  "tier": 2,
  "order": 289,
  "concepts": [
-  "gen_blue_glazed_terracotta",
-  "gen_cyan_shulker_box",
-  "gen_crimson_roots"
+  "brewing_stand",
+  "crafting_table",
+  "glass_bottle",
+  "nether_wart",
+  "adv_item_potion"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +23,100 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blue_glazed_terracotta"
+    "brewing_stand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_glazed_terracotta",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:brewing_stand",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cyan_shulker_box"
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_shulker_box",
+    "type": "PLACE_REL",
+    "block": "minecraft:brewing_stand",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafting_table",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "glass_bottle"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:glass_bottle",
+    "container": "minecraft:brewing_stand",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "nether_wart"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:nether_wart",
+      "count": 1
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:nether_wart",
+      "container": "minecraft:brewing_stand",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_roots"
+    "adv_item_potion"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_roots",
+    "type": "TAKE_OUT",
+    "item": "minecraft:potion",
+    "container": "minecraft:brewing_stand",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "진홍빛 뿌리를 구했어요."
+  "textKo": "양조기에서 물약을 꺼냈어요. 이제 물약을 마실 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_brew_potion",
   "words": [
+   "brewing_stand",
    "glass_bottle",
-   "adv_item_blaze_rod",
    "adv_item_potion"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L1.loc_an_e",
+  "L3.eun_hue",
+  "L2.eseo_activity",
+  "L3.su_itda"
+ ]
 }

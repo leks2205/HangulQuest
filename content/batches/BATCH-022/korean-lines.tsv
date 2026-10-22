@@ -1,0 +1,13 @@
+id	ko	context
+trail.frostwacht.finale	통나무 기둥 위에 종을 달았어요. 눈은 차가워요.	finale, authored; PlaceOnPattern minecraft:bell ON_TOP_OF PILLAR minecraft:birch_log
+trail.gartenwacht.finale	울타리 안에 벚나무 표지판을 세웠어요. 표지판은 길을 알려 줘요.	finale, authored; PlaceOnPattern minecraft:cherry_sign INSIDE RING minecraft:spruce_fence
+trail.vogelpfad.finale	달걀을 세 개 모은 후에 깃털을 세 개 모았어요. 닭은 알을 낳아요.	finale, authored; Sequence [AcquireItem minecraft:egg x3 > AcquireItem minecraft:feather x3]
+trail.w5_01.finale	높이 0 이하에서 레일 옆에 영혼 랜턴을 놓았어요. 광산은 어두워요.	finale, authored; PlaceOnPattern minecraft:soul_lantern NEXT_TO ROW minecraft:rail
+trail.w5_02.finale	철 흉갑을 만든 후에 상자 안에 넣었어요. 철은 무거워요.	finale, authored; Sequence [Craft minecraft:iron_chestplate > PutIn minecraft:iron_chestplate]
+trail.w5_03.finale	높이 0 이하에서 심층암 위에 주크박스를 놓았어요. 동굴은 깊어요.	finale, authored; PlaceRel minecraft:jukebox ON_TOP_OF minecraft:deepslate
+trail.w5_04.finale	화로에서 철 주괴를 꺼내기 전에 화로 안에 석탄을 네 개 넣었어요. 화로에서는 철을 녹일 수 있어요.	finale, authored; Sequence [PutIn minecraft:coal x4 > TakeOut minecraft:iron_ingot]
+trail.w5_05.finale	땅속에서 돌 위에 영혼 횃불을 놓았어요. 동굴은 어두워요.	finale, authored; PlaceRel minecraft:soul_torch ON_TOP_OF minecraft:stone
+trail.w5_06.finale	높이 0 이하에서 돌 위에 자수정 블록을 놓았어요. 보석은 단단해요.	finale, authored; PlaceRel minecraft:amethyst_block ON_TOP_OF minecraft:stone
+trail.w5_07.finale	상자 안에 부싯돌을 두 개 넣기 전에 부싯돌을 두 개 모았어요. 부싯돌과 부시로 불을 피울 수 있어요.	finale, authored; Sequence [AcquireItem minecraft:flint x2 > PutIn minecraft:flint x2]
+trail.w5_08.finale	통나무 옆에 석재 벽돌을 놓았어요. 뿌리는 땅속에 있어요.	finale, authored; PlaceRel minecraft:stone_bricks NEXT_TO minecraft:oak_log
+trail.w5_09.finale	판자 담 안에 석재 벽돌을 놓았어요. 석재 벽돌은 돌로 만들어요.	finale, authored; PlaceOnPattern minecraft:stone_bricks INSIDE RING minecraft:jungle_planks

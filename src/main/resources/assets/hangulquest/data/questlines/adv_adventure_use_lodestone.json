@@ -7,7 +7,9 @@
  "order": 241,
  "concepts": [
   "compass",
-  "adv_block_lodestone"
+  "chiseled_stone_bricks",
+  "adv_block_lodestone",
+  "house"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -27,45 +29,92 @@
     "item": "minecraft:compass",
     "count": 1
    },
-   "hint": {
-    "ko": "나침반은 철과 레드스톤으로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:chiseled_stone_bricks",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
     "adv_block_lodestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lodestone",
+    "type": "CRAFT",
+    "item": "minecraft:lodestone",
     "count": 1
    },
-   "hint": {
-    "ko": "자석석은 조각된 석재 벽돌과 네더라이트로 만들어요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_block_lodestone"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:lodestone",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "compass"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:compass",
+    "inner": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:lodestone"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_lodestone"
+    "house"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:lodestone"
+    "type": "HOLD_WHILE",
+    "item": "minecraft:compass",
+    "inner": {
+     "type": "TRANSIT",
+     "direction": "IN"
+    }
    },
    "conditions": []
   },
-  "textKo": "집으로 이끌려가네 — 나침반을 자석석에 대면 집으로 가는 방향을 알려 줘요."
+  "textKo": "나침반을 들고 집으로 들어왔어요. 자석석은 조각된 석재 벽돌 여덟 개와 철 주괴 한 개로 만들어요."
  },
  "reward": {
   "badge": "adv_adventure_use_lodestone",
   "words": [
    "compass",
+   "chiseled_stone_bricks",
    "adv_block_lodestone"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L1.loc_wi_e"
+ ]
 }

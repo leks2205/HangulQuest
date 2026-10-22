@@ -1,14 +1,13 @@
 {
  "schema": 1,
  "id": "adv_story_deflect_arrow",
- "titleKo": "저희는 그런 것 받지 않습니다",
+ "titleKo": "방패와 화살",
  "topic": "story",
  "tier": 2,
  "order": 311,
  "concepts": [
   "shield",
-  "skeleton",
-  "gen_phantom"
+  "skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,13 +23,23 @@
     "shield"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shield",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:shield",
+      "count": 1
+     },
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:skeleton",
+      "dwellMs": 800
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
    },
-   "hint": {
-    "ko": "판자 여섯 개와 철 주괴 하나로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
@@ -38,26 +47,47 @@
     "skeleton"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:skeleton",
-    "dwellMs": 600
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:skeleton",
+      "count": 1
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:arrow",
+      "count": 10
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_phantom"
+    "shield"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:phantom",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shield"
+    },
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:skeleton"
+    }
+   ]
   },
-  "textKo": "팬텀을 물리쳤어요."
+  "textKo": "방패를 들고 스켈레톤 근처에서 십 초 동안 기다렸어요. 방패는 화살을 막아요."
  },
  "reward": {
   "badge": "adv_story_deflect_arrow",
@@ -66,5 +96,16 @@
    "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.gi_jeone",
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.eun_hue",
+  "L2.go_state",
+  "L3.su_itda",
+  "L3.past",
+  "L3.euro_instrument"
+ ]
 }

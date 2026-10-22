@@ -1,0 +1,151 @@
+id	ko	context
+trail.adv_adventure_hero_of_the_village.title	마을 지키기	title, authored; 
+trail.adv_adventure_hero_of_the_village.s1.clue	하얀색 현수막을 만드세요.	clue, generated; AcquireItem minecraft:white_banner x1
+trail.adv_adventure_hero_of_the_village.s1.hint	하얀색 현수막을 만들어요.	hint, generated; AcquireItem minecraft:white_banner x1
+trail.adv_adventure_hero_of_the_village.s2.clue	약탈자를 두 마리 물리친 후에 주민과 이야기하세요.	clue, generated; Sequence [DefeatEntity minecraft:pillager x2 > InteractEntity minecraft:villager ]
+trail.adv_adventure_hero_of_the_village.s2.hint	약탈자를 물리친 후에 주민과 이야기해요.	hint, generated; Sequence [DefeatEntity minecraft:pillager x2 > InteractEntity minecraft:villager ]
+trail.adv_adventure_hero_of_the_village.s3.clue	종을 부수지 마세요.	clue, generated; Avoid minecraft:bell [BreakBlock minecraft:bell x1]
+trail.adv_adventure_hero_of_the_village.s3.hint	종을 부수지 마세요.	hint, generated; Avoid minecraft:bell [BreakBlock minecraft:bell x1]
+trail.adv_adventure_hero_of_the_village.finale.clue	하얀색 현수막을 들고 종을 울리세요.	clue, generated; UseBlock minecraft:bell 
+trail.adv_adventure_hero_of_the_village.finale.hint	하얀색 현수막을 들고 종을 울려요.	hint, generated; UseBlock minecraft:bell 
+trail.adv_adventure_hero_of_the_village.finale	종을 울렸어요. 주민은 종소리를 들어요.	finale, authored; UseBlock minecraft:bell 
+trail.adv_adventure_summon_iron_golem.title	마을 지킴이	title, authored; 
+trail.adv_adventure_summon_iron_golem.s1.clue	주민 근처에서 철 골렘을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:iron_golem 
+trail.adv_adventure_summon_iron_golem.s1.hint	주민 근처에서 철 골렘을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:iron_golem 
+trail.adv_adventure_summon_iron_golem.s2.clue	철 블록을 세 개 모으세요.	clue, generated; AcquireItem minecraft:iron_block x3
+trail.adv_adventure_summon_iron_golem.s2.hint	철 블록을 모아요.	hint, generated; AcquireItem minecraft:iron_block x3
+trail.adv_adventure_summon_iron_golem.s3.clue	철 블록 세 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:iron_block PILLAR 3
+trail.adv_adventure_summon_iron_golem.s3.hint	철 블록으로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:iron_block PILLAR 3
+trail.adv_adventure_summon_iron_golem.finale.clue	철 블록 기둥 위에 조각된 호박을 놓으세요.	clue, generated; PlaceOnPattern minecraft:carved_pumpkin ON_TOP_OF PILLAR minecraft:iron_block
+trail.adv_adventure_summon_iron_golem.finale.hint	철 블록 기둥 위에 조각된 호박을 놓아요.	hint, generated; PlaceOnPattern minecraft:carved_pumpkin ON_TOP_OF PILLAR minecraft:iron_block
+trail.adv_adventure_summon_iron_golem.finale	철 블록 기둥 위에 조각된 호박을 놓았어요. 철 골렘은 마을을 지켜요.	finale, authored; PlaceOnPattern minecraft:carved_pumpkin ON_TOP_OF PILLAR minecraft:iron_block
+trail.adv_adventure_totem_of_undying.title	불사의 토템	title, authored; 
+trail.adv_adventure_totem_of_undying.s1.clue	소환사를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:evoker 
+trail.adv_adventure_totem_of_undying.s1.hint	소환사를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:evoker 
+trail.adv_adventure_totem_of_undying.s2.clue	철 투구를 쓰세요.	clue, generated; Equip minecraft:iron_helmet 
+trail.adv_adventure_totem_of_undying.s2.hint	철 투구를 써요.	hint, generated; Equip minecraft:iron_helmet 
+trail.adv_adventure_totem_of_undying.s3.clue	주민 근처에서 소환사를 한 마리 물리치세요.	clue, generated; DefeatEntity minecraft:evoker x1
+trail.adv_adventure_totem_of_undying.s3.hint	주민 근처에서 소환사를 물리쳐요.	hint, generated; DefeatEntity minecraft:evoker x1
+trail.adv_adventure_totem_of_undying.finale.clue	불사의 토템을 구하세요.	clue, generated; AcquireItem minecraft:totem_of_undying x1
+trail.adv_adventure_totem_of_undying.finale.hint	불사의 토템을 구해요.	hint, generated; AcquireItem minecraft:totem_of_undying x1
+trail.adv_adventure_totem_of_undying.finale	불사의 토템을 구했어요.	finale, authored; AcquireItem minecraft:totem_of_undying x1
+trail.adv_adventure_under_lock_and_key.title	철 문과 버튼	title, authored; 
+trail.adv_adventure_under_lock_and_key.s1.clue	철 문을 만드세요.	clue, generated; Craft minecraft:iron_door x1
+trail.adv_adventure_under_lock_and_key.s1.hint	철 문을 만들어요.	hint, generated; Craft minecraft:iron_door x1
+trail.adv_adventure_under_lock_and_key.s2.clue	두 조약돌 사이에 철 문을 다세요.	clue, generated; PlaceRel minecraft:iron_door BETWEEN minecraft:cobblestone
+trail.adv_adventure_under_lock_and_key.s2.hint	두 조약돌 사이에 철 문을 달아요.	hint, generated; PlaceRel minecraft:iron_door BETWEEN minecraft:cobblestone
+trail.adv_adventure_under_lock_and_key.s3.clue	문 옆에 돌 버튼을 놓으세요.	clue, generated; PlaceRel minecraft:stone_button NEXT_TO #minecraft:doors
+trail.adv_adventure_under_lock_and_key.s3.hint	문 옆에 돌 버튼을 놓아요.	hint, generated; PlaceRel minecraft:stone_button NEXT_TO #minecraft:doors
+trail.adv_adventure_under_lock_and_key.finale.clue	돌 버튼을 누르세요.	clue, generated; UseBlock minecraft:stone_button 
+trail.adv_adventure_under_lock_and_key.finale.hint	돌 버튼을 눌러요.	hint, generated; UseBlock minecraft:stone_button 
+trail.adv_adventure_under_lock_and_key.finale	돌 버튼을 눌렀어요. 철 문은 버튼으로 열려요.	finale, authored; UseBlock minecraft:stone_button 
+trail.adv_adventure_whos_the_pillager_now.title	이제 누가 약탈자지?	title, authored; 
+trail.adv_adventure_whos_the_pillager_now.s1.clue	약탈자를 일 초 동안 바라보기 전에 철 투구를 쓰세요.	clue, generated; Sequence [Equip minecraft:iron_helmet  > LookAtEntity minecraft:pillager ]
+trail.adv_adventure_whos_the_pillager_now.s1.hint	약탈자를 일 초 동안 바라보기 전에 철 투구를 써요.	hint, generated; Sequence [Equip minecraft:iron_helmet  > LookAtEntity minecraft:pillager ]
+trail.adv_adventure_whos_the_pillager_now.s2.clue	주민에게서 화살을 열 개 사세요.	clue, generated; Trade minecraft:arrow x10
+trail.adv_adventure_whos_the_pillager_now.s2.hint	주민에게서 화살을 사요.	hint, generated; Trade minecraft:arrow x10
+trail.adv_adventure_whos_the_pillager_now.finale.clue	쇠뇌를 들고 약탈자를 한 마리 물리치세요.	clue, generated; DefeatEntity minecraft:pillager x1
+trail.adv_adventure_whos_the_pillager_now.finale.hint	쇠뇌를 들고 약탈자를 물리쳐요.	hint, generated; DefeatEntity minecraft:pillager x1
+trail.adv_adventure_whos_the_pillager_now.finale	쇠뇌를 들고 약탈자를 한 마리 물리쳤어요.	finale, authored; DefeatEntity minecraft:pillager x1
+trail.adv_story_cure_zombie_villager.title	좀비 주민 돕기	title, authored; 
+trail.adv_story_cure_zombie_villager.s1.clue	좀비 주민을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:zombie_villager 
+trail.adv_story_cure_zombie_villager.s1.hint	좀비 주민을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:zombie_villager 
+trail.adv_story_cure_zombie_villager.s2.clue	황금 사과를 만드세요.	clue, generated; Craft minecraft:golden_apple x1
+trail.adv_story_cure_zombie_villager.s2.hint	황금 사과를 만들어요.	hint, generated; Craft minecraft:golden_apple x1
+trail.adv_story_cure_zombie_villager.s3.clue	황금 사과를 먹지 마세요.	clue, generated; Avoid minecraft:golden_apple [ConsumeItem minecraft:golden_apple x1]
+trail.adv_story_cure_zombie_villager.s3.hint	황금 사과를 먹지 마세요.	hint, generated; Avoid minecraft:golden_apple [ConsumeItem minecraft:golden_apple x1]
+trail.adv_story_cure_zombie_villager.s4.clue	황금 사과를 들고 십 초 동안 기다리세요.	clue, generated; Wait 
+trail.adv_story_cure_zombie_villager.s4.hint	황금 사과를 들고 잠깐 기다려요.	hint, generated; Wait 
+trail.adv_story_cure_zombie_villager.finale.clue	좀비 주민에게 황금 사과를 주세요.	clue, generated; Give minecraft:golden_apple x1
+trail.adv_story_cure_zombie_villager.finale.hint	좀비 주민에게 황금 사과를 줘요.	hint, generated; Give minecraft:golden_apple x1
+trail.adv_story_cure_zombie_villager.finale	좀비 주민에게 황금 사과를 줬어요.	finale, authored; Give minecraft:golden_apple x1
+trail.adv_story_deflect_arrow.title	방패와 화살	title, authored; 
+trail.adv_story_deflect_arrow.s1.clue	스켈레톤을 일 초 동안 바라보기 전에 방패를 만드세요.	clue, generated; Sequence [Craft minecraft:shield x1 > LookAtEntity minecraft:skeleton ]
+trail.adv_story_deflect_arrow.s1.hint	스켈레톤을 일 초 동안 바라보기 전에 방패를 만들어요.	hint, generated; Sequence [Craft minecraft:shield x1 > LookAtEntity minecraft:skeleton ]
+trail.adv_story_deflect_arrow.s2.clue	스켈레톤을 한 마리 물리친 후에 화살을 열 개 모으세요.	clue, generated; Sequence [DefeatEntity minecraft:skeleton x1 > AcquireItem minecraft:arrow x10]
+trail.adv_story_deflect_arrow.s2.hint	스켈레톤을 물리친 후에 화살을 모아요.	hint, generated; Sequence [DefeatEntity minecraft:skeleton x1 > AcquireItem minecraft:arrow x10]
+trail.adv_story_deflect_arrow.finale.clue	스켈레톤 근처에서 방패를 들고 십 초 동안 기다리세요.	clue, generated; Wait 
+trail.adv_story_deflect_arrow.finale.hint	스켈레톤 근처에서 방패를 들고 잠깐 기다려요.	hint, generated; Wait 
+trail.adv_story_deflect_arrow.finale	방패를 들고 스켈레톤 근처에서 십 초 동안 기다렸어요. 방패는 화살을 막아요.	finale, authored; Wait 
+trail.adv_story_enchant_item.title	마법 부여대	title, authored; 
+trail.adv_story_enchant_item.s1.clue	다이아몬드 곡괭이를 들고 흑요석을 네 개 캐세요.	clue, generated; BreakBlock minecraft:obsidian x4
+trail.adv_story_enchant_item.s1.hint	다이아몬드 곡괭이를 들고 흑요석을 캐요.	hint, generated; BreakBlock minecraft:obsidian x4
+trail.adv_story_enchant_item.s2.clue	책을 만든 후에 마법 부여대를 만드세요.	clue, generated; Sequence [Craft minecraft:book x1 > Craft minecraft:enchanting_table x1]
+trail.adv_story_enchant_item.s2.hint	책을 만든 후에 마법 부여대를 만들어요.	hint, generated; Sequence [Craft minecraft:book x1 > Craft minecraft:enchanting_table x1]
+trail.adv_story_enchant_item.finale.clue	제작대 옆에 마법 부여대를 놓으세요.	clue, generated; PlaceRel minecraft:enchanting_table NEXT_TO minecraft:crafting_table
+trail.adv_story_enchant_item.finale.hint	제작대 옆에 마법 부여대를 놓아요.	hint, generated; PlaceRel minecraft:enchanting_table NEXT_TO minecraft:crafting_table
+trail.adv_story_enchant_item.finale	제작대 옆에 마법 부여대를 놓았어요.	finale, authored; PlaceRel minecraft:enchanting_table NEXT_TO minecraft:crafting_table
+trail.adv_story_follow_ender_eye.title	엔더의 눈 만들기	title, authored; 
+trail.adv_story_follow_ender_eye.s1.clue	밤에 엔더맨을 한 마리 물리치세요.	clue, generated; DefeatEntity minecraft:enderman x1
+trail.adv_story_follow_ender_eye.s1.hint	밤에 엔더맨을 물리쳐요.	hint, generated; DefeatEntity minecraft:enderman x1
+trail.adv_story_follow_ender_eye.s2.clue	밖에서 엔더 진주를 구하세요.	clue, generated; AcquireItem minecraft:ender_pearl x1
+trail.adv_story_follow_ender_eye.s2.hint	밖에서 엔더 진주를 구해요.	hint, generated; AcquireItem minecraft:ender_pearl x1
+trail.adv_story_follow_ender_eye.s3.clue	블레이즈 가루를 구하세요.	clue, generated; AcquireItem minecraft:blaze_powder x1
+trail.adv_story_follow_ender_eye.s3.hint	블레이즈 가루를 구해요.	hint, generated; AcquireItem minecraft:blaze_powder x1
+trail.adv_story_follow_ender_eye.s4.clue	엔더의 눈을 만드세요.	clue, generated; Craft minecraft:ender_eye x1
+trail.adv_story_follow_ender_eye.s4.hint	엔더의 눈을 만들어요.	hint, generated; Craft minecraft:ender_eye x1
+trail.adv_story_follow_ender_eye.finale.clue	엔더의 눈을 들고 높이 40블록 이하로 내려가세요.	clue, generated; HoldWhile minecraft:ender_eye 
+trail.adv_story_follow_ender_eye.finale.hint	엔더의 눈을 들고 아래로 내려가요.	hint, generated; HoldWhile minecraft:ender_eye 
+trail.adv_story_follow_ender_eye.finale	엔더의 눈을 들고 아래로 내려갔어요. 엔더의 눈은 요새 쪽으로 날아가요.	finale, authored; HoldWhile minecraft:ender_eye 
+trail.adv_story_shiny_gear.title	다이아몬드 장비	title, authored; 
+trail.adv_story_shiny_gear.s1.clue	다이아몬드를 다섯 개 캐세요.	clue, generated; BreakBlock minecraft:diamond_ore x5
+trail.adv_story_shiny_gear.s1.hint	다이아몬드를 캐요.	hint, generated; BreakBlock minecraft:diamond_ore x5
+trail.adv_story_shiny_gear.s2.clue	다이아몬드 부츠를 만든 후에 다이아몬드 부츠를 신으세요.	clue, generated; Sequence [Craft minecraft:diamond_boots x1 > Equip minecraft:diamond_boots ]
+trail.adv_story_shiny_gear.s2.hint	다이아몬드 부츠를 만든 후에 다이아몬드 부츠를 신어요.	hint, generated; Sequence [Craft minecraft:diamond_boots x1 > Equip minecraft:diamond_boots ]
+trail.adv_story_shiny_gear.s3.clue	대장장이 작업대 옆에 모루를 놓으세요.	clue, generated; PlaceRel minecraft:anvil NEXT_TO minecraft:smithing_table
+trail.adv_story_shiny_gear.s3.hint	대장장이 작업대 옆에 모루를 놓아요.	hint, generated; PlaceRel minecraft:anvil NEXT_TO minecraft:smithing_table
+trail.adv_story_shiny_gear.finale.clue	다이아몬드 투구를 만든 후에 다이아몬드 투구를 쓰세요.	clue, generated; Sequence [Craft minecraft:diamond_helmet x1 > Equip minecraft:diamond_helmet ]
+trail.adv_story_shiny_gear.finale.hint	다이아몬드 투구를 만든 후에 다이아몬드 투구를 써요.	hint, generated; Sequence [Craft minecraft:diamond_helmet x1 > Equip minecraft:diamond_helmet ]
+trail.adv_story_shiny_gear.finale	다이아몬드 투구를 만든 후에 썼어요.	finale, authored; Sequence [Craft minecraft:diamond_helmet x1 > Equip minecraft:diamond_helmet ]
+trail.fischergilde.title	어부 길드의 길	title, authored; 
+trail.fischergilde.s1.clue	낚싯대를 만든 후에 물을 일 초 동안 바라보세요.	clue, generated; Sequence [Craft minecraft:fishing_rod x1 > LookAtBlock minecraft:water ]
+trail.fischergilde.s1.hint	낚싯대를 만든 후에 물을 일 초 동안 바라봐요.	hint, generated; Sequence [Craft minecraft:fishing_rod x1 > LookAtBlock minecraft:water ]
+trail.fischergilde.s2.clue	물 근처에서 낚싯대를 들고 물고기를 열 마리 모으세요.	clue, generated; AcquireItem minecraft:cod x10
+trail.fischergilde.s2.hint	물 근처에서 낚싯대를 들고 물고기를 모아요.	hint, generated; AcquireItem minecraft:cod x10
+trail.fischergilde.s3.clue	주민에게서 익힌 대구를 여섯 마리 사세요.	clue, generated; Trade minecraft:cooked_cod x6
+trail.fischergilde.s3.hint	주민에게서 익힌 대구를 사요.	hint, generated; Trade minecraft:cooked_cod x6
+trail.fischergilde.finale.clue	물 옆에 훈연기를 놓으세요.	clue, generated; PlaceRel minecraft:smoker NEXT_TO minecraft:water
+trail.fischergilde.finale.hint	물 옆에 훈연기를 놓아요.	hint, generated; PlaceRel minecraft:smoker NEXT_TO minecraft:water
+trail.fischergilde.finale	물 옆에 훈연기를 놓았어요. 훈연기는 음식을 구워요.	finale, authored; PlaceRel minecraft:smoker NEXT_TO minecraft:water
+trail.handelsgilde.title	상인 길드의 길	title, authored; 
+trail.handelsgilde.s1.clue	주민에게 비트를 열다섯 개 파세요.	clue, generated; Trade minecraft:beetroot x15
+trail.handelsgilde.s1.hint	주민에게 비트를 팔아요.	hint, generated; Trade minecraft:beetroot x15
+trail.handelsgilde.s2.clue	주민에게서 책장을 사세요.	clue, generated; Trade minecraft:bookshelf x1
+trail.handelsgilde.s2.hint	주민에게서 책장을 사요.	hint, generated; Trade minecraft:bookshelf x1
+trail.handelsgilde.s3.clue	종 옆에 독서대를 놓으세요.	clue, generated; PlaceRel minecraft:lectern NEXT_TO minecraft:bell
+trail.handelsgilde.s3.hint	종 옆에 독서대를 놓아요.	hint, generated; PlaceRel minecraft:lectern NEXT_TO minecraft:bell
+trail.handelsgilde.finale.clue	에메랄드 블록을 만든 후에 에메랄드 블록을 놓으세요.	clue, generated; Sequence [Craft minecraft:emerald_block x1 > PlaceBlock minecraft:emerald_block x1]
+trail.handelsgilde.finale.hint	에메랄드 블록을 만든 후에 에메랄드 블록을 놓아요.	hint, generated; Sequence [Craft minecraft:emerald_block x1 > PlaceBlock minecraft:emerald_block x1]
+trail.handelsgilde.finale	에메랄드 블록을 만든 후에 놓았어요. 에메랄드 블록은 에메랄드 아홉 개로 만들어요.	finale, authored; Sequence [Craft minecraft:emerald_block x1 > PlaceBlock minecraft:emerald_block x1]
+trail.karawane.title	대상단	title, authored; 
+trail.karawane.s1.clue	끈을 두 개 만드세요.	clue, generated; AcquireItem minecraft:lead x2
+trail.karawane.s1.hint	끈을 만들어요.	hint, generated; AcquireItem minecraft:lead x2
+trail.karawane.s2.clue	끈으로 말을 묶으세요.	clue, generated; InteractEntity minecraft:horse 
+trail.karawane.s2.hint	끈으로 말을 묶어요.	hint, generated; InteractEntity minecraft:horse 
+trail.karawane.s3.clue	말에게 빵을 주세요.	clue, generated; Give minecraft:bread x1
+trail.karawane.s3.hint	말에게 빵을 줘요.	hint, generated; Give minecraft:bread x1
+trail.karawane.finale.clue	주민에게 호박을 여섯 개 파세요.	clue, generated; Trade minecraft:pumpkin x6
+trail.karawane.finale.hint	주민에게 호박을 팔아요.	hint, generated; Trade minecraft:pumpkin x6
+trail.karawane.finale	주민에게 호박을 팔았어요. 주민은 에메랄드를 줘요.	finale, authored; Trade minecraft:pumpkin x6
+trail.postpfad.title	우편의 길	title, authored; 
+trail.postpfad.s1.clue	주민에게서 지도를 사세요.	clue, generated; Trade minecraft:map x1
+trail.postpfad.s1.hint	주민에게서 지도를 사요.	hint, generated; Trade minecraft:map x1
+trail.postpfad.s2.clue	문 옆에 지도 제작대를 놓으세요.	clue, generated; PlaceRel minecraft:cartography_table NEXT_TO #minecraft:doors
+trail.postpfad.s2.hint	문 옆에 지도 제작대를 놓아요.	hint, generated; PlaceRel minecraft:cartography_table NEXT_TO #minecraft:doors
+trail.postpfad.s3.clue	주민에게 지도를 주세요.	clue, generated; Give minecraft:map x1
+trail.postpfad.s3.hint	주민 앞에 지도를 놓아요.	hint, generated; Give minecraft:map x1
+trail.postpfad.finale.clue	책을 만든 후에 통 안에 책을 넣으세요.	clue, generated; Sequence [Craft minecraft:book x1 > PutIn minecraft:book x1]
+trail.postpfad.finale.hint	책을 만든 후에 통 안에 책을 넣어요.	hint, generated; Sequence [Craft minecraft:book x1 > PutIn minecraft:book x1]
+trail.postpfad.finale	책을 만든 후에 통에 넣었어요. 통은 물건을 보관해요.	finale, authored; Sequence [Craft minecraft:book x1 > PutIn minecraft:book x1]
+trail.village_errands_demo.title	마을 심부름	title, authored; 
+trail.village_errands_demo.s1.clue	밀을 모으고 빵을 만드세요.	clue, generated; Craft minecraft:bread x1
+trail.village_errands_demo.s1.hint	밀로 빵을 만들어요.	hint, generated; Craft minecraft:bread x1
+trail.village_errands_demo.s2.clue	주민에게 빵을 주세요.	clue, generated; Give minecraft:bread x1
+trail.village_errands_demo.s2.hint	주민 앞에 빵을 놓아요.	hint, generated; Give minecraft:bread x1
+trail.village_errands_demo.s3.clue	상자 안에 사과를 넣으세요.	clue, generated; PutIn minecraft:apple x1
+trail.village_errands_demo.s3.hint	상자 안에 사과를 넣어요.	hint, generated; PutIn minecraft:apple x1
+trail.village_errands_demo.s4.clue	침대에서 자기 전에 빵을 드세요.	clue, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
+trail.village_errands_demo.s4.hint	침대에서 자기 전에 빵을 먹어요.	hint, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
+trail.village_errands_demo.finale.clue	횃불을 들고 밤에 걸으세요.	clue, generated; HoldWhile minecraft:torch 
+trail.village_errands_demo.finale.hint	횃불을 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:torch 
+trail.village_errands_demo.finale	횃불을 들고 밤에 걸었어요.	finale, generated; HoldWhile minecraft:torch 

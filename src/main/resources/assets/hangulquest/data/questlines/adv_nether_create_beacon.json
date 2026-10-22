@@ -1,14 +1,13 @@
 {
  "schema": 1,
  "id": "adv_nether_create_beacon",
- "titleKo": "신호기 꾸리기",
+ "titleKo": "철 블록과 영혼 랜턴",
  "topic": "nether",
  "tier": 2,
  "order": 291,
  "concepts": [
-  "nether_star",
   "iron_block",
-  "beacon"
+  "soul_lantern"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,16 +20,14 @@
   {
    "id": "s1",
    "teach": [
-    "nether_star"
+    "iron_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_star",
-    "count": 1
+    "type": "CRAFT",
+    "item": "minecraft:iron_block",
+    "count": 8
    },
-   "hint": {
-    "ko": "위더를 물리치고 네더의 별을 얻어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
@@ -38,40 +35,61 @@
     "iron_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_block",
-    "count": 9
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:iron_block",
+    "size": 3
    },
-   "hint": {
-    "ko": "철 블록을 아홉 개 놓아요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "soul_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:soul_lantern",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:iron_block"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "beacon"
+    "soul_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:beacon",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "신호기를 철 블록 위에 놓아요."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:soul_lantern"
+    }
+   ]
   },
-  "textKo": "신호기가 하늘로 빛을 보내요! 이제 우리 집이 보여요."
+  "textKo": "영혼 랜턴 근처에서 밤까지 기다렸어요."
  },
  "reward": {
   "badge": "adv_nether_create_beacon",
   "words": [
-   "nether_star",
    "iron_block",
-   "beacon"
+   "soul_lantern"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.loc_an_e",
+  "L3.su_itda"
+ ]
 }

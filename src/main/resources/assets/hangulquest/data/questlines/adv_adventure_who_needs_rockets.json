@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_who_needs_rockets",
- "titleKo": "누가 로켓이 필요하대?",
+ "titleKo": "로켓 없이 뛰어내리기",
  "topic": "adventure",
  "tier": 2,
  "order": 245,
  "concepts": [
-  "gen_weathered_copper_lantern",
-  "gen_zombie_head",
-  "gen_deepslate_tiles"
+  "gen_firework_rocket",
+  "hay_block",
+  "dirt"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,47 +21,97 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weathered_copper_lantern"
+    "gen_firework_rocket"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_lantern",
-    "count": 2
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:firework_rocket",
+      "count": 1
+     },
+     {
+      "type": "REACH_HEIGHT",
+      "minY": 100,
+      "maxY": 320
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_zombie_head"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:zombie_head",
-    "count": 2
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block",
+    "size": 4
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "dirt"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:dirt",
+     "count": 1,
+     "verb": "DIG"
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:hay_block"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_deepslate_tiles"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_tiles",
-    "count": 1
+    "type": "FALL",
+    "blocks": 8,
+    "landing": "minecraft:hay_block"
    },
    "conditions": []
   },
-  "textKo": "심층암 타일을 놓았어요."
+  "textKo": "높은 곳에서 건초 더미 위로 뛰어내렸어요. 건초 더미는 부드러워요."
  },
  "reward": {
   "badge": "adv_adventure_who_needs_rockets",
   "words": [
-   "adv_item_wind_charge",
-   "height"
+   "gen_firework_rocket",
+   "hay_block",
+   "dirt"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L1.eul_reul",
+  "L2.seyo",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L3.jima",
+  "L2.eseo_activity",
+  "L2.euro_direction",
+  "L3.past"
+ ]
 }

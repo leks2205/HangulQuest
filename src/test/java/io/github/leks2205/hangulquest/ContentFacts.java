@@ -193,6 +193,7 @@ final class ContentFacts {
 			case Condition.Sky c -> "SKY:" + c.state();
 			case Condition.InWater c -> "IN_WATER";
 			case Condition.PlayerRel c -> "PLAYER_REL:" + c.relation() + (withObjects ? ":" + c.anchor() : "");
+			case Condition.Facing c -> "FACING" + (withObjects ? ":" + c.direction() : "");
 		};
 	}
 
@@ -341,6 +342,13 @@ final class ContentFacts {
 			case Goal.Swim g -> {
 			}
 			case Goal.Fall g -> add(into, "landing", g.landing());
+			case Goal.Shoot g -> {
+				add(into, "tool", g.weapon());
+				add(into, "object", g.entity());
+				add(into, "object", g.block());
+			}
+			case Goal.Walk g -> {
+			}
 		}
 	}
 

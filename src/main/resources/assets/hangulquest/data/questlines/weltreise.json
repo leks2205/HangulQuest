@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "weltreise",
  "titleKo": "세계 여행의 길",
+ "topic": "물",
  "tier": 5,
  "order": 460,
  "concepts": [
-  "gen_end_midlands",
-  "gen_poplar_fence_gate",
-  "gen_the_end",
-  "gen_orange_poplar_leaves"
+  "gen_savanna",
+  "mountain",
+  "swim",
+  "gen_swamp"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -24,76 +25,98 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_midlands"
+    "gen_savanna"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:end_midlands",
+    "biome": "minecraft:savanna",
     "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_poplar_fence_gate"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_fence_gate",
-    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DUSK"
     }
    ]
   },
   {
-   "id": "s3",
+   "id": "s2",
    "teach": [
-    "gen_the_end"
+    "mountain"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:the_end",
-    "dwellMs": 1000
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:forest",
+      "dwellMs": 1000
+     },
+     {
+      "type": "REACH_BIOME",
+      "biome": "#minecraft:is_mountain",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "swim"
+   ],
+   "goal": {
+    "type": "SWIM",
+    "blocks": 20
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_poplar_leaves"
+    "gen_swamp"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_poplar_leaves",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:swamp",
+    "dwellMs": 1000
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "type": "HOLDING",
+     "item": "minecraft:oak_boat"
     }
    ]
   },
-  "textKo": "밤에 산에서 주황색 포플러나무 잎을 놓았어요."
+  "textKo": "참나무 보트를 들고 늪으로 갔어요."
  },
  "reward": {
   "badge": "weltreise",
   "words": [
-   "beach",
-   "bed",
-   "climb",
-   "torch"
+   "gen_savanna",
+   "mountain",
+   "swim",
+   "gen_swamp"
   ]
  },
  "koreanLevel": 3,
- "topic": "물"
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L3.gi_jeone",
+  "L2.eseo_activity",
+  "L2.go_state",
+  "L3.past",
+  "L3.future_geoyeyo"
+ ]
 }

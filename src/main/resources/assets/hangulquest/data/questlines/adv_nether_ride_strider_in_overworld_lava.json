@@ -6,9 +6,8 @@
  "tier": 2,
  "order": 306,
  "concepts": [
-  "gen_mossy_cobblestone_slab",
-  "gen_exposed_chiseled_copper",
-  "lava_bucket"
+  "lava",
+  "gen_strider"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +20,70 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mossy_cobblestone_slab"
+    "lava"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mossy_cobblestone_slab",
+    "type": "PLACE_REL",
+    "block": "minecraft:stone",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:lava",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:overworld"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_chiseled_copper"
+    "gen_strider"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_chiseled_copper",
-    "count": 1
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:strider",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:overworld"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "lava_bucket"
+    "gen_strider"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lava_bucket",
-    "count": 1
+    "type": "MOUNT",
+    "entity": "minecraft:strider",
+    "dwellMs": 3000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:overworld"
+    }
+   ]
   },
-  "textKo": "고향 같은 편안함 — 오버월드의 용암 위에서도 스트라이더는 편해요."
+  "textKo": "오버월드에서 스트라이더를 탔어요. 스트라이더는 용암 위를 걸어요."
  },
  "reward": {
   "badge": "adv_nether_ride_strider_in_overworld_lava",
   "words": [
-   "saddle",
-   "adv_item_warped_fungus_on_a_stick",
-   "lava_bucket"
+   "lava",
+   "gen_strider"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L1.loc_wi_e",
+  "L3.past"
+ ]
 }

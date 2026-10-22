@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_walk_on_powder_snow_with_leather_boots",
- "titleKo": "토끼처럼 가볍게",
+ "titleKo": "가죽 장화와 가루눈",
  "topic": "adventure",
  "tier": 2,
  "order": 244,
  "concepts": [
-  "snow",
-  "rabbit",
-  "walk"
+  "leather",
+  "gen_snowy_slopes",
+  "gen_powder_snow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +21,94 @@
   {
    "id": "s1",
    "teach": [
-    "snow"
+    "leather"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:snow_block",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:leather",
     "count": 3
    },
-   "hint": {
-    "ko": "삽으로 눈을 모아요."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:cow"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "rabbit"
+    "gen_snowy_slopes"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:rabbit",
-    "dwellMs": 600
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_slopes",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_powder_snow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:powder_snow",
+    "dwellMs": 1000
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "walk"
+    "gen_powder_snow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:leather_boots",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "EQUIP",
+      "item": "minecraft:leather_boots"
+     },
+     {
+      "type": "FALL",
+      "blocks": 5,
+      "landing": "minecraft:powder_snow"
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
    },
    "conditions": []
   },
-  "textKo": "토끼처럼 가볍게 — 가죽 부츠를 신고 눈 위를 가볍게 걸어요."
+  "textKo": "높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신었어요."
  },
  "reward": {
   "badge": "adv_adventure_walk_on_powder_snow_with_leather_boots",
   "words": [
-   "snow",
-   "rabbit",
-   "walk"
+   "leather",
+   "gen_snowy_slopes",
+   "gen_powder_snow"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.euro_direction",
+  "L2.num_sino",
+  "L3.gi_jeone",
+  "L2.eseo_activity",
+  "L2.euro_direction",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

@@ -1,0 +1,933 @@
+{
+ "batch": "BATCH-018",
+ "brief": "content/briefs/BATCH-018.md",
+ "chapter": "heroes of the village (story, guilds and trade; level 3, all 15 by tree depth)",
+ "note": "Built on phase0 (merged with the BATCH-016/017 review commit before the final gates). `before` is the phase0 baseline at the final merge, `after` the rebaselined values. unknownOverOneShare was 0.046608 when the batch started and 0.047198 after the phase0 re-baseline; it ends at the value below, lower than both. village_errands_demo is exempt from the ratchet and measured separately.",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 31,
+  "formDependentShareOwn": 0.5273,
+  "stepsWithoutDemo": 55,
+  "formDependentStepsWithoutDemo": 29,
+  "goalTypes": {
+   "LOOK_AT_ENTITY": 3,
+   "CRAFT": 4,
+   "AVOID": 2,
+   "WAIT": 2,
+   "GIVE": 4,
+   "SEQUENCE": 11,
+   "BREAK_BLOCK": 2,
+   "PLACE_REL": 7,
+   "DEFEAT_ENTITY": 3,
+   "ACQUIRE_ITEM": 7,
+   "HOLD_WHILE": 2,
+   "USE_BLOCK": 2,
+   "TRADE": 6,
+   "BUILD_PATTERN": 1,
+   "PLACE_ON_PATTERN": 1,
+   "EQUIP": 1,
+   "INTERACT_ENTITY": 1,
+   "PUT_IN": 1
+  }
+ },
+ "metrics": {
+  "coverage.recycling.targetMetShare": {
+   "before": 0.165094,
+   "after": 0.174528
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.965782,
+   "after": 0.968254
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.984632,
+   "after": 0.985648
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.80767,
+   "after": 0.798942
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.047198,
+   "after": 0.046443
+  },
+  "variety.bareShare.3": {
+   "before": 0.5,
+   "after": 0.419689
+  },
+  "variety.boredomIndex": {
+   "before": 0.03778,
+   "after": 0.034706
+  },
+  "variety.distinctTypes.3": {
+   "before": 26.0,
+   "after": 27.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 3.0,
+   "after": 2.0
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.1,
+   "after": 0.173575
+  },
+  "variety.noveltyShare": {
+   "before": 0.664286,
+   "after": 0.683333
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 79.0,
+   "after": 72.0
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.284211,
+   "after": 0.225389
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_story_cure_zombie_villager",
+   "title": "좀비 주민 돕기",
+   "titleEn": "Helping a Zombie Villager",
+   "order": 310,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.jima",
+    "L2.ege",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "좀비 주민에게 황금 사과를 줬어요. 나중에 주민을 구할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:zombie_villager:WATCH",
+     "formDependent": false,
+     "clueKo": "좀비 주민을 일 초 동안 바라보세요.",
+     "hintKo": "좀비 주민을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:golden_apple:CRAFT",
+     "formDependent": false,
+     "clueKo": "황금 사과를 만드세요.",
+     "hintKo": "황금 사과를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:CONSUME_ITEM:minecraft:golden_apple:EAT",
+     "formDependent": true,
+     "clueKo": "황금 사과를 먹지 마세요.",
+     "hintKo": "황금 사과를 먹지 마세요."
+    },
+    {
+     "id": "s4",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|HOLDING:minecraft:golden_apple",
+     "formDependent": false,
+     "clueKo": "황금 사과를 들고 십 초 동안 기다리세요.",
+     "hintKo": "황금 사과를 들고 잠깐 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:golden_apple>minecraft:zombie_villager:GIVE",
+     "formDependent": true,
+     "clueKo": "좀비 주민에게 황금 사과를 주세요.",
+     "hintKo": "좀비 주민에게 황금 사과를 줘요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_story_deflect_arrow",
+   "title": "방패와 화살",
+   "titleEn": "Shield and Arrow",
+   "order": 311,
+   "koreanLevel": 3,
+   "grammar": [
+    "L3.gi_jeone",
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.eun_hue",
+    "L2.go_state",
+    "L3.su_itda",
+    "L3.past",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "방패를 들고 스켈레톤 근처에서 기다렸어요. 방패로 화살을 막을 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:shield:CRAFT>LOOK_AT_ENTITY:minecraft:skeleton:WATCH",
+     "formDependent": true,
+     "clueKo": "스켈레톤을 일 초 동안 바라보기 전에 방패를 만드세요.",
+     "hintKo": "스켈레톤을 일 초 동안 바라보기 전에 방패를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:skeleton:DEFEAT>ACQUIRE_ITEM:minecraft:arrow:COLLECT",
+     "formDependent": true,
+     "clueKo": "스켈레톤을 한 마리 물리친 후에 화살을 열 개 모으세요.",
+     "hintKo": "스켈레톤을 물리친 후에 화살을 모아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|HOLDING:minecraft:shield,NEAR_ENTITY:minecraft:skeleton",
+     "formDependent": false,
+     "clueKo": "스켈레톤 근처에서 방패를 들고 십 초 동안 기다리세요.",
+     "hintKo": "스켈레톤 근처에서 방패를 들고 잠깐 기다려요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_story_enchant_item",
+   "title": "마법 부여대",
+   "titleEn": "The Enchanting Table",
+   "order": 312,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L3.eun_hue",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "제작대 옆에 마법 부여대를 놓았어요. 이제 마법을 부여할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:obsidian:MINE|HOLDING:minecraft:diamond_pickaxe",
+     "formDependent": false,
+     "clueKo": "다이아몬드 곡괭이를 들고 흑요석을 네 개 캐세요.",
+     "hintKo": "다이아몬드 곡괭이를 들고 흑요석을 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:book:CRAFT>CRAFT:minecraft:enchanting_table:CRAFT",
+     "formDependent": true,
+     "clueKo": "책을 만든 후에 마법 부여대를 만드세요.",
+     "hintKo": "책을 만든 후에 마법 부여대를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:enchanting_table:NEXT_TO:minecraft:crafting_table:PLACE",
+     "formDependent": true,
+     "clueKo": "제작대 옆에 마법 부여대를 놓으세요.",
+     "hintKo": "제작대 옆에 마법 부여대를 놓아요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_story_follow_ender_eye",
+   "title": "엔더의 눈 만들기",
+   "titleEn": "Making an Eye of Ender",
+   "order": 315,
+   "koreanLevel": 3,
+   "grammar": [
+    "L3.jima",
+    "L1.eul_reul",
+    "L2.seyo",
+    "L2.go_state",
+    "L3.future_geoyeyo",
+    "L3.past"
+   ],
+   "finaleKo": "엔더의 눈을 들고 아래로 내려갔어요. 내일 요새를 찾을 거예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:enderman:DEFEAT|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 엔더맨을 한 마리 물리치세요.",
+     "hintKo": "밤에 엔더맨을 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ender_pearl:OBTAIN|SKY:OPEN",
+     "formDependent": false,
+     "clueKo": "밖에서 엔더 진주를 구하세요.",
+     "hintKo": "밖에서 엔더 진주를 구해요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:blaze_powder:OBTAIN",
+     "formDependent": false,
+     "clueKo": "블레이즈 가루를 구하세요.",
+     "hintKo": "블레이즈 가루를 구해요."
+    },
+    {
+     "id": "s4",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:ender_eye:CRAFT",
+     "formDependent": false,
+     "clueKo": "엔더의 눈을 만드세요.",
+     "hintKo": "엔더의 눈을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:ender_eye:HOLD+REACH_HEIGHT::DESCEND:down",
+     "formDependent": false,
+     "clueKo": "엔더의 눈을 들고 높이 40블록 이하로 내려가세요.",
+     "hintKo": "엔더의 눈을 들고 아래로 내려가요."
+    }
+   ],
+   "formDependentSteps": 0
+  },
+  {
+   "id": "adv_story_shiny_gear",
+   "title": "다이아몬드 장비",
+   "titleEn": "Diamond Gear",
+   "order": 323,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L3.eun_hue",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "다이아몬드 투구를 만든 후에 썼어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:diamond_ore:MINE",
+     "formDependent": false,
+     "clueKo": "다이아몬드를 다섯 개 캐세요.",
+     "hintKo": "다이아몬드를 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:diamond_boots:CRAFT>EQUIP:minecraft:diamond_boots:PUT_ON_SHOES",
+     "formDependent": true,
+     "clueKo": "다이아몬드 부츠를 만든 후에 다이아몬드 부츠를 신으세요.",
+     "hintKo": "다이아몬드 부츠를 만든 후에 다이아몬드 부츠를 신어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:anvil:NEXT_TO:minecraft:smithing_table:PLACE",
+     "formDependent": true,
+     "clueKo": "대장장이 작업대 옆에 모루를 놓으세요.",
+     "hintKo": "대장장이 작업대 옆에 모루를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:diamond_helmet:CRAFT>EQUIP:minecraft:diamond_helmet:WEAR_HEAD",
+     "formDependent": true,
+     "clueKo": "다이아몬드 투구를 만든 후에 다이아몬드 투구를 쓰세요.",
+     "hintKo": "다이아몬드 투구를 만든 후에 다이아몬드 투구를 써요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "adv_adventure_hero_of_the_village",
+   "title": "마을 지키기",
+   "titleEn": "Defending the Village",
+   "order": 210,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.eun_hue",
+    "L2.wa_gwa_with",
+    "L3.jima",
+    "L2.go_state",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "종을 울렸어요. 이제 주민들이 종소리를 들을 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:white_banner:CRAFT",
+     "formDependent": false,
+     "clueKo": "하얀색 현수막을 만드세요.",
+     "hintKo": "하얀색 현수막을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:pillager:DEFEAT>INTERACT_ENTITY:minecraft:villager:TALK",
+     "formDependent": true,
+     "clueKo": "약탈자를 두 마리 물리친 후에 주민과 이야기하세요.",
+     "hintKo": "약탈자를 물리친 후에 주민과 이야기해요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:bell:BREAK",
+     "formDependent": true,
+     "clueKo": "종을 부수지 마세요.",
+     "hintKo": "종을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:bell:RING|HOLDING:minecraft:white_banner",
+     "formDependent": false,
+     "clueKo": "하얀색 현수막을 들고 종을 울리세요.",
+     "hintKo": "하얀색 현수막을 들고 종을 울려요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_adventure_whos_the_pillager_now",
+   "title": "이제 누가 약탈자지?",
+   "titleEn": "Who's the Pillager Now?",
+   "order": 246,
+   "koreanLevel": 3,
+   "grammar": [
+    "L3.gi_jeone",
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.ege_source",
+    "L2.go_state",
+    "L3.future_geoyeyo",
+    "L3.past",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "쇠뇌로 약탈자를 물리쳤어요. 다음에는 습격을 막을 거예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:EQUIP:minecraft:iron_helmet:WEAR_HEAD>LOOK_AT_ENTITY:minecraft:pillager:WATCH",
+     "formDependent": true,
+     "clueKo": "약탈자를 일 초 동안 바라보기 전에 철 투구를 쓰세요.",
+     "hintKo": "약탈자를 일 초 동안 바라보기 전에 철 투구를 써요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:arrow:BUY",
+     "formDependent": true,
+     "clueKo": "주민에게서 화살을 열 개 사세요.",
+     "hintKo": "주민에게서 화살을 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:pillager:DEFEAT|HOLDING:minecraft:crossbow",
+     "formDependent": false,
+     "clueKo": "쇠뇌를 들고 약탈자를 한 마리 물리치세요.",
+     "hintKo": "쇠뇌를 들고 약탈자를 물리쳐요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_adventure_summon_iron_golem",
+   "title": "마을 지킴이",
+   "titleEn": "The Village Guardian",
+   "order": 232,
+   "koreanLevel": 3,
+   "grammar": [
+    "L3.jima",
+    "L2.seyo",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "철 블록 기둥 위에 조각된 호박을 놓았어요. 나중에 철 골렘을 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:iron_golem:WATCH|NEAR_ENTITY:minecraft:villager",
+     "formDependent": false,
+     "clueKo": "주민 근처에서 철 골렘을 일 초 동안 바라보세요.",
+     "hintKo": "주민 근처에서 철 골렘을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:iron_block:COLLECT",
+     "formDependent": false,
+     "clueKo": "철 블록을 세 개 모으세요.",
+     "hintKo": "철 블록을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:iron_block:STACK",
+     "formDependent": false,
+     "clueKo": "철 블록 세 개로 기둥을 쌓으세요.",
+     "hintKo": "철 블록으로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:carved_pumpkin:ON_TOP_OF:PILLAR/minecraft:iron_block:PLACE",
+     "formDependent": true,
+     "clueKo": "철 블록 기둥 위에 조각된 호박을 놓으세요.",
+     "hintKo": "철 블록 기둥 위에 조각된 호박을 놓아요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_adventure_under_lock_and_key",
+   "title": "철 문과 버튼",
+   "titleEn": "Iron Door and Button",
+   "order": 240,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.loc_sai_e",
+    "L1.num_native",
+    "L1.obj_eul",
+    "L1.loc_yeop_e",
+    "L3.su_itda",
+    "L3.past",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "돌 버튼을 눌렀어요. 버튼으로 철 문을 열 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_door:CRAFT",
+     "formDependent": false,
+     "clueKo": "철 문을 만드세요.",
+     "hintKo": "철 문을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:iron_door:BETWEEN:minecraft:cobblestone:HANG_DOOR",
+     "formDependent": true,
+     "clueKo": "두 조약돌 사이에 철 문을 다세요.",
+     "hintKo": "두 조약돌 사이에 철 문을 달아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:stone_button:NEXT_TO:#minecraft:doors:PLACE",
+     "formDependent": true,
+     "clueKo": "문 옆에 돌 버튼을 놓으세요.",
+     "hintKo": "문 옆에 돌 버튼을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:stone_button:PRESS",
+     "formDependent": false,
+     "clueKo": "돌 버튼을 누르세요.",
+     "hintKo": "돌 버튼을 눌러요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_adventure_totem_of_undying",
+   "title": "불사의 토템",
+   "titleEn": "The Totem of Undying",
+   "order": 234,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "불사의 토템을 얻었어요. 위험할 때 쓸 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:evoker:WATCH",
+     "formDependent": false,
+     "clueKo": "소환사를 일 초 동안 바라보세요.",
+     "hintKo": "소환사를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:iron_helmet:WEAR_HEAD",
+     "formDependent": false,
+     "clueKo": "철 투구를 쓰세요.",
+     "hintKo": "철 투구를 써요."
+    },
+    {
+     "id": "s3",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:evoker:DEFEAT|NEAR_ENTITY:minecraft:villager",
+     "formDependent": false,
+     "clueKo": "주민 근처에서 소환사를 한 마리 물리치세요.",
+     "hintKo": "주민 근처에서 소환사를 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:totem_of_undying:OBTAIN",
+     "formDependent": false,
+     "clueKo": "불사의 토템을 구하세요.",
+     "hintKo": "불사의 토템을 구해요."
+    }
+   ],
+   "formDependentSteps": 0
+  },
+  {
+   "id": "handelsgilde",
+   "title": "상인 길드의 길",
+   "titleEn": "The Merchant Guild Trail",
+   "order": 162,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.ege_source",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.eun_hue",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "에메랄드 블록을 만든 후에 놓았어요. 나중에 길드에서 물건을 팔 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:beetroot:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 비트를 열다섯 개 파세요.",
+     "hintKo": "주민에게 비트를 팔아요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:bookshelf:BUY",
+     "formDependent": true,
+     "clueKo": "주민에게서 책장을 사세요.",
+     "hintKo": "주민에게서 책장을 사요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:lectern:NEXT_TO:minecraft:bell:PLACE",
+     "formDependent": true,
+     "clueKo": "종 옆에 독서대를 놓으세요.",
+     "hintKo": "종 옆에 독서대를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:emerald_block:CRAFT>PLACE_BLOCK:minecraft:emerald_block:PLACE",
+     "formDependent": true,
+     "clueKo": "에메랄드 블록을 만든 후에 에메랄드 블록을 놓으세요.",
+     "hintKo": "에메랄드 블록을 만든 후에 에메랄드 블록을 놓아요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "postpfad",
+   "title": "우편의 길",
+   "titleEn": "The Post Trail",
+   "order": 165,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.ege_source",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L2.ege",
+    "L3.eun_hue",
+    "L1.loc.an",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "책을 만든 후에 통에 넣었어요. 나중에 친구에게 줄 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:map:BUY",
+     "formDependent": true,
+     "clueKo": "주민에게서 지도를 사세요.",
+     "hintKo": "주민에게서 지도를 사요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:cartography_table:NEXT_TO:#minecraft:doors:PLACE",
+     "formDependent": true,
+     "clueKo": "문 옆에 지도 제작대를 놓으세요.",
+     "hintKo": "문 옆에 지도 제작대를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:map>minecraft:villager:GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 지도를 주세요.",
+     "hintKo": "주민 앞에 지도를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:book:CRAFT>PUT_IN:minecraft:book>minecraft:barrel:PUT_IN",
+     "formDependent": true,
+     "clueKo": "책을 만든 후에 통 안에 책을 넣으세요.",
+     "hintKo": "책을 만든 후에 통 안에 책을 넣어요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "fischergilde",
+   "title": "어부 길드의 길",
+   "titleEn": "The Fisher's Guild Trail",
+   "order": 171,
+   "koreanLevel": 3,
+   "grammar": [
+    "L3.eun_hue",
+    "L2.seyo",
+    "L2.num_sino",
+    "L2.go_state",
+    "L2.ege_source",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.su_itda",
+    "L3.past"
+   ],
+   "finaleKo": "물 옆에 훈연기를 놓았어요. 이제 길드에서 물고기를 구울 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:fishing_rod:CRAFT>LOOK_AT_BLOCK:minecraft:water:WATCH",
+     "formDependent": true,
+     "clueKo": "낚싯대를 만든 후에 물을 일 초 동안 바라보세요.",
+     "hintKo": "낚싯대를 만든 후에 물을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:cod:COLLECT|HOLDING:minecraft:fishing_rod,NEAR_BLOCK:minecraft:water",
+     "formDependent": false,
+     "clueKo": "물 근처에서 낚싯대를 들고 물고기를 열 마리 모으세요.",
+     "hintKo": "물 근처에서 낚싯대를 들고 물고기를 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:cooked_cod:BUY",
+     "formDependent": true,
+     "clueKo": "주민에게서 익힌 대구를 여섯 마리 사세요.",
+     "hintKo": "주민에게서 익힌 대구를 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:smoker:NEXT_TO:minecraft:water:PLACE",
+     "formDependent": true,
+     "clueKo": "물 옆에 훈연기를 놓으세요.",
+     "hintKo": "물 옆에 훈연기를 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "karawane",
+   "title": "대상단",
+   "titleEn": "The Caravan",
+   "order": 532,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.euro_instrument",
+    "L2.ege",
+    "L3.future_geoyeyo",
+    "L3.past"
+   ],
+   "finaleKo": "주민에게 호박을 팔았어요. 내일 마을 밖으로 갈 거예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:lead:CRAFT",
+     "formDependent": false,
+     "clueKo": "끈을 두 개 만드세요.",
+     "hintKo": "끈을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "INTERACT_ENTITY",
+     "signature": "INTERACT_ENTITY:minecraft:horse:RIDE|HOLDING:minecraft:lead",
+     "formDependent": false,
+     "clueKo": "끈으로 말을 묶으세요.",
+     "hintKo": "끈으로 말을 묶어요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:bread>minecraft:horse:GIVE",
+     "formDependent": true,
+     "clueKo": "말에게 빵을 주세요.",
+     "hintKo": "말에게 빵을 줘요."
+    },
+    {
+     "id": "finale",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:pumpkin:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 호박을 여섯 개 파세요.",
+     "hintKo": "주민에게 호박을 팔아요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "village_errands_demo",
+   "title": "마을 심부름",
+   "titleEn": "Village Errands",
+   "order": 700,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_and",
+    "L2.ege",
+    "L1.loc.an",
+    "L3.gi_jeone",
+    "L2.eseo_activity",
+    "L2.go_state",
+    "L3.past"
+   ],
+   "finaleKo": "횃불을 들고 밤에 걸었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:bread:CRAFT",
+     "formDependent": false,
+     "clueKo": "밀을 모으고 빵을 만드세요.",
+     "hintKo": "밀로 빵을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:bread>minecraft:villager:GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 빵을 주세요.",
+     "hintKo": "주민 앞에 빵을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:apple>minecraft:chest:PUT_IN",
+     "formDependent": false,
+     "clueKo": "상자 안에 사과를 넣으세요.",
+     "hintKo": "상자 안에 사과를 넣어요."
+    },
+    {
+     "id": "s4",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CONSUME_ITEM:minecraft:bread:EAT>USE_BLOCK:minecraft:red_bed:SLEEP",
+     "formDependent": true,
+     "clueKo": "침대에서 자기 전에 빵을 드세요.",
+     "hintKo": "침대에서 자기 전에 빵을 먹어요."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:torch:HOLD+TIME",
+     "formDependent": false,
+     "clueKo": "횃불을 들고 밤에 걸으세요.",
+     "hintKo": "횃불을 들고 밤에 걸어요."
+    }
+   ],
+   "formDependentSteps": 2
+  }
+ ],
+ "proposedForLevel4Plus": [
+  {
+   "id": "adv_story_cure_zombie_villager",
+   "reason": "Curing needs a splash potion of weakness (brewing) next to the golden apple. Rebuilt as the apple-giving half; the real cure is level 4."
+  },
+  {
+   "id": "adv_adventure_hero_of_the_village",
+   "reason": "The advancement is won by beating a raid. Rebuilt as pillagers defeated, the bell and a banner; a real raid is level 4 or above."
+  },
+  {
+   "id": "adv_adventure_under_lock_and_key",
+   "reason": "The vanilla advancement needs a trial chamber vault (trial key). Rebuilt as an iron door with a button, retitled; the real one is level 5 or above."
+  },
+  {
+   "id": "adv_adventure_totem_of_undying",
+   "reason": "A totem comes from an evoker in a raid or a woodland mansion; popping one is the advancement. Rebuilt as fighting an evoker and getting a totem, retitled; the real one is level 4 or above."
+  },
+  {
+   "id": "adv_story_follow_ender_eye",
+   "reason": "Following the eye to a stronghold is end-game navigation. Rebuilt as making the eye and going down with it, retitled; the real one is level 4 or above."
+  },
+  {
+   "id": "adv_story_shiny_gear",
+   "reason": "Full diamond armour (24 diamonds) is level 4. Rebuilt as diamond boots and a helmet, retitled."
+  }
+ ],
+ "generatorWeaknesses": [
+  "AVOID with a mob action (DEFEAT_ENTITY or LOOK_AT_ENTITY) fails ObtainabilityTest.everyGoalTargetIsARealVanillaId: the entity id of the action is looked up as an item. AVOID is limited to block and item actions (eat, break, place).",
+  "PlaytestTest cannot drive EQUIP on a slot tag (#minecraft:head_armor, chest_armor): the step \"did not advance\". A concrete piece (철 투구) works.",
+  "A taught word can rename another object of the sentence: a SEQUENCE step that taught 엔더맨 printed the ender pearl as 엔더맨 (엔더맨을 물리친 후에 엔더맨을 구하세요). Teach the object of the last part to avoid it.",
+  "A sequence repeats the object of both parts in full (다이아몬드 투구를 만든 후에 다이아몬드 투구를 쓰세요); a pronoun or an omitted object would read better.",
+  "Counts above 20 are printed as digits plus a counter (24장, 22개) instead of a native or Sino-Korean number; the batch kept every count at 20 or below.",
+  "ACQUIRE_ITEM prints 만드세요 for craftable items (하얀색 현수막, 끈) although any acquisition counts, and a CRAFT goal on the same item is a duplicate signature.",
+  "REACH_HEIGHT inside HOLD_WHILE printed \"높이 40 이하로 내려가세요\" in the clue (fixed in the ling-review pass: the unit 블록 is now printed for every descent) and 아래로 내려가요 in the hint (digits in the clue).",
+  "unknownOverOneShare counts every multi-word vanilla name as one unknown word, so a sentence with two new item names (철 문 옆에 돌 버튼을) is over the limit; the lesson is to anchor on a known word (문, 제작대) or to space the new words.",
+  "The duplicate-signature and verb-object-pair ratchets use the whole path: many natural steps (CRAFT paper, PLACE chest or barrel, DEFEAT enderman) are already taken, so a batch needs conditions (TIME, SKY, HOLDING, NEAR_BLOCK) or other objects to stay unique.",
+  "A TRADE count is checked against what the villager pays (selling) or hands over (buying), not what the clue says; the vanilla amounts per offer (24 paper, 20 wheat, 15 beetroot) can exceed the clue count."
+ ]
+}

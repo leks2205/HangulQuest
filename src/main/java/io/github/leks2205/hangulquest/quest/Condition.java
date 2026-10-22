@@ -52,6 +52,10 @@ public sealed interface Condition {
 	record InWater() implements Condition {
 	}
 
+	/** The player looks along a compass direction (NORTH, SOUTH, EAST, WEST), within 45 degrees of it. */
+	record Facing(String direction) implements Condition {
+	}
+
 	/**
 	 * The player stands in this relation to a block or an entity ("나무 아래에서"). {@code kind} says what
 	 * the anchor is ("block", "item" or "entity"); null when the file does not say, and the name then

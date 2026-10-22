@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 165,
  "concepts": [
-  "gen_polished_cinnabar",
-  "gen_gray_glazed_terracotta",
-  "gen_pink_shulker_box",
-  "gen_prismarine_brick_stairs"
+  "map",
+  "cartography_table",
+  "villager",
+  "book"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +23,91 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polished_cinnabar"
+    "map"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_cinnabar",
-    "count": 3
-   }
+    "type": "TRADE",
+    "item": "minecraft:map",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gray_glazed_terracotta"
+    "cartography_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_glazed_terracotta",
+    "type": "PLACE_REL",
+    "block": "minecraft:cartography_table",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_shulker_box"
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_shulker_box",
+    "type": "GIVE",
+    "item": "minecraft:map",
+    "entity": "minecraft:villager",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_prismarine_brick_stairs"
+    "book"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_brick_stairs",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:book",
+      "count": 1
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:book",
+      "container": "minecraft:barrel",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "프리즈머린 벽돌 계단을 만들었어요."
+  "textKo": "책을 만든 후에 통에 넣었어요. 통은 물건을 보관해요."
  },
  "reward": {
   "badge": "postpfad",
   "words": [
-   "paper",
+   "map",
    "cartography_table",
-   "chest",
-   "compass"
+   "villager"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege_source",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L2.ege",
+  "L3.eun_hue",
+  "L1.loc_an_e",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

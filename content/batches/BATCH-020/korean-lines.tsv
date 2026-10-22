@@ -1,0 +1,151 @@
+id	ko	context
+trail.adv_adventure_adventuring_time.title	여행의 시작	title, authored; 
+trail.adv_adventure_adventuring_time.s1.clue	랜턴을 만드세요.	clue, generated; CRAFT:minecraft:lantern:CRAFT
+trail.adv_adventure_adventuring_time.s1.hint	랜턴을 만들어요.	hint, generated; CRAFT:minecraft:lantern:CRAFT
+trail.adv_adventure_adventuring_time.s2.clue	지도를 들고 사막으로 가세요.	clue, generated; REACH_BIOME:minecraft:desert:GO|HOLDING:minecraft:map
+trail.adv_adventure_adventuring_time.s2.hint	지도를 들고 사막으로 가요.	hint, generated; REACH_BIOME:minecraft:desert:GO|HOLDING:minecraft:map
+trail.adv_adventure_adventuring_time.s3.clue	지도를 들고 선인장을 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:cactus:BREAK
+trail.adv_adventure_adventuring_time.s3.hint	지도를 들고 선인장을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:cactus:BREAK
+trail.adv_adventure_adventuring_time.finale.clue	정글로 간 후에 숲으로 가세요.	clue, generated; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
+trail.adv_adventure_adventuring_time.finale.hint	정글로 간 후에 숲으로 가요.	hint, generated; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
+trail.adv_adventure_adventuring_time.finale	정글로 간 후에 숲으로 갔어요.	finale, authored; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.title	도자기 만들기	title, authored; 
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s1.clue	점토를 네 개 모은 후에 벽돌을 네 개 구우세요.	clue, generated; SEQUENCE:ACQUIRE_ITEM:minecraft:clay_ball:COLLECT>SMELT:minecraft:brick:BAKE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s1.hint	점토를 모은 후에 벽돌을 구워요.	hint, generated; SEQUENCE:ACQUIRE_ITEM:minecraft:clay_ball:COLLECT>SMELT:minecraft:brick:BAKE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s2.clue	장식된 도자기를 만드세요.	clue, generated; CRAFT:minecraft:decorated_pot:CRAFT
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s2.hint	장식된 도자기를 만들어요.	hint, generated; CRAFT:minecraft:decorated_pot:CRAFT
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s3.clue	모래 위에 장식된 도자기를 놓으세요.	clue, generated; PLACE_REL:minecraft:decorated_pot:ON_TOP_OF:minecraft:sand:PLACE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.s3.hint	모래 위에 장식된 도자기를 놓아요.	hint, generated; PLACE_REL:minecraft:decorated_pot:ON_TOP_OF:minecraft:sand:PLACE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.finale.clue	장식된 도자기 두 개를 나란히 놓으세요.	clue, generated; BUILD_PATTERN:ROW/2:minecraft:decorated_pot:PLACE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.finale.hint	장식된 도자기를 나란히 놓아요.	hint, generated; BUILD_PATTERN:ROW/2:minecraft:decorated_pot:PLACE
+trail.adv_adventure_craft_decorated_pot_using_only_sherds.finale	장식된 도자기 두 개를 나란히 놓았어요. 벽돌로 도자기를 만들어요.	finale, authored; BUILD_PATTERN:ROW/2:minecraft:decorated_pot:PLACE
+trail.adv_adventure_play_jukebox_in_meadows.title	목초지의 음악	title, authored; 
+trail.adv_adventure_play_jukebox_in_meadows.s1.clue	목초지에서 주크박스를 놓으세요.	clue, generated; PLACE_BLOCK:minecraft:jukebox:PLACE|IN_BIOME:minecraft:meadow
+trail.adv_adventure_play_jukebox_in_meadows.s1.hint	목초지에서 주크박스를 놓아요.	hint, generated; PLACE_BLOCK:minecraft:jukebox:PLACE|IN_BIOME:minecraft:meadow
+trail.adv_adventure_play_jukebox_in_meadows.s2.clue	주크박스 옆에 소리 블록을 놓으세요.	clue, generated; PLACE_REL:minecraft:note_block:NEXT_TO:minecraft:jukebox:PLACE
+trail.adv_adventure_play_jukebox_in_meadows.s2.hint	주크박스 옆에 소리 블록을 놓아요.	hint, generated; PLACE_REL:minecraft:note_block:NEXT_TO:minecraft:jukebox:PLACE
+trail.adv_adventure_play_jukebox_in_meadows.s3.clue	소리 블록 옆에 선애기별꽃을 심으세요.	clue, generated; PLACE_REL:minecraft:azure_bluet:NEXT_TO:minecraft:note_block:PLANT
+trail.adv_adventure_play_jukebox_in_meadows.s3.hint	소리 블록 옆에 선애기별꽃을 심어요.	hint, generated; PLACE_REL:minecraft:azure_bluet:NEXT_TO:minecraft:note_block:PLANT
+trail.adv_adventure_play_jukebox_in_meadows.finale.clue	목초지에서 주크박스를 트세요.	clue, generated; USE_BLOCK:minecraft:jukebox:PLAY|IN_BIOME:minecraft:meadow
+trail.adv_adventure_play_jukebox_in_meadows.finale.hint	목초지에서 주크박스를 틀어요.	hint, generated; USE_BLOCK:minecraft:jukebox:PLAY|IN_BIOME:minecraft:meadow
+trail.adv_adventure_play_jukebox_in_meadows.finale	목초지에서 주크박스를 틀었어요. 주크박스는 음반으로 음악을 틀어요.	finale, authored; USE_BLOCK:minecraft:jukebox:PLAY|IN_BIOME:minecraft:meadow
+trail.adv_adventure_spyglass_at_dragon.title	산 위의 망원경	title, authored; 
+trail.adv_adventure_spyglass_at_dragon.s1.clue	망원경을 들고 높이 120블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:spyglass
+trail.adv_adventure_spyglass_at_dragon.s1.hint	망원경을 들고 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:spyglass
+trail.adv_adventure_spyglass_at_dragon.s2.clue	통나무 네 개로 기둥을 쌓으세요.	clue, generated; BUILD_PATTERN:PILLAR/4:minecraft:oak_log:STACK
+trail.adv_adventure_spyglass_at_dragon.s2.hint	통나무로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN:PILLAR/4:minecraft:oak_log:STACK
+trail.adv_adventure_spyglass_at_dragon.s3.clue	통나무 기둥 위에 피뢰침을 세우세요.	clue, generated; PLACE_ON_PATTERN:minecraft:lightning_rod:ON_TOP_OF:PILLAR/minecraft:oak_log:STAND
+trail.adv_adventure_spyglass_at_dragon.s3.hint	통나무 기둥 위에 피뢰침을 세워요.	hint, generated; PLACE_ON_PATTERN:minecraft:lightning_rod:ON_TOP_OF:PILLAR/minecraft:oak_log:STAND
+trail.adv_adventure_spyglass_at_dragon.finale.clue	산에서 망원경을 들고 토끼를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:rabbit:WATCH|HOLDING:minecraft:spyglass,IN_BIOME:#minecraft:is_mountain
+trail.adv_adventure_spyglass_at_dragon.finale.hint	산에서 망원경을 들고 토끼를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:rabbit:WATCH|HOLDING:minecraft:spyglass,IN_BIOME:#minecraft:is_mountain
+trail.adv_adventure_spyglass_at_dragon.finale	산에서 망원경을 들고 토끼를 바라봤어요. 토끼는 빨라요.	finale, authored; LOOK_AT_ENTITY:minecraft:rabbit:WATCH|HOLDING:minecraft:spyglass,IN_BIOME:#minecraft:is_mountain
+trail.adv_adventure_spyglass_at_ghast.title	네더의 망원경	title, authored; 
+trail.adv_adventure_spyglass_at_ghast.s1.clue	네더 황무지로 가기 전에 망원경을 만드세요.	clue, generated; SEQUENCE:CRAFT:minecraft:spyglass:CRAFT>REACH_BIOME:minecraft:nether_wastes:GO
+trail.adv_adventure_spyglass_at_ghast.s1.hint	네더 황무지로 가기 전에 망원경을 만들어요.	hint, generated; SEQUENCE:CRAFT:minecraft:spyglass:CRAFT>REACH_BIOME:minecraft:nether_wastes:GO
+trail.adv_adventure_spyglass_at_ghast.s2.clue	망원경을 들고 네더에서 걸으세요.	clue, generated; HOLD_WHILE:minecraft:spyglass:HOLD+IN_DIMENSION
+trail.adv_adventure_spyglass_at_ghast.s2.hint	망원경을 들고 네더에서 걸어요.	hint, generated; HOLD_WHILE:minecraft:spyglass:HOLD+IN_DIMENSION
+trail.adv_adventure_spyglass_at_ghast.s3.clue	네더에서 높이 70블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:hill|IN_DIMENSION:minecraft:the_nether
+trail.adv_adventure_spyglass_at_ghast.s3.hint	네더에서 언덕 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:hill|IN_DIMENSION:minecraft:the_nether
+trail.adv_adventure_spyglass_at_ghast.finale.clue	네더에서 망원경을 들고 가스트를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:ghast:WATCH|HOLDING:minecraft:spyglass,IN_DIMENSION:minecraft:the_nether
+trail.adv_adventure_spyglass_at_ghast.finale.hint	네더에서 망원경을 들고 가스트를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:ghast:WATCH|HOLDING:minecraft:spyglass,IN_DIMENSION:minecraft:the_nether
+trail.adv_adventure_spyglass_at_ghast.finale	네더에서 망원경을 들고 가스트를 바라봤어요. 가스트는 하늘을 날아요.	finale, authored; LOOK_AT_ENTITY:minecraft:ghast:WATCH|HOLDING:minecraft:spyglass,IN_DIMENSION:minecraft:the_nether
+trail.adv_adventure_trade_at_world_height.title	높은 곳의 시장	title, authored; 
+trail.adv_adventure_trade_at_world_height.s1.clue	에메랄드를 들고 높이 100블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:emerald
+trail.adv_adventure_trade_at_world_height.s1.hint	에메랄드를 들고 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:emerald
+trail.adv_adventure_trade_at_world_height.s2.clue	주민에게 실을 스무 개 파세요.	clue, generated; TRADE:minecraft:string:SELL
+trail.adv_adventure_trade_at_world_height.s2.hint	주민에게 실을 팔아요.	hint, generated; TRADE:minecraft:string:SELL
+trail.adv_adventure_trade_at_world_height.finale.clue	높이 90블록 위에서 주민에게서 사과를 네 개 사세요.	clue, generated; TRADE:minecraft:apple:BUY|Y_RANGE:90..320
+trail.adv_adventure_trade_at_world_height.finale.hint	높이 90블록 위에서 주민에게서 사과를 사요.	hint, generated; TRADE:minecraft:apple:BUY|Y_RANGE:90..320
+trail.adv_adventure_trade_at_world_height.finale	높이 90블록 위에서 주민에게서 사과를 샀어요. 높은 곳에서도 거래할 수 있어요.	finale, authored; TRADE:minecraft:apple:BUY|Y_RANGE:90..320
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.title	구리 장비	title, authored; 
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s1.clue	구리 도끼를 만드세요.	clue, generated; CRAFT:minecraft:copper_axe:CRAFT
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s1.hint	구리 도끼를 만들어요.	hint, generated; CRAFT:minecraft:copper_axe:CRAFT
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s2.clue	구리 투구를 만든 후에 구리 투구를 쓰세요.	clue, generated; SEQUENCE:CRAFT:minecraft:copper_helmet:CRAFT>EQUIP:minecraft:copper_helmet:WEAR_HEAD
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s2.hint	구리 투구를 만든 후에 구리 투구를 써요.	hint, generated; SEQUENCE:CRAFT:minecraft:copper_helmet:CRAFT>EQUIP:minecraft:copper_helmet:WEAR_HEAD
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale.clue	구리 곡괭이를 만든 후에 조약돌을 캐세요.	clue, generated; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale.hint	구리 곡괭이를 만든 후에 조약돌을 캐요.	hint, generated; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale	구리 곡괭이를 만든 후에 조약돌을 캤어요.	finale, authored; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.title	가죽 장화와 가루눈	title, authored; 
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s1.clue	소 근처에서 가죽을 세 개 모으세요.	clue, generated; ACQUIRE_ITEM:minecraft:leather:COLLECT|NEAR_ENTITY:minecraft:cow
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s1.hint	소 근처에서 가죽을 모아요.	hint, generated; ACQUIRE_ITEM:minecraft:leather:COLLECT|NEAR_ENTITY:minecraft:cow
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s2.clue	낮에 눈 덮인 비탈로 가세요.	clue, generated; REACH_BIOME:minecraft:snowy_slopes:GO|TIME:DAY
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s2.hint	낮에 눈 덮인 비탈로 가요.	hint, generated; REACH_BIOME:minecraft:snowy_slopes:GO|TIME:DAY
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s3.clue	가루눈을 일 초 동안 바라보세요.	clue, generated; LOOK_AT_BLOCK:minecraft:powder_snow:WATCH
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s3.hint	가루눈을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK:minecraft:powder_snow:WATCH
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.clue	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신으세요.	clue, generated; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.hint	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신어요.	hint, generated; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신었어요.	finale, authored; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
+trail.adv_adventure_who_needs_rockets.title	로켓 없이 뛰어내리기	title, authored; 
+trail.adv_adventure_who_needs_rockets.s1.clue	폭죽 로켓을 만든 후에 높이 100블록 위로 올라가세요.	clue, generated; SEQUENCE:CRAFT:minecraft:firework_rocket:CRAFT>REACH_HEIGHT::CLIMB:100+
+trail.adv_adventure_who_needs_rockets.s1.hint	폭죽 로켓을 만든 후에 산 위로 올라가요.	hint, generated; SEQUENCE:CRAFT:minecraft:firework_rocket:CRAFT>REACH_HEIGHT::CLIMB:100+
+trail.adv_adventure_who_needs_rockets.s2.clue	건초 더미 네 개로 기둥을 쌓으세요.	clue, generated; BUILD_PATTERN:PILLAR/4:minecraft:hay_block:STACK
+trail.adv_adventure_who_needs_rockets.s2.hint	건초 더미로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN:PILLAR/4:minecraft:hay_block:STACK
+trail.adv_adventure_who_needs_rockets.s3.clue	건초 더미 근처에서 흙을 파지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:dirt:DIG
+trail.adv_adventure_who_needs_rockets.s3.hint	건초 더미 근처에서 흙을 파지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:dirt:DIG
+trail.adv_adventure_who_needs_rockets.finale.clue	높은 곳에서 건초 더미 위로 뛰어내리세요.	clue, generated; FALL:minecraft:hay_block:JUMP_DOWN
+trail.adv_adventure_who_needs_rockets.finale.hint	높은 곳에서 건초 더미 위로 뛰어내려요.	hint, generated; FALL:minecraft:hay_block:JUMP_DOWN
+trail.adv_adventure_who_needs_rockets.finale	높은 곳에서 건초 더미 위로 뛰어내렸어요. 건초 더미는 부드러워요.	finale, authored; FALL:minecraft:hay_block:JUMP_DOWN
+trail.eiskrone.title	얼음 왕관	title, authored; 
+trail.eiskrone.s1.clue	낮에 여우를 일 초 동안 바라보세요.	clue, generated; LOOK_AT_ENTITY:minecraft:fox:WATCH|TIME:DAY
+trail.eiskrone.s1.hint	낮에 여우를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:fox:WATCH|TIME:DAY
+trail.eiskrone.s2.clue	눈 블록으로 피라미드를 쌓으세요.	clue, generated; BUILD_PATTERN:PYRAMID/3:minecraft:snow_block:STACK
+trail.eiskrone.s2.hint	눈 블록으로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN:PYRAMID/3:minecraft:snow_block:STACK
+trail.eiskrone.s3.clue	눈 블록을 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:snow_block:BREAK
+trail.eiskrone.s3.hint	눈 블록을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:snow_block:BREAK
+trail.eiskrone.s4.clue	눈 블록 피라미드 위에 금 블록을 놓으세요.	clue, generated; PLACE_ON_PATTERN:minecraft:gold_block:ON_TOP_OF:PYRAMID/minecraft:snow_block:PLACE
+trail.eiskrone.s4.hint	눈 블록 피라미드 위에 금 블록을 놓아요.	hint, generated; PLACE_ON_PATTERN:minecraft:gold_block:ON_TOP_OF:PYRAMID/minecraft:snow_block:PLACE
+trail.eiskrone.finale.clue	밤에 금 블록을 일 초 동안 바라보세요.	clue, generated; LOOK_AT_BLOCK:minecraft:gold_block:WATCH|TIME:NIGHT
+trail.eiskrone.finale.hint	밤에 금 블록을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK:minecraft:gold_block:WATCH|TIME:NIGHT
+trail.eiskrone.finale	밤에 금 블록을 바라봤어요. 금은 반짝여요.	finale, authored; LOOK_AT_BLOCK:minecraft:gold_block:WATCH|TIME:NIGHT
+trail.himmelswarte.title	하늘 관측소	title, authored; 
+trail.himmelswarte.s1.clue	밖에서 높이 110블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|SKY:OPEN
+trail.himmelswarte.s1.hint	밖에서 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|SKY:OPEN
+trail.himmelswarte.s2.clue	양털로 벽을 쌓으세요.	clue, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
+trail.himmelswarte.s2.hint	양털로 벽을 쌓아요.	hint, generated; BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK
+trail.himmelswarte.s3.clue	양털 벽 위에 바다 랜턴을 놓으세요.	clue, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
+trail.himmelswarte.s3.hint	양털 벽 위에 바다 랜턴을 놓아요.	hint, generated; PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE
+trail.himmelswarte.finale.clue	바다 랜턴 근처에서 밤까지 기다리세요.	clue, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
+trail.himmelswarte.finale.hint	바다 랜턴 근처에서 밤까지 기다려요.	hint, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
+trail.himmelswarte.finale	바다 랜턴 근처에서 밤까지 기다렸어요. 밤하늘에 달이 떠요.	finale, authored; WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern
+trail.observatorium.title	별 관측소	title, authored; 
+trail.observatorium.s1.clue	모래 네 개로 기둥을 쌓으세요.	clue, generated; BUILD_PATTERN:PILLAR/4:minecraft:sand:STACK
+trail.observatorium.s1.hint	모래로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN:PILLAR/4:minecraft:sand:STACK
+trail.observatorium.s2.clue	모래 기둥 위에 햇빛 감지기를 놓으세요.	clue, generated; PLACE_ON_PATTERN:minecraft:daylight_detector:ON_TOP_OF:PILLAR/minecraft:sand:PLACE
+trail.observatorium.s2.hint	모래 기둥 위에 햇빛 감지기를 놓아요.	hint, generated; PLACE_ON_PATTERN:minecraft:daylight_detector:ON_TOP_OF:PILLAR/minecraft:sand:PLACE
+trail.observatorium.s3.clue	밤에 횃불을 놓지 마세요.	clue, generated; AVOID:PLACE_BLOCK:minecraft:torch:PLACE
+trail.observatorium.s3.hint	밤에 횃불을 놓지 마세요.	hint, generated; AVOID:PLACE_BLOCK:minecraft:torch:PLACE
+trail.observatorium.finale.clue	나침반을 들고 밤에 걸으세요.	clue, generated; HOLD_WHILE:minecraft:compass:HOLD+TIME
+trail.observatorium.finale.hint	나침반을 들고 밤에 걸어요.	hint, generated; HOLD_WHILE:minecraft:compass:HOLD+TIME
+trail.observatorium.finale	나침반을 들고 밤에 걸었어요. 밤하늘에는 별이 많아요.	finale, authored; HOLD_WHILE:minecraft:compass:HOLD+TIME
+trail.polarlicht.title	북쪽의 얼음	title, authored; 
+trail.polarlicht.s1.clue	밤에 눈 덮인 평원으로 가세요.	clue, generated; REACH_BIOME:minecraft:snowy_plains:GO|TIME:NIGHT
+trail.polarlicht.s1.hint	밤에 눈 덮인 평원으로 가요.	hint, generated; REACH_BIOME:minecraft:snowy_plains:GO|TIME:NIGHT
+trail.polarlicht.s2.clue	밤에 얼음을 일 초 동안 바라보세요.	clue, generated; LOOK_AT_BLOCK:minecraft:ice:WATCH|TIME:NIGHT
+trail.polarlicht.s2.hint	밤에 얼음을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK:minecraft:ice:WATCH|TIME:NIGHT
+trail.polarlicht.s3.clue	눈 덮인 평원에서 얼음을 깨지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:ice:SHATTER
+trail.polarlicht.s3.hint	눈 덮인 평원에서 얼음을 깨지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:ice:SHATTER
+trail.polarlicht.s4.clue	얼음 위에 눈 블록을 놓으세요.	clue, generated; PLACE_REL:minecraft:snow_block:ON_TOP_OF:minecraft:ice:PLACE
+trail.polarlicht.s4.hint	얼음 위에 눈 블록을 놓아요.	hint, generated; PLACE_REL:minecraft:snow_block:ON_TOP_OF:minecraft:ice:PLACE
+trail.polarlicht.finale.clue	얼음 근처에서 밤까지 기다리세요.	clue, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:ice
+trail.polarlicht.finale.hint	얼음 근처에서 밤까지 기다려요.	hint, generated; WAIT::WAIT|NEAR_BLOCK:minecraft:ice
+trail.polarlicht.finale	얼음 근처에서 밤까지 기다렸어요. 얼음은 차가워요.	finale, authored; WAIT::WAIT|NEAR_BLOCK:minecraft:ice
+trail.weltreise.title	세계 여행의 길	title, authored; 
+trail.weltreise.s1.clue	저녁에 사바나로 가세요.	clue, generated; REACH_BIOME:minecraft:savanna:GO|TIME:DUSK
+trail.weltreise.s1.hint	저녁에 사바나로 가요.	hint, generated; REACH_BIOME:minecraft:savanna:GO|TIME:DUSK
+trail.weltreise.s2.clue	산으로 가기 전에 숲으로 가세요.	clue, generated; SEQUENCE:REACH_BIOME:minecraft:forest:GO>REACH_BIOME:#minecraft:is_mountain:GO
+trail.weltreise.s2.hint	산으로 가기 전에 숲으로 가요.	hint, generated; SEQUENCE:REACH_BIOME:minecraft:forest:GO>REACH_BIOME:#minecraft:is_mountain:GO
+trail.weltreise.s3.clue	바다의 물에서 20블록 수영하세요.	clue, generated; SWIM::SWIM|IN_BIOME:#minecraft:is_ocean
+trail.weltreise.s3.hint	바다 물에서 수영해요.	hint, generated; SWIM::SWIM|IN_BIOME:#minecraft:is_ocean
+trail.weltreise.finale.clue	참나무 보트를 들고 늪으로 가세요.	clue, generated; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
+trail.weltreise.finale.hint	참나무 보트를 들고 늪으로 가요.	hint, generated; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
+trail.weltreise.finale	참나무 보트를 들고 늪으로 갔어요.	finale, authored; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
+trail.wolkenstadt.title	구름 도시	title, authored; 
+trail.wolkenstadt.s1.clue	높이 100블록 위에서 양털로 피라미드를 쌓으세요.	clue, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320
+trail.wolkenstadt.s1.hint	높이 100블록 위에서 양털로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320
+trail.wolkenstadt.s2.clue	양털 피라미드 위에 엔드 막대기를 세우세요.	clue, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
+trail.wolkenstadt.s2.hint	양털 피라미드 위에 엔드 막대기를 세워요.	hint, generated; PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND
+trail.wolkenstadt.s3.clue	높이 100블록 위에서 양털을 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:white_wool:BREAK
+trail.wolkenstadt.s3.hint	높이 100블록 위에서 양털을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:white_wool:BREAK
+trail.wolkenstadt.finale.clue	양털을 들고 높이 150블록 위로 올라가세요.	clue, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:white_wool
+trail.wolkenstadt.finale.hint	양털을 들고 산 위로 올라가요.	hint, generated; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:white_wool
+trail.wolkenstadt.finale	양털을 들고 높이 150블록 위로 올라갔어요. 구름은 하늘에 있어요.	finale, authored; REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:white_wool

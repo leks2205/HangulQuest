@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 162,
  "concepts": [
-  "gen_gray_carpet",
-  "gen_polished_tuff",
-  "adv_item_crafter",
-  "gen_heavy_core"
+  "gen_beetroot",
+  "bookshelf",
+  "lectern",
+  "gen_emerald_block"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,59 +23,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_gray_carpet"
+    "gen_beetroot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_carpet",
-    "count": 6
-   }
+    "type": "TRADE",
+    "item": "minecraft:beetroot",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 15
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_tuff"
+    "bookshelf"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_tuff",
-    "count": 3
-   }
+    "type": "TRADE",
+    "item": "minecraft:bookshelf",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_crafter"
+    "lectern"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:crafter"
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:lectern",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:bell",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_heavy_core"
+    "gen_emerald_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:heavy_core",
-    "count": 2
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:emerald_block",
+      "count": 1
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:emerald_block",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "무거운 코어를 두 개 놓았어요."
+  "textKo": "에메랄드 블록을 만든 후에 놓았어요. 에메랄드 블록은 에메랄드 아홉 개로 만들어요."
  },
  "reward": {
   "badge": "handelsgilde",
   "words": [
-   "emerald",
-   "chest",
-   "bell",
-   "gold_block"
+   "gen_beetroot",
+   "bookshelf",
+   "lectern"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.ege_source",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.eun_hue",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

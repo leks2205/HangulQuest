@@ -265,7 +265,7 @@ class GeneratorFixesTest {
 		assertEquals("산 위로 올라가요.", clue(new Goal.ReachHeight(110, 320), "mountain"));
 		assertEquals("언덕 위로 올라갔어요.", ceremony(new Goal.ReachHeight(80, 320), "mountain"));
 		// numbers belong to the next level
-		assertEquals("높이 80블록 위로 올라가세요.", SentenceBuilder.normal(new Goal.ReachHeight(80, 320),
+		assertEquals("높이 팔십 블록 위로 올라가세요.", SentenceBuilder.normal(new Goal.ReachHeight(80, 320),
 				word("mountain"), List.of(), 2, false, NAMER).replace("올라가요", "올라가세요"));
 	}
 
@@ -372,7 +372,7 @@ class GeneratorFixesTest {
 	@Test
 	void buildingCountsItsMaterialWithTheRightCounter() {
 		Goal.BuildPattern row = new Goal.BuildPattern(Pattern.ROW, "minecraft:red_carpet", 3);
-		assertEquals("빨간색 양탄자 세 장을 나란히 놓아요.", SentenceBuilder.normal(row, null, List.of(), 1, false, NAMER));
+		assertEquals("빨간색 양탄자 세 장을 나란히 깔아요.", SentenceBuilder.normal(row, null, List.of(), 1, false, NAMER));
 		Goal.BuildPattern stoneRow = new Goal.BuildPattern(Pattern.ROW, "minecraft:stone", 3);
 		assertEquals("돌 세 개를 나란히 놓아요.", SentenceBuilder.normal(stoneRow, word("stone"), List.of(), 1, false, NAMER));
 	}

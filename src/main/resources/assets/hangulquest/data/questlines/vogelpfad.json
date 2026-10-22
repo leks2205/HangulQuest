@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 105,
  "concepts": [
-  "gen_magma_cube",
-  "feather",
-  "gen_wither_skeleton",
-  "gen_quartz_bricks"
+  "chicken",
+  "height",
+  "feather"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,63 +21,97 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magma_cube"
+    "chicken"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:magma_cube",
-    "dwellMs": 800
-   }
+    "entity": "minecraft:chicken",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "feather"
+    "chicken"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:feather",
-    "count": 3
+    "type": "BREED",
+    "entity": "minecraft:chicken",
+    "count": 1
    },
-   "hint": {
-    "ko": "깃털은 닭을 잡으면 얻어요."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:melon_seeds"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_wither_skeleton"
+    "height"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wither_skeleton",
-    "dwellMs": 800
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_quartz_bricks"
+    "feather"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:quartz_bricks",
-    "count": 2
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:egg",
+      "count": 3
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:feather",
+      "count": 3
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "석영 벽돌을 두 개 만들었어요."
+  "textKo": "달걀을 세 개 모은 후에 깃털을 세 개 모았어요. 닭은 알을 낳아요."
  },
  "reward": {
   "badge": "vogelpfad",
   "words": [
-   "parrot",
-   "feather",
    "chicken",
-   "egg"
+   "height"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L2.eseo_activity",
+  "L2.go_state",
+  "L3.eun_hue",
+  "L3.past"
+ ]
 }

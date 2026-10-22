@@ -60,7 +60,7 @@ inserted entries. Never edit a trail outside your list.
 ## Gates and handback
 
 As in BATCH-001, with `content/batches/BATCH-008/`. Run
-`/tmp/claude-1000/-home-lenni/79cfd1ae-df38-471c-aaed-b99a5d781be9/scratchpad/gates.sh` from your worktree; it must
+`tools/gates.sh` from your worktree; it must
 end with "ALL GATES GREEN". Run `gates.sh rebaseline` once your metrics are final. Run `git merge phase0` again right
 before the final gates. In the handback, report `formDependentShare.2` before and after, and give the share for your
 own steps.

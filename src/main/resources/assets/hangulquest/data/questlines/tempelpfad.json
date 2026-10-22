@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 106,
  "concepts": [
-  "gen_deep_lukewarm_ocean",
+  "desert",
   "sandstone",
-  "gen_stone_brick_wall",
-  "gen_allium"
+  "adv_item_tnt",
+  "gen_stone_pressure_plate"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,13 +23,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deep_lukewarm_ocean"
+    "desert"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:deep_lukewarm_ocean",
+    "biome": "minecraft:desert",
     "dwellMs": 1000
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -41,50 +47,63 @@
     "block": "minecraft:sandstone",
     "count": 4
    },
-   "hint": {
-    "ko": "사암은 곡괭이로 캐요."
-   }
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stone_brick_wall"
+    "adv_item_tnt"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_brick_wall",
-    "count": 3
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:tnt",
+     "count": 1
+    },
+    "windowSeconds": 30
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:desert"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_allium"
+    "gen_stone_pressure_plate"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:allium",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:stone_pressure_plate",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sandstone",
+    "count": 1
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 알리움을 두 송이 심었어요."
+  "textKo": "사암 위에 돌 압력판을 놓았어요. 사막 신전에는 함정이 있어요."
  },
  "reward": {
   "badge": "tempelpfad",
   "words": [
    "desert",
    "sandstone",
-   "chest",
-   "torch"
+   "adv_item_tnt"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L3.jima",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }
