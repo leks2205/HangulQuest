@@ -6,7 +6,14 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.11)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.12)
+
+**New in rc.12: the content rebuild is complete.**
+- **The last 11 trails:** level-6 small poems, ending the course with a quiet look back (밤이 지나면 해가 다시 뜨기
+  마련이에요).
+- **Every trail from level 1 to level 6 is now rebuilt** on the new curriculum. Each trail went through two blind
+  linguist reviews, and every step's Korean is generated from the very thing the quest checks.
+- The iron golem step now asks you to give it an iron ingot (the real repair), not to touch it.
 
 **New in rc.11: level 6, and the colour chain.**
 - **30 more trails:** the last journeys of the crown story, the five-trail colour chain (red, blue, yellow, purple,
