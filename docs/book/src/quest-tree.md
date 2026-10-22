@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1554** |
+| Steps (incl. finales) | **1555** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,36 +21,36 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 496 | place a block |
-| `ACQUIRE_ITEM` | 492 | collect an item |
-| `BREAK_BLOCK` | 86 | break a block |
-| `LOOK_AT_ENTITY` | 63 | look at a mob |
+| `PLACE_BLOCK` | 480 | place a block |
+| `ACQUIRE_ITEM` | 474 | collect an item |
+| `BREAK_BLOCK` | 88 | break a block |
+| `LOOK_AT_ENTITY` | 65 | look at a mob |
+| `USE_BLOCK` | 59 | use a block |
 | `REACH_BIOME` | 57 | reach a biome |
-| `USE_BLOCK` | 55 | use a block |
-| `LOOK_AT_BLOCK` | 49 | look at a block |
-| `CONSUME_ITEM` | 44 | eat or drink an item |
+| `CONSUME_ITEM` | 47 | eat or drink an item |
+| `LOOK_AT_BLOCK` | 46 | look at a block |
+| `CRAFT` | 44 |  |
+| `PLACE_REL` | 40 |  |
 | `DEFEAT_ENTITY` | 36 | defeat a mob |
-| `CRAFT` | 34 |  |
-| `PLACE_REL` | 33 |  |
 | `INTERACT_ENTITY` | 31 | interact with a mob |
-| `BUILD_PATTERN` | 20 |  |
-| `PLACE_ON_PATTERN` | 14 |  |
-| `GIVE` | 14 |  |
+| `BUILD_PATTERN` | 22 |  |
+| `PLACE_ON_PATTERN` | 17 |  |
+| `GIVE` | 16 |  |
+| `SMELT` | 9 |  |
 | `PUT_IN` | 9 |  |
 | `HOLD_WHILE` | 9 |  |
-| `SMELT` | 7 |  |
-| `REACH_HEIGHT` | 3 | reach an altitude |
+| `REACH_HEIGHT` | 4 | reach an altitude |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `SEQUENCE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 196 | a time of day |
-| `IN_BIOME` | 37 | a biome |
-| `PLAYER_REL` | 13 |  |
+| `TIME` | 218 | a time of day |
+| `IN_BIOME` | 41 | a biome |
+| `PLAYER_REL` | 15 |  |
 | `Y_RANGE` | 12 | an altitude band |
-| `HOLDING` | 7 |  |
-| `SKY` | 4 |  |
+| `HOLDING` | 11 |  |
+| `SKY` | 5 |  |
 | `WEATHER` | 3 | the weather |
 | `IN_DIMENSION` | 2 | a dimension |
 | `NEAR_ENTITY` | 1 | a mob nearby |
@@ -84,14 +84,14 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `muschelpfad` | 모래성의 길 | Die Sandburg | 4 | — |
 | `lighthouse_demo` | 등대 | Der Leuchtturm (Demo) | 5 | — |
 | `w1_01` | 첫 촛불 | Die erste Kerze | 4 | — |
-| `w1_02` | 무지개 유리 | Regenbogen aus Glas | 4 | — |
-| `w1_03` | 노란 꽃밭 | Das gelbe Blumenfeld | 4 | — |
-| `w1_04` | 달빛 산책 | Mondlicht-Spaziergang | 4 | — |
-| `w1_05` | 물 위의 빛 | Licht auf dem Wasser | 4 | — |
-| `w1_06` | 겨울 창가 | Am Winterfenster | 4 | — |
-| `w1_07` | 반짝이는 자수정 | Glitzernder Amethyst | 4 | — |
-| `w1_08` | 바다의 등불 | Das Licht des Meeres | 4 | — |
-| `w1_09` | 작은 발견 | Kleine Entdeckungen | 4 | — |
+| `w1_02` | 유리 속 햇살 | Sonnenlicht im Glas | 4 | — |
+| `w1_03` | 노란 꽃밭 | Das gelbe Blumenbeet | 4 | — |
+| `w1_04` | 달빛 산책 | Ein Spaziergang im Mondlicht | 4 | — |
+| `w1_05` | 물가의 불빛 | Licht am Wasser | 4 | — |
+| `w1_06` | 겨울 창가 | Ein Winterfenster | 4 | — |
+| `w1_07` | 나무 아래의 점심 | Mittagessen unter dem Baum | 4 | — |
+| `w1_08` | 작은 집의 아침 | Morgen im kleinen Haus | 4 | — |
+| `w1_09` | 작은 발견 | Eine kleine Entdeckung | 4 | — |
 | `w2_01` | 비 그친 하늘 | Der Himmel nach dem Regen | 4 | — |
 | `w2_02` | 첫눈 소리 | Der Klang des ersten Schnees | 4 | — |
 | `w2_03` | 해질녘 언덕 | Der Hügel im Abendlicht | 4 | — |
@@ -165,10 +165,10 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `dorfhaus` | 마을 집의 길 | Das Dorfhaus | 5 | `waldhaus`, `glasfenster`, `teppichpfad` |
 | `weidepfad` | 목장의 길 | Die Weide | 4 | `farmpfad`, `wollpfad` |
 | `brandung` | 파도의 길 | Die Brandung | 4 | `fischerpfad`, `flusslicht`, `froschteich`, `schildkroete` |
-| `nachtwache` | 별빛의 길 | Der Sternwachtpfad | 4 | `sternenpfad` |
-| `firstpfad` | 봉우리의 길 | Der Gratpfad | 4 | `gipfelpfad` |
-| `marktpfad` | 시장의 길 | Der Marktpfad | 4 | `handelspfad` |
-| `gipfelblick` | 정상의 전망 | Der Gipfelblick | 4 | `gipfelpfad`, `sternenpfad` |
+| `nachtwache` | 별빛의 길 | Die Nachtwache | 4 | `sternenpfad` |
+| `firstpfad` | 봉우리의 길 | Der Gipfelgrat | 4 | `gipfelpfad` |
+| `marktpfad` | 시장의 길 | Der Markt | 5 | `handelspfad` |
+| `gipfelblick` | 정상의 전망 | Der Blick vom Gipfel | 4 | `gipfelpfad`, `sternenpfad` |
 
 ### Level 4 · TOPIK 2 · 34 trails
 

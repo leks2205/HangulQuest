@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 322,
  "concepts": [
-  "gen_quartz_pillar",
-  "gen_exposed_copper",
-  "gen_pale_oak_slab",
-  "gen_cherry_leaves"
+  "log",
+  "planks",
+  "crafting_table",
+  "adv_item_wooden_pickaxe"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,34 +22,34 @@
   {
    "id": "s1",
    "teach": [
-    "gen_quartz_pillar"
+    "log"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:quartz_pillar",
-    "count": 4
+    "block": "minecraft:birch_log",
+    "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_copper"
+    "planks"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper",
+    "item": "minecraft:birch_planks",
     "count": 8
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pale_oak_slab"
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_slab",
-    "count": 4
+    "type": "CRAFT",
+    "item": "minecraft:crafting_table",
+    "count": 1
    }
   }
  ],
@@ -57,24 +57,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_leaves"
+    "adv_item_wooden_pickaxe"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_leaves",
+    "type": "CRAFT",
+    "item": "minecraft:wooden_pickaxe",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "벚나무 잎을 구했어요."
+  "textKo": "나무 곡괭이를 만들었어요."
  },
  "reward": {
   "badge": "adv_story_root",
   "words": [
    "log",
    "planks",
-   "stick",
-   "crafting_table"
+   "crafting_table",
+   "adv_item_wooden_pickaxe"
   ]
  },
  "koreanLevel": 1
