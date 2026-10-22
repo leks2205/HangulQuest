@@ -1,0 +1,484 @@
+{
+ "batch": "BATCH-030",
+ "brief": "content/briefs/BATCH-030.md",
+ "chapter": "the last small poems (level 6; every trail is level 6 by tree depth)",
+ "summary": {
+  "trails": 11,
+  "steps": 45,
+  "formDependentSteps": 27,
+  "formDependentShareOwn": 0.6
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w11_06",
+   "title": "용의 별자리",
+   "order": 1116,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "드래곤 머리를 놓았어요. 드래곤 머리는 엔드 도시의 배에 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:obsidian:MINE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 흑요석을 두 개 캐야 해요.",
+     "hintKo": "밤에 흑요석을 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:ender_dragon:WATCH|HOLDING:minecraft:bow",
+     "formDependent": false,
+     "clueKo": "활을 들고 엔더 드래곤을 일 초 동안 바라봐야 해요.",
+     "hintKo": "활을 들고 엔더 드래곤을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:LOOK_AT_ENTITY:minecraft:enderman:WATCH@WeatherState[weather=THUNDER]",
+     "formDependent": true,
+     "clueKo": "천둥이 쳐도 엔더맨을 일 초 동안 바라보지 마세요.",
+     "hintKo": "천둥이 칠 때 엔더맨을 일 초 동안 바라보지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:dragon_head:PLACE",
+     "formDependent": false,
+     "clueKo": "드래곤 머리를 놓아야 해요.",
+     "hintKo": "드래곤 머리를 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w11_07",
+   "title": "영원을 두른 왕관",
+   "order": 1117,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "새벽에 불사의 토템을 구했어요. 불사의 토템은 소환사가 떨어뜨려요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:gold_ingot:MELT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 금 원석을 녹여서 금 주괴를 네 개 만들어야 해요.",
+     "hintKo": "비가 올 때 화로에서 금 주괴를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:gold_block:CRAFT|HOLDING:minecraft:gold_ingot,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 금 주괴를 들고 금 블록을 만들어야 해요.",
+     "hintKo": "밤이 되면 금 주괴를 들고 금 블록을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:soul_lantern:CRAFT|HOLDING:minecraft:soul_torch",
+     "formDependent": false,
+     "clueKo": "영혼 횃불을 들고 영혼 랜턴을 만들어야 해요.",
+     "hintKo": "영혼 횃불을 들고 영혼 랜턴을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:totem_of_undying:OBTAIN|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 불사의 토템을 구해야 해요.",
+     "hintKo": "새벽에 불사의 토템을 구해요."
+    }
+   ]
+  },
+  {
+   "id": "w11_08",
+   "title": "우주의 노래",
+   "order": 1118,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "주크박스를 틀었어요. 주크박스는 음반을 재생해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:note_block:CRAFT|HOLDING:minecraft:redstone,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 레드스톤을 들고 소리 블록을 만들어야 해요.",
+     "hintKo": "밤에 레드스톤을 들고 소리 블록을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HEAR",
+     "signature": "HEAR:minecraft:jukebox:HEAR|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 주크박스 근처에서 노래를 들어야 해요.",
+     "hintKo": "비가 올 때 주크박스 근처에서 노래를 들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:note_block:BREAK@WeatherState[weather=THUNDER]",
+     "formDependent": true,
+     "clueKo": "천둥이 쳐도 소리 블록을 부수지 마세요.",
+     "hintKo": "천둥이 칠 때 소리 블록을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:jukebox:PLAY",
+     "formDependent": false,
+     "clueKo": "주크박스를 틀어야 해요.",
+     "hintKo": "주크박스를 틀어요."
+    }
+   ]
+  },
+  {
+   "id": "w12_01",
+   "title": "시간의 지도",
+   "order": 1121,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "높은 곳으로 올라갔어요. 높이 올라갈수록 추워져요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:NORTH:GO|HOLDING:minecraft:compass,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 나침반을 들고 북쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "낮에 나침반을 들고 북쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:map:BUY|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 주민에게서 지도를 사야 해요.",
+     "hintKo": "맑을 때 주민에게서 지도를 사요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:cartography_table:OPERATE|HOLDING:minecraft:map,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 지도를 들고 지도 제작대를 사용해야 해요.",
+     "hintKo": "밤에 지도를 들고 지도 제작대를 사용해요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:90",
+     "formDependent": false,
+     "clueKo": "높이 구십 블록 이상으로 올라가야 해요.",
+     "hintKo": "언덕 위로 올라가요."
+    }
+   ]
+  },
+  {
+   "id": "w12_02",
+   "title": "밤의 신화",
+   "order": 1122,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "영혼 횃불을 세 개 놓았어요. 영혼 횃불의 불은 파란색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:carved_pumpkin:OBTAIN|HOLDING:minecraft:shears,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 가위를 들고 조각된 호박을 구해야 해요.",
+     "hintKo": "밤에 가위를 들고 조각된 호박을 구해요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT:10:until DAY:WAIT|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 낮까지 기다려야 해요.",
+     "hintKo": "동쪽을 보고 낮까지 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "HEAR",
+     "signature": "HEAR:minecraft:bell:HEAR|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 종소리를 들어야 해요.",
+     "hintKo": "맑을 때 종소리를 들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:soul_torch:PLACE",
+     "formDependent": false,
+     "clueKo": "영혼 횃불을 세 개 놓아야 해요.",
+     "hintKo": "영혼 횃불을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w12_03",
+   "title": "잊힌 신전",
+   "order": 1123,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 신호기를 바라봤어요. 신호기는 하늘로 빛을 쏘아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:cracked_stone_bricks:STACK",
+     "formDependent": false,
+     "clueKo": "금 간 석재 벽돌로 피라미드를 쌓아야 해요.",
+     "hintKo": "금 간 석재 벽돌로 피라미드를 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:chiseled_stone_bricks:ON_TOP_OF:PYRAMID/minecraft:cracked_stone_bricks:PLACE",
+     "formDependent": true,
+     "clueKo": "금 간 석재 벽돌 피라미드 위에 조각된 석재 벽돌을 놓아야 해요.",
+     "hintKo": "금 간 석재 벽돌 피라미드 위에 조각된 석재 벽돌을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:lectern:OPERATE|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 독서대를 사용해야 해요.",
+     "hintKo": "비가 올 때 독서대를 사용해요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:beacon:WATCH|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 신호기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "밤에 신호기를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w12_04",
+   "title": "지옥의 문",
+   "order": 1124,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "마그마 블록을 두 개 쌓았어요. 마그마 블록은 네더에서 찾을 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:fire:KINDLE|HOLDING:minecraft:flint_and_steel",
+     "formDependent": false,
+     "clueKo": "부싯돌과 부시를 들고 불을 피워야 해요.",
+     "hintKo": "부싯돌과 부시를 들고 불을 피워요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_pickaxe:HOLD+BREAK_BLOCK:minecraft:netherrack:MINE|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": true,
+     "clueKo": "네더에서 철 곡괭이를 들고 있는 동안 네더랙을 여섯 개 캐야 해요.",
+     "hintKo": "네더에서 철 곡괭이를 들고 네더랙을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:bow:minecraft:ghast:HIT|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 활로 가스트를 맞혀야 해요.",
+     "hintKo": "네더에서 활로 가스트를 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:magma_block:STACK",
+     "formDependent": false,
+     "clueKo": "마그마 블록을 두 개 쌓아야 해요.",
+     "hintKo": "마그마 블록을 쌓아요."
+    }
+   ]
+  },
+  {
+   "id": "w12_05",
+   "title": "영혼의 문",
+   "order": 1125,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔더의 눈을 들고 엔더 상자를 바라봤어요. 엔더 상자의 물건은 다른 엔더 상자에서도 꺼낼 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:soul_sand:PLACE|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치면 영혼 모래를 네 개 놓아야 해요.",
+     "hintKo": "천둥이 칠 때 영혼 모래를 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:soul_lantern:WATCH|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 영혼 랜턴을 일 초 동안 바라봐야 해요.",
+     "hintKo": "비가 올 때 영혼 랜턴을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:diamond_sword:HOLD+DEFEAT_ENTITY:minecraft:enderman:DEFEAT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 다이아몬드 검을 들고 있는 동안 엔더맨을 한 마리 물리쳐야 해요.",
+     "hintKo": "밤에 다이아몬드 검을 들고 엔더맨을 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:ender_chest:WATCH|HOLDING:minecraft:ender_eye",
+     "formDependent": false,
+     "clueKo": "엔더의 눈을 들고 엔더 상자를 일 초 동안 바라봐야 해요.",
+     "hintKo": "엔더의 눈을 들고 엔더 상자를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w12_06",
+   "title": "끝의 노래",
+   "order": 1126,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드에서 드래곤 알을 놓았어요. 드래곤 알은 엔더 드래곤을 처음 물리치면 나타나요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ender_pearl:COLLECT|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 엔더 진주를 일곱 개 모아야 해요.",
+     "hintKo": "저녁에 엔더 진주를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:ender_pearl:HOLD+LOOK_AT_ENTITY:minecraft:ender_dragon:WATCH",
+     "formDependent": true,
+     "clueKo": "엔더 진주를 들고 있는 동안 엔더 드래곤을 바라봐야 해요.",
+     "hintKo": "엔더 진주를 들고 엔더 드래곤을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:nether_star:OBTAIN",
+     "formDependent": false,
+     "clueKo": "네더의 별을 구해야 해요.",
+     "hintKo": "네더의 별을 구해요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:dragon_egg:PLACE|IN_DIMENSION:minecraft:the_end",
+     "formDependent": false,
+     "clueKo": "엔드에서 드래곤 알을 놓아야 해요.",
+     "hintKo": "엔드에서 드래곤 알을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w12_07",
+   "title": "전설의 대장간",
+   "order": 1127,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "부싯돌을 세 개 모았어요. 부싯돌은 자갈에서 나와요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:iron_block:COLLECT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 철 블록을 세 개 모아야 해요.",
+     "hintKo": "낮에 철 블록을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:anvil:CRAFT|HOLDING:minecraft:iron_block",
+     "formDependent": false,
+     "clueKo": "철 블록을 들고 모루를 만들어야 해요.",
+     "hintKo": "철 블록을 들고 모루를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:anvil:OPERATE|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치면 모루를 사용해야 해요.",
+     "hintKo": "천둥이 칠 때 모루를 사용해요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:flint:COLLECT",
+     "formDependent": false,
+     "clueKo": "부싯돌을 세 개 모아야 해요.",
+     "hintKo": "부싯돌을 모아요."
+    }
+   ]
+  },
+  {
+   "id": "w12_08",
+   "title": "세계의 왕관",
+   "order": 1128,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "하늘이 보이는 곳에서 낮까지 기다렸어요. 밤이 지나면 해가 다시 뜨기 마련이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:grass_block:WATCH|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 잔디를 일 초 동안 바라봐야 해요.",
+     "hintKo": "낮에 잔디를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "INTERACT_ENTITY",
+     "signature": "INTERACT_ENTITY:minecraft:iron_golem:TOUCH|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 철 골렘을 만져야 해요.",
+     "hintKo": "새벽에 철 골렘을 만져요."
+    },
+    {
+     "id": "s3",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:diamond_helmet:WEAR_HEAD|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 다이아몬드 투구를 써야 해요.",
+     "hintKo": "맑을 때 다이아몬드 투구를 써요."
+    },
+    {
+     "id": "s4",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:h100|HOLDING:minecraft:compass",
+     "formDependent": false,
+     "clueKo": "나침반을 들고 높이 백 블록 이상으로 올라가야 해요.",
+     "hintKo": "나침반을 들고 산 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT:10:until DAY:WAIT|SKY:OPEN",
+     "formDependent": false,
+     "clueKo": "하늘이 보이는 곳에서 낮까지 기다려야 해요.",
+     "hintKo": "밖에서 낮까지 기다려요."
+    }
+   ]
+  }
+ ]
+}

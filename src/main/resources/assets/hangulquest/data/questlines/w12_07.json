@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1127,
  "concepts": [
-  "flint",
-  "gen_lime_wool",
-  "gen_smooth_stone_slab",
-  "gen_end_rod"
+  "iron_block",
+  "anvil",
+  "flint"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,68 +21,77 @@
   {
    "id": "s1",
    "teach": [
-    "flint"
+    "iron_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flint",
-    "count": 4
+    "item": "minecraft:iron_block",
+    "count": 3
    },
-   "hint": {
-    "ko": "부싯돌은 자갈을 파면 가끔 나와요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_wool"
+    "anvil"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_wool",
-    "count": 6
-   }
+    "type": "CRAFT",
+    "item": "minecraft:anvil",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_block"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_smooth_stone_slab"
+    "anvil"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_stone_slab",
-    "count": 2
-   }
+    "type": "USE_BLOCK",
+    "block": "minecraft:anvil"
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_end_rod"
+    "flint"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:end_rod",
-    "count": 1
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:flint",
+    "count": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 엔드 막대기를 세웠어요."
+  "textKo": "부싯돌을 세 개 모았어요. 부싯돌은 자갈에서 나와요."
  },
  "reward": {
   "badge": "w12_07",
   "words": [
-   "flint",
-   "amethyst_shard",
    "iron_block",
-   "anvil"
+   "anvil",
+   "flint"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

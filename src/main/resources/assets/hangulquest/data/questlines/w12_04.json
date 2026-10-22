@@ -6,10 +6,12 @@
  "tier": 2,
  "order": 1124,
  "concepts": [
-  "gen_white_wool_slab",
-  "gen_polished_diorite_slab",
+  "fire",
+  "pickaxe",
+  "netherrack",
+  "bow",
   "ghast",
-  "gen_cyan_wool"
+  "magma"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,50 +24,34 @@
   {
    "id": "s1",
    "teach": [
-    "gen_white_wool_slab"
+    "fire"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool_slab",
+    "block": "minecraft:fire",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:flint_and_steel"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_diorite_slab"
+    "pickaxe",
+    "netherrack"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:polished_diorite_slab",
-    "count": 8
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "ghast"
-   ],
-   "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ghast",
-    "count": 1
-   },
-   "hint": {
-    "ko": "가스트는 화살로 물리치고 눈물을 모아요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_cyan_wool"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_wool",
-    "count": 8
+    "type": "HOLD_WHILE",
+    "item": "minecraft:iron_pickaxe",
+    "inner": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:netherrack",
+     "count": 6
+    }
    },
    "conditions": [
     {
@@ -74,16 +60,50 @@
     }
    ]
   },
-  "textKo": "네더에서 청록색 양털을 여덟 개 쌓았어요."
+  {
+   "id": "s3",
+   "teach": [
+    "bow",
+    "ghast"
+   ],
+   "goal": {
+    "type": "SHOOT",
+    "weapon": "minecraft:bow",
+    "entity": "minecraft:ghast",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "magma"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:magma_block",
+    "count": 2
+   },
+   "conditions": []
+  },
+  "textKo": "마그마 블록을 두 개 쌓았어요. 마그마 블록은 네더에서 찾을 수 있어요."
  },
  "reward": {
   "badge": "w12_04",
   "words": [
-   "nether",
+   "fire",
+   "pickaxe",
    "netherrack",
-   "ghast",
-   "magma"
+   "bow"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

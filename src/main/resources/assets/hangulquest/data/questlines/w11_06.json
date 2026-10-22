@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 1116,
  "concepts": [
-  "gen_horn_coral",
-  "gen_raw_copper",
-  "gen_poisonous_potato",
+  "obsidian",
+  "ender_dragon",
+  "enderman",
   "adv_item_dragon_head"
  ],
  "requires": {
@@ -22,35 +22,56 @@
   {
    "id": "s1",
    "teach": [
-    "gen_horn_coral"
+    "obsidian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:horn_coral",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
     "count": 2
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_raw_copper"
+    "ender_dragon"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:raw_copper",
-    "count": 1
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_poisonous_potato"
+    "enderman"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poisonous_potato",
-    "count": 3
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:enderman",
+     "dwellMs": 1000
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -64,21 +85,19 @@
     "block": "minecraft:dragon_head",
     "count": 1
    },
-   "hint": {
-    "ko": "드래곤 머리는 엔드 배의 앞머리에 있어요."
-   },
    "conditions": []
   },
-  "textKo": "용의 별자리를 하늘에 세워요."
+  "textKo": "드래곤 머리를 놓았어요. 드래곤 머리는 엔드 도시의 배에 있어요."
  },
  "reward": {
   "badge": "w11_06",
   "words": [
+   "obsidian",
    "ender_dragon",
-   "dragon_egg",
-   "adv_item_dragon_breath",
+   "enderman",
    "adv_item_dragon_head"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

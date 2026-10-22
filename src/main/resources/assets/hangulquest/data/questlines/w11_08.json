@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1118,
  "concepts": [
-  "gen_purpur_stairs",
-  "gen_blue_wool",
-  "gen_brick_wall",
-  "gen_cyan_harness"
+  "note_block",
+  "hear",
+  "jukebox"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,60 +21,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purpur_stairs"
+    "note_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purpur_stairs",
+    "type": "CRAFT",
+    "item": "minecraft:note_block",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:redstone"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_wool"
+    "hear",
+    "jukebox"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_wool",
-    "count": 4
-   }
+    "type": "HEAR",
+    "source": "minecraft:jukebox",
+    "radius": 8,
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_brick_wall"
+    "note_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brick_wall",
-    "count": 2
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:note_block",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_harness"
+    "jukebox"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_harness",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:jukebox"
    },
    "conditions": []
   },
-  "textKo": "청록색 하네스를 두 개 만들었어요."
+  "textKo": "주크박스를 틀었어요. 주크박스는 음반을 재생해요."
  },
  "reward": {
   "badge": "w11_08",
   "words": [
-   "creation",
    "note_block",
-   "jukebox",
-   "adv_item_shulker_shell"
+   "hear",
+   "jukebox"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
