@@ -361,7 +361,6 @@ class GeneratorWaveThreeTest {
 			assertTrue(stems.contains("달") || type.equals("PLACE_BLOCK") || type.equals("PLACE_REL")
 					|| type.equals("PLACE_ON_PATTERN"), type);
 			assertTrue(stems.contains("달"), type + " hangs doors, so 달 names the action: " + stems);
-			assertTrue(stems.contains("켜"), type + " switches candles on: " + stems);
 		}
 	}
 
@@ -369,12 +368,14 @@ class GeneratorWaveThreeTest {
 
 	@Test
 	void b17_aCandleIsSwitchedOnAndACampfireKeepsItsVerb() {
-		assertEquals("초를 켜요.", clue(new Goal.PlaceBlock("minecraft:candle", 1), "candle"));
-		assertEquals("초를 켰어요.", ceremony(new Goal.PlaceBlock("minecraft:red_candle", 1), "candle"));
-		assertEquals(Verb.SWITCH_ON, SentenceBuilder.verbFor(new Goal.PlaceBlock("minecraft:blue_candle", 1)));
+		// Lighting a candle is a use of the block (켜다); placing one only stands it up (세우다), because a
+		// placing goal never checks the flame.
+		assertEquals("초를 켜요.", clue(new Goal.UseBlock("minecraft:candle"), "candle"));
+		assertEquals(Verb.SWITCH_ON, SentenceBuilder.verbFor(new Goal.UseBlock("minecraft:blue_candle")));
+		assertEquals("초를 세워요.", clue(new Goal.PlaceBlock("minecraft:candle", 1), "candle"));
+		assertEquals("초를 세웠어요.", ceremony(new Goal.PlaceBlock("minecraft:red_candle", 1), "candle"));
 		assertEquals("초 옆에 횃불을 놓아요.", clue(new Goal.PlaceRel(TORCH, Relation.NEXT_TO, "minecraft:candle", 1), "candle"));
-		assertEquals("횃불 옆에 초를 켜요.", clue(new Goal.PlaceRel("minecraft:candle", Relation.NEXT_TO, TORCH, 1), "torch")
-				.replace("초를 켜요", "초를 켜요"));
+		assertEquals("횃불 옆에 초를 놓아요.", clue(new Goal.PlaceRel("minecraft:candle", Relation.NEXT_TO, TORCH, 1), "torch"));
 		assertEquals("모닥불을 피워요.", clue(new Goal.PlaceBlock("minecraft:soul_campfire", 1), "campfire"));
 	}
 

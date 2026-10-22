@@ -59,7 +59,6 @@
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
-   {"family": "candles", "verb": "SWITCH_ON"},
    {"family": "standing", "verb": "STAND"},
    {"family": "attachables", "verb": "HANG_DOOR"},
    {"family": "campfires", "verb": "KINDLE"},
@@ -81,6 +80,7 @@
    {"verb": "EAT"}
   ],
   "USE_BLOCK": [
+   {"family": "candles", "verb": "SWITCH_ON"},
    {"family": "bells", "verb": "RING"},
    {"family": "notes", "verb": "STRIKE"},
    {"family": "beds", "verb": "SLEEP"},
@@ -103,7 +103,6 @@
   "REACH_BIOME": [{"family": "cave_biomes", "verb": "ENTER"}, {"verb": "GO"}],
   "REACH_DIMENSION": [{"verb": "GO"}],
   "PLACE_REL": [
-   {"family": "candles", "verb": "SWITCH_ON"},
    {"family": "campfires", "verb": "KINDLE"},
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
@@ -112,7 +111,6 @@
    {"verb": "PLACE"}
   ],
   "PLACE_ON_PATTERN": [
-   {"family": "candles", "verb": "SWITCH_ON"},
    {"family": "campfires", "verb": "KINDLE"},
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
