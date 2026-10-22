@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_revaulting",
- "titleKo": "불길에 뛰어드는 나",
+ "titleKo": "사냥꾼의 저녁",
  "topic": "adventure",
  "tier": 2,
  "order": 222,
  "concepts": [
-  "gen_elder_guardian",
-  "adv_item_trial_key",
-  "adv_item_ominous_trial_key"
+  "cow",
+  "beef",
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +21,100 @@
   {
    "id": "s1",
    "teach": [
-    "gen_elder_guardian"
+    "cow"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:elder_guardian",
-    "count": 3
-   }
+    "entity": "minecraft:cow",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_sword"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_trial_key"
+    "beef"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:trial_key",
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "SMELT",
+      "output": "minecraft:cooked_beef",
+      "count": 2
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:cooked_beef",
+      "container": "minecraft:chest",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "campfire"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:campfire",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ominous_trial_key"
+    "beef"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ominous_trial_key",
+    "type": "TAKE_OUT",
+    "item": "minecraft:cooked_beef",
+    "container": "minecraft:chest",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "나쁜 징조 효과가 있을 때 불길한 시련 생성기를 이기면 열쇠가 나와요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "불길에 뛰어드는 나 — 불길한 금고를 열어요."
+  "textKo": "밤에 상자에서 소고기를 꺼냈어요. 모닥불 옆에서 먹을 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_revaulting",
   "words": [
-   "skeleton",
-   "adv_item_trial_key",
-   "adv_item_ominous_trial_key"
+   "cow",
+   "beef",
+   "campfire"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L3.eun_hue",
+  "L1.loc.an",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L2.eseo_activity",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

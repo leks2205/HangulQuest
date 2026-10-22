@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_blowback",
- "titleKo": "역풍",
+ "titleKo": "방패로 막기",
  "topic": "adventure",
  "tier": 2,
  "order": 203,
  "concepts": [
-  "gen_red_wool",
-  "adv_item_wind_charge"
+  "shield",
+  "door",
+  "skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,46 +21,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_wool"
+    "shield"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_wool",
-    "count": 1
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:shield",
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:forest"
+    },
+    "seconds": 10
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_wind_charge"
+    "door"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wind_charge",
-    "count": 2
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:oak_door",
+     "change": "OPEN"
+    },
+    "windowSeconds": 15,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_wind_charge"
+    "skeleton"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:wind_charge",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "WAIT",
+      "seconds": 5,
+      "until": "NIGHT"
+     },
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:skeleton",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shield"
+    }
+   ]
   },
-  "textKo": "역풍 — 돌풍구를 되받아쳐 바람 정령을 날려 버렸어요."
+  "textKo": "방패를 들고 밤을 기다린 후에 스켈레톤을 바라봤어요. 방패가 화살을 막아요."
  },
  "reward": {
   "badge": "adv_adventure_blowback",
   "words": [
-   "adv_item_wind_charge"
+   "shield",
+   "door",
+   "skeleton"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.go_state",
+  "L2.seyo",
+  "L3.jima",
+  "L1.eul_reul",
+  "L3.eun_hue",
+  "L2.num_sino",
+  "L3.past"
+ ]
 }
