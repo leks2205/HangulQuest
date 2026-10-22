@@ -266,7 +266,7 @@ class ContentTextTest {
 		assertEquals(english().get(id + ".step.s2.clue"), trail.steps().get(1).clue(SPANISH));
 		assertEquals(english().get(id + ".finale"), trail.finale(SPANISH));
 		// A language the mod has no file for is English, too.
-		assertEquals(english().get(id + ".title"), trail.title(Lang.of("fr_fr")));
+		assertEquals(english().get(id + ".title"), trail.title(Lang.of("la_la")));
 	}
 
 	@Test
@@ -278,7 +278,7 @@ class ContentTextTest {
 		assertEquals(stone.de, stone.toWord().gloss(Lang.DE));
 		assertEquals("piedra", stone.toWord().gloss(SPANISH));
 		assertEquals("piedra", stone.toWord().glossFull(SPANISH));
-		assertEquals(stone.en, stone.toWord().gloss(Lang.of("fr_fr")));
+		assertEquals(stone.en, stone.toWord().gloss(Lang.of("la_la")));
 		Concept dirt = ConceptLoader.load().stream().filter(c -> c.id.equals("dirt")).findFirst().orElseThrow();
 		assertEquals(dirt.en, dirt.toWord().gloss(SPANISH));
 	}
