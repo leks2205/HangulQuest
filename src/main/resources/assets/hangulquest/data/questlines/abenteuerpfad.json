@@ -2,12 +2,15 @@
  "schema": 1,
  "id": "abenteuerpfad",
  "titleKo": "모험의 길",
+ "topic": "돌",
  "tier": 3,
+ "order": 210,
  "concepts": [
-  "gen_music_disc_creator_music_box",
-  "obsidian",
-  "desert",
-  "gen_weathered_copper_lantern"
+  "compass",
+  "mountain",
+  "planks",
+  "sign",
+  "lie_down"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -21,34 +24,67 @@
   {
    "id": "s1",
    "teach": [
-    "gen_music_disc_creator_music_box"
+    "compass"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:music_disc_creator_music_box",
+    "type": "CRAFT",
+    "item": "minecraft:compass",
     "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "obsidian"
+    "compass",
+    "mountain"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:obsidian",
-    "count": 1
+    "type": "HOLD_WHILE",
+    "item": "minecraft:compass",
+    "inner": {
+     "type": "REACH_BIOME",
+     "biome": "#minecraft:is_mountain",
+     "dwellMs": 1000
+    }
    }
   },
   {
    "id": "s3",
    "teach": [
-    "desert"
+    "planks"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:desert",
-    "dwellMs": 1000
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks"
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "sign",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:dark_oak_sign",
+    "relation": "ON_TOP_OF",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks"
    }
   }
  ],
@@ -56,12 +92,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_copper_lantern"
+    "lie_down"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_lantern",
-    "count": 1
+    "type": "LIE_DOWN",
+    "block": "minecraft:red_bed",
+    "dwellMs": 3000
    },
    "conditions": [
     {
@@ -70,18 +106,21 @@
     }
    ]
   },
-  "textKo": "밤에 녹슨 구리 랜턴을 놓았어요."
+  "textKo": "밤에 침대에 누웠어요. 밖은 어두워요. 담 안은 따뜻해요."
  },
  "reward": {
   "badge": "abenteuerpfad",
   "words": [
-   "diamond",
-   "obsidian",
-   "desert",
-   "torch"
+   "compass",
+   "mountain",
+   "planks"
   ]
  },
- "order": 210,
  "koreanLevel": 2,
- "topic": "돌"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.go_held",
+  "L2.euro_material"
+ ]
 }

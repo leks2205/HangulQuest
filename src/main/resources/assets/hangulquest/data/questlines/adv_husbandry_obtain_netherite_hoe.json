@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_husbandry_obtain_netherite_hoe",
- "titleKo": "도를 넘은 전념",
+ "titleKo": "괭이의 길",
  "topic": "husbandry",
  "tier": 2,
  "order": 269,
  "concepts": [
-  "adv_item_ancient_debris",
-  "gold",
-  "adv_item_netherite_hoe"
+  "hoe",
+  "dirt",
+  "fence",
+  "carved_pumpkin"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,29 +22,46 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_ancient_debris"
+    "hoe"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ancient_debris",
-    "count": 2
-   },
-   "hint": {
-    "ko": "고대 잔해는 다이아몬드 곡괭이로 캐요."
+    "type": "CRAFT",
+    "item": "minecraft:stone_hoe",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gold"
+    "dirt"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_ingot",
-    "count": 4
-   },
-   "hint": {
-    "ko": "금 원석은 철 곡괭이로 캐고 화로에 구워요."
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:dirt"
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:wheat_seeds",
+      "count": 4
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_fence",
+    "size": 3
    }
   }
  ],
@@ -51,27 +69,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_netherite_hoe"
+    "carved_pumpkin",
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_hoe",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carved_pumpkin",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_fence"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "네더라이트 괭이는 대장장이 형판과 네더라이트 주괴로 만들어요."
-   }
+   "conditions": []
   },
-  "textKo": "도를 넘은 전념 — 네더라이트 괭이를 손에 넣어요."
+  "textKo": "울타리 안에 조각된 호박을 놓았어요."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_netherite_hoe",
   "words": [
-   "adv_item_ancient_debris",
-   "gold",
-   "adv_item_netherite_hoe"
+   "hoe",
+   "dirt",
+   "fence"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_sequence"
+ ]
 }

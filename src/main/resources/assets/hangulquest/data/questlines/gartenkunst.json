@@ -6,10 +6,9 @@
  "tier": 3,
  "order": 161,
  "concepts": [
-  "gen_acacia_sapling",
-  "gen_lime_bed",
-  "gen_spruce_sapling",
-  "gen_oxidized_copper_bulb"
+  "dirt",
+  "gen_red_tulip",
+  "gravel"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +22,52 @@
   {
    "id": "s1",
    "teach": [
-    "gen_acacia_sapling"
+    "dirt"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_sapling",
-    "count": 6
+    "type": "BUILD_PATTERN",
+    "pattern": "CROSS",
+    "material": "minecraft:dirt",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_bed"
+    "gen_red_tulip",
+    "dirt"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_bed",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_tulip",
+    "relation": "ON_TOP_OF",
+    "pattern": "CROSS",
+    "material": "minecraft:dirt"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_sapling"
+    "dirt"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_sapling",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:dirt",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "dirt"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:orange_tulip",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:dirt"
    }
   }
  ],
@@ -58,25 +75,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oxidized_copper_bulb"
+    "gravel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_bulb",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:gravel",
+    "relation": "BETWEEN",
+    "anchor": "#minecraft:flowers",
+    "count": 1,
+    "anchor2": "#minecraft:fences"
    },
    "conditions": []
   },
-  "textKo": "산화된 구리 전구를 두 개 놓았어요."
+  "textKo": "꽃과 울타리 사이에 자갈을 놓았어요."
  },
  "reward": {
   "badge": "gartenkunst",
   "words": [
-   "leaves",
-   "flower_pot",
-   "flower",
-   "lantern"
+   "dirt",
+   "gen_red_tulip",
+   "gravel"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.hago_wa_gwa",
+  "L2.loc_sai_e"
+ ]
 }

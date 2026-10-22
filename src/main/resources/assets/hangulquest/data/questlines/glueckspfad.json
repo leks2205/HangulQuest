@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "glueckspfad",
  "titleKo": "보물의 길",
+ "topic": "돌",
  "tier": 2,
  "order": 390,
  "concepts": [
   "gold",
-  "build",
-  "gen_blue_bed",
-  "gen_sulfur_brick_slab"
+  "gold_ingot",
+  "chest",
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -32,22 +33,37 @@
   {
    "id": "s2",
    "teach": [
-    "build"
+    "gold_ingot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:scaffolding",
-    "count": 2
+    "type": "SMELT",
+    "output": "minecraft:gold_ingot",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_blue_bed"
+    "chest"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:blue_bed"
+    "type": "PUT_IN",
+    "item": "minecraft:gold_ingot",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sign"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:birch_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
+    "count": 1
    }
   }
  ],
@@ -55,30 +71,27 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sulfur_brick_slab"
+    "sign"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_brick_slab",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:birch_sign"
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 유황 벽돌 반 블록을 놓았어요."
+  "textKo": "표지판에 글을 썼어요."
  },
  "reward": {
   "badge": "glueckspfad",
   "words": [
    "gold",
-   "diamond",
+   "gold_ingot",
    "chest"
   ]
  },
  "koreanLevel": 2,
- "topic": "돌"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

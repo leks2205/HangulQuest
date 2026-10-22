@@ -1,5 +1,5 @@
 id	ko	context
-trail.wanderpfad.title	산길의 길	title, authored; project: Go to a mountain on a clear day, climb and plant a spruce sapling, put a sign beside it, build a granite pillar and put a candle on top at night.
+trail.wanderpfad.title	산길	title, authored; project: Go to a mountain on a clear day, climb and plant a spruce sapling, put a sign beside it, build a granite pillar and put a candle on top at night.
 trail.wanderpfad.s1.clue	맑을 때 산으로 가세요.	clue, generated; ReachBiome #minecraft:is_mountain 
 trail.wanderpfad.s1.hint	맑을 때 산으로 가요.	hint, generated; ReachBiome #minecraft:is_mountain 
 trail.wanderpfad.s2.clue	산 위로 올라가고 가문비나무 묘목을 심으세요.	clue, generated; Sequence [ReachHeight 100..320 > PlaceBlock minecraft:spruce_sapling x1]
@@ -122,7 +122,7 @@ trail.sternenhaus.s4.clue	판자 담 위에 유리를 놓으세요.	clue, genera
 trail.sternenhaus.s4.hint	판자 담 위에 유리를 놓아요.	hint, generated; PlaceOnPattern minecraft:glass ON_TOP_OF RING minecraft:mangrove_planks
 trail.sternenhaus.finale.clue	밤에 침대에 누우세요.	clue, generated; LieDown minecraft:cyan_bed 
 trail.sternenhaus.finale.hint	밤에 침대에 누워요.	hint, generated; LieDown minecraft:cyan_bed 
-trail.sternenhaus.finale	밤에 침대에 누웠어요. 낮은 밝아요. 밤은 어두워요.	finale, authored; LieDown minecraft:cyan_bed 
+trail.sternenhaus.finale	밤에 침대에 누웠어요. 밤은 어두워요. 별은 밝아요.	finale, authored; LieDown minecraft:cyan_bed 
 trail.w3_09.title	등불의 이웃	title, authored; project: A jack o'lantern in front of the door at night, a pumpkin pie for a neighbour, the door opened by the light.
 trail.w3_09.s1.clue	잭오랜턴을 만드세요.	clue, generated; Craft minecraft:jack_o_lantern x1
 trail.w3_09.s1.hint	잭오랜턴을 만들어요.	hint, generated; Craft minecraft:jack_o_lantern x1
