@@ -6,10 +6,10 @@
  "tier": 1,
  "order": 1022,
  "concepts": [
-  "gen_brown_concrete",
-  "gen_terracotta",
-  "gen_oxidized_chiseled_copper",
-  "gen_blue_candle"
+  "gen_snowy_plains",
+  "snowball",
+  "snow_block",
+  "snow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,64 +20,84 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_concrete"
+    "gen_snowy_plains"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:brown_concrete",
-    "count": 4
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_plains",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_terracotta"
+    "snowball"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:terracotta",
-    "count": 8
-   }
+    "item": "minecraft:snowball",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_plains"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oxidized_chiseled_copper"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_chiseled_copper",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:snow_block",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_candle"
+    "snowball",
+    "snow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_candle",
-    "count": 1
+    "type": "HOLD_WHILE",
+    "item": "minecraft:snowball",
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_plains"
+    },
+    "seconds": 10
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "hint": {
+    "ko": "눈덩이를 들고 눈 덮인 평원에서 걸어요."
+   }
   },
-  "textKo": "밤에 파란색 초를 놓았어요."
+  "textKo": "눈덩이를 들고 눈 덮인 평원에서 걸었어요."
  },
  "reward": {
   "badge": "w2_02",
   "words": [
-   "snow",
+   "gen_snowy_plains",
    "snowball",
-   "ice",
-   "campfire"
+   "snow_block",
+   "snow"
   ]
  },
  "koreanLevel": 1

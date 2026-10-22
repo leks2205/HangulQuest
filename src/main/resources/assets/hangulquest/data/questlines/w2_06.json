@@ -6,10 +6,10 @@
  "tier": 1,
  "order": 1026,
  "concepts": [
-  "gen_poplar_wood",
-  "gen_nether_brick_wall",
-  "gen_mossy_cobblestone",
-  "gen_pale_oak_pressure_plate"
+  "wait",
+  "night",
+  "moon",
+  "torch"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,11 +20,51 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_wood"
+    "wait",
+    "night"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
+   },
+   "hint": {
+    "ko": "밤까지 기다려요."
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "night",
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 80,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "clue": {
+    "ko": "밤에 별이 떠요. 언덕 위로 올라가요."
+   },
+   "hint": {
+    "ko": "밤에 별이 떠요. 언덕 위로 올라가요."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch",
+    "moon"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_wood",
+    "block": "minecraft:torch",
     "count": 3
    },
    "conditions": [
@@ -32,28 +72,12 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_nether_brick_wall"
    ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_brick_wall",
-    "count": 1
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_mossy_cobblestone"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_cobblestone",
-    "count": 2
+   "clue": {
+    "ko": "밤에 달이 높이 떠요. 횃불 세 개를 밝혀요."
+   },
+   "hint": {
+    "ko": "밤에 달이 높이 떠요. 횃불 세 개를 밝혀요."
    }
   }
  ],
@@ -61,12 +85,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_pressure_plate"
+    "torch"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_pressure_plate",
-    "count": 2
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:torch",
+    "dwellMs": 600
    },
    "conditions": [
     {
@@ -75,15 +99,14 @@
     }
    ]
   },
-  "textKo": "밤에 창백한 참나무 압력판을 두 개 놓았어요."
+  "textKo": "밤에 횃불을 바라봤어요."
  },
  "reward": {
   "badge": "w2_06",
   "words": [
+   "wait",
    "night",
    "moon",
-   "sky",
-   "campfire",
    "torch"
   ]
  },

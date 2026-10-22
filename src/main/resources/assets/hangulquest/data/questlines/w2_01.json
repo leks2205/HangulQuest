@@ -6,10 +6,10 @@
  "tier": 1,
  "order": 1021,
  "concepts": [
-  "gen_copper_chain",
-  "gen_warped_wart_block",
-  "gen_green_bed",
-  "gen_nether_gold_ore"
+  "glass_pane",
+  "rain",
+  "sky",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,34 +20,67 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_chain"
+    "glass_pane"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_chain",
-    "count": 1
-   }
+    "type": "CRAFT",
+    "item": "minecraft:glass_pane",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_warped_wart_block"
+    "glass_pane",
+    "rain"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_wart_block",
-    "count": 6
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:glass_pane",
+    "dwellMs": 600
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    },
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ],
+   "hint": {
+    "ko": "비가 올 때 지붕 아래에서 유리판을 1초 동안 바라봐요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_green_bed"
+    "sky",
+    "climb"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_bed",
-    "count": 1
+    "type": "REACH_HEIGHT",
+    "minY": 80,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ],
+   "clue": {
+    "ko": "맑을 때 언덕 위로 올라가요. 하늘이 파래요."
+   },
+   "hint": {
+    "ko": "맑을 때 언덕 위로 올라가요. 하늘이 파래요."
    }
   }
  ],
@@ -55,29 +88,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_nether_gold_ore"
+    "flower"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_gold_ore",
-    "count": 2
+    "block": "minecraft:poppy",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "WEATHER",
+     "weather": "CLEAR"
     }
    ]
   },
-  "textKo": "밤에 네더 금 광석을 두 개 놓았어요."
+  "textKo": "맑을 때 꽃을 심었어요."
  },
  "reward": {
   "badge": "w2_01",
   "words": [
+   "glass_pane",
    "rain",
-   "glass",
-   "height",
-   "lantern"
+   "sky",
+   "flower"
   ]
  },
  "koreanLevel": 1
