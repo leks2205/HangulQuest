@@ -6,6 +6,16 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+### Changed
+
+- **HUD windows stay until the hint key closes them.** The hint panel, rule cards, culture notes, word cards,
+  banners and toasts, the quiz prompt, the next-quest popup and the completion cards no longer time out. One
+  press of the hint key closes exactly one window (the top one); more waiting windows show a "+N" badge, and a
+  repeat of an open or waiting window is not queued twice. Closing a window is never a hint: the press does not
+  reach the hint service, so it does not mark the step as helped, start a sidequest or change the grading. Each
+  window shows its key ("[H] 닫기 · close") and none covers the crosshair or the hotbar. The new setting
+  `autoCloseWindows` (journal: "Auto-close windows", off by default) brings back the old timeouts.
+
 ### Added
 
 - **A translation pipeline in the repository** (`tools/i18n/translate.py`). English is the source and Korean is

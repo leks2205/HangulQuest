@@ -40,6 +40,11 @@ final class QuestLogView {
 		return rows.length == 0;
 	}
 
+	/** What the log covers at the top left, for windows that keep clear of it; empty when there is no log. */
+	List<WindowPlacement.Rect> area() {
+		return empty() ? List.of() : List.of(new WindowPlacement.Rect(0, 0, MARGIN + width + MARGIN, bottom));
+	}
+
 	/** Bottom edge of the log, so the hint card can sit below it. */
 	int bottom() {
 		return bottom;

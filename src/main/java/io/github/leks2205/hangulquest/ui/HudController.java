@@ -1,6 +1,8 @@
 package io.github.leks2205.hangulquest.ui;
 
 import io.github.leks2205.hangulquest.HangulQuestClient;
+import io.github.leks2205.hangulquest.culture.CultureCards;
+import io.github.leks2205.hangulquest.culture.CultureHook;
 import io.github.leks2205.hangulquest.learn.Achievements;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.quest.Goal;
@@ -46,43 +48,53 @@ import java.util.Random;
  * All in-game cards: quest tracker, hint panel, sidequest question, quiz prompt, word card, banner.
  * Nothing here reads raw keys: quizzes, sidequest questions and the next-quest choice are answered in
  * {@link QuizScreen}, which is opened with the rebindable answer key.
+ *
+ * <p>Every card except the quest log and the sidequest question is a window in {@link HudWindows}: it stays
+ * on screen until the hint key closes it (see {@link #pressHintKey}), one at a time, with a "+N" badge for
+ * the ones behind it. Other code shows one through {@link #windows()}, or through
+ * {@code QuestEngine.Feedback#notice} from the quest side. Setting {@code autoCloseWindows} brings back the
+ * old timeouts.
  */
 public final class HudController implements QuestEngine.Feedback {
+	/** The old timeouts, used only while "close windows automatically" is on. */
+	private static final long HINT_MS = 20_000L;
+	private static final long RULE_CARD_MS = 25_000L;
+	private static final long BANNER_MS = 3_500L;
+	private static final long RESULT_MS = 2_400L;
+	private static final String NEXT_KEY = "nextquest";
+	private static final String REVIEW_KEY = "review";
+
 	private final HangulQuestClient hq;
 	private final Minecraft mc = Minecraft.getInstance();
 
-	private final Celebration celebration = new Celebration();
+	private final HudWindows windows = new HudWindows();
 	private List<Questline> nextChoices = List.of();
+	/** When the first choice is started for the player (only with automatic closing), or the engine's own timer ended. */
 	private long nextChoicesUntil;
-	private Word wordCard;
-	private long wordCardUntil;
-	private Component wordCardKo;
-	private Component wordCardDe;
-	/** The bracket form under the word; null when it is said as written. */
-	private Component wordCardPron;
-	private Component bannerKoText = Component.empty();
-	private Component bannerDeText = Component.empty();
-	private long bannerUntil;
-	private QuestEngine.HintView hint;
 	private HintLayout hintLayout;
-	private long hintUntil;
 	/** Counts client ticks; the quest log is rebuilt once per tick, not once per frame. */
 	private long tickCount;
 	private final QuestLogView questLog = new QuestLogView();
+	private boolean questLogDrawn;
 	private long lastHintAt;
-	/** The rule card of a construction met for the first time, with its text built once when it appears. */
-	private QuestEngine.RuleCardView ruleCard;
-	private Component ruleCardExamples = Component.empty();
-	private List<Component> ruleCardLines = List.of();
-	private long ruleCardUntil;
+
+	// What the windows carry. The texts are built once when the window is made.
+	private record Notice(Component title, Component titleText, Component body, Component bodyText) {
+	}
+
+	private record WordCard(Word word, Component ko, Component gloss, Component pron) {
+	}
+
+	private record RuleCard(QuestEngine.RuleCardView view, Component examples, List<Component> lines) {
+	}
+
+	private record QuizResult(Word word, boolean correct) {
+	}
 
 	private final QuizSession session = new QuizSession();
 	/** Set when a quiz was requested while another screen (the journal) was still open. */
 	private boolean pendingOpen;
 	private long lastQuizAt;
-	private Word quizResultWord;
-	private boolean quizResultCorrect;
-	private long quizResultUntil;
 
 	public HudController(HangulQuestClient hq) {
 		this.hq = hq;
@@ -98,6 +110,28 @@ public final class HudController implements QuestEngine.Feedback {
 		lastQuizAt = System.currentTimeMillis();
 		session.dismiss();
 		pendingOpen = false;
+		windows.clear();
+		nextChoices = List.of();
+	}
+
+	/** The windows on the HUD. Show one with {@code windows().show(HudWindows.Window.of(...))}; see {@link HudWindows}. */
+	public HudWindows windows() {
+		return windows;
+	}
+
+	/** Whether the HUD draws windows right now; the hint key only closes a window the player can see. */
+	private boolean windowsDisplayable() {
+		return mc.player != null && mc.gui.screen() == null && hq.config().enabled && hq.config().hudCards
+				&& HudVisibility.cards(mc.gui.hud.isHidden());
+	}
+
+	/**
+	 * The hint key. With a window open it closes the top one and nothing else happens: {@code showHint} is not
+	 * run, so the press is never a hint (no hint panel, no sidequest, no {@code QUEST_HINTED} grade, no count).
+	 * With no window open it runs {@code showHint}. Returns true when it closed a window.
+	 */
+	public boolean pressHintKey(Runnable showHint) {
+		return windows.pressHintKey(windowsDisplayable(), showHint);
 	}
 
 	public void tick(Observation obs) {
@@ -106,27 +140,24 @@ public final class HudController implements QuestEngine.Feedback {
 			return;
 		}
 		long now = System.currentTimeMillis();
-		celebration.tickParticles(mc, now);
-		if (!nextChoices.isEmpty()) {
-			if (hq.quests().pendingNextChoices().isEmpty()) {
-				// picked, or the player went on with another trail; other active trails do not count
-				nextChoices = List.of();
-			} else if (now > nextChoicesUntil) {
-				Questline chosen = nextChoices.get(0);
-				nextChoices = List.of();
-				Observation fallbackObs = hq.lastObservation();
-				if (fallbackObs == null) {
-					fallbackObs = new Observation();
-					fallbackObs.now = now;
-				}
-				hq.quests().startTrail(chosen.id(), fallbackObs, this);
-			}
+		boolean autoClose = hq.config().autoCloseWindows;
+		windows.setAccepting(hq.config().enabled && hq.config().hudCards);
+		tickNextChoices(now, autoClose);
+		tickRuleCard();
+		session.tick(now); // a prompt that timed out just disappears; nothing is recorded
+		if (session.state() != QuizSession.State.PROMPT) {
+			windows.remove(REVIEW_KEY);
+		} else if (!windows.contains(REVIEW_KEY)) {
+			session.dismiss(); // its window is gone (the HUD cards were switched off): nobody can see the prompt
 		}
-		if (hint != null && now > hintUntil) {
-			hint = null;
+		if (nextChoices.isEmpty()) {
+			windows.remove(NEXT_KEY);
 		}
-		tickRuleCard(now);
-		session.tick(now); // an unanswered prompt just disappears; nothing is recorded
+		windows.tick(now, windowsDisplayable(), autoClose);
+		HudWindows.Window top = windows.top();
+		if (top != null && top.shown() && top.content() instanceof Celebration celebration) {
+			celebration.tickParticles(mc, now);
+		}
 		if (pendingOpen && mc.gui.screen() == null) {
 			pendingOpen = false;
 			if (quizView() != null) {
@@ -138,6 +169,37 @@ public final class HudController implements QuestEngine.Feedback {
 				&& now - lastQuizAt > Math.max(1, hq.config().quizIntervalMinutes) * 60_000L
 				&& SafetyGate.safeForQuiz(obs)) {
 			offerFromDue(now);
+		}
+	}
+
+	/**
+	 * The open next-quest choice ends when it is picked or the player goes on with another trail. With
+	 * automatic closing it also starts the first option after a minute; otherwise it waits for the player
+	 * even after the engine's own timer has run out.
+	 */
+	private void tickNextChoices(long now, boolean autoClose) {
+		if (nextChoices.isEmpty()) {
+			return;
+		}
+		boolean engineDone = hq.quests().pendingNextChoices().isEmpty();
+		if (autoClose) {
+			if (engineDone) {
+				nextChoices = List.of();
+			} else if (now > nextChoicesUntil) {
+				Questline chosen = nextChoices.get(0);
+				nextChoices = List.of();
+				Observation fallbackObs = hq.lastObservation();
+				if (fallbackObs == null) {
+					fallbackObs = new Observation();
+					fallbackObs.now = now;
+				}
+				hq.quests().startTrail(chosen.id(), fallbackObs, this);
+			}
+			return;
+		}
+		boolean started = nextChoices.stream().anyMatch(trail -> hq.quests().isTracked(trail.id()));
+		if (started || (engineDone && now <= nextChoicesUntil)) {
+			nextChoices = List.of(); // picked, or the player went on with another trail
 		}
 	}
 
@@ -252,9 +314,11 @@ public final class HudController implements QuestEngine.Feedback {
 		Optional<QuizSession.Result> result = session.answer(index, (wordId, correct) -> {
 			List<Achievements.Achievement> unlocked = hq.learn().answerMc(wordId, optionCount, correct, latencyMs, now);
 			lastQuizAt = now;
-			quizResultWord = hq.catalog().byId(wordId).orElse(null);
-			quizResultCorrect = correct;
-			quizResultUntil = now + 2400L;
+			Word asked = hq.catalog().byId(wordId).orElse(null);
+			if (asked != null) {
+				windows.show(HudWindows.Window.of(HudWindows.Kind.QUIZ_RESULT, "result:" + wordId + "@" + now,
+						new QuizResult(asked, correct)).priority(1).autoCloseMs(RESULT_MS));
+			}
 			sound(correct);
 			for (Achievements.Achievement achievement : unlocked) {
 				banner(achievement.ko(), achievement.label(), true);
@@ -267,30 +331,47 @@ public final class HudController implements QuestEngine.Feedback {
 
 	@Override
 	public void banner(String ko, String de, boolean success) {
-		bannerKoText = KoText.ko(ko == null ? "" : ko);
-		bannerDeText = Component.literal(de != null && hq.config().questTranslations ? de : "");
-		bannerUntil = System.currentTimeMillis() + 3500;
+		banner(ko, de, success, null);
+	}
+
+	/** A banner whose newer copies replace older ones of the same group that still wait (focus changes). */
+	public void banner(String ko, String de, boolean success, String group) {
+		String korean = ko == null ? "" : ko;
+		String text = de != null && hq.config().questTranslations ? de : "";
+		windows.show(HudWindows.Window.of(HudWindows.Kind.NOTICE, "banner:" + korean + "|" + text,
+				new Notice(KoText.ko(korean), text.isBlank() ? null : Component.literal(text), null, null))
+				.priority(1).group(group).autoCloseMs(BANNER_MS));
+	}
+
+	@Override
+	public void notice(String key, String titleKo, String titleText, String bodyKo, String bodyText) {
+		windows.show(HudWindows.Window.of(HudWindows.Kind.NOTICE, "notice:" + key,
+				new Notice(KoText.ko(titleKo == null ? "" : titleKo),
+						titleText == null || titleText.isBlank() ? null : Component.literal(titleText),
+						bodyKo == null || bodyKo.isBlank() ? null : KoText.ko(bodyKo),
+						bodyText == null || bodyText.isBlank() ? null : Component.literal(bodyText)))
+				.priority(2).autoCloseMs(2 * BANNER_MS));
 	}
 
 	@Override
 	public void wordCard(Word word) {
-		wordCard = word;
 		if (word == null) {
 			return;
 		}
-		wordCardKo = KoText.ko(word.ko);
-		wordCardDe = Component.literal(glossOf(word));
 		String bracket = Pronunciation.of(word.ko, word.conceptId, LexiconTags.shared()).bracket();
-		wordCardPron = bracket == null ? null : KoText.ko(bracket);
+		WordCard card = new WordCard(word, KoText.ko(word.ko), Component.literal(glossOf(word)),
+				bracket == null ? null : KoText.ko(bracket));
 		if (hq.audio() != null) {
 			hq.audio().playAmbient(word.conceptId); // at most once per 10 s, silent without the voice pack
 		}
-		wordCardUntil = System.currentTimeMillis() + Math.max(1000, hq.config().cardDurationMs);
+		// A newer card replaces an older one that still waits: what you looked at a minute ago is stale.
+		windows.show(HudWindows.Window.of(HudWindows.Kind.WORD_CARD, "word:" + word.id, card)
+				.group("word").autoCloseMs(Math.max(1000, hq.config().cardDurationMs)));
 	}
 
 	@Override
 	public void stepCompleted(String praiseKo, String nextClueKo, String nextClueDe) {
-		celebration.trigger(Celebration.Kind.STEP, praiseKo, nextClueKo, "",
+		celebrate(Celebration.Kind.STEP, praiseKo, nextClueKo, "",
 				hq.config().questTranslations ? nextClueDe : "", "", "");
 		celebrationSound(Celebration.Kind.STEP);
 		Celebration.particles(mc, Celebration.Kind.STEP);
@@ -301,7 +382,7 @@ public final class HudController implements QuestEngine.Feedback {
 		String learned = word == null ? "" : io.github.leks2205.hangulquest.quest.KoGrammar.eul(word.ko) + " 배웠어요.";
 		String german = word == null || !hq.config().questTranslations ? ""
 				: I18n.t("hangulquest.ui.quest.sidequest_done", glossOf(word));
-		celebration.trigger(Celebration.Kind.SIDE, "사이드 퀘스트 완료!", learned, "", german, "",
+		celebrate(Celebration.Kind.SIDE, "사이드 퀘스트 완료!", learned, "", german, "",
 				word == null ? "" : word.iconItem);
 		celebrationSound(Celebration.Kind.SIDE);
 		Celebration.particles(mc, Celebration.Kind.SIDE);
@@ -311,16 +392,34 @@ public final class HudController implements QuestEngine.Feedback {
 	public void chooseNext(List<Questline> options) {
 		nextChoices = new ArrayList<>(options.subList(0, Math.min(5, options.size())));
 		nextChoicesUntil = System.currentTimeMillis() + 60_000L;
+		// Closing the window leaves the choice open: the answer key still opens it.
+		windows.show(HudWindows.Window.of(HudWindows.Kind.NEXT_QUEST, NEXT_KEY, null).priority(2));
 	}
 
 	@Override
 	public void trailCompleted(Questline trail) {
-		celebration.trigger(Celebration.Kind.TRAIL, "퀘스트 완료!",
+		celebrate(Celebration.Kind.TRAIL, "퀘스트 완료!",
 				trail.titleKo(), trail.finaleKo(),
 				hq.config().questTranslations ? trail.finale(io.github.leks2205.hangulquest.util.Lang.current()) : "",
 				hq.config().questTranslations ? "★ " + trail.title(io.github.leks2205.hangulquest.util.Lang.current()) : "", "");
 		celebrationSound(Celebration.Kind.TRAIL);
 		Celebration.particles(mc, Celebration.Kind.TRAIL);
+	}
+
+	/** A completion card as a window: a trail's finale first, then a sidequest, then a step; steps replace waiting steps. */
+	private void celebrate(Celebration.Kind kind, String titleKo, String lineKo, String line2Ko, String lineDe,
+						   String badge, String iconItem) {
+		Celebration card = new Celebration();
+		card.trigger(kind, titleKo, lineKo, line2Ko, lineDe, badge, iconItem);
+		int priority = switch (kind) {
+			case STEP -> 1;
+			case SIDE -> 2;
+			case TRAIL -> 3;
+		};
+		windows.show(HudWindows.Window.of(HudWindows.Kind.CELEBRATION,
+						"celebration:" + kind + ":" + titleKo + "|" + lineKo, card)
+				.priority(priority).group(kind == Celebration.Kind.STEP ? "step" : null)
+				.autoCloseMs(kind.duration).onShown(() -> card.begin(System.currentTimeMillis())));
 	}
 
 	private static String glossOf(Word word) {
@@ -360,48 +459,38 @@ public final class HudController implements QuestEngine.Feedback {
 		}
 	}
 
+	/** Shows the hint panel as a window. It stays until the hint key closes it. */
 	public void showHint(QuestEngine.HintView view, long now) {
 		if (now - lastHintAt < 1500) {
 			return;
 		}
 		lastHintAt = now;
-		this.hint = view;
-		this.hintLayout = null;
-		this.hintUntil = now + 20_000L;
-	}
-
-	public boolean hintVisible() {
-		return hint != null;
-	}
-
-	/** Shows the rule card of a construction the focused step uses for the first time, once; it fades by itself. */
-	private void tickRuleCard(long now) {
-		if (ruleCard != null && now > ruleCardUntil) {
-			ruleCard = null;
+		hintLayout = null;
+		String key = "hint:" + view.clueKo() + "|" + view.simplifiedKo();
+		if (windows.show(HudWindows.Window.of(HudWindows.Kind.HINT, key, view).priority(2).autoCloseMs(HINT_MS))
+				&& view.word() != null) {
+			// The hint shows that word itself, and the hint service made its word card a moment ago, before this
+			// panel: a card for it that the player has not seen yet would only get in front of the hint.
+			String wordKey = "word:" + view.word().id;
+			HudWindows.Window top = windows.top();
+			windows.removeWhere(window -> window.key().equals(wordKey) && !(window == top && window.shown()));
 		}
-		if (ruleCard != null || mc.gui.screen() != null || !hq.config().enabled || !hq.config().hudCards) {
+	}
+
+	/** Shows the rule card of a construction the focused step uses for the first time, once. */
+	private void tickRuleCard() {
+		if (mc.gui.screen() != null || !hq.config().enabled || !hq.config().hudCards) {
 			return;
 		}
 		QuestEngine.RuleCardView pending = hq.quests().pendingRuleCard();
-		if (pending == null) {
+		if (pending == null || windows.contains("rule:" + pending.id())) {
 			return;
 		}
-		ruleCard = pending;
-		ruleCardUntil = now + 25_000L;
-		ruleCardExamples = KoText.ko(String.join("   ", pending.examplesKo()));
-		ruleCardLines = pending.rule().stream().map(KoText::mixed).toList();
-		hq.quests().ruleCardShown(pending.id());
-	}
-
-	/** Closes the rule card on the hint key; returns true when there was one to close. */
-	public boolean dismissRuleCard() {
-		boolean was = ruleCard != null;
-		ruleCard = null;
-		return was;
-	}
-
-	public void dismissHint() {
-		hint = null;
+		RuleCard card = new RuleCard(pending, KoText.ko(String.join("   ", pending.examplesKo())),
+				pending.rule().stream().map(KoText::mixed).toList());
+		// it counts as met once it is on screen, not while it waits behind other windows
+		windows.show(HudWindows.Window.of(HudWindows.Kind.RULE_CARD, "rule:" + pending.id(), card)
+				.priority(1).autoCloseMs(RULE_CARD_MS).onShown(() -> hq.quests().ruleCardShown(pending.id())));
 	}
 
 	// ------------------------------------------------------------------ review
@@ -420,8 +509,19 @@ public final class HudController implements QuestEngine.Feedback {
 	/** An automatic review: only a prompt, answerable once the player opens it. */
 	private void offerFromDue(long now) {
 		QuizSession.Quiz quiz = dueQuiz();
-		if (quiz != null && session.offer(quiz, now)) {
+		boolean timed = hq.config().autoCloseWindows;
+		if (quiz != null && session.offer(quiz, now, timed ? QuizSession.PROMPT_MS : QuizSession.NO_TIMEOUT)) {
 			lastQuizAt = now;
+			// The prompt is a window like the others; closing it with the hint key drops the quiz, records nothing.
+			boolean shown = windows.show(HudWindows.Window.of(HudWindows.Kind.REVIEW_PROMPT, REVIEW_KEY, null)
+					.priority(1).onClose(reason -> {
+						if (reason != HudWindows.Closed.REMOVED) {
+							session.dismiss();
+						}
+					}));
+			if (!shown) {
+				session.dismiss(); // nobody can see it, so it must not wait for ever
+			}
 		}
 	}
 
@@ -481,59 +581,19 @@ public final class HudController implements QuestEngine.Feedback {
 			return;
 		}
 		long now = System.currentTimeMillis();
-		if (now < bannerUntil) {
-			drawBanner(graphics);
-		}
-		if (hq.quests() != null && HudVisibility.questLog(hudHidden,
-				mc.gui.hud.getDebugOverlay().showDebugScreen(), hq.config().quests, hq.config().questTracker)) {
+		questLogDrawn = hq.quests() != null && HudVisibility.questLog(hudHidden,
+				mc.gui.hud.getDebugOverlay().showDebugScreen(), hq.config().quests, hq.config().questTracker);
+		if (questLogDrawn) {
 			drawQuestLog(graphics);
 		}
-		boolean hintVisible = hint != null && now < hintUntil;
-		if (hintVisible) {
-			drawHint(graphics);
+		// One window at a time, the top of the queue. The sidequest question is a panel, not a window: it
+		// shows when no window is open.
+		HudWindows.Window top = windows.top();
+		if (top != null && top.shown()) {
+			drawWindow(graphics, top, now);
 		} else if (hq.quests() != null && hq.quests().sidequestActive()) {
 			drawSideQuest(graphics);
-		} else if (session.promptVisible(now)) {
-			drawQuizPrompt(graphics, now);
-		} else if (quizResultWord != null && now < quizResultUntil) {
-			drawQuizResult(graphics);
 		}
-		if (ruleCard != null && now < ruleCardUntil && !hintVisible && !hq.quests().sidequestActive()) {
-			drawRuleCard(graphics);
-		}
-		if (wordCard != null && now < wordCardUntil && !hintVisible
-				&& !hq.quests().sidequestActive()) {
-			drawWordCard(graphics, wordCard);
-		}
-		if (!nextChoices.isEmpty()) {
-			drawNextChoices(graphics);
-		}
-		celebration.draw(graphics, mc.font, mc.getWindow().getGuiScaledWidth(),
-				mc.getWindow().getGuiScaledHeight(), now);
-	}
-
-	/** Dev self-test helper: play one celebration tier for screenshots. */
-	private void drawNextChoices(GuiGraphicsExtractor graphics) {
-		var font = mc.font;
-		int width = 300;
-		int rows = nextChoices.size();
-		int height = 24 + rows * 14 + 14;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = mc.getWindow().getGuiScaledHeight() / 2 - height / 2 - 20;
-		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.korean(graphics, font, "다음 퀘스트", x + 8, y + 6, Draw.GOLD);
-		int rowY = y + 22;
-		for (int i = 0; i < rows; i++) {
-			Questline trail = nextChoices.get(i);
-			String label = (i + 1) + ". " + trail.titleKo();
-			Draw.korean(graphics, font, label, x + 8, rowY, Draw.WHITE);
-			if (hq.config().questTranslations) {
-				Draw.truncated(graphics, font, Component.literal(trail.title(io.github.leks2205.hangulquest.util.Lang.current())),
-						x + 150, rowY, width - 158, Draw.GRAY);
-			}
-			rowY += 14;
-		}
-		drawAnswerHint(graphics, x + 8, y + height - 12);
 	}
 
 	/** Dev self-test helper: start a quiz for a known word. */
@@ -587,7 +647,7 @@ public final class HudController implements QuestEngine.Feedback {
 							  int clueHeight, int simpleHeight, int descriptionHeight, int height) {
 	}
 
-	private HintLayout hintLayout(Font font) {
+	private HintLayout hintLayout(Font font, QuestEngine.HintView hint) {
 		int guiWidth = mc.getWindow().getGuiScaledWidth();
 		HintLayout cached = hintLayout;
 		if (cached != null && cached.source() == hint && cached.font() == font && cached.guiWidth() == guiWidth) {
@@ -615,14 +675,41 @@ public final class HudController implements QuestEngine.Feedback {
 		return hintLayout;
 	}
 
-	private void drawHint(GuiGraphicsExtractor graphics) {
+	/** Draws the window on top of the queue. */
+	private void drawWindow(GuiGraphicsExtractor graphics, HudWindows.Window window, long now) {
+		WindowChrome.Info chrome = new WindowChrome.Info(keyLabel(hq.hintKey()), windows.waiting());
+		Object content = window.content();
+		switch (window.kind()) {
+			case HINT -> drawHint(graphics, (QuestEngine.HintView) content, chrome);
+			case RULE_CARD -> drawRuleCard(graphics, (RuleCard) content, chrome);
+			case CULTURE -> CultureHook.draw(graphics, mc, (CultureCards.Card) content, chrome);
+			case WORD_CARD -> drawWordCard(graphics, (WordCard) content, chrome);
+			case NOTICE -> drawNotice(graphics, (Notice) content, chrome);
+			case REVIEW_PROMPT -> drawQuizPrompt(graphics, now, chrome);
+			case NEXT_QUEST -> drawNextChoices(graphics, chrome);
+			case CELEBRATION -> drawCelebration(graphics, (Celebration) content, now, chrome);
+			case QUIZ_RESULT -> drawQuizResult(graphics, (QuizResult) content, chrome);
+		}
+	}
+
+	/** Where a window that would like to sit at ({@code x}, {@code y}) goes: off the crosshair and the hotbar. */
+	private WindowPlacement.Point place(int x, int y, int width, int height) {
+		return WindowChrome.place(mc.getWindow().getGuiScaledWidth(), mc.getWindow().getGuiScaledHeight(),
+				x, y, width, height, questLogDrawn ? questLog.area() : List.of());
+	}
+
+	private void drawHint(GuiGraphicsExtractor graphics, QuestEngine.HintView hint, WindowChrome.Info chrome) {
 		var font = mc.font;
-		HintLayout layout = hintLayout(font);
+		HintLayout layout = hintLayout(font, hint);
 		int width = layout.width();
+		int height = layout.height() + WindowChrome.footerHeight(font);
 		int textWidth = width - 14;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = Math.max(questLog.bottom() + 6, mc.getWindow().getGuiScaledHeight() / 4);
-		Draw.panel(graphics, x, y, width, layout.height(), 0);
+		int guiHeight = mc.getWindow().getGuiScaledHeight();
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
+				Math.max(questLog.bottom() + 6, guiHeight / 4), width, height);
+		int x = at.x();
+		int y = at.y();
+		Draw.panel(graphics, x, y, width, height, 0);
 		Draw.korean(graphics, font, "힌트", x + 7, y + 5, Draw.GOLD);
 		int cursor = y + 17;
 		Draw.drawLines(graphics, font, layout.clue(), x + 7, cursor, Draw.DIM, 2);
@@ -636,30 +723,33 @@ public final class HudController implements QuestEngine.Feedback {
 		if (layout.side() != null) {
 			Draw.truncated(graphics, font, layout.side(), x + 7, cursor, textWidth, Draw.GOLD);
 		}
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
-	private void drawRuleCard(GuiGraphicsExtractor graphics) {
+	private void drawRuleCard(GuiGraphicsExtractor graphics, RuleCard card, WindowChrome.Info chrome) {
 		var font = mc.font;
 		int width = Math.min(320, mc.getWindow().getGuiScaledWidth() - 16);
 		int textWidth = width - 14;
-		int examplesHeight = Draw.wrappedHeight(font, ruleCardExamples, textWidth, 2);
+		int examplesHeight = Draw.wrappedHeight(font, card.examples(), textWidth, 2);
 		int height = 17 + examplesHeight + 4;
-		for (Component line : ruleCardLines) {
+		for (Component line : card.lines()) {
 			height += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
 		}
-		height += font.lineHeight + 6;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = Math.max(questLog.bottom() + 6, mc.getWindow().getGuiScaledHeight() / 4);
+		height += 4 + WindowChrome.footerHeight(font);
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
+				Math.max(questLog.bottom() + 6, mc.getWindow().getGuiScaledHeight() / 4), width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.korean(graphics, font, "문법 · " + ruleCard.form(), x + 7, y + 5, Draw.GOLD);
+		Draw.korean(graphics, font, "문법 · " + card.view().form(), x + 7, y + 5, Draw.GOLD);
 		int cursor = y + 17;
-		Draw.wrapped(graphics, font, ruleCardExamples, x + 7, cursor, textWidth, Draw.WHITE, 2);
+		Draw.wrapped(graphics, font, card.examples(), x + 7, cursor, textWidth, Draw.WHITE, 2);
 		cursor += examplesHeight + 4;
-		for (Component line : ruleCardLines) {
+		for (Component line : card.lines()) {
 			Draw.wrapped(graphics, font, line, x + 7, cursor, textWidth, Draw.GRAY, 3);
 			cursor += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
 		}
-		Draw.label(graphics, font, I18n.t("hangulquest.ui.hud.rule_card_close"), x + 7, cursor + 2, Draw.DIM);
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
 	private void drawSideQuest(GuiGraphicsExtractor graphics) {
@@ -670,8 +760,10 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		int width = 320;
 		int height = 128;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = (mc.getWindow().getGuiScaledHeight() - height) / 2;
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
+				(mc.getWindow().getGuiScaledHeight() - height) / 2, width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
 		Component title = Component.empty().append(KoText.ko("사이드 퀘스트 " + (side.stage() == 1 ? "1/2" : "2/2")));
 		Draw.truncated(graphics, font, title, x + 8, y + 6, width - 16, Draw.GOLD);
@@ -696,93 +788,171 @@ public final class HudController implements QuestEngine.Feedback {
 		drawAnswerHint(graphics, x + 8, y + height - 12);
 	}
 
-	private void drawQuizResult(GuiGraphicsExtractor graphics) {
-		if (quizResultWord == null) {
+	private void drawNextChoices(GuiGraphicsExtractor graphics, WindowChrome.Info chrome) {
+		if (nextChoices.isEmpty()) {
 			return;
 		}
 		var font = mc.font;
 		int width = 300;
-		int height = 74;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = (mc.getWindow().getGuiScaledHeight() - height) / 2;
+		int rows = nextChoices.size();
+		int footer = WindowChrome.footerHeight(font);
+		int height = 24 + rows * 14 + 14 + footer;
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
+				mc.getWindow().getGuiScaledHeight() / 2 - height / 2 - 20, width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.korean(graphics, font, quizResultCorrect ? "정답!" : "다시!", x + 8, y + 6,
-				quizResultCorrect ? Draw.GREEN : Draw.RED);
-		Draw.itemIcon(graphics, quizResultWord.iconItem, x + 8, y + 24);
-		Draw.korean(graphics, font, quizResultWord.ko, x + 30, y + 24, Draw.WHITE);
-		Draw.truncated(graphics, font, Component.literal(glossOf(quizResultWord)), x + 30, y + 39,
-				width - 40, Draw.GRAY);
-		Draw.label(graphics, font, quizResultCorrect ? I18n.t("hangulquest.ui.hud.correct")
-				: I18n.t("hangulquest.ui.hud.right_answer"),
-				x + 8, y + height - 12, Draw.DIM);
+		Draw.korean(graphics, font, "다음 퀘스트", x + 8, y + 6, Draw.GOLD);
+		int rowY = y + 22;
+		for (int i = 0; i < rows; i++) {
+			Questline trail = nextChoices.get(i);
+			String label = (i + 1) + ". " + trail.titleKo();
+			Draw.korean(graphics, font, label, x + 8, rowY, Draw.WHITE);
+			if (hq.config().questTranslations) {
+				Draw.truncated(graphics, font, Component.literal(trail.title(io.github.leks2205.hangulquest.util.Lang.current())),
+						x + 150, rowY, width - 158, Draw.GRAY);
+			}
+			rowY += 14;
+		}
+		drawAnswerHint(graphics, x + 8, y + height - footer - 12);
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
-	/** "Quiz ready: press [key]". Shown for a short while, then it simply goes away. */
-	private void drawQuizPrompt(GuiGraphicsExtractor graphics, long now) {
+	private void drawCelebration(GuiGraphicsExtractor graphics, Celebration card, long now, WindowChrome.Info chrome) {
+		var font = mc.font;
+		int guiWidth = mc.getWindow().getGuiScaledWidth();
+		Celebration.Box box = card.measure(font, guiWidth, WindowChrome.footerHeight(font));
+		var at = place((guiWidth - box.width()) / 2,
+				(mc.getWindow().getGuiScaledHeight() - box.height()) / 2 - (card.kind() == Celebration.Kind.TRAIL ? 0 : 12),
+				box.width(), box.height());
+		card.draw(graphics, font, at.x(), at.y(), box, now, hq.config().autoCloseWindows);
+		WindowChrome.footer(graphics, font, at.x(), at.y(), box.width(), box.height(), chrome);
+	}
+
+	private void drawQuizResult(GuiGraphicsExtractor graphics, QuizResult result, WindowChrome.Info chrome) {
+		var font = mc.font;
+		Word word = result.word();
+		int width = 300;
+		int footer = WindowChrome.footerHeight(font);
+		int height = 74 + footer;
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
+				(mc.getWindow().getGuiScaledHeight() - height) / 2, width, height);
+		int x = at.x();
+		int y = at.y();
+		Draw.panel(graphics, x, y, width, height, 0);
+		Draw.korean(graphics, font, result.correct() ? "정답!" : "다시!", x + 8, y + 6,
+				result.correct() ? Draw.GREEN : Draw.RED);
+		Draw.itemIcon(graphics, word.iconItem, x + 8, y + 24);
+		Draw.korean(graphics, font, word.ko, x + 30, y + 24, Draw.WHITE);
+		Draw.truncated(graphics, font, Component.literal(glossOf(word)), x + 30, y + 39,
+				width - 40, Draw.GRAY);
+		Draw.label(graphics, font, result.correct() ? I18n.t("hangulquest.ui.hud.correct")
+				: I18n.t("hangulquest.ui.hud.right_answer"),
+				x + 8, y + height - footer - 12, Draw.DIM);
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
+	}
+
+	/** "Quiz ready: press [key]". Stays until the player opens it or closes it with the hint key. */
+	private void drawQuizPrompt(GuiGraphicsExtractor graphics, long now, WindowChrome.Info chrome) {
+		if (session.state() != QuizSession.State.PROMPT) {
+			return;
+		}
 		var font = mc.font;
 		Component title = KoText.ko("복습");
-		Component text = Component.literal(I18n.t("hangulquest.ui.hud.quiz_ready", answerKeyLabel()));
-		int width = 10 + font.width(title) + 8 + font.width(text) + 10;
-		int height = 22;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = 10;
+		Component text = Component.literal(I18n.t("hangulquest.ui.hud.quiz_ready", keyLabel(hq.answerKey())));
+		int width = Math.max(WindowChrome.MIN_WIDTH, 10 + font.width(title) + 8 + font.width(text) + 10);
+		int height = 5 + font.lineHeight + 6 + WindowChrome.footerHeight(font);
+		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2, 10, width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
 		graphics.text(font, title, x + 10, y + 5, Draw.GOLD, false);
 		graphics.text(font, text, x + 10 + font.width(title) + 8, y + 5, Draw.WHITE, false);
-		int left = (int) ((width - 2) * session.promptRemainingMs(now) / QuizSession.PROMPT_MS);
-		graphics.fill(x + 1, y + height - 3, x + 1 + left, y + height - 1, Draw.GOLD);
+		long remaining = session.promptRemainingMs(now);
+		if (remaining != QuizSession.NO_TIMEOUT) { // a countdown only when windows close by themselves
+			int left = (int) ((width - 2) * Math.min(remaining, QuizSession.PROMPT_MS) / QuizSession.PROMPT_MS);
+			graphics.fill(x + 1, y + 5 + font.lineHeight + 2, x + 1 + left, y + 5 + font.lineHeight + 4, Draw.GOLD);
+		}
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
-	/** The footer of the sidequest and next-quest panels: they are answered in the quiz screen. */
+	/** The footer of the sidequest panel: it is answered in the quiz screen. */
 	private void drawAnswerHint(GuiGraphicsExtractor graphics, int x, int y) {
 		var font = mc.font;
 		Component ko = KoText.ko("답을 골라요");
 		graphics.text(font, ko, x, y, Draw.DIM, false);
-		Draw.label(graphics, font, " · " + I18n.t("hangulquest.ui.hud.open_with", answerKeyLabel()),
+		Draw.label(graphics, font, " · " + I18n.t("hangulquest.ui.hud.open_with", keyLabel(hq.answerKey())),
 				x + font.width(ko), y, Draw.DIM);
 	}
 
-	private String answerKeyLabel() {
-		var key = hq.answerKey();
+	/** A key as the player sees it, such as "[R]"; empty for a key that is not there. */
+	private static String keyLabel(net.minecraft.client.KeyMapping key) {
 		return key == null ? "" : "[" + key.getTranslatedKeyMessage().getString() + "]";
 	}
 
-	private void drawWordCard(GuiGraphicsExtractor graphics, Word word) {
+	private void drawWordCard(GuiGraphicsExtractor graphics, WordCard card, WindowChrome.Info chrome) {
 		var font = mc.font;
-		Component korean = wordCardKo;
-		Component german = wordCardDe;
-		boolean pron = wordCardPron != null;
+		Word word = card.word();
+		Component korean = card.ko();
+		Component german = card.gloss();
+		boolean pron = card.pron() != null;
 		int textWidth = Math.max(font.width(korean), font.width(german));
 		if (pron) {
-			textWidth = Math.max(textWidth, font.width(wordCardPron));
+			textWidth = Math.max(textWidth, font.width(card.pron()));
 		}
 		textWidth = Math.min(textWidth, 220);
-		int width = 28 + textWidth + 7;
-		int height = 6 + font.lineHeight * (pron ? 3 : 2) + 5;
+		int width = Math.max(WindowChrome.MIN_WIDTH, 28 + textWidth + 7);
+		int body = 6 + font.lineHeight * (pron ? 3 : 2) + 5;
+		int height = body + WindowChrome.footerHeight(font);
 		int screenWidth = mc.getWindow().getGuiScaledWidth();
 		int screenHeight = mc.getWindow().getGuiScaledHeight();
 		width = Math.min(width, screenWidth - 12);
-		int x = screenWidth - width - 6;
-		int y = screenHeight - height - 6;
+		var at = place(screenWidth - width - 6, screenHeight - height - 6, width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.itemIcon(graphics, word.iconItem, x + 6, y + (height - 16) / 2);
+		Draw.itemIcon(graphics, word.iconItem, x + 6, y + (body - 16) / 2);
 		Draw.truncated(graphics, font, korean, x + 27, y + 5, width - 33, Draw.WHITE);
 		int line = y + 6 + font.lineHeight;
 		if (pron) {
-			Draw.truncated(graphics, font, wordCardPron, x + 27, line, width - 33, Draw.DIM);
+			Draw.truncated(graphics, font, card.pron(), x + 27, line, width - 33, Draw.DIM);
 			line += font.lineHeight + 1;
 		}
 		Draw.truncated(graphics, font, german, x + 27, line, width - 33, Draw.GRAY);
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
-	private void drawBanner(GuiGraphicsExtractor graphics) {
+	/** A banner, achievement or streak toast, or a quest announcement: a Korean title with optional lines. */
+	private void drawNotice(GuiGraphicsExtractor graphics, Notice notice, WindowChrome.Info chrome) {
 		var font = mc.font;
-		int width = Math.min(300, mc.getWindow().getGuiScaledWidth() - 12);
-		int height = 34;
-		int x = (mc.getWindow().getGuiScaledWidth() - width) / 2;
-		int y = mc.getWindow().getGuiScaledHeight() - height - 70;
+		int guiWidth = mc.getWindow().getGuiScaledWidth();
+		int width = Math.min(300, guiWidth - 12);
+		int textWidth = width - 16;
+		int titleHeight = Draw.wrappedHeight(font, notice.title(), textWidth, 2);
+		int titleTextHeight = notice.titleText() == null ? 0 : Draw.wrappedHeight(font, notice.titleText(), textWidth, 2);
+		int bodyHeight = notice.body() == null ? 0 : Draw.wrappedHeight(font, notice.body(), textWidth, 3);
+		int bodyTextHeight = notice.bodyText() == null ? 0 : Draw.wrappedHeight(font, notice.bodyText(), textWidth, 3);
+		int height = 6 + titleHeight + (titleTextHeight == 0 ? 0 : 2 + titleTextHeight)
+				+ (bodyHeight == 0 ? 0 : 5 + bodyHeight) + (bodyTextHeight == 0 ? 0 : 2 + bodyTextHeight)
+				+ 5 + WindowChrome.footerHeight(font);
+		var at = place((guiWidth - width) / 2, mc.getWindow().getGuiScaledHeight() - height - 70, width, height);
+		int x = at.x();
+		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
-		Draw.truncated(graphics, font, bannerKoText, x + 8, y + 5, width - 16, Draw.GOLD);
-		Draw.truncated(graphics, font, bannerDeText, x + 8, y + 17, width - 16, Draw.GRAY);
+		int cursor = y + 5;
+		Draw.wrapped(graphics, font, notice.title(), x + 8, cursor, textWidth, Draw.GOLD, 2);
+		cursor += titleHeight + 2;
+		if (notice.titleText() != null) {
+			Draw.wrapped(graphics, font, notice.titleText(), x + 8, cursor, textWidth, Draw.GRAY, 2);
+			cursor += titleTextHeight + 2;
+		}
+		if (notice.body() != null) {
+			Draw.wrapped(graphics, font, notice.body(), x + 8, cursor + 2, textWidth, Draw.WHITE, 3);
+			cursor += bodyHeight + 5;
+		}
+		if (notice.bodyText() != null) {
+			Draw.wrapped(graphics, font, notice.bodyText(), x + 8, cursor, textWidth, Draw.GRAY, 3);
+		}
+		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 }

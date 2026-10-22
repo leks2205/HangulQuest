@@ -62,7 +62,8 @@ The full set of settings, with the defaults that matter:
 | `tooltips` | `true` | word tooltips on items |
 | `autoQuiz` | `true` | ambient quiz while standing still |
 | `quizIntervalMinutes` | `7` | how often that quiz may appear |
-| `cardDurationMs` | `4500` | how long a card stays |
+| `autoCloseWindows` | `false` | `true`: HUD windows close by themselves after the old timeouts; `false`: they stay until the hint key closes them |
+| `cardDurationMs` | `4500` | how long an ambient word card stays when `autoCloseWindows` is on |
 | `lookAtCards`, `mobCards`, `biomeCards`, `timeCards` | `true` | which ambient cards may appear |
 | `sound` | `true` | celebration sounds |
 | `hudCorner` | `BOTTOM_RIGHT` | corner for ambient cards |
