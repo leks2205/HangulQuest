@@ -40,6 +40,42 @@ final class TrackingService {
 		return true;
 	}
 
+	/**
+	 * The game checks a trail for the player, into the situational slot or a regular one. Keeps the focus
+	 * and never makes room; false when the slot is full or the trail unknown.
+	 */
+	boolean trackAuto(String trailId, boolean situational, long now) {
+		Questline trail = trails.apply(trailId);
+		if (trail == null) {
+			return false;
+		}
+		Track track = registry.get(trailId);
+		boolean fresh = false;
+		if (track == null) {
+			track = persistence.resumed(trailId);
+			if (track == null) {
+				track = new Track(trail, now);
+				fresh = true;
+			}
+			registry.put(track);
+		}
+		if (!registry.trackAuto(trailId, situational)) {
+			if (fresh) {
+				registry.remove(trailId);
+			}
+			return false;
+		}
+		persistence.persist(registry, now);
+		return true;
+	}
+
+	/** The game takes its own pick out of the log (it has no progress); the player did not ask, so nothing is remembered. */
+	void untrackAuto(String trailId, long now) {
+		if (registry.untrack(trailId)) {
+			persistence.persist(registry, now);
+		}
+	}
+
 	boolean focus(String trailId, long now) {
 		if (!registry.focus(trailId)) {
 			return false;
@@ -54,6 +90,7 @@ final class TrackingService {
 			return (registry.has(trailId) || trails.apply(trailId) != null) && track(trailId, now);
 		}
 		if (registry.untrack(trailId)) {
+			next.dismissed(trailId);
 			persistence.persist(registry, now);
 		}
 		return true;

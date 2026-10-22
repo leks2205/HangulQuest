@@ -8,11 +8,15 @@ import io.github.leks2205.hangulquest.quest.goal.Accepted;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
 
 /**
  * Drives the tracked trails: clue -> goal -> next clue -> ritual finale, plus the
@@ -27,7 +31,7 @@ import java.util.List;
  * logic, the hint key and the sentences live in the package-private classes around it.
  */
 public final class QuestEngine {
-	/** How many trails the quest log holds at once, the focused one included. */
+	/** How many trails the quest log holds at once, the focused one included: three regular and one situational. */
 	public static final int MAX_TRACKED = TrackRegistry.MAX_TRACKED;
 
 	public interface Feedback {
@@ -52,6 +56,43 @@ public final class QuestEngine {
 		/** Several follow-up trails are possible; the player picks one. */
 		default void chooseNext(java.util.List<Questline> options) {
 		}
+
+		/** Why the game tracked trails for the player. */
+		enum AutoReason {
+			/** The first picks of a new quest log. */
+			START,
+			/** A tracked trail was finished; the first of the picks directly follows it when one was available. */
+			FOLLOW_UP,
+			/** A regular slot was empty. */
+			FILL
+		}
+
+		/**
+		 * The game tracked these trails by itself ("pick quests automatically"), best first. The default is a plain
+		 * banner; the HUD's window API replaces it with the "다음 퀘스트: ..." window.
+		 */
+		// TODO(UX-A): announce with the HUD window API ("다음 퀘스트: <title>") instead of the plain banner.
+		default void autoTracked(java.util.List<Questline> picked, AutoReason reason) {
+			if (picked.isEmpty()) {
+				return;
+			}
+			if (reason == AutoReason.START) {
+				String[] counters = {"한", "두", "세", "네"};
+				int count = picked.size();
+				String ko = "퀘스트 " + (count <= counters.length ? counters[count - 1] : String.valueOf(count)) + " 개를 골랐어요.";
+				banner(ko, I18n.t("hangulquest.ui.quest.auto_started", count), true);
+			} else {
+				Questline first = picked.get(0);
+				banner("다음 퀘스트: " + first.titleKo(), I18n.t("hangulquest.ui.quest.next_quest", first.title()), true);
+			}
+		}
+
+		/**
+		 * The situational slot got a new trail. No window: the quest log only marks the row (see
+		 * {@link TrackView#situational()}), so the slot can never spam the screen.
+		 */
+		default void situationalChanged(Questline trail) {
+		}
 	}
 
 	public record HintView(String clueKo, String simplifiedKo, String descriptionKo, Word word,
@@ -63,12 +104,19 @@ public final class QuestEngine {
 							int koreanLevel,
 							String clueKo, String clueDe, String status, int progress, int needed,
 							boolean countable, boolean focused, int stepIndex, int stepCount,
-							boolean reverse) {
+							boolean reverse, boolean situational) {
 		public TrackView(String id, String titleKo, String titleDe, String titleEn, String topicKey,
 						 int koreanLevel, String clueKo, String clueDe, String status, int progress, int needed,
 						 boolean countable, boolean focused, int stepIndex, int stepCount) {
 			this(id, titleKo, titleDe, titleEn, topicKey, koreanLevel, clueKo, clueDe, status, progress, needed,
-					countable, focused, stepIndex, stepCount, false);
+					countable, focused, stepIndex, stepCount, false, false);
+		}
+
+		public TrackView(String id, String titleKo, String titleDe, String titleEn, String topicKey,
+						 int koreanLevel, String clueKo, String clueDe, String status, int progress, int needed,
+						 boolean countable, boolean focused, int stepIndex, int stepCount, boolean reverse) {
+			this(id, titleKo, titleDe, titleEn, topicKey, koreanLevel, clueKo, clueDe, status, progress, needed,
+					countable, focused, stepIndex, stepCount, reverse, false);
 		}
 	}
 
@@ -93,6 +141,13 @@ public final class QuestEngine {
 	private final java.util.Map<QuestStep, Accepted> accepted = new java.util.IdentityHashMap<>();
 
 	private Observation lastObs;
+	/** "Pick quests automatically"; off until the game switches it on, so the bare engine tracks only what it is told to. */
+	private BooleanSupplier autoPick = () -> false;
+	private Map<String, TrailVisibility.State> visibility = Map.of();
+	private Object visibilityTrails;
+	private int visibilityCompleted = -1;
+	private int visibilityWords = -1;
+	private List<String> visibilityTracked = List.of();
 	/** The step that has shown its rule card already. */
 	private QuestStep ruleCardStep;
 	/**
@@ -136,6 +191,7 @@ public final class QuestEngine {
 
 	public void tick(Observation obs, Feedback feedback) {
 		lastObs = obs;
+		next.tick(obs, feedback);
 		if (registry.isEmpty()) {
 			return;
 		}
@@ -179,9 +235,9 @@ public final class QuestEngine {
 				: Accepted.of(key, catalog.concept(key.teach().get(0)).orElse(null)));
 	}
 
-	/** What follows a finished focused trail (also the hook the graph test calls). */
-	private void advanceAfterCompletion(String completedId, Observation obs, Feedback feedback) {
-		next.afterCompletion(completedId, obs, feedback);
+	/** What follows a finished trail (also the hook the graph test calls). */
+	private void advanceAfterCompletion(String completedId, Observation obs, Feedback feedback, boolean focused) {
+		next.afterCompletion(completedId, obs, feedback, focused);
 	}
 
 	private void persist(long now) {
@@ -227,8 +283,87 @@ public final class QuestEngine {
 		setTracked(trailId, false);
 	}
 
+	/** On joining a world: with "pick quests automatically" on, tracks trails into the empty regular slots. */
 	public void autoStart(Observation obs, Feedback feedback) {
 		next.autoStart(obs, feedback);
+	}
+
+	/**
+	 * Switches "pick quests automatically" (read every time it matters, so the setting takes effect at once).
+	 * Off by default for a bare engine; the game passes the config value.
+	 */
+	public void setAutoPick(BooleanSupplier autoPick) {
+		this.autoPick = autoPick == null ? () -> false : autoPick;
+	}
+
+	boolean autoPick() {
+		return autoPick.getAsBoolean();
+	}
+
+	/**
+	 * Tells the picker where the chapters are: the chapter id of a trail (or null) and the chapter ids in
+	 * order. The first chapters weigh in the start pick, and the situational slot reads the chapter of a trail.
+	 */
+	public void setChapters(Function<String, String> chapterOf, List<String> order) {
+		book.chapterOf(chapterOf);
+		next.chapterRank(id -> {
+			String chapter = chapterOf == null ? null : chapterOf.apply(id);
+			return chapter == null ? -1 : order.indexOf(chapter);
+		});
+	}
+
+	/** The picker, for tests in this package. */
+	NextQuestPolicy picker() {
+		return next;
+	}
+
+	TrailTraits traits(Questline trail) {
+		return book.traits(trail);
+	}
+
+	int discovered() {
+		return learn.discovered();
+	}
+
+	/** The game checks a trail for the player (situational slot or a regular one); keeps the focus. */
+	boolean autoTrack(String trailId, boolean situational, long now) {
+		return tracking.trackAuto(trailId, situational, now);
+	}
+
+	void autoUntrack(String trailId, long now) {
+		tracking.untrackAuto(trailId, now);
+	}
+
+	/** True when the game picked this tracked trail, false when the player chose it (or it is not tracked). */
+	public boolean isAutoTracked(String trailId) {
+		return registry.isAuto(trailId);
+	}
+
+	/** The trail in the situational slot, or null. */
+	public String situationalId() {
+		return registry.situationalId();
+	}
+
+	/**
+	 * What the journal draws of every trail now ({@link TrailVisibility}). Rebuilt only when the trails, the
+	 * finished set, the words met or the quest log changed.
+	 */
+	public Map<String, TrailVisibility.State> visibility() {
+		TrailGraph graph = book.graph();
+		int completed = data.quests.completed == null ? 0 : data.quests.completed.size();
+		int words = learn.discovered();
+		List<String> tracked = new ArrayList<>(registry.trackedIds());
+		if (visibilityTrails != graph || visibilityCompleted != completed || visibilityWords != words
+				|| !visibilityTracked.equals(tracked)) {
+			visibility = TrailVisibility.of(graph,
+					id -> data.quests.completed != null && data.quests.completed.containsKey(id),
+					registry::isTracked, this::unlocked, words);
+			visibilityTrails = graph;
+			visibilityCompleted = completed;
+			visibilityWords = words;
+			visibilityTracked = tracked;
+		}
+		return visibility;
 	}
 
 	/** Takes the focused trail out of the log (the journal's "Abbrechen"); its progress is kept. */

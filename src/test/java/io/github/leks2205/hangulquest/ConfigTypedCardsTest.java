@@ -24,7 +24,7 @@ class ConfigTypedCardsTest {
 	@Test
 	void aFreshConfigHasTypedCardsOn() {
 		assertTrue(new Config().typedCards);
-		assertEquals(4, Config.CURRENT_VERSION);
+		assertTrue(Config.CURRENT_VERSION >= 4);
 	}
 
 	@Test

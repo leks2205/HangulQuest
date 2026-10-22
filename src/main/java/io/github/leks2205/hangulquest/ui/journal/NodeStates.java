@@ -16,6 +16,8 @@ final class NodeStates {
 	static final int UNLOCKED = 2;
 	static final int TRACKED = 4;
 	static final int RECOMMENDED = 8;
+	/** Waits directly behind a trail that can be started or is in the log: drawn greyed out. */
+	static final int NEXT = 16;
 
 	private final Object layout;
 	private final Object completedMap;
@@ -68,6 +70,13 @@ final class NodeStates {
 	static NodeStates build(QuestTreeLayout layout, Map<String, Long> completed, int discovered, int tracked,
 							String focused, Predicate<Questline> unlocked, Predicate<String> isTracked,
 							Questline active) {
+		return build(layout, completed, discovered, tracked, focused, unlocked, isTracked, active, id -> false);
+	}
+
+	/** As above; {@code greyed} marks the trails that wait directly behind an available or tracked one. */
+	static NodeStates build(QuestTreeLayout layout, Map<String, Long> completed, int discovered, int tracked,
+							String focused, Predicate<Questline> unlocked, Predicate<String> isTracked,
+							Questline active, Predicate<String> greyed) {
 		int count = layout.size();
 		byte[] flags = new byte[count];
 		boolean[] done = new boolean[count];
@@ -77,7 +86,8 @@ final class NodeStates {
 			done[i] = completed != null && completed.containsKey(trail.id());
 			open[i] = unlocked.test(trail);
 			int bits = (done[i] ? DONE : 0) | (open[i] ? UNLOCKED : 0)
-					| (isTracked.test(trail.id()) ? TRACKED : 0);
+					| (isTracked.test(trail.id()) ? TRACKED : 0)
+					| (greyed.test(trail.id()) ? NEXT : 0);
 			flags[i] = (byte) bits;
 		}
 

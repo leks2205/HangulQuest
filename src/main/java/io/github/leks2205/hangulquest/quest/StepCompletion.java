@@ -23,9 +23,9 @@ import java.util.List;
 
 /** What happens when a goal is met: teach the words, move to the next clue, or finish the trail. */
 final class StepCompletion {
-	/** Starts whatever comes after a finished focused trail. */
+	/** Starts whatever comes after a finished trail; {@code focused} says whether it was the focused one. */
 	interface Advance {
-		void after(String completedId, Observation obs, QuestEngine.Feedback feedback);
+		void after(String completedId, Observation obs, QuestEngine.Feedback feedback, boolean focused);
 	}
 
 	private final TrackRegistry registry;
@@ -197,10 +197,10 @@ final class StepCompletion {
 		if (focused) {
 			feedback.trailCompleted(track.trail);
 			feedback.sound(true);
-			advance.after(trailId, obs, feedback);
 		} else {
 			feedback.banner(track.trail.titleKo(), I18n.t("hangulquest.ui.quest.line_complete", track.trail.title()), true);
 			feedback.sound(true);
 		}
+		advance.after(trailId, obs, feedback, focused);
 	}
 }
