@@ -16,8 +16,28 @@ public record Dialogue(String id, int level, Trigger trigger, String start, Map<
 		nodes = Map.copyOf(nodes);
 	}
 
-	/** When a dialogue opens: the entity type, and optionally the villager profession and the baby flag. */
-	public record Trigger(String entity, String profession, Boolean baby) {
+	/**
+	 * When a dialogue opens: the entity type, and optionally the villager profession (one, or any of
+	 * {@code professions}) and the baby flag.
+	 */
+	public record Trigger(String entity, String profession, Boolean baby, List<String> professions) {
+		public Trigger {
+			professions = professions == null ? List.of() : List.copyOf(professions);
+		}
+
+		public Trigger(String entity, String profession, Boolean baby) {
+			this(entity, profession, baby, List.of());
+		}
+
+		/** True when the trigger names a profession at all. */
+		public boolean namesProfession() {
+			return profession != null || !professions.isEmpty();
+		}
+
+		public boolean allows(String villagerProfession) {
+			return !namesProfession() || villagerProfession != null
+					&& (villagerProfession.equals(profession) || professions.contains(villagerProfession));
+		}
 	}
 
 	public enum Kind {

@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "elder",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "profession": "minecraft:none", "baby": false},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "elder",
+			"ko": "안녕하십니까? 저는 노인입니다.",
+			"next": "warn"
+		},
+		"warn": {
+			"speaker": "elder",
+			"ko": "밤에 좀비가 나옵니다.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:night", "concept:zombie"]}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "elder",
+			"ko": "침대가 있습니까?",
+			"grammar": "L5.hapsyo",
+			"choices": [
+				{"ko": "네, 침대가 있습니다.", "speechLevel": "hapsyo", "correct": true, "next": "good"},
+				{"ko": "네, 침대가 있어요.", "speechLevel": "haeyo", "correct": false},
+				{"ko": "응, 침대가 있어.", "speechLevel": "banmal", "correct": false}
+			]
+		},
+		"good": {
+			"speaker": "elder",
+			"ko": "좋습니다. 밤에 침대에서 주무십시오.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:bed"]}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "elder",
+			"ko": "안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

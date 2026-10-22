@@ -2,7 +2,7 @@
 	"schema": 1,
 	"comment": "Words the dialogue uses that are not in the catalog. 'forms' are the stems an eojeol may start with; the rest must be a particle or an ending (DialogueCoverage.TAILS). 'known' marks everyday words a beginner is expected to have met; every other word counts as new and is glossed on hover. A line may have at most one new word.",
 	"words": [
-		{"id": "hello", "forms": ["안녕하세요", "안녕"], "known": true, "en": "hello", "de": "hallo"},
+		{"id": "hello", "forms": ["안녕하세요", "안녕하십니까", "안녕"], "known": true, "en": "hello", "de": "hallo"},
 		{"id": "goodbye", "forms": ["안녕히"], "known": true, "en": "in peace (goodbye)", "de": "in Frieden (Auf Wiedersehen)"},
 		{"id": "i", "forms": ["저", "나"], "known": true, "en": "I", "de": "ich"},
 		{"id": "you", "forms": ["너"], "known": true, "en": "you", "de": "du"},
@@ -33,6 +33,24 @@
 		{"id": "farmer", "forms": ["농부"], "known": false, "en": "farmer", "de": "Bauer"},
 		{"id": "librarian", "forms": ["사서"], "known": false, "en": "librarian", "de": "Bibliothekar"},
 		{"id": "like", "forms": ["좋아해", "좋아합"], "known": false, "en": "to like", "de": "mögen"},
-		{"id": "bring", "forms": ["가져와", "가져오", "가져올"], "known": false, "en": "to bring", "de": "bringen"}
+		{"id": "bring", "forms": ["가져와", "가져오", "가져올"], "known": false, "en": "to bring", "de": "bringen"},
+		{"id": "has", "forms": ["있", "있어"], "known": true, "en": "to be, to have", "de": "sein, haben"},
+		{"id": "lack", "forms": ["없"], "known": true, "en": "to not be, to not have", "de": "nicht sein, nicht haben"},
+		{"id": "no_polite", "forms": ["아니요"], "known": true, "en": "no", "de": "nein"},
+		{"id": "good", "forms": ["좋", "좋아"], "known": true, "en": "good, fine", "de": "gut, in Ordnung"},
+		{"id": "two_attr", "forms": ["두"], "known": true, "en": "two (before a counter)", "de": "zwei (vor einem Zählwort)"},
+		{"id": "three_attr", "forms": ["세"], "known": true, "en": "three (before a counter)", "de": "drei (vor einem Zählwort)"},
+		{"id": "big_attr", "forms": ["큰"], "known": true, "en": "big", "de": "groß"},
+		{"id": "where", "forms": ["어디"], "known": true, "en": "where", "de": "wo"},
+		{"id": "come_out_formal", "forms": ["나옵"], "known": true, "en": "to come out (formal)", "de": "herauskommen (förmlich)"},
+		{"id": "fine_formal", "forms": ["괜찮"], "known": true, "en": "to be fine, to be all right", "de": "in Ordnung sein"},
+		{"id": "elder", "forms": ["노인"], "known": false, "en": "elder, old person", "de": "alter Mensch, Älterer"},
+		{"id": "fisherman", "forms": ["어부"], "known": false, "en": "fisherman", "de": "Fischer"},
+		{"id": "smith", "forms": ["대장장이"], "known": false, "en": "smith", "de": "Schmied"},
+		{"id": "cleric", "forms": ["성직자"], "known": false, "en": "cleric", "de": "Geistlicher"},
+		{"id": "special", "forms": ["특별한"], "known": false, "en": "special", "de": "besonders"},
+		{"id": "sleep_formal", "forms": ["주무십시오"], "known": false, "en": "please sleep (formal)", "de": "schlafen Sie (förmlich)"},
+		{"id": "building", "forms": ["건물"], "known": false, "en": "building", "de": "Gebäude"},
+		{"id": "field", "forms": ["밭"], "known": false, "en": "field", "de": "Feld"}
 	]
 }

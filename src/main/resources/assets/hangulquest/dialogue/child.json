@@ -23,6 +23,21 @@
 		"yay": {
 			"speaker": "child",
 			"ko": "그래? 그럼 우리 같이 먹자!",
+			"next": "ask_more"
+		},
+		"ask_more": {
+			"speaker": "child",
+			"ko": "나는 빵이 있어. 너는 뭐가 있어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{"ko": "나는 사과가 있어.", "speechLevel": "banmal", "correct": true, "next": "friends"},
+				{"ko": "저는 사과가 있어요.", "speechLevel": "haeyo", "correct": false}
+			]
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "좋아! 우리 친구야!",
+			"effects": [{"type": "exposeWords", "words": ["concept:friend"]}],
 			"next": "bye"
 		},
 		"bye": {

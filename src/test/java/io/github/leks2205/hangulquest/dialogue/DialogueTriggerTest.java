@@ -81,6 +81,52 @@ class DialogueTriggerTest {
 	}
 
 	@Test
+	void severalProfessionsCanShareOneConversation() {
+		Dialogue smith = new Dialogue("smith", 2, new Dialogue.Trigger(VILLAGER, null, false,
+				List.of("minecraft:weaponsmith", "minecraft:toolsmith")), "a", dialogue("x", VILLAGER, null, null).nodes());
+		DialogueSet set = set(smith);
+		assertEquals("smith", select(set, SNEAK_CLICK, VILLAGER, "minecraft:weaponsmith", false).orElseThrow().id());
+		assertEquals("smith", select(set, SNEAK_CLICK, VILLAGER, "minecraft:toolsmith", false).orElseThrow().id());
+		assertTrue(select(set, SNEAK_CLICK, VILLAGER, "minecraft:armorer", false).isEmpty());
+		assertTrue(select(set, SNEAK_CLICK, VILLAGER, null, false).isEmpty());
+	}
+
+	@Test
+	void aListOfProfessionsOutranksAnOpenConversation() {
+		Dialogue smith = new Dialogue("smith", 2, new Dialogue.Trigger(VILLAGER, null, null,
+				List.of("minecraft:toolsmith")), "a", dialogue("x", VILLAGER, null, null).nodes());
+		DialogueSet set = set(dialogue("alpha", VILLAGER, null, null), smith);
+		assertEquals("smith", select(set, SNEAK_CLICK, VILLAGER, "minecraft:toolsmith", false).orElseThrow().id());
+	}
+
+	@Test
+	void equalConversationsAreSharedOutBetweenVillagersByTheirSeed() {
+		DialogueSet set = set(dialogue("a_first", VILLAGER, "minecraft:farmer", false),
+				dialogue("b_second", VILLAGER, "minecraft:farmer", false));
+		String even = DialogueTrigger.select(set, SNEAK_CLICK,
+				new DialogueTrigger.Target(VILLAGER, "minecraft:farmer", false, 4)).orElseThrow().id();
+		String odd = DialogueTrigger.select(set, SNEAK_CLICK,
+				new DialogueTrigger.Target(VILLAGER, "minecraft:farmer", false, 7)).orElseThrow().id();
+		String negative = DialogueTrigger.select(set, SNEAK_CLICK,
+				new DialogueTrigger.Target(VILLAGER, "minecraft:farmer", false, -3)).orElseThrow().id();
+		assertEquals("a_first", even);
+		assertEquals("b_second", odd);
+		assertEquals("b_second", negative, "a negative hash still lands on a conversation");
+		assertEquals(even, DialogueTrigger.select(set, SNEAK_CLICK,
+				new DialogueTrigger.Target(VILLAGER, "minecraft:farmer", false, 4)).orElseThrow().id(), "stable per villager");
+	}
+
+	@Test
+	void theParserReadsAProfessionListNextToASingleProfession() {
+		String json = """
+				{"id":"smith","level":2,"trigger":{"entity":"minecraft:villager","professions":["minecraft:weaponsmith","minecraft:toolsmith"],"baby":false},
+				 "start":"a","nodes":{"a":{"speaker":"villager","ko":"안녕하세요!","end":true}}}""";
+		DialogueParser.Parsed parsed = DialogueParser.parse("smith", json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+		assertTrue(parsed.problems().isEmpty(), parsed.problems().toString());
+		assertEquals(List.of("minecraft:weaponsmith", "minecraft:toolsmith"), parsed.dialogue().trigger().professions());
+	}
+
+	@Test
 	void noContentMeansNoConversation() {
 		assertTrue(select(DialogueSet.EMPTY, SNEAK_CLICK, VILLAGER, null, false).isEmpty());
 		assertTrue(select(null, SNEAK_CLICK, VILLAGER, null, false).isEmpty());

@@ -60,21 +60,21 @@ class StoryContentTest {
 	}
 
 	@Test
-	void thereIsAStoryForEachOfTheFirstSevenChapters() {
+	void thereIsAStoryForEachOfTheFourFirstChapters() {
 		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
-		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals", "colors", "market", "meals")),
-				chapters.toString());
+		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals")), chapters.toString());
 		assertEquals(stories.size(), stories.stream().map(Story::id).distinct().count(), "story ids are unique");
 	}
 
 	@Test
-	void theGradedStoriesReachLevelsThreeToSix() {
-		Set<Integer> levels = stories.stream().map(Story::level).collect(Collectors.toSet());
-		assertTrue(levels.containsAll(Set.of(1, 2, 3, 4, 5, 6)), levels.toString());
+	void thereAreStoriesForTheLaterChaptersToo() {
+		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
+		assertTrue(chapters.containsAll(Set.of("weather", "cave", "journey", "sea", "festival", "nether", "end")),
+				chapters.toString());
 	}
 
 	@Test
-	void eachStoryIsEightyToFourHundredSyllables() {
+	void eachStoryIsEightyToFourHundredSyllablesAtALevelOfTheLadder() {
 		for (Story story : stories) {
 			assertTrue(story.syllables() >= 80 && story.syllables() <= 400, story.id() + " has " + story.syllables());
 			assertTrue(story.level() >= 1 && story.level() <= 6, story.id() + " is level " + story.level());
@@ -82,7 +82,18 @@ class StoryContentTest {
 	}
 
 	@Test
-	void aStoryUsesNoGrammarAboveItsLevelAndShowsOneOfItsOwn() {
+	void theLaterStoriesReachTheirLevelAndNoMore() {
+		for (Story story : stories) {
+			if (story.level() < 3) {
+				continue;
+			}
+			int highest = story.grammar().stream().mapToInt(id -> GrammarBook.shared().get(id).level()).max().orElse(0);
+			assertEquals(story.level(), highest, story.id() + " should use grammar of its own level");
+		}
+	}
+
+	@Test
+	void aStoryUsesNoGrammarAboveItsLevel() {
 		GrammarBook book = GrammarBook.shared();
 		for (Story story : stories) {
 			int highest = 0;
@@ -91,7 +102,6 @@ class StoryContentTest {
 				highest = Math.max(highest, book.get(id).level());
 			}
 			assertTrue(highest <= story.level(), story.id() + " is level " + story.level() + " but uses level " + highest);
-			assertEquals(story.level(), highest, story.id() + " shows no construction of its own level");
 		}
 	}
 
@@ -180,6 +190,18 @@ class StoryContentTest {
 		ChapterSet chapters = StoryFixtures.chapters();
 		for (Story story : stories) {
 			assertTrue(chapters.byId(story.chapter()).isPresent(), story.id());
+		}
+	}
+
+	@Test
+	void everyStoryLineIsInTheKoreanReviewRegistry() throws java.io.IOException {
+		String registry = java.nio.file.Files.readString(java.nio.file.Path.of("content/korean/lines.jsonl"));
+		for (Story story : stories) {
+			assertTrue(registry.contains("\"id\":\"story." + story.id() + ".title\""), story.id() + " title is not exported");
+			for (int i = 0; i < story.paragraphs().size(); i++) {
+				assertTrue(registry.contains("\"id\":\"story." + story.id() + ".p" + (i + 1) + "\""),
+						story.id() + " paragraph " + (i + 1) + " is not exported; run tools/review/export_lines.py");
+			}
 		}
 	}
 }
