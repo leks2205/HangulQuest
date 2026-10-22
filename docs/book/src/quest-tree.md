@@ -61,7 +61,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---:|---|
 | `TIME` | 320 | a time of day |
 | `HOLDING` | 120 |  |
-| `IN_BIOME` | 74 | a biome |
+| `IN_BIOME` | 73 | a biome |
 | `WEATHER` | 61 | the weather |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 41 | a dimension |
@@ -69,7 +69,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `NEAR_BLOCK` | 27 | a block nearby |
 | `SKY` | 26 |  |
 | `NEAR_ENTITY` | 21 | a mob nearby |
-| `FACING` | 13 |  |
+| `FACING` | 14 |  |
 | `IN_WATER` | 12 |  |
 
 ## Levels
