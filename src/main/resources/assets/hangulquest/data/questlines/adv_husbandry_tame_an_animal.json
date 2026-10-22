@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_tame_an_animal",
  "titleKo": "인생의 동반자",
- "topic": "husbandry",
+ "topic": "동물",
  "tier": 2,
  "order": 282,
  "concepts": [
   "bone",
   "wolf",
-  "gen_panda"
+  "house",
+  "enter"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -37,7 +38,20 @@
    "goal": {
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:wolf",
-    "dwellMs": 600
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bone"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bone",
+    "entity": "minecraft:wolf",
+    "method": "FEED",
+    "count": 3
    }
   }
  ],
@@ -45,21 +59,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_panda"
+    "house",
+    "enter"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:panda"
-   },
-   "conditions": []
+    "type": "TRANSIT",
+    "direction": "IN"
+   }
   },
-  "textKo": "판다에게 먹이를 줬어요."
+  "textKo": "집 안으로 들어갔어요."
  },
  "reward": {
   "badge": "adv_husbandry_tame_an_animal",
   "words": [
    "bone",
-   "wolf"
+   "wolf",
+   "house",
+   "enter"
   ]
  },
  "koreanLevel": 1

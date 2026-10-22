@@ -164,12 +164,21 @@ class PlaytestTest {
 			case Goal.Breed g -> {
 				// fed at the start, a baby of the kind in the sight from the fifth tick on
 				obs.interactedEntities.clear();
-				if (tick == 0) {
+				obs.interactedUuids.clear();
+				if (tick == 0) { // two parents are fed
 					obs.interactedEntities.add(g.entity());
+					obs.interactedEntities.add(g.entity());
+					obs.interactedUuids.add(new UUID(6L, 1L));
+					obs.interactedUuids.add(new UUID(6L, 2L));
+				}
+				if (tick >= 1) { // both stand there from now on
+					obs.nearbyEntityPositions = new ArrayList<>(List.of(
+							new EntityFact(g.entity(), new UUID(6L, 1L), 0.0, 64.0, 0.0, 0.0F, 0.0F, false),
+							new EntityFact(g.entity(), new UUID(6L, 2L), 2.0, 64.0, 0.0, 0.0F, 0.0F, false)));
 				}
 				if (tick >= 5) {
-					obs.nearbyEntityPositions = new ArrayList<>(List.of(new EntityFact(g.entity(),
-							new UUID(7L, 7L), 1.0, 64.0, 1.0, 0.0F, 0.0F, true)));
+					obs.nearbyEntityPositions.add(new EntityFact(g.entity(),
+							new UUID(7L, 7L), 1.0, 64.0, 1.0, 0.0F, 0.0F, true));
 				}
 			}
 			default -> {

@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_breed_an_animal",
  "titleKo": "아기는 어떻게 태어나?",
- "topic": "husbandry",
+ "topic": "동물",
  "tier": 2,
  "order": 261,
  "concepts": [
-  "wheat",
-  "gen_camel",
-  "pig"
+  "fence",
+  "gate",
+  "raise",
+  "cow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,22 +22,35 @@
   {
    "id": "s1",
    "teach": [
-    "wheat"
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wheat",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:oak_fence",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_camel"
+    "gate"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:camel"
+    "type": "CRAFT",
+    "item": "minecraft:oak_fence_gate",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate",
+    "change": "CLOSE"
    }
   }
  ],
@@ -44,22 +58,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "pig"
+    "raise",
+    "cow"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:pig"
+    "type": "BREED",
+    "entity": "minecraft:cow",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat"
+    }
+   ]
   },
-  "textKo": "아기는 어떻게 태어나? — 당근을 주면 돼지가 짝을 지어요."
+  "textKo": "밀을 들고 소를 키웠어요."
  },
  "reward": {
   "badge": "adv_husbandry_breed_an_animal",
   "words": [
-   "wheat",
-   "cow",
-   "pig"
+   "fence",
+   "gate",
+   "raise",
+   "cow"
   ]
  },
  "koreanLevel": 1

@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_husbandry_allay_deliver_item_to_player",
- "titleKo": "난 너의 친구야",
- "topic": "husbandry",
+ "titleKo": "작은 창고",
+ "topic": "창고",
  "tier": 2,
  "order": 257,
  "concepts": [
-  "cookie",
-  "gen_weeping_vines",
-  "gen_music_disc_stal"
+  "gen_barrel",
+  "potato",
+  "take_out"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,26 +21,41 @@
   {
    "id": "s1",
    "teach": [
-    "cookie"
+    "gen_barrel"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cookie",
+    "type": "CRAFT",
+    "item": "minecraft:barrel",
     "count": 1
-   },
-   "hint": {
-    "ko": "쿠키는 밀 두 개와 코코아 콩 하나로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_weeping_vines"
+    "gen_barrel"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:weeping_vines",
+    "block": "minecraft:barrel",
     "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "potato"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:potato",
+    "container": "minecraft:barrel",
+    "count": 3
    }
   }
  ],
@@ -48,22 +63,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_music_disc_stal"
+    "take_out"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:music_disc_stal",
-    "count": 2
-   },
-   "conditions": []
+    "type": "TAKE_OUT",
+    "item": "minecraft:potato",
+    "container": "minecraft:barrel",
+    "count": 1
+   }
   },
-  "textKo": "음반을 두 장 모았어요."
+  "textKo": "통에서 감자를 꺼냈어요."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_item_to_player",
   "words": [
-   "cookie",
-   "note_block"
+   "gen_barrel",
+   "potato",
+   "take_out"
   ]
  },
  "koreanLevel": 1

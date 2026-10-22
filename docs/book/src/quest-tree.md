@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1555** |
+| Steps (incl. finales) | **1569** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,40 +21,47 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 472 | collect an item |
-| `PLACE_BLOCK` | 464 | place a block |
+| `ACQUIRE_ITEM` | 460 | collect an item |
+| `PLACE_BLOCK` | 458 | place a block |
 | `BREAK_BLOCK` | 84 | break a block |
-| `LOOK_AT_ENTITY` | 66 | look at a mob |
-| `USE_BLOCK` | 60 | use a block |
-| `REACH_BIOME` | 57 | reach a biome |
+| `LOOK_AT_ENTITY` | 68 | look at a mob |
+| `REACH_BIOME` | 61 | reach a biome |
+| `USE_BLOCK` | 59 | use a block |
+| `CRAFT` | 53 |  |
+| `LOOK_AT_BLOCK` | 50 | look at a block |
 | `CONSUME_ITEM` | 48 | eat or drink an item |
-| `CRAFT` | 48 |  |
-| `LOOK_AT_BLOCK` | 47 | look at a block |
-| `PLACE_REL` | 44 |  |
+| `PLACE_REL` | 48 |  |
 | `DEFEAT_ENTITY` | 36 | defeat a mob |
-| `INTERACT_ENTITY` | 31 | interact with a mob |
-| `BUILD_PATTERN` | 24 |  |
+| `INTERACT_ENTITY` | 27 | interact with a mob |
+| `BUILD_PATTERN` | 26 |  |
+| `GIVE` | 18 |  |
 | `PLACE_ON_PATTERN` | 18 |  |
-| `GIVE` | 16 |  |
-| `SMELT` | 10 |  |
-| `HOLD_WHILE` | 10 |  |
-| `PUT_IN` | 9 |  |
+| `SMELT` | 11 |  |
+| `HOLD_WHILE` | 11 |  |
+| `PUT_IN` | 10 |  |
 | `REACH_HEIGHT` | 8 | reach an altitude |
+| `WAIT` | 4 |  |
+| `BREED` | 3 |  |
+| `MOUNT` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
+| `TAKE_OUT` | 1 |  |
+| `SWIM` | 1 |  |
+| `TRANSIT` | 1 |  |
+| `TRADE` | 1 |  |
 | `SEQUENCE` | 1 |  |
-| `WAIT` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 217 | a time of day |
-| `IN_BIOME` | 42 | a biome |
+| `TIME` | 221 | a time of day |
+| `IN_BIOME` | 47 | a biome |
+| `HOLDING` | 23 |  |
 | `PLAYER_REL` | 16 |  |
 | `Y_RANGE` | 14 | an altitude band |
-| `HOLDING` | 13 |  |
-| `SKY` | 10 |  |
-| `WEATHER` | 7 | the weather |
+| `SKY` | 12 |  |
+| `WEATHER` | 10 | the weather |
+| `NEAR_ENTITY` | 2 | a mob nearby |
+| `NEAR_BLOCK` | 2 | a block nearby |
 | `IN_DIMENSION` | 2 | a dimension |
-| `NEAR_ENTITY` | 1 | a mob nearby |
 
 ## Levels
 
@@ -128,7 +135,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `fischerpfad` | 물고기의 길 | Der Fischer | 4 | `wasserpfad` |
 | `gipfelpfad` | 꼭대기의 길 | Der Gipfel | 4 | `bergpfad` |
 | `handelspfad` | 거래의 길 | Der Handel | 4 | `dorfpfad` |
-| `adv_husbandry_root` | 농사 | Landwirtschaft | 3 | `tierpfad` |
+| `adv_husbandry_root` | 농사 | Landwirtschaft | 4 | `tierpfad` |
 | `adv_story_root` | 마인크래프트 | Minecraft | 4 | `steinpfad` |
 
 ### Level 3 · TOPIK 1 · 35 trails
@@ -149,19 +156,19 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `lavapfad` | 용암의 길 | Der Lavaweg | 4 | `gipfelpfad`, `nachtpfad` |
 | `blumenkranz` | 꽃밭의 길 | Das Blumenbeet | 4 | `kraeuterpfad`, `waldhaus` |
 | `ziegenpfad` | 염소의 길 | Die Ziege | 4 | `gipfelpfad`, `nachtpfad` |
-| `adv_husbandry_allay_deliver_item_to_player` | 난 너의 친구야 | Du hast ’n Freund in mir | 3 | `adv_husbandry_root` |
-| `adv_husbandry_breed_an_animal` | 아기는 어떻게 태어나? | Die Hühnchen und die Blümchen | 3 | `adv_husbandry_root` |
-| `adv_husbandry_fishy_business` | 강태공이 세월을 낚듯 | Anglerglück | 3 | `adv_husbandry_root` |
-| `adv_husbandry_make_a_sign_glow` | 밝은 말 고운 말 | Leuchte und staune! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_obtain_sniffer_egg` | 흥미로운 냄새 | Ein ungewöhnlicher Geruch | 3 | `adv_husbandry_root` |
-| `adv_husbandry_place_dried_ghast_in_water` | 수분 충전! | Bleib hydriert! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_plant_seed` | 씨앗이 자라나는 곳 | Hobbygärtner | 3 | `adv_husbandry_root` |
-| `adv_husbandry_ride_a_boat_with_a_goat` | 염소 떴소 | Ohne Geiß kein Preis! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_safely_harvest_honey` | 벌집을 내 집처럼 | Sssei unser Gast | 3 | `adv_husbandry_root` |
-| `adv_husbandry_silk_touch_nest` | 한 벌 한 벌 정성껏 모시겠습니다 | Bienenwanderung | 3 | `adv_husbandry_root` |
-| `adv_husbandry_tadpole_in_a_bucket` | 양동이에 올챙이 한 마리 | Im Eimer | 3 | `adv_husbandry_root` |
-| `adv_husbandry_tame_an_animal` | 인생의 동반자 | Allerbeste Freunde | 3 | `adv_husbandry_root` |
-| `adv_husbandry_uh_oh` | 폭탄 받아라 | Oh, oh | 3 | `adv_husbandry_root` |
+| `adv_husbandry_allay_deliver_item_to_player` | 작은 창고 | Eine kleine Vorratskammer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_breed_an_animal` | 아기는 어떻게 태어나? | Woher kommen die Babys? | 4 | `adv_husbandry_root` |
+| `adv_husbandry_fishy_business` | 강태공이 세월을 낚듯 | Ein geduldiger Angler | 4 | `adv_husbandry_root` |
+| `adv_husbandry_make_a_sign_glow` | 밝은 말 고운 말 | Helle Worte, freundliche Worte | 4 | `adv_husbandry_root` |
+| `adv_husbandry_obtain_sniffer_egg` | 닭장의 아침 | Morgen im Hühnerstall | 4 | `adv_husbandry_root` |
+| `adv_husbandry_place_dried_ghast_in_water` | 들판의 말 | Ein Pferd auf dem Feld | 4 | `adv_husbandry_root` |
+| `adv_husbandry_plant_seed` | 씨앗이 자라나는 곳 | Wo die Samen wachsen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_ride_a_boat_with_a_goat` | 염소 떴소 | Was deine Ziege schwimmen lässt! | 4 | `adv_husbandry_root` |
+| `adv_husbandry_safely_harvest_honey` | 벌집을 내 집처럼 | Bienen willkommen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_silk_touch_nest` | 벌들의 정원 | Der Garten der Bienen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_tadpole_in_a_bucket` | 양동이에 올챙이 한 마리 | Eine Kaulquappe im Eimer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_tame_an_animal` | 인생의 동반자 | Beste Freunde für immer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_uh_oh` | 농부와 거래 | Handel mit dem Bauern | 4 | `adv_husbandry_root` |
 | `adv_story_mine_stone` | 석기 시대 | Steinzeit | 4 | `adv_story_root` |
 | `dorfhaus` | 마을 집의 길 | Das Dorfhaus | 5 | `waldhaus`, `glasfenster`, `teppichpfad` |
 | `weidepfad` | 목장의 길 | Die Weide | 4 | `farmpfad`, `wollpfad` |

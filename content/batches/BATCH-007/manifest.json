@@ -1,0 +1,1916 @@
+{
+ "batch": "BATCH-007",
+ "brief": "content/briefs/BATCH-007.md",
+ "chapter": "the farm, husbandry advancements",
+ "note": "Encounters follow tools/coverage.py: a word is met once per step (clue, taught word, title on the first step, finale line on the last step). \"InBatch\" is the difference to the old trails. Words in no lexicon list count for nothing. \"Before\" is phase0 after generator wave 4 (the old 14 trails).",
+ "summary": {
+  "trails": 14,
+  "steps": 56,
+  "bareSteps": 5,
+  "bareShare": 0.08928571428571429,
+  "topGoalType": "ACQUIRE_ITEM",
+  "topGoalTypeShare": 0.16071428571428573,
+  "goalTypes": {
+   "ACQUIRE_ITEM": 9,
+   "CRAFT": 5,
+   "LOOK_AT_ENTITY": 5,
+   "PLACE_REL": 4,
+   "LOOK_AT_BLOCK": 4,
+   "REACH_BIOME": 4,
+   "BREED": 3,
+   "WAIT": 3,
+   "BREAK_BLOCK": 2,
+   "BUILD_PATTERN": 2,
+   "USE_BLOCK": 2,
+   "GIVE": 2,
+   "MOUNT": 2,
+   "SMELT": 1,
+   "TRANSIT": 1,
+   "CONSUME_ITEM": 1,
+   "SWIM": 1,
+   "PLACE_BLOCK": 1,
+   "PUT_IN": 1,
+   "TAKE_OUT": 1,
+   "HOLD_WHILE": 1,
+   "TRADE": 1
+  },
+  "mechanics": [
+   "cond:HOLDING",
+   "cond:IN_BIOME",
+   "cond:NEAR_BLOCK",
+   "cond:NEAR_ENTITY",
+   "cond:SKY",
+   "cond:TIME",
+   "cond:WEATHER",
+   "goal:ACQUIRE_ITEM",
+   "goal:BREAK_BLOCK",
+   "goal:BREED",
+   "goal:BUILD_PATTERN",
+   "goal:CONSUME_ITEM",
+   "goal:CRAFT",
+   "goal:GIVE",
+   "goal:HOLD_WHILE",
+   "goal:LOOK_AT_BLOCK",
+   "goal:LOOK_AT_ENTITY",
+   "goal:MOUNT",
+   "goal:PLACE_BLOCK",
+   "goal:PLACE_REL",
+   "goal:PUT_IN",
+   "goal:REACH_BIOME",
+   "goal:SMELT",
+   "goal:SWIM",
+   "goal:TAKE_OUT",
+   "goal:TRADE",
+   "goal:TRANSIT",
+   "goal:USE_BLOCK",
+   "goal:WAIT",
+   "pattern:RING",
+   "pattern:WALL",
+   "rel:NEAR",
+   "rel:NEXT_TO"
+  ]
+ },
+ "metrics": {
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.051133,
+   "after": 0.050032
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.957929,
+   "after": 0.951251
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.914563,
+   "after": 0.91982
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.946234,
+   "after": 0.951604
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 2.0,
+   "after": 2.0
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.113744,
+   "after": 0.123223
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.625592,
+   "after": 0.658768
+  },
+  "coverage.recycling.medianRetrievals": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 13,
+   "after": 13
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 145,
+   "after": 139
+  },
+  "variety.verbObjectMax": {
+   "before": 6,
+   "after": 6
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 2,
+   "after": 2
+  },
+  "variety.noveltyShare": {
+   "before": 0.483333,
+   "after": 0.497619
+  },
+  "variety.boredomIndex": {
+   "before": 0.080311,
+   "after": 0.074454
+  },
+  "variety.bareShare.1": {
+   "before": 0.130548,
+   "after": 0.062972
+  },
+  "variety.topTypeShare.1": {
+   "before": 0.16188,
+   "after": 0.130982
+  },
+  "variety.distinctTypes.1": {
+   "before": 19,
+   "after": 25
+  },
+  "variety.formDependentShare.1": {
+   "before": 0.193211,
+   "after": 0.196474
+  },
+  "variety.bareShare.2": {
+   "before": 0.644592,
+   "after": 0.644592
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.362031,
+   "after": 0.362031
+  },
+  "variety.distinctTypes.2": {
+   "before": 10,
+   "after": 10
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.3": {
+   "before": 0.694524,
+   "after": 0.694524
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.391931,
+   "after": 0.391931
+  },
+  "variety.distinctTypes.3": {
+   "before": 11,
+   "after": 11
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.4": {
+   "before": 0.785124,
+   "after": 0.785124
+  },
+  "variety.topTypeShare.4": {
+   "before": 0.520661,
+   "after": 0.520661
+  },
+  "variety.distinctTypes.4": {
+   "before": 8,
+   "after": 8
+  },
+  "variety.formDependentShare.4": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.5": {
+   "before": 0.742268,
+   "after": 0.742268
+  },
+  "variety.topTypeShare.5": {
+   "before": 0.515464,
+   "after": 0.515464
+  },
+  "variety.distinctTypes.5": {
+   "before": 9,
+   "after": 9
+  },
+  "variety.formDependentShare.5": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.6": {
+   "before": 0.652778,
+   "after": 0.652778
+  },
+  "variety.topTypeShare.6": {
+   "before": 0.486111,
+   "after": 0.486111
+  },
+  "variety.distinctTypes.6": {
+   "before": 10,
+   "after": 10
+  },
+  "variety.formDependentShare.6": {
+   "before": 0.0,
+   "after": 0.0
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_husbandry_root",
+   "title": "농사",
+   "titleEn": "Husbandry",
+   "topic": "농사",
+   "order": 277,
+   "koreanLevel": 1,
+   "requires": [
+    "tierpfad"
+   ],
+   "project": "A first farm day: harvest wheat in clear weather, craft a hay bale under a roof, put it by the fence and cook.",
+   "newWords": [],
+   "finaleKo": "낮에 고기를 요리했어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "HARVEST",
+     "teach": [
+      "wheat"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "맑을 때 밀을 세 개 수확해요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 밀을 수확해요.",
+     "clueEn": "When the sky is clear, harvest three wheat crops."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "hay_block"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:CRAFT"
+     ],
+     "clueKo": "지붕 아래에서 건초 더미를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 건초 더미를 만들어요.",
+     "clueEn": "Under a roof, craft a hay bale."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "울타리 옆에 건초 더미를 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 옆에 건초 더미를 놓아요.",
+     "clueEn": "Place the hay bale — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "BAKE",
+     "teach": [
+      "meat",
+      "cook"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:SMELT"
+     ],
+     "clueKo": "낮에 고기를 요리해요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 고기를 요리해요.",
+     "clueEn": "By day, cook a potato."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_breed_an_animal",
+   "title": "아기는 어떻게 태어나?",
+   "titleEn": "Where Do Babies Come From?",
+   "topic": "동물",
+   "order": 261,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Build a fence pen, craft a gate, close it and raise a cow holding wheat.",
+   "newWords": [],
+   "finaleKo": "밀을 들고 소를 키웠어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "FENCE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:RING"
+     ],
+     "clueKo": "울타리를 쳐요.",
+     "clueSource": "generated",
+     "hintKo": "울타리를 쳐요.",
+     "clueEn": "Build a ring of fences, a pen for the animals."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gate"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "울타리 문을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 문을 만들어요.",
+     "clueEn": "Craft a fence gate."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "CLOSE",
+     "teach": [
+      "gate"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "울타리 문을 닫아요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 문을 닫아요.",
+     "clueEn": "Close the fence gate."
+    },
+    {
+     "id": "finale",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wheat"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "cow"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREED"
+     ],
+     "clueKo": "밀을 들고 소를 키워요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 들고 소를 키워요.",
+     "clueEn": "Holding wheat, raise a cow."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_tame_an_animal",
+   "title": "인생의 동반자",
+   "titleEn": "Best Friends Forever",
+   "topic": "동물",
+   "order": 282,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Collect bones, look at a wolf, give it the bones and go home.",
+   "newWords": [],
+   "finaleKo": "집 안으로 들어갔어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "bone"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "뼈를 세 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "뼈를 모아요.",
+     "clueEn": "Collect three bones."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "wolf"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "늑대를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "늑대를 1초 동안 바라봐요.",
+     "clueEn": "Look at a wolf for one second."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "bone"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:GIVE"
+     ],
+     "clueKo": "늑대에게 뼈를 세 개 줘요.",
+     "clueSource": "generated",
+     "hintKo": "늑대에게 뼈를 줘요.",
+     "clueEn": "Give the wolf three bones."
+    },
+    {
+     "id": "finale",
+     "goal": "TRANSIT",
+     "relation": null,
+     "conditions": [],
+     "verb": "ENTER",
+     "teach": [
+      "house",
+      "enter"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:TRANSIT"
+     ],
+     "clueKo": "집 안으로 들어가요.",
+     "clueSource": "generated",
+     "hintKo": "집 안으로 들어가요.",
+     "clueEn": "Go inside a house."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_plant_seed",
+   "title": "씨앗이 자라나는 곳",
+   "titleEn": "Where the Seeds Grow",
+   "topic": "밀",
+   "order": 273,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Look at the water, plant wheat near it, wait beside the crop and harvest it.",
+   "newWords": [],
+   "finaleKo": "밀을 수확했어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "water"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "물을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "물을 1초 동안 바라봐요.",
+     "clueEn": "Look at the water for one second."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEAR",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "wheat",
+      "water"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEAR"
+     ],
+     "clueKo": "물 근처에 밀을 다섯 개 심어요.",
+     "clueSource": "generated",
+     "hintKo": "괭이로 땅을 갈아요. 물 근처에 밀을 심어요.",
+     "clueEn": "Plant five wheat seeds — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:wheat"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait",
+      "grow"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:NEAR_BLOCK",
+      "goal:WAIT"
+     ],
+     "clueKo": "밀이 자라요. 밀 근처에서 기다려요.",
+     "clueSource": "authored",
+     "hintKo": "밀이 자라요. 밀 근처에서 기다려요.",
+     "clueEn": "The wheat is growing. Wait close to it."
+    },
+    {
+     "id": "finale",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "HARVEST",
+     "teach": [
+      "wheat"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "밀을 수확해요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 수확해요.",
+     "clueEn": "Harvest the wheat."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_fishy_business",
+   "title": "강태공이 세월을 낚듯",
+   "titleEn": "A Patient Angler",
+   "topic": "낚시",
+   "order": 264,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Go to a river holding a fishing rod, look at the water, catch a fish and eat it at the river.",
+   "newWords": [],
+   "finaleKo": "강에서 생선을 먹었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:fishing_rod"
+     ],
+     "verb": "GO",
+     "teach": [
+      "river"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "낚싯대를 들고 강으로 가요.",
+     "clueSource": "generated",
+     "hintKo": "낚싯대를 들고 강으로 가요.",
+     "clueEn": "Holding a fishing rod, go to a river."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:fishing_rod"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "fishing_rod"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "낚싯대를 들고 물을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "낚싯대를 들고 물을 1초 동안 바라봐요.",
+     "clueEn": "Holding a fishing rod, look at the water for one second."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:fishing_rod",
+      "IN_BIOME:minecraft:river"
+     ],
+     "verb": "OBTAIN",
+     "teach": [
+      "fish"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "cond:IN_BIOME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "낚싯대를 들고 강에서 물고기를 구해요.",
+     "clueSource": "generated",
+     "hintKo": "낚싯대를 들고 강에서 물고기를 구해요.",
+     "clueEn": "Holding a fishing rod, catch a fish at the river."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:river"
+     ],
+     "verb": "EAT",
+     "teach": [
+      "fish_dish"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "강에서 생선을 먹어요.",
+     "clueSource": "generated",
+     "hintKo": "강에서 생선을 먹어요.",
+     "clueEn": "At the river, eat a cooked fish."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_safely_harvest_honey",
+   "title": "벌집을 내 집처럼",
+   "titleEn": "Bee Our Guest",
+   "topic": "꿀",
+   "order": 278,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Craft a glass bottle, look at a bee and its nest and get honey.",
+   "newWords": [],
+   "finaleKo": "꿀을 구했어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "glass_bottle"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "유리병을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "유리병을 만들어요.",
+     "clueEn": "Craft a glass bottle."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "bee"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "꿀벌을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "꿀벌을 1초 동안 바라봐요.",
+     "clueEn": "Look at a bee for one second."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "adv_item_bee_nest"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "벌집을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "벌집을 1초 동안 바라봐요.",
+     "clueEn": "Look at the bee nest for one second."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "OBTAIN",
+     "teach": [
+      "honey"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "꿀을 구해요.",
+     "clueSource": "generated",
+     "hintKo": "꿀을 구해요.",
+     "clueEn": "Get some honey."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_ride_a_boat_with_a_goat",
+   "title": "염소 떴소",
+   "titleEn": "Whatever Floats Your Goat!",
+   "topic": "배",
+   "order": 276,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Craft a boat, look at a goat on a mountain, go to the sea and ride in the boat.",
+   "newWords": [],
+   "finaleKo": "배를 탔어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "boat"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "배를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "배를 만들어요.",
+     "clueEn": "Craft a boat."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "goat",
+      "boat"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "산에서 염소를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 염소를 1초 동안 바라봐요.",
+     "clueEn": "On a mountain, look at a goat for one second."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "GO",
+     "teach": [
+      "ocean",
+      "boat"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "맑을 때 바다로 가요.",
+     "clueSource": "generated",
+     "hintKo": "배와 함께 바다로 가요.",
+     "clueEn": "When the sky is clear, go to the sea."
+    },
+    {
+     "id": "finale",
+     "goal": "MOUNT",
+     "relation": null,
+     "conditions": [],
+     "verb": "SIT",
+     "teach": [
+      "boat",
+      "ride"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:MOUNT"
+     ],
+     "clueKo": "배를 타요.",
+     "clueSource": "generated",
+     "hintKo": "배를 타요.",
+     "clueEn": "Take a ride in the boat."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_tadpole_in_a_bucket",
+   "title": "양동이에 올챙이 한 마리",
+   "titleEn": "A Tadpole in a Bucket",
+   "topic": "개구리",
+   "order": 281,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Go to a swamp by day, look at a frog, swim and fill a bucket with water.",
+   "newWords": [],
+   "finaleKo": "늪에서 양동이를 구했어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_swamp"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "낮에 늪으로 가요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 늪으로 가요.",
+     "clueEn": "By day, go to a swamp."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "frog"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "개구리를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "개구리를 1초 동안 바라봐요.",
+     "clueEn": "Look at a frog for one second."
+    },
+    {
+     "id": "s3",
+     "goal": "SWIM",
+     "relation": null,
+     "conditions": [],
+     "verb": "SWIM",
+     "teach": [
+      "swim"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:SWIM"
+     ],
+     "clueKo": "물에서 수영해요.",
+     "clueSource": "generated",
+     "hintKo": "물에서 수영해요.",
+     "clueEn": "Swim in the water."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:swamp"
+     ],
+     "verb": "OBTAIN",
+     "teach": [
+      "bucket"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "늪에서 양동이를 구해요.",
+     "clueSource": "generated",
+     "hintKo": "늪에서 양동이를 구해요.",
+     "clueEn": "In the swamp, get a water bucket."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_make_a_sign_glow",
+   "title": "밝은 말 고운 말",
+   "titleEn": "Bright Words, Kind Words",
+   "topic": "표지판",
+   "order": 268,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Get an ink sac, put a sign by a door, look at it with the ink in hand and write on it.",
+   "newWords": [],
+   "finaleKo": "참나무 표지판에 글을 썼어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "OBTAIN",
+     "teach": [
+      "ink_sac",
+      "write"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "먹물 주머니를 구해요.",
+     "clueSource": "generated",
+     "hintKo": "먹물 주머니를 구해요.",
+     "clueEn": "Get an ink sac."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "door",
+      "ink_sac",
+      "write"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "문 옆에 참나무 표지판을 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "문 옆에 참나무 표지판을 놓아요.",
+     "clueEn": "Place an oak sign — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:ink_sac"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "ink_sac"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "먹물 주머니를 들고 참나무 표지판을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "먹물 주머니를 들고 참나무 표지판을 1초 동안 바라봐요.",
+     "clueEn": "Holding the ink sac, look at the oak sign for one second."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:ink_sac"
+     ],
+     "verb": "OPERATE",
+     "teach": [
+      "ink_sac"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "먹물 주머니를 들고 참나무 표지판에 글을 써요.",
+     "clueSource": "authored",
+     "hintKo": "먹물 주머니를 들고 참나무 표지판에 글을 써요.",
+     "clueEn": "Holding the ink sac, write on the oak sign."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_silk_touch_nest",
+   "title": "벌들의 정원",
+   "titleEn": "The Bees' Garden",
+   "topic": "꿀벌",
+   "order": 279,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Collect flowers by day, plant them near a bee nest, wait there and raise a bee.",
+   "newWords": [],
+   "finaleKo": "꽃을 들고 꿀벌을 키웠어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "flower",
+      "bee"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "맑을 때 꽃을 여섯 송이 모아요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 꽃을 모아요.",
+     "clueEn": "When the sky is clear, collect six flowers."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEAR",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "flower",
+      "bee"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEAR"
+     ],
+     "clueKo": "벌집 근처에 꽃을 세 송이 심어요.",
+     "clueSource": "generated",
+     "hintKo": "벌집 근처에 꽃을 심어요.",
+     "clueEn": "Plant three flowers — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:bee_nest"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:NEAR_BLOCK",
+      "goal:WAIT"
+     ],
+     "clueKo": "벌집 근처에서 잠깐 기다려요.",
+     "clueSource": "generated",
+     "hintKo": "벌집 근처에서 잠깐 기다려요.",
+     "clueEn": "Wait close to the bee nest."
+    },
+    {
+     "id": "finale",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:dandelion"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "bee",
+      "flower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREED"
+     ],
+     "clueKo": "꽃을 들고 꿀벌을 키워요.",
+     "clueSource": "generated",
+     "hintKo": "꽃을 들고 꿀벌을 키워요.",
+     "clueEn": "Holding a dandelion, raise a bee."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_allay_deliver_item_to_player",
+   "title": "작은 창고",
+   "titleEn": "A Little Storeroom",
+   "topic": "창고",
+   "order": 257,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Craft a barrel, place it under a roof, put potatoes in and take one out.",
+   "newWords": [],
+   "finaleKo": "통에서 감자를 꺼냈어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_barrel"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "통을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "통을 만들어요.",
+     "clueEn": "Craft a barrel."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gen_barrel"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "지붕 아래에서 통을 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 통을 놓아요.",
+     "clueEn": "Under a roof, place the barrel."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "potato"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "통 안에 감자를 세 개 넣어요.",
+     "clueSource": "generated",
+     "hintKo": "통 안에 감자를 넣어요.",
+     "clueEn": "Put three potatoes into the barrel."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "relation": null,
+     "conditions": [],
+     "verb": "TAKE_OUT",
+     "teach": [
+      "take_out"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:TAKE_OUT"
+     ],
+     "clueKo": "통에서 감자를 꺼내요.",
+     "clueSource": "generated",
+     "hintKo": "통에서 감자를 꺼내요.",
+     "clueEn": "Take a potato out of the barrel."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_obtain_sniffer_egg",
+   "title": "닭장의 아침",
+   "titleEn": "Morning at the Coop",
+   "topic": "닭",
+   "order": 270,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Stack a log wall for a coop, wait near a chicken, collect eggs and raise a chicken.",
+   "newWords": [],
+   "finaleKo": "밀 씨앗을 들고 닭을 키웠어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "log"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:WALL"
+     ],
+     "clueKo": "통나무로 벽을 쌓아요.",
+     "clueSource": "generated",
+     "hintKo": "통나무로 벽을 쌓아요.",
+     "clueEn": "Stack a wall of logs, a coop for the hens."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:chicken"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "chicken",
+      "wait"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:NEAR_ENTITY",
+      "goal:WAIT"
+     ],
+     "clueKo": "닭 근처에서 잠깐 기다려요.",
+     "clueSource": "generated",
+     "hintKo": "닭 근처에서 잠깐 기다려요.",
+     "clueEn": "Wait close to a chicken."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wheat_seeds"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "egg"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "밀 씨앗을 들고 달걀을 두 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "밀 씨앗을 들고 달걀을 모아요.",
+     "clueEn": "Holding wheat seeds, collect two eggs."
+    },
+    {
+     "id": "finale",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wheat_seeds"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREED"
+     ],
+     "clueKo": "밀 씨앗을 들고 닭을 키워요.",
+     "clueSource": "generated",
+     "hintKo": "밀 씨앗을 들고 닭을 키워요.",
+     "clueEn": "Holding wheat seeds, raise a chicken."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_place_dried_ghast_in_water",
+   "title": "들판의 말",
+   "titleEn": "A Horse in the Field",
+   "topic": "말",
+   "order": 271,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Go to the plains by day, get a hay bale, feed a horse and ride it.",
+   "newWords": [],
+   "finaleKo": "낮에 말을 탔어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_plains"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "낮에 평원으로 가요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 평원으로 가요.",
+     "clueEn": "By day, go to the plains."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:plains"
+     ],
+     "verb": "OBTAIN",
+     "teach": [
+      "hay_block"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "평원에서 건초 더미를 구해요.",
+     "clueSource": "generated",
+     "hintKo": "평원에서 건초 더미를 구해요.",
+     "clueEn": "In the plains, get a hay bale."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "horse"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:GIVE"
+     ],
+     "clueKo": "말에게 건초 더미를 줘요.",
+     "clueSource": "generated",
+     "hintKo": "말에게 건초 더미를 줘요.",
+     "clueEn": "Give a hay bale to a horse."
+    },
+    {
+     "id": "finale",
+     "goal": "MOUNT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "RIDE",
+     "teach": [
+      "ride"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:MOUNT"
+     ],
+     "clueKo": "낮에 말을 타요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 말을 타요.",
+     "clueEn": "By day, ride a horse."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_uh_oh",
+   "title": "농부와 거래",
+   "titleEn": "Trading with the Farmer",
+   "topic": "거래",
+   "order": 283,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_husbandry_root"
+   ],
+   "project": "Collect wheat, walk with it through the plains, look at a villager and sell the wheat.",
+   "newWords": [],
+   "finaleKo": "주민에게 밀을 팔았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "wheat"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "밀을 스무 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 모아요.",
+     "clueEn": "Collect twenty wheat."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "WALK",
+     "teach": [
+      "wheat"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:HOLD_WHILE"
+     ],
+     "clueKo": "밀을 들고 평원에서 걸어요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 들고 평원에서 걸어요.",
+     "clueEn": "Holding wheat, walk in the plains."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wheat"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "villager"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "밀을 들고 주민을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 들고 주민을 1초 동안 바라봐요.",
+     "clueEn": "Holding wheat, look at a villager for one second."
+    },
+    {
+     "id": "finale",
+     "goal": "TRADE",
+     "relation": null,
+     "conditions": [],
+     "verb": "SELL",
+     "teach": [
+      "sell"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:TRADE"
+     ],
+     "clueKo": "주민에게 밀을 팔아요.",
+     "clueSource": "generated",
+     "hintKo": "주민에게 밀을 팔아요.",
+     "clueEn": "Sell wheat to a villager."
+    }
+   ]
+  }
+ ],
+ "recycledWords": {
+  "밀": {
+   "encountersBefore": 7,
+   "encountersAfter": 13,
+   "encountersInBatch": 6,
+   "rolesInBatch": [
+    "condition",
+    "finale",
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "건초 더미": {
+   "encountersBefore": 5,
+   "encountersAfter": 8,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "울타리": {
+   "encountersBefore": 8,
+   "encountersAfter": 10,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "울타리 문": {
+   "encountersBefore": 4,
+   "encountersAfter": 6,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "소": {
+   "encountersBefore": 11,
+   "encountersAfter": 12,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "돼지": {
+   "encountersBefore": 7,
+   "encountersAfter": 6,
+   "encountersInBatch": -1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "닭": {
+   "encountersBefore": 8,
+   "encountersAfter": 10,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "condition"
+   ],
+   "coreWord": true
+  },
+  "말": {
+   "encountersBefore": 10,
+   "encountersAfter": 12,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "염소": {
+   "encountersBefore": 7,
+   "encountersAfter": 7,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "늑대": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "recipient"
+   ],
+   "coreWord": false
+  },
+  "꿀벌": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "개구리": {
+   "encountersBefore": 6,
+   "encountersAfter": 6,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "주민": {
+   "encountersBefore": 14,
+   "encountersAfter": 16,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "달걀": {
+   "encountersBefore": 6,
+   "encountersAfter": 7,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "감자": {
+   "encountersBefore": 11,
+   "encountersAfter": 13,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "물": {
+   "encountersBefore": 7,
+   "encountersAfter": 11,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": true
+  },
+  "집": {
+   "encountersBefore": 19,
+   "encountersAfter": 19,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "물고기": {
+   "encountersBefore": 11,
+   "encountersAfter": 12,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "배": {
+   "encountersBefore": 3,
+   "encountersAfter": 6,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "통": {
+   "encountersBefore": 1,
+   "encountersAfter": 5,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "anchor"
+   ],
+   "coreWord": false
+  },
+  "키우다": {
+   "encountersBefore": 0,
+   "encountersAfter": 3,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "finale",
+    "verb"
+   ],
+   "coreWord": true
+  },
+  "타다": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "꺼내다": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "verb"
+   ],
+   "coreWord": true
+  },
+  "넣다": {
+   "encountersBefore": 12,
+   "encountersAfter": 12,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "기다리다": {
+   "encountersBefore": 1,
+   "encountersAfter": 4,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "요리하다": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "팔다": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "심다": {
+   "encountersBefore": 51,
+   "encountersAfter": 50,
+   "encountersInBatch": -1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "쓰다": {
+   "encountersBefore": 4,
+   "encountersAfter": 7,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "고기": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "생선": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "마리": {
+   "encountersBefore": 39,
+   "encountersAfter": 39,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "다섯": {
+   "encountersBefore": 10,
+   "encountersAfter": 10,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "여섯": {
+   "encountersBefore": 33,
+   "encountersAfter": 33,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "강": {
+   "encountersBefore": 10,
+   "encountersAfter": 13,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "늪": {
+   "encountersBefore": 2,
+   "encountersAfter": 4,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": false
+  },
+  "평원": {
+   "encountersBefore": 1,
+   "encountersAfter": 4,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "condition"
+   ],
+   "coreWord": false
+  },
+  "꽃": {
+   "encountersBefore": 14,
+   "encountersAfter": 17,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "뼈": {
+   "encountersBefore": 3,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "꿀": {
+   "encountersBefore": 2,
+   "encountersAfter": 2,
+   "encountersInBatch": 0,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": false
+  }
+ },
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: descKo inserted for gen_barrel (통), gen_swamp (늪) and gen_plains (평원), which the trails teach. One line each, nothing reformatted.",
+  "src/test/resources/content-baseline.json: adv_husbandry_allay_deliver_item_to_player, _place_dried_ghast_in_water and _plant_seed removed from reachabilityDebt (they needed the Nether; the new trails do not).",
+  "src/test/java/.../ObtainabilityTest.java: Goal.Breed and Goal.Mount added to the entity branch of everyGoalTargetIsARealVanillaId (cow, horse and bee were looked up as blocks and items; first trails to use BREED and MOUNT).",
+  "src/test/java/.../PlaytestTest.java: the BREED simulation feeds two parents and shows both next to the baby (generator wave 4 requires two fed animals within 4 blocks of the baby).",
+  "chapters.json: regenerated by tools/assign_chapters.py; docs/book/src/quest-tree.md regenerated; content/korean/lines.jsonl and review-status.json regenerated; content/metrics-baseline.json updated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "Taught words must describe the goal: the first word of `teach` is checked against the goal, the schema wants a non-empty `teach` on every step, and a step with conditions must have one (everyConditionAppearsInTheKoreanClue indexes teach[0]). There is no concept for 표지판 (sign) and `hoe` lists only the iron hoe, so a wooden-hoe or sign step cannot teach its own noun; the trails use other first words.",
+  "SMELT names the output item literally: baked_potato reads 구운 감자를 요리해요 (cooked twice). Only a concept that covers the output (고기 for cooked meat, 생선 for cooked fish) gives a natural 요리하다 sentence, and both are unknown words on day one, so the one SMELT step (root finale) has two unknown words.",
+  "The HOLDING phrase of a clue names the item (참나무 보트를 들고) while the generated hint uses the concept word (배를 들고): clue and hint disagree.",
+  "NEAR_BLOCK is true only while the player looks at that block, so WAIT with NEAR_BLOCK (plant_seed, silk_touch_nest) asks the player to stare at the crop or the nest while waiting.",
+  "coverage.py cuts 팔아요 into 파다 (a different verb), so 팔다 is never counted and every sell sentence carries a phantom unknown word.",
+  "BREED with count 1 prints no counter (소를 키워요); a count above 1 adds the counter 마리, an extra unknown word. The three BREED finales use count 1.",
+  "A step that names a biome by concept (바다, 강) needs the concept's tag (#minecraft:is_ocean, #minecraft:is_river); minecraft:ocean or minecraft:river fails the 'describes the goal' check, and the tags repeat existing REACH_BIOME signatures unless a condition is added.",
+  "An authored clue must keep verb and object together (줘요 right after 건초 더미를): inserting a counter (한 개) between them fails 'clue does not name the action'. An authored hint must contain every taught noun (multiWordHintsExplainTheExtraNouns).",
+  "The simulator counts every `teach` entry as an encounter even when the word is not in the sentence; this is the only way to bring a word to three encounters when a trail has fewer than three sentences that can carry it.",
+  "On a fresh worktree gates.sh fails at the coverage step until a full `./gradlew test` has written build/reports/content/verb-forms.json.",
+  "ObtainabilityTest.everyGoalTargetIsARealVanillaId had no case for BREED and MOUNT (cow, horse, bee looked up as blocks), and PlaytestTest fed only one animal for BREED, which wave 4 no longer accepts: the first trails to use these goals had to fix both tests.",
+  "USE_BLOCK on a sign has no verb: the default was 쓰다 (use/write/wear), now 사용하다; make_a_sign_glow uses an authored clue (표지판에 글을 써요)."
+ ]
+}

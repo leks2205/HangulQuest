@@ -90,6 +90,8 @@ class ObtainabilityTest {
 					case Goal.LookAtEntity g -> names.containsKey("entity.minecraft." + p);
 					case Goal.DefeatEntity g -> names.containsKey("entity.minecraft." + p);
 					case Goal.InteractEntity g -> names.containsKey("entity.minecraft." + p);
+					case Goal.Breed g -> names.containsKey("entity.minecraft." + p);
+					case Goal.Mount g -> names.containsKey("entity.minecraft." + p);
 					default -> names.containsKey("block.minecraft." + p) || names.containsKey("item.minecraft." + p);
 				};
 				if (!known) {
