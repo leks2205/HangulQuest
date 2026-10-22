@@ -3,7 +3,7 @@ trail.w7_01.finale	북쪽으로 십 블록 갔어요. 불은 뜨거워요.	final
 trail.w7_02.finale	밤에 금 광석을 캐서 화로에서 금 주괴를 만들었어요. 금은 노란색이에요.	finale, authored; Sequence [BreakBlock minecraft:gold_ore x1 > Smelt minecraft:gold_ingot x1]
 trail.w7_03.finale	모루를 만들었어요. 모루는 작지만 무거워요.	finale, authored; Craft minecraft:anvil x1
 trail.w7_04.finale	훈연기 안에 감자를 넣어서 구운 감자를 꺼냈어요. 훈연기는 음식을 구워요.	finale, authored; Sequence [PutIn minecraft:potato in minecraft:smoker x1 > TakeOut minecraft:baked_potato from minecraft:smoker x1]
-trail.w7_05.finale	밤에 영혼 모닥불을 피웠어요. 영혼 불꽃은 파란색이지만 뜨거워요.	finale, authored; UseBlock minecraft:soul_campfire 
+trail.w7_05.finale	밤에 영혼 모닥불을 피웠어요. 영혼 불은 파란색이지만 뜨거워요.	finale, authored; UseBlock minecraft:soul_campfire 
 trail.w7_06.finale	남쪽으로 이십 블록 갔어요. 마그마 블록은 뜨거워요.	finale, authored; Walk 
 trail.w7_07.finale	꽃 옆에 분홍색 양털을 놓았어요. 장미는 빨간색이에요.	finale, authored; PlaceRel minecraft:pink_wool NEXT_TO #minecraft:flowers
 trail.w7_08.finale	벽돌을 만들어서 벽돌 계단을 놓았어요. 벽돌은 빨간색이에요.	finale, authored; Sequence [Craft minecraft:bricks x1 > PlaceBlock minecraft:brick_stairs x1]
