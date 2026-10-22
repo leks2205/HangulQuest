@@ -322,12 +322,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 
 	/** Goals that one event completes, so a later part can be checked on a fresh tracker each tick. */
 	private static boolean isEvent(Goal part) {
-		return part instanceof Goal.PlaceBlock || part instanceof Goal.PlaceRel || part instanceof Goal.PlaceOnPattern
-				|| part instanceof Goal.BuildPattern || part instanceof Goal.BreakBlock || part instanceof Goal.Craft
-				|| part instanceof Goal.Smelt || part instanceof Goal.Give || part instanceof Goal.PutIn
-				|| part instanceof Goal.TakeOut
-				|| part instanceof Goal.UseBlock || part instanceof Goal.InteractEntity
-				|| part instanceof Goal.ConsumeItem;
+		return Clauses.isEvent(part);
 	}
 
 	/**
@@ -406,6 +401,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		String last = past ? tripCeremony(link, main, c) : Clauses.sentence(main, c, c.level());
 		if (parts.size() == 2) {
 			last = withoutRepeatedObject(parts.get(1 - finite), main, text.toString(), last);
+			last = withoutRepeatedContainer(parts.get(1 - finite), main, text.toString(), last);
 		}
 		return text + last;
 	}
@@ -439,6 +435,24 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		// count or a second noun stays in the sentence
 		return clauseRest.isEmpty() || !verbAlone(clauseRest) || lastRest.isBlank() || lastRest.contains(" ") ? last
 				: lastRest;
+	}
+
+	/**
+	 * Putting something in a container and taking something out of the same one says the container once: "훈연기 안에
+	 * 감자를 넣어서 구운 감자를 꺼내야 해요", not "… 훈연기에서 구운 감자를 꺼내야 해요". The container is the one the
+	 * clause opens with ("훈연기 안에 …").
+	 */
+	private static String withoutRepeatedContainer(Goal clausePart, Goal main, String clause, String last) {
+		if (!(clausePart instanceof Goal.PutIn in) || !(main instanceof Goal.TakeOut out)
+				|| !in.container().equals(out.container())) {
+			return last;
+		}
+		int inside = clause.indexOf(" 안에 ");
+		if (inside <= 0) {
+			return last;
+		}
+		String from = KoGrammar.eseo(clause.substring(0, inside)) + " ";
+		return last.startsWith(from) ? last.substring(from.length()) : last;
 	}
 
 	/** One verb, with the 전에 / 후에 / 나서 of its connective. */

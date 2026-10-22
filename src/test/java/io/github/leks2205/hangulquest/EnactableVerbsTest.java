@@ -139,7 +139,8 @@ class EnactableVerbsTest {
 		assertEquals(List.of(), problems(new Goal.UseBlock("minecraft:oak_trapdoor", "CLOSE")));
 		assertEquals(List.of(), problems(new Goal.UseBlock("minecraft:birch_fence_gate", "OPEN")));
 		assertFalse(problems(new Goal.UseBlock("minecraft:iron_door", "OPEN")).isEmpty(), "iron doors need redstone");
-		assertFalse(problems(new Goal.UseBlock("minecraft:chest", "OPEN")).isEmpty());
+		assertEquals(List.of(), problems(new Goal.UseBlock("minecraft:chest", "OPEN")), "wave 12: a chest opens a screen by a click");
+		assertFalse(problems(new Goal.UseBlock("minecraft:chest", "CLOSE")).isEmpty());
 		assertFalse(problems(new Goal.UseBlock("minecraft:oak_door", "SHUT")).isEmpty());
 	}
 
@@ -454,7 +455,7 @@ class EnactableVerbsTest {
 	void lyingDownIsInBedWithoutWaitingForTheNight() {
 		Goal lie = new Goal.LieDown("minecraft:red_bed", 2000);
 		assertEquals("침대에 누워요.", clue(lie, "bed"));
-		assertEquals("침대에 누웠어요.", ceremony(lie, "bed"));
+		assertEquals("빨간색 침대에 누웠어요.", ceremony(lie, "bed"));
 		assertEquals(Verb.LIE, SentenceBuilder.verbFor(lie));
 		assertEquals(List.of(), problems(lie, "bed"));
 		assertEquals(List.of(), problems(lie, "lie_down"));
@@ -675,19 +676,19 @@ class EnactableVerbsTest {
 	// ------------------------------------------------------------------------- 앉다 / 타다
 
 	@Test
-	void aBoatIsSatInAndAHorseIsRidden() {
+	void aBoatAndAHorseAreRidden() {
 		Goal boat = new Goal.Mount("minecraft:oak_boat", 1500);
 		Goal horse = new Goal.Mount("minecraft:horse", 1500);
-		assertEquals("배에 앉아요.", clue(boat, "boat"));
-		assertEquals("가문비나무 보트에 앉아요.", clue(new Goal.Mount("minecraft:spruce_boat", 1500), null));
+		assertEquals("배를 타요.", clue(boat, "boat"));
+		assertEquals("가문비나무 보트를 타요.", clue(new Goal.Mount("minecraft:spruce_boat", 1500), null));
 		assertEquals("말을 타요.", clue(horse, "horse"));
 		assertEquals("말을 탔어요.", ceremony(horse, "horse"));
-		assertEquals("배에 앉았어요.", ceremony(boat, "boat"));
-		assertEquals(Verb.SIT, SentenceBuilder.verbFor(boat));
-		assertEquals(Verb.SIT, SentenceBuilder.verbFor(new Goal.Mount("minecraft:minecart", 1500)));
+		assertEquals("배를 탔어요.", ceremony(boat, "boat"));
+		assertEquals(Verb.RIDE, SentenceBuilder.verbFor(boat));
+		assertEquals(Verb.RIDE, SentenceBuilder.verbFor(new Goal.Mount("minecraft:minecart", 1500)));
 		assertEquals(Verb.RIDE, SentenceBuilder.verbFor(horse));
 		assertEquals(Verb.RIDE, SentenceBuilder.verbFor(new Goal.Mount("minecraft:pig", 1500)));
-		// teaching 타다 turns the seat into a ride
+		// teaching 타다 changes nothing; a boat is ridden either way
 		assertEquals("배를 타요.", clueTeaching(boat, "boat", "ride"));
 		assertEquals("말을 타요.", clueTeaching(horse, "horse", "ride"));
 		assertEquals("말을 타요.", clueTeaching(horse, "horse", "sit"), "a horse is never sat in");

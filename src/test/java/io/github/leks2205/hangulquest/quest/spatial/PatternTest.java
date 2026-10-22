@@ -347,8 +347,8 @@ class PatternTest {
 
 	@Test
 	void sizeLimitsKeepThePatternInsideTheSevenCube() {
-		assertTrue(Pattern.PILLAR.validSize(4));
-		assertFalse(Pattern.PILLAR.validSize(5), "5 would not fit around the last block placed");
+		assertTrue(Pattern.PILLAR.validSize(7));
+		assertFalse(Pattern.PILLAR.validSize(8), "8 would not fit around the last block placed");
 		assertFalse(Pattern.PILLAR.validSize(1));
 		assertTrue(Pattern.PYRAMID.validSize(3));
 		assertFalse(Pattern.PYRAMID.validSize(5));
@@ -366,7 +366,7 @@ class PatternTest {
 			lookups.incrementAndGet();
 			return world.at(x, y, z);
 		});
-		assertEquals(7 * 7 * 7, lookups.get(), "one cube per placement");
+		assertEquals(13 * 13 * 13, lookups.get(), "one cube per placement");
 		int before = lookups.get();
 		assertFalse(PatternMatcher.builtWith(around, Pattern.PYRAMID, 3, MATERIAL).isEmpty());
 		assertTrue(PatternMatcher.find(around, Pattern.RING, 3, MATERIAL).isEmpty());

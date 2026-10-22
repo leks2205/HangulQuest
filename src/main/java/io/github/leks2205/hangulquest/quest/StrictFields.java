@@ -42,6 +42,10 @@ public final class StrictFields {
 
 	private static void step(String trail, JsonObject step, List<String> problems) {
 		String where = trail + "/" + (step.has("id") && step.get("id").isJsonPrimitive() ? step.get("id").getAsString() : "?");
+		// the schema says minItems 1: the first taught word supplies the noun of the sentence
+		if (!step.has("teach") || !step.get("teach").isJsonArray() || step.getAsJsonArray("teach").isEmpty()) {
+			problems.add(where + ": teaches no word (teach needs at least one concept)");
+		}
 		if (step.has("goal") && step.get("goal").isJsonObject()) {
 			goal(where + " goal", step.getAsJsonObject("goal"), problems);
 		}

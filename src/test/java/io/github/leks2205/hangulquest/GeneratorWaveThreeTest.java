@@ -374,10 +374,10 @@ class GeneratorWaveThreeTest {
 		assertEquals("초를 켜요.", clue(new Goal.UseBlock("minecraft:candle"), "candle"));
 		assertEquals(Verb.SWITCH_ON, SentenceBuilder.verbFor(new Goal.UseBlock("minecraft:blue_candle")));
 		assertEquals("초를 세워요.", clue(new Goal.PlaceBlock("minecraft:candle", 1), "candle"));
-		assertEquals("초를 세웠어요.", ceremony(new Goal.PlaceBlock("minecraft:red_candle", 1), "candle"));
+		assertEquals("빨간색 초를 세웠어요.", ceremony(new Goal.PlaceBlock("minecraft:red_candle", 1), "candle"));
 		assertEquals("초 옆에 횃불을 놓아요.", clue(new Goal.PlaceRel(TORCH, Relation.NEXT_TO, "minecraft:candle", 1), "candle"));
 		assertEquals("횃불 옆에 초를 세워요.", clue(new Goal.PlaceRel("minecraft:candle", Relation.NEXT_TO, TORCH, 1), "torch"));
-		assertEquals("모닥불을 피워요.", clue(new Goal.PlaceBlock("minecraft:soul_campfire", 1), "campfire"));
+		assertEquals("영혼 모닥불을 피워요.", clue(new Goal.PlaceBlock("minecraft:soul_campfire", 1), "campfire"));
 	}
 
 	// ------------------------------------------------- 18. a covering word replaces only the id it is taught for

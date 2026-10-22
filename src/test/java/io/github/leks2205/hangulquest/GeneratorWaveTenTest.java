@@ -338,8 +338,8 @@ class GeneratorWaveTenTest {
 	@Test
 	void i3_anAvoidCanForbidAnActionOnACreature() {
 		Goal hit = new Goal.Avoid(new Goal.DefeatEntity("minecraft:villager", 1), 30, null);
-		assertEquals("주민을 물리치지 마세요.", clue(hit, 3));
-		assertEquals("주민을 물리치지 않았어요.", finale(hit, List.of()));
+		assertEquals("주민을 해치지 마세요.", clue(hit, 3));
+		assertEquals("주민을 해치지 않았어요.", finale(hit, List.of()));
 		assertEquals(List.of(), problems(hit));
 		Goal touch = new Goal.Avoid(new Goal.InteractEntity("minecraft:villager"), 30, null);
 		assertEquals(List.of(), problems(touch));
@@ -381,8 +381,8 @@ class GeneratorWaveTenTest {
 
 	@Test
 	void i7_heightsAndDistancesAreSpelledInSinoKorean() {
-		assertEquals("높이 백 블록 위로 올라가세요.", clue(new Goal.ReachHeight(100, 320), 2));
-		assertEquals("높이 구십 블록 위로 올라가세요.", clue(new Goal.ReachHeight(90, 320), 2));
+		assertEquals("높이 백 블록 이상으로 올라가세요.", clue(new Goal.ReachHeight(100, 320), 2));
+		assertEquals("높이 구십 블록 이상으로 올라가세요.", clue(new Goal.ReachHeight(90, 320), 2));
 		assertEquals("높이 사십 블록 이하로 내려가세요.", clue(new Goal.ReachHeight(-64, 40), 2));
 		assertEquals("물에서 이십 블록 수영하세요.", clue(new Goal.Swim(20), 2));
 		assertEquals("십 블록 높이에서 안 다치고 뛰어내리세요.", clue(new Goal.Fall(10, null), 2));

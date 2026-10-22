@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.Vec3;
 
 /**
- * One block the player put into the world. {@code around} is the 7x7x7 cube centred on it, taken
+ * One block the player put into the world. {@code around} is the 13x13x13 cube centred on it, taken
  * at the moment the placement was noticed. {@code roofed} says a solid block stands within
  * {@link SkyExposure#ROOF_RANGE} above the placed block itself (not above the player).
  */

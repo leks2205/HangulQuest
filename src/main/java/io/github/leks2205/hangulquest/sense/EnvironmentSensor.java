@@ -380,7 +380,7 @@ public final class EnvironmentSensor {
 					obs.placedBlocksAtNight.add(placed.block());
 				}
 			}
-			// The 7x7x7 snapshot is only taken here, once per placement.
+			// The 13x13x13 snapshot is only taken here, once per placement.
 			for (PlacementDiff.Placed placed : PlacementDiff.primary(changed, pendingPlaceFace, pendingPlaceClicked)) {
 				obs.addPlacement(new PlacementFact(placed.block(), placed.pos(), tick, pendingPlaceNight,
 						obs.position, neighborhood(level, placed.pos()), roofedAbove(level, placed.pos())));

@@ -524,7 +524,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenglanz` | 왕관의 빛남 | Der Kronenglanz | 5 | `kronenpfad`, `kristallschmiede`, `zeitportal`, `seelenpfad`, `gartenkunst`, `wolkenstadt`, `schmuckgilde` |
+| `kronenglanz` | 빛나는 왕관 | Der Kronenglanz | 5 | `kronenpfad`, `kristallschmiede`, `zeitportal`, `seelenpfad`, `gartenkunst`, `wolkenstadt`, `schmuckgilde` |
 | `kronenrat` | 왕관 회의 | Der Kronenrat | 5 | `seelenpfad`, `golemwerkstatt` |
 | `richterpfad` | 심판의 길 | Der Richterpfad | 5 | `seelenpfad`, `golemwerkstatt` |
 | `runenpfad` | 룬의 길 | Der Runenpfad | 4 | `handwerksmeister`, `seelenpfad` |

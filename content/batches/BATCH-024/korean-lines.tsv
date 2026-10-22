@@ -9,7 +9,7 @@ trail.tempelwaechter.finale	물속에서 가디언을 물리쳤어요. 가디언
 trail.sternenkarte.finale	지도를 들고 지도 제작대를 열었어요. 지도는 길을 알려 줘요.	finale, authored; UseBlock minecraft:cartography_table 
 trail.handelsflotte.finale	낮에 회색 현수막을 걸었어요. 현수막은 양털로 만들어요.	finale, authored; PlaceBlock minecraft:gray_banner x1
 trail.adv_nether_all_effects.finale	물약을 마신 후에 황금 사과를 먹었어요. 우유는 물약의 효과를 없애요.	finale, authored; Sequence [ConsumeItem minecraft:potion x1 > ConsumeItem minecraft:golden_apple x1]
-trail.adv_nether_create_full_beacon.finale	밖에서 신호기를 열었어요. 신호기는 하늘로 빛을 보내요.	finale, authored; UseBlock minecraft:beacon 
+trail.adv_nether_create_full_beacon.finale	밖에서 신호기를 사용했어요. 신호기는 하늘로 빛을 보내요.	finale, authored; UseBlock minecraft:beacon 
 trail.adv_story_enter_the_end.finale	엔드에 도착했어요. 엔드에는 드래곤이 살아요.	finale, authored; ReachDimension minecraft:the_end 
 trail.wolkenpfad.finale	석영 블록으로 계단을 쌓았어요. 구름은 하늘에 떠 있어요.	finale, authored; BuildPattern minecraft:quartz_block STAIRS 3
 trail.unendlichereise.finale	저녁에 서쪽으로 삼십오 블록 갔어요. 해는 서쪽으로 져요.	finale, authored; Walk 

@@ -120,6 +120,17 @@ public final class QuestValidator {
 		return known;
 	}
 
+	/** Where the step happens: its own IN_DIMENSION, else the dimension the trail asks for; the overworld if neither. */
+	private static String dimensionOf(Questline trail, QuestStep step) {
+		for (Condition condition : step.conditions()) {
+			if (condition instanceof Condition.InDimension in) {
+				return in.dimension();
+			}
+		}
+		String asked = trail.requires() == null ? null : trail.requires().dimension();
+		return asked == null || asked.isBlank() ? "minecraft:overworld" : asked;
+	}
+
 	private static List<String> validateStep(Questline trail, QuestStep step, Catalog catalog) {
 		List<String> problems = new ArrayList<>();
 		if (step.goal() == null) {
@@ -140,6 +151,15 @@ public final class QuestValidator {
 		if (step.reverse() && !REVERSE_GOALS.contains(GoalTypes.of(step.goal()).id())) {
 			problems.add(trail.id() + "/" + step.id() + ": reverse does not fit a "
 					+ GoalTypes.of(step.goal()).id() + " goal");
+		}
+		String dimension = dimensionOf(trail, step);
+		if (!"minecraft:overworld".equals(dimension)) {
+			for (Condition condition : step.conditions()) {
+				if (ConditionTypes.of(condition).timeOfDay()) {
+					problems.add(trail.id() + "/" + step.id() + ": a time of day in " + dimension
+							+ ", which has no day and night");
+				}
+			}
 		}
 		ValidationContext context = new ValidationContext(trail.id() + "/" + step.id(), step, catalog,
 				problems, trail.koreanLevel());

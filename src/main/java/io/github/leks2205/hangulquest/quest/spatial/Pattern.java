@@ -8,15 +8,16 @@ import java.util.Locale;
  * Small structures a player builds, as lists of cells. Cell offsets start at the structure's own
  * corner (0,0,0), so a matcher can lay them over a world at any position.
  *
- * <p>The matcher only sees the 7x7x7 cube around a new block, and a structure has to fit inside it
- * with the new block as one of its cells. A pillar or a row is therefore capped at 4 (the last block
- * is at an end, with 3 more on one side); a pyramid and a ring are 3 wide.
+ * <p>The matcher only sees the 13x13x13 cube around a new block ({@code BlockNeighborhood#RADIUS} 6), and a
+ * structure has to fit inside it with the new block as one of its cells. A pillar or a row is therefore capped at 7
+ * (the last block is at an end, with 6 more on one side); a thing placed on top of a pillar sees 6 below it. A wall
+ * and stairs stay at 4, a pyramid, a ring and a cross are 3 wide.
  */
 public enum Pattern {
-	PILLAR("기둥", 2, 4, 3),
+	PILLAR("기둥", 2, 7, 3),
 	PYRAMID("피라미드", 3, 3, 3),
 	RING("담", 3, 3, 3),
-	ROW("줄", 2, 4, 3),
+	ROW("줄", 2, 7, 3),
 	/** Size 2 is 2 wide and 2 high, size 3 is 3x2, size 4 is 4x3; it can stand along x or z. */
 	WALL("벽", 2, 4, 3),
 	/** A plus of five blocks, flat on the ground or standing upright along x or z. */

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Finds a {@link Pattern} inside the 7x7x7 cube around a new block. Nothing here reads the world: the
+ * Finds a {@link Pattern} inside the 13x13x13 cube around a new block. Nothing here reads the world: the
  * cube was captured once when the block was placed, so a match costs array reads only.
  * Offsets are relative to the placed block, as in {@link BlockNeighborhood#at}.
  */

@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The 7x7x7 cube of blocks around a placed block, as palette indices. Captured once per placement,
+ * The 13x13x13 cube of blocks around a placed block, as palette indices. Captured once per placement,
  * never per tick. Offsets run from -{@value #RADIUS} to {@value #RADIUS} on every axis; the three
- * air blocks are one palette entry, and index 0 is always air.
+ * air blocks are one palette entry, and index 0 is always air. The cube is wide enough for a pillar or a row of
+ * seven with the new block at its end; relations ({@code Relations}) still look only {@value #NEAR} blocks around.
  */
 public final class BlockNeighborhood {
-	public static final int RADIUS = 3;
+	public static final int RADIUS = 6;
+	/** How far a relation (next to, near, in front of) looks: the 7x7x7 cube the first versions captured. */
+	public static final int NEAR = 3;
 	public static final int SIZE = RADIUS * 2 + 1;
 	public static final String AIR = "minecraft:air";
 

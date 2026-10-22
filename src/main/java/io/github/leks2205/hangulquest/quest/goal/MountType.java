@@ -16,7 +16,7 @@ import io.github.leks2205.hangulquest.sense.Observation;
 import java.util.List;
 
 /**
- * Sit in a boat or a minecart (앉아요), or ride a horse, a pig or another mount (타요). Unlike
+ * Ride a boat, a minecart, a horse, a pig or another mount (타요). Unlike
  * INTERACT_ENTITY, which sees the click on the animal, this watches the vehicle state of the player: the
  * client knows what the player is riding. Every boat is one boat, every cart one cart.
  */
@@ -68,15 +68,15 @@ final class MountType implements GoalType<Goal.Mount> {
 		return goal.dwellMs();
 	}
 
-	/** A seat (boat, cart) is sat in; an animal is ridden. */
+	/** A boat, a cart or an animal is ridden: 배를 타요, never 배에 앉아요 (sitting is only the posture). */
 	@Override
 	public Verb verb(Goal.Mount goal, VerbTable table) {
-		return Matching.vehicleFamily(goal.entity()).isEmpty() ? Verb.RIDE : Verb.SIT;
+		return Verb.RIDE;
 	}
 
 	@Override
 	public List<Verb> alternativeVerbs(Goal.Mount goal) {
-		return Matching.vehicleFamily(goal.entity()).isEmpty() ? List.of() : List.of(Verb.RIDE);
+		return Matching.vehicleFamily(goal.entity()).isEmpty() ? List.of() : List.of(Verb.SIT);
 	}
 
 	@Override

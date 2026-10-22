@@ -100,6 +100,9 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 
 	/** The change the goal checks: its own, or LIT for a candle (the table speaks 켜다 for candles), WRITE for a sign. */
 	static String effectiveChange(Goal.UseBlock goal) {
+		if (screenOpened(goal)) {
+			return null; // 상자를 열다: the click that opens the screen is the use
+		}
 		if (goal.change() != null) {
 			return goal.change();
 		}
@@ -108,6 +111,16 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 		}
 		return Matching.isCandle(goal.block()) && VerbTable.shared().choose("USE_BLOCK", goal.block(), 1, Verb.USE)
 				== Verb.SWITCH_ON ? "LIT" : null;
+	}
+
+	/**
+	 * OPEN on a chest, a barrel, a furnace and the like: they open a screen, not a door, so the click on the block
+	 * is the opening (the lid has no state the client can read). CLOSE has no such event.
+	 */
+	private static boolean screenOpened(Goal.UseBlock goal) {
+		return "OPEN".equals(goal.change()) && !handOpened(goal.block()) && !goal.block().endsWith("_door")
+				&& !goal.block().endsWith("_trapdoor") && !goal.block().endsWith("_fence_gate")
+				&& VerbTable.shared().choose("USE_BLOCK", goal.block(), 1, Verb.USE) == Verb.OPEN;
 	}
 
 	private static boolean isSign(String block) {
@@ -242,7 +255,7 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 				}
 			} else if (!goal.change().equals("OPEN") && !goal.change().equals("CLOSE")) {
 				context.problem("change must be OPEN, CLOSE, LIT or WRITE, not " + goal.change());
-			} else if (!handOpened(goal.block())) {
+			} else if (!handOpened(goal.block()) && !screenOpened(goal)) {
 				context.problem("a " + goal.block() + " does not open or close by hand; use a wooden door, "
 						+ "trapdoor or fence gate");
 			}
