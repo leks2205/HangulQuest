@@ -6,126 +6,29 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-- **Every Library story can open.** Stories may now gloss up to three everyday words (a graded reader): the words count
-  as known for the 98% rule, show their meaning next to them in the reader, and reading the story teaches them like a
-  quest step does. Fifteen stories that could never open now do (most with glossed words, four with a later unlock
-  trail, three with a small text change), and a test keeps all of them open on the canonical path.
-- **Three End trails check the real thing.** Placing four end crystals (끝 아녔어?), entering an end gateway
-  (머나먼 휴양지) and having the levitation effect at height 100 or more (위쪽 공기 좋은데?).
+## [3.0.0] — 2026-10-23
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.12)
+**Hangul Quest 3.0 is a new course, not an update of the old one.** Every trail from level 1 to level 6 was
+rebuilt on a curriculum built from language-learning research.
 
-**New in rc.12: the content rebuild is complete.**
-- **The last 11 trails:** level-6 small poems, ending the course with a quiet look back (밤이 지나면 해가 다시 뜨기
-  마련이에요).
-- **Every trail from level 1 to level 6 is now rebuilt** on the new curriculum. Each trail went through two blind
-  linguist reviews, and every step's Korean is generated from the very thing the quest checks.
-- The iron golem step now asks you to give it an iron ingot (the real repair), not to touch it.
-
-**New in rc.11: level 6, and the colour chain.**
-- **30 more trails:** the last journeys of the crown story, the five-trail colour chain (red, blue, yellow, purple,
-  orange) and the rainbow banner, the End game (the dragon, its egg and breath, the elytra, the End city) and five
-  small poems. Level 6 adds "the more …, the more …" (높이 올라갈수록 추워져요) in finales.
-- **Colours are honest now:** at levels 1 and 2 a bed, carpet or candle of any colour counts, and the quest doesn't
-  name a colour. From level 3 the quest names the colour and only that colour counts. Dyes always keep their colour.
-- **More natural verbs:** 배를 타다 for boats and minecarts, 사용하다 for workstations and the beacon, 해치다 for not
-  hurting villagers, 세우다 for a banner on top of a pillar, and heights as 높이 백 블록 이상으로.
-- Time conditions are no longer used in the Nether or the End, where there is no day and night.
-
-**New in rc.10: level 5 begins.**
-- **28 more trails:** the crown's workshop (guards, smiths, golems, runes, the council, the deep dark and a trial
-  chamber) and 15 small poems. Two of the workshop trails are level 4; the rest are level 5.
-- **Level 5 speaks in longer sentences:** "while" (해가 지는 동안 기다려야 해요), "even if" (밤이 되어도 자지 마세요)
-  and colour adjectives (파란 침대 옆에 …). About two thirds of the new steps depend on the Korean form.
-- Flavour lines were checked for being true in the game: witches throw potions, sculk sensors detect vibrations, and
-  soul fire uses its official name 영혼 불.
-
-**New in rc.9: level 4 begins, and the sound forge.**
-- **30 level-4 trails:** the far kingdoms (the End and the dragon, an ocean monument, a library, a lighthouse, the star
-  map, a trading fleet, the cloud path) and 15 small poems. About half of their steps now depend on the Korean form:
-  밤이 되면 …, 돌을 캐서 …, 꽃을 꺾으러 … 가야 해요.
-- **Sound forge (소리 대장간):** a listening game in the journal's Study tab for ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and
-  ㅓ ㅗ. A run is 60 trials in a random voice, and you hear both sounds again after each answer. A listening test before
-  and after uses voices that never appear in training. The sounds come from the optional voices pack. They are
-  synthetic for now, and recordings by native speakers would make them better.
-- **The voices pack** now covers every word, but no sentences until the mod plays them (about 44 MB).
-
-**Sound forge, technical details:** a listening mini-game in the journal's Study tab for the sounds that sound alike to an
-  English or German ear: ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and ㅓ ㅗ (never ㅐ ㅔ). A voice says a syllable or a word, you
-  pick which of two or three it was (keys 1 2 3, R to hear it again, or click), and you hear both sounds again with the
-  answer. A run is 60 trials in a random voice each time. A 30-trial listening test before and after (8 to 10 runs over at
-  least 3 weeks) uses voices that never appear in training, and the start page shows before, lately and after per contrast.
-  Answers go to the review log as the new mode `HVPT` (kind `HVPT`; it never touches a schedule) and the progress file gets
-  a small `hvpt` record (finished runs and a tally per contrast) without a schema bump. The sounds come from the optional
-  Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
-  `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
-  is the base for a later pitch view.
-
-**New in rc.8: the grammar for levels 4 to 6.**
-- **Level 4:** conditions become "if/when" clauses (밤이 되면 횃불을 놓아야 해요), steps join with -아/어서
-  (돌을 캐서 화로를 만들어야 해요), and purpose trips use -(으)러 가요 (나무를 베러 숲으로 가야 해요).
-- **Level 5:** colour adjectives (빨간 침대), "while" clauses (해가 지는 동안 기다려야 해요) and "even if"
-  (밤이 되어도 자지 마세요).
-- **Level 6:** "the higher, the colder" (높이 올라갈수록 추워져요), plus forms for formal and casual speech.
-- A new check keeps each construction at its own level and in the right kind of line.
-
-**New in rc.7: new kinds of quests, ready for level 4.**
-- **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg
-  (활로 과녁을 맞히세요), some from far away or with one arrow through two mobs.
-- **Compass directions:** walk north, south, east or west (북쪽으로 이십 블록 가세요), or face a direction while doing
-  something.
-- **"Don't" works on creatures too:** 주민을 물리치지 마세요.
-- **More natural numbers:** heights and distances use Sino-Korean numbers (높이 백 블록), and counts up to 99 use native
-  numbers (스물네 개).
-- Sequences no longer repeat the same object twice, and swimming in the ocean reads 바다에서 수영하세요.
-- Six flavour lines from the last two batches now state plain facts.
-
-**New in rc.6: level 3 is complete.**
-- All 108 level-3 trails are rebuilt, and nearly half of their steps now depend on the Korean form.
-- The last two batches are small mood trails: miners and smiths, caves and gems, forest herbs, foxes and bees. There
-  are also three watchtowers.
-- Finale lines were tightened after review: no plans, and no claims the quest doesn't check.
-
-- **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
-  onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
-  the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is
-  put on a creature (늑대에게 갑옷을 입히세요) and dye colours a sheep (파란색 염료로 양을 염색하세요). A name that ends in its
-  own counter is counted with 개 (꿀이 든 병을 네 개), a row has the size that was built, conditions are spoken in a fixed
-  order (time, weather, place, what is held), seconds of a look are spoken as 삼 초, a sequence says a shared object once
-  and teaches its word in every part, a colour stands in front of the dye or the wool, and the material of a fence ring
-  or a plank pillar is the kind word (울타리, 판자). Goals and conditions refuse unknown or missing fields. Rabbits,
-  frogs, goats, turtles, bees, mules, parrots and axolotls can anchor a placement.
-**New in rc.5:**
-- **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an
-  observatory, the far north.
-- **Wonders of the world:** the world market, a giant tree, a pyramid, a harbour, the pirate's chest, desert and
-  jungle temples, a desert town.
-- **Level 3 meets its grammar goal:** more than a third of its steps now depend on the Korean form (before/after,
-  "don't").
-- **French covers every rebuilt trail**, proofread.
-
-**New in rc.4:** two more level-3 batches.
-- The village heroes: curing a zombie villager, the iron golem, the raid patrol, enchanting, the ender eye, diamond
-  gear, and the trade, post and fishing guilds.
-- The hunter: bow, crossbow, spear and shield, night hunts, the wolf.
-
-Finale lines across levels 3 and 4 now claim only what the quest checks. Pouring water reads 붓다, and rails laid in
-a row read 깔다.
-
-**New in rc.3:** the second level-3 batch: the first diamond, the jewellers' guild, amethyst and the crystal smithy,
-the mine with rails and a minecart, the respawn anchor, wither skeletons and the bastion. The first four level-4
-trails arrive with it (brewing, a stronger potion, a beacon base, the skull tower), using the level-4 ending
--아/어야 해요.
-
-**New in rc.2:** the first level-3 batch. The way into the Nether is rebuilt: obsidian, the portal, piglins and
-gold, the fortress and blaze rods, the bastion, striders, crying obsidian and ancient debris. Level 3 brings
-"before" and "after" (-기 전에, -(으)ㄴ 후에), "don't" (-지 마세요) and "can" (-(으)ㄹ 수 있어요). The Nether
-branch now starts after the lava-bucket trail. Several BATCH-015 finale lines were corrected so they claim only
-what the quest checks.
-
-Hangul Quest 3.0 rebuilds the curriculum around what a player does in the world, replaces the old review ladder
-with a real spaced-repetition scheduler, and opens the Korean text to review by native speakers. It needs
-Minecraft 26.3, Fabric Loader 0.19.5+, Fabric API 0.162.0+26.3 and Java 25, like 2.1.0.
+- **422 trails at six levels.** Each level adds grammar step by step, from -아/어요 at level 1 to -(으)ㄹ수록 at
+  level 6. From level 2 on, many steps can only be solved by reading the Korean form (위 vs 아래, -기 전에,
+  밤이 되면 …): about two in five at level 2, more than half from level 4.
+- **Words come back in new tasks.** A word returns many times, each time as a different task (the torch is made,
+  placed next to a door, held in a cave, given to a villager …). Almost every sentence has at most one word you
+  don't know yet.
+- **Honest spaced review (FSRS).** Only real recall moves a word forward. Quiz cards, syllable tiles and typed answers
+  (두벌식) live in their own screen, so the hotbar keys are never captured.
+- **More than quests:**
+  - a grammar book with rule cards;
+  - villager dialogue, with the speech level to choose: 합쇼체 to elders, 반말 to children;
+  - 24 graded stories that open once you know nearly every word;
+  - culture notes;
+  - the sound forge, a listening game for ㄱ/ㄲ/ㅋ and similar sound sets.
+- **Korean you can check.** Every line went through a Korean linter and two blind AI linguist reviews. The public review
+  site lets native speakers confirm or correct any line with one click.
+- **The optional Hangul Quest Voices pack** speaks every word in four synthetic voices.
+- **Your progress is kept.** Old saves are copied and converted, never overwritten (see below).
 
 ### Before you update (read this)
 
@@ -146,7 +49,6 @@ Minecraft 26.3, Fabric Loader 0.19.5+, Fabric API 0.162.0+26.3 and Java 25, like
   in the `profiles/` folder and is not carried back. To go back to a state inside 3.0, copy one of the backup files
   over the profile's `progress.json`. A copy of the whole `config/hangulquest/` folder made before updating is the
   safest rollback of all.
-- **Release candidate.** This is a pre-release. Please report anything that looks wrong.
 
 ### For players
 
@@ -270,6 +172,129 @@ text-to-speech model and checked by a speech-recognition round trip. They are **
 - German text no longer leaks into the English interface.
 
 [3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0
+
+### Since the last release candidate
+
+- **Every Library story can open.** Stories may now gloss up to three everyday words (a graded reader): the words count
+  as known for the 98% rule, show their meaning next to them in the reader, and reading the story teaches them like a
+  quest step does. Fifteen stories that could never open now do (most with glossed words, four with a later unlock
+  trail, three with a small text change), and a test keeps all of them open on the canonical path.
+- **Three End trails check the real thing.** Placing four end crystals (끝 아녔어?), entering an end gateway
+  (머나먼 휴양지) and having the levitation effect at height 100 or more (위쪽 공기 좋은데?).
+
+### Release candidates
+
+**New in rc.12: the content rebuild is complete.**
+- **The last 11 trails:** level-6 small poems, ending the course with a quiet look back (밤이 지나면 해가 다시 뜨기
+  마련이에요).
+- **Every trail from level 1 to level 6 is now rebuilt** on the new curriculum. Each trail went through two blind
+  linguist reviews, and every step's Korean is generated from the very thing the quest checks.
+- The iron golem step now asks you to give it an iron ingot (the real repair), not to touch it.
+
+**New in rc.11: level 6, and the colour chain.**
+- **30 more trails:** the last journeys of the crown story, the five-trail colour chain (red, blue, yellow, purple,
+  orange) and the rainbow banner, the End game (the dragon, its egg and breath, the elytra, the End city) and five
+  small poems. Level 6 adds "the more …, the more …" (높이 올라갈수록 추워져요) in finales.
+- **Colours are honest now:** at levels 1 and 2 a bed, carpet or candle of any colour counts, and the quest doesn't
+  name a colour. From level 3 the quest names the colour and only that colour counts. Dyes always keep their colour.
+- **More natural verbs:** 배를 타다 for boats and minecarts, 사용하다 for workstations and the beacon, 해치다 for not
+  hurting villagers, 세우다 for a banner on top of a pillar, and heights as 높이 백 블록 이상으로.
+- Time conditions are no longer used in the Nether or the End, where there is no day and night.
+
+**New in rc.10: level 5 begins.**
+- **28 more trails:** the crown's workshop (guards, smiths, golems, runes, the council, the deep dark and a trial
+  chamber) and 15 small poems. Two of the workshop trails are level 4; the rest are level 5.
+- **Level 5 speaks in longer sentences:** "while" (해가 지는 동안 기다려야 해요), "even if" (밤이 되어도 자지 마세요)
+  and colour adjectives (파란 침대 옆에 …). About two thirds of the new steps depend on the Korean form.
+- Flavour lines were checked for being true in the game: witches throw potions, sculk sensors detect vibrations, and
+  soul fire uses its official name 영혼 불.
+
+**New in rc.9: level 4 begins, and the sound forge.**
+- **30 level-4 trails:** the far kingdoms (the End and the dragon, an ocean monument, a library, a lighthouse, the star
+  map, a trading fleet, the cloud path) and 15 small poems. About half of their steps now depend on the Korean form:
+  밤이 되면 …, 돌을 캐서 …, 꽃을 꺾으러 … 가야 해요.
+- **Sound forge (소리 대장간):** a listening game in the journal's Study tab for ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and
+  ㅓ ㅗ. A run is 60 trials in a random voice, and you hear both sounds again after each answer. A listening test before
+  and after uses voices that never appear in training. The sounds come from the optional voices pack. They are
+  synthetic for now, and recordings by native speakers would make them better.
+- **The voices pack** now covers every word, but no sentences until the mod plays them (about 44 MB).
+
+**Sound forge, technical details:** a listening mini-game in the journal's Study tab for the sounds that sound alike to an
+  English or German ear: ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and ㅓ ㅗ (never ㅐ ㅔ). A voice says a syllable or a word, you
+  pick which of two or three it was (keys 1 2 3, R to hear it again, or click), and you hear both sounds again with the
+  answer. A run is 60 trials in a random voice each time. A 30-trial listening test before and after (8 to 10 runs over at
+  least 3 weeks) uses voices that never appear in training, and the start page shows before, lately and after per contrast.
+  Answers go to the review log as the new mode `HVPT` (kind `HVPT`; it never touches a schedule) and the progress file gets
+  a small `hvpt` record (finished runs and a tally per contrast) without a schema bump. The sounds come from the optional
+  Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
+  `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
+  is the base for a later pitch view.
+
+**New in rc.8: the grammar for levels 4 to 6.**
+- **Level 4:** conditions become "if/when" clauses (밤이 되면 횃불을 놓아야 해요), steps join with -아/어서
+  (돌을 캐서 화로를 만들어야 해요), and purpose trips use -(으)러 가요 (나무를 베러 숲으로 가야 해요).
+- **Level 5:** colour adjectives (빨간 침대), "while" clauses (해가 지는 동안 기다려야 해요) and "even if"
+  (밤이 되어도 자지 마세요).
+- **Level 6:** "the higher, the colder" (높이 올라갈수록 추워져요), plus forms for formal and casual speech.
+- A new check keeps each construction at its own level and in the right kind of line.
+
+**New in rc.7: new kinds of quests, ready for level 4.**
+- **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg
+  (활로 과녁을 맞히세요), some from far away or with one arrow through two mobs.
+- **Compass directions:** walk north, south, east or west (북쪽으로 이십 블록 가세요), or face a direction while doing
+  something.
+- **"Don't" works on creatures too:** 주민을 물리치지 마세요.
+- **More natural numbers:** heights and distances use Sino-Korean numbers (높이 백 블록), and counts up to 99 use native
+  numbers (스물네 개).
+- Sequences no longer repeat the same object twice, and swimming in the ocean reads 바다에서 수영하세요.
+- Six flavour lines from the last two batches now state plain facts.
+
+**New in rc.6: level 3 is complete.**
+- All 108 level-3 trails are rebuilt, and nearly half of their steps now depend on the Korean form.
+- The last two batches are small mood trails: miners and smiths, caves and gems, forest herbs, foxes and bees. There
+  are also three watchtowers.
+- Finale lines were tightened after review: no plans, and no claims the quest doesn't check.
+
+- **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
+  onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
+  the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is
+  put on a creature (늑대에게 갑옷을 입히세요) and dye colours a sheep (파란색 염료로 양을 염색하세요). A name that ends in its
+  own counter is counted with 개 (꿀이 든 병을 네 개), a row has the size that was built, conditions are spoken in a fixed
+  order (time, weather, place, what is held), seconds of a look are spoken as 삼 초, a sequence says a shared object once
+  and teaches its word in every part, a colour stands in front of the dye or the wool, and the material of a fence ring
+  or a plank pillar is the kind word (울타리, 판자). Goals and conditions refuse unknown or missing fields. Rabbits,
+  frogs, goats, turtles, bees, mules, parrots and axolotls can anchor a placement.
+**New in rc.5:**
+- **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an
+  observatory, the far north.
+- **Wonders of the world:** the world market, a giant tree, a pyramid, a harbour, the pirate's chest, desert and
+  jungle temples, a desert town.
+- **Level 3 meets its grammar goal:** more than a third of its steps now depend on the Korean form (before/after,
+  "don't").
+- **French covers every rebuilt trail**, proofread.
+
+**New in rc.4:** two more level-3 batches.
+- The village heroes: curing a zombie villager, the iron golem, the raid patrol, enchanting, the ender eye, diamond
+  gear, and the trade, post and fishing guilds.
+- The hunter: bow, crossbow, spear and shield, night hunts, the wolf.
+
+Finale lines across levels 3 and 4 now claim only what the quest checks. Pouring water reads 붓다, and rails laid in
+a row read 깔다.
+
+**New in rc.3:** the second level-3 batch: the first diamond, the jewellers' guild, amethyst and the crystal smithy,
+the mine with rails and a minecart, the respawn anchor, wither skeletons and the bastion. The first four level-4
+trails arrive with it (brewing, a stronger potion, a beacon base, the skull tower), using the level-4 ending
+-아/어야 해요.
+
+**New in rc.2:** the first level-3 batch. The way into the Nether is rebuilt: obsidian, the portal, piglins and
+gold, the fortress and blaze rods, the bastion, striders, crying obsidian and ancient debris. Level 3 brings
+"before" and "after" (-기 전에, -(으)ㄴ 후에), "don't" (-지 마세요) and "can" (-(으)ㄹ 수 있어요). The Nether
+branch now starts after the lava-bucket trail. Several BATCH-015 finale lines were corrected so they claim only
+what the quest checks.
+
+Hangul Quest 3.0 rebuilds the curriculum around what a player does in the world, replaces the old review ladder
+with a real spaced-repetition scheduler, and opens the Korean text to review by native speakers. It needs
+Minecraft 26.3, Fabric Loader 0.19.5+, Fabric API 0.162.0+26.3 and Java 25, like 2.1.0.
 
 ## [2.1.0] — 2026-10-20
 
