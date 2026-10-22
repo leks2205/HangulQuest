@@ -6,7 +6,17 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.10)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.11)
+
+**New in rc.11: level 6, and the colour chain.**
+- **30 more trails:** the last journeys of the crown story, the five-trail colour chain (red, blue, yellow, purple,
+  orange) and the rainbow banner, the End game (the dragon, its egg and breath, the elytra, the End city) and five
+  small poems. Level 6 adds "the more …, the more …" (높이 올라갈수록 추워져요) in finales.
+- **Colours are honest now:** at levels 1 and 2 a bed, carpet or candle of any colour counts, and the quest doesn't
+  name a colour. From level 3 the quest names the colour and only that colour counts. Dyes always keep their colour.
+- **More natural verbs:** 배를 타다 for boats and minecarts, 사용하다 for workstations and the beacon, 해치다 for not
+  hurting villagers, 세우다 for a banner on top of a pillar, and heights as 높이 백 블록 이상으로.
+- Time conditions are no longer used in the Nether or the End, where there is no day and night.
 
 **New in rc.10: level 5 begins.**
 - **28 more trails:** the crown's workshop (guards, smiths, golems, runes, the council, the deep dark and a trial
