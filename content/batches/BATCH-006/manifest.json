@@ -1,0 +1,1263 @@
+{
+ "batch": "BATCH-006",
+ "brief": "content/briefs/BATCH-006.md",
+ "chapter": "weather and seasons, the w2 poems",
+ "note": "Encounters follow tools/coverage.py: a word is met once per step (clue, taught word, title on the first step, finale line on the last step). \"InBatch\" is the difference to the old w2 trails. Words in no lexicon list count for nothing. \"Before\" is phase0 after generator wave 3 (bb55642).",
+ "summary": {
+  "trails": 8,
+  "steps": 32,
+  "bareSteps": 1,
+  "bareShare": 0.03125,
+  "topGoalType": "PLACE_BLOCK",
+  "topGoalTypeShare": 0.15625,
+  "goalTypes": {
+   "PLACE_BLOCK": 5,
+   "CRAFT": 4,
+   "REACH_HEIGHT": 4,
+   "PLACE_REL": 4,
+   "LOOK_AT_BLOCK": 2,
+   "ACQUIRE_ITEM": 2,
+   "CONSUME_ITEM": 2,
+   "BUILD_PATTERN": 2,
+   "REACH_BIOME": 1,
+   "HOLD_WHILE": 1,
+   "LOOK_AT_ENTITY": 1,
+   "PLACE_ON_PATTERN": 1,
+   "SMELT": 1,
+   "WAIT": 1,
+   "USE_BLOCK": 1
+  },
+  "mechanics": [
+   "cond:HOLDING",
+   "cond:IN_BIOME",
+   "cond:PLAYER_REL",
+   "cond:SKY",
+   "cond:TIME",
+   "cond:WEATHER",
+   "cond:Y_RANGE",
+   "goal:ACQUIRE_ITEM",
+   "goal:BUILD_PATTERN",
+   "goal:CONSUME_ITEM",
+   "goal:CRAFT",
+   "goal:HOLD_WHILE",
+   "goal:LOOK_AT_BLOCK",
+   "goal:LOOK_AT_ENTITY",
+   "goal:PLACE_BLOCK",
+   "goal:PLACE_ON_PATTERN",
+   "goal:PLACE_REL",
+   "goal:REACH_BIOME",
+   "goal:REACH_HEIGHT",
+   "goal:SMELT",
+   "goal:USE_BLOCK",
+   "goal:WAIT",
+   "pattern:PILLAR",
+   "pattern:STAIRS",
+   "rel:IN_FRONT_OF",
+   "rel:NEXT_TO",
+   "rel:ON_TOP_OF"
+  ]
+ },
+ "metrics": {
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.056958,
+   "after": 0.052427
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.974757,
+   "after": 0.958576
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.912621,
+   "after": 0.914563
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.946136,
+   "after": 0.947236
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 2.0,
+   "after": 2.0
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.109005,
+   "after": 0.113744
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.620853,
+   "after": 0.625592
+  },
+  "coverage.recycling.medianRetrievals": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 13,
+   "after": 13
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 146,
+   "after": 144
+  },
+  "variety.verbObjectMax": {
+   "before": 6,
+   "after": 6
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 3,
+   "after": 3
+  },
+  "variety.noveltyShare": {
+   "before": 0.47381,
+   "after": 0.483333
+  },
+  "variety.boredomIndex": {
+   "before": 0.080959,
+   "after": 0.080311
+  },
+  "variety.bareShare.1": {
+   "before": 0.174935,
+   "after": 0.130548
+  },
+  "variety.topTypeShare.1": {
+   "before": 0.167102,
+   "after": 0.16188
+  },
+  "variety.distinctTypes.1": {
+   "before": 18,
+   "after": 19
+  },
+  "variety.bareShare.2": {
+   "before": 0.644592,
+   "after": 0.644592
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.362031,
+   "after": 0.362031
+  },
+  "variety.distinctTypes.2": {
+   "before": 10,
+   "after": 10
+  },
+  "variety.bareShare.3": {
+   "before": 0.694524,
+   "after": 0.694524
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.391931,
+   "after": 0.391931
+  },
+  "variety.distinctTypes.3": {
+   "before": 11,
+   "after": 11
+  },
+  "variety.bareShare.4": {
+   "before": 0.785124,
+   "after": 0.785124
+  },
+  "variety.topTypeShare.4": {
+   "before": 0.520661,
+   "after": 0.520661
+  },
+  "variety.distinctTypes.4": {
+   "before": 8,
+   "after": 8
+  },
+  "variety.bareShare.5": {
+   "before": 0.742268,
+   "after": 0.742268
+  },
+  "variety.topTypeShare.5": {
+   "before": 0.515464,
+   "after": 0.515464
+  },
+  "variety.distinctTypes.5": {
+   "before": 9,
+   "after": 9
+  },
+  "variety.bareShare.6": {
+   "before": 0.652778,
+   "after": 0.652778
+  },
+  "variety.topTypeShare.6": {
+   "before": 0.486111,
+   "after": 0.486111
+  },
+  "variety.distinctTypes.6": {
+   "before": 10,
+   "after": 10
+  }
+ },
+ "trails": [
+  {
+   "id": "w2_01",
+   "title": "비 그친 하늘",
+   "titleEn": "The Sky After the Rain",
+   "topic": "하늘",
+   "order": 1021,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Craft glass panes under a roof, watch the rain through one, climb a hill when the sky clears and plant a flower.",
+   "newWords": [],
+   "finaleKo": "맑을 때 꽃을 심었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "glass_pane"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:CRAFT"
+     ],
+     "clueKo": "지붕 아래에서 유리판을 세 개 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 유리판을 만들어요.",
+     "clueEn": "Under a roof, craft three glass panes."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED",
+      "WEATHER:RAIN"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "glass_pane",
+      "rain"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "cond:WEATHER",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "비가 올 때 지붕 아래에서 유리판을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "비가 올 때 지붕 아래에서 유리판을 1초 동안 바라봐요.",
+     "clueEn": "When it rains, look at the glass pane from under a roof."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "sky",
+      "climb"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "맑을 때 언덕 위로 올라가요. 하늘이 파래요.",
+     "clueSource": "authored",
+     "hintKo": "맑을 때 언덕 위로 올라가요. 하늘이 파래요.",
+     "clueEn": "When it is clear, climb a hill. The sky is blue."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "PLANT",
+     "teach": [
+      "flower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "맑을 때 꽃을 심어요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 꽃을 심어요.",
+     "clueEn": "When it is clear, plant a flower."
+    }
+   ]
+  },
+  {
+   "id": "w2_02",
+   "title": "첫눈 소리",
+   "titleEn": "The Sound of First Snow",
+   "topic": "눈",
+   "order": 1022,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Walk into the snowy plains by day, collect snowballs, craft a block of snow and walk on holding a snowball.",
+   "newWords": [
+    {
+     "concept": "gen_snowy_plains",
+     "ko": "눈 덮인 평원",
+     "semSet": "places"
+    }
+   ],
+   "finaleKo": "눈덩이를 들고 눈 덮인 평원에서 걸었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_snowy_plains"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "낮에 눈 덮인 평원으로 가요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 눈 덮인 평원으로 가요.",
+     "clueEn": "By day, go to the snowy plains."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:snowy_plains"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "snowball"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "눈 덮인 평원에서 눈덩이를 네 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "눈 덮인 평원에서 눈덩이를 모아요.",
+     "clueEn": "In the snowy plains, collect four snowballs."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "snow_block"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "낮에 눈 블록을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 눈 블록을 만들어요.",
+     "clueEn": "By day, craft a block of snow."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "WALK",
+     "teach": [
+      "snowball",
+      "snow"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:HOLD_WHILE"
+     ],
+     "clueKo": "눈덩이를 들고 눈 덮인 평원에서 걸어요.",
+     "clueSource": "generated",
+     "hintKo": "눈덩이를 들고 눈 덮인 평원에서 걸어요.",
+     "clueEn": "Hold a snowball and walk through the snowy plains."
+    }
+   ]
+  },
+  {
+   "id": "w2_03",
+   "title": "해질녘 언덕",
+   "titleEn": "The Hill at Dusk",
+   "topic": "저녁",
+   "order": 1023,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Climb a hill with bread, spread a carpet high up, eat on it and watch a sheep at dusk.",
+   "newWords": [],
+   "finaleKo": "저녁에 양을 바라봤어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:bread"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "climb"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "빵을 들고 언덕 위로 올라가요.",
+     "clueSource": "generated",
+     "hintKo": "빵을 들고 언덕 위로 올라가요.",
+     "clueEn": "Holding bread, climb a hill."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "Y_RANGE:80..320"
+     ],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "height"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "높이 80블록 위에서 양탄자를 깔아요.",
+     "clueSource": "generated",
+     "hintKo": "높이 80블록 위에서 양탄자를 깔아요.",
+     "clueEn": "High up on the hill, spread out a carpet."
+    },
+    {
+     "id": "s3",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:ON_TOP_OF:minecraft:white_carpet"
+     ],
+     "verb": "EAT",
+     "teach": [
+      "bread"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "양탄자 위에서 빵을 먹어요.",
+     "clueSource": "generated",
+     "hintKo": "양탄자 위에서 빵을 먹어요.",
+     "clueEn": "Eat the bread — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:DUSK"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "sheep"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "해가 져요. 저녁에 양을 바라봐요.",
+     "clueSource": "authored",
+     "hintKo": "해가 져요. 저녁에 양을 바라봐요.",
+     "clueEn": "The sun is setting. At dusk, look at a sheep."
+    }
+   ]
+  },
+  {
+   "id": "w2_04",
+   "title": "빗속의 불빛",
+   "titleEn": "Light in the Rain",
+   "topic": "비",
+   "order": 1024,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Stack a plank pillar, craft a furnace under a roof, put a torch on the pillar in the rain and bake a potato.",
+   "newWords": [],
+   "finaleKo": "비가 올 때 지붕 아래에서 감자를 구웠어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:PILLAR"
+     ],
+     "clueKo": "판자 세 개로 기둥을 쌓아요.",
+     "clueSource": "generated",
+     "hintKo": "판자로 기둥을 쌓아요.",
+     "clueEn": "Stack three planks into a pillar."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "furnace"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:CRAFT"
+     ],
+     "clueKo": "지붕 아래에서 화로를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 화로를 만들어요.",
+     "clueEn": "Under a roof, craft a furnace."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "WEATHER:RAIN"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "torch",
+      "rain"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "비가 올 때 판자 기둥 위에 횃불을 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "비가 올 때 판자 기둥 위에 횃불을 놓아요.",
+     "clueEn": "When it rains, place a torch — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED",
+      "WEATHER:RAIN"
+     ],
+     "verb": "BAKE",
+     "teach": [
+      "potato"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "cond:WEATHER",
+      "goal:SMELT"
+     ],
+     "clueKo": "비가 올 때 지붕 아래에서 감자를 구워요.",
+     "clueSource": "generated",
+     "hintKo": "비가 올 때 지붕 아래에서 감자를 구워요.",
+     "clueEn": "When it rains, bake a potato under a roof."
+    }
+   ]
+  },
+  {
+   "id": "w2_05",
+   "title": "계절의 문",
+   "titleEn": "The Door of the Seasons",
+   "topic": "계절",
+   "order": 1025,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Hang a door, then plant a flower beside it (spring), a sunflower in front of it (summer) and put snow on top (winter).",
+   "newWords": [],
+   "finaleKo": "문 위에 눈 블록을 놓았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "문을 달아요.",
+     "clueSource": "generated",
+     "hintKo": "문을 달아요.",
+     "clueEn": "Hang a door."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "flower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "봄이에요. 문 옆에 꽃을 심어요.",
+     "clueSource": "authored",
+     "hintKo": "봄이에요. 문 옆에 꽃을 심어요.",
+     "clueEn": "It is spring. Plant a flower — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "sunflower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:IN_FRONT_OF"
+     ],
+     "clueKo": "여름이에요. 문 앞에 해바라기를 심어요.",
+     "clueSource": "authored",
+     "hintKo": "여름이에요. 문 앞에 해바라기를 심어요.",
+     "clueEn": "It is summer. Plant a sunflower — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "snow_block"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "겨울이에요. 문 위에 눈 블록을 놓아요.",
+     "clueSource": "authored",
+     "hintKo": "겨울이에요. 문 위에 눈 블록을 놓아요.",
+     "clueEn": "It is winter. Place a block of snow — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "w2_06",
+   "title": "별이 뜨는 밤",
+   "titleEn": "A Night of Stars",
+   "topic": "밤",
+   "order": 1026,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Wait for the night, climb a hill, light three torches under the moon and look at the torch.",
+   "newWords": [],
+   "finaleKo": "밤에 횃불을 바라봤어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [],
+     "verb": "WAIT",
+     "teach": [
+      "wait",
+      "night"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:WAIT"
+     ],
+     "clueKo": "밤까지 기다려요.",
+     "clueSource": "generated",
+     "hintKo": "밤까지 기다려요.",
+     "clueEn": "Wait for the night to come."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "night",
+      "climb"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "밤에 별이 떠요. 언덕 위로 올라가요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 별이 떠요. 언덕 위로 올라가요.",
+     "clueEn": "At night, the stars come out. Climb a hill."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "torch",
+      "moon"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "밤에 달이 높이 떠요. 횃불 세 개를 밝혀요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 달이 높이 떠요. 횃불 세 개를 밝혀요.",
+     "clueEn": "At night, the moon is high. Light three torches."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "torch"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "밤에 횃불을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 횃불을 1초 동안 바라봐요.",
+     "clueEn": "At night, look at the torch."
+    }
+   ]
+  },
+  {
+   "id": "w2_07",
+   "title": "겨울 아침",
+   "titleEn": "A Winter Morning",
+   "topic": "겨울",
+   "order": 1027,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Put a flower pot by the window, get milk, craft a book under a roof and drink the milk at dawn.",
+   "newWords": [],
+   "finaleKo": "새벽에 우유를 마셨어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "flower_pot",
+      "glass_pane"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "창문 옆에 화분을 놓아요.",
+     "clueSource": "authored",
+     "hintKo": "유리판 옆에 화분을 놓아요.",
+     "clueEn": "Place a flower pot — read the Korean to see where."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "OBTAIN",
+     "teach": [
+      "milk"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "낮에 우유를 구해요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 우유를 구해요.",
+     "clueEn": "By day, get some milk."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "book"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:CRAFT"
+     ],
+     "clueKo": "지붕 아래에서 책을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 책을 만들어요.",
+     "clueEn": "Under a roof, craft a book."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "TIME:DAWN"
+     ],
+     "verb": "DRINK",
+     "teach": [
+      "milk"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "새벽에 우유를 마셔요.",
+     "clueSource": "generated",
+     "hintKo": "새벽에 우유를 마셔요.",
+     "clueEn": "At dawn, drink the milk."
+    }
+   ]
+  },
+  {
+   "id": "w2_08",
+   "title": "구름 위 탑",
+   "titleEn": "The Tower Above the Clouds",
+   "topic": "하늘",
+   "order": 1028,
+   "koreanLevel": 1,
+   "requires": [],
+   "project": "Build stairs of cobblestone, climb with ladders in hand, place ladders in clear weather and sleep high up at night.",
+   "newWords": [],
+   "finaleKo": "밤에 높이 90블록 위에서 침대에서 잤어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "cobblestone"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:STAIRS"
+     ],
+     "clueKo": "조약돌로 계단을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "조약돌로 계단을 만들어요.",
+     "clueEn": "Build stairs out of cobblestone."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:ladder"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "sky",
+      "climb"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "사다리를 들고 하늘로 올라가요.",
+     "clueSource": "authored",
+     "hintKo": "사다리를 들고 하늘로 올라가요.",
+     "clueEn": "Holding ladders, climb up to the sky."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "WEATHER:CLEAR"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "ladder"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:WEATHER",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "맑을 때 사다리를 세 개 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "맑을 때 사다리를 놓아요.",
+     "clueEn": "When it is clear, place three ladders."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT",
+      "Y_RANGE:90..320"
+     ],
+     "verb": "SLEEP",
+     "teach": [
+      "bed",
+      "height"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "cond:Y_RANGE",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "밤에 높이 90블록 위에서 침대에서 자요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 높이 90블록 위에서 침대에서 자요.",
+     "clueEn": "At night, sleep in a bed, high up."
+    }
+   ]
+  }
+ ],
+ "recycledWords": {
+  "비": {
+   "encountersBefore": 4,
+   "encountersAfter": 7,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "눈": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "해": {
+   "encountersBefore": 8,
+   "encountersAfter": 9,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "달": {
+   "encountersBefore": 9,
+   "encountersAfter": 10,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "하늘": {
+   "encountersBefore": 10,
+   "encountersAfter": 12,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "높이": {
+   "encountersBefore": 7,
+   "encountersAfter": 10,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "밤": {
+   "encountersBefore": 134,
+   "encountersAfter": 133,
+   "encountersInBatch": -1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "낮": {
+   "encountersBefore": 82,
+   "encountersAfter": 85,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "아침": {
+   "encountersBefore": 4,
+   "encountersAfter": 3,
+   "encountersInBatch": -1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "저녁": {
+   "encountersBefore": 6,
+   "encountersAfter": 4,
+   "encountersInBatch": -2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "시계": {
+   "encountersBefore": 5,
+   "encountersAfter": 5,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "종이": {
+   "encountersBefore": 5,
+   "encountersAfter": 5,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "책": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "우유": {
+   "encountersBefore": 8,
+   "encountersAfter": 9,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "마시다": {
+   "encountersBefore": 5,
+   "encountersAfter": 5,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "얼음": {
+   "encountersBefore": 4,
+   "encountersAfter": 4,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "집": {
+   "encountersBefore": 19,
+   "encountersAfter": 19,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "문": {
+   "encountersBefore": 26,
+   "encountersAfter": 29,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "초": {
+   "encountersBefore": 12,
+   "encountersAfter": 12,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "불": {
+   "encountersBefore": 11,
+   "encountersAfter": 11,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "빵": {
+   "encountersBefore": 9,
+   "encountersAfter": 11,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "tool"
+   ],
+   "coreWord": true
+  },
+  "횃불": {
+   "encountersBefore": 14,
+   "encountersAfter": 17,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "침대": {
+   "encountersBefore": 15,
+   "encountersAfter": 16,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "양탄자": {
+   "encountersBefore": 7,
+   "encountersAfter": 9,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "사다리": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "화로": {
+   "encountersBefore": 10,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "감자": {
+   "encountersBefore": 10,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "꽃": {
+   "encountersBefore": 13,
+   "encountersAfter": 14,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "해바라기": {
+   "encountersBefore": 6,
+   "encountersAfter": 7,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "유리판": {
+   "encountersBefore": 5,
+   "encountersAfter": 8,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "화분": {
+   "encountersBefore": 6,
+   "encountersAfter": 7,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "양": {
+   "encountersBefore": 4,
+   "encountersAfter": 5,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "모닥불": {
+   "encountersBefore": 15,
+   "encountersAfter": 15,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "눈덩이": {
+   "encountersBefore": 5,
+   "encountersAfter": 7,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "눈 블록": {
+   "encountersBefore": 9,
+   "encountersAfter": 11,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  }
+ },
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: descKo for gen_snowy_plains (눈 덮인 평원), which w2_02 teaches. One line inserted, nothing reformatted.",
+  "src/test/resources/content-baseline.json: w2_01 removed from reachabilityDebt (it needed the Nether; the new trail does not).",
+  "chapters.json: regenerated by tools/assign_chapters.py (w2_04, now about rain, moves to the weather chapter).",
+  "docs/book/src/quest-tree.md regenerated; content/korean/lines.jsonl and review-status.json regenerated; content/metrics-baseline.json updated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "SKY OPEN is unusable at level 1: its adnominal form lists the grammar id L3.neun_attr in the step grammar, which has no construction in grammar.json (GrammarCoverage test fails). Level 1 and 2 speak it as 밖에서, but the id list ignores the level, so no level-1 trail can use SKY:OPEN yet.",
+  "The verb-object pair limit (3) is nearly spent for the everyday level-1 objects: PLACE torch, PLACE candle, KINDLE and PLACE campfire, DRINK milk, EAT bread, CRAFT bread, CRAFT glass_pane, PLANT poppy all stand at 3 before the batch. New trails must switch to another id (oxeye_daisy instead of poppy) or another verb, which bends the story.",
+  "A step that teaches several words needs an explicit hint (WaveQaTest), even when the generated hint would contain every noun. Eight hints in this batch are copies of the generated clue for that reason.",
+  "Authored clues on a conditioned step must contain the condition phrase word for word (밤에, 맑을 때, 사다리를 들고). That keeps the poems natural, but the prefix is put in front when a clue says the condition in other words.",
+  "Y_RANGE and a place verb with 에서 double up: '밤에 높이 90블록 위에서 침대에서 자요.' The Y_RANGE phrase ends in 에서 and so does the sleep phrase.",
+  "REACH_HEIGHT below Y 100 is spoken 언덕 위로 and has no number or object, so its only handles for signature variety are conditions (HOLDING, TIME, WEATHER). Two of the three free handles are taken by BATCH-005 trails.",
+  "HOLDING and PLAYER_REL anchors must exist in the world: PLAYER_REL on a carpet or a campfire works only when an earlier step (or the player) placed it. The generator cannot say that the thing is placed first.",
+  "The relation-giveaway check for German also flags 'bei' ('bei Regen'), so a relation step must say 'Wenn es regnet' instead.",
+  "Smelting a potato to a baked potato is spoken '감자를 구워요' with no input shown, and the learner cannot tell from the Korean that the potato is raw.",
+  "A first-teach concept must appear in an authored clue as its dictionary form: the verb 올라가다 never matches 올라가요, so a climb step teaches the noun (밤, 하늘) first and the verb second."
+ ]
+}

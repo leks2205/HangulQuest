@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "w2_04",
- "titleKo": "천둥의 언덕",
- "topic": "천둥",
+ "titleKo": "빗속의 불빛",
+ "topic": "비",
  "tier": 1,
  "order": 1024,
  "concepts": [
-  "gen_smooth_sandstone_slab",
-  "gen_weathered_copper_door",
-  "lightning_rod",
-  "gen_cracked_polished_blackstone_bricks"
+  "torch",
+  "rain",
+  "furnace",
+  "potato"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,79 +20,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_smooth_sandstone_slab"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_sandstone_slab",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "WEATHER",
-     "weather": "THUNDER"
-    }
-   ]
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_planks",
+    "size": 3
+   }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_weathered_copper_door"
+    "furnace"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_door",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "lightning_rod"
+    "torch",
+    "rain"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:lightning_rod",
-    "dwellMs": 800
-   },
-   "hint": {
-    "ko": "피뢰침은 번개를 땅으로 보내요."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_planks"
    },
    "conditions": [
     {
      "type": "WEATHER",
-     "weather": "THUNDER"
+     "weather": "RAIN"
     }
-   ]
+   ],
+   "hint": {
+    "ko": "비가 올 때 판자 기둥 위에 횃불을 놓아요."
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cracked_polished_blackstone_bricks"
+    "potato"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_polished_blackstone_bricks",
-    "count": 5
+    "type": "SMELT",
+    "input": "minecraft:potato",
+    "output": "minecraft:baked_potato",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "WEATHER",
+     "weather": "RAIN"
+    },
+    {
+     "type": "SKY",
+     "state": "ROOFED"
     }
    ]
   },
-  "textKo": "밤에 금 간 윤나는 흑암 벽돌을 다섯 개 쌓았어요."
+  "textKo": "비가 올 때 지붕 아래에서 감자를 구웠어요."
  },
  "reward": {
   "badge": "w2_04",
   "words": [
-   "thunder",
-   "height",
-   "lightning_rod",
-   "torch"
+   "torch",
+   "rain",
+   "furnace",
+   "potato"
   ]
  },
  "koreanLevel": 1

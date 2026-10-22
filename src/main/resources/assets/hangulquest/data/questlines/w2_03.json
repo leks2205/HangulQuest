@@ -6,10 +6,10 @@
  "tier": 1,
  "order": 1023,
  "concepts": [
-  "gen_waxed_exposed_cut_copper_slab",
-  "gen_crimson_trapdoor",
-  "gen_oak_pressure_plate",
-  "gen_jungle_button"
+  "height",
+  "carpet",
+  "bread",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,39 +20,57 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_exposed_cut_copper_slab"
+    "climb"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_cut_copper_slab",
-    "count": 1
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 80,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bread"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_crimson_trapdoor"
+    "carpet",
+    "height"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_trapdoor",
+    "block": "minecraft:white_carpet",
     "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": 80,
+     "maxY": 320
+    }
+   ],
+   "hint": {
+    "ko": "높이 80블록 위에서 양탄자를 깔아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oak_pressure_plate"
+    "bread"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_pressure_plate",
-    "count": 4
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "DUSK"
+     "type": "PLAYER_REL",
+     "relation": "ON_TOP_OF",
+     "anchor": "minecraft:white_carpet"
     }
    ]
   }
@@ -61,29 +79,35 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_button"
+    "sheep"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_button",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:sheep",
+    "dwellMs": 600
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DUSK"
     }
-   ]
+   ],
+   "clue": {
+    "ko": "해가 져요. 저녁에 양을 바라봐요."
+   },
+   "hint": {
+    "ko": "해가 져요. 저녁에 양을 바라봐요."
+   }
   },
-  "textKo": "저녁에 정글나무 버튼을 놓았어요."
+  "textKo": "저녁에 양을 바라봤어요."
  },
  "reward": {
   "badge": "w2_03",
   "words": [
-   "clock",
    "height",
-   "torch",
-   "campfire"
+   "carpet",
+   "bread",
+   "sheep"
   ]
  },
  "koreanLevel": 1

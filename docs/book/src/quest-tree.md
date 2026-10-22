@@ -21,37 +21,38 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 480 | place a block |
-| `ACQUIRE_ITEM` | 474 | collect an item |
-| `BREAK_BLOCK` | 88 | break a block |
-| `LOOK_AT_ENTITY` | 65 | look at a mob |
-| `USE_BLOCK` | 59 | use a block |
+| `ACQUIRE_ITEM` | 472 | collect an item |
+| `PLACE_BLOCK` | 464 | place a block |
+| `BREAK_BLOCK` | 84 | break a block |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
+| `USE_BLOCK` | 60 | use a block |
 | `REACH_BIOME` | 57 | reach a biome |
-| `CONSUME_ITEM` | 47 | eat or drink an item |
-| `LOOK_AT_BLOCK` | 46 | look at a block |
-| `CRAFT` | 44 |  |
-| `PLACE_REL` | 40 |  |
+| `CONSUME_ITEM` | 48 | eat or drink an item |
+| `CRAFT` | 48 |  |
+| `LOOK_AT_BLOCK` | 47 | look at a block |
+| `PLACE_REL` | 44 |  |
 | `DEFEAT_ENTITY` | 36 | defeat a mob |
 | `INTERACT_ENTITY` | 31 | interact with a mob |
-| `BUILD_PATTERN` | 22 |  |
-| `PLACE_ON_PATTERN` | 17 |  |
+| `BUILD_PATTERN` | 24 |  |
+| `PLACE_ON_PATTERN` | 18 |  |
 | `GIVE` | 16 |  |
-| `SMELT` | 9 |  |
+| `SMELT` | 10 |  |
+| `HOLD_WHILE` | 10 |  |
 | `PUT_IN` | 9 |  |
-| `HOLD_WHILE` | 9 |  |
-| `REACH_HEIGHT` | 4 | reach an altitude |
+| `REACH_HEIGHT` | 8 | reach an altitude |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `SEQUENCE` | 1 |  |
+| `WAIT` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 218 | a time of day |
-| `IN_BIOME` | 41 | a biome |
-| `PLAYER_REL` | 15 |  |
-| `Y_RANGE` | 12 | an altitude band |
-| `HOLDING` | 11 |  |
-| `SKY` | 5 |  |
-| `WEATHER` | 3 | the weather |
+| `TIME` | 217 | a time of day |
+| `IN_BIOME` | 42 | a biome |
+| `PLAYER_REL` | 16 |  |
+| `Y_RANGE` | 14 | an altitude band |
+| `HOLDING` | 13 |  |
+| `SKY` | 10 |  |
+| `WEATHER` | 7 | the weather |
 | `IN_DIMENSION` | 2 | a dimension |
 | `NEAR_ENTITY` | 1 | a mob nearby |
 
@@ -93,12 +94,12 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w1_08` | 작은 집의 아침 | Morgen im kleinen Haus | 4 | — |
 | `w1_09` | 작은 발견 | Eine kleine Entdeckung | 4 | — |
 | `w2_01` | 비 그친 하늘 | Der Himmel nach dem Regen | 4 | — |
-| `w2_02` | 첫눈 소리 | Der Klang des ersten Schnees | 4 | — |
-| `w2_03` | 해질녘 언덕 | Der Hügel im Abendlicht | 4 | — |
-| `w2_04` | 천둥의 언덕 | Der Donnerhügel | 4 | — |
-| `w2_05` | 계절의 문 | Das Tor der Jahreszeiten | 4 | — |
-| `w2_06` | 별이 뜨는 밤 | Die Nacht der Sterne | 4 | — |
-| `w2_07` | 겨울 아침 | Der Wintermorgen | 4 | — |
+| `w2_02` | 첫눈 소리 | Das Geräusch des ersten Schnees | 4 | — |
+| `w2_03` | 해질녘 언덕 | Der Hügel bei Sonnenuntergang | 4 | — |
+| `w2_04` | 빗속의 불빛 | Licht im Regen | 4 | — |
+| `w2_05` | 계절의 문 | Die Tür der Jahreszeiten | 4 | — |
+| `w2_06` | 별이 뜨는 밤 | Eine Sternennacht | 4 | — |
+| `w2_07` | 겨울 아침 | Ein Wintermorgen | 4 | — |
 | `w2_08` | 구름 위 탑 | Der Turm über den Wolken | 4 | — |
 
 ### Level 2 · TOPIK 1 · 24 trails

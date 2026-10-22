@@ -1,0 +1,82 @@
+id	ko	context
+trail.w2_01.title	비 그친 하늘	title, authored; project: Craft glass panes under a roof, watch the rain through one, climb a hill when the sky clears and plant a flower.
+trail.w2_01.s1.clue	지붕 아래에서 유리판을 세 개 만들어요.	clue, generated; Craft
+trail.w2_01.s1.hint	지붕 아래에서 유리판을 만들어요.	hint, generated; Craft
+trail.w2_01.s2.clue	비가 올 때 지붕 아래에서 유리판을 1초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.w2_01.s2.hint	비가 올 때 지붕 아래에서 유리판을 1초 동안 바라봐요.	hint, authored; LookAtBlock
+trail.w2_01.s3.clue	맑을 때 언덕 위로 올라가요. 하늘이 파래요.	clue, authored; ReachHeight
+trail.w2_01.s3.hint	맑을 때 언덕 위로 올라가요. 하늘이 파래요.	hint, authored; ReachHeight
+trail.w2_01.finale.clue	맑을 때 꽃을 심어요.	clue, generated; PlaceBlock
+trail.w2_01.finale.hint	맑을 때 꽃을 심어요.	hint, generated; PlaceBlock
+trail.w2_01.finale	맑을 때 꽃을 심었어요.	finale, generated; PlaceBlock
+trail.w2_02.title	첫눈 소리	title, authored; project: Walk into the snowy plains by day, collect snowballs, craft a block of snow and walk on holding a snowball.
+trail.w2_02.s1.clue	낮에 눈 덮인 평원으로 가요.	clue, generated; ReachBiome
+trail.w2_02.s1.hint	낮에 눈 덮인 평원으로 가요.	hint, generated; ReachBiome
+trail.w2_02.s2.clue	눈 덮인 평원에서 눈덩이를 네 개 모아요.	clue, generated; AcquireItem
+trail.w2_02.s2.hint	눈 덮인 평원에서 눈덩이를 모아요.	hint, generated; AcquireItem
+trail.w2_02.s3.clue	낮에 눈 블록을 만들어요.	clue, generated; Craft
+trail.w2_02.s3.hint	낮에 눈 블록을 만들어요.	hint, generated; Craft
+trail.w2_02.finale.clue	눈덩이를 들고 눈 덮인 평원에서 걸어요.	clue, generated; HoldWhile
+trail.w2_02.finale.hint	눈덩이를 들고 눈 덮인 평원에서 걸어요.	hint, authored; HoldWhile
+trail.w2_02.finale	눈덩이를 들고 눈 덮인 평원에서 걸었어요.	finale, generated; HoldWhile
+trail.w2_03.title	해질녘 언덕	title, authored; project: Climb a hill with bread, spread a carpet high up, eat on it and watch a sheep at dusk.
+trail.w2_03.s1.clue	빵을 들고 언덕 위로 올라가요.	clue, generated; ReachHeight
+trail.w2_03.s1.hint	빵을 들고 언덕 위로 올라가요.	hint, generated; ReachHeight
+trail.w2_03.s2.clue	높이 80블록 위에서 양탄자를 깔아요.	clue, generated; PlaceBlock
+trail.w2_03.s2.hint	높이 80블록 위에서 양탄자를 깔아요.	hint, authored; PlaceBlock
+trail.w2_03.s3.clue	양탄자 위에서 빵을 먹어요.	clue, generated; ConsumeItem
+trail.w2_03.s3.hint	양탄자 위에서 빵을 먹어요.	hint, generated; ConsumeItem
+trail.w2_03.finale.clue	해가 져요. 저녁에 양을 바라봐요.	clue, authored; LookAtEntity
+trail.w2_03.finale.hint	해가 져요. 저녁에 양을 바라봐요.	hint, authored; LookAtEntity
+trail.w2_03.finale	저녁에 양을 바라봤어요.	finale, generated; LookAtEntity
+trail.w2_04.title	빗속의 불빛	title, authored; project: Stack a plank pillar, craft a furnace under a roof, put a torch on the pillar in the rain and bake a potato.
+trail.w2_04.s1.clue	판자 세 개로 기둥을 쌓아요.	clue, generated; BuildPattern
+trail.w2_04.s1.hint	판자로 기둥을 쌓아요.	hint, generated; BuildPattern
+trail.w2_04.s2.clue	지붕 아래에서 화로를 만들어요.	clue, generated; Craft
+trail.w2_04.s2.hint	지붕 아래에서 화로를 만들어요.	hint, generated; Craft
+trail.w2_04.s3.clue	비가 올 때 판자 기둥 위에 횃불을 놓아요.	clue, generated; PlaceOnPattern
+trail.w2_04.s3.hint	비가 올 때 판자 기둥 위에 횃불을 놓아요.	hint, authored; PlaceOnPattern
+trail.w2_04.finale.clue	비가 올 때 지붕 아래에서 감자를 구워요.	clue, generated; Smelt
+trail.w2_04.finale.hint	비가 올 때 지붕 아래에서 감자를 구워요.	hint, generated; Smelt
+trail.w2_04.finale	비가 올 때 지붕 아래에서 감자를 구웠어요.	finale, generated; Smelt
+trail.w2_05.title	계절의 문	title, authored; project: Hang a door, then plant a flower beside it (spring), a sunflower in front of it (summer) and put snow on top (winter).
+trail.w2_05.s1.clue	문을 달아요.	clue, generated; PlaceBlock
+trail.w2_05.s1.hint	문을 달아요.	hint, generated; PlaceBlock
+trail.w2_05.s2.clue	봄이에요. 문 옆에 꽃을 심어요.	clue, authored; PlaceRel
+trail.w2_05.s2.hint	봄이에요. 문 옆에 꽃을 심어요.	hint, authored; PlaceRel
+trail.w2_05.s3.clue	여름이에요. 문 앞에 해바라기를 심어요.	clue, authored; PlaceRel
+trail.w2_05.s3.hint	여름이에요. 문 앞에 해바라기를 심어요.	hint, authored; PlaceRel
+trail.w2_05.finale.clue	겨울이에요. 문 위에 눈 블록을 놓아요.	clue, authored; PlaceRel
+trail.w2_05.finale.hint	겨울이에요. 문 위에 눈 블록을 놓아요.	hint, authored; PlaceRel
+trail.w2_05.finale	문 위에 눈 블록을 놓았어요.	finale, generated; PlaceRel
+trail.w2_06.title	별이 뜨는 밤	title, authored; project: Wait for the night, climb a hill, light three torches under the moon and look at the torch.
+trail.w2_06.s1.clue	밤까지 기다려요.	clue, generated; Wait
+trail.w2_06.s1.hint	밤까지 기다려요.	hint, authored; Wait
+trail.w2_06.s2.clue	밤에 별이 떠요. 언덕 위로 올라가요.	clue, authored; ReachHeight
+trail.w2_06.s2.hint	밤에 별이 떠요. 언덕 위로 올라가요.	hint, authored; ReachHeight
+trail.w2_06.s3.clue	밤에 달이 높이 떠요. 횃불 세 개를 밝혀요.	clue, authored; PlaceBlock
+trail.w2_06.s3.hint	밤에 달이 높이 떠요. 횃불 세 개를 밝혀요.	hint, authored; PlaceBlock
+trail.w2_06.finale.clue	밤에 횃불을 1초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.w2_06.finale.hint	밤에 횃불을 1초 동안 바라봐요.	hint, generated; LookAtBlock
+trail.w2_06.finale	밤에 횃불을 바라봤어요.	finale, generated; LookAtBlock
+trail.w2_07.title	겨울 아침	title, authored; project: Put a flower pot by the window, get milk, craft a book under a roof and drink the milk at dawn.
+trail.w2_07.s1.clue	창문 옆에 화분을 놓아요.	clue, authored; PlaceRel
+trail.w2_07.s1.hint	유리판 옆에 화분을 놓아요.	hint, authored; PlaceRel
+trail.w2_07.s2.clue	낮에 우유를 구해요.	clue, generated; AcquireItem
+trail.w2_07.s2.hint	낮에 우유를 구해요.	hint, generated; AcquireItem
+trail.w2_07.s3.clue	지붕 아래에서 책을 만들어요.	clue, generated; Craft
+trail.w2_07.s3.hint	지붕 아래에서 책을 만들어요.	hint, generated; Craft
+trail.w2_07.finale.clue	새벽에 우유를 마셔요.	clue, generated; ConsumeItem
+trail.w2_07.finale.hint	새벽에 우유를 마셔요.	hint, generated; ConsumeItem
+trail.w2_07.finale	새벽에 우유를 마셨어요.	finale, generated; ConsumeItem
+trail.w2_08.title	구름 위 탑	title, authored; project: Build stairs of cobblestone, climb with ladders in hand, place ladders in clear weather and sleep high up at night.
+trail.w2_08.s1.clue	조약돌로 계단을 만들어요.	clue, generated; BuildPattern
+trail.w2_08.s1.hint	조약돌로 계단을 만들어요.	hint, generated; BuildPattern
+trail.w2_08.s2.clue	사다리를 들고 하늘로 올라가요.	clue, authored; ReachHeight
+trail.w2_08.s2.hint	사다리를 들고 하늘로 올라가요.	hint, authored; ReachHeight
+trail.w2_08.s3.clue	맑을 때 사다리를 세 개 놓아요.	clue, generated; PlaceBlock
+trail.w2_08.s3.hint	맑을 때 사다리를 놓아요.	hint, generated; PlaceBlock
+trail.w2_08.finale.clue	밤에 높이 90블록 위에서 침대에서 자요.	clue, generated; UseBlock
+trail.w2_08.finale.hint	밤에 높이 90블록 위에서 침대에서 자요.	hint, authored; UseBlock
+trail.w2_08.finale	밤에 높이 90블록 위에서 침대에서 잤어요.	finale, generated; UseBlock
+concept.gen_snowy_plains.descKo	하얀 눈이 많은 땅이에요.	descKo of the taught biome word 눈 덮인 평원, authored
