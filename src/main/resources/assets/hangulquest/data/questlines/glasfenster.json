@@ -41,10 +41,10 @@
     "glass"
    ],
    "goal": {
-    "type": "SMELT",
-    "input": "minecraft:sand",
-    "output": "minecraft:glass",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:glass",
+    "size": 3
    }
   },
   {

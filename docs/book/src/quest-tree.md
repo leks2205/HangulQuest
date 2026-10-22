@@ -33,12 +33,12 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `INTERACT_ENTITY` | 30 | interact with a mob |
 | `CRAFT` | 28 |  |
 | `PLACE_REL` | 26 |  |
-| `BUILD_PATTERN` | 13 |  |
+| `BUILD_PATTERN` | 14 |  |
 | `HOLD_WHILE` | 9 |  |
 | `GIVE` | 9 |  |
 | `PLACE_ON_PATTERN` | 8 |  |
 | `PUT_IN` | 7 |  |
-| `SMELT` | 6 |  |
+| `SMELT` | 5 |  |
 | `REACH_HEIGHT` | 2 | reach an altitude |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `SEQUENCE` | 1 |  |

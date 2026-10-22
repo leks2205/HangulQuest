@@ -276,6 +276,20 @@ def report(trails: list[dict], baseline: dict | None) -> str:
     return "\n".join(out)
 
 
+def duplicate_steps(trails: list[dict], include_demo: bool = False) -> list[tuple[str, str, str]]:
+    """Each step whose full signature came before on the learner path: (signature, first step, this step)."""
+    first: dict[str, str] = {}
+    out: list[tuple[str, str, str]] = []
+    for trail in learner_path(trails, include_demo):
+        for step in trail["steps"]:
+            where = f"{trail['id']}/{step['id']}"
+            if step["signature"] in first:
+                out.append((step["signature"], first[step["signature"]], where))
+            else:
+                first[step["signature"]] = where
+    return out
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--steps", type=Path, default=STEPS)
@@ -284,9 +298,15 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--update-baseline", action="store_true",
                         help="rewrite the baseline with the current variety and coverage metrics")
     parser.add_argument("--json", action="store_true", help="print the metrics as JSON")
+    parser.add_argument("--duplicates", action="store_true",
+                        help="list the steps whose signature repeats an earlier step, and stop")
     args = parser.parse_args(argv)
 
     trails = load_steps(args.steps)
+    if args.duplicates:
+        for signature, before, here in duplicate_steps(trails):
+            print(f"{here}\trepeats {before}\t{signature}")
+        return 0
     values = compute(trails, False)
 
     if args.json:
