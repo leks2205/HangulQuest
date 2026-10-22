@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1097,
  "concepts": [
-  "anvil",
-  "iron",
-  "gen_birch_pressure_plate"
+  "gen_grindstone",
+  "pickaxe",
+  "gen_copper_ore",
+  "shears"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -21,59 +22,84 @@
   {
    "id": "s1",
    "teach": [
-    "anvil"
+    "gen_grindstone"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:anvil"
+    "type": "CRAFT",
+    "item": "minecraft:grindstone",
+    "count": 1
    },
-   "clue": {
-    "ko": "왕관을 고치려고 모루를 사용해요."
-   },
-   "hint": {
-    "ko": "모루는 철 블록 세 개와 철 주괴 네 개로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "iron"
+    "pickaxe",
+    "gen_copper_ore"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_ingot",
-    "count": 8
+    "type": "HOLD_WHILE",
+    "item": "minecraft:iron_pickaxe",
+    "inner": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:copper_ore",
+     "count": 2,
+     "verb": "MINE"
+    }
    },
-   "clue": {
-    "ko": "왕관의 테를 만들 철 주괴 여덟 개를 모아요."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_grindstone"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:grindstone"
    },
-   "hint": {
-    "ko": "철 주괴는 철 원석을 화로에 구워 얻어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_birch_pressure_plate"
+    "shears"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_pressure_plate",
+    "type": "CRAFT",
+    "item": "minecraft:shears",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_ingot"
+    }
+   ]
   },
-  "textKo": "자작나무 압력판을 만들었어요."
+  "textKo": "철 주괴를 들고 가위를 만들었어요. 가위는 양털을 깎아요."
  },
  "reward": {
   "badge": "w9_07",
   "words": [
-   "anvil",
-   "crown",
-   "iron"
+   "gen_grindstone",
+   "pickaxe",
+   "gen_copper_ore",
+   "shears"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

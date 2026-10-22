@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1102,
  "concepts": [
-  "gen_mule",
-  "gen_dark_prismarine_stairs",
-  "gold",
-  "gen_dark_prismarine_slab"
+  "go",
+  "raw_gold",
+  "chest",
+  "apple"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,62 +22,84 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mule"
+    "go"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:mule"
-   }
+    "type": "WALK",
+    "direction": "WEST",
+    "blocks": 30
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_prismarine_stairs"
+    "raw_gold",
+    "chest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_prismarine_stairs",
-    "count": 3
-   }
+    "type": "PUT_IN",
+    "item": "minecraft:raw_gold",
+    "container": "minecraft:chest",
+    "count": 6
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gold"
+    "apple"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:raw_gold",
-    "count": 6
+    "type": "TRADE",
+    "item": "minecraft:apple",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 2
    },
-   "hint": {
-    "ko": "금은 땅속 광석에서 나와요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dark_prismarine_slab"
+    "raw_gold"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_prismarine_slab",
-    "count": 1
+    "type": "SMELT",
+    "input": "minecraft:raw_gold",
+    "output": "minecraft:gold_ingot",
+    "count": 3
    },
    "conditions": []
   },
-  "textKo": "짙은 프리즈머린 반 블록을 놓았어요."
+  "textKo": "금 원석을 녹여서 금 주괴를 세 개 만들었어요. 금은 노란색이에요."
  },
  "reward": {
   "badge": "w10_02",
   "words": [
-   "villager",
-   "emerald",
-   "gold",
-   "gold_block"
+   "go",
+   "raw_gold",
+   "chest",
+   "apple"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

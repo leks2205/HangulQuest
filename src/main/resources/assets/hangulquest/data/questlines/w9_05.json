@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1095,
  "concepts": [
-  "gen_oak_wood",
-  "enchanting_table",
-  "gen_poplar_fence_gate"
+  "clock",
+  "wait",
+  "bed",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -21,53 +22,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oak_wood"
+    "clock"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_wood",
-    "count": 1
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:clock",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "enchanting_table"
+    "wait"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:enchanting_table"
+    "type": "WAIT",
+    "seconds": 10
    },
-   "clue": {
-    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "LIE_DOWN",
+     "block": "minecraft:red_bed",
+     "dwellMs": 1000
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
    },
-   "hint": {
-    "ko": "마법 부여대는 흑요석과 다이아몬드와 책으로 만들어요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_fence_gate"
+    "clock",
+    "villager"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_fence_gate",
+    "type": "GIVE",
+    "item": "minecraft:clock",
+    "entity": "minecraft:villager",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "포플러나무 울타리 문을 만들었어요."
+  "textKo": "낮에 주민에게 시계를 줬어요. 시계는 시간을 보여 줘요."
  },
  "reward": {
   "badge": "w9_05",
   "words": [
    "clock",
-   "enchanting_table",
-   "nether_star"
+   "wait",
+   "bed",
+   "villager"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

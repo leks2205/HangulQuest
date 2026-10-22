@@ -6,9 +6,7 @@
  "tier": 2,
  "order": 1106,
  "concepts": [
-  "gen_dark_oak_wood",
   "clay",
-  "brick",
   "adv_item_decorated_pot"
  ],
  "requires": {
@@ -22,17 +20,6 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_wood"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dark_oak_wood",
-    "count": 1
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "clay"
    ],
    "goal": {
@@ -40,23 +27,47 @@
     "item": "minecraft:clay_ball",
     "count": 8
    },
-   "hint": {
-    "ko": "점토는 물가의 흙에서 나와요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "clay"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "input": "minecraft:clay_ball",
+    "output": "minecraft:brick",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "brick"
+    "adv_item_decorated_pot"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:bricks",
-    "dwellMs": 1000
+    "type": "CRAFT",
+    "item": "minecraft:decorated_pot",
+    "count": 1
    },
-   "hint": {
-    "ko": "벽돌 벽은 오래된 유적의 벽이에요."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:brick"
+    }
+   ]
   }
  ],
  "finale": {
@@ -66,22 +77,21 @@
     "adv_item_decorated_pot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "LOOK_AT_BLOCK",
     "block": "minecraft:decorated_pot",
-    "count": 1
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "모래에서 찾은 도자기를 유적에 다시 세워요."
+  "textKo": "장식된 도자기를 바라봤어요. 장식된 도자기는 벽돌로 만들어요."
  },
  "reward": {
   "badge": "w10_06",
   "words": [
-   "adv_item_brush",
    "clay",
-   "brick",
    "adv_item_decorated_pot"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }
