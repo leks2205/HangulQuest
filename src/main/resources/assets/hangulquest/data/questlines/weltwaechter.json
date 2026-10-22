@@ -6,10 +6,11 @@
  "tier": 4,
  "order": 86,
  "concepts": [
-  "build",
-  "gen_cinnabar_brick_slab",
-  "gen_purple_banner",
-  "gen_red_carpet"
+  "shield",
+  "sword",
+  "witch",
+  "iron_golem",
+  "mountain"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -24,23 +25,12 @@
   {
    "id": "s1",
    "teach": [
-    "build"
+    "shield"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:scaffolding",
-    "count": 3
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_cinnabar_brick_slab"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar_brick_slab",
-    "count": 3
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:shield",
+    "count": 1
    },
    "conditions": [
     {
@@ -50,49 +40,69 @@
    ]
   },
   {
-   "id": "s3",
+   "id": "s2",
    "teach": [
-    "gen_purple_banner"
+    "sword",
+    "witch"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_banner",
-    "count": 3
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:iron_sword",
+    "inner": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:witch",
+     "count": 2
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:iron_golem",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_carpet"
+    "mountain"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_carpet",
-    "count": 1
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "DAY"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "type": "HOLDING",
+     "item": "minecraft:shield"
     }
    ]
   },
-  "textKo": "낮에 산에서 빨간색 양탄자를 깔았어요."
+  "textKo": "방패를 들고 높이 백 블록 이상으로 올라갔어요. 높이 올라갈수록 추워져요."
  },
  "reward": {
   "badge": "weltwaechter",
   "words": [
-   "goat",
-   "torch",
-   "zombie",
-   "bell"
+   "shield",
+   "sword",
+   "witch",
+   "iron_golem"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
