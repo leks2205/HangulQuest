@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "weltbaum",
  "titleKo": "세계수",
+ "topic": "나무",
  "tier": 5,
  "order": 526,
  "concepts": [
-  "gen_copper_chest",
-  "gen_crimson_fungus",
-  "gen_red_sand",
-  "gen_blue_shulker_box"
+  "sapling",
+  "leaves",
+  "log",
+  "tree"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -25,47 +26,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_chest"
+    "sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_chest",
-    "count": 8
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_crimson_fungus"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:crimson_fungus",
-    "dwellMs": 600
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_red_sand"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_sand",
-    "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_blue_shulker_box"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_shulker_box",
-    "count": 3
+    "block": "minecraft:spruce_sapling",
+    "count": 9
    },
    "conditions": [
     {
@@ -74,16 +40,73 @@
     }
    ]
   },
-  "textKo": "낮에 파란색 셜커 상자를 세 개 놓았어요."
+  {
+   "id": "s2",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:oak_leaves",
+     "count": 1
+    },
+    "windowSeconds": 30
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "log"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_log",
+    "size": 3
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "leaves"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:oak_leaves",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_log",
+    "size": 3
+   },
+   "conditions": []
+  },
+  "textKo": "통나무 기둥 위에 나뭇잎을 놓았어요. 큰 나무는 높아요."
  },
  "reward": {
   "badge": "weltbaum",
   "words": [
-   "planks",
-   "flower",
-   "campfire"
+   "sapling",
+   "leaves",
+   "log"
   ]
  },
  "koreanLevel": 3,
- "topic": "나무"
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.jima",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }

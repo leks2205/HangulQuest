@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "riesenfest",
  "titleKo": "큰 잔치",
+ "topic": "잔치",
  "tier": 5,
  "order": 531,
  "concepts": [
-  "gen_dried_kelp",
-  "gen_piglin_brute",
-  "gen_weathered_copper_bulb",
-  "gen_pale_oak_fence"
+  "cookie",
+  "jukebox",
+  "melon",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,47 +26,59 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dried_kelp"
+    "cookie"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:dried_kelp",
-    "count": 1
-   }
+    "type": "CRAFT",
+    "item": "minecraft:cookie",
+    "count": 8
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_piglin_brute"
+    "jukebox"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:piglin_brute",
-    "dwellMs": 800
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:jukebox",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_weathered_copper_bulb"
+    "melon"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_bulb",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:melon_slice",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:villager",
+     "count": 3
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_fence"
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_fence",
-    "count": 3
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager",
+    "count": 1
    },
    "conditions": [
     {
@@ -74,16 +87,25 @@
     }
    ]
   },
-  "textKo": "낮에 창백한 참나무 울타리를 세 개 놓았어요."
+  "textKo": "낮에 주민에게 빵을 줬어요. 잔치에는 사람이 많아요."
  },
  "reward": {
   "badge": "riesenfest",
   "words": [
-   "cake",
-   "chicken",
-   "campfire"
+   "cookie",
+   "jukebox",
+   "melon"
   ]
  },
  "koreanLevel": 3,
- "topic": "나무"
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L1.num_native",
+  "L2.counter_more",
+  "L2.ege",
+  "L3.past"
+ ]
 }

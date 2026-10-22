@@ -98,9 +98,9 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		return "땅 위로 " + Verb.CLIMB.past();
 	}
 
-	/** "아래로" on the first level, the height from level 2 on ("높이 0 이하로"). */
+	/** "아래로" on the first level, the height from level 2 on ("높이 0블록 이하로"). */
 	private static String down(Goal.ReachHeight goal, int level) {
-		return level <= 1 ? "아래로" : "높이 " + goal.maxY() + " 이하로";
+		return level <= 1 ? "아래로" : "높이 " + goal.maxY() + "블록 이하로";
 	}
 
 	/** "언덕 위로" above sea level, "산 위로" from the height of real mountains (Y 100 and up). */

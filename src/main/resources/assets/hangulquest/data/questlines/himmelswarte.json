@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "himmelswarte",
  "titleKo": "하늘 관측소",
+ "topic": "밤",
  "tier": 3,
  "order": 534,
  "concepts": [
-  "gen_flower_forest",
-  "gen_lily_of_the_valley",
-  "gen_weathered_cut_copper_slab",
-  "gen_purple_concrete_powder"
+  "sky",
+  "wool",
+  "sea_lantern"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,72 +22,84 @@
   {
    "id": "s1",
    "teach": [
-    "gen_flower_forest"
+    "sky"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:flower_forest",
-    "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_lily_of_the_valley"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lily_of_the_valley",
-    "count": 3
+    "type": "REACH_HEIGHT",
+    "minY": 110,
+    "maxY": 320
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "OPEN"
     }
    ]
   },
   {
-   "id": "s3",
+   "id": "s2",
    "teach": [
-    "gen_weathered_cut_copper_slab"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_cut_copper_slab",
-    "count": 1
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:white_wool",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sea_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:sea_lantern",
+    "relation": "ON_TOP_OF",
+    "pattern": "WALL",
+    "material": "minecraft:white_wool"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_concrete_powder"
+    "sea_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_concrete_powder",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:sea_lantern"
     }
    ]
   },
-  "textKo": "밤에 보라색 콘크리트 가루를 놓았어요."
+  "textKo": "바다 랜턴 근처에서 밤까지 기다렸어요. 밤하늘에 달이 떠요."
  },
  "reward": {
   "badge": "himmelswarte",
   "words": [
-   "climb",
-   "torch",
-   "bed",
-   "night"
+   "sky",
+   "wool",
+   "sea_lantern"
   ]
  },
  "koreanLevel": 3,
- "topic": "밤"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }

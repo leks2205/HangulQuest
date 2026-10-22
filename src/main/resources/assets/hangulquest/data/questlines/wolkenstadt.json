@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "wolkenstadt",
- "titleKo": "구름 도시의 길",
+ "titleKo": "구름 도시",
  "topic": "구름",
  "tier": 3,
  "order": 167,
  "concepts": [
-  "gen_brown_stained_glass_pane",
-  "gen_chiseled_polished_blackstone",
-  "gen_polished_tuff_wall",
-  "gen_green_concrete"
+  "wool",
+  "gen_end_rod",
+  "height"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +22,96 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_stained_glass_pane"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_stained_glass_pane",
-    "count": 1
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:white_wool",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": 100,
+     "maxY": 320
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_polished_blackstone"
+    "gen_end_rod"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_polished_blackstone",
-    "count": 6
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:end_rod",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:white_wool"
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_polished_tuff_wall"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_tuff_wall",
-    "count": 4
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:white_wool",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "Y_RANGE",
+     "minY": 100,
+     "maxY": 320
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_concrete"
+    "height"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_concrete",
-    "count": 3
+    "type": "REACH_HEIGHT",
+    "minY": 150,
+    "maxY": 320
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:white_wool"
+    }
+   ]
   },
-  "textKo": "초록색 콘크리트를 세 개 쌓았어요."
+  "textKo": "양털을 들고 높이 150블록 위로 올라갔어요. 구름은 하늘에 있어요."
  },
  "reward": {
   "badge": "wolkenstadt",
   "words": [
-   "height",
    "wool",
-   "glass",
-   "lantern"
+   "gen_end_rod",
+   "height"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.jima",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L3.past"
+ ]
 }

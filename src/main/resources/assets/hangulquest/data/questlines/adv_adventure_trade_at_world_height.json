@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_trade_at_world_height",
- "titleKo": "최고의 거래",
+ "titleKo": "높은 곳의 시장",
  "topic": "adventure",
  "tier": 2,
  "order": 236,
  "concepts": [
-  "gen_lime_candle",
-  "gen_closed_eyeblossom",
-  "gen_strider"
+  "emerald",
+  "string",
+  "apple"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,47 +21,74 @@
   {
    "id": "s1",
    "teach": [
-    "gen_lime_candle"
+    "emerald"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_candle",
-    "count": 1
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:emerald"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_closed_eyeblossom"
+    "string"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:closed_eyeblossom",
-    "count": 2
-   }
+    "type": "TRADE",
+    "item": "minecraft:string",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 20
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_strider"
+    "apple"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:strider"
+    "type": "TRADE",
+    "item": "minecraft:apple",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 4
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": 90,
+     "maxY": 320
+    }
+   ]
   },
-  "textKo": "스트라이더를 탔어요."
+  "textKo": "높이 90블록 위에서 주민에게서 사과를 샀어요. 높은 곳에서도 거래할 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_trade_at_world_height",
   "words": [
-   "height",
    "emerald",
-   "villager"
+   "string",
+   "apple"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_state",
+  "L1.eul_reul",
+  "L2.ege",
+  "L2.ege_source",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

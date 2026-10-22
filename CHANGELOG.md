@@ -6,7 +6,16 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.4)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.5)
+
+**New in rc.5:**
+- **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an
+  observatory, the far north.
+- **Wonders of the world:** the world market, a giant tree, a pyramid, a harbour, the pirate's chest, desert and
+  jungle temples, a desert town.
+- **Level 3 meets its grammar goal:** more than a third of its steps now depend on the Korean form (before/after,
+  "don't").
+- **French covers every rebuilt trail**, proofread.
 
 **New in rc.4:** two more level-3 batches.
 - The village heroes: curing a zombie villager, the iron golem, the raid patrol, enchanting, the ender eye, diamond

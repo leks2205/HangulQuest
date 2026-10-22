@@ -1,13 +1,12 @@
 {
  "schema": 1,
  "id": "adv_adventure_craft_decorated_pot_using_only_sherds",
- "titleKo": "세심한 복원",
+ "titleKo": "도자기 만들기",
  "topic": "adventure",
  "tier": 2,
  "order": 206,
  "concepts": [
-  "gen_pink_glazed_terracotta",
-  "adv_block_torchflower_seeds",
+  "clay",
   "adv_item_decorated_pot"
  ],
  "requires": {
@@ -21,24 +20,52 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pink_glazed_terracotta"
+    "clay"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_glazed_terracotta",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:clay_ball",
+      "count": 4
+     },
+     {
+      "type": "SMELT",
+      "output": "minecraft:brick",
+      "count": 4
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_block_torchflower_seeds"
+    "adv_item_decorated_pot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:torchflower_seeds",
+    "type": "CRAFT",
+    "item": "minecraft:decorated_pot",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_decorated_pot"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:decorated_pot",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -48,24 +75,31 @@
     "adv_item_decorated_pot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:decorated_pot",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:decorated_pot",
+    "size": 2
    },
-   "conditions": [],
-   "hint": {
-    "ko": "도자기 조각 네 개를 십자로 놓아요."
-   }
+   "conditions": []
   },
-  "textKo": "세심한 복원 — 조각 네 개로 도자기를 되살렸어요."
+  "textKo": "장식된 도자기 두 개를 나란히 놓았어요. 벽돌로 도자기를 만들어요."
  },
  "reward": {
   "badge": "adv_adventure_craft_decorated_pot_using_only_sherds",
   "words": [
-   "adv_item_brush",
-   "adv_block_torchflower_seeds",
+   "clay",
    "adv_item_decorated_pot"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L1.eul_reul",
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L3.past"
+ ]
 }

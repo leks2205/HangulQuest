@@ -30,7 +30,7 @@ class GlossLanguageTest {
 	@Test
 	void aLanguageWithoutAGlossFallsBackToEnglishNotGerman() {
 		Word cat = word("Katze", "cat", Map.of("es_es", "gato"));
-		assertEquals("cat", cat.gloss(Lang.of("fr_fr")));
+		assertEquals("cat", cat.gloss(Lang.of("la_la")));
 	}
 
 	@Test

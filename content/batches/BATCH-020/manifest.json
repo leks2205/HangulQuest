@@ -1,0 +1,959 @@
+{
+ "batch": "BATCH-020",
+ "brief": "content/briefs/BATCH-020.md",
+ "chapter": "explorers: far views and high places (level 3; every trail is level 3 by tree depth)",
+ "note": "Built on phase0 at ebe7b14 (after BATCH-021). `before` is the phase0 baseline at the final merge, `after` the rebaselined values. unknownOverOneShare was 0.046091 when the batch started (before BATCH-021 landed) and 0.045508 at the final merge; it ends at the value below, lower than both.",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 25,
+  "formDependentShareOwn": 0.4167,
+  "goalTypes": {
+   "CRAFT": 3,
+   "REACH_BIOME": 5,
+   "AVOID": 6,
+   "SEQUENCE": 8,
+   "PLACE_REL": 4,
+   "BUILD_PATTERN": 7,
+   "PLACE_BLOCK": 1,
+   "USE_BLOCK": 1,
+   "REACH_HEIGHT": 5,
+   "PLACE_ON_PATTERN": 5,
+   "LOOK_AT_ENTITY": 3,
+   "HOLD_WHILE": 2,
+   "TRADE": 2,
+   "ACQUIRE_ITEM": 1,
+   "LOOK_AT_BLOCK": 3,
+   "FALL": 1,
+   "WAIT": 2,
+   "SWIM": 1
+  }
+ },
+ "metrics": {
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.974912,
+   "after": 0.977945
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.9904,
+   "after": 0.99177
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.768961,
+   "after": 0.755078
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.045508,
+   "after": 0.04527
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 4.0,
+   "after": 4.0
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.179245,
+   "after": 0.188679
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.768868,
+   "after": 0.773585
+  },
+  "variety.bareShare.3": {
+   "before": 0.290727,
+   "after": 0.203431
+  },
+  "variety.boredomIndex": {
+   "before": 0.029189,
+   "after": 0.02439
+  },
+  "variety.distinctTypes.3": {
+   "before": 28.0,
+   "after": 28.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 3.0,
+   "after": 3.0
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.303258,
+   "after": 0.357843
+  },
+  "variety.noveltyShare": {
+   "before": 0.72381,
+   "after": 0.740476
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 64.0,
+   "after": 56.0
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.160401,
+   "after": 0.120098
+  },
+  "variety.verbObjectMax": {
+   "before": 7.0,
+   "after": 7.0
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 13.0,
+   "after": 13.0
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_adventure_adventuring_time",
+   "title": "여행의 시작",
+   "titleEn": "The Start of a Journey",
+   "order": 200,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.euro_direction",
+    "L2.go_state",
+    "L3.jima",
+    "L3.eun_hue",
+    "L3.past",
+    "L3.future_geoyeyo"
+   ],
+   "finaleKo": "정글로 간 후에 숲으로 갔어요. 내일은 산에 갈 거예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:lantern:CRAFT",
+     "formDependent": false,
+     "clueKo": "랜턴을 만드세요.",
+     "hintKo": "랜턴을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:desert:GO|HOLDING:minecraft:map",
+     "formDependent": false,
+     "clueKo": "지도를 들고 사막으로 가세요.",
+     "hintKo": "지도를 들고 사막으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:cactus:BREAK",
+     "formDependent": true,
+     "clueKo": "지도를 들고 선인장을 부수지 마세요.",
+     "hintKo": "지도를 들고 선인장을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO",
+     "formDependent": true,
+     "clueKo": "정글로 간 후에 숲으로 가세요.",
+     "hintKo": "정글로 간 후에 숲으로 가요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_craft_decorated_pot_using_only_sherds",
+   "title": "도자기 만들기",
+   "titleEn": "Making a Pot",
+   "order": 206,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L2.seyo",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L3.past"
+   ],
+   "finaleKo": "장식된 도자기 두 개를 나란히 놓았어요. 벽돌로 도자기를 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:clay_ball:COLLECT>SMELT:minecraft:brick:BAKE",
+     "formDependent": true,
+     "clueKo": "점토를 네 개 모은 후에 벽돌을 네 개 구우세요.",
+     "hintKo": "점토를 모은 후에 벽돌을 구워요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:decorated_pot:CRAFT",
+     "formDependent": false,
+     "clueKo": "장식된 도자기를 만드세요.",
+     "hintKo": "장식된 도자기를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:decorated_pot:ON_TOP_OF:minecraft:sand:PLACE",
+     "formDependent": true,
+     "clueKo": "모래 위에 장식된 도자기를 놓으세요.",
+     "hintKo": "모래 위에 장식된 도자기를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:ROW/2:minecraft:decorated_pot:PLACE",
+     "formDependent": false,
+     "clueKo": "장식된 도자기 두 개를 나란히 놓으세요.",
+     "hintKo": "장식된 도자기를 나란히 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_play_jukebox_in_meadows",
+   "title": "목초지의 음악",
+   "titleEn": "Music in the Meadow",
+   "order": 220,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.past",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "목초지에서 주크박스를 틀었어요. 주크박스는 음반으로 음악을 틀어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:jukebox:PLACE|IN_BIOME:minecraft:meadow",
+     "formDependent": false,
+     "clueKo": "목초지에서 주크박스를 놓으세요.",
+     "hintKo": "목초지에서 주크박스를 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:note_block:NEXT_TO:minecraft:jukebox:PLACE",
+     "formDependent": true,
+     "clueKo": "주크박스 옆에 소리 블록을 놓으세요.",
+     "hintKo": "주크박스 옆에 소리 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:azure_bluet:NEXT_TO:minecraft:note_block:PLANT",
+     "formDependent": true,
+     "clueKo": "소리 블록 옆에 선애기별꽃을 심으세요.",
+     "hintKo": "소리 블록 옆에 선애기별꽃을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:jukebox:PLAY|IN_BIOME:minecraft:meadow",
+     "formDependent": false,
+     "clueKo": "목초지에서 주크박스를 트세요.",
+     "hintKo": "목초지에서 주크박스를 틀어요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_spyglass_at_dragon",
+   "title": "산 위의 망원경",
+   "titleEn": "The Spyglass on the Mountain",
+   "order": 229,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.past"
+   ],
+   "finaleKo": "산에서 망원경을 들고 토끼를 바라봤어요. 토끼는 빨라요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:spyglass",
+     "formDependent": false,
+     "clueKo": "망원경을 들고 높이 120블록 위로 올라가세요.",
+     "hintKo": "망원경을 들고 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/4:minecraft:oak_log:STACK",
+     "formDependent": false,
+     "clueKo": "통나무 네 개로 기둥을 쌓으세요.",
+     "hintKo": "통나무로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:lightning_rod:ON_TOP_OF:PILLAR/minecraft:oak_log:STAND",
+     "formDependent": true,
+     "clueKo": "통나무 기둥 위에 피뢰침을 세우세요.",
+     "hintKo": "통나무 기둥 위에 피뢰침을 세워요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:rabbit:WATCH|HOLDING:minecraft:spyglass,IN_BIOME:#minecraft:is_mountain",
+     "formDependent": false,
+     "clueKo": "산에서 망원경을 들고 토끼를 일 초 동안 바라보세요.",
+     "hintKo": "산에서 망원경을 들고 토끼를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_spyglass_at_ghast",
+   "title": "네더의 망원경",
+   "titleEn": "The Spyglass in the Nether",
+   "order": 230,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L3.gi_jeone",
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.euro_direction",
+    "L2.go_state",
+    "L2.num_sino",
+    "L3.past"
+   ],
+   "finaleKo": "네더에서 망원경을 들고 가스트를 바라봤어요. 가스트는 하늘을 날아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:spyglass:CRAFT>REACH_BIOME:minecraft:nether_wastes:GO",
+     "formDependent": true,
+     "clueKo": "네더 황무지로 가기 전에 망원경을 만드세요.",
+     "hintKo": "네더 황무지로 가기 전에 망원경을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:spyglass:HOLD+IN_DIMENSION",
+     "formDependent": false,
+     "clueKo": "망원경을 들고 네더에서 걸으세요.",
+     "hintKo": "망원경을 들고 네더에서 걸어요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:hill|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 높이 70블록 위로 올라가세요.",
+     "hintKo": "네더에서 언덕 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:ghast:WATCH|HOLDING:minecraft:spyglass,IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 망원경을 들고 가스트를 일 초 동안 바라보세요.",
+     "hintKo": "네더에서 망원경을 들고 가스트를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_trade_at_world_height",
+   "title": "높은 곳의 시장",
+   "titleEn": "The Market up High",
+   "order": 236,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L1.eul_reul",
+    "L2.ege",
+    "L2.ege_source",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "높이 90블록 위에서 주민에게서 사과를 샀어요. 높은 곳에서도 거래할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:emerald",
+     "formDependent": false,
+     "clueKo": "에메랄드를 들고 높이 100블록 위로 올라가세요.",
+     "hintKo": "에메랄드를 들고 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:string:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 실을 스무 개 파세요.",
+     "hintKo": "주민에게 실을 팔아요."
+    },
+    {
+     "id": "finale",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:apple:BUY|Y_RANGE:90..320",
+     "formDependent": true,
+     "clueKo": "높이 90블록 위에서 주민에게서 사과를 네 개 사세요.",
+     "hintKo": "높이 90블록 위에서 주민에게서 사과를 사요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_trim_with_all_exclusive_armor_patterns",
+   "title": "구리 장비",
+   "titleEn": "Copper Gear",
+   "order": 237,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.eun_hue",
+    "L3.past",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "구리 곡괭이를 만든 후에 조약돌을 캤어요. 구리 곡괭이로 조약돌을 캘 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:copper_axe:CRAFT",
+     "formDependent": false,
+     "clueKo": "구리 도끼를 만드세요.",
+     "hintKo": "구리 도끼를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:copper_helmet:CRAFT>EQUIP:minecraft:copper_helmet:WEAR_HEAD",
+     "formDependent": true,
+     "clueKo": "구리 투구를 만든 후에 구리 투구를 쓰세요.",
+     "hintKo": "구리 투구를 만든 후에 구리 투구를 써요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE",
+     "formDependent": true,
+     "clueKo": "구리 곡괭이를 만든 후에 조약돌을 캐세요.",
+     "hintKo": "구리 곡괭이를 만든 후에 조약돌을 캐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_walk_on_powder_snow_with_leather_boots",
+   "title": "가죽 장화로 눈 위를",
+   "titleEn": "Over the Snow in Leather Boots",
+   "order": 244,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.euro_direction",
+    "L2.num_sino",
+    "L3.gi_jeone",
+    "L2.eseo_activity",
+    "L2.euro_direction",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신었어요. 가죽 장화를 신으면 가루눈 위를 걸을 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:leather:COLLECT|NEAR_ENTITY:minecraft:cow",
+     "formDependent": false,
+     "clueKo": "소 근처에서 가죽을 세 개 모으세요.",
+     "hintKo": "소 근처에서 가죽을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:snowy_slopes:GO|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 눈 덮인 비탈로 가세요.",
+     "hintKo": "낮에 눈 덮인 비탈로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:powder_snow:WATCH",
+     "formDependent": false,
+     "clueKo": "가루눈을 일 초 동안 바라보세요.",
+     "hintKo": "가루눈을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN",
+     "formDependent": true,
+     "clueKo": "높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신으세요.",
+     "hintKo": "높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신어요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_who_needs_rockets",
+   "title": "로켓 없이 뛰어내리기",
+   "titleEn": "Jumping Without a Rocket",
+   "order": 245,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L2.seyo",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L3.jima",
+    "L2.eseo_activity",
+    "L2.euro_direction",
+    "L3.past"
+   ],
+   "finaleKo": "높은 곳에서 건초 더미 위로 뛰어내렸어요. 건초 더미는 부드러워요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:firework_rocket:CRAFT>REACH_HEIGHT::CLIMB:100+",
+     "formDependent": true,
+     "clueKo": "폭죽 로켓을 만든 후에 높이 100블록 위로 올라가세요.",
+     "hintKo": "폭죽 로켓을 만든 후에 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/4:minecraft:hay_block:STACK",
+     "formDependent": false,
+     "clueKo": "건초 더미 네 개로 기둥을 쌓으세요.",
+     "hintKo": "건초 더미로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:dirt:DIG",
+     "formDependent": true,
+     "clueKo": "건초 더미 근처에서 흙을 파지 마세요.",
+     "hintKo": "건초 더미 근처에서 흙을 파지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "FALL",
+     "signature": "FALL:minecraft:hay_block:JUMP_DOWN",
+     "formDependent": false,
+     "clueKo": "높은 곳에서 건초 더미 위로 뛰어내리세요.",
+     "hintKo": "높은 곳에서 건초 더미 위로 뛰어내려요."
+    }
+   ]
+  },
+  {
+   "id": "eiskrone",
+   "title": "얼음 왕관",
+   "titleEn": "The Ice Crown",
+   "order": 89,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.past"
+   ],
+   "finaleKo": "밤에 금 블록을 바라봤어요. 금은 반짝여요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:fox:WATCH|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 여우를 일 초 동안 바라보세요.",
+     "hintKo": "낮에 여우를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:snow_block:STACK",
+     "formDependent": false,
+     "clueKo": "눈 블록으로 피라미드를 쌓으세요.",
+     "hintKo": "눈 블록으로 피라미드를 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:snow_block:BREAK",
+     "formDependent": true,
+     "clueKo": "눈 블록을 부수지 마세요.",
+     "hintKo": "눈 블록을 부수지 마세요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:gold_block:ON_TOP_OF:PYRAMID/minecraft:snow_block:PLACE",
+     "formDependent": true,
+     "clueKo": "눈 블록 피라미드 위에 금 블록을 놓으세요.",
+     "hintKo": "눈 블록 피라미드 위에 금 블록을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:gold_block:WATCH|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 금 블록을 일 초 동안 바라보세요.",
+     "hintKo": "밤에 금 블록을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "himmelswarte",
+   "title": "하늘 관측소",
+   "titleEn": "The Sky Station",
+   "order": 534,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.past"
+   ],
+   "finaleKo": "바다 랜턴 근처에서 밤까지 기다렸어요. 밤하늘에 달이 떠요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|SKY:OPEN",
+     "formDependent": false,
+     "clueKo": "밖에서 높이 110블록 위로 올라가세요.",
+     "hintKo": "밖에서 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:WALL/3:minecraft:white_wool:STACK",
+     "formDependent": false,
+     "clueKo": "양털로 벽을 쌓으세요.",
+     "hintKo": "양털로 벽을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:WALL/minecraft:white_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "양털 벽 위에 바다 랜턴을 놓으세요.",
+     "hintKo": "양털 벽 위에 바다 랜턴을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:sea_lantern",
+     "formDependent": false,
+     "clueKo": "바다 랜턴 근처에서 밤까지 기다리세요.",
+     "hintKo": "바다 랜턴 근처에서 밤까지 기다려요."
+    }
+   ]
+  },
+  {
+   "id": "observatorium",
+   "title": "별 관측소",
+   "titleEn": "The Star Observatory",
+   "order": 524,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L2.seyo",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.jima",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L3.past"
+   ],
+   "finaleKo": "나침반을 들고 밤에 걸었어요. 밤하늘에는 별이 많아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/4:minecraft:sand:STACK",
+     "formDependent": false,
+     "clueKo": "모래 네 개로 기둥을 쌓으세요.",
+     "hintKo": "모래로 기둥을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:daylight_detector:ON_TOP_OF:PILLAR/minecraft:sand:PLACE",
+     "formDependent": true,
+     "clueKo": "모래 기둥 위에 햇빛 감지기를 놓으세요.",
+     "hintKo": "모래 기둥 위에 햇빛 감지기를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:PLACE_BLOCK:minecraft:torch:PLACE",
+     "formDependent": true,
+     "clueKo": "밤에 횃불을 놓지 마세요.",
+     "hintKo": "밤에 횃불을 놓지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:compass:HOLD+TIME",
+     "formDependent": false,
+     "clueKo": "나침반을 들고 밤에 걸으세요.",
+     "hintKo": "나침반을 들고 밤에 걸어요."
+    }
+   ]
+  },
+  {
+   "id": "polarlicht",
+   "title": "북쪽의 얼음",
+   "titleEn": "The Ice in the North",
+   "order": 91,
+   "koreanLevel": 3,
+   "depth": 9,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.jima",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "얼음 근처에서 밤까지 기다렸어요. 얼음은 차가워요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:snowy_plains:GO|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 눈 덮인 평원으로 가세요.",
+     "hintKo": "밤에 눈 덮인 평원으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:ice:WATCH|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 얼음을 일 초 동안 바라보세요.",
+     "hintKo": "밤에 얼음을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:ice:SHATTER",
+     "formDependent": true,
+     "clueKo": "눈 덮인 평원에서 얼음을 깨지 마세요.",
+     "hintKo": "눈 덮인 평원에서 얼음을 깨지 마세요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:snow_block:ON_TOP_OF:minecraft:ice:PLACE",
+     "formDependent": true,
+     "clueKo": "얼음 위에 눈 블록을 놓으세요.",
+     "hintKo": "얼음 위에 눈 블록을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:ice",
+     "formDependent": false,
+     "clueKo": "얼음 근처에서 밤까지 기다리세요.",
+     "hintKo": "얼음 근처에서 밤까지 기다려요."
+    }
+   ]
+  },
+  {
+   "id": "weltreise",
+   "title": "세계 여행의 길",
+   "titleEn": "The World Tour",
+   "order": 460,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L3.gi_jeone",
+    "L2.eseo_activity",
+    "L2.go_state",
+    "L3.past",
+    "L3.future_geoyeyo"
+   ],
+   "finaleKo": "참나무 보트를 들고 늪으로 갔어요. 다음에는 북쪽으로 갈 거예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:savanna:GO|TIME:DUSK",
+     "formDependent": false,
+     "clueKo": "저녁에 사바나로 가세요.",
+     "hintKo": "저녁에 사바나로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:forest:GO>REACH_BIOME:#minecraft:is_mountain:GO",
+     "formDependent": true,
+     "clueKo": "산으로 가기 전에 숲으로 가세요.",
+     "hintKo": "산으로 가기 전에 숲으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "SWIM",
+     "signature": "SWIM::SWIM|IN_BIOME:#minecraft:is_ocean",
+     "formDependent": false,
+     "clueKo": "바다의 물에서 20블록 수영하세요.",
+     "hintKo": "바다 물에서 수영해요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat",
+     "formDependent": false,
+     "clueKo": "참나무 보트를 들고 늪으로 가세요.",
+     "hintKo": "참나무 보트를 들고 늪으로 가요."
+    }
+   ]
+  },
+  {
+   "id": "wolkenstadt",
+   "title": "구름 도시",
+   "titleEn": "The Cloud City",
+   "order": 167,
+   "koreanLevel": 3,
+   "depth": 9,
+   "grammar": [
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L2.seyo",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.jima",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L3.past"
+   ],
+   "finaleKo": "양털을 들고 높이 150블록 위로 올라갔어요. 구름은 하늘에 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320",
+     "formDependent": false,
+     "clueKo": "높이 100블록 위에서 양털로 피라미드를 쌓으세요.",
+     "hintKo": "높이 100블록 위에서 양털로 피라미드를 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:end_rod:ON_TOP_OF:PYRAMID/minecraft:white_wool:STAND",
+     "formDependent": true,
+     "clueKo": "양털 피라미드 위에 엔드 막대기를 세우세요.",
+     "hintKo": "양털 피라미드 위에 엔드 막대기를 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:white_wool:BREAK",
+     "formDependent": true,
+     "clueKo": "높이 100블록 위에서 양털을 부수지 마세요.",
+     "hintKo": "높이 100블록 위에서 양털을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:white_wool",
+     "formDependent": false,
+     "clueKo": "양털을 들고 높이 150블록 위로 올라가세요.",
+     "hintKo": "양털을 들고 산 위로 올라가요."
+    }
+   ]
+  }
+ ],
+ "proposedForLevel4Plus": [
+  {
+   "id": "adv_adventure_spyglass_at_dragon",
+   "reason": "The vanilla advancement (look at the ender dragon through a spyglass) needs the End, which is out of reach at level 3. Rebuilt as a spyglass on a mountain peak. The real dragon trail belongs to level 4 or above, after the stronghold."
+  },
+  {
+   "id": "adv_adventure_adventuring_time",
+   "reason": "The vanilla advancement (visit every biome) is a very long collection task. Rebuilt as the start of a journey with a map, a desert and a jungle. A full biome tour belongs to level 5 or 6."
+  },
+  {
+   "id": "adv_adventure_trim_with_all_exclusive_armor_patterns",
+   "reason": "The vanilla advancement needs every exclusive smithing template, which only comes from structure loot (ancient city, trial chamber, bastion and others). Rebuilt as copper gear (axe, helmet, pickaxe). A template trail belongs to level 5 or 6."
+  },
+  {
+   "id": "adv_adventure_craft_decorated_pot_using_only_sherds",
+   "reason": "The vanilla advancement needs pottery sherds from suspicious sand in ruins. Rebuilt with bricks from clay. A sherd and archaeology trail belongs to level 4 or 5."
+  },
+  {
+   "id": "adv_adventure_who_needs_rockets",
+   "reason": "The vanilla advancement (use a firework to fly with an elytra) needs an elytra from an End city. Rebuilt around a firework rocket and a hay landing. The real elytra trail belongs to level 6."
+  },
+  {
+   "id": "adv_adventure_trade_at_world_height",
+   "reason": "The vanilla advancement trades at build height (Y 319). Rebuilt with trades above Y 90. A trade at the real world height needs a villager moved to the sky and belongs to level 4 or 5."
+  },
+  {
+   "id": "weltreise",
+   "reason": "The old trail visited the End. Rebuilt as an overworld tour (savanna, forest, mountains, ocean, swamp). An End island trail belongs to level 4 or above."
+  }
+ ],
+ "generatorWeaknesses": [
+  "REACH_HEIGHT and SWIM print digits (높이 100블록, 20블록 수영하세요) and the hint says 산 위로 올라가요 for every height of 100 or more (in the Nether 언덕 위로), so the brief's 높이 + Sino-Korean numbers (높이 백) cannot be met. SWIM with an ocean condition reads 바다의 물에서 20블록 수영하세요.",
+  "Directions (북쪽/남쪽/동쪽/서쪽) have no goal: nothing checks a heading, so (으)로 for a direction appears only in authored finale lines (북쪽으로 갈 거예요).",
+  "WaveQaTest.generatedHintsNameTheTaughtWord requires the first taught word to appear in the generated hint, and the Tiers rule prints the official name. Boots (부츠, 장화), leggings (레깅스) and the chestplate (흉갑) cannot be taught with their general word (신발, 바지, 갑옷), so a copper or leather boots step needs a new concept. A new concept in turn needs a lexicon tag, a pronunciation row and German/English glosses, and spyglass must stay without a concept (IconReferentTest), so spyglass steps teach 보다.",
+  "variety.distinctTypes.3 counts the goal types of the whole level. Rebuilding the End trail removed the only level-3 REACH_DIMENSION step and the ratchet fell from 28 to 27. The batch had to add a SWIM step to keep 28; a batch should not be able to fail a ratchet by deleting a rarely used type.",
+  "The (verb, object) pair cap leaves no room for the explorer's pillars and towers: STACK is at 3 for stone, dirt, stone bricks, sandstone, planks and bricks, BUY bread at 3 and GO the_nether and GO beach at 3. Pillars had to be sand, oak logs and hay.",
+  "AVOID takes no entity action and its signature leaves out `during`, so AVOID BREAK_BLOCK hay_block, gold_block, torch and others are taken by their first user whatever the condition. Each AVOID in the batch needed a block nobody had used.",
+  "A word that covers a family prints the family: white wool is printed as 양털 in the clue and the finale, and the pyramid or wall of 양털 is checked for white wool only.",
+  "A TRADE step has no way to fix where the villager stands, so a trade above Y 90 requires the player to carry a villager up (boat, minecart or ladder shaft) with no hint in the sentence.",
+  "A HEAR step on a note block (소리 블록의 소리를 들으세요) was already taken as a signature and a (verb, object) pair, so the music trail uses a flower beside the note block instead; HEAR has no condition that would make a second one unique."
+ ]
+}
