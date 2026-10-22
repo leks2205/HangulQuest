@@ -60,6 +60,34 @@ and the quest and word text (titles, clues, hints, finale lines, word glosses) i
 `src/main/resources/assets/hangulquest/lang/content/`. Both are flat key/value files, one per language;
 German may have gaps (it falls back to English), English may not.
 
+## Fixing a translation
+
+English is the source language and Korean is never translated. Other languages are drafted by a machine
+(Gemini), checked by a second pass (Claude) and corrected by people like you. A line in the game that reads
+wrong in your language is a one-line fix:
+
+1. Find the key. Interface text is in `src/main/resources/assets/hangulquest/lang/<code>.json`, trail titles,
+   clues, hints, finale lines and word meanings in `lang/content/<code>.json` (for example `es_es`). The key is
+   the part before the colon; search the file for the wrong text.
+2. Change the text after the colon. Keep the placeholders (`%s`, `%1$s`, `%%`) and do not add Korean. Keep it as
+   short as the English: buttons and labels have a length limit.
+3. Clues that say "read the Korean to see where" hide the position on purpose, so the translation must not
+   name it either (no "next to", "above" and the like in your language).
+4. Check the file: `python3 tools/i18n/translate.py check` runs the same rules as the import (placeholders,
+   Hangul, untranslated text, length, giveaways). Open a pull request.
+
+No pull request needed: the **Translation correction** issue form takes the key, the current text and your
+suggestion. The review site has a page per language listing the lines that are still machine drafts.
+
+A line you edit by hand counts as `community-approved` in `content/translations/<code>-status.json` once the
+pull request is merged. A line whose English text changes becomes `stale` and is translated again; nobody has
+to remember it. The tools (`export`, `import`, `proofread-export`, `proofread-import`, `status`, `sync`,
+`fonts`, `ship`) are in `tools/i18n/translate.py`; run it with `--help`. Their tests:
+`python3 -m unittest discover -s tools/i18n/tests`.
+
+Text outside the Basic Multilingual Plane (emoji) cannot be drawn. Everything else in vi, th, ja and zh can:
+the default font falls back to Unifont, and the mod's own Noto Sans CJK KR subset is only used for Korean.
+
 ## Contributing code
 
 ### Setting up

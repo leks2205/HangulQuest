@@ -26,6 +26,7 @@ sys.path.insert(0, str(HERE.parent / "review"))
 from common import DEFAULT_REPO, LINES_PATH, ROOT, STATUS_PATH, read_lines, read_status, rule_slug  # noqa: E402
 from export_lines import pretty  # noqa: E402
 from status import rule_samples, valid_approvals  # noqa: E402
+from translations import build_pages as translation_pages  # noqa: E402
 
 PAGE_SIZE = 25
 QUEUE_PAGES = 20
@@ -350,7 +351,17 @@ class Site:
         self.build_levels()
         self.build_trails()
         self.build_rules()
+        self.build_translations()
         return self.pages
+
+    def build_translations(self) -> None:
+        """Pages for the machine-translated languages; nothing (and no link) until one has been imported."""
+        pages = translation_pages(self)
+        if pages:
+            self.pages.update(pages)
+            link = ('<section lang="en"><h2>Translations</h2><p>Help check the machine translations: '
+                    '<a href="translations.html">languages and lines to check</a>.</p></section>\n</main>')
+            self.pages["index.html"] = self.pages["index.html"].replace("</main>", link, 1)
 
 
 def build(out: Path, repo: str, lines: Path = LINES_PATH, status: Path = STATUS_PATH) -> int:
