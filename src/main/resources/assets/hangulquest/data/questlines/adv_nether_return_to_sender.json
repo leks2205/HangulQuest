@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 304,
  "concepts": [
-  "gen_charcoal",
-  "gen_lime_concrete_stairs",
-  "adv_item_fire_charge"
+  "gunpowder",
+  "adv_item_fire_charge",
+  "ghast"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +21,74 @@
   {
    "id": "s1",
    "teach": [
-    "gen_charcoal"
+    "gunpowder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:charcoal",
+    "item": "minecraft:gunpowder",
     "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_concrete_stairs"
+    "adv_item_fire_charge"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_concrete_stairs",
+    "type": "CRAFT",
+    "item": "minecraft:fire_charge",
     "count": 1
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ghast"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:ghast",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_fire_charge"
+    "ghast"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fire_charge",
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ghast",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "화약과 블레이즈 가루, 석탄을 섞어요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "전해지지 않은 러브레터 — 화염구를 만들어 되돌려 보냈어요."
+  "textKo": "네더에서 가스트의 화염구를 되돌려 보냈어요. 가스트를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_nether_return_to_sender",
   "words": [
    "gunpowder",
-   "adv_item_blaze_rod",
-   "adv_item_fire_charge"
+   "adv_item_fire_charge",
+   "ghast"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L3.past"
+ ]
 }

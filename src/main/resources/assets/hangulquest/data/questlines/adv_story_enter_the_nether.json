@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 314,
  "concepts": [
-  "gen_bone_block",
-  "gen_observer",
-  "gen_acacia_fence_gate",
-  "gen_poplar_trapdoor"
+  "obsidian",
+  "adv_item_flint_and_steel",
+  "adv_dimension_the_nether"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,34 +21,41 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bone_block"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bone_block",
-    "count": 10
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:obsidian",
+    "size": 4
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_observer"
+    "adv_item_flint_and_steel"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:observer",
-    "count": 1
+    "type": "HOLD_WHILE",
+    "item": "minecraft:flint_and_steel",
+    "inner": {
+     "type": "LOOK_AT_BLOCK",
+     "block": "minecraft:obsidian",
+     "dwellMs": 600
+    }
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_acacia_fence_gate"
+    "obsidian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_fence_gate",
-    "count": 10
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:obsidian",
+    "relation": "ON_TOP_OF",
+    "pattern": "WALL",
+    "material": "minecraft:obsidian"
    }
   }
  ],
@@ -57,16 +63,27 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_trapdoor"
+    "adv_dimension_the_nether"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_trapdoor",
-    "count": 3
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "LOOK_AT_BLOCK",
+      "block": "minecraft:obsidian",
+      "dwellMs": 600
+     },
+     {
+      "type": "REACH_DIMENSION",
+      "dimension": "minecraft:the_nether"
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "포플러나무 다락문을 세 개 달았어요."
+  "textKo": "불을 붙인 후에 차원문으로 네더에 들어갔어요. 이제 네더를 걸을 수 있어요."
  },
  "reward": {
   "badge": "adv_story_enter_the_nether",
@@ -76,5 +93,10 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L3.su_itda",
+  "L2.go_held"
+ ]
 }

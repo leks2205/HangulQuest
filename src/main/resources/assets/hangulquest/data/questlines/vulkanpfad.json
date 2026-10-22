@@ -6,10 +6,11 @@
  "tier": 3,
  "order": 109,
  "concepts": [
-  "gen_small_end_islands",
-  "gen_cherry_button",
-  "coal",
-  "gen_calibrated_sculk_sensor"
+  "height",
+  "magma",
+  "brick",
+  "torch",
+  "lava"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -23,53 +24,64 @@
   {
    "id": "s1",
    "teach": [
-    "gen_small_end_islands"
+    "height"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:small_end_islands",
-    "dwellMs": 1000
+    "type": "REACH_HEIGHT",
+    "minY": 85,
+    "maxY": 320
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_button"
+    "magma"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:cherry_button",
-    "count": 3
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:magma_block",
+    "dwellMs": 600
    }
   },
   {
    "id": "s3",
    "teach": [
-    "coal"
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:coal_ore",
+    "type": "PLACE_REL",
+    "block": "minecraft:bricks",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:magma_block",
     "count": 1
-   },
-   "conditions": [
-    {
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
      "type": "TIME",
      "phase": "NIGHT"
-    }
-   ]
+    },
+    "seconds": 20
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_calibrated_sculk_sensor"
+    "lava"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:calibrated_sculk_sensor",
-    "count": 4
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lava",
+    "dwellMs": 600
    },
    "conditions": [
     {
@@ -78,16 +90,22 @@
     }
    ]
   },
-  "textKo": "밤에 조율한 스컬크 감지체를 네 개 놓았어요."
+  "textKo": "산 위에서 밤에 용암을 바라봤어요. 용암은 밤에 더 밝아요."
  },
  "reward": {
   "badge": "vulkanpfad",
   "words": [
-   "mountain",
+   "height",
    "magma",
-   "campfire",
-   "torch"
+   "brick",
+   "torch",
+   "lava"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.euro_direction",
+  "L2.go_held",
+  "L3.past"
+ ]
 }

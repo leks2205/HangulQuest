@@ -6,44 +6,53 @@
  "tier": 2,
  "order": 307,
  "concepts": [
-  "adv_item_flint_and_steel",
   "obsidian",
-  "gen_mangrove_trapdoor"
+  "adv_item_flint_and_steel",
+  "adv_dimension_the_nether"
  ],
  "requires": {
   "minWordsKnown": 20,
   "dimension": "minecraft:overworld",
   "completed": [
-   "abenteuerpfad"
+   "abenteuerpfad",
+   "adv_story_lava_bucket"
   ]
  },
  "steps": [
   {
    "id": "s1",
    "teach": [
-    "adv_item_flint_and_steel"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flint_and_steel",
-    "count": 1
-   },
-   "hint": {
-    "ko": "철 주괴와 부싯돌로 만들어요."
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:obsidian",
+    "size": 4
    }
   },
   {
    "id": "s2",
    "teach": [
+    "adv_item_flint_and_steel"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:flint_and_steel",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
     "obsidian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_ON_PATTERN",
     "block": "minecraft:obsidian",
-    "count": 10
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요."
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:obsidian"
    }
   }
  ],
@@ -51,24 +60,41 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mangrove_trapdoor"
+    "adv_dimension_the_nether"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_trapdoor",
-    "count": 2
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:gold_block",
+      "container": "minecraft:chest",
+      "count": 1
+     },
+     {
+      "type": "REACH_DIMENSION",
+      "dimension": "minecraft:the_nether"
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
    },
    "conditions": []
   },
-  "textKo": "맹그로브나무 다락문을 두 개 달았어요."
+  "textKo": "상자에 금 블록을 넣은 후에 네더로 갔어요. 네더는 아주 뜨거워요."
  },
  "reward": {
   "badge": "adv_nether_root",
   "words": [
-   "adv_item_flint_and_steel",
    "obsidian",
+   "adv_item_flint_and_steel",
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.gi_jeone",
+  "L2.euro_material",
+  "L3.past"
+ ]
 }

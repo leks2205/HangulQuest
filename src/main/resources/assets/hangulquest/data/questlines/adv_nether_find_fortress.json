@@ -7,7 +7,7 @@
  "order": 297,
  "concepts": [
   "adv_block_nether_bricks",
-  "gen_waxed_oxidized_copper_lantern"
+  "gen_blaze"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -27,9 +27,12 @@
     "block": "minecraft:nether_bricks",
     "dwellMs": 600
    },
-   "hint": {
-    "ko": "어두운 벽돌을 천천히 바라봐요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -39,34 +42,66 @@
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:nether_bricks",
-    "count": 3
+    "count": 3,
+    "verb": "MINE"
    },
-   "hint": {
-    "ko": "곡괭이로 네더 벽돌을 캐요."
-   }
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_block_nether_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:cobblestone",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:nether_bricks",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_lantern"
+    "gen_blaze"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_oxidized_copper_lantern",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:blaze",
+    "dwellMs": 800
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
-  "textKo": "밀랍칠한 산화된 구리 랜턴을 만들었어요."
+  "textKo": "네더 요새에서 블레이즈를 봤어요. 블레이즈는 불을 쏴요."
  },
  "reward": {
   "badge": "adv_nether_find_fortress",
   "words": [
    "adv_block_nether_bricks",
-   "adv_item_blaze_rod"
+   "gen_blaze"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L1.loc_yeop_e",
+  "L3.past"
+ ]
 }
