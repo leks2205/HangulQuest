@@ -396,7 +396,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w5_01` | 광부의 등불 | Die Grubenlampe | 4 | `bergwerk` |
 | `w5_02` | 쇠를 두드리는 손 | Hände, die Eisen schmieden | 4 | `schmuckpfad` |
 | `w5_03` | 깊은 돌의 노래 | Das Lied des tiefen Steins | 4 | `eiskrone` |
-| `w5_04` | 용광로의 불빛 | Das Feuer im Schmelzofen | 4 | `festtafel` |
+| `w5_04` | 화로의 불빛 | Das Feuer im Ofen | 4 | `festtafel` |
 | `w5_05` | 동굴의 숨결 | Der Atem der Höhle | 4 | `observatorium` |
 | `w5_06` | 땅속의 보석 | Der Schatz in der Tiefe | 4 | `weltmarkt` |
 | `w5_07` | 물속의 자갈 | Kies unter Wasser | 4 | `tiefseehafen` |
