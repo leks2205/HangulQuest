@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 223,
  "concepts": [
-  "spider",
-  "creeper",
-  "gen_vex"
+  "shield",
+  "planks",
+  "bed",
+  "spider"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,92 @@
   {
    "id": "s1",
    "teach": [
-    "spider"
+    "shield"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:spider",
+    "type": "CRAFT",
+    "item": "minecraft:shield",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "creeper"
+    "shield"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:creeper",
-    "count": 2
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:shield",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:acacia_planks",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:orange_bed",
+    "relation": "NEXT_TO",
+    "pattern": "WALL",
+    "material": "minecraft:acacia_planks"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_vex"
+    "spider"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:vex",
-    "count": 1
+    "entity": "minecraft:spider",
+    "count": 2
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "벡스를 물리쳤어요."
+  "textKo": "방패를 들고 밤에 거미를 물리쳤어요. 모험이 시작돼요."
  },
  "reward": {
   "badge": "adv_adventure_root",
   "words": [
-   "zombie",
-   "skeleton",
-   "creeper"
+   "shield",
+   "planks",
+   "bed"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L1.loc_an_e"
+ ]
 }

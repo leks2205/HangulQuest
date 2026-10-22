@@ -1,0 +1,141 @@
+id	ko	context
+trail.adv_adventure_avoid_vibration.title	소리 경보	title, authored; project: A quiet alarm at the door: a sandstone wall with a note block beside it, a pressure plate in front of the door, hear the note block at night. (Rebuilt: the sculk sensor needs the deep dark.)
+trail.adv_adventure_avoid_vibration.s1.clue	사암으로 벽을 쌓으세요.	clue, generated; BuildPattern minecraft:sandstone WALL 3
+trail.adv_adventure_avoid_vibration.s1.hint	사암으로 벽을 쌓아요.	hint, generated; BuildPattern minecraft:sandstone WALL 3
+trail.adv_adventure_avoid_vibration.s2.clue	사암 벽 옆에 소리 블록을 놓으세요.	clue, generated; PlaceOnPattern minecraft:note_block NEXT_TO WALL minecraft:sandstone
+trail.adv_adventure_avoid_vibration.s2.hint	사암 벽 옆에 소리 블록을 놓아요.	hint, generated; PlaceOnPattern minecraft:note_block NEXT_TO WALL minecraft:sandstone
+trail.adv_adventure_avoid_vibration.s3.clue	문 앞에 돌 압력판을 놓으세요.	clue, generated; PlaceRel minecraft:stone_pressure_plate IN_FRONT_OF #minecraft:doors
+trail.adv_adventure_avoid_vibration.s3.hint	문 앞에 돌 압력판을 놓아요.	hint, generated; PlaceRel minecraft:stone_pressure_plate IN_FRONT_OF #minecraft:doors
+trail.adv_adventure_avoid_vibration.finale.clue	밤에 소리 블록의 소리를 들으세요.	clue, generated; Hear minecraft:note_block 
+trail.adv_adventure_avoid_vibration.finale.hint	밤에 소리 블록의 소리를 들어요.	hint, generated; Hear minecraft:note_block 
+trail.adv_adventure_avoid_vibration.finale	밤에 소리 블록의 소리를 들었어요. 문 앞은 조용해요.	finale, authored; Hear minecraft:note_block 
+trail.adv_adventure_brush_armadillo.title	이게 인갑인갑다	title, authored; project: Craft a brush, go to the savanna, look at an armadillo, feed it a spider eye, get its scute.
+trail.adv_adventure_brush_armadillo.s1.clue	솔을 만드세요.	clue, generated; Craft minecraft:brush x1
+trail.adv_adventure_brush_armadillo.s1.hint	솔을 만들어요.	hint, generated; Craft minecraft:brush x1
+trail.adv_adventure_brush_armadillo.s2.clue	사바나로 가세요.	clue, generated; ReachBiome minecraft:savanna 
+trail.adv_adventure_brush_armadillo.s2.hint	사바나로 가요.	hint, generated; ReachBiome minecraft:savanna 
+trail.adv_adventure_brush_armadillo.s3.clue	아르마딜로를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:armadillo 
+trail.adv_adventure_brush_armadillo.s3.hint	아르마딜로를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:armadillo 
+trail.adv_adventure_brush_armadillo.s4.clue	아르마딜로에게 거미 눈을 주세요.	clue, generated; Give minecraft:spider_eye x1
+trail.adv_adventure_brush_armadillo.s4.hint	아르마딜로에게 거미 눈을 줘요.	hint, generated; Give minecraft:spider_eye x1
+trail.adv_adventure_brush_armadillo.finale.clue	아르마딜로 인갑을 구하세요.	clue, generated; AcquireItem minecraft:armadillo_scute x1
+trail.adv_adventure_brush_armadillo.finale.hint	아르마딜로 인갑을 구해요.	hint, generated; AcquireItem minecraft:armadillo_scute x1
+trail.adv_adventure_brush_armadillo.finale	솔로 아르마딜로 인갑을 얻었어요. 인갑으로 늑대를 지켜요.	finale, authored; AcquireItem minecraft:armadillo_scute x1
+trail.adv_adventure_heart_transplanter.title	망루	title, authored; project: A watchtower: a spruce-log pillar, a staircase, a candle on top, a sign beside it, look at the candle at night. (Rebuilt: the creaking heart needs the pale garden.)
+trail.adv_adventure_heart_transplanter.s1.clue	통나무 네 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:spruce_log PILLAR 4
+trail.adv_adventure_heart_transplanter.s1.hint	통나무로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:spruce_log PILLAR 4
+trail.adv_adventure_heart_transplanter.s2.clue	판자로 계단을 쌓으세요.	clue, generated; BuildPattern minecraft:jungle_planks STAIRS 4
+trail.adv_adventure_heart_transplanter.s2.hint	판자로 계단을 쌓아요.	hint, generated; BuildPattern minecraft:jungle_planks STAIRS 4
+trail.adv_adventure_heart_transplanter.s3.clue	통나무 기둥 위에 초를 세우세요.	clue, generated; PlaceOnPattern minecraft:cyan_candle ON_TOP_OF PILLAR minecraft:spruce_log
+trail.adv_adventure_heart_transplanter.s3.hint	통나무 기둥 위에 초를 세워요.	hint, generated; PlaceOnPattern minecraft:cyan_candle ON_TOP_OF PILLAR minecraft:spruce_log
+trail.adv_adventure_heart_transplanter.s4.clue	통나무 기둥 옆에 표지판을 세우세요.	clue, generated; PlaceOnPattern minecraft:mangrove_sign NEXT_TO PILLAR minecraft:spruce_log
+trail.adv_adventure_heart_transplanter.s4.hint	통나무 기둥 옆에 표지판을 세워요.	hint, generated; PlaceOnPattern minecraft:mangrove_sign NEXT_TO PILLAR minecraft:spruce_log
+trail.adv_adventure_heart_transplanter.finale.clue	밤에 초를 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:cyan_candle 
+trail.adv_adventure_heart_transplanter.finale.hint	밤에 초를 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:cyan_candle 
+trail.adv_adventure_heart_transplanter.finale	밤에 망루 위의 초가 밝아요.	finale, authored; LookAtBlock minecraft:cyan_candle 
+trail.adv_adventure_kill_a_mob.title	몬스터 사냥꾼	title, authored; project: Craft an iron sword, an armor stand beside the door, defeat two creepers and two zombies at night.
+trail.adv_adventure_kill_a_mob.s1.clue	철 검을 만드세요.	clue, generated; Craft minecraft:iron_sword x1
+trail.adv_adventure_kill_a_mob.s1.hint	철 검을 만들어요.	hint, generated; Craft minecraft:iron_sword x1
+trail.adv_adventure_kill_a_mob.s2.clue	문 옆에 갑옷 거치대를 세우세요.	clue, generated; PlaceRel minecraft:armor_stand NEXT_TO #minecraft:doors
+trail.adv_adventure_kill_a_mob.s2.hint	문 옆에 갑옷 거치대를 세워요.	hint, generated; PlaceRel minecraft:armor_stand NEXT_TO #minecraft:doors
+trail.adv_adventure_kill_a_mob.s3.clue	밤에 크리퍼를 두 마리 물리치세요.	clue, generated; DefeatEntity minecraft:creeper x2
+trail.adv_adventure_kill_a_mob.s3.hint	밤에 크리퍼를 물리쳐요.	hint, generated; DefeatEntity minecraft:creeper x2
+trail.adv_adventure_kill_a_mob.finale.clue	밤에 좀비를 두 마리 물리치세요.	clue, generated; DefeatEntity minecraft:zombie x2
+trail.adv_adventure_kill_a_mob.finale.hint	밤에 좀비를 물리쳐요.	hint, generated; DefeatEntity minecraft:zombie x2
+trail.adv_adventure_kill_a_mob.finale	밤에 좀비를 물리쳤어요. 몬스터 사냥꾼이 됐어요.	finale, authored; DefeatEntity minecraft:zombie x2
+trail.adv_adventure_lightning_rod_with_villager_no_fire.title	번개 멈춰!	title, authored; project: A lightning rod on a birch-plank wall, a carpet beside the wall, an emerald for the villager, look at the rod in the rain with a villager close by.
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s1.clue	피뢰침을 만드세요.	clue, generated; Craft minecraft:lightning_rod x1
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s1.hint	피뢰침을 만들어요.	hint, generated; Craft minecraft:lightning_rod x1
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s2.clue	판자로 벽을 쌓으세요.	clue, generated; BuildPattern minecraft:birch_planks WALL 3
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s2.hint	판자로 벽을 쌓아요.	hint, generated; BuildPattern minecraft:birch_planks WALL 3
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s3.clue	판자 벽 위에 피뢰침을 세우세요.	clue, generated; PlaceOnPattern minecraft:lightning_rod ON_TOP_OF WALL minecraft:birch_planks
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s3.hint	판자 벽 위에 피뢰침을 세워요.	hint, generated; PlaceOnPattern minecraft:lightning_rod ON_TOP_OF WALL minecraft:birch_planks
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s4.clue	판자 벽 옆에 양탄자를 까세요.	clue, generated; PlaceOnPattern minecraft:purple_carpet NEXT_TO WALL minecraft:birch_planks
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s4.hint	판자 벽 옆에 양탄자를 깔아요.	hint, generated; PlaceOnPattern minecraft:purple_carpet NEXT_TO WALL minecraft:birch_planks
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s5.clue	주민에게 에메랄드를 주세요.	clue, generated; Give minecraft:emerald x1
+trail.adv_adventure_lightning_rod_with_villager_no_fire.s5.hint	주민에게 에메랄드를 줘요.	hint, generated; Give minecraft:emerald x1
+trail.adv_adventure_lightning_rod_with_villager_no_fire.finale.clue	비가 올 때 주민 근처에서 피뢰침을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:lightning_rod 
+trail.adv_adventure_lightning_rod_with_villager_no_fire.finale.hint	비가 올 때 주민 근처에서 피뢰침을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:lightning_rod 
+trail.adv_adventure_lightning_rod_with_villager_no_fire.finale	피뢰침이 집을 지켜요. 주민은 안전해요.	finale, authored; LookAtBlock minecraft:lightning_rod 
+trail.adv_adventure_minecraft_trials_edition.title	훈련장	title, authored; project: A training ground: a hay-bale cross as a dummy with a pumpkin head, a target block beside it, look at the target with a bow in hand. (Rebuilt: the trial chamber is a structure.)
+trail.adv_adventure_minecraft_trials_edition.s1.clue	건초 더미로 십자 모양을 만드세요.	clue, generated; BuildPattern minecraft:hay_block CROSS 3
+trail.adv_adventure_minecraft_trials_edition.s1.hint	건초 더미로 십자 모양을 만들어요.	hint, generated; BuildPattern minecraft:hay_block CROSS 3
+trail.adv_adventure_minecraft_trials_edition.s2.clue	건초 더미 십자 모양 위에 호박을 놓으세요.	clue, generated; PlaceOnPattern minecraft:pumpkin ON_TOP_OF CROSS minecraft:hay_block
+trail.adv_adventure_minecraft_trials_edition.s2.hint	건초 더미 십자 모양 위에 호박을 놓아요.	hint, generated; PlaceOnPattern minecraft:pumpkin ON_TOP_OF CROSS minecraft:hay_block
+trail.adv_adventure_minecraft_trials_edition.s3.clue	과녁을 만드세요.	clue, generated; Craft minecraft:target x1
+trail.adv_adventure_minecraft_trials_edition.s3.hint	과녁을 만들어요.	hint, generated; Craft minecraft:target x1
+trail.adv_adventure_minecraft_trials_edition.s4.clue	건초 더미 십자 모양 옆에 과녁을 놓으세요.	clue, generated; PlaceOnPattern minecraft:target NEXT_TO CROSS minecraft:hay_block
+trail.adv_adventure_minecraft_trials_edition.s4.hint	건초 더미 십자 모양 옆에 과녁을 놓아요.	hint, generated; PlaceOnPattern minecraft:target NEXT_TO CROSS minecraft:hay_block
+trail.adv_adventure_minecraft_trials_edition.finale.clue	활을 들고 과녁을 일 초 동안 바라보세요.	clue, generated; HoldWhile minecraft:bow 
+trail.adv_adventure_minecraft_trials_edition.finale.hint	활을 들고 과녁을 일 초 동안 바라봐요.	hint, generated; HoldWhile minecraft:bow 
+trail.adv_adventure_minecraft_trials_edition.finale	활을 들고 과녁을 봤어요. 훈련이 끝났어요.	finale, authored; HoldWhile minecraft:bow 
+trail.adv_adventure_ol_betsy.title	부러진 화살	title, authored; project: Craft a crossbow and an arrow, a target block between hay and chest, walk through the night with the crossbow, defeat two skeletons at night.
+trail.adv_adventure_ol_betsy.s1.clue	쇠뇌를 만드세요.	clue, generated; Craft minecraft:crossbow x1
+trail.adv_adventure_ol_betsy.s1.hint	쇠뇌를 만들어요.	hint, generated; Craft minecraft:crossbow x1
+trail.adv_adventure_ol_betsy.s2.clue	화살을 만드세요.	clue, generated; Craft minecraft:arrow x1
+trail.adv_adventure_ol_betsy.s2.hint	화살을 만들어요.	hint, generated; Craft minecraft:arrow x1
+trail.adv_adventure_ol_betsy.s3.clue	건초 더미와 상자 사이에 과녁을 놓으세요.	clue, generated; PlaceRel minecraft:target BETWEEN minecraft:hay_block
+trail.adv_adventure_ol_betsy.s3.hint	건초 더미와 상자 사이에 과녁을 놓아요.	hint, generated; PlaceRel minecraft:target BETWEEN minecraft:hay_block
+trail.adv_adventure_ol_betsy.s4.clue	쇠뇌를 들고 밤에 걸으세요.	clue, generated; HoldWhile minecraft:crossbow 
+trail.adv_adventure_ol_betsy.s4.hint	쇠뇌를 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:crossbow 
+trail.adv_adventure_ol_betsy.finale.clue	밤에 스켈레톤을 두 마리 물리치세요.	clue, generated; DefeatEntity minecraft:skeleton x2
+trail.adv_adventure_ol_betsy.finale.hint	밤에 스켈레톤을 물리쳐요.	hint, generated; DefeatEntity minecraft:skeleton x2
+trail.adv_adventure_ol_betsy.finale	밤에 쇠뇌를 들고 스켈레톤을 물리쳤어요. 스켈레톤이 죽었어요. 뼈를 한 개 얻었어요.	finale, authored; DefeatEntity minecraft:skeleton x2
+trail.adv_adventure_root.title	모험	title, authored; project: A first night outside: craft a shield, walk through the night with it, build a plank wall with a bed beside it, defeat two spiders at night.
+trail.adv_adventure_root.s1.clue	방패를 만드세요.	clue, generated; Craft minecraft:shield x1
+trail.adv_adventure_root.s1.hint	방패를 만들어요.	hint, generated; Craft minecraft:shield x1
+trail.adv_adventure_root.s2.clue	방패를 들고 밤에 걸으세요.	clue, generated; HoldWhile minecraft:shield 
+trail.adv_adventure_root.s2.hint	방패를 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:shield 
+trail.adv_adventure_root.s3.clue	판자로 벽을 쌓으세요.	clue, generated; BuildPattern minecraft:acacia_planks WALL 3
+trail.adv_adventure_root.s3.hint	판자로 벽을 쌓아요.	hint, generated; BuildPattern minecraft:acacia_planks WALL 3
+trail.adv_adventure_root.s4.clue	판자 벽 옆에 침대를 놓으세요.	clue, generated; PlaceOnPattern minecraft:orange_bed NEXT_TO WALL minecraft:acacia_planks
+trail.adv_adventure_root.s4.hint	판자 벽 옆에 침대를 놓아요.	hint, generated; PlaceOnPattern minecraft:orange_bed NEXT_TO WALL minecraft:acacia_planks
+trail.adv_adventure_root.finale.clue	밤에 거미를 두 마리 물리치세요.	clue, generated; DefeatEntity minecraft:spider x2
+trail.adv_adventure_root.finale.hint	밤에 거미를 물리쳐요.	hint, generated; DefeatEntity minecraft:spider x2
+trail.adv_adventure_root.finale	방패를 들고 밤에 거미를 물리쳤어요. 모험이 시작돼요.	finale, authored; DefeatEntity minecraft:spider x2
+trail.adv_adventure_salvage_sherd.title	여행 준비	title, authored; project: Trip preparations: sell a potato, buy a pumpkin pie, store it in a chest, leave the house with it in hand. (Rebuilt: suspicious sand needs trail ruins or a desert well.)
+trail.adv_adventure_salvage_sherd.s1.clue	주민에게 감자를 파세요.	clue, generated; Trade minecraft:potato x1
+trail.adv_adventure_salvage_sherd.s1.hint	주민에게 감자를 팔아요.	hint, generated; Trade minecraft:potato x1
+trail.adv_adventure_salvage_sherd.s2.clue	주민에게서 호박 파이를 사세요.	clue, generated; Trade minecraft:pumpkin_pie x1
+trail.adv_adventure_salvage_sherd.s2.hint	주민에게서 호박 파이를 사요.	hint, generated; Trade minecraft:pumpkin_pie x1
+trail.adv_adventure_salvage_sherd.s3.clue	상자 안에 호박 파이를 넣으세요.	clue, generated; PutIn minecraft:pumpkin_pie x1
+trail.adv_adventure_salvage_sherd.s3.hint	상자 안에 호박 파이를 넣어요.	hint, generated; PutIn minecraft:pumpkin_pie x1
+trail.adv_adventure_salvage_sherd.finale.clue	호박 파이를 들고 밖으로 나가세요.	clue, generated; HoldWhile minecraft:pumpkin_pie 
+trail.adv_adventure_salvage_sherd.finale.hint	호박 파이를 들고 밖으로 나가요.	hint, generated; HoldWhile minecraft:pumpkin_pie 
+trail.adv_adventure_salvage_sherd.finale	호박 파이를 들고 밖으로 나갔어요. 이제 여행을 시작해요.	finale, authored; HoldWhile minecraft:pumpkin_pie 
+trail.adv_adventure_trim_with_any_armor_pattern.title	멋쟁이	title, authored; project: A dandy's corner: iron boots, a smithing table between furnace and chest, a carpet in front of the table, boots into the chest. (Rebuilt: armor trim templates come from structures.)
+trail.adv_adventure_trim_with_any_armor_pattern.s1.clue	철 부츠를 만드세요.	clue, generated; Craft minecraft:iron_boots x1
+trail.adv_adventure_trim_with_any_armor_pattern.s1.hint	철 부츠를 만들어요.	hint, generated; Craft minecraft:iron_boots x1
+trail.adv_adventure_trim_with_any_armor_pattern.s2.clue	화로와 상자 사이에 대장장이 작업대를 놓으세요.	clue, generated; PlaceRel minecraft:smithing_table BETWEEN minecraft:furnace
+trail.adv_adventure_trim_with_any_armor_pattern.s2.hint	화로와 상자 사이에 대장장이 작업대를 놓아요.	hint, generated; PlaceRel minecraft:smithing_table BETWEEN minecraft:furnace
+trail.adv_adventure_trim_with_any_armor_pattern.s3.clue	대장장이 작업대 앞에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:gray_carpet IN_FRONT_OF minecraft:smithing_table
+trail.adv_adventure_trim_with_any_armor_pattern.s3.hint	대장장이 작업대 앞에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:gray_carpet IN_FRONT_OF minecraft:smithing_table
+trail.adv_adventure_trim_with_any_armor_pattern.finale.clue	상자 안에 철 부츠를 넣으세요.	clue, generated; PutIn minecraft:iron_boots x1
+trail.adv_adventure_trim_with_any_armor_pattern.finale.hint	상자 안에 철 부츠를 넣어요.	hint, generated; PutIn minecraft:iron_boots x1
+trail.adv_adventure_trim_with_any_armor_pattern.finale	철 부츠를 상자에 넣었어요. 작업대 앞에 양탄자가 있어요.	finale, authored; PutIn minecraft:iron_boots x1
+trail.adv_adventure_use_lodestone.title	집으로 이끌려가네	title, authored; project: Get a compass, craft chiseled stone bricks and a lodestone, put it on a chest, use it with the compass in hand, walk home with the compass.
+trail.adv_adventure_use_lodestone.s1.clue	나침반을 만드세요.	clue, generated; AcquireItem minecraft:compass x1
+trail.adv_adventure_use_lodestone.s1.hint	나침반을 만들어요.	hint, generated; AcquireItem minecraft:compass x1
+trail.adv_adventure_use_lodestone.s2.clue	조각된 석재 벽돌을 만드세요.	clue, generated; Craft minecraft:chiseled_stone_bricks x1
+trail.adv_adventure_use_lodestone.s2.hint	조각된 석재 벽돌을 만들어요.	hint, generated; Craft minecraft:chiseled_stone_bricks x1
+trail.adv_adventure_use_lodestone.s3.clue	자석석을 만드세요.	clue, generated; Craft minecraft:lodestone x1
+trail.adv_adventure_use_lodestone.s3.hint	자석석을 만들어요.	hint, generated; Craft minecraft:lodestone x1
+trail.adv_adventure_use_lodestone.s4.clue	상자 위에 자석석을 놓으세요.	clue, generated; PlaceRel minecraft:lodestone ON_TOP_OF minecraft:chest
+trail.adv_adventure_use_lodestone.s4.hint	상자 위에 자석석을 놓아요.	hint, generated; PlaceRel minecraft:lodestone ON_TOP_OF minecraft:chest
+trail.adv_adventure_use_lodestone.s5.clue	나침반을 들고 자석석을 사용하세요.	clue, generated; HoldWhile minecraft:compass 
+trail.adv_adventure_use_lodestone.s5.hint	나침반을 들고 자석석을 사용해요.	hint, generated; HoldWhile minecraft:compass 
+trail.adv_adventure_use_lodestone.finale.clue	나침반을 들고 집 안으로 들어가세요.	clue, generated; HoldWhile minecraft:compass 
+trail.adv_adventure_use_lodestone.finale.hint	나침반을 들고 집 안으로 들어가요.	hint, generated; HoldWhile minecraft:compass 
+trail.adv_adventure_use_lodestone.finale	나침반을 들고 집으로 들어왔어요. 자석석은 조각된 석재 벽돌 여덟 개로 만들어요.	finale, authored; HoldWhile minecraft:compass 
+trail.adv_adventure_voluntary_exile.title	자진 유배	title, authored; project: Leave the house with a shield, watch a pillager by day, a granite wall with a bell beside it, defeat two pillagers by day with a crossbow in hand.
+trail.adv_adventure_voluntary_exile.s1.clue	방패를 들고 밖으로 나가세요.	clue, generated; HoldWhile minecraft:shield 
+trail.adv_adventure_voluntary_exile.s1.hint	방패를 들고 밖으로 나가요.	hint, generated; HoldWhile minecraft:shield 
+trail.adv_adventure_voluntary_exile.s2.clue	낮에 약탈자를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:pillager 
+trail.adv_adventure_voluntary_exile.s2.hint	낮에 약탈자를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:pillager 
+trail.adv_adventure_voluntary_exile.s3.clue	화강암으로 벽을 쌓으세요.	clue, generated; BuildPattern minecraft:granite WALL 3
+trail.adv_adventure_voluntary_exile.s3.hint	화강암으로 벽을 쌓아요.	hint, generated; BuildPattern minecraft:granite WALL 3
+trail.adv_adventure_voluntary_exile.s4.clue	화강암 벽 옆에 종을 다세요.	clue, generated; PlaceOnPattern minecraft:bell NEXT_TO WALL minecraft:granite
+trail.adv_adventure_voluntary_exile.s4.hint	화강암 벽 옆에 종을 달아요.	hint, generated; PlaceOnPattern minecraft:bell NEXT_TO WALL minecraft:granite
+trail.adv_adventure_voluntary_exile.finale.clue	낮에 쇠뇌를 들고 약탈자를 두 마리 물리치세요.	clue, generated; HoldWhile minecraft:crossbow 
+trail.adv_adventure_voluntary_exile.finale.hint	낮에 쇠뇌를 들고 약탈자를 물리쳐요.	hint, generated; HoldWhile minecraft:crossbow 
+trail.adv_adventure_voluntary_exile.finale	낮에 쇠뇌를 들고 약탈자를 물리쳤어요. 마을을 지켰어요.	finale, authored; HoldWhile minecraft:crossbow 

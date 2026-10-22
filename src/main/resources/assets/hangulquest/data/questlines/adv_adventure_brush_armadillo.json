@@ -7,8 +7,10 @@
  "order": 204,
  "concepts": [
   "adv_item_brush",
-  "adv_item_armadillo_scute",
-  "wolf_armor"
+  "gen_savanna",
+  "gen_armadillo",
+  "gen_spider_eye",
+  "adv_item_armadillo_scute"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,16 +26,55 @@
     "adv_item_brush"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:brush",
     "count": 1
    },
-   "hint": {
-    "ko": "깃털 하나와 구리 주괴 하나, 막대기 하나로 솔을 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
+   "teach": [
+    "gen_savanna"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:savanna",
+    "dwellMs": 1000
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_armadillo"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:armadillo",
+    "dwellMs": 600
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_spider_eye",
+    "gen_armadillo"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:spider_eye",
+    "entity": "minecraft:armadillo",
+    "count": 1,
+    "method": "FEED"
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "adv_item_armadillo_scute"
    ],
@@ -41,31 +82,22 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:armadillo_scute",
     "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "wolf_armor"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wolf_armor",
-    "count": 1
    },
    "conditions": []
   },
-  "textKo": "이게 인갑인갑다 — 솔로 인갑을 얻어 늑대를 지켰어요."
+  "textKo": "솔로 아르마딜로 인갑을 얻었어요. 인갑으로 늑대를 지켜요."
  },
  "reward": {
   "badge": "adv_adventure_brush_armadillo",
   "words": [
    "adv_item_brush",
-   "adv_item_armadillo_scute",
-   "wolf_armor"
+   "gen_savanna",
+   "gen_armadillo"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege"
+ ]
 }

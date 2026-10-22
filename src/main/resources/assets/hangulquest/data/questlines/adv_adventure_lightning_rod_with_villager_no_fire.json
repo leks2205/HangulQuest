@@ -7,7 +7,10 @@
  "order": 216,
  "concepts": [
   "lightning_rod",
-  "rabbit"
+  "planks",
+  "carpet",
+  "emerald",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,46 +26,107 @@
     "lightning_rod"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:lightning_rod",
     "count": 1
    },
-   "hint": {
-    "ko": "구리 주괴 세 개로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "rabbit"
+    "planks"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:rabbit"
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:birch_planks",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lightning_rod",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:lightning_rod",
+    "relation": "ON_TOP_OF",
+    "pattern": "WALL",
+    "material": "minecraft:birch_planks"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "carpet",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:purple_carpet",
+    "relation": "NEXT_TO",
+    "pattern": "WALL",
+    "material": "minecraft:birch_planks"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:emerald",
+    "entity": "minecraft:villager",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "lightning_rod"
+    "lightning_rod",
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "LOOK_AT_BLOCK",
     "block": "minecraft:lightning_rod",
-    "count": 1
+    "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    },
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   ]
   },
-  "textKo": "번개 멈춰! — 피뢰침으로 주민을 번개에서 지켜요."
+  "textKo": "피뢰침이 집을 지켜요. 주민은 안전해요."
  },
  "reward": {
   "badge": "adv_adventure_lightning_rod_with_villager_no_fire",
   "words": [
    "lightning_rod",
-   "villager"
+   "planks",
+   "carpet"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L1.loc_wi_e",
+  "L1.loc_yeop_e"
+ ]
 }

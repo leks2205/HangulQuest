@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_trim_with_any_armor_pattern",
- "titleKo": "유행의 선도자",
+ "titleKo": "멋쟁이",
  "topic": "adventure",
  "tier": 2,
  "order": 238,
  "concepts": [
-  "gen_howl_pottery_sherd",
+  "adv_item_iron_boots",
   "gen_smithing_table",
-  "adv_block_diamond_chestplate"
+  "furnace",
+  "carpet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,76 @@
   {
    "id": "s1",
    "teach": [
-    "gen_howl_pottery_sherd"
+    "adv_item_iron_boots"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:howl_pottery_sherd",
+    "type": "CRAFT",
+    "item": "minecraft:iron_boots",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
+    "gen_smithing_table",
+    "furnace"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:smithing_table",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:furnace",
+    "count": 1,
+    "anchor2": "minecraft:chest"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carpet",
     "gen_smithing_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:smithing_table",
+    "type": "PLACE_REL",
+    "block": "minecraft:gray_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:smithing_table",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_diamond_chestplate"
+    "adv_item_iron_boots"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_chestplate",
+    "type": "PUT_IN",
+    "item": "minecraft:iron_boots",
+    "container": "minecraft:chest",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "유행의 선도자 — 형판으로 다이아몬드 흉갑을 꾸며요."
+  "textKo": "철 부츠를 상자에 넣었어요. 작업대 앞에 양탄자가 있어요."
  },
  "reward": {
   "badge": "adv_adventure_trim_with_any_armor_pattern",
   "words": [
-   "adv_item_dune_armor_trim_smithing_template",
-   "iron_chestplate",
-   "adv_block_diamond_chestplate"
+   "adv_item_iron_boots",
+   "gen_smithing_table",
+   "furnace"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.loc_sai_e",
+  "L2.hago_wa_gwa",
+  "L1.loc_ap_e"
+ ]
 }

@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_salvage_sherd",
- "titleKo": "소중한 잔해",
+ "titleKo": "여행 준비",
  "topic": "adventure",
  "tier": 2,
  "order": 224,
  "concepts": [
-  "gen_magenta_shulker_box",
-  "gen_eroded_badlands",
-  "gen_cave_vines_plant"
+  "potato",
+  "gen_pumpkin_pie",
+  "chest",
+  "house"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,77 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_shulker_box"
+    "potato"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_shulker_box",
+    "type": "TRADE",
+    "item": "minecraft:potato",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_eroded_badlands"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:eroded_badlands",
-    "dwellMs": 1000
-   }
+    "type": "TRADE",
+    "item": "minecraft:pumpkin_pie",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:pumpkin_pie",
+    "container": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cave_vines_plant"
+    "gen_pumpkin_pie",
+    "house"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:cave_vines_plant",
-    "count": 6
+    "type": "HOLD_WHILE",
+    "item": "minecraft:pumpkin_pie",
+    "inner": {
+     "type": "TRANSIT",
+     "direction": "OUT"
+    }
    },
    "conditions": []
   },
-  "textKo": "동굴 덩굴 식물을 여섯 개 뽑았어요."
+  "textKo": "호박 파이를 들고 밖으로 나갔어요. 이제 여행을 시작해요."
  },
  "reward": {
   "badge": "adv_adventure_salvage_sherd",
   "words": [
-   "adv_item_brush",
-   "desert",
-   "sand"
+   "potato",
+   "gen_pumpkin_pie",
+   "chest"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.ege_source",
+  "L2.go_held"
+ ]
 }

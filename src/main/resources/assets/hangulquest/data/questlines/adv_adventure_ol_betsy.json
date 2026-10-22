@@ -6,8 +6,10 @@
  "tier": 2,
  "order": 218,
  "concepts": [
-  "gen_bamboo_stairs",
-  "gen_red_wool",
+  "adv_item_crossbow",
+  "arrow",
+  "adv_item_target",
+  "hay_block",
   "skeleton"
  ],
  "requires": {
@@ -21,24 +23,58 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_stairs"
+    "adv_item_crossbow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_stairs",
+    "type": "CRAFT",
+    "item": "minecraft:crossbow",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_wool"
+    "arrow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_wool",
-    "count": 8
-   }
+    "type": "CRAFT",
+    "item": "minecraft:arrow",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_target",
+    "hay_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:target",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:hay_block",
+    "count": 1,
+    "anchor2": "minecraft:chest"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_crossbow"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:crossbow",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -50,19 +86,30 @@
    "goal": {
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:skeleton",
-    "count": 1
+    "count": 2
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "스켈레톤을 물리쳤어요."
+  "textKo": "밤에 쇠뇌를 들고 스켈레톤을 물리쳤어요. 스켈레톤이 죽었어요. 뼈를 한 개 얻었어요."
  },
  "reward": {
   "badge": "adv_adventure_ol_betsy",
   "words": [
    "adv_item_crossbow",
    "arrow",
-   "zombie"
+   "adv_item_target"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.loc_sai_e",
+  "L2.hago_wa_gwa"
+ ]
 }

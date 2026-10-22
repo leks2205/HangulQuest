@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1661** |
+| Steps (incl. finales) | **1683** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,49 +21,49 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 348 | collect an item |
-| `PLACE_BLOCK` | 323 | place a block |
-| `PLACE_REL` | 151 |  |
-| `CRAFT` | 111 |  |
-| `BREAK_BLOCK` | 74 | break a block |
-| `PLACE_ON_PATTERN` | 72 |  |
-| `BUILD_PATTERN` | 64 |  |
+| `ACQUIRE_ITEM` | 334 | collect an item |
+| `PLACE_BLOCK` | 318 | place a block |
+| `PLACE_REL` | 157 |  |
+| `CRAFT` | 121 |  |
+| `PLACE_ON_PATTERN` | 81 |  |
+| `BREAK_BLOCK` | 72 | break a block |
+| `BUILD_PATTERN` | 71 |  |
 | `REACH_BIOME` | 60 | reach a biome |
-| `USE_BLOCK` | 60 | use a block |
-| `LOOK_AT_ENTITY` | 59 | look at a mob |
-| `GIVE` | 53 |  |
+| `LOOK_AT_ENTITY` | 60 | look at a mob |
+| `USE_BLOCK` | 59 | use a block |
+| `GIVE` | 55 |  |
 | `CONSUME_ITEM` | 45 | eat or drink an item |
 | `LOOK_AT_BLOCK` | 43 | look at a block |
-| `DEFEAT_ENTITY` | 34 | defeat a mob |
-| `PUT_IN` | 27 |  |
-| `INTERACT_ENTITY` | 20 | interact with a mob |
+| `DEFEAT_ENTITY` | 31 | defeat a mob |
+| `PUT_IN` | 29 |  |
+| `HOLD_WHILE` | 26 |  |
 | `SMELT` | 20 |  |
-| `HOLD_WHILE` | 18 |  |
+| `INTERACT_ENTITY` | 19 | interact with a mob |
 | `REACH_HEIGHT` | 14 | reach an altitude |
 | `WAIT` | 14 |  |
 | `SEQUENCE` | 12 |  |
 | `BREED` | 9 |  |
+| `TRADE` | 7 |  |
 | `SWIM` | 6 |  |
-| `TRADE` | 5 |  |
 | `LIE_DOWN` | 4 |  |
 | `TAKE_OUT` | 4 |  |
 | `MOUNT` | 4 |  |
+| `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
-| `HEAR` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `EQUIP` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 243 | a time of day |
+| `TIME` | 251 | a time of day |
 | `IN_BIOME` | 54 | a biome |
 | `PLAYER_REL` | 49 |  |
 | `HOLDING` | 43 |  |
 | `SKY` | 20 |  |
 | `Y_RANGE` | 19 | an altitude band |
 | `NEAR_BLOCK` | 18 | a block nearby |
-| `WEATHER` | 16 | the weather |
-| `NEAR_ENTITY` | 13 | a mob nearby |
+| `WEATHER` | 17 | the weather |
+| `NEAR_ENTITY` | 14 | a mob nearby |
 | `IN_WATER` | 7 |  |
 | `IN_DIMENSION` | 2 | a dimension |
 
@@ -232,7 +232,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `ziegelpfad` | 벽돌의 길 | Der Ziegelpfad | 5 | `alpental`, `gartenpfad` |
 | `brauerei` | 지하 저장고의 길 | Der Kellerpfad | 4 | `alpental`, `gartenpfad` |
 | `bienenzucht` | 양봉의 길 | Der Bienenzuchtpfad | 4 | `alpental`, `gartenpfad` |
-| `adv_adventure_root` | 모험 | Abenteuer | 3 | `abenteuerpfad` |
+| `adv_adventure_root` | 모험 | Abenteuer | 5 | `abenteuerpfad` |
 | `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 4 | `adv_husbandry_tactical_fishing` |
 | `adv_husbandry_froglights` | 개구리 연못의 밤 | Eine Nacht am Froschteich | 5 | `adv_husbandry_leash_all_frog_variants` |
 | `adv_husbandry_plant_any_sniffer_seed` | 토끼 밭 | Das Kaninchenbeet | 6 | `adv_husbandry_feed_snifflet` |
@@ -284,24 +284,24 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `gerberei` | 가죽 공방의 길 | Die Gerberei | 5 | `festungpfad`, `schatzkammer` |
 | `obstgarten` | 과수원의 길 | Der Obstgarten | 5 | `festungpfad`, `schatzkammer` |
 | `werkzeugpfad` | 도구의 길 | Der Werkzeugpfad | 4 | `festungpfad`, `schatzkammer` |
-| `adv_adventure_avoid_vibration` | 은밀하게 위대하게 | Schleichen 100 | 3 | `adv_adventure_root` |
-| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 3 | `adv_adventure_root` |
+| `adv_adventure_avoid_vibration` | 소리 경보 | Der leise Alarm | 4 | `adv_adventure_root` |
+| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 5 | `adv_adventure_root` |
 | `adv_adventure_crafters_crafting_crafters` | 제작기 제 자신 제작기 | Werker, die Werker herstellen | 5 | `adv_adventure_root` |
 | `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 5 | `adv_adventure_root` |
-| `adv_adventure_heart_transplanter` | 심장 이식 수술 | Herzverpflanzer | 3 | `adv_adventure_root` |
+| `adv_adventure_heart_transplanter` | 망루 | Der Wachturm | 5 | `adv_adventure_root` |
 | `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 6 | `adv_adventure_root` |
-| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 3 | `adv_adventure_root` |
-| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 3 | `adv_adventure_root` |
-| `adv_adventure_minecraft_trials_edition` | 인생은 시련의 연속 | Minecraft: Prüfungs‐Edition | 3 | `adv_adventure_root` |
-| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 3 | `adv_adventure_root` |
+| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 4 | `adv_adventure_root` |
+| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 6 | `adv_adventure_root` |
+| `adv_adventure_minecraft_trials_edition` | 훈련장 | Der Übungsplatz | 5 | `adv_adventure_root` |
+| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 5 | `adv_adventure_root` |
 | `adv_adventure_read_power_of_chiseled_bookshelf` | 책의 힘 | Die Macht der Bücher | 6 | `adv_adventure_root` |
-| `adv_adventure_salvage_sherd` | 소중한 잔해 | Achtung vor dem Alten | 3 | `adv_adventure_root` |
+| `adv_adventure_salvage_sherd` | 여행 준비 | Reisevorbereitungen | 4 | `adv_adventure_root` |
 | `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 4 | `adv_adventure_root` |
 | `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 6 | `adv_adventure_root` |
 | `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 4 | `adv_adventure_root` |
-| `adv_adventure_trim_with_any_armor_pattern` | 유행의 선도자 | Ein neues Aussehen | 3 | `adv_adventure_root` |
-| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 3 | `adv_adventure_root` |
-| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 3 | `adv_adventure_root` |
+| `adv_adventure_trim_with_any_armor_pattern` | 멋쟁이 | Der Modefan | 4 | `adv_adventure_root` |
+| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 6 | `adv_adventure_root` |
+| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 5 | `adv_adventure_root` |
 | `adv_husbandry_kill_axolotl_target` | 양털 깎는 날 | Schertag | 4 | `adv_husbandry_axolotl_in_a_bucket` |
 | `adv_nether_distract_piglin` | 반짝반짝 눈이 부셔 | Oh, wie glänzend! | 3 | `adv_nether_root` |
 | `adv_nether_fast_travel` | 천 리 길도 한 걸음 | Subraumtransport | 3 | `adv_nether_root` |

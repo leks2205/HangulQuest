@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_minecraft_trials_edition",
- "titleKo": "인생은 시련의 연속",
+ "titleKo": "훈련장",
  "topic": "adventure",
  "tier": 2,
  "order": 217,
  "concepts": [
-  "adv_item_chiseled_tuff",
-  "gen_vindicator",
-  "gen_green_terracotta"
+  "hay_block",
+  "pumpkin",
+  "adv_item_target",
+  "bow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +22,88 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_chiseled_tuff"
+    "hay_block"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:chiseled_tuff",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "CROSS",
+    "material": "minecraft:hay_block",
+    "size": 3
    },
-   "hint": {
-    "ko": "곡괭이로 캐요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_vindicator"
+    "pumpkin"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:vindicator",
-    "count": 2
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:pumpkin",
+    "relation": "ON_TOP_OF",
+    "pattern": "CROSS",
+    "material": "minecraft:hay_block"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_target"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:target",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_target"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:target",
+    "relation": "NEXT_TO",
+    "pattern": "CROSS",
+    "material": "minecraft:hay_block"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_terracotta"
+    "bow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_terracotta",
-    "count": 1
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "LOOK_AT_BLOCK",
+     "block": "minecraft:target",
+     "dwellMs": 600
+    }
    },
    "conditions": []
   },
-  "textKo": "초록색 테라코타를 놓았어요."
+  "textKo": "활을 들고 과녁을 봤어요. 훈련이 끝났어요."
  },
  "reward": {
   "badge": "adv_adventure_minecraft_trials_edition",
   "words": [
-   "adv_item_chiseled_tuff",
-   "skeleton",
-   "height"
+   "hay_block",
+   "pumpkin",
+   "adv_item_target"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L2.go_held"
+ ]
 }
