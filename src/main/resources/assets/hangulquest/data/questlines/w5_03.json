@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1053,
  "concepts": [
-  "gen_dispenser",
-  "gen_red_wool",
+  "deep",
+  "gen_deepslate",
   "diamond",
-  "gen_polished_cinnabar_slab"
+  "jukebox"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,24 +22,36 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dispenser"
+    "deep"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:dispenser",
-    "count": 6
-   }
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 0
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:lantern"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_wool"
+    "gen_deepslate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:red_wool",
-    "count": 3
-   }
+    "block": "minecraft:deepslate",
+    "count": 8
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
@@ -47,10 +59,17 @@
     "diamond"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:deepslate_diamond_ore",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:diamond",
     "count": 2
    },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ],
    "hint": {
     "ko": "다이아몬드는 아주 깊은 곳에 있어요."
    }
@@ -60,31 +79,40 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_cinnabar_slab"
+    "jukebox"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_cinnabar_slab",
+    "type": "PLACE_REL",
+    "block": "minecraft:jukebox",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:deepslate",
     "count": 1
    },
    "conditions": [
     {
      "type": "Y_RANGE",
      "minY": -64,
-     "maxY": -50
+     "maxY": 0
     }
    ]
   },
-  "textKo": "높이 -50 이하에서 윤나는 진사 반 블록을 만들었어요."
+  "textKo": "높이 0 이하에서 심층암 위에 주크박스를 놓았어요. 동굴은 깊어요."
  },
  "reward": {
   "badge": "w5_03",
   "words": [
-   "redstone",
-   "obsidian",
-   "diamond",
-   "lava_bucket"
+   "deep",
+   "gen_deepslate",
+   "diamond"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_state",
+  "L1.eul_reul",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }

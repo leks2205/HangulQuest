@@ -8,7 +8,7 @@ trail.adv_adventure_adventuring_time.s3.clue	지도를 들고 선인장을 부�
 trail.adv_adventure_adventuring_time.s3.hint	지도를 들고 선인장을 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:cactus:BREAK
 trail.adv_adventure_adventuring_time.finale.clue	정글로 간 후에 숲으로 가세요.	clue, generated; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
 trail.adv_adventure_adventuring_time.finale.hint	정글로 간 후에 숲으로 가요.	hint, generated; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
-trail.adv_adventure_adventuring_time.finale	정글로 간 후에 숲으로 갔어요. 내일은 산에 갈 거예요.	finale, authored; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
+trail.adv_adventure_adventuring_time.finale	정글로 간 후에 숲으로 갔어요.	finale, authored; SEQUENCE:REACH_BIOME:minecraft:jungle:GO>REACH_BIOME:minecraft:forest:GO
 trail.adv_adventure_craft_decorated_pot_using_only_sherds.title	도자기 만들기	title, authored; 
 trail.adv_adventure_craft_decorated_pot_using_only_sherds.s1.clue	점토를 네 개 모은 후에 벽돌을 네 개 구우세요.	clue, generated; SEQUENCE:ACQUIRE_ITEM:minecraft:clay_ball:COLLECT>SMELT:minecraft:brick:BAKE
 trail.adv_adventure_craft_decorated_pot_using_only_sherds.s1.hint	점토를 모은 후에 벽돌을 구워요.	hint, generated; SEQUENCE:ACQUIRE_ITEM:minecraft:clay_ball:COLLECT>SMELT:minecraft:brick:BAKE
@@ -64,8 +64,8 @@ trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s2.clue	구리 투구
 trail.adv_adventure_trim_with_all_exclusive_armor_patterns.s2.hint	구리 투구를 만든 후에 구리 투구를 써요.	hint, generated; SEQUENCE:CRAFT:minecraft:copper_helmet:CRAFT>EQUIP:minecraft:copper_helmet:WEAR_HEAD
 trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale.clue	구리 곡괭이를 만든 후에 조약돌을 캐세요.	clue, generated; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
 trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale.hint	구리 곡괭이를 만든 후에 조약돌을 캐요.	hint, generated; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
-trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale	구리 곡괭이를 만든 후에 조약돌을 캤어요. 구리 곡괭이로 조약돌을 캘 수 있어요.	finale, authored; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
-trail.adv_adventure_walk_on_powder_snow_with_leather_boots.title	가죽 장화로 눈 위를	title, authored; 
+trail.adv_adventure_trim_with_all_exclusive_armor_patterns.finale	구리 곡괭이를 만든 후에 조약돌을 캤어요.	finale, authored; SEQUENCE:CRAFT:minecraft:copper_pickaxe:CRAFT>BREAK_BLOCK:minecraft:cobblestone:MINE
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.title	가죽 장화와 가루눈	title, authored; 
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s1.clue	소 근처에서 가죽을 세 개 모으세요.	clue, generated; ACQUIRE_ITEM:minecraft:leather:COLLECT|NEAR_ENTITY:minecraft:cow
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s1.hint	소 근처에서 가죽을 모아요.	hint, generated; ACQUIRE_ITEM:minecraft:leather:COLLECT|NEAR_ENTITY:minecraft:cow
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s2.clue	낮에 눈 덮인 비탈로 가세요.	clue, generated; REACH_BIOME:minecraft:snowy_slopes:GO|TIME:DAY
@@ -74,7 +74,7 @@ trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s3.clue	가루눈을 
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.s3.hint	가루눈을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK:minecraft:powder_snow:WATCH
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.clue	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신으세요.	clue, generated; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
 trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale.hint	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신어요.	hint, generated; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
-trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신었어요. 가죽 장화를 신으면 가루눈 위를 걸을 수 있어요.	finale, authored; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
+trail.adv_adventure_walk_on_powder_snow_with_leather_boots.finale	높은 곳에서 가루눈 위로 뛰어내리기 전에 가죽 장화를 신었어요.	finale, authored; SEQUENCE:EQUIP:minecraft:leather_boots:PUT_ON_SHOES>FALL:minecraft:powder_snow:JUMP_DOWN
 trail.adv_adventure_who_needs_rockets.title	로켓 없이 뛰어내리기	title, authored; 
 trail.adv_adventure_who_needs_rockets.s1.clue	폭죽 로켓을 만든 후에 높이 100블록 위로 올라가세요.	clue, generated; SEQUENCE:CRAFT:minecraft:firework_rocket:CRAFT>REACH_HEIGHT::CLIMB:100+
 trail.adv_adventure_who_needs_rockets.s1.hint	폭죽 로켓을 만든 후에 산 위로 올라가요.	hint, generated; SEQUENCE:CRAFT:minecraft:firework_rocket:CRAFT>REACH_HEIGHT::CLIMB:100+
@@ -138,7 +138,7 @@ trail.weltreise.s3.clue	바다의 물에서 20블록 수영하세요.	clue, gene
 trail.weltreise.s3.hint	바다 물에서 수영해요.	hint, generated; SWIM::SWIM|IN_BIOME:#minecraft:is_ocean
 trail.weltreise.finale.clue	참나무 보트를 들고 늪으로 가세요.	clue, generated; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
 trail.weltreise.finale.hint	참나무 보트를 들고 늪으로 가요.	hint, generated; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
-trail.weltreise.finale	참나무 보트를 들고 늪으로 갔어요. 다음에는 북쪽으로 갈 거예요.	finale, authored; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
+trail.weltreise.finale	참나무 보트를 들고 늪으로 갔어요.	finale, authored; REACH_BIOME:minecraft:swamp:GO|HOLDING:minecraft:oak_boat
 trail.wolkenstadt.title	구름 도시	title, authored; 
 trail.wolkenstadt.s1.clue	높이 100블록 위에서 양털로 피라미드를 쌓으세요.	clue, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320
 trail.wolkenstadt.s1.hint	높이 100블록 위에서 양털로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN:PYRAMID/3:minecraft:white_wool:STACK|Y_RANGE:100..320

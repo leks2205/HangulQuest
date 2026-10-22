@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "w6_08",
- "titleKo": "약초 건조대",
- "topic": "건초",
+ "titleKo": "밀 건조대",
+ "topic": "건조대",
  "tier": 2,
  "order": 1068,
  "concepts": [
-  "gen_bamboo_button",
-  "gen_brown_shulker_box",
-  "gen_cut_copper_stairs",
-  "gen_tube_coral_block"
+  "fence",
+  "gen_copper_lantern",
+  "bread"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,60 +21,102 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_button"
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_button",
-    "count": 6
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:birch_fence",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_shulker_box"
+    "gen_copper_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_shulker_box",
-    "count": 2
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:copper_lantern",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:birch_fence",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cut_copper_stairs"
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cut_copper_stairs",
-    "count": 3
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:birch_fence",
+     "count": 1
+    },
+    "windowSeconds": 30
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tube_coral_block"
+    "bread"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:tube_coral_block",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:wheat",
+      "count": 3
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:bread",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "관 산호 블록을 놓았어요."
+  "textKo": "밀을 세 개 모은 후에 빵을 만들었어요. 빵은 밀로 만들어요."
  },
  "reward": {
   "badge": "w6_08",
   "words": [
-   "wheat",
-   "hay_block",
-   "sunflower",
-   "campfire"
+   "fence",
+   "gen_copper_lantern",
+   "bread"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L3.jima",
+  "L1.eul_reul",
+  "L3.eun_hue"
+ ]
 }

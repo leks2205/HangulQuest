@@ -6,7 +6,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.5)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.6)
+
+**New in rc.6: level 3 is complete.**
+- All 108 level-3 trails are rebuilt, and nearly half of their steps now depend on the Korean form.
+- The last two batches are small mood trails: miners and smiths, caves and gems, forest herbs, foxes and bees. There
+  are also three watchtowers.
+- Finale lines were tightened after review: no plans, and no claims the quest doesn't check.
 
 **New in rc.5:**
 - **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an

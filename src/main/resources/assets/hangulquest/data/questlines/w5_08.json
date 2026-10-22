@@ -7,9 +7,9 @@
  "order": 1058,
  "concepts": [
   "dirt",
-  "gen_waxed_weathered_copper_chain",
-  "gen_cyan_wool_slab",
-  "gen_deepslate_copper_ore"
+  "gen_acacia_sapling",
+  "log",
+  "stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -27,8 +27,10 @@
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:dirt",
-    "count": 8
+    "count": 8,
+    "verb": "DIG"
    },
+   "conditions": [],
    "hint": {
     "ko": "흙은 삽으로 파요."
    }
@@ -36,55 +38,74 @@
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_weathered_copper_chain"
+    "gen_acacia_sapling"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_chain",
-    "count": 12
-   }
+    "block": "minecraft:acacia_sapling",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cyan_wool_slab"
+    "log"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_wool_slab",
-    "count": 3
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:oak_log",
+     "count": 1,
+     "verb": "CHOP"
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:forest"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_deepslate_copper_ore"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_copper_ore",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:stone_bricks",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:oak_log",
+    "count": 1
    },
-   "conditions": [
-    {
-     "type": "Y_RANGE",
-     "minY": -64,
-     "maxY": 0
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "높이 0 이하에서 심층암 구리 광석을 두 개 놓았어요."
+  "textKo": "통나무 옆에 석재 벽돌을 놓았어요. 뿌리는 땅속에 있어요."
  },
  "reward": {
   "badge": "w5_08",
   "words": [
    "dirt",
-   "cobblestone",
-   "skeleton",
-   "lantern"
+   "gen_acacia_sapling",
+   "log"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.jima",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }
