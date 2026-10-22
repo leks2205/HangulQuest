@@ -7,9 +7,9 @@
  "order": 133,
  "concepts": [
   "snowball",
-  "snow",
   "ice",
-  "pumpkin"
+  "pumpkin",
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -37,7 +37,7 @@
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "snow_block"
    ],
    "goal": {
     "type": "CRAFT",
@@ -65,7 +65,7 @@
   {
    "id": "s4",
    "teach": [
-    "snow"
+    "snow_block"
    ],
    "goal": {
     "type": "BUILD_PATTERN",

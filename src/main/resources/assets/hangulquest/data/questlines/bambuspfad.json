@@ -8,7 +8,7 @@
  "concepts": [
   "jungle",
   "bamboo",
-  "melon"
+  "gen_melon"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -51,12 +51,13 @@
   {
    "id": "s3",
    "teach": [
-    "melon"
+    "gen_melon"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:melon_slice",
-    "count": 3
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:melon",
+    "count": 3,
+    "verb": "PICK"
    },
    "conditions": [
     {

@@ -22,8 +22,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Goal | Steps | What the player does |
 |---|---:|---|
 | `PLACE_BLOCK` | 496 | place a block |
-| `ACQUIRE_ITEM` | 493 | collect an item |
-| `BREAK_BLOCK` | 85 | break a block |
+| `ACQUIRE_ITEM` | 492 | collect an item |
+| `BREAK_BLOCK` | 86 | break a block |
 | `LOOK_AT_ENTITY` | 63 | look at a mob |
 | `REACH_BIOME` | 57 | reach a biome |
 | `USE_BLOCK` | 55 | use a block |
