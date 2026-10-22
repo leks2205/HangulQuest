@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1584** |
+| Steps (incl. finales) | **1585** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -48,6 +48,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `REACH_DIMENSION` | 1 | reach a dimension |
 | `SWIM` | 1 |  |
 | `TRANSIT` | 1 |  |
+| `EQUIP` | 1 |  |
 | `SEQUENCE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
@@ -182,7 +183,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `saatfeld` | 씨앗밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
+| `saatfeld` | 씨 뿌리는 밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
 | `wanderpfad` | 산길의 길 | Der Wanderpfad | 4 | `weidepfad`, `gipfelpfad` |
 | `nachthafen` | 밤항구의 길 | Der Nachthafen | 4 | `brandung`, `nachtpfad` |
 | `farbenpfad` | 색의 길 | Der Farbenpfad | 3 | `weidepfad`, `wollpfad` |
@@ -309,7 +310,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_nether_ride_strider` | 두 발 달린 보트 | Mach diesem „Boot“ Beine | 3 | `adv_nether_root` |
 | `adv_story_iron_tools` | 이젠 철 좀 들어라 | Zu viel Eisen im Blut | 4 | `adv_story_smelt_iron` |
 | `adv_story_lava_bucket` | 화끈한 화제 | Manche mögen’s heiß | 4 | `adv_story_smelt_iron` |
-| `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 4 | `adv_story_smelt_iron` |
+| `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 5 | `adv_story_smelt_iron` |
 | `gipfelwaechter` | 봉우리의 수호자 | Der Gipfelwächter | 4 | `firstpfad`, `glueckspfad`, `gipfelblick` |
 | `tiefenpfad` | 깊은 광맥의 길 | Der Tiefenpfad | 5 | `kohlenpfad`, `schmelzpfad` |
 | `gartenfest` | 정원 잔치 | Das Gartenfest | 4 | `gartenpfad`, `waldfest`, `waldlicht`, `saatfeld`, `musikpfad`, `freundschaftspfad`, `blumenpfad`, `kerzenpfad`, `apfelpfad`, `sonnenblume`, `milchpfad`, `regenbogenpfad`, `gartenzaun`, `blumentopf`, `blumenkranz`, `uhrmacher`, `muschelpfad`, `vogelscheuche`, `pferderennen` |

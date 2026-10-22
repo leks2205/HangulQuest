@@ -196,7 +196,7 @@ class GeneratorWaveSixTest {
 				if (registry == null) {
 					continue; // no wooden helmet
 				}
-				assertTrue(registry.startsWith(Tiers.material(material) + " "), material + "_" + piece + ": " + registry);
+				assertEquals(Tiers.official(material, piece), registry, material + "_" + piece);
 			}
 		}
 		// the general words are the words of the concepts
@@ -217,10 +217,12 @@ class GeneratorWaveSixTest {
 		assertEquals("철 검을 만들어요.", clue(new Goal.Craft("minecraft:iron_sword", 1, null, null), "sword"));
 		// armour
 		assertEquals("철 투구를 만들어요.", clue(new Goal.Craft("minecraft:iron_helmet", 1, null, null), "helmet"));
-		assertEquals("철 갑옷을 만들어요.", clue(new Goal.Craft("minecraft:iron_chestplate", 1, null, null), "armor"));
-		assertEquals("철 바지를 만들어요.", clue(new Goal.Craft("minecraft:iron_leggings", 1, null, null), "leggings"));
-		assertEquals("철 신발을 만들어요.", clue(new Goal.Craft("minecraft:iron_boots", 1, null, null), "shoes"));
-		assertEquals("가죽 신발을 만들어요.", clue(new Goal.Craft("minecraft:leather_boots", 1, null, null), "shoes"));
+		// one exact piece says its vanilla name, not the general word with a material (no "철 갑옷")
+		assertEquals("철 흉갑을 만들어요.", clue(new Goal.Craft("minecraft:iron_chestplate", 1, null, null), "armor"));
+		assertEquals("철 레깅스를 만들어요.", clue(new Goal.Craft("minecraft:iron_leggings", 1, null, null), "leggings"));
+		assertEquals("철 부츠를 만들어요.", clue(new Goal.Craft("minecraft:iron_boots", 1, null, null), "shoes"));
+		assertEquals("가죽 장화를 만들어요.", clue(new Goal.Craft("minecraft:leather_boots", 1, null, null), "shoes"));
+		assertEquals("가죽 모자를 만들어요.", clue(new Goal.Craft("minecraft:leather_helmet", 1, null, null), "helmet"));
 	}
 
 	@Test
@@ -446,8 +448,29 @@ class GeneratorWaveSixTest {
 		assertEquals("철 레깅스를 입어요.", SentenceBuilder.normal(new Goal.Equip("minecraft:iron_leggings"), null, List.of(), 1, false, names));
 		assertEquals("철 부츠를 신어요.", SentenceBuilder.normal(new Goal.Equip("minecraft:iron_boots"), null, List.of(), 1, false, names));
 		assertEquals("철 투구를 벗어요.", SentenceBuilder.normal(new Goal.Equip("minecraft:iron_helmet", "OFF"), null, List.of(), 1, false, names));
-		assertEquals("철 갑옷을 입었어요.", SentenceBuilder.ceremony(new Goal.Equip("minecraft:iron_chestplate"), word("armor"), List.of(), names));
+		assertEquals("철 흉갑을 입었어요.", SentenceBuilder.ceremony(new Goal.Equip("minecraft:iron_chestplate"), word("armor"), List.of(), names));
 		assertEquals("철 투구를 벗었어요.", SentenceBuilder.ceremony(new Goal.Equip("minecraft:iron_helmet", "OFF"), word("helmet"), List.of(), names));
+	}
+
+	@Test
+	void i7_aGoalOnAnyPieceKeepsTheGeneralWordAndTakesEveryMaterial() {
+		SentenceBuilder.Namer names = KoreanFixtures.registryNamer();
+		Goal any = new Goal.Equip("#minecraft:chest_armor");
+		assertEquals("갑옷을 입어요.", SentenceBuilder.normal(any, word("armor"), List.of(), 1, false, names));
+		assertEquals("갑옷을 입으세요.", SentenceBuilder.normal(any, word("armor"), List.of(), 2, false, names));
+		assertEquals("갑옷을 입었어요.", SentenceBuilder.ceremony(any, word("armor"), List.of(), names));
+		assertEquals(List.of(), problems(any, "armor"));
+		assertFalse(problems(any, "helmet").isEmpty(), "a head word for a chest tag");
+		assertFalse(problems(new Goal.Equip("#minecraft:nonsense"), "armor").isEmpty());
+		// every material counts, and the first change is still the player's
+		for (String worn : List.of("minecraft:leather_chestplate", "minecraft:iron_chestplate", "minecraft:netherite_chestplate")) {
+			GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
+			assertFalse(GoalEvaluator.tick(any, List.of(), wearing(NOTHING), tracker));
+			assertTrue(GoalEvaluator.tick(any, List.of(), wearing(java.util.Map.of("chest", worn)), tracker), worn);
+		}
+		GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
+		GoalEvaluator.tick(any, List.of(), wearing(NOTHING), tracker);
+		assertFalse(GoalEvaluator.tick(any, List.of(), wearing(IRON_HELMET), tracker), "a helmet is no chestplate");
 	}
 
 	@Test

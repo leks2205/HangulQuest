@@ -66,11 +66,9 @@
      "item": "minecraft:iron_ingot"
     }
    ]
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
+  },
+  {
+   "id": "s4",
    "teach": [
     "iron_golem"
    ],
@@ -87,8 +85,20 @@
    "hint": {
     "ko": "철 골렘에게 철을 줘요."
    }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "EQUIP",
+    "item": "minecraft:iron_chestplate"
+   }
   },
-  "textKo": "차려입기 — 철 갑옷을 입었어요. 철 갑옷은 무거워요."
+  "textKo": "차려입기 — 철 흉갑을 입었어요. 철 흉갑은 무거워요."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",

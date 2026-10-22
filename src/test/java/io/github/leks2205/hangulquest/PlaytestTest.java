@@ -161,6 +161,16 @@ class PlaytestTest {
 		switch (goal) {
 			case Goal.Swim g -> obs.position = new Vec3(tick, 64.0, 0.0);
 			case Goal.Transit g -> obs.canSeeSky = g.direction().equals("IN") == tick < 30; // first the other side
+			case Goal.Equip g -> {
+				// putting on: the slot is seen bare first, the change that follows is the player's
+				if (!"OFF".equals(g.change())) {
+					if (tick < 2) {
+						obs.worn = java.util.Map.of();
+					} else {
+						applyGoal(obs, g);
+					}
+				}
+			}
 			case Goal.Breed g -> {
 				// fed at the start, a baby of the kind in the sight from the fifth tick on
 				obs.interactedEntities.clear();
@@ -332,7 +342,7 @@ class PlaytestTest {
 			}
 			case Goal.Breed g -> {
 			}
-			// the armour is on in this observation; the play loop has shown it off before
+			// the armour is on in this observation; moveWithGoal shows the slot bare first
 			case Goal.Equip g -> obs.worn = "OFF".equals(g.change()) ? java.util.Map.of()
 					: java.util.Map.of(g.item().contains("helmet") ? "head" : g.item().contains("chestplate") ? "chest"
 					: g.item().contains("leggings") ? "legs" : "feet", g.item());
