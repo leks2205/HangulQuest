@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1031,
  "concepts": [
-  "parrot",
-  "gen_orange_bundle",
-  "gen_cinnabar_brick_wall",
-  "gen_pale_hanging_moss"
+  "sign",
+  "apple",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,32 +21,38 @@
   {
    "id": "s1",
    "teach": [
-    "parrot"
+    "sign"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:parrot"
+    "type": "PLACE_REL",
+    "block": "minecraft:acacia_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:barrel",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_orange_bundle"
+    "apple"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:orange_bundle",
+    "type": "PUT_IN",
+    "item": "minecraft:apple",
+    "container": "minecraft:barrel",
     "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cinnabar_brick_wall"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar_brick_wall",
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_tulip",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:barrel",
     "count": 1
    }
   }
@@ -56,24 +61,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_hanging_moss"
+    "apple"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_hanging_moss",
-    "count": 2
-   },
-   "conditions": []
+    "type": "TAKE_OUT",
+    "item": "minecraft:apple",
+    "container": "minecraft:barrel",
+    "count": 1
+   }
   },
-  "textKo": "창백한 매달린 이끼를 두 개 놓았어요."
+  "textKo": "통에서 사과를 꺼냈어요."
  },
  "reward": {
   "badge": "w3_01",
   "words": [
-   "villager",
-   "emerald",
-   "bell"
+   "sign",
+   "apple",
+   "flower"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_ap_e",
+  "L2.eseo_activity"
+ ]
 }

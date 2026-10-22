@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1036,
  "concepts": [
-  "potato",
-  "gen_blue_ice",
-  "gen_exposed_copper",
-  "gen_cooked_mutton"
+  "carrot",
+  "fence",
+  "pig"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,37 +21,38 @@
   {
    "id": "s1",
    "teach": [
-    "potato"
+    "carrot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:potato",
-    "count": 4
-   },
-   "hint": {
-    "ko": "감자를 캐요."
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:carrots",
+    "count": 4,
+    "verb": "HARVEST"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_ice"
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_ice",
-    "count": 6
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:acacia_fence",
+    "size": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_copper"
+    "carrot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carrots",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:acacia_fence"
    }
   }
  ],
@@ -60,25 +60,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cooked_mutton"
+    "pig",
+    "carrot"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_mutton",
+    "type": "GIVE",
+    "item": "minecraft:carrot",
+    "entity": "minecraft:pig",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "익힌 양고기를 먹었어요."
+  "textKo": "돼지에게 당근을 줬어요."
  },
  "reward": {
   "badge": "w3_06",
   "words": [
-   "potato",
+   "carrot",
    "fence",
-   "gate",
-   "bread"
+   "pig"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_an_e",
+  "L2.eseo_activity"
+ ]
 }

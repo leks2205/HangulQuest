@@ -1,0 +1,155 @@
+id	ko	context
+trail.adv_adventure_trade.title	훌륭한 거래군요!	authored
+trail.adv_adventure_trade.s1.clue	낮에 석탄을 열다섯 개 모으세요.	generated; AcquireItem minecraft:coal x15
+trail.adv_adventure_trade.s1.hint	낮에 석탄을 모아요.	generated; AcquireItem minecraft:coal x15
+trail.adv_adventure_trade.s2.clue	문 옆에 꽃을 심으세요.	generated; PlaceRel minecraft:white_tulip NEXT_TO #minecraft:doors
+trail.adv_adventure_trade.s2.hint	문 옆에 꽃을 심어요.	generated; PlaceRel minecraft:white_tulip NEXT_TO #minecraft:doors
+trail.adv_adventure_trade.s3.clue	주민에게 수박을 주세요.	generated; Give minecraft:melon_slice x1
+trail.adv_adventure_trade.s3.hint	주민 앞에 수박을 놓아요.	generated; Give minecraft:melon_slice x1
+trail.adv_adventure_trade.finale.clue	주민에게 석탄을 파세요.	generated; Trade minecraft:coal x1
+trail.adv_adventure_trade.finale.hint	주민에게 석탄을 팔아요.	generated; Trade minecraft:coal x1
+trail.adv_adventure_trade.finale	주민에게 석탄을 팔았어요.	generated; Trade minecraft:coal x1
+trail.druckerei.title	인쇄소의 길	authored
+trail.druckerei.s1.clue	종이를 세 장 만드세요.	generated; Craft minecraft:paper x3
+trail.druckerei.s1.hint	종이를 만들어요.	generated; Craft minecraft:paper x3
+trail.druckerei.s2.clue	책을 만들고 공책을 만드세요.	generated; Sequence [Craft minecraft:book x1 > Craft minecraft:writable_book x1]
+trail.druckerei.s2.hint	책을 만들고 공책을 만들어요.	generated; Sequence [Craft minecraft:book x1 > Craft minecraft:writable_book x1]
+trail.druckerei.s3.clue	제작대 옆에 독서대를 놓으세요.	generated; PlaceRel minecraft:lectern NEXT_TO minecraft:crafting_table
+trail.druckerei.s3.hint	제작대 옆에 독서대를 놓아요.	generated; PlaceRel minecraft:lectern NEXT_TO minecraft:crafting_table
+trail.druckerei.finale.clue	주민에게 책을 주세요.	generated; Give minecraft:book x1
+trail.druckerei.finale.hint	주민 앞에 책을 놓아요.	generated; Give minecraft:book x1
+trail.druckerei.finale	주민에게 책을 줬어요.	generated; Give minecraft:book x1
+trail.familienpfad.title	가족의 길	authored
+trail.familienpfad.s1.clue	밤에 집 안으로 들어가세요.	generated; Transit 
+trail.familienpfad.s1.hint	밤에 집 안으로 들어가요.	generated; Transit 
+trail.familienpfad.s2.clue	지붕 아래에서 고양이에게 물고기를 주세요.	generated; Give minecraft:cod x1
+trail.familienpfad.s2.hint	지붕 아래에서 고양이에게 물고기를 줘요.	generated; Give minecraft:cod x1
+trail.familienpfad.s3.clue	침대 옆에 양탄자를 까세요.	generated; PlaceRel minecraft:orange_carpet NEXT_TO #minecraft:beds
+trail.familienpfad.s3.hint	침대 옆에 양탄자를 깔아요.	generated; PlaceRel minecraft:orange_carpet NEXT_TO #minecraft:beds
+trail.familienpfad.finale.clue	밤에 침대에 누우세요.	generated; LieDown minecraft:green_bed 
+trail.familienpfad.finale.hint	밤에 침대에 누워요.	generated; LieDown minecraft:green_bed 
+trail.familienpfad.finale	밤에 우리 가족은 집에서 잤어요.	authored; LieDown minecraft:green_bed 
+trail.glockenpfad.title	종의 길	authored
+trail.glockenpfad.s1.clue	낮에 종을 울리세요.	generated; UseBlock minecraft:bell 
+trail.glockenpfad.s1.hint	낮에 종을 울려요.	generated; UseBlock minecraft:bell 
+trail.glockenpfad.s2.clue	종 앞에 꽃을 심으세요.	generated; PlaceRel minecraft:pink_tulip IN_FRONT_OF minecraft:bell
+trail.glockenpfad.s2.hint	종 앞에 꽃을 심어요.	generated; PlaceRel minecraft:pink_tulip IN_FRONT_OF minecraft:bell
+trail.glockenpfad.s3.clue	종을 울리고 주민과 이야기하세요.	generated; Sequence [UseBlock minecraft:bell  > InteractEntity minecraft:villager ]
+trail.glockenpfad.s3.hint	종을 울리고 주민과 이야기해요.	generated; Sequence [UseBlock minecraft:bell  > InteractEntity minecraft:villager ]
+trail.glockenpfad.finale.clue	종 근처에서 십 초 동안 기다리세요.	authored; Wait 
+trail.glockenpfad.finale.hint	종 근처에서 십 초 동안 기다려요.	authored; Wait 
+trail.glockenpfad.finale	종이 울리고 마을 사람들이 모였어요. 시장에서 빵을 팔아요.	authored; Wait 
+trail.handelsstrasse.title	무역로	authored
+trail.handelsstrasse.s1.clue	건초 더미 옆에 퇴비통을 놓으세요.	generated; PlaceRel minecraft:composter NEXT_TO minecraft:hay_block
+trail.handelsstrasse.s1.hint	건초 더미 옆에 퇴비통을 놓아요.	generated; PlaceRel minecraft:composter NEXT_TO minecraft:hay_block
+trail.handelsstrasse.s2.clue	퇴비통 앞에 표지판을 세우세요.	generated; PlaceRel minecraft:jungle_sign IN_FRONT_OF minecraft:composter
+trail.handelsstrasse.s2.hint	퇴비통 앞에 표지판을 세워요.	generated; PlaceRel minecraft:jungle_sign IN_FRONT_OF minecraft:composter
+trail.handelsstrasse.s3.clue	주민에게서 빵을 사세요.	generated; Trade minecraft:bread x1
+trail.handelsstrasse.s3.hint	주민에게서 빵을 사요.	generated; Trade minecraft:bread x1
+trail.handelsstrasse.finale.clue	통 안에 에메랄드를 넣으세요.	generated; PutIn minecraft:emerald x1
+trail.handelsstrasse.finale.hint	통 안에 에메랄드를 넣어요.	generated; PutIn minecraft:emerald x1
+trail.handelsstrasse.finale	통 안에 에메랄드를 넣었어요.	generated; PutIn minecraft:emerald x1
+trail.karawanepfad.title	상단의 길	authored
+trail.karawanepfad.s1.clue	길 옆에 표지판을 세우세요.	authored; PlaceRel minecraft:birch_sign NEXT_TO minecraft:dirt_path
+trail.karawanepfad.s1.hint	길 옆에 표지판을 세워요.	authored; PlaceRel minecraft:birch_sign NEXT_TO minecraft:dirt_path
+trail.karawanepfad.s2.clue	자작나무 표지판 앞에 건초 더미를 놓으세요.	generated; PlaceRel minecraft:hay_block IN_FRONT_OF minecraft:birch_sign
+trail.karawanepfad.s2.hint	자작나무 표지판 앞에 건초 더미를 놓아요.	generated; PlaceRel minecraft:hay_block IN_FRONT_OF minecraft:birch_sign
+trail.karawanepfad.s3.clue	상자 안에 밀을 세 개 넣으세요.	generated; PutIn minecraft:wheat x3
+trail.karawanepfad.s3.hint	상자 안에 밀을 넣어요.	generated; PutIn minecraft:wheat x3
+trail.karawanepfad.finale.clue	상자에서 밀을 꺼내고 주민에게 밀을 주세요.	generated; Sequence [TakeOut minecraft:wheat x1 > Give minecraft:wheat x1]
+trail.karawanepfad.finale.hint	상자에서 밀을 꺼내고 주민에게 밀을 줘요.	generated; Sequence [TakeOut minecraft:wheat x1 > Give minecraft:wheat x1]
+trail.karawanepfad.finale	상자에서 밀을 꺼내고 주민에게 밀을 줬어요.	generated; Sequence [TakeOut minecraft:wheat x1 > Give minecraft:wheat x1]
+trail.uhrmacher.title	시계공의 길	authored
+trail.uhrmacher.s1.clue	제작대 옆에서 시계를 만드세요.	generated; Craft minecraft:clock x1
+trail.uhrmacher.s1.hint	제작대 옆에서 시계를 만들어요.	generated; Craft minecraft:clock x1
+trail.uhrmacher.s2.clue	조약돌 네 개로 기둥을 쌓으세요.	generated; BuildPattern minecraft:cobblestone PILLAR 4
+trail.uhrmacher.s2.hint	조약돌로 기둥을 쌓아요.	generated; BuildPattern minecraft:cobblestone PILLAR 4
+trail.uhrmacher.s3.clue	조약돌 기둥 위에 초를 세우세요.	generated; PlaceOnPattern minecraft:yellow_candle ON_TOP_OF PILLAR minecraft:cobblestone
+trail.uhrmacher.s3.hint	조약돌 기둥 위에 초를 세워요.	generated; PlaceOnPattern minecraft:yellow_candle ON_TOP_OF PILLAR minecraft:cobblestone
+trail.uhrmacher.s4.clue	시계를 들고 삼십 초 동안 기다리세요.	authored; Wait 
+trail.uhrmacher.s4.hint	시계를 들고 삼십 초 동안 기다려요.	authored; Wait 
+trail.uhrmacher.finale.clue	주민에게 시계를 주세요.	generated; Give minecraft:clock x1
+trail.uhrmacher.finale.hint	주민 앞에 시계를 놓아요.	generated; Give minecraft:clock x1
+trail.uhrmacher.finale	시계공 주민에게 시계를 줬어요. 시계공은 시계를 팔아요.	authored; Give minecraft:clock x1
+trail.w3_01.title	장터의 길	authored
+trail.w3_01.s1.clue	통 옆에 표지판을 세우세요.	generated; PlaceRel minecraft:acacia_sign NEXT_TO minecraft:barrel
+trail.w3_01.s1.hint	통 옆에 표지판을 세워요.	generated; PlaceRel minecraft:acacia_sign NEXT_TO minecraft:barrel
+trail.w3_01.s2.clue	통 안에 사과를 세 개 넣으세요.	generated; PutIn minecraft:apple x3
+trail.w3_01.s2.hint	통 안에 사과를 넣어요.	generated; PutIn minecraft:apple x3
+trail.w3_01.s3.clue	통 앞에 꽃을 심으세요.	generated; PlaceRel minecraft:orange_tulip IN_FRONT_OF minecraft:barrel
+trail.w3_01.s3.hint	통 앞에 꽃을 심어요.	generated; PlaceRel minecraft:orange_tulip IN_FRONT_OF minecraft:barrel
+trail.w3_01.finale.clue	통에서 사과를 꺼내세요.	generated; TakeOut minecraft:apple x1
+trail.w3_01.finale.hint	통에서 사과를 꺼내요.	generated; TakeOut minecraft:apple x1
+trail.w3_01.finale	통에서 사과를 꺼냈어요.	generated; TakeOut minecraft:apple x1
+trail.w3_02.title	이웃의 문	authored
+trail.w3_02.s1.clue	문을 여세요.	generated; UseBlock minecraft:oak_door 
+trail.w3_02.s1.hint	문을 열어요.	generated; UseBlock minecraft:oak_door 
+trail.w3_02.s2.clue	문 옆에 표지판을 세우세요.	generated; PlaceRel minecraft:spruce_sign NEXT_TO #minecraft:doors
+trail.w3_02.s2.hint	문 옆에 표지판을 세워요.	generated; PlaceRel minecraft:spruce_sign NEXT_TO #minecraft:doors
+trail.w3_02.s3.clue	문을 닫으세요.	generated; UseBlock minecraft:oak_door 
+trail.w3_02.s3.hint	문을 닫아요.	generated; UseBlock minecraft:oak_door 
+trail.w3_02.finale.clue	문 앞에 꽃을 심으세요.	generated; PlaceRel minecraft:lily_of_the_valley IN_FRONT_OF #minecraft:doors
+trail.w3_02.finale.hint	문 앞에 꽃을 심어요.	generated; PlaceRel minecraft:lily_of_the_valley IN_FRONT_OF #minecraft:doors
+trail.w3_02.finale	문 앞에 꽃을 심었어요.	generated; PlaceRel minecraft:lily_of_the_valley IN_FRONT_OF #minecraft:doors
+trail.w3_03.title	나그네의 주머니	authored
+trail.w3_03.s1.clue	길 옆에 호박을 놓으세요.	authored; PlaceRel minecraft:pumpkin NEXT_TO minecraft:dirt_path
+trail.w3_03.s1.hint	길 옆에 호박을 놓아요.	authored; PlaceRel minecraft:pumpkin NEXT_TO minecraft:dirt_path
+trail.w3_03.s2.clue	밖에서 구운 감자를 드세요.	generated; ConsumeItem minecraft:baked_potato x1
+trail.w3_03.s2.hint	밖에서 구운 감자를 먹어요.	generated; ConsumeItem minecraft:baked_potato x1
+trail.w3_03.s3.clue	빵을 들고 평원에서 걸으세요.	generated; HoldWhile minecraft:bread 
+trail.w3_03.s3.hint	빵을 들고 평원에서 걸어요.	generated; HoldWhile minecraft:bread 
+trail.w3_03.finale.clue	주민에게 달걀을 주세요.	generated; Give minecraft:egg x1
+trail.w3_03.finale.hint	주민 앞에 달걀을 놓아요.	generated; Give minecraft:egg x1
+trail.w3_03.finale	주민에게 달걀을 줬어요.	generated; Give minecraft:egg x1
+trail.w3_04.title	마을 잔치	authored
+trail.w3_04.s1.clue	낮에 호박 파이를 만드세요.	generated; Craft minecraft:pumpkin_pie x1
+trail.w3_04.s1.hint	낮에 호박 파이를 만들어요.	generated; Craft minecraft:pumpkin_pie x1
+trail.w3_04.s2.clue	판자 위에 초를 세우세요.	generated; PlaceRel minecraft:orange_candle ON_TOP_OF #minecraft:planks
+trail.w3_04.s2.hint	판자 위에 초를 세워요.	generated; PlaceRel minecraft:orange_candle ON_TOP_OF #minecraft:planks
+trail.w3_04.s3.clue	주민에게 구운 감자를 주세요.	generated; Give minecraft:baked_potato x1
+trail.w3_04.s3.hint	주민 앞에 구운 감자를 놓아요.	generated; Give minecraft:baked_potato x1
+trail.w3_04.finale.clue	주황색 초 옆에서 호박 파이를 드세요.	generated; ConsumeItem minecraft:pumpkin_pie x1
+trail.w3_04.finale.hint	주황색 초 옆에서 호박 파이를 먹어요.	generated; ConsumeItem minecraft:pumpkin_pie x1
+trail.w3_04.finale	주황색 초 옆에서 호박 파이를 먹었어요.	generated; ConsumeItem minecraft:pumpkin_pie x1
+trail.w3_05.title	마을의 밤	authored
+trail.w3_05.s1.clue	저녁에 집 안으로 들어가세요.	generated; Transit 
+trail.w3_05.s1.hint	저녁에 집 안으로 들어가요.	generated; Transit 
+trail.w3_05.s2.clue	문 옆에 초를 세우세요.	generated; PlaceRel minecraft:red_candle NEXT_TO minecraft:oak_door
+trail.w3_05.s2.hint	문 옆에 초를 세워요.	generated; PlaceRel minecraft:red_candle NEXT_TO minecraft:oak_door
+trail.w3_05.s3.clue	문을 닫고 초를 세우세요.	generated; Sequence [UseBlock minecraft:oak_door  > PlaceBlock minecraft:candle x1]
+trail.w3_05.s3.hint	문을 닫고 초를 세워요.	generated; Sequence [UseBlock minecraft:oak_door  > PlaceBlock minecraft:candle x1]
+trail.w3_05.finale.clue	지붕 아래에서 밤까지 기다리세요.	generated; Wait 
+trail.w3_05.finale.hint	지붕 아래에서 밤까지 기다려요.	generated; Wait 
+trail.w3_05.finale	지붕 아래에서 밤까지 기다렸어요.	generated; Wait 
+trail.w3_06.title	이웃의 밭	authored
+trail.w3_06.s1.clue	당근을 네 개 수확하세요.	generated; BreakBlock minecraft:carrots x4
+trail.w3_06.s1.hint	당근을 수확해요.	generated; BreakBlock minecraft:carrots x4
+trail.w3_06.s2.clue	울타리를 치세요.	generated; BuildPattern minecraft:acacia_fence RING 3
+trail.w3_06.s2.hint	울타리를 쳐요.	generated; BuildPattern minecraft:acacia_fence RING 3
+trail.w3_06.s3.clue	아카시아나무 울타리 안에 당근을 심으세요.	generated; PlaceOnPattern minecraft:carrots INSIDE RING minecraft:acacia_fence
+trail.w3_06.s3.hint	아카시아나무 울타리 안에 당근을 심어요.	generated; PlaceOnPattern minecraft:carrots INSIDE RING minecraft:acacia_fence
+trail.w3_06.finale.clue	돼지에게 당근을 주세요.	generated; Give minecraft:carrot x1
+trail.w3_06.finale.hint	돼지에게 당근을 줘요.	generated; Give minecraft:carrot x1
+trail.w3_06.finale	돼지에게 당근을 줬어요.	generated; Give minecraft:carrot x1
+trail.w3_07.title	말과 장터	authored
+trail.w3_07.s1.clue	말에게 설탕을 주세요.	generated; Give minecraft:sugar x1
+trail.w3_07.s1.hint	말에게 설탕을 줘요.	generated; Give minecraft:sugar x1
+trail.w3_07.s2.clue	건초 더미 옆에 울타리 문을 다세요.	generated; PlaceRel minecraft:oak_fence_gate NEXT_TO minecraft:hay_block
+trail.w3_07.s2.hint	건초 더미 옆에 울타리 문을 달아요.	generated; PlaceRel minecraft:oak_fence_gate NEXT_TO minecraft:hay_block
+trail.w3_07.s3.clue	말 옆에서 울타리 문을 여세요.	generated; UseBlock minecraft:oak_fence_gate 
+trail.w3_07.s3.hint	말 옆에서 울타리 문을 열어요.	generated; UseBlock minecraft:oak_fence_gate 
+trail.w3_07.finale.clue	말 옆에서 주민과 이야기하세요.	generated; InteractEntity minecraft:villager 
+trail.w3_07.finale.hint	말 옆에서 주민과 이야기해요.	generated; InteractEntity minecraft:villager 
+trail.w3_07.finale	말 옆에서 주민과 이야기했어요.	generated; InteractEntity minecraft:villager 
+trail.zuhausepfad.title	우리 집의 길	authored
+trail.zuhausepfad.s1.clue	제작대 옆에서 침대를 만드세요.	generated; Craft minecraft:white_bed x1
+trail.zuhausepfad.s1.hint	제작대 옆에서 침대를 만들어요.	generated; Craft minecraft:white_bed x1
+trail.zuhausepfad.s2.clue	문과 침대 사이에 양탄자를 까세요.	generated; PlaceRel minecraft:light_gray_carpet BETWEEN #minecraft:doors
+trail.zuhausepfad.s2.hint	문과 침대 사이에 양탄자를 깔아요.	generated; PlaceRel minecraft:light_gray_carpet BETWEEN #minecraft:doors
+trail.zuhausepfad.s3.clue	침대 옆에 책장을 놓으세요.	generated; PlaceRel minecraft:bookshelf NEXT_TO #minecraft:beds
+trail.zuhausepfad.s3.hint	침대 옆에 책장을 놓아요.	generated; PlaceRel minecraft:bookshelf NEXT_TO #minecraft:beds
+trail.zuhausepfad.s4.clue	문을 닫고 횃불을 놓으세요.	generated; Sequence [UseBlock minecraft:oak_door  > PlaceBlock minecraft:torch x1]
+trail.zuhausepfad.s4.hint	문을 닫고 횃불을 놓아요.	generated; Sequence [UseBlock minecraft:oak_door  > PlaceBlock minecraft:torch x1]
+trail.zuhausepfad.finale.clue	밤에 침대에서 자세요.	generated; UseBlock minecraft:cyan_bed 
+trail.zuhausepfad.finale.hint	밤에 침대에서 자요.	generated; UseBlock minecraft:cyan_bed 
+trail.zuhausepfad.finale	밤에 침대에서 잤어요. 우리 집은 작아요. 마을은 커요.	authored; UseBlock minecraft:cyan_bed 

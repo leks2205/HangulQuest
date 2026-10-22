@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "handelsstrasse",
  "titleKo": "무역로",
+ "topic": "마을",
  "tier": 3,
  "order": 517,
  "concepts": [
-  "gen_golden_spear",
-  "gen_chorus_plant",
-  "diamond",
-  "gen_cracked_stone_bricks"
+  "gen_composter",
+  "hay_block",
+  "sign",
+  "bread",
+  "emerald"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,34 +24,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_golden_spear"
+    "gen_composter",
+    "hay_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_spear",
-    "count": 5
+    "type": "PLACE_REL",
+    "block": "minecraft:composter",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:hay_block",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chorus_plant"
+    "sign",
+    "gen_composter"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:chorus_plant",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:jungle_sign",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:composter",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "diamond"
+    "bread"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_diamond_ore",
-    "count": 2
+    "type": "TRADE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
+    "count": 1
    }
   }
  ],
@@ -57,30 +67,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cracked_stone_bricks"
+    "emerald"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_stone_bricks",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DAY"
-    }
-   ]
+    "type": "PUT_IN",
+    "item": "minecraft:emerald",
+    "container": "minecraft:barrel",
+    "count": 1
+   }
   },
-  "textKo": "낮에 금 간 석재 벽돌을 두 개 쌓았어요."
+  "textKo": "통 안에 에메랄드를 넣었어요."
  },
  "reward": {
   "badge": "handelsstrasse",
   "words": [
-   "emerald",
+   "gen_composter",
+   "hay_block",
+   "sign",
    "bread",
-   "bell"
+   "emerald"
   ]
  },
  "koreanLevel": 2,
- "topic": "마을"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_ap_e",
+  "L2.ege_source"
+ ]
 }

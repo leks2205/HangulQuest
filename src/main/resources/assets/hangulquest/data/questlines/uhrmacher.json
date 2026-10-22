@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 151,
  "concepts": [
-  "adv_item_dragon_head",
-  "gen_yellow_wool_slab",
-  "gen_orange_candle",
-  "gen_moss_carpet"
+  "clock",
+  "cobblestone",
+  "candle",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,34 +23,66 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_dragon_head"
+    "clock"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dragon_head",
+    "type": "CRAFT",
+    "item": "minecraft:clock",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_yellow_wool_slab"
+    "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_wool_slab",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone",
+    "size": 4
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_orange_candle"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_candle",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:yellow_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "clock"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 30
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:clock"
+    }
+   ],
+   "clue": {
+    "ko": "시계를 들고 삼십 초 동안 기다리세요."
+   },
+   "hint": {
+    "ko": "시계를 들고 삼십 초 동안 기다려요."
    }
   }
  ],
@@ -58,25 +90,34 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_moss_carpet"
+    "villager",
+    "clock"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:moss_carpet",
-    "count": 2
-   },
-   "conditions": []
+    "type": "GIVE",
+    "item": "minecraft:clock",
+    "entity": "minecraft:villager",
+    "count": 1
+   }
   },
-  "textKo": "이끼 바닥을 두 개 깔았어요."
+  "textKo": "시계공 주민에게 시계를 줬어요. 시계공은 시계를 팔아요."
  },
  "reward": {
   "badge": "uhrmacher",
   "words": [
    "clock",
-   "crafting_table",
-   "gold_block",
-   "bell"
+   "cobblestone",
+   "candle",
+   "villager"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.num_sino",
+  "L1.loc_wi_e",
+  "L2.ege",
+  "L2.eseo_activity"
+ ]
 }

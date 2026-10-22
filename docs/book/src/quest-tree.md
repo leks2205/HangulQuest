@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1594** |
+| Steps (incl. finales) | **1597** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,48 +21,48 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 411 | collect an item |
-| `PLACE_BLOCK` | 402 | place a block |
-| `PLACE_REL` | 86 |  |
-| `CRAFT` | 85 |  |
+| `ACQUIRE_ITEM` | 395 | collect an item |
+| `PLACE_BLOCK` | 376 | place a block |
+| `PLACE_REL` | 104 |  |
+| `CRAFT` | 89 |  |
 | `BREAK_BLOCK` | 81 | break a block |
-| `LOOK_AT_ENTITY` | 67 | look at a mob |
-| `USE_BLOCK` | 57 | use a block |
+| `LOOK_AT_ENTITY` | 63 | look at a mob |
+| `USE_BLOCK` | 58 | use a block |
 | `REACH_BIOME` | 56 | reach a biome |
-| `CONSUME_ITEM` | 48 | eat or drink an item |
 | `LOOK_AT_BLOCK` | 47 | look at a block |
-| `BUILD_PATTERN` | 39 |  |
-| `PLACE_ON_PATTERN` | 37 |  |
+| `CONSUME_ITEM` | 46 | eat or drink an item |
+| `BUILD_PATTERN` | 41 |  |
+| `GIVE` | 39 |  |
+| `PLACE_ON_PATTERN` | 39 |  |
 | `DEFEAT_ENTITY` | 35 | defeat a mob |
-| `GIVE` | 31 |  |
-| `INTERACT_ENTITY` | 25 | interact with a mob |
-| `PUT_IN` | 19 |  |
+| `INTERACT_ENTITY` | 23 | interact with a mob |
+| `PUT_IN` | 22 |  |
 | `SMELT` | 18 |  |
-| `HOLD_WHILE` | 12 |  |
+| `HOLD_WHILE` | 13 |  |
+| `WAIT` | 9 |  |
 | `REACH_HEIGHT` | 9 | reach an altitude |
-| `WAIT` | 6 |  |
+| `SEQUENCE` | 6 |  |
+| `TRADE` | 5 |  |
 | `SWIM` | 5 |  |
+| `TAKE_OUT` | 4 |  |
 | `MOUNT` | 4 |  |
-| `TAKE_OUT` | 3 |  |
 | `BREED` | 3 |  |
-| `TRADE` | 3 |  |
+| `TRANSIT` | 3 |  |
+| `LIE_DOWN` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
-| `TRANSIT` | 1 |  |
 | `EQUIP` | 1 |  |
-| `LIE_DOWN` | 1 |  |
-| `SEQUENCE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 228 | a time of day |
+| `TIME` | 231 | a time of day |
 | `IN_BIOME` | 51 | a biome |
-| `PLAYER_REL` | 44 |  |
-| `HOLDING` | 34 |  |
+| `PLAYER_REL` | 49 |  |
+| `HOLDING` | 35 |  |
 | `Y_RANGE` | 20 | an altitude band |
-| `SKY` | 15 |  |
+| `SKY` | 18 |  |
 | `WEATHER` | 14 | the weather |
 | `IN_WATER` | 7 |  |
-| `NEAR_BLOCK` | 6 | a block nearby |
+| `NEAR_BLOCK` | 7 | a block nearby |
 | `NEAR_ENTITY` | 2 | a mob nearby |
 | `IN_DIMENSION` | 2 | a dimension |
 
@@ -192,10 +192,10 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `glockenpfad` | 종의 길 | Der Glockenpfad | 4 | `marktpfad` |
 | `milchpfad` | 우유의 길 | Der Milchpfad | 4 | `weidepfad`, `wollpfad` |
 | `gartenzaun` | 정원 울타리 | Der Gartenzaun | 4 | `weidepfad`, `wollpfad` |
-| `uhrmacher` | 시계공의 길 | Der Uhrmacherpfad | 4 | `weidepfad`, `wollpfad` |
+| `uhrmacher` | 시계공의 길 | Der Uhrmacherpfad | 5 | `weidepfad`, `wollpfad` |
 | `pferderennen` | 말 경주의 길 | Der Pferderennpfad | 4 | `weidepfad`, `wollpfad` |
 | `abenteuerpfad` | 모험의 길 | Der Abenteuerpfad | 4 | `steintiefe`, `gipfelpfad` |
-| `zuhausepfad` | 우리 집의 길 | Der Zuhause-Pfad | 4 | `waldhaus`, `baeckerei` |
+| `zuhausepfad` | 우리 집의 길 | Der Zuhause-Pfad | 5 | `waldhaus`, `baeckerei` |
 | `adv_husbandry_allay_deliver_cake_to_note_block` | 생일 축하 노래 | Geburtstagslied | 3 | `adv_husbandry_allay_deliver_item_to_player` |
 | `adv_husbandry_balanced_diet` | 균형 잡힌 식단 | Ausgewogene Ernährung | 4 | `adv_husbandry_plant_seed` |
 | `adv_husbandry_bred_all_animals` | 짝지어주기 | Paarweise | 3 | `adv_husbandry_breed_an_animal` |
@@ -297,7 +297,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_adventure_salvage_sherd` | 소중한 잔해 | Achtung vor dem Alten | 3 | `adv_adventure_root` |
 | `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 3 | `adv_adventure_root` |
 | `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 3 | `adv_adventure_root` |
-| `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 3 | `adv_adventure_root` |
+| `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 4 | `adv_adventure_root` |
 | `adv_adventure_trim_with_any_armor_pattern` | 유행의 선도자 | Ein neues Aussehen | 3 | `adv_adventure_root` |
 | `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 3 | `adv_adventure_root` |
 | `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 3 | `adv_adventure_root` |

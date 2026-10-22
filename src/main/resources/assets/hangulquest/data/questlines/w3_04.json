@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1034,
  "concepts": [
-  "gen_waxed_oxidized_copper_trapdoor",
-  "gen_oxidized_copper_grate",
-  "gen_muddy_mangrove_roots",
-  "gen_mud_brick_wall"
+  "gen_pumpkin_pie",
+  "candle",
+  "adv2_item_baked_potato"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,33 +21,42 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_trapdoor"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_trapdoor",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:pumpkin_pie",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_copper_grate"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_grate",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_candle",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_muddy_mangrove_roots"
+    "adv2_item_baked_potato"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:muddy_mangrove_roots",
+    "type": "GIVE",
+    "item": "minecraft:baked_potato",
+    "entity": "minecraft:villager",
     "count": 1
    }
   }
@@ -57,25 +65,36 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mud_brick_wall"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mud_brick_wall",
-    "count": 3
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:pumpkin_pie",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:orange_candle"
+    }
+   ]
   },
-  "textKo": "진흙 벽돌 담장을 세 개 놓았어요."
+  "textKo": "주황색 초 옆에서 호박 파이를 먹었어요."
  },
  "reward": {
   "badge": "w3_04",
   "words": [
-   "wheat",
-   "hay_block",
-   "cake",
-   "bell"
+   "gen_pumpkin_pie",
+   "candle",
+   "adv2_item_baked_potato"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L2.ege",
+  "L2.eseo_activity"
+ ]
 }

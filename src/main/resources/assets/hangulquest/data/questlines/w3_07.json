@@ -6,10 +6,12 @@
  "tier": 2,
  "order": 1037,
  "concepts": [
-  "gen_llama",
-  "gen_mangrove_fence_gate",
-  "gen_sulfur",
-  "gen_lime_wool"
+  "horse",
+  "sugar",
+  "gate",
+  "hay_block",
+  "villager",
+  "talk"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,60 +24,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_llama"
+    "horse",
+    "sugar"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:llama",
-    "dwellMs": 800
+    "type": "GIVE",
+    "item": "minecraft:sugar",
+    "entity": "minecraft:horse",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_fence_gate"
+    "gate",
+    "hay_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_fence_gate",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:hay_block",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sulfur"
+    "gate"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur",
-    "count": 1
-   }
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate",
+    "change": "OPEN"
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:horse",
+     "kind": "entity"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_wool"
+    "villager",
+    "talk"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_wool",
-    "count": 4
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:horse",
+     "kind": "entity"
+    }
+   ]
   },
-  "textKo": "연두색 양털을 네 개 쌓았어요."
+  "textKo": "말 옆에서 주민과 이야기했어요."
  },
  "reward": {
   "badge": "w3_07",
   "words": [
    "horse",
-   "leather",
-   "saddle",
-   "fence"
+   "sugar",
+   "gate",
+   "hay_block",
+   "villager",
+   "talk"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L1.loc_yeop_e",
+  "L2.eseo_activity"
+ ]
 }

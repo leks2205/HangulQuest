@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "karawanepfad",
  "titleKo": "상단의 길",
+ "topic": "마을",
  "tier": 3,
  "order": 507,
  "concepts": [
-  "gen_sea_pickle",
-  "gen_netherite_upgrade_smithing_template",
-  "gen_golden_pickaxe",
-  "gen_weathered_chiseled_copper"
+  "road",
+  "sign",
+  "hay_block",
+  "wheat",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,33 +24,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sea_pickle"
+    "road",
+    "sign"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sea_pickle",
-    "count": 4
+    "type": "PLACE_REL",
+    "block": "minecraft:birch_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:dirt_path",
+    "count": 1
+   },
+   "clue": {
+    "ko": "길 옆에 표지판을 세우세요."
+   },
+   "hint": {
+    "ko": "길 옆에 표지판을 세워요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_netherite_upgrade_smithing_template"
+    "hay_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_upgrade_smithing_template",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:hay_block",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:birch_sign",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_golden_pickaxe"
+    "wheat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_pickaxe",
+    "type": "PUT_IN",
+    "item": "minecraft:wheat",
+    "container": "minecraft:chest",
     "count": 3
    }
   }
@@ -57,31 +71,47 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_chiseled_copper"
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_chiseled_copper",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "TAKE_OUT",
+      "item": "minecraft:wheat",
+      "container": "minecraft:chest",
+      "count": 1
+     },
+     {
+      "type": "GIVE",
+      "item": "minecraft:wheat",
+      "entity": "minecraft:villager",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
+   }
   },
-  "textKo": "밤에 녹슨 조각된 구리를 놓았어요."
+  "textKo": "상자에서 밀을 꺼내고 주민에게 밀을 줬어요."
  },
  "reward": {
   "badge": "karawanepfad",
   "words": [
-   "emerald",
-   "bread",
-   "carrot",
-   "bell"
+   "road",
+   "sign",
+   "hay_block",
+   "wheat",
+   "villager"
   ]
  },
  "koreanLevel": 2,
- "topic": "마을"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_ap_e",
+  "L2.go_sequence",
+  "L2.ege",
+  "L2.eseo_activity"
+ ]
 }

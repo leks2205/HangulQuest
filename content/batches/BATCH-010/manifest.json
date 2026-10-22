@@ -1,0 +1,784 @@
+{
+ "summary": {
+  "trails": 15,
+  "steps": 62,
+  "formDependent": 33,
+  "formDependentShare": 0.5323,
+  "goalTypes": {
+   "USE_BLOCK": 5,
+   "PLACE_REL": 18,
+   "SEQUENCE": 5,
+   "WAIT": 3,
+   "CRAFT": 4,
+   "BUILD_PATTERN": 2,
+   "PLACE_ON_PATTERN": 2,
+   "GIVE": 8,
+   "ACQUIRE_ITEM": 1,
+   "TRADE": 2,
+   "TRANSIT": 2,
+   "LIE_DOWN": 1,
+   "PUT_IN": 3,
+   "TAKE_OUT": 1,
+   "CONSUME_ITEM": 2,
+   "HOLD_WHILE": 1,
+   "BREAK_BLOCK": 1,
+   "INTERACT_ENTITY": 1
+  }
+ },
+ "metricsNote": "before (phase0 after generator wave 6, first start): unknownOverOneShare 0.055273, duplicateSignatures 10, formDependentShare.2 0.0940, bareShare.2 0.4487, topTypeShare.2 0.2799, distinctTypes.2 22, verbObjectMax 6, verbObjectPairsOver3 5. Baseline when BATCH-011 had merged (the one this batch was checked against at the end): unknownOverOneShare 0.054293, duplicateSignatures 8, formDependentShare.2 0.1464, bareShare.2 0.3870, topTypeShare.2 0.2406, distinctTypes.2 26. After this batch: see metricsAfter. Own steps: 33 of 62 form-dependent (53.2%).",
+ "metricsAfter": {
+  "coverage.sentences.hintFullyKnownShare": 0.929427,
+  "coverage.sentences.hintWordCoverage": 0.962363,
+  "coverage.sentences.meanUnknown": 0.89414,
+  "coverage.sentences.unknownOverOneShare": 0.05293,
+  "variety.bareShare.2": 0.301455,
+  "variety.distinctTypes.2": 28.0,
+  "variety.duplicateSignatures": 8.0,
+  "variety.formDependentShare.2": 0.214137,
+  "variety.topTypeShare.2": 0.205821,
+  "variety.verbObjectMax": 6.0,
+  "variety.verbObjectPairsOver3": 5.0
+ },
+ "editsOutsideTheBatchFiles": [
+  "src/test/resources/content-baseline.json: familienpfad, handelsstrasse, uhrmacher and w3_02 left reachabilityDebt (ReachabilityGateTest demands it).",
+  "src/main/resources/assets/hangulquest/data/concepts.json: descKo for gen_composter (퇴비통), the only taught word without one."
+ ],
+ "generatorWeaknesses": [
+  "PlaytestTest builds PLACE_REL fixtures with SpatialWorlds, which puts the anchor down as a block. A creature anchor (주민 뒤에 / 고양이 옆에 / 말 옆에) fails there (\"fixture does not satisfy BEHIND for villager\", NEXT_TO a cat did not advance), so no placement next to a creature could ship although the generator and the sensor support it. The creature-anchored steps drafted for adv_adventure_trade, familienpfad, w3_05 and w3_07 became block-anchored ones.",
+  "PlaytestTest plays a SEQUENCE part by part for three ticks each, with no baseline tick and no clock: a sequence with an ACQUIRE_ITEM, TRANSIT or MOUNT part cannot be driven (uhrmacher s1, w3_05 s1, w3_07 s1 were drafted that way and became plain steps). -고 with instant parts (USE_BLOCK, PLACE, CRAFT, TAKE_OUT, GIVE, INTERACT) plays fine.",
+  "USE_BLOCK on a sign says 표지판을 사용하세요 (글을 써요 only with ink in hand). An authored 표지판에 이름을 쓰세요 fails authoredCluesNameTheAction (the verb of the goal is 사용/글을 쓰다, not 쓰다 alone) and 이름 \"does not describe the goal\", so 이름 (name) has no step to live in.",
+  "A tag anchor with no word of its own is spoken 그것 (#minecraft:signs, #minecraft:candles), so a later step cannot point back at \"the sign\" with a tag; a specific id is spoken with its wood or colour (자작나무 표지판, 주황색 초).",
+  "tools/coverage.py reads 파세요 (팔다 -ㄹ drop) as 파다, so a TRADE SELL clue never teaches 팔다 and the hint 팔아요 is \"unknown\" until 팔다 has met three other encounters; two authored finale lines carry them (glockenpfad, uhrmacher).",
+  "HEAR knows a jukebox and a note block, not a bell, so the brief's \"듣다 with the bell\" is not possible; the bell is USE_BLOCK (종을 울리세요). A HEAR step on a note block would need the trail to hand out redstone.",
+  "The (verb, object) ratchet counts block ids, and torch (PLACE x6), campfire (KINDLE x6), candle (STAND x5), cobblestone (STACK x5) and oak sign (STAND x4) are full; lantern, flower pot, chest, barrel, crafting table, white carpet, apple and bread are at three. Placement steps had to use wood, colour and flower variants (birch sign, orange tulip, light gray carpet) to stay under it.",
+  "TRADE and INTERACT_ENTITY have no deciding form, so a buy or sale and a talk with 주민과 never count as form-dependent although they practise 에게서/에게 and 하고/와/과. No goal counts people, so 주민 두 명 (L2.counter_more for 명) cannot be said in a clue.",
+  "Only 4 of the 15 finale lines are authored (glockenpfad, uhrmacher, zuhausepfad, familienpfad), but the 70% generated-finale rule has little slack left (300 of 422 generated, 296 needed)."
+ ],
+ "openIssues": [
+  "Target words with no home in a clue, hint or finale: 이름, 창문, 아이, 방, 시간, 돈, 그림, 받다, 만나다, 부르다, 듣다, 읽다, 쓰다 (write). 가족 and 창문 have no concept entry; 가족 is only in the familienpfad finale text.",
+  "Reachability assumptions: a village for the bell, the villagers and the market; gold and redstone for the clock (uhrmacher, in reach per ReachabilityGateTest); a tamed cat (familienpfad follows haustierpfad); a horse near the gate (w3_07 follows reitpfad); carrots from a farm (w3_06); emeralds from marktpfad for the purchase in handelsstrasse (it follows marktpfad); fifteen coal for the one sale in adv_adventure_trade (armorer, toolsmith, butcher and fisherman villagers buy it).",
+  "adv_adventure_trade has one real TRADE (selling coal), as its advancement asks; handelsstrasse has the only purchase.",
+  "w3_05 follows sternenhaus, which is still in reachabilityDebt.",
+  "uhrmacher s2 stacks cobblestone, a (verb, object) pair that was already over three (4 to 5); the maximum stays 6."
+ ],
+ "trails": [
+  {
+   "id": "glockenpfad",
+   "title": "종의 길",
+   "koreanLevel": 2,
+   "order": 131,
+   "requires": [
+    "marktpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_ap_e",
+    "L2.go_sequence",
+    "L2.hago_wa_gwa",
+    "L2.eseo_activity",
+    "L2.num_sino"
+   ],
+   "finaleKo": "종이 울리고 마을 사람들이 모였어요. 시장에서 빵을 팔아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "낮에 종을 울리세요.",
+     "hintKo": "낮에 종을 울려요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "종 앞에 꽃을 심으세요.",
+     "hintKo": "종 앞에 꽃을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "formDependent": true,
+     "clueKo": "종을 울리고 주민과 이야기하세요.",
+     "hintKo": "종을 울리고 주민과 이야기해요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "formDependent": false,
+     "clueKo": "종 근처에서 십 초 동안 기다리세요.",
+     "hintKo": "종 근처에서 십 초 동안 기다려요."
+    }
+   ]
+  },
+  {
+   "id": "uhrmacher",
+   "title": "시계공의 길",
+   "koreanLevel": 2,
+   "order": 151,
+   "requires": [
+    "weidepfad",
+    "wollpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held",
+    "L2.num_sino",
+    "L1.loc_wi_e",
+    "L2.ege",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "시계공 주민에게 시계를 줬어요. 시계공은 시계를 팔아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 시계를 만드세요.",
+     "hintKo": "제작대 옆에서 시계를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "formDependent": false,
+     "clueKo": "조약돌 네 개로 기둥을 쌓으세요.",
+     "hintKo": "조약돌로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "formDependent": true,
+     "clueKo": "조약돌 기둥 위에 초를 세우세요.",
+     "hintKo": "조약돌 기둥 위에 초를 세워요."
+    },
+    {
+     "id": "s4",
+     "goal": "WAIT",
+     "formDependent": false,
+     "clueKo": "시계를 들고 삼십 초 동안 기다리세요.",
+     "hintKo": "시계를 들고 삼십 초 동안 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 시계를 주세요.",
+     "hintKo": "주민 앞에 시계를 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "zuhausepfad",
+   "title": "우리 집의 길",
+   "koreanLevel": 2,
+   "order": 220,
+   "requires": [
+    "waldhaus",
+    "baeckerei"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.hago_wa_gwa",
+    "L2.loc_sai_e",
+    "L1.loc_dwi_e",
+    "L2.go_sequence",
+    "L2.eun_neun_contrast"
+   ],
+   "finaleKo": "밤에 침대에서 잤어요. 우리 집은 작아요. 마을은 커요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 침대를 만드세요.",
+     "hintKo": "제작대 옆에서 침대를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문과 침대 사이에 양탄자를 까세요.",
+     "hintKo": "문과 침대 사이에 양탄자를 깔아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "침대 옆에 책장을 놓으세요.",
+     "hintKo": "침대 옆에 책장을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "SEQUENCE",
+     "formDependent": true,
+     "clueKo": "문을 닫고 횃불을 놓으세요.",
+     "hintKo": "문을 닫고 횃불을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "밤에 침대에서 자세요.",
+     "hintKo": "밤에 침대에서 자요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_trade",
+   "title": "훌륭한 거래군요!",
+   "koreanLevel": 2,
+   "order": 235,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L1.loc_yeop_e"
+   ],
+   "finaleKo": "주민에게 석탄을 팔았어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "낮에 석탄을 열다섯 개 모으세요.",
+     "hintKo": "낮에 석탄을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 옆에 꽃을 심으세요.",
+     "hintKo": "문 옆에 꽃을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 수박을 주세요.",
+     "hintKo": "주민 앞에 수박을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "TRADE",
+     "formDependent": false,
+     "clueKo": "주민에게 석탄을 파세요.",
+     "hintKo": "주민에게 석탄을 팔아요."
+    }
+   ]
+  },
+  {
+   "id": "familienpfad",
+   "title": "가족의 길",
+   "koreanLevel": 2,
+   "order": 395,
+   "requires": [
+    "zuhausepfad",
+    "haustierpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L1.loc_yeop_e",
+    "L1.loc_an_e"
+   ],
+   "finaleKo": "밤에 우리 가족은 집에서 잤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRANSIT",
+     "formDependent": false,
+     "clueKo": "밤에 집 안으로 들어가세요.",
+     "hintKo": "밤에 집 안으로 들어가요."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "지붕 아래에서 고양이에게 물고기를 주세요.",
+     "hintKo": "지붕 아래에서 고양이에게 물고기를 줘요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "침대 옆에 양탄자를 까세요.",
+     "hintKo": "침대 옆에 양탄자를 깔아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LIE_DOWN",
+     "formDependent": false,
+     "clueKo": "밤에 침대에 누우세요.",
+     "hintKo": "밤에 침대에 누워요."
+    }
+   ]
+  },
+  {
+   "id": "karawanepfad",
+   "title": "상단의 길",
+   "koreanLevel": 2,
+   "order": 507,
+   "requires": [
+    "marktpfad",
+    "glockenpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.loc_ap_e",
+    "L2.go_sequence",
+    "L2.ege",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "상자에서 밀을 꺼내고 주민에게 밀을 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "길 옆에 표지판을 세우세요.",
+     "hintKo": "길 옆에 표지판을 세워요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "자작나무 표지판 앞에 건초 더미를 놓으세요.",
+     "hintKo": "자작나무 표지판 앞에 건초 더미를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "formDependent": false,
+     "clueKo": "상자 안에 밀을 세 개 넣으세요.",
+     "hintKo": "상자 안에 밀을 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "formDependent": true,
+     "clueKo": "상자에서 밀을 꺼내고 주민에게 밀을 주세요.",
+     "hintKo": "상자에서 밀을 꺼내고 주민에게 밀을 줘요."
+    }
+   ]
+  },
+  {
+   "id": "handelsstrasse",
+   "title": "무역로",
+   "koreanLevel": 2,
+   "order": 517,
+   "requires": [
+    "karawanepfad",
+    "marktpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.loc_ap_e",
+    "L2.ege_source"
+   ],
+   "finaleKo": "통 안에 에메랄드를 넣었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "건초 더미 옆에 퇴비통을 놓으세요.",
+     "hintKo": "건초 더미 옆에 퇴비통을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "퇴비통 앞에 표지판을 세우세요.",
+     "hintKo": "퇴비통 앞에 표지판을 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "TRADE",
+     "formDependent": false,
+     "clueKo": "주민에게서 빵을 사세요.",
+     "hintKo": "주민에게서 빵을 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "formDependent": false,
+     "clueKo": "통 안에 에메랄드를 넣으세요.",
+     "hintKo": "통 안에 에메랄드를 넣어요."
+    }
+   ]
+  },
+  {
+   "id": "druckerei",
+   "title": "인쇄소의 길",
+   "koreanLevel": 2,
+   "order": 152,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.counter_more",
+    "L2.go_sequence",
+    "L1.loc_yeop_e",
+    "L2.ege"
+   ],
+   "finaleKo": "주민에게 책을 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "종이를 세 장 만드세요.",
+     "hintKo": "종이를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "formDependent": true,
+     "clueKo": "책을 만들고 공책을 만드세요.",
+     "hintKo": "책을 만들고 공책을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "제작대 옆에 독서대를 놓으세요.",
+     "hintKo": "제작대 옆에 독서대를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 책을 주세요.",
+     "hintKo": "주민 앞에 책을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w3_01",
+   "title": "장터의 길",
+   "koreanLevel": 2,
+   "order": 1031,
+   "requires": [
+    "schmelzpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.loc_ap_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "통에서 사과를 꺼냈어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "통 옆에 표지판을 세우세요.",
+     "hintKo": "통 옆에 표지판을 세워요."
+    },
+    {
+     "id": "s2",
+     "goal": "PUT_IN",
+     "formDependent": false,
+     "clueKo": "통 안에 사과를 세 개 넣으세요.",
+     "hintKo": "통 안에 사과를 넣어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "통 앞에 꽃을 심으세요.",
+     "hintKo": "통 앞에 꽃을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "formDependent": false,
+     "clueKo": "통에서 사과를 꺼내세요.",
+     "hintKo": "통에서 사과를 꺼내요."
+    }
+   ]
+  },
+  {
+   "id": "w3_02",
+   "title": "이웃의 문",
+   "koreanLevel": 2,
+   "order": 1032,
+   "requires": [
+    "zuhausepfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.loc_ap_e"
+   ],
+   "finaleKo": "문 앞에 꽃을 심었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "문을 여세요.",
+     "hintKo": "문을 열어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 옆에 표지판을 세우세요.",
+     "hintKo": "문 옆에 표지판을 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "문을 닫으세요.",
+     "hintKo": "문을 닫아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 앞에 꽃을 심으세요.",
+     "hintKo": "문 앞에 꽃을 심어요."
+    }
+   ]
+  },
+  {
+   "id": "w3_03",
+   "title": "나그네의 주머니",
+   "koreanLevel": 2,
+   "order": 1033,
+   "requires": [
+    "abenteuerpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L2.eseo_activity",
+    "L2.ege",
+    "L2.go_held"
+   ],
+   "finaleKo": "주민에게 달걀을 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "길 옆에 호박을 놓으세요.",
+     "hintKo": "길 옆에 호박을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "밖에서 구운 감자를 드세요.",
+     "hintKo": "밖에서 구운 감자를 먹어요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "formDependent": false,
+     "clueKo": "빵을 들고 평원에서 걸으세요.",
+     "hintKo": "빵을 들고 평원에서 걸어요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 달걀을 주세요.",
+     "hintKo": "주민 앞에 달걀을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w3_04",
+   "title": "마을 잔치",
+   "koreanLevel": 2,
+   "order": 1034,
+   "requires": [
+    "festmahl"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_wi_e",
+    "L2.ege",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "주황색 초 옆에서 호박 파이를 먹었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "낮에 호박 파이를 만드세요.",
+     "hintKo": "낮에 호박 파이를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "판자 위에 초를 세우세요.",
+     "hintKo": "판자 위에 초를 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 구운 감자를 주세요.",
+     "hintKo": "주민 앞에 구운 감자를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "주황색 초 옆에서 호박 파이를 드세요.",
+     "hintKo": "주황색 초 옆에서 호박 파이를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "w3_05",
+   "title": "마을의 밤",
+   "koreanLevel": 2,
+   "order": 1035,
+   "requires": [
+    "sternenhaus"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.go_sequence",
+    "L1.loc_yeop_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "지붕 아래에서 밤까지 기다렸어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRANSIT",
+     "formDependent": false,
+     "clueKo": "저녁에 집 안으로 들어가세요.",
+     "hintKo": "저녁에 집 안으로 들어가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 옆에 초를 세우세요.",
+     "hintKo": "문 옆에 초를 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "formDependent": true,
+     "clueKo": "문을 닫고 초를 세우세요.",
+     "hintKo": "문을 닫고 초를 세워요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "formDependent": false,
+     "clueKo": "지붕 아래에서 밤까지 기다리세요.",
+     "hintKo": "지붕 아래에서 밤까지 기다려요."
+    }
+   ]
+  },
+  {
+   "id": "w3_06",
+   "title": "이웃의 밭",
+   "koreanLevel": 2,
+   "order": 1036,
+   "requires": [
+    "gartenpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_an_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "돼지에게 당근을 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "formDependent": false,
+     "clueKo": "당근을 네 개 수확하세요.",
+     "hintKo": "당근을 수확해요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "formDependent": false,
+     "clueKo": "울타리를 치세요.",
+     "hintKo": "울타리를 쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "formDependent": true,
+     "clueKo": "아카시아나무 울타리 안에 당근을 심으세요.",
+     "hintKo": "아카시아나무 울타리 안에 당근을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "돼지에게 당근을 주세요.",
+     "hintKo": "돼지에게 당근을 줘요."
+    }
+   ]
+  },
+  {
+   "id": "w3_07",
+   "title": "말과 장터",
+   "koreanLevel": 2,
+   "order": 1037,
+   "requires": [
+    "reitpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L1.loc_yeop_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "말 옆에서 주민과 이야기했어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "말에게 설탕을 주세요.",
+     "hintKo": "말에게 설탕을 줘요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "건초 더미 옆에 울타리 문을 다세요.",
+     "hintKo": "건초 더미 옆에 울타리 문을 달아요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "말 옆에서 울타리 문을 여세요.",
+     "hintKo": "말 옆에서 울타리 문을 열어요."
+    },
+    {
+     "id": "finale",
+     "goal": "INTERACT_ENTITY",
+     "formDependent": false,
+     "clueKo": "말 옆에서 주민과 이야기하세요.",
+     "hintKo": "말 옆에서 주민과 이야기해요."
+    }
+   ]
+  }
+ ]
+}

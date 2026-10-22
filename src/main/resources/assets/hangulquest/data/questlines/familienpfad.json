@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "familienpfad",
  "titleKo": "가족의 길",
+ "topic": "가족",
  "tier": 3,
  "order": 395,
  "concepts": [
-  "gen_bogged",
-  "gen_hoglin",
-  "chicken",
-  "gen_green_bed"
+  "house",
+  "cat",
+  "fish",
+  "carpet",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 9,
@@ -22,46 +24,11 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bogged"
+    "house"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:bogged",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_hoglin"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:hoglin",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "chicken"
-   ],
-   "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:chicken",
-    "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_green_bed"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:green_bed"
+    "type": "TRANSIT",
+    "direction": "IN"
    },
    "conditions": [
     {
@@ -70,17 +37,74 @@
     }
    ]
   },
-  "textKo": "밤에 초록색 침대에서 잤어요."
+  {
+   "id": "s2",
+   "teach": [
+    "cat",
+    "fish"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:cod",
+    "entity": "minecraft:cat",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carpet"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_carpet",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:beds",
+    "count": 1
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "LIE_DOWN",
+    "block": "minecraft:green_bed",
+    "dwellMs": 2000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 우리 가족은 집에서 잤어요."
  },
  "reward": {
   "badge": "familienpfad",
   "words": [
+   "house",
    "cat",
-   "wolf",
-   "bread",
+   "fish",
+   "carpet",
    "bed"
   ]
  },
  "koreanLevel": 2,
- "topic": "나무"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L1.loc_yeop_e",
+  "L1.loc_an_e"
+ ]
 }

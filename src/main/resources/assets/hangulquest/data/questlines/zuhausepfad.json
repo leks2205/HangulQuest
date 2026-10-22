@@ -2,12 +2,16 @@
  "schema": 1,
  "id": "zuhausepfad",
  "titleKo": "우리 집의 길",
+ "topic": "집",
  "tier": 3,
+ "order": 220,
  "concepts": [
-  "gen_oxeye_daisy",
-  "gen_cooked_salmon",
-  "gen_white_glazed_terracotta",
-  "gen_exposed_copper_golem_statue"
+  "bed",
+  "carpet",
+  "bookshelf",
+  "door",
+  "torch",
+  "house"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -21,34 +25,70 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oxeye_daisy"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxeye_daisy",
+    "type": "CRAFT",
+    "item": "minecraft:white_bed",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cooked_salmon"
+    "carpet"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_salmon",
-    "count": 1
+    "type": "PLACE_REL",
+    "block": "minecraft:light_gray_carpet",
+    "relation": "BETWEEN",
+    "anchor": "#minecraft:doors",
+    "count": 1,
+    "anchor2": "#minecraft:beds"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_glazed_terracotta"
+    "bookshelf"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_glazed_terracotta",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:bookshelf",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:beds",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "door",
+    "torch"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:oak_door",
+      "change": "CLOSE"
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:torch",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   }
  ],
@@ -56,12 +96,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_copper_golem_statue"
+    "bed",
+    "house"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper_golem_statue",
-    "count": 3
+    "type": "USE_BLOCK",
+    "block": "minecraft:cyan_bed"
    },
    "conditions": [
     {
@@ -70,18 +110,27 @@
     }
    ]
   },
-  "textKo": "밤에 약간 녹슨 구리 골렘 동상을 세 개 세웠어요."
+  "textKo": "밤에 침대에서 잤어요. 우리 집은 작아요. 마을은 커요."
  },
  "reward": {
   "badge": "zuhausepfad",
   "words": [
    "bed",
-   "bread",
-   "cat",
-   "door"
+   "carpet",
+   "bookshelf",
+   "door",
+   "torch",
+   "house"
   ]
  },
- "order": 220,
  "koreanLevel": 2,
- "topic": "나무"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.hago_wa_gwa",
+  "L2.loc_sai_e",
+  "L1.loc_dwi_e",
+  "L2.go_sequence",
+  "L2.eun_neun_contrast"
+ ]
 }

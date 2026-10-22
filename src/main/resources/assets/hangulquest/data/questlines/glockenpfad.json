@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 131,
  "concepts": [
-  "bookshelf",
   "bell",
-  "gen_tuff_brick_slab",
-  "gold_block"
+  "flower",
+  "villager",
+  "talk"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -22,36 +22,52 @@
   {
    "id": "s1",
    "teach": [
-    "bookshelf"
+    "bell"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bookshelf"
-   }
+    "block": "minecraft:bell"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bell",
+    "type": "PLACE_REL",
+    "block": "minecraft:pink_tulip",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:bell",
     "count": 1
-   },
-   "hint": {
-    "ko": "종은 마을에서 찾을 수 있어요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_tuff_brick_slab"
+    "villager",
+    "talk"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tuff_brick_slab",
-    "count": 4
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:bell"
+     },
+     {
+      "type": "INTERACT_ENTITY",
+      "entity": "minecraft:villager"
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   }
  ],
@@ -59,24 +75,43 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gold_block"
+    "bell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bell"
+    }
+   ],
+   "clue": {
+    "ko": "종 근처에서 십 초 동안 기다리세요."
+   },
+   "hint": {
+    "ko": "종 근처에서 십 초 동안 기다려요."
+   }
   },
-  "textKo": "금 블록을 놓았어요."
+  "textKo": "종이 울리고 마을 사람들이 모였어요. 시장에서 빵을 팔아요."
  },
  "reward": {
   "badge": "glockenpfad",
   "words": [
    "bell",
-   "gold",
-   "gold_block"
+   "flower",
+   "villager",
+   "talk"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_ap_e",
+  "L2.go_sequence",
+  "L2.hago_wa_gwa",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }

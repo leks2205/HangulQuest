@@ -6,10 +6,11 @@
  "tier": 3,
  "order": 152,
  "concepts": [
-  "gen_waxed_weathered_cut_copper",
-  "gen_wheat_seeds",
-  "gen_oak_button",
-  "lectern"
+  "paper",
+  "notebook",
+  "book",
+  "lectern",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,33 +24,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_cut_copper"
+    "paper"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_cut_copper",
+    "type": "CRAFT",
+    "item": "minecraft:paper",
     "count": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_wheat_seeds"
+    "notebook",
+    "book"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:wheat_seeds",
-    "count": 2
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:book",
+      "count": 1
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:writable_book",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oak_button"
+    "lectern"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:oak_button"
+    "type": "PLACE_REL",
+    "block": "minecraft:lectern",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafting_table",
+    "count": 1
    }
   }
  ],
@@ -57,25 +74,34 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lectern"
+    "villager",
+    "book"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lectern",
+    "type": "GIVE",
+    "item": "minecraft:book",
+    "entity": "minecraft:villager",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "독서대를 놓았어요."
+  "textKo": "주민에게 책을 줬어요."
  },
  "reward": {
   "badge": "druckerei",
   "words": [
    "paper",
-   "ink_sac",
+   "notebook",
+   "book",
    "lectern",
-   "bookshelf"
+   "villager"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.counter_more",
+  "L2.go_sequence",
+  "L1.loc_yeop_e",
+  "L2.ege"
+ ]
 }
