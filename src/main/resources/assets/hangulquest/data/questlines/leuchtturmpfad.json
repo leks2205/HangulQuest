@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 112,
  "concepts": [
-  "gen_mud_brick_slab",
+  "gen_white_concrete",
   "lantern",
-  "gen_savanna_plateau",
-  "gen_red_mushroom_block"
+  "north",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -23,60 +23,99 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mud_brick_slab"
+    "gen_white_concrete"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mud_brick_slab",
-    "count": 3
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:white_concrete",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "lantern"
+    "lantern",
+    "gen_white_concrete"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_ON_PATTERN",
     "block": "minecraft:lantern",
-    "count": 3
-   }
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:white_concrete",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_savanna_plateau"
+    "north"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:savanna_plateau",
-    "dwellMs": 1000
-   }
+    "type": "WALK",
+    "direction": "NORTH",
+    "blocks": 20
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_mushroom_block"
+    "wait",
+    "lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_mushroom_block",
-    "count": 2
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:lantern"
+    },
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
-  "textKo": "빨간색 버섯 블록을 두 개 쌓았어요."
+  "textKo": "맑을 때 랜턴 근처에서 밤까지 기다렸어요. 랜턴은 어둠을 밝혀요."
  },
  "reward": {
   "badge": "leuchtturmpfad",
   "words": [
+   "gen_white_concrete",
    "lantern",
-   "bell",
-   "ocean",
-   "sea_lantern"
+   "north",
+   "wait"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L4.eoya_haeyo",
+  "L1.loc_wi_e",
+  "L4.myeon",
+  "L2.euro_direction",
+  "L2.num_sino"
+ ]
 }

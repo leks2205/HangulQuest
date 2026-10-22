@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "wolkenpfad",
  "titleKo": "구름의 길",
+ "topic": "하늘",
  "tier": 5,
  "order": 545,
  "concepts": [
-  "gen_deep_frozen_ocean",
-  "gen_jungle_wood",
-  "gen_suspicious_gravel",
-  "gen_cherry_wood"
+  "height",
+  "gen_slime_block",
+  "adv_item_target",
+  "bow",
+  "gen_quartz_block"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -24,76 +26,91 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deep_frozen_ocean"
+    "height"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:deep_frozen_ocean",
-    "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_jungle_wood"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_wood",
-    "count": 3
+    "type": "REACH_HEIGHT",
+    "minY": 150,
+    "maxY": 320
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    },
+    {
+     "type": "SKY",
+     "state": "OPEN"
     }
    ]
   },
   {
-   "id": "s3",
+   "id": "s2",
    "teach": [
-    "gen_suspicious_gravel"
+    "gen_slime_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:suspicious_gravel",
-    "count": 3
-   }
+    "type": "FALL",
+    "blocks": 8,
+    "landing": "minecraft:slime_block"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_target",
+    "bow"
+   ],
+   "goal": {
+    "type": "SHOOT",
+    "weapon": "minecraft:bow",
+    "block": "minecraft:target",
+    "count": 1,
+    "minDistance": 20
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_wood"
+    "gen_quartz_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_wood",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "STAIRS",
+    "material": "minecraft:quartz_block",
+    "size": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DAY"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "낮에 산에서 벚나무를 세 개 놓았어요."
+  "textKo": "석영 블록으로 계단을 쌓았어요. 구름은 하늘에 떠 있어요."
  },
  "reward": {
   "badge": "wolkenpfad",
   "words": [
-   "mountain",
-   "torch",
-   "bed",
-   "night"
+   "height",
+   "gen_slime_block",
+   "adv_item_target",
+   "bow"
   ]
  },
  "koreanLevel": 4,
- "topic": "돌"
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L4.myeon",
+  "L2.eseo_activity",
+  "L2.euro_direction",
+  "L1.eul_reul",
+  "L2.euro_material",
+  "L2.num_sino",
+  "L1.obj_eul"
+ ]
 }

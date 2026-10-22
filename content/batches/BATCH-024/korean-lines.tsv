@@ -1,0 +1,16 @@
+id	ko	context
+trail.kronenlicht.finale	엔드에서 엔더 드래곤을 물리쳤어요. 드래곤은 엔드의 마지막 보스예요.	finale, authored; DefeatEntity minecraft:ender_dragon x1
+trail.ewiges_eis.finale	비가 올 때 북극곰을 바라봤어요. 북극곰은 눈 위에 살아요.	finale, authored; LookAtEntity minecraft:polar_bear 
+trail.pyramidenpfad.finale	깎인 사암으로 피라미드를 쌓았어요. 사막에는 피라미드가 있어요.	finale, authored; BuildPattern minecraft:cut_sandstone PYRAMID 3
+trail.bibliothekpfad.finale	마법이 부여된 책을 구했어요. 책장은 마법의 힘을 키워 줘요.	finale, authored; AcquireItem minecraft:enchanted_book x1
+trail.leuchtturmpfad.finale	맑을 때 랜턴 근처에서 밤까지 기다렸어요. 랜턴은 어둠을 밝혀요.	finale, authored; Wait 
+trail.drachenhort.finale	셜커 상자를 만들었어요. 셜커 상자는 색이 다양해요.	finale, authored; Craft minecraft:shulker_box x1
+trail.tempelwaechter.finale	물속에서 가디언을 물리쳤어요. 가디언은 바다 신전을 지켜요.	finale, authored; DefeatEntity minecraft:guardian x1
+trail.sternenkarte.finale	지도를 들고 지도 제작대를 열었어요. 지도는 길을 알려 줘요.	finale, authored; UseBlock minecraft:cartography_table 
+trail.handelsflotte.finale	낮에 회색 현수막을 걸었어요. 현수막은 천으로 만들어요.	finale, authored; PlaceBlock minecraft:gray_banner x1
+trail.adv_nether_all_effects.finale	물약을 마신 후에 황금 사과를 먹었어요. 우유는 물약의 효과를 없애요.	finale, authored; Sequence [ConsumeItem minecraft:potion x1 > ConsumeItem minecraft:golden_apple x1]
+trail.adv_nether_create_full_beacon.finale	밖에서 신호기를 열었어요. 신호기는 하늘로 빛을 보내요.	finale, authored; UseBlock minecraft:beacon 
+trail.adv_story_enter_the_end.finale	엔드에 도착했어요. 엔드에는 드래곤이 살아요.	finale, authored; ReachDimension minecraft:the_end 
+trail.wolkenpfad.finale	석영 블록으로 계단을 쌓았어요. 구름은 하늘에 떠 있어요.	finale, authored; BuildPattern minecraft:quartz_block STAIRS 3
+trail.unendlichereise.finale	저녁에 서쪽으로 팔십 블록 갔어요. 해는 서쪽으로 져요.	finale, authored; Walk 
+trail.reisekrone.finale	거북 등딱지를 썼어요. 거북은 느려요.	finale, authored; Equip minecraft:turtle_helmet 

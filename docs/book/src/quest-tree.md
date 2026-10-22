@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1735** |
+| Steps (incl. finales) | **1743** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,52 +21,56 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 214 | collect an item |
-| `PLACE_BLOCK` | 207 | place a block |
-| `PLACE_REL` | 204 |  |
-| `CRAFT` | 152 |  |
-| `PLACE_ON_PATTERN` | 105 |  |
-| `BUILD_PATTERN` | 99 |  |
-| `SEQUENCE` | 72 |  |
-| `LOOK_AT_ENTITY` | 66 | look at a mob |
+| `ACQUIRE_ITEM` | 208 | collect an item |
+| `PLACE_REL` | 205 |  |
+| `PLACE_BLOCK` | 180 | place a block |
+| `CRAFT` | 157 |  |
+| `PLACE_ON_PATTERN` | 106 |  |
+| `BUILD_PATTERN` | 104 |  |
+| `SEQUENCE` | 76 |  |
+| `LOOK_AT_ENTITY` | 70 | look at a mob |
 | `GIVE` | 64 |  |
-| `BREAK_BLOCK` | 64 | break a block |
-| `REACH_BIOME` | 59 | reach a biome |
-| `LOOK_AT_BLOCK` | 51 | look at a block |
+| `BREAK_BLOCK` | 63 | break a block |
+| `REACH_BIOME` | 57 | reach a biome |
+| `LOOK_AT_BLOCK` | 52 | look at a block |
 | `USE_BLOCK` | 50 | use a block |
-| `CONSUME_ITEM` | 43 | eat or drink an item |
-| `AVOID` | 41 |  |
-| `HOLD_WHILE` | 34 |  |
-| `PUT_IN` | 33 |  |
-| `DEFEAT_ENTITY` | 25 | defeat a mob |
-| `REACH_HEIGHT` | 25 | reach an altitude |
+| `AVOID` | 43 |  |
+| `CONSUME_ITEM` | 41 | eat or drink an item |
+| `HOLD_WHILE` | 35 |  |
+| `PUT_IN` | 34 |  |
+| `DEFEAT_ENTITY` | 28 | defeat a mob |
+| `REACH_HEIGHT` | 26 | reach an altitude |
 | `SMELT` | 24 |  |
-| `WAIT` | 20 |  |
-| `TRADE` | 19 |  |
+| `WAIT` | 22 |  |
+| `TRADE` | 20 |  |
 | `INTERACT_ENTITY` | 17 | interact with a mob |
 | `BREED` | 10 |  |
+| `MOUNT` | 8 |  |
+| `SWIM` | 8 |  |
 | `TAKE_OUT` | 7 |  |
-| `MOUNT` | 7 |  |
-| `SWIM` | 7 |  |
+| `EQUIP` | 5 |  |
+| `WALK` | 5 |  |
 | `LIE_DOWN` | 4 |  |
-| `EQUIP` | 4 |  |
+| `FALL` | 4 |  |
 | `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
-| `FALL` | 2 |  |
+| `SHOOT` | 3 |  |
+| `REACH_DIMENSION` | 1 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 261 | a time of day |
-| `HOLDING` | 85 |  |
+| `TIME` | 267 | a time of day |
+| `HOLDING` | 88 |  |
 | `IN_BIOME` | 65 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `IN_DIMENSION` | 38 | a dimension |
-| `Y_RANGE` | 33 | an altitude band |
-| `SKY` | 24 |  |
-| `WEATHER` | 23 | the weather |
-| `NEAR_BLOCK` | 23 | a block nearby |
+| `IN_DIMENSION` | 40 | a dimension |
+| `Y_RANGE` | 35 | an altitude band |
+| `WEATHER` | 33 | the weather |
+| `SKY` | 26 |  |
+| `NEAR_BLOCK` | 25 | a block nearby |
 | `NEAR_ENTITY` | 20 | a mob nearby |
-| `IN_WATER` | 9 |  |
+| `IN_WATER` | 12 |  |
+| `FACING` | 1 |  |
 
 ## Levels
 
@@ -438,12 +442,12 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `ewiges_eis` | 영원한 얼음 | Das ewige Eis | 3 | `polarlicht`, `kristallschmiede` |
+| `ewiges_eis` | 영원한 얼음 | Das ewige Eis | 5 | `polarlicht`, `kristallschmiede` |
 | `pyramidenpfad` | 피라미드의 길 | Der Pyramidenpfad | 4 | `piratenpfad`, `tempelpfad` |
 | `bibliothekpfad` | 도서관의 길 | Der Bibliothekspfad | 4 | `piratenpfad`, `vogelpfad` |
 | `adv_nether_brew_potion` | 물약 양조장 | Alchemie | 5 | `adv_nether_obtain_blaze_rod` |
 | `adv_nether_summon_wither` | 해골 탑 | Der Schädelturm | 4 | `adv_nether_get_wither_skull` |
-| `adv_story_enter_the_end` | 이걸로 끝이야? | Das Ende? | 3 | `adv_story_follow_ender_eye` |
+| `adv_story_enter_the_end` | 이걸로 끝이야? | Das Ende? | 4 | `adv_story_follow_ender_eye` |
 | `wolkenpfad` | 구름의 길 | Der Wolkenpfad | 4 | `weltwunder`, `observatorium`, `weltreise`, `windpfad` |
 | `unendlichereise` | 끝없는 여행 | Die Unendliche Reise | 4 | `koenigspfad`, `weltwunder`, `grossesmeer`, `piratenpfad` |
 
@@ -452,8 +456,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `leuchtturmpfad` | 등대의 길 | Der Leuchtturmpfad | 4 | `pyramidenpfad`, `tiefseehafen` |
-| `drachenhort` | 용의 보물 | Der Drachenhort | 4 | `bibliothekpfad`, `pyramidenpfad` |
-| `tempelwaechter` | 신전의 수호자 | Der Tempelwächter | 4 | `pyramidenpfad`, `bibliothekpfad` |
+| `drachenhort` | 엔드 도시의 보물 | Der Schatz der Endstadt | 5 | `bibliothekpfad`, `pyramidenpfad` |
+| `tempelwaechter` | 신전의 수호자 | Der Tempelwächter | 5 | `pyramidenpfad`, `bibliothekpfad` |
 | `adv_nether_all_potions` | 더 강한 물약 | Ein stärkerer Trank | 3 | `adv_nether_brew_potion` |
 | `adv_nether_create_beacon` | 철 블록과 영혼 랜턴 | Eisenblöcke und Seelenlaterne | 4 | `adv_nether_summon_wither` |
 | `reisekrone` | 여행의 왕관 | Die Reisekrone | 4 | `koenigspfad`, `unendlichereise`, `wolkenpfad`, `kristallschmiede`, `hafenwacht` |
@@ -471,11 +475,11 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenlicht` | 왕관의 빛 | Das Kronenlicht | 3 | `reisekrone`, `vulkanpfad`, `tempelwaechter`, `handelsgilde`, `gerberei`, `postpfad`, `werkzeugpfad` |
+| `kronenlicht` | 왕관의 빛 | Das Kronenlicht | 4 | `reisekrone`, `vulkanpfad`, `tempelwaechter`, `handelsgilde`, `gerberei`, `postpfad`, `werkzeugpfad` |
 | `sternenkarte` | 별자리 지도 | Die Sternenkarte | 4 | `drachenhort`, `leuchtturmpfad` |
 | `handelsflotte` | 무역선의 길 | Die Handelsflotte | 4 | `leuchtturmpfad`, `tempelwaechter` |
-| `adv_nether_all_effects` | 어쩌다 이 지경까지 | Wie haben wir das geschafft? | 3 | `adv_nether_all_potions` |
-| `adv_nether_create_full_beacon` | 신호자 | Leuchtturmwärter | 3 | `adv_nether_create_beacon` |
+| `adv_nether_all_effects` | 어쩌다 이 지경까지 | Wie haben wir das geschafft? | 4 | `adv_nether_all_potions` |
+| `adv_nether_create_full_beacon` | 신호자 | Leuchtturmwärter | 4 | `adv_nether_create_beacon` |
 | `w7_02` | 불꽃의 검 | Die Flammenklinge | 4 | `drachenhort` |
 | `w7_04` | 화로의 온기 | Die Wärme des Ofens | 4 | `reisekrone` |
 | `w7_05` | 영혼의 등불 | Das Seelenlicht | 4 | `leuchtturmpfad` |

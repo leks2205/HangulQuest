@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "drachenhort",
- "titleKo": "용의 보물",
+ "titleKo": "엔드 도시의 보물",
  "topic": "용",
  "tier": 3,
  "order": 113,
  "concepts": [
-  "gen_sulfur",
-  "gen_stripped_warped_hyphae",
-  "gen_wildflowers",
-  "lantern"
+  "gen_end_highlands",
+  "gen_shulker",
+  "brewing_stand",
+  "gen_shulker_box"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,68 +23,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sulfur"
+    "gen_end_highlands"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:sulfur",
-    "count": 2
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:end_highlands",
+    "dwellMs": 1000
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stripped_warped_hyphae"
+    "gen_shulker"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_warped_hyphae",
-    "count": 8
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:shulker",
+    "dwellMs": 1000
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_wildflowers"
+    "brewing_stand"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:wildflowers",
-    "count": 1
-   }
+    "type": "USE_BLOCK",
+    "block": "minecraft:brewing_stand"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_shulker"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:shulker",
+    "count": 2
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "lantern"
+    "gen_shulker_box"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lantern",
-    "count": 3
+    "type": "CRAFT",
+    "item": "minecraft:shulker_box",
+    "count": 1
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요."
-   }
+   "conditions": []
   },
-  "textKo": "밤에 랜턴을 세 개 놓아요."
+  "textKo": "셜커 상자를 만들었어요. 셜커 상자는 색이 다양해요."
  },
  "reward": {
   "badge": "drachenhort",
   "words": [
-   "obsidian",
-   "gold",
-   "chest",
-   "lantern"
+   "gen_end_highlands",
+   "gen_shulker",
+   "brewing_stand",
+   "gen_shulker_box"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.num_sino"
+ ]
 }

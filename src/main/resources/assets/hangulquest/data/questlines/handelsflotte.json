@@ -6,10 +6,11 @@
  "tier": 3,
  "order": 116,
  "concepts": [
-  "gen_bamboo_jungle",
-  "gen_oak_trapdoor",
-  "gen_hanging_roots",
-  "sea_lantern"
+  "boat",
+  "fish",
+  "villager",
+  "gen_barrel",
+  "gen_gray_banner"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,59 +24,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_jungle"
+    "boat"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:bamboo_jungle",
-    "dwellMs": 1000
-   }
+    "type": "MOUNT",
+    "entity": "minecraft:cherry_boat",
+    "dwellMs": 3000
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    },
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_trapdoor"
+    "fish",
+    "villager"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:oak_trapdoor"
-   }
+    "type": "TRADE",
+    "item": "minecraft:salmon",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 6
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_hanging_roots"
+    "fish",
+    "gen_barrel"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:hanging_roots",
+    "type": "PUT_IN",
+    "item": "minecraft:tropical_fish",
+    "container": "minecraft:barrel",
     "count": 4
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "sea_lantern"
+    "gen_gray_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:sea_lantern",
-    "count": 3
+    "block": "minecraft:gray_banner",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "바다 랜턴으로 무역선을 밝혀요."
+  "textKo": "낮에 회색 현수막을 걸었어요. 현수막은 천으로 만들어요."
  },
  "reward": {
   "badge": "handelsflotte",
   "words": [
-   "ocean",
-   "chest",
-   "emerald",
-   "sea_lantern"
+   "boat",
+   "fish",
+   "villager",
+   "gen_barrel"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.e_place",
+  "L4.myeon",
+  "L1.eul_reul",
+  "L2.ege",
+  "L1.loc_an_e"
+ ]
 }

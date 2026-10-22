@@ -1,0 +1,838 @@
+{
+ "batch": "BATCH-024",
+ "brief": "content/briefs/BATCH-024.md",
+ "chapter": "into the End and the far kingdoms (level 4; every trail is level 4 by tree depth 10 to 12)",
+ "summary": {
+  "trails": 15,
+  "steps": 63,
+  "formDependentSteps": 31,
+  "formDependentShareOwn": 0.4921,
+  "goalTypes": {
+   "HOLD_WHILE": 1,
+   "AVOID": 2,
+   "SHOOT": 3,
+   "DEFEAT_ENTITY": 3,
+   "REACH_BIOME": 5,
+   "WALK": 5,
+   "FALL": 2,
+   "LOOK_AT_ENTITY": 4,
+   "LOOK_AT_BLOCK": 1,
+   "SEQUENCE": 4,
+   "BUILD_PATTERN": 5,
+   "USE_BLOCK": 3,
+   "ACQUIRE_ITEM": 5,
+   "PLACE_ON_PATTERN": 1,
+   "WAIT": 2,
+   "BREAK_BLOCK": 3,
+   "CRAFT": 5,
+   "MOUNT": 1,
+   "TRADE": 1,
+   "PUT_IN": 1,
+   "PLACE_BLOCK": 1,
+   "PLACE_REL": 1,
+   "REACH_DIMENSION": 1,
+   "REACH_HEIGHT": 1,
+   "SWIM": 1,
+   "EQUIP": 1
+  }
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "kronenlicht",
+   "title": "왕관의 빛",
+   "order": 70,
+   "koreanLevel": 4,
+   "grammar": [
+    "L2.go_state",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L3.jima",
+    "L1.eul_reul",
+    "L2.euro_material"
+   ],
+   "finaleKo": "엔드에서 엔더 드래곤을 물리쳤어요. 드래곤은 엔드의 마지막 보스예요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:bow:HOLD+REACH_BIOME:minecraft:the_end:GO",
+     "formDependent": false,
+     "clueKo": "활을 들고 엔드로 가야 해요.",
+     "hintKo": "활을 들고 엔드로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:LOOK_AT_ENTITY:minecraft:enderman:WATCH@InDimension[dimension=minecraft:the_end]",
+     "formDependent": true,
+     "clueKo": "엔드에서 엔더맨을 일 초 동안 바라보지 마세요.",
+     "hintKo": "엔드에서 엔더맨을 일 초 동안 바라보지 마세요."
+    },
+    {
+     "id": "s3",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:bow:minecraft:ender_dragon:HIT|IN_DIMENSION:minecraft:the_end",
+     "formDependent": false,
+     "clueKo": "엔드에서 활로 엔더 드래곤을 맞혀야 해요.",
+     "hintKo": "엔드에서 활로 엔더 드래곤을 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:ender_dragon:DEFEAT|IN_DIMENSION:minecraft:the_end",
+     "formDependent": false,
+     "clueKo": "엔드에서 엔더 드래곤을 한 마리 물리쳐야 해요.",
+     "hintKo": "엔드에서 엔더 드래곤을 물리쳐요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "ewiges_eis",
+   "title": "영원한 얼음",
+   "order": 92,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L2.eseo_activity",
+    "L4.myeon",
+    "L1.eul_reul",
+    "L2.euro_material"
+   ],
+   "finaleKo": "비가 올 때 북극곰을 바라봤어요. 북극곰은 눈 위에 살아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:frozen_peaks:GO",
+     "formDependent": false,
+     "clueKo": "얼어붙은 봉우리로 가야 해요.",
+     "hintKo": "얼어붙은 봉우리로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO",
+     "formDependent": false,
+     "clueKo": "동쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "동쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "FALL",
+     "signature": "FALL:minecraft:powder_snow:JUMP_DOWN|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 높은 곳에서 가루눈 위로 뛰어내려야 해요.",
+     "hintKo": "맑을 때 높은 곳에서 가루눈 위로 뛰어내려요."
+    },
+    {
+     "id": "s4",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:snowball:minecraft:target:HIT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 눈덩이로 과녁을 맞혀야 해요.",
+     "hintKo": "낮에 눈덩이로 과녁을 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:polar_bear:WATCH|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 북극곰을 일 초 동안 바라봐야 해요.",
+     "hintKo": "비가 올 때 북극곰을 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "pyramidenpfad",
+   "title": "피라미드의 길",
+   "order": 110,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L4.myeon",
+    "L4.eoseo",
+    "L2.euro_material",
+    "L1.obj_eul"
+   ],
+   "finaleKo": "깎인 사암으로 피라미드를 쌓았어요. 사막에는 피라미드가 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:desert:GO",
+     "formDependent": false,
+     "clueKo": "사막으로 가야 해요.",
+     "hintKo": "사막으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:chiseled_sandstone:WATCH|IN_BIOME:minecraft:desert,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 사막에서 조각된 사암을 일 초 동안 바라봐야 해요.",
+     "hintKo": "낮에 사막에서 조각된 사암을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:sandstone:MINE>CRAFT:minecraft:cut_sandstone:CRAFT",
+     "formDependent": true,
+     "clueKo": "사암을 여덟 개 캐서 깎인 사암을 여덟 개 만들어야 해요.",
+     "hintKo": "사암을 캐서 깎인 사암을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:cut_sandstone:STACK",
+     "formDependent": false,
+     "clueKo": "깎인 사암으로 피라미드를 쌓아야 해요.",
+     "hintKo": "깎인 사암으로 피라미드를 쌓아요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "bibliothekpfad",
+   "title": "도서관의 길",
+   "order": 111,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L4.myeon",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.eul_reul"
+   ],
+   "finaleKo": "마법이 부여된 책을 구했어요. 책장은 마법의 힘을 키워 줘요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:dark_forest:GO|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 어두운 숲으로 가야 해요.",
+     "hintKo": "낮에 어두운 숲으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:WALL/2:minecraft:bookshelf:STACK|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 책장으로 벽을 쌓아야 해요.",
+     "hintKo": "비가 올 때 책장으로 벽을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:enchanting_table:OPEN|NEAR_BLOCK:minecraft:bookshelf,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 책장 근처에서 마법 부여대를 열어야 해요.",
+     "hintKo": "밤에 책장 근처에서 마법 부여대를 열어요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:enchanted_book:OBTAIN",
+     "formDependent": false,
+     "clueKo": "마법이 부여된 책을 구해야 해요.",
+     "hintKo": "마법이 부여된 책을 구해요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "leuchtturmpfad",
+   "title": "등대의 길",
+   "order": 112,
+   "koreanLevel": 4,
+   "grammar": [
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L4.eoya_haeyo",
+    "L1.loc_wi_e",
+    "L4.myeon",
+    "L2.euro_direction",
+    "L2.num_sino"
+   ],
+   "finaleKo": "맑을 때 랜턴 근처에서 밤까지 기다렸어요. 랜턴은 어둠을 밝혀요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:white_concrete:STACK",
+     "formDependent": false,
+     "clueKo": "하얀색 콘크리트 세 개로 기둥을 쌓아야 해요.",
+     "hintKo": "하얀색 콘크리트로 기둥을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:lantern:ON_TOP_OF:PILLAR/minecraft:white_concrete:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 하얀색 콘크리트 기둥 위에 랜턴을 놓아야 해요.",
+     "hintKo": "밤에 하얀색 콘크리트 기둥 위에 랜턴을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "WALK",
+     "signature": "WALK:NORTH:GO|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 북쪽으로 이십 블록 가야 해요.",
+     "hintKo": "저녁에 북쪽으로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:lantern,WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 랜턴 근처에서 밤까지 기다려야 해요.",
+     "hintKo": "맑을 때 랜턴 근처에서 밤까지 기다려요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "drachenhort",
+   "title": "엔드 도시의 보물",
+   "order": 113,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.num_sino"
+   ],
+   "finaleKo": "셜커 상자를 만들었어요. 셜커 상자는 색이 다양해요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:end_highlands:GO",
+     "formDependent": false,
+     "clueKo": "엔드 고지로 가야 해요.",
+     "hintKo": "엔드 고지로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:shulker:WATCH",
+     "formDependent": false,
+     "clueKo": "셜커를 일 초 동안 바라봐야 해요.",
+     "hintKo": "셜커를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:purpur_block:BREAK",
+     "formDependent": false,
+     "clueKo": "퍼퍼 블록을 여섯 개 부숴야 해요.",
+     "hintKo": "퍼퍼 블록을 부숴요."
+    },
+    {
+     "id": "s4",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:shulker:DEFEAT",
+     "formDependent": false,
+     "clueKo": "셜커를 두 마리 물리쳐야 해요.",
+     "hintKo": "셜커를 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:shulker_box:CRAFT",
+     "formDependent": false,
+     "clueKo": "셜커 상자를 만들어야 해요.",
+     "hintKo": "셜커 상자를 만들어요."
+    }
+   ],
+   "formDependentSteps": 0
+  },
+  {
+   "id": "tempelwaechter",
+   "title": "신전의 수호자",
+   "order": 114,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L4.myeon",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "물속에서 가디언을 물리쳤어요. 가디언은 바다 신전을 지켜요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:deep_ocean:GO|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 깊은 바다로 가야 해요.",
+     "hintKo": "비가 올 때 깊은 바다로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:guardian:WATCH|IN_WATER",
+     "formDependent": false,
+     "clueKo": "물속에서 가디언을 일 초 동안 바라봐야 해요.",
+     "hintKo": "물속에서 가디언을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:prismarine:MINE|IN_WATER",
+     "formDependent": false,
+     "clueKo": "물속에서 프리즈머린을 여섯 개 캐야 해요.",
+     "hintKo": "물속에서 프리즈머린을 캐요."
+    },
+    {
+     "id": "s4",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:prismarine_wall:CRAFT",
+     "formDependent": false,
+     "clueKo": "프리즈머린 담장을 여섯 개 만들어야 해요.",
+     "hintKo": "프리즈머린 담장을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:guardian:DEFEAT|IN_WATER",
+     "formDependent": false,
+     "clueKo": "물속에서 가디언을 한 마리 물리쳐야 해요.",
+     "hintKo": "물속에서 가디언을 물리쳐요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "sternenkarte",
+   "title": "별자리 지도",
+   "order": 115,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L2.go_state",
+    "L2.go_sequence"
+   ],
+   "finaleKo": "지도를 들고 지도 제작대를 열었어요. 지도는 길을 알려 줘요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:cartography_table:CRAFT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 지도 제작대를 만들어야 해요.",
+     "hintKo": "맑을 때 지도 제작대를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:NORTH:GO|HOLDING:minecraft:compass",
+     "formDependent": false,
+     "clueKo": "나침반을 들고 북쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "나침반을 들고 북쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|FACING:NORTH,HOLDING:minecraft:spyglass,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 망원경을 들고 북쪽을 보고 십 초 동안 기다려야 해요.",
+     "hintKo": "밤에 망원경을 들고 북쪽을 보고 잠깐 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:cartography_table:OPEN|HOLDING:minecraft:map",
+     "formDependent": false,
+     "clueKo": "지도를 들고 지도 제작대를 열어야 해요.",
+     "hintKo": "지도를 들고 지도 제작대를 열어요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "handelsflotte",
+   "title": "무역선의 길",
+   "order": 116,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.e_place",
+    "L4.myeon",
+    "L1.eul_reul",
+    "L2.ege",
+    "L1.loc_an_e"
+   ],
+   "finaleKo": "낮에 회색 현수막을 걸었어요. 현수막은 천으로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "MOUNT",
+     "signature": "MOUNT:minecraft:cherry_boat:SIT|IN_BIOME:#minecraft:is_ocean,WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 바다에서 배에 앉아야 해요.",
+     "hintKo": "맑을 때 바다에서 배에 앉아요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:salmon:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 물고기를 여섯 마리 팔아야 해요.",
+     "hintKo": "주민에게 물고기를 팔아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:tropical_fish>minecraft:barrel:PUT_IN",
+     "formDependent": false,
+     "clueKo": "통 안에 물고기를 네 마리 넣어야 해요.",
+     "hintKo": "통 안에 물고기를 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:gray_banner:HANG|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 회색 현수막을 걸어야 해요.",
+     "hintKo": "낮에 회색 현수막을 걸어요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "adv_nether_all_effects",
+   "title": "어쩌다 이 지경까지",
+   "order": 287,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L3.jima",
+    "L3.eun_hue"
+   ],
+   "finaleKo": "물약을 마신 후에 황금 사과를 먹었어요. 우유는 물약의 효과를 없애요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:potion:COLLECT",
+     "formDependent": false,
+     "clueKo": "물약을 두 병 모아야 해요.",
+     "hintKo": "물약을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:golden_apple:OBTAIN",
+     "formDependent": false,
+     "clueKo": "황금 사과를 구해야 해요.",
+     "hintKo": "황금 사과를 구해요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:CONSUME_ITEM:minecraft:milk_bucket:DRINK",
+     "formDependent": true,
+     "clueKo": "우유를 마시지 마세요.",
+     "hintKo": "우유를 마시지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CONSUME_ITEM:minecraft:potion:DRINK>CONSUME_ITEM:minecraft:golden_apple:EAT",
+     "formDependent": true,
+     "clueKo": "물약을 마신 후에 황금 사과를 먹어야 해요.",
+     "hintKo": "물약을 마신 후에 황금 사과를 먹어요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_nether_create_full_beacon",
+   "title": "신호자",
+   "order": 292,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "밖에서 신호기를 열었어요. 신호기는 하늘로 빛을 보내요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_block:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 철 블록을 열 개 만들어야 해요.",
+     "hintKo": "낮에 철 블록을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:iron_block:STACK",
+     "formDependent": false,
+     "clueKo": "철 블록으로 피라미드를 쌓아야 해요.",
+     "hintKo": "철 블록으로 피라미드를 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:beacon:ON_TOP_OF:minecraft:iron_block:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 철 블록 위에 신호기를 놓아야 해요.",
+     "hintKo": "밤에 철 블록 위에 신호기를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:beacon:OPEN|SKY:OPEN",
+     "formDependent": false,
+     "clueKo": "밖에서 신호기를 열어야 해요.",
+     "hintKo": "밖에서 신호기를 열어요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_story_enter_the_end",
+   "title": "이걸로 끝이야?",
+   "order": 313,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.num_sino",
+    "L1.euro_direction"
+   ],
+   "finaleKo": "엔드에 도착했어요. 엔드에는 드래곤이 살아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ender_eye:COLLECT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 엔더의 눈을 열두 개 모아야 해요.",
+     "hintKo": "밤에 엔더의 눈을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:silverfish:WATCH|Y_RANGE:-64..50",
+     "formDependent": false,
+     "clueKo": "땅속에서 좀벌레를 일 초 동안 바라봐야 해요.",
+     "hintKo": "땅속에서 좀벌레를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:stone_bricks:BREAK|Y_RANGE:-64..50",
+     "formDependent": false,
+     "clueKo": "땅속에서 석재 벽돌을 네 개 부숴야 해요.",
+     "hintKo": "땅속에서 석재 벽돌을 부숴요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_DIMENSION",
+     "signature": "REACH_DIMENSION:minecraft:the_end:GO",
+     "formDependent": false,
+     "clueKo": "엔드로 가야 해요.",
+     "hintKo": "엔드로 가요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "wolkenpfad",
+   "title": "구름의 길",
+   "order": 545,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L4.myeon",
+    "L2.eseo_activity",
+    "L2.euro_direction",
+    "L1.eul_reul",
+    "L2.euro_material",
+    "L2.num_sino",
+    "L1.obj_eul"
+   ],
+   "finaleKo": "석영 블록으로 계단을 쌓았어요. 구름은 하늘에 떠 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|SKY:OPEN,WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 밖에서 높이 150블록 위로 올라가야 해요.",
+     "hintKo": "맑을 때 밖에서 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "FALL",
+     "signature": "FALL:minecraft:slime_block:JUMP_DOWN",
+     "formDependent": false,
+     "clueKo": "높은 곳에서 슬라임 블록 위로 뛰어내려야 해요.",
+     "hintKo": "높은 곳에서 슬라임 블록 위로 뛰어내려요."
+    },
+    {
+     "id": "s3",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:bow:minecraft:target:HIT:far|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 이십 블록 이상 떨어진 곳에서 활로 과녁을 맞혀야 해요.",
+     "hintKo": "낮에 멀리서 활로 과녁을 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:STAIRS/3:minecraft:quartz_block:STACK",
+     "formDependent": false,
+     "clueKo": "석영 블록으로 계단을 쌓아야 해요.",
+     "hintKo": "석영 블록으로 계단을 쌓아요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "unendlichereise",
+   "title": "끝없는 여행",
+   "order": 550,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L4.myeon",
+    "L4.eureo_gayo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "저녁에 서쪽으로 팔십 블록 갔어요. 해는 서쪽으로 져요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:SOUTH:GO|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 남쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "낮에 남쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:meadow:GO>BREAK_BLOCK:minecraft:poppy:SNAP|IN_BIOME:minecraft:meadow,WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 꽃을 세 송이 꺾으러 목초지로 가야 해요.",
+     "hintKo": "맑을 때 꽃을 꺾으러 목초지로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "SWIM",
+     "signature": "SWIM::SWIM|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 물에서 사십 블록 수영해야 해요.",
+     "hintKo": "비가 올 때 물에서 수영해요."
+    },
+    {
+     "id": "finale",
+     "goal": "WALK",
+     "signature": "WALK:WEST:GO|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 서쪽으로 삼십오 블록 가야 해요.",
+     "hintKo": "저녁에 서쪽으로 가요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "reisekrone",
+   "title": "여행의 왕관",
+   "order": 570,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eureo_gayo",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L4.myeon"
+   ],
+   "finaleKo": "거북 등딱지를 썼어요. 거북은 느려요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:sunflower_plains:GO>BREAK_BLOCK:minecraft:sunflower:SNAP|IN_BIOME:minecraft:sunflower_plains,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 해바라기를 두 송이 꺾으러 해바라기 평원으로 가야 해요.",
+     "hintKo": "낮에 해바라기를 꺾으러 해바라기 평원으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:turtle_scute:COLLECT",
+     "formDependent": false,
+     "clueKo": "거북 인갑을 다섯 개 모아야 해요.",
+     "hintKo": "거북 인갑을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:turtle_helmet:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 거북 등딱지를 만들어야 해요.",
+     "hintKo": "낮에 거북 등딱지를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:turtle_helmet:WEAR_HEAD",
+     "formDependent": false,
+     "clueKo": "거북 등딱지를 써야 해요.",
+     "hintKo": "거북 등딱지를 써요."
+    }
+   ],
+   "formDependentSteps": 2
+  }
+ ]
+}

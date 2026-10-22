@@ -6,8 +6,7 @@
  "tier": 2,
  "order": 292,
  "concepts": [
-  "gen_dead_bush",
-  "gold_block",
+  "iron_block",
   "beacon"
  ],
  "requires": {
@@ -21,27 +20,52 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dead_bush"
+    "iron_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dead_bush",
-    "count": 9
-   }
+    "type": "CRAFT",
+    "item": "minecraft:iron_block",
+    "count": 10
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gold_block"
+    "iron_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gold_block",
-    "count": 9
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:iron_block",
+    "size": 3
    },
-   "hint": {
-    "ko": "금 블록을 아홉 개 놓아요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "beacon",
+    "iron_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:beacon",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:iron_block",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
@@ -54,20 +78,30 @@
     "type": "USE_BLOCK",
     "block": "minecraft:beacon"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "신호기를 사용해서 효과를 골라요."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
-  "textKo": "네 층 신호기가 완성됐어요! 온 마을이 이 빛을 봐요."
+  "textKo": "밖에서 신호기를 열었어요. 신호기는 하늘로 빛을 보내요."
  },
  "reward": {
   "badge": "adv_nether_create_full_beacon",
   "words": [
    "iron_block",
-   "gold_block",
    "beacon"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L2.eseo_activity"
+ ]
 }

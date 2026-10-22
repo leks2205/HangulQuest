@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 114,
  "concepts": [
-  "gen_white_concrete",
-  "gen_closed_eyeblossom",
-  "gen_exposed_copper_trapdoor",
-  "gen_waxed_oxidized_copper_chain"
+  "gen_deep_ocean",
+  "gen_guardian",
+  "gen_prismarine",
+  "gen_prismarine_wall"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,66 +23,100 @@
   {
    "id": "s1",
    "teach": [
-    "gen_white_concrete"
+    "gen_deep_ocean"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_concrete",
-    "count": 1
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:deep_ocean",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_closed_eyeblossom"
+    "gen_guardian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:closed_eyeblossom",
-    "count": 4
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:guardian",
+    "dwellMs": 1000
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "IN_WATER"
     }
    ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_copper_trapdoor"
+    "gen_prismarine"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper_trapdoor",
-    "count": 1
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:prismarine",
+    "count": 6
+   },
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_prismarine_wall"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:prismarine_wall",
+    "count": 6
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_chain"
+    "gen_guardian"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_chain",
-    "count": 2
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:guardian",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   },
-  "textKo": "밀랍칠한 산화된 구리 사슬을 두 개 놓았어요."
+  "textKo": "물속에서 가디언을 물리쳤어요. 가디언은 바다 신전을 지켜요."
  },
  "reward": {
   "badge": "tempelwaechter",
   "words": [
-   "zombie",
-   "torch",
-   "bell",
-   "lantern"
+   "gen_deep_ocean",
+   "gen_guardian",
+   "gen_prismarine",
+   "gen_prismarine_wall"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L4.myeon",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L2.eseo_activity"
+ ]
 }

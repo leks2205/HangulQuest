@@ -7,7 +7,8 @@
  "order": 287,
  "concepts": [
   "adv_item_potion",
-  "golden_apple"
+  "golden_apple",
+  "milk"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -25,51 +26,80 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:potion",
-    "count": 3
+    "count": 2
    },
-   "hint": {
-    "ko": "양조기로 물약 세 개를 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_potion"
+    "golden_apple"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:potion",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:golden_apple",
     "count": 1
    },
-   "hint": {
-    "ko": "물약을 마셔요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "CONSUME_ITEM",
+     "item": "minecraft:milk_bucket",
+     "count": 1
+    },
+    "windowSeconds": 60
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
+    "adv_item_potion",
     "golden_apple"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:golden_apple",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:potion",
+      "count": 1
+     },
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:golden_apple",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "황금 사과를 먹어요."
-   }
+   "conditions": []
   },
-  "textKo": "온몸이 물약 효과로 가득해요. 이게 바로 전부 모은 맛이에요!"
+  "textKo": "물약을 마신 후에 황금 사과를 먹었어요. 우유는 물약의 효과를 없애요."
  },
  "reward": {
   "badge": "adv_nether_all_effects",
   "words": [
    "adv_item_potion",
-   "golden_apple"
+   "golden_apple",
+   "milk"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L3.jima",
+  "L3.eun_hue"
+ ]
 }

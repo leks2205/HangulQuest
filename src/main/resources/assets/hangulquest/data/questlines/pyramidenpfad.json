@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 110,
  "concepts": [
-  "gen_stony_shore",
+  "desert",
+  "gen_chiseled_sandstone",
   "sandstone",
-  "gen_prismarine_wall",
-  "gen_cherry_log"
+  "gen_cut_sandstone"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -23,65 +23,96 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stony_shore"
+    "desert"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:stony_shore",
+    "biome": "minecraft:desert",
     "dwellMs": 1000
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "sandstone"
+    "gen_chiseled_sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sandstone",
-    "count": 6
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:chiseled_sandstone",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:desert"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_prismarine_wall"
+    "sandstone",
+    "gen_cut_sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:prismarine_wall",
-    "count": 3
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:sandstone",
+      "count": 8
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:cut_sandstone",
+      "count": 8
+     }
+    ],
+    "ordered": true,
+    "connector": "EOSEO"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_log"
+    "gen_cut_sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_log",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:cut_sandstone",
+    "size": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 벚나무 원목을 세 개 놓았어요."
+  "textKo": "깎인 사암으로 피라미드를 쌓았어요. 사막에는 피라미드가 있어요."
  },
  "reward": {
   "badge": "pyramidenpfad",
   "words": [
    "desert",
+   "gen_chiseled_sandstone",
    "sandstone",
-   "chest",
-   "torch"
+   "gen_cut_sandstone"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L4.myeon",
+  "L4.eoseo",
+  "L2.euro_material",
+  "L1.obj_eul"
+ ]
 }
