@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the optional "Hangul Quest Voices" resource pack from rendered clips.
 
-  build_pack.py [--out <render dir>] [--dist <folder>] [--texts texts.jsonl] [--blocklist extra.json ...]
+  build_pack.py [--out <render dir>] [--dist <folder>] [--texts texts.jsonl] [--words-only] [--blocklist extra.json ...]
 
 Layout (resource pack format 97 for Minecraft 26.3):
   pack.mcmeta
@@ -52,7 +52,7 @@ def load_blocklists(paths):
     return blocked
 
 
-def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None):
+def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None, words_only=False):
     manifest = json.loads((render_dir / "manifest.json").read_text(encoding="utf-8"))
     blocked = load_blocklists([render_dir / "audio-blocklist.json", *extra_blocklists])
 
@@ -64,6 +64,8 @@ def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None):
             if (voice, cid) in blocked or not src.exists() or not SAFE.fullmatch(cid):
                 continue
             if current is not None and current.get(cid) != entry.get("text_sha1"):
+                continue
+            if words_only and not cid.startswith("word."):
                 continue
             events.setdefault(cid, {"sounds": []})["sounds"].append({"name": f"hangulquest:ko/{voice}/{cid}"})
             files.append((src, f"assets/hangulquest/sounds/ko/{voice}/{cid}.ogg"))
@@ -108,8 +110,10 @@ def main():
     ap.add_argument("--dist", default=str(DIST))
     ap.add_argument("--texts", help="JSONL of the current texts; clips of other texts are left out")
     ap.add_argument("--blocklist", nargs="*", default=[])
+    ap.add_argument("--words-only", action="store_true",
+                    help="leave sentence clips out (the mod plays only word.* events so far)")
     args = ap.parse_args()
-    build(Path(args.out), Path(args.dist), args.blocklist, args.texts)
+    build(Path(args.out), Path(args.dist), args.blocklist, args.texts, args.words_only)
 
 
 if __name__ == "__main__":

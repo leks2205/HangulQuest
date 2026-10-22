@@ -79,3 +79,8 @@ clip. `render.py` skips cached clips, so only new or reworded texts render; `ren
 reuses earlier results. `build_pack.py --texts` leaves out clips of texts that no longer exist.
 Memory: batch 4 (`--batch 4`) and `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` keep long sentences within
 about 8 GB when another model shares the GPU.
+
+**Shipped pack: words only.** The mod plays only `word.*` events so far, so the pack is built with
+`build_pack.py --texts texts.jsonl --words-only`: about 41 MB and 4,541 clips, instead of 108 MB with the sentence
+clips. Sentence clips stay rendered in the cache. Drop `--words-only` once something plays them (word cards with
+example sentences, shadowing).

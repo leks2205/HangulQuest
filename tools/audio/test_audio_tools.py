@@ -63,7 +63,7 @@ class PackBuild(unittest.TestCase):
         for voice in ("sohee", "male1"):
             (root / voice).mkdir()
             ents = {}
-            for cid, ko in (("word.stone", "돌"), ("word.dirt", "흙")):
+            for cid, ko in (("word.stone", "돌"), ("word.dirt", "흙"), ("sentence.abc123", "돌을 캐요.")):
                 h = common.sha1(ko, voice, "m")
                 (root / voice / f"{h}.ogg").write_bytes(b"OggS" + voice.encode())
                 ents[cid] = {"hash": h, "text_sha1": common.sha1(ko), "ko": ko}
@@ -107,6 +107,20 @@ class PackBuild(unittest.TestCase):
             with zipfile.ZipFile(build_pack.build(root, dist)) as zf:
                 text = (zf.read("manifest.json") + zf.read("NOTICE.txt")).decode("utf-8")
             self.assertNotIn("/home/", text)
+
+    def test_words_only_pack_leaves_sentence_clips_out(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, dist = Path(tmp) / "out", Path(tmp) / "dist"
+            root.mkdir()
+            self.make_render(root)
+            with zipfile.ZipFile(build_pack.build(root, dist, words_only=True)) as zf:
+                sounds = json.loads(zf.read("assets/hangulquest/sounds.json"))
+                names = zf.namelist()
+            self.assertIn("word.stone", sounds)
+            self.assertNotIn("sentence.abc123", sounds)
+            self.assertNotIn("assets/hangulquest/sounds/ko/male1/sentence.abc123.ogg", names)
+            with zipfile.ZipFile(build_pack.build(root, dist)) as zf:
+                self.assertIn("sentence.abc123", json.loads(zf.read("assets/hangulquest/sounds.json")))
 
     def test_pack_drops_clips_of_texts_that_changed_or_are_gone(self):
         with tempfile.TemporaryDirectory() as tmp:
