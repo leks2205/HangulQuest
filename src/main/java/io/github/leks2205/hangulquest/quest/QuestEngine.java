@@ -233,7 +233,12 @@ public final class QuestEngine {
 				: Accepted.of(key, catalog.concept(key.teach().get(0)).orElse(null)));
 	}
 
-	/** What follows a finished trail (also the hook the graph test calls). */
+	/** What follows a finished focused trail (the hook the graph test calls). */
+	private void advanceAfterCompletion(String completedId, Observation obs, Feedback feedback) {
+		advanceAfterCompletion(completedId, obs, feedback, true);
+	}
+
+	/** What follows a finished trail. */
 	private void advanceAfterCompletion(String completedId, Observation obs, Feedback feedback, boolean focused) {
 		next.afterCompletion(completedId, obs, feedback, focused);
 	}

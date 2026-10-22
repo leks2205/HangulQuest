@@ -168,6 +168,25 @@ class QuestPickerTest {
 		assertEquals("wood2", engine.focusedId(), "the finished trail was the focused one: its follow-up takes over");
 		assertTrue(engine.isAutoTracked("wood2"));
 		assertTrue(hud.choices.isEmpty(), "no popup in the automatic mode");
+		assertEquals("next:wood2|다음 퀘스트: wood2", hud.notices.get(hud.notices.size() - 1),
+				"announced as a notice window with the repeat guard of the trail");
+	}
+
+	@Test
+	void theNextQuestPopupDoesNotRunOutWhileWindowsWaitForTheHintKey() {
+		QuestEngine engine = engine(trail("t", 5, "나무"), trail("c1", 100, 1, "돌", List.of("t")),
+				trail("c2", 101, 1, "음식", List.of("t")));
+		engine.setAutoPick(() -> false);
+		engine.setPopupsExpire(() -> false);
+		engine.startTrail("t", obs(1_000), hud);
+		finish(engine, "t", 2_000, hud);
+		assertEquals(2, engine.pendingNextChoices().size());
+
+		engine.tick(obs(2_050 + NextQuestPolicy.OFFER_MS * 10), hud);
+
+		assertEquals(2, engine.pendingNextChoices().size(), "answerable until the player picks");
+		engine.setPopupsExpire(() -> true);
+		assertTrue(engine.pendingNextChoices().isEmpty(), "with automatic closing on it runs out as before");
 	}
 
 	@Test

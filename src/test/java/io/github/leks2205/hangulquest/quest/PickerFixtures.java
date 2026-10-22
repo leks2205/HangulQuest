@@ -92,6 +92,8 @@ final class PickerFixtures {
 		final List<List<String>> autoTracked = new ArrayList<>();
 		final List<AutoReason> reasons = new ArrayList<>();
 		final List<String> situational = new ArrayList<>();
+		/** key and Korean title of every notice window. */
+		final List<String> notices = new ArrayList<>();
 		final List<List<Questline>> choices = new ArrayList<>();
 
 		@Override
@@ -105,6 +107,11 @@ final class PickerFixtures {
 
 		@Override
 		public void sound(boolean success) {
+		}
+
+		@Override
+		public void notice(String key, String titleKo, String titleText, String bodyKo, String bodyText) {
+			notices.add(key + "|" + titleKo);
 		}
 
 		@Override
