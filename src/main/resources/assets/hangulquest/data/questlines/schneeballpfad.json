@@ -7,7 +7,7 @@
  "order": 101,
  "concepts": [
   "snowball",
-  "snow"
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -42,18 +42,12 @@
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "snow_block"
    ],
    "goal": {
     "type": "CRAFT",
     "item": "minecraft:snow_block",
     "count": 1
-   },
-   "clue": {
-    "ko": "눈 블록을 만들어요."
-   },
-   "hint": {
-    "ko": "눈 블록을 만들어요."
    }
   }
  ],
@@ -61,19 +55,13 @@
   "step": {
    "id": "finale",
    "teach": [
-    "snow"
+    "snow_block"
    ],
    "goal": {
     "type": "BUILD_PATTERN",
     "pattern": "PILLAR",
     "material": "minecraft:snow_block",
     "size": 3
-   },
-   "clue": {
-    "ko": "눈 블록 세 개로 기둥을 쌓아요."
-   },
-   "hint": {
-    "ko": "눈 블록으로 기둥을 쌓아요."
    }
   },
   "textKo": "눈 블록 세 개로 기둥을 쌓았어요."
