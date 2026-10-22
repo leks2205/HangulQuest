@@ -19,8 +19,8 @@ gold one, then ask.
    `돌 = 땅에서 나와요. 단단해요.` — "comes out of the ground, is hard". Written with tier-1 vocabulary
    on purpose, and validated as Hangul-only.
 3. **A sidequest.** Two questions about that word:
-   - Korean word + icon → pick the German meaning,
-   - German meaning + icon → pick the Korean word.
+   - Korean word + icon → pick the meaning in your language,
+   - the meaning + icon → pick the Korean word.
 
 ## The sidequest
 
@@ -30,8 +30,8 @@ gold one, then ask.
   did not understand.
 - A wrong answer does not punish you. It shows the word card, reduces the choices to two and lets you
   try again.
-- Correct answers give at most **+1 SRS level**. Practice — sidequests and ambient word cards — never
-  demotes a word, so guessing costs nothing.
+- Practice — sidequests and ambient word cards — is exposure, not an exam: it never counts against a word's
+  schedule, so guessing costs nothing.
 - Both questions answered and the original step returns with a short Korean confirmation and a
   `사이드 퀘스트 완료!` card.
 
@@ -39,10 +39,16 @@ gold one, then ask.
 
 The sidequest is skipped and you just get the hint, if the word is:
 
-- **mastered in the mod** (SRS level 6), or
+- **mastered in the mod**, or
 - marked **known in Lute** (status 99).
 
 You asked for a hint, not a lesson — the mod respects that.
+
+## Closing a hint
+
+A hint is a window, and windows stay until you close them. The first press of `H` shows the hint; once it is open,
+the next press of `H` only closes it. That press is not a hint request and changes nothing about the step. If several
+windows are waiting, each press closes one and a "+N" badge counts the rest.
 
 ## One hint per step
 
@@ -61,11 +67,11 @@ puzzle, not a reading exercise.
 ## Translations in quests
 
 By default the quest text is Korean only: tracker, step cards, sidequest, finale. The journal's
-**Optionen** tab has *Übersetzungen in Quests* (*Translations in quests*), which adds one line under each
-Korean one — in English or German, whichever *Sprache* is set to. Turn it on for the first week, then off;
+**Settings** tab has *Translations in quests*, which adds one line under each
+Korean one in the interface language (English, German, Spanish or French). Turn it on for the first week, then off;
 the point is to stop needing it.
 
-The **Danger of overuse:** if you leave the German line on, your eyes will read it first. The mod cannot
+The **danger of overuse:** if you leave the translation line on, your eyes will read it first. The mod cannot
 stop you, but the hint key is the intended crutch, and it is a slower one.
 
 ## Reading the hint like a teacher

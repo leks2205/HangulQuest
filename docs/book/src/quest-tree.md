@@ -11,9 +11,9 @@ This page is generated from the content itself, so the numbers below are what th
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
-| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
+| Vocabulary | hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
 
-A trail's `koreanLevel` is the TOPIK band of its depth: levels 1–3 speak polite Korean, 4–6 add obligation, 7–9 emphatic forms, 10–12 the double negative, 13–15 literary forms and 16 and deeper the `-(으)ㄹ 수밖에 없어요` band.
+A trail's `koreanLevel` (1 to 6) follows its depth in the tree and picks the instruction ending of `data/ladder.json`: level 1 speaks `-아/어요`, levels 2 and 3 `-(으)세요`, levels 4 to 6 `-아/어야 해요` (level 6 may use `-(으)ㄹ 수밖에 없어요` where a sentence states a forced conclusion).
 
 ## Goals and conditions
 

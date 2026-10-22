@@ -79,5 +79,5 @@ The import reads a file you exported and does not talk to Lute or to any server.
 
 ## Changes
 
-This page describes 1.0.0. If a future version ever needs the network for anything, it will be opt-in,
+This page describes 3.0.0. If a future version ever needs the network for anything, it will be opt-in,
 documented here and in the changelog before it ships.

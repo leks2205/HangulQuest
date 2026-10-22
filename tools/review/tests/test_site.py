@@ -67,7 +67,8 @@ class SiteTest(unittest.TestCase):
 
     def test_issue_links_use_the_configured_repo_and_real_form_fields(self):
         forms = {}
-        for path in (ROOT / ".github" / "ISSUE_TEMPLATE").glob("korean-*.yml"):
+        for path in [*(ROOT / ".github" / "ISSUE_TEMPLATE").glob("korean-*.yml"),
+                     *(ROOT / ".github" / "ISSUE_TEMPLATE").glob("translation-*.yml")]:
             forms[path.name] = set(re.findall(r"^\s+id: (\S+)$", path.read_text(encoding="utf-8"), re.M))
         longest = 0
         seen = set()

@@ -5,10 +5,15 @@ Everything Hangul Quest knows lives in one folder in your instance:
 ```
 config/hangulquest/
 ├── config.json              settings (mirrors the journal's options)
-├── progress.json            words, SRS levels, streak, achievements, trail state
+├── progress.json            the file of 2.x, kept untouched as a copy and a way back
+├── profiles/
+│   └── <account-id>/        one folder per Minecraft account
+│       ├── progress.json    words, review cards, streak, achievements, trail state
+│       ├── reviews.ndjson   the review log
+│       └── backups/         a daily and a weekly copy of progress.json
 ├── questlines/              one JSON per trail, hot-reloaded
 │   ├── _template.json       starting point for your own trail
-│   └── … 420 shipped trails
+│   └── … 422 shipped trails
 └── vocab/
     └── lute-vocab.csv       your Lute export (optional, read-only)
 ```
@@ -18,9 +23,11 @@ On a default installation that is `.minecraft/config/hangulquest/`; with the Fla
 
 ## progress.json
 
-Holds, in plain JSON:
+Each Minecraft account has its own `profiles/<account-id>/progress.json` (the schema is version 4). The first time
+a profile opens, the `progress.json` of an older version is **copied** into it and the old file is left alone, so
+the 2.x file stays a way back. The file holds, in plain JSON:
 
-- every word you have met, its SRS level and when it is due,
+- every word you have met, its review card (stability, difficulty, due time) and its old level,
 - which day keys count for the streak, and your best streak,
 - unlocked achievements with their dates,
 - the focused trail, its step, partial counters, sidequest state and hints used,
@@ -33,11 +40,12 @@ cannot leave a half file.
 
 **Two safety nets:**
 
-- A **format migration** copies the old file first: `progress.v1-backup-<stamp>.json`.
+- A **format migration** copies the old file first: `progress.v<N>-backup-<stamp>.json`, where N is the version
+  it was written in. Daily and weekly copies are kept in `backups/`.
 - An **unreadable file** is renamed to `progress.json.broken-<stamp>` instead of being overwritten, and
   the mod starts fresh. The broken file is still there if you want to salvage it by hand.
 
-The **Fortschritt zurücksetzen** button in the journal writes
+The **Reset progress** button in the journal's settings writes
 `progress.json.backup-pre-reset-<stamp>` before it wipes anything.
 
 ## Making your own copy
@@ -70,12 +78,16 @@ The full set of settings, with the defaults that matter:
 | `quests`, `questTracker` | `true` | quest system and tracker |
 | `questTrackerCorner` | `TOP_LEFT` | corner for the quest log |
 | `questTrackerRows` | `4` | how many quests the log draws at once (1–6) |
-| `language` | `"EN"` | interface language, `"EN"` or `"DE"` |
-| `questTranslations` | `false` | translation line in quests |
+| `language` | `"AUTO"` | interface language: `AUTO` (follows the game) or a code: `en_us`, `de_de`, `es_es`, `fr_fr` |
+| `autoPickQuests` | `true` | the game fills the quest log |
+| `retention`, `newWordsPerDay` | `0.88`, `10` | review settings |
+| `typedCards` | `true` | typed answers on stable words |
+| `audio` | `true` | play voice-pack clips when the pack is installed |
+| `questTranslations` | `false` | translation line in quests (in the interface language) |
 | `journalTranslations` | `false` | translations in the journal |
 | `luteImport` | `true` | read the Lute CSV |
 
-Edit it with the game closed; the journal's **Optionen** tab writes the same file.
+Edit it with the game closed; the journal's **Settings** tab writes the same file.
 
 ## The questline folder
 
