@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
+import io.github.leks2205.hangulquest.quest.goal.Matching;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.spatial.SpatialWorlds;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
@@ -268,6 +269,8 @@ class PlaytestTest {
 					obs.addOpened(g.block());
 				} else if ("CLOSE".equals(g.change())) {
 					obs.addClosed(g.block());
+				} else if ("LIT".equals(g.change()) || g.change() == null && Matching.isCandle(g.block())) {
+					obs.addLit(g.block());
 				}
 				obs.usedBlocks.add(g.block());
 				if (g.block().endsWith("_bed")) {

@@ -105,7 +105,7 @@ class WaveQaTest {
 				String hint = SentenceBuilder.hint(step.goal(), word, step.conditions(), namer);
 				assertFalse(clue.isBlank(), trail.id() + "/" + step.id() + " clue blank");
 				assertFalse(hint.isBlank(), trail.id() + "/" + step.id() + " hint blank");
-				assertTrue(clue.contains(word.ko) || step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.UseBlock,
+				assertTrue(SentenceBuilder.mentions(clue, word) || step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.UseBlock,
 						trail.id() + "/" + step.id() + " clue omits the taught word: " + clue);
 				if (!(step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.UseBlock)
 						&& !(step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.InteractEntity)) {

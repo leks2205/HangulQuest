@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "comment": "Which Korean verb fits which object. 밝히다 (LIGHT) is not chosen for any block: a torch is placed (놓다), a candle is switched on (켜다), a campfire or a fire is kindled (피우다). Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
+ "comment": "Which Korean verb fits which object. 밝히다 (LIGHT) is not chosen for any block: a torch is placed (놓다), a candle is switched on (켜다), a campfire or a fire is kindled (피우다). USE_BLOCK: a block with a screen is opened (열다), the rest has its own verb (jukebox 틀다, respawn anchor 충전하다, hive 수확하다, composter 채우다, grass 갈다), and what is left (a lectern, a lodestone, a target) is operated (사용하다); 쓰다 is no default any more because it reads as write or wear. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
  "families": {
   "ores": ["*_ore", "ancient_debris"],
   "natural_stone": ["stone", "cobblestone", "deepslate", "cobbled_deepslate", "granite", "diorite", "andesite", "tuff", "calcite", "basalt", "smooth_basalt", "blackstone", "netherrack", "end_stone", "obsidian", "crying_obsidian", "sandstone", "red_sandstone", "sulfur", "cinnabar", "magma_block", "prismarine", "dripstone_block", "pointed_dripstone"],
@@ -29,7 +29,13 @@
   "throwables": ["wind_charge", "ender_pearl", "snowball", "egg", "fire_charge"],
   "pressables": ["*_button"],
   "pullables": ["lever"],
-  "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand"],
+  "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand", "crafting_table", "smithing_table", "cartography_table", "enchanting_table", "anvil", "chipped_anvil", "damaged_anvil", "stonecutter", "grindstone", "loom", "fletching_table", "beacon"],
+  "jukeboxes": ["jukebox"],
+  "anchors": ["respawn_anchor"],
+  "bulbs": ["copper_bulb", "*_copper_bulb"],
+  "hives": ["beehive", "bee_nest"],
+  "fillables": ["composter", "cauldron", "flower_pot", "decorated_pot"],
+  "tillable": ["grass_block", "dirt", "coarse_dirt", "rooted_dirt", "dirt_path"],
   "bells": ["bell"],
   "notes": ["note_block"],
   "beds": ["*_bed"],
@@ -87,7 +93,13 @@
    {"family": "pressables", "verb": "PRESS"},
    {"family": "pullables", "verb": "FLIP"},
    {"family": "openables", "verb": "OPEN"},
-   {"verb": "USE"}
+   {"family": "jukeboxes", "verb": "PLAY"},
+   {"family": "anchors", "verb": "CHARGE"},
+   {"family": "bulbs", "verb": "SWITCH_ON"},
+   {"family": "hives", "verb": "HARVEST"},
+   {"family": "fillables", "verb": "FILL"},
+   {"family": "tillable", "verb": "TILL"},
+   {"verb": "OPERATE"}
   ],
   "INTERACT_ENTITY": [
    {"family": "traders", "verb": "TALK"},

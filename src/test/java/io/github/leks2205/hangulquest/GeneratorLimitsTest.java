@@ -316,13 +316,14 @@ class GeneratorLimitsTest {
 	// -------------------------------------------------------------- 7. the sky on the ladder
 
 	@Test
-	void anOpenSkyIsOutsideOnTheFirstTwoLevels() {
+	void anOpenSkyIsOutsideOnTheFirstFourLevels() {
 		Goal bread = new Goal.ConsumeItem("minecraft:bread", 1);
 		Condition open = new Condition.Sky(Condition.SkyState.OPEN);
 		assertEquals("밖에서 빵을 먹어요.", clue(bread, null, 1, open));
 		assertEquals("밖에서 빵을 먹으세요.", clue(bread, null, 2, open));
-		assertEquals("하늘이 보이는 곳에서 빵을 먹으세요.", clue(bread, null, 3, open));
-		assertEquals("하늘이 보이는 곳에서 빵을 먹어야 해요.", clue(bread, null, 4, open));
+		assertEquals("밖에서 빵을 먹으세요.", clue(bread, null, 3, open));
+		assertEquals("밖에서 빵을 먹어야 해요.", clue(bread, null, 4, open));
+		assertEquals("하늘이 보이는 곳에서 빵을 먹어야 해요.", clue(bread, null, 5, open));
 		// the easy hint is level 1
 		assertEquals("밖에서 빵을 먹어요.", SentenceBuilder.hint(bread, null, List.of(open), NAMER));
 		// a roof is the same on every level
@@ -333,14 +334,14 @@ class GeneratorLimitsTest {
 	}
 
 	@Test
-	void theLongSkyPhraseCarriesItsLevelThreeGrammarOnlyFromLevelThree() {
+	void theLongSkyPhraseCarriesItsAdnominalGrammarOnlyFromLevelFive() {
 		Goal bread = new Goal.ConsumeItem("minecraft:bread", 1);
 		List<Condition> open = List.of(new Condition.Sky(Condition.SkyState.OPEN));
-		for (int level = 1; level <= 2; level++) {
-			assertFalse(SentenceBuilder.grammar(bread, null, open, level, false, NAMER).contains("L3.neun_attr"),
+		for (int level = 1; level <= 4; level++) {
+			assertFalse(SentenceBuilder.grammar(bread, null, open, level, false, NAMER).contains("L5.adn_present_neun"),
 					"level " + level);
 		}
-		assertTrue(SentenceBuilder.grammar(bread, null, open, 3, false, NAMER).contains("L3.neun_attr"));
+		assertTrue(SentenceBuilder.grammar(bread, null, open, 5, false, NAMER).contains("L5.adn_present_neun"));
 	}
 
 	// --------------------------------------------------------------------- 8. the note block

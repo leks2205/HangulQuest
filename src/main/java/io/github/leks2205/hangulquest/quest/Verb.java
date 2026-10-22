@@ -87,7 +87,14 @@ public enum Verb {
 	/** A ring of fence blocks is fenced: 울타리를 쳐요. */
 	FENCE("치다", "umzäunen"),
 	BUY("사다", "kaufen"),
-	SELL("팔다", "verkaufen");
+	SELL("팔다", "verkaufen"),
+
+	// Wave 4: the verbs of the blocks that were all "used" (쓰다) before: operate, play, charge, fill, till.
+	OPERATE("사용하다", "benutzen"),
+	PLAY("틀다", "abspielen"),
+	CHARGE("충전하다", "aufladen"),
+	FILL("채우다", "füllen"),
+	TILL("갈다", "pflügen");
 
 
 	/** How the target noun is marked in front of the verb. */

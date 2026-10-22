@@ -738,9 +738,23 @@ class EnactableVerbsTest {
 		assertFalse(problems(cow, "pig").isEmpty());
 	}
 
+	private static final UUID MOTHER = UUID.randomUUID();
+	private static final UUID FATHER = UUID.randomUUID();
+
+	/** A baby at (1, 64, 1) and the two adults next to it. */
 	private static Observation withBaby(long now, String type, UUID id) {
 		Observation obs = at(now);
+		obs.addEntityPosition(new EntityFact(type, MOTHER, 2, 64, 1, 0F, 0F, false));
+		obs.addEntityPosition(new EntityFact(type, FATHER, 0, 64, 2, 0F, 0F, false));
 		obs.addEntityPosition(new EntityFact(type, id, 1, 64, 1, 0F, 0F, true));
+		return obs;
+	}
+
+	private static Observation feeding(long now, String type, UUID... parents) {
+		Observation obs = at(now);
+		for (UUID parent : parents) {
+			obs.addGave(new GiveFact("minecraft:wheat", 1, type, parent, GiveFact.Method.FEED));
+		}
 		return obs;
 	}
 
@@ -751,9 +765,7 @@ class EnactableVerbsTest {
 		UUID calf = UUID.randomUUID();
 		UUID before = UUID.randomUUID();
 		assertFalse(tick(cow, tracker, withBaby(T0, "minecraft:cow", before)), "a calf that was there before");
-		Observation fed = at(T0 + 1000);
-		fed.addGave(new GiveFact("minecraft:wheat", 1, "minecraft:cow", UUID.randomUUID(), GiveFact.Method.FEED));
-		assertFalse(tick(cow, tracker, fed));
+		assertFalse(tick(cow, tracker, feeding(T0 + 1000, "minecraft:cow", MOTHER, FATHER)));
 		assertFalse(tick(cow, tracker, withBaby(T0 + 2000, "minecraft:cow", before)), "still the old calf");
 		assertFalse(tick(cow, tracker, withBaby(T0 + 20_000, "minecraft:pig", UUID.randomUUID())), "another kind");
 		assertTrue(tick(cow, tracker, withBaby(T0 + 30_000, "minecraft:cow", calf)));
@@ -767,9 +779,7 @@ class EnactableVerbsTest {
 		assertFalse(tick(cow, lonely, withBaby(T0 + 1000, "minecraft:cow", UUID.randomUUID())),
 				"no feeding, so the calf was simply there");
 		GoalEvaluator.Tracker late = new GoalEvaluator.Tracker();
-		Observation fed = at(T0);
-		fed.interactedEntities.add("minecraft:cow");
-		assertFalse(tick(cow, late, fed));
+		assertFalse(tick(cow, late, feeding(T0, "minecraft:cow", MOTHER, FATHER)));
 		assertFalse(tick(cow, late, withBaby(T0 + 300_000L, "minecraft:cow", UUID.randomUUID())));
 	}
 
@@ -778,9 +788,12 @@ class EnactableVerbsTest {
 		Goal cow = new Goal.Breed("minecraft:cow", 1);
 		GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
 		assertFalse(tick(cow, tracker, at(T0)));
-		Observation click = at(T0 + 100);
-		click.interactedEntities.add("minecraft:cow");
-		assertFalse(tick(cow, tracker, click));
+		for (UUID parent : new UUID[] {MOTHER, FATHER}) {
+			Observation click = at(T0 + 100);
+			click.interactedEntities.add("minecraft:cow");
+			click.interactedUuids.add(parent);
+			assertFalse(tick(cow, tracker, click));
+		}
 		assertTrue(tick(cow, tracker, withBaby(T0 + 5000, "minecraft:cow", UUID.randomUUID())));
 	}
 

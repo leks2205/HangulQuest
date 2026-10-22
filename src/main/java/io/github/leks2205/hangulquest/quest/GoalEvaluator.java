@@ -40,6 +40,8 @@ public final class GoalEvaluator {
 		public double distance;
 		public double[] at;
 		public final java.util.Set<String> marks = new java.util.HashSet<>();
+		/** Breed: the animals fed since the step began, by uuid, with where they were last seen (x, y, z; null if not yet). */
+		public final java.util.Map<String, double[]> parents = new java.util.HashMap<>();
 		/** Sticky for the current step: some progress was made in creative or spectator mode. */
 		public boolean assisted;
 		public String goalKey;
@@ -93,6 +95,7 @@ public final class GoalEvaluator {
 			distance = 0;
 			at = null;
 			marks.clear();
+			parents.clear();
 		}
 
 		/** Same as {@link #resetFor(String)} but skips building the key while the goal object is unchanged. */

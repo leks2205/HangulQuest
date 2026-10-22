@@ -229,7 +229,7 @@ class QuestScaffoldTest {
 			String clue = SentenceBuilder.normal(step.goal(), word, step.conditions(), trail.koreanLevel(),
 					"finale".equals(step.id()), KoreanFixtures.namer(catalog));
 			assertTrue(TextClean.isHangulOnly(clue), step.id() + ": " + clue);
-			assertTrue(clue.contains(word.ko), step.id() + " clue omits " + word.ko + ": " + clue);
+			assertTrue(SentenceBuilder.mentions(clue, word), step.id() + " clue omits " + word.ko + ": " + clue);
 		}
 		// The finale is not the same task as any step.
 		Set<String> stepTargets = new HashSet<>();

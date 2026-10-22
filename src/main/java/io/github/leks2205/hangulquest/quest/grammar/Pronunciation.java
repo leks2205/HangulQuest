@@ -17,7 +17,8 @@ import java.util.Set;
  *
  * <p>Inside a word all rules apply. Between two words (a space) only the ones that every speaker makes
  * apply: the final sound, carrying a final over to a vowel, nasalisation of ㄱ ㄷ ㅂ before ㄴ ㅁ, and the
- * ㅎ contact. Tensification and ㄹ rules stay inside the word.
+ * ㅎ contact. Tensification and ㄹ rules stay inside the word. The {@code crossWord} switch of the exceptions
+ * file turns the three assimilations on for all vowels or off ({@link PronunciationExceptions.CrossWord}).
  */
 public final class Pronunciation {
 	/** The rule tags, in the order they are listed. {@link #id()} is what the data files and lang keys use. */
@@ -142,10 +143,10 @@ public final class Pronunciation {
 			List<Syl> right = eojeols.get(i + 1);
 			Syl a = left.get(left.size() - 1);
 			Syl b = right.get(0);
-			if (a.isLiteral() || b.isLiteral()) {
+			if (a.isLiteral() || b.isLiteral() || exceptions.crossWord() == PronunciationExceptions.CrossWord.NONE) {
 				finalise(a, rules);
 			} else {
-				boundary(a, b, Mode.SPACE, false, false, false, rules);
+				boundary(a, b, Mode.SPACE, exceptions.crossWord(), false, false, false, rules);
 			}
 		}
 		StringBuilder out = new StringBuilder();
@@ -263,7 +264,8 @@ public final class Pronunciation {
 					rules.add(Rule.TENSIFICATION);
 				}
 			}
-			boundary(a, b, mode, sino, stemEnding && i == n - 2, readsRieul, rules);
+			boundary(a, b, mode, PronunciationExceptions.CrossWord.MIXED, sino, stemEnding && i == n - 2, readsRieul,
+					rules);
 		}
 		return marked != null || stemEnding;
 	}
@@ -274,8 +276,8 @@ public final class Pronunciation {
 	 * What happens where syllable {@code a} meets {@code b}. The final of {@code a} and the initial of
 	 * {@code b} are changed in place.
 	 */
-	private static void boundary(Syl a, Syl b, Mode mode, boolean sino, boolean stemEnding, boolean readsRieul,
-								 Set<Rule> rules) {
+	private static void boundary(Syl a, Syl b, Mode mode, PronunciationExceptions.CrossWord cross, boolean sino,
+								 boolean stemEnding, boolean readsRieul, Set<Rule> rules) {
 		char j = a.jong;
 		if (j == 0) {
 			return;
@@ -288,7 +290,8 @@ public final class Pronunciation {
 			}
 			// Between words only ㅏ ㅓ ㅗ ㅜ ㅟ carry a final over, and only the sounds that change (밭 아래
 			// [바다래]); a ㄴ ㄹ ㅁ stays where it is
-			if (mode == Mode.SPACE && ("ㅏㅓㅗㅜㅟ".indexOf(b.jung) < 0 || !obstruentFinal(a))) {
+			if (mode == Mode.SPACE && cross != PronunciationExceptions.CrossWord.ALL
+					&& ("ㅏㅓㅗㅜㅟ".indexOf(b.jung) < 0 || !obstruentFinal(a))) {
 				finalise(a, rules);
 				return;
 			}
@@ -297,7 +300,7 @@ public final class Pronunciation {
 		}
 
 		// ㅎ in the final: 놓고 [노코], 좋소 [조쏘], 놓는 [논는]
-		if (within && (j == 'ㅎ' || j == 'ㄶ' || j == 'ㅀ')) {
+		if ((within || cross == PronunciationExceptions.CrossWord.ALL) && (j == 'ㅎ' || j == 'ㄶ' || j == 'ㅀ')) {
 			char rest = j == 'ㅎ' ? 0 : j == 'ㄶ' ? 'ㄴ' : 'ㄹ';
 			char aspirated = c == 'ㄱ' ? 'ㅋ' : c == 'ㄷ' ? 'ㅌ' : c == 'ㅈ' ? 'ㅊ' : 0;
 			if (aspirated != 0) {

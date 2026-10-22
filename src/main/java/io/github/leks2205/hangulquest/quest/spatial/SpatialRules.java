@@ -22,9 +22,10 @@ public final class SpatialRules {
 			"\\b(on top|atop|on|above|over|under|underneath|beneath|below|next to|beside|besides|adjacent|"
 					+ "in front|behind|inside|outside|between|near|nearby|around|within)\\b",
 			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
+	// no "bei": "bei Regen" is a time, not a place
 	private static final java.util.regex.Pattern DE_RELATION = java.util.regex.Pattern.compile(
 			"\\b(oben|auf|über|unter|unterhalb|darunter|darüber|neben|daneben|vor|davor|hinter|dahinter|"
-					+ "innerhalb|innen|drinnen|außerhalb|draußen|zwischen|dazwischen|nahe|nähe|bei)\\b",
+					+ "innerhalb|innen|drinnen|außerhalb|draußen|zwischen|dazwischen|nahe|nähe)\\b",
 			// \\b is ASCII-only without UNICODE_CHARACTER_CLASS: "tagsüber" would hold "über"
 			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
 

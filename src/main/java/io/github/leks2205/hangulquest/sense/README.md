@@ -22,9 +22,10 @@ How far each fact can be trusted when the game runs client-only:
 | `fluidLookWanted` / `lookedBlock` | a second ray that stops at fluid sources, run only while a step looks at water or lava | Reliable within the reach of the player; the vanilla pick alone passes through a pond and sees its floor |
 | `takenOut` | the same slot tally, the other way: the container lost the item and the player's side gained it | Reliable for moves by the player. An item put in a moment before and taken back is no take. A chest minecart has no block, so it counts for no container goal |
 | `openedBlocks`, `closedBlocks` | the `open` state of a clicked door, trapdoor or fence gate before the click and in the next ticks (`ToggleTracker`) | Reliable. Only a wooden door, trapdoor or gate changes by hand; an iron door never reports. A click the server refuses reports nothing; a state that does not change within 1.5 s is dropped |
+| `litBlocks`, `snuffedBlocks` | the `lit` state of a clicked candle, candle cake or campfire before the click and in the next ticks (a second `ToggleTracker`) | Reliable. Flint and steel or a fire charge lights, an empty hand or a shovel puts out; a click the server refuses reports nothing, a state that does not change within 1.5 s is dropped |
 | `vehicle` | the entity the local player rides (`getVehicle`) | Reliable for boats, minecarts, horses, pigs and every other mount |
 | `jukeboxDistance` | the block entities of the 3x3 chunks around the player: a jukebox whose `has_record` state is set (it drops the disc when the song ends) | Reliable for what the client has loaded. Scanned twice a second and only while a step with a `HEAR` goal is tracked (`musicScanWanted`). The sound itself is not heard by the mod |
-| `nearbyEntityPositions[].baby` | the synced "young" flag of a living entity | Reliable. A `BREED` goal waits for a new baby after a feeding |
+| `nearbyEntityPositions[].baby`, `interactedUuids` | the synced "young" flag of a living entity; the uuid of each entity the player right-clicked | Reliable. A `BREED` goal waits for a new baby after a feeding, within 4 blocks of two of the animals the player fed or clicked |
 | `gave` TRADE | merchant result slot taken; item and count are what was paid | Reliable for the payment. The merchant is the entity right-clicked in the last 5 s. |
 
 ## Costs

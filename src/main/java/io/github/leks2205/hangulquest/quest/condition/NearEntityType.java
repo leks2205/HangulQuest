@@ -66,6 +66,12 @@ final class NearEntityType implements ConditionType<Condition.NearEntity> {
 	}
 
 	@Override
+	public String placeNoun(Condition.NearEntity condition, SentenceBuilder.Namer namer) {
+		String name = namer.entity(condition.entity());
+		return name == null || name.isBlank() ? null : name + " 근처";
+	}
+
+	@Override
 	public String unmetText(Condition.NearEntity condition, Observation obs, Catalog catalog) {
 		return "가까이에 " + QuestStatus.entity(condition.entity(), catalog) + " 필요";
 	}

@@ -67,6 +67,12 @@ final class NearBlockType implements ConditionType<Condition.NearBlock> {
 	}
 
 	@Override
+	public String placeNoun(Condition.NearBlock condition, SentenceBuilder.Namer namer) {
+		String name = namer.block(condition.block());
+		return name == null || name.isBlank() ? null : name + " 근처";
+	}
+
+	@Override
 	public String unmetText(Condition.NearBlock condition, Observation obs, Catalog catalog) {
 		return "가까이에 " + QuestStatus.block(condition.block(), catalog) + " 필요";
 	}

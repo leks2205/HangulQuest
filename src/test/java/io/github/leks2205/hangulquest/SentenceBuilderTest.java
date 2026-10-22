@@ -318,7 +318,7 @@ class SentenceBuilderTest {
 		assertEquals("버튼을 눌러요.", clue(new Goal.UseBlock("minecraft:stone_button"), "버튼"));
 		assertEquals("레버를 당겨요.", clue(new Goal.UseBlock("minecraft:lever"), "레버"));
 		assertEquals("화로를 열어요.", clue(new Goal.UseBlock("minecraft:furnace"), "화로"));
-		assertEquals("작업대를 써요.", clue(new Goal.UseBlock("minecraft:crafting_table"), "작업대"));
+		assertEquals("작업대를 열어요.", clue(new Goal.UseBlock("minecraft:crafting_table"), "작업대"));
 	}
 
 	// ------------------------------------------------------------------ finale ceremony sentences
