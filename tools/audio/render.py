@@ -22,7 +22,7 @@ import tempfile
 import time
 from pathlib import Path
 
-from common import MODELS, OUT, load_voices, normalise, read_jsonl, sha1
+from common import MODELS, OUT, default_voices, load_voices, normalise, read_jsonl, sha1
 
 os.environ.setdefault("HF_HOME", str(MODELS))
 
@@ -196,7 +196,7 @@ def main():
     args = ap.parse_args()
 
     cfg = load_voices()
-    names = args.voices or list(cfg["voices"])
+    names = args.voices or default_voices(cfg)
     rows = read_jsonl(args.texts)
     ids = [r["id"] for r in rows]
     if len(set(ids)) != len(ids) or any(not re.fullmatch(r"[a-z0-9_.]+", i) for i in ids):

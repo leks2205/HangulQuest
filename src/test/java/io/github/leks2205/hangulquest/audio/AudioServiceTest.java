@@ -175,4 +175,34 @@ class AudioServiceTest {
 		assertFalse(audio.hasWord("stone"));
 		assertTrue(backend.played.isEmpty());
 	}
+
+	@Test
+	void soundForgeEventsAreFoundAndPlayedByExactName() {
+		FakeBackend backend = new FakeBackend("hvpt.dt_w1.t.male1");
+		AudioService audio = new AudioService(backend, () -> true);
+		assertTrue(audio.hvptLoaded());
+		assertTrue(audio.hasSound("hvpt.dt_w1.t.male1"));
+		assertFalse(audio.hasSound("hvpt.dt_w1.t.sohee"));
+		assertTrue(audio.playSound("hvpt.dt_w1.t.male1"));
+		assertEquals(List.of("hvpt.dt_w1.t.male1"), backend.played);
+	}
+
+	@Test
+	void aPackWithOnlyWordsHasNoSoundForge() {
+		FakeBackend backend = new FakeBackend("word.stone");
+		AudioService audio = new AudioService(backend, () -> true);
+		assertTrue(audio.packLoaded());
+		assertFalse(audio.hvptLoaded());
+	}
+
+	@Test
+	void exactEventsStillObeyTheSettingAndTheNameRules() {
+		FakeBackend backend = new FakeBackend("hvpt.dt_w1.t.male1");
+		assertFalse(new AudioService(backend, () -> false).playSound("hvpt.dt_w1.t.male1"));
+		AudioService audio = new AudioService(backend, () -> true);
+		assertFalse(audio.hasSound("../hvpt.dt_w1.t.male1"));
+		assertFalse(audio.hasSound("HVPT.dt"));
+		assertFalse(audio.hasSound(null));
+		assertTrue(backend.played.isEmpty());
+	}
 }

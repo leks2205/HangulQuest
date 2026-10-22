@@ -28,3 +28,8 @@ Rules:
   `dismissed` (trails the player took out of the log, by `playMs` at that moment) and `playMs`. All four are optional and
   were added without a version bump: a file without them means "the player chose every tracked trail" and "nothing
   dismissed", and a build that does not know them keeps them (`unknown-fields.json`). `AutoTrackFixtureTest` covers it.
+- `v4-hvpt.json` is `v4-autotrack.json` plus the sound forge's record, `hvpt`: `startedAt`, `sessions` (finished runs by
+  start time: `t`, `phase` PRE/TRAIN/POST, `trials`, `correct`, `byContrast`) and `contrasts` (lifetime training tally
+  per contrast). It also carries fields no build knows (`packNote`, `heardVia`, a `note` in a tally). `hvpt` is optional
+  and was added without a version bump: a file without it reads as "never played", and a build that does not know it
+  keeps it. `HvptFixtureTest` covers it.

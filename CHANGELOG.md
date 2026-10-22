@@ -18,6 +18,16 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- **Sound forge (소리 대장간)**, a listening mini-game in the journal's Study tab for the sounds that sound alike to an
+  English or German ear: ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and ㅓ ㅗ (never ㅐ ㅔ). A voice says a syllable or a word, you
+  pick which of two or three it was (keys 1 2 3, R to hear it again, or click), and you hear both sounds again with the
+  answer. A run is 60 trials in a random voice each time. A 30-trial listening test before and after (8 to 10 runs over at
+  least 3 weeks) uses voices that never appear in training, and the start page shows before, lately and after per contrast.
+  Answers go to the review log as the new mode `HVPT` (kind `HVPT`; it never touches a schedule) and the progress file gets
+  a small `hvpt` record (finished runs and a tally per contrast) without a schema bump. The sounds come from the optional
+  Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
+  `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
+  is the base for a later pitch view.
 - **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
   onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
   the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is

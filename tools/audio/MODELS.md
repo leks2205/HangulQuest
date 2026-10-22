@@ -69,3 +69,30 @@ Python 3.12 venv outside the repo (`requirements.txt`; ffmpeg must be installed)
   voice is the least reliable (mean 0.21), the designed `female2` voice the most reliable (0.07).
 - Pack: 11.8 MB, 1294 clips, 374 events, about 9 KB per clip.
 - Loudness of a 78-clip sample: mean -16.4 LUFS (range -19 to -15.4), peaks at most -0.5 dBFS.
+
+## Sound forge stimuli (HVPT)
+
+The mini-game 소리 대장간 needs minimal pairs and triplets in several voices, and a pre- and post-test in voices that
+are never used in training. The stimulus set is described in `src/main/resources/assets/hangulquest/data/hvpt.json`
+(the mod reads it too): 50 items (syllables and words), 123 forms, 6 contrasts. Voices:
+
+- training: `sohee`, `female2`, `male1`, `male2` (the same voices as the voices pack);
+- held out: `female3`, `male3`, designed like the other clone voices (`voices_hvpt.json`, marked `hvpt_only`, so a
+  plain `render.py` run never renders them and they never appear in the pack's word events).
+
+Pipeline (GPU only for the rendering and the ASR check, so run it when the GPU is free):
+
+1. `hvpt_texts.py` writes `hvpt-texts.jsonl` (`hvpt.<item>.<form>`).
+2. `render.py hvpt-texts.jsonl --out ~/hangulquest-audio/out-hvpt --device cuda:0 --voices sohee female2 male1 male2 female3 male3`
+   (its own folder, so the voices pack's `manifest.json` is left alone).
+3. `qa.py --out ~/hangulquest-audio/out-hvpt --device cuda`: a clip must come back as the intended syllable or word
+   (CER under 0.15 means exact for these short texts); the rest go on the blocklist. The mod only plays an item in a
+   voice when every form of it exists, so a blocked clip drops that item for that voice, nothing else.
+4. `build_pack.py --hvpt ~/hangulquest-audio/out-hvpt`: one event per item, form and voice,
+   `hvpt.<item>.<form>.<voice>`, one clip each (the mod picks the voice, not the game). The pack manifest says
+   `"hvpt": {"source": "tts", ...}` and every entry `"source": "tts"`.
+
+Natural recordings: the set is synthetic. Record several native talkers per item and form, keep the ids and the
+event names (or add a `source` per clip to the manifest), and the mod needs no change. Keep two or more talkers
+out of training for the tests. A native review of the tense and aspirated forms is the first thing to ask for.
+

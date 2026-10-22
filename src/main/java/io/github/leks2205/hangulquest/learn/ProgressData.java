@@ -18,6 +18,11 @@ public final class ProgressData {
 	public Meta meta = new Meta();
 	public QuestData quests = new QuestData();
 	public VocabData vocab = new VocabData();
+	/**
+	 * The sound forge (HVPT mini-game): runs and per-contrast accuracy. Added without a version bump: a file without
+	 * it reads as "never played", and a build that does not know it keeps it.
+	 */
+	public HvptData hvpt = new HvptData();
 
 	public static final class Totals {
 		public int seen;
@@ -116,6 +121,29 @@ public final class ProgressData {
 
 	public static final class VocabData {
 		public LuteInfo luteImport;
+	}
+
+	public static final class HvptData {
+		/** When the first answer was given; the schedule of the 3 weeks counts from here. */
+		public long startedAt;
+		/** Finished runs by start time in milliseconds (as text, so unknown fields in an entry survive a save). */
+		public Map<String, HvptSession> sessions = new LinkedHashMap<>();
+		/** Training answers over all runs, by contrast id. */
+		public Map<String, HvptTally> contrasts = new LinkedHashMap<>();
+	}
+
+	public static final class HvptSession {
+		public long t;
+		/** PRE, TRAIN or POST. */
+		public String phase;
+		public int trials;
+		public int correct;
+		public Map<String, HvptTally> byContrast = new LinkedHashMap<>();
+	}
+
+	public static final class HvptTally {
+		public int trials;
+		public int correct;
 	}
 
 	public static final class LuteInfo {
