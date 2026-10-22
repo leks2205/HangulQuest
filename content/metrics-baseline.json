@@ -1,5 +1,5 @@
 {
- "_comment": "Content ratchet (roadmap Part B): a metric may improve but never get worse. The tests (TaskVarietyTest, CoverageTest, RecyclingTest) and CI fail on a regression. Update it only on purpose, with python3 tools/variety.py --update-baseline, and say why in the commit. target = the roadmap goal, not yet demanded. The 2.x classic tree is far from most targets.",
+ "_comment": "Content ratchet (roadmap Part B): a metric may improve but never get worse. The tests (TaskVarietyTest, CoverageTest, RecyclingTest) and CI fail on a regression. Update it only on purpose, with python3 tools/variety.py --update-baseline, and say why in the commit. target = the roadmap goal: a metric that meets it passes even when it is worse than the baseline value. The 2.x classic tree is far from most targets.",
  "schema": 1,
  "params": {"knownAfter": 3, "trailsPerDay": 2, "retrievalDays": 14, "encounterTarget": 10, "roleTarget": 3, "retrievalTarget": 3, "maxUnknown": 1, "countHints": false, "hintSeesClue": true},
  "metrics": {

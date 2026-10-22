@@ -106,7 +106,10 @@ public final class Pronunciation {
 		return of(ko, false, PronunciationExceptions.shared());
 	}
 
-	/** {@code sino}: the word is Sino-Korean, so ㄹ before ㄷ ㅅ ㅈ is tensed (발달 gives 발딸). */
+	/**
+	 * {@code sino}: the word is Sino-Korean, so ㄹ before ㄷ ㅅ ㅈ is tensed (발달 gives 발딸). For a phrase it
+	 * holds for every word; the words listed as {@code sinoWords} in the exceptions are Sino-Korean anyway.
+	 */
 	public static Result of(String ko, boolean sino) {
 		return of(ko, sino, PronunciationExceptions.shared());
 	}
@@ -127,7 +130,9 @@ public final class Pronunciation {
 				lexical = true;
 			} else {
 				List<Syl> syllables = parse(word);
-				lexical |= inside(syllables, word, sino, exceptions, rules);
+				// the Sino-Korean rule goes by the origin of this word, not of the phrase around it
+				boolean wordSino = sino || exceptions.isSino(word);
+				lexical |= inside(syllables, word, wordSino, exceptions, rules);
 				eojeols.add(syllables);
 			}
 		}

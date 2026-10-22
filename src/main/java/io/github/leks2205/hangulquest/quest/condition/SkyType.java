@@ -56,6 +56,23 @@ final class SkyType implements ConditionType<Condition.Sky> {
 		return condition.state() == Condition.SkyState.OPEN ? "하늘이 보이는 곳에서 " : "지붕 아래에서 ";
 	}
 
+	/** Levels 1 and 2 say 밖에서; the adnominal 하늘이 보이는 곳에서 is a level 3 construction. */
+	private static final int OUTSIDE_UP_TO = 2;
+
+	@Override
+	public String prefix(Condition.Sky condition, SentenceBuilder.Namer namer, int level) {
+		if (condition.state() == Condition.SkyState.OPEN && level <= OUTSIDE_UP_TO) {
+			return "밖에서 ";
+		}
+		return prefix(condition, namer);
+	}
+
+	@Override
+	public List<String> grammarIds(Condition.Sky condition, int level) {
+		return condition.state() == Condition.SkyState.OPEN && level <= OUTSIDE_UP_TO
+				? List.of("L2.eseo_activity") : grammarIds(condition);
+	}
+
 	@Override
 	public String unmetText(Condition.Sky condition, Observation obs, Catalog catalog) {
 		return condition.state() == Condition.SkyState.OPEN ? "하늘이 보이는 곳 필요" : "지붕 아래 필요";

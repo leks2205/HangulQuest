@@ -10,6 +10,7 @@ import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
@@ -29,8 +30,14 @@ final class BreakBlockType implements GoalType<Goal.BreakBlock> {
 	@Override
 	public List<Field> fields() {
 		return List.of(Field.resource("block"), Field.count("count"),
-				Field.choice("verb", false, "Picks 캐다 / 베다 / 수확하다 in the generated sentence.",
-						"MINE", "CHOP", "HARVEST"));
+				Field.choice("verb", false, "Picks the verb of the generated sentence: any verb the verb table "
+						+ "(verbs.json) uses for breaking, e.g. 캐다 / 베다 / 파다 / 꺾다 / 수확하다.", verbNames()));
+	}
+
+	/** The verbs of the BREAK_BLOCK rules in verbs.json; the three classic ones when the table is missing. */
+	static String[] verbNames() {
+		List<String> names = VerbTable.shared().verbsFor("BREAK_BLOCK").stream().map(Verb::name).toList();
+		return names.isEmpty() ? new String[]{"MINE", "CHOP", "HARVEST"} : names.toArray(new String[0]);
 	}
 
 	@Override
@@ -79,18 +86,22 @@ final class BreakBlockType implements GoalType<Goal.BreakBlock> {
 
 	@Override
 	public Verb verb(Goal.BreakBlock goal, VerbTable table) {
-		return Verb.byId(goal.verb(), table.choose(id(), goal.block(), goal.count(), Verb.BREAK));
+		// a tag chooses the verb by the block that stands for it (꽃 -> 꺾다)
+		return Verb.byId(goal.verb(), table.choose(id(), BlockSpec.representative(goal.block()), goal.count(),
+				Verb.BREAK));
 	}
 
 	@Override
 	public String korean(Goal.BreakBlock goal, SentenceContext c) {
 		return SentenceBuilder.phrase(SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()),
-				goal.count(), c.withCounts(), goal.block(), c.obj()), c.verb(), c.level(), c.finale());
+				goal.count(), c.withCounts(), BlockSpec.representative(goal.block()), c.obj()), c.verb(), c.level(),
+				c.finale());
 	}
 
 	@Override
 	public String ceremony(Goal.BreakBlock goal, String obj, Verb verb) {
-		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true, goal.block(), obj)
+		return SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), true,
+				BlockSpec.representative(goal.block()), obj)
 				+ " " + verb.past();
 	}
 
@@ -108,5 +119,21 @@ final class BreakBlockType implements GoalType<Goal.BreakBlock> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.BLOCK;
+	}
+
+	/** Any flower, any sapling: a known tag is a block spec here. */
+	@Override
+	public boolean tagObject() {
+		return true;
+	}
+
+	@Override
+	public void validate(Goal.BreakBlock goal, ValidationContext context) {
+		GoalType.super.validate(goal, context);
+		if (goal.verb() != null && !VerbTable.shared().verbsFor(id()).isEmpty()
+				&& VerbTable.shared().verbsFor(id()).stream().noneMatch(v -> v.name().equalsIgnoreCase(goal.verb()))) {
+			context.problem("the verb " + goal.verb() + " does not fit breaking a block; the verb table knows "
+					+ VerbTable.shared().verbsFor(id()).stream().map(Verb::name).toList());
+		}
 	}
 }

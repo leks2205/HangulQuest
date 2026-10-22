@@ -79,7 +79,8 @@ public final class SentenceBuilder {
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
-		return prefix(conditions, word, namer) + core(goal, word, true, clampLevel(koreanLevel), finale, namer);
+		return prefix(conditions, word, namer, clampLevel(koreanLevel))
+				+ core(goal, word, true, clampLevel(koreanLevel), finale, namer);
 	}
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions) {
@@ -92,7 +93,7 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, List<Condition> conditions, Namer namer) {
-		return prefix(conditions, word, namer) + core(goal, word, false, 1, false, namer);
+		return prefix(conditions, word, namer, 1) + core(goal, word, false, 1, false, namer);
 	}
 
 	public static long seconds(long dwellMs) {
@@ -132,7 +133,7 @@ public final class SentenceBuilder {
 		// The clue may point at the porkchop with the word for the pig; the line that says what was done must not.
 		Word said = word != null && word.entityId != null && word.iconItem != null ? withoutPicture(word) : word;
 		String body = type.ceremony(goal, context(goal, said, namer, true, 1, true));
-		return prefix(conditions, said, namer) + body + ".";
+		return prefix(conditions, said, namer, 1) + body + ".";
 	}
 
 	private static Word withoutPicture(Word word) {
@@ -162,7 +163,7 @@ public final class SentenceBuilder {
 				GoalTypes.of(goal).grammarIds(goal, context(goal, word, namer, true, level, finale)));
 		if (conditions != null) {
 			for (Condition condition : conditions) {
-				ids.addAll(ConditionTypes.of(condition).grammarIds(condition));
+				ids.addAll(ConditionTypes.of(condition).grammarIds(condition, level));
 			}
 		}
 		return ids.stream().distinct().toList();
@@ -266,16 +267,49 @@ public final class SentenceBuilder {
 		return KoGrammar.counter(count, counter);
 	}
 
-	private static String prefix(List<Condition> conditions, Word word, Namer namer) {
+	private static String prefix(List<Condition> conditions, Word word, Namer namer, int level) {
 		if (conditions == null || conditions.isEmpty()) {
 			return "";
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		StringBuilder sb = new StringBuilder();
 		for (Condition condition : conditions) {
-			sb.append(ConditionTypes.of(condition).prefix(condition, taught));
+			sb.append(ConditionTypes.of(condition).prefix(condition, taught, level));
 		}
 		return sb.toString();
+	}
+
+	/** The phrases the conditions put in front of the goal ("밤에", "해변에서"), one per condition that has one. */
+	public static List<String> conditionPhrases(List<Condition> conditions, Word word, Namer namer, int level) {
+		List<String> phrases = new java.util.ArrayList<>();
+		if (conditions != null) {
+			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
+			for (Condition condition : conditions) {
+				String phrase = ConditionTypes.of(condition).prefix(condition, taught, clampLevel(level)).trim();
+				if (!phrase.isEmpty()) {
+					phrases.add(phrase);
+				}
+			}
+		}
+		return phrases;
+	}
+
+	/** The condition phrases an authored clue does not contain yet. */
+	public static List<String> missingPhrases(String clue, List<Condition> conditions, Word word, Namer namer,
+											  int level) {
+		return conditionPhrases(conditions, word, namer, level).stream().filter(phrase -> !clue.contains(phrase)).toList();
+	}
+
+	/**
+	 * An authored clue on a step with conditions: the text stays as written, and a condition it does not
+	 * speak is put in front, so every condition is always said.
+	 */
+	public static String authored(String clue, List<Condition> conditions, Word word, Namer namer, int level) {
+		StringBuilder front = new StringBuilder();
+		for (String phrase : missingPhrases(clue, conditions, word, namer, level)) {
+			front.append(phrase).append(' ');
+		}
+		return front + clue;
 	}
 
 	/** "곰 근처에서 ", or {@code fallback} when the thing has no name. */

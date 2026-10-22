@@ -29,7 +29,8 @@
   "pressables": ["*_button"],
   "pullables": ["lever"],
   "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand"],
-  "bells_and_notes": ["bell", "note_block"],
+  "bells": ["bell"],
+  "notes": ["note_block"],
   "beds": ["*_bed"],
   "traders": ["villager", "wandering_trader"],
   "mounts": ["horse", "donkey", "mule", "camel", "strider", "skeleton_horse", "zombie_horse"],
@@ -76,7 +77,8 @@
    {"verb": "EAT"}
   ],
   "USE_BLOCK": [
-   {"family": "bells_and_notes", "verb": "RING"},
+   {"family": "bells", "verb": "RING"},
+   {"family": "notes", "verb": "STRIKE"},
    {"family": "beds", "verb": "SLEEP"},
    {"family": "pressables", "verb": "PRESS"},
    {"family": "pullables", "verb": "FLIP"},

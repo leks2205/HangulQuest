@@ -86,10 +86,16 @@
             "verb": {
               "enum": [
                 "MINE",
+                "DIG",
                 "CHOP",
-                "HARVEST"
+                "SNAP",
+                "HARVEST",
+                "PICK",
+                "PULL",
+                "SHATTER",
+                "BREAK"
               ],
-              "description": "Picks 캐다 / 베다 / 수확하다 in the generated sentence."
+              "description": "Picks the verb of the generated sentence: any verb the verb table (verbs.json) uses for breaking, e.g. 캐다 / 베다 / 파다 / 꺾다 / 수확하다."
             }
           },
           "required": [

@@ -176,6 +176,29 @@ class QuestlineValidationTest {
 	}
 
 	@Test
+	void anAuthoredClueOnAStepWithConditionsStillSpeaksEveryCondition() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		SentenceBuilder.Namer namer = KoreanFixtures.namer(catalog);
+		int checked = 0;
+		for (Questline trail : QuestLoader.loadAll()) {
+			for (var step : trail.allSteps()) {
+				if (step.conditions().isEmpty() || !step.hasClueKo()) {
+					continue;
+				}
+				var word = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
+				for (int level = 1; level <= 6; level++) {
+					String said = SentenceBuilder.authored(step.clueKo(), step.conditions(), word, namer, level);
+					assertTrue(said.endsWith(step.clueKo()), trail.id() + "/" + step.id() + ": the authored text stays");
+					assertTrue(SentenceBuilder.missingPhrases(said, step.conditions(), word, namer, level).isEmpty(),
+							trail.id() + "/" + step.id() + " level " + level + " does not speak its conditions: " + said);
+				}
+				checked++;
+			}
+		}
+		assertTrue(checked > 0, "no shipped step has both an authored clue and a condition");
+	}
+
+	@Test
 	void everyTrailTeachesKnownWords() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		for (Questline trail : QuestLoader.loadAll()) {

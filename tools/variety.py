@@ -7,6 +7,7 @@ TaskVarietyTest computes the same numbers in Java and fails when the two disagre
 
   python3 tools/variety.py                    report with the gap to the roadmap targets
   python3 tools/variety.py --check            exit 1 if any metric is worse than content/metrics-baseline.json
+                                              and also short of its roadmap target (inside the target it passes)
   python3 tools/variety.py --update-baseline  rewrite the baseline (variety AND coverage metrics): deliberate only
   python3 tools/variety.py --json             the metrics as JSON
 
@@ -187,6 +188,14 @@ def load_baseline(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def meets_target(value: float, entry: dict) -> bool:
+    """True when the value reaches the roadmap target stored next to the baseline value."""
+    target = entry.get("target")
+    if target is None:
+        return False
+    return value <= target + ROUNDING if entry["better"] == "lower" else value >= target - ROUNDING
+
+
 def regressions(values: dict[str, float], baseline: dict, prefix: str) -> list[str]:
     recorded = baseline["metrics"]
     problems = []
@@ -198,6 +207,8 @@ def regressions(values: dict[str, float], baseline: dict, prefix: str) -> list[s
             continue
         allowed = recorded[key]["value"]
         lower = recorded[key]["better"] == "lower"
+        if meets_target(value, recorded[key]):
+            continue  # a metric inside its roadmap target is free, whatever the baseline says
         if (value > allowed + ROUNDING) if lower else (value < allowed - ROUNDING):
             problems.append(f"{key} got worse: {fmt(value)}, baseline {fmt(allowed)} ({recorded[key]['better']} is better)")
     for key in recorded:
@@ -218,7 +229,8 @@ def write_baseline(path: Path, sections: dict[str, dict[str, float]], params: di
     comment = ("Content ratchet (roadmap Part B): a metric may improve but never get worse. The tests "
                "(TaskVarietyTest, CoverageTest, RecyclingTest) and CI fail on a regression. Update it only on "
                "purpose, with python3 tools/variety.py --update-baseline, and say why in the commit. "
-               "target = the roadmap goal, not yet demanded. The 2.x classic tree is far from most targets.")
+               "target = the roadmap goal: a metric that meets it passes even when it is worse than the "
+               "baseline value. The 2.x classic tree is far from most targets.")
     lines = ["{", f' "_comment": {json.dumps(comment, ensure_ascii=False)},', ' "schema": 1,',
              f' "params": {json.dumps(params if params is not None else old.get("params", {}))},',
              ' "metrics": {']

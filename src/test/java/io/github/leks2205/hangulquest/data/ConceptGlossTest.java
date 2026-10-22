@@ -90,7 +90,7 @@ class ConceptGlossTest {
 
 	@Test
 	void curatedConceptsAreStillTheFullSet() {
-		assertEquals(293, curated().size(), "the guard below must cover every curated concept");
+		assertEquals(294, curated().size(), "the guard below must cover every curated concept");
 	}
 
 	@Test

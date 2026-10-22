@@ -273,10 +273,28 @@ class QuestScaffoldTest {
 
 	@Test
 	void theFinaleIsNeverOneOfTheTrailsOwnTasks() throws IOException {
-		// cow, chest and furnace are all finale goals: asking for them in a step must exclude them.
-		assertEquals(0, scaffold("scaffold_own", "cow,sheep,chest", null).exit());
-		Questline trail = load("scaffold_own");
+		// cow, sheep and chest are all finale goals: asking for them in a step must exclude them. The content
+		// is a temporary set, not the shipped trails: four root trails take four finales, so the only free
+		// finale that is none of the new trail's own tasks is the bed.
+		String[][] others = {{"tmp_a", "torch-night", "stone,apple,dirt"}, {"tmp_b", "crafting-table-day", "coal,bread,sand"},
+				{"tmp_c", "campfire-dusk", "gravel,iron,gold"}, {"tmp_d", "furnace", "planks,diamond,glass"}};
+		Set<String> taken = new HashSet<>();
+		for (String[] other : others) {
+			Run made = scaffold(other[0], other[2], null, "--finale", other[1], "--content-dir",
+					out.toString());
+			assertEquals(0, made.exit(), made.output());
+			taken.add(KoreanFixtures.targetOf(load(other[0]).finale().goal()));
+		}
+		assertEquals(4, taken.size());
+		// the id decides where the tool picks inside the pool, so a tool that forgot the trail's own tasks
+		// would land on the cow with this one
+		Run run = scaffold("scaffold_pick", "cow,sheep,chest", null, "--content-dir", out.toString());
+		assertEquals(0, run.exit(), run.output());
+		Questline trail = load("scaffold_pick");
 		String target = KoreanFixtures.targetOf(trail.finale().goal());
+		assertEquals("minecraft:red_bed", target);
+		assertFalse(taken.contains(target), "a sibling's finale is taken");
+		assertEquals(3, trail.steps().size());
 		for (QuestStep step : trail.steps()) {
 			assertNotEquals(target, KoreanFixtures.targetOf(step.goal()));
 		}

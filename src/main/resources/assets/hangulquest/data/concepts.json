@@ -230,7 +230,9 @@
   "ko": "물",
   "category": "ENVIRONMENT",
   "tier": 1,
-  "items": [],
+  "items": [
+   "minecraft:water"
+  ],
   "icon": "minecraft:water_bucket",
   "sentenceKo": "물을 마셔요.",
   "descKo": "투명해요. 마실 수 있어요.",
@@ -259,13 +261,29 @@
   "category": "ENVIRONMENT",
   "tier": 1,
   "items": [
-   "minecraft:snow_block",
    "minecraft:snow"
+  ],
+  "covers": [
+   "minecraft:snow_block"
   ],
   "sentenceKo": "눈이 와요.",
   "descKo": "하얘요. 차가워요.",
   "aliases": [
    "눈"
+  ]
+ },
+ {
+  "id": "snow_block",
+  "ko": "눈 블록",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:snow_block"
+  ],
+  "sentenceKo": "눈 블록을 쌓아요.",
+  "descKo": "눈으로 만든 블록이에요. 하얘요.",
+  "aliases": [
+   "눈 블록"
   ]
  },
  {

@@ -34,12 +34,22 @@ public interface ConditionType<C extends Condition> {
 	/** The phrase in front of the goal sentence ("밤에 "), with its trailing space; may be empty. */
 	String prefix(C condition, SentenceBuilder.Namer namer);
 
+	/** The same at a Korean level, for a condition whose wording follows the ladder (SKY: 밖에서 before 하늘이 보이는 곳에서). */
+	default String prefix(C condition, SentenceBuilder.Namer namer, int level) {
+		return prefix(condition, namer);
+	}
+
 	/** The status line while this condition is not met. */
 	String unmetText(C condition, Observation obs, Catalog catalog);
 
 	/** Grammar points the prefix teaches (ids such as {@code L2.eseo_activity}); most conditions list none. */
 	default List<String> grammarIds(C condition) {
 		return List.of();
+	}
+
+	/** Same at a Korean level. */
+	default List<String> grammarIds(C condition, int level) {
+		return grammarIds(condition);
 	}
 
 	/** The block, item or entity the condition points at: a step may teach the word for it. */

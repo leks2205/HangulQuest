@@ -14,7 +14,8 @@ import java.util.Map;
 
 /**
  * The content ratchet: {@code content/metrics-baseline.json} holds the value of every content metric,
- * which way is better and the roadmap target. A metric may improve but never get worse. Values are
+ * which way is better and the roadmap target. A metric may improve but never get worse, unless it meets
+ * its target: inside the target it passes whatever the baseline says (mirrors tools/variety.py). Values are
  * stored with six decimals, so "worse" means worse by more than the rounding of the stored value.
  * To lower the bar on purpose, run {@code tools/variety.py --update-baseline}.
  */
@@ -55,6 +56,9 @@ final class MetricsBaseline {
 			double allowed = spec.get("value").getAsDouble();
 			boolean lower = "lower".equals(spec.get("better").getAsString());
 			double value = entry.getValue();
+			if (meetsTarget(value, spec)) {
+				continue;
+			}
 			if (lower ? value > allowed + ROUNDING : value < allowed - ROUNDING) {
 				problems.add(String.format("%s got worse: %s, baseline %s (%s is better)", entry.getKey(),
 						format(value), format(allowed), spec.get("better").getAsString()));
@@ -66,6 +70,16 @@ final class MetricsBaseline {
 			}
 		}
 		return problems;
+	}
+
+	/** True when the value reaches the roadmap target stored next to the baseline value. */
+	static boolean meetsTarget(double value, JsonObject spec) {
+		if (!spec.has("target")) {
+			return false;
+		}
+		double target = spec.get("target").getAsDouble();
+		return "lower".equals(spec.get("better").getAsString()) ? value <= target + ROUNDING
+				: value >= target - ROUNDING;
 	}
 
 	/** The distance to the roadmap target for every metric, one line each. */

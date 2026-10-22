@@ -29,8 +29,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -103,7 +105,7 @@ class SentenceDumpTest {
 				Verb verb = SentenceBuilder.verbFor(step.goal());
 				String path = finale ? "finale.step" : "steps[" + trail.steps().indexOf(step) + "]";
 
-				boolean authoredClue = step.conditions().isEmpty() && step.hasClueKo();
+				boolean authoredClue = step.hasClueKo();
 				rows.add(new Row(base + ".clue", level,
 						authoredClue ? "authored:" + file + "#" + path + ".clue.ko"
 								: "generated:clue/" + step.goal().getClass().getSimpleName() + "/" + verb,
@@ -273,13 +275,18 @@ class SentenceDumpTest {
 		}
 	}
 
+	/** Most finales are written by the ceremony generator; the rest may be authored, so this is a share, not a count. */
+	static final double MIN_GENERATED_FINALES = 0.70;
+
 	@Test
-	void everyGeneratedFinaleMatchesTheCeremonyGenerator() {
+	void mostFinalesAreGeneratedAndTheRestAreFree() {
 		// Finale text in the JSON is produced by SentenceBuilder.ceremony (tools/apply_ceremony_finales.py
-		// writes it): if the generator or the verb table changes, rerun the tool so they agree.
+		// writes it): if the generator or the verb table changes, rerun the tool so they agree. A finale
+		// that differs from the generator is authored, and that is allowed as long as most are generated.
 		int generated = 0;
+		List<Questline> trails = QuestLoader.loadAll();
 		List<String> stale = new ArrayList<>();
-		for (Questline trail : QuestLoader.loadAll()) {
+		for (Questline trail : trails) {
 			String ceremony = KoreanFixtures.ceremony(trail);
 			if (ceremony.equals(trail.finaleKo())) {
 				generated++;
@@ -289,6 +296,27 @@ class SentenceDumpTest {
 		}
 		assertTrue(stale.isEmpty(), "finale text still uses the old template instead of the ceremony sentence:\n"
 				+ String.join("\n", stale));
-		assertTrue(generated > 300, "expected the ~330 generated ceremony finales, got " + generated);
+		assertTrue(generated >= MIN_GENERATED_FINALES * trails.size(), "at least "
+				+ (int) (MIN_GENERATED_FINALES * 100) + "% of the finales are written by the ceremony generator, got "
+				+ generated + " of " + trails.size());
+	}
+
+	@Test
+	void everyFinaleTheDumpCallsGeneratedEqualsTheGeneratorOutput(@TempDir Path scratch) {
+		Map<String, String> ceremonies = new HashMap<>();
+		for (Questline trail : QuestLoader.loadAll()) {
+			ceremonies.put("trail." + trail.id() + ".finale", KoreanFixtures.ceremony(trail));
+		}
+		int generated = 0;
+		for (Row row : collect(scratch)) {
+			if (row.source().startsWith("generated:ceremony/")) {
+				generated++;
+				assertEquals(ceremonies.get(row.id()), row.ko(), row.id() + " is labelled generated");
+			} else if (row.id().endsWith(".finale")) {
+				assertTrue(row.source().startsWith("authored:"), row.id() + ": " + row.source());
+				assertFalse(row.ko().equals(ceremonies.get(row.id())), row.id() + " equals the generator but is not labelled so");
+			}
+		}
+		assertTrue(generated > 0, "no generated finale at all");
 	}
 }

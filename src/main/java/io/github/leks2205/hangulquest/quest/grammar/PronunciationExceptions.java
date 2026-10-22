@@ -27,12 +27,15 @@ import java.util.Set;
  * <li>{@code linked}: a bar before a vowel-initial second part of a compound; the first part's final is
  *     neutralised, then carried over ({@code 맛|없다} gives 마덥따);</li>
  * <li>{@code tenseJoin}: a bar before a second part that is tensed ({@code 길|가} gives 길까);</li>
- * <li>{@code stems}: verb stems ending in ㄴ or ㅁ, whose ending is tensed (신다 gives 신따).</li>
+ * <li>{@code stems}: verb stems ending in ㄴ or ㅁ, whose ending is tensed (신다 gives 신따);</li>
+ * <li>{@code sinoWords}: Sino-Korean words inside a phrase whose own origin the phrase tag does not show
+ *     (철사 in 철사 덫 갈고리), so the ㄹ rule tenses ㅅ ㄷ ㅈ in them (철사 gives 철싸).</li>
  * </ul>
  */
 public final class PronunciationExceptions {
 	public static final String RESOURCE = "/assets/hangulquest/data/pronunciation-exceptions.json";
-	private static final PronunciationExceptions EMPTY = new PronunciationExceptions(Map.of(), Map.of(), Set.of());
+	private static final PronunciationExceptions EMPTY = new PronunciationExceptions(Map.of(), Map.of(), Set.of(),
+			Set.of());
 
 	/** A whole word spelled out; the rules are ids of {@link Pronunciation.Rule}. */
 	public record Override(String pron, List<Pronunciation.Rule> rules) {
@@ -49,14 +52,17 @@ public final class PronunciationExceptions {
 	/** Word without bars, mapped to the bar position and the kind of join. */
 	private final Map<String, Marked> joins;
 	private final Set<String> stems;
+	private final Set<String> sinoWords;
 
 	record Marked(int at, Join join) {
 	}
 
-	private PronunciationExceptions(Map<String, Override> overrides, Map<String, Marked> joins, Set<String> stems) {
+	private PronunciationExceptions(Map<String, Override> overrides, Map<String, Marked> joins, Set<String> stems,
+									Set<String> sinoWords) {
 		this.overrides = overrides;
 		this.joins = joins;
 		this.stems = stems;
+		this.sinoWords = sinoWords;
 	}
 
 	public static PronunciationExceptions shared() {
@@ -110,7 +116,14 @@ public final class PronunciationExceptions {
 					stems.add(stem.getAsString());
 				}
 			}
-			return new PronunciationExceptions(Map.copyOf(overrides), Map.copyOf(joins), Set.copyOf(stems));
+			Set<String> sinoWords = new java.util.LinkedHashSet<>();
+			if (root.has("sinoWords")) {
+				for (JsonElement word : root.getAsJsonArray("sinoWords")) {
+					sinoWords.add(word.getAsString());
+				}
+			}
+			return new PronunciationExceptions(Map.copyOf(overrides), Map.copyOf(joins), Set.copyOf(stems),
+					Set.copyOf(sinoWords));
 		}
 	}
 
@@ -141,7 +154,12 @@ public final class PronunciationExceptions {
 		return stems.contains(stem);
 	}
 
+	/** True for a word listed as Sino-Korean, whatever the tag of the phrase around it says. */
+	boolean isSino(String eojeol) {
+		return sinoWords.contains(eojeol);
+	}
+
 	public int size() {
-		return overrides.size() + joins.size() + stems.size();
+		return overrides.size() + joins.size() + stems.size() + sinoWords.size();
 	}
 }

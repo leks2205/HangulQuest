@@ -16,6 +16,9 @@ public final class Matching {
 		if (goal.equals(observed)) {
 			return true;
 		}
+		if (goal.startsWith("#")) { // a tag: any flower, any sapling
+			return io.github.leks2205.hangulquest.quest.spatial.BlockSpec.matches(goal, observed);
+		}
 		String family = blockFamily(goal);
 		return !family.isEmpty() && family.equals(blockFamily(observed));
 	}

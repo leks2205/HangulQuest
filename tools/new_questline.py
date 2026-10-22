@@ -162,7 +162,10 @@ def pick_finale(trail_id: str, trails: dict[str, dict], parents: list[str], own_
     taken = set(own_goals)
     for sibling in siblings:
         taken.add(goal_key(sibling["finale"]["step"]["goal"]))
-    candidates = [f for f in finales if goal_key(f["goal"]) not in taken]
+    # a step that breaks the chest also rules out placing one as the finale: the target counts, not the type
+    own_targets = {target for _, target in own_goals}
+    candidates = [f for f in finales
+                  if goal_key(f["goal"]) not in taken and target_of(f["goal"]) not in own_targets]
     if not candidates:
         raise ValueError("every finale in tools/data/finales.json is taken by a sibling or a step; "
                          "add a new one or pass --finale to reuse one on purpose")
@@ -287,12 +290,15 @@ def main() -> int:
     parser.add_argument("--order", type=int, default=0, help="journal sort key; default: after every existing trail")
     parser.add_argument("--tier", type=int, help="ignored: the tier is 1 plus the parent count")
     parser.add_argument("--out-dir", help="write here instead of the shipped questlines (the index is left alone)")
+    parser.add_argument("--content-dir", help="read the existing trails (the siblings whose finales are taken) from here "
+                                              "instead of the shipped questlines; for tests and drafts")
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
 
     out_dir = os.path.abspath(args.out_dir) if args.out_dir else TRAILS
     concepts = load_concepts()
-    trails = load_trails(TRAILS, out_dir)
+    content_dir = os.path.abspath(args.content_dir) if args.content_dir else TRAILS
+    trails = load_trails(content_dir, out_dir)
     try:
         trail, warnings = build(args, concepts, trails)
     except ValueError as problem:

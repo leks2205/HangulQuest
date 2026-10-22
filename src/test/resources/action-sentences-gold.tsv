@@ -29,7 +29,7 @@ hold.night	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TI
 hold.night.l2	2	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	-	횃불을 들고 밤에 걸으세요.	L2.go_state,L2.seyo
 hold.break	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}}	-	횃불을 들고 돌을 세 개 캐요.	L2.go_state,L1.eoyo,L1.eul_reul
 hold.look	1	-	{"type":"HOLD_WHILE","item":"minecraft:wheat","inner":{"type":"LOOK_AT_ENTITY","entity":"minecraft:cow","dwellMs":1000}}	-	밀을 들고 소를 1초 동안 바라봐요.	L2.go_state,L1.eoyo,L1.eul_reul
-hold.sky	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 하늘이 보이는 곳에서 걸어요.	L2.go_state,L1.eoyo,L2.eseo_activity,L3.neun_attr
+hold.sky	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 밖에서 걸어요.	L2.go_state,L1.eoyo,L2.eseo_activity
 hold.water	1	-	{"type":"HOLD_WHILE","item":"minecraft:stick","inner":{"type":"IN_WATER"}}	-	막대기를 들고 물속에서 걸어요.	L2.go_state,L1.eoyo,L2.eseo_activity
 hold.defeat	1	-	{"type":"HOLD_WHILE","item":"minecraft:bread","inner":{"type":"DEFEAT_ENTITY","entity":"minecraft:zombie"}}	-	빵을 들고 좀비를 한 마리 물리쳐요.	L2.go_state,L1.eoyo,L1.eul_reul
 hold.biome.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"REACH_BIOME","biome":"minecraft:forest"}}	-	횃불을 들고 숲으로 가세요.	L2.go_state,L2.seyo,L1.euro_direction
@@ -72,7 +72,10 @@ avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minec
 avoid.craft	3	-	{"type":"AVOID","action":{"type":"CRAFT","item":"minecraft:torch"}}	-	횃불을 만들지 마세요.	L3.jima,L1.eul_reul
 avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"DAY"}}	-	낮에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 cond.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
-cond.sky.open	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	하늘이 보이는 곳에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity,L3.neun_attr
+cond.sky.open	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l3	3	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	하늘이 보이는 곳에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity,L3.neun_attr
+hold.sky.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 하늘이 보이는 곳에서 걸으세요.	L2.go_state,L2.seyo,L2.eseo_activity,L3.neun_attr
 cond.sky.roofed	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"ROOFED"}]	지붕 아래에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.water	1	-	{"type":"BREAK_BLOCK","block":"minecraft:stone"}	[{"type":"IN_WATER"}]	물속에서 돌을 캐요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.rel.under	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"PLAYER_REL","relation":"UNDER","anchor":"minecraft:oak_log"}]	참나무 원목 아래에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity

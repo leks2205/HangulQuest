@@ -173,7 +173,7 @@ class GeneratorFixesTest {
 		assertEquals("나무 옆에 횃불을 놓아요.", clue(torch, "tree"));
 		assertEquals("통나무 옆에 횃불을 놓아요.", clue(torch, null));
 		assertEquals("통나무 옆에 횃불을 놓아요.", clue(torch, "log"));
-		assertEquals("참나무 원목 옆에 횃불을 놓았어요.", ceremony(torch, null));
+		assertEquals("통나무 옆에 횃불을 놓았어요.", ceremony(torch, null));
 		// any other block family is not a tree
 		assertEquals("판자 옆에 횃불을 놓아요.", clue(new Goal.PlaceRel("minecraft:torch", Relation.NEXT_TO,
 				"minecraft:oak_planks", 1), "planks"));

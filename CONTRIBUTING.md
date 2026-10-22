@@ -131,11 +131,16 @@ questline files and a check that `tools/quest_tree.py` computes the same depths 
 ### Content metrics and the ratchet
 
 The content follows one rule: recycle words, not tasks. Two tools measure it, and
-`content/metrics-baseline.json` records the value of every metric. A change may improve a metric but
-never make it worse: `TaskVarietyTest`, `CoverageTest` and `RecyclingTest` fail on a regression, and
-CI runs the same checks. The roadmap targets (bare steps at most 30/20/10% on levels 1/2/3 and up, no
-goal type above 25% of a level, 10 encounters in 3 roles for every core word, ...) are only printed
-next to the numbers; the tests do not demand them yet.
+`content/metrics-baseline.json` records the value and the roadmap target of every metric. A metric
+passes when it is **not worse than its baseline value, or when it meets its roadmap target**
+(`target`, stored next to the value). So a change may improve a metric, and it may also give back some
+of the headroom as long as the metric stays inside the target: the (verb, object) maximum was recorded
+as 2, the target is at most 3, so a batch may use a third occurrence. Below the target the baseline is
+the bar. `TaskVarietyTest`, `CoverageTest` and `RecyclingTest` fail on a regression, and CI runs the
+same checks (`tools/variety.py` and `tools/coverage.py` for Python, `MetricsBaseline` for Java: keep the
+two rules identical). The roadmap targets (bare steps at most 30/20/10% on levels 1/2/3 and up, no goal
+type above 25% of a level, 10 encounters in 3 roles for every core word, ...) are printed next to the
+numbers.
 
 ```bash
 ./gradlew test --tests '*StepsDumpTest'      # writes build/reports/content/steps.json

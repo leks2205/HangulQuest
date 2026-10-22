@@ -81,7 +81,7 @@ final class QuestTextService {
 
 	/** True when the clue is generated from the goal (so it follows the ladder) and not authored. */
 	private static boolean generated(QuestStep step) {
-		return !(step.conditions().isEmpty() && step.hasClueKo());
+		return !step.hasClueKo();
 	}
 
 	/** The constructions of grammar.json that the clue of this step carries; none for an authored clue. */
@@ -114,21 +114,28 @@ final class QuestTextService {
 		return words;
 	}
 
-	/** The Korean clue at the trail's level. A step with conditions always gets the generated text. */
+	/**
+	 * The Korean clue at the trail's level. An authored clue wins, also on a step with conditions, where
+	 * it gets the condition phrases it lacks in front. A step without authored text gets the generated one.
+	 */
 	String clueKo(QuestStep step, int koreanLevel) {
 		if (step == null) {
 			return "";
 		}
-		if (!generated(step)) {
+		boolean authored = !generated(step);
+		if (authored && step.conditions().isEmpty()) {
 			return step.clueKo();
 		}
 		int level = effectiveLevel(koreanLevel);
 		String[] byLevel = clues.computeIfAbsent(step, key -> new String[LEVELS + 1]);
 		String cached = byLevel[level];
 		if (cached == null) {
-			// Every condition must show up in the Korean sentence; generated text guarantees it.
-			cached = SentenceBuilder.normal(step.goal(), firstWord(step), step.conditions(),
-					level, "finale".equals(step.id()), namerFor(step));
+			// Every condition must show up in the Korean sentence: generated text guarantees it, and an
+			// authored clue gets the phrases it lacks.
+			cached = authored
+					? SentenceBuilder.authored(step.clueKo(), step.conditions(), firstWord(step), namerFor(step), level)
+					: SentenceBuilder.normal(step.goal(), firstWord(step), step.conditions(),
+							level, "finale".equals(step.id()), namerFor(step));
 			byLevel[level] = cached;
 		}
 		return cached;
