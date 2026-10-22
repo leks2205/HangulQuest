@@ -978,6 +978,56 @@
             "direction"
           ],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "PLACE_ENTITY"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
+          },
+          "required": [
+            "type",
+            "entity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "ENTER_GATEWAY"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            }
+          },
+          "required": [
+            "type",
+            "block"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "HAVE_EFFECT"
+            },
+            "effect": {
+              "$ref": "#/definitions/resourceId"
+            }
+          },
+          "required": [
+            "type",
+            "effect"
+          ],
+          "additionalProperties": false
         }
       ]
     },

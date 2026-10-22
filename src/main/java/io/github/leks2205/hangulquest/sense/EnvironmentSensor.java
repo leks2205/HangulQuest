@@ -96,6 +96,8 @@ public final class EnvironmentSensor {
 	private final EventBuffer events = new EventBuffer();
 	private final DeathTracker deaths = new DeathTracker();
 	private final ProjectileTracker shotTracker = new ProjectileTracker();
+	private final EndWatch endWatch = new EndWatch();
+	private final java.util.Set<java.util.UUID> crystalsInSight = new java.util.HashSet<>();
 	private final DeathTracker.World deathWorld = this::findForDeath;
 
 	/** A young item entity near the player, held until every creature near them has been scanned. */
@@ -159,6 +161,7 @@ public final class EnvironmentSensor {
 		events.clear();
 		deaths.clear();
 		shotTracker.clear();
+		endWatch.reset();
 		consumption.clear();
 		lastInventory = new HashMap<>();
 		scratchInventory.clear();
@@ -302,6 +305,8 @@ public final class EnvironmentSensor {
 		obs.thunder = level.isThundering();
 		obs.idle = player.isSpectator() || isIdle();
 		readHands(obs, player);
+		endWatch.hands(CRYSTAL_ITEM.equals(obs.mainHand) || CRYSTAL_ITEM.equals(obs.offHand), obs.now);
+		readEnd(obs, player, level);
 		readArmor(obs, player);
 		readSky(obs, player, level);
 		obs.yaw = player.getYRot();
@@ -410,6 +415,30 @@ public final class EnvironmentSensor {
 	}
 
 	/** The armour slots, kept as the same map object while nothing is put on or taken off. */
+	private static final String CRYSTAL_ITEM = "minecraft:end_crystal";
+
+	/** Active effects, and the throw of an end gateway (a long jump from beside one, only looked for in the End). */
+	private void readEnd(Observation obs, LocalPlayer player, ClientLevel level) {
+		java.util.Set<String> effects = new java.util.HashSet<>();
+		for (net.minecraft.world.effect.MobEffectInstance effect : player.getActiveEffects()) {
+			effect.getEffect().unwrapKey().ifPresent(key -> effects.add(key.identifier().toString()));
+		}
+		obs.effects = effects;
+		boolean near = false;
+		if ("minecraft:the_end".equals(obs.dimension)) {
+			BlockPos feet = player.blockPosition();
+			for (int dx = -3; dx <= 3 && !near; dx++) {
+				for (int dy = -2; dy <= 3 && !near; dy++) {
+					for (int dz = -3; dz <= 3 && !near; dz++) {
+						probe.set(feet.getX() + dx, feet.getY() + dy, feet.getZ() + dz);
+						near = level.getBlockState(probe).is(Blocks.END_GATEWAY);
+					}
+				}
+			}
+		}
+		obs.gatewayUsed = endWatch.gatewayUsed(obs.dimension, obs.position.x, obs.position.y, obs.position.z, near);
+	}
+
 	private void readArmor(Observation obs, LocalPlayer player) {
 		Map<String, String> now = WornItems.of(slotItem(player, EquipmentSlot.HEAD),
 				slotItem(player, EquipmentSlot.CHEST), slotItem(player, EquipmentSlot.LEGS),
@@ -634,6 +663,7 @@ public final class EnvironmentSensor {
 		AABB nearBox = new AABB(player.blockPosition()).inflate(24.0);
 		boolean watchDrops = gives.hasDropCandidates(obs.now);
 		boolean watchPickups = gives.hasPickups(obs.now);
+		crystalsInSight.clear();
 		for (Entity entity : level.getEntities(player, nearBox, candidate -> true)) {
 			double distance = Math.sqrt(entity.distanceToSqr(player));
 			obs.addNearby(entityId(entity), distance);
@@ -642,6 +672,12 @@ public final class EnvironmentSensor {
 					itemsInSight.add(entity.getId());
 				} else if (distance <= GiveTracker.PICKUP_RANGE && GiveTracker.PICKUP_TYPES.contains(entityId(entity))) {
 					pickersNear.add(entity.getUUID());
+				}
+			}
+			if (entity instanceof net.minecraft.world.entity.boss.enderdragon.EndCrystal) {
+				crystalsInSight.add(entity.getUUID());
+				if (endWatch.crystalSeen(entity.getUUID(), entity.tickCount, distance, obs.now)) {
+					obs.placedEntities.add("minecraft:end_crystal");
 				}
 			}
 			if (entity instanceof ItemEntity dropped) {
@@ -662,6 +698,7 @@ public final class EnvironmentSensor {
 				obs.nearestHostileDistance = Math.min(obs.nearestHostileDistance, distance);
 			}
 		}
+		endWatch.keepOnly(crystalsInSight);
 		if (!seenItems.isEmpty()) {
 			for (SeenItem seen : seenItems) {
 				GiveFact gave = gives.itemSpawned(seen.id(), seen.item(), seen.count(), seen.distance(),

@@ -289,6 +289,9 @@ class QuestlineValidationTest {
 			case Goal.Fall g -> List.of("뛰어내");
 			case Goal.Shoot g -> List.of("쏘", "쏴", "맞", "던지", "던져");
 			case Goal.Walk g -> List.of("가", "걷");
+			case Goal.PlaceEntity g -> placing();
+			case Goal.EnterGateway g -> List.of("들어가");
+			case Goal.HaveEffect g -> List.of("받");
 		};
 		if (verbs.stream().anyMatch(ko::contains)) {
 			return true;

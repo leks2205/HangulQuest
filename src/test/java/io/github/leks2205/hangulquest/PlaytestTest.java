@@ -506,6 +506,11 @@ class PlaytestTest {
 
 	private static void applyGoal(Observation obs, Goal goal) {
 		switch (goal) {
+			case Goal.PlaceEntity g -> {
+				for (int i = 0; i < Math.max(1, g.count()); i++) obs.placedEntities.add(g.entity());
+			}
+			case Goal.EnterGateway g -> obs.gatewayUsed = true;
+			case Goal.HaveEffect g -> obs.effects = java.util.Set.of(g.effect());
 			case Goal.BreakBlock g -> {
 				for (int i = 0; i < Math.max(1, g.count()); i++) obs.brokenBlocks.add(g.block());
 			}
