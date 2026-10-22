@@ -344,7 +344,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_adventure_trim_with_all_exclusive_armor_patterns` | 구리 장비 | Kupferausrüstung | 3 | `adv_adventure_trim_with_any_armor_pattern` |
 | `adv_adventure_two_birds_one_arrow` | 차례로 두 마리 | Zwei nacheinander | 4 | `adv_adventure_ol_betsy` |
 | `adv_adventure_under_lock_and_key` | 철 문과 버튼 | Eisentür und Knopf | 4 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 가죽 장화로 눈 위를 | In Lederstiefeln über den Schnee | 4 | `adv_adventure_sleep_in_bed` |
+| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 가죽 장화와 가루눈 | Lederstiefel und Pulverschnee | 4 | `adv_adventure_sleep_in_bed` |
 | `adv_adventure_who_needs_rockets` | 로켓 없이 뛰어내리기 | Springen ohne Rakete | 4 | `adv_adventure_minecraft_trials_edition` |
 | `adv_adventure_whos_the_pillager_now` | 이제 누가 약탈자지? | Wer ist jetzt der Plünderer? | 3 | `adv_adventure_ol_betsy` |
 | `adv_nether_root` | 네더 | Nether | 4 | `abenteuerpfad`, `adv_story_lava_bucket` |
