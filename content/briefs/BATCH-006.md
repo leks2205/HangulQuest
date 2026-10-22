@@ -50,5 +50,5 @@ If generator wave 3 has merged into `phase0`, use its new verbs where they fit:
 ## Gates and handback
 
 As in BATCH-001, with `content/batches/BATCH-006/`. Run
-`/tmp/claude-1000/-home-lenni/79cfd1ae-df38-471c-aaed-b99a5d781be9/scratchpad/gates.sh` (add `rebaseline` once your
+`tools/gates.sh` (add `rebaseline` once your
 metrics are final); it stops at the first failure. Run `git merge phase0` again right before the final gates.

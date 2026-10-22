@@ -286,3 +286,11 @@ organisation). One-time setup: run the workflow *Korean review bot* with `ensure
 Actions to create pull requests (Settings, Actions, General). Only the maintainer labels `accepted`,
 `rejected` and `recheck` start anything that writes, and the bot verifies the label's author has write
 access. Issue text is only ever data: it is never evaluated or put into a shell command.
+
+## Running every content gate at once
+
+`tools/gates.sh` regenerates the derived content files (sentence dump, review registry, quest tree, chapters) and
+runs every content gate CI runs: the Korean linter, the variety and coverage ratchets, the full test suite, the
+registry, i18n, schema and translation checks. It stops at the first failure. `tools/gates.sh rebaseline` also
+rewrites `content/metrics-baseline.json`; use it only for a deliberate change, and explain every moved metric in the
+commit message. Run it unpiped (a pipe hides its exit status) and commit only when it ends with `ALL GATES GREEN`.
