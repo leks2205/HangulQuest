@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "gestuet",
  "titleKo": "마구간의 길",
+ "topic": "동물",
  "tier": 3,
  "order": 522,
  "concepts": [
+  "planks",
   "horse",
-  "gen_lime_candle",
-  "gen_golden_dandelion",
-  "gen_warped_nylium"
+  "carpet",
+  "sign",
+  "name"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,34 +24,42 @@
   {
    "id": "s1",
    "teach": [
+    "planks",
     "horse"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:horse",
-    "dwellMs": 800
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:bamboo_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_candle"
+    "carpet",
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_candle",
-    "count": 3
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:brown_carpet",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:bamboo_planks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_golden_dandelion"
+    "sign",
+    "horse"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:golden_dandelion",
-    "count": 8
+    "type": "PLACE_REL",
+    "block": "minecraft:bamboo_sign",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:horse",
+    "count": 1
    }
   }
  ],
@@ -57,31 +67,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_nylium"
+    "name",
+    "sign"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_nylium",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:bamboo_sign",
+    "change": "WRITE"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:horse"
     }
    ]
   },
-  "textKo": "밤에 뒤틀린 네사체를 놓았어요."
+  "textKo": "표지판에 말의 이름을 썼어요. 말은 커요."
  },
  "reward": {
   "badge": "gestuet",
   "words": [
-   "horse",
-   "leather",
    "planks",
-   "campfire"
+   "horse",
+   "carpet",
+   "sign"
   ]
  },
  "koreanLevel": 2,
- "topic": "동물"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eseo_activity",
+  "L2.eun_neun_topic"
+ ]
 }
