@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 149,
  "concepts": [
-  "gen_tadpole",
-  "seagrass",
-  "turtle_egg"
+  "beach",
+  "turtle",
+  "seagrass"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,16 +21,39 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tadpole"
+    "beach"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:tadpole",
-    "dwellMs": 800
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "ko": "해변에 도착해요."
+   },
+   "hint": {
+    "ko": "해변에 도착해요."
    }
   },
   {
    "id": "s2",
+   "teach": [
+    "turtle"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:turtle",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
    "teach": [
     "seagrass"
    ],
@@ -39,19 +62,14 @@
     "item": "minecraft:seagrass",
     "count": 3
    },
-   "hint": {
-    "ko": "해초는 바다 밑에서 찾아요."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "seagrass"
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
    ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:seagrass",
-    "count": 3
+   "hint": {
+    "ko": "가위를 들고 해초를 세 개 모아요."
    }
   }
  ],
@@ -59,26 +77,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "turtle_egg"
+    "turtle"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:turtle_egg",
+    "type": "GIVE",
+    "item": "minecraft:seagrass",
+    "entity": "minecraft:turtle",
     "count": 1
-   },
-   "conditions": [],
-   "hint": {
-    "ko": "거북 알은 거북이 알을 낳을 때 생겨요."
    }
   },
-  "textKo": "거북 알을 구해요."
+  "textKo": "거북에게 해초를 줬어요."
  },
  "reward": {
   "badge": "schildkroete",
   "words": [
+   "beach",
    "turtle",
-   "seagrass",
-   "turtle_egg"
+   "seagrass"
   ]
  },
  "koreanLevel": 1

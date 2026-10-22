@@ -6,9 +6,10 @@
  "tier": 1,
  "order": 148,
  "concepts": [
+  "flower",
   "flower_pot",
-  "gen_prismarine",
-  "gen_chiseled_sandstone"
+  "villager",
+  "friend"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -19,16 +20,19 @@
   {
    "id": "s1",
    "teach": [
-    "flower_pot"
+    "flower"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flower_pot",
-    "count": 3
+    "item": "minecraft:poppy",
+    "count": 2
    },
-   "hint": {
-    "ko": "화분은 벽돌로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -36,20 +40,22 @@
     "flower_pot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:flower_pot",
-    "count": 3
+    "type": "CRAFT",
+    "item": "minecraft:flower_pot",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_prismarine"
+    "flower_pot"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:prismarine",
-    "dwellMs": 600
+    "type": "PLACE_REL",
+    "block": "minecraft:flower_pot",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
    }
   }
  ],
@@ -57,22 +63,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chiseled_sandstone"
+    "villager",
+    "friend"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_sandstone",
+    "type": "GIVE",
+    "item": "minecraft:flower_pot",
+    "entity": "minecraft:villager",
     "count": 1
    },
-   "conditions": []
+   "clue": {
+    "ko": "주민 친구에게 화분을 줘요."
+   },
+   "hint": {
+    "ko": "주민 친구에게 화분을 줘요."
+   }
   },
-  "textKo": "조각된 사암을 놓았어요."
+  "textKo": "주민에게 화분을 줬어요."
  },
  "reward": {
   "badge": "blumentopf",
   "words": [
+   "flower",
    "flower_pot",
-   "flower"
+   "villager",
+   "friend"
   ]
  },
  "koreanLevel": 1

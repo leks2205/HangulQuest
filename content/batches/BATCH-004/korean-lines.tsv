@@ -1,0 +1,153 @@
+id	ko	context
+trail.wasserpfad.title	물의 길	title, authored; project: Go to a river, fill a bucket, plant a sapling next to the water and watch a fish.
+trail.wasserpfad.s1.clue	강에 도착해요.	clue, authored; REACH_BIOME
+trail.wasserpfad.s1.hint	강에 도착해요.	hint, authored; REACH_BIOME
+trail.wasserpfad.s2.clue	양동이에 물을 담아요.	clue, authored; ACQUIRE_ITEM
+trail.wasserpfad.s2.hint	양동이에 물을 담아요.	hint, authored; ACQUIRE_ITEM
+trail.wasserpfad.s3.clue	물 옆에 자작나무 묘목을 심어요.	clue, generated; PLACE_REL
+trail.wasserpfad.s3.hint	물 옆에 묘목을 심어요.	hint, authored; PLACE_REL
+trail.wasserpfad.finale.clue	강에서 물고기를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.wasserpfad.finale.hint	강에서 물고기를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.wasserpfad.finale	강에서 물고기를 바라봤어요.	finale line, generated
+trail.lavapfad.title	용암의 길	title, authored; project: Mine coal underground, collect cobblestone with a torch, wall off a lava pool and cap it.
+trail.lavapfad.s1.clue	땅속에서 석탄을 세 개 캐요.	clue, generated; BREAK_BLOCK
+trail.lavapfad.s1.hint	땅속에서 석탄을 캐요.	hint, generated; BREAK_BLOCK
+trail.lavapfad.s2.clue	횃불을 들고 조약돌을 다섯 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.lavapfad.s2.hint	횃불을 들고 조약돌을 모아요.	hint, generated; ACQUIRE_ITEM
+trail.lavapfad.s3.clue	용암 옆에 조약돌을 두 개 놓아요.	clue, generated; PLACE_REL
+trail.lavapfad.s3.hint	용암 옆에 조약돌을 두 개 놓아요.	hint, authored; PLACE_REL
+trail.lavapfad.finale.clue	횃불을 들고 용암 위에 조약돌을 놓아요.	clue, generated; PLACE_REL
+trail.lavapfad.finale.hint	횃불을 들고 용암 위에 조약돌을 놓아요.	hint, generated; PLACE_REL
+trail.lavapfad.finale	횃불을 들고 용암 위에 조약돌을 놓았어요.	finale line, generated
+trail.blumentopf.title	화분의 길	title, authored; project: Collect flowers, craft a flower pot, put it next to the door and give a pot to a villager friend.
+trail.blumentopf.s1.clue	낮에 꽃을 두 송이 모아요.	clue, generated; ACQUIRE_ITEM
+trail.blumentopf.s1.hint	낮에 꽃을 모아요.	hint, generated; ACQUIRE_ITEM
+trail.blumentopf.s2.clue	화분을 만들어요.	clue, generated; CRAFT
+trail.blumentopf.s2.hint	화분을 만들어요.	hint, generated; CRAFT
+trail.blumentopf.s3.clue	문 옆에 화분을 놓아요.	clue, generated; PLACE_REL
+trail.blumentopf.s3.hint	문 옆에 화분을 놓아요.	hint, generated; PLACE_REL
+trail.blumentopf.finale.clue	주민 친구에게 화분을 줘요.	clue, authored; GIVE
+trail.blumentopf.finale.hint	주민 친구에게 화분을 줘요.	hint, authored; GIVE
+trail.blumentopf.finale	주민에게 화분을 줬어요.	finale line, generated
+trail.schildkroete.title	거북의 길	title, authored; project: Go to the beach, watch a turtle, collect seagrass and feed it to the turtle.
+trail.schildkroete.s1.clue	해변에 도착해요.	clue, authored; REACH_BIOME
+trail.schildkroete.s1.hint	해변에 도착해요.	hint, authored; REACH_BIOME
+trail.schildkroete.s2.clue	낮에 거북을 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.schildkroete.s2.hint	낮에 거북을 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.schildkroete.s3.clue	낮에 해초를 세 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.schildkroete.s3.hint	가위를 들고 해초를 세 개 모아요.	hint, authored; ACQUIRE_ITEM
+trail.schildkroete.finale.clue	거북에게 해초를 줘요.	clue, generated; GIVE
+trail.schildkroete.finale.hint	거북에게 해초를 줘요.	hint, generated; GIVE
+trail.schildkroete.finale	거북에게 해초를 줬어요.	finale line, generated
+trail.blumenkranz.title	꽃밭의 길	title, authored; project: Pick flowers, build a dirt ring, plant a flower inside it and make yellow dye.
+trail.blumenkranz.s1.clue	낮에 꽃을 다섯 송이 꺾어요.	clue, generated; BREAK_BLOCK
+trail.blumenkranz.s1.hint	낮에 꽃을 꺾어요.	hint, generated; BREAK_BLOCK
+trail.blumenkranz.s2.clue	흙으로 울타리를 쌓아요.	clue, generated; BUILD_PATTERN
+trail.blumenkranz.s2.hint	흙으로 울타리를 쌓아요.	hint, generated; BUILD_PATTERN
+trail.blumenkranz.s3.clue	흙 울타리 안에 꽃을 심어요.	clue, generated; PLACE_ON_PATTERN
+trail.blumenkranz.s3.hint	흙 울타리 안에 꽃을 심어요.	hint, generated; PLACE_ON_PATTERN
+trail.blumenkranz.finale.clue	노란색 염료를 만들어요.	clue, generated; CRAFT
+trail.blumenkranz.finale.hint	노란색 염료를 만들어요.	hint, generated; CRAFT
+trail.blumenkranz.finale	노란색 염료를 만들었어요.	finale line, generated
+trail.sternenpfad.title	별의 길	title, authored; project: Light a campfire at nightfall, put a bed next to it, eat pork by the fire and sleep under the stars.
+trail.sternenpfad.s1.clue	밤에 하늘이 어두워요. 모닥불을 피워요.	clue, authored; PLACE_BLOCK
+trail.sternenpfad.s1.hint	밤에 하늘이 어두워요. 모닥불을 피워요.	hint, authored; PLACE_BLOCK
+trail.sternenpfad.s2.clue	달이 떠요. 모닥불 옆에 침대를 놓아요.	clue, authored; PLACE_REL
+trail.sternenpfad.s2.hint	달이 떠요. 모닥불 옆에 침대를 놓아요.	hint, authored; PLACE_REL
+trail.sternenpfad.s3.clue	밤에 모닥불 옆에서 돼지고기를 먹어요.	clue, generated; CONSUME_ITEM
+trail.sternenpfad.s3.hint	밤에 모닥불 옆에서 돼지고기를 먹어요.	hint, generated; CONSUME_ITEM
+trail.sternenpfad.finale.clue	밤에 침대에서 자요.	clue, generated; USE_BLOCK
+trail.sternenpfad.finale.hint	밤에 침대에서 자요.	hint, generated; USE_BLOCK
+trail.sternenpfad.finale	밤에 침대에서 잤어요.	finale line, generated
+trail.muschelpfad.title	모래성의 길	title, authored; project: Build a sand pyramid on the beach, dig more sand, craft a sign and put it on top of the sandcastle.
+trail.muschelpfad.s1.clue	모래로 피라미드를 쌓아요.	clue, generated; BUILD_PATTERN
+trail.muschelpfad.s1.hint	모래로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN
+trail.muschelpfad.s2.clue	낮에 모래를 세 개 파요.	clue, generated; BREAK_BLOCK
+trail.muschelpfad.s2.hint	낮에 모래를 파요.	hint, generated; BREAK_BLOCK
+trail.muschelpfad.s3.clue	참나무 표지판을 만들어요.	clue, generated; CRAFT
+trail.muschelpfad.s3.hint	참나무 표지판을 만들어요.	hint, generated; CRAFT
+trail.muschelpfad.finale.clue	모래 피라미드 위에 참나무 표지판을 놓아요.	clue, generated; PLACE_ON_PATTERN
+trail.muschelpfad.finale.hint	모래 피라미드 위에 참나무 표지판을 놓아요.	hint, generated; PLACE_ON_PATTERN
+trail.muschelpfad.finale	모래 피라미드 위에 참나무 표지판을 놓았어요.	finale line, generated
+trail.vogelscheuche.title	허수아비의 길	title, authored; project: Craft two hay bales, stack them, get a carved pumpkin and put it on top as a head.
+trail.vogelscheuche.s1.clue	건초 더미를 두 개 만들어요.	clue, generated; CRAFT
+trail.vogelscheuche.s1.hint	건초 더미를 만들어요.	hint, generated; CRAFT
+trail.vogelscheuche.s2.clue	건초 더미 두 개로 기둥을 쌓아요.	clue, generated; BUILD_PATTERN
+trail.vogelscheuche.s2.hint	건초 더미로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN
+trail.vogelscheuche.s3.clue	낮에 조각된 호박을 구해요.	clue, generated; ACQUIRE_ITEM
+trail.vogelscheuche.s3.hint	가위를 들고 조각된 호박을 구해요.	hint, authored; ACQUIRE_ITEM
+trail.vogelscheuche.finale.clue	건초 더미 기둥 위에 조각된 호박을 놓아요.	clue, generated; PLACE_ON_PATTERN
+trail.vogelscheuche.finale.hint	건초 더미 기둥 위에 조각된 호박을 놓아요.	hint, generated; PLACE_ON_PATTERN
+trail.vogelscheuche.finale	건초 더미 기둥 위에 조각된 호박을 놓았어요.	finale line, generated
+trail.ziegenpfad.title	염소의 길	title, authored; project: Go to a mountain, watch a goat, build a plank pen and feed the goat.
+trail.ziegenpfad.s1.clue	산으로 가요.	clue, generated; REACH_BIOME
+trail.ziegenpfad.s1.hint	산으로 가요.	hint, generated; REACH_BIOME
+trail.ziegenpfad.s2.clue	낮에 염소를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.ziegenpfad.s2.hint	낮에 염소를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.ziegenpfad.s3.clue	판자로 울타리를 쌓아요.	clue, generated; BUILD_PATTERN
+trail.ziegenpfad.s3.hint	판자로 울타리를 쌓아요.	hint, generated; BUILD_PATTERN
+trail.ziegenpfad.finale.clue	낮에 염소에게 먹이를 줘요.	clue, generated; INTERACT_ENTITY
+trail.ziegenpfad.finale.hint	밀을 들고 염소에게 먹이를 줘요.	hint, authored; INTERACT_ENTITY
+trail.ziegenpfad.finale	낮에 염소에게 먹이를 줬어요.	finale line, generated
+trail.fischerpfad.title	물고기의 길	title, authored; project: Catch a fish at the river, cook it at night, store the cooked fish and give two fish to a cat.
+trail.fischerpfad.s1.clue	낮에 강에서 물고기를 구해요.	clue, generated; ACQUIRE_ITEM
+trail.fischerpfad.s1.hint	낚싯대를 들고 물고기를 구해요.	hint, authored; ACQUIRE_ITEM
+trail.fischerpfad.s2.clue	밤에 물고기를 구워요.	clue, generated; SMELT
+trail.fischerpfad.s2.hint	밤에 물고기를 구워요.	hint, generated; SMELT
+trail.fischerpfad.s3.clue	상자 안에 익힌 대구를 넣어요.	clue, generated; PUT_IN
+trail.fischerpfad.s3.hint	상자 안에 익힌 대구를 넣어요.	hint, generated; PUT_IN
+trail.fischerpfad.finale.clue	고양이에게 물고기를 두 마리 줘요.	clue, generated; GIVE
+trail.fischerpfad.finale.hint	고양이에게 물고기를 두 마리 줘요.	hint, authored; GIVE
+trail.fischerpfad.finale	고양이에게 물고기를 두 마리 줬어요.	finale line, generated
+trail.gipfelpfad.title	꼭대기의 길	title, authored; project: Climb a mountain at dawn, stack a column of dirt, craft a banner and hang it on top.
+trail.gipfelpfad.s1.clue	새벽에 산 위로 올라가요.	clue, generated; REACH_HEIGHT
+trail.gipfelpfad.s1.hint	산 위로 올라가요.	hint, authored; REACH_HEIGHT
+trail.gipfelpfad.s2.clue	산에서 흙 세 개로 기둥을 쌓아요.	clue, generated; BUILD_PATTERN
+trail.gipfelpfad.s2.hint	산에서 흙으로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN
+trail.gipfelpfad.s3.clue	빨간색 현수막을 만들어요.	clue, generated; CRAFT
+trail.gipfelpfad.s3.hint	빨간색 현수막을 만들어요.	hint, generated; CRAFT
+trail.gipfelpfad.finale.clue	산에서 흙 기둥 위에 빨간색 현수막을 걸어요.	clue, generated; PLACE_ON_PATTERN
+trail.gipfelpfad.finale.hint	산에서 흙 기둥 위에 빨간색 현수막을 걸어요.	hint, generated; PLACE_ON_PATTERN
+trail.gipfelpfad.finale	산에서 흙 기둥 위에 빨간색 현수막을 걸었어요.	finale line, generated
+trail.handelspfad.title	거래의 길	title, authored; project: Harvest potatoes, talk to a villager and give one, get an emerald and put it in a chest.
+trail.handelspfad.s1.clue	낮에 감자를 세 개 수확해요.	clue, generated; BREAK_BLOCK
+trail.handelspfad.s1.hint	낮에 감자를 수확해요.	hint, generated; BREAK_BLOCK
+trail.handelspfad.s2.clue	주민과 이야기해요. 감자를 줘요.	clue, authored; GIVE
+trail.handelspfad.s2.hint	주민과 이야기해요. 감자를 줘요.	hint, authored; GIVE
+trail.handelspfad.s3.clue	주민 옆에서 에메랄드를 구해요.	clue, generated; ACQUIRE_ITEM
+trail.handelspfad.s3.hint	주민 옆에서 에메랄드를 구해요.	hint, generated; ACQUIRE_ITEM
+trail.handelspfad.finale.clue	상자 안에 에메랄드를 넣어요.	clue, generated; PUT_IN
+trail.handelspfad.finale.hint	상자 안에 에메랄드를 넣어요.	hint, generated; PUT_IN
+trail.handelspfad.finale	상자 안에 에메랄드를 넣었어요.	finale line, generated
+trail.dorfhaus.title	마을 집의 길	title, authored; project: Build the walls of a house, hang a door, lay a carpet in front, put a pot between door and wall and a bed inside.
+trail.dorfhaus.s1.clue	낮에 판자로 집의 벽을 쌓아요.	clue, authored; BUILD_PATTERN
+trail.dorfhaus.s1.hint	낮에 판자로 집의 벽을 쌓아요.	hint, authored; BUILD_PATTERN
+trail.dorfhaus.s2.clue	판자 울타리 옆에 문을 달아요.	clue, generated; PLACE_ON_PATTERN
+trail.dorfhaus.s2.hint	판자 울타리 옆에 문을 달아요.	hint, authored; PLACE_ON_PATTERN
+trail.dorfhaus.s3.clue	문 앞에 노란색 양탄자를 깔아요.	clue, generated; PLACE_REL
+trail.dorfhaus.s3.hint	문 앞에 양탄자를 깔아요.	hint, authored; PLACE_REL
+trail.dorfhaus.s4.clue	문과 판자 사이에 화분을 놓아요.	clue, generated; PLACE_REL
+trail.dorfhaus.s4.hint	문과 판자 사이에 화분을 놓아요.	hint, generated; PLACE_REL
+trail.dorfhaus.finale.clue	새 집 안에 침대를 놓아요.	clue, authored; PLACE_ON_PATTERN
+trail.dorfhaus.finale.hint	새 집 안에 침대를 놓아요.	hint, authored; PLACE_ON_PATTERN
+trail.dorfhaus.finale	새 집 안에 침대를 놓았어요.	finale line, authored
+trail.weidepfad.title	목장의 길	title, authored; project: Ride a horse, give a cow some wheat, cook beef and eat it.
+trail.weidepfad.s1.clue	낮에 말을 타요.	clue, generated; INTERACT_ENTITY
+trail.weidepfad.s1.hint	낮에 말을 타요.	hint, generated; INTERACT_ENTITY
+trail.weidepfad.s2.clue	소에게 밀을 줘요.	clue, generated; GIVE
+trail.weidepfad.s2.hint	소에게 밀을 줘요.	hint, generated; GIVE
+trail.weidepfad.s3.clue	익히지 않은 소고기를 구워요.	clue, generated; SMELT
+trail.weidepfad.s3.hint	소고기를 구워요.	hint, authored; SMELT
+trail.weidepfad.finale.clue	낮에 소고기를 먹어요.	clue, generated; CONSUME_ITEM
+trail.weidepfad.finale.hint	낮에 소고기를 먹어요.	hint, generated; CONSUME_ITEM
+trail.weidepfad.finale	낮에 소고기를 먹었어요.	finale line, generated
+trail.brandung.title	파도의 길	title, authored; project: Craft a boat on the beach, go to the sea, watch a fish and craft a map.
+trail.brandung.s1.clue	해변에서 참나무 보트를 만들어요.	clue, generated; ACQUIRE_ITEM
+trail.brandung.s1.hint	해변에서 참나무 보트를 만들어요.	hint, generated; ACQUIRE_ITEM
+trail.brandung.s2.clue	낮에 바다로 가요.	clue, generated; REACH_BIOME
+trail.brandung.s2.hint	낮에 바다로 가요.	hint, generated; REACH_BIOME
+trail.brandung.s3.clue	바다에서 물고기를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.brandung.s3.hint	바다에서 물고기를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.brandung.finale.clue	지도를 만들어요.	clue, generated; CRAFT
+trail.brandung.finale.hint	지도를 만들어요.	hint, generated; CRAFT
+trail.brandung.finale	지도를 만들었어요.	finale line, generated

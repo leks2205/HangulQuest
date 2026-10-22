@@ -2,13 +2,16 @@
  "schema": 1,
  "id": "dorfhaus",
  "titleKo": "마을 집의 길",
+ "topic": "집",
  "tier": 4,
  "order": 320,
  "concepts": [
+  "planks",
+  "house",
   "door",
-  "gen_spruce_wood",
-  "gen_ravager",
-  "gen_shulker_box"
+  "carpet",
+  "flower_pot",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -23,34 +26,72 @@
   {
    "id": "s1",
    "teach": [
-    "door"
+    "planks",
+    "house"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_door",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
+   "clue": {
+    "ko": "낮에 판자로 집의 벽을 쌓아요."
+   },
+   "hint": {
+    "ko": "낮에 판자로 집의 벽을 쌓아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_wood"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_wood",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:spruce_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks"
+   },
+   "hint": {
+    "ko": "판자 울타리 옆에 문을 달아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_ravager"
+    "carpet"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ravager",
-    "dwellMs": 800
+    "type": "PLACE_REL",
+    "block": "minecraft:yellow_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "hint": {
+    "ko": "문 앞에 양탄자를 깔아요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "flower_pot"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:flower_pot",
+    "relation": "BETWEEN",
+    "anchor": "#minecraft:doors",
+    "count": 1,
+    "anchor2": "#minecraft:planks"
    }
   }
  ],
@@ -58,29 +99,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_shulker_box"
+    "bed"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:shulker_box"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:green_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks"
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "clue": {
+    "ko": "새 집 안에 침대를 놓아요."
+   },
+   "hint": {
+    "ko": "새 집 안에 침대를 놓아요."
+   }
   },
-  "textKo": "밤에 셜커 상자를 열었어요."
+  "textKo": "새 집 안에 침대를 놓았어요."
  },
  "reward": {
   "badge": "dorfhaus",
   "words": [
+   "planks",
+   "house",
    "door",
-   "bed",
-   "villager"
+   "carpet"
   ]
  },
- "koreanLevel": 1,
- "topic": "나무"
+ "koreanLevel": 1
 }

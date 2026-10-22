@@ -6,10 +6,9 @@
  "tier": 3,
  "order": 145,
  "concepts": [
-  "gen_dropper",
-  "gen_mangrove_planks",
-  "gen_waxed_copper_chest",
-  "gen_spruce_trapdoor"
+  "coal",
+  "cobblestone",
+  "lava"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,34 +22,53 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dropper"
+    "coal"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:dropper",
-    "dwellMs": 600
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 40
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_planks"
+    "cobblestone"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:mangrove_planks",
-    "count": 3
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cobblestone",
+    "count": 5
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_copper_chest"
+    "cobblestone",
+    "lava"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_chest",
-    "count": 4
+    "type": "PLACE_REL",
+    "block": "minecraft:cobblestone",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:lava",
+    "count": 2
+   },
+   "hint": {
+    "ko": "용암 옆에 조약돌을 두 개 놓아요."
    }
   }
  ],
@@ -58,29 +76,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_trapdoor"
+    "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_trapdoor",
+    "type": "PLACE_REL",
+    "block": "minecraft:cobblestone",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:lava",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "HOLDING",
+     "item": "minecraft:torch"
     }
    ]
   },
-  "textKo": "밤에 가문비나무 다락문을 달았어요."
+  "textKo": "횃불을 들고 용암 위에 조약돌을 놓았어요."
  },
  "reward": {
   "badge": "lavapfad",
   "words": [
-   "lava",
-   "magma",
-   "obsidian",
-   "campfire"
+   "coal",
+   "cobblestone",
+   "lava"
   ]
  },
  "koreanLevel": 1
