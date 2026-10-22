@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "meals_cake",
+	"chapter": "meals",
+	"level": 3,
+	"titleKo": "친구와 케이크",
+	"unlock": {"trails": ["baeckerei", "waldfest"], "minWords": 90},
+	"paragraphs": [
+		"오늘 친구가 우리 집에 왔어요. 저는 케이크를 만들었어요.",
+		"케이크를 만들기 전에 밀과 설탕과 달걀과 우유를 모았어요.",
+		"양동이로 소에게서 우유를 모았어요. 닭이 달걀을 낳았어요. 저는 달걀도 모았어요.",
+		"제작대에서 케이크를 만들었어요. 그리고 케이크를 놓았어요.",
+		"케이크는 여러 번 먹을 수 있어요. 친구와 같이 먹었어요. 정말 맛있었어요!"
+	],
+	"words": [
+		"concept:friend", "concept:house", "concept:cake", "concept:make", "concept:wheat", "concept:sugar",
+		"concept:egg", "concept:milk", "concept:collect", "concept:bucket", "concept:cow", "concept:chicken",
+		"concept:crafting_table", "concept:place", "concept:eat"
+	],
+	"grammar": [
+		"L1.itda_eopda", "L1.obj_eul", "L1.subj_i", "L2.ege", "L2.eseo_activity", "L2.eun_neun_topic",
+		"L2.hago_wa_gwa", "L3.gi_jeone", "L3.past", "L3.su_itda"
+	]
+}

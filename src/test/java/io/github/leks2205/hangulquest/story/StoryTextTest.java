@@ -100,6 +100,50 @@ class StoryTextTest {
 	}
 
 	@Test
+	void theEndingsOfLevelsThreeToSixNameTheirConstruction() {
+		assertEquals(new StoryText.Breakdown("놓다", "놓", "-았/었어요", "L3.past"), first("놓았어요").breakdown());
+		assertEquals(new StoryText.Breakdown("쓰다", "쓰", "-았/었어요", "L3.past"), first("썼어요").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-기", "L3.gi_jeone"), first("먹기").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)면", "L4.myeon"), first("먹으면").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-아/어서", "L4.eoseo"), first("만들어서").breakdown());
+		assertEquals(new StoryText.Breakdown("걷다", "걷", "-아/어서", "L4.eoseo"), first("걸어서").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)ㄴ", "L5.adn_past_eun"), first("먹은").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-는", "L5.adn_present_neun"), first("만드는").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-(으)ㄹ", ""), first("먹을").breakdown());
+		assertEquals(new StoryText.Breakdown("만들다", "만들", "-(으)ㄹ수록", "L6.eulsurok"), first("만들수록").breakdown());
+		assertEquals(new StoryText.Breakdown("먹다", "먹", "-지", ""), first("먹지").breakdown());
+		for (String form : List.of("놓았어요", "먹기", "먹으면", "만들어서", "먹은", "만드는", "먹을", "만들수록")) {
+			assertEquals(State.UNKNOWN, first(form).state(), form + " is the verb, and the player does not know it yet");
+			assertEquals(State.KNOWN, first(form, "concept:place", "concept:eat", "concept:make").state(), form);
+		}
+	}
+
+	@Test
+	void aNounOrPronounKeepsItsSpellingWhenAVerbFormLooksTheSame() {
+		// 나는 is "I" with the topic particle and also the present adnominal of 나다
+		StoryLexicon lexicon = StoryLexicon.parse("""
+				{"words": [
+				 {"id": "i", "forms": ["나"], "known": true, "en": "I", "de": "ich"},
+				 {"id": "appear", "verb": "나다", "known": true, "en": "to appear", "de": "erscheinen"}
+				]}""");
+		StoryVocabulary vocabulary = StoryVocabulary.of(CATALOG, lexicon, id -> false, Lang.EN);
+		assertEquals("lexicon:i", StoryText.analyze("나는", vocabulary).get(0).id());
+		assertEquals("lexicon:appear", StoryText.analyze("나면", vocabulary).get(0).id());
+	}
+
+	@Test
+	void theCopulaHasAPastForm() {
+		StoryText.Token token = first("집이었어요", "concept:house");
+		assertEquals(State.KNOWN, token.state());
+		assertEquals("L3.past", token.breakdown().grammar());
+	}
+
+	@Test
+	void aParticleOfTheSourceCanFollowAnEojeolThatMeansFrom() {
+		assertEquals(new StoryText.Breakdown("돌", "돌", "에게서", "L2.ege"), first("돌에게서").breakdown());
+	}
+
+	@Test
 	void existenceAndWantingCarryTheirOwnConstruction() {
 		assertEquals("L1.itda_eopda", first("있어요").breakdown().grammar());
 		assertEquals("L2.go_sipeoyo", first("싶어요").breakdown().grammar());

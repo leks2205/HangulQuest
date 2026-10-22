@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "fire_campfire",
+	"chapter": "fire_light",
+	"level": 5,
+	"titleKo": "밤의 모닥불",
+	"unlock": {"trails": ["feuerpfad", "w3_05"], "minWords": 110},
+	"paragraphs": [
+		"저녁이었어요. 해가 졌어요. 밤이 왔어요. 하늘이 어두웠어요.",
+		"저는 통나무와 막대기와 석탄으로 모닥불을 만들었어요. 그리고 모닥불을 놓았어요.",
+		"모닥불 위에 돼지고기를 놓았어요. 고기를 굽는 동안 저는 모닥불 옆에 앉았어요.",
+		"불빛이 따뜻했어요. 하늘에 별이 많았어요. 달도 있었어요.",
+		"구운 돼지고기를 먹었어요. 맛있었어요. 밤은 길지만 괜찮아요."
+	],
+	"words": [
+		"concept:evening", "concept:sun", "concept:night", "concept:sky", "concept:log", "concept:stick",
+		"concept:coal", "concept:campfire", "concept:make", "concept:place", "concept:above", "concept:pork",
+		"concept:meat", "concept:bake", "concept:moon", "concept:eat"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.loc_yeop_e", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic", "L2.hago_wa_gwa", "L3.past",
+		"L4.jiman", "L5.adn_past_eun", "L5.adn_present_neun", "L5.neun_dongan"
+	]
+}

@@ -25,7 +25,14 @@ import java.util.function.Predicate;
 public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 	/** An ending a verb takes, with the grammar.json construction that teaches it. */
 	public enum Ending {
-		EOYO("-아/어요", "L1.eoyo"), SEYO("-(으)세요", "L2.seyo"), GO("-고", "L2.go_sequence");
+		EOYO("-아/어요", "L1.eoyo"), SEYO("-(으)세요", "L2.seyo"), GO("-고", "L2.go_sequence"),
+		// the endings of levels 3 to 6, matched after the nouns (see extendedVerb)
+		PAST("-았/었어요", "L3.past"), GI("-기", "L3.gi_jeone"), MYEON("-(으)면", "L4.myeon"),
+		ESEO("-아/어서", "L4.eoseo"), JIMAN("-지만", "L4.jiman"), EURO("-(으)러", "L4.eureo_gayo"),
+		EOYA("-아/어야", "L4.eoya_haeyo"), PAST_ADN("-(으)ㄴ", "L5.adn_past_eun"), PRESENT_ADN("-는", "L5.adn_present_neun"),
+		ADJ_ADN("-(으)ㄴ", "L5.adn_adj_eun"), FUTURE_ADN("-(으)ㄹ", ""), EODO("-아/어도", "L5.eodo"),
+		NEUNDE("-는데", "L5.neunde"), NIKKA("-(으)니까", "L5.eunikka"), EULSUROK("-(으)ㄹ수록", "L6.eulsurok"),
+		DEUSI("-듯이", "L6.deusi"), JI("-지", "");
 
 		private final String label;
 		private final String grammar;
@@ -59,6 +66,8 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 	/** Function words that carry a construction, by stem; each with the particles it is meant for (empty: any). */
 	private final Map<String, List<Map.Entry<Set<String>, String>>> formGrammar = new HashMap<>();
 	private final Map<String, VerbMatch> verbs = new HashMap<>();
+	/** The forms of levels 3 to 6. They are looked up after the nouns, so that 나는 stays "I" and not a form of 나다. */
+	private final Map<String, VerbMatch> extended = new HashMap<>();
 
 	private StoryVocabulary() {
 	}
@@ -123,6 +132,40 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 					Ending.SEYO.grammar()));
 		}
 		verbs.putIfAbsent(word.go(), new VerbMatch(hit, dictionary, word.stem(), Ending.GO, Ending.GO.grammar()));
+		addExtended(hit, word);
+	}
+
+	private void addExtended(Hit hit, Conjugator.Word word) {
+		String dictionary = word.dictionary();
+		extend(hit, word, word.past(), Ending.PAST);
+		extend(hit, word, word.myeon(), Ending.MYEON);
+		extend(hit, word, word.aseo(), Ending.ESEO);
+		extend(hit, word, word.ado(), Ending.EODO);
+		extend(hit, word, word.nikka(), Ending.NIKKA);
+		extend(hit, word, word.neunde(), Ending.NEUNDE);
+		extend(hit, word, word.future(), Ending.FUTURE_ADN);
+		if (word.adjective() && !dictionary.equals("있다") && !dictionary.equals("없다")) {
+			extend(hit, word, word.neun(), Ending.ADJ_ADN);
+		} else {
+			extend(hit, word, word.eun(), Ending.PAST_ADN);
+			extend(hit, word, word.neun(), Ending.PRESENT_ADN);
+		}
+		extend(hit, word, word.eulsurok(), Ending.EULSUROK);
+		extend(hit, word, word.deusi(), Ending.DEUSI);
+		if (!word.adjective()) {
+			extend(hit, word, word.eureo(), Ending.EURO);
+			extend(hit, word, word.stem() + "기", Ending.GI);
+		}
+		extend(hit, word, word.jiman(), Ending.JIMAN);
+		extend(hit, word, word.stem() + "지", Ending.JI);
+		// -아/어야 해요 is two eojeol: the first carries the construction, 해요 is the verb 하다
+		extend(hit, word, word.eo() + "야", Ending.EOYA);
+	}
+
+	private void extend(Hit hit, Conjugator.Word word, String surface, Ending ending) {
+		if (surface != null && !surface.isBlank() && !surface.contains(" ")) {
+			extended.putIfAbsent(surface, new VerbMatch(hit, word.dictionary(), word.stem(), ending, ending.grammar()));
+		}
 	}
 
 	@Override
@@ -147,6 +190,11 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 	/** The verb form this eojeol is, or null. */
 	public VerbMatch verb(String surface) {
 		return verbs.get(surface);
+	}
+
+	/** The level 3 to 6 form this eojeol is, or null. Tried only when no noun or function word fits. */
+	public VerbMatch extendedVerb(String surface) {
+		return extended.get(surface);
 	}
 
 	/** The construction a function word carries (안, 앞에), or null. */

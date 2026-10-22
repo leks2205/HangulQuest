@@ -60,22 +60,29 @@ class StoryContentTest {
 	}
 
 	@Test
-	void thereIsAStoryForEachOfTheFourFirstChapters() {
+	void thereIsAStoryForEachOfTheFirstSevenChapters() {
 		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
-		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals")), chapters.toString());
+		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals", "colors", "market", "meals")),
+				chapters.toString());
 		assertEquals(stories.size(), stories.stream().map(Story::id).distinct().count(), "story ids are unique");
 	}
 
 	@Test
-	void eachStoryIsEightyToTwoHundredSyllablesAtLevelOneOrTwo() {
+	void theGradedStoriesReachLevelsThreeToSix() {
+		Set<Integer> levels = stories.stream().map(Story::level).collect(Collectors.toSet());
+		assertTrue(levels.containsAll(Set.of(1, 2, 3, 4, 5, 6)), levels.toString());
+	}
+
+	@Test
+	void eachStoryIsEightyToFourHundredSyllables() {
 		for (Story story : stories) {
-			assertTrue(story.syllables() >= 80 && story.syllables() <= 200, story.id() + " has " + story.syllables());
-			assertTrue(story.level() >= 1 && story.level() <= 2, story.id() + " is level " + story.level());
+			assertTrue(story.syllables() >= 80 && story.syllables() <= 400, story.id() + " has " + story.syllables());
+			assertTrue(story.level() >= 1 && story.level() <= 6, story.id() + " is level " + story.level());
 		}
 	}
 
 	@Test
-	void aStoryUsesNoGrammarAboveItsLevel() {
+	void aStoryUsesNoGrammarAboveItsLevelAndShowsOneOfItsOwn() {
 		GrammarBook book = GrammarBook.shared();
 		for (Story story : stories) {
 			int highest = 0;
@@ -83,8 +90,8 @@ class StoryContentTest {
 				assertTrue(book.get(id) != null, story.id() + " names the unknown construction " + id);
 				highest = Math.max(highest, book.get(id).level());
 			}
-			assertTrue(highest <= 2, story.id() + " uses level " + highest + " grammar");
 			assertTrue(highest <= story.level(), story.id() + " is level " + story.level() + " but uses level " + highest);
+			assertEquals(story.level(), highest, story.id() + " shows no construction of its own level");
 		}
 	}
 

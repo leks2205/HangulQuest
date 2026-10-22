@@ -1,0 +1,25 @@
+{
+	"schema": 1,
+	"id": "colors_dye",
+	"chapter": "colors",
+	"level": 4,
+	"titleKo": "보라색 양털",
+	"unlock": {"trails": ["farbenpfad", "faerberei"], "minWords": 100},
+	"paragraphs": [
+		"오늘 저는 보라색 양털을 만들었어요.",
+		"먼저 청금석으로 파란색 염료를 만들었어요. 그리고 비트로 빨간색 염료를 만들었어요.",
+		"파란색 염료와 빨간색 염료로 보라색 염료를 만들었어요.",
+		"저는 양에게 보라색 염료를 썼어요. 양털이 보라색이었어요.",
+		"가위로 양털을 모았어요. 양은 잔디를 먹으면 양털이 또 자라요.",
+		"이제 보라색 양털이 많아요. 보라색 침대를 만들 거예요."
+	],
+	"words": [
+		"concept:purple", "concept:wool", "concept:make", "concept:gen_lapis_lazuli", "concept:blue",
+		"concept:dye", "concept:gen_beetroot", "concept:red", "concept:sheep", "concept:write", "concept:shears",
+		"concept:collect", "concept:grass", "concept:eat", "concept:bed"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L2.ege", "L2.eun_neun_topic", "L2.hago_wa_gwa", "L3.future_geoyeyo",
+		"L3.past", "L4.myeon"
+	]
+}

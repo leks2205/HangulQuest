@@ -22,16 +22,17 @@ public final class StoryText {
 	public static final Set<String> TAILS = Set.of(
 			"", "이", "가", "은", "는", "을", "를", "도", "만", "의", "에", "에서", "에게", "에게는", "와", "과",
 			"로", "으로", "예요", "이에요", "야", "이야", "에게도", "에도", "에는", "에서는", "에서도", "하고", "와는", "과는", "로는",
-			"으로는", "부터", "까지", "처럼", "보다", "요", "이요", "입니다", "어요", "아요", "해요", "해", "세요");
+			"으로는", "부터", "까지", "처럼", "보다", "요", "이요", "입니다", "어요", "아요", "해요", "해", "세요", "였어요", "이었어요", "에게서");
 
 	/** The construction a particle teaches; 에 and (으)로 each teach two, so they are not named. */
 	private static final Map<String, String> PARTICLE_GRAMMAR = Map.ofEntries(
 			Map.entry("이", "L1.subj_i"), Map.entry("가", "L1.subj_i"),
 			Map.entry("을", "L1.obj_eul"), Map.entry("를", "L1.obj_eul"),
 			Map.entry("은", "L2.eun_neun_topic"), Map.entry("는", "L2.eun_neun_topic"),
-			Map.entry("에서", "L2.eseo_activity"), Map.entry("에게", "L2.ege"),
+			Map.entry("에서", "L2.eseo_activity"), Map.entry("에게", "L2.ege"), Map.entry("에게서", "L2.ege"),
 			Map.entry("와", "L2.hago_wa_gwa"), Map.entry("과", "L2.hago_wa_gwa"), Map.entry("하고", "L2.hago_wa_gwa"),
-			Map.entry("예요", "L1.copula_ieyo"), Map.entry("이에요", "L1.copula_ieyo"));
+			Map.entry("예요", "L1.copula_ieyo"), Map.entry("이에요", "L1.copula_ieyo"),
+			Map.entry("였어요", "L3.past"), Map.entry("이었어요", "L3.past"));
 
 	/**
 	 * How a form is built: the word it comes from ({@code base}, a dictionary form for verbs), its {@code stem},
@@ -82,6 +83,12 @@ public final class StoryText {
 				return new Token(eojeol, true, hit.known() ? State.KNOWN : State.UNKNOWN, hit.id(), hit.gloss(),
 						nounBreakdown(stem, tail, vocabulary));
 			}
+		}
+		StoryVocabulary.VerbMatch later = vocabulary.extendedVerb(core);
+		if (later != null) {
+			Hit hit = later.hit();
+			return new Token(eojeol, true, hit.known() ? State.KNOWN : State.UNKNOWN, hit.id(), hit.gloss(),
+					new Breakdown(later.dictionary(), later.stem(), later.ending().label(), later.grammar()));
 		}
 		return new Token(eojeol, true, State.UNRESOLVED, null, null, null);
 	}

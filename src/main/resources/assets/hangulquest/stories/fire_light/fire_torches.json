@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "fire_torches",
+	"chapter": "fire_light",
+	"level": 6,
+	"titleKo": "동굴의 횃불",
+	"unlock": {"trails": ["hoehlenlicht", "adv_adventure_kill_mob_near_sculk_catalyst"], "minWords": 115},
+	"paragraphs": [
+		"오늘 저는 동굴에 들어갔어요. 동굴 안은 아주 어두웠어요.",
+		"어두우면 좀비가 와요. 그래서 횃불을 놓았어요. 횃불 옆은 밝았어요.",
+		"횃불이 많을수록 동굴이 더 밝아요. 그래서 횃불을 많이 놓았어요.",
+		"저는 돌과 석탄을 많이 캤어요. 나갈 때도 횃불이 있어서 무섭지 않았어요.",
+		"동굴 밖은 아직 낮이었어요."
+	],
+	"words": [
+		"concept:cave", "concept:enter", "concept:inside", "concept:zombie", "concept:torch", "concept:place",
+		"concept:beside", "concept:stone", "concept:coal", "concept:mine", "concept:go_out", "concept:outside",
+		"concept:day"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic", "L2.hago_wa_gwa", "L3.past", "L4.eoseo",
+		"L4.myeon", "L6.eulsurok"
+	]
+}

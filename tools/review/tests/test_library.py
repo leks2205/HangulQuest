@@ -78,5 +78,25 @@ class LibraryContentPathTest(unittest.TestCase):
                 bot.content_path(self.rec(file))
 
 
+class ShippedStoriesInTheRegistryTest(unittest.TestCase):
+    """The blind reviews and the native-review site only see what lines.jsonl holds, so every shipped story must be there."""
+
+    def test_every_title_and_paragraph_of_every_story_is_a_registry_line(self):
+        import json
+        from common import read_lines
+        records = {rec["id"]: rec for rec in read_lines()}
+        stories = [path for path in sorted((DATA_DIR.parent / "stories").glob("*/*.json")) if not path.name.startswith("_")]
+        self.assertGreaterEqual(len(stories), 14, "the four first stories and the graded ones of wave 1")
+        for path in stories:
+            story = json.loads(path.read_text(encoding="utf-8"))
+            expected = {f"story.{story['id']}.title": story["titleKo"]}
+            for number, paragraph in enumerate(story["paragraphs"], 1):
+                expected[f"story.{story['id']}.p{number}"] = paragraph
+            for rid, ko in expected.items():
+                self.assertIn(rid, records, f"{path.name}: {rid} is not in lines.jsonl, run export_lines.py")
+                self.assertEqual(records[rid]["ko"], ko, rid)
+                self.assertTrue(records[rid]["en"], f"{rid} has no English gloss in the registry")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,22 @@
+{
+	"schema": 1,
+	"id": "animals_bees",
+	"chapter": "animals",
+	"level": 5,
+	"titleKo": "꿀벌과 꿀",
+	"unlock": {"trails": ["adv_husbandry_safely_harvest_honey", "bienenzucht"], "minWords": 100},
+	"paragraphs": [
+		"오늘 아침에 숲에 벌집이 있었어요. 벌집 옆에 꽃이 있는데 꿀벌도 있었어요.",
+		"벌집에 꿀이 많을 때 유리병으로 꿀을 모을 수 있어요.",
+		"저는 유리병을 들고 벌집 앞에 갔어요. 그리고 꿀을 모았어요.",
+		"유리병에 꿀이 있었어요. 저는 꿀을 마셨어요. 꿀은 정말 맛있었어요!"
+	],
+	"words": [
+		"concept:forest", "concept:adv_item_bee_nest", "concept:flower", "concept:bee", "concept:honey",
+		"concept:glass_bottle", "concept:collect", "concept:go", "concept:drink"
+	],
+	"grammar": [
+		"L1.itda_eopda", "L1.loc_ap_e", "L1.loc_yeop_e", "L1.obj_eul", "L1.subj_i", "L2.eun_neun_topic",
+		"L2.go_sequence", "L3.past", "L3.su_itda", "L5.neunde"
+	]
+}
