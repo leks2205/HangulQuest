@@ -49,6 +49,11 @@ final class InWaterType implements ConditionType<Condition.InWater> {
 	}
 
 	@Override
+	public List<String> words(Condition.InWater condition, SentenceBuilder.Namer namer) {
+		return List.of("물속", "물 속", "물에서", "수영");
+	}
+
+	@Override
 	public String unmetText(Condition.InWater condition, Observation obs, Catalog catalog) {
 		return "물속 필요";
 	}

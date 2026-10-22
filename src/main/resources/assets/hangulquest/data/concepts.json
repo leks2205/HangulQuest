@@ -1759,7 +1759,8 @@
   "sentenceKo": "달걀을 봐요.",
   "descKo": "닭이 줘요.",
   "aliases": [
-   "달걀"
+   "달걀",
+   "계란"
   ]
  },
  {
@@ -4259,6 +4260,2058 @@
   "descKo": "하늘을 나는 무서운 몬스터예요.",
   "aliases": [
    "가스트"
+  ]
+ },
+ {
+  "id": "person",
+  "ko": "사람",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "사람을 만나요.",
+  "descKo": "말을 하고 같이 살아요.",
+  "aliases": [
+   "사람"
+  ]
+ },
+ {
+  "id": "child",
+  "ko": "아이",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "아이를 만나요.",
+  "descKo": "어린 사람이에요.",
+  "aliases": [
+   "아이"
+  ]
+ },
+ {
+  "id": "baby",
+  "ko": "아기",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:egg",
+  "sentenceKo": "아기 돼지를 봐요.",
+  "descKo": "아주 어려요.",
+  "aliases": [
+   "아기"
+  ]
+ },
+ {
+  "id": "body",
+  "ko": "몸",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:iron_chestplate",
+  "sentenceKo": "몸에 갑옷을 입어요.",
+  "descKo": "머리부터 발까지예요.",
+  "aliases": [
+   "몸"
+  ]
+ },
+ {
+  "id": "face",
+  "ko": "얼굴",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "친구의 얼굴을 봐요.",
+  "descKo": "눈과 코와 입이 있어요.",
+  "aliases": [
+   "얼굴"
+  ]
+ },
+ {
+  "id": "hand",
+  "ko": "손",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:stick",
+  "sentenceKo": "손에 막대기를 들어요.",
+  "descKo": "물건을 잡아요.",
+  "aliases": [
+   "손"
+  ]
+ },
+ {
+  "id": "head",
+  "ko": "머리",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:iron_helmet",
+  "sentenceKo": "머리에 투구를 써요.",
+  "descKo": "몸의 맨 위예요.",
+  "aliases": [
+   "머리"
+  ]
+ },
+ {
+  "id": "foot",
+  "ko": "발",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:iron_boots",
+  "sentenceKo": "발에 장화를 신어요.",
+  "descKo": "걸을 때 써요.",
+  "aliases": [
+   "발"
+  ]
+ },
+ {
+  "id": "leg",
+  "ko": "다리",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:iron_leggings",
+  "sentenceKo": "다리에 레깅스를 입어요.",
+  "descKo": "걸을 때 써요. 강 위에도 있어요.",
+  "aliases": [
+   "다리"
+  ]
+ },
+ {
+  "id": "clothes",
+  "ko": "옷",
+  "category": "ITEMS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:leather_chestplate",
+  "covers": [
+   "minecraft:leather_chestplate",
+   "minecraft:leather_leggings"
+  ],
+  "sentenceKo": "예쁜 옷을 봐요.",
+  "descKo": "몸에 입어요.",
+  "aliases": [
+   "옷"
+  ]
+ },
+ {
+  "id": "shoes",
+  "ko": "신발",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:leather_boots",
+  "covers": [
+   "minecraft:leather_boots",
+   "minecraft:chainmail_boots",
+   "minecraft:iron_boots",
+   "minecraft:golden_boots",
+   "minecraft:diamond_boots",
+   "minecraft:netherite_boots",
+   "minecraft:copper_boots"
+  ],
+  "sentenceKo": "신발을 신어요.",
+  "descKo": "발에 신어요.",
+  "aliases": [
+   "신발"
+  ]
+ },
+ {
+  "id": "pair",
+  "ko": "켤레",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:leather_boots",
+  "sentenceKo": "장화 한 켤레를 신어요.",
+  "descKo": "신발을 셀 때 써요.",
+  "aliases": [
+   "켤레"
+  ]
+ },
+ {
+  "id": "money",
+  "ko": "돈",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "에메랄드가 돈이에요.",
+  "descKo": "물건을 살 때 써요.",
+  "aliases": [
+   "돈"
+  ]
+ },
+ {
+  "id": "name",
+  "ko": "이름",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:name_tag",
+  "sentenceKo": "이름표에 이름을 써요.",
+  "descKo": "나를 부르는 말이에요.",
+  "aliases": [
+   "이름"
+  ]
+ },
+ {
+  "id": "story",
+  "ko": "이야기",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:written_book",
+  "sentenceKo": "주민의 이야기를 들어요.",
+  "descKo": "재미있는 글이에요.",
+  "aliases": [
+   "이야기"
+  ]
+ },
+ {
+  "id": "sound",
+  "ko": "소리",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:note_block",
+  "sentenceKo": "소리를 들어요.",
+  "descKo": "귀로 들어요.",
+  "aliases": [
+   "소리"
+  ]
+ },
+ {
+  "id": "song",
+  "ko": "노래",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:jukebox",
+  "sentenceKo": "노래를 불러요.",
+  "descKo": "목소리로 소리를 내요.",
+  "aliases": [
+   "노래"
+  ]
+ },
+ {
+  "id": "picture",
+  "ko": "그림",
+  "category": "MISC",
+  "tier": 1,
+  "items": [
+   "minecraft:painting"
+  ],
+  "sentenceKo": "그림을 걸어요.",
+  "descKo": "벽에 걸어요. 예뻐요.",
+  "aliases": [
+   "그림"
+  ]
+ },
+ {
+  "id": "key",
+  "ko": "열쇠",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:trial_key",
+  "covers": [
+   "minecraft:trial_key",
+   "minecraft:ominous_trial_key"
+  ],
+  "sentenceKo": "열쇠로 문을 열어요.",
+  "descKo": "잠긴 곳을 열어요.",
+  "aliases": [
+   "열쇠"
+  ]
+ },
+ {
+  "id": "plate",
+  "ko": "접시",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:bowl",
+  "sentenceKo": "접시에 빵을 놓아요.",
+  "descKo": "음식을 담아요.",
+  "aliases": [
+   "접시"
+  ]
+ },
+ {
+  "id": "pot",
+  "ko": "냄비",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cauldron",
+  "covers": [
+   "minecraft:cauldron"
+  ],
+  "sentenceKo": "냄비에 물을 넣어요.",
+  "descKo": "음식을 익혀요.",
+  "aliases": [
+   "냄비"
+  ]
+ },
+ {
+  "id": "notebook",
+  "ko": "공책",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:writable_book",
+  "covers": [
+   "minecraft:writable_book"
+  ],
+  "sentenceKo": "공책에 글을 써요.",
+  "descKo": "글을 쓰는 책이에요.",
+  "aliases": [
+   "공책"
+  ]
+ },
+ {
+  "id": "boat",
+  "ko": "배",
+  "category": "ITEMS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_boat",
+  "covers": [
+   "minecraft:oak_boat",
+   "minecraft:spruce_boat",
+   "minecraft:birch_boat",
+   "minecraft:jungle_boat",
+   "minecraft:acacia_boat",
+   "minecraft:dark_oak_boat",
+   "minecraft:mangrove_boat",
+   "minecraft:cherry_boat",
+   "minecraft:pale_oak_boat",
+   "minecraft:bamboo_raft"
+  ],
+  "entity": "minecraft:oak_boat",
+  "sentenceKo": "배를 타요.",
+  "descKo": "물 위에서 타요.",
+  "aliases": [
+   "배"
+  ]
+ },
+ {
+  "id": "train",
+  "ko": "기차",
+  "category": "ITEMS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:minecart",
+  "covers": [
+   "minecraft:minecart",
+   "minecraft:rail"
+  ],
+  "sentenceKo": "기차를 타요.",
+  "descKo": "레일 위를 달려요.",
+  "aliases": [
+   "기차"
+  ]
+ },
+ {
+  "id": "bird",
+  "ko": "새",
+  "category": "ANIMALS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:feather",
+  "sentenceKo": "새가 날아요.",
+  "descKo": "날개가 있어요. 하늘을 날아요.",
+  "aliases": [
+   "새"
+  ]
+ },
+ {
+  "id": "puppy",
+  "ko": "강아지",
+  "category": "ANIMALS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:bone",
+  "sentenceKo": "강아지에게 뼈를 줘요.",
+  "descKo": "사람과 같이 사는 작은 동물이에요.",
+  "aliases": [
+   "강아지"
+  ]
+ },
+ {
+  "id": "rose",
+  "ko": "장미",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:rose_bush",
+  "covers": [
+   "minecraft:rose_bush",
+   "minecraft:poppy"
+  ],
+  "sentenceKo": "장미를 꺾어요.",
+  "descKo": "빨간 꽃이에요. 가시가 있어요.",
+  "aliases": [
+   "장미"
+  ]
+ },
+ {
+  "id": "meat",
+  "ko": "고기",
+  "category": "FOOD",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cooked_beef",
+  "covers": [
+   "minecraft:beef",
+   "minecraft:cooked_beef",
+   "minecraft:porkchop",
+   "minecraft:cooked_porkchop",
+   "minecraft:chicken",
+   "minecraft:cooked_chicken",
+   "minecraft:mutton",
+   "minecraft:cooked_mutton",
+   "minecraft:rabbit",
+   "minecraft:cooked_rabbit"
+  ],
+  "sentenceKo": "고기를 구워요.",
+  "descKo": "먹을 수 있어요. 동물에서 나와요.",
+  "aliases": [
+   "고기"
+  ]
+ },
+ {
+  "id": "fish_dish",
+  "ko": "생선",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cod",
+  "covers": [
+   "minecraft:cod",
+   "minecraft:cooked_cod",
+   "minecraft:salmon",
+   "minecraft:cooked_salmon",
+   "minecraft:tropical_fish",
+   "minecraft:pufferfish"
+  ],
+  "sentenceKo": "생선을 구워요.",
+  "descKo": "물고기로 만든 음식이에요.",
+  "aliases": [
+   "생선"
+  ]
+ },
+ {
+  "id": "vegetable",
+  "ko": "채소",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:carrot",
+  "covers": [
+   "minecraft:carrot",
+   "minecraft:potato",
+   "minecraft:baked_potato",
+   "minecraft:beetroot",
+   "minecraft:pumpkin"
+  ],
+  "sentenceKo": "채소를 먹어요.",
+  "descKo": "밭에서 자라요.",
+  "aliases": [
+   "채소"
+  ]
+ },
+ {
+  "id": "fruit",
+  "ko": "과일",
+  "category": "FOOD",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:apple",
+  "covers": [
+   "minecraft:apple",
+   "minecraft:melon_slice",
+   "minecraft:sweet_berries",
+   "minecraft:glow_berries",
+   "minecraft:chorus_fruit"
+  ],
+  "sentenceKo": "과일을 먹어요.",
+  "descKo": "달고 맛있어요.",
+  "aliases": [
+   "과일"
+  ]
+ },
+ {
+  "id": "room",
+  "ko": "방",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:red_bed",
+  "sentenceKo": "방에서 자요.",
+  "descKo": "집 안의 한 곳이에요.",
+  "aliases": [
+   "방"
+  ]
+ },
+ {
+  "id": "market",
+  "ko": "시장",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "시장에 가요.",
+  "descKo": "물건을 사고파는 곳이에요.",
+  "aliases": [
+   "시장"
+  ]
+ },
+ {
+  "id": "road",
+  "ko": "길",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:dirt_path",
+  "covers": [
+   "minecraft:dirt_path"
+  ],
+  "sentenceKo": "길을 걸어요.",
+  "descKo": "걸어서 가는 곳이에요.",
+  "aliases": [
+   "길"
+  ]
+ },
+ {
+  "id": "ground",
+  "ko": "땅",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:dirt",
+  "covers": [
+   "minecraft:dirt",
+   "minecraft:grass_block"
+  ],
+  "sentenceKo": "땅 위를 걸어요.",
+  "descKo": "발로 서는 곳이에요.",
+  "aliases": [
+   "땅"
+  ]
+ },
+ {
+  "id": "lake",
+  "ko": "호수",
+  "category": "ENVIRONMENT",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:water_bucket",
+  "sentenceKo": "호수에서 수영해요.",
+  "descKo": "물이 많이 있는 곳이에요.",
+  "aliases": [
+   "호수"
+  ]
+ },
+ {
+  "id": "fire",
+  "ko": "불",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [
+   "minecraft:fire"
+  ],
+  "icon": "minecraft:campfire",
+  "sentenceKo": "불을 피워요.",
+  "descKo": "뜨겁고 밝아요.",
+  "aliases": [
+   "불"
+  ]
+ },
+ {
+  "id": "wind",
+  "ko": "바람",
+  "category": "ENVIRONMENT",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:wind_charge",
+  "sentenceKo": "바람이 불어요.",
+  "descKo": "공기가 움직여요.",
+  "aliases": [
+   "바람"
+  ]
+ },
+ {
+  "id": "time",
+  "ko": "시간",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "시간을 봐요.",
+  "descKo": "시계로 알아요.",
+  "aliases": [
+   "시간"
+  ]
+ },
+ {
+  "id": "now",
+  "ko": "지금",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "지금은 밤이에요.",
+  "descKo": "바로 이때예요.",
+  "aliases": [
+   "지금"
+  ]
+ },
+ {
+  "id": "today",
+  "ko": "오늘",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "오늘은 낮이에요.",
+  "descKo": "지금 이 날이에요.",
+  "aliases": [
+   "오늘"
+  ]
+ },
+ {
+  "id": "yesterday",
+  "ko": "어제",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "어제는 비가 왔어요.",
+  "descKo": "오늘 전의 날이에요.",
+  "aliases": [
+   "어제"
+  ]
+ },
+ {
+  "id": "tomorrow",
+  "ko": "내일",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "내일 또 만나요.",
+  "descKo": "오늘 다음의 날이에요.",
+  "aliases": [
+   "내일"
+  ]
+ },
+ {
+  "id": "morning",
+  "ko": "아침",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "아침에 해가 떠요.",
+  "descKo": "해가 뜨는 때예요.",
+  "aliases": [
+   "아침"
+  ]
+ },
+ {
+  "id": "evening",
+  "ko": "저녁",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "저녁에 집에 가요.",
+  "descKo": "해가 지는 때예요.",
+  "aliases": [
+   "저녁"
+  ]
+ },
+ {
+  "id": "one_day",
+  "ko": "하루",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "하루가 지나요.",
+  "descKo": "해가 뜨고 지는 때까지예요.",
+  "aliases": [
+   "하루"
+  ]
+ },
+ {
+  "id": "above",
+  "ko": "위",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:ladder",
+  "sentenceKo": "문 위에 횃불을 놓아요.",
+  "descKo": "높은 쪽이에요.",
+  "aliases": [
+   "위"
+  ]
+ },
+ {
+  "id": "below",
+  "ko": "아래",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:ladder",
+  "sentenceKo": "사다리 아래에 횃불을 놓아요.",
+  "descKo": "낮은 쪽이에요.",
+  "aliases": [
+   "아래"
+  ]
+ },
+ {
+  "id": "underside",
+  "ko": "밑",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:ladder",
+  "sentenceKo": "문 밑에 횃불을 놓아요.",
+  "descKo": "아래쪽이에요.",
+  "aliases": [
+   "밑"
+  ]
+ },
+ {
+  "id": "beside",
+  "ko": "옆",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "문 옆에 서요.",
+  "descKo": "오른쪽이나 왼쪽이에요.",
+  "aliases": [
+   "옆"
+  ]
+ },
+ {
+  "id": "in_front",
+  "ko": "앞",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "문 앞에 서요.",
+  "descKo": "눈이 보는 쪽이에요.",
+  "aliases": [
+   "앞"
+  ]
+ },
+ {
+  "id": "behind",
+  "ko": "뒤",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "문 뒤에 서요.",
+  "descKo": "앞이 아닌 쪽이에요.",
+  "aliases": [
+   "뒤"
+  ]
+ },
+ {
+  "id": "inside",
+  "ko": "안",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:chest",
+  "sentenceKo": "상자 안에 사과가 있어요.",
+  "descKo": "밖이 아니에요.",
+  "aliases": [
+   "안"
+  ]
+ },
+ {
+  "id": "interior",
+  "ko": "속",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:chest",
+  "sentenceKo": "상자 속에 사과가 있어요.",
+  "descKo": "안쪽 깊은 곳이에요.",
+  "aliases": [
+   "속"
+  ]
+ },
+ {
+  "id": "outside",
+  "ko": "밖",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "집 밖에 서요.",
+  "descKo": "안이 아니에요.",
+  "aliases": [
+   "밖"
+  ]
+ },
+ {
+  "id": "middle",
+  "ko": "가운데",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:chest",
+  "sentenceKo": "집 가운데에 상자를 놓아요.",
+  "descKo": "왼쪽도 아니고 오른쪽도 아니에요.",
+  "aliases": [
+   "가운데"
+  ]
+ },
+ {
+  "id": "left",
+  "ko": "왼쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:lever",
+  "sentenceKo": "문 왼쪽에 서요.",
+  "descKo": "오른쪽이 아닌 쪽이에요.",
+  "aliases": [
+   "왼쪽"
+  ]
+ },
+ {
+  "id": "right",
+  "ko": "오른쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:lever",
+  "sentenceKo": "문 오른쪽에 서요.",
+  "descKo": "왼쪽이 아닌 쪽이에요.",
+  "aliases": [
+   "오른쪽"
+  ]
+ },
+ {
+  "id": "north",
+  "ko": "북쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "북쪽으로 가요.",
+  "descKo": "남쪽의 반대쪽이에요.",
+  "aliases": [
+   "북쪽"
+  ]
+ },
+ {
+  "id": "south",
+  "ko": "남쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "남쪽으로 가요.",
+  "descKo": "북쪽의 반대쪽이에요.",
+  "aliases": [
+   "남쪽"
+  ]
+ },
+ {
+  "id": "east",
+  "ko": "동쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "동쪽으로 가요.",
+  "descKo": "해가 뜨는 쪽이에요.",
+  "aliases": [
+   "동쪽"
+  ]
+ },
+ {
+  "id": "west",
+  "ko": "서쪽",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "서쪽으로 가요.",
+  "descKo": "해가 지는 쪽이에요.",
+  "aliases": [
+   "서쪽"
+  ]
+ },
+ {
+  "id": "one",
+  "ko": "하나",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 하나를 놓아요.",
+  "descKo": "둘보다 적어요.",
+  "aliases": [
+   "하나",
+   "한"
+  ]
+ },
+ {
+  "id": "two",
+  "ko": "둘",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 두 개를 놓아요.",
+  "descKo": "하나와 하나예요.",
+  "aliases": [
+   "둘",
+   "두"
+  ]
+ },
+ {
+  "id": "three",
+  "ko": "셋",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 세 개를 놓아요.",
+  "descKo": "둘보다 하나 많아요.",
+  "aliases": [
+   "셋",
+   "세"
+  ]
+ },
+ {
+  "id": "four",
+  "ko": "넷",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 네 개를 놓아요.",
+  "descKo": "셋보다 하나 많아요.",
+  "aliases": [
+   "넷",
+   "네"
+  ]
+ },
+ {
+  "id": "five",
+  "ko": "다섯",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 다섯 개를 놓아요.",
+  "descKo": "넷보다 하나 많아요.",
+  "aliases": [
+   "다섯"
+  ]
+ },
+ {
+  "id": "six",
+  "ko": "여섯",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 여섯 개를 놓아요.",
+  "descKo": "다섯보다 하나 많아요.",
+  "aliases": [
+   "여섯"
+  ]
+ },
+ {
+  "id": "seven",
+  "ko": "일곱",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 일곱 개를 놓아요.",
+  "descKo": "여섯보다 하나 많아요.",
+  "aliases": [
+   "일곱"
+  ]
+ },
+ {
+  "id": "eight",
+  "ko": "여덟",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 여덟 개를 놓아요.",
+  "descKo": "일곱보다 하나 많아요.",
+  "aliases": [
+   "여덟"
+  ]
+ },
+ {
+  "id": "nine",
+  "ko": "아홉",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 아홉 개를 놓아요.",
+  "descKo": "여덟보다 하나 많아요.",
+  "aliases": [
+   "아홉"
+  ]
+ },
+ {
+  "id": "ten",
+  "ko": "열",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌 열 개를 놓아요.",
+  "descKo": "아홉보다 하나 많아요.",
+  "aliases": [
+   "열"
+  ]
+ },
+ {
+  "id": "counter_thing",
+  "ko": "개",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "사과 세 개를 먹어요.",
+  "descKo": "물건을 셀 때 써요.",
+  "aliases": [
+   "개"
+  ]
+ },
+ {
+  "id": "counter_person",
+  "ko": "명",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "주민 세 명이 있어요.",
+  "descKo": "사람을 셀 때 써요.",
+  "aliases": [
+   "명"
+  ]
+ },
+ {
+  "id": "counter_animal",
+  "ko": "마리",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:lead",
+  "sentenceKo": "소 두 마리를 키워요.",
+  "descKo": "동물을 셀 때 써요.",
+  "aliases": [
+   "마리"
+  ]
+ },
+ {
+  "id": "colour",
+  "ko": "색",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:red_dye",
+  "covers": [
+   "minecraft:white_dye",
+   "minecraft:orange_dye",
+   "minecraft:magenta_dye",
+   "minecraft:light_blue_dye",
+   "minecraft:yellow_dye",
+   "minecraft:lime_dye",
+   "minecraft:pink_dye",
+   "minecraft:gray_dye",
+   "minecraft:light_gray_dye",
+   "minecraft:cyan_dye",
+   "minecraft:purple_dye",
+   "minecraft:blue_dye",
+   "minecraft:brown_dye",
+   "minecraft:green_dye",
+   "minecraft:red_dye",
+   "minecraft:black_dye"
+  ],
+  "sentenceKo": "좋아하는 색을 골라요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "빨간색이나 파란색 같은 것이에요.",
+  "aliases": [
+   "색"
+  ]
+ },
+ {
+  "id": "red",
+  "ko": "빨간색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:red_dye",
+  "covers": [
+   "minecraft:red_dye",
+   "minecraft:red_wool"
+  ],
+  "sentenceKo": "빨간색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "불이나 사과 같은 색이에요.",
+  "aliases": [
+   "빨간색"
+  ]
+ },
+ {
+  "id": "orange",
+  "ko": "주황색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:orange_dye",
+  "covers": [
+   "minecraft:orange_dye",
+   "minecraft:orange_wool"
+  ],
+  "sentenceKo": "주황색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "당근 같은 색이에요.",
+  "aliases": [
+   "주황색"
+  ]
+ },
+ {
+  "id": "yellow",
+  "ko": "노란색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:yellow_dye",
+  "covers": [
+   "minecraft:yellow_dye",
+   "minecraft:yellow_wool"
+  ],
+  "sentenceKo": "노란색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "해처럼 밝은 색이에요.",
+  "aliases": [
+   "노란색"
+  ]
+ },
+ {
+  "id": "green",
+  "ko": "초록색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:green_dye",
+  "covers": [
+   "minecraft:green_dye",
+   "minecraft:green_wool"
+  ],
+  "sentenceKo": "초록색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "풀과 나뭇잎 같은 색이에요.",
+  "aliases": [
+   "초록색"
+  ]
+ },
+ {
+  "id": "blue",
+  "ko": "파란색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:blue_dye",
+  "covers": [
+   "minecraft:blue_dye",
+   "minecraft:blue_wool"
+  ],
+  "sentenceKo": "파란색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "하늘이나 바다 같은 색이에요.",
+  "aliases": [
+   "파란색"
+  ]
+ },
+ {
+  "id": "purple",
+  "ko": "보라색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:purple_dye",
+  "covers": [
+   "minecraft:purple_dye",
+   "minecraft:purple_wool"
+  ],
+  "sentenceKo": "보라색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "자수정 같은 색이에요.",
+  "aliases": [
+   "보라색"
+  ]
+ },
+ {
+  "id": "pink",
+  "ko": "분홍색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:pink_dye",
+  "covers": [
+   "minecraft:pink_dye",
+   "minecraft:pink_wool"
+  ],
+  "sentenceKo": "분홍색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "연한 빨간색이에요.",
+  "aliases": [
+   "분홍색"
+  ]
+ },
+ {
+  "id": "black",
+  "ko": "검은색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:black_dye",
+  "covers": [
+   "minecraft:black_dye",
+   "minecraft:black_wool"
+  ],
+  "sentenceKo": "검은색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "밤처럼 어두운 색이에요.",
+  "aliases": [
+   "검은색"
+  ]
+ },
+ {
+  "id": "gray",
+  "ko": "회색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:gray_dye",
+  "covers": [
+   "minecraft:gray_dye",
+   "minecraft:gray_wool"
+  ],
+  "sentenceKo": "회색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "돌 같은 색이에요.",
+  "aliases": [
+   "회색"
+  ]
+ },
+ {
+  "id": "brown",
+  "ko": "갈색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:brown_dye",
+  "covers": [
+   "minecraft:brown_dye",
+   "minecraft:brown_wool"
+  ],
+  "sentenceKo": "갈색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "흙이나 나무 같은 색이에요.",
+  "aliases": [
+   "갈색"
+  ]
+ },
+ {
+  "id": "white",
+  "ko": "하얀색",
+  "category": "MISC",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:white_dye",
+  "covers": [
+   "minecraft:white_dye",
+   "minecraft:white_wool"
+  ],
+  "sentenceKo": "하얀색 양털을 놓아요.",
+  "grammar": "DESCRIPTOR",
+  "descKo": "눈 같은 색이에요.",
+  "aliases": [
+   "하얀색",
+   "흰색"
+  ]
+ },
+ {
+  "id": "give",
+  "ko": "주다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "친구에게 빵을 줘요.",
+  "descKo": "내 것을 다른 사람에게 줘요.",
+  "aliases": [
+   "주다"
+  ]
+ },
+ {
+  "id": "receive",
+  "ko": "받다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "주민에게 에메랄드를 받아요.",
+  "descKo": "다른 사람이 주는 것을 가져요.",
+  "aliases": [
+   "받다"
+  ]
+ },
+ {
+  "id": "buy",
+  "ko": "사다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "시장에서 빵을 사요.",
+  "descKo": "돈을 주고 물건을 가져요.",
+  "aliases": [
+   "사다"
+  ]
+ },
+ {
+  "id": "sell",
+  "ko": "팔다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:emerald",
+  "sentenceKo": "주민이 빵을 팔아요.",
+  "descKo": "물건을 주고 돈을 받아요.",
+  "aliases": [
+   "팔다"
+  ]
+ },
+ {
+  "id": "go",
+  "ko": "가다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "마을에 가요.",
+  "descKo": "한 곳에서 다른 곳으로 움직여요.",
+  "aliases": [
+   "가다"
+  ]
+ },
+ {
+  "id": "come",
+  "ko": "오다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "친구가 와요.",
+  "descKo": "내가 있는 곳으로 가까이 와요.",
+  "aliases": [
+   "오다"
+  ]
+ },
+ {
+  "id": "enter",
+  "ko": "들어가다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "집에 들어가요.",
+  "descKo": "밖에서 안으로 가요.",
+  "aliases": [
+   "들어가다"
+  ]
+ },
+ {
+  "id": "go_out",
+  "ko": "나가다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "집 밖으로 나가요.",
+  "descKo": "안에서 밖으로 가요.",
+  "aliases": [
+   "나가다"
+  ]
+ },
+ {
+  "id": "come_out",
+  "ko": "나오다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "집에서 나와요.",
+  "descKo": "안에서 밖으로 와요.",
+  "aliases": [
+   "나오다"
+  ]
+ },
+ {
+  "id": "go_down",
+  "ko": "내려가다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:ladder",
+  "sentenceKo": "사다리로 내려가요.",
+  "descKo": "아래로 가요.",
+  "aliases": [
+   "내려가다"
+  ]
+ },
+ {
+  "id": "meet",
+  "ko": "만나다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "친구를 만나요.",
+  "descKo": "다른 사람을 봐요.",
+  "aliases": [
+   "만나다"
+  ]
+ },
+ {
+  "id": "live",
+  "ko": "살다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:red_bed",
+  "sentenceKo": "주민은 마을에 살아요.",
+  "descKo": "한곳에서 지내요.",
+  "aliases": [
+   "살다"
+  ]
+ },
+ {
+  "id": "die",
+  "ko": "죽다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:totem_of_undying",
+  "sentenceKo": "좀비가 죽어요.",
+  "descKo": "더 이상 살지 않아요.",
+  "aliases": [
+   "죽다"
+  ]
+ },
+ {
+  "id": "be_born",
+  "ko": "태어나다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:egg",
+  "sentenceKo": "아기 돼지가 태어나요.",
+  "descKo": "세상에 처음 나와요.",
+  "aliases": [
+   "태어나다"
+  ]
+ },
+ {
+  "id": "grow",
+  "ko": "자라다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_sapling",
+  "sentenceKo": "묘목이 자라요.",
+  "descKo": "점점 커져요.",
+  "aliases": [
+   "자라다"
+  ]
+ },
+ {
+  "id": "raise",
+  "ko": "키우다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:wheat_seeds",
+  "sentenceKo": "소를 키워요.",
+  "descKo": "먹이를 주고 돌봐요.",
+  "aliases": [
+   "키우다"
+  ]
+ },
+ {
+  "id": "plant",
+  "ko": "심다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:wheat_seeds",
+  "sentenceKo": "씨앗을 심어요.",
+  "descKo": "땅에 넣어요. 그러면 자라요.",
+  "aliases": [
+   "심다"
+  ]
+ },
+ {
+  "id": "write",
+  "ko": "쓰다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:writable_book",
+  "sentenceKo": "깃펜으로 글을 써요.",
+  "descKo": "손으로 글자를 만들어요.",
+  "aliases": [
+   "쓰다"
+  ]
+ },
+ {
+  "id": "read",
+  "ko": "읽다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:book",
+  "sentenceKo": "이야기를 읽어요.",
+  "descKo": "글자를 보고 알아요.",
+  "aliases": [
+   "읽다"
+  ]
+ },
+ {
+  "id": "draw",
+  "ko": "그리다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:painting",
+  "sentenceKo": "그림을 그려요.",
+  "descKo": "선으로 그림을 만들어요.",
+  "aliases": [
+   "그리다"
+  ]
+ },
+ {
+  "id": "hear",
+  "ko": "듣다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:jukebox",
+  "sentenceKo": "노래를 들어요.",
+  "descKo": "귀로 소리를 알아요.",
+  "aliases": [
+   "듣다"
+  ]
+ },
+ {
+  "id": "call",
+  "ko": "부르다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:bell",
+  "sentenceKo": "친구를 불러요.",
+  "descKo": "큰 소리로 말해요.",
+  "aliases": [
+   "부르다"
+  ]
+ },
+ {
+  "id": "find",
+  "ko": "찾다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "나침반으로 집을 찾아요.",
+  "descKo": "어디에 있는지 봐요.",
+  "aliases": [
+   "찾다"
+  ]
+ },
+ {
+  "id": "catch",
+  "ko": "잡다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:fishing_rod",
+  "sentenceKo": "낚싯대로 물고기를 잡아요.",
+  "descKo": "손으로 꽉 쥐어요.",
+  "aliases": [
+   "잡다"
+  ]
+ },
+ {
+  "id": "throw",
+  "ko": "던지다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:snowball",
+  "sentenceKo": "눈덩이를 던져요.",
+  "descKo": "손으로 멀리 보내요.",
+  "aliases": [
+   "던지다"
+  ]
+ },
+ {
+  "id": "put_in",
+  "ko": "넣다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:chest",
+  "sentenceKo": "상자에 사과를 넣어요.",
+  "descKo": "안에 놓아요.",
+  "aliases": [
+   "넣다"
+  ]
+ },
+ {
+  "id": "take_out",
+  "ko": "꺼내다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:chest",
+  "sentenceKo": "상자에서 사과를 꺼내요.",
+  "descKo": "안에 있는 것을 밖으로 가져와요.",
+  "aliases": [
+   "꺼내다"
+  ]
+ },
+ {
+  "id": "bake",
+  "ko": "굽다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:furnace",
+  "sentenceKo": "빵을 구워요.",
+  "descKo": "불에 익혀요.",
+  "aliases": [
+   "굽다"
+  ]
+ },
+ {
+  "id": "wear",
+  "ko": "입다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:leather_chestplate",
+  "sentenceKo": "옷을 입어요.",
+  "descKo": "몸에 옷을 걸쳐요.",
+  "aliases": [
+   "입다"
+  ]
+ },
+ {
+  "id": "take_off",
+  "ko": "벗다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:leather_chestplate",
+  "sentenceKo": "투구를 벗어요.",
+  "descKo": "입은 것을 빼요.",
+  "aliases": [
+   "벗다"
+  ]
+ },
+ {
+  "id": "close",
+  "ko": "닫다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:oak_door",
+  "sentenceKo": "문을 닫아요.",
+  "descKo": "열려 있지 않게 해요.",
+  "aliases": [
+   "닫다"
+  ]
+ },
+ {
+  "id": "sit",
+  "ko": "앉다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_boat",
+  "sentenceKo": "보트에 앉아요.",
+  "descKo": "서 있지 않아요. 의자나 보트에 있어요.",
+  "aliases": [
+   "앉다"
+  ]
+ },
+ {
+  "id": "lie_down",
+  "ko": "눕다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:red_bed",
+  "sentenceKo": "침대에 누워요.",
+  "descKo": "몸을 길게 펴요.",
+  "aliases": [
+   "눕다"
+  ]
+ },
+ {
+  "id": "get_up",
+  "ko": "일어나다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:red_bed",
+  "sentenceKo": "침대에서 일어나요.",
+  "descKo": "자다가 눈을 떠요.",
+  "aliases": [
+   "일어나다"
+  ]
+ },
+ {
+  "id": "wait",
+  "ko": "기다리다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:clock",
+  "sentenceKo": "문 앞에서 기다려요.",
+  "descKo": "때가 올 때까지 있어요.",
+  "aliases": [
+   "기다리다"
+  ]
+ },
+ {
+  "id": "ride",
+  "ko": "타다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:saddle",
+  "sentenceKo": "말을 타요.",
+  "descKo": "탈것 위에 앉아서 가요.",
+  "aliases": [
+   "타다"
+  ]
+ },
+ {
+  "id": "run",
+  "ko": "달리다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:saddle",
+  "sentenceKo": "말이 달려요.",
+  "descKo": "아주 빨리 걸어요.",
+  "aliases": [
+   "달리다"
+  ]
+ },
+ {
+  "id": "fall",
+  "ko": "떨어지다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:gravel",
+  "sentenceKo": "자갈이 떨어져요.",
+  "descKo": "위에서 아래로 가요.",
+  "aliases": [
+   "떨어지다"
+  ]
+ },
+ {
+  "id": "flow",
+  "ko": "흐르다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:water_bucket",
+  "sentenceKo": "물이 흘러요.",
+  "descKo": "물이 아래로 움직여요.",
+  "aliases": [
+   "흐르다"
+  ]
+ },
+ {
+  "id": "big",
+  "ko": "크다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:iron_block",
+  "sentenceKo": "철 골렘은 커요.",
+  "descKo": "작지 않아요.",
+  "aliases": [
+   "크다"
+  ]
+ },
+ {
+  "id": "small",
+  "ko": "작다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:honeycomb",
+  "sentenceKo": "꿀벌은 작아요.",
+  "descKo": "크지 않아요.",
+  "aliases": [
+   "작다"
+  ]
+ },
+ {
+  "id": "many",
+  "ko": "많다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:cobblestone",
+  "sentenceKo": "돌이 많아요.",
+  "descKo": "적지 않아요.",
+  "aliases": [
+   "많다"
+  ]
+ },
+ {
+  "id": "high",
+  "ko": "높다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:ladder",
+  "sentenceKo": "산은 높아요.",
+  "descKo": "낮지 않아요.",
+  "aliases": [
+   "높다"
+  ]
+ },
+ {
+  "id": "low",
+  "ko": "낮다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:oak_slab",
+  "sentenceKo": "반 블록은 낮아요.",
+  "descKo": "높지 않아요.",
+  "aliases": [
+   "낮다"
+  ]
+ },
+ {
+  "id": "long",
+  "ko": "길다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:lead",
+  "sentenceKo": "끈이 길어요.",
+  "descKo": "짧지 않아요.",
+  "aliases": [
+   "길다"
+  ]
+ },
+ {
+  "id": "short",
+  "ko": "짧다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:stick",
+  "sentenceKo": "막대기가 짧아요.",
+  "descKo": "길지 않아요.",
+  "aliases": [
+   "짧다"
+  ]
+ },
+ {
+  "id": "deep",
+  "ko": "깊다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:deepslate",
+  "sentenceKo": "물이 깊어요.",
+  "descKo": "아래까지 멀어요.",
+  "aliases": [
+   "깊다"
+  ]
+ },
+ {
+  "id": "wide",
+  "ko": "넓다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:grass_block",
+  "sentenceKo": "평원은 넓어요.",
+  "descKo": "좁지 않아요.",
+  "aliases": [
+   "넓다"
+  ]
+ },
+ {
+  "id": "far",
+  "ko": "멀다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:compass",
+  "sentenceKo": "마을이 멀어요.",
+  "descKo": "가깝지 않아요.",
+  "aliases": [
+   "멀다"
+  ]
+ },
+ {
+  "id": "fast",
+  "ko": "빠르다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:saddle",
+  "sentenceKo": "말은 빨라요.",
+  "descKo": "느리지 않아요.",
+  "aliases": [
+   "빠르다"
+  ]
+ },
+ {
+  "id": "bright",
+  "ko": "밝다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:torch",
+  "sentenceKo": "횃불은 밝아요.",
+  "descKo": "빛이 많아요.",
+  "aliases": [
+   "밝다"
+  ]
+ },
+ {
+  "id": "dark",
+  "ko": "어둡다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:coal_block",
+  "sentenceKo": "동굴은 어두워요.",
+  "descKo": "빛이 없어요.",
+  "aliases": [
+   "어둡다"
+  ]
+ },
+ {
+  "id": "hot",
+  "ko": "뜨겁다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:lava_bucket",
+  "sentenceKo": "용암은 뜨거워요.",
+  "descKo": "차갑지 않아요.",
+  "aliases": [
+   "뜨겁다"
+  ]
+ },
+ {
+  "id": "cold_touch",
+  "ko": "차갑다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:ice",
+  "sentenceKo": "얼음은 차가워요.",
+  "descKo": "뜨겁지 않아요.",
+  "aliases": [
+   "차갑다"
+  ]
+ },
+ {
+  "id": "cold_weather",
+  "ko": "춥다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:snow_block",
+  "sentenceKo": "눈이 와서 추워요.",
+  "descKo": "따뜻하지 않아요.",
+  "aliases": [
+   "춥다"
+  ]
+ },
+ {
+  "id": "heavy",
+  "ko": "무겁다",
+  "category": "ACTIONS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:anvil",
+  "sentenceKo": "모루는 무거워요.",
+  "descKo": "가볍지 않아요.",
+  "aliases": [
+   "무겁다"
+  ]
+ },
+ {
+  "id": "light_weight",
+  "ko": "가볍다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:feather",
+  "sentenceKo": "깃털은 가벼워요.",
+  "descKo": "무겁지 않아요.",
+  "aliases": [
+   "가볍다"
+  ]
+ },
+ {
+  "id": "scary",
+  "ko": "무섭다",
+  "category": "ACTIONS",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:gunpowder",
+  "sentenceKo": "크리퍼는 무서워요.",
+  "descKo": "겁이 나요.",
+  "aliases": [
+   "무섭다"
   ]
  },
  {

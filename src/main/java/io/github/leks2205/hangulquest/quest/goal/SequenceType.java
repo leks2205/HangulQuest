@@ -255,6 +255,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		return part instanceof Goal.PlaceBlock || part instanceof Goal.PlaceRel || part instanceof Goal.PlaceOnPattern
 				|| part instanceof Goal.BuildPattern || part instanceof Goal.BreakBlock || part instanceof Goal.Craft
 				|| part instanceof Goal.Smelt || part instanceof Goal.Give || part instanceof Goal.PutIn
+				|| part instanceof Goal.TakeOut
 				|| part instanceof Goal.UseBlock || part instanceof Goal.InteractEntity
 				|| part instanceof Goal.ConsumeItem;
 	}

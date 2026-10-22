@@ -58,34 +58,49 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 
 	@Override
 	public Verb verb(Goal.ReachHeight goal, VerbTable table) {
-		return goal.minY() > 0 || goal.maxY() > 0 ? Verb.CLIMB : Verb.DESCEND;
+		return descends(goal) ? Verb.DESCEND : Verb.CLIMB;
+	}
+
+	/** Sea level; a goal whose ceiling lies below it asks for a descent. */
+	static final int SEA_LEVEL = 63;
+
+	/** A goal with a ceiling below sea level and a floor at or below the ground: go down, not up. */
+	static boolean descends(Goal.ReachHeight goal) {
+		return goal.minY() <= 0 && goal.maxY() < SEA_LEVEL;
 	}
 
 	@Override
 	public String korean(Goal.ReachHeight goal, SentenceContext c) {
+		if (descends(goal)) {
+			return SentenceBuilder.phrase(down(goal, c.level()), c.verb(), c.level(), c.finale());
+		}
 		if (goal.minY() > 0) {
 			// Level 1 has no numbers for a height: climb a hill or a mountain.
 			String where = c.level() <= 1 ? summit(goal.minY()) : "높이 " + goal.minY() + "블록 위로";
 			return SentenceBuilder.phrase(where, c.verb(), c.level(), c.finale());
 		}
-		if (goal.maxY() <= 0) {
-			return SentenceBuilder.phrase("높이 " + goal.maxY() + " 이하로", c.verb(), c.level(), c.finale());
-		}
-		if (goal.minY() <= 0) {
-			return SentenceBuilder.phrase("땅 위로", Verb.CLIMB, c.level(), c.finale());
-		}
-		return SentenceBuilder.phrase("땅속으로", Verb.DESCEND, c.level(), c.finale());
+		return SentenceBuilder.phrase("땅 위로", Verb.CLIMB, c.level(), c.finale());
+	}
+
+	@Override
+	public String ceremony(Goal.ReachHeight goal, SentenceContext c) {
+		return descends(goal) ? down(goal, c.level()) + " " + Verb.DESCEND.past() : ceremony(goal, c.obj(), c.verb());
 	}
 
 	@Override
 	public String ceremony(Goal.ReachHeight goal, String obj, Verb verb) {
+		if (descends(goal)) {
+			return down(goal, 2) + " " + Verb.DESCEND.past();
+		}
 		if (goal.minY() > 0) {
 			return summit(goal.minY()) + " " + Verb.CLIMB.past();
 		}
-		if (goal.maxY() <= 0) {
-			return "높이 " + goal.maxY() + " 이하로 " + Verb.DESCEND.past();
-		}
-		return goal.minY() <= 0 ? "땅 위로 " + Verb.CLIMB.past() : "땅속으로 " + Verb.DESCEND.past();
+		return "땅 위로 " + Verb.CLIMB.past();
+	}
+
+	/** "아래로" on the first level, the height from level 2 on ("높이 0 이하로"). */
+	private static String down(Goal.ReachHeight goal, int level) {
+		return level <= 1 ? "아래로" : "높이 " + goal.maxY() + " 이하로";
 	}
 
 	/** "언덕 위로" above sea level, "산 위로" from the height of real mountains (Y 100 and up). */

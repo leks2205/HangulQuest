@@ -75,6 +75,11 @@ public interface GoalType<G extends Goal> {
 		return false;
 	}
 
+	/** Whether the sensor must scan the surroundings for a playing jukebox while this goal is tracked. */
+	default boolean needsMusicScan(G goal) {
+		return false;
+	}
+
 	/** True when the status line and the HUD show a counter for this goal. */
 	default boolean countable() {
 		return false;
@@ -94,6 +99,24 @@ public interface GoalType<G extends Goal> {
 
 	/** The verb of the sentence; an explicit verb on the goal wins over the table. */
 	Verb verb(G goal, VerbTable table);
+
+	/** The verb under the conditions of the step: swimming in a sea says 수영해요 where the plain goal says 가요. */
+	default Verb verb(G goal, VerbTable table, List<io.github.leks2205.hangulquest.quest.Condition> conditions) {
+		return verb(goal, table);
+	}
+
+	/**
+	 * Other verbs the sentence may use when the step teaches that verb: 요리하다 for a food that is baked
+	 * (구워요), 타다 for a boat that is sat in. The default verb stays the default for every other step.
+	 */
+	default List<Verb> alternativeVerbs(G goal) {
+		return List.of();
+	}
+
+	/** Whether the sentence of the goal already says this condition, so the condition's own phrase is left out. */
+	default boolean says(G goal, io.github.leks2205.hangulquest.quest.Condition condition) {
+		return false;
+	}
 
 	/** The instruction sentence, without the condition prefix. */
 	String korean(G goal, SentenceContext context);
@@ -210,7 +233,8 @@ public interface GoalType<G extends Goal> {
 		if (!context.step().teach().isEmpty()) {
 			var first = context.catalog().concept(context.step().teach().get(0));
 			if (first.isPresent() && !covers(goal, first.get())
-					&& !conditionsMention(context.step().conditions(), first.get())) {
+					&& !conditionsMention(context.step().conditions(), first.get())
+					&& !speaksVerb(goal, first.get())) {
 				context.problem("the sentence word '" + first.get().ko + "' (" + first.get().id
 						+ ") does not describe the goal " + describe(goal));
 			}
@@ -222,6 +246,27 @@ public interface GoalType<G extends Goal> {
 		} else if (noun != null && !tag && ValidationContext.badId(object(goal))) {
 			context.problem("bad " + noun + " " + object(goal));
 		}
+	}
+
+	/** True for a verb or adjective concept (보다, 올라가다): a word that names an action, not a thing. */
+	static boolean isVerbConcept(Concept concept) {
+		return "ACTIONS".equals(concept.category) && concept.ko != null && concept.ko.endsWith("다")
+				&& !concept.ko.contains(" ");
+	}
+
+	/**
+	 * Whether the taught word is a verb the sentence of this goal can say: the verb of the goal, one of the
+	 * verbs the table uses for its type or one of its {@link #alternativeVerbs}. Such a word may be the
+	 * first taught word, because the clue then contains a conjugated form of it (올라가요 for 올라가다).
+	 */
+	default boolean speaksVerb(G goal, Concept concept) {
+		if (!isVerbConcept(concept)) {
+			return false;
+		}
+		java.util.List<Verb> speakable = new java.util.ArrayList<>(List.of(verb(goal, VerbTable.shared())));
+		speakable.addAll(alternativeVerbs(goal));
+		speakable.addAll(VerbTable.shared().verbsFor(id()));
+		return speakable.stream().anyMatch(verb -> verb.dictionary().equals(concept.ko));
 	}
 
 	private static boolean conditionsMention(List<io.github.leks2205.hangulquest.quest.Condition> conditions,

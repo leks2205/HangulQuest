@@ -226,3 +226,16 @@ BUILD_PATTERN	stone	ON_TOP_OF	pattern:PILLAR	MATERIAL	2	돌로 기둥을 쌓고 
 BUILD_PATTERN	stone	NEXT_TO	pattern:WALL	MATERIAL	2	돌로 벽을 쌓고 그 옆에 상자를 놓아요	L2.euro_material;L2.go_sequence;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
 PLACE_RELATIVE	torch	ON_TOP_OF	pattern:STAIRS	TARGET	1	계단 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
 PLACE_RELATIVE	chest	NEXT_TO	pattern:WALL	TARGET	1	벽 옆에 상자를 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+USE_BLOCK	door	-	-	NONE	1	문을 닫아요	L1.obj_eul;L1.eoyo
+TAKE_OUT	apple	-	chest	ACTIVITY_PLACE	2	상자에서 사과를 꺼내요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+TRANSIT	-	INSIDE	structure:house	DIRECTION	2	집 안으로 들어가요	L2.euro_direction;L1.loc_an_e;L1.eoyo
+TRANSIT	-	OUTSIDE	structure:house	DIRECTION	2	집 밖으로 나가요	L2.euro_direction;L1.loc_bak_e;L1.eoyo
+HEAR	jukebox	NEAR	jukebox	ACTIVITY_PLACE	2	주크박스 근처에서 노래를 들어요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+LIE_DOWN	bed	-	-	NONE	1	침대에 누워요	L1.e_place;L1.eoyo
+WAIT	-	-	-	TIME	1	잠깐 기다려요	L1.eoyo
+SWIM	-	-	water	ACTIVITY_PLACE	2	물에서 수영해요	L2.eseo_activity;L1.eoyo
+MOUNT	oak_boat	-	-	NONE	1	배에 앉아요	L1.e_place;L1.eoyo
+MOUNT	pig	-	-	NONE	1	돼지를 타요	L1.obj_eul;L1.eoyo
+RAISE	cow	-	-	NONE	1	소를 키워요	L1.obj_eul;L1.eoyo
+REACH_HEIGHT	-	-	-	DIRECTION	1	아래로 내려가요	L1.eoyo
+SMELT	cooked_chicken	-	furnace	NONE	1	닭고기를 요리해요	L1.obj_eul;L1.eoyo

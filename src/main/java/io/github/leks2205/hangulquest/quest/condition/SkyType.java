@@ -74,6 +74,12 @@ final class SkyType implements ConditionType<Condition.Sky> {
 	}
 
 	@Override
+	public List<String> words(Condition.Sky condition, SentenceBuilder.Namer namer) {
+		return condition.state() == Condition.SkyState.OPEN ? List.of("밖에서", "밖으로", "하늘 아래", "하늘이 보이")
+				: List.of("지붕");
+	}
+
+	@Override
 	public String unmetText(Condition.Sky condition, Observation obs, Catalog catalog) {
 		return condition.state() == Condition.SkyState.OPEN ? "하늘이 보이는 곳 필요" : "지붕 아래 필요";
 	}

@@ -176,6 +176,9 @@ final class ScreenSensor {
 			for (ContainerDiff.Put put : diff.update(scratchContainer, scratchPlayer)) {
 				obs.addPutIn(new ContainerPutFact(put.item(), put.count(), containerBlock, containerPos));
 			}
+			for (ContainerDiff.Put take : diff.takes()) {
+				obs.addTakenOut(new ContainerTakeFact(take.item(), take.count(), containerBlock, containerPos));
+			}
 		}
 		if (takes.hasPending()) {
 			AbstractContainerMenu menu = closing ? null : watched.getMenu();

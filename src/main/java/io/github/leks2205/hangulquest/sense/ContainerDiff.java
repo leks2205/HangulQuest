@@ -9,7 +9,9 @@ import java.util.Map;
  * Finds what the player put into an open container (chest, barrel, shulker box ...) by comparing
  * item tallies of its slots between ticks. A put only counts when the player's own side lost the
  * same items, so a hopper emptying into the chest is not credited. Items taken out and put back
- * cancel out and do not count as a put.
+ * cancel out and do not count as a put. The other way round, an item counts as taken out when the
+ * container lost it and the player's side gained it, unless it was put in a moment before
+ * (see {@link #takes()}).
  */
 public final class ContainerDiff {
 	public record Put(String item, int count) {
@@ -20,16 +22,26 @@ public final class ContainerDiff {
 	private Map<String, Integer> container = new HashMap<>();
 	private Map<String, Integer> player = new HashMap<>();
 	private final Map<String, Integer> withdrawn = new HashMap<>();
+	private final Map<String, Integer> deposited = new HashMap<>();
+	private List<Put> takes = NONE;
 
 	/** Starts watching a container that was just opened. */
 	public void open(Map<String, Integer> containerTally, Map<String, Integer> playerTally) {
 		container = new HashMap<>(containerTally);
 		player = new HashMap<>(playerTally);
 		withdrawn.clear();
+		deposited.clear();
+		takes = NONE;
+	}
+
+	/** What the player took out in the last {@link #update}; the shared empty list while nothing was taken. */
+	public List<Put> takes() {
+		return takes;
 	}
 
 	/** Compares against the previous tick. Allocates only when something changed. */
 	public List<Put> update(Map<String, Integer> containerNow, Map<String, Integer> playerNow) {
+		takes = NONE;
 		boolean containerSame = containerNow.equals(container);
 		boolean playerSame = playerNow.equals(player);
 		if (containerSame && playerSame) {
@@ -52,6 +64,7 @@ public final class ContainerDiff {
 					put -= back;
 				}
 				if (put > 0) {
+					deposited.merge(item, put, Integer::sum);
 					if (puts == NONE) {
 						puts = new ArrayList<>(2);
 					}
@@ -65,6 +78,17 @@ public final class ContainerDiff {
 				int taken = Math.min(shrank, playerGained);
 				if (taken > 0) {
 					withdrawn.merge(item, taken, Integer::sum);
+					// Taking back what was just put in is not a new take.
+					int returned = Math.min(taken, deposited.getOrDefault(item, 0));
+					if (returned > 0) {
+						deposited.merge(item, -returned, Integer::sum);
+					}
+					if (taken > returned) {
+						if (takes == NONE) {
+							takes = new ArrayList<>(2);
+						}
+						takes.add(new Put(item, taken - returned));
+					}
 				}
 			}
 			container = new HashMap<>(containerNow);
@@ -79,5 +103,7 @@ public final class ContainerDiff {
 		container = new HashMap<>();
 		player = new HashMap<>();
 		withdrawn.clear();
+		deposited.clear();
+		takes = NONE;
 	}
 }

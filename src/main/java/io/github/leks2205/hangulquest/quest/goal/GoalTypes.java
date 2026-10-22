@@ -36,7 +36,16 @@ public final class GoalTypes {
 			new PutInType(),
 			new HoldWhileType(),
 			new SequenceType(),
-			new AvoidType());
+			new AvoidType(),
+			// Wave 3: taking out, coming and going, resting, waiting, raising, riding, swimming.
+			new TakeOutType(),
+			new TransitType(),
+			new HearType(),
+			new LieDownType(),
+			new WaitType(),
+			new BreedType(),
+			new MountType(),
+			new SwimType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

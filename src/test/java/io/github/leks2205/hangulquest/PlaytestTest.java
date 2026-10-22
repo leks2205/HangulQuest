@@ -13,6 +13,7 @@ import io.github.leks2205.hangulquest.quest.spatial.SpatialWorlds;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
 import io.github.leks2205.hangulquest.sense.ContainerPutFact;
+import io.github.leks2205.hangulquest.sense.ContainerTakeFact;
 import io.github.leks2205.hangulquest.sense.CraftFact;
 import io.github.leks2205.hangulquest.sense.EntityFact;
 import io.github.leks2205.hangulquest.sense.GiveFact;
@@ -115,6 +116,7 @@ class PlaytestTest {
 					obs = observation(phases.get(Math.min(phases.size() - 1, tick / 3)), step.conditions(), now);
 				}
 				obs.now = now;
+				moveWithGoal(obs, step.goal(), tick);
 				engine.tick(obs, new Feedback(engine));
 				advanced = completed(engine)
 						|| (engine.currentStep() != null
@@ -142,8 +144,36 @@ class PlaytestTest {
 		return switch (goal) {
 			case Goal.HoldWhile g when g.innerCondition() != null -> g.seconds() * 20 + 20;
 			case Goal.Avoid g -> g.windowSeconds() * 20 + 20;
+			case Goal.Wait g -> g.seconds() * 20 + 40;
+			case Goal.Hear g -> (int) (g.dwellMs() / 50) + 40;
+			case Goal.LieDown g -> (int) (g.dwellMs() / 50) + 40;
+			case Goal.Mount g -> (int) (g.dwellMs() / 50) + 40;
+			case Goal.Swim g -> g.blocks() + 40;
+			case Goal.Transit g -> 60;
+			case Goal.Breed g -> 40;
 			default -> 40;
 		};
+	}
+
+	/** The goals that need a state to change over time: the player walks, swims, goes in, the baby appears. */
+	private static void moveWithGoal(Observation obs, Goal goal, int tick) {
+		switch (goal) {
+			case Goal.Swim g -> obs.position = new Vec3(tick, 64.0, 0.0);
+			case Goal.Transit g -> obs.canSeeSky = g.direction().equals("IN") == tick < 30; // first the other side
+			case Goal.Breed g -> {
+				// fed at the start, a baby of the kind in the sight from the fifth tick on
+				obs.interactedEntities.clear();
+				if (tick == 0) {
+					obs.interactedEntities.add(g.entity());
+				}
+				if (tick >= 5) {
+					obs.nearbyEntityPositions = new ArrayList<>(List.of(new EntityFact(g.entity(),
+							new UUID(7L, 7L), 1.0, 64.0, 1.0, 0.0F, 0.0F, true)));
+				}
+			}
+			default -> {
+			}
+		}
 	}
 
 	private static Observation observation(QuestStep step, long now) {
@@ -234,6 +264,11 @@ class PlaytestTest {
 			case Goal.ReachDimension g -> obs.dimension = g.dimension();
 			case Goal.ReachHeight g -> obs.y = g.minY();
 			case Goal.UseBlock g -> {
+				if ("OPEN".equals(g.change())) {
+					obs.addOpened(g.block());
+				} else if ("CLOSE".equals(g.change())) {
+					obs.addClosed(g.block());
+				}
 				obs.usedBlocks.add(g.block());
 				if (g.block().endsWith("_bed")) {
 					obs.sleeping = true;
@@ -253,6 +288,27 @@ class PlaytestTest {
 					: GiveFact.Method.valueOf(g.method())));
 			case Goal.PutIn g -> obs.addPutIn(new ContainerPutFact(g.item(), Math.max(1, g.count()),
 					g.container(), BlockPos.ZERO));
+			case Goal.TakeOut g -> obs.addTakenOut(new ContainerTakeFact(g.item(), Math.max(1, g.count()),
+					g.container(), BlockPos.ZERO));
+			case Goal.Hear g -> {
+				obs.jukeboxDistance = 1.0;
+				obs.usedBlocks.add(g.source());
+			}
+			case Goal.LieDown g -> {
+				obs.sleeping = true;
+				obs.sleepingBed = g.block();
+			}
+			case Goal.Wait g -> {
+				if (g.until() != null) {
+					obs.clockTime = g.until().equals("NIGHT") ? 14000L : 1000L;
+				}
+			}
+			case Goal.Mount g -> obs.vehicle = g.entity();
+			case Goal.Swim g -> obs.inWater = true;
+			case Goal.Transit g -> {
+			}
+			case Goal.Breed g -> {
+			}
 			case Goal.HoldWhile g -> {
 				obs.mainHand = g.item();
 				obs.idle = false;

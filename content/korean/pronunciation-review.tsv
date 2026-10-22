@@ -231,14 +231,14 @@ adv_item_copper_bulb	구리 전구	[구리 전구]		rule	mixed
 adv_item_chiseled_tuff	조각된 응회암	[조각뙨 응회암]	tensification	rule	sino
 adv_item_mace	철퇴	[철퇴]		rule	sino
 adv_item_chiseled_bookshelf	조각된 책장	[조각뙨 책짱]	tensification	rule	sino
-adv_item_ominous_trial_key	불길한 시련 열쇠	[불길한 시련 열쇠]		rule	mixed
+adv_item_ominous_trial_key	불길한 시련 열쇠	[불길한 시련 열쐬]	tensification	lexical	mixed
 adv_item_brush	솔	[솔]		rule	native
 adv_item_iron_spear	철 창	[철 창]		rule	sino
 adv_item_trident	삼지창	[삼지창]		rule	sino
 adv_item_totem_of_undying	불사의 토템	[불사의 토템]		rule	mixed
 adv_item_silence_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
 adv_item_dune_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
-adv_item_trial_key	시련 열쇠	[시련 열쇠]		rule	mixed
+adv_item_trial_key	시련 열쇠	[시련 열쐬]	tensification	lexical	mixed
 adv_block_lodestone	자석석	[자석썩]	tensification	rule	sino
 adv_item_dragon_breath	드래곤의 숨결	[드래고늬 숨껼]	liaison,tensification	lexical	mixed
 adv_item_elytra	겉날개	[건날개]	nasalisation,neutralisation	rule	native
@@ -293,6 +293,151 @@ adv2_item_baked_potato	구운 감자	[구운 감자]		rule	native
 adv2_item_iron_helmet	철 투구	[철 투구]		rule	mixed
 adv2_item_diamond_helmet	다이아몬드 투구	[다이아몬드 투구]		rule	mixed
 ghast	가스트	[가스트]		rule	mc_only
+person	사람	[사람]		rule	native
+child	아이	[아이]		rule	native
+baby	아기	[아기]		rule	native
+body	몸	[몸]		rule	native
+face	얼굴	[얼굴]		rule	native
+hand	손	[손]		rule	native
+head	머리	[머리]		rule	native
+foot	발	[발]		rule	native
+leg	다리	[다리]		rule	native
+clothes	옷	[옫]	neutralisation	rule	native
+shoes	신발	[신발]		rule	native
+pair	켤레	[켤레]		rule	native
+money	돈	[돈]		rule	native
+name	이름	[이름]		rule	native
+story	이야기	[이야기]		rule	native
+sound	소리	[소리]		rule	native
+song	노래	[노래]		rule	native
+picture	그림	[그림]		rule	native
+key	열쇠	[열쐬]	tensification	lexical	native
+plate	접시	[접씨]	tensification	rule	native
+pot	냄비	[냄비]		rule	native
+notebook	공책	[공책]		rule	sino
+boat	배	[배]		rule	native
+train	기차	[기차]		rule	sino
+bird	새	[새]		rule	native
+puppy	강아지	[강아지]		rule	native
+rose	장미	[장미]		rule	sino
+meat	고기	[고기]		rule	native
+fish_dish	생선	[생선]		rule	sino
+vegetable	채소	[채소]		rule	sino
+fruit	과일	[과일]		rule	native
+room	방	[방]		rule	sino
+market	시장	[시장]		rule	sino
+road	길	[길]		rule	native
+ground	땅	[땅]		rule	native
+lake	호수	[호수]		rule	sino
+fire	불	[불]		rule	native
+wind	바람	[바람]		rule	native
+time	시간	[시간]		rule	sino
+now	지금	[지금]		rule	sino
+today	오늘	[오늘]		rule	native
+yesterday	어제	[어제]		rule	native
+tomorrow	내일	[내일]		rule	sino
+morning	아침	[아침]		rule	native
+evening	저녁	[저녁]		rule	native
+one_day	하루	[하루]		rule	native
+above	위	[위]		rule	native
+below	아래	[아래]		rule	native
+underside	밑	[믿]	neutralisation	rule	native
+beside	옆	[엽]	neutralisation	rule	native
+in_front	앞	[압]	neutralisation	rule	native
+behind	뒤	[뒤]		rule	native
+inside	안	[안]		rule	native
+interior	속	[속]		rule	native
+outside	밖	[박]	neutralisation	rule	native
+middle	가운데	[가운데]		rule	native
+left	왼쪽	[왼쪽]		rule	native
+right	오른쪽	[오른쪽]		rule	native
+north	북쪽	[북쪽]		rule	mixed
+south	남쪽	[남쪽]		rule	mixed
+east	동쪽	[동쪽]		rule	mixed
+west	서쪽	[서쪽]		rule	mixed
+one	하나	[하나]		rule	native
+two	둘	[둘]		rule	native
+three	셋	[섿]	neutralisation	rule	native
+four	넷	[넫]	neutralisation	rule	native
+five	다섯	[다섣]	neutralisation	rule	native
+six	여섯	[여섣]	neutralisation	rule	native
+seven	일곱	[일곱]		rule	native
+eight	여덟	[여덜]	double_final	rule	native
+nine	아홉	[아홉]		rule	native
+ten	열	[열]		rule	native
+counter_thing	개	[개]		rule	sino
+counter_person	명	[명]		rule	sino
+counter_animal	마리	[마리]		rule	native
+colour	색	[색]		rule	sino
+red	빨간색	[빨간색]		rule	mixed
+orange	주황색	[주황색]		rule	sino
+yellow	노란색	[노란색]		rule	mixed
+green	초록색	[초록쌕]	tensification	rule	sino
+blue	파란색	[파란색]		rule	mixed
+purple	보라색	[보라색]		rule	mixed
+pink	분홍색	[분홍색]		rule	sino
+black	검은색	[거믄색]	liaison	rule	mixed
+gray	회색	[회색]		rule	sino
+brown	갈색	[갈쌕]	tensification	rule	sino
+white	하얀색	[하얀색]		rule	mixed
+give	주다	[주다]		rule	native
+receive	받다	[받따]	tensification	rule	native
+buy	사다	[사다]		rule	native
+sell	팔다	[팔다]		rule	native
+go	가다	[가다]		rule	native
+come	오다	[오다]		rule	native
+enter	들어가다	[드러가다]	liaison	rule	native
+go_out	나가다	[나가다]		rule	native
+come_out	나오다	[나오다]		rule	native
+go_down	내려가다	[내려가다]		rule	native
+meet	만나다	[만나다]		rule	native
+live	살다	[살다]		rule	native
+die	죽다	[죽따]	tensification	rule	native
+be_born	태어나다	[태어나다]		rule	native
+grow	자라다	[자라다]		rule	native
+raise	키우다	[키우다]		rule	native
+plant	심다	[심따]	tensification	lexical	native
+write	쓰다	[쓰다]		rule	native
+read	읽다	[익따]	tensification,double_final	rule	native
+draw	그리다	[그리다]		rule	native
+hear	듣다	[듣따]	tensification	rule	native
+call	부르다	[부르다]		rule	native
+find	찾다	[찯따]	tensification,neutralisation	rule	native
+catch	잡다	[잡따]	tensification	rule	native
+throw	던지다	[던지다]		rule	native
+put_in	넣다	[너타]	h	rule	native
+take_out	꺼내다	[꺼내다]		rule	native
+bake	굽다	[굽따]	tensification	rule	native
+wear	입다	[입따]	tensification	rule	native
+take_off	벗다	[벋따]	tensification,neutralisation	rule	native
+close	닫다	[닫따]	tensification	rule	native
+sit	앉다	[안따]	tensification,double_final	rule	native
+lie_down	눕다	[눕따]	tensification	rule	native
+get_up	일어나다	[이러나다]	liaison	rule	native
+wait	기다리다	[기다리다]		rule	native
+ride	타다	[타다]		rule	native
+run	달리다	[달리다]		rule	native
+fall	떨어지다	[떠러지다]	liaison	rule	native
+flow	흐르다	[흐르다]		rule	native
+big	크다	[크다]		rule	native
+small	작다	[작따]	tensification	rule	native
+many	많다	[만타]	h	rule	native
+high	높다	[놉따]	tensification,neutralisation	rule	native
+low	낮다	[낟따]	tensification,neutralisation	rule	native
+long	길다	[길다]		rule	native
+short	짧다	[짤따]	tensification,double_final	rule	native
+deep	깊다	[깁따]	tensification,neutralisation	rule	native
+wide	넓다	[널따]	tensification,double_final	rule	native
+far	멀다	[멀다]		rule	native
+fast	빠르다	[빠르다]		rule	native
+bright	밝다	[박따]	tensification,double_final	rule	native
+dark	어둡다	[어둡따]	tensification	rule	native
+hot	뜨겁다	[뜨겁따]	tensification	rule	native
+cold_touch	차갑다	[차갑따]	tensification	rule	native
+cold_weather	춥다	[춥따]	tensification	rule	native
+heavy	무겁다	[무겁따]	tensification	rule	native
+light_weight	가볍다	[가볍따]	tensification	rule	native
+scary	무섭다	[무섭따]	tensification	rule	native
 gen_music_disc_creator_music_box	음반	[음반]		rule	sino
 gen_weathered_copper_lantern	녹슨 구리 랜턴	[녹쓴 구리 랜턴]	tensification	rule	mixed
 gen_red_wool	빨간색 양털	[빨간색 양털]		rule	mixed

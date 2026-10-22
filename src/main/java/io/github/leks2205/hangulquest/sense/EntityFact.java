@@ -6,9 +6,15 @@ import java.util.UUID;
 
 /**
  * Where a nearby entity is and which way it looks. Yaw is in degrees as the game stores it
- * (0 = south, 90 = west); items and experience orbs are left out.
+ * (0 = south, 90 = west); items and experience orbs are left out. {@code baby} is the synced "young"
+ * flag of an animal, which a breeding goal waits for.
  */
-public record EntityFact(String type, UUID uuid, double x, double y, double z, float yaw, float pitch) {
+public record EntityFact(String type, UUID uuid, double x, double y, double z, float yaw, float pitch,
+						 boolean baby) {
+	public EntityFact(String type, UUID uuid, double x, double y, double z, float yaw, float pitch) {
+		this(type, uuid, x, y, z, yaw, pitch, false);
+	}
+
 	public Vec3 position() {
 		return new Vec3(x, y, z);
 	}

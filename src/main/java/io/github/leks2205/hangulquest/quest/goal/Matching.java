@@ -42,6 +42,27 @@ public final class Matching {
 		return total;
 	}
 
+	/** "boat" for every boat and raft (the ones with a chest too), "minecart" for the carts, else "". */
+	public static String vehicleFamily(String id) {
+		if (id == null) {
+			return "";
+		}
+		String path = id.substring(id.indexOf(':') + 1);
+		if (path.endsWith("_boat") || path.endsWith("_raft")) {
+			return "boat";
+		}
+		return path.equals("minecart") || path.endsWith("_minecart") ? "minecart" : "";
+	}
+
+	/** The same vehicle, or two of one family (an oak boat and a spruce boat). */
+	public static boolean sameVehicle(String goal, String observed) {
+		if (goal == null || observed == null) {
+			return false;
+		}
+		String family = vehicleFamily(goal);
+		return goal.equals(observed) || !family.isEmpty() && family.equals(vehicleFamily(observed));
+	}
+
 	public static boolean isBed(String id) {
 		return id != null && blockFamily(id).equals("bed");
 	}

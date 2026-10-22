@@ -38,7 +38,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.JukeboxBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -107,6 +114,9 @@ public final class EnvironmentSensor {
 	private final ScreenSensor screens = new ScreenSensor();
 	private final GiveTracker gives = new GiveTracker();
 	private final HeldTracker held = new HeldTracker();
+	private final ToggleTracker toggles = new ToggleTracker();
+	private long musicAt;
+	private double musicDistance = -1;
 	private final List<GiveTracker.Target> dropTargets = new ArrayList<>();
 	private final List<SeenItem> seenItems = new ArrayList<>();
 	private final BlockPos.MutableBlockPos probe = new BlockPos.MutableBlockPos();
@@ -142,6 +152,9 @@ public final class EnvironmentSensor {
 		screens.reset();
 		gives.clear();
 		held.clear();
+		toggles.clear();
+		musicAt = 0L;
+		musicDistance = -1;
 		skyPos = null;
 		lookedAtNight = null;
 		lookedAtNightAt = 0L;
@@ -163,6 +176,7 @@ public final class EnvironmentSensor {
 				String usedBlock = blockId(state);
 				// The only source of block-use events (the callback fires once per hand).
 				events.blockUsed(usedBlock, isNight(level), hand == InteractionHand.MAIN_HAND);
+				toggles.clicked(hitResult.getBlockPos(), usedBlock, openState(state), System.currentTimeMillis());
 				if (usedBlock.endsWith("_bed")) {
 					lastBedUseAt = System.currentTimeMillis();
 				}
@@ -231,6 +245,7 @@ public final class EnvironmentSensor {
 		obs.now = System.currentTimeMillis();
 		events.drainInto(obs);
 		boolean wantFarLook = previous != null && previous.farEntityLookWanted;
+		boolean wantMusic = previous != null && previous.musicScanWanted;
 		previous = obs;
 
 		LocalPlayer player = mc.player;
@@ -261,6 +276,14 @@ public final class EnvironmentSensor {
 		obs.idle = player.isSpectator() || isIdle();
 		readHands(obs, player);
 		readSky(obs, player, level);
+		Entity vehicle = player.getVehicle();
+		obs.vehicle = vehicle == null ? null : entityId(resolve(vehicle));
+		if (!toggles.idle()) {
+			toggles.poll(pos -> openState(level.getBlockState(pos)), obs.now, obs::addOpened, obs::addClosed);
+		}
+		if (wantMusic) {
+			readMusic(obs, player, level);
+		}
 
 		readBiome(obs, level);
 		if (obs.phase() == Condition.Phase.NIGHT) {
@@ -380,6 +403,41 @@ public final class EnvironmentSensor {
 		obs.underground = underground;
 	}
 
+	/** The {@code open} state of a door, trapdoor or fence gate; null for every other block. */
+	private static Boolean openState(BlockState state) {
+		Block block = state.getBlock();
+		boolean hand = block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof FenceGateBlock;
+		return hand && state.hasProperty(BlockStateProperties.OPEN) ? state.getValue(BlockStateProperties.OPEN) : null;
+	}
+
+	/**
+	 * Distance to the nearest jukebox with a disc in it. A jukebox holds its disc in the block state
+	 * ({@code has_record}) and drops it when the song is over, so the state says "playing". The scan reads
+	 * the block entities of the chunks around the player, twice a second, and only while a step listens.
+	 */
+	private void readMusic(Observation obs, LocalPlayer player, ClientLevel level) {
+		if (obs.now - musicAt >= 500L) {
+			musicAt = obs.now;
+			musicDistance = -1;
+			int chunkX = obs.blockPos.getX() >> 4;
+			int chunkZ = obs.blockPos.getZ() >> 4;
+			for (int dx = -1; dx <= 1; dx++) {
+				for (int dz = -1; dz <= 1; dz++) {
+					for (BlockEntity entity : level.getChunk(chunkX + dx, chunkZ + dz).getBlockEntities().values()) {
+						BlockState state = entity.getBlockState();
+						if (state.is(Blocks.JUKEBOX) && state.getValue(JukeboxBlock.HAS_RECORD)) {
+							BlockPos at = entity.getBlockPos();
+							double distance = Math.sqrt(player.distanceToSqr(at.getX() + 0.5, at.getY() + 0.5,
+									at.getZ() + 0.5));
+							musicDistance = musicDistance < 0 ? distance : Math.min(musicDistance, distance);
+						}
+					}
+				}
+			}
+		}
+		obs.jukeboxDistance = musicDistance;
+	}
+
 	private BlockNeighborhood neighborhood(ClientLevel level, BlockPos center) {
 		return BlockNeighborhood.capture(center.getX(), center.getY(), center.getZ(),
 				(x, y, z) -> blockId(level.getBlockState(probe.set(x, y, z))));
@@ -461,7 +519,8 @@ public final class EnvironmentSensor {
 				}
 			} else if (!(entity instanceof ExperienceOrb)) {
 				obs.addEntityPosition(new EntityFact(entityId(entity), entity.getUUID(), entity.getX(),
-						entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot()));
+						entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot(),
+						entity instanceof LivingEntity living && living.isBaby()));
 				if (watchDrops && entity instanceof LivingEntity && distance <= GiveTracker.TARGET_RANGE) {
 					dropTargets.add(new GiveTracker.Target(entityId(entity), entity.getUUID(), distance));
 				}

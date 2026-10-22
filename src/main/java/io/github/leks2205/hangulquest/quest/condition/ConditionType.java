@@ -39,6 +39,15 @@ public interface ConditionType<C extends Condition> {
 		return prefix(condition, namer);
 	}
 
+	/**
+	 * Ways an authored clue says the condition in its own words, without the phrase ("밤에 " as "한밤에" or
+	 * "밤이 되면"): when the clue holds one of them, the phrase is not put in front. Kept to forms that cannot be
+	 * another word (밤 is also a chestnut, 낮다 is "low"), so a plain "밤을 먹어요" still gets "밤에".
+	 */
+	default List<String> words(C condition, SentenceBuilder.Namer namer) {
+		return List.of();
+	}
+
 	/** The status line while this condition is not met. */
 	String unmetText(C condition, Observation obs, Catalog catalog);
 

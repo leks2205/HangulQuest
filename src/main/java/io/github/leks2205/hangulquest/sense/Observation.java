@@ -89,6 +89,21 @@ public final class Observation {
 	public List<CraftFact> crafted = List.of();
 	public List<GiveFact> gave = List.of();
 	public List<ContainerPutFact> putIn = List.of();
+	/** Items the player moved out of an open container this tick. */
+	public List<ContainerTakeFact> takenOut = List.of();
+	/** Doors, trapdoors and fence gates the player opened this tick (the id of the block clicked). */
+	public List<String> openedBlocks = List.of();
+	/** The same for the ones the player closed. */
+	public List<String> closedBlocks = List.of();
+	/** Entity id of what the player sits in or rides (a horse, a boat, a minecart); null on foot. */
+	public String vehicle;
+	/** Distance to the nearest jukebox that is playing a disc; -1 when none is near or no scan was asked for. */
+	public double jukeboxDistance = -1;
+	/**
+	 * Set by the goal evaluator while a tracked step listens for a jukebox, so the sensor only scans the
+	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
+	 */
+	public boolean musicScanWanted;
 	/** Position and facing of the entities counted in {@link #nearbyEntities} (items and orbs excluded). */
 	public List<EntityFact> nearbyEntityPositions = List.of();
 
@@ -126,6 +141,21 @@ public final class Observation {
 	public void addPutIn(ContainerPutFact fact) {
 		putIn = grow(putIn);
 		putIn.add(fact);
+	}
+
+	public void addTakenOut(ContainerTakeFact fact) {
+		takenOut = grow(takenOut);
+		takenOut.add(fact);
+	}
+
+	public void addOpened(String block) {
+		openedBlocks = grow(openedBlocks);
+		openedBlocks.add(block);
+	}
+
+	public void addClosed(String block) {
+		closedBlocks = grow(closedBlocks);
+		closedBlocks.add(block);
 	}
 
 	public void addEntityPosition(EntityFact fact) {

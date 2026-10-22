@@ -204,6 +204,14 @@ final class KoreanFixtures {
 			case Goal.HoldWhile g -> g.item();
 			case Goal.Sequence g -> null;
 			case Goal.Avoid g -> g.action() == null ? null : targetOf(g.action());
+			case Goal.TakeOut g -> g.item();
+			case Goal.Hear g -> g.source();
+			case Goal.LieDown g -> g.block();
+			case Goal.Breed g -> g.entity();
+			case Goal.Mount g -> g.entity();
+			case Goal.Transit g -> null;
+			case Goal.Wait g -> null;
+			case Goal.Swim g -> null;
 		};
 	}
 
@@ -220,6 +228,7 @@ final class KoreanFixtures {
 			case Goal.Smelt g -> g.count();
 			case Goal.Give g -> g.count();
 			case Goal.PutIn g -> g.count();
+			case Goal.TakeOut g -> g.count();
 			default -> 0;
 		};
 		String suffix = switch (goal) {

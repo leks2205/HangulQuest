@@ -68,8 +68,15 @@ class ActionSentenceGoldTest {
 		return rows;
 	}
 
+	/** The taught word of a row: "-" none, "door" a noun, "chicken_meat+cook" a noun and a verb, "-+cook" a verb only. */
 	private static Word word(String concept) {
-		return concept.equals("-") ? null : CATALOG.byConceptId(concept).orElseThrow();
+		String noun = concept.contains("+") ? concept.substring(0, concept.indexOf('+')) : concept;
+		return noun.equals("-") ? null : CATALOG.byConceptId(noun).orElseThrow();
+	}
+
+	private static Word verbWord(String concept) {
+		return concept.contains("+") ? CATALOG.byConceptId(concept.substring(concept.indexOf('+') + 1)).orElseThrow()
+				: null;
 	}
 
 	@Test
@@ -80,7 +87,8 @@ class ActionSentenceGoldTest {
 		rows.forEach(row -> assertTrue(ids.add(row.id()), "duplicate id " + row.id()));
 		// Every new goal type and condition is in the table.
 		String all = rows.stream().map(row -> row.goal().getClass().getSimpleName()).distinct().sorted().toList().toString();
-		for (String type : List.of("Craft", "Smelt", "Give", "PutIn", "HoldWhile", "Sequence", "Avoid")) {
+		for (String type : List.of("Craft", "Smelt", "Give", "PutIn", "HoldWhile", "Sequence", "Avoid", "TakeOut",
+				"Transit", "Hear", "LieDown", "Wait", "Breed", "Mount", "Swim")) {
 			assertTrue(all.contains(type), type + " is missing from the gold table");
 		}
 	}
@@ -89,8 +97,8 @@ class ActionSentenceGoldTest {
 	void everySentenceMatchesTheGoldAndCarriesItsGrammarPoints() throws IOException {
 		List<String> wrong = new ArrayList<>();
 		for (Row row : rows()) {
-			SentenceBuilder.Spoken spoken = SentenceBuilder.spoken(row.goal(), word(row.word()), row.conditions(),
-					row.level(), false, NAMER);
+			SentenceBuilder.Spoken spoken = SentenceBuilder.spoken(row.goal(), word(row.word()), verbWord(row.word()),
+					row.conditions(), row.level(), false, NAMER);
 			if (!row.ko().equals(spoken.ko())) {
 				wrong.add(row.id() + ": expected " + row.ko() + " but got " + spoken.ko());
 			}
@@ -107,8 +115,10 @@ class ActionSentenceGoldTest {
 	@Test
 	void hintsStayAtLevelOneButKeepTheDecidingForm() throws IOException {
 		for (Row row : rows()) {
-			String hint = SentenceBuilder.hint(row.goal(), word(row.word()), row.conditions(), NAMER);
-			String clue = SentenceBuilder.normal(row.goal(), word(row.word()), row.conditions(), 1, false, NAMER);
+			String hint = SentenceBuilder.hint(row.goal(), word(row.word()), verbWord(row.word()), row.conditions(),
+					NAMER);
+			String clue = SentenceBuilder.normal(row.goal(), word(row.word()), verbWord(row.word()), row.conditions(),
+					1, false, NAMER);
 			if (row.goal() instanceof Goal.Sequence sequence) {
 				String connective = sequence.ordered() ? switch (sequence.connector()) {
 					case "BEFORE" -> "기 전에";

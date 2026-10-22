@@ -13,7 +13,11 @@ import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
 
-/** Use a block: open a door, ring a bell, sleep in a bed. */
+/**
+ * Use a block: open a door, ring a bell, sleep in a bed. With {@code change} a door, trapdoor or fence gate
+ * has to change state the way the verb says (열어요, 닫아요); the sensor compares its {@code open} state
+ * before and after the click.
+ */
 final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
 	public String id() {
@@ -27,12 +31,16 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 
 	@Override
 	public List<Field> fields() {
-		return List.of(Field.resource("block"));
+		return List.of(Field.resource("block"),
+				Field.choice("change", false, "Open or close a door, trapdoor or fence gate: the block must really "
+						+ "change state. Without it any use of the block counts.", "OPEN", "CLOSE"));
 	}
 
 	@Override
 	public Goal.UseBlock parse(JsonObject json) {
-		return new Goal.UseBlock(JsonFields.string(json, "block", ""));
+		String change = JsonFields.string(json, "change", null);
+		return new Goal.UseBlock(JsonFields.string(json, "block", ""),
+				change == null || change.isBlank() ? null : change.toUpperCase(java.util.Locale.ROOT));
 	}
 
 	@Override
@@ -40,17 +48,28 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 		JsonObject json = new JsonObject();
 		json.addProperty("type", id());
 		json.addProperty("block", goal.block());
+		if (goal.change() != null) {
+			json.addProperty("change", goal.change());
+		}
 		return json;
 	}
 
 	@Override
 	public String keyPart(Goal.UseBlock goal) {
-		return goal.block();
+		return goal.change() == null ? goal.block() : goal.block() + "/" + goal.change();
 	}
 
 	@Override
 	public boolean evaluate(Goal.UseBlock goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
+		if (goal.change() != null) {
+			for (String changed : goal.change().equals("CLOSE") ? obs.closedBlocks : obs.openedBlocks) {
+				if (Matching.matchesBlock(goal.block(), changed)) {
+					tracker.count++;
+				}
+			}
+			return tracker.count >= 1;
+		}
 		List<String> uses = nightLatch ? obs.usedBlocksAtNight : obs.usedBlocks;
 		for (String used : uses) {
 			if (Matching.matchesBlock(goal.block(), used)) {
@@ -76,6 +95,9 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 
 	@Override
 	public Verb verb(Goal.UseBlock goal, VerbTable table) {
+		if (goal.change() != null) {
+			return goal.change().equals("CLOSE") ? Verb.CLOSE : Verb.OPEN;
+		}
 		return table.choose(id(), goal.block(), 1, Verb.USE);
 	}
 
@@ -115,5 +137,28 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.BLOCK;
+	}
+
+	/** The blocks a hand opens and closes: doors (not iron ones), trapdoors and fence gates. */
+	static boolean handOpened(String block) {
+		if (block == null) {
+			return false;
+		}
+		String path = block.substring(block.indexOf(':') + 1);
+		return !path.equals("iron_door") && !path.equals("iron_trapdoor")
+				&& (path.endsWith("_door") || path.endsWith("_trapdoor") || path.endsWith("_fence_gate"));
+	}
+
+	@Override
+	public void validate(Goal.UseBlock goal, ValidationContext context) {
+		GoalType.super.validate(goal, context);
+		if (goal.change() != null) {
+			if (!goal.change().equals("OPEN") && !goal.change().equals("CLOSE")) {
+				context.problem("change must be OPEN or CLOSE, not " + goal.change());
+			} else if (!handOpened(goal.block())) {
+				context.problem("a " + goal.block() + " does not open or close by hand; use a wooden door, "
+						+ "trapdoor or fence gate");
+			}
+		}
 	}
 }

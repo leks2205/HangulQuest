@@ -58,6 +58,12 @@ final class InBiomeType implements ConditionType<Condition.InBiome> {
 	}
 
 	@Override
+	public List<String> words(Condition.InBiome condition, SentenceBuilder.Namer namer) {
+		String name = SentenceBuilder.biomeName(condition.biome(), namer);
+		return name == null ? List.of() : List.of(name + "에서", name + "에", name + "으로", name + "로");
+	}
+
+	@Override
 	public String unmetText(Condition.InBiome condition, Observation obs, Catalog catalog) {
 		return "지금 " + QuestStatus.biome(obs.biome, catalog) + " · "
 				+ QuestStatus.biome(condition.biome(), catalog) + " 필요";

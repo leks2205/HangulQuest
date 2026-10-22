@@ -221,7 +221,7 @@ class QuestlineValidationTest {
 				}
 				var verbs = switch (step.goal()) {
 					case Goal.PlaceBlock g -> List.of("놓", "설치", "세우", "두", "피우", "심", "깔", "걸", "달", "밝", "쌓", "치");
-					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써");
+					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써", "닫", "쳐");
 					case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐", "잡", "담");
 					case Goal.ConsumeItem g -> List.of("먹", "마시");
 					case Goal.BreakBlock g -> List.of("캐", "베", "수확", "부수", "채", "파", "꺾", "뽑", "깨", "따");
@@ -242,6 +242,14 @@ class QuestlineValidationTest {
 					case Goal.HoldWhile g -> List.of("들");
 					case Goal.Sequence g -> List.of("전에", "후에", "나서", "고");
 					case Goal.Avoid g -> List.of("마세요");
+					case Goal.TakeOut g -> List.of("꺼내", "꺼낸");
+					case Goal.Transit g -> List.of("들어가", "나가", "나와", "나오");
+					case Goal.Hear g -> List.of("들어", "듣");
+					case Goal.LieDown g -> List.of("누워", "누우");
+					case Goal.Wait g -> List.of("기다");
+					case Goal.Breed g -> List.of("키워", "키우");
+					case Goal.Mount g -> List.of("타", "앉");
+					case Goal.Swim g -> List.of("수영");
 				};
 				boolean namesAction = verbs.stream().anyMatch(ko::contains);
 				assertTrue(namesAction, trail.id() + "/" + step.id()

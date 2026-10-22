@@ -34,6 +34,12 @@ public final class GoalEvaluator {
 		public int baseCount = -1;
 		/** The gained count that was already known when the baseline was taken (restored progress). */
 		public int carried;
+		/** Scratch for goals that watch a state over time (wait, swim, transit, breed); never saved. */
+		public long mark;
+		public int phase;
+		public double distance;
+		public double[] at;
+		public final java.util.Set<String> marks = new java.util.HashSet<>();
 		/** Sticky for the current step: some progress was made in creative or spectator mode. */
 		public boolean assisted;
 		public String goalKey;
@@ -78,6 +84,15 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			scratch();
+		}
+
+		private void scratch() {
+			mark = 0L;
+			phase = 0;
+			distance = 0;
+			at = null;
+			marks.clear();
 		}
 
 		/** Same as {@link #resetFor(String)} but skips building the key while the goal object is unchanged. */
@@ -104,6 +119,7 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			scratch();
 		}
 	}
 
@@ -177,6 +193,9 @@ public final class GoalEvaluator {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		if (type.needsFarEntityLook()) {
 			obs.farEntityLookWanted = true;
+		}
+		if (type.needsMusicScan(goal)) {
+			obs.musicScanWanted = true;
 		}
 		type.beforeTick(goal, obs, tracker);
 		int countBefore = tracker.count;

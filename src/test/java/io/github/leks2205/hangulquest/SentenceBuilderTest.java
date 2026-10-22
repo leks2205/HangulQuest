@@ -142,8 +142,11 @@ class SentenceBuilderTest {
 
 	@Test
 	void undergroundHeightDescends() {
-		assertEquals("높이 0 이하로 내려가요.", SentenceBuilder.normal(
+		// the first level says "down", the number comes with level 2
+		assertEquals("아래로 내려가요.", SentenceBuilder.normal(
 				new Goal.ReachHeight(-64, 0), word("동굴"), List.of()));
+		assertEquals("높이 0 이하로 내려가세요.", SentenceBuilder.normal(
+				new Goal.ReachHeight(-64, 0), word("동굴"), List.of(), 2));
 		assertEquals("땅 위로 올라가요.", SentenceBuilder.normal(
 				new Goal.ReachHeight(0, 320), word("산"), List.of()));
 	}

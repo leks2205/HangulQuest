@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.quest.goal;
 
 import com.google.gson.JsonObject;
 import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
@@ -81,13 +82,51 @@ final class ReachBiomeType implements GoalType<Goal.ReachBiome> {
 		return table.choose(id(), goal.biome(), 1, Verb.GO); // a cave is entered (들어가요), not gone to
 	}
 
+	/** A sea or a river is swum in when the step also asks for the water: 바다에서 수영해요, not 물속에서 바다로 가요. */
+	@Override
+	public Verb verb(Goal.ReachBiome goal, VerbTable table, List<Condition> conditions) {
+		boolean inWater = conditions.stream().anyMatch(condition -> condition instanceof Condition.InWater);
+		return inWater && water(goal.biome()) ? Verb.SWIM : verb(goal, table);
+	}
+
+	/** The sentence of a swim in a water biome already says that the player is in the water. */
+	@Override
+	public boolean says(Goal.ReachBiome goal, Condition condition) {
+		return condition instanceof Condition.InWater && water(goal.biome());
+	}
+
+	/** Oceans and rivers, by tag or by id. */
+	static boolean water(String biome) {
+		if (biome == null || biome.isBlank()) {
+			return false;
+		}
+		String path = biome.substring(biome.indexOf(':') + 1);
+		return path.equals("is_ocean") || path.equals("is_river") || path.endsWith("ocean") || path.endsWith("river");
+	}
+
 	@Override
 	public String korean(Goal.ReachBiome goal, SentenceContext c) {
+		if (c.verb() == Verb.SWIM) {
+			return SentenceBuilder.phrase(SentenceBuilder.objectPhrase(c.obj(), c.verb()), c.verb(), c.level(),
+					c.finale());
+		}
 		return SentenceBuilder.phrase(KoGrammar.euro(c.obj()), c.verb(), c.level(), c.finale());
 	}
 
 	@Override
+	public List<String> grammarIds(Goal.ReachBiome goal, SentenceContext c) {
+		if (c.verb() == Verb.SWIM) {
+			return List.of(io.github.leks2205.hangulquest.quest.grammar.Ladder.shared().rung(c.level()).grammar(),
+					"L2.eseo_activity");
+		}
+		return GoalType.super.grammarIds(goal, c);
+	}
+
+	@Override
 	public String ceremony(Goal.ReachBiome goal, String obj, Verb verb) {
+		if (verb == Verb.SWIM) {
+			return SentenceBuilder.objectPhrase(obj, verb) + " " + verb.past();
+		}
 		if (verb == Verb.ENTER) {
 			return KoGrammar.euro(obj) + " " + verb.past();
 		}

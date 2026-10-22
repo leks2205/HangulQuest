@@ -62,6 +62,15 @@ final class WeatherType implements ConditionType<Condition.WeatherState> {
 	}
 
 	@Override
+	public List<String> words(Condition.WeatherState condition, SentenceBuilder.Namer namer) {
+		return switch (condition.weather()) {
+			case CLEAR -> List.of("맑은", "맑을", "맑아");
+			case RAIN -> List.of("비가", "비를", "비는", "비 오", "빗속", "비에");
+			case THUNDER -> List.of("천둥", "번개");
+		};
+	}
+
+	@Override
 	public String unmetText(Condition.WeatherState condition, Observation obs, Catalog catalog) {
 		return "날씨가 맞지 않아요 · " + QuestStatus.weather(condition.weather());
 	}

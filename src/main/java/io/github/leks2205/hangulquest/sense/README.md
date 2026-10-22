@@ -18,6 +18,11 @@ How far each fact can be trusted when the game runs client-only:
 | `putIn` | per-tick slot tally while a chest, barrel, shulker box, hopper or dispenser screen is open | Reliable for moves by the player. Counts only items the player side really lost; taking out and putting back cancels. The block is the last one right-clicked within 5 s, so it is null for a chest minecart. |
 | `gave` FEED / USE_WITH | `UseEntityCallback` plus the held count dropping within 1.5 s | Best effort. Never fires in creative (the stack does not shrink). A loss of the same item for another reason inside the window can be credited. |
 | `gave` DROP_NEAR | an inventory loss, then a young item entity within 4.5 blocks, with a creature within 3 blocks | Best effort. The client cannot see who dropped an item, so a loss of the same item plus loot appearing next to a creature could be mistaken for a give. Ignored while a screen is open. |
+| `takenOut` | the same slot tally, the other way: the container lost the item and the player's side gained it | Reliable for moves by the player. An item put in a moment before and taken back is no take. A chest minecart has no block, so it counts for no container goal |
+| `openedBlocks`, `closedBlocks` | the `open` state of a clicked door, trapdoor or fence gate before the click and in the next ticks (`ToggleTracker`) | Reliable. Only a wooden door, trapdoor or gate changes by hand; an iron door never reports. A click the server refuses reports nothing; a state that does not change within 1.5 s is dropped |
+| `vehicle` | the entity the local player rides (`getVehicle`) | Reliable for boats, minecarts, horses, pigs and every other mount |
+| `jukeboxDistance` | the block entities of the 3x3 chunks around the player: a jukebox whose `has_record` state is set (it drops the disc when the song ends) | Reliable for what the client has loaded. Scanned twice a second and only while a step with a `HEAR` goal is tracked (`musicScanWanted`). The sound itself is not heard by the mod |
+| `nearbyEntityPositions[].baby` | the synced "young" flag of a living entity | Reliable. A `BREED` goal waits for a new baby after a feeding |
 | `gave` TRADE | merchant result slot taken; item and count are what was paid | Reliable for the payment. The merchant is the entity right-clicked in the last 5 s. |
 
 ## Costs

@@ -33,6 +33,17 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- **The everyday words the mod lacked, and the verbs a player can do.** The 150 common words of the curriculum
+  list that had no concept (사람, 위, 안, 하나, 빨간색, 열쇠, 듣다, 눕다, ...) are concepts now, with tags and
+  English and German glosses: place words, numbers, counters, directions and colours are lexicon entries (colours
+  stand for their dye and wool), foods and vehicles cover the items of the game. New goals: `TAKE_OUT` (꺼내다),
+  `TRANSIT` (들어가다, 나가다, 나오다: the sky above the player flips), `HEAR` (듣다: a playing jukebox or a
+  struck note block), `LIE_DOWN` (눕다), `WAIT` (기다리다), `BREED` (키우다), `MOUNT` (앉다, 타다) and `SWIM`
+  (수영하다); `USE_BLOCK` takes `change` (`OPEN`/`CLOSE`, the door state really changes), a descent reads
+  "아래로 내려가요", a step that teaches 요리하다 cooks food in the furnace ("닭고기를 요리해요") and a sea with the
+  water condition reads "바다에서 수영해요". The sensor sees door states, the vehicle, a playing jukebox, taken-out
+  items and baby animals (`sense/README.md`). An authored clue that says its condition in its own words keeps its
+  text. Progress files are unchanged.
 - **Books tab: graded stories, chapters and culture notes.** The journal has a new Books tab (책장). Four short
   stories (집, 불과 빛, 밭, 동물; 80 to 200 syllables, level 1 to 2 grammar) open when their trails are done and at
   least 98% of their words are known to the player; a locked story lists the words to learn first. Hovering or

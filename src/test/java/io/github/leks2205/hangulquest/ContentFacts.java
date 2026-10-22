@@ -269,6 +269,14 @@ final class ContentFacts {
 				add(into, "object", g.item());
 				add(into, "anchor", g.container());
 			}
+			case Goal.TakeOut g -> {
+				add(into, "object", g.item());
+				add(into, "anchor", g.container());
+			}
+			case Goal.Hear g -> add(into, "object", g.source());
+			case Goal.LieDown g -> add(into, "object", g.block());
+			case Goal.Breed g -> add(into, "object", g.entity());
+			case Goal.Mount g -> add(into, "object", g.entity());
 			case Goal.HoldWhile g -> {
 				add(into, "tool", g.item());
 				if (g.innerGoal() != null) {
@@ -287,6 +295,12 @@ final class ContentFacts {
 			case Goal.ReachDimension g -> {
 			}
 			case Goal.ReachHeight g -> {
+			}
+			case Goal.Transit g -> {
+			}
+			case Goal.Wait g -> {
+			}
+			case Goal.Swim g -> {
 			}
 		}
 	}

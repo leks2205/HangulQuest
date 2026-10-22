@@ -71,7 +71,19 @@ public enum Verb {
 	WALK("걷다", "laufen"),
 
 	// The note block is struck, not rung.
-	STRIKE("치다", "anschlagen");
+	STRIKE("치다", "anschlagen"),
+
+	// Wave 3: coming and going, resting, waiting, cooking, swimming, taking out, listening, raising.
+	LEAVE("나가다", "hinausgehen"),
+	COME_OUT("나오다", "herauskommen"),
+	LIE("눕다", "sich hinlegen", Frame.IN),
+	SIT("앉다", "sich setzen", Frame.IN),
+	WAIT("기다리다", "warten"),
+	COOK("요리하다", "kochen"),
+	SWIM("수영하다", "schwimmen", Frame.LOC),
+	TAKE_OUT("꺼내다", "herausnehmen"),
+	HEAR("듣다", "hören"),
+	RAISE("키우다", "aufziehen");
 
 
 	/** How the target noun is marked in front of the verb. */
@@ -83,7 +95,9 @@ public enum Verb {
 		/** 소에게 먹이를 줘요. */
 		DAT,
 		/** 침대에서 자요. */
-		LOC
+		LOC,
+		/** 침대에 누워요, 보트에 앉아요: the place the body goes to. */
+		IN
 	}
 
 	private final String dictionary;

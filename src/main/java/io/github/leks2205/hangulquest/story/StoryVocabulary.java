@@ -65,10 +65,13 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 
 	public static StoryVocabulary of(Catalog catalog, StoryLexicon lexicon, Predicate<String> knows, Lang lang) {
 		StoryVocabulary vocabulary = new StoryVocabulary();
+		Set<String> functionForms = new java.util.HashSet<>();
 		for (StoryLexicon.Entry entry : lexicon.entries()) {
 			Hit hit = new Hit("lexicon:" + entry.id(), entry.gloss(lang), entry.known());
 			if (entry.isVerb()) {
 				vocabulary.addVerb(hit, entry.verb(), entry.grammar());
+			} else {
+				functionForms.addAll(entry.forms());
 			}
 			Set<String> tails = entry.tails().isEmpty() ? null : Set.copyOf(entry.tails());
 			for (String form : entry.forms()) {
@@ -97,6 +100,9 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 		}
 		byKo.forEach((ko, hit) -> vocabulary.nouns.computeIfAbsent(ko, key -> new ArrayList<>())
 				.add(new Reading(hit, null)));
+		// 그리고 is the conjunction before it is the -고 form of 그리다: a function word of the lexicon wins.
+		vocabulary.verbs.entrySet().removeIf(entry -> functionForms.contains(entry.getKey())
+				&& !entry.getValue().hit().id().startsWith("lexicon:"));
 		return vocabulary;
 	}
 

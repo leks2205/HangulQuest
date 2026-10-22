@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.condition.ConditionType;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
@@ -79,8 +80,18 @@ public final class SentenceBuilder {
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
-		return prefix(conditions, word, namer, clampLevel(koreanLevel))
-				+ core(goal, word, true, clampLevel(koreanLevel), finale, namer);
+		return normal(goal, word, verbWord(word), conditions, koreanLevel, finale, namer);
+	}
+
+	/**
+	 * Same, for a step that also teaches a verb ({@code verbWord}): when the goal can say that verb (요리하다 for a
+	 * food in the furnace, 타다 for a boat) the sentence uses it instead of its default.
+	 */
+	public static String normal(Goal goal, Word word, Word verbWord, List<Condition> conditions, int koreanLevel,
+								boolean finale, Namer namer) {
+		int level = clampLevel(koreanLevel);
+		return prefix(goal, conditions, word, namer, level)
+				+ core(goal, word, verbWord, conditions, true, level, finale, namer);
 	}
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions) {
@@ -93,7 +104,12 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, List<Condition> conditions, Namer namer) {
-		return prefix(conditions, word, namer, 1) + core(goal, word, false, 1, false, namer);
+		return hint(goal, word, verbWord(word), conditions, namer);
+	}
+
+	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
+		return prefix(goal, conditions, word, namer, 1)
+				+ core(goal, word, verbWord, conditions, false, 1, false, namer);
 	}
 
 	public static long seconds(long dwellMs) {
@@ -109,18 +125,38 @@ public final class SentenceBuilder {
 		return GoalTypes.of(goal).verb(goal, VerbTable.shared());
 	}
 
-	private static String core(Goal goal, Word word, boolean withCounts, int level, boolean finale,
-							   Namer namer) {
+	private static String core(Goal goal, Word word, Word verbWord, List<Condition> conditions, boolean withCounts,
+							   int level, boolean finale, Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
-		return type.korean(goal, context(goal, word, namer, withCounts, level, finale));
+		return type.korean(goal, context(goal, word, verbWord, conditions, namer, withCounts, level, finale));
 	}
 
-	private static SentenceContext context(Goal goal, Word word, Namer namer, boolean withCounts, int level,
-										   boolean finale) {
-		GoalType<Goal> type = GoalTypes.of(goal);
+	private static SentenceContext context(Goal goal, Word word, Word verbWord, List<Condition> conditions,
+										   Namer namer, boolean withCounts, int level, boolean finale) {
 		Word named = word == null || isVerbWord(word) ? null : word;
-		return new SentenceContext(objectName(goal, word, namer), type.verb(goal, VerbTable.shared()),
+		return new SentenceContext(objectName(goal, word, namer), verbOf(goal, verbWord, conditions),
 				withCounts, level, finale, named, SentenceContext.taught(named, namer));
+	}
+
+	/** The verb word among what a step teaches: the word itself when it is one, else null. */
+	private static Word verbWord(Word word) {
+		return word != null && isVerbWord(word) ? word : null;
+	}
+
+	/**
+	 * The verb the sentence uses: the goal's own under the conditions of the step, unless the step teaches one
+	 * of the verbs the goal can say instead.
+	 */
+	public static Verb verbOf(Goal goal, Word verbWord, List<Condition> conditions) {
+		GoalType<Goal> type = GoalTypes.of(goal);
+		if (verbWord != null) {
+			for (Verb alternative : type.alternativeVerbs(goal)) {
+				if (alternative.dictionary().equals(verbWord.ko)) {
+					return alternative;
+				}
+			}
+		}
+		return type.verb(goal, VerbTable.shared(), conditions == null ? List.of() : conditions);
 	}
 
 	/**
@@ -129,11 +165,15 @@ public final class SentenceBuilder {
 	 * clue, so it can never describe something other than what was checked.
 	 */
 	public static String ceremony(Goal goal, Word word, List<Condition> conditions, Namer namer) {
+		return ceremony(goal, word, verbWord(word), conditions, namer);
+	}
+
+	public static String ceremony(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		// The clue may point at the porkchop with the word for the pig; the line that says what was done must not.
 		Word said = word != null && word.entityId != null && word.iconItem != null ? withoutPicture(word) : word;
-		String body = type.ceremony(goal, context(goal, said, namer, true, 1, true));
-		return prefix(conditions, said, namer, 1) + body + ".";
+		String body = type.ceremony(goal, context(goal, said, verbWord, conditions, namer, true, 1, true));
+		return prefix(goal, conditions, said, namer, 1) + body + ".";
 	}
 
 	private static Word withoutPicture(Word word) {
@@ -151,19 +191,32 @@ public final class SentenceBuilder {
 	/** Same text as {@link #normal(Goal, Word, List, int, boolean, Namer)}, plus its grammar points. */
 	public static Spoken spoken(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
 								boolean finale, Namer namer) {
-		String ko = normal(goal, word, conditions, koreanLevel, finale, namer);
-		return new Spoken(ko, grammar(goal, word, conditions, koreanLevel, finale, namer));
+		return spoken(goal, word, verbWord(word), conditions, koreanLevel, finale, namer);
+	}
+
+	public static Spoken spoken(Goal goal, Word word, Word verbWord, List<Condition> conditions, int koreanLevel,
+								boolean finale, Namer namer) {
+		String ko = normal(goal, word, verbWord, conditions, koreanLevel, finale, namer);
+		return new Spoken(ko, grammar(goal, word, verbWord, conditions, koreanLevel, finale, namer));
 	}
 
 	/** The grammar points of the clue: the goal's own, then those of the condition prefixes. */
 	public static List<String> grammar(Goal goal, Word word, List<Condition> conditions, int koreanLevel,
 									   boolean finale, Namer namer) {
+		return grammar(goal, word, verbWord(word), conditions, koreanLevel, finale, namer);
+	}
+
+	public static List<String> grammar(Goal goal, Word word, Word verbWord, List<Condition> conditions,
+									   int koreanLevel, boolean finale, Namer namer) {
 		int level = clampLevel(koreanLevel);
+		GoalType<Goal> type = GoalTypes.of(goal);
 		List<String> ids = new java.util.ArrayList<>(
-				GoalTypes.of(goal).grammarIds(goal, context(goal, word, namer, true, level, finale)));
+				type.grammarIds(goal, context(goal, word, verbWord, conditions, namer, true, level, finale)));
 		if (conditions != null) {
 			for (Condition condition : conditions) {
-				ids.addAll(ConditionTypes.of(condition).grammarIds(condition, level));
+				if (!type.says(goal, condition)) {
+					ids.addAll(ConditionTypes.of(condition).grammarIds(condition, level));
+				}
 			}
 		}
 		return ids.stream().distinct().toList();
@@ -181,6 +234,7 @@ public final class SentenceBuilder {
 				case COM -> "L2.wa_gwa_with";
 				case DAT -> "L2.ege";
 				case LOC -> "L2.eseo_activity";
+				case IN -> "L1.e_place";
 			});
 		}
 		return ids;
@@ -201,6 +255,7 @@ public final class SentenceBuilder {
 			case COM -> KoGrammar.waGwa(obj);
 			case DAT -> obj + "에게";
 			case LOC -> obj + "에서";
+			case IN -> obj + "에";
 		};
 	}
 
@@ -267,24 +322,37 @@ public final class SentenceBuilder {
 		return KoGrammar.counter(count, counter);
 	}
 
-	private static String prefix(List<Condition> conditions, Word word, Namer namer, int level) {
+	private static String prefix(Goal goal, List<Condition> conditions, Word word, Namer namer, int level) {
 		if (conditions == null || conditions.isEmpty()) {
 			return "";
 		}
+		GoalType<Goal> type = GoalTypes.of(goal);
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		StringBuilder sb = new StringBuilder();
 		for (Condition condition : conditions) {
-			sb.append(ConditionTypes.of(condition).prefix(condition, taught, level));
+			if (!type.says(goal, condition)) { // 바다에서 수영해요 already says IN_WATER
+				sb.append(ConditionTypes.of(condition).prefix(condition, taught, level));
+			}
 		}
 		return sb.toString();
 	}
 
 	/** The phrases the conditions put in front of the goal ("밤에", "해변에서"), one per condition that has one. */
 	public static List<String> conditionPhrases(List<Condition> conditions, Word word, Namer namer, int level) {
+		return conditionPhrases(null, conditions, word, namer, level);
+	}
+
+	/** Same, without the conditions the sentence of {@code goal} says by itself (null: every condition). */
+	public static List<String> conditionPhrases(Goal goal, List<Condition> conditions, Word word, Namer namer,
+												int level) {
 		List<String> phrases = new java.util.ArrayList<>();
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
+			GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
 			for (Condition condition : conditions) {
+				if (type != null && type.says(goal, condition)) {
+					continue;
+				}
 				String phrase = ConditionTypes.of(condition).prefix(condition, taught, clampLevel(level)).trim();
 				if (!phrase.isEmpty()) {
 					phrases.add(phrase);
@@ -297,7 +365,36 @@ public final class SentenceBuilder {
 	/** The condition phrases an authored clue does not contain yet. */
 	public static List<String> missingPhrases(String clue, List<Condition> conditions, Word word, Namer namer,
 											  int level) {
-		return conditionPhrases(conditions, word, namer, level).stream().filter(phrase -> !clue.contains(phrase)).toList();
+		return missingPhrases(null, clue, conditions, word, namer, level);
+	}
+
+	/**
+	 * Same for the conditions of a step: a clue that says a condition in its own words (the keywords of
+	 * {@link ConditionType#words}: 밤, 비, 물속) or that the goal says by itself does not get the phrase again.
+	 */
+	public static List<String> missingPhrases(Goal goal, String clue, List<Condition> conditions, Word word,
+											  Namer namer, int level) {
+		List<String> missing = new java.util.ArrayList<>();
+		if (conditions == null) {
+			return missing;
+		}
+		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
+		GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
+		for (Condition condition : conditions) {
+			if (type != null && type.says(goal, condition)) {
+				continue;
+			}
+			ConditionType<Condition> conditionType = ConditionTypes.of(condition);
+			String phrase = conditionType.prefix(condition, taught, clampLevel(level)).trim();
+			if (phrase.isEmpty() || clue.contains(phrase)) {
+				continue;
+			}
+			if (conditionType.words(condition, taught).stream().anyMatch(clue::contains)) {
+				continue;
+			}
+			missing.add(phrase);
+		}
+		return missing;
 	}
 
 	/**
@@ -305,8 +402,13 @@ public final class SentenceBuilder {
 	 * speak is put in front, so every condition is always said.
 	 */
 	public static String authored(String clue, List<Condition> conditions, Word word, Namer namer, int level) {
+		return authored(null, clue, conditions, word, namer, level);
+	}
+
+	public static String authored(Goal goal, String clue, List<Condition> conditions, Word word, Namer namer,
+								  int level) {
 		StringBuilder front = new StringBuilder();
-		for (String phrase : missingPhrases(clue, conditions, word, namer, level)) {
+		for (String phrase : missingPhrases(goal, clue, conditions, word, namer, level)) {
 			front.append(phrase).append(' ');
 		}
 		return front + clue;

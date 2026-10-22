@@ -5,8 +5,10 @@ broad enough to be useful and narrow enough that two items in one set can be con
 
   nouns   ore metal gem stone earth wood plant flower crop food animal mob person tool weapon armor light
           workstation furniture container building decor redstone material colour vehicle magic
-          weather time sky place element body abstract
-  verbs   verb_motion verb_make verb_gather verb_consume verb_perceive verb_rest verb_social
+          weather time sky place element body abstract number counter direction sound
+  verbs   verb_motion verb_make verb_gather verb_consume verb_perceive verb_rest verb_social verb_trade verb_life
+  adjectives  adjective_size adjective_feel
+The everyday words of core-gap.csv are pinned by concept id in overrides.CONCEPTS, so adding them moved no older tag.
 
 The head of a phrase decides (the last word that is not "블록"/"반"): 빨간색 양털 is a material, 참나무 계단 is a
 building, 철 곡괭이 a tool. Exceptions are pinned by whole phrase (SEM_WHOLE) or by the English concept id

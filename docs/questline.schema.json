@@ -293,6 +293,13 @@
             },
             "block": {
               "$ref": "#/definitions/resourceId"
+            },
+            "change": {
+              "enum": [
+                "OPEN",
+                "CLOSE"
+              ],
+              "description": "Open or close a door, trapdoor or fence gate: the block must really change state. Without it any use of the block counts."
             }
           },
           "required": [
@@ -647,6 +654,173 @@
           "required": [
             "type",
             "action"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "TAKE_OUT"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "container": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "container",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "TRANSIT"
+            },
+            "direction": {
+              "enum": [
+                "IN",
+                "OUT"
+              ],
+              "description": "IN goes under a roof, OUT goes under the open sky."
+            }
+          },
+          "required": [
+            "type",
+            "direction"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "HEAR"
+            },
+            "source": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "radius": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 16
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 500,
+              "maximum": 30000
+            }
+          },
+          "required": [
+            "type",
+            "source"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "LIE_DOWN"
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 500,
+              "maximum": 30000
+            }
+          },
+          "required": [
+            "type",
+            "block"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "WAIT"
+            },
+            "seconds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 600
+            },
+            "until": {
+              "enum": [
+                "NIGHT",
+                "DAY"
+              ],
+              "description": "Also wait for this part of the day."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "BREED"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "entity",
+            "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "MOUNT"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "dwellMs": {
+              "type": "integer",
+              "minimum": 500,
+              "maximum": 30000
+            }
+          },
+          "required": [
+            "type",
+            "entity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SWIM"
+            },
+            "blocks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "type"
           ],
           "additionalProperties": false
         }

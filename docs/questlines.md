@@ -82,8 +82,10 @@ The template is `_template.json`.
 „엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"), `SKY` („밖에서" on levels 1 and 2, „하늘이 보이는
 곳에서" from level 3). A step without an authored clue uses the generated sentence, which speaks every
 condition. An authored clue wins also on a step with conditions: it is shown as written, and a condition
-phrase it does not contain is put in front of it, so no condition can be missing from the text. `REACH_HEIGHT`
-below the ground uses „내려가다" (descend) instead of climbing.
+phrase it does not contain is put in front of it, so no condition can be missing from the text. A clue that
+says the condition in its own words does not get the phrase again: 밤에 / 한밤에 / 밤이 for `TIME` night, 비가 for
+rain, 물속 for `IN_WATER` (a forms list per condition, kept to words that cannot mean anything else: 밤 alone is
+also a chestnut). `REACH_HEIGHT` below the ground uses „내려가다" (descend) instead of climbing.
 
 ## Anatomy of a file
 
@@ -154,8 +156,8 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `DEFEAT_ENTITY` | `entity`, `count` | attack, then death within 5 s |
 | `REACH_BIOME` | `biome` (id or `#tag`), `dwellMs` | the biome you are standing in |
 | `REACH_DIMENSION` | `dimension` | dimension |
-| `REACH_HEIGHT` | `minY`, `maxY` | player altitude |
-| `USE_BLOCK` | `block` | right-click on that block |
+| `REACH_HEIGHT` | `minY`, `maxY` (a ceiling below sea level, `maxY` under 63, asks for a descent: 아래로 내려가요; from level 2 `높이 40 이하로 내려가세요`) | player altitude |
+| `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요) | right-click on that block; with `change` the sensor compares the block's `open` state before and after the click |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
 | `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
 | `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
@@ -164,9 +166,17 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `SMELT` | optional `input` (wording, level 4+), `output`, `count` | taking the result out of a furnace, blast furnace or smoker |
 | `GIVE` | `item`, `entity`, optional `method` (`FEED`/`USE_WITH`/`DROP_NEAR`/`TRADE`), `count` | the hand-over facts of the sensor |
 | `PUT_IN` | `item`, `container`, `count` | items moved into that container block |
+| `TAKE_OUT` | `item`, `container`, `count` | items moved out of that container block (the container lost them and the player gained them; an item put in a moment before does not count) |
 | `HOLD_WHILE` | `item`, `inner` (a goal, or a condition plus `seconds`) | `inner` only counts with the item in a hand; with a condition: walking with it |
 | `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`) | the parts in order; an event before its turn does not count. Trail level 3 or higher |
 | `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
+| `TRANSIT` | `direction` (`IN`/`OUT`) | the sky above the player flips and stays flipped for a second: 집 안으로 들어가요 / 집 밖으로 나가요. The player has to be on the other side first. The place noun is spoken only for 집, 방 and 동굴 |
+| `HEAR` | `source` (`minecraft:jukebox` or `minecraft:note_block`), `radius` (2–16), `dwellMs` | a jukebox with a disc in it within `radius` blocks for `dwellMs` (the sensor scans the block entities around the player twice a second, only while such a step is tracked), or a struck note block |
+| `LIE_DOWN` | `block` (a bed), `dwellMs` | the sleeping pose in that bed for `dwellMs`; the night does not have to pass (a night condition is excused once the server skipped it, as for 자요) |
+| `WAIT` | `seconds`, optional `until` (`NIGHT`/`DAY`) | staying within three blocks of the spot where the wait began; walking away starts over. With `until` also that part of the day. A place to wait near is a condition (`NEAR_BLOCK`) |
+| `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind |
+| `MOUNT` | `entity`, `dwellMs` | the vehicle state of the player: a boat or minecart is sat in (앉아요), an animal is ridden (타요); every boat is one boat |
+| `SWIM` | `blocks` | blocks covered while the player is in water (a jump of more than eight blocks between two ticks is not swimming) |
 
 **Relations and anchors.** The Korean names the relation (`문 옆에`, `기둥 위에`) in every form of the
 sentence, and the English and German clue must not give it away. A relation goal is graded: finishing the step
@@ -197,6 +207,12 @@ clue must not give the order or the "not" away („Do the two things in the orde
 `SEQUENCE` parts, the `HOLD_WHILE` inner goal and the `AVOID` action are simple goals (no nesting).
 Finishing a `GIVE` (에게), an ordered `SEQUENCE` (its connective) or an `AVOID` (-지 마세요) rightly is a right
 outcome for that construction; doing an ordered sequence out of order is a wrong one.
+
+**Verbs a step can teach.** A step may teach a verb next to its nouns, or as its first word: the clue then
+contains a conjugated form of it (`올라가요` for 올라가다). When the goal can say that verb it uses it instead of its
+default: 요리하다 for a food in the furnace (`닭고기를 요리해요`, the default is `구워요`), 타다 for a boat that is
+sat in (`배를 타요`), 나오다 for leaving (`집에서 나와요`). A water biome with the `IN_WATER` condition reads
+`바다에서 수영해요`, not `물속에서 바다로 가요`: the sentence already says the water, so the condition's phrase is left out.
 
 ## Conditions (gates)
 

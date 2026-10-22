@@ -94,12 +94,27 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		return table.choose(id(), goal.output(), goal.count(), Verb.CRAFT);
 	}
 
+	/** A food can also be cooked (요리해요) when the step teaches 요리하다; the baking stays the default. */
+	@Override
+	public List<Verb> alternativeVerbs(Goal.Smelt goal) {
+		return food(goal.output()) ? List.of(Verb.COOK) : List.of();
+	}
+
+	/** Cooked meat and fish, baked potatoes and dried kelp: what a furnace makes to be eaten. */
+	static boolean food(String output) {
+		String path = output == null ? "" : output.substring(output.indexOf(':') + 1);
+		return path.startsWith("cooked_") || path.equals("baked_potato") || path.equals("dried_kelp");
+	}
+
 	@Override
 	public String korean(Goal.Smelt goal, SentenceContext c) {
 		String input = inputName(goal, c);
 		String made = counted(goal, c, outputName(goal, c), c.withCounts());
+		if (c.verb() == Verb.COOK && (c.level() < CHAIN_LEVEL || input.isEmpty())) {
+			return SentenceBuilder.phrase(made, c.verb(), c.level(), c.finale()); // 닭고기를 요리해요
+		}
 		if (c.level() >= CHAIN_LEVEL && !input.isEmpty()) {
-			Verb how = c.verb() == Verb.BAKE ? Verb.BAKE : Verb.MELT;
+			Verb how = c.verb() == Verb.BAKE || c.verb() == Verb.COOK ? c.verb() : Verb.MELT;
 			return SentenceBuilder.phrase(KoGrammar.eul(input) + " " + how.eoyo() + "서 " + made, Verb.CRAFT,
 					c.level(), c.finale());
 		}
@@ -119,6 +134,9 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 
 	@Override
 	public String ceremony(Goal.Smelt goal, SentenceContext c) {
+		if (c.verb() == Verb.COOK) {
+			return counted(goal, c, outputName(goal, c), true) + " " + c.verb().past();
+		}
 		if (c.verb() == Verb.BAKE) {
 			String input = inputName(goal, c);
 			return counted(goal, c, input.isEmpty() ? outputName(goal, c) : input, true) + " " + c.verb().past();
@@ -132,7 +150,7 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
 		if (c.level() >= CHAIN_LEVEL && !inputName(goal, c).isEmpty()) {
 			ids.add("L4.aseo");
-		} else if (c.verb() != Verb.BAKE) {
+		} else if (c.verb() != Verb.BAKE && c.verb() != Verb.COOK) {
 			ids.add("L2.eseo_activity");
 		}
 		return ids;

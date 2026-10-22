@@ -91,8 +91,8 @@ final class QuestTextService {
 		}
 		int level = effectiveLevel(koreanLevel);
 		return grammar.computeIfAbsent(step, key -> new java.util.HashMap<>()).computeIfAbsent(level, key -> {
-			List<String> emitted = SentenceBuilder.grammar(step.goal(), firstWord(step), step.conditions(), key,
-					"finale".equals(step.id()), namerFor(step));
+			List<String> emitted = SentenceBuilder.grammar(step.goal(), firstWord(step), verbWord(step),
+					step.conditions(), key, "finale".equals(step.id()), namerFor(step));
 			return GrammarBook.shared().resolve(emitted, Ladder.shared());
 		});
 	}
@@ -102,6 +102,21 @@ final class QuestTextService {
 			return null;
 		}
 		return catalog.byConceptId(step.teach().get(0)).orElse(null);
+	}
+
+	/** The first verb the step teaches, in any place of its list (요리하다 next to 닭고기), or null. */
+	Word verbWord(QuestStep step) {
+		if (step == null) {
+			return null;
+		}
+		for (String concept : step.teach()) {
+			Word word = catalog.byConceptId(concept).orElse(null);
+			if (word != null && word.category == io.github.leks2205.hangulquest.data.Category.ACTIONS
+					&& word.ko.endsWith("다")) {
+				return word;
+			}
+		}
+		return null;
 	}
 
 	List<Word> words(QuestStep step) {
@@ -133,8 +148,9 @@ final class QuestTextService {
 			// Every condition must show up in the Korean sentence: generated text guarantees it, and an
 			// authored clue gets the phrases it lacks.
 			cached = authored
-					? SentenceBuilder.authored(step.clueKo(), step.conditions(), firstWord(step), namerFor(step), level)
-					: SentenceBuilder.normal(step.goal(), firstWord(step), step.conditions(),
+					? SentenceBuilder.authored(step.goal(), step.clueKo(), step.conditions(), firstWord(step),
+							namerFor(step), level)
+					: SentenceBuilder.normal(step.goal(), firstWord(step), verbWord(step), step.conditions(),
 							level, "finale".equals(step.id()), namerFor(step));
 			byLevel[level] = cached;
 		}
@@ -167,10 +183,10 @@ final class QuestTextService {
 			return clueKo(step, koreanLevel);
 		}
 		if (word != firstWord(step)) {
-			return SentenceBuilder.hint(step.goal(), word, step.conditions(), namerFor(step));
+			return SentenceBuilder.hint(step.goal(), word, verbWord(step), step.conditions(), namerFor(step));
 		}
 		return hints.computeIfAbsent(step,
-				key -> SentenceBuilder.hint(key.goal(), word, key.conditions(), namerFor(key)));
+				key -> SentenceBuilder.hint(key.goal(), word, verbWord(key), key.conditions(), namerFor(key)));
 	}
 
 	/** The finale line of a finished trail in the interface language. */

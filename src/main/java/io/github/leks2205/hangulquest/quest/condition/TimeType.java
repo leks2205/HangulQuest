@@ -59,6 +59,16 @@ final class TimeType implements ConditionType<Condition.Time> {
 	}
 
 	@Override
+	public List<String> words(Condition.Time condition, SentenceBuilder.Namer namer) {
+		return switch (condition.phase()) {
+			case NIGHT -> List.of("밤에", "밤이", "밤마다", "밤 동안", "한밤", "밤중");
+			case DAY -> List.of("낮에", "낮이", "낮마다", "낮 동안", "한낮");
+			case DAWN -> List.of("새벽");
+			case DUSK -> List.of("저녁에", "저녁이", "해 질 때", "해가 질");
+		};
+	}
+
+	@Override
 	public String unmetText(Condition.Time condition, Observation obs, Catalog catalog) {
 		return "지금 " + QuestStatus.phase(obs.phase()) + " · " + QuestStatus.phase(condition.phase()) + " 필요";
 	}

@@ -37,7 +37,14 @@ public sealed interface Goal {
 	record ReachHeight(int minY, int maxY) implements Goal {
 	}
 
-	record UseBlock(String block) implements Goal {
+	/**
+	 * Right-click a block. With {@code change} set ({@code OPEN} or {@code CLOSE}) the door, trapdoor or gate
+	 * must really change state in that direction; without it any use of the block counts.
+	 */
+	record UseBlock(String block, String change) implements Goal {
+		public UseBlock(String block) {
+			this(block, null);
+		}
 	}
 
 	record InteractEntity(String entity) implements Goal {
@@ -82,6 +89,40 @@ public sealed interface Goal {
 
 	/** Move {@code count} of an item into a container block. */
 	record PutIn(String item, String container, int count) implements Goal {
+	}
+
+	/** Move {@code count} of an item out of a container block: the counterpart of {@link PutIn}. */
+	record TakeOut(String item, String container, int count) implements Goal {
+	}
+
+	// ---- Wave 3: moving, resting and waiting.
+
+	/** Go into a roofed space ({@code IN}) or out under the open sky ({@code OUT}): the sky above the player flips. */
+	record Transit(String direction) implements Goal {
+	}
+
+	/** Stay within {@code radius} blocks of a playing jukebox for {@code dwellMs}, or strike a note block. */
+	record Hear(String source, int radius, long dwellMs) implements Goal {
+	}
+
+	/** Lie in a bed for {@code dwellMs}, without waiting for the night to pass. */
+	record LieDown(String block, long dwellMs) implements Goal {
+	}
+
+	/** Stay in one place for {@code seconds}, and until the {@code until} phase (NIGHT, DAY) when it is set. */
+	record Wait(int seconds, String until) implements Goal {
+	}
+
+	/** Breed {@code count} young of an animal: it is fed, then a baby of its kind appears. */
+	record Breed(String entity, int count) implements Goal {
+	}
+
+	/** Sit in a boat or minecart, or ride a horse or pig, for {@code dwellMs}. */
+	record Mount(String entity, long dwellMs) implements Goal {
+	}
+
+	/** Swim {@code blocks} blocks in water. */
+	record Swim(int blocks) implements Goal {
 	}
 
 	/**

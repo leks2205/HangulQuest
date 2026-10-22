@@ -88,3 +88,30 @@ cond.rel.outside	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"
 cond.night.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"TIME","phase":"NIGHT"},{"type":"HOLDING","item":"minecraft:torch"}]	밤에 횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
 cond.rel.torch	1	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"PLAYER_REL","relation":"UNDER","anchor":"minecraft:oak_log"}]	참나무 원목 아래에서 횃불을 밝혀요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.give.water	1	-	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	[{"type":"IN_WATER"}]	물속에서 주민에게 빵을 줘요.	L1.eoyo,L2.ege,L1.eul_reul,L2.eseo_activity
+use.door.open	1	door	{"type":"USE_BLOCK","block":"minecraft:oak_door","change":"OPEN"}	-	문을 열어요.	L1.eoyo,L1.eul_reul
+use.door.close	1	door	{"type":"USE_BLOCK","block":"minecraft:oak_door","change":"CLOSE"}	-	문을 닫아요.	L1.eoyo,L1.eul_reul
+use.door.close.l2	2	door	{"type":"USE_BLOCK","block":"minecraft:oak_door","change":"CLOSE"}	-	문을 닫으세요.	L2.seyo,L1.eul_reul
+transit.in.house	1	house	{"type":"TRANSIT","direction":"IN"}	-	집 안으로 들어가요.	L1.eoyo,L1.loc_an_e,L1.euro_direction
+transit.in	1	-	{"type":"TRANSIT","direction":"IN"}	-	안으로 들어가요.	L1.eoyo,L1.loc_an_e,L1.euro_direction
+transit.out.house	1	house	{"type":"TRANSIT","direction":"OUT"}	-	집 밖으로 나가요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
+transit.out.comeout	1	house+come_out	{"type":"TRANSIT","direction":"OUT"}	-	집에서 나와요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
+height.down	1	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	아래로 내려가요.	L1.eoyo
+height.down.l2	2	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	높이 40 이하로 내려가세요.	L2.seyo
+takeout.apple	1	-	{"type":"TAKE_OUT","item":"minecraft:apple","container":"minecraft:chest","count":1}	-	상자에서 사과를 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+takeout.bread.three	1	-	{"type":"TAKE_OUT","item":"minecraft:bread","container":"minecraft:chest","count":3}	-	상자에서 빵을 세 개 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellMs":3000}	-	주크박스 근처에서 노래를 들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+hear.note	1	-	{"type":"HEAR","source":"minecraft:note_block","radius":10,"dwellMs":3000}	-	소리 블록의 소리를 들어요.	L1.eoyo,L1.eul_reul
+lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	침대에 누워요.	L1.eoyo,L1.e_place
+wait.short	1	-	{"type":"WAIT","seconds":5}	-	잠깐 기다려요.	L1.eoyo
+wait.ten.l2	2	-	{"type":"WAIT","seconds":10}	-	10초 동안 기다리세요.	L2.seyo
+wait.night	1	-	{"type":"WAIT","seconds":5,"until":"NIGHT"}	-	밤까지 기다려요.	L1.eoyo
+cook.chicken.baked	1	chicken_meat	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken","count":1}	-	익히지 않은 닭고기를 구워요.	L1.eoyo,L1.eul_reul
+cook.chicken	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken","count":1}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul
+swim.sea	1	ocean	{"type":"REACH_BIOME","biome":"#minecraft:is_ocean","dwellMs":1000}	[{"type":"IN_WATER"}]	바다에서 수영해요.	L1.eoyo,L2.eseo_activity
+swim.distance	1	swim	{"type":"SWIM","blocks":20}	-	물에서 수영해요.	L1.eoyo,L2.eseo_activity
+swim.distance.l2	2	swim	{"type":"SWIM","blocks":20}	-	물에서 20블록 수영하세요.	L2.seyo,L2.eseo_activity
+mount.boat	1	boat	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
+mount.boat.ride	1	boat+ride	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배를 타요.	L1.eoyo,L1.eul_reul
+mount.horse	1	horse	{"type":"MOUNT","entity":"minecraft:horse","dwellMs":1500}	-	말을 타요.	L1.eoyo,L1.eul_reul
+breed.cow	1	cow	{"type":"BREED","entity":"minecraft:cow","count":1}	-	소를 키워요.	L1.eoyo,L1.eul_reul
+breed.cow.two	1	cow	{"type":"BREED","entity":"minecraft:cow","count":2}	-	소를 두 마리 키워요.	L1.eoyo,L1.eul_reul
