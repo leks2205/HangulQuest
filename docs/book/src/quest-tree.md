@@ -21,25 +21,25 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 223 | collect an item |
-| `PLACE_BLOCK` | 221 | place a block |
-| `PLACE_REL` | 198 |  |
-| `CRAFT` | 151 |  |
-| `PLACE_ON_PATTERN` | 103 |  |
-| `BUILD_PATTERN` | 97 |  |
-| `BREAK_BLOCK` | 68 | break a block |
-| `SEQUENCE` | 66 |  |
+| `ACQUIRE_ITEM` | 214 | collect an item |
+| `PLACE_BLOCK` | 207 | place a block |
+| `PLACE_REL` | 204 |  |
+| `CRAFT` | 152 |  |
+| `PLACE_ON_PATTERN` | 105 |  |
+| `BUILD_PATTERN` | 99 |  |
+| `SEQUENCE` | 72 |  |
 | `LOOK_AT_ENTITY` | 66 | look at a mob |
-| `GIVE` | 62 |  |
-| `REACH_BIOME` | 57 | reach a biome |
-| `LOOK_AT_BLOCK` | 50 | look at a block |
+| `GIVE` | 64 |  |
+| `BREAK_BLOCK` | 64 | break a block |
+| `REACH_BIOME` | 59 | reach a biome |
+| `LOOK_AT_BLOCK` | 51 | look at a block |
 | `USE_BLOCK` | 50 | use a block |
 | `CONSUME_ITEM` | 43 | eat or drink an item |
-| `AVOID` | 38 |  |
+| `AVOID` | 41 |  |
 | `HOLD_WHILE` | 34 |  |
-| `PUT_IN` | 32 |  |
+| `PUT_IN` | 33 |  |
 | `DEFEAT_ENTITY` | 25 | defeat a mob |
-| `REACH_HEIGHT` | 24 | reach an altitude |
+| `REACH_HEIGHT` | 25 | reach an altitude |
 | `SMELT` | 24 |  |
 | `WAIT` | 20 |  |
 | `TRADE` | 19 |  |
@@ -56,16 +56,16 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 257 | a time of day |
-| `HOLDING` | 84 |  |
-| `IN_BIOME` | 63 | a biome |
+| `TIME` | 261 | a time of day |
+| `HOLDING` | 85 |  |
+| `IN_BIOME` | 65 | a biome |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 38 | a dimension |
 | `Y_RANGE` | 33 | an altitude band |
+| `SKY` | 24 |  |
+| `WEATHER` | 23 | the weather |
 | `NEAR_BLOCK` | 23 | a block nearby |
-| `SKY` | 23 |  |
-| `WEATHER` | 20 | the weather |
-| `NEAR_ENTITY` | 19 | a mob nearby |
+| `NEAR_ENTITY` | 20 | a mob nearby |
 | `IN_WATER` | 9 |  |
 
 ## Levels
@@ -407,9 +407,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w6_03` | 붉은 여우의 숲 | Der Wald des roten Fuchses | 4 | `wolfpfad` |
 | `w6_04` | 꿀벌의 숲 | Der Wald der Bienen | 4 | `vogelpfad` |
 | `w6_05` | 버섯 그늘 | Im Schatten der Pilze | 4 | `bergwerk` |
-| `w6_06` | 숲의 전망대 | Die Waldkanzel | 4 | `observatorium` |
+| `w6_06` | 숲의 전망대 | Der Aussichtspunkt im Wald | 4 | `observatorium` |
 | `w6_07` | 정글의 약초 | Kräuter im Dschungel | 4 | `weltreise` |
-| `w6_08` | 약초 건조대 | Der Kräutertrockenrahmen | 4 | `festtafel` |
+| `w6_08` | 밀 건조대 | Das Weizentrockengestell | 4 | `festtafel` |
 
 ### Level 9 · TOPIK 3 · 18 trails
 
