@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
 import io.github.leks2205.hangulquest.quest.grammar.Endings;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
@@ -316,7 +317,7 @@ public final class SentenceBuilder {
 			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY
 					|| kind == ObjectKind.BIOME;
 			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id, namer)) {
-				return word.ko;
+				return Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);
 			return registry == null || registry.isBlank() ? word.ko : registry;

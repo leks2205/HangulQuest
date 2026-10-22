@@ -128,7 +128,8 @@ public final class QuestLoader {
 				badge,
 				integer(root, "order", 1000),
 				integer(root, "koreanLevel", integer(root, "tier", 1)),
-				false);
+				false,
+				strings(root, "grammar"));
 	}
 
 	private static QuestStep parseStep(JsonObject object) {

@@ -137,21 +137,43 @@ public final class BlockSpec {
 		}
 	}
 
-	/** Doors, chests, furnaces and beds have a clear front; 앞 and 뒤 only apply to them. */
+	/**
+	 * Creatures that can anchor a placement: they stand in one place and face a way, so 앞 and 뒤 mean something
+	 * (주민 앞에). Written out because a spec is only an id, and chicken, armor stand and the like are items too.
+	 */
+	private static final java.util.Set<String> ENTITY_ANCHORS = java.util.Set.of("minecraft:villager",
+			"minecraft:wandering_trader", "minecraft:iron_golem", "minecraft:snow_golem", "minecraft:cow",
+			"minecraft:pig", "minecraft:sheep", "minecraft:chicken", "minecraft:horse", "minecraft:donkey",
+			"minecraft:llama", "minecraft:cat", "minecraft:wolf", "minecraft:fox", "minecraft:armor_stand");
+
+	/** True for the id of a creature a placement is measured against; every other spec is a block, family or tag. */
+	public static boolean isEntityAnchor(String spec) {
+		return spec != null && ENTITY_ANCHORS.contains(spec);
+	}
+
+	/** Workstations and the like: no facing property in the game, but a side the player works at. */
+	private static final java.util.Set<String> FACING_BY_NAME = java.util.Set.of("iron_door", "furnace",
+			"blast_furnace", "smoker", "ender_chest", "barrel", "dispenser", "dropper", "observer", "lectern", "loom",
+			"grindstone", "stonecutter", "anvil", "chipped_anvil", "damaged_anvil", "crafting_table",
+			"smithing_table", "fletching_table", "cartography_table", "carved_pumpkin", "jack_o_lantern", "bell",
+			"campfire", "soul_campfire", "ladder", "composter", "cauldron", "brewing_stand", "enchanting_table");
+
+	/**
+	 * A block with a front: doors, chests, furnaces, beds, stairs, barrels, workstations, signs, banners and
+	 * pumpkins. 앞 and 뒤 only apply to these. A pillar, a wall or a fence has no front and stays out.
+	 */
 	public static boolean hasFacing(String spec) {
 		String id = representative(spec);
 		if (id == null) {
 			return false;
 		}
 		String family = Matching.blockFamily(id);
-		if (family.equals("door") || family.equals("chest") || family.equals("bed")) {
+		if (family.equals("door") || family.equals("chest") || family.equals("bed") || family.equals("sign")) {
 			return true;
 		}
 		String path = id.substring(id.indexOf(':') + 1);
-		return switch (path) {
-			case "iron_door", "furnace", "blast_furnace", "smoker", "ender_chest" -> true;
-			default -> false;
-		};
+		return path.endsWith("_stairs") || path.endsWith("_banner") || path.endsWith("_trapdoor")
+				|| path.endsWith("_fence_gate") || path.endsWith("_glazed_terracotta") || FACING_BY_NAME.contains(path);
 	}
 
 	/** Blocks a wall, a pen or a room is built from: 안 and 밖 are measured against them. */

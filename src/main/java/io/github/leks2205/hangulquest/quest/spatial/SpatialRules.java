@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public final class SpatialRules {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
 			}
 		};
 	}
@@ -123,7 +124,7 @@ public final class SpatialRules {
 		return switch (goal) {
 			case Goal.PlaceRel g -> {
 				List<String> blocks = new ArrayList<>(List.of(g.block()));
-				if (!StepRef.isRef(g.anchor())) {
+				if (!StepRef.isRef(g.anchor()) && !BlockSpec.isEntityAnchor(g.anchor())) {
 					blocks.add(g.anchor());
 				}
 				if (g.anchor2() != null) {

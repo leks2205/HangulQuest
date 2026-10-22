@@ -46,7 +46,11 @@
   "item_takers": ["allay"],
   "kilned": ["stone", "smooth_stone", "deepslate", "glass", "smooth_sandstone", "smooth_red_sandstone", "smooth_quartz", "smooth_basalt"],
   "melted": ["iron_ingot", "gold_ingot", "copper_ingot", "netherite_scrap"],
-  "bakeables": ["cooked_*", "baked_potato", "dried_kelp", "charcoal", "brick", "nether_brick", "terracotta", "*_glazed_terracotta"]
+  "bakeables": ["cooked_*", "baked_potato", "dried_kelp", "charcoal", "brick", "nether_brick", "terracotta", "*_glazed_terracotta"],
+  "helmets": ["*_helmet"],
+  "chestplates": ["*_chestplate"],
+  "leggings": ["*_leggings"],
+  "boots": ["*_boots"]
  },
  "rules": {
   "BREAK_BLOCK": [
@@ -136,6 +140,13 @@
    {"family": "kilned", "verb": "BAKE"},
    {"family": "melted", "verb": "MELT"},
    {"verb": "CRAFT"}
+  ],
+  "EQUIP": [
+   {"family": "helmets", "verb": "WEAR_HEAD"},
+   {"family": "chestplates", "verb": "PUT_ON"},
+   {"family": "leggings", "verb": "PUT_ON"},
+   {"family": "boots", "verb": "PUT_ON_SHOES"},
+   {"verb": "PUT_ON"}
   ]
  }
 }

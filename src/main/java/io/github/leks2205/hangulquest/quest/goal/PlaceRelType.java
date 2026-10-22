@@ -94,6 +94,9 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 			return at != null ? new Anchor.Placed(step, at[0], at[1], at[2])
 					: new Anchor.Block(tracker.refBlocks.getOrDefault(step, ""));
 		}
+		if (BlockSpec.isEntityAnchor(goal.anchor())) {
+			return new Anchor.Entity(goal.anchor());
+		}
 		Anchor.Block first = new Anchor.Block(tracker.accepted.union(goal.anchor()));
 		return goal.anchor2() == null ? first
 				: new Anchor.Pair(first, new Anchor.Block(tracker.accepted.union(goal.anchor2())));
@@ -167,7 +170,8 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 	public List<Mention> mentions(Goal.PlaceRel goal) {
 		List<Mention> all = new ArrayList<>(List.of(new Mention(ObjectKind.BLOCK, goal.block())));
 		if (!StepRef.isRef(goal.anchor())) {
-			all.add(new Mention(ObjectKind.BLOCK, goal.anchor()));
+			all.add(new Mention(BlockSpec.isEntityAnchor(goal.anchor()) ? ObjectKind.ENTITY : ObjectKind.BLOCK,
+					goal.anchor()));
 		}
 		if (goal.anchor2() != null) {
 			all.add(new Mention(ObjectKind.BLOCK, goal.anchor2()));
@@ -204,7 +208,9 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 				context.problem("bad anchor " + goal.anchor());
 				return;
 			}
-			if (goal.anchor2() == null && !Relations.supported(goal.relation(), new Anchor.Block(goal.anchor()))) {
+			Anchor plain = BlockSpec.isEntityAnchor(goal.anchor()) ? new Anchor.Entity(goal.anchor())
+					: new Anchor.Block(goal.anchor());
+			if (goal.anchor2() == null && !Relations.supported(goal.relation(), plain)) {
 				context.problem(goal.relation() + " does not fit the anchor " + goal.anchor()
 						+ (goal.relation().needsFacing() ? " (it has no clear front)" : ""));
 			}

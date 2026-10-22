@@ -192,6 +192,9 @@ public final class SpatialSentences {
 				return general;
 			}
 		}
+		if (BlockSpec.isEntityAnchor(spec)) {
+			return namer.entity(spec); // 주민 앞에: a creature, not a block
+		}
 		String plain = BlockSpec.representative(spec);
 		return plain == null ? null : namer.block(plain);
 	}

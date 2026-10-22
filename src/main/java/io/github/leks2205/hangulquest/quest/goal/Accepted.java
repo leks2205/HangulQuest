@@ -65,6 +65,9 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 				continue;
 			}
 			String id = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(mention.id());
+			if (Tiers.isGeneralWordOf(id, first.ko)) {
+				continue; // the sentence names the tier (철 곡괭이): only that one counts
+			}
 			for (String item : all) {
 				if (item.equals(id) || Matching.matchesBlock(id, item)) {
 					from.add(mention.id());

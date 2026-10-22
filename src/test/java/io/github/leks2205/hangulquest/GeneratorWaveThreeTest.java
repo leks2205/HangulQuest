@@ -419,9 +419,9 @@ class GeneratorWaveThreeTest {
 	void b20_theInputIsSpokenForStoneGlassAndOres() {
 		assertEquals("화로에서 조약돌을 구워요.", clue(new Goal.Smelt("minecraft:cobblestone", "minecraft:stone", 1), null));
 		assertEquals("화로에서 모래를 구워요.", clue(new Goal.Smelt("minecraft:sand", "minecraft:glass", 1), null));
-		assertEquals("화로에서 철을 녹여요.", clue(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
+		assertEquals("화로에서 철 광석을 녹여요.", clue(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
 		assertEquals("화로에서 조약돌을 구웠어요.", ceremony(new Goal.Smelt("minecraft:cobblestone", "minecraft:stone", 1), null));
-		assertEquals("화로에서 철을 녹였어요.", ceremony(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
+		assertEquals("화로에서 철 광석을 녹였어요.", ceremony(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
 		assertEquals(Verb.BAKE, SentenceBuilder.verbFor(new Goal.Smelt("minecraft:sand", "minecraft:glass", 1)));
 		assertEquals(Verb.MELT, SentenceBuilder.verbFor(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1)));
 		// without the input the product is made, as before

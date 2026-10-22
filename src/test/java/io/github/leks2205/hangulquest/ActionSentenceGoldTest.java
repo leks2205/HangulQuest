@@ -88,7 +88,7 @@ class ActionSentenceGoldTest {
 		// Every new goal type and condition is in the table.
 		String all = rows.stream().map(row -> row.goal().getClass().getSimpleName()).distinct().sorted().toList().toString();
 		for (String type : List.of("Craft", "Smelt", "Give", "PutIn", "HoldWhile", "Sequence", "Avoid", "TakeOut",
-				"Transit", "Hear", "LieDown", "Wait", "Breed", "Mount", "Swim")) {
+				"Transit", "Hear", "LieDown", "Wait", "Breed", "Mount", "Swim", "Equip")) {
 			assertTrue(all.contains(type), type + " is missing from the gold table");
 		}
 	}

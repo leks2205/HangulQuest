@@ -330,6 +330,10 @@ class PlaytestTest {
 			}
 			case Goal.Breed g -> {
 			}
+			// the armour is on in this observation; the play loop has shown it off before
+			case Goal.Equip g -> obs.worn = "OFF".equals(g.change()) ? java.util.Map.of()
+					: java.util.Map.of(g.item().contains("helmet") ? "head" : g.item().contains("chestplate") ? "chest"
+					: g.item().contains("leggings") ? "legs" : "feet", g.item());
 			case Goal.HoldWhile g -> {
 				obs.mainHand = g.item();
 				obs.idle = false;

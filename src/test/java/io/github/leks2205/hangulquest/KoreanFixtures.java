@@ -11,6 +11,7 @@ import io.github.leks2205.hangulquest.data.Origin;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -87,7 +88,7 @@ final class KoreanFixtures {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
 			}
 
 			@Override
@@ -238,6 +239,7 @@ final class KoreanFixtures {
 			case Goal.Transit g -> null;
 			case Goal.Wait g -> null;
 			case Goal.Swim g -> null;
+			case Goal.Equip g -> g.item();
 		};
 	}
 

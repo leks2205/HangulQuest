@@ -133,6 +133,16 @@ public sealed interface Goal {
 	}
 
 	/**
+	 * Put an armour piece on ({@code ON}, or no change given) or take it off ({@code OFF}): the armour slots of
+	 * the player decide. 투구를 써요, 갑옷을 입어요, 바지를 입어요, 신발을 신어요; 투구를 벗어요.
+	 */
+	record Equip(String item, String change) implements Goal {
+		public Equip(String item) {
+			this(item, null);
+		}
+	}
+
+	/**
 	 * Hold an item in either hand while {@code innerGoal} happens, or, with {@code innerCondition},
 	 * while walking for {@code seconds} under that condition. Exactly one of the two is set.
 	 */

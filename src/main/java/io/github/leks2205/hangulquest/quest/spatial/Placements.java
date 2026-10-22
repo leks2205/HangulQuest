@@ -27,7 +27,7 @@ public final class Placements {
 			if (!Matching.accepts(tracker, block, fact.block()) || nightLatch && !fact.night()) {
 				continue;
 			}
-			EnumSet<Relation> held = Relations.holding(anchor, fact);
+			EnumSet<Relation> held = Relations.holding(anchor, fact, obs.nearbyEntityPositions);
 			if (held.contains(relation)) {
 				tracker.count++;
 				hit = true;
