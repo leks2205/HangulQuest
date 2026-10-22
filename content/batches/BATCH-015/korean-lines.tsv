@@ -32,7 +32,7 @@ trail.adv_adventure_heart_transplanter.s4.clue	통나무 기둥 옆에 표지판
 trail.adv_adventure_heart_transplanter.s4.hint	통나무 기둥 옆에 표지판을 세워요.	hint, generated; PlaceOnPattern minecraft:mangrove_sign NEXT_TO PILLAR minecraft:spruce_log
 trail.adv_adventure_heart_transplanter.finale.clue	밤에 초를 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:cyan_candle 
 trail.adv_adventure_heart_transplanter.finale.hint	밤에 초를 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:cyan_candle 
-trail.adv_adventure_heart_transplanter.finale	밤에 망루 위의 초가 밝아요.	finale, authored; LookAtBlock minecraft:cyan_candle 
+trail.adv_adventure_heart_transplanter.finale	밤에 망루 위에 초가 있어요.	finale, authored; LookAtBlock minecraft:cyan_candle 
 trail.adv_adventure_kill_a_mob.title	몬스터 사냥꾼	title, authored; project: Craft an iron sword, an armor stand beside the door, defeat two creepers and two zombies at night.
 trail.adv_adventure_kill_a_mob.s1.clue	철 검을 만드세요.	clue, generated; Craft minecraft:iron_sword x1
 trail.adv_adventure_kill_a_mob.s1.hint	철 검을 만들어요.	hint, generated; Craft minecraft:iron_sword x1
@@ -80,7 +80,7 @@ trail.adv_adventure_ol_betsy.s4.clue	쇠뇌를 들고 밤에 걸으세요.	clue,
 trail.adv_adventure_ol_betsy.s4.hint	쇠뇌를 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:crossbow 
 trail.adv_adventure_ol_betsy.finale.clue	밤에 스켈레톤을 두 마리 물리치세요.	clue, generated; DefeatEntity minecraft:skeleton x2
 trail.adv_adventure_ol_betsy.finale.hint	밤에 스켈레톤을 물리쳐요.	hint, generated; DefeatEntity minecraft:skeleton x2
-trail.adv_adventure_ol_betsy.finale	밤에 쇠뇌를 들고 스켈레톤을 물리쳤어요. 스켈레톤이 죽었어요. 뼈를 한 개 얻었어요.	finale, authored; DefeatEntity minecraft:skeleton x2
+trail.adv_adventure_ol_betsy.finale	밤에 쇠뇌를 들고 스켈레톤을 물리쳤어요. 스켈레톤이 죽었어요.	finale, authored; DefeatEntity minecraft:skeleton x2
 trail.adv_adventure_root.title	모험	title, authored; project: A first night outside: craft a shield, walk through the night with it, build a plank wall with a bed beside it, defeat two spiders at night.
 trail.adv_adventure_root.s1.clue	방패를 만드세요.	clue, generated; Craft minecraft:shield x1
 trail.adv_adventure_root.s1.hint	방패를 만들어요.	hint, generated; Craft minecraft:shield x1
@@ -126,7 +126,7 @@ trail.adv_adventure_use_lodestone.s5.clue	나침반을 들고 자석석을 사�
 trail.adv_adventure_use_lodestone.s5.hint	나침반을 들고 자석석을 사용해요.	hint, generated; HoldWhile minecraft:compass 
 trail.adv_adventure_use_lodestone.finale.clue	나침반을 들고 집 안으로 들어가세요.	clue, generated; HoldWhile minecraft:compass 
 trail.adv_adventure_use_lodestone.finale.hint	나침반을 들고 집 안으로 들어가요.	hint, generated; HoldWhile minecraft:compass 
-trail.adv_adventure_use_lodestone.finale	나침반을 들고 집으로 들어왔어요. 자석석은 조각된 석재 벽돌 여덟 개로 만들어요.	finale, authored; HoldWhile minecraft:compass 
+trail.adv_adventure_use_lodestone.finale	나침반을 들고 집으로 들어왔어요. 자석석은 조각된 석재 벽돌 여덟 개와 철 주괴 한 개로 만들어요.	finale, authored; HoldWhile minecraft:compass 
 trail.adv_adventure_voluntary_exile.title	자진 유배	title, authored; project: Leave the house with a shield, watch a pillager by day, a granite wall with a bell beside it, defeat two pillagers by day with a crossbow in hand.
 trail.adv_adventure_voluntary_exile.s1.clue	방패를 들고 밖으로 나가세요.	clue, generated; HoldWhile minecraft:shield 
 trail.adv_adventure_voluntary_exile.s1.hint	방패를 들고 밖으로 나가요.	hint, generated; HoldWhile minecraft:shield 
