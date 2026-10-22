@@ -8,7 +8,8 @@
  "concepts": [
   "iron",
   "furnace",
-  "gen_pufferfish"
+  "stone",
+  "coal"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -28,8 +29,18 @@
     "block": "minecraft:iron_ore",
     "count": 3
    },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 40
+    }
+   ],
+   "clue": {
+    "ko": "땅속에서 철 광석을 세 개 캐세요."
+   },
    "hint": {
-    "ko": "철 원석은 돌 곡괭이로 캘 수 있어요."
+    "ko": "땅속에서 철 광석을 캐요."
    }
   },
   {
@@ -38,12 +49,10 @@
     "furnace"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:furnace",
-    "count": 1
-   },
-   "hint": {
-    "ko": "화로는 조약돌 여덟 개로 만들어요."
+    "type": "PUT_IN",
+    "item": "minecraft:raw_iron",
+    "container": "minecraft:furnace",
+    "count": 3
    }
   },
   {
@@ -52,11 +61,20 @@
     "furnace"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "WAIT",
+    "seconds": 10
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:furnace"
+    }
+   ],
+   "clue": {
+    "ko": "철이 녹아요. 화로 근처에서 십 초 동안 기다리세요."
    },
    "hint": {
-    "ko": "화로에 철 원석과 석탄을 넣고 기다려요."
+    "ko": "철이 녹아요. 화로 근처에서 십 초 기다려요."
    }
   }
  ],
@@ -64,22 +82,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pufferfish"
+    "iron"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pufferfish",
-    "count": 1
-   },
-   "conditions": []
+    "type": "TAKE_OUT",
+    "item": "minecraft:iron_ingot",
+    "container": "minecraft:furnace",
+    "count": 3
+   }
   },
-  "textKo": "복어를 구했어요."
+  "textKo": "철이 철철 넘쳐 — 화로에서 철 주괴를 세 개 꺼냈어요. 화로는 뜨거워요."
  },
  "reward": {
   "badge": "adv_story_smelt_iron",
   "words": [
    "iron",
-   "furnace"
+   "furnace",
+   "stone",
+   "coal"
   ]
  },
  "koreanLevel": 2

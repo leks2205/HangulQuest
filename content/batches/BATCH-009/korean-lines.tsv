@@ -1,0 +1,161 @@
+id	ko	context
+trail.adv_husbandry_balanced_diet.title	균형 잡힌 식단	authored
+trail.adv_husbandry_balanced_diet.s1.clue	통나무 옆에서 과일을 먹으세요.	generated; ConsumeItem minecraft:apple x1
+trail.adv_husbandry_balanced_diet.s1.hint	통나무 옆에서 과일을 먹어요.	generated; ConsumeItem minecraft:apple x1
+trail.adv_husbandry_balanced_diet.s2.clue	낮에 채소를 먹으세요.	generated; ConsumeItem minecraft:carrot x1
+trail.adv_husbandry_balanced_diet.s2.hint	낮에 채소를 먹어요.	generated; ConsumeItem minecraft:carrot x1
+trail.adv_husbandry_balanced_diet.s3.clue	지붕 아래에서 생선을 먹으세요.	generated; ConsumeItem minecraft:cooked_cod x1
+trail.adv_husbandry_balanced_diet.s3.hint	지붕 아래에서 생선을 먹어요.	generated; ConsumeItem minecraft:cooked_cod x1
+trail.adv_husbandry_balanced_diet.finale.clue	밤에 고기를 먹으세요.	generated; ConsumeItem minecraft:cooked_beef x1
+trail.adv_husbandry_balanced_diet.finale.hint	밤에 고기를 먹어요.	generated; ConsumeItem minecraft:cooked_beef x1
+trail.adv_husbandry_balanced_diet.finale	균형 잡힌 식단 — 밤에 고기까지 골고루 먹었어요.	authored; ConsumeItem minecraft:cooked_beef x1
+trail.adv_husbandry_wax_off.title	밀랍을 벗기자	authored
+trail.adv_husbandry_wax_off.s1.clue	제작대 옆에서 돌 도끼를 만드세요.	generated; AcquireItem minecraft:stone_axe x1
+trail.adv_husbandry_wax_off.s1.hint	제작대 옆에서 돌 도끼를 만들어요.	generated; AcquireItem minecraft:stone_axe x1
+trail.adv_husbandry_wax_off.s2.clue	제작대에서 구리 블록으로 밀랍칠한 구리 블록을 만드세요.	generated; Craft minecraft:waxed_copper_block x1
+trail.adv_husbandry_wax_off.s2.hint	제작대에서 구리 블록으로 밀랍칠한 구리 블록을 만들어요.	generated; Craft minecraft:waxed_copper_block x1
+trail.adv_husbandry_wax_off.s3.clue	문 앞에 밀랍칠한 구리 블록을 놓으세요.	generated; PlaceRel minecraft:waxed_copper_block IN_FRONT_OF #minecraft:doors
+trail.adv_husbandry_wax_off.s3.hint	문 앞에 밀랍칠한 구리 블록을 놓아요.	generated; PlaceRel minecraft:waxed_copper_block IN_FRONT_OF #minecraft:doors
+trail.adv_husbandry_wax_off.s4.clue	돌 위에 밀랍칠한 구리 블록을 놓으세요.	generated; PlaceRel minecraft:waxed_copper_block ON_TOP_OF minecraft:stone
+trail.adv_husbandry_wax_off.s4.hint	돌 위에 밀랍칠한 구리 블록을 놓아요.	generated; PlaceRel minecraft:waxed_copper_block ON_TOP_OF minecraft:stone
+trail.adv_husbandry_wax_off.finale.clue	돌 도끼를 들고 밀랍칠한 구리 블록을 사용하세요.	generated; UseBlock minecraft:waxed_copper_block 
+trail.adv_husbandry_wax_off.finale.hint	돌 도끼를 들고 밀랍칠한 구리 블록을 사용해요.	generated; UseBlock minecraft:waxed_copper_block 
+trail.adv_husbandry_wax_off.finale	돌 도끼를 들고 밀랍칠한 구리 블록의 밀랍을 벗겼어요.	authored; UseBlock minecraft:waxed_copper_block 
+trail.adv_husbandry_wax_on.title	밀랍을 칠하자	authored
+trail.adv_husbandry_wax_on.s1.clue	낮에 벌집 조각을 두 개 모으세요.	generated; AcquireItem minecraft:honeycomb x2
+trail.adv_husbandry_wax_on.s1.hint	낮에 벌집 조각을 모아요.	generated; AcquireItem minecraft:honeycomb x2
+trail.adv_husbandry_wax_on.s2.clue	제작대에서 구리 블록을 만드세요.	generated; Craft minecraft:copper_block x1
+trail.adv_husbandry_wax_on.s2.hint	제작대에서 구리 블록을 만들어요.	generated; Craft minecraft:copper_block x1
+trail.adv_husbandry_wax_on.s3.clue	문 옆에 구리 블록을 놓으세요.	generated; PlaceRel minecraft:copper_block NEXT_TO #minecraft:doors
+trail.adv_husbandry_wax_on.s3.hint	문 옆에 구리 블록을 놓아요.	generated; PlaceRel minecraft:copper_block NEXT_TO #minecraft:doors
+trail.adv_husbandry_wax_on.s4.clue	돌 위에 구리 블록을 놓으세요.	generated; PlaceRel minecraft:copper_block ON_TOP_OF minecraft:stone
+trail.adv_husbandry_wax_on.s4.hint	돌 위에 구리 블록을 놓아요.	generated; PlaceRel minecraft:copper_block ON_TOP_OF minecraft:stone
+trail.adv_husbandry_wax_on.finale.clue	벌집 조각을 들고 구리 블록을 사용하세요.	generated; UseBlock minecraft:copper_block 
+trail.adv_husbandry_wax_on.finale.hint	벌집 조각을 들고 구리 블록을 사용해요.	generated; UseBlock minecraft:copper_block 
+trail.adv_husbandry_wax_on.finale	벌집 조각을 들고 구리 블록에 밀랍을 칠했어요.	authored; UseBlock minecraft:copper_block 
+trail.alchemiepfad.title	꿀단지의 길	authored
+trail.alchemiepfad.s1.clue	제작대 옆에서 유리병을 만드세요.	generated; Craft minecraft:glass_bottle x1
+trail.alchemiepfad.s1.hint	제작대 옆에서 유리병을 만들어요.	generated; Craft minecraft:glass_bottle x1
+trail.alchemiepfad.s2.clue	벌통을 수확하세요.	generated; UseBlock minecraft:beehive 
+trail.alchemiepfad.s2.hint	벌통을 수확해요.	generated; UseBlock minecraft:beehive 
+trail.alchemiepfad.s3.clue	설탕을 만드세요.	generated; Craft minecraft:sugar x1
+trail.alchemiepfad.s3.hint	설탕을 만들어요.	generated; Craft minecraft:sugar x1
+trail.alchemiepfad.finale.clue	주민에게 꿀이 든 병을 주세요.	generated; Give minecraft:honey_bottle x1
+trail.alchemiepfad.finale.hint	주민에게 꿀이 든 병을 줘요.	generated; Give minecraft:honey_bottle x1
+trail.alchemiepfad.finale	주민에게 꿀이 든 병을 줬어요. 꿀은 달아요.	authored; Give minecraft:honey_bottle x1
+trail.bienenzucht.title	양봉의 길	authored
+trail.bienenzucht.s1.clue	제작대 옆에서 벌집 조각으로 벌통을 만드세요.	generated; Craft minecraft:beehive x1
+trail.bienenzucht.s1.hint	제작대 옆에서 벌집 조각으로 벌통을 만들어요.	generated; Craft minecraft:beehive x1
+trail.bienenzucht.s2.clue	꽃 옆에 벌통을 놓으세요.	generated; PlaceRel minecraft:beehive NEXT_TO #minecraft:flowers
+trail.bienenzucht.s2.hint	꽃 옆에 벌통을 놓아요.	generated; PlaceRel minecraft:beehive NEXT_TO #minecraft:flowers
+trail.bienenzucht.s3.clue	벌통 옆에 꽃을 심으세요.	generated; PlaceRel minecraft:cornflower NEXT_TO minecraft:beehive
+trail.bienenzucht.s3.hint	벌통 옆에 꽃을 심어요.	generated; PlaceRel minecraft:cornflower NEXT_TO minecraft:beehive
+trail.bienenzucht.finale.clue	벌통 옆에서 꿀이 든 병을 마시세요.	generated; ConsumeItem minecraft:honey_bottle x1
+trail.bienenzucht.finale.hint	벌통 옆에서 꿀이 든 병을 마셔요.	generated; ConsumeItem minecraft:honey_bottle x1
+trail.bienenzucht.finale	벌통 옆에서 꿀이 든 병을 마셨어요. 꿀은 달아요.	authored; ConsumeItem minecraft:honey_bottle x1
+trail.brauerei.title	지하 저장고의 길	authored
+trail.brauerei.s1.clue	제작대 옆에서 통을 만드세요.	generated; Craft minecraft:barrel x1
+trail.brauerei.s1.hint	제작대 옆에서 통을 만들어요.	generated; Craft minecraft:barrel x1
+trail.brauerei.s2.clue	땅속에서 통과 화로 사이에 랜턴을 놓으세요.	generated; PlaceRel minecraft:lantern BETWEEN minecraft:barrel
+trail.brauerei.s2.hint	땅속에서 통과 화로 사이에 랜턴을 놓아요.	generated; PlaceRel minecraft:lantern BETWEEN minecraft:barrel
+trail.brauerei.s3.clue	통 안에 달콤한 열매를 세 개 넣으세요.	generated; PutIn minecraft:sweet_berries x3
+trail.brauerei.s3.hint	통 안에 달콤한 열매를 넣어요.	generated; PutIn minecraft:sweet_berries x3
+trail.brauerei.finale.clue	통에서 달콤한 열매를 꺼내세요.	generated; TakeOut minecraft:sweet_berries x1
+trail.brauerei.finale.hint	통에서 달콤한 열매를 꺼내요.	generated; TakeOut minecraft:sweet_berries x1
+trail.brauerei.finale	통에서 달콤한 열매를 꺼냈어요. 열매는 달아요.	authored; TakeOut minecraft:sweet_berries x1
+trail.festmahl.title	잔치의 길	authored
+trail.festmahl.s1.clue	판자 세 개를 나란히 놓으세요.	generated; BuildPattern minecraft:birch_planks ROW 3
+trail.festmahl.s1.hint	판자를 나란히 놓아요.	generated; BuildPattern minecraft:birch_planks ROW 3
+trail.festmahl.s2.clue	제작대 옆에서 밀과 설탕으로 케이크를 만드세요.	generated; Craft minecraft:cake x1
+trail.festmahl.s2.hint	제작대 옆에서 밀과 설탕으로 케이크를 만들어요.	generated; Craft minecraft:cake x1
+trail.festmahl.s3.clue	자작나무 판자 세 개 위에 케이크를 놓으세요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
+trail.festmahl.s3.hint	자작나무 판자 세 개 위에 케이크를 놓아요.	generated; PlaceOnPattern minecraft:cake ON_TOP_OF ROW minecraft:birch_planks
+trail.festmahl.s4.clue	고기를 구우세요.	generated; Smelt minecraft:cooked_porkchop x1
+trail.festmahl.s4.hint	고기를 구워요.	generated; Smelt minecraft:cooked_porkchop x1
+trail.festmahl.finale.clue	케이크 옆에서 고기를 먹으세요.	generated; ConsumeItem minecraft:cooked_porkchop x1
+trail.festmahl.finale.hint	케이크 옆에서 고기를 먹어요.	generated; ConsumeItem minecraft:cooked_porkchop x1
+trail.festmahl.finale	케이크 옆에서 고기를 먹었어요. 고기는 맛있어요.	authored; ConsumeItem minecraft:cooked_porkchop x1
+trail.gartenfest.title	정원 잔치	authored
+trail.gartenfest.s1.clue	낮에 제작대에서 밀과 설탕으로 케이크를 만드세요.	generated; Craft minecraft:cake x1
+trail.gartenfest.s1.hint	낮에 제작대에서 밀과 설탕으로 케이크를 만들어요.	generated; Craft minecraft:cake x1
+trail.gartenfest.s2.clue	판자 위에 케이크를 놓으세요.	generated; PlaceRel minecraft:cake ON_TOP_OF #minecraft:planks
+trail.gartenfest.s2.hint	판자 위에 케이크를 놓아요.	generated; PlaceRel minecraft:cake ON_TOP_OF #minecraft:planks
+trail.gartenfest.s3.clue	주민에게 사과를 사세요.	generated; Trade minecraft:apple x1
+trail.gartenfest.s3.hint	주민에게 사과를 사요.	generated; Trade minecraft:apple x1
+trail.gartenfest.finale.clue	주민에게 사과를 주세요.	generated; Give minecraft:apple x1
+trail.gartenfest.finale.hint	주민에게 사과를 줘요.	generated; Give minecraft:apple x1
+trail.gartenfest.finale	주민에게 사과를 줬어요. 친구하고 같이 잔치를 했어요.	authored; Give minecraft:apple x1
+trail.kochkunst.title	요리의 길	authored
+trail.kochkunst.s1.clue	제작대에서 훈연기를 만드세요.	generated; Craft minecraft:smoker x1
+trail.kochkunst.s1.hint	제작대에서 훈연기를 만들어요.	generated; Craft minecraft:smoker x1
+trail.kochkunst.s2.clue	제작대 옆에 훈연기를 놓으세요.	generated; PlaceRel minecraft:smoker NEXT_TO minecraft:crafting_table
+trail.kochkunst.s2.hint	제작대 옆에 훈연기를 놓아요.	generated; PlaceRel minecraft:smoker NEXT_TO minecraft:crafting_table
+trail.kochkunst.s3.clue	훈연기 앞에 모닥불을 피우세요.	generated; PlaceRel minecraft:campfire IN_FRONT_OF minecraft:smoker
+trail.kochkunst.s3.hint	훈연기 앞에 모닥불을 피워요.	generated; PlaceRel minecraft:campfire IN_FRONT_OF minecraft:smoker
+trail.kochkunst.finale.clue	훈연기 옆에서 고기를 요리하세요.	generated; Smelt minecraft:cooked_porkchop x1
+trail.kochkunst.finale.hint	훈연기 옆에서 고기를 요리해요.	generated; Smelt minecraft:cooked_porkchop x1
+trail.kochkunst.finale	훈연기 옆에서 고기를 요리했어요. 훈연기는 뜨거워요.	authored; Smelt minecraft:cooked_porkchop x1
+trail.kuestenfest.title	바닷가 잔치	authored
+trail.kuestenfest.s1.clue	낮에 해변으로 가세요.	generated; ReachBiome minecraft:beach 
+trail.kuestenfest.s1.hint	낮에 해변으로 가요.	generated; ReachBiome minecraft:beach 
+trail.kuestenfest.s2.clue	모래 위에 양탄자를 까세요.	generated; PlaceRel minecraft:light_blue_carpet ON_TOP_OF minecraft:sand
+trail.kuestenfest.s2.hint	모래 위에 양탄자를 깔아요.	generated; PlaceRel minecraft:light_blue_carpet ON_TOP_OF minecraft:sand
+trail.kuestenfest.s3.clue	해변에서 거북에게 해초를 주세요.	generated; Give minecraft:seagrass x1
+trail.kuestenfest.s3.hint	해변에서 거북에게 해초를 줘요.	generated; Give minecraft:seagrass x1
+trail.kuestenfest.s4.clue	생선을 구우세요.	generated; Smelt minecraft:cooked_salmon x1
+trail.kuestenfest.s4.hint	생선을 구워요.	generated; Smelt minecraft:cooked_salmon x1
+trail.kuestenfest.finale.clue	하늘색 양탄자 위에서 생선을 먹으세요.	generated; ConsumeItem minecraft:cooked_salmon x1
+trail.kuestenfest.finale.hint	하늘색 양탄자 위에서 생선을 먹어요.	generated; ConsumeItem minecraft:cooked_salmon x1
+trail.kuestenfest.finale	하늘색 양탄자 위에서 생선을 먹었어요. 생선은 맛있어요.	authored; ConsumeItem minecraft:cooked_salmon x1
+trail.milchpfad.title	우유의 길	authored
+trail.milchpfad.s1.clue	제작대 옆에서 양동이를 만드세요.	generated; Craft minecraft:bucket x1
+trail.milchpfad.s1.hint	제작대 옆에서 양동이를 만들어요.	generated; Craft minecraft:bucket x1
+trail.milchpfad.s2.clue	밖에서 소에게 밀을 주세요.	generated; Give minecraft:wheat x1
+trail.milchpfad.s2.hint	밖에서 소에게 밀을 줘요.	generated; Give minecraft:wheat x1
+trail.milchpfad.s3.clue	울타리 옆에서 우유를 구하세요.	generated; AcquireItem minecraft:milk_bucket x1
+trail.milchpfad.s3.hint	울타리 옆에서 우유를 구해요.	generated; AcquireItem minecraft:milk_bucket x1
+trail.milchpfad.finale.clue	상자 안에 우유를 넣으세요.	generated; PutIn minecraft:milk_bucket x1
+trail.milchpfad.finale.hint	상자 안에 우유를 넣어요.	generated; PutIn minecraft:milk_bucket x1
+trail.milchpfad.finale	상자 안에 우유를 넣었어요. 우유는 맛있어요.	authored; PutIn minecraft:milk_bucket x1
+trail.obstgarten.title	과수원의 길	authored
+trail.obstgarten.s1.clue	울타리를 치세요.	generated; BuildPattern minecraft:birch_fence RING 3
+trail.obstgarten.s1.hint	울타리를 쳐요.	generated; BuildPattern minecraft:birch_fence RING 3
+trail.obstgarten.s2.clue	자작나무 울타리 안에 묘목을 심으세요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
+trail.obstgarten.s2.hint	자작나무 울타리 안에 묘목을 심어요.	generated; PlaceOnPattern minecraft:oak_sapling INSIDE RING minecraft:birch_fence
+trail.obstgarten.s3.clue	울타리 옆에 묘목을 심으세요.	generated; PlaceRel minecraft:birch_sapling NEXT_TO #minecraft:fences
+trail.obstgarten.s3.hint	울타리 옆에 묘목을 심어요.	generated; PlaceRel minecraft:birch_sapling NEXT_TO #minecraft:fences
+trail.obstgarten.s4.clue	밖에서 사과를 두 개 모으세요.	generated; AcquireItem minecraft:apple x2
+trail.obstgarten.s4.hint	밖에서 사과를 모아요.	generated; AcquireItem minecraft:apple x2
+trail.obstgarten.finale.clue	묘목 옆에서 사과를 먹으세요.	generated; ConsumeItem minecraft:apple x1
+trail.obstgarten.finale.hint	묘목 옆에서 사과를 먹어요.	generated; ConsumeItem minecraft:apple x1
+trail.obstgarten.finale	묘목 옆에서 사과를 먹었어요. 사과는 맛있어요.	authored; ConsumeItem minecraft:apple x1
+trail.saatfeld.title	씨앗밭의 길	authored
+trail.saatfeld.s1.clue	괭이를 만드세요.	generated; Craft minecraft:wooden_hoe x1
+trail.saatfeld.s1.hint	괭이를 만들어요.	generated; Craft minecraft:wooden_hoe x1
+trail.saatfeld.s2.clue	나무 괭이를 들고 흙을 가세요.	generated; UseBlock minecraft:dirt 
+trail.saatfeld.s2.hint	나무 괭이를 들고 흙을 갈아요.	generated; UseBlock minecraft:dirt 
+trail.saatfeld.s3.clue	물 옆에 감자를 심으세요.	generated; PlaceRel minecraft:potatoes NEXT_TO minecraft:water
+trail.saatfeld.s3.hint	물 옆에 감자를 심어요.	generated; PlaceRel minecraft:potatoes NEXT_TO minecraft:water
+trail.saatfeld.finale.clue	낮에 돼지에게 감자를 주세요.	generated; Give minecraft:potato x1
+trail.saatfeld.finale.hint	낮에 돼지에게 감자를 줘요.	generated; Give minecraft:potato x1
+trail.saatfeld.finale	낮에 돼지에게 감자를 줬어요. 감자는 맛있어요.	authored; Give minecraft:potato x1
+trail.schmauspfad.title	산해진미의 길	authored
+trail.schmauspfad.s1.clue	통나무 옆에서 달콤한 열매를 세 개 모으세요.	generated; AcquireItem minecraft:sweet_berries x3
+trail.schmauspfad.s1.hint	통나무 옆에서 달콤한 열매를 모아요.	generated; AcquireItem minecraft:sweet_berries x3
+trail.schmauspfad.s2.clue	제작대 옆에서 호박으로 호박 파이를 만드세요.	generated; Craft minecraft:pumpkin_pie x1
+trail.schmauspfad.s2.hint	제작대 옆에서 호박으로 호박 파이를 만들어요.	generated; Craft minecraft:pumpkin_pie x1
+trail.schmauspfad.s3.clue	여우에게 달콤한 열매를 주세요.	generated; Give minecraft:sweet_berries x1
+trail.schmauspfad.s3.hint	여우에게 달콤한 열매를 줘요.	generated; Give minecraft:sweet_berries x1
+trail.schmauspfad.finale.clue	모닥불 옆에서 호박 파이를 먹으세요.	generated; ConsumeItem minecraft:pumpkin_pie x1
+trail.schmauspfad.finale.hint	모닥불 옆에서 호박 파이를 먹어요.	generated; ConsumeItem minecraft:pumpkin_pie x1
+trail.schmauspfad.finale	모닥불 옆에서 호박 파이를 먹었어요. 파이는 달아요.	authored; ConsumeItem minecraft:pumpkin_pie x1
+trail.waldfest.title	숲의 잔치	authored
+trail.waldfest.s1.clue	판자로 담을 쌓으세요.	generated; BuildPattern minecraft:acacia_planks RING 3
+trail.waldfest.s1.hint	판자로 담을 쌓아요.	generated; BuildPattern minecraft:acacia_planks RING 3
+trail.waldfest.s2.clue	판자 담 안에 버섯을 심으세요.	authored; PlaceOnPattern minecraft:brown_mushroom INSIDE RING minecraft:acacia_planks
+trail.waldfest.s2.hint	판자 담 안에 버섯을 심어요.	authored; PlaceOnPattern minecraft:brown_mushroom INSIDE RING minecraft:acacia_planks
+trail.waldfest.s3.clue	제작대 옆에서 그릇으로 버섯 스튜를 만드세요.	generated; Craft minecraft:mushroom_stew x1
+trail.waldfest.s3.hint	제작대 옆에서 그릇으로 버섯 스튜를 만들어요.	generated; Craft minecraft:mushroom_stew x1
+trail.waldfest.finale.clue	주민에게 버섯 스튜를 주세요.	generated; Give minecraft:mushroom_stew x1
+trail.waldfest.finale.hint	주민에게 버섯 스튜를 줘요.	generated; Give minecraft:mushroom_stew x1
+trail.waldfest.finale	주민에게 버섯 스튜를 줬어요. 스튜는 뜨거워요.	authored; Give minecraft:mushroom_stew x1

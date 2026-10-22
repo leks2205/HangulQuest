@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "kohlenpfad",
  "titleKo": "석탄의 길",
+ "topic": "돌",
  "tier": 2,
  "order": 500,
  "concepts": [
-  "gen_moss_carpet",
-  "gen_black_glazed_terracotta",
-  "furnace",
-  "gen_green_candle"
+  "coal",
+  "torch",
+  "gen_coal_block",
+  "furnace"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -21,33 +22,41 @@
   {
    "id": "s1",
    "teach": [
-    "gen_moss_carpet"
+    "coal"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:moss_carpet",
-    "count": 4
-   }
+    "block": "minecraft:coal_ore",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_black_glazed_terracotta"
+    "gen_coal_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:black_glazed_terracotta",
-    "count": 3
+    "type": "CRAFT",
+    "item": "minecraft:coal_block",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "furnace"
+    "gen_coal_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:furnace",
+    "type": "PLACE_REL",
+    "block": "minecraft:coal_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:furnace",
     "count": 1
    }
   }
@@ -56,30 +65,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_candle"
+    "furnace",
+    "gen_coal_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_candle",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PUT_IN",
+    "item": "minecraft:coal_block",
+    "container": "minecraft:furnace",
+    "count": 1
+   }
   },
-  "textKo": "밤에 초록색 초를 두 개 놓았어요."
+  "textKo": "화로 안에 석탄 블록을 넣었어요. 불은 뜨거워요."
  },
  "reward": {
   "badge": "kohlenpfad",
   "words": [
    "coal",
    "torch",
+   "gen_coal_block",
    "furnace"
   ]
  },
- "koreanLevel": 2,
- "topic": "돌"
+ "koreanLevel": 2
 }

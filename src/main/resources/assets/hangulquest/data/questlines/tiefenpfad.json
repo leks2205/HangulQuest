@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "tiefenpfad",
  "titleKo": "깊은 광맥의 길",
+ "topic": "돌",
  "tier": 3,
  "order": 510,
  "concepts": [
-  "gen_granite_slab",
-  "gen_mangrove_chest_boat",
+  "go_down",
   "diamond",
-  "gen_red_stained_glass"
+  "crafting_table",
+  "gen_rail"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,27 +23,23 @@
   {
    "id": "s1",
    "teach": [
-    "gen_granite_slab"
+    "go_down",
+    "torch"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:granite_slab",
-    "count": 4
-   }
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 0
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ]
   },
   {
    "id": "s2",
-   "teach": [
-    "gen_mangrove_chest_boat"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_chest_boat",
-    "count": 2
-   }
-  },
-  {
-   "id": "s3",
    "teach": [
     "diamond"
    ],
@@ -50,39 +47,80 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:diamond_ore",
     "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ]
+  },
+  {
+   "id": "s3",
    "teach": [
-    "gen_red_stained_glass"
+    "crafting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_stained_glass",
+    "type": "PLACE_REL",
+    "block": "minecraft:crafting_table",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:furnace",
     "count": 1
    },
    "conditions": [
     {
      "type": "Y_RANGE",
      "minY": -64,
-     "maxY": 0
+     "maxY": 50
     }
    ]
   },
-  "textKo": "높이 0 이하에서 빨간색 색유리를 놓았어요."
+  {
+   "id": "s4",
+   "teach": [
+    "gen_rail"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:rail",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:furnace",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "diamond",
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:diamond",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  },
+  "textKo": "상자 안에 다이아몬드를 넣었어요."
  },
  "reward": {
   "badge": "tiefenpfad",
   "words": [
-   "coal",
-   "iron",
+   "go_down",
    "diamond",
-   "torch"
+   "crafting_table",
+   "gen_rail"
   ]
  },
- "koreanLevel": 2,
- "topic": "돌"
+ "koreanLevel": 2
 }

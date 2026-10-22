@@ -8,6 +8,7 @@
  "concepts": [
   "gen_barrel",
   "crafting_table",
+  "lantern",
   "sweet_berries"
  ],
  "requires": {
@@ -41,13 +42,13 @@
   {
    "id": "s2",
    "teach": [
-    "gen_barrel"
+    "lantern"
    ],
    "goal": {
     "type": "PLACE_REL",
-    "block": "minecraft:barrel",
+    "block": "minecraft:lantern",
     "relation": "BETWEEN",
-    "anchor": "minecraft:chest",
+    "anchor": "minecraft:barrel",
     "count": 1,
     "anchor2": "minecraft:furnace"
    },
@@ -92,6 +93,7 @@
   "words": [
    "gen_barrel",
    "crafting_table",
+   "lantern",
    "sweet_berries"
   ]
  },

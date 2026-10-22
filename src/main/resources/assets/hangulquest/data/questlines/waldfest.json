@@ -6,7 +6,7 @@
  "tier": 4,
  "order": 420,
  "concepts": [
-  "stone",
+  "planks",
   "mushroom",
   "gen_mushroom_stew",
   "bowl",
@@ -25,12 +25,12 @@
   {
    "id": "s1",
    "teach": [
-    "stone"
+    "planks"
    ],
    "goal": {
     "type": "BUILD_PATTERN",
     "pattern": "RING",
-    "material": "minecraft:stone",
+    "material": "minecraft:acacia_planks",
     "size": 3
    }
   },
@@ -44,13 +44,13 @@
     "block": "minecraft:brown_mushroom",
     "relation": "INSIDE",
     "pattern": "RING",
-    "material": "minecraft:stone"
+    "material": "minecraft:acacia_planks"
    },
    "clue": {
-    "ko": "돌담 안에 버섯을 심으세요."
+    "ko": "판자 담 안에 버섯을 심으세요."
    },
    "hint": {
-    "ko": "돌담 안에 버섯을 심어요."
+    "ko": "판자 담 안에 버섯을 심어요."
    }
   },
   {
@@ -95,7 +95,7 @@
  "reward": {
   "badge": "waldfest",
   "words": [
-   "stone",
+   "planks",
    "mushroom",
    "gen_mushroom_stew",
    "bowl",
