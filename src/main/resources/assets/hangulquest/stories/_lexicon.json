@@ -4,6 +4,7 @@
 	"words": [
 		{"id": "today", "forms": ["오늘"], "known": true, "en": "today", "de": "heute"},
 		{"id": "morning", "forms": ["아침"], "known": true, "en": "morning", "de": "Morgen"},
+		{"id": "last_night", "forms": ["어젯밤"], "tails": ["에"], "known": true, "en": "last night", "de": "gestern Abend"},
 		{"id": "field", "forms": ["밭"], "known": true, "en": "field", "de": "Feld"},
 		{"id": "seed", "forms": ["씨앗"], "known": true, "en": "seed", "de": "Samen"},
 		{"id": "fire", "forms": ["불"], "known": true, "en": "fire", "de": "Feuer"},
@@ -50,6 +51,8 @@
 		{"id": "inside_more", "forms": ["안"], "tails": ["은", "도", "으로"], "known": true, "en": "inside", "de": "innen"},
 		{"id": "do", "verb": "하다", "known": true, "en": "to do", "de": "tun, machen"},
 		{"id": "become", "verb": "되다", "known": true, "en": "to become", "de": "werden"},
+		{"id": "shear", "verb": "깎다", "known": true, "en": "to shear, to cut", "de": "scheren, schneiden"},
+		{"id": "fill", "verb": "담다", "known": true, "en": "to put in (a container), to fill", "de": "einfüllen"},
 		{"id": "come_out_sound", "verb": "나다", "known": true, "en": "to come out (a sound), to occur", "de": "entstehen (ein Geräusch)"},
 		{"id": "ring", "verb": "치다", "known": true, "en": "to ring (a bell), to strike", "de": "läuten, schlagen"},
 		{"id": "obtain", "verb": "얻다", "known": true, "en": "to get, to obtain", "de": "bekommen, erhalten"},
