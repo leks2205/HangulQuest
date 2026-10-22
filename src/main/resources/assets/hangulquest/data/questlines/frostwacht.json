@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "frostwacht",
- "titleKo": "철 갑옷의 길",
- "topic": "장비",
+ "titleKo": "눈 속의 탑",
+ "topic": "눈",
  "tier": 2,
  "order": 90,
  "concepts": [
-  "gen_gray_glazed_terracotta",
-  "gen_smithing_table",
-  "gen_waxed_exposed_copper_lantern",
-  "gen_hopper"
+  "gen_snowy_taiga",
+  "log",
+  "campfire",
+  "bell"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,58 +22,92 @@
   {
    "id": "s1",
    "teach": [
-    "gen_gray_glazed_terracotta"
+    "gen_snowy_taiga"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_glazed_terracotta",
-    "count": 8
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_taiga",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smithing_table"
+    "log"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:smithing_table"
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:birch_log",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_exposed_copper_lantern"
+    "campfire"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper_lantern",
-    "count": 1
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:campfire",
+     "count": 1
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_taiga"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_hopper"
+    "bell"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:hopper"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:bell",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:birch_log",
+    "size": 3
    },
    "conditions": []
   },
-  "textKo": "호퍼를 열었어요."
+  "textKo": "통나무 기둥 위에 종을 달았어요. 눈은 차가워요."
  },
  "reward": {
   "badge": "frostwacht",
   "words": [
-   "iron",
-   "crafting_table",
-   "iron_chestplate",
-   "anvil"
+   "gen_snowy_taiga",
+   "log",
+   "campfire"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L3.jima",
+  "L1.eul_reul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }

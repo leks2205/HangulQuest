@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1733** |
+| Steps (incl. finales) | **1735** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,30 +21,30 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 235 | collect an item |
-| `PLACE_BLOCK` | 232 | place a block |
-| `PLACE_REL` | 193 |  |
-| `CRAFT` | 147 |  |
-| `PLACE_ON_PATTERN` | 99 |  |
-| `BUILD_PATTERN` | 93 |  |
-| `BREAK_BLOCK` | 72 | break a block |
-| `LOOK_AT_ENTITY` | 67 | look at a mob |
-| `SEQUENCE` | 62 |  |
+| `ACQUIRE_ITEM` | 223 | collect an item |
+| `PLACE_BLOCK` | 221 | place a block |
+| `PLACE_REL` | 198 |  |
+| `CRAFT` | 151 |  |
+| `PLACE_ON_PATTERN` | 103 |  |
+| `BUILD_PATTERN` | 97 |  |
+| `BREAK_BLOCK` | 68 | break a block |
+| `SEQUENCE` | 66 |  |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
 | `GIVE` | 62 |  |
 | `REACH_BIOME` | 57 | reach a biome |
-| `USE_BLOCK` | 53 | use a block |
 | `LOOK_AT_BLOCK` | 50 | look at a block |
+| `USE_BLOCK` | 50 | use a block |
 | `CONSUME_ITEM` | 43 | eat or drink an item |
+| `AVOID` | 38 |  |
 | `HOLD_WHILE` | 34 |  |
 | `PUT_IN` | 32 |  |
-| `AVOID` | 29 |  |
 | `DEFEAT_ENTITY` | 25 | defeat a mob |
-| `SMELT` | 23 |  |
-| `REACH_HEIGHT` | 22 | reach an altitude |
+| `REACH_HEIGHT` | 24 | reach an altitude |
+| `SMELT` | 24 |  |
 | `WAIT` | 20 |  |
 | `TRADE` | 19 |  |
-| `INTERACT_ENTITY` | 18 | interact with a mob |
-| `BREED` | 9 |  |
+| `INTERACT_ENTITY` | 17 | interact with a mob |
+| `BREED` | 10 |  |
 | `TAKE_OUT` | 7 |  |
 | `MOUNT` | 7 |  |
 | `SWIM` | 7 |  |
@@ -56,17 +56,17 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 254 | a time of day |
-| `HOLDING` | 77 |  |
+| `TIME` | 257 | a time of day |
+| `HOLDING` | 84 |  |
 | `IN_BIOME` | 63 | a biome |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 38 | a dimension |
-| `Y_RANGE` | 27 | an altitude band |
+| `Y_RANGE` | 33 | an altitude band |
 | `NEAR_BLOCK` | 23 | a block nearby |
-| `SKY` | 22 |  |
+| `SKY` | 23 |  |
+| `WEATHER` | 20 | the weather |
 | `NEAR_ENTITY` | 19 | a mob nearby |
-| `WEATHER` | 18 | the weather |
-| `IN_WATER` | 7 |  |
+| `IN_WATER` | 9 |  |
 
 ## Levels
 
@@ -319,7 +319,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 3 | `gartenfest`, `nachtwache` |
+| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 4 | `gartenfest`, `nachtwache` |
 | `eiskrone` | 얼음 왕관 | Die Eiskrone | 5 | `schneesturm` |
 | `schmuckpfad` | 보석의 길 | Der Juwelenpfad | 4 | `handelsstrasse`, `schmelzofen` |
 | `vogelpfad` | 새의 길 | Der Vogelpfad | 4 | `gartenfest` |
@@ -364,7 +364,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `frostwacht` | 철 갑옷의 길 | Suit Up | 4 | `eiskrone` |
+| `frostwacht` | 눈 속의 탑 | Der Turm im Schnee | 4 | `eiskrone` |
 | `tempelpfad` | 사막 신전의 길 | Der Wüstentempel | 4 | `weltbaum`, `weltreise` |
 | `dschungelpfad` | 정글의 길 | Der Dschungelpfad | 4 | `gartenwacht`, `tiefseehafen`, `bambuspfad` |
 | `handelsgilde` | 상인 길드의 길 | Der Handelsgildenpfad | 4 | `weltmarkt`, `gartenfest` |
@@ -393,7 +393,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `himmelswarte` | 하늘 관측소 | Die Himmelswarte | 4 | `observatorium`, `sternenhaus` |
 | `grossesmeer` | 큰 바다 | Das Große Meer | 4 | `tiefseehafen`, `ozeanfahrt` |
 | `hafenwacht` | 조선소의 길 | Der Werftpfad | 4 | `tiefseehafen`, `kuestenwacht` |
-| `w5_01` | 광부의 등불 | Die Grubenlampe | 3 | `bergwerk` |
+| `w5_01` | 광부의 등불 | Die Grubenlampe | 4 | `bergwerk` |
 | `w5_02` | 쇠를 두드리는 손 | Hände, die Eisen schmieden | 4 | `schmuckpfad` |
 | `w5_03` | 깊은 돌의 노래 | Das Lied des tiefen Steins | 4 | `eiskrone` |
 | `w5_04` | 용광로의 불빛 | Das Feuer im Schmelzofen | 4 | `festtafel` |
