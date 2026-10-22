@@ -1,12 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_play_jukebox_in_meadows",
- "titleKo": "사운드 오브 뮤직",
+ "titleKo": "목초지의 음악",
  "topic": "adventure",
  "tier": 2,
  "order": 220,
  "concepts": [
-  "jukebox"
+  "jukebox",
+  "gen_meadow",
+  "note_block",
+  "gen_azure_bluet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -19,27 +22,48 @@
   {
    "id": "s1",
    "teach": [
-    "jukebox"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jukebox",
-    "count": 1
-   },
-   "hint": {
-    "ko": "나무 판자 여덟 개와 다이아몬드 하나로 만들어요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "jukebox"
+    "jukebox",
+    "gen_meadow"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
     "block": "minecraft:jukebox",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "note_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:note_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:jukebox",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_azure_bluet"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:azure_bluet",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:note_block",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -52,15 +76,31 @@
     "type": "USE_BLOCK",
     "block": "minecraft:jukebox"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    }
+   ]
   },
-  "textKo": "사운드 오브 뮤직 — 초원에서 음악을 들어요."
+  "textKo": "목초지에서 주크박스를 틀었어요. 주크박스는 음반으로 음악을 틀어요."
  },
  "reward": {
   "badge": "adv_adventure_play_jukebox_in_meadows",
   "words": [
-   "jukebox"
+   "jukebox",
+   "gen_meadow",
+   "note_block",
+   "gen_azure_bluet"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.past",
+  "L3.euro_instrument"
+ ]
 }

@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "polarlicht",
- "titleKo": "뜨거운 것",
+ "titleKo": "북쪽의 얼음",
  "topic": "용암",
  "tier": 2,
  "order": 91,
  "concepts": [
-  "gen_copper_sword",
-  "gen_green_wool_stairs",
-  "gen_tuff_bricks",
-  "magma"
+  "gen_snowy_plains",
+  "ice",
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,60 +21,109 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_sword"
+    "gen_snowy_plains"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_sword",
-    "count": 1
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_plains",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_green_wool_stairs"
+    "ice"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_wool_stairs",
-    "count": 1
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:ice",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_tuff_bricks"
+    "ice"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:tuff_bricks",
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:ice",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_plains"
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "snow_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:snow_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:ice",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "magma"
+    "ice"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magma_block",
-    "count": 2
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:ice"
+    }
+   ]
   },
-  "textKo": "마그마 블록을 놓아 뜨거운 길을 만들어요."
+  "textKo": "얼음 근처에서 밤까지 기다렸어요. 얼음은 차가워요."
  },
  "reward": {
   "badge": "polarlicht",
   "words": [
-   "bucket",
-   "lava_bucket",
-   "furnace",
-   "magma"
+   "gen_snowy_plains",
+   "ice",
+   "snow_block"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.jima",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }
