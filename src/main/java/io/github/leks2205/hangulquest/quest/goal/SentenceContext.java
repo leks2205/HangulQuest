@@ -202,7 +202,8 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		}
 		String colour = Colours.leadingColour(registry);
 		if (colour != null && !word.ko.startsWith(colour)) {
-			return colour + " " + general;
+			// levels 1 and 2 leave the colour out (and the goal then takes any colour of the family)
+			return Colours.kept() ? colour + " " + general : general;
 		}
 		// a soul torch or campfire is of the same family as the plain one but not the same thing (blue fire): it keeps its
 		// name, while a spruce door is any door

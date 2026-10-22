@@ -32,7 +32,85 @@ public final class Colours {
 	/** A colour noun at the start of a noun phrase, with a noun after it. */
 	private static final Pattern COLOUR = Pattern.compile("(?<![가-힣])(빨간색|파란색|노란색|하얀색|검은색) (?=[가-힣])");
 
+	/** The level from which a sentence about a taught general word keeps the colour of a coloured block. */
+	public static final int SAID_FROM = 3;
+
+	/** The level the sentence under construction is read at; unset outside {@link #at}, where the colour stays. */
+	private static final ThreadLocal<Integer> READ_AT = new ThreadLocal<>();
+
+	private static final java.util.Set<String> DYES = java.util.Set.of("white", "orange", "magenta", "light_blue",
+			"yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
+
+	/** What the vanilla Korean names write with the colour in front (하얀색 침대, 회색 초, 분홍색 양털). */
+	private static final java.util.Set<String> COLOURED = java.util.Set.of("banner", "bed", "candle", "candle_cake",
+			"carpet", "concrete", "concrete_powder", "concrete_slab", "concrete_stairs", "glazed_terracotta",
+			"shulker_box", "stained_glass", "stained_glass_pane", "terracotta", "wool", "wool_slab", "wool_stairs",
+			"tulip", "orchid", "bundle", "harness", "dye");
+
 	private Colours() {
+	}
+
+	/** The Korean colour noun of each dye, as the vanilla names write it. */
+	private static final Map<String, String> NOUNS = Map.ofEntries(Map.entry("white", "하얀색"),
+			Map.entry("orange", "주황색"), Map.entry("magenta", "자홍색"), Map.entry("light_blue", "하늘색"),
+			Map.entry("yellow", "노란색"), Map.entry("lime", "연두색"), Map.entry("pink", "분홍색"),
+			Map.entry("gray", "회색"), Map.entry("light_gray", "회백색"), Map.entry("cyan", "청록색"),
+			Map.entry("purple", "보라색"), Map.entry("blue", "파란색"), Map.entry("brown", "갈색"),
+			Map.entry("green", "초록색"), Map.entry("red", "빨간색"), Map.entry("black", "검은색"));
+
+	/** The dye an id opens with (red_bed: red), or null when it is not a coloured block or item. */
+	private static String dye(String id) {
+		if (id == null) {
+			return null;
+		}
+		String path = id.substring(id.indexOf(':') + 1);
+		int cut = path.indexOf('_');
+		while (cut > 0) {
+			if (DYES.contains(path.substring(0, cut)) && COLOURED.contains(path.substring(cut + 1))) {
+				return path.substring(0, cut);
+			}
+			cut = path.indexOf('_', cut + 1);
+		}
+		return null;
+	}
+
+	/** Whether the id is a block or item whose registry name opens with its colour (red_bed, lime_wool). */
+	public static boolean isColoured(String id) {
+		return dye(id) != null;
+	}
+
+	/** Whether the sentence names the colour of this coloured id, as the noun (빨간색) or the adjective (빨간). */
+	public static boolean saysColourOf(String sentence, String id) {
+		String dye = dye(id);
+		if (dye == null || sentence == null) {
+			return false;
+		}
+		String noun = NOUNS.get(dye);
+		if (sentence.contains(noun)) {
+			return true;
+		}
+		return ADJECTIVES.containsKey(noun) && sentence.contains(adjective(noun) + " ");
+	}
+
+	/** Runs the builder of a sentence read at {@code level}: a taught general word keeps its colour from level 3. */
+	public static <T> T at(int level, java.util.function.Supplier<T> sentence) {
+		Integer before = READ_AT.get();
+		READ_AT.set(level);
+		try {
+			return sentence.get();
+		} finally {
+			if (before == null) {
+				READ_AT.remove();
+			} else {
+				READ_AT.set(before);
+			}
+		}
+	}
+
+	/** Whether a taught general word keeps the colour of the block it stands for in the sentence under construction. */
+	public static boolean kept() {
+		Integer level = READ_AT.get();
+		return level == null || level >= SAID_FROM;
 	}
 
 	private static final Pattern LEADING = Pattern.compile("^([가-힣]+색) (?=[가-힣])");

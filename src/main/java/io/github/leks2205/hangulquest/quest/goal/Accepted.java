@@ -13,11 +13,20 @@ import java.util.Set;
  * set is built once per step from the first taught concept, so evaluation stays a few set lookups.
  * A concept with a single referent never widens a goal.
  *
+ * <p>It also holds the ids whose colour the clue says: a coloured block in such a goal is matched exactly (a red
+ * bed is no blue bed), because the player was told which one. Where the clue leaves the colour out (a taught
+ * general word below level 3) the colour is not checked either. See {@link Colours}.
+ *
  * @param from  the goal ids (object, anchor, container ...) that the taught word covers
  * @param items every referent of the taught word
+ * @param exact the goal ids of a coloured block that only that very id satisfies
  */
-public record Accepted(Set<String> from, List<String> items, java.util.Map<String, List<String>> extra) {
-	public static final Accepted NONE = new Accepted(Set.of(), List.of(), java.util.Map.of());
+public record Accepted(Set<String> from, List<String> items, java.util.Map<String, List<String>> extra,
+					   Set<String> exact) {
+	public static final Accepted NONE = new Accepted(Set.of(), List.of(), java.util.Map.of(), Set.of());
+
+	/** Marks an exact spec for {@link io.github.leks2205.hangulquest.quest.spatial.BlockSpec}. */
+	public static final String EXACT = "=";
 
 	/** The cooked form of what a furnace turns into food: a covered raw fish widens the cooked output. */
 	private static final java.util.Map<String, String> COOKED = java.util.Map.ofEntries(
@@ -31,8 +40,22 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 			java.util.Map.entry("minecraft:potato", "minecraft:baked_potato"),
 			java.util.Map.entry("minecraft:kelp", "minecraft:dried_kelp"));
 
+	public Accepted(Set<String> from, List<String> items, java.util.Map<String, List<String>> extra) {
+		this(from, items, extra, Set.of());
+	}
+
 	public Accepted(Set<String> from, List<String> items) {
 		this(from, items, java.util.Map.of());
+	}
+
+	/** The same set with these goal ids matched exactly (the ones whose colour the clue says). */
+	public Accepted withExact(Set<String> ids) {
+		return ids.equals(exact) ? this : new Accepted(from, items, extra, Set.copyOf(ids));
+	}
+
+	/** Whether the clue names the colour of this goal id, so only that block satisfies it. */
+	public boolean isExact(String goalId) {
+		return goalId != null && exact.contains(goalId);
 	}
 
 	/** The set for a step: the goal ids that are referents of its first taught concept, and all referents. */
@@ -109,7 +132,7 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 		if (observed != null && goalId != null && extra.getOrDefault(goalId, List.of()).contains(observed)) {
 			return true;
 		}
-		if (observed == null || goalId == null || !from.contains(goalId)) {
+		if (observed == null || goalId == null || !from.contains(goalId) || exact.contains(goalId)) {
 			return false;
 		}
 		for (String item : items) {
@@ -127,6 +150,9 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 
 	/** A block spec that also matches the other referents: {@code spec|other|other} (see BlockSpec). */
 	public String union(String spec) {
+		if (isExact(spec)) {
+			return EXACT + spec;
+		}
 		if (!widens(spec)) {
 			return spec;
 		}

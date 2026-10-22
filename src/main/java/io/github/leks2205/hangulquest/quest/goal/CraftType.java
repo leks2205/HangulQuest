@@ -82,7 +82,7 @@ final class CraftType implements GoalType<Goal.Craft> {
 	@Override
 	public boolean evaluate(Goal.Craft goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (CraftFact fact : obs.crafted) {
-			if (!Matching.matchesBlock(goal.item(), fact.item())) {
+			if (!Matching.matches(tracker, goal.item(), fact.item())) {
 				continue;
 			}
 			boolean rightScreen = goal.station() == null

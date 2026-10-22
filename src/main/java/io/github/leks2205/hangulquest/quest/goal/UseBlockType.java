@@ -80,7 +80,7 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 			};
 			for (String changed : changes) {
 				if (change.equals("LIT") ? Matching.accepts(tracker, goal.block(), changed)
-						: Matching.matchesBlock(goal.block(), changed)) {
+						: Matching.matches(tracker, goal.block(), changed)) {
 					tracker.count++;
 				}
 			}
@@ -88,11 +88,11 @@ final class UseBlockType implements GoalType<Goal.UseBlock> {
 		}
 		List<String> uses = nightLatch ? obs.usedBlocksAtNight : obs.usedBlocks;
 		for (String used : uses) {
-			if (Matching.matchesBlock(goal.block(), used)) {
+			if (Matching.matches(tracker, goal.block(), used)) {
 				tracker.count++;
 			}
 		}
-		if (obs.sleeping && obs.sleepingBed != null && Matching.matchesBlock(goal.block(), obs.sleepingBed)) {
+		if (obs.sleeping && obs.sleepingBed != null && Matching.matches(tracker, goal.block(), obs.sleepingBed)) {
 			tracker.count++;
 		}
 		return tracker.count >= 1;

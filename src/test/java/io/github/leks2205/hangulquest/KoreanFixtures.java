@@ -184,7 +184,7 @@ final class KoreanFixtures {
 	 * teaches names what it stands for (우유, not 우유 양동이); every other noun is its registry name.
 	 */
 	static String ceremony(io.github.leks2205.hangulquest.quest.Questline trail) {
-		return ceremony(trail.finale());
+		return ceremony(trail.finale(), trail.koreanLevel());
 	}
 
 	/**
@@ -193,6 +193,11 @@ final class KoreanFixtures {
 	 * the step teaches (요리하다) is spoken in the past too.
 	 */
 	static String ceremony(io.github.leks2205.hangulquest.quest.QuestStep step) {
+		return ceremony(step, 1);
+	}
+
+	/** Same, for a step of a trail of {@code level}: the colour of a coloured block is said from level 3. */
+	static String ceremony(io.github.leks2205.hangulquest.quest.QuestStep step, int level) {
 		Catalog catalog = sharedCatalog();
 		Word word = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
 		Word verb = null;
@@ -207,7 +212,7 @@ final class KoreanFixtures {
 		SentenceBuilder.Namer clueNamer = io.github.leks2205.hangulquest.quest.ClueWords.namer(
 				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer(catalog), step),
 				io.github.leks2205.hangulquest.quest.ClueWords.extras(step, catalog, id -> false, namer(catalog)));
-		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(), clueNamer);
+		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(), clueNamer, level);
 	}
 
 	/** The registry id a goal points at, or null for height goals. */

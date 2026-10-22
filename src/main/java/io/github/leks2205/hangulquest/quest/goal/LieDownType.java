@@ -60,7 +60,7 @@ final class LieDownType implements GoalType<Goal.LieDown> {
 
 	@Override
 	public boolean evaluate(Goal.LieDown goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
-		boolean inBed = obs.sleeping && obs.sleepingBed != null && Matching.matchesBlock(goal.block(), obs.sleepingBed);
+		boolean inBed = obs.sleeping && obs.sleepingBed != null && Matching.matches(tracker, goal.block(), obs.sleepingBed);
 		return Matching.dwell(tracker, "bed", inBed ? "bed" : null, goal.dwellMs());
 	}
 

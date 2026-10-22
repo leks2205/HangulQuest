@@ -87,7 +87,7 @@ final class HearType implements GoalType<Goal.Hear> {
 		}
 		if (!jukebox(goal)) {
 			for (String used : obs.usedBlocks) {
-				if (Matching.matchesBlock(goal.source(), used)) {
+				if (Matching.matches(tracker, goal.source(), used)) {
 					tracker.count++;
 				}
 			}

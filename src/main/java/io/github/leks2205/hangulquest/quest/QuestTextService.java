@@ -3,6 +3,7 @@ package io.github.leks2205.hangulquest.quest;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningSink;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
@@ -29,8 +30,10 @@ final class QuestTextService {
 	private final SentenceBuilder.Namer namer;
 	/** Generated clue sentences, by step and Korean level (index 1..6). */
 	private final Map<QuestStep, Map<String, String>> clues = new IdentityHashMap<>();
-	/** Generated hint sentences, by step. */
-	private final Map<QuestStep, String> hints = new IdentityHashMap<>();
+	/** Generated hint sentences, by step and the level of the clue they go with (the colour follows it). */
+	private final Map<QuestStep, Map<Integer, String>> hints = new IdentityHashMap<>();
+	/** The coloured blocks and items a goal mentions, by step. */
+	private final Map<QuestStep, java.util.List<String>> colouredIds = new IdentityHashMap<>();
 	/** The grammar.json constructions of a generated clue, by step and written level. */
 	private final Map<QuestStep, Map<Integer, List<String>>> grammar = new IdentityHashMap<>();
 
@@ -78,6 +81,7 @@ final class QuestTextService {
 	void invalidate() {
 		clues.clear();
 		hints.clear();
+		colouredIds.clear();
 		grammar.clear();
 	}
 
@@ -178,6 +182,37 @@ final class QuestTextService {
 		return cached;
 	}
 
+	/**
+	 * The coloured blocks and items of the goal whose colour the clue the player reads names: only those must be
+	 * that very colour. A clue that leaves the colour out (a taught general word below level 3) checks none, so
+	 * the clue and the check cannot disagree.
+	 */
+	java.util.Set<String> exactColours(QuestStep step, int koreanLevel) {
+		java.util.List<String> coloured = colouredIds.computeIfAbsent(step, key -> {
+			java.util.List<String> ids = new java.util.ArrayList<>();
+			for (io.github.leks2205.hangulquest.quest.goal.GoalType.Mention mention
+					: GoalTypes.of(key.goal()).mentions(key.goal())) {
+				boolean thing = mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.BLOCK
+						|| mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.ITEM;
+				if (thing && Colours.isColoured(mention.id()) && !ids.contains(mention.id())) {
+					ids.add(mention.id());
+				}
+			}
+			return ids;
+		});
+		if (coloured.isEmpty()) {
+			return java.util.Set.of();
+		}
+		String clue = clueKo(step, koreanLevel);
+		java.util.Set<String> exact = new java.util.HashSet<>();
+		for (String id : coloured) {
+			if (Colours.saysColourOf(clue, id)) {
+				exact.add(id);
+			}
+		}
+		return exact;
+	}
+
 	/** Translation of the clue in the interface language (English or German). */
 	String clueTranslation(QuestStep step) {
 		if (step == null || step.reverse()) {
@@ -203,12 +238,14 @@ final class QuestTextService {
 		if (word == null) {
 			return clueKo(step, koreanLevel);
 		}
+		int level = effectiveLevel(koreanLevel);
 		if (word != firstWord(step)) {
 			return SentenceBuilder.hint(step.goal(), word, verbWord(step), words(step), step.conditions(),
-					namerFor(step));
+					namerFor(step), level);
 		}
-		return hints.computeIfAbsent(step, key -> SentenceBuilder.hint(key.goal(), word, verbWord(key), words(key),
-				key.conditions(), namerFor(key)));
+		return hints.computeIfAbsent(step, key -> new java.util.HashMap<>()).computeIfAbsent(level,
+				key -> SentenceBuilder.hint(step.goal(), word, verbWord(step), words(step), step.conditions(),
+						namerFor(step), key));
 	}
 
 	/** The finale line of a finished trail in the interface language. */
