@@ -36,11 +36,12 @@ import java.util.Random;
 
 /**
  * Screenshots for the store listing (not a regression test): one scripted session at 1920x1080 and GUI scale 4,
- * English interface, one scene per feature. It only runs with HANGULQUEST_STORE_SHOTS=1 in the environment. They land in {@code build/gametest/store/}. It needs a display
+ * English interface, one scene per feature, in a generated world. It only runs with HANGULQUEST_STORE_SHOTS=1 in the environment. They land in {@code build/gametest/store/}. It needs a display
  * of at least that size, for example {@code xvfb-run -s "-screen 0 1920x1080x24"}. The scenes that have no public
  * entry point (the dialogue and the story page) are reached by reflection, which is fine for a test.
  */
 public final class StoreScreenshotsGameTest implements FabricClientGameTest {
+	private static final String SEED = "33";
 	private static final int INFO_TAB = 0;
 	private static final int WORDS_TAB = 1;
 	private static final int STUDY_TAB = 2;
@@ -59,7 +60,12 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 			return; // opt-in: the regular game test run does not need these
 		}
 		Path shots = shotsDir();
-		var world = context.worldBuilder().create();
+		// A normal generated world (birch forest at a fixed seed), with a small house, a torch and a villager put in
+		// front of the camera by commands.
+		var world = context.worldBuilder().setUseConsistentSettings(false).adjustSettings(state -> {
+			state.setSeed(SEED);
+			state.setGenerateStructures(true);
+		}).create();
 		context.runOnClient(mc -> mc.getWindow().setWindowed(1920, 1080));
 		context.runOnClient(mc -> mc.options.guiScale().set(4));
 		context.waitTicks(10);
@@ -71,6 +77,8 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 		context.waitTicks(5);
 		context.takeScreenshot(shot("welcome", shots));
 		closeScreen(context);
+
+		buildScene(context, world);
 
 		// a profile with some history
 		context.runOnClient(mc -> {
@@ -207,6 +215,32 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 		context.waitTicks(5);
 
 		world.close();
+	}
+
+	private static void buildScene(ClientGameTestContext context, net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext world) {
+		var server = world.getServer();
+		server.runCommand("time set 2500");
+		server.runCommand("weather clear");
+		server.runCommand("gamerule advance_time false");
+		server.runCommand("gamerule advance_weather false");
+		context.waitTicks(40);
+		server.runCommand("tp @p ~ ~ ~ -20 3");
+		context.waitTicks(30);
+		String at = "execute as @p at @p positioned ";
+		String top = " positioned over motion_blocking_no_leaves run ";
+		// a small oak house nine blocks ahead, door facing the player, a torch on each side of the door
+		server.runCommand(at + "~5 ~ ~9 run fill ~-2 ~-5 ~ ~2 ~-1 ~4 cobblestone");
+		server.runCommand(at + "~5 ~ ~9 run fill ~-2 ~ ~ ~2 ~3 ~4 oak_planks hollow");
+		server.runCommand(at + "~5 ~ ~9 run fill ~-3 ~4 ~-1 ~3 ~4 ~5 oak_slab");
+		server.runCommand(at + "~5 ~ ~9 run setblock ~ ~ ~ oak_door[facing=north,half=lower]");
+		server.runCommand(at + "~5 ~ ~9 run setblock ~ ~1 ~ oak_door[facing=north,half=upper]");
+		server.runCommand(at + "~5 ~ ~9 run fill ~-1 ~1 ~4 ~1 ~2 ~4 glass_pane");
+		server.runCommand(at + "~5 ~ ~9 run setblock ~-1 ~1 ~-1 wall_torch[facing=north]");
+		server.runCommand(at + "~5 ~ ~9 run setblock ~1 ~1 ~-1 wall_torch[facing=north]");
+		server.runCommand(at + "~2 ~ ~6" + top + "setblock ~ ~ ~ torch");
+		server.runCommand(at + "~4 ~ ~6" + top + "summon villager ~ ~ ~ {NoAI:1b,Invulnerable:1b,Rotation:[180f,0f]}");
+		server.runCommand("item replace entity @p weapon.mainhand with torch");
+		context.waitTicks(60);
 	}
 
 	private static void showCard(ClientGameTestContext context, CardFactory.Kind kind, String conceptId) {
