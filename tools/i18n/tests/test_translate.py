@@ -624,6 +624,13 @@ class RulesTest(unittest.TestCase):
         self.assertIsNone(tr_check.giveaway("Platziere in der Tiefe eine Werkbank", "de_de", False))
         self.assertEqual(tr_check.giveaway("Coloca un farol bajo la mesa", "es_es", False), "bajo")
 
+    def test_a_relation_word_the_english_has_too_is_no_giveaway(self):
+        # "On the beach" is a place condition in both languages; the hidden relation is still not named
+        en = "On the beach, build a ring — read the Korean to see what from."
+        self.assertIsNone(tr_check.giveaway("Sur la plage, construis un cercle — lis le coréen pour voir en quoi.",
+                                            "fr_fr", False, en=en))
+        self.assertIsNotNone(tr_check.giveaway("Sur la plage, construis un cercle sur le sable.", "fr_fr", False, en=en))
+
     def test_turkish_capital_dotted_i_matches(self):
         self.assertIsNotNone(tr_check.giveaway("İlk olarak meşaleyi koy.", "tr_tr", True))
 

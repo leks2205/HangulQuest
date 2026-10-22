@@ -57,11 +57,22 @@ def _pattern(entry: str, substring: bool) -> re.Pattern:
     return re.compile(r"(?<!\w)" + body + r"(?!\w)", re.IGNORECASE)
 
 
-def giveaway(text: str, code: str, order: bool, words: dict | None = None) -> str | None:
-    """The word of the language's list that names the hidden relation (or order) in a text, or None."""
+def giveaway(text: str, code: str, order: bool, words: dict | None = None, en: str | None = None) -> str | None:
+    """The word of the language's list that names the hidden relation (or order) in a text, or None.
+
+    With the English source given, a translation may use as many relation words as the English itself does: "On the
+    beach, build a ring" names a place condition, not the hidden relation, so "Sur la plage" is no giveaway.
+    """
+    allowed = len(_hits(en, "en_us", order, words)) if en else 0
+    hits = _hits(text, code, order, words)
+    return hits[allowed] if len(hits) > allowed else None
+
+
+def _hits(text: str, code: str, order: bool, words: dict | None = None) -> list[str]:
+    """Every relation (or order) word of the language's list in a text, longest phrases first, without overlaps."""
     config = (words or relation_words()).get(language_part(code))
     if not config:
-        return None
+        return []
     substring = bool(config.get("substring"))
     normal = unicodedata.normalize("NFC", text)
     if language_part(code) == "tr":
@@ -70,12 +81,15 @@ def giveaway(text: str, code: str, order: bool, words: dict | None = None) -> st
     # relation puts the thing: blank them out before looking for relation words.
     for phrase in sorted(config.get("conditions", []), key=len, reverse=True):
         normal = _pattern(phrase, substring).sub(" ", normal)
-    # Longest first, so the message names the whole phrase ("encima de", not "encima").
+    # Longest first, so a whole phrase ("encima de") is taken before its parts ("encima"); a found phrase is blanked
+    # out so its parts do not count again.
+    found_words: list[str] = []
     for entry in sorted(config.get("order" if order else "relation", []), key=len, reverse=True):
-        found = _pattern(entry, substring).search(normal)
-        if found:
-            return found.group(0)
-    return None
+        pattern = _pattern(entry, substring)
+        for found in pattern.finditer(normal):
+            found_words.append(found.group(0))
+        normal = pattern.sub(" ", normal)
+    return found_words
 
 
 def has_list(code: str, words: dict | None = None) -> bool:
@@ -144,7 +158,7 @@ def check_text(row: Row, text: str, code: str, words: dict | None = None) -> lis
     problems += _untranslated(row, text, code)
 
     if row.get("formDependent"):
-        word = giveaway(text, code, bool(ORDER_ROW.search(en)), words)
+        word = giveaway(text, code, bool(ORDER_ROW.search(en)), words, en=en)
         if word:
             problems.append(f"gives away what the English hides ('{word}'); read-the-Korean clues must stay hidden")
     return problems
