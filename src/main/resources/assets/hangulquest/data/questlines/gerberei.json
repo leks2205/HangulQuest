@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 164,
  "concepts": [
-  "zombie",
   "leather",
-  "gen_brain_coral",
-  "note_block"
+  "make",
+  "chest",
+  "cauldron"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,36 +23,47 @@
   {
    "id": "s1",
    "teach": [
-    "zombie"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:zombie",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "leather"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:leather",
-    "count": 3
-   },
-   "hint": {
-    "ko": "가죽은 소를 잡으면 얻어요."
+    "count": 5
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "make"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:leather_helmet",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_brain_coral"
+    "chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral",
+    "type": "PUT_IN",
+    "item": "minecraft:leather_helmet",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "cauldron"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:cauldron",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:chest",
     "count": 1
    }
   }
@@ -61,24 +72,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "note_block"
+    "cauldron"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:note_block"
+    "block": "minecraft:cauldron"
    },
    "conditions": []
   },
-  "textKo": "소리 블록을 쳤어요."
+  "textKo": "가마솥을 채웠어요."
  },
  "reward": {
   "badge": "gerberei",
   "words": [
-   "cow",
    "leather",
    "chest",
-   "anvil"
+   "cauldron"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo"
+ ]
 }

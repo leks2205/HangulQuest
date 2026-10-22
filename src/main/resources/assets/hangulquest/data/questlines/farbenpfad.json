@@ -6,9 +6,9 @@
  "tier": 3,
  "order": 96,
  "concepts": [
-  "gen_damaged_anvil",
-  "gen_smooth_red_sandstone_slab",
-  "coal"
+  "gen_blue_dye",
+  "gen_blue_wool",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,23 +22,50 @@
   {
    "id": "s1",
    "teach": [
-    "gen_damaged_anvil"
+    "gen_blue_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:damaged_anvil",
-    "count": 3
+    "type": "GIVE",
+    "item": "minecraft:blue_dye",
+    "entity": "minecraft:sheep",
+    "count": 1,
+    "method": "USE_WITH"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_red_sandstone_slab"
+    "gen_blue_wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_red_sandstone_slab",
-    "count": 3
+    "type": "CRAFT",
+    "item": "minecraft:blue_wool",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_blue_wool"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:blue_wool",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:pink_tulip",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:blue_wool",
+    "count": 1
    }
   }
  ],
@@ -46,23 +73,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "coal"
+    "gen_blue_wool"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:coal_ore",
-    "dwellMs": 600
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:blue_wool"
    },
    "conditions": []
   },
-  "textKo": "석탄을 바라봤어요."
+  "textKo": "양털은 파란색이에요. 초는 빨간색이에요."
  },
  "reward": {
   "badge": "farbenpfad",
   "words": [
-   "wool",
+   "gen_blue_dye",
+   "gen_blue_wool",
    "flower"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.euro_material",
+  "L2.eun_neun_contrast"
+ ]
 }

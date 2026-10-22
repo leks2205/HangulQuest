@@ -7,7 +7,8 @@
  "order": 207,
  "concepts": [
   "adv_item_crafter",
-  "gen_zombie_head"
+  "sign",
+  "lever"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,12 +24,9 @@
     "adv_item_crafter"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:crafter",
     "count": 1
-   },
-   "hint": {
-    "ko": "철 주괴 다섯 개와 제작대와 공급기와 레드스톤으로 만들어요."
    }
   },
   {
@@ -37,8 +35,36 @@
     "adv_item_crafter"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_REL",
     "block": "minecraft:crafter",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sign"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:acacia_sign",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:crafter",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "lever"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:lever",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafter",
     "count": 1
    }
   }
@@ -47,22 +73,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_zombie_head"
+    "lever"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:zombie_head",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:lever"
    },
    "conditions": []
   },
-  "textKo": "좀비 머리를 두 개 모았어요."
+  "textKo": "레버를 당겼어요."
  },
  "reward": {
   "badge": "adv_adventure_crafters_crafting_crafters",
   "words": [
-   "adv_item_crafter"
+   "adv_item_crafter",
+   "sign",
+   "lever"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo"
+ ]
 }

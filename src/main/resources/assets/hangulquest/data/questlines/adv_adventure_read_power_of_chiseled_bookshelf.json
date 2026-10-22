@@ -7,7 +7,8 @@
  "order": 221,
  "concepts": [
   "adv_item_chiseled_bookshelf",
-  "book"
+  "book",
+  "lectern"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,12 +24,9 @@
     "adv_item_chiseled_bookshelf"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:chiseled_bookshelf",
     "count": 1
-   },
-   "hint": {
-    "ko": "나무 판자 여섯 개와 나무 반 블록 세 개로 만들어요."
    }
   },
   {
@@ -39,10 +37,32 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:book",
-    "count": 3
-   },
-   "hint": {
-    "ko": "종이 세 개와 가죽 하나로 책을 만들어요."
+    "count": 6
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_chiseled_bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:chiseled_bookshelf",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "book"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:book",
+    "container": "minecraft:chiseled_bookshelf",
+    "count": 6
    }
   }
  ],
@@ -50,23 +70,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_chiseled_bookshelf"
+    "lectern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_bookshelf",
+    "type": "PLACE_REL",
+    "block": "minecraft:lectern",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:chiseled_bookshelf",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "책의 힘 — 조각된 책장에 책을 꽂고 신호를 읽어요."
+  "textKo": "조각된 책장 위에 독서대를 놓았어요."
  },
  "reward": {
   "badge": "adv_adventure_read_power_of_chiseled_bookshelf",
   "words": [
    "adv_item_chiseled_bookshelf",
-   "book"
+   "book",
+   "lectern"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo"
+ ]
 }

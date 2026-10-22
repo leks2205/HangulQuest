@@ -7,9 +7,9 @@
  "order": 146,
  "concepts": [
   "fence",
-  "gate",
-  "gen_orange_banner",
-  "gen_green_stained_glass_pane"
+  "flower",
+  "open",
+  "carpet"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -26,65 +26,80 @@
     "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
-    "count": 6
-   },
-   "hint": {
-    "ko": "울타리는 나무 판자와 막대기로 만들어요."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gate"
+    "flower",
+    "fence"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:oak_fence_gate"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_tulip",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_orange_banner"
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_banner",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_REL",
+    "block": "minecraft:spruce_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "open"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:spruce_fence_gate",
+    "change": "OPEN"
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_stained_glass_pane"
+    "carpet",
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_stained_glass_pane",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:green_carpet",
+    "relation": "OUTSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
    },
    "conditions": []
   },
-  "textKo": "초록색 색유리 판을 두 개 놓았어요."
+  "textKo": "꽃은 울타리 안에 있어요. 양탄자는 울타리 밖에 있어요."
  },
  "reward": {
   "badge": "gartenzaun",
   "words": [
    "fence",
-   "gate",
-   "torch",
-   "lantern"
+   "flower",
+   "carpet"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.eun_neun_contrast"
+ ]
 }
