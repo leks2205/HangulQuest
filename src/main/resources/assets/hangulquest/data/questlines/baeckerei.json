@@ -1,13 +1,15 @@
 {
  "schema": 1,
  "id": "baeckerei",
- "titleKo": "빵집의 길",
+ "titleKo": "빵집과 케이크의 길",
+ "topic": "음식",
  "tier": 4,
+ "order": 130,
  "concepts": [
-  "gen_dead_tube_coral_wall_fan",
-  "gen_barrel",
-  "bread",
-  "gen_crimson_fungus"
+  "wheat",
+  "cake",
+  "chest",
+  "candle"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -22,32 +24,40 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dead_tube_coral_wall_fan"
+    "wheat"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:dead_tube_coral_wall_fan",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:wheat",
     "count": 3
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_barrel"
+    "cake"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:barrel"
+    "type": "CRAFT",
+    "item": "minecraft:cake",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bread"
+    "chest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bread",
+    "type": "PUT_IN",
+    "item": "minecraft:cake",
+    "container": "minecraft:chest",
     "count": 1
    }
   }
@@ -56,31 +66,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_fungus"
+    "candle"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_fungus",
+    "block": "minecraft:candle",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "ROOFED"
     }
    ]
   },
-  "textKo": "밤에 진홍빛 균을 심었어요."
+  "textKo": "지붕 아래에서 초를 세웠어요."
  },
  "reward": {
   "badge": "baeckerei",
   "words": [
    "wheat",
-   "furnace",
-   "bread"
+   "cake",
+   "chest",
+   "candle"
   ]
  },
- "order": 130,
- "koreanLevel": 1,
- "topic": "음식"
+ "koreanLevel": 1
 }

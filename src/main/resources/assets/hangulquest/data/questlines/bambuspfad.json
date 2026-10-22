@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "id": "bambuspfad",
- "titleKo": "대나무의 길",
+ "titleKo": "대나무와 수박의 길",
  "topic": "대나무",
  "tier": 3,
  "order": 137,
  "concepts": [
-  "gen_taiga",
-  "bamboo"
+  "jungle",
+  "bamboo",
+  "melon"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,13 +22,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_taiga"
+    "jungle"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:taiga",
+    "biome": "minecraft:jungle",
     "dwellMs": 1000
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -37,22 +44,26 @@
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:bamboo",
-    "count": 4
-   },
-   "hint": {
-    "ko": "대나무는 손이나 도끼로 베어요."
+    "count": 4,
+    "verb": "HARVEST"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bamboo"
+    "melon"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo",
-    "count": 4
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:melon_slice",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
@@ -62,19 +73,25 @@
     "bamboo"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo",
-    "count": 8
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bamboo",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "대나무를 모아요."
+  "textKo": "밤에 대나무를 심었어요."
  },
  "reward": {
   "badge": "bambuspfad",
   "words": [
    "jungle",
-   "bamboo"
+   "bamboo",
+   "melon"
   ]
  },
  "koreanLevel": 1

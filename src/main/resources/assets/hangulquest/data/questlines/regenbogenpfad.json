@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "regenbogenpfad",
- "titleKo": "무지개의 길",
+ "titleKo": "비와 해의 길",
  "topic": "무지개",
  "tier": 1,
  "order": 143,
  "concepts": [
-  "gen_black_concrete_slab",
-  "gen_medium_amethyst_bud",
-  "gen_acacia_leaves",
-  "gen_waxed_copper_golem_statue"
+  "flower",
+  "dye",
+  "wool",
+  "glass_pane"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,34 +20,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_concrete_slab"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:black_concrete_slab",
-    "count": 6
+    "type": "PLACE_REL",
+    "block": "minecraft:cornflower",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "clue": {
+    "ko": "비가 내려요. 문 옆에 꽃을 심어요."
+   },
+   "hint": {
+    "ko": "문 옆에 꽃을 심어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_medium_amethyst_bud"
+    "dye"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:medium_amethyst_bud",
-    "dwellMs": 600
-   }
+    "type": "CRAFT",
+    "item": "minecraft:red_dye",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_acacia_leaves"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_leaves",
-    "count": 4
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:white_wool",
+    "size": 3
    }
   }
  ],
@@ -55,23 +70,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_copper_golem_statue"
+    "wool",
+    "glass_pane"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_copper_golem_statue",
-    "count": 6
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:glass_pane",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:white_wool"
    },
-   "conditions": []
+   "clue": {
+    "ko": "해가 떠요. 양털 세 개 위에 유리판을 놓아요."
+   },
+   "hint": {
+    "ko": "양털 세 개 위에 유리판을 놓아요."
+   }
   },
-  "textKo": "밀랍칠한 구리 골렘 동상을 여섯 개 만들었어요."
+  "textKo": "양털 세 개 위에 유리판을 놓았어요."
  },
  "reward": {
   "badge": "regenbogenpfad",
   "words": [
-   "wool",
    "flower",
-   "glass"
+   "dye",
+   "wool",
+   "glass_pane"
   ]
  },
  "koreanLevel": 1

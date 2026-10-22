@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 132,
  "concepts": [
-  "gen_birch_fence_gate",
-  "gen_raw_gold_block",
+  "mountain",
+  "climb",
   "wool",
-  "gen_jungle_pressure_plate"
+  "fence"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,34 +23,51 @@
   {
    "id": "s1",
    "teach": [
-    "gen_birch_fence_gate"
+    "mountain",
+    "climb"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:birch_fence_gate",
-    "count": 3
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
+   "hint": {
+    "ko": "산 위로 올라가요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_raw_gold_block"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:raw_gold_block",
-    "count": 3
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:white_wool",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shears"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "wool"
+    "fence"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:white_wool",
-    "dwellMs": 600
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_fence",
+    "size": 3
    }
   }
  ],
@@ -58,28 +75,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_pressure_plate"
+    "wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_pressure_plate",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_wool",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:oak_fence"
+   }
   },
-  "textKo": "밤에 정글나무 압력판을 놓았어요."
+  "textKo": "참나무 울타리 기둥 위에 양털을 놓았어요."
  },
  "reward": {
   "badge": "windpfad",
   "words": [
-   "height",
+   "mountain",
+   "climb",
    "wool",
-   "campfire"
+   "fence"
   ]
  },
  "koreanLevel": 1

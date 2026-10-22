@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 135,
  "concepts": [
-  "gen_weeping_vines",
-  "loom",
+  "wool",
   "carpet",
-  "gen_firework_rocket"
+  "carrot"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -22,25 +21,32 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weeping_vines"
+    "wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weeping_vines",
-    "count": 4
-   }
+    "item": "minecraft:white_wool",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:sheep"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "loom"
+    "carpet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:loom"
-   },
-   "hint": {
-    "ko": "베틀은 나무 판자와 실로 만들어요."
+    "type": "CRAFT",
+    "item": "minecraft:white_carpet",
+    "count": 3,
+    "with": [
+     "minecraft:white_wool"
+    ]
    }
   },
   {
@@ -49,12 +55,11 @@
     "carpet"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_REL",
     "block": "minecraft:white_carpet",
-    "count": 4
-   },
-   "hint": {
-    "ko": "양탄자는 양털 두 개로 만들어요."
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   }
  ],
@@ -62,24 +67,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_firework_rocket"
+    "carrot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:firework_rocket",
-    "count": 4
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:carrot",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "ON_TOP_OF",
+     "anchor": "minecraft:white_carpet",
+     "kind": "block"
+    }
+   ]
   },
-  "textKo": "폭죽 로켓을 네 개 모았어요."
+  "textKo": "하얀색 양탄자 위에서 당근을 먹었어요."
  },
  "reward": {
   "badge": "teppichpfad",
   "words": [
    "wool",
-   "loom",
    "carpet",
-   "string"
+   "carrot"
   ]
  },
  "koreanLevel": 1

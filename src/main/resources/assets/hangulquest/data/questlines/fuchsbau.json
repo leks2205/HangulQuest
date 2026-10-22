@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "fuchsbau",
- "titleKo": "여우의 길",
- "topic": "여우",
+ "titleKo": "토끼의 집",
+ "topic": "토끼",
  "tier": 2,
  "order": 144,
  "concepts": [
-  "gen_ocelot",
-  "gen_oxidized_cut_copper_slab",
-  "leaves",
-  "gen_purple_glazed_terracotta"
+  "dandelion",
+  "rabbit",
+  "fence"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -22,34 +21,47 @@
   {
    "id": "s1",
    "teach": [
-    "gen_ocelot"
+    "dandelion"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:ocelot",
-    "dwellMs": 800
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dandelion",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_cut_copper_slab"
+    "rabbit"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_cut_copper_slab",
-    "count": 3
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:rabbit",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:dandelion"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "leaves"
+    "rabbit"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_leaves",
-    "count": 4
+    "type": "GIVE",
+    "item": "minecraft:dandelion",
+    "entity": "minecraft:rabbit",
+    "count": 1
    }
   }
  ],
@@ -57,29 +69,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_glazed_terracotta"
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_glazed_terracotta",
+    "type": "PLACE_REL",
+    "block": "minecraft:hay_block",
+    "relation": "INSIDE",
+    "anchor": "#minecraft:fences",
     "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   }
   },
-  "textKo": "밤에 보라색 유광 테라코타를 놓았어요."
+  "textKo": "울타리 안에 건초 더미를 놓았어요."
  },
  "reward": {
   "badge": "fuchsbau",
   "words": [
-   "fox",
-   "sweet_berries",
-   "leaves",
-   "campfire"
+   "dandelion",
+   "rabbit",
+   "fence"
   ]
  },
  "koreanLevel": 1
