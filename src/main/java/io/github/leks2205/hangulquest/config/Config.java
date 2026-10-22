@@ -15,8 +15,8 @@ import java.nio.file.Path;
 public final class Config {
 	private static final Logger LOG = LoggerFactory.getLogger("hangulquest");
 
-	/** 3 added {@code retention} and {@code newWordsPerDay}; 4 added {@code typedCards}. */
-	public static final int CURRENT_VERSION = 4;
+	/** 3 added {@code retention} and {@code newWordsPerDay}; 4 added {@code typedCards}; 5 added {@code autoCloseWindows}. */
+	public static final int CURRENT_VERSION = 5;
 	public static final double MIN_RETENTION = 0.80;
 	public static final double MAX_RETENTION = 0.95;
 	public static final double DEFAULT_RETENTION = 0.88;
@@ -30,7 +30,13 @@ public final class Config {
 	public boolean tooltips = true;
 	public boolean autoQuiz = true;
 	public int quizIntervalMinutes = 7;
+	/** How long an ambient word card stays when windows close automatically; it only counts with {@link #autoCloseWindows}. */
 	public int cardDurationMs = 4500;
+	/**
+	 * Off: every HUD window (hint, cards, banners, quiz prompt) stays until the hint key closes it.
+	 * On: windows close after their old timeouts.
+	 */
+	public boolean autoCloseWindows = false;
 	public boolean lookAtCards = true;
 	public boolean mobCards = true;
 	public boolean biomeCards = true;
@@ -139,6 +145,11 @@ public final class Config {
 		JsonElement typed = raw.get("typedCards");
 		if (typed == null || !typed.isJsonPrimitive() || !typed.getAsJsonPrimitive().isBoolean()) {
 			loaded.typedCards = true;
+		}
+		// Version 4 and older have no autoCloseWindows; a missing or broken value means off, the default.
+		JsonElement autoClose = raw.get("autoCloseWindows");
+		if (autoClose == null || !autoClose.isJsonPrimitive() || !autoClose.getAsJsonPrimitive().isBoolean()) {
+			loaded.autoCloseWindows = false;
 		}
 		if (!raw.has("audio") && raw.has("sound") && !loaded.sound) {
 			loaded.audio = false; // whoever muted the mod's sounds does not want voices either

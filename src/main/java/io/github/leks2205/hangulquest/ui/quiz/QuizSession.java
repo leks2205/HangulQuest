@@ -9,13 +9,16 @@ import java.util.Optional;
  * The state machine of one review quiz, free of any Minecraft types so it can be tested.
  *
  * <p>An automatic quiz is only <em>offered</em> ({@link State#PROMPT}): the HUD shows "press the key"
- * for {@link #PROMPT_MS} and the prompt then vanishes without recording anything. The quiz becomes
+ * until the player opens it or closes it with the hint key (with "close windows automatically" on, for
+ * {@link #PROMPT_MS}); the prompt then vanishes without recording anything. The quiz becomes
  * answerable ({@link State#ACTIVE}) only when the player opens it, which happens in the quiz screen.
  * A review is recorded in exactly one place, {@link #answer}; timing out and dismissing never record.
  */
 public final class QuizSession {
 	/** How long an automatic quiz waits for the player before it is dropped. */
 	public static final long PROMPT_MS = 20_000L;
+	/** A prompt that waits until it is opened or dismissed. */
+	public static final long NO_TIMEOUT = Long.MAX_VALUE;
 
 	public enum State { IDLE, PROMPT, ACTIVE }
 
@@ -66,13 +69,18 @@ public final class QuizSession {
 		return state == State.IDLE ? null : quiz;
 	}
 
-	/** An automatic quiz: shown as a prompt only. Ignored while another quiz is pending. */
+	/** An automatic quiz: shown as a prompt only, for {@link #PROMPT_MS}. Ignored while another quiz is pending. */
 	public boolean offer(Quiz offered, long now) {
+		return offer(offered, now, PROMPT_MS);
+	}
+
+	/** The same with a chosen waiting time; {@link #NO_TIMEOUT} keeps the prompt until it is opened or dismissed. */
+	public boolean offer(Quiz offered, long now, long promptMs) {
 		if (offered == null || state != State.IDLE) {
 			return false;
 		}
 		quiz = offered;
-		promptUntil = now + PROMPT_MS;
+		promptUntil = promptMs == NO_TIMEOUT ? Long.MAX_VALUE : now + promptMs;
 		state = State.PROMPT;
 		return true;
 	}
@@ -105,9 +113,12 @@ public final class QuizSession {
 		return state == State.PROMPT && now < promptUntil;
 	}
 
-	/** Time left before the prompt disappears; 0 when there is none. */
+	/** Time left before the prompt disappears; 0 when there is none, {@link #NO_TIMEOUT} when it never does. */
 	public long promptRemainingMs(long now) {
-		return promptVisible(now) ? promptUntil - now : 0;
+		if (!promptVisible(now)) {
+			return 0;
+		}
+		return promptUntil == Long.MAX_VALUE ? NO_TIMEOUT : promptUntil - now;
 	}
 
 	/** Turns a still-visible prompt into the answerable quiz. */

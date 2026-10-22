@@ -52,6 +52,15 @@ public final class QuestEngine {
 		/** Several follow-up trails are possible; the player picks one. */
 		default void chooseNext(java.util.List<Questline> options) {
 		}
+
+		/**
+		 * An announcement window (a new quest started, say) that stays until the player closes it with the hint
+		 * key. {@code key} keeps the same announcement from being queued twice. The texts are shown as given, so
+		 * pass an empty string for a line that should not be there (translations only when they are switched on).
+		 */
+		default void notice(String key, String titleKo, String titleText, String bodyKo, String bodyText) {
+			banner(titleKo, titleText, true);
+		}
 	}
 
 	public record HintView(String clueKo, String simplifiedKo, String descriptionKo, Word word,

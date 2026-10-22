@@ -132,4 +132,39 @@ class QuizSessionTest {
 		assertFalse(session.offer(new QuizSession.Quiz("concept:torch", List.of("a", "b"), 0), T0 + 1));
 		assertEquals("concept:stone", session.quiz().wordId());
 	}
+
+	@Test
+	void aPromptWithoutATimeoutWaitsUntilItIsOpened() {
+		QuizSession session = new QuizSession();
+		session.offer(quiz(), T0, QuizSession.NO_TIMEOUT);
+
+		assertFalse(session.tick(T0 + 24L * 3_600_000L), "a day later it is still there");
+		assertTrue(session.promptVisible(T0 + 24L * 3_600_000L));
+		assertEquals(QuizSession.NO_TIMEOUT, session.promptRemainingMs(T0));
+		assertTrue(session.open(T0 + 24L * 3_600_000L));
+		assertEquals(QuizSession.State.ACTIVE, session.state());
+	}
+
+	@Test
+	void dismissingAPromptWithoutATimeoutRecordsNothing() {
+		QuizSession session = new QuizSession();
+		session.offer(quiz(), T0, QuizSession.NO_TIMEOUT);
+
+		session.dismiss();
+
+		assertEquals(QuizSession.State.IDLE, session.state());
+		assertFalse(session.promptVisible(T0 + 1));
+		assertFalse(session.open(T0 + 1), "a dismissed prompt cannot be opened");
+		assertEquals(Optional.empty(), session.answer(1, recorder));
+		assertTrue(recorded.isEmpty());
+	}
+
+	@Test
+	void aTimedPromptStillTimesOutForPlayersWhoWantTheOldBehaviour() {
+		QuizSession session = new QuizSession();
+		session.offer(quiz(), T0, QuizSession.PROMPT_MS);
+
+		assertTrue(session.tick(T0 + QuizSession.PROMPT_MS));
+		assertEquals(QuizSession.State.IDLE, session.state());
+	}
 }
