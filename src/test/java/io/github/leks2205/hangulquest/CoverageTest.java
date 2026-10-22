@@ -191,6 +191,30 @@ class CoverageTest {
 	}
 
 	@Test
+	void theCheckPassesWorseCoverageThatStillMeetsTheTarget() throws IOException {
+		requirePython();
+		// one unknown word per sentence is the target; the baseline was better (0.5), the content is at 1
+		List<ContentFacts.Trail> trails = List.of(trail("a", 1, "놓아요.", ""));
+		Path baseline = scratch.resolve("baseline.json");
+		String metrics = "\"coverage.sentences.unknownOverOneShare\":{\"value\":0,\"better\":\"lower\",\"target\":0},"
+				+ "\"coverage.sentences.hintFullyKnownShare\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.sentences.hintWordCoverage\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.recycling.medianEncounters\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.recycling.medianRetrievals\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.recycling.seenShare\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.recycling.targetMetShare\":{\"value\":0,\"better\":\"higher\",\"target\":0},"
+				+ "\"coverage.sentences.meanUnknown\":{\"value\":0.5,\"better\":\"lower\",\"target\":%s}";
+		String params = MetricsBaseline.load().getAsJsonObject("params").toString();
+		Files.writeString(baseline, "{\"params\":" + params + ",\"metrics\":{" + metrics.formatted("1") + "}}");
+		Result met = run(scratch, trails, scratch.resolve("gaps.csv"), "--check", "--baseline", baseline.toString());
+		assertEquals(0, met.exit(), met.output());
+		Files.writeString(baseline, "{\"params\":" + params + ",\"metrics\":{" + metrics.formatted("0.5") + "}}");
+		Result missed = run(scratch, trails, scratch.resolve("gaps.csv"), "--check", "--baseline", baseline.toString());
+		assertEquals(1, missed.exit(), missed.output());
+		assertTrue(missed.output().contains("meanUnknown got worse"), missed.output());
+	}
+
+	@Test
 	void theCheckPassesWhenNothingIsWorse() throws IOException {
 		requirePython();
 		List<ContentFacts.Trail> trails = List.of(trail("a", 1, "돌과 횃불을 놓아요.", "돌을 놓아요."));

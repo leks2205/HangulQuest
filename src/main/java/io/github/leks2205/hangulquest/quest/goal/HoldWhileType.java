@@ -152,7 +152,7 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 		} else {
 			ids.addAll(SentenceBuilder.baseGrammar(Verb.WALK, c.level(), ObjectKind.NONE));
 			if (goal.innerCondition() != null) {
-				ids.addAll(ConditionTypes.of(goal.innerCondition()).grammarIds(goal.innerCondition()));
+				ids.addAll(ConditionTypes.of(goal.innerCondition()).grammarIds(goal.innerCondition(), c.level()));
 			}
 		}
 		return ids;
@@ -247,7 +247,7 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 		if (goal.innerCondition() == null) {
 			return "";
 		}
-		String prefix = ConditionTypes.of(goal.innerCondition()).prefix(goal.innerCondition(), c.namer()).trim();
+		String prefix = ConditionTypes.of(goal.innerCondition()).prefix(goal.innerCondition(), c.namer(), c.level()).trim();
 		return prefix.isEmpty() ? "" : " " + prefix;
 	}
 }

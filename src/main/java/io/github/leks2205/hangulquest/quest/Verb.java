@@ -68,7 +68,10 @@ public enum Verb {
 	CLOSE("닫다", "schließen"),
 	MELT("녹이다", "schmelzen"),
 	BAKE("굽다", "braten"),
-	WALK("걷다", "laufen");
+	WALK("걷다", "laufen"),
+
+	// The note block is struck, not rung.
+	STRIKE("치다", "anschlagen");
 
 
 	/** How the target noun is marked in front of the verb. */

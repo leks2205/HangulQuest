@@ -213,8 +213,29 @@ class TaskVarietyTest {
 	// ---------------------------------------------------------------- the ratchet itself
 
 	private static JsonObject baseline(String key, double value, String better) {
+		return baseline(key, value, better, "lower".equals(better) ? 0 : 1);
+	}
+
+	private static JsonObject baseline(String key, double value, String better, double target) {
 		return JsonParser.parseString("{\"metrics\":{\"" + key + "\":{\"value\":" + value + ",\"better\":\""
-				+ better + "\",\"target\":0}}}").getAsJsonObject();
+				+ better + "\",\"target\":" + target + "}}}").getAsJsonObject();
+	}
+
+	@Test
+	void aMetricThatMeetsItsTargetPassesWhateverTheBaselineSays() {
+		// the (verb, object) maximum was 2 when it was recorded; the roadmap allows 3
+		JsonObject pairs = baseline("variety.verbObjectMax", 2, "lower", 3);
+		assertEquals(0, MetricsBaseline.regressions(Map.of("variety.verbObjectMax", 3.0), pairs, "variety.").size(),
+				"a third occurrence is inside the target");
+		assertEquals(1, MetricsBaseline.regressions(Map.of("variety.verbObjectMax", 4.0), pairs, "variety.").size(),
+				"a fourth is worse than the baseline and past the target");
+		JsonObject share = baseline("variety.noveltyShare", 0.9, "higher", 0.8);
+		assertEquals(0, MetricsBaseline.regressions(Map.of("variety.noveltyShare", 0.85), share, "variety.").size());
+		assertEquals(1, MetricsBaseline.regressions(Map.of("variety.noveltyShare", 0.7), share, "variety.").size());
+		JsonObject noTarget = JsonParser.parseString(
+				"{\"metrics\":{\"variety.x\":{\"value\":2,\"better\":\"lower\"}}}").getAsJsonObject();
+		assertEquals(1, MetricsBaseline.regressions(Map.of("variety.x", 3.0), noTarget, "variety.").size(),
+				"without a target the baseline value is the only bar");
 	}
 
 	@Test
@@ -269,6 +290,43 @@ class TaskVarietyTest {
 				"--baseline", baseline.toString(), "--check");
 		assertEquals(1, check.exit(), check.output());
 		assertTrue(check.output().contains("duplicateSignatures got worse"), check.output());
+	}
+
+	@Test
+	void theToolPassesAThirdOccurrenceBecauseTheTargetAllowsIt() throws IOException {
+		assumeTrue(QuestScaffoldTest.python("-c", "pass").exit() == 0, "python3 is not available");
+		List<ContentFacts.Trail> trails = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			trails.add(trail("t" + i, 1, i, false, List.of(), place("minecraft:torch")));
+		}
+		Path dump = scratch.resolve("steps.json");
+		ContentFacts.write(trails, dump);
+		assertAgree(trails, dump);
+		Path allowed = scratch.resolve("allowed.json");
+		Files.writeString(allowed, baselineFor(trails, 3));
+		QuestScaffoldTest.Run pass = QuestScaffoldTest.python("tools/variety.py", "--steps", dump.toString(),
+				"--baseline", allowed.toString(), "--check");
+		assertEquals(0, pass.exit(), pass.output());
+		Path strict = scratch.resolve("strict.json");
+		Files.writeString(strict, baselineFor(trails, 2));
+		QuestScaffoldTest.Run fail = QuestScaffoldTest.python("tools/variety.py", "--steps", dump.toString(),
+				"--baseline", strict.toString(), "--check");
+		assertEquals(1, fail.exit(), fail.output());
+		assertTrue(fail.output().contains("verbObjectMax got worse"), fail.output());
+	}
+
+	/** A baseline at the current values, except the (verb, object) maximum, which was 2 and has this target. */
+	private static String baselineFor(List<ContentFacts.Trail> trails, int pairTarget) {
+		StringBuilder out = new StringBuilder("{\"metrics\":{");
+		boolean first = true;
+		for (var entry : VarietyMetrics.compute(trails, false).entrySet()) {
+			boolean pairs = entry.getKey().equals("variety.verbObjectMax");
+			out.append(first ? "" : ",").append('"').append(entry.getKey()).append("\":{\"value\":")
+					.append(pairs ? 2 : entry.getValue()).append(",\"better\":\"lower\",\"target\":")
+					.append(pairs ? pairTarget : 1000).append('}');
+			first = false;
+		}
+		return out.append("}}").toString();
 	}
 
 	@Test

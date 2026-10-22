@@ -115,6 +115,17 @@ public final class VerbTable {
 		return fallback;
 	}
 
+	/** Every verb the rules of this goal type use, in table order: the verbs a goal of that type may name. */
+	public List<Verb> verbsFor(String goalType) {
+		List<Verb> verbs = new ArrayList<>();
+		for (Rule rule : rules.getOrDefault(goalType, List.of())) {
+			if (!verbs.contains(rule.verb())) {
+				verbs.add(rule.verb());
+			}
+		}
+		return verbs;
+	}
+
 	public boolean hasFamily(String family) {
 		return families.containsKey(family);
 	}

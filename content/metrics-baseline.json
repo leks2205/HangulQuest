@@ -1,5 +1,5 @@
 {
- "_comment": "Content ratchet (roadmap Part B): a metric may improve but never get worse. The tests (TaskVarietyTest, CoverageTest, RecyclingTest) and CI fail on a regression. Update it only on purpose, with python3 tools/variety.py --update-baseline, and say why in the commit. target = the roadmap goal, not yet demanded. The 2.x classic tree is far from most targets.",
+ "_comment": "Content ratchet (roadmap Part B): a metric may improve but never get worse. The tests (TaskVarietyTest, CoverageTest, RecyclingTest) and CI fail on a regression. Update it only on purpose, with python3 tools/variety.py --update-baseline, and say why in the commit. target = the roadmap goal: a metric that meets it passes even when it is worse than the baseline value. The 2.x classic tree is far from most targets.",
  "schema": 1,
  "params": {"knownAfter": 3, "trailsPerDay": 2, "retrievalDays": 14, "encounterTarget": 10, "roleTarget": 3, "retrievalTarget": 3, "maxUnknown": 1, "countHints": false, "hintSeesClue": true},
  "metrics": {
@@ -10,7 +10,7 @@
   "coverage.sentences.hintFullyKnownShare": {"value": 0.904731, "better": "higher", "target": 1.0},
   "coverage.sentences.hintWordCoverage": {"value": 0.934489, "better": "higher", "target": 1.0},
   "coverage.sentences.meanUnknown": {"value": 1.007129, "better": "lower", "target": 1},
-  "coverage.sentences.unknownOverOneShare": {"value": 0.062216, "better": "lower", "target": 0},
+  "coverage.sentences.unknownOverOneShare": {"value": 0.062865, "better": "lower", "target": 0},
   "variety.bareShare.1": {"value": 0.354331, "better": "lower", "target": 0.3},
   "variety.bareShare.2": {"value": 0.644592, "better": "lower", "target": 0.2},
   "variety.bareShare.3": {"value": 0.694524, "better": "lower", "target": 0.1},

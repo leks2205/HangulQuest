@@ -9,9 +9,12 @@ import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
+import io.github.leks2205.hangulquest.quest.spatial.SpatialSentences;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Everything the game knows about one kind of goal: how it is read from JSON, checked against the
@@ -125,8 +128,8 @@ public interface GoalType<G extends Goal> {
 	default String objectName(G goal, SentenceBuilder.Namer namer) {
 		String object = object(goal);
 		return switch (objectKind()) {
-			case BLOCK -> namer.block(object);
-			case ITEM -> namer.item(object);
+			case BLOCK -> SpatialSentences.blockName(object, namer);
+			case ITEM -> BlockSpec.isTag(object) ? SpatialSentences.blockName(object, namer) : namer.item(object);
 			case ENTITY -> namer.entity(object);
 			case BIOME -> SentenceBuilder.biomeName(object, namer);
 			case DIMENSION -> SentenceBuilder.dimension(object);
@@ -185,7 +188,9 @@ public interface GoalType<G extends Goal> {
 		return switch (mention.kind()) {
 			case BLOCK, ITEM -> {
 				String plain = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(id);
-				boolean referent = concept.items != null && concept.items.stream()
+				// the word names its items and covers the others (any sapling for 묘목)
+				boolean referent = Stream.concat(concept.items == null ? Stream.empty() : concept.items.stream(),
+								concept.covers == null ? Stream.empty() : concept.covers.stream())
 						.anyMatch(item -> item.equals(id) || plain != null && Matching.matchesBlock(plain, item));
 				yield referent || id.equals(concept.icon);
 			}
@@ -193,6 +198,11 @@ public interface GoalType<G extends Goal> {
 			case BIOME -> id == null || id.startsWith("#") || id.equals(concept.biome);
 			default -> true;
 		};
+	}
+
+	/** Whether the object may be a block tag such as {@code #minecraft:flowers} (see BlockSpec). */
+	default boolean tagObject() {
+		return false;
 	}
 
 	/** Adds the problems of this goal: a taught word that does not fit, and bad ids. */
@@ -206,7 +216,10 @@ public interface GoalType<G extends Goal> {
 			}
 		}
 		String noun = objectKind().noun();
-		if (noun != null && ValidationContext.badId(object(goal))) {
+		boolean tag = tagObject() && BlockSpec.isTag(object(goal));
+		if (tag && !BlockSpec.valid(object(goal))) {
+			context.problem("unknown tag " + object(goal));
+		} else if (noun != null && !tag && ValidationContext.badId(object(goal))) {
 			context.problem("bad " + noun + " " + object(goal));
 		}
 	}

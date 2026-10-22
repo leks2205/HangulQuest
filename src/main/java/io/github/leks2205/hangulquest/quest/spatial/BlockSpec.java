@@ -13,16 +13,31 @@ import java.util.Map;
 public final class BlockSpec {
 	private static final java.util.regex.Pattern ID = java.util.regex.Pattern.compile("[a-z0-9_.-]+:[a-z0-9_./-]+");
 
-	/** Tag path to {family name, a block that stands for the family when it needs a name}. */
-	private static final Map<String, String[]> TAGS = Map.of(
-			"doors", new String[]{"door", "minecraft:oak_door"},
-			"planks", new String[]{"planks", "minecraft:oak_planks"},
-			"logs", new String[]{"log", "minecraft:oak_log"},
-			"wool", new String[]{"wool", "minecraft:white_wool"},
-			"fences", new String[]{"fence", "minecraft:oak_fence"},
-			"beds", new String[]{"bed", "minecraft:red_bed"},
-			"torches", new String[]{"torch", "minecraft:torch"},
-			"chests", new String[]{"chest", "minecraft:chest"});
+	/** A tag: which blocks it holds and the block that stands for it when it needs a name. */
+	private record Tag(java.util.function.Predicate<String> holds, String representative) {
+	}
+
+	private static Tag family(String family, String representative) {
+		return new Tag(id -> family.equals(Matching.blockFamily(id)), representative);
+	}
+
+	private static Tag suffix(String suffix, String representative) {
+		return new Tag(id -> id.substring(id.indexOf(':') + 1).endsWith(suffix), representative);
+	}
+
+	/** Tag path to its members and representative; the ones a goal may name. */
+	private static final Map<String, Tag> TAGS = Map.ofEntries(
+			Map.entry("doors", family("door", "minecraft:oak_door")),
+			Map.entry("planks", family("planks", "minecraft:oak_planks")),
+			Map.entry("logs", family("log", "minecraft:oak_log")),
+			Map.entry("wool", family("wool", "minecraft:white_wool")),
+			Map.entry("fences", family("fence", "minecraft:oak_fence")),
+			Map.entry("beds", family("bed", "minecraft:red_bed")),
+			Map.entry("torches", family("torch", "minecraft:torch")),
+			Map.entry("chests", family("chest", "minecraft:chest")),
+			Map.entry("flowers", family("flower", "minecraft:poppy")),
+			Map.entry("saplings", suffix("_sapling", "minecraft:oak_sapling")),
+			Map.entry("leaves", suffix("_leaves", "minecraft:oak_leaves")));
 
 	private BlockSpec() {
 	}
@@ -61,8 +76,8 @@ public final class BlockSpec {
 			return false;
 		}
 		if (isTag(spec)) {
-			String[] tag = TAGS.get(tagPath(spec));
-			return tag != null && tag[0].equals(Matching.blockFamily(observed));
+			Tag tag = TAGS.get(tagPath(spec));
+			return tag != null && tag.holds().test(observed);
 		}
 		return Matching.matchesBlock(spec, observed);
 	}
@@ -73,10 +88,53 @@ public final class BlockSpec {
 			spec = spec.substring(0, spec.indexOf('|'));
 		}
 		if (spec != null && isTag(spec)) {
-			String[] tag = TAGS.get(tagPath(spec));
-			return tag == null ? null : tag[1];
+			Tag tag = TAGS.get(tagPath(spec));
+			return tag == null ? null : tag.representative();
 		}
 		return spec;
+	}
+
+	/**
+	 * The everyday word for a tag: 통나무 for {@code #minecraft:logs}, 꽃 for {@code #minecraft:flowers}.
+	 * It is the curated concept whose blocks (items and covers) are the largest set inside the tag, so the
+	 * clue and the finale say the word the player was taught. Null for a spec that is no tag or has no word.
+	 */
+	public static String tagWord(String spec) {
+		if (!isTag(spec) || !TAGS.containsKey(tagPath(spec))) {
+			return null;
+		}
+		return TagWords.WORDS.get(tagPath(spec));
+	}
+
+	private static final class TagWords {
+		static final Map<String, String> WORDS = build();
+
+		private static Map<String, String> build() {
+			Map<String, String> words = new java.util.HashMap<>();
+			java.util.List<io.github.leks2205.hangulquest.data.Concept> concepts;
+			try {
+				concepts = io.github.leks2205.hangulquest.data.ConceptLoader.load();
+			} catch (RuntimeException unreadable) {
+				return words;
+			}
+			for (Map.Entry<String, Tag> entry : TAGS.entrySet()) {
+				io.github.leks2205.hangulquest.data.Concept best = null;
+				int bestSize = 0;
+				for (io.github.leks2205.hangulquest.data.Concept concept : concepts) {
+					java.util.List<String> blocks = new java.util.ArrayList<>(concept.items);
+					blocks.addAll(concept.covers);
+					// only a concept that stays inside the tag can name it
+					if (blocks.size() > bestSize && blocks.stream().allMatch(entry.getValue().holds())) {
+						best = concept;
+						bestSize = blocks.size();
+					}
+				}
+				if (best != null) {
+					words.put(entry.getKey(), best.ko);
+				}
+			}
+			return words;
+		}
 	}
 
 	/** Doors, chests, furnaces and beds have a clear front; 앞 and 뒤 only apply to them. */

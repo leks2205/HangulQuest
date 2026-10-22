@@ -16,6 +16,7 @@ obsidian	흑요석	[흥뇨석]	nasalisation,n_insertion	lexical	sino
 water	물	[물]		rule	native
 lava	용암	[용암]		rule	sino
 snow	눈	[눈]		rule	native
+snow_block	눈 블록	[눈 블록]		rule	mixed
 ice	얼음	[어름]	liaison	rule	native
 torch	횃불	[홰뿔]	tensification	lexical	native
 crafting_table	제작대	[제작때]	tensification	rule	sino
@@ -239,7 +240,7 @@ adv_item_silence_armor_trim_smithing_template	대장장이 형판	[대장장이 
 adv_item_dune_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
 adv_item_trial_key	시련 열쇠	[시련 열쇠]		rule	mixed
 adv_block_lodestone	자석석	[자석썩]	tensification	rule	sino
-adv_item_dragon_breath	드래곤의 숨결	[드래고늬 숨결]	liaison	rule	mixed
+adv_item_dragon_breath	드래곤의 숨결	[드래고늬 숨껼]	liaison,tensification	lexical	mixed
 adv_item_elytra	겉날개	[건날개]	nasalisation,neutralisation	rule	native
 adv_block_purpur_block	퍼퍼 블록	[퍼퍼 블록]		rule	loan
 adv_item_dragon_head	드래곤 머리	[드래곤 머리]		rule	mixed
@@ -369,7 +370,7 @@ gen_weeping_vines	늘어진 덩굴	[느러진 덩굴]	liaison	rule	native
 gen_music_disc_stal	음반	[음반]		rule	sino
 gen_camel	낙타	[낙타]		rule	sino
 gen_birch_hanging_sign	자작나무 매다는 표지판	[자장나무 매다는 표지판]	nasalisation	rule	mixed
-gen_waxed_weathered_copper_bars	밀랍칠한 녹슨 구리 창살	[밀랍칠한 녹쓴 구리 창살]	tensification	rule	mixed
+gen_waxed_weathered_copper_bars	밀랍칠한 녹슨 구리 창살	[밀랍칠한 녹쓴 구리 창쌀]	tensification	lexical	mixed
 gen_jungle_chest_boat	상자가 실린 정글나무 보트	[상자가 실린 정글라무 보트]	lateralisation	rule	mixed
 gen_llama	라마	[라마]		rule	loan
 gen_gray_stained_glass_pane	회색 색유리 판	[회색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
@@ -532,7 +533,7 @@ gen_dark_oak_trapdoor	짙은 참나무 다락문	[지튼 참나무 다랑문]	li
 gen_chiseled_resin_bricks	조각된 수지 벽돌	[조각뙨 수지 벽똘]	tensification	rule	mixed
 gen_polished_blackstone	윤나는 흑암	[윤나는 흐감]	liaison	rule	mixed
 gen_smooth_quartz	매끄러운 석영 블록	[매끄러운 서경 블록]	liaison	rule	mixed
-gen_copper_bars	구리 창살	[구리 창살]		rule	mixed
+gen_copper_bars	구리 창살	[구리 창쌀]	tensification	lexical	mixed
 gen_jungle_hanging_sign	정글나무 매다는 표지판	[정글라무 매다는 표지판]	lateralisation	rule	mixed
 gen_tuff_brick_wall	응회암 벽돌 담장	[응회암 벽똘 담장]	tensification	rule	mixed
 gen_waxed_weathered_copper_golem_statue	밀랍칠한 녹슨 구리 골렘 동상	[밀랍칠한 녹쓴 구리 골렘 동상]	tensification	rule	mixed
@@ -561,7 +562,7 @@ gen_oxidized_copper_bulb	산화된 구리 전구	[산화된 구리 전구]		rule
 gen_mangrove_propagule	맹그로브나무 주아	[맹그로브나무 주아]		rule	mixed
 gen_deepslate_brick_wall	심층암 벽돌 담장	[심층암 벽똘 담장]	tensification	rule	mixed
 gen_rabbit_stew	토끼 스튜	[토끼 스튜]		rule	mixed
-gen_waxed_oxidized_copper_bars	밀랍칠한 산화된 구리 창살	[밀랍칠한 산화된 구리 창살]		rule	mixed
+gen_waxed_oxidized_copper_bars	밀랍칠한 산화된 구리 창살	[밀랍칠한 산화된 구리 창쌀]	tensification	lexical	mixed
 gen_cherry_slab	벚나무 반 블록	[번나무 반 블록]	nasalisation,neutralisation	rule	mixed
 gen_grindstone	숫돌	[숟똘]	tensification,neutralisation	rule	native
 gen_orange_banner	주황색 현수막	[주황새 켠수막]	h	rule	sino
@@ -662,7 +663,7 @@ gen_warped_trapdoor	뒤틀린 다락문	[뒤틀린 다랑문]	nasalisation	rule	
 gen_stony_peaks	돌 봉우리	[돌 봉우리]		rule	native
 gen_waxed_exposed_cut_copper_slab	밀랍칠한 약간 녹슨 깎인 구리 반 블록	[밀랍칠한 약깐 녹쓴 까낀 구리 반 블록]	liaison,tensification	rule	mixed
 gen_gilded_blackstone	황금이 박힌 흑암	[황그미 바킨 흐감]	liaison,h	rule	mixed
-gen_straw_bed	밀짚 침대	[밀집 침대]	neutralisation	rule	mixed
+gen_straw_bed	밀짚 침대	[밀찝 침대]	tensification,neutralisation	lexical	mixed
 gen_prismarine_wall	프리즈머린 담장	[프리즈머린 담장]		rule	mixed
 gen_pink_candle	분홍색 초	[분홍색 초]		rule	native
 gen_polished_blackstone_pressure_plate	윤나는 흑암 압력판	[윤나는 흐감 암녁판]	liaison,nasalisation	rule	mixed
@@ -689,7 +690,7 @@ gen_oxidized_copper_door	산화된 구리 문	[산화된 구리 문]		rule	mixed
 gen_mushroom_fields	버섯 들판	[버섣 들판]	neutralisation	rule	native
 gen_mooshroom	무시룸	[무시룸]		rule	mc_only
 gen_waxed_exposed_copper_trapdoor	밀랍칠한 약간 녹슨 구리 다락문	[밀랍칠한 약깐 녹쓴 구리 다랑문]	tensification,nasalisation	rule	mixed
-gen_tripwire_hook	철사 덫 갈고리	[철사 덛 갈고리]	neutralisation	rule	mixed
+gen_tripwire_hook	철사 덫 갈고리	[철싸 덛 갈고리]	tensification,neutralisation	rule	mixed
 gen_pale_oak_chest_boat	상자가 실린 창백한 참나무 보트	[상자가 실린 창배칸 참나무 보트]	h	rule	mixed
 gen_pink_wool	분홍색 양털	[분홍색 양털]		rule	mixed
 gen_polished_tuff_wall	윤나는 응회암 담장	[윤나는 응회암 담장]		rule	mixed
@@ -842,7 +843,7 @@ gen_dark_prismarine_stairs	짙은 프리즈머린 계단	[지튼 프리즈머린
 gen_tube_coral_fan	부채형 관 산호	[부채형 관 산호]		rule	mixed
 gen_lime_wool_slab	연두색 양털 반 블록	[연두색 양털 반 블록]		rule	mixed
 gen_dead_horn_coral	죽은 사방산호	[주근 사방산호]	liaison	rule	mixed
-gen_weathered_copper_bars	녹슨 구리 창살	[녹쓴 구리 창살]	tensification	rule	mixed
+gen_weathered_copper_bars	녹슨 구리 창살	[녹쓴 구리 창쌀]	tensification	lexical	mixed
 gen_bamboo_fence_gate	대나무 울타리 문	[대나무 울타리 문]		rule	mixed
 gen_cobbled_deepslate	심층암 조약돌	[심층암 조약똘]	tensification	rule	mixed
 gen_infested_chiseled_stone_bricks	벌레 먹은 조각된 석재 벽돌	[벌레 머근 조각뙨 석째 벽똘]	liaison,tensification	rule	mixed
@@ -968,7 +969,7 @@ gen_savanna	사바나	[사바나]		rule	loan
 gen_mangrove_hanging_sign	맹그로브나무 매다는 표지판	[맹그로브나무 매다는 표지판]		rule	mixed
 gen_mossy_cobblestone_stairs	이끼 낀 조약돌 계단	[이끼 낀 조약똘 계단]	tensification	rule	mixed
 gen_resin_brick	수지 벽돌	[수지 벽똘]	tensification	rule	mixed
-gen_exposed_copper_bars	약간 녹슨 구리 창살	[약깐 녹쓴 구리 창살]	tensification	rule	mixed
+gen_exposed_copper_bars	약간 녹슨 구리 창살	[약깐 녹쓴 구리 창쌀]	tensification	lexical	mixed
 gen_nether_brick_slab	네더 벽돌 반 블록	[네더 벽똘 반 블록]	tensification	rule	mixed
 gen_lime_glazed_terracotta	연두색 유광 테라코타	[연두색 유광 테라코타]		rule	mixed
 gen_waxed_weathered_chiseled_copper	밀랍칠한 녹슨 조각된 구리	[밀랍칠한 녹쓴 조각뙨 구리]	tensification	rule	native

@@ -183,6 +183,36 @@ class PronunciationTest {
 	}
 
 	@Test
+	void theLexicalTensificationWordsWorkAlone() {
+		assertEquals("창쌀", Pronunciation.of("창살").pron());
+		assertEquals("밀찝", Pronunciation.of("밀짚").pron());
+		assertEquals("숨껼", Pronunciation.of("숨결").pron());
+		// the plain rules alone do not tense them, so the data is what does it
+		assertEquals("창살", Pronunciation.of("창살", false, PronunciationExceptions.empty()).pron());
+		assertEquals("밀집", Pronunciation.of("밀짚", false, PronunciationExceptions.empty()).pron());
+		assertEquals("숨결", Pronunciation.of("숨결", false, PronunciationExceptions.empty()).pron());
+	}
+
+	@Test
+	void theLexicalTensificationWordsWorkInsideAPhrase() {
+		assertEquals("창쌀 문", Pronunciation.of("창살 문").pron());
+		assertEquals("밀찝 침대", Pronunciation.of("밀짚 침대").pron());
+		assertEquals("자근 숨껼", Pronunciation.of("작은 숨결").pron());
+	}
+
+	@Test
+	void theSinoRuleGoesByTheOriginOfEachWordNotOfThePhrase() throws IOException {
+		PronunciationExceptions data = parse("{\"sinoWords\": [\"철사\"]}");
+		// the phrase is not Sino-Korean as a whole, but 철사 is: only that word is tensed
+		assertEquals("철싸 덛 갈고리", Pronunciation.of("철사 덫 갈고리", false, data).pron());
+		assertEquals("철사 덛 갈고리", Pronunciation.of("철사 덫 갈고리", false, PronunciationExceptions.empty()).pron());
+		// a native word next to it is left alone, even though the listed word is in the same phrase
+		assertEquals("철싸 벌집", Pronunciation.of("철사 벌집", false, data).pron());
+		// a phrase that is Sino-Korean as a whole still tenses every word
+		assertEquals("발딸 철싸", Pronunciation.of("발달 철사", true, data).pron());
+	}
+
+	@Test
 	void anUnknownRuleIdOrABarlessJoinIsRejected() {
 		assertThrows(IllegalArgumentException.class,
 				() -> parse("{\"overrides\": {\"가\": {\"pron\": \"나\", \"rules\": [\"nope\"]}}}"));

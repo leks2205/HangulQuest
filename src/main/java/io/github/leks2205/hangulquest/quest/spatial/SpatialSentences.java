@@ -138,8 +138,30 @@ public final class SpatialSentences {
 
 	/** The Korean name of a block anchor; "그것" when the namer does not know it. */
 	public static String anchorNoun(String spec, SentenceBuilder.Namer namer) {
-		String name = namer.block(BlockSpec.representative(spec));
+		String name = blockName(spec, namer);
 		return name == null || name.isBlank() ? "그것" : name;
+	}
+
+	/**
+	 * The name of a block or a tag, or null. A tag is said with the taught word when that names it, else
+	 * with its everyday word (꽃, 통나무: {@link BlockSpec#tagWord}), so clue and finale agree.
+	 */
+	public static String blockName(String spec, SentenceBuilder.Namer namer) {
+		if (spec == null) {
+			return null;
+		}
+		if (BlockSpec.isTag(spec)) {
+			String taught = namer.block(spec);
+			if (taught != null && !taught.isBlank()) {
+				return taught;
+			}
+			String general = BlockSpec.tagWord(spec);
+			if (general != null) {
+				return general;
+			}
+		}
+		String plain = BlockSpec.representative(spec);
+		return plain == null ? null : namer.block(plain);
 	}
 
 	// ----------------------------------------------------------------- build a pattern

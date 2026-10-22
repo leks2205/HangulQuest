@@ -136,7 +136,7 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 			ids.addAll(actionIds.subList(Math.min(1, actionIds.size()), actionIds.size()));
 		}
 		if (goal.during() != null) {
-			ids.addAll(ConditionTypes.of(goal.during()).grammarIds(goal.during()));
+			ids.addAll(ConditionTypes.of(goal.during()).grammarIds(goal.during(), c.level()));
 		}
 		return ids;
 	}
@@ -207,6 +207,6 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 
 	/** "밤에 ": the window condition spoken in front, or "". */
 	private static String duringPhrase(Goal.Avoid goal, SentenceContext c) {
-		return goal.during() == null ? "" : ConditionTypes.of(goal.during()).prefix(goal.during(), c.namer());
+		return goal.during() == null ? "" : ConditionTypes.of(goal.during()).prefix(goal.during(), c.namer(), c.level());
 	}
 }

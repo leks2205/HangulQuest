@@ -79,8 +79,10 @@ The template is `_template.json`.
 
 `conditions` always end up in the Korean text: `TIME` (밤에/낮에/새벽에/저녁에), `WEATHER`, `Y_RANGE`
 („땅 아래에서", „120블록보다 높은 곳에서"), `IN_BIOME` („해변에서"), `IN_DIMENSION` („지옥에서",
-„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"). A step with conditions uses the generated
-sentence instead of its authored clue, so no condition can be missing from the text. `REACH_HEIGHT`
+„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"), `SKY` („밖에서" on levels 1 and 2, „하늘이 보이는
+곳에서" from level 3). A step without an authored clue uses the generated sentence, which speaks every
+condition. An authored clue wins also on a step with conditions: it is shown as written, and a condition
+phrase it does not contain is put in front of it, so no condition can be missing from the text. `REACH_HEIGHT`
 below the ground uses „내려가다" (descend) instead of climbing.
 
 ## Anatomy of a file
@@ -143,7 +145,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 
 | Type | Fields | Checked by |
 |---|---|---|
-| `BREAK_BLOCK` | `block`, `count`, optional `verb` (`MINE`/`CHOP`/`HARVEST`) | the player breaking that block |
+| `BREAK_BLOCK` | `block`, `count`, optional `verb` (any verb `verbs.json` uses for breaking: `MINE`, `DIG`, `CHOP`, `SNAP`, `HARVEST`, `PICK`, `PULL`, `SHATTER`, `BREAK`; the table picks one by default); `block` may also be a tag (`#minecraft:flowers`) | the player breaking that block |
 | `PLACE_BLOCK` | `block`, `count` | block change after a right-click |
 | `ACQUIRE_ITEM` | `item`, `count` | inventory gain since the step started |
 | `CONSUME_ITEM` | `item`, `count` | inventory drop after use |
@@ -172,6 +174,11 @@ is a right outcome for the location noun (`L1.loc_yeop_e` for `NEXT_TO`, `L2.loc
 and a right block in the wrong relation is a wrong one (at most three per step). `BETWEEN` has one anchor
 (`두 횃불 사이에`) or two different ones: `"anchor": "minecraft:chest", "anchor2": "minecraft:furnace"` says
 `상자와 화로 사이에` (와/과 by the final sound; the pair is one task whichever way round it is written).
+Fluids are anchors too (`minecraft:water` is 물, `minecraft:lava` is 용암: `물 옆에 횃불을 놓아요`). A tag
+(`#minecraft:doors`, `logs`, `planks`, `wool`, `fences`, `beds`, `torches`, `chests`, `flowers`, `saplings`,
+`leaves`) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 묘목, 나뭇잎): the
+curated concept whose items and covers are the largest set inside the tag. The finale line uses the same word
+as the clue, and a word the step teaches (나무 for the logs) wins in both.
 
 **The block of an earlier step.** `"anchor": "@s2"` points at the block that finished step `s2` of the same
 trail, which must be a `PLACE_BLOCK`, `PLACE_REL` or `PLACE_ON_PATTERN` step before this one. The sentence says
@@ -202,7 +209,8 @@ while every condition holds.
 A step may teach the word for any role of its goal or conditions (the object, an anchor, the recipient, the
 container, the held item, a material). When the first taught word has several referents (물고기 = cod, salmon,
 tropical fish) and covers an id of the goal, any of them completes the step; a word with one referent never
-widens the goal.
+widens the goal. The covers of a concept (`concepts.json`) count as much as its items: a step that teaches 묘목
+accepts any sapling as its goal, not only the oak one.
 
 ## Rules
 

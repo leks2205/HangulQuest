@@ -101,3 +101,12 @@ hint	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"BETWEEN","anc
 finale	2	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"BETWEEN","anchor":"minecraft:chest","count":1,"anchor2":"minecraft:furnace"}	상자와 화로 사이에 횃불을 놓으세요.	L2.loc_sai_e;L2.hago_wa_gwa;L1.obj_eul;L2.seyo
 ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"BETWEEN","anchor":"minecraft:chest","count":1,"anchor2":"minecraft:furnace"}	상자와 화로 사이에 횃불을 놓았어요.	L2.loc_sai_e;L2.hago_wa_gwa;L3.past;L1.obj_eul
 ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"BETWEEN","anchor":"#minecraft:doors","count":2,"anchor2":"minecraft:chest"}	문과 상자 사이에 횃불을 두 개 놓았어요.	L2.loc_sai_e;L2.hago_wa_gwa;L1.num_native;L1.counter_gae;L3.past;L1.obj_eul
+clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"minecraft:water","count":1}	물 옆에 횃불을 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"minecraft:water","count":1}	물 옆에 횃불을 놓았어요.	L1.loc_yeop_e;L3.past;L1.obj_eul
+clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"UNDER","anchor":"minecraft:lava","count":1}	용암 아래에 횃불을 놓아요.	L1.loc_arae_e;L1.obj_eul;L1.eoyo
+clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:flowers","count":1}	꽃 옆에 횃불을 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:flowers","count":1}	꽃 옆에 횃불을 놓았어요.	L1.loc_yeop_e;L3.past;L1.obj_eul
+clue	3	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:logs","count":1}	통나무 옆에 횃불을 놓으세요.	L1.loc_yeop_e;L1.obj_eul;L2.seyo
+ceremony	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:logs","count":1}	통나무 옆에 횃불을 놓았어요.	L1.loc_yeop_e;L3.past;L1.obj_eul
+clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"ON_TOP_OF","anchor":"#minecraft:saplings","count":1}	묘목 위에 횃불을 놓아요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+clue	1	0	{"type":"PLACE_REL","block":"minecraft:torch","relation":"NEXT_TO","anchor":"#minecraft:leaves","count":1}	나뭇잎 옆에 횃불을 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo

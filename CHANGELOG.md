@@ -12,6 +12,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Fixed
 
+- **Generator limits from the second content batch.** An authored clue now wins on a step with conditions (the
+  condition phrases it lacks are put in front); a word that covers a block (묘목: any sapling) is accepted by the
+  validator; `BREAK_BLOCK` takes any breaking verb of `verbs.json` (파요, 꺾어요, ...) and a block tag
+  (`#minecraft:flowers`); water and lava are anchors (물 옆에), and a tag anchor is spoken with its everyday word
+  (꽃, 통나무, 묘목, 나뭇잎) in the clue and in the finale; snow blocks have their own word (눈 블록); an open sky
+  is "밖에서" on levels 1 and 2; the note block is struck (쳐요) and the bell rung; 창살, 밀짚 and 숨결 are tensed
+  and 철사 tensifies inside a phrase. A content metric that meets its roadmap target no longer fails the ratchet.
 - **Generated Korean names things by what they are.** A gift is named by its own name (a cat shown by a cod no
   longer gets "고양이에게 고양이를"), an entity anchor is the animal (`chicken` is 닭, not the raw meat; `PLAYER_REL`
   takes an optional `kind`), a log anchor is 나무 when the step teaches 나무, relation sentences drop the material
