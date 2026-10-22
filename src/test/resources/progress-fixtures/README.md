@@ -33,3 +33,8 @@ Rules:
   `v4-autotrack.json` through the real `ProgressStore`, saves it and lists the result in `ProgressCompatibilityTest`
   (`WriteFixtureTest` does the work when `HANGULQUEST_WRITE_FIXTURE` is set). While the schema stays at v4 the file
   equals `v4-autotrack.json`; when the schema changes, a new sample and a migration test come first (rule above).
+- `v4-hvpt.json` is `v4-autotrack.json` plus the sound forge's record, `hvpt`: `startedAt`, `sessions` (finished runs by
+  start time: `t`, `phase` PRE/TRAIN/POST, `trials`, `correct`, `byContrast`) and `contrasts` (lifetime training tally
+  per contrast). It also carries fields no build knows (`packNote`, `heardVia`, a `note` in a tally). `hvpt` is optional
+  and was added without a version bump: a file without it reads as "never played", and a build that does not know it
+  keeps it. `HvptFixtureTest` covers it.

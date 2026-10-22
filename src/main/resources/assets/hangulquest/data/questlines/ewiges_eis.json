@@ -9,7 +9,7 @@
   "gen_frozen_peaks",
   "east",
   "gen_powder_snow",
-  "adv_item_target",
+  "zombie",
   "snowball",
   "gen_polar_bear"
  ],
@@ -66,13 +66,13 @@
   {
    "id": "s4",
    "teach": [
-    "adv_item_target",
+    "zombie",
     "snowball"
    ],
    "goal": {
     "type": "SHOOT",
     "weapon": "minecraft:snowball",
-    "block": "minecraft:target",
+    "entity": "minecraft:zombie",
     "count": 1
    },
    "conditions": [
@@ -109,7 +109,7 @@
    "gen_frozen_peaks",
    "east",
    "gen_powder_snow",
-   "adv_item_target"
+   "zombie"
   ]
  },
  "koreanLevel": 4,

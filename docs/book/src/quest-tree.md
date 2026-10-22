@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1743** |
+| Steps (incl. finales) | **1745** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,56 +21,56 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 208 | collect an item |
-| `PLACE_REL` | 205 |  |
-| `PLACE_BLOCK` | 180 | place a block |
-| `CRAFT` | 157 |  |
-| `PLACE_ON_PATTERN` | 106 |  |
-| `BUILD_PATTERN` | 104 |  |
-| `SEQUENCE` | 76 |  |
-| `LOOK_AT_ENTITY` | 70 | look at a mob |
+| `PLACE_REL` | 209 |  |
+| `ACQUIRE_ITEM` | 189 | collect an item |
+| `CRAFT` | 169 |  |
+| `PLACE_BLOCK` | 156 | place a block |
+| `PLACE_ON_PATTERN` | 108 |  |
+| `BUILD_PATTERN` | 106 |  |
+| `SEQUENCE` | 82 |  |
+| `LOOK_AT_ENTITY` | 71 | look at a mob |
 | `GIVE` | 64 |  |
-| `BREAK_BLOCK` | 63 | break a block |
+| `BREAK_BLOCK` | 61 | break a block |
 | `REACH_BIOME` | 57 | reach a biome |
-| `LOOK_AT_BLOCK` | 52 | look at a block |
-| `USE_BLOCK` | 50 | use a block |
+| `LOOK_AT_BLOCK` | 57 | look at a block |
+| `USE_BLOCK` | 52 | use a block |
 | `AVOID` | 43 |  |
 | `CONSUME_ITEM` | 41 | eat or drink an item |
 | `HOLD_WHILE` | 35 |  |
 | `PUT_IN` | 34 |  |
 | `DEFEAT_ENTITY` | 28 | defeat a mob |
-| `REACH_HEIGHT` | 26 | reach an altitude |
-| `SMELT` | 24 |  |
+| `REACH_HEIGHT` | 28 | reach an altitude |
+| `SMELT` | 25 |  |
 | `WAIT` | 22 |  |
 | `TRADE` | 20 |  |
 | `INTERACT_ENTITY` | 17 | interact with a mob |
 | `BREED` | 10 |  |
-| `MOUNT` | 8 |  |
-| `SWIM` | 8 |  |
+| `WALK` | 10 |  |
+| `MOUNT` | 9 |  |
+| `SWIM` | 9 |  |
 | `TAKE_OUT` | 7 |  |
 | `EQUIP` | 5 |  |
-| `WALK` | 5 |  |
+| `FALL` | 5 |  |
+| `SHOOT` | 5 |  |
 | `LIE_DOWN` | 4 |  |
-| `FALL` | 4 |  |
 | `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
-| `SHOOT` | 3 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 267 | a time of day |
-| `HOLDING` | 88 |  |
-| `IN_BIOME` | 65 | a biome |
+| `TIME` | 282 | a time of day |
+| `HOLDING` | 98 |  |
+| `IN_BIOME` | 69 | a biome |
 | `PLAYER_REL` | 49 |  |
+| `WEATHER` | 45 | the weather |
 | `IN_DIMENSION` | 40 | a dimension |
 | `Y_RANGE` | 35 | an altitude band |
-| `WEATHER` | 33 | the weather |
 | `SKY` | 26 |  |
 | `NEAR_BLOCK` | 25 | a block nearby |
 | `NEAR_ENTITY` | 20 | a mob nearby |
 | `IN_WATER` | 12 |  |
-| `FACING` | 1 |  |
+| `FACING` | 5 |  |
 
 ## Levels
 
@@ -461,15 +461,15 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_nether_all_potions` | 더 강한 물약 | Ein stärkerer Trank | 3 | `adv_nether_brew_potion` |
 | `adv_nether_create_beacon` | 철 블록과 영혼 랜턴 | Eisenblöcke und Seelenlaterne | 4 | `adv_nether_summon_wither` |
 | `reisekrone` | 여행의 왕관 | Die Reisekrone | 4 | `koenigspfad`, `unendlichereise`, `wolkenpfad`, `kristallschmiede`, `hafenwacht` |
-| `w7_01` | 불의 문 | Das Feuertor | 3 | `unendlichereise` |
-| `w7_03` | 모루의 길 | Der Ambosspfad | 3 | `ewiges_eis` |
+| `w7_01` | 불의 문 | Das Feuertor | 4 | `unendlichereise` |
+| `w7_03` | 모루의 길 | Der Ambosspfad | 4 | `ewiges_eis` |
 | `w7_06` | 마그마의 길 | Der Magmaweg | 4 | `pyramidenpfad` |
 | `w7_08` | 붉은 벽돌 | Rote Ziegel | 4 | `bibliothekpfad` |
-| `w7_09` | 가스트의 눈물 | Ghasttränen | 4 | `wolkenpfad` |
+| `w7_09` | 천둥의 노래 | Das Lied des Donners | 4 | `wolkenpfad` |
 | `w8_01` | 흑요석 문 | Das Obsidiantor | 4 | `unendlichereise` |
 | `w8_02` | 엔더의 눈 | Das Auge des Enders | 4 | `pyramidenpfad` |
-| `w8_03` | 엔더 진주의 길 | Der Pfad der Enderperle | 4 | `bibliothekpfad` |
-| `w8_06` | 공허의 끝 | Am Rand der Leere | 4 | `wolkenpfad` |
+| `w8_03` | 양털 그림 | Ein Bild aus Wolle | 4 | `bibliothekpfad` |
+| `w8_06` | 하늘의 끝 | Das Ende des Himmels | 4 | `wolkenpfad` |
 
 ### Level 12 · TOPIK 4 · 13 trails
 
@@ -480,12 +480,12 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `handelsflotte` | 무역선의 길 | Die Handelsflotte | 4 | `leuchtturmpfad`, `tempelwaechter` |
 | `adv_nether_all_effects` | 어쩌다 이 지경까지 | Wie haben wir das geschafft? | 4 | `adv_nether_all_potions` |
 | `adv_nether_create_full_beacon` | 신호자 | Leuchtturmwärter | 4 | `adv_nether_create_beacon` |
-| `w7_02` | 불꽃의 검 | Die Flammenklinge | 4 | `drachenhort` |
+| `w7_02` | 금빛 과녁 | Das goldene Ziel | 4 | `drachenhort` |
 | `w7_04` | 화로의 온기 | Die Wärme des Ofens | 4 | `reisekrone` |
 | `w7_05` | 영혼의 등불 | Das Seelenlicht | 4 | `leuchtturmpfad` |
-| `w7_07` | 위더의 뼈 | Die Knochen des Withers | 4 | `tempelwaechter` |
-| `w8_04` | 용의 섬 | Die Dracheninsel | 4 | `reisekrone` |
-| `w8_05` | 드래곤 알 | Das Drachenei | 4 | `drachenhort` |
+| `w7_07` | 동쪽의 장미 | Rosen im Osten | 4 | `tempelwaechter` |
+| `w8_04` | 작은 섬 | Die kleine Insel | 4 | `reisekrone` |
+| `w8_05` | 알의 노래 | Das Lied vom Ei | 4 | `drachenhort` |
 | `w8_07` | 엔더맨의 속삭임 | Das Flüstern der Endermen | 4 | `tempelwaechter` |
 | `w8_08` | 별의 문 | Das Sternentor | 4 | `leuchtturmpfad` |
 

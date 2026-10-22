@@ -35,6 +35,11 @@ class VoicePackFormatTest {
 			assertNotNull(stone);
 			assertEquals(2, stone.getSounds().size());
 			assertEquals("hangulquest:ko/sohee/word.stone", stone.getSounds().get(0).getLocation().toString());
+			// a sound forge stimulus: one voice per event, named like HvptSet.event
+			SoundEventRegistration forge = events.get(io.github.leks2205.hangulquest.learn.hvpt.HvptSet.event("dt_w1", "t", "sohee"));
+			assertNotNull(forge);
+			assertEquals(1, forge.getSounds().size());
+			assertEquals("hangulquest:ko/sohee/hvpt.dt_w1.t", forge.getSounds().get(0).getLocation().toString());
 		}
 	}
 }

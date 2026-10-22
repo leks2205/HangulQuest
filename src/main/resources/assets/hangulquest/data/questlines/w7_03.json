@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1073,
  "concepts": [
-  "gen_taiga_village_map",
-  "gen_pink_concrete_powder",
-  "gen_large_fern"
+  "iron_ingot",
+  "iron_block",
+  "adv2_item_iron_helmet",
+  "anvil"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -21,48 +22,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_taiga_village_map"
+    "iron_ingot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:taiga_village_map",
-    "count": 3
-   }
+    "type": "SMELT",
+    "output": "minecraft:iron_ingot",
+    "count": 3,
+    "input": "minecraft:raw_iron"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pink_concrete_powder"
+    "iron_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_concrete_powder",
+    "type": "CRAFT",
+    "item": "minecraft:iron_block",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_ingot"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv2_item_iron_helmet"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:iron_helmet",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_large_fern"
+    "anvil"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:large_fern",
+    "type": "CRAFT",
+    "item": "minecraft:anvil",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "큰 고사리를 구했어요."
+  "textKo": "모루를 만들었어요. 모루는 작지만 무거워요."
  },
  "reward": {
   "badge": "w7_03",
   "words": [
-   "iron",
-   "anvil",
-   "adv_item_netherite_helmet"
+   "iron_ingot",
+   "iron_block",
+   "adv2_item_iron_helmet",
+   "anvil"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.aseo",
+  "L4.myeon",
+  "L2.go_state"
+ ]
 }

@@ -6,7 +6,28 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.7)
+### Added
+
+- **Sound forge (소리 대장간)**, a listening mini-game in the journal's Study tab for the sounds that sound alike to an
+  English or German ear: ㄱ ㄲ ㅋ, ㄷ ㄸ ㅌ, ㅂ ㅃ ㅍ, ㅈ ㅉ ㅊ, ㅅ ㅆ and ㅓ ㅗ (never ㅐ ㅔ). A voice says a syllable or a word, you
+  pick which of two or three it was (keys 1 2 3, R to hear it again, or click), and you hear both sounds again with the
+  answer. A run is 60 trials in a random voice each time. A 30-trial listening test before and after (8 to 10 runs over at
+  least 3 weeks) uses voices that never appear in training, and the start page shows before, lately and after per contrast.
+  Answers go to the review log as the new mode `HVPT` (kind `HVPT`; it never touches a schedule) and the progress file gets
+  a small `hvpt` record (finished runs and a tally per contrast) without a schema bump. The sounds come from the optional
+  Hangul Quest Voices pack (synthetic for now, marked `source: tts` in its manifest); without it the screen says so.
+  `tools/audio/hvpt_texts.py` writes the texts, `build_pack.py --hvpt` adds them to the pack. `learn/audio/Pitch` (YIN F0)
+  is the base for a later pitch view.
+
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.8)
+
+**New in rc.8: the grammar for levels 4 to 6.**
+- **Level 4:** conditions become "if/when" clauses (밤이 되면 횃불을 놓아야 해요), steps join with -아/어서
+  (돌을 캐서 화로를 만들어야 해요), and purpose trips use -(으)러 가요 (나무를 베러 숲으로 가야 해요).
+- **Level 5:** colour adjectives (빨간 침대), "while" clauses (해가 지는 동안 기다려야 해요) and "even if"
+  (밤이 되어도 자지 마세요).
+- **Level 6:** "the higher, the colder" (높이 올라갈수록 추워져요), plus forms for formal and casual speech.
+- A new check keeps each construction at its own level and in the right kind of line.
 
 **New in rc.7: new kinds of quests, ready for level 4.**
 - **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg
@@ -25,6 +46,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   are also three watchtowers.
 - Finale lines were tightened after review: no plans, and no claims the quest doesn't check.
 
+- **Generator wave 9** (what the mountain, ice and night and the animal batches found). A fall is a goal (`FALL`: a jump
+  onto a soft block, or a fall that costs no health; 높은 곳에서 가루눈 위로 뛰어내리세요). The tool in the hand decides
+  the verb on a creature (가위로 양털을 깎아요, 끈으로 소를 묶어요, 솔로 아르마딜로를 닦아요, 가위로 늑대의 갑옷을 벗겨요), armour is
+  put on a creature (늑대에게 갑옷을 입히세요) and dye colours a sheep (파란색 염료로 양을 염색하세요). A name that ends in its
+  own counter is counted with 개 (꿀이 든 병을 네 개), a row has the size that was built, conditions are spoken in a fixed
+  order (time, weather, place, what is held), seconds of a look are spoken as 삼 초, a sequence says a shared object once
+  and teaches its word in every part, a colour stands in front of the dye or the wool, and the material of a fence ring
+  or a plank pillar is the kind word (울타리, 판자). Goals and conditions refuse unknown or missing fields. Rabbits,
+  frogs, goats, turtles, bees, mules, parrots and axolotls can anchor a placement.
 **New in rc.5:**
 - **Explorers:** a spyglass on a mountain, music in the meadow, leather boots on powder snow, a cloud city, an
   observatory, the far north.

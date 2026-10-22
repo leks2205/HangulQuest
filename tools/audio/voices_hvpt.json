@@ -1,0 +1,17 @@
+{
+  "note": "Held-out voices for the sound forge (HVPT) pre- and post-test. They are rendered only for hvpt.* stimuli and never appear in the word and sentence events of the voices pack.",
+  "voices": {
+    "female3": {
+      "kind": "clone",
+      "hvpt_only": true,
+      "seed": 51,
+      "design": "A native Korean woman in her forties with a standard Seoul accent. Calm, clear, lower pitch, slightly slower pace, precise pronunciation like a language teacher."
+    },
+    "male3": {
+      "kind": "clone",
+      "hvpt_only": true,
+      "seed": 63,
+      "design": "A native Korean man in his fifties with a standard Seoul accent. Deep, resonant, steady voice, deliberate pace and clear pronunciation."
+    }
+  }
+}

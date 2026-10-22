@@ -4,7 +4,7 @@ Brief: `content/briefs/BATCH-024.md` on top of `L456-PLAN.md`, BATCH-016 to BATC
 
 | id | project |
 |---|---|
-| ewiges_eis | Frozen peaks, thirty blocks east, a fall onto powder snow in clear weather, a snowball on a target by day, a polar bear in the rain. |
+| ewiges_eis | Frozen peaks, thirty blocks east, a fall onto powder snow in clear weather, a snowball on a zombie by day, a polar bear in the rain. |
 | pyramidenpfad | The desert, chiseled sandstone by day, sandstone mined then cut sandstone crafted (-아/어서), a pyramid of cut sandstone. |
 | bibliothekpfad | The dark forest by day, a wall of bookshelves in the rain, an enchanting table near bookshelves at night, an enchanted book. |
 | leuchtturmpfad | A pillar of white concrete, a lantern on it at night, thirty blocks north at dusk, wait for night by the lantern in clear weather. |
@@ -16,7 +16,7 @@ Brief: `content/briefs/BATCH-024.md` on top of `L456-PLAN.md`, BATCH-016 to BATC
 | adv_nether_create_full_beacon | Ten iron blocks by day, a pyramid of iron blocks, a beacon placed on an iron block at night, the beacon opened outside. |
 | adv_story_enter_the_end | Twelve eyes of ender at night, a silverfish and stone bricks underground, the End. |
 | wolkenpfad | Above height 150 in clear weather, a fall onto a slime block, a bow on a target from afar by day, stairs of quartz blocks. |
-| unendlichereise | Thirty blocks south by day, flowers picked in a meadow (-(으)러 가다), swimming in the rain, thirty-five blocks west at dusk. |
+| unendlichereise | Thirty blocks south by day, flowers picked in a meadow (-(으)러 가다), swimming in the ocean in the rain, thirty-five blocks west at dusk. |
 | reisekrone | Sunflowers picked in sunflower plains (-(으)러 가다), turtle scutes, a turtle shell crafted by day and put on. |
 | kronenlicht | A bow in hand into the End, no eye contact with endermen, a bow shot at the dragon, the dragon defeated. The dragon fight is the level's last step. |
 

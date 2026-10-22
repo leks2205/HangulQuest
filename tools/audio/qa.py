@@ -124,6 +124,9 @@ def main():
     ap.add_argument("--threshold", type=float, default=0.15)
     ap.add_argument("--model", default="large-v3")
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--recheck", action="store_true",
+                    help="only check the clips on the current blocklist again (after they were rendered anew); "
+                         "the rest keep their earlier verdict")
     args = ap.parse_args()
 
     out = Path(args.out)
@@ -144,10 +147,18 @@ def main():
                        download_root=str(MODELS / "whisper"))
 
     report, block = [], []
+    again = None
+    if args.recheck:
+        old = json.loads((out / "audio-blocklist.json").read_text(encoding="utf-8"))["blocked"]
+        again = {(b["voice"], b["id"]) for b in old}
+        kept = json.loads((out / "qa-report.json").read_text(encoding="utf-8"))["clips"]
+        report = [c for c in kept if (c["voice"], c["id"]) not in again]
     for voice, vdata in manifest["voices"].items():
         for cid, entry in vdata["entries"].items():
             ogg = out / voice / f"{entry['hash']}.ogg"
             if not ogg.exists() or (wanted is not None and wanted.get(cid) != entry.get("text_sha1")):
+                continue
+            if again is not None and (voice, cid) not in again:
                 continue
             size = ogg.stat().st_size
             old = earlier.get((voice, cid, entry["hash"]))
@@ -157,7 +168,14 @@ def main():
                 if old.get("flag"):
                     block.append({"voice": voice, "id": cid, "hash": entry["hash"], "reason": old["flag"]})
                 continue
-            audio = decode(ogg)
+            try:
+                audio = decode(ogg)
+            except subprocess.CalledProcessError:
+                # an empty or truncated file (the model said nothing and the trim took it all): never ship it
+                block.append({"voice": voice, "id": cid, "hash": entry["hash"], "reason": "undecodable clip"})
+                report.append({"voice": voice, "id": cid, "hash": entry["hash"], "ko": entry["ko"], "asr": "",
+                               "cer": 1.0, "seconds": 0.0, "flag": "undecodable clip", "bytes": size})
+                continue
             seconds = len(audio) / 16000 - 1.0
             segments, _ = asr.transcribe(audio, language="ko", beam_size=5, temperature=0.0,
                                          condition_on_previous_text=False, vad_filter=False)

@@ -5,6 +5,8 @@ import io.github.leks2205.hangulquest.HangulQuestClient;
 import io.github.leks2205.hangulquest.ui.HudWindows;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.WelcomeScreen;
+import io.github.leks2205.hangulquest.ui.hvpt.HvptModel;
+import io.github.leks2205.hangulquest.ui.hvpt.HvptScreen;
 import io.github.leks2205.hangulquest.ui.journal.JournalHost;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
@@ -25,6 +27,7 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 	private static final String WORD = "concept:stone";
 	/** The journal's last tab. */
 	private static final int SETTINGS_TAB = 7;
+	private static final int STUDY_TAB = 2;
 
 	@Override
 	public void runTest(ClientGameTestContext context) {
@@ -132,6 +135,8 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		context.takeScreenshot(shot("02g-settings", shots));
 		closeScreen(context);
 
+		forgeScreens(context, shots);
+
 		// Night is a context the situational slot reacts to once it has held for a while.
 		world.getServer().runCommand("time set midnight");
 		for (int waited = 0; waited < 60 && context.computeOnClient(mc -> HangulQuestClient.get().quests().situationalId()) == null; waited++) {
@@ -165,6 +170,86 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 			check(context.computeOnClient(mc -> HangulQuestClient.get().config().welcomeShown) == 1,
 					"the welcome screen must not count a second showing");
 			context.takeScreenshot(shot("04-rejoined", shots));
+		}
+	}
+
+	/**
+	 * The sound forge: reached from the Study tab, it explains itself while there is no voices pack (the test
+	 * client has none). With a pretend pack that has every sound it shows the start page, a trial and its feedback.
+	 */
+	private static void forgeScreens(ClientGameTestContext context, Path shots) {
+		openJournal(context, STUDY_TAB);
+		context.takeScreenshot(shot("02i-study", shots));
+		closeScreen(context);
+
+		context.runOnClient(mc -> mc.setScreenAndShow(new HvptScreen(null)));
+		context.waitForScreen(HvptScreen.class);
+		context.waitTicks(3);
+		check(context.computeOnClient(mc -> ((HvptScreen) mc.gui.screen()).model().stage() == HvptModel.Stage.BLOCKED),
+				"without the voices pack the sound forge should only explain");
+		context.takeScreenshot(shot("02j-forge-no-pack", shots));
+		context.runOnClient(mc -> mc.setScreenAndShow(null));
+		context.waitFor(mc -> mc.gui.screen() == null);
+
+		HvptModel[] model = new HvptModel[1];
+		context.runOnClient(mc -> {
+			var progress = new io.github.leks2205.hangulquest.learn.ProgressData();
+			var recorder = new io.github.leks2205.hangulquest.learn.hvpt.HvptRecorder(progress,
+					io.github.leks2205.hangulquest.learn.ReviewLog.disabled(), () -> { });
+			model[0] = new HvptModel(io.github.leks2205.hangulquest.learn.hvpt.HvptSet.shared(), new PretendPack(), recorder,
+					() -> progress.hvpt, System::currentTimeMillis, new java.util.Random(3), java.time.ZoneId.systemDefault());
+			mc.setScreenAndShow(new HvptScreen(null, model[0]));
+		});
+		context.waitForScreen(HvptScreen.class);
+		context.waitTicks(3);
+		context.takeScreenshot(shot("02k-forge-start", shots));
+
+		context.runOnClient(mc -> model[0].start(io.github.leks2205.hangulquest.learn.hvpt.HvptPhase.PRE));
+		context.waitTicks(5);
+		context.takeScreenshot(shot("02l-forge-trial", shots));
+		context.getInput().pressKey(InputConstants.KEY_2);
+		context.waitTicks(3);
+		check(context.computeOnClient(mc -> model[0].session().answered() == 1),
+				"the answer key should answer the trial");
+		context.takeScreenshot(shot("02m-forge-feedback", shots));
+		context.getInput().pressKey(InputConstants.KEY_RETURN);
+		context.waitTicks(3);
+		check(context.computeOnClient(mc -> model[0].session().index() == 1), "Enter should go on to the next trial");
+		context.runOnClient(mc -> {
+			while (model[0].stage() == HvptModel.Stage.RUN) {
+				model[0].choose(0);
+				model[0].advance();
+			}
+		});
+		context.waitTicks(3);
+		context.takeScreenshot(shot("02n-forge-result", shots));
+		closeScreen(context);
+	}
+
+	/** Says yes to every sound and plays none, so the screens can be shown without the optional pack. */
+	private static final class PretendPack implements HvptModel.Audio {
+		@Override
+		public boolean settingOn() {
+			return true;
+		}
+
+		@Override
+		public boolean packLoaded() {
+			return true;
+		}
+
+		@Override
+		public boolean forgeLoaded() {
+			return true;
+		}
+
+		@Override
+		public boolean has(String event) {
+			return true;
+		}
+
+		@Override
+		public void play(String event) {
 		}
 	}
 

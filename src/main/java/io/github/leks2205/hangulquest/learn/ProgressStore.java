@@ -190,6 +190,9 @@ public final class ProgressStore {
 		loaded.quests.badges = loaded.quests.badges == null ? new ArrayList<>() : loaded.quests.badges;
 		loaded.quests.history = loaded.quests.history == null ? new ArrayList<>() : loaded.quests.history;
 		loaded.vocab = loaded.vocab == null ? new ProgressData.VocabData() : loaded.vocab;
+		loaded.hvpt = loaded.hvpt == null ? new ProgressData.HvptData() : loaded.hvpt;
+		loaded.hvpt.sessions = loaded.hvpt.sessions == null ? new java.util.LinkedHashMap<>() : loaded.hvpt.sessions;
+		loaded.hvpt.contrasts = loaded.hvpt.contrasts == null ? new java.util.LinkedHashMap<>() : loaded.hvpt.contrasts;
 		loaded.totals = loaded.totals == null ? new ProgressData.Totals() : loaded.totals;
 		loaded.meta = loaded.meta == null ? new ProgressData.Meta() : loaded.meta;
 		if (!readOnly && loaded.version == ProgressData.CURRENT_VERSION) {

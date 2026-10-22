@@ -19,12 +19,12 @@
    "LOOK_AT_BLOCK": 1,
    "SEQUENCE": 4,
    "BUILD_PATTERN": 5,
-   "USE_BLOCK": 3,
+   "USE_BLOCK": 5,
    "ACQUIRE_ITEM": 5,
    "PLACE_ON_PATTERN": 1,
    "WAIT": 2,
-   "BREAK_BLOCK": 3,
    "CRAFT": 5,
+   "BREAK_BLOCK": 1,
    "MOUNT": 1,
    "TRADE": 1,
    "PUT_IN": 1,
@@ -134,10 +134,10 @@
     {
      "id": "s4",
      "goal": "SHOOT",
-     "signature": "SHOOT:minecraft:snowball:minecraft:target:HIT|TIME:DAY",
+     "signature": "SHOOT:minecraft:snowball:minecraft:zombie:HIT|TIME:DAY",
      "formDependent": true,
-     "clueKo": "낮이 되면 눈덩이로 과녁을 맞혀야 해요.",
-     "hintKo": "낮에 눈덩이로 과녁을 맞혀요."
+     "clueKo": "낮이 되면 눈덩이로 좀비를 맞혀야 해요.",
+     "hintKo": "낮에 눈덩이로 좀비를 맞혀요."
     },
     {
      "id": "finale",
@@ -340,11 +340,11 @@
     },
     {
      "id": "s3",
-     "goal": "BREAK_BLOCK",
-     "signature": "BREAK_BLOCK:minecraft:purpur_block:BREAK",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:brewing_stand:OPEN",
      "formDependent": false,
-     "clueKo": "퍼퍼 블록을 여섯 개 부숴야 해요.",
-     "hintKo": "퍼퍼 블록을 부숴요."
+     "clueKo": "양조기를 열어야 해요.",
+     "hintKo": "양조기를 열어요."
     },
     {
      "id": "s4",
@@ -661,11 +661,11 @@
     },
     {
      "id": "s3",
-     "goal": "BREAK_BLOCK",
-     "signature": "BREAK_BLOCK:minecraft:stone_bricks:BREAK|Y_RANGE:-64..50",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:lectern:OPERATE|Y_RANGE:-64..50",
      "formDependent": false,
-     "clueKo": "땅속에서 석재 벽돌을 네 개 부숴야 해요.",
-     "hintKo": "땅속에서 석재 벽돌을 부숴요."
+     "clueKo": "땅속에서 독서대를 사용해야 해요.",
+     "hintKo": "땅속에서 독서대를 사용해요."
     },
     {
      "id": "finale",
@@ -768,10 +768,10 @@
     {
      "id": "s3",
      "goal": "SWIM",
-     "signature": "SWIM::SWIM|WEATHER:RAIN",
+     "signature": "SWIM::SWIM|IN_BIOME:#minecraft:is_ocean,WEATHER:RAIN",
      "formDependent": true,
-     "clueKo": "비가 오면 물에서 사십 블록 수영해야 해요.",
-     "hintKo": "비가 올 때 물에서 수영해요."
+     "clueKo": "비가 오면 바다에서 사십 블록 수영해야 해요.",
+     "hintKo": "비가 올 때 바다에서 수영해요."
     },
     {
      "id": "finale",

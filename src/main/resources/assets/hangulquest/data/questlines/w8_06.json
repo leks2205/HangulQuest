@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "w8_06",
- "titleKo": "공허의 끝",
- "topic": "공허",
+ "titleKo": "하늘의 끝",
+ "topic": "하늘",
  "tier": 2,
  "order": 1086,
  "concepts": [
-  "gen_end_stone_bricks",
-  "gen_basalt",
-  "gen_crimson_fence_gate",
-  "gen_suspicious_gravel"
+  "planks",
+  "sign",
+  "climb",
+  "water"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +22,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_stone_bricks"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:end_stone_bricks",
-    "count": 2
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:pale_oak_planks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_basalt"
+    "sign"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:basalt",
-    "count": 1
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:pale_oak_sign",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:pale_oak_planks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_crimson_fence_gate"
+    "climb"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_fence_gate",
-    "count": 2
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 90,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_suspicious_gravel"
+    "water"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:suspicious_gravel",
-    "count": 1
+    "type": "FALL",
+    "blocks": 10,
+    "landing": "minecraft:water"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
-  "textKo": "수상한 자갈을 구했어요."
+  "textKo": "맑을 때 높은 곳에서 물로 뛰어내렸어요. 물은 아래로 흘러요."
  },
  "reward": {
   "badge": "w8_06",
   "words": [
-   "gen_end_stone_bricks",
-   "gen_basalt",
-   "gen_crimson_fence_gate",
-   "gen_suspicious_gravel"
+   "planks",
+   "sign",
+   "climb",
+   "water"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L4.eoya_haeyo",
+  "L1.loc_wi_e",
+  "L4.myeon",
+  "L2.eseo_activity",
+  "L2.euro_direction"
+ ]
 }
