@@ -13,6 +13,10 @@ public final class WindowPlacement {
 	/** The hotbar, the off-hand slot, and the health, hunger and XP rows above it. */
 	static final int HOTBAR_HALF_WIDTH = 122;
 	static final int HOTBAR_ZONE_HEIGHT = 60;
+	/** Narrowest a window gets when it is squeezed in beside the quest log. */
+	public static final int MIN_BESIDE_LOG = 160;
+	/** Space kept between the log and a window beside it, and between that window and the screen edge. */
+	static final int BESIDE_GAP = 6;
 
 	public record Rect(int x, int y, int width, int height) {
 		int right() {
@@ -44,6 +48,23 @@ public final class WindowPlacement {
 				new Rect(cx - CROSSHAIR_HALF, cy - CROSSHAIR_HALF, 2 * CROSSHAIR_HALF, 2 * CROSSHAIR_HALF),
 				new Rect(cx - HOTBAR_HALF_WIDTH, guiHeight - HOTBAR_ZONE_HEIGHT, 2 * HOTBAR_HALF_WIDTH,
 						HOTBAR_ZONE_HEIGHT));
+	}
+
+	/**
+	 * The width a window of {@code wanted} width gets next to the {@code soft} areas (the quest log): the wanted
+	 * width when it fits in the free space to the right of them, otherwise that free space, but never under
+	 * {@link #MIN_BESIDE_LOG} (and never over {@code wanted}). The window wraps its text to what it gets.
+	 */
+	public static int widthBeside(int guiWidth, int wanted, List<Rect> soft) {
+		int right = 0;
+		for (Rect area : soft) {
+			right = Math.max(right, area.right());
+		}
+		if (right == 0) {
+			return wanted;
+		}
+		int free = guiWidth - right - 2 * BESIDE_GAP;
+		return wanted <= free ? wanted : Math.min(wanted, Math.max(MIN_BESIDE_LOG, free));
 	}
 
 	/** {@link #resolve(int, int, int, int, int, int, List)} with nothing else to avoid. */

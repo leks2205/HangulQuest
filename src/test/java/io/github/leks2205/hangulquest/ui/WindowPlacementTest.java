@@ -109,4 +109,33 @@ class WindowPlacementTest {
 
 		assertFalse(covers(at, width, height), "the crosshair is never given up for the log: " + at);
 	}
+
+	@Test
+	void aWindowKeepsItsWidthWhenItFitsBesideTheLog() {
+		Rect log = new Rect(0, 0, 144, 55);
+
+		assertEquals(250, WindowPlacement.widthBeside(480, 250, java.util.List.of(log)));
+		assertEquals(320, WindowPlacement.widthBeside(480, 320, java.util.List.of(log)));
+		assertEquals(320, WindowPlacement.widthBeside(480, 320, java.util.List.of()), "no log, nothing to give way to");
+	}
+
+	@Test
+	void aWindowThatWouldOverlapTheLogTakesTheFreeSpaceToItsRight() {
+		Rect log = new Rect(0, 0, 180, 80); // a 427-wide screen: 427 - 180 - 12 = 235 free
+
+		int width = WindowPlacement.widthBeside(427, 320, java.util.List.of(log));
+
+		assertEquals(235, width);
+		Point at = WindowPlacement.resolve(427, 240, (427 - width) / 2, 60, width, 90, java.util.List.of(log));
+		assertEquals(0, new Rect(at.x(), at.y(), width, 90).overlap(log), "the narrower window sits beside the log: " + at);
+	}
+
+	@Test
+	void theWidthBesideTheLogNeverDropsUnderTheMinimumOrGrowsOverTheWish() {
+		Rect wide = new Rect(0, 0, 300, 80); // 427 - 300 - 12 = 115 free: the minimum holds
+
+		assertEquals(WindowPlacement.MIN_BESIDE_LOG, WindowPlacement.widthBeside(427, 320, java.util.List.of(wide)));
+		assertEquals(150, WindowPlacement.widthBeside(427, 150, java.util.List.of(wide)),
+				"a window that wants less than the minimum is not stretched");
+	}
 }

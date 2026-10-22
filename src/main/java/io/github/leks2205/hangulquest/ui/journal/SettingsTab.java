@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.function.Consumer;
 
 /** The switches, the interface language and the (double-click) progress reset. */
 public final class SettingsTab extends JournalTab {
@@ -64,35 +65,21 @@ public final class SettingsTab extends JournalTab {
 	public void render(GuiGraphicsExtractor g, int x, int y, int width, int height) {
 		HangulQuestClient hq = host.hq();
 		int yy = y;
-		// The two quest-picker switches share the rows of the quest switches, so the page keeps its height.
+		// Two columns: the page has to fit a small window (427 x 240 GUI pixels) with its buttons.
 		int half = width / 2;
-		host.toggle(g, x + half, yy, width - half, I18n.t("hangulquest.ui.settings.auto_pick_quests"),
-				hq.config().autoPickQuests, value -> hq.config().autoPickQuests = value);
-		yy = host.toggle(g, x, yy, half, I18n.t("hangulquest.ui.settings.quests"), hq.config().quests, value -> hq.config().quests = value);
-		host.toggle(g, x + half, yy, width - half, I18n.t("hangulquest.ui.settings.show_all_trails"),
-				hq.config().showAllTrails, value -> hq.config().showAllTrails = value);
-		yy = host.toggle(g, x, yy, half, I18n.t("hangulquest.ui.settings.quest_tracker"), hq.config().questTracker,
-				value -> hq.config().questTracker = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.hud_cards"), hq.config().hudCards, value -> hq.config().hudCards = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.tooltips"), hq.config().tooltips, value -> hq.config().tooltips = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.auto_quiz"), hq.config().autoQuiz, value -> hq.config().autoQuiz = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.sound"), hq.config().sound, value -> hq.config().sound = value);
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.quest_translations"), hq.config().questTranslations,
-				value -> hq.config().questTranslations = value);
-		String language = Lang.isAuto(hq.config().language)
-				? I18n.t("hangulquest.ui.settings.language_auto", Lang.current().label()) : Lang.current().label();
-		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.language", Lang.current().label()), x, yy, Ink.INK_SOFT);
-		host.button(g, x + width - 100, yy - 2, 100, 16, language, false, switchLanguage);
-		yy += 18;
-		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.new_words"), x, yy, Ink.INK_SOFT);
-		host.button(g, x + width - 100, yy - 2, 100, 16, String.valueOf(hq.config().newWordsPerDay), false, switchNewWords);
-		yy += 18;
-		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.retention"), x, yy, Ink.INK_SOFT);
-		host.button(g, x + width - 100, yy - 2, 100, 16, Math.round(hq.config().retention * 100) + "%", false,
-				switchRetention);
-		yy += 18;
-		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.typed_cards"), hq.config().typedCards,
-				value -> hq.config().typedCards = value);
+		int right = width - half;
+		yy = pair(g, x, yy, half, right, I18n.t("hangulquest.ui.settings.quests"), hq.config().quests, value -> hq.config().quests = value,
+				I18n.t("hangulquest.ui.settings.quest_tracker"), hq.config().questTracker, value -> hq.config().questTracker = value);
+		yy = pair(g, x, yy, half, right, I18n.t("hangulquest.ui.settings.hud_cards"), hq.config().hudCards, value -> hq.config().hudCards = value,
+				I18n.t("hangulquest.ui.settings.tooltips"), hq.config().tooltips, value -> hq.config().tooltips = value);
+		yy = pair(g, x, yy, half, right, I18n.t("hangulquest.ui.settings.auto_quiz"), hq.config().autoQuiz, value -> hq.config().autoQuiz = value,
+				I18n.t("hangulquest.ui.settings.sound"), hq.config().sound, value -> hq.config().sound = value);
+		yy = pair(g, x, yy, half, right, I18n.t("hangulquest.ui.settings.quest_translations"), hq.config().questTranslations,
+				value -> hq.config().questTranslations = value,
+				I18n.t("hangulquest.ui.settings.typed_cards"), hq.config().typedCards, value -> hq.config().typedCards = value);
+		yy = pair(g, x, yy, half, right, I18n.t("hangulquest.ui.settings.auto_pick_quests"), hq.config().autoPickQuests,
+				value -> hq.config().autoPickQuests = value,
+				I18n.t("hangulquest.ui.settings.show_all_trails"), hq.config().showAllTrails, value -> hq.config().showAllTrails = value);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.auto_close_windows"), hq.config().autoCloseWindows,
 				value -> hq.config().autoCloseWindows = value);
 		// the import summary sits on the toggle's row, which leaves the page bottom free for the last button
@@ -100,12 +87,29 @@ public final class SettingsTab extends JournalTab {
 		Draw.label(g, host.font(), luteInfo, x + width - host.font().width(luteInfo), yy, Ink.INK_FAINT);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.lute_import"), hq.config().luteImport,
 				value -> hq.config().luteImport = value);
-		yy += 6;
+		String language = Lang.isAuto(hq.config().language)
+				? I18n.t("hangulquest.ui.settings.language_auto", Lang.current().label()) : Lang.current().label();
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.language", Lang.current().label()), x, yy, Ink.INK_SOFT);
+		host.button(g, x + width - 100, yy - 2, 100, 16, language, false, switchLanguage);
+		yy += 18;
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.new_words"), x, yy, Ink.INK_SOFT);
+		host.button(g, x + half - 44, yy - 2, 40, 16, String.valueOf(hq.config().newWordsPerDay), false, switchNewWords);
+		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.retention"), x + half, yy, Ink.INK_SOFT);
+		host.button(g, x + width - 44, yy - 2, 44, 16, Math.round(hq.config().retention * 100) + "%", false,
+				switchRetention);
+		yy += 24;
 		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.reset"), false, resetProgress);
-		yy += 22;
-		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.export"), false, exportResearch);
-		Draw.truncated(g, host.font(), Component.literal(I18n.t("hangulquest.ui.settings.export_hint")), x + 156, yy + 5,
-				Math.max(20, width - 156), Ink.INK_FAINT);
+		host.button(g, x + 156, yy, 150, 18, I18n.t("hangulquest.ui.settings.export"), false, exportResearch);
+		Draw.truncated(g, host.font(), Component.literal(I18n.t("hangulquest.ui.settings.export_hint")), x, yy + 22,
+				width, Ink.INK_FAINT);
+	}
+
+	/** Two switches on one row; returns the next row's y. */
+	private int pair(GuiGraphicsExtractor g, int x, int y, int leftWidth, int rightWidth,
+					 String leftLabel, boolean left, Consumer<Boolean> setLeft,
+					 String rightLabel, boolean right, Consumer<Boolean> setRight) {
+		host.toggle(g, x + leftWidth, y, rightWidth, rightLabel, right, setRight);
+		return host.toggle(g, x, y, leftWidth, leftLabel, left, setLeft);
 	}
 
 	/** Saves the learning settings and hands them to the running scheduler. */

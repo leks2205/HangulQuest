@@ -85,9 +85,9 @@ public final class Celebration {
 		titleLines = Draw.lines(font, title, textWidth);
 		lineLines = line == null ? List.of() : Draw.lines(font, line, textWidth);
 		line2Lines = line2 == null ? List.of() : Draw.lines(font, line2, textWidth);
-		titleHeight = Draw.linesHeight(font, titleLines, 2);
-		lineHeight = Draw.linesHeight(font, lineLines, 3);
-		line2Height = Draw.linesHeight(font, line2Lines, 3);
+		titleHeight = Draw.linesHeight(font, titleLines, 3);
+		lineHeight = Draw.linesHeight(font, lineLines, 4);
+		line2Height = Draw.linesHeight(font, line2Lines, 4);
 	}
 
 	/** The card came on screen now: the animation and the particle bursts start here. */
@@ -112,11 +112,15 @@ public final class Celebration {
 	public record Box(int width, int height, int extra) {
 	}
 
-	public Box measure(Font font, int guiWidth, int extra) {
-		int width = Math.min(kind == Kind.TRAIL ? 380 : 320, guiWidth - 16);
+	/** The width the card would like on a screen {@code guiWidth} wide. */
+	public int wantedWidth(int guiWidth) {
+		return Math.min(kind == Kind.TRAIL ? 380 : 320, guiWidth - 16);
+	}
+
+	public Box measure(Font font, int width, int extra) {
 		int textX = iconItem == null || iconItem.isBlank() ? 10 : 32;
 		layout(font, width - textX - 10);
-		int germanHeight = german == null ? 0 : font.lineHeight + 1;
+		int germanHeight = german == null ? 0 : Draw.wrappedHeight(font, german, width - textX - 10, 2);
 		int height = 12 + titleHeight + (line == null ? 0 : 6 + lineHeight)
 				+ (line2 == null ? 0 : 5 + line2Height)
 				+ (german == null ? 0 : 5 + germanHeight) + 10 + extra;
@@ -155,14 +159,14 @@ public final class Celebration {
 		if (!iconItem.isBlank()) {
 			Draw.itemIcon(graphics, iconItem, x + 10, y + 9);
 		}
-		Draw.drawLines(graphics, font, titleLines, x + textX, cursor, withAlpha(Draw.GOLD, alpha), 2);
+		Draw.drawLines(graphics, font, titleLines, x + textX, cursor, withAlpha(Draw.GOLD, alpha), 3);
 		cursor += titleHeight + 6;
 		if (line != null) {
-			Draw.drawLines(graphics, font, lineLines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 3);
+			Draw.drawLines(graphics, font, lineLines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 4);
 			cursor += lineHeight + 5;
 		}
 		if (line2 != null) {
-			Draw.drawLines(graphics, font, line2Lines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 3);
+			Draw.drawLines(graphics, font, line2Lines, x + textX, cursor, withAlpha(Draw.WHITE, alpha), 4);
 			cursor += line2Height + 5;
 		}
 		if (german != null) {

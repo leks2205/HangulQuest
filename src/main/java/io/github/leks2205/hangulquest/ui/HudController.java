@@ -640,6 +640,9 @@ public final class HudController implements QuestEngine.Feedback {
 		questLog.draw(graphics, mc.font);
 	}
 
+	/** Lines of each hint text; the card gets narrower beside the quest log, so the text may need more. */
+	private static final int HINT_LINES = 4;
+
 	/** A hint card's texts, wrapped lines and heights; rebuilt only for a new hint or a new window width. */
 	private record HintLayout(QuestEngine.HintView source, Font font, int guiWidth, int width,
 							  List<FormattedCharSequence> clue, List<FormattedCharSequence> simplified,
@@ -650,10 +653,11 @@ public final class HudController implements QuestEngine.Feedback {
 	private HintLayout hintLayout(Font font, QuestEngine.HintView hint) {
 		int guiWidth = mc.getWindow().getGuiScaledWidth();
 		HintLayout cached = hintLayout;
-		if (cached != null && cached.source() == hint && cached.font() == font && cached.guiWidth() == guiWidth) {
+		int width = widthFor(Math.min(320, guiWidth - 16));
+		if (cached != null && cached.source() == hint && cached.font() == font && cached.guiWidth() == guiWidth
+				&& cached.width() == width) {
 			return cached;
 		}
-		int width = Math.min(320, guiWidth - 16);
 		int textWidth = width - 14;
 		Component clue = KoText.ko(hint.clueKo() == null ? "" : hint.clueKo());
 		Component simplified = KoText.ko(hint.simplifiedKo() == null ? "" : hint.simplifiedKo());
@@ -665,9 +669,9 @@ public final class HudController implements QuestEngine.Feedback {
 		List<FormattedCharSequence> simpleLines = Draw.lines(font, simplified, textWidth);
 		List<FormattedCharSequence> descriptionLines = description == null ? null
 				: Draw.lines(font, description, textWidth);
-		int clueHeight = Draw.linesHeight(font, clueLines, 2);
-		int simpleHeight = Draw.linesHeight(font, simpleLines, 2);
-		int descriptionHeight = descriptionLines == null ? 0 : Draw.linesHeight(font, descriptionLines, 2);
+		int clueHeight = Draw.linesHeight(font, clueLines, HINT_LINES);
+		int simpleHeight = Draw.linesHeight(font, simpleLines, HINT_LINES);
+		int descriptionHeight = descriptionLines == null ? 0 : Draw.linesHeight(font, descriptionLines, HINT_LINES);
 		int sideHeight = side == null ? 0 : font.lineHeight + 2;
 		int height = 18 + clueHeight + 4 + simpleHeight + 4 + descriptionHeight + 2 + sideHeight + 12;
 		hintLayout = new HintLayout(hint, font, guiWidth, width, clueLines, simpleLines, descriptionLines, side,
@@ -682,7 +686,7 @@ public final class HudController implements QuestEngine.Feedback {
 		switch (window.kind()) {
 			case HINT -> drawHint(graphics, (QuestEngine.HintView) content, chrome);
 			case RULE_CARD -> drawRuleCard(graphics, (RuleCard) content, chrome);
-			case CULTURE -> CultureHook.draw(graphics, mc, (CultureCards.Card) content, chrome);
+			case CULTURE -> CultureHook.draw(graphics, mc, (CultureCards.Card) content, chrome, logArea());
 			case WORD_CARD -> drawWordCard(graphics, (WordCard) content, chrome);
 			case NOTICE -> drawNotice(graphics, (Notice) content, chrome);
 			case REVIEW_PROMPT -> drawQuizPrompt(graphics, now, chrome);
@@ -692,10 +696,19 @@ public final class HudController implements QuestEngine.Feedback {
 		}
 	}
 
+	/** The width a window gets: what it wants, or the free space beside the quest log when that is less. */
+	private int widthFor(int wanted) {
+		return WindowChrome.widthFor(mc.getWindow().getGuiScaledWidth(), wanted, logArea());
+	}
+
+	private List<WindowPlacement.Rect> logArea() {
+		return questLogDrawn ? questLog.area() : List.of();
+	}
+
 	/** Where a window that would like to sit at ({@code x}, {@code y}) goes: off the crosshair and the hotbar. */
 	private WindowPlacement.Point place(int x, int y, int width, int height) {
 		return WindowChrome.place(mc.getWindow().getGuiScaledWidth(), mc.getWindow().getGuiScaledHeight(),
-				x, y, width, height, questLogDrawn ? questLog.area() : List.of());
+				x, y, width, height, logArea());
 	}
 
 	private void drawHint(GuiGraphicsExtractor graphics, QuestEngine.HintView hint, WindowChrome.Info chrome) {
@@ -712,12 +725,12 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.panel(graphics, x, y, width, height, 0);
 		Draw.korean(graphics, font, "힌트", x + 7, y + 5, Draw.GOLD);
 		int cursor = y + 17;
-		Draw.drawLines(graphics, font, layout.clue(), x + 7, cursor, Draw.DIM, 2);
+		Draw.drawLines(graphics, font, layout.clue(), x + 7, cursor, Draw.DIM, HINT_LINES);
 		cursor += layout.clueHeight() + 4;
-		Draw.drawLines(graphics, font, layout.simplified(), x + 7, cursor, Draw.WHITE, 2);
+		Draw.drawLines(graphics, font, layout.simplified(), x + 7, cursor, Draw.WHITE, HINT_LINES);
 		cursor += layout.simpleHeight() + 4;
 		if (layout.description() != null) {
-			Draw.drawLines(graphics, font, layout.description(), x + 7, cursor, Draw.BLUE, 2);
+			Draw.drawLines(graphics, font, layout.description(), x + 7, cursor, Draw.BLUE, HINT_LINES);
 			cursor += layout.descriptionHeight() + 2;
 		}
 		if (layout.side() != null) {
@@ -728,12 +741,12 @@ public final class HudController implements QuestEngine.Feedback {
 
 	private void drawRuleCard(GuiGraphicsExtractor graphics, RuleCard card, WindowChrome.Info chrome) {
 		var font = mc.font;
-		int width = Math.min(320, mc.getWindow().getGuiScaledWidth() - 16);
+		int width = widthFor(Math.min(320, mc.getWindow().getGuiScaledWidth() - 16));
 		int textWidth = width - 14;
-		int examplesHeight = Draw.wrappedHeight(font, card.examples(), textWidth, 2);
+		int examplesHeight = Draw.wrappedHeight(font, card.examples(), textWidth, 3);
 		int height = 17 + examplesHeight + 4;
 		for (Component line : card.lines()) {
-			height += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
+			height += Draw.wrappedHeight(font, line, textWidth, 4) + 2;
 		}
 		height += 4 + WindowChrome.footerHeight(font);
 		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
@@ -743,11 +756,11 @@ public final class HudController implements QuestEngine.Feedback {
 		Draw.panel(graphics, x, y, width, height, 0);
 		Draw.korean(graphics, font, "문법 · " + card.view().form(), x + 7, y + 5, Draw.GOLD);
 		int cursor = y + 17;
-		Draw.wrapped(graphics, font, card.examples(), x + 7, cursor, textWidth, Draw.WHITE, 2);
+		Draw.wrapped(graphics, font, card.examples(), x + 7, cursor, textWidth, Draw.WHITE, 3);
 		cursor += examplesHeight + 4;
 		for (Component line : card.lines()) {
-			Draw.wrapped(graphics, font, line, x + 7, cursor, textWidth, Draw.GRAY, 3);
-			cursor += Draw.wrappedHeight(font, line, textWidth, 3) + 2;
+			Draw.wrapped(graphics, font, line, x + 7, cursor, textWidth, Draw.GRAY, 4);
+			cursor += Draw.wrappedHeight(font, line, textWidth, 4) + 2;
 		}
 		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
@@ -758,7 +771,7 @@ public final class HudController implements QuestEngine.Feedback {
 			return;
 		}
 		var font = mc.font;
-		int width = 320;
+		int width = widthFor(320);
 		int height = 128;
 		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
 				(mc.getWindow().getGuiScaledHeight() - height) / 2, width, height);
@@ -793,7 +806,7 @@ public final class HudController implements QuestEngine.Feedback {
 			return;
 		}
 		var font = mc.font;
-		int width = 300;
+		int width = widthFor(300);
 		int rows = nextChoices.size();
 		int footer = WindowChrome.footerHeight(font);
 		int height = 24 + rows * 14 + 14 + footer;
@@ -821,7 +834,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private void drawCelebration(GuiGraphicsExtractor graphics, Celebration card, long now, WindowChrome.Info chrome) {
 		var font = mc.font;
 		int guiWidth = mc.getWindow().getGuiScaledWidth();
-		Celebration.Box box = card.measure(font, guiWidth, WindowChrome.footerHeight(font));
+		Celebration.Box box = card.measure(font, widthFor(card.wantedWidth(guiWidth)), WindowChrome.footerHeight(font));
 		var at = place((guiWidth - box.width()) / 2,
 				(mc.getWindow().getGuiScaledHeight() - box.height()) / 2 - (card.kind() == Celebration.Kind.TRAIL ? 0 : 12),
 				box.width(), box.height());
@@ -832,7 +845,7 @@ public final class HudController implements QuestEngine.Feedback {
 	private void drawQuizResult(GuiGraphicsExtractor graphics, QuizResult result, WindowChrome.Info chrome) {
 		var font = mc.font;
 		Word word = result.word();
-		int width = 300;
+		int width = widthFor(300);
 		int footer = WindowChrome.footerHeight(font);
 		int height = 74 + footer;
 		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2,
@@ -860,7 +873,7 @@ public final class HudController implements QuestEngine.Feedback {
 		var font = mc.font;
 		Component title = KoText.ko("복습");
 		Component text = Component.literal(I18n.t("hangulquest.ui.hud.quiz_ready", keyLabel(hq.answerKey())));
-		int width = Math.max(WindowChrome.MIN_WIDTH, 10 + font.width(title) + 8 + font.width(text) + 10);
+		int width = widthFor(Math.max(WindowChrome.MIN_WIDTH, 10 + font.width(title) + 8 + font.width(text) + 10));
 		int height = 5 + font.lineHeight + 6 + WindowChrome.footerHeight(font);
 		var at = place((mc.getWindow().getGuiScaledWidth() - width) / 2, 10, width, height);
 		int x = at.x();
@@ -906,7 +919,7 @@ public final class HudController implements QuestEngine.Feedback {
 		int height = body + WindowChrome.footerHeight(font);
 		int screenWidth = mc.getWindow().getGuiScaledWidth();
 		int screenHeight = mc.getWindow().getGuiScaledHeight();
-		width = Math.min(width, screenWidth - 12);
+		width = widthFor(Math.min(width, screenWidth - 12));
 		var at = place(screenWidth - width - 6, screenHeight - height - 6, width, height);
 		int x = at.x();
 		int y = at.y();
@@ -926,12 +939,12 @@ public final class HudController implements QuestEngine.Feedback {
 	private void drawNotice(GuiGraphicsExtractor graphics, Notice notice, WindowChrome.Info chrome) {
 		var font = mc.font;
 		int guiWidth = mc.getWindow().getGuiScaledWidth();
-		int width = Math.min(300, guiWidth - 12);
+		int width = widthFor(Math.min(300, guiWidth - 12));
 		int textWidth = width - 16;
-		int titleHeight = Draw.wrappedHeight(font, notice.title(), textWidth, 2);
-		int titleTextHeight = notice.titleText() == null ? 0 : Draw.wrappedHeight(font, notice.titleText(), textWidth, 2);
-		int bodyHeight = notice.body() == null ? 0 : Draw.wrappedHeight(font, notice.body(), textWidth, 3);
-		int bodyTextHeight = notice.bodyText() == null ? 0 : Draw.wrappedHeight(font, notice.bodyText(), textWidth, 3);
+		int titleHeight = Draw.wrappedHeight(font, notice.title(), textWidth, 3);
+		int titleTextHeight = notice.titleText() == null ? 0 : Draw.wrappedHeight(font, notice.titleText(), textWidth, 3);
+		int bodyHeight = notice.body() == null ? 0 : Draw.wrappedHeight(font, notice.body(), textWidth, 4);
+		int bodyTextHeight = notice.bodyText() == null ? 0 : Draw.wrappedHeight(font, notice.bodyText(), textWidth, 4);
 		int height = 6 + titleHeight + (titleTextHeight == 0 ? 0 : 2 + titleTextHeight)
 				+ (bodyHeight == 0 ? 0 : 5 + bodyHeight) + (bodyTextHeight == 0 ? 0 : 2 + bodyTextHeight)
 				+ 5 + WindowChrome.footerHeight(font);
@@ -940,18 +953,18 @@ public final class HudController implements QuestEngine.Feedback {
 		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
 		int cursor = y + 5;
-		Draw.wrapped(graphics, font, notice.title(), x + 8, cursor, textWidth, Draw.GOLD, 2);
+		Draw.wrapped(graphics, font, notice.title(), x + 8, cursor, textWidth, Draw.GOLD, 3);
 		cursor += titleHeight + 2;
 		if (notice.titleText() != null) {
-			Draw.wrapped(graphics, font, notice.titleText(), x + 8, cursor, textWidth, Draw.GRAY, 2);
+			Draw.wrapped(graphics, font, notice.titleText(), x + 8, cursor, textWidth, Draw.GRAY, 3);
 			cursor += titleTextHeight + 2;
 		}
 		if (notice.body() != null) {
-			Draw.wrapped(graphics, font, notice.body(), x + 8, cursor + 2, textWidth, Draw.WHITE, 3);
+			Draw.wrapped(graphics, font, notice.body(), x + 8, cursor + 2, textWidth, Draw.WHITE, 4);
 			cursor += bodyHeight + 5;
 		}
 		if (notice.bodyText() != null) {
-			Draw.wrapped(graphics, font, notice.bodyText(), x + 8, cursor, textWidth, Draw.GRAY, 3);
+			Draw.wrapped(graphics, font, notice.bodyText(), x + 8, cursor, textWidth, Draw.GRAY, 4);
 		}
 		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}

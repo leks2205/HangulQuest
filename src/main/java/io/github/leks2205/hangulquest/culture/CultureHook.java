@@ -101,10 +101,11 @@ public final class CultureHook {
 	}
 
 	/** Draws a culture window at its place on the screen; called by the HUD for the window on top. */
-	public static void draw(GuiGraphicsExtractor graphics, Minecraft mc, CultureCards.Card card, WindowChrome.Info chrome) {
+	public static void draw(GuiGraphicsExtractor graphics, Minecraft mc, CultureCards.Card card, WindowChrome.Info chrome,
+							 java.util.List<io.github.leks2205.hangulquest.ui.WindowPlacement.Rect> soft) {
 		Font font = mc.font;
 		int screenWidth = mc.getWindow().getGuiScaledWidth();
-		int width = Math.min(250, screenWidth - 12);
+		int width = WindowChrome.widthFor(screenWidth, Math.min(250, screenWidth - 12), soft);
 		int textWidth = width - 14;
 		CultureNote note = card.note();
 		Component title = Component.empty().append(KoText.ko(note.titleKo())).append(Component.literal("  " + I18n.t(note.titleKey())));
@@ -114,7 +115,7 @@ public final class CultureHook {
 		int height = 6 + 2 * (font.lineHeight + 3) + Draw.wrappedHeight(font, summary, textWidth, 3) + 4
 				+ Draw.wrappedHeight(font, text, textWidth, 8) + 4 + (date.isEmpty() ? 0 : font.lineHeight + 3)
 				+ font.lineHeight + 3 + WindowChrome.footerHeight(font);
-		var at = WindowChrome.place(screenWidth, mc.getWindow().getGuiScaledHeight(), screenWidth - width - 6, 6, width, height);
+		var at = WindowChrome.place(screenWidth, mc.getWindow().getGuiScaledHeight(), screenWidth - width - 6, 6, width, height, soft);
 		int x = at.x();
 		int y = at.y();
 		Draw.panel(graphics, x, y, width, height, 0);
