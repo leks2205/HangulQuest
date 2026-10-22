@@ -131,11 +131,18 @@ final class GiveType implements GoalType<Goal.Give> {
 		if (PLACE_NEAR.equals(goal.method())) {
 			return Verb.PLACE;
 		}
+		Verb used = Tools.gift(goal.item(), goal.entity(), goal.method());
+		if (used != null) {
+			return used; // armour is put on (입히다), dye colours a sheep (염색하다)
+		}
 		return GiveFact.Method.DROP_NEAR.name().equals(goal.method()) ? Verb.DROP_AT : Verb.GIVE;
 	}
 
 	@Override
 	public String korean(Goal.Give goal, SentenceContext c) {
+		if (c.verb() == Verb.DRESS || c.verb() == Verb.DYE) {
+			return SentenceBuilder.phrase(usedUp(goal, c), c.verb(), c.level(), c.finale());
+		}
 		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts(), goal.item(),
 				item(goal, c));
 		String who = recipient(goal, c);
@@ -150,15 +157,35 @@ final class GiveType implements GoalType<Goal.Give> {
 
 	@Override
 	public String ceremony(Goal.Give goal, SentenceContext c) {
+		if (c.verb() == Verb.DRESS || c.verb() == Verb.DYE) {
+			return usedUp(goal, c) + " " + c.verb().past();
+		}
 		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true, goal.item(), item(goal, c));
 		String who = recipient(goal, c);
 		String head = inFront(goal, c) ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
 		return head + " " + c.verb().past();
 	}
 
+	/**
+	 * Armour put on a creature, dye put on a sheep: "늑대에게 갑옷을 입히세요", "파란색 염료로 양을 염색하세요". The
+	 * armour is the word the step teaches, else 갑옷 (the creature says which armour); the dye is the instrument.
+	 */
+	private static String usedUp(Goal.Give goal, SentenceContext c) {
+		String who = recipient(goal, c);
+		if (c.verb() == Verb.DYE) {
+			return KoGrammar.euro(item(goal, c)) + " " + KoGrammar.eul(who);
+		}
+		String armour = c.wordNames(ObjectKind.ITEM, goal.item()) ? item(goal, c) : "갑옷";
+		return KoGrammar.ege(who) + " " + KoGrammar.eul(armour);
+	}
+
 	@Override
 	public List<String> grammarIds(Goal.Give goal, SentenceContext c) {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
+		if (c.verb() == Verb.DYE) {
+			ids.add("L3.euro_instrument"); // 염료로
+			return ids;
+		}
 		ids.add("L1.eul_reul");
 		if (inFront(goal, c)) {
 			ids.add("L1.loc.ap");
@@ -169,7 +196,8 @@ final class GiveType implements GoalType<Goal.Give> {
 	/** The recipient marker decides who gets it: 소에게. A drop in front of someone has no marker. */
 	@Override
 	public List<String> decidingForms(Goal.Give goal) {
-		return verb(goal, VerbTable.shared()) == Verb.GIVE ? List.of("L2.ege") : List.of();
+		Verb verb = verb(goal, VerbTable.shared());
+		return verb == Verb.GIVE || verb == Verb.DRESS ? List.of("L2.ege") : List.of();
 	}
 
 	@Override

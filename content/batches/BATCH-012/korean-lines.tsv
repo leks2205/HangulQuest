@@ -2,7 +2,7 @@ id	ko	context
 trail.wanderpfad.title	산길	title, authored; project: Go to a mountain on a clear day, climb and plant a spruce sapling, put a sign beside it, build a granite pillar and put a candle on top at night.
 trail.wanderpfad.s1.clue	맑을 때 산으로 가세요.	clue, generated; ReachBiome #minecraft:is_mountain 
 trail.wanderpfad.s1.hint	맑을 때 산으로 가요.	hint, generated; ReachBiome #minecraft:is_mountain 
-trail.wanderpfad.s2.clue	산 위로 올라가고 가문비나무 묘목을 심으세요.	clue, generated; Sequence [ReachHeight 100..320 > PlaceBlock minecraft:spruce_sapling x1]
+trail.wanderpfad.s2.clue	산 위로 올라가고 묘목을 심으세요.	clue, generated; Sequence [ReachHeight 100..320 > PlaceBlock minecraft:spruce_sapling x1]
 trail.wanderpfad.s2.hint	산 위로 올라가고 묘목을 심어요.	hint, generated; Sequence [ReachHeight 100..320 > PlaceBlock minecraft:spruce_sapling x1]
 trail.wanderpfad.s3.clue	묘목 옆에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:spruce_sign NEXT_TO #minecraft:saplings
 trail.wanderpfad.s3.hint	묘목 옆에 표지판을 세워요.	hint, generated; PlaceRel minecraft:spruce_sign NEXT_TO #minecraft:saplings
@@ -32,8 +32,8 @@ trail.eiswand.s2.clue	얼음 옆에 사다리를 놓으세요.	clue, generated; 
 trail.eiswand.s2.hint	얼음 옆에 사다리를 놓아요.	hint, generated; PlaceRel minecraft:ladder NEXT_TO minecraft:ice
 trail.eiswand.s3.clue	사다리를 들고 높이 100블록 위로 올라가세요.	clue, generated; ReachHeight 100..320
 trail.eiswand.s3.hint	사다리를 들고 산 위로 올라가요.	hint, generated; ReachHeight 100..320
-trail.eiswand.s4.clue	푸른얼음을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:blue_ice 
-trail.eiswand.s4.hint	푸른얼음을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:blue_ice 
+trail.eiswand.s4.clue	푸른얼음을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:blue_ice 
+trail.eiswand.s4.hint	푸른얼음을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:blue_ice 
 trail.eiswand.finale.clue	사다리 옆에 청록색 현수막을 거세요.	clue, generated; PlaceRel minecraft:cyan_banner NEXT_TO minecraft:ladder
 trail.eiswand.finale.hint	사다리 옆에 청록색 현수막을 걸어요.	hint, generated; PlaceRel minecraft:cyan_banner NEXT_TO minecraft:ladder
 trail.eiswand.finale	사다리 옆에 청록색 현수막을 걸었어요.	finale, generated; PlaceRel minecraft:cyan_banner NEXT_TO minecraft:ladder
@@ -46,8 +46,8 @@ trail.gletscherpfad.s3.clue	눈 블록 위에 울타리를 세우세요.	clue, g
 trail.gletscherpfad.s3.hint	눈 블록 위에 울타리를 세워요.	hint, generated; PlaceRel minecraft:spruce_fence ON_TOP_OF minecraft:snow_block
 trail.gletscherpfad.s4.clue	울타리 옆에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:birch_sign NEXT_TO #minecraft:fences
 trail.gletscherpfad.s4.hint	울타리 옆에 표지판을 세워요.	hint, generated; PlaceRel minecraft:birch_sign NEXT_TO #minecraft:fences
-trail.gletscherpfad.finale.clue	북극곰을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:polar_bear 
-trail.gletscherpfad.finale.hint	북극곰을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:polar_bear 
+trail.gletscherpfad.finale.clue	북극곰을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:polar_bear 
+trail.gletscherpfad.finale.hint	북극곰을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:polar_bear 
 trail.gletscherpfad.finale	북극곰을 바라봤어요.	finale, generated; LookAtEntity minecraft:polar_bear 
 trail.gipfelwaechter.title	봉우리의 수호자	title, authored; project: A watchtower: climb at night, build a pillar of planks on the mountain, hang a banner beside it, put a copper torch on top, keep watch for ten seconds.
 trail.gipfelwaechter.s1.clue	밤에 높이 110블록 위로 올라가세요.	clue, generated; ReachHeight 110..320
@@ -62,16 +62,16 @@ trail.gipfelwaechter.finale.clue	밤에 구리 횃불 근처에서 10초 동안 
 trail.gipfelwaechter.finale.hint	밤에 구리 횃불 근처에서 잠깐 기다려요.	hint, generated; Wait 
 trail.gipfelwaechter.finale	밤에 구리 횃불 근처에서 10초 동안 기다렸어요.	finale, generated; Wait 
 trail.alpental.title	알펜 계곡	title, authored; project: A goat on the mountain, a fenced pen in the meadow with a cauldron as trough, melon seeds for a chicken, a cow by the cauldron.
-trail.alpental.s1.clue	산에서 낮에 염소를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:goat 
-trail.alpental.s1.hint	산에서 낮에 염소를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:goat 
+trail.alpental.s1.clue	낮에 산에서 염소를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:goat 
+trail.alpental.s1.hint	낮에 산에서 염소를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:goat 
 trail.alpental.s2.clue	목초지에서 울타리를 치세요.	clue, generated; BuildPattern minecraft:spruce_fence RING 3
 trail.alpental.s2.hint	목초지에서 울타리를 쳐요.	hint, generated; BuildPattern minecraft:spruce_fence RING 3
 trail.alpental.s3.clue	울타리 안에 가마솥을 놓으세요.	clue, generated; PlaceOnPattern minecraft:cauldron INSIDE RING minecraft:spruce_fence
 trail.alpental.s3.hint	울타리 안에 가마솥을 놓아요.	hint, generated; PlaceOnPattern minecraft:cauldron INSIDE RING minecraft:spruce_fence
 trail.alpental.s4.clue	닭에게 수박씨를 주세요.	clue, generated; Give minecraft:melon_seeds x1
 trail.alpental.s4.hint	닭에게 수박씨를 줘요.	hint, generated; Give minecraft:melon_seeds x1
-trail.alpental.finale.clue	가마솥 근처에서 소를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cow 
-trail.alpental.finale.hint	가마솥 근처에서 소를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cow 
+trail.alpental.finale.clue	가마솥 근처에서 소를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cow 
+trail.alpental.finale.hint	가마솥 근처에서 소를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cow 
 trail.alpental.finale	가마솥 근처에서 소를 바라봤어요.	finale, generated; LookAtEntity minecraft:cow 
 trail.w4_06.title	산속 호수	title, authored; project: A meadow lake at the foot of the mountains: a fern and a banner beside the water, an evening swim, ten quiet seconds.
 trail.w4_06.s1.clue	낮에 목초지로 가세요.	clue, generated; ReachBiome minecraft:meadow 
@@ -94,8 +94,8 @@ trail.mondpfad.s3.clue	밤에 자갈 세 개 옆에 초를 세우세요.	clue, g
 trail.mondpfad.s3.hint	밤에 자갈 세 개 옆에 초를 세워요.	hint, generated; PlaceOnPattern minecraft:white_candle NEXT_TO ROW minecraft:gravel
 trail.mondpfad.s4.clue	밤에 자갈 세 개 위에 초를 세우세요.	clue, generated; PlaceOnPattern minecraft:gray_candle ON_TOP_OF ROW minecraft:gravel
 trail.mondpfad.s4.hint	밤에 자갈 세 개 위에 초를 세워요.	hint, generated; PlaceOnPattern minecraft:gray_candle ON_TOP_OF ROW minecraft:gravel
-trail.mondpfad.s5.clue	밤에 여우를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:fox 
-trail.mondpfad.s5.hint	밤에 여우를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:fox 
+trail.mondpfad.s5.clue	밤에 여우를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:fox 
+trail.mondpfad.s5.hint	밤에 여우를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:fox 
 trail.mondpfad.finale.clue	밤에 하얀색 초를 켜세요.	clue, generated; UseBlock minecraft:white_candle 
 trail.mondpfad.finale.hint	밤에 하얀색 초를 켜요.	hint, generated; UseBlock minecraft:white_candle 
 trail.mondpfad.finale	밤에 하얀색 초를 켰어요.	finale, generated; UseBlock minecraft:white_candle 
@@ -166,11 +166,11 @@ trail.adv_adventure_spyglass_at_parrot.s4.clue	망원경을 들고 통나무 옆
 trail.adv_adventure_spyglass_at_parrot.s4.hint	망원경을 들고 통나무 옆에 묘목을 심어요.	hint, generated; HoldWhile minecraft:spyglass 
 trail.adv_adventure_spyglass_at_parrot.s5.clue	앵무새에게 밀 씨앗을 주세요.	clue, generated; Give minecraft:wheat_seeds x1
 trail.adv_adventure_spyglass_at_parrot.s5.hint	앵무새에게 밀 씨앗을 줘요.	hint, generated; Give minecraft:wheat_seeds x1
-trail.adv_adventure_spyglass_at_parrot.finale.clue	망원경을 들고 앵무새를 1초 동안 바라보세요.	clue, generated; HoldWhile minecraft:spyglass 
-trail.adv_adventure_spyglass_at_parrot.finale.hint	망원경을 들고 앵무새를 1초 동안 바라봐요.	hint, generated; HoldWhile minecraft:spyglass 
+trail.adv_adventure_spyglass_at_parrot.finale.clue	망원경을 들고 앵무새를 일 초 동안 바라보세요.	clue, generated; HoldWhile minecraft:spyglass 
+trail.adv_adventure_spyglass_at_parrot.finale.hint	망원경을 들고 앵무새를 일 초 동안 바라봐요.	hint, generated; HoldWhile minecraft:spyglass 
 trail.adv_adventure_spyglass_at_parrot.finale	망원경을 들고 앵무새를 바라봤어요.	finale, generated; HoldWhile minecraft:spyglass 
 trail.adv_adventure_honey_block_slide.title	달콤함에 몸을 맡기다	title, authored; project: Four bottles of honey make a honey block; a pillar of planks, the honey block beside it, a sign, and a look at the block.
-trail.adv_adventure_honey_block_slide.s1.clue	꿀이 든 병을 네 병 모으세요.	clue, generated; AcquireItem minecraft:honey_bottle x4
+trail.adv_adventure_honey_block_slide.s1.clue	꿀이 든 병을 네 개 모으세요.	clue, generated; AcquireItem minecraft:honey_bottle x4
 trail.adv_adventure_honey_block_slide.s1.hint	꿀이 든 병을 모아요.	hint, generated; AcquireItem minecraft:honey_bottle x4
 trail.adv_adventure_honey_block_slide.s2.clue	꿀 블록을 만드세요.	clue, generated; Craft minecraft:honey_block x1
 trail.adv_adventure_honey_block_slide.s2.hint	꿀 블록을 만들어요.	hint, generated; Craft minecraft:honey_block x1
@@ -180,6 +180,6 @@ trail.adv_adventure_honey_block_slide.s4.clue	판자 기둥 옆에 꿀 블록을
 trail.adv_adventure_honey_block_slide.s4.hint	판자 기둥 옆에 꿀 블록을 놓아요.	hint, generated; PlaceOnPattern minecraft:honey_block NEXT_TO PILLAR minecraft:bamboo_planks
 trail.adv_adventure_honey_block_slide.s5.clue	꿀 블록 옆에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:jungle_sign NEXT_TO minecraft:honey_block
 trail.adv_adventure_honey_block_slide.s5.hint	꿀 블록 옆에 표지판을 세워요.	hint, generated; PlaceRel minecraft:jungle_sign NEXT_TO minecraft:honey_block
-trail.adv_adventure_honey_block_slide.finale.clue	꿀 블록을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:honey_block 
-trail.adv_adventure_honey_block_slide.finale.hint	꿀 블록을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:honey_block 
+trail.adv_adventure_honey_block_slide.finale.clue	꿀 블록을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:honey_block 
+trail.adv_adventure_honey_block_slide.finale.hint	꿀 블록을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:honey_block 
 trail.adv_adventure_honey_block_slide.finale	꿀 블록을 바라봤어요.	finale, generated; LookAtBlock minecraft:honey_block 

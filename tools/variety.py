@@ -118,6 +118,13 @@ def novelty(path: list[dict]) -> tuple[float, list[str]]:
     return (len(path) - len(stale)) / len(path), stale
 
 
+def step_pairs(step: dict) -> list[str]:
+    """The (verb, object) pairs a step asks for; a sequence counts the pairs of its parts (steps.json "pairs")."""
+    if "pairs" in step:
+        return step["pairs"]
+    return [f'{step["verb"]} {step["object"]}'] if step["object"] else []
+
+
 def compute(trails: list[dict], include_demo: bool = False) -> dict[str, float]:
     path = learner_path(trails, include_demo)
     steps = [(t["level"], s) for t in path for s in t["steps"]]
@@ -132,7 +139,7 @@ def compute(trails: list[dict], include_demo: bool = False) -> dict[str, float]:
     out["variety.duplicateSignatures"] = duplicates
     out["variety.objectOnlyRepeats"] = sum(twins_in(t) for t in path)
 
-    pairs = Counter((s["verb"], s["object"]) for _, s in steps if s["object"])
+    pairs = Counter(p for _, s in steps for p in step_pairs(s))
     out["variety.verbObjectMax"] = max(pairs.values(), default=0)
     out["variety.verbObjectPairsOver3"] = sum(1 for c in pairs.values() if c > PAIR_LIMIT)
 
@@ -288,9 +295,9 @@ def report(trails: list[dict], baseline: dict | None) -> str:
     out.append("")
     out.append("trails with the most steps that only swap the object word: "
                + ", ".join(f"{i} ({n})" for n, i in twins[:8] if n))
-    pairs = Counter((s["verb"], s["object"]) for t in path for s in t["steps"] if s["object"])
+    pairs = Counter(p for t in path for s in t["steps"] for p in step_pairs(s))
     out.append("most repeated (verb, object) pairs: "
-               + ", ".join(f"{v} {o} x{c}" for (v, o), c in pairs.most_common(6)))
+               + ", ".join(f"{p} x{c}" for p, c in pairs.most_common(6)))
     stale = novelty(path)[1]
     out.append(f"trails that add no new mechanic over the previous {NOVELTY_WINDOW}: {len(stale)} of {len(path)}")
     return "\n".join(out)

@@ -50,6 +50,11 @@ public final class StepNamer implements SentenceBuilder.Namer {
 	}
 
 	@Override
+	public String kindWord(String id) {
+		return base.kindWord(id);
+	}
+
+	@Override
 	public Placed placedBy(String stepId) {
 		for (QuestStep earlier : step.earlier()) {
 			if (earlier.id().equals(stepId)) {

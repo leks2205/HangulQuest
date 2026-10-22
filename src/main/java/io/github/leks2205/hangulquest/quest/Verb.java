@@ -107,7 +107,15 @@ public enum Verb {
 	WRITE("쓰다", "schreiben"),
 
 	// Wave 9: jumping down from a height.
-	JUMP_DOWN("뛰어내리다", "hinunterspringen");
+	JUMP_DOWN("뛰어내리다", "hinunterspringen"),
+
+	// Wave 9: the tool in the hand decides the verb on a creature, and armour is put on a creature (입히다).
+	SHEAR("깎다", "scheren"),
+	LEASH("묶다", "anleinen"),
+	BRUSH("닦다", "bürsten"),
+	UNARMOUR("벗기다", "die Rüstung abnehmen"),
+	DRESS("입히다", "anlegen", Frame.DAT),
+	DYE("염색하다", "färben");
 
 
 	/** How the target noun is marked in front of the verb. */

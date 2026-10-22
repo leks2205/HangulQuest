@@ -7,6 +7,7 @@ import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
+import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
 import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
@@ -98,6 +99,12 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 			return Verb.FENCE;
 		}
 		return table.choose(id(), goal.material(), 1, Verb.STACK);
+	}
+
+	/** The material of the structure in its kind word when one covers it (울타리, not 가문비나무 울타리). */
+	@Override
+	public String objectName(Goal.BuildPattern goal, SentenceBuilder.Namer namer) {
+		return SpatialSentences.materialName(goal.material(), namer);
 	}
 
 	@Override

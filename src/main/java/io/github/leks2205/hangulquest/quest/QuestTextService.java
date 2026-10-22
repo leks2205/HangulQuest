@@ -57,6 +57,11 @@ final class QuestTextService {
 			public String owner(String id) {
 				return catalog.byItemId(id).filter(Word::curated).map(word -> word.conceptId).orElse(null);
 			}
+
+			@Override
+			public String kindWord(String id) {
+				return catalog.byCoveredId(id).map(word -> word.ko).orElse(null);
+			}
 		};
 	}
 

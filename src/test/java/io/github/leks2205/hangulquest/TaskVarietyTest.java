@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest;
 
+import io.github.leks2205.hangulquest.quest.Goal;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
@@ -125,6 +126,26 @@ class TaskVarietyTest {
 		assertEquals(1.0, metric(trails, "verbObjectPairsOver3"));
 		assertEquals(3.0, metric(trails.subList(0, 3), "verbObjectMax"));
 		assertEquals(0.0, metric(trails.subList(0, 3), "verbObjectPairsOver3"), "three is the limit, not over it");
+	}
+
+	@Test
+	void theThingsASequenceAsksForCountForThePairLimitToo() {
+		Goal.Sequence eatAndRide = new Goal.Sequence(List.of(new Goal.Give("minecraft:apple", "minecraft:horse", null, 1),
+				new Goal.Mount("minecraft:horse", 1500)), true, "AND");
+		assertEquals(List.of("GIVE minecraft:apple", "RIDE minecraft:horse"), ContentFacts.pairs(eatAndRide));
+		assertEquals(List.of("PLACE minecraft:torch"), ContentFacts.pairs(new Goal.PlaceBlock("minecraft:torch", 1)));
+		assertEquals(List.of(), ContentFacts.pairs(new Goal.Wait(10, null)));
+		// four sequences that end in the same ride are over the limit, though no step has an object of its own
+		List<ContentFacts.Trail> trails = new ArrayList<>();
+		for (int i = 0; i < 4; i++) {
+			ContentFacts.Step sequence = new ContentFacts.Step("s", "SEQUENCE", "SEQUENCE:" + i, "SEQUENCE", "RIDE", null,
+					"", List.of(), List.of("goal:SEQUENCE"), false, false, List.of("L1.eoyo"), List.of(), List.of(), "x",
+					"x", ContentFacts.pairs(new Goal.Sequence(List.of(new Goal.Give("minecraft:apple" + i,
+					"minecraft:horse", null, 1), new Goal.Mount("minecraft:horse", 1500)), true, "AND")));
+			trails.add(trail("t" + i, 2, i, false, List.of(), sequence));
+		}
+		assertEquals(4.0, metric(trails, "verbObjectMax"));
+		assertEquals(1.0, metric(trails, "verbObjectPairsOver3"));
 	}
 
 	@Test

@@ -15,6 +15,7 @@ import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
 import io.github.leks2205.hangulquest.quest.spatial.Pattern;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
 import org.junit.jupiter.api.Test;
@@ -252,6 +253,105 @@ class GeneratorWaveNineTest {
 		assertTrue(SentenceBuilder.grammar(FALL_UNHURT, null, List.of(), 3, false, REGISTRY).contains("L3.ji_anayo"));
 	}
 
+	// ------------------------------------------------------------ 8. the tool decides the verb
+
+	private static Condition holding(String item) {
+		return new Condition.Holding("minecraft:" + item);
+	}
+
+	private static Goal touch(String entity) {
+		return new Goal.InteractEntity("minecraft:" + entity);
+	}
+
+	@Test
+	void i8_shearsOnASheepShearIt() {
+		Goal sheep = touch("sheep");
+		List<Condition> shears = List.of(holding("shears"));
+		assertEquals("가위로 양털을 깎아요.", clue(sheep, null, shears, 1));
+		assertEquals("가위로 양털을 깎으세요.", clue(sheep, null, shears, 2));
+		assertEquals("가위로 양털을 깎아요.", SentenceBuilder.hint(sheep, null, shears, REGISTRY));
+		assertEquals("가위로 양털을 깎았어요.", SentenceBuilder.ceremony(sheep, null, shears, REGISTRY));
+		// without the tool the click is still feeding
+		assertEquals("양에게 먹이를 주세요.", clue(sheep, null, List.of(), 2));
+	}
+
+	@Test
+	void i8_aLeadLeashesABrushBrushesAndShearsTakeOffWolfArmour() {
+		assertEquals("끈으로 소를 묶으세요.", clue(touch("cow"), null, List.of(holding("lead")), 2));
+		assertEquals("끈으로 소를 묶었어요.", SentenceBuilder.ceremony(touch("cow"), null, List.of(holding("lead")), REGISTRY));
+		assertEquals("솔로 아르마딜로를 닦으세요.", clue(touch("armadillo"), null, List.of(holding("brush")), 2));
+		assertEquals("솔로 아르마딜로를 닦아요.", clue(touch("armadillo"), null, List.of(holding("brush")), 1));
+		assertEquals("가위로 늑대의 갑옷을 벗기세요.", clue(touch("wolf"), null, List.of(holding("shears")), 2));
+		assertEquals("가위로 늑대의 갑옷을 벗겨요.", SentenceBuilder.hint(touch("wolf"), null, List.of(holding("shears")), REGISTRY));
+		assertEquals("가위로 늑대의 갑옷을 벗겼어요.", SentenceBuilder.ceremony(touch("wolf"), null, List.of(holding("shears")), REGISTRY));
+		// the tool phrase replaces the held-item phrase, the other conditions stay in front
+		assertEquals("밤에 가위로 양털을 깎으세요.", clue(touch("sheep"), null,
+				List.of(holding("shears"), new Condition.Time(Condition.Phase.NIGHT)), 2));
+	}
+
+	@Test
+	void i8_aToolThatChangesNothingKeepsTheOldSentence() {
+		assertEquals("가위를 들고 소에게 먹이를 주세요.", clue(touch("cow"), null, List.of(holding("shears")), 2));
+		assertEquals("끈을 들고 주민과 이야기하세요.", clue(touch("villager"), null, List.of(holding("lead")), 2));
+		assertEquals("횃불을 들고 늑대를 쓰다듬으세요.", clue(touch("wolf"), null, List.of(holding("torch")), 2));
+	}
+
+	@Test
+	void i8_theToolWordIsTheTaughtOneAndTheGrammarPointIsListed() {
+		List<String> ids = SentenceBuilder.grammar(touch("sheep"), word("shears"), List.of(holding("shears")), 2, false, NAMES);
+		assertTrue(ids.contains("L3.euro_instrument"), ids.toString());
+		assertFalse(ids.contains("L2.go_held"), "the held-item phrase is not said: " + ids);
+		assertEquals("가위로 양털을 깎으세요.", SentenceBuilder.normal(touch("sheep"), word("shears"), List.of(holding("shears")), 2, false, NAMES));
+	}
+
+	// ------------------------------------------------------------ 9. armour on a creature, 17. dye
+
+	private static Goal use(String item, String entity) {
+		return new Goal.Give("minecraft:" + item, "minecraft:" + entity, "USE_WITH", 1);
+	}
+
+	@Test
+	void i9_armourIsPutOnACreature() {
+		Goal wolf = use("wolf_armor", "wolf");
+		assertEquals("늑대에게 갑옷을 입혀요.", clue(wolf, 1));
+		assertEquals("늑대에게 갑옷을 입히세요.", clue(wolf, 2));
+		assertEquals("늑대에게 갑옷을 입혔어요.", SentenceBuilder.ceremony(wolf, null, List.of(), REGISTRY));
+		assertEquals("말에게 갑옷을 입히세요.", clue(use("iron_horse_armor", "horse"), 2));
+		assertEquals("말에게 갑옷을 입히세요.", clue(use("diamond_horse_armor", "horse"), 2));
+	}
+
+	@Test
+	void i9_aTaughtArmourWordIsSaidAsItIs() {
+		assertEquals("늑대에게 늑대 갑옷을 입히세요.", clue(use("wolf_armor", "wolf"), "wolf_armor", List.of(), 2));
+	}
+
+	@Test
+	void i9_otherGiftsKeepTheirVerb() {
+		assertEquals("늑대에게 뼈다귀를 주세요.", clue(new Goal.Give("minecraft:bone", "minecraft:wolf", null, 1), 2));
+		assertEquals("늑대에게 아르마딜로 인갑을 주세요.", clue(use("armadillo_scute", "wolf"), 2));
+		assertEquals("말에게 늑대 갑옷을 주세요.", clue(use("wolf_armor", "horse"), 2), "wolf armour does not fit a horse");
+		assertEquals("늑대에게 늑대 갑옷을 주세요.", clue(new Goal.Give("minecraft:wolf_armor", "minecraft:wolf", null, 1), 2),
+				"without USE_WITH it is a plain gift");
+	}
+
+	@Test
+	void i9_theRecipientMarkerStillDecidesWhoGetsTheArmour() {
+		assertEquals(List.of("L2.ege"), GoalTypes.of(use("wolf_armor", "wolf")).decidingForms(use("wolf_armor", "wolf")));
+	}
+
+	@Test
+	void i17_dyeColoursASheep() {
+		Goal blue = use("blue_dye", "sheep");
+		assertEquals("파란색 염료로 양을 염색해요.", clue(blue, 1));
+		assertEquals("파란색 염료로 양을 염색하세요.", clue(blue, 2));
+		assertEquals("파란색 염료로 양을 염색했어요.", SentenceBuilder.ceremony(blue, null, List.of(), REGISTRY));
+		assertEquals("빨간색 염료로 양을 염색하세요.", clue(use("red_dye", "sheep"), 2));
+		assertEquals(List.of(), GoalTypes.of(blue).decidingForms(blue));
+		assertTrue(SentenceBuilder.grammar(blue, null, List.of(), 2, false, REGISTRY).contains("L3.euro_instrument"));
+		// dye on another creature, or without the click, stays a gift
+		assertEquals("소에게 파란색 염료를 주세요.", clue(use("blue_dye", "cow"), 2));
+	}
+
 	// ------------------------------------------------------------ 7. the gate covers every fence gate
 
 	@Test
@@ -263,6 +363,26 @@ class GeneratorWaveNineTest {
 			assertEquals("울타리 문을 여세요.", clue(open, "gate", List.of(), 2), wood);
 		}
 		assertFalse(problems(new Goal.UseBlock("minecraft:spruce_door"), "gate").isEmpty(), "a door is no fence gate");
+	}
+
+	// ------------------------------------------------------------ 10. more creature anchors
+
+	@Test
+	void i10_theSmallerCreaturesCanAnchorAPlacementToo() {
+		for (String creature : List.of("rabbit", "frog", "goat", "turtle", "bee", "mule", "parrot", "axolotl", "llama",
+				"donkey")) {
+			String id = "minecraft:" + creature;
+			assertTrue(BlockSpec.isEntityAnchor(id), id);
+			for (Relation relation : List.of(Relation.IN_FRONT_OF, Relation.BEHIND, Relation.NEXT_TO)) {
+				Goal place = new Goal.PlaceRel("minecraft:torch", relation, id, 1);
+				assertEquals(List.of(), problems(place), id + " " + relation);
+				String clue = clue(place, 2);
+				assertTrue(clue.startsWith(KoreanFixtures.koNames().get("entity.minecraft." + creature) + " "), clue);
+			}
+		}
+		assertFalse(BlockSpec.isEntityAnchor("minecraft:zombie"), "only the creatures that stand and face a way");
+		assertEquals("토끼 앞에 횃불을 놓으세요.", clue(new Goal.PlaceRel("minecraft:torch", Relation.IN_FRONT_OF,
+				"minecraft:rabbit", 1), 2));
 	}
 
 	// ------------------------------------------------------------ 11. a held item without a concept
@@ -288,6 +408,107 @@ class GeneratorWaveNineTest {
 		String test = source.substring(source.indexOf("void everyConditionAppearsInTheKoreanClue"));
 		test = test.substring(0, test.indexOf("@Test"));
 		assertTrue(test.contains("KoreanFixtures.namer("), "the namer of the validation test must fall back on names.json");
+	}
+
+	// ------------------------------------------------------------ 19. colours describe, they do not name
+
+	@Test
+	void i19_aColourTaughtOnADyedItemStaysInFrontOfTheItem() {
+		assertEquals("빨간색 염료를 만드세요.", SentenceBuilder.normal(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
+				word("red"), List.of(), 2, false, NAMES));
+		assertEquals("빨간색 양털을 놓아요.", SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:red_wool", 1), word("red"),
+				List.of(), 1, false, NAMES));
+		assertEquals("빨간색 염료를 만들어요.", SentenceBuilder.hint(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
+				word("red"), List.of(), NAMES));
+		assertEquals("빨간색 염료를 만들었어요.", SentenceBuilder.ceremony(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
+				word("red"), List.of(), NAMES));
+		// without the colour the dye is the dye
+		assertEquals("염료를 만드세요.", SentenceBuilder.normal(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
+				word("dye"), List.of(), 2, false, NAMES));
+	}
+
+	@Test
+	void i19_theColourIsSaidForTheOtherNounsOfTheSentenceToo() {
+		// the dye the sheep is given: the colour in front of 염료, the sheep as it is
+		assertEquals("양에게 파란색 염료를 주세요.", SentenceBuilder.normal(
+				new Goal.Give("minecraft:blue_dye", "minecraft:sheep", null, 1), word("blue"), List.of(), 2, false, NAMES));
+		assertEquals("파란색 염료로 양을 염색하세요.", SentenceBuilder.normal(use("blue_dye", "sheep"), word("blue"),
+				List.of(), 2, false, NAMES));
+		// the word 염료 owns the red dye, so the plain name of that item has no colour: the taught colour is put in front
+		assertEquals("양에게 빨간색 염료를 주세요.", SentenceBuilder.normal(
+				new Goal.Give("minecraft:red_dye", "minecraft:sheep", null, 1), word("red"), List.of(), 2, false, NAMES));
+		assertEquals("빨간색 염료로 양을 염색하세요.", SentenceBuilder.normal(use("red_dye", "sheep"), word("red"),
+				List.of(), 2, false, NAMES));
+	}
+
+	// ------------------------------------------------------------ 20. the kind word for the material of a pattern
+
+	@Test
+	void i20_aStructureMadeOfAKindSaysTheKindWhenItIsNotTaught() {
+		Goal ring = new Goal.BuildPattern(Pattern.RING, "minecraft:spruce_fence", 3);
+		assertEquals("울타리를 쳐요.", SentenceBuilder.normal(ring, null, List.of(), 1, false, NAMES));
+		assertEquals("울타리를 쳤어요.", SentenceBuilder.ceremony(ring, null, List.of(), NAMES));
+		Goal torch = new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.RING, "minecraft:spruce_fence");
+		assertEquals("울타리 옆에 횃불을 놓으세요.", SentenceBuilder.normal(torch, null, List.of(), 2, false, NAMES));
+		// the registry names keep the wood where no word stands for the kind
+		assertEquals("가문비나무 울타리를 쳐요.", SentenceBuilder.normal(ring, null, List.of(), 1, false, REGISTRY));
+		// a colour is what the material is: the carpet row stays red
+		assertEquals("빨간색 양탄자 세 장을 나란히 놓아요.", SentenceBuilder.normal(new Goal.BuildPattern(Pattern.ROW,
+				"minecraft:red_carpet", 3), null, List.of(), 1, false, NAMES));
+		// and a block no kind covers keeps its name
+		assertEquals("화강암 기둥 위에 횃불을 놓으세요.", SentenceBuilder.normal(new Goal.PlaceOnPattern("minecraft:torch",
+				Relation.ON_TOP_OF, Pattern.PILLAR, "minecraft:granite"), null, List.of(), 2, false, NAMES));
+	}
+
+	// ------------------------------------------------------------ 18. a sequence says a shared object once
+
+	private static Goal.Sequence and(Goal first, Goal second) {
+		return new Goal.Sequence(List.of(first, second), true, "AND");
+	}
+
+	@Test
+	void i18_twoPartsOnTheSameThingNameItOnce() {
+		Goal.Sequence boots = and(new Goal.Craft("minecraft:leather_boots", 1, null, List.of()),
+				new Goal.Equip("minecraft:leather_boots"));
+		assertEquals("가죽 장화를 만들고 신으세요.", clue(boots, 2));
+		assertEquals("가죽 장화를 만들고 신어요.", SentenceBuilder.hint(boots, null, List.of(), REGISTRY));
+		assertEquals("가죽 장화를 만들고 신었어요.", SentenceBuilder.ceremony(boots, null, List.of(), REGISTRY));
+	}
+
+	@Test
+	void i18_aCountAnotherThingOrAnotherVerbFrameKeepsBothNames() {
+		// a count would make "four, and wear" read as four worn
+		assertEquals("가죽 장화를 두 켤레 만들고 가죽 장화를 신으세요.", clue(and(new Goal.Craft("minecraft:leather_boots", 2, null,
+				List.of()), new Goal.Equip("minecraft:leather_boots")), 2));
+		// another object stays named
+		assertEquals("가죽 장화를 만들고 철 투구를 쓰세요.", clue(and(new Goal.Craft("minecraft:leather_boots", 1, null,
+				List.of()), new Goal.Equip("minecraft:iron_helmet")), 2));
+		// a container is not the object: what goes in has to be said
+		assertEquals("상자를 만들고 상자 안에 돌을 넣으세요.", clue(and(new Goal.Craft("minecraft:chest", 1, null, List.of()),
+				new Goal.PutIn("minecraft:stone", "minecraft:chest", 1)), 2));
+	}
+
+	// ------------------------------------------------------------ 15, 21. the order words of the German clue
+
+	private static List<String> orderProblems(String german) {
+		List<String> problems = new ArrayList<>();
+		QuestStep step = new QuestStep("s1", List.of("climb"), CLIMB_AND_PLANT, List.of(), null, german, "Do it.", null,
+				null, null, null);
+		io.github.leks2205.hangulquest.quest.goal.Clauses.checkClueDoesNotTeach(
+				new ValidationContext("t/s1", step, CATALOG, problems), false);
+		return problems;
+	}
+
+	@Test
+	void i21_nachIsAnOrderWordOnlyAsDanachOrAfterADativeArticle() {
+		assertEquals(List.of(), orderProblems("Gehe nach oben und pflanze einen Setzling."));
+		assertEquals(List.of(), orderProblems("Gehe nach Hause und lege dich ins Bett."));
+		assertEquals(List.of(), orderProblems("Schaue nach links."));
+		assertFalse(orderProblems("Pflanze den Setzling nach dem Aufstieg.").isEmpty());
+		assertFalse(orderProblems("Nach der Wanderung pflanze einen Setzling.").isEmpty());
+		assertFalse(orderProblems("Steige hinauf, danach pflanze einen Setzling.").isEmpty());
+		assertFalse(orderProblems("Pflanze den Setzling, nachdem du aufgestiegen bist.").isEmpty());
+		assertFalse(orderProblems("Dann pflanze einen Setzling.").isEmpty());
 	}
 
 	// ------------------------------------------------------------ 12. the loader is strict about fields
@@ -352,6 +573,25 @@ class GeneratorWaveNineTest {
 		assertEquals("소를 십 초 동안 바라보세요.", clue(entity, 2));
 		assertEquals("소를 일 초 동안 바라봐요.", clue(new Goal.LookAtEntity("minecraft:cow", 800), 1));
 		assertEquals("소를 십이 초 동안 바라봐요.", clue(new Goal.LookAtEntity("minecraft:cow", 12_000), 1));
+	}
+
+	@Test
+	void i6_noShippedLookSpeaksSecondsInDigits() {
+		java.util.regex.Pattern digits = java.util.regex.Pattern.compile("[0-9]+ ?초 동안");
+		List<String> found = new ArrayList<>();
+		for (io.github.leks2205.hangulquest.quest.Questline trail : io.github.leks2205.hangulquest.quest.QuestLoader.loadAll()) {
+			for (QuestStep step : trail.allSteps()) {
+				if (!(step.goal() instanceof Goal.LookAtBlock || step.goal() instanceof Goal.LookAtEntity)) {
+					continue;
+				}
+				for (String text : new String[]{step.clueKo(), step.hintKo(), "finale".equals(step.id()) ? trail.finaleKo() : null}) {
+					if (text != null && digits.matcher(text).find()) {
+						found.add(trail.id() + "/" + step.id() + ": " + text);
+					}
+				}
+			}
+		}
+		assertEquals(List.of(), found);
 	}
 
 	@Test

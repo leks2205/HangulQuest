@@ -885,6 +885,26 @@
             "item"
           ],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "FALL"
+            },
+            "blocks": {
+              "type": "integer",
+              "minimum": 4,
+              "maximum": 250
+            },
+            "landing": {
+              "$ref": "#/definitions/resourceId",
+              "description": "A soft block to land on (powder snow, hay, slime, water); left out, the fall must cost no health."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         }
       ]
     },

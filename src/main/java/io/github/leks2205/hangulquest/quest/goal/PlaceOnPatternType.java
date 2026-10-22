@@ -130,7 +130,7 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 	}
 
 	private static String materialName(Goal.PlaceOnPattern goal, SentenceBuilder.Namer namer) {
-		String name = namer.block(BlockSpec.representative(goal.material()));
+		String name = SpatialSentences.materialName(goal.material(), namer);
 		return name == null ? "" : name;
 	}
 

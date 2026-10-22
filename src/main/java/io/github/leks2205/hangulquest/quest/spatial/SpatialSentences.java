@@ -178,6 +178,20 @@ public final class SpatialSentences {
 	 * The name of a block or a tag, or null. A tag is said with the taught word when that names it, else
 	 * with its everyday word (꽃, 통나무: {@link BlockSpec#tagWord}), so clue and finale agree.
 	 */
+	/**
+	 * The name of the material a structure is made of: the word of the kind that covers it whenever the registry name
+	 * ends in that word (울타리 for the spruce fence, 판자 for spruce planks), else the name itself. The kind adds no word
+	 * the name did not have, and the wood is not the point of a fence ring or a plank wall.
+	 */
+	public static String materialName(String spec, SentenceBuilder.Namer namer) {
+		String name = blockName(spec, namer);
+		String plain = BlockSpec.representative(spec);
+		String kind = plain == null || name == null ? null : namer.kindWord(plain);
+		// a colour is part of what the material is (빨간색 양탄자), the wood or the tier in front is not (가문비나무 울타리)
+		return kind != null && name.endsWith(" " + kind) && !name.substring(0, name.length() - kind.length()).contains("색")
+				? kind : name;
+	}
+
 	public static String blockName(String spec, SentenceBuilder.Namer namer) {
 		if (spec == null) {
 			return null;

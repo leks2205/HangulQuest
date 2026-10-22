@@ -25,6 +25,7 @@ public final class Catalog {
 	private final Map<String, Word> byBiome = new HashMap<>();
 	private final Map<String, Word> byTranslationKey = new HashMap<>();
 	private final Map<String, Word> byConcept = new HashMap<>();
+	private final Map<String, Word> byCovered = new HashMap<>();
 	private final Map<String, Concept> concepts = new LinkedHashMap<>();
 	private final List<Word> all = new ArrayList<>();
 
@@ -74,6 +75,12 @@ public final class Catalog {
 		}
 		if (word.conceptId != null) {
 			byConcept.putIfAbsent(word.conceptId, word);
+		}
+		// a word for a kind (울타리 for every fence) stands for the members it lists; a colour only describes them
+		if (word.curated() && !"DESCRIPTOR".equals(word.grammar)) {
+			for (String cover : word.covers) {
+				byCovered.putIfAbsent(cover, word);
+			}
 		}
 	}
 
@@ -233,6 +240,11 @@ public final class Catalog {
 	/** The word that names this item. Resolves by referent only; a word's icon never counts. */
 	public Optional<Word> byItemId(String itemId) {
 		return Optional.ofNullable(itemId == null ? null : byItem.get(itemId));
+	}
+
+	/** The hand-made word for the kind this item belongs to (울타리 for the spruce fence), or none. */
+	public Optional<Word> byCoveredId(String itemId) {
+		return Optional.ofNullable(itemId == null ? null : byCovered.get(itemId));
 	}
 
 	public Optional<Word> byEntityId(String entityId) {

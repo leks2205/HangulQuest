@@ -12,8 +12,8 @@ trail.pferderennen.finale.clue	말에게 사과를 주고 말을 타세요.	clue
 trail.pferderennen.finale.hint	말에게 사과를 주고 말을 타요.	hint, generated; Sequence [Give minecraft:apple x1 > Mount minecraft:horse ]
 trail.pferderennen.finale	말을 타고 달렸어요. 말은 빨라요.	finale, authored; Sequence [Give minecraft:apple x1 > Mount minecraft:horse ]
 trail.reitpfad.title	말타기의 길	title, authored; project: A donkey's riding trail: look at a donkey, give it hay, put a sign in front of it and a fence gate beside it, open the gate and ride out.
-trail.reitpfad.s1.clue	낮에 당나귀를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:donkey 
-trail.reitpfad.s1.hint	낮에 당나귀를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:donkey 
+trail.reitpfad.s1.clue	낮에 당나귀를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:donkey 
+trail.reitpfad.s1.hint	낮에 당나귀를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:donkey 
 trail.reitpfad.s2.clue	당나귀에게 건초 더미를 주세요.	clue, generated; Give minecraft:hay_block x1
 trail.reitpfad.s2.hint	당나귀에게 건초 더미를 줘요.	hint, generated; Give minecraft:hay_block x1
 trail.reitpfad.s3.clue	당나귀 앞에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:dark_oak_sign IN_FRONT_OF minecraft:donkey
@@ -68,8 +68,8 @@ trail.adv_husbandry_complete_catalogue.finale.clue	고양이에게 물고기를 
 trail.adv_husbandry_complete_catalogue.finale.hint	고양이에게 물고기를 주고 고양이를 쓰다듬어요.	hint, generated; Sequence [Give minecraft:cod x1 > InteractEntity minecraft:cat ]
 trail.adv_husbandry_complete_catalogue.finale	고양이가 친구가 됐어요. 고양이는 작아요.	finale, authored; Sequence [Give minecraft:cod x1 > InteractEntity minecraft:cat ]
 trail.adv_husbandry_whole_pack.title	외롭지 못한 늑대	title, authored; project: A wolf pack: look at a wolf in the forest, a bone by day, a rug beside the wolf, raise a wolf with beef, wait ten seconds near three wolves at night.
-trail.adv_husbandry_whole_pack.s1.clue	숲에서 늑대를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:wolf 
-trail.adv_husbandry_whole_pack.s1.hint	숲에서 늑대를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:wolf 
+trail.adv_husbandry_whole_pack.s1.clue	숲에서 늑대를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:wolf 
+trail.adv_husbandry_whole_pack.s1.hint	숲에서 늑대를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:wolf 
 trail.adv_husbandry_whole_pack.s2.clue	낮에 늑대에게 뼈를 주세요.	clue, generated; Give minecraft:bone x1
 trail.adv_husbandry_whole_pack.s2.hint	낮에 늑대에게 뼈를 줘요.	hint, generated; Give minecraft:bone x1
 trail.adv_husbandry_whole_pack.s3.clue	늑대 옆에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:green_carpet NEXT_TO minecraft:wolf
@@ -84,16 +84,16 @@ trail.adv_husbandry_remove_wolf_armor.s1.clue	가위를 만드세요.	clue, gene
 trail.adv_husbandry_remove_wolf_armor.s1.hint	가위를 만들어요.	hint, generated; Craft minecraft:shears x1
 trail.adv_husbandry_remove_wolf_armor.s2.clue	밤에 늑대에게 뼈를 주세요.	clue, generated; Give minecraft:bone x1
 trail.adv_husbandry_remove_wolf_armor.s2.hint	밤에 늑대에게 뼈를 줘요.	hint, generated; Give minecraft:bone x1
-trail.adv_husbandry_remove_wolf_armor.s3.clue	늑대에게 늑대 갑옷을 주세요.	clue, generated; Give minecraft:wolf_armor x1
-trail.adv_husbandry_remove_wolf_armor.s3.hint	늑대에게 늑대 갑옷을 줘요.	hint, generated; Give minecraft:wolf_armor x1
-trail.adv_husbandry_remove_wolf_armor.finale.clue	가위를 들고 늑대를 쓰다듬으세요.	clue, generated; InteractEntity minecraft:wolf 
-trail.adv_husbandry_remove_wolf_armor.finale.hint	가위를 들고 늑대를 쓰다듬어요.	hint, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_remove_wolf_armor.s3.clue	늑대에게 늑대 갑옷을 입히세요.	clue, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_remove_wolf_armor.s3.hint	늑대에게 늑대 갑옷을 입혀요.	hint, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_remove_wolf_armor.finale.clue	가위로 늑대의 갑옷을 벗기세요.	clue, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_remove_wolf_armor.finale.hint	가위로 늑대의 갑옷을 벗겨요.	hint, generated; InteractEntity minecraft:wolf 
 trail.adv_husbandry_remove_wolf_armor.finale	가위로 늑대의 갑옷을 벗겼어요. 갑옷은 무거워요.	finale, authored; InteractEntity minecraft:wolf 
 trail.adv_husbandry_repair_wolf_armor.title	새것처럼	title, authored; project: Craft wolf armor, put it on a wolf, repair it with an armadillo scute, pet the wolf.
 trail.adv_husbandry_repair_wolf_armor.s1.clue	늑대 갑옷을 만드세요.	clue, generated; Craft minecraft:wolf_armor x1
 trail.adv_husbandry_repair_wolf_armor.s1.hint	늑대 갑옷을 만들어요.	hint, generated; Craft minecraft:wolf_armor x1
-trail.adv_husbandry_repair_wolf_armor.s2.clue	밖에서 늑대에게 늑대 갑옷을 주세요.	clue, generated; Give minecraft:wolf_armor x1
-trail.adv_husbandry_repair_wolf_armor.s2.hint	밖에서 늑대에게 늑대 갑옷을 줘요.	hint, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s2.clue	밖에서 늑대에게 늑대 갑옷을 입히세요.	clue, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s2.hint	밖에서 늑대에게 늑대 갑옷을 입혀요.	hint, generated; Give minecraft:wolf_armor x1
 trail.adv_husbandry_repair_wolf_armor.s3.clue	늑대에게 아르마딜로 인갑을 주세요.	clue, generated; Give minecraft:armadillo_scute x1
 trail.adv_husbandry_repair_wolf_armor.s3.hint	늑대에게 아르마딜로 인갑을 줘요.	hint, generated; Give minecraft:armadillo_scute x1
 trail.adv_husbandry_repair_wolf_armor.finale.clue	늑대를 쓰다듬으세요.	clue, generated; InteractEntity minecraft:wolf 

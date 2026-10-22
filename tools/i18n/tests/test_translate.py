@@ -631,6 +631,21 @@ class RulesTest(unittest.TestCase):
                                             "fr_fr", False, en=en))
         self.assertIsNotNone(tr_check.giveaway("Sur la plage, construis un cercle sur le sable.", "fr_fr", False, en=en))
 
+    def test_a_separable_verb_particle_at_the_end_of_a_clause_is_no_giveaway(self):
+        # "Stelle ein Schild auf": auf belongs to the verb aufstellen, so it says nothing about the place
+        for text in ("Stelle ein Schild auf.", "Stelle das Schild auf — lies das Koreanische, um zu sehen, wo.",
+                     "Stell eine Fackel auf", "Hänge das Bild auf, lies das Koreanische.", "Mach die Tür auf!",
+                     "Stelle ein Schild AUF; lies das Koreanische."):
+            self.assertIsNone(tr_check.giveaway(text, "de_de", False), text)
+        # the same word in front of a noun is the place and is still caught
+        self.assertEqual(tr_check.giveaway("Stelle ein Schild auf den Zaun.", "de_de", False), "auf")
+        self.assertEqual(tr_check.giveaway("Lege die Fackel auf die Kiste, dann geh.", "de_de", False), "auf")
+        # a hyphen inside a word is no dash: the word does not end its clause
+        self.assertEqual(tr_check.giveaway("Stelle ein Schild auf-oder-ab.", "de_de", False), "auf")
+
+    def test_the_particle_rule_is_german_only_and_leaves_other_languages_alone(self):
+        self.assertEqual(tr_check.giveaway("Pon la antorcha encima.", "es_es", False), "encima")
+
     def test_turkish_capital_dotted_i_matches(self):
         self.assertIsNotNone(tr_check.giveaway("İlk olarak meşaleyi koy.", "tr_tr", True))
 

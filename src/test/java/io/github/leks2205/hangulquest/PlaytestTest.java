@@ -102,7 +102,9 @@ class PlaytestTest {
 	void aPlacementNextToACreatureCanBePlayed() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		for (Relation relation : List.of(Relation.IN_FRONT_OF, Relation.BEHIND, Relation.NEXT_TO, Relation.NEAR)) {
-			for (String creature : List.of("minecraft:villager", "minecraft:cat", "minecraft:iron_golem")) {
+			for (String creature : List.of("minecraft:villager", "minecraft:cat", "minecraft:iron_golem", "minecraft:rabbit",
+					"minecraft:frog", "minecraft:goat", "minecraft:turtle", "minecraft:bee", "minecraft:mule",
+					"minecraft:parrot", "minecraft:axolotl", "minecraft:llama")) {
 				Questline trail = probe("creature_" + relation.name().toLowerCase(), """
 						{"type": "PLACE_REL", "block": "minecraft:torch", "relation": "%s", "anchor": "%s", "count": 1}
 						""".formatted(relation.name(), creature));

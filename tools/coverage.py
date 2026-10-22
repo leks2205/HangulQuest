@@ -46,7 +46,7 @@ GAPS_CSV = ROOT / "build" / "reports" / "content" / "recycling-gaps.csv"
 # Every surface form the game's Conjugator makes for the verbs it knows; VerbFormsDumpTest writes it.
 VERB_FORMS = ROOT / "build" / "reports" / "content" / "verb-forms.json"
 # Verbs of the first-steps list that the game enacts but no concept or curriculum row carries yet.
-ENACTED_EXTRA = ("쌓다", "들다")
+ENACTED_EXTRA = ("쌓다", "들다", "쓰다듬다")
 
 # ---- Parameters of the simulated learner. Change one and the baseline has to be rewritten.
 KNOWN_AFTER = 3          # encounters before a word counts as known
@@ -296,9 +296,15 @@ class Lexicon:
                     if candidate in self.forms:
                         return self.forms[candidate], length
         word = eojeols[i]
+        # the longest stem wins: 쓰다듬으세요 is 쓰다듬다 and not 쓰다 (쓰 + 다듬으세요 is no ending), 들어가요 is 들어가다
+        # and not 들다, 내려가요 is 내려가다 and not 내리다
+        best = None
         for stem, canonical in self.verbs.items():
             if (len(stem) == 1 or word[:1] == stem[:1]) and verb_matches(stem, word):
-                return canonical, 1
+                if best is None or len(stem) > len(best[0]):
+                    best = (stem, canonical)
+        if best is not None:
+            return best[1], 1
         # what the stem rule cannot see: ㄷ- and ㅂ-irregular forms (걸어요, 구워요), 들다 and 쌓다 if not listed
         if word in self.verb_forms:
             return self.verb_forms[word], 1

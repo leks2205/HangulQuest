@@ -346,7 +346,8 @@ class GeneratorWaveThreeTest {
 		assertEquals("판자 기둥 위에 횃불을 놓아요.", clue(tag, null));
 		Goal build = new Goal.BuildPattern(Pattern.PILLAR, "minecraft:dark_oak_planks", 3);
 		assertEquals("판자 세 개로 기둥을 쌓아요.", clue(build, "planks"));
-		assertTrue(clue(pillar, null).contains("짙은 참나무 판자"), "without the word it is the registry name");
+		// wave 9: the word of the kind that covers the planks is said whether it is taught or not
+		assertEquals("판자 기둥 위에 횃불을 놓아요.", clue(pillar, null));
 	}
 
 	// ----------------------------------------------------------------- 16. every placing verb names the action

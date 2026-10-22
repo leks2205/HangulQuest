@@ -22,10 +22,10 @@ trail.adv_husbandry_breed_an_animal.finale	밀을 들고 소를 키웠어요.	fi
 trail.adv_husbandry_fishy_business.title	강태공이 세월을 낚듯	title, authored; project: Go to a river holding a fishing rod, look at the water, catch a fish and eat it at the river.
 trail.adv_husbandry_fishy_business.s1.clue	낚싯대를 들고 강으로 가요.	clue, generated; ReachBiome
 trail.adv_husbandry_fishy_business.s1.hint	낚싯대를 들고 강으로 가요.	hint, generated; ReachBiome
-trail.adv_husbandry_fishy_business.s2.clue	낚싯대를 들고 물을 1초 동안 바라봐요.	clue, generated; LookAtBlock
-trail.adv_husbandry_fishy_business.s2.hint	낚싯대를 들고 물을 1초 동안 바라봐요.	hint, generated; LookAtBlock
-trail.adv_husbandry_fishy_business.s3.clue	낚싯대를 들고 강에서 물고기를 구해요.	clue, generated; AcquireItem
-trail.adv_husbandry_fishy_business.s3.hint	낚싯대를 들고 강에서 물고기를 구해요.	hint, generated; AcquireItem
+trail.adv_husbandry_fishy_business.s2.clue	낚싯대를 들고 물을 일 초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.adv_husbandry_fishy_business.s2.hint	낚싯대를 들고 물을 일 초 동안 바라봐요.	hint, generated; LookAtBlock
+trail.adv_husbandry_fishy_business.s3.clue	강에서 낚싯대를 들고 물고기를 구해요.	clue, generated; AcquireItem
+trail.adv_husbandry_fishy_business.s3.hint	강에서 낚싯대를 들고 물고기를 구해요.	hint, generated; AcquireItem
 trail.adv_husbandry_fishy_business.finale.clue	강에서 생선을 먹어요.	clue, generated; ConsumeItem
 trail.adv_husbandry_fishy_business.finale.hint	강에서 생선을 먹어요.	hint, generated; ConsumeItem
 trail.adv_husbandry_fishy_business.finale	강에서 생선을 먹었어요.	finale, generated; ConsumeItem
@@ -34,8 +34,8 @@ trail.adv_husbandry_make_a_sign_glow.s1.clue	먹물 주머니를 구해요.	clue
 trail.adv_husbandry_make_a_sign_glow.s1.hint	먹물 주머니를 구해요.	hint, generated; AcquireItem
 trail.adv_husbandry_make_a_sign_glow.s2.clue	문 옆에 참나무 표지판을 놓아요.	clue, generated; PlaceRel
 trail.adv_husbandry_make_a_sign_glow.s2.hint	문 옆에 참나무 표지판을 놓아요.	hint, generated; PlaceRel
-trail.adv_husbandry_make_a_sign_glow.s3.clue	먹물 주머니를 들고 참나무 표지판을 1초 동안 바라봐요.	clue, generated; LookAtBlock
-trail.adv_husbandry_make_a_sign_glow.s3.hint	먹물 주머니를 들고 참나무 표지판을 1초 동안 바라봐요.	hint, generated; LookAtBlock
+trail.adv_husbandry_make_a_sign_glow.s3.clue	먹물 주머니를 들고 표지판을 일 초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.adv_husbandry_make_a_sign_glow.s3.hint	먹물 주머니를 들고 표지판을 일 초 동안 바라봐요.	hint, generated; LookAtBlock
 trail.adv_husbandry_make_a_sign_glow.finale.clue	먹물 주머니를 들고 참나무 표지판에 글을 써요.	clue, authored; UseBlock
 trail.adv_husbandry_make_a_sign_glow.finale.hint	먹물 주머니를 들고 참나무 표지판에 글을 써요.	hint, authored; UseBlock
 trail.adv_husbandry_make_a_sign_glow.finale	참나무 표지판에 글을 썼어요.	finale, authored; UseBlock
@@ -60,8 +60,8 @@ trail.adv_husbandry_place_dried_ghast_in_water.finale.clue	낮에 말을 타요.
 trail.adv_husbandry_place_dried_ghast_in_water.finale.hint	낮에 말을 타요.	hint, generated; Mount
 trail.adv_husbandry_place_dried_ghast_in_water.finale	낮에 말을 탔어요.	finale, generated; Mount
 trail.adv_husbandry_plant_seed.title	씨앗이 자라나는 곳	title, authored; project: Look at the water, plant wheat near it, wait beside the crop and harvest it.
-trail.adv_husbandry_plant_seed.s1.clue	물을 1초 동안 바라봐요.	clue, generated; LookAtBlock
-trail.adv_husbandry_plant_seed.s1.hint	물을 1초 동안 바라봐요.	hint, generated; LookAtBlock
+trail.adv_husbandry_plant_seed.s1.clue	물을 일 초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.adv_husbandry_plant_seed.s1.hint	물을 일 초 동안 바라봐요.	hint, generated; LookAtBlock
 trail.adv_husbandry_plant_seed.s2.clue	물 근처에 밀을 다섯 개 심어요.	clue, generated; PlaceRel
 trail.adv_husbandry_plant_seed.s2.hint	괭이로 땅을 갈아요. 물 근처에 밀을 심어요.	hint, authored; PlaceRel
 trail.adv_husbandry_plant_seed.s3.clue	밀이 자라요. 밀 근처에서 기다려요.	clue, authored; Wait
@@ -72,8 +72,8 @@ trail.adv_husbandry_plant_seed.finale	밀을 수확했어요.	finale, generated;
 trail.adv_husbandry_ride_a_boat_with_a_goat.title	염소 떴소	title, authored; project: Craft a boat, look at a goat on a mountain, go to the sea and ride in the boat.
 trail.adv_husbandry_ride_a_boat_with_a_goat.s1.clue	배를 만들어요.	clue, generated; Craft
 trail.adv_husbandry_ride_a_boat_with_a_goat.s1.hint	배를 만들어요.	hint, generated; Craft
-trail.adv_husbandry_ride_a_boat_with_a_goat.s2.clue	산에서 염소를 1초 동안 바라봐요.	clue, generated; LookAtEntity
-trail.adv_husbandry_ride_a_boat_with_a_goat.s2.hint	산에서 염소를 1초 동안 바라봐요.	hint, generated; LookAtEntity
+trail.adv_husbandry_ride_a_boat_with_a_goat.s2.clue	산에서 염소를 일 초 동안 바라봐요.	clue, generated; LookAtEntity
+trail.adv_husbandry_ride_a_boat_with_a_goat.s2.hint	산에서 염소를 일 초 동안 바라봐요.	hint, generated; LookAtEntity
 trail.adv_husbandry_ride_a_boat_with_a_goat.s3.clue	맑을 때 바다로 가요.	clue, generated; ReachBiome
 trail.adv_husbandry_ride_a_boat_with_a_goat.s3.hint	배와 함께 바다로 가요.	hint, authored; ReachBiome
 trail.adv_husbandry_ride_a_boat_with_a_goat.finale.clue	배를 타요.	clue, generated; Mount
@@ -92,10 +92,10 @@ trail.adv_husbandry_root.finale	낮에 고기를 요리했어요.	finale, genera
 trail.adv_husbandry_safely_harvest_honey.title	벌집을 내 집처럼	title, authored; project: Craft a glass bottle, look at a bee and its nest and get honey.
 trail.adv_husbandry_safely_harvest_honey.s1.clue	유리병을 만들어요.	clue, generated; Craft
 trail.adv_husbandry_safely_harvest_honey.s1.hint	유리병을 만들어요.	hint, generated; Craft
-trail.adv_husbandry_safely_harvest_honey.s2.clue	꿀벌을 1초 동안 바라봐요.	clue, generated; LookAtEntity
-trail.adv_husbandry_safely_harvest_honey.s2.hint	꿀벌을 1초 동안 바라봐요.	hint, generated; LookAtEntity
-trail.adv_husbandry_safely_harvest_honey.s3.clue	벌집을 1초 동안 바라봐요.	clue, generated; LookAtBlock
-trail.adv_husbandry_safely_harvest_honey.s3.hint	벌집을 1초 동안 바라봐요.	hint, generated; LookAtBlock
+trail.adv_husbandry_safely_harvest_honey.s2.clue	꿀벌을 일 초 동안 바라봐요.	clue, generated; LookAtEntity
+trail.adv_husbandry_safely_harvest_honey.s2.hint	꿀벌을 일 초 동안 바라봐요.	hint, generated; LookAtEntity
+trail.adv_husbandry_safely_harvest_honey.s3.clue	벌집을 일 초 동안 바라봐요.	clue, generated; LookAtBlock
+trail.adv_husbandry_safely_harvest_honey.s3.hint	벌집을 일 초 동안 바라봐요.	hint, generated; LookAtBlock
 trail.adv_husbandry_safely_harvest_honey.finale.clue	꿀을 구해요.	clue, generated; AcquireItem
 trail.adv_husbandry_safely_harvest_honey.finale.hint	꿀을 구해요.	hint, generated; AcquireItem
 trail.adv_husbandry_safely_harvest_honey.finale	꿀을 구했어요.	finale, generated; AcquireItem
@@ -112,8 +112,8 @@ trail.adv_husbandry_silk_touch_nest.finale	꽃을 들고 꿀벌을 키웠어요.
 trail.adv_husbandry_tadpole_in_a_bucket.title	양동이에 올챙이 한 마리	title, authored; project: Go to a swamp by day, look at a frog, swim and fill a bucket with water.
 trail.adv_husbandry_tadpole_in_a_bucket.s1.clue	낮에 늪으로 가요.	clue, generated; ReachBiome
 trail.adv_husbandry_tadpole_in_a_bucket.s1.hint	낮에 늪으로 가요.	hint, generated; ReachBiome
-trail.adv_husbandry_tadpole_in_a_bucket.s2.clue	개구리를 1초 동안 바라봐요.	clue, generated; LookAtEntity
-trail.adv_husbandry_tadpole_in_a_bucket.s2.hint	개구리를 1초 동안 바라봐요.	hint, generated; LookAtEntity
+trail.adv_husbandry_tadpole_in_a_bucket.s2.clue	개구리를 일 초 동안 바라봐요.	clue, generated; LookAtEntity
+trail.adv_husbandry_tadpole_in_a_bucket.s2.hint	개구리를 일 초 동안 바라봐요.	hint, generated; LookAtEntity
 trail.adv_husbandry_tadpole_in_a_bucket.s3.clue	물에서 수영해요.	clue, generated; Swim
 trail.adv_husbandry_tadpole_in_a_bucket.s3.hint	물에서 수영해요.	hint, generated; Swim
 trail.adv_husbandry_tadpole_in_a_bucket.finale.clue	늪에서 양동이를 구해요.	clue, generated; AcquireItem
@@ -122,8 +122,8 @@ trail.adv_husbandry_tadpole_in_a_bucket.finale	늪에서 양동이를 구했어�
 trail.adv_husbandry_tame_an_animal.title	인생의 동반자	title, authored; project: Collect bones, look at a wolf, give it the bones and go home.
 trail.adv_husbandry_tame_an_animal.s1.clue	뼈를 세 개 모아요.	clue, generated; AcquireItem
 trail.adv_husbandry_tame_an_animal.s1.hint	뼈를 모아요.	hint, generated; AcquireItem
-trail.adv_husbandry_tame_an_animal.s2.clue	늑대를 1초 동안 바라봐요.	clue, generated; LookAtEntity
-trail.adv_husbandry_tame_an_animal.s2.hint	늑대를 1초 동안 바라봐요.	hint, generated; LookAtEntity
+trail.adv_husbandry_tame_an_animal.s2.clue	늑대를 일 초 동안 바라봐요.	clue, generated; LookAtEntity
+trail.adv_husbandry_tame_an_animal.s2.hint	늑대를 일 초 동안 바라봐요.	hint, generated; LookAtEntity
 trail.adv_husbandry_tame_an_animal.s3.clue	늑대에게 뼈를 세 개 줘요.	clue, generated; Give
 trail.adv_husbandry_tame_an_animal.s3.hint	늑대에게 뼈를 줘요.	hint, generated; Give
 trail.adv_husbandry_tame_an_animal.finale.clue	집 안으로 들어가요.	clue, generated; Transit
@@ -134,8 +134,8 @@ trail.adv_husbandry_uh_oh.s1.clue	밀을 스무 개 모아요.	clue, generated; 
 trail.adv_husbandry_uh_oh.s1.hint	밀을 모아요.	hint, generated; AcquireItem
 trail.adv_husbandry_uh_oh.s2.clue	밀을 들고 평원에서 걸어요.	clue, generated; HoldWhile
 trail.adv_husbandry_uh_oh.s2.hint	밀을 들고 평원에서 걸어요.	hint, generated; HoldWhile
-trail.adv_husbandry_uh_oh.s3.clue	밀을 들고 주민을 1초 동안 바라봐요.	clue, generated; LookAtEntity
-trail.adv_husbandry_uh_oh.s3.hint	밀을 들고 주민을 1초 동안 바라봐요.	hint, generated; LookAtEntity
+trail.adv_husbandry_uh_oh.s3.clue	밀을 들고 주민을 일 초 동안 바라봐요.	clue, generated; LookAtEntity
+trail.adv_husbandry_uh_oh.s3.hint	밀을 들고 주민을 일 초 동안 바라봐요.	hint, generated; LookAtEntity
 trail.adv_husbandry_uh_oh.finale.clue	주민에게 밀을 팔아요.	clue, generated; Trade
 trail.adv_husbandry_uh_oh.finale.hint	주민에게 밀을 팔아요.	hint, generated; Trade
 trail.adv_husbandry_uh_oh.finale	주민에게 밀을 팔았어요.	finale, generated; Trade

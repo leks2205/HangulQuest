@@ -26,8 +26,8 @@ trail.glasfenster.s2.clue	유리 세 개를 나란히 놓아요.	clue, generated
 trail.glasfenster.s2.hint	유리를 나란히 놓아요.	hint, generated; BUILD_PATTERN
 trail.glasfenster.s3.clue	유리판을 네 개 만들어요.	clue, generated; CRAFT
 trail.glasfenster.s3.hint	유리판을 만들어요.	hint, generated; CRAFT
-trail.glasfenster.finale.clue	밤에 유리판을 1초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
-trail.glasfenster.finale.hint	밤에 유리판을 1초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.glasfenster.finale.clue	밤에 유리판을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.glasfenster.finale.hint	밤에 유리판을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
 trail.glasfenster.finale	밤에 유리판을 바라봤어요.	finale line, generated
 trail.windpfad.title	바람의 길	title, authored; project: Climb a mountain, get wool with shears, build a fence post and put the wool on top as a flag.
 trail.windpfad.s1.clue	낮에 산 위로 올라가요.	clue, generated; REACH_HEIGHT
@@ -44,8 +44,8 @@ trail.schneemannpfad.s1.clue	낮에 눈덩이를 네 개 모아요.	clue, genera
 trail.schneemannpfad.s1.hint	낮에 눈덩이를 모아요.	hint, generated; ACQUIRE_ITEM
 trail.schneemannpfad.s2.clue	눈을 두 개 만들어요.	clue, generated; CRAFT
 trail.schneemannpfad.s2.hint	눈을 만들어요.	hint, generated; CRAFT
-trail.schneemannpfad.s3.clue	밤에 얼음을 1초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
-trail.schneemannpfad.s3.hint	밤에 얼음을 1초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.schneemannpfad.s3.clue	얼음을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.schneemannpfad.s3.hint	얼음을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
 trail.schneemannpfad.s4.clue	눈 두 개로 기둥을 쌓아요.	clue, generated; BUILD_PATTERN
 trail.schneemannpfad.s4.hint	눈으로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN
 trail.schneemannpfad.finale.clue	눈 기둥 위에 호박을 놓아요.	clue, generated; PLACE_ON_PATTERN
@@ -74,8 +74,8 @@ trail.teppichpfad.finale.clue	양탄자 위에서 당근을 먹어요.	clue, gen
 trail.teppichpfad.finale.hint	양탄자 위에서 당근을 먹어요.	hint, generated; CONSUME_ITEM
 trail.teppichpfad.finale	하얀색 양탄자 위에서 당근을 먹었어요.	finale line, generated
 trail.inselpfad.title	섬의 길	title, authored; project: Look at the sand on the beach, build a sand ring, swim out into the sea and light a campfire inside the ring.
-trail.inselpfad.s1.clue	해변에서 모래를 1초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
-trail.inselpfad.s1.hint	해변에서 모래를 1초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.inselpfad.s1.clue	해변에서 모래를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.inselpfad.s1.hint	해변에서 모래를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
 trail.inselpfad.s2.clue	해변에서 모래로 울타리를 쌓아요.	clue, generated; BUILD_PATTERN
 trail.inselpfad.s2.hint	해변에서 모래로 울타리를 쌓아요.	hint, generated; BUILD_PATTERN
 trail.inselpfad.s3.clue	바다로 가요. 수영해요.	clue, authored; REACH_BIOME
@@ -100,14 +100,14 @@ trail.apfelpfad.s2.clue	낮에 사과를 구해요.	clue, generated; ACQUIRE_ITE
 trail.apfelpfad.s2.hint	낮에 사과를 구해요.	hint, generated; ACQUIRE_ITEM
 trail.apfelpfad.s3.clue	상자 안에 사과를 넣어요.	clue, generated; PUT_IN
 trail.apfelpfad.s3.hint	상자 안에 사과를 넣어요.	hint, generated; PUT_IN
-trail.apfelpfad.finale.clue	낮에 나뭇잎을 1초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
-trail.apfelpfad.finale.hint	낮에 나뭇잎을 1초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.apfelpfad.finale.clue	낮에 나뭇잎을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.apfelpfad.finale.hint	낮에 나뭇잎을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
 trail.apfelpfad.finale	낮에 나뭇잎을 바라봤어요.	finale line, generated
 trail.froschteich.title	개구리 연못	title, authored; project: Plant a flower in the swamp, watch a frog, collect lily pads and place one.
 trail.froschteich.s1.clue	늪에서 꽃을 심어요.	clue, generated; PLACE_BLOCK
 trail.froschteich.s1.hint	늪에서 꽃을 심어요.	hint, generated; PLACE_BLOCK
-trail.froschteich.s2.clue	낮에 개구리를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
-trail.froschteich.s2.hint	낮에 개구리를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.froschteich.s2.clue	낮에 개구리를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.froschteich.s2.hint	낮에 개구리를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
 trail.froschteich.s3.clue	밤에 수련잎을 두 개 모아요.	clue, generated; ACQUIRE_ITEM
 trail.froschteich.s3.hint	밤에 수련잎을 모아요.	hint, generated; ACQUIRE_ITEM
 trail.froschteich.finale.clue	낮에 수련잎을 놓아요.	clue, generated; PLACE_BLOCK
@@ -146,8 +146,8 @@ trail.regenbogenpfad.finale	양털 세 개 위에 유리판을 놓았어요.	fin
 trail.fuchsbau.title	토끼의 집	title, authored; project: Pick dandelions, look at a rabbit, feed it a dandelion and place hay inside a fence for its hutch.
 trail.fuchsbau.s1.clue	낮에 민들레를 두 송이 모아요.	clue, generated; ACQUIRE_ITEM
 trail.fuchsbau.s1.hint	낮에 민들레를 모아요.	hint, generated; ACQUIRE_ITEM
-trail.fuchsbau.s2.clue	낮에 토끼를 1초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
-trail.fuchsbau.s2.hint	낮에 토끼를 1초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.fuchsbau.s2.clue	민들레를 들고 토끼를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.fuchsbau.s2.hint	민들레를 들고 토끼를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
 trail.fuchsbau.s3.clue	토끼에게 민들레를 줘요.	clue, generated; GIVE
 trail.fuchsbau.s3.hint	토끼에게 민들레를 줘요.	hint, generated; GIVE
 trail.fuchsbau.finale.clue	울타리 안에 건초 더미를 놓아요.	clue, generated; PLACE_REL

@@ -73,6 +73,14 @@ public final class SentenceBuilder {
 			return null;
 		}
 
+		/**
+		 * The hand-made word for the kind this block or item belongs to (울타리 for the spruce fence, whose own name is
+		 * 가문비나무 울타리), or null. A structure made of a material says the kind when the kind covers it.
+		 */
+		default String kindWord(String id) {
+			return null;
+		}
+
 		/** The namer without the words the step teaches: what the registry calls things (꽃 stands for the poppy). */
 		default Namer untaught() {
 			return this;
@@ -327,6 +335,11 @@ public final class SentenceBuilder {
 			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY
 					|| kind == ObjectKind.BIOME;
 			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id, namer)) {
+				if (typed && SentenceContext.describes(word, id)) {
+					// a colour never stands for the thing: 빨간색 염료, not 빨간색
+					String named = type.objectName(goal, SentenceContext.taught(word, namer));
+					return named == null || named.isBlank() ? word.ko : named;
+				}
 				return Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);

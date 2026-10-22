@@ -162,3 +162,23 @@ wait.sixty.l2	2	-	{"type":"WAIT","seconds":60}	-	육십 초 동안 기다리세�
 cond.near.people	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:villager","radius":8,"count":2}]	주민 두 명 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L2.counter_more
 cond.near.animals	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:cow","radius":8,"count":3}]	소 세 마리 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L1.counter_mari
 cond.near.one	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:villager","radius":8}]	주민 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino
+w9.counter.honey	2	-	{"type":"ACQUIRE_ITEM","item":"minecraft:honey_bottle","count":4}	-	꿀이 든 병을 네 개 모으세요.	L2.seyo,L1.eul_reul
+w9.order.night.wolves	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:wolf","radius":8,"count":3},{"type":"TIME","phase":"NIGHT"}]	밤에 늑대 세 마리 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L1.counter_mari
+w9.order.all	2	-	{"type":"WAIT","seconds":10}	[{"type":"HOLDING","item":"minecraft:shears"},{"type":"IN_BIOME","biome":"#minecraft:is_beach"},{"type":"WEATHER","weather":"RAIN"},{"type":"TIME","phase":"NIGHT"}]	밤에 비가 올 때 해변에서 가위를 들고 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L2.go_state
+w9.look.sino	1	-	{"type":"LOOK_AT_BLOCK","block":"minecraft:stone","dwellMs":3000}	-	돌을 삼 초 동안 바라봐요.	L1.eoyo,L1.eul_reul
+w9.fall.snow	2	-	{"type":"FALL","blocks":6,"landing":"minecraft:powder_snow"}	-	높은 곳에서 가루눈 위로 뛰어내리세요.	L2.seyo,L2.eseo_activity,L2.euro_direction
+w9.fall.water	1	-	{"type":"FALL","blocks":6,"landing":"minecraft:water"}	-	높은 곳에서 물로 뛰어내려요.	L1.eoyo,L2.eseo_activity,L2.euro_direction
+w9.fall.unhurt	2	-	{"type":"FALL","blocks":10}	-	10블록 높이에서 안 다치고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L1.neg_an
+w9.fall.unhurt.l3	3	-	{"type":"FALL","blocks":10}	-	10블록 높이에서 다치지 않고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L3.ji_anayo
+w9.shear.sheep	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:sheep"}	[{"type":"HOLDING","item":"minecraft:shears"}]	가위로 양털을 깎으세요.	L2.seyo,L1.eul_reul,L3.euro_instrument
+w9.leash.cow	1	-	{"type":"INTERACT_ENTITY","entity":"minecraft:cow"}	[{"type":"HOLDING","item":"minecraft:lead"}]	끈으로 소를 묶어요.	L1.eoyo,L1.eul_reul,L3.euro_instrument
+w9.brush.armadillo	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:armadillo"}	[{"type":"HOLDING","item":"minecraft:brush"}]	솔로 아르마딜로를 닦으세요.	L2.seyo,L1.eul_reul,L3.euro_instrument
+w9.unarmour.wolf	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:wolf"}	[{"type":"HOLDING","item":"minecraft:shears"}]	가위로 늑대의 갑옷을 벗기세요.	L2.seyo,L1.eul_reul,L3.euro_instrument
+w9.pet.wolf.torch	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:wolf"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 늑대를 쓰다듬으세요.	L2.seyo,L1.eul_reul,L2.go_state
+w9.armour.wolf	2	-	{"type":"GIVE","item":"minecraft:wolf_armor","entity":"minecraft:wolf","method":"USE_WITH"}	-	늑대에게 갑옷을 입히세요.	L2.seyo,L2.ege,L1.eul_reul
+w9.armour.wolf.word	2	wolf_armor	{"type":"GIVE","item":"minecraft:wolf_armor","entity":"minecraft:wolf","method":"USE_WITH"}	-	늑대에게 늑대 갑옷을 입히세요.	L2.seyo,L2.ege,L1.eul_reul
+w9.armour.horse	1	-	{"type":"GIVE","item":"minecraft:iron_horse_armor","entity":"minecraft:horse","method":"USE_WITH"}	-	말에게 갑옷을 입혀요.	L1.eoyo,L2.ege,L1.eul_reul
+w9.dye.sheep	2	-	{"type":"GIVE","item":"minecraft:blue_dye","entity":"minecraft:sheep","method":"USE_WITH"}	-	파란색 염료로 양을 염색하세요.	L2.seyo,L1.eul_reul,L3.euro_instrument
+w9.seq.shared.object	2	-	{"type":"SEQUENCE","connector":"AND","parts":[{"type":"CRAFT","item":"minecraft:leather_boots"},{"type":"EQUIP","item":"minecraft:leather_boots"}]}	-	가죽 장화를 만들고 신으세요.	L2.go_and,L1.eul_reul,L2.seyo
+w9.seq.two.objects	2	-	{"type":"SEQUENCE","connector":"AND","parts":[{"type":"CRAFT","item":"minecraft:leather_boots"},{"type":"EQUIP","item":"minecraft:iron_helmet"}]}	-	가죽 장화를 만들고 철 투구를 쓰세요.	L2.go_and,L1.eul_reul,L2.seyo
+w9.colour.dye	2	red	{"type":"CRAFT","item":"minecraft:red_dye"}	-	빨간색 염료를 만드세요.	L2.seyo,L1.eul_reul
