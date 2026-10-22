@@ -4,8 +4,10 @@ import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.StampMemo;
+import io.github.leks2205.hangulquest.ui.hvpt.HvptScreen;
 import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
@@ -27,6 +29,11 @@ public final class StudyTab extends JournalTab {
 	private final Runnable reviewNow = () -> {
 		host.hq().hud().startFromDue();
 		host.close();
+	};
+
+	private final Runnable openForge = () -> {
+		Minecraft mc = Minecraft.getInstance();
+		mc.setScreenAndShow(new HvptScreen(mc.gui.screen()));
 	};
 
 	public StudyTab(JournalHost host) {
@@ -55,6 +62,7 @@ public final class StudyTab extends JournalTab {
 		if (!page.due().isEmpty()) {
 			host.button(g, x, y + height - 30, 150, 18, I18n.t("hangulquest.ui.study.review_now"), false, reviewNow);
 		}
+		host.button(g, x + 158, y + height - 30, 150, 18, I18n.t("hangulquest.ui.study.sound_forge"), false, openForge);
 		Draw.label(g, host.font(), I18n.t("hangulquest.ui.study.auto_hint"), x,
 				y + height - 10, Ink.INK_FAINT);
 	}

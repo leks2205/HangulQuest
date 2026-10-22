@@ -13,8 +13,11 @@ import java.util.regex.Pattern;
  */
 public final class AudioService {
 	public static final String WORD_PREFIX = "word.";
+	/** The sound forge's stimuli: one event per item, form and voice, because the game picks the voice there. */
+	public static final String HVPT_PREFIX = "hvpt.";
 	/** Concept ids are lower-case ASCII; anything else cannot be a sound event name. */
 	private static final Pattern SAFE_ID = Pattern.compile("[a-z0-9_]+");
+	private static final Pattern SAFE_EVENT = Pattern.compile("[a-z0-9_.]+");
 
 	/** The HUD speaks a word on its own at most this often, so a run of cards never turns into chatter. */
 	public static final long AMBIENT_GAP_MS = 10_000L;
@@ -43,6 +46,45 @@ public final class AudioService {
 	public boolean packLoaded() {
 		try {
 			return backend.hasAny(WORD_PREFIX);
+		} catch (RuntimeException failed) {
+			return false;
+		}
+	}
+
+	/** True when the sound setting is on. */
+	public boolean settingOn() {
+		return enabled.getAsBoolean();
+	}
+
+	/** True when a voice pack with the sound forge stimuli is loaded. */
+	public boolean hvptLoaded() {
+		try {
+			return backend.hasAny(HVPT_PREFIX);
+		} catch (RuntimeException failed) {
+			return false;
+		}
+	}
+
+	/** True when the setting is on and the pack defines this exact event (a sound forge stimulus, for example). */
+	public boolean hasSound(String event) {
+		if (event == null || !SAFE_EVENT.matcher(event).matches() || !enabled.getAsBoolean()) {
+			return false;
+		}
+		try {
+			return backend.has(event);
+		} catch (RuntimeException failed) {
+			return false;
+		}
+	}
+
+	/** Plays one exact event; true when it was started. */
+	public boolean playSound(String event) {
+		if (!hasSound(event)) {
+			return false;
+		}
+		try {
+			backend.play(event, 1.0F);
+			return true;
 		} catch (RuntimeException failed) {
 			return false;
 		}

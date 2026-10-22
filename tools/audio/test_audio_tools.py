@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import build_pack  # noqa: E402
 import common  # noqa: E402
+import hvpt_texts  # noqa: E402
 import qa  # noqa: E402
 import render  # noqa: E402
 import select_texts  # noqa: E402
@@ -174,6 +175,55 @@ class Selection(unittest.TestCase):
     def test_a_repeat_render_uses_other_seeds(self):
         self.assertEqual(render.seed_for("sohee", 0, 0), render.seed_for("sohee", 0, 0))
         self.assertNotEqual(render.seed_for("sohee", 0, 0), render.seed_for("sohee", 0, 0, "redo"))
+
+
+class SoundForge(unittest.TestCase):
+    def test_every_text_has_a_safe_unique_id(self):
+        rows = hvpt_texts.texts(hvpt_texts.load())
+        ids = [r["id"] for r in rows]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertGreater(len(ids), 100)
+        for cid in ids:
+            self.assertRegex(cid, r"^hvpt\.[a-z0-9_]+\.[a-z]+$")
+
+    def test_held_out_voices_are_separate_and_not_in_the_default_render(self):
+        data = hvpt_texts.load()
+        cfg = common.load_voices()
+        held = set(data["heldOutVoices"])
+        self.assertTrue(held)
+        self.assertFalse(held & set(data["trainingVoices"]))
+        self.assertFalse(held & set(common.default_voices(cfg)))
+        for name in held | set(data["trainingVoices"]):
+            self.assertIn(name, cfg["voices"])
+
+    def test_forms_belong_to_their_contrast(self):
+        data = hvpt_texts.load()
+        forms = {c["id"]: {f["key"] for f in c["forms"]} for c in data["contrasts"]}
+        for item in data["items"]:
+            self.assertGreaterEqual(len(item["forms"]), 2)
+            self.assertLessEqual(set(item["forms"]), forms[item["contrast"]], item["id"])
+
+    def test_the_stimulus_event_has_one_clip_per_voice(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, dist = Path(tmp) / "out", Path(tmp) / "dist"
+            root.mkdir()
+            entries = {}
+            for voice in ("sohee", "male1"):
+                (root / voice).mkdir()
+                h = common.sha1("딸", voice, "m")
+                (root / voice / f"{h}.ogg").write_bytes(b"OggS")
+                entries[voice] = {"kind": "custom", "entries": {"hvpt.dt_w1.t": {"hash": h, "ko": "딸"}}}
+            manifest = {"model": "m", "version": "1", "code_licence": "Apache-2.0", "weights_licence": "Apache-2.0",
+                        "licence_urls": ["https://example.invalid/licence"], "rendered": "2026-01-01", "voices": entries}
+            (root / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            with zipfile.ZipFile(build_pack.build(root, dist)) as zf:
+                sounds = json.loads(zf.read("assets/hangulquest/sounds.json"))
+                pack = json.loads(zf.read("manifest.json"))
+            self.assertEqual(sounds["hvpt.dt_w1.t.sohee"], {"sounds": [{"name": "hangulquest:ko/sohee/hvpt.dt_w1.t"}]})
+            self.assertEqual(sounds["hvpt.dt_w1.t.male1"], {"sounds": [{"name": "hangulquest:ko/male1/hvpt.dt_w1.t"}]})
+            self.assertNotIn("hvpt.dt_w1.t", sounds)
+            self.assertEqual(pack["hvpt"]["source"], "tts")
+            self.assertEqual(pack["voices"]["sohee"]["entries"]["hvpt.dt_w1.t"]["source"], "tts")
 
 
 if __name__ == "__main__":

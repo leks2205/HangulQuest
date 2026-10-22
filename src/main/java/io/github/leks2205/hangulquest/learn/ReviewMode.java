@@ -17,6 +17,8 @@ public enum ReviewMode {
 	QUEST_HINTED(true, false),
 	/** Held-out measurement: logged, never changes the schedule. */
 	PROBE(false, false),
+	/** A listening trial of the sound forge: logged, never changes a schedule, never counts as recall. */
+	HVPT(false, false),
 	EXPOSURE(false, false);
 
 	private final boolean schedules;

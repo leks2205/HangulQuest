@@ -84,3 +84,37 @@ about 8 GB when another model shares the GPU.
 `build_pack.py --texts texts.jsonl --words-only`: about 41 MB and 4,541 clips, instead of 108 MB with the sentence
 clips. Sentence clips stay rendered in the cache. Drop `--words-only` once something plays them (word cards with
 example sentences, shadowing).
+
+## Sound forge stimuli (HVPT)
+
+The mini-game 소리 대장간 needs minimal pairs and triplets in several voices, and a pre- and post-test in voices that
+are never used in training. The stimulus set is described in `src/main/resources/assets/hangulquest/data/hvpt.json`
+(the mod reads it too): 50 items (syllables and words), 123 forms, 6 contrasts. Voices:
+
+- training: `sohee`, `female2`, `male1`, `male2` (the same voices as the voices pack);
+- held out: `female3`, `male3`, designed like the other clone voices (`voices_hvpt.json`, marked `hvpt_only`, so a
+  plain `render.py` run never renders them and they never appear in the pack's word events).
+
+Pipeline (GPU only for the rendering and the ASR check, so run it when the GPU is free):
+
+1. `hvpt_texts.py` writes `hvpt-texts.jsonl` (`hvpt.<item>.<form>`).
+2. `render.py hvpt-texts.jsonl --out ~/hangulquest-audio/out-hvpt --device cuda:0 --voices sohee female2 male1 male2 female3 male3`
+   (its own folder, so the voices pack's `manifest.json` is left alone).
+3. `qa.py --out ~/hangulquest-audio/out-hvpt --device cuda`: a clip must come back as the intended syllable or word
+   (CER under 0.15 means exact for these short texts); the rest go on the blocklist. The mod only plays an item in a
+   voice when every form of it exists, so a blocked clip drops that item for that voice, nothing else.
+4. `build_pack.py --hvpt ~/hangulquest-audio/out-hvpt`: one event per item, form and voice,
+   `hvpt.<item>.<form>.<voice>`, one clip each (the mod picks the voice, not the game). The pack manifest says
+   `"hvpt": {"source": "tts", ...}` and every entry `"source": "tts"`.
+
+First render (2026-10, GPU/CPU, 6 voices x 123 forms = 738 clips): single syllables are the model's weak spot (clips of
+0.2 to 0.4 s, often clipped or read as another syllable), so the ASR gate is strict and `qa.py --recheck` plus a
+re-render (different seeds) was run three times. 489 of 738 clips pass (110 of 123 forms in at least one voice; 151
+clips in the two held-out voices). Per contrast there are 10 to 24 playable item-voice pairs for training; the test
+borrows non-test items where a contrast has fewer than three playable test items in the held-out voices. A native
+review and, above all, natural recordings will do better than more retries.
+
+Natural recordings: the set is synthetic. Record several native talkers per item and form, keep the ids and the
+event names (or add a `source` per clip to the manifest), and the mod needs no change. Keep two or more talkers
+out of training for the tests. A native review of the tense and aspirated forms is the first thing to ask for.
+
