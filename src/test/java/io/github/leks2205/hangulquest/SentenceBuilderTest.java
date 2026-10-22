@@ -177,7 +177,7 @@ class SentenceBuilderTest {
 	// ------------------------------------------------------------------ numerals and particles
 
 	@Test
-	void countsUseNativeNumeralsUpToTwenty() {
+	void countsUseNativeNumeralsUpToNinetyNine() {
 		Goal.AcquireItem one = new Goal.AcquireItem("minecraft:apple", 1);
 		assertEquals("사과를 구해요.", clue(one, "사과"));
 		for (int n = 2; n <= 20; n++) {
@@ -197,7 +197,9 @@ class SentenceBuilderTest {
 				assertTrue(text.contains(expected), n + " -> " + text);
 			}
 		}
-		assertEquals("사과를 21개 모아요.", clue(new Goal.AcquireItem("minecraft:apple", 21), "사과"));
+		assertEquals("사과를 스물한 개 모아요.", clue(new Goal.AcquireItem("minecraft:apple", 21), "사과"));
+		assertEquals("사과를 예순네 개 모아요.", clue(new Goal.AcquireItem("minecraft:apple", 64), "사과"));
+		assertEquals("사과를 100개 모아요.", clue(new Goal.AcquireItem("minecraft:apple", 100), "사과"));
 		assertEquals("좀비를 세 마리 물리쳐요.", clue(new Goal.DefeatEntity("minecraft:zombie", 3), "좀비"));
 		// Seconds and heights stay Sino-Korean.
 		assertEquals("돌을 이 초 동안 바라봐요.", clue(new Goal.LookAtBlock("minecraft:stone", 1500), "돌"));

@@ -95,6 +95,10 @@ public final class Observation {
 	public boolean underground;
 	public List<CraftFact> crafted = List.of();
 	public List<GiveFact> gave = List.of();
+	/** Projectiles of the player that landed or vanished this tick, with what they struck. */
+	public List<ShotFact> shots = List.of();
+	/** The way the player looks, in degrees as the game stores it (0 south, 90 west, 180 north, -90 east). */
+	public float yaw;
 	public List<ContainerPutFact> putIn = List.of();
 	/** Trades made on a merchant screen this tick. */
 	public List<TradeFact> traded = List.of();
@@ -126,6 +130,8 @@ public final class Observation {
 	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
 	 */
 	public boolean musicScanWanted;
+	/** Set while a tracked step shoots or throws something: the sensor then follows the projectiles of the player. */
+	public boolean shotScanWanted;
 	/**
 	 * Set by the goal evaluator while a tracked step has a NEAR_BLOCK condition: block spec to radius. The sensor
 	 * then scans the surroundings for it ({@link BlockProximity}); read on the following tick.
@@ -162,6 +168,11 @@ public final class Observation {
 	public void addCrafted(CraftFact fact) {
 		crafted = grow(crafted);
 		crafted.add(fact);
+	}
+
+	public void addShot(ShotFact fact) {
+		shots = grow(shots);
+		shots.add(fact);
 	}
 
 	public void addGave(GiveFact fact) {

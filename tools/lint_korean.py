@@ -210,7 +210,9 @@ def check_place_wrong_object(row, text, params, ctx):
 COUNT_ONE = re.compile(r"(?<![가-힣\d])(?:한 개|하나|1개)(?![가-힣])")
 # the counters of data/counters.json (개 for things, 마리 for animals, 송이 for flowers ...)
 COUNTERS = "개|마리|명|그루|송이|병|자루|장|권|잔|그릇|켤레|척|대|벌|채"
-ANY_COUNT = re.compile(rf"\d+\s?(?:{COUNTERS})|(?<![가-힣])(?:한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두|열세|열네|열다섯|열여섯|열일곱|열여덟|열아홉|스무)\s?(?:{COUNTERS})")
+NATIVE_COUNTS = "|".join(sorted((json.loads(Path(__file__).with_name("lint").joinpath("rules.json").read_text(encoding="utf-8"))
+                                 ["lists"]["native_numerals"]), key=len, reverse=True))
+ANY_COUNT = re.compile(rf"\d+\s?(?:{COUNTERS})|(?<![가-힣])(?:{NATIVE_COUNTS})\s?(?:{COUNTERS})")
 
 
 def check_collect_count(row, text, params, ctx):
@@ -269,7 +271,7 @@ def check_digit_native_counter(row, text, params, ctx):
     counters = "|".join(ctx.lists["native_counters"])
     out = []
     for m in re.finditer(rf"(\d+)\s?({counters})(?![가-힣])", text):
-        if int(m.group(1)) <= 20:
+        if int(m.group(1)) <= 99:
             out.append(f"'{m.group(0)}' should use a native numeral")
     return out
 

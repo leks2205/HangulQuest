@@ -246,6 +246,8 @@ final class KoreanFixtures {
 			case Goal.Swim g -> null;
 			case Goal.Fall g -> g.landing();
 			case Goal.Equip g -> g.item();
+			case Goal.Shoot g -> g.entity() != null ? g.entity() : g.block();
+			case Goal.Walk g -> null;
 		};
 	}
 
@@ -268,7 +270,11 @@ final class KoreanFixtures {
 		};
 		String suffix = switch (goal) {
 			case Goal.ReachHeight g -> g.minY() + ".." + g.maxY();
-			case Goal.PlaceRel g -> g.relation() + " " + g.anchor() + (g.count() > 1 ? " x" + g.count() : "");
+			case Goal.PlaceRel g -> g.relation() + " " + g.anchor() + (g.anchor2() == null ? "" : " + " + g.anchor2())
+					+ (g.count() > 1 ? " x" + g.count() : "");
+			case Goal.PutIn g -> "in " + g.container() + (g.count() > 0 ? " x" + g.count() : "");
+			case Goal.TakeOut g -> "from " + g.container() + (g.count() > 0 ? " x" + g.count() : "");
+			case Goal.Give g -> "to " + g.entity() + (g.count() > 0 ? " x" + g.count() : "");
 			case Goal.BuildPattern g -> g.pattern() + " " + g.size();
 			case Goal.PlaceOnPattern g -> g.relation() + " " + g.pattern() + " " + g.material();
 			case Goal.Sequence g -> g.parts().stream().map(KoreanFixtures::describe)

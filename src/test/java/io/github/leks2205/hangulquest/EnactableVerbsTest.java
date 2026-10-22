@@ -301,7 +301,7 @@ class EnactableVerbsTest {
 		Goal down = new Goal.ReachHeight(-64, 40);
 		assertEquals("아래로 내려가요.", clue(down, "go_down"));
 		assertEquals(Verb.DESCEND, SentenceBuilder.verbFor(down));
-		assertEquals("높이 40블록 이하로 내려가세요.", clue(down, "go_down", 2));
+		assertEquals("높이 사십 블록 이하로 내려가세요.", clue(down, "go_down", 2));
 		assertEquals("아래로 내려갔어요.", ceremony(down, "go_down"));
 		// a goal above sea level still climbs, the open goal too
 		assertEquals(Verb.CLIMB, SentenceBuilder.verbFor(new Goal.ReachHeight(80, 320)));
@@ -634,7 +634,7 @@ class EnactableVerbsTest {
 	void swimmingADistanceHasItsSentence() {
 		Goal swim = new Goal.Swim(20);
 		assertEquals("물에서 수영해요.", clue(swim, "swim"));
-		assertEquals("물에서 20블록 수영하세요.", clue(swim, "swim", 2));
+		assertEquals("물에서 이십 블록 수영하세요.", clue(swim, "swim", 2));
 		assertEquals("물에서 수영해요.", SentenceBuilder.hint(swim, word("swim"), List.of(), NAMER));
 		assertEquals("물에서 수영했어요.", ceremony(swim, "swim"));
 		assertEquals(Verb.SWIM, SentenceBuilder.verbFor(swim));

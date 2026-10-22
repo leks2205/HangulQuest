@@ -8,7 +8,7 @@
   "place_wrong_hint": {"묘목": "심다", "씨앗": "심다", "양탄자": "깔다", "카펫": "깔다", "현수막": "걸다", "깃발": "걸다", "그림": "걸다", "액자": "걸다"},
   "talk_ok_targets": ["주민", "상인", "떠돌이 상인", "마을 사람", "사람"],
   "undead": ["좀비", "스켈레톤", "허스크", "드라운드", "스트레이", "위더 스켈레톤", "팬텀", "조글린", "좀비 피글린", "좀비 주민", "보그드"],
-  "native_numerals": ["한", "두", "세", "네", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열한", "열두", "열세", "열네", "열다섯", "열여섯", "열일곱", "열여덟", "열아홉", "스무"],
+  "native_numerals": ["한", "두", "세", "네", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열한", "열두", "열세", "열네", "열다섯", "열여섯", "열일곱", "열여덟", "열아홉", "스물", "스물한", "스물두", "스물세", "스물네", "스물다섯", "스물여섯", "스물일곱", "스물여덟", "스물아홉", "서른", "서른한", "서른두", "서른세", "서른네", "서른다섯", "서른여섯", "서른일곱", "서른여덟", "서른아홉", "마흔", "마흔한", "마흔두", "마흔세", "마흔네", "마흔다섯", "마흔여섯", "마흔일곱", "마흔여덟", "마흔아홉", "쉰", "쉰한", "쉰두", "쉰세", "쉰네", "쉰다섯", "쉰여섯", "쉰일곱", "쉰여덟", "쉰아홉", "예순", "예순한", "예순두", "예순세", "예순네", "예순다섯", "예순여섯", "예순일곱", "예순여덟", "예순아홉", "일흔", "일흔한", "일흔두", "일흔세", "일흔네", "일흔다섯", "일흔여섯", "일흔일곱", "일흔여덟", "일흔아홉", "여든", "여든한", "여든두", "여든세", "여든네", "여든다섯", "여든여섯", "여든일곱", "여든여덟", "여든아홉", "아흔", "아흔한", "아흔두", "아흔세", "아흔네", "아흔다섯", "아흔여섯", "아흔일곱", "아흔여덟", "아흔아홉", "스무"],
   "native_counters": ["개", "마리", "명", "그루", "송이", "병", "자루", "장", "권"],
   "noun_stoplist": ["마을", "겨울", "거울", "바다", "나무", "하나", "다음", "그것", "이것", "창가", "개구리", "고양이"]
  },
@@ -30,9 +30,9 @@
    "name": "raw-id",
    "severity": "error",
    "scope": "all",
-   "description": "A registry id, an underscore or Latin letters leaked into Korean text.",
+   "description": "A registry id, an underscore or Latin letters leaked into Korean text. The one exception is TNT, which Korean Minecraft writes in Latin letters (names.json has no Hangul entry for it).",
    "type": "regex",
-   "pattern": "minecraft:|[A-Za-z_]",
+   "pattern": "minecraft:|_|(?<![A-Za-z])(?!TNT(?![A-Za-z]))[A-Za-z]+",
    "bad": "minecraft:stone을 캐요.",
    "good": "돌을 캐요.",
    "fix": "Use the official Korean name from names.json / the lang tables."
@@ -219,19 +219,19 @@
    "check": "mixed_numerals",
    "bad": "돌을 3개 캐요. 세 개 더 놓아요.",
    "good": "돌을 세 개 캐요.",
-   "fix": "Native numerals with 개/마리 up to 20 (한, 두, 세, ... 스무); digits only for seconds and heights."
+   "fix": "Native numerals with 개/마리 up to 99 (한, 두, 세, ... 스무, 스물네, 서른); digits from 100, and for heights and seconds only where the generator spells them."
   },
   {
    "id": "KO018",
    "name": "digits-with-native-counter",
    "severity": "warning",
    "scope": "all",
-   "description": "A count up to 20 written in digits with a native counter (3개 instead of 세 개).",
+   "description": "A count up to 99 written in digits with a native counter (3개 instead of 세 개).",
    "type": "check",
    "check": "digit_native_counter",
    "bad": "돌을 3개 캐요.",
    "good": "돌을 세 개 캐요.",
-   "fix": "Write 한 개, 두 개, 세 마리 ... 스무 개."
+   "fix": "Write 한 개, 두 개, 세 마리 ... 스무 개, 스물네 개."
   },
   {
    "id": "KO019",

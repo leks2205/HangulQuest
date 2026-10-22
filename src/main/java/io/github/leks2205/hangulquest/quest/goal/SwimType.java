@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
@@ -93,9 +94,36 @@ final class SwimType implements GoalType<Goal.Swim> {
 
 	@Override
 	public String korean(Goal.Swim goal, SentenceContext c) {
-		String water = SentenceBuilder.objectPhrase(water(c), Verb.SWIM);
-		String far = c.withCounts() && c.level() >= 2 ? " " + goal.blocks() + "블록" : "";
+		String sea = sea(c);
+		String water = SentenceBuilder.objectPhrase(sea != null ? sea : water(c), Verb.SWIM); // 바다에서, not 바다의 물에서
+		String far = c.withCounts() && c.level() >= 2 ? " " + KoGrammar.blocks(goal.blocks()) : "";
 		return SentenceBuilder.phrase(water + far, c.verb(), c.level(), c.finale());
+	}
+
+	/** Sea and river are the places one swims in: the sentence says 바다에서 and the condition's own phrase is left out. */
+	@Override
+	public boolean says(Goal.Swim goal, io.github.leks2205.hangulquest.quest.Condition condition) {
+		return condition instanceof io.github.leks2205.hangulquest.quest.Condition.InBiome biome
+				&& SEAS.contains(biome.biome());
+	}
+
+	private static final java.util.Set<String> SEAS = java.util.Set.of("#minecraft:is_ocean", "#minecraft:is_river");
+
+	/** The sea or river the step asks for, else null. */
+	private static String sea(SentenceContext c) {
+		for (var condition : c.conditions()) {
+			if (condition instanceof io.github.leks2205.hangulquest.quest.Condition.InBiome biome
+					&& SEAS.contains(biome.biome())) {
+				return SentenceBuilder.biomeName(biome.biome(), c.namer());
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String ceremony(Goal.Swim goal, SentenceContext c) {
+		String sea = sea(c);
+		return SentenceBuilder.objectPhrase(sea != null ? sea : "물", c.verb()) + " " + c.verb().past();
 	}
 
 	@Override

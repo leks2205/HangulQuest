@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest;
 
 import io.github.leks2205.hangulquest.culture.CultureNote;
 import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.ConceptLoader;
 import io.github.leks2205.hangulquest.data.Word;
@@ -102,7 +103,11 @@ class SentenceDumpTest {
 				boolean finale = "finale".equals(step.id());
 				String base = "trail." + trail.id() + "." + step.id();
 				String goal = KoreanFixtures.describe(step.goal());
-				Verb verb = SentenceBuilder.verbFor(step.goal());
+				// the verb the sentence really uses: a lead on a rideable animal says 묶다, not 타다
+				Word taught = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
+				Verb verb = SentenceBuilder.verbOf(step.goal(),
+						taught != null && taught.category == Category.ACTIONS && taught.ko.endsWith("다") ? taught : null,
+						step.conditions());
 				String path = finale ? "finale.step" : "steps[" + trail.steps().indexOf(step) + "]";
 
 				boolean authoredClue = step.hasClueKo();

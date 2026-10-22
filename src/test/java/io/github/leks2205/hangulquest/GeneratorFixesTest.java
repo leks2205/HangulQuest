@@ -265,7 +265,7 @@ class GeneratorFixesTest {
 		assertEquals("산 위로 올라가요.", clue(new Goal.ReachHeight(110, 320), "mountain"));
 		assertEquals("언덕 위로 올라갔어요.", ceremony(new Goal.ReachHeight(80, 320), "mountain"));
 		// numbers belong to the next level
-		assertEquals("높이 80블록 위로 올라가세요.", SentenceBuilder.normal(new Goal.ReachHeight(80, 320),
+		assertEquals("높이 팔십 블록 위로 올라가세요.", SentenceBuilder.normal(new Goal.ReachHeight(80, 320),
 				word("mountain"), List.of(), 2, false, NAMER).replace("올라가요", "올라가세요"));
 	}
 
