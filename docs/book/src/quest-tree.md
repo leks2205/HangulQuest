@@ -441,7 +441,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `ewiges_eis` | 영원한 얼음 | Das ewige Eis | 3 | `polarlicht`, `kristallschmiede` |
 | `pyramidenpfad` | 피라미드의 길 | Der Pyramidenpfad | 4 | `piratenpfad`, `tempelpfad` |
 | `bibliothekpfad` | 도서관의 길 | Der Bibliothekspfad | 4 | `piratenpfad`, `vogelpfad` |
-| `adv_nether_brew_potion` | 유리병과 양조기 | Alchemie | 5 | `adv_nether_obtain_blaze_rod` |
+| `adv_nether_brew_potion` | 물약 양조장 | Alchemie | 5 | `adv_nether_obtain_blaze_rod` |
 | `adv_nether_summon_wither` | 해골 탑 | Der Schädelturm | 4 | `adv_nether_get_wither_skull` |
 | `adv_story_enter_the_end` | 이걸로 끝이야? | Das Ende? | 3 | `adv_story_follow_ender_eye` |
 | `wolkenpfad` | 구름의 길 | Der Wolkenpfad | 4 | `weltwunder`, `observatorium`, `weltreise`, `windpfad` |
@@ -455,7 +455,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `drachenhort` | 용의 보물 | Der Drachenhort | 4 | `bibliothekpfad`, `pyramidenpfad` |
 | `tempelwaechter` | 신전의 수호자 | Der Tempelwächter | 4 | `pyramidenpfad`, `bibliothekpfad` |
 | `adv_nether_all_potions` | 더 강한 물약 | Ein stärkerer Trank | 3 | `adv_nether_brew_potion` |
-| `adv_nether_create_beacon` | 신호기 받침 | Der Sockel für das Leuchtfeuer | 4 | `adv_nether_summon_wither` |
+| `adv_nether_create_beacon` | 철 블록과 영혼 랜턴 | Eisenblöcke und Seelenlaterne | 4 | `adv_nether_summon_wither` |
 | `reisekrone` | 여행의 왕관 | Die Reisekrone | 4 | `koenigspfad`, `unendlichereise`, `wolkenpfad`, `kristallschmiede`, `hafenwacht` |
 | `w7_01` | 불의 문 | Das Feuertor | 3 | `unendlichereise` |
 | `w7_03` | 모루의 길 | Der Ambosspfad | 3 | `ewiges_eis` |

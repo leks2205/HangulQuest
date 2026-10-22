@@ -18,7 +18,7 @@ trail.adv_nether_distract_piglin.s3.clue	피글린 근처에서 금 블록을 �
 trail.adv_nether_distract_piglin.s3.hint	피글린 근처에서 금 블록을 부수지 마세요.	hint, generated; Avoid minecraft:gold_block [BreakBlock minecraft:gold_block x1]
 trail.adv_nether_distract_piglin.finale.clue	네더에서 피글린에게 금 주괴를 준 후에 상자를 여세요.	clue, generated; Sequence [Give minecraft:gold_ingot x1 > UseBlock minecraft:chest ]
 trail.adv_nether_distract_piglin.finale.hint	네더에서 피글린에게 금 주괴를 준 후에 상자를 열어요.	hint, generated; Sequence [Give minecraft:gold_ingot x1 > UseBlock minecraft:chest ]
-trail.adv_nether_distract_piglin.finale	네더에서 피글린에게 금 주괴를 준 후에 상자를 열었어요. 피글린은 화를 내지 않았어요.	finale line, authored; Sequence [Give minecraft:gold_ingot x1 > UseBlock minecraft:chest ]
+trail.adv_nether_distract_piglin.finale	네더에서 피글린에게 금 주괴를 준 후에 상자를 열었어요.	finale line, authored; Sequence [Give minecraft:gold_ingot x1 > UseBlock minecraft:chest ]
 trail.adv_nether_fast_travel.title	천 리 길도 한 걸음	title, authored
 trail.adv_nether_fast_travel.s1.clue	네더에서 흑요석 네 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:obsidian PILLAR 4
 trail.adv_nether_fast_travel.s1.hint	네더에서 흑요석으로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:obsidian PILLAR 4
@@ -28,7 +28,7 @@ trail.adv_nether_fast_travel.s3.clue	네더에서 침대에 눕지 마세요.	cl
 trail.adv_nether_fast_travel.s3.hint	네더에서 침대에 눕지 마세요.	hint, generated; Avoid minecraft:red_bed [LieDown minecraft:red_bed ]
 trail.adv_nether_fast_travel.finale.clue	오버월드로 간 후에 네더로 가세요.	clue, generated; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
 trail.adv_nether_fast_travel.finale.hint	오버월드로 간 후에 네더로 가요.	hint, generated; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
-trail.adv_nether_fast_travel.finale	오버월드로 간 후에 네더로 갔어요. 네더에서는 한 걸음이 여덟 걸음이에요.	finale line, authored; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
+trail.adv_nether_fast_travel.finale	오버월드로 간 후에 네더로 갔어요. 네더에서 한 걸음은 오버월드의 여덟 걸음과 같아요.	finale line, authored; Sequence [ReachDimension minecraft:overworld  > ReachDimension minecraft:the_nether ]
 trail.adv_nether_find_bastion.title	그때가 좋았지	title, authored
 trail.adv_nether_find_bastion.s1.clue	네더에서 윤나는 흑암 벽돌을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:polished_blackstone_bricks 
 trail.adv_nether_find_bastion.s1.hint	네더에서 윤나는 흑암 벽돌을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:polished_blackstone_bricks 
@@ -38,7 +38,7 @@ trail.adv_nether_find_bastion.s3.clue	금 블록을 일 초 동안 바라보기 
 trail.adv_nether_find_bastion.s3.hint	금 블록을 일 초 동안 바라보기 전에 피글린을 일 초 동안 바라봐요.	hint, generated; Sequence [LookAtEntity minecraft:piglin  > LookAtBlock minecraft:gold_block ]
 trail.adv_nether_find_bastion.finale.clue	피글린 근처에서 상자를 열지 마세요.	clue, generated; Avoid minecraft:chest [UseBlock minecraft:chest ]
 trail.adv_nether_find_bastion.finale.hint	피글린 근처에서 상자를 열지 마세요.	hint, generated; Avoid minecraft:chest [UseBlock minecraft:chest ]
-trail.adv_nether_find_bastion.finale	네더의 피글린 근처에서 상자를 열지 않았어요. 모두 조용했어요.	finale line, authored; Avoid minecraft:chest [UseBlock minecraft:chest ]
+trail.adv_nether_find_bastion.finale	피글린 근처에서 상자를 열지 않았어요.	finale line, authored; Avoid minecraft:chest [UseBlock minecraft:chest ]
 trail.adv_nether_find_fortress.title	끔찍한 요새	title, authored
 trail.adv_nether_find_fortress.s1.clue	네더에서 네더 벽돌을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:nether_bricks 
 trail.adv_nether_find_fortress.s1.hint	네더에서 네더 벽돌을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:nether_bricks 
@@ -48,7 +48,7 @@ trail.adv_nether_find_fortress.s3.clue	네더에서 네더 벽돌 옆에 조약�
 trail.adv_nether_find_fortress.s3.hint	네더에서 네더 벽돌 옆에 조약돌을 놓아요.	hint, generated; PlaceRel minecraft:cobblestone NEXT_TO minecraft:nether_bricks
 trail.adv_nether_find_fortress.finale.clue	네더에서 블레이즈를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:blaze 
 trail.adv_nether_find_fortress.finale.hint	네더에서 블레이즈를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:blaze 
-trail.adv_nether_find_fortress.finale	네더 요새에서 블레이즈를 봤어요. 블레이즈는 불을 쏴요.	finale line, authored; LookAtEntity minecraft:blaze 
+trail.adv_nether_find_fortress.finale	네더에서 블레이즈를 바라봤어요. 블레이즈는 불덩이를 쏴요.	finale line, authored; LookAtEntity minecraft:blaze 
 trail.adv_nether_obtain_ancient_debris.title	깊이 파묻힌 잔해	title, authored
 trail.adv_nether_obtain_ancient_debris.s1.clue	네더에서 높이 20 이하로 내려가세요.	clue, generated; ReachHeight -64..20
 trail.adv_nether_obtain_ancient_debris.s1.hint	네더에서 아래로 내려가요.	hint, generated; ReachHeight -64..20
@@ -60,7 +60,7 @@ trail.adv_nether_obtain_ancient_debris.s4.clue	네더에서 고대 잔해를 캐
 trail.adv_nether_obtain_ancient_debris.s4.hint	네더에서 고대 잔해를 캐요.	hint, generated; BreakBlock minecraft:ancient_debris x1
 trail.adv_nether_obtain_ancient_debris.finale.clue	화로에서 고대 잔해를 녹이세요.	clue, generated; Smelt minecraft:netherite_scrap x1
 trail.adv_nether_obtain_ancient_debris.finale.hint	화로에서 고대 잔해를 녹여요.	hint, generated; Smelt minecraft:netherite_scrap x1
-trail.adv_nether_obtain_ancient_debris.finale	화로에서 고대 잔해를 구웠어요. 이제 네더라이트를 만들 거예요.	finale line, authored; Smelt minecraft:netherite_scrap x1
+trail.adv_nether_obtain_ancient_debris.finale	화로에서 고대 잔해를 녹였어요. 나중에 네더라이트 주괴를 만들 수 있어요.	finale line, authored; Smelt minecraft:netherite_scrap x1
 trail.adv_nether_obtain_crying_obsidian.title	누가 양파를 써나?	title, authored
 trail.adv_nether_obtain_crying_obsidian.s1.clue	네더에서 우는 흑요석을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:crying_obsidian 
 trail.adv_nether_obtain_crying_obsidian.s1.hint	네더에서 우는 흑요석을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:crying_obsidian 
@@ -70,7 +70,7 @@ trail.adv_nether_obtain_crying_obsidian.s3.clue	네더에서 흑요석 옆에 �
 trail.adv_nether_obtain_crying_obsidian.s3.hint	네더에서 흑요석 옆에 우는 흑요석을 놓아요.	hint, generated; PlaceRel minecraft:crying_obsidian NEXT_TO minecraft:obsidian
 trail.adv_nether_obtain_crying_obsidian.finale.clue	우는 흑요석을 캔 후에 리스폰 정박기를 만드세요.	clue, generated; Sequence [BreakBlock minecraft:crying_obsidian x1 > Craft minecraft:respawn_anchor x1]
 trail.adv_nether_obtain_crying_obsidian.finale.hint	우는 흑요석을 캔 후에 리스폰 정박기를 만들어요.	hint, generated; Sequence [BreakBlock minecraft:crying_obsidian x1 > Craft minecraft:respawn_anchor x1]
-trail.adv_nether_obtain_crying_obsidian.finale	우는 흑요석을 캔 후에 리스폰 정박기를 만들었어요. 이제 네더에서 다시 시작할 수 있어요.	finale line, authored; Sequence [BreakBlock minecraft:crying_obsidian x1 > Craft minecraft:respawn_anchor x1]
+trail.adv_nether_obtain_crying_obsidian.finale	우는 흑요석을 캔 후에 리스폰 정박기를 만들었어요. 나중에 충전할 수 있어요.	finale line, authored; Sequence [BreakBlock minecraft:crying_obsidian x1 > Craft minecraft:respawn_anchor x1]
 trail.adv_nether_return_to_sender.title	전해지지 않은 러브레터	title, authored
 trail.adv_nether_return_to_sender.s1.clue	화약을 구하세요.	clue, generated; AcquireItem minecraft:gunpowder x1
 trail.adv_nether_return_to_sender.s1.hint	화약을 구해요.	hint, generated; AcquireItem minecraft:gunpowder x1
@@ -80,7 +80,7 @@ trail.adv_nether_return_to_sender.s3.clue	네더에서 가스트를 일 초 동�
 trail.adv_nether_return_to_sender.s3.hint	네더에서 가스트를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:ghast 
 trail.adv_nether_return_to_sender.finale.clue	네더에서 가스트를 한 마리 물리치세요.	clue, generated; DefeatEntity minecraft:ghast x1
 trail.adv_nether_return_to_sender.finale.hint	네더에서 가스트를 물리쳐요.	hint, generated; DefeatEntity minecraft:ghast x1
-trail.adv_nether_return_to_sender.finale	네더에서 가스트의 화염구를 되돌려 보냈어요. 가스트를 물리쳤어요.	finale line, authored; DefeatEntity minecraft:ghast x1
+trail.adv_nether_return_to_sender.finale	네더에서 가스트를 물리쳤어요. 가스트는 화염구를 쏴요.	finale line, authored; DefeatEntity minecraft:ghast x1
 trail.adv_nether_ride_strider.title	두 발 달린 보트	title, authored
 trail.adv_nether_ride_strider.s1.clue	상자에서 안장을 꺼내세요.	clue, generated; TakeOut minecraft:saddle x1
 trail.adv_nether_ride_strider.s1.hint	상자에서 안장을 꺼내요.	hint, generated; TakeOut minecraft:saddle x1
@@ -100,17 +100,17 @@ trail.adv_story_enter_the_nether.s3.clue	흑요석 벽 위에 흑요석을 놓�
 trail.adv_story_enter_the_nether.s3.hint	흑요석 벽 위에 흑요석을 놓아요.	hint, generated; PlaceOnPattern minecraft:obsidian ON_TOP_OF WALL minecraft:obsidian
 trail.adv_story_enter_the_nether.finale.clue	흑요석을 일 초 동안 바라본 후에 네더로 가세요.	clue, generated; Sequence [LookAtBlock minecraft:obsidian  > ReachDimension minecraft:the_nether ]
 trail.adv_story_enter_the_nether.finale.hint	흑요석을 일 초 동안 바라본 후에 네더로 가요.	hint, generated; Sequence [LookAtBlock minecraft:obsidian  > ReachDimension minecraft:the_nether ]
-trail.adv_story_enter_the_nether.finale	불을 붙인 후에 차원문으로 네더에 들어갔어요. 이제 네더를 걸을 수 있어요.	finale line, authored; Sequence [LookAtBlock minecraft:obsidian  > ReachDimension minecraft:the_nether ]
+trail.adv_story_enter_the_nether.finale	흑요석을 바라본 후에 네더로 갔어요. 이제 네더를 걸을 수 있어요.	finale line, authored; Sequence [LookAtBlock minecraft:obsidian  > ReachDimension minecraft:the_nether ]
 trail.adv_story_form_obsidian.title	아이스 버킷 챌린지	title, authored
 trail.adv_story_form_obsidian.s1.clue	양동이를 들고 용암을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:lava 
 trail.adv_story_form_obsidian.s1.hint	양동이를 들고 용암을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:lava 
-trail.adv_story_form_obsidian.s2.clue	용암 옆에 물을 놓은 후에 흑요석을 일 초 동안 바라보세요.	clue, generated; Sequence [PlaceRel minecraft:water NEXT_TO minecraft:lava > LookAtBlock minecraft:obsidian ]
-trail.adv_story_form_obsidian.s2.hint	용암 옆에 물을 놓은 후에 흑요석을 일 초 동안 바라봐요.	hint, generated; Sequence [PlaceRel minecraft:water NEXT_TO minecraft:lava > LookAtBlock minecraft:obsidian ]
+trail.adv_story_form_obsidian.s2.clue	용암 옆에 물을 부은 후에 흑요석을 일 초 동안 바라보세요.	clue, generated; Sequence [PlaceRel minecraft:water NEXT_TO minecraft:lava > LookAtBlock minecraft:obsidian ]
+trail.adv_story_form_obsidian.s2.hint	용암 옆에 물을 부은 후에 흑요석을 일 초 동안 바라봐요.	hint, generated; Sequence [PlaceRel minecraft:water NEXT_TO minecraft:lava > LookAtBlock minecraft:obsidian ]
 trail.adv_story_form_obsidian.s3.clue	물 옆에 돌을 놓으세요.	clue, generated; PlaceRel minecraft:stone NEXT_TO minecraft:water
 trail.adv_story_form_obsidian.s3.hint	물 옆에 돌을 놓아요.	hint, generated; PlaceRel minecraft:stone NEXT_TO minecraft:water
 trail.adv_story_form_obsidian.finale.clue	다이아몬드 곡괭이로 흑요석을 캐세요.	clue, authored; BreakBlock minecraft:obsidian x1
 trail.adv_story_form_obsidian.finale.hint	흑요석을 캐요.	hint, generated; BreakBlock minecraft:obsidian x1
-trail.adv_story_form_obsidian.finale	다이아몬드 곡괭이로 흑요석을 캤어요. 이제 네더에 갈 수 있어요.	finale line, authored; BreakBlock minecraft:obsidian x1
+trail.adv_story_form_obsidian.finale	흑요석을 캤어요. 나중에 흑요석으로 네더 차원문을 만들 수 있어요.	finale line, authored; BreakBlock minecraft:obsidian x1
 trail.adv_nether_explore_nether.title	화끈한 관광 명소	title, authored
 trail.adv_nether_explore_nether.s1.clue	네더에서 네더랙을 세 개 캐세요.	clue, generated; BreakBlock minecraft:netherrack x3
 trail.adv_nether_explore_nether.s1.hint	네더에서 네더랙을 캐요.	hint, generated; BreakBlock minecraft:netherrack x3
@@ -120,14 +120,14 @@ trail.adv_nether_explore_nether.s3.clue	네더에서 영혼 모래를 세 개 �
 trail.adv_nether_explore_nether.s3.hint	네더에서 영혼 모래를 파요.	hint, generated; BreakBlock minecraft:soul_sand x3
 trail.adv_nether_explore_nether.finale.clue	네더에서 영혼 모래 위에 자갈을 놓으세요.	clue, generated; PlaceRel minecraft:gravel ON_TOP_OF minecraft:soul_sand
 trail.adv_nether_explore_nether.finale.hint	네더에서 영혼 모래 위에 자갈을 놓아요.	hint, generated; PlaceRel minecraft:gravel ON_TOP_OF minecraft:soul_sand
-trail.adv_nether_explore_nether.finale	네더에서 영혼 모래 위에 자갈을 놓았어요. 네더는 뜨거워요. 하지만 멋졌어요.	finale line, authored; PlaceRel minecraft:gravel ON_TOP_OF minecraft:soul_sand
+trail.adv_nether_explore_nether.finale	네더에서 영혼 모래 위에 자갈을 놓았어요. 네더는 뜨거워요. 하지만 멋져요.	finale line, authored; PlaceRel minecraft:gravel ON_TOP_OF minecraft:soul_sand
 trail.adv_nether_obtain_blaze_rod.title	포화 속으로	title, authored
 trail.adv_nether_obtain_blaze_rod.s1.clue	활을 들고 화살을 여섯 개 모으세요.	clue, generated; AcquireItem minecraft:arrow x6
 trail.adv_nether_obtain_blaze_rod.s1.hint	활을 들고 화살을 모아요.	hint, generated; AcquireItem minecraft:arrow x6
 trail.adv_nether_obtain_blaze_rod.s2.clue	네더에서 블레이즈를 한 마리 물리치세요.	clue, generated; DefeatEntity minecraft:blaze x1
 trail.adv_nether_obtain_blaze_rod.s2.hint	네더에서 블레이즈를 물리쳐요.	hint, generated; DefeatEntity minecraft:blaze x1
-trail.adv_nether_obtain_blaze_rod.s3.clue	네더에서 물을 놓지 마세요.	clue, generated; Avoid minecraft:water [PlaceBlock minecraft:water x1]
-trail.adv_nether_obtain_blaze_rod.s3.hint	네더에서 물을 놓지 마세요.	hint, generated; Avoid minecraft:water [PlaceBlock minecraft:water x1]
+trail.adv_nether_obtain_blaze_rod.s3.clue	네더에서 물을 붓지 마세요.	clue, generated; Avoid minecraft:water [PlaceBlock minecraft:water x1]
+trail.adv_nether_obtain_blaze_rod.s3.hint	네더에서 물을 붓지 마세요.	hint, generated; Avoid minecraft:water [PlaceBlock minecraft:water x1]
 trail.adv_nether_obtain_blaze_rod.finale.clue	네더에서 블레이즈 막대기를 두 개 모으세요.	clue, generated; AcquireItem minecraft:blaze_rod x2
 trail.adv_nether_obtain_blaze_rod.finale.hint	네더에서 블레이즈 막대기를 모아요.	hint, generated; AcquireItem minecraft:blaze_rod x2
 trail.adv_nether_obtain_blaze_rod.finale	네더에서 블레이즈 막대기를 두 개 모았어요. 막대기로 블레이즈 가루를 만들 수 있어요.	finale line, authored; AcquireItem minecraft:blaze_rod x2
@@ -138,7 +138,7 @@ trail.adv_nether_ride_strider_in_overworld_lava.s2.clue	오버월드에서 스�
 trail.adv_nether_ride_strider_in_overworld_lava.s2.hint	오버월드에서 스트라이더를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:strider 
 trail.adv_nether_ride_strider_in_overworld_lava.finale.clue	오버월드에서 스트라이더를 타세요.	clue, generated; Mount minecraft:strider 
 trail.adv_nether_ride_strider_in_overworld_lava.finale.hint	오버월드에서 스트라이더를 타요.	hint, generated; Mount minecraft:strider 
-trail.adv_nether_ride_strider_in_overworld_lava.finale	오버월드의 용암 위에서 스트라이더를 탔어요. 스트라이더는 용암 속에서도 편해요.	finale line, authored; Mount minecraft:strider 
+trail.adv_nether_ride_strider_in_overworld_lava.finale	오버월드에서 스트라이더를 탔어요. 스트라이더는 용암 위를 걸어요.	finale line, authored; Mount minecraft:strider 
 trail.vulkanpfad.title	화산의 길	title, authored
 trail.vulkanpfad.s1.clue	높이 85블록 위로 올라가세요.	clue, generated; ReachHeight 85..320
 trail.vulkanpfad.s1.hint	언덕 위로 올라가요.	hint, generated; ReachHeight 85..320
@@ -150,4 +150,4 @@ trail.vulkanpfad.s4.clue	횃불을 들고 밤에 걸으세요.	clue, generated; 
 trail.vulkanpfad.s4.hint	횃불을 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:torch 
 trail.vulkanpfad.finale.clue	밤에 용암을 일 초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:lava 
 trail.vulkanpfad.finale.hint	밤에 용암을 일 초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:lava 
-trail.vulkanpfad.finale	산 위에서 밤에 용암을 바라봤어요. 용암은 밤에 더 밝아요.	finale line, authored; LookAtBlock minecraft:lava 
+trail.vulkanpfad.finale	밤에 용암을 바라봤어요. 용암은 밤에도 밝아요.	finale line, authored; LookAtBlock minecraft:lava 

@@ -372,7 +372,7 @@ class GeneratorFixesTest {
 	@Test
 	void buildingCountsItsMaterialWithTheRightCounter() {
 		Goal.BuildPattern row = new Goal.BuildPattern(Pattern.ROW, "minecraft:red_carpet", 3);
-		assertEquals("빨간색 양탄자 세 장을 나란히 놓아요.", SentenceBuilder.normal(row, null, List.of(), 1, false, NAMER));
+		assertEquals("빨간색 양탄자 세 장을 나란히 깔아요.", SentenceBuilder.normal(row, null, List.of(), 1, false, NAMER));
 		Goal.BuildPattern stoneRow = new Goal.BuildPattern(Pattern.ROW, "minecraft:stone", 3);
 		assertEquals("돌 세 개를 나란히 놓아요.", SentenceBuilder.normal(stoneRow, word("stone"), List.of(), 1, false, NAMER));
 	}

@@ -115,7 +115,10 @@ public enum Verb {
 	BRUSH("닦다", "bürsten"),
 	UNARMOUR("벗기다", "die Rüstung abnehmen"),
 	DRESS("입히다", "anlegen", Frame.DAT),
-	DYE("염색하다", "färben");
+	DYE("염색하다", "färben"),
+
+	// Water and lava from a bucket are poured (ㅅ-irregular: 부어요, 부으세요).
+	POUR("붓다", "gießen");
 
 
 	/** How the target noun is marked in front of the verb. */

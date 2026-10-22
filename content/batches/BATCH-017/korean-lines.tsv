@@ -6,8 +6,8 @@ trail.adv_nether_all_potions.s2.clue	양조기 안에 블레이즈 가루를 넣
 trail.adv_nether_all_potions.s2.hint	양조기 안에 블레이즈 가루를 넣어요.	hint, generated; PutIn minecraft:blaze_powder x1
 trail.adv_nether_all_potions.finale.clue	양조기에서 물약을 꺼낸 후에 물약을 마셔야 해요.	clue, generated; Sequence [TakeOut minecraft:potion x1 > ConsumeItem minecraft:potion x1]
 trail.adv_nether_all_potions.finale.hint	양조기에서 물약을 꺼낸 후에 물약을 마셔요.	hint, generated; Sequence [TakeOut minecraft:potion x1 > ConsumeItem minecraft:potion x1]
-trail.adv_nether_all_potions.finale	더 강한 물약을 마셨어요. 이제 다른 물약도 만들 수 있어요.	finale, authored; Sequence [TakeOut minecraft:potion x1 > ConsumeItem minecraft:potion x1]
-trail.adv_nether_brew_potion.title	유리병과 양조기	title, authored; 
+trail.adv_nether_all_potions.finale	양조기에서 물약을 꺼낸 후에 물약을 마셨어요. 나중에 다른 물약도 만들 수 있어요.	finale, authored; Sequence [TakeOut minecraft:potion x1 > ConsumeItem minecraft:potion x1]
+trail.adv_nether_brew_potion.title	물약 양조장	title, authored; 
 trail.adv_nether_brew_potion.s1.clue	양조기를 만들어야 해요.	clue, generated; Craft minecraft:brewing_stand x1
 trail.adv_nether_brew_potion.s1.hint	양조기를 만들어요.	hint, generated; Craft minecraft:brewing_stand x1
 trail.adv_nether_brew_potion.s2.clue	제작대 옆에 양조기를 놓아야 해요.	clue, generated; PlaceRel minecraft:brewing_stand NEXT_TO minecraft:crafting_table
@@ -18,7 +18,7 @@ trail.adv_nether_brew_potion.s4.clue	네더 사마귀를 구한 후에 양조기
 trail.adv_nether_brew_potion.s4.hint	네더 사마귀를 구한 후에 양조기 안에 네더 사마귀를 넣어요.	hint, generated; Sequence [AcquireItem minecraft:nether_wart x1 > PutIn minecraft:nether_wart x1]
 trail.adv_nether_brew_potion.finale.clue	양조기에서 물약을 꺼내야 해요.	clue, generated; TakeOut minecraft:potion x1
 trail.adv_nether_brew_potion.finale.hint	양조기에서 물약을 꺼내요.	hint, generated; TakeOut minecraft:potion x1
-trail.adv_nether_brew_potion.finale	물약을 만들었어요. 이제 물약을 마실 수 있어요.	finale, authored; TakeOut minecraft:potion x1
+trail.adv_nether_brew_potion.finale	양조기에서 물약을 꺼냈어요. 이제 물약을 마실 수 있어요.	finale, authored; TakeOut minecraft:potion x1
 trail.adv_nether_charge_respawn_anchor.title	목숨 충전	title, authored; 
 trail.adv_nether_charge_respawn_anchor.s1.clue	우는 흑요석을 여섯 개 모으세요.	clue, generated; AcquireItem minecraft:crying_obsidian x6
 trail.adv_nether_charge_respawn_anchor.s1.hint	우는 흑요석을 모아요.	hint, generated; AcquireItem minecraft:crying_obsidian x6
@@ -30,8 +30,8 @@ trail.adv_nether_charge_respawn_anchor.s4.clue	침대 옆에 리스폰 정박기
 trail.adv_nether_charge_respawn_anchor.s4.hint	침대 옆에 리스폰 정박기를 놓아요.	hint, generated; PlaceRel minecraft:respawn_anchor NEXT_TO #minecraft:beds
 trail.adv_nether_charge_respawn_anchor.finale.clue	리스폰 정박기를 충전하세요.	clue, generated; UseBlock minecraft:respawn_anchor 
 trail.adv_nether_charge_respawn_anchor.finale.hint	리스폰 정박기를 충전해요.	hint, generated; UseBlock minecraft:respawn_anchor 
-trail.adv_nether_charge_respawn_anchor.finale	리스폰 정박기를 채웠어요. 이제 네더에서 다시 살아날 수 있어요.	finale, authored; UseBlock minecraft:respawn_anchor 
-trail.adv_nether_create_beacon.title	신호기 받침	title, authored; 
+trail.adv_nether_charge_respawn_anchor.finale	리스폰 정박기를 충전했어요. 나중에 네더에서 다시 살아날 수 있어요.	finale, authored; UseBlock minecraft:respawn_anchor 
+trail.adv_nether_create_beacon.title	철 블록과 영혼 랜턴	title, authored; 
 trail.adv_nether_create_beacon.s1.clue	철 블록을 여덟 개 만들어야 해요.	clue, generated; Craft minecraft:iron_block x8
 trail.adv_nether_create_beacon.s1.hint	철 블록을 만들어요.	hint, generated; Craft minecraft:iron_block x8
 trail.adv_nether_create_beacon.s2.clue	철 블록으로 담을 쌓아야 해요.	clue, generated; BuildPattern minecraft:iron_block RING 3
@@ -40,7 +40,7 @@ trail.adv_nether_create_beacon.s3.clue	철 블록 담 안에 영혼 랜턴을 �
 trail.adv_nether_create_beacon.s3.hint	철 블록 담 안에 영혼 랜턴을 놓아요.	hint, generated; PlaceOnPattern minecraft:soul_lantern INSIDE RING minecraft:iron_block
 trail.adv_nether_create_beacon.finale.clue	영혼 랜턴 근처에서 밤까지 기다려야 해요.	clue, generated; Wait 
 trail.adv_nether_create_beacon.finale.hint	영혼 랜턴 근처에서 밤까지 기다려요.	hint, generated; Wait 
-trail.adv_nether_create_beacon.finale	랜턴이 밤에 빛나요. 나중에 여기에 신호기를 놓을 수 있어요.	finale, authored; Wait 
+trail.adv_nether_create_beacon.finale	영혼 랜턴 근처에서 밤까지 기다렸어요.	finale, authored; Wait 
 trail.adv_nether_get_wither_skull.title	으스스한 스켈레톤	title, authored; 
 trail.adv_nether_get_wither_skull.s1.clue	네더에서 위더 스켈레톤을 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:wither_skeleton 
 trail.adv_nether_get_wither_skull.s1.hint	네더에서 위더 스켈레톤을 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:wither_skeleton 
@@ -48,7 +48,7 @@ trail.adv_nether_get_wither_skull.s2.clue	위더 스켈레톤을 두 마리 물�
 trail.adv_nether_get_wither_skull.s2.hint	위더 스켈레톤을 물리친 후에 뼈를 모아요.	hint, generated; Sequence [DefeatEntity minecraft:wither_skeleton x2 > AcquireItem minecraft:bone x3]
 trail.adv_nether_get_wither_skull.finale.clue	위더 스켈레톤 해골을 구하세요.	clue, generated; AcquireItem minecraft:wither_skeleton_skull x1
 trail.adv_nether_get_wither_skull.finale.hint	위더 스켈레톤 해골을 구해요.	hint, generated; AcquireItem minecraft:wither_skeleton_skull x1
-trail.adv_nether_get_wither_skull.finale	위더 스켈레톤 해골을 구했어요. 이제 위더를 만들 수 있어요.	finale, authored; AcquireItem minecraft:wither_skeleton_skull x1
+trail.adv_nether_get_wither_skull.finale	위더 스켈레톤 해골을 구했어요. 나중에 위더를 만들 수 있어요.	finale, authored; AcquireItem minecraft:wither_skeleton_skull x1
 trail.adv_nether_loot_bastion.title	돼지와 전쟁	title, authored; 
 trail.adv_nether_loot_bastion.s1.clue	금 투구를 쓰세요.	clue, generated; Equip minecraft:golden_helmet 
 trail.adv_nether_loot_bastion.s1.hint	금 투구를 써요.	hint, generated; Equip minecraft:golden_helmet 
@@ -58,7 +58,7 @@ trail.adv_nether_loot_bastion.s3.clue	피글린 근처에서 통을 열지 마�
 trail.adv_nether_loot_bastion.s3.hint	피글린 근처에서 통을 열지 마세요.	hint, generated; Avoid minecraft:barrel [UseBlock minecraft:barrel ]
 trail.adv_nether_loot_bastion.finale.clue	네더에서 상자를 여세요.	clue, generated; UseBlock minecraft:chest 
 trail.adv_nether_loot_bastion.finale.hint	네더에서 상자를 열어요.	hint, generated; UseBlock minecraft:chest 
-trail.adv_nether_loot_bastion.finale	네더의 보루에서 상자를 열었어요. 금이 있어요. 피글린은 돼지처럼 생겼어요.	finale, authored; UseBlock minecraft:chest 
+trail.adv_nether_loot_bastion.finale	네더에서 상자를 열었어요. 피글린은 돼지처럼 생겼어요.	finale, authored; UseBlock minecraft:chest 
 trail.adv_nether_netherite_armor.title	네더라이트 투구	title, authored; 
 trail.adv_nether_netherite_armor.s1.clue	고대 잔해를 네 개 모으세요.	clue, generated; AcquireItem minecraft:ancient_debris x4
 trail.adv_nether_netherite_armor.s1.hint	고대 잔해를 모아요.	hint, generated; AcquireItem minecraft:ancient_debris x4
@@ -78,7 +78,7 @@ trail.adv_nether_summon_wither.s3.clue	영혼 모래 십자 모양 위에 위더
 trail.adv_nether_summon_wither.s3.hint	영혼 모래 십자 모양 위에 위더 스켈레톤 해골을 놓아요.	hint, generated; PlaceOnPattern minecraft:wither_skeleton_skull ON_TOP_OF CROSS minecraft:soul_sand
 trail.adv_nether_summon_wither.finale.clue	위더 스켈레톤 해골을 놓지 마세요.	clue, generated; Avoid minecraft:wither_skeleton_skull [PlaceBlock minecraft:wither_skeleton_skull x1]
 trail.adv_nether_summon_wither.finale.hint	위더 스켈레톤 해골을 놓지 마세요.	hint, generated; Avoid minecraft:wither_skeleton_skull [PlaceBlock minecraft:wither_skeleton_skull x1]
-trail.adv_nether_summon_wither.finale	해골은 하나면 충분해요. 위더는 아직 일러요.	finale, authored; Avoid minecraft:wither_skeleton_skull [PlaceBlock minecraft:wither_skeleton_skull x1]
+trail.adv_nether_summon_wither.finale	위더 스켈레톤 해골을 더 놓지 않았어요. 위더는 아직 없어요.	finale, authored; Avoid minecraft:wither_skeleton_skull [PlaceBlock minecraft:wither_skeleton_skull x1]
 trail.adv_nether_uneasy_alliance.title	가스트 눈물 사냥	title, authored; 
 trail.adv_nether_uneasy_alliance.s1.clue	네더에서 높이 32블록 위에서 가스트를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:ghast 
 trail.adv_nether_uneasy_alliance.s1.hint	네더에서 높이 32블록 위에서 가스트를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:ghast 
@@ -96,12 +96,12 @@ trail.adv_story_mine_diamond.s3.clue	다이아몬드를 캐기 전에 철 곡괭
 trail.adv_story_mine_diamond.s3.hint	다이아몬드를 캐기 전에 철 곡괭이를 만들어요.	hint, generated; Sequence [Craft minecraft:iron_pickaxe x1 > BreakBlock minecraft:diamond_ore x1]
 trail.adv_story_mine_diamond.finale.clue	땅속에서 다이아몬드를 구하세요.	clue, generated; AcquireItem minecraft:diamond x1
 trail.adv_story_mine_diamond.finale.hint	땅속에서 다이아몬드를 구해요.	hint, generated; AcquireItem minecraft:diamond x1
-trail.adv_story_mine_diamond.finale	다이아몬드를 캤어요. 이제 다이아몬드 곡괭이를 만들 수 있어요.	finale, authored; AcquireItem minecraft:diamond x1
+trail.adv_story_mine_diamond.finale	땅속에서 다이아몬드를 구했어요. 나중에 다이아몬드 곡괭이를 만들 수 있어요.	finale, authored; AcquireItem minecraft:diamond x1
 trail.bergwerk.title	광산의 길	title, authored; 
 trail.bergwerk.s1.clue	화로에서 철 주괴를 여섯 개 만드세요.	clue, generated; Smelt minecraft:iron_ingot x6
 trail.bergwerk.s1.hint	화로에서 철 주괴를 만들어요.	hint, generated; Smelt minecraft:iron_ingot x6
-trail.bergwerk.s2.clue	레일을 열여섯 개 만든 후에 레일 네 개를 나란히 놓으세요.	clue, generated; Sequence [Craft minecraft:rail x16 > BuildPattern minecraft:rail ROW 4]
-trail.bergwerk.s2.hint	레일을 만든 후에 레일을 나란히 놓아요.	hint, generated; Sequence [Craft minecraft:rail x16 > BuildPattern minecraft:rail ROW 4]
+trail.bergwerk.s2.clue	레일을 열여섯 개 만든 후에 레일 네 개를 나란히 까세요.	clue, generated; Sequence [Craft minecraft:rail x16 > BuildPattern minecraft:rail ROW 4]
+trail.bergwerk.s2.hint	레일을 만든 후에 레일을 나란히 깔아요.	hint, generated; Sequence [Craft minecraft:rail x16 > BuildPattern minecraft:rail ROW 4]
 trail.bergwerk.s3.clue	통나무 네 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:dark_oak_log PILLAR 4
 trail.bergwerk.s3.hint	통나무로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:dark_oak_log PILLAR 4
 trail.bergwerk.finale.clue	땅속에서 광산 수레를 만드세요.	clue, generated; Craft minecraft:minecart x1
@@ -116,7 +116,7 @@ trail.kristallhoehle.s3.clue	차광 유리를 만든 후에 차광 유리를 놓
 trail.kristallhoehle.s3.hint	차광 유리를 만든 후에 차광 유리를 놓아요.	hint, generated; Sequence [Craft minecraft:tinted_glass x1 > PlaceBlock minecraft:tinted_glass x1]
 trail.kristallhoehle.finale.clue	땅속에서 자수정 블록 위에 차광 유리를 놓으세요.	clue, generated; PlaceRel minecraft:tinted_glass ON_TOP_OF minecraft:amethyst_block
 trail.kristallhoehle.finale.hint	땅속에서 자수정 블록 위에 차광 유리를 놓아요.	hint, generated; PlaceRel minecraft:tinted_glass ON_TOP_OF minecraft:amethyst_block
-trail.kristallhoehle.finale	자수정 블록 위에 차광 유리를 놓았어요. 이제 동굴에서 빛을 볼 수 있어요.	finale, authored; PlaceRel minecraft:tinted_glass ON_TOP_OF minecraft:amethyst_block
+trail.kristallhoehle.finale	자수정 블록 위에 차광 유리를 놓았어요. 차광 유리는 빛을 막아요.	finale, authored; PlaceRel minecraft:tinted_glass ON_TOP_OF minecraft:amethyst_block
 trail.kristallschmiede.title	수정 대장간	title, authored; 
 trail.kristallschmiede.s1.clue	다이아몬드 도끼를 만드세요.	clue, generated; Craft minecraft:diamond_axe x1
 trail.kristallschmiede.s1.hint	다이아몬드 도끼를 만들어요.	hint, generated; Craft minecraft:diamond_axe x1
@@ -126,7 +126,7 @@ trail.kristallschmiede.s3.clue	다이아몬드 검을 만든 후에 상자 안�
 trail.kristallschmiede.s3.hint	다이아몬드 검을 만든 후에 상자 안에 다이아몬드 검을 넣어요.	hint, generated; Sequence [Craft minecraft:diamond_sword x1 > PutIn minecraft:diamond_sword x1]
 trail.kristallschmiede.finale.clue	상자 안에 다이아몬드 도끼를 넣으세요.	clue, generated; PutIn minecraft:diamond_axe x1
 trail.kristallschmiede.finale.hint	상자 안에 다이아몬드 도끼를 넣어요.	hint, generated; PutIn minecraft:diamond_axe x1
-trail.kristallschmiede.finale	다이아몬드 도끼를 상자에 넣었어요. 대장간이 완성됐어요.	finale, authored; PutIn minecraft:diamond_axe x1
+trail.kristallschmiede.finale	다이아몬드 도끼를 상자에 넣었어요.	finale, authored; PutIn minecraft:diamond_axe x1
 trail.schmuckgilde.title	보석 길드의 길	title, authored; 
 trail.schmuckgilde.s1.clue	주민에게 금 주괴를 세 개 파세요.	clue, generated; Trade minecraft:gold_ingot x3
 trail.schmuckgilde.s1.hint	주민에게 금 주괴를 팔아요.	hint, generated; Trade minecraft:gold_ingot x3

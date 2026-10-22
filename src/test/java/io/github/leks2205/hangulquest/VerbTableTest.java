@@ -4,8 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.leks2205.hangulquest.quest.Goal;
+import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.Pattern;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -96,6 +99,19 @@ class VerbTableTest {
 		assertEquals(Verb.STACK, table.choose("PLACE_BLOCK", "minecraft:stone_bricks", 3, Verb.PLACE));
 		assertEquals(Verb.PLACE, table.choose("PLACE_BLOCK", "minecraft:stone_bricks", 1, Verb.STACK));
 		assertEquals(Verb.PLANT, table.choose("PLACE_BLOCK", "minecraft:oak_sapling", 1, Verb.PLACE));
+	}
+
+	@Test
+	void fluidsArePouredAndRailsAreLaidAlsoInARow() {
+		VerbTable table = VerbTable.shared();
+		for (String goal : new String[]{"PLACE_BLOCK", "PLACE_REL", "PLACE_ON_PATTERN"}) {
+			assertEquals(Verb.POUR, table.choose(goal, "minecraft:water", 1, Verb.PLACE), goal);
+			assertEquals(Verb.POUR, table.choose(goal, "minecraft:lava", 1, Verb.PLACE), goal);
+			assertEquals(Verb.SPREAD, table.choose(goal, "minecraft:rail", 1, Verb.PLACE), goal);
+		}
+		assertEquals(Verb.SPREAD, SentenceBuilder.verbFor(new Goal.BuildPattern(Pattern.ROW, "minecraft:rail", 4)));
+		assertEquals(Verb.PLACE, SentenceBuilder.verbFor(new Goal.BuildPattern(Pattern.ROW, "minecraft:gravel", 4)));
+		assertEquals(Verb.POUR, SentenceBuilder.verbFor(new Goal.PlaceBlock("minecraft:water", 1)));
 	}
 
 	@Test
