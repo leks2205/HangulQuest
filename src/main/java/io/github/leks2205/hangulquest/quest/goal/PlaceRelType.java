@@ -223,6 +223,7 @@ final class PlaceRelType implements GoalType<Goal.PlaceRel> {
 	}
 
 	private static void nameOrProblem(String spec, ValidationContext context) {
+		SpatialRules.checkTagWord(spec, context);
 		String name = SpatialSentences.blockName(spec, SpatialRules.namer(context.catalog()));
 		if (name == null || name.isBlank()) {
 			context.problem("the anchor " + spec + " has no Korean name");

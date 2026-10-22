@@ -106,7 +106,7 @@ hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellM
 hear.note	1	-	{"type":"HEAR","source":"minecraft:note_block","radius":10,"dwellMs":3000}	-	소리 블록의 소리를 들어요.	L1.eoyo,L1.eul_reul
 lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	침대에 누워요.	L1.eoyo,L1.e_place
 wait.short	1	-	{"type":"WAIT","seconds":5}	-	잠깐 기다려요.	L1.eoyo
-wait.ten.l2	2	-	{"type":"WAIT","seconds":10}	-	10초 동안 기다리세요.	L2.seyo
+wait.ten.l2	2	-	{"type":"WAIT","seconds":10}	-	십 초 동안 기다리세요.	L2.seyo,L2.num_sino
 wait.night	1	-	{"type":"WAIT","seconds":5,"until":"NIGHT"}	-	밤까지 기다려요.	L1.eoyo
 cook.chicken.baked	1	chicken_meat	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken","count":1}	-	익히지 않은 닭고기를 구워요.	L1.eoyo,L1.eul_reul
 cook.chicken	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken","count":1}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul
@@ -148,3 +148,17 @@ trade.sell.l2	2	-	{"type":"TRADE","item":"minecraft:wheat","entity":"minecraft:v
 consume.bread.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread","count":1}	-	빵을 드세요.	L2.seyo,L1.eul_reul
 consume.steak.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:cooked_beef","count":1}	-	스테이크를 드세요.	L2.seyo,L1.eul_reul
 consume.milk.l2	2	milk	{"type":"CONSUME_ITEM","item":"minecraft:milk_bucket","count":1}	-	우유를 마시세요.	L2.seyo,L1.eul_reul
+use.sign.write	1	sign	{"type":"USE_BLOCK","block":"minecraft:oak_sign"}	-	표지판에 글을 써요.	L1.eoyo,L1.eul_reul,L1.e_place
+use.sign.write.l2	2	sign	{"type":"USE_BLOCK","block":"minecraft:birch_hanging_sign","change":"WRITE"}	-	표지판에 글을 쓰세요.	L2.seyo,L1.eul_reul,L1.e_place
+use.sign.name	1	name	{"type":"USE_BLOCK","block":"minecraft:oak_sign"}	-	표지판에 이름을 써요.	L1.eoyo,L1.eul_reul,L1.e_place
+use.sign.name.l2	2	name	{"type":"USE_BLOCK","block":"minecraft:oak_sign"}	-	표지판에 이름을 쓰세요.	L2.seyo,L1.eul_reul,L1.e_place
+hear.bell	1	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":3000}	-	종소리를 들어요.	L1.eoyo,L1.eul_reul
+hear.bell.l2	2	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":3000}	-	종소리를 들으세요.	L2.seyo,L1.eul_reul
+look.fish.cod	1	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:cod","dwellMs":3000}	-	물고기를 3초 동안 바라봐요.	L1.eoyo,L1.eul_reul
+look.fish.salmon	2	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:salmon","dwellMs":3000}	-	물고기를 3초 동안 바라보세요.	L2.seyo,L1.eul_reul
+mount.boat.spruce	1	boat	{"type":"MOUNT","entity":"minecraft:spruce_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
+mount.boat.chest	2	boat	{"type":"MOUNT","entity":"minecraft:oak_chest_boat","dwellMs":1500}	-	배에 앉으세요.	L2.seyo,L1.e_place
+wait.sixty.l2	2	-	{"type":"WAIT","seconds":60}	-	육십 초 동안 기다리세요.	L2.seyo,L2.num_sino
+cond.near.people	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:villager","radius":8,"count":2}]	주민 두 명 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L2.counter_more
+cond.near.animals	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:cow","radius":8,"count":3}]	소 세 마리 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L1.counter_mari
+cond.near.one	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:villager","radius":8}]	주민 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino

@@ -36,6 +36,18 @@ public final class BlockSpec {
 			Map.entry("torches", family("torch", "minecraft:torch")),
 			Map.entry("chests", family("chest", "minecraft:chest")),
 			Map.entry("flowers", family("flower", "minecraft:poppy")),
+			Map.entry("signs", suffix("_sign", "minecraft:oak_sign")),
+			Map.entry("candles", new Tag(id -> {
+				String path = id.substring(id.indexOf(':') + 1);
+				return path.equals("candle") || path.endsWith("_candle");
+			}, "minecraft:candle")),
+			Map.entry("wool_carpets", suffix("_carpet", "minecraft:white_carpet")),
+			// a window: a glass pane, a stained one, or the glass of a wall
+			Map.entry("windows", new Tag(id -> {
+				String path = id.substring(id.indexOf(':') + 1);
+				return path.equals("glass") || path.equals("glass_pane") || path.endsWith("_stained_glass")
+						|| path.endsWith("_stained_glass_pane");
+			}, "minecraft:glass_pane")),
 			Map.entry("saplings", suffix("_sapling", "minecraft:oak_sapling")),
 			Map.entry("leaves", suffix("_leaves", "minecraft:oak_leaves")),
 			// armour, for EQUIP: any piece of one slot (the vanilla item tags)
@@ -111,6 +123,34 @@ public final class BlockSpec {
 		return TagWords.WORDS.get(tagPath(spec));
 	}
 
+	/** Same, from the given concepts instead of the shipped ones (a catalog of a resource pack, a test). */
+	public static String tagWord(String spec, java.util.Collection<io.github.leks2205.hangulquest.data.Concept> concepts) {
+		if (!isTag(spec) || !TAGS.containsKey(tagPath(spec))) {
+			return null;
+		}
+		return wordOf(TAGS.get(tagPath(spec)), concepts);
+	}
+
+	/** The paths of the tags a goal may name ({@code signs} for {@code #minecraft:signs}). */
+	public static java.util.Set<String> tagPaths() {
+		return TAGS.keySet();
+	}
+
+	private static String wordOf(Tag tag, java.util.Collection<io.github.leks2205.hangulquest.data.Concept> concepts) {
+		io.github.leks2205.hangulquest.data.Concept best = null;
+		int bestSize = 0;
+		for (io.github.leks2205.hangulquest.data.Concept concept : concepts) {
+			java.util.List<String> blocks = new java.util.ArrayList<>(concept.items);
+			blocks.addAll(concept.covers);
+			// only a concept that stays inside the tag can name it
+			if (blocks.size() > bestSize && blocks.stream().allMatch(tag.holds())) {
+				best = concept;
+				bestSize = blocks.size();
+			}
+		}
+		return best == null ? null : best.ko;
+	}
+
 	private static final class TagWords {
 		static final Map<String, String> WORDS = build();
 
@@ -123,19 +163,9 @@ public final class BlockSpec {
 				return words;
 			}
 			for (Map.Entry<String, Tag> entry : TAGS.entrySet()) {
-				io.github.leks2205.hangulquest.data.Concept best = null;
-				int bestSize = 0;
-				for (io.github.leks2205.hangulquest.data.Concept concept : concepts) {
-					java.util.List<String> blocks = new java.util.ArrayList<>(concept.items);
-					blocks.addAll(concept.covers);
-					// only a concept that stays inside the tag can name it
-					if (blocks.size() > bestSize && blocks.stream().allMatch(entry.getValue().holds())) {
-						best = concept;
-						bestSize = blocks.size();
-					}
-				}
-				if (best != null) {
-					words.put(entry.getKey(), best.ko);
+				String word = wordOf(entry.getValue(), concepts);
+				if (word != null) {
+					words.put(entry.getKey(), word);
 				}
 			}
 			return words;

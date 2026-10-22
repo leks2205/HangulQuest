@@ -255,6 +255,11 @@ public final class Catalog {
 		return all;
 	}
 
+	/** The curated concepts this catalog was built from. */
+	public java.util.Collection<Concept> concepts() {
+		return java.util.Collections.unmodifiableCollection(concepts.values());
+	}
+
 	public List<Word> byCategory(Category category) {
 		List<Word> result = new ArrayList<>();
 		for (Word word : all) {

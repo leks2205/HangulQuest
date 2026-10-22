@@ -28,6 +28,11 @@ public final class Matching {
 		return matchesBlock(goal, observed) || tracker.accepted.matches(goal, observed);
 	}
 
+	/** The creature the goal names, or one the taught word stands for as well (any fish for 물고기). */
+	public static boolean sameEntity(GoalEvaluator.Tracker tracker, String goal, String observed) {
+		return observed != null && (observed.equals(goal) || tracker.accepted.matches(goal, observed));
+	}
+
 	/** How many of the item the player holds, counting every referent the step accepts. */
 	public static int heldCount(Observation obs, String item, GoalEvaluator.Tracker tracker) {
 		if (!tracker.accepted.widens(item)) {

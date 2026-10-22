@@ -180,6 +180,7 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 				: ValidationContext.badId(condition.anchor())) {
 			context.problem("bad anchor " + condition.anchor());
 		}
+		io.github.leks2205.hangulquest.quest.spatial.SpatialRules.checkTagWord(condition.anchor(), context);
 		switch (condition.relation()) {
 			case BETWEEN -> context.problem("PLAYER_REL cannot use BETWEEN with a single anchor");
 			case IN_FRONT_OF, BEHIND -> {

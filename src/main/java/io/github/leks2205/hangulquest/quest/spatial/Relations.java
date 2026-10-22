@@ -199,6 +199,9 @@ public final class Relations {
 	/**
 	 * 상자와 화로 사이: the placed block has one of the two to a side and the other directly opposite, 1 to 3
 	 * blocks away on the same row. Every other relation holds when it holds for either block.
+	 *
+	 * <p>With water or lava as one of the two (모래와 물 사이에) a plant is placed on the shore: the block stands on
+	 * the other one and the fluid lies next to it, in the row of the ground or of the plant.
 	 */
 	private static EnumSet<Relation> holdingPair(Anchor.Pair pair, PlacementFact fact) {
 		BlockNeighborhood around = fact.around();
@@ -212,7 +215,32 @@ public final class Relations {
 				held.add(Relation.BETWEEN);
 			}
 		}
+		if (!held.contains(Relation.BETWEEN) && isFluid(pair.first().spec()) != isFluid(pair.second().spec())) {
+			boolean firstIsFluid = isFluid(pair.first().spec());
+			String ground = firstIsFluid ? pair.second().spec() : pair.first().spec();
+			String fluid = firstIsFluid ? pair.first().spec() : pair.second().spec();
+			if (is(around, ground, 0, -1, 0) && fluidNear(around, fluid)) {
+				held.add(Relation.BETWEEN);
+			}
+		}
 		return held;
+	}
+
+	/** Water and lava lie in the world as blocks too, but nothing is built on them: they are only "between". */
+	private static boolean isFluid(String spec) {
+		return "minecraft:water".equals(spec) || "minecraft:lava".equals(spec);
+	}
+
+	/** The fluid next to the ground the block stands on, or next to the block itself: one or two blocks away. */
+	private static boolean fluidNear(BlockNeighborhood around, String fluid) {
+		for (int[] dir : DIRS) {
+			for (int k = 1; k <= 2; k++) {
+				if (is(around, fluid, k * dir[0], -1, k * dir[1]) || is(around, fluid, k * dir[0], 0, k * dir[1])) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**

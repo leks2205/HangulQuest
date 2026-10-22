@@ -11,6 +11,7 @@ import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
 import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
 import io.github.leks2205.hangulquest.quest.spatial.Pattern;
+import io.github.leks2205.hangulquest.quest.spatial.SpatialRules;
 import io.github.leks2205.hangulquest.quest.spatial.PatternMatcher;
 import io.github.leks2205.hangulquest.quest.spatial.SpatialSentences;
 import io.github.leks2205.hangulquest.sense.Observation;
@@ -144,6 +145,7 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 			context.problem("bad material " + goal.material());
 			return;
 		}
+		SpatialRules.checkTagWord(goal.material(), context);
 		GoalType.super.validate(goal, context);
 		if (!goal.pattern().validSize(goal.size())) {
 			context.problem(goal.pattern() + " cannot be size " + goal.size() + " (allowed "

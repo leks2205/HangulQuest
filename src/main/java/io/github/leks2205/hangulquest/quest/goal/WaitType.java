@@ -7,6 +7,7 @@ import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Wait: "잠깐 기다려요", "10초 동안 기다려요", "밤까지 기다려요". The player stays within a few blocks of
+ * Wait: "잠깐 기다려요", "십 초 동안 기다려요", "밤까지 기다려요". The player stays within a few blocks of
  * where the wait began; walking away starts it again from the new spot. With {@code until} the wait also
  * ends only when that part of the day has come. A place to wait near is a condition of the step, not part of
  * the goal.
@@ -115,12 +116,24 @@ final class WaitType implements GoalType<Goal.Wait> {
 		return how(goal, true, c.level() + 1) + " " + c.verb().past();
 	}
 
-	/** "밤까지", "10초 동안" (from level 2 on, and not in the hint), else "잠깐". */
+	/**
+	 * "밤까지", "십 초 동안" (from level 2 on, and not in the hint), else "잠깐". The seconds are a Sino-Korean
+	 * numeral with the unit, in the clue and in the finale alike.
+	 */
 	private static String how(Goal.Wait goal, boolean withCounts, int level) {
 		if (goal.until() != null) {
 			return ("DAY".equals(goal.until()) ? "낮" : "밤") + "까지";
 		}
-		return withCounts && level >= 2 ? goal.seconds() + "초 동안" : "잠깐";
+		return withCounts && level >= 2 ? KoGrammar.sino(goal.seconds()) + " 초 동안" : "잠깐";
+	}
+
+	@Override
+	public List<String> grammarIds(Goal.Wait goal, SentenceContext c) {
+		List<String> ids = new java.util.ArrayList<>(GoalType.super.grammarIds(goal, c));
+		if (goal.until() == null && c.withCounts() && c.level() >= 2) {
+			ids.add("L2.num_sino"); // 십 초
+		}
+		return ids;
 	}
 
 	/** Whole seconds still to wait, rounded up: 10 at the start, 1 for the last moments, 0 when the time is up. */

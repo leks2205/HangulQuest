@@ -248,7 +248,7 @@ public interface GoalType<G extends Goal> {
 						.anyMatch(item -> item.equals(id) || plain != null && Matching.matchesBlock(plain, item));
 				yield referent || id.equals(concept.icon);
 			}
-			case ENTITY -> id.equals(concept.entity);
+			case ENTITY -> id.equals(concept.entity) || concept.entities != null && concept.entities.contains(id);
 			case BIOME -> id == null || id.startsWith("#") || id.equals(concept.biome)
 					|| concept.biome != null && concept.covers != null && concept.covers.contains(id);
 			default -> true;
@@ -275,6 +275,8 @@ public interface GoalType<G extends Goal> {
 		boolean tag = tagObject() && BlockSpec.isTag(object(goal));
 		if (tag && !BlockSpec.valid(object(goal))) {
 			context.problem("unknown tag " + object(goal));
+		} else if (tag) {
+			io.github.leks2205.hangulquest.quest.spatial.SpatialRules.checkTagWord(object(goal), context);
 		} else if (noun != null && !tag && ValidationContext.badId(object(goal))) {
 			context.problem("bad " + noun + " " + object(goal));
 		}

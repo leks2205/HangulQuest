@@ -11,8 +11,10 @@ import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.NearMiss;
 import io.github.leks2205.hangulquest.sense.Observation;
 import io.github.leks2205.hangulquest.sense.TradeFact;
+import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,8 @@ import java.util.Locale;
  * click on the result slot of the merchant screen, with the item that arrived and the item that went into
  * the payment slots (the same snapshots as crafting), so a trade is as reliable as a craft. A buy counts
  * what arrived, a sell what was paid; the merchant is the one right-clicked just before the screen opened.
+ * The particle decides the direction (주민에게서 사다, 주민에게 팔다), so a trade the wrong way round, selling
+ * the item that was to be bought or the other way, is a form slip with a note in the status line.
  */
 final class TradeType implements GoalType<Goal.Trade> {
 	static final String VILLAGER = "minecraft:villager";
@@ -71,21 +75,56 @@ final class TradeType implements GoalType<Goal.Trade> {
 		return "SELL".equals(goal.direction());
 	}
 
+	/** The note the status line reads after a trade the wrong way round; it lives in the tracker's target slot. */
+	private static final String WRONG_WAY = "wrongway@";
+
 	@Override
 	public boolean evaluate(Goal.Trade goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (TradeFact fact : obs.traded) {
 			if (fact.merchant() != null && !fact.merchant().equals(goal.entity())) {
 				continue; // a wandering trader is no villager
 			}
+			boolean paid = fact.paid() != null && Matching.accepts(tracker, goal.item(), fact.paid());
+			boolean got = Matching.accepts(tracker, goal.item(), fact.got());
 			if (sell(goal)) {
-				if (fact.paid() != null && Matching.accepts(tracker, goal.item(), fact.paid())) {
+				if (paid) {
 					tracker.count += Math.max(1, fact.paidCount());
+					clearWrongWay(tracker);
+				} else if (got) { // bought what was to be sold
+					wrongWay(tracker, obs);
 				}
-			} else if (Matching.accepts(tracker, goal.item(), fact.got())) {
+			} else if (got) {
 				tracker.count += Math.max(1, fact.gotCount());
+				clearWrongWay(tracker);
+			} else if (paid) { // sold what was to be bought
+				wrongWay(tracker, obs);
 			}
 		}
 		return tracker.count >= Math.max(1, goal.count());
+	}
+
+	private static void wrongWay(GoalEvaluator.Tracker tracker, Observation obs) {
+		tracker.formErrors++;
+		tracker.target = WRONG_WAY + obs.now;
+	}
+
+	private static void clearWrongWay(GoalEvaluator.Tracker tracker) {
+		if (tracker.target != null && tracker.target.startsWith(WRONG_WAY)) {
+			tracker.target = null;
+		}
+	}
+
+	/** Whether the player traded the wrong way a moment ago (the note is shown for as long as a near miss). */
+	private static boolean wrongWayRecently(GoalEvaluator.Tracker tracker, Observation obs) {
+		String note = tracker.target;
+		if (note == null || !note.startsWith(WRONG_WAY)) {
+			return false;
+		}
+		try {
+			return obs.now - Long.parseLong(note.substring(WRONG_WAY.length())) <= NearMiss.SHOW_MS;
+		} catch (NumberFormatException broken) {
+			return false;
+		}
 	}
 
 	@Override
@@ -133,9 +172,20 @@ final class TradeType implements GoalType<Goal.Trade> {
 		return ids;
 	}
 
+	/** The particle decides who gives and who gets: 에게서 for a purchase, 에게 for a sale. */
+	@Override
+	public List<String> decidingForms(Goal.Trade goal) {
+		return List.of(sell(goal) ? "L2.ege" : "L2.ege_source");
+	}
+
 	@Override
 	public String status(Goal.Trade goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
+		if (wrongWayRecently(tracker, obs)) {
+			boolean german = Lang.current() == Lang.DE;
+			String particle = sell(goal) ? "에게 = " + (german ? "an" : "to") : "에게서 = " + (german ? "von" : "from");
+			return particle + " · 다시 해 봐요";
+		}
 		return QuestStatus.count(tracker.count, goal.count());
 	}
 

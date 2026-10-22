@@ -52,7 +52,7 @@ final class InteractEntityType implements GoalType<Goal.InteractEntity> {
 	public boolean evaluate(Goal.InteractEntity goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
 		for (String interacted : obs.interactedEntities) {
-			if (interacted.equals(goal.entity())) {
+			if (Matching.sameEntity(tracker, goal.entity(), interacted)) {
 				tracker.count++;
 			}
 		}

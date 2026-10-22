@@ -55,10 +55,18 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		}
 		return switch (kind) {
 			case BLOCK, ITEM -> namesBlock(word, id, namer);
-			case ENTITY -> id.equals(word.entityId);
+			case ENTITY -> namesEntity(word, id);
 			case BIOME -> id.equals(word.biomeId) || word.covers.contains(id);
 			default -> false;
 		};
+	}
+
+	/**
+	 * Its own creature, the others it lists (the fish), and for a vehicle every one of its family: any boat or
+	 * raft, the ones with a chest too, is 배.
+	 */
+	private static boolean namesEntity(Word word, String id) {
+		return id.equals(word.entityId) || word.entityCovers.contains(id) || Matching.sameVehicle(word.entityId, id);
 	}
 
 	private static boolean namesBlock(Word word, String spec, SentenceBuilder.Namer namer) {

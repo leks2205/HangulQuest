@@ -43,6 +43,8 @@ public final class Word {
 	 */
 	public final List<String> covers;
 	public final String entityId;
+	/** Further creature ids the word names in a sentence (the cod, the salmon and the tropical fish for 물고기). */
+	public final List<String> entityCovers;
 	public final String biomeId;
 	public final String descKo;
 	public final Origin origin;
@@ -83,6 +85,14 @@ public final class Word {
 				String conceptId, String iconItem, String entityId, String biomeId,
 				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents,
 				Map<String, String> glosses, List<String> covers) {
+		this(id, ko, de, en, deShort, category, tier, conceptId, iconItem, entityId, biomeId, descKo, origin, phrase,
+				grammar, referents, glosses, covers, List.of());
+	}
+
+	public Word(String id, String ko, String de, String en, String deShort, Category category, int tier,
+				String conceptId, String iconItem, String entityId, String biomeId,
+				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents,
+				Map<String, String> glosses, List<String> covers, List<String> entityCovers) {
 		this.id = id;
 		this.ko = ko;
 		this.de = de == null ? "" : de;
@@ -96,6 +106,7 @@ public final class Word {
 		this.referents = referents == null ? List.of() : List.copyOf(referents);
 		this.covers = covers == null ? List.of() : List.copyOf(covers);
 		this.entityId = entityId;
+		this.entityCovers = entityCovers == null ? List.of() : List.copyOf(entityCovers);
 		this.biomeId = biomeId;
 		this.descKo = descKo;
 		this.origin = origin;

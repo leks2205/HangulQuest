@@ -56,7 +56,7 @@ final class DefeatEntityType implements GoalType<Goal.DefeatEntity> {
 							boolean nightLatch) {
 		List<String> kills = nightLatch ? obs.defeatedEntitiesAtNight : obs.defeatedEntities;
 		for (String defeated : kills) {
-			if (defeated.equals(goal.entity())) {
+			if (Matching.sameEntity(tracker, goal.entity(), defeated)) {
 				tracker.count++;
 			}
 		}

@@ -86,6 +86,49 @@ class PlaytestTest {
 		System.out.println("PLAYTEST village_errands_demo -> " + play(trail, catalog));
 	}
 
+	/** A one-step trail around the goal, for the goals no shipped trail uses (yet). */
+	private static Questline probe(String id, String goalJson) {
+		String json = """
+				{"schema": 1, "id": "%s", "titleKo": "시험", "topic": "시험", "tier": 2, "order": 1, "koreanLevel": 3,
+				 "concepts": ["stone"], "requires": {"minWordsKnown": 0, "dimension": "minecraft:overworld"},
+				 "steps": [{"id": "s1", "teach": ["stone"], "goal": %s}],
+				 "finale": {"step": {"id": "finale", "teach": ["stone"],
+				   "goal": {"type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 1}}, "textKo": "끝"}}
+				""".formatted(id, goalJson);
+		return QuestLoader.parse(com.google.gson.JsonParser.parseString(json).getAsJsonObject());
+	}
+
+	@Test
+	void aPlacementNextToACreatureCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (Relation relation : List.of(Relation.IN_FRONT_OF, Relation.BEHIND, Relation.NEXT_TO, Relation.NEAR)) {
+			for (String creature : List.of("minecraft:villager", "minecraft:cat", "minecraft:iron_golem")) {
+				Questline trail = probe("creature_" + relation.name().toLowerCase(), """
+						{"type": "PLACE_REL", "block": "minecraft:torch", "relation": "%s", "anchor": "%s", "count": 1}
+						""".formatted(relation.name(), creature));
+				assertEquals("completed in 2 steps", play(trail, catalog), relation + " " + creature);
+			}
+		}
+	}
+
+	@Test
+	void aSequenceWithAnAcquireATransitAndAMountPartCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		String acquire = "{\"type\": \"ACQUIRE_ITEM\", \"item\": \"minecraft:bread\", \"count\": 1}";
+		String inside = "{\"type\": \"TRANSIT\", \"direction\": \"IN\"}";
+		String mount = "{\"type\": \"MOUNT\", \"entity\": \"minecraft:oak_boat\", \"dwellMs\": 1500}";
+		String place = "{\"type\": \"PLACE_BLOCK\", \"block\": \"minecraft:torch\", \"count\": 1}";
+		for (String ordered : List.of("true", "false")) {
+			for (List<String> parts : List.of(List.of(acquire, inside), List.of(place, mount),
+					List.of(inside, acquire), List.of(mount, acquire))) {
+				Questline trail = probe("sequence_" + ordered, """
+						{"type": "SEQUENCE", "ordered": %s, "parts": [%s]}
+						""".formatted(ordered, String.join(", ", parts)));
+				assertEquals("completed in 2 steps", play(trail, catalog), ordered + " " + parts);
+			}
+		}
+	}
+
 	private String play(Questline trail, Catalog catalog) {
 		Path dir = tempDir.resolve(trail.id() + "-" + Math.abs(trail.id().hashCode()));
 		ProgressStore store = new ProgressStore(dir, LoggerFactory.getLogger("playtest"));
@@ -101,27 +144,33 @@ class PlaytestTest {
 			QuestStep step = engine.currentStep();
 			assertTrue(step != null, trail.id() + " lost its active step");
 			Observation obs = observation(step, now);
-			if (step.goal() instanceof Goal.AcquireItem) {
+			if (step.goal() instanceof Goal.AcquireItem
+					|| step.goal() instanceof Goal.Sequence sequence && sequence.parts().get(0) instanceof Goal.AcquireItem) {
 				// Items already held do not count: the first tick of the step takes the baseline.
 				Observation baseline = new Observation();
 				baseline.now = now;
 				engine.tick(baseline, new Feedback(engine));
 			}
 			boolean advanced = false;
-			// A sequence is played part by part, a few ticks of each part's facts; timed goals need longer.
+			// A sequence is played part by part, each part with the simulation of the same goal on its own: its
+			// own facts, its own movement and the ticks its seconds need. The part that is not up yet sees the
+			// facts of the one before, which is also what takes the baseline of an ACQUIRE_ITEM part.
 			List<Goal> phases = step.goal() instanceof Goal.Sequence sequence
 					? sequence.parts() : List.of(step.goal());
-			for (int tick = 0; tick < ticksFor(step.goal()) && !advanced; tick++) {
-				now += 60L;
+			for (int phase = 0; phase < phases.size() && !advanced; phase++) {
+				Goal part = phases.get(phase);
 				if (phases.size() > 1) {
-					obs = observation(phases.get(Math.min(phases.size() - 1, tick / 3)), step.conditions(), now);
+					obs = observation(part, step.conditions(), now);
 				}
-				obs.now = now;
-				moveWithGoal(obs, step.goal(), tick);
-				engine.tick(obs, new Feedback(engine));
-				advanced = completed(engine)
-						|| (engine.currentStep() != null
-						&& !engine.currentStep().id().equals(step.id()));
+				for (int tick = 0; tick < ticksFor(part) && !advanced; tick++) {
+					now += 60L;
+					obs.now = now;
+					moveWithGoal(obs, part, tick);
+					engine.tick(obs, new Feedback(engine));
+					advanced = completed(engine)
+							|| (engine.currentStep() != null
+							&& !engine.currentStep().id().equals(step.id()));
+				}
 			}
 			assertTrue(advanced, trail.id() + "/" + step.id() + " did not advance; status="
 					+ engine.statusText());
@@ -238,7 +287,13 @@ class PlaytestTest {
 						? b.biome().substring(1) : b.biome());
 			}
 			case Condition.InDimension d -> obs.dimension = d.dimension();
-			case Condition.NearEntity n -> obs.nearbyEntities.put(n.entity(), 1);
+			case Condition.NearEntity n -> {
+				obs.nearbyEntities.put(n.entity(), Math.max(1, n.count()));
+				for (int i = 0; i < Math.max(1, n.count()); i++) { // each one stands a few blocks away
+					obs.addEntityPosition(new EntityFact(n.entity(), UUID.randomUUID(), 2.0 + i, 64.0, 0.0, 0.0F, 0.0F));
+				}
+				obs.position = new Vec3(0.0, 64.0, 0.0);
+			}
 			case Condition.NearBlock n -> obs.lookedBlock = n.block();
 			case Condition.Holding h -> obs.mainHand = h.item();
 			case Condition.Sky s -> {
@@ -296,6 +351,8 @@ class PlaytestTest {
 					obs.addClosed(g.block());
 				} else if ("LIT".equals(g.change()) || g.change() == null && Matching.isCandle(g.block())) {
 					obs.addLit(g.block());
+				} else if ("WRITE".equals(g.change()) || g.change() == null && Matching.blockFamily(g.block()).equals("sign")) {
+					obs.addSignWritten(g.block());
 				}
 				obs.usedBlocks.add(g.block());
 				if (g.block().endsWith("_bed")) {
@@ -322,6 +379,7 @@ class PlaytestTest {
 					g.container(), BlockPos.ZERO));
 			case Goal.Hear g -> {
 				obs.jukeboxDistance = 1.0;
+				obs.bellDistance = 1.0;
 				obs.usedBlocks.add(g.source());
 			}
 			case Goal.LieDown g -> {
@@ -370,6 +428,7 @@ class PlaytestTest {
 	/** One placement, with the blocks around it that make the spatial goal true. */
 	private static void spatial(Observation obs, Goal goal) {
 		obs.addPlacement(SpatialWorlds.placementFor(goal, obs.phase() == Condition.Phase.NIGHT));
+		SpatialWorlds.entitiesFor(goal).forEach(obs::addEntityPosition);
 	}
 
 	private static final class Feedback implements QuestEngine.Feedback {

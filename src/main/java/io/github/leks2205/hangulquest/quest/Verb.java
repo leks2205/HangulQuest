@@ -101,7 +101,10 @@ public enum Verb {
 	WEAR_HEAD("쓰다", "aufsetzen"),
 	PUT_ON("입다", "anziehen"),
 	PUT_ON_SHOES("신다", "anziehen"),
-	TAKE_OFF("벗다", "ausziehen");
+	TAKE_OFF("벗다", "ausziehen"),
+
+	// Wave 8: writing on a sign.
+	WRITE("쓰다", "schreiben");
 
 
 	/** How the target noun is marked in front of the verb. */
