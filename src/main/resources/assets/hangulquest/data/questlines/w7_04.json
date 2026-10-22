@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1074,
  "concepts": [
-  "gen_red_sand",
-  "gen_piston",
-  "adv2_item_baked_potato",
-  "gen_iron_chain"
+  "potato",
+  "gen_smoker",
+  "adv2_item_baked_potato"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,63 +21,120 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_sand"
+    "potato"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_sand",
-    "count": 8
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:meadow",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:potatoes",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_hoe"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_piston"
+    "gen_smoker"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:piston",
+    "type": "CRAFT",
+    "item": "minecraft:smoker",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "adv2_item_baked_potato"
+    "gen_smoker"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:baked_potato",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:smoker",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "구운 감자는 화로에 감자를 구워서 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_iron_chain"
+    "potato",
+    "adv2_item_baked_potato"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_chain",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:potato",
+      "container": "minecraft:smoker",
+      "count": 1
+     },
+     {
+      "type": "TAKE_OUT",
+      "item": "minecraft:baked_potato",
+      "container": "minecraft:smoker",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EOSEO"
    },
    "conditions": []
   },
-  "textKo": "철 사슬을 놓았어요."
+  "textKo": "훈연기 안에 감자를 넣어서 구운 감자를 꺼냈어요. 훈연기는 음식을 구워요."
  },
  "reward": {
   "badge": "w7_04",
   "words": [
-   "coal",
-   "furnace",
-   "adv2_item_baked_potato",
-   "campfire"
+   "potato",
+   "gen_smoker",
+   "adv2_item_baked_potato"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eureo_gayo",
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L4.myeon",
+  "L2.num_sino",
+  "L4.eoseo",
+  "L1.loc_an_e",
+  "L2.eseo_activity"
+ ]
 }

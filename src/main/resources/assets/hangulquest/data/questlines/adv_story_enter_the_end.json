@@ -7,8 +7,9 @@
  "order": 313,
  "concepts": [
   "adv_item_ender_eye",
-  "stone_bricks",
-  "gen_polished_blackstone_wall"
+  "gen_silverfish",
+  "lectern",
+  "adv_dimension_the_end"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -27,45 +28,79 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ender_eye",
     "count": 12
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "stone_bricks"
+    "gen_silverfish"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:stone_bricks",
-    "count": 4
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:silverfish",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "요새 벽을 뚫으려면 곡괭이가 필요해요."
-   }
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lectern"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_blackstone_wall"
+    "adv_dimension_the_end"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_blackstone_wall",
-    "count": 3
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
    },
    "conditions": []
   },
-  "textKo": "윤나는 흑암 담장을 세 개 놓았어요."
+  "textKo": "엔드에 도착했어요. 엔드에는 드래곤이 살아요."
  },
  "reward": {
   "badge": "adv_story_enter_the_end",
   "words": [
    "adv_item_ender_eye",
-   "stone_bricks",
+   "gen_silverfish",
+   "lectern",
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.num_sino",
+  "L1.euro_direction"
+ ]
 }

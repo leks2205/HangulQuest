@@ -6,10 +6,8 @@
  "tier": 2,
  "order": 1078,
  "concepts": [
-  "adv_block_nether_bricks",
-  "adv_block_red_nether_bricks",
-  "adv_block_polished_blackstone_bricks",
-  "gen_birch_shelf"
+  "brick",
+  "gen_brick_wall"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,69 +20,95 @@
   {
    "id": "s1",
    "teach": [
-    "adv_block_nether_bricks"
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_bricks",
-    "count": 8
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bricks",
+    "count": 4
    },
-   "hint": {
-    "ko": "네더 벽돌은 네더랙을 구워서 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_block_red_nether_bricks"
+    "gen_brick_wall"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_nether_bricks",
-    "count": 4
+    "block": "minecraft:brick_wall",
+    "count": 3
    },
-   "hint": {
-    "ko": "붉은 네더 벽돌은 네더 벽돌과 네더 사마귀로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "adv_block_polished_blackstone_bricks"
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_blackstone_bricks",
-    "count": 4
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:bricks",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "윤나는 흑암 벽돌은 흑암을 다듬어서 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_birch_shelf"
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:birch_shelf",
-    "count": 2
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:bricks",
+      "count": 1
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:brick_stairs",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EOSEO"
    },
    "conditions": []
   },
-  "textKo": "자작나무 선반을 두 개 놓았어요."
+  "textKo": "벽돌을 만들어서 벽돌 계단을 놓았어요. 벽돌은 빨간색이에요."
  },
  "reward": {
   "badge": "w7_08",
   "words": [
-   "adv_block_nether_bricks",
-   "adv_block_red_nether_bricks",
-   "adv_block_polished_blackstone_bricks",
-   "chiseled_stone_bricks"
+   "brick",
+   "gen_brick_wall"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.num_sino",
+  "L4.eoseo"
+ ]
 }

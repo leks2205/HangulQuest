@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1075,
  "concepts": [
-  "gen_red_candle_cake",
-  "gen_pale_oak_planks",
-  "gen_lime_shulker_box",
-  "gen_coarse_dirt"
+  "gen_soul_sand_valley",
+  "soul_sand",
+  "soul_torch",
+  "gen_soul_campfire"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +22,103 @@
   {
    "id": "s1",
    "teach": [
-    "gen_red_candle_cake"
+    "gen_soul_sand_valley",
+    "soul_sand"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:red_candle_cake",
-    "count": 4
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:soul_sand_valley",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:soul_sand",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:soul_sand_valley"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_pickaxe"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pale_oak_planks"
+    "soul_torch"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_planks",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:soul_torch",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:soul_sand"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lime_shulker_box"
+    "gen_soul_campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_shulker_box",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:soul_campfire",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_coarse_dirt"
+    "gen_soul_campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:coarse_dirt",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:soul_campfire",
+    "change": "LIT"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "거친 흙을 놓았어요."
+  "textKo": "밤에 영혼 모닥불을 피웠어요. 영혼 불꽃은 파란색이지만 뜨거워요."
  },
  "reward": {
   "badge": "w7_05",
   "words": [
+   "gen_soul_sand_valley",
    "soul_sand",
    "soul_torch",
-   "soul_lantern",
-   "adv_dimension_the_nether"
+   "gen_soul_campfire"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eureo_gayo",
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L4.myeon"
+ ]
 }

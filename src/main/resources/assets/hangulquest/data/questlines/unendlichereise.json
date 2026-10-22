@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "unendlichereise",
  "titleKo": "끝없는 여행",
+ "topic": "여행",
  "tier": 5,
  "order": 550,
  "concepts": [
-  "gen_prize_pottery_sherd",
-  "gen_green_cushion",
-  "gen_lush_caves",
-  "gen_stripped_poplar_wood"
+  "south",
+  "gen_meadow",
+  "flower",
+  "swim",
+  "west"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,66 +26,113 @@
   {
    "id": "s1",
    "teach": [
-    "gen_prize_pottery_sherd"
+    "south"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prize_pottery_sherd",
-    "count": 8
-   }
+    "type": "WALK",
+    "direction": "SOUTH",
+    "blocks": 30
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_green_cushion"
+    "gen_meadow",
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_cushion",
-    "count": 4
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:meadow",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:poppy",
+      "count": 3
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    },
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_lush_caves"
+    "swim"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:lush_caves",
-    "dwellMs": 1000
-   }
+    "type": "SWIM",
+    "blocks": 40
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_poplar_wood"
+    "west"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_poplar_wood",
-    "count": 1
+    "type": "WALK",
+    "direction": "WEST",
+    "blocks": 35
    },
    "conditions": [
     {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
+     "type": "TIME",
+     "phase": "DUSK"
     }
    ]
   },
-  "textKo": "해변에서 껍질 벗긴 포플러나무를 놓았어요."
+  "textKo": "저녁에 서쪽으로 삼십오 블록 갔어요. 해는 서쪽으로 져요."
  },
  "reward": {
   "badge": "unendlichereise",
   "words": [
-   "emerald",
-   "diamond",
-   "beach",
-   "campfire"
+   "south",
+   "gen_meadow",
+   "flower",
+   "swim"
   ]
  },
  "koreanLevel": 4,
- "topic": "나무"
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L2.euro_direction",
+  "L2.num_sino",
+  "L4.myeon",
+  "L4.eureo_gayo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.eseo_activity"
+ ]
 }

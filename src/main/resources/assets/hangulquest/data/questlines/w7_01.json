@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1071,
  "concepts": [
-  "gen_deepslate_redstone_ore",
-  "gen_purple_concrete_slab",
-  "gen_granite_slab"
+  "adv_item_flint_and_steel",
+  "gen_iron_door",
+  "candle",
+  "go"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -21,48 +22,87 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate_redstone_ore"
+    "adv_item_flint_and_steel"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:deepslate_redstone_ore",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:flint_and_steel",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_concrete_slab"
+    "gen_iron_door"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_concrete_slab",
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:iron_door",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "NORTH"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:candle",
+    "change": "LIT"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:flint_and_steel"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_granite_slab"
+    "go"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:granite_slab",
-    "count": 2
+    "type": "WALK",
+    "direction": "NORTH",
+    "blocks": 10
    },
    "conditions": []
   },
-  "textKo": "화강암 반 블록을 두 개 놓았어요."
+  "textKo": "북쪽으로 십 블록 갔어요. 불은 뜨거워요."
  },
  "reward": {
   "badge": "w7_01",
   "words": [
-   "obsidian",
    "adv_item_flint_and_steel",
-   "adv_dimension_the_nether"
+   "gen_iron_door",
+   "candle",
+   "go"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.go_sequence",
+  "L2.go_state",
+  "L2.euro_direction",
+  "L2.num_sino"
+ ]
 }

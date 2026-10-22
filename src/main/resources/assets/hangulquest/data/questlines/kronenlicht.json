@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "kronenlicht",
  "titleKo": "왕관의 빛",
- "topic": "산",
+ "topic": "엔드",
  "tier": 5,
  "order": 70,
  "concepts": [
-  "gen_end_highlands",
-  "gen_bubble_coral",
-  "gen_warped_trapdoor"
+  "bow",
+  "adv_dimension_the_end",
+  "enderman",
+  "ender_dragon"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -27,28 +28,57 @@
   {
    "id": "s1",
    "teach": [
-    "gen_end_highlands"
+    "bow",
+    "adv_dimension_the_end"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:end_highlands",
-    "dwellMs": 1000
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "REACH_BIOME",
+     "biome": "minecraft:the_end",
+     "dwellMs": 1000
+    }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bubble_coral"
+    "enderman",
+    "adv_dimension_the_end"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bubble_coral",
-    "count": 3
+    "type": "AVOID",
+    "action": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:enderman",
+     "dwellMs": 1000
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ender_dragon",
+    "bow"
+   ],
+   "goal": {
+    "type": "SHOOT",
+    "weapon": "minecraft:bow",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
     }
    ]
   }
@@ -57,29 +87,38 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_trapdoor"
+    "ender_dragon"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_trapdoor",
-    "count": 3
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
     }
    ]
   },
-  "textKo": "밤에 뒤틀린 다락문을 세 개 달았어요."
+  "textKo": "엔드에서 엔더 드래곤을 물리쳤어요. 드래곤은 엔드의 마지막 보스예요."
  },
  "reward": {
   "badge": "kronenlicht",
   "words": [
-   "mountain",
-   "torch",
-   "bed"
+   "bow",
+   "adv_dimension_the_end",
+   "enderman",
+   "ender_dragon"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L2.go_state",
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L3.jima",
+  "L1.eul_reul",
+  "L2.euro_material"
+ ]
 }

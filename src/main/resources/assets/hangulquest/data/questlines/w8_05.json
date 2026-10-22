@@ -1,15 +1,16 @@
 {
  "schema": 1,
  "id": "w8_05",
- "titleKo": "드래곤 알",
+ "titleKo": "알의 노래",
  "topic": "알",
  "tier": 2,
  "order": 1085,
  "concepts": [
-  "gen_copper_lantern",
-  "gen_acacia_slab",
-  "gen_cherry_leaves",
-  "gen_tall_dry_grass"
+  "chicken",
+  "adv_item_target",
+  "egg",
+  "sugar",
+  "cake"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +23,89 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_lantern"
+    "chicken"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_lantern",
-    "count": 3
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:chicken",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_acacia_slab"
+    "adv_item_target",
+    "egg"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_slab",
-    "count": 2
-   }
+    "type": "SHOOT",
+    "weapon": "minecraft:egg",
+    "block": "minecraft:target",
+    "count": 1,
+    "minDistance": 10
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_leaves"
+    "sugar"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_leaves",
+    "type": "CRAFT",
+    "item": "minecraft:sugar",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:sugar_cane"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_tall_dry_grass"
+    "cake"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:tall_dry_grass",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cake",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
-  "textKo": "키 큰 마른 잔디를 심었어요."
+  "textKo": "비가 올 때 케이크를 먹었어요. 케이크는 달아요."
  },
  "reward": {
   "badge": "w8_05",
   "words": [
-   "adv_item_dragon_breath",
-   "ender_dragon",
-   "dragon_egg",
-   "adv_item_dragon_head"
+   "chicken",
+   "adv_item_target",
+   "egg",
+   "sugar"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L4.myeon",
+  "L2.euro_material",
+  "L2.go_state"
+ ]
 }

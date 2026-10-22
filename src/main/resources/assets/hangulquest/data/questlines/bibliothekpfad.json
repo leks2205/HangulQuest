@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 111,
  "concepts": [
-  "gen_lime_stained_glass_pane",
-  "gen_trapped_chest",
-  "ink_sac",
-  "gen_red_shulker_box"
+  "gen_dark_forest",
+  "bookshelf",
+  "enchanting_table",
+  "adv_item_enchanted_book"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -23,62 +23,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_lime_stained_glass_pane"
+    "gen_dark_forest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_stained_glass_pane",
-    "count": 3
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:dark_forest",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_trapped_chest"
+    "bookshelf"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:trapped_chest"
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:bookshelf",
+    "size": 2
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "ink_sac"
+    "enchanting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ink_sac",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:enchanting_table"
    },
-   "hint": {
-    "ko": "먹물 주머니는 오징어에게서 얻어요."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bookshelf"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_shulker_box"
+    "adv_item_enchanted_book"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_shulker_box",
-    "count": 4
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:enchanted_book",
+    "count": 1
    },
    "conditions": []
   },
-  "textKo": "빨간색 셜커 상자를 네 개 놓았어요."
+  "textKo": "마법이 부여된 책을 구했어요. 책장은 마법의 힘을 키워 줘요."
  },
  "reward": {
   "badge": "bibliothekpfad",
   "words": [
-   "book",
-   "lectern",
-   "ink_sac",
-   "bookshelf"
+   "gen_dark_forest",
+   "bookshelf",
+   "enchanting_table",
+   "adv_item_enchanted_book"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L4.myeon",
+  "L2.euro_material",
+  "L1.obj_eul",
+  "L1.eul_reul"
+ ]
 }

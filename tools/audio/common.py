@@ -17,6 +17,9 @@ DIST = HOME / "dist"
 WORK = HOME / "work"
 
 VOICES_FILE = Path(__file__).with_name("voices.json")
+# Held-out voices of the sound forge; they are marked "hvpt_only" and stay out of the default voice list.
+HVPT_VOICES_FILE = Path(__file__).with_name("voices_hvpt.json")
+HVPT_DATA = DATA / "hvpt.json"
 
 
 def sha1(*parts: str) -> str:
@@ -38,7 +41,15 @@ def read_jsonl(path):
 
 
 def load_voices():
-    return json.loads(VOICES_FILE.read_text(encoding="utf-8"))
+    cfg = json.loads(VOICES_FILE.read_text(encoding="utf-8"))
+    if HVPT_VOICES_FILE.exists():
+        cfg["voices"].update(json.loads(HVPT_VOICES_FILE.read_text(encoding="utf-8"))["voices"])
+    return cfg
+
+
+def default_voices(cfg):
+    """The voices a plain render uses: everything except the held-out ones."""
+    return [name for name, voice in cfg["voices"].items() if not voice.get("hvpt_only")]
 
 
 _PUNCT = re.compile(r"[\s​.,!?~…'\"“”‘’()\[\]{}:;·\-–—/]+")

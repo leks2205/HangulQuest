@@ -2,13 +2,16 @@
  "schema": 1,
  "id": "ewiges_eis",
  "titleKo": "영원한 얼음",
- "topic": "산",
+ "topic": "눈",
  "tier": 3,
  "order": 92,
  "concepts": [
-  "gen_desert_pyramid_map",
-  "gen_white_bed",
-  "gen_birch_door"
+  "gen_frozen_peaks",
+  "east",
+  "gen_powder_snow",
+  "zombie",
+  "snowball",
+  "gen_polar_bear"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,22 +25,55 @@
   {
    "id": "s1",
    "teach": [
-    "gen_desert_pyramid_map"
+    "gen_frozen_peaks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:desert_pyramid_map",
-    "count": 2
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:frozen_peaks",
+    "dwellMs": 1000
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_bed"
+    "east"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:white_bed"
+    "type": "WALK",
+    "direction": "EAST",
+    "blocks": 30
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_powder_snow"
+   ],
+   "goal": {
+    "type": "FALL",
+    "blocks": 6,
+    "landing": "minecraft:powder_snow"
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "zombie",
+    "snowball"
+   ],
+   "goal": {
+    "type": "SHOOT",
+    "weapon": "minecraft:snowball",
+    "entity": "minecraft:zombie",
+    "count": 1
    },
    "conditions": [
     {
@@ -51,33 +87,40 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_birch_door"
+    "gen_polar_bear"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:birch_door"
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:polar_bear",
+    "dwellMs": 1000
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "type": "WEATHER",
+     "weather": "RAIN"
     }
    ]
   },
-  "textKo": "밤에 산에서 자작나무 문을 열었어요."
+  "textKo": "비가 올 때 북극곰을 바라봤어요. 북극곰은 눈 위에 살아요."
  },
  "reward": {
   "badge": "ewiges_eis",
   "words": [
-   "diamond",
-   "bell",
-   "bed",
-   "eternity"
+   "gen_frozen_peaks",
+   "east",
+   "gen_powder_snow",
+   "zombie"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L2.euro_direction",
+  "L2.num_sino",
+  "L2.eseo_activity",
+  "L4.myeon",
+  "L1.eul_reul",
+  "L2.euro_material"
+ ]
 }
