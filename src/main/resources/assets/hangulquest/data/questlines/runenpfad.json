@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 124,
  "concepts": [
-  "gen_pale_oak_sign",
-  "gen_sulfur_slab",
-  "gen_cherry_planks",
-  "gen_crimson_hyphae"
+  "gen_deepslate_lapis_ore",
+  "enchanting_table",
+  "adv_item_chiseled_bookshelf",
+  "gen_lapis_lazuli"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,60 +23,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_oak_sign"
+    "gen_deepslate_lapis_ore"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_sign",
-    "count": 4
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:deepslate_lapis_ore",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_sulfur_slab"
+    "enchanting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_slab",
+    "type": "CRAFT",
+    "item": "minecraft:enchanting_table",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_planks"
+    "adv_item_chiseled_bookshelf",
+    "enchanting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_planks",
-    "count": 6
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:chiseled_bookshelf",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:enchanting_table",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_crimson_hyphae"
+    "gen_lapis_lazuli",
+    "enchanting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_hyphae",
-    "count": 2
+    "type": "HOLD_WHILE",
+    "item": "minecraft:lapis_lazuli",
+    "inner": {
+     "type": "LOOK_AT_BLOCK",
+     "block": "minecraft:enchanting_table",
+     "dwellMs": 1000
+    }
    },
    "conditions": []
   },
-  "textKo": "진홍빛 균사를 두 개 놓았어요."
+  "textKo": "청금석을 들고 마법 부여대를 바라봤어요. 청금석은 파란색이에요."
  },
  "reward": {
   "badge": "runenpfad",
   "words": [
-   "emerald",
+   "gen_deepslate_lapis_ore",
    "enchanting_table",
-   "bookshelf",
-   "anvil"
+   "adv_item_chiseled_bookshelf",
+   "gen_lapis_lazuli"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L2.go_state",
+  "L5.neun_dongan",
+  "L2.num_sino"
+ ]
 }

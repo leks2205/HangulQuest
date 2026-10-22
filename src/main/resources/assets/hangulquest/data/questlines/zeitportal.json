@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 117,
  "concepts": [
-  "gen_fire_coral",
-  "gen_white_concrete_powder",
-  "gen_chiseled_cinnabar",
-  "gen_waxed_weathered_copper_bulb"
+  "gen_daylight_detector",
+  "clock",
+  "east",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -23,39 +23,48 @@
   {
    "id": "s1",
    "teach": [
-    "gen_fire_coral"
+    "gen_daylight_detector"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fire_coral",
+    "type": "CRAFT",
+    "item": "minecraft:daylight_detector",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_concrete_powder"
+    "clock",
+    "east"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_concrete_powder",
-    "count": 4
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:clock",
+    "inner": {
+     "type": "WALK",
+     "direction": "EAST",
+     "blocks": 20
+    }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_chiseled_cinnabar"
+    "gen_daylight_detector"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_cinnabar",
+    "type": "PLACE_REL",
+    "block": "minecraft:daylight_detector",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:iron_door",
     "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   }
@@ -64,30 +73,45 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_weathered_copper_bulb"
+    "wait",
+    "gen_daylight_detector"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_bulb",
-    "count": 3
+    "type": "WAIT",
+    "seconds": 10
    },
    "conditions": [
     {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:daylight_detector"
+    },
+    {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "밤에 밀랍칠한 녹슨 구리 전구를 세 개 놓았어요."
+  "textKo": "낮에 햇빛 감지기 근처에서 십 초 동안 기다렸어요. 햇빛 감지기는 햇빛을 느껴요."
  },
  "reward": {
   "badge": "zeitportal",
   "words": [
+   "gen_daylight_detector",
    "clock",
-   "obsidian",
-   "bed",
-   "torch"
+   "east",
+   "wait"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L5.neun_dongan",
+  "L2.euro_direction",
+  "L2.num_sino",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L4.myeon"
+ ]
 }

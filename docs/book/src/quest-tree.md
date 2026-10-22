@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1753** |
+| Steps (incl. finales) | **1760** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,56 +21,56 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_REL` | 213 |  |
-| `CRAFT` | 177 |  |
-| `ACQUIRE_ITEM` | 172 | collect an item |
-| `PLACE_BLOCK` | 139 | place a block |
-| `PLACE_ON_PATTERN` | 108 |  |
-| `BUILD_PATTERN` | 107 |  |
-| `SEQUENCE` | 83 |  |
-| `LOOK_AT_ENTITY` | 72 | look at a mob |
+| `PLACE_REL` | 224 |  |
+| `CRAFT` | 187 |  |
+| `ACQUIRE_ITEM` | 164 | collect an item |
+| `PLACE_BLOCK` | 111 | place a block |
+| `PLACE_ON_PATTERN` | 110 |  |
+| `BUILD_PATTERN` | 109 |  |
+| `SEQUENCE` | 85 |  |
+| `LOOK_AT_ENTITY` | 71 | look at a mob |
 | `GIVE` | 65 |  |
-| `LOOK_AT_BLOCK` | 61 | look at a block |
-| `BREAK_BLOCK` | 59 | break a block |
-| `REACH_BIOME` | 56 | reach a biome |
+| `LOOK_AT_BLOCK` | 62 | look at a block |
+| `BREAK_BLOCK` | 60 | break a block |
+| `REACH_BIOME` | 57 | reach a biome |
+| `AVOID` | 51 |  |
 | `USE_BLOCK` | 51 | use a block |
-| `AVOID` | 48 |  |
-| `HOLD_WHILE` | 42 |  |
+| `HOLD_WHILE` | 47 |  |
 | `CONSUME_ITEM` | 41 | eat or drink an item |
 | `PUT_IN` | 35 |  |
-| `DEFEAT_ENTITY` | 28 | defeat a mob |
-| `REACH_HEIGHT` | 28 | reach an altitude |
-| `WAIT` | 28 |  |
+| `WAIT` | 30 |  |
+| `DEFEAT_ENTITY` | 29 | defeat a mob |
+| `REACH_HEIGHT` | 29 | reach an altitude |
 | `SMELT` | 27 |  |
 | `TRADE` | 22 |  |
 | `INTERACT_ENTITY` | 15 | interact with a mob |
-| `WALK` | 14 |  |
+| `WALK` | 15 |  |
 | `BREED` | 10 |  |
 | `MOUNT` | 9 |  |
 | `SWIM` | 9 |  |
 | `TAKE_OUT` | 7 |  |
+| `SHOOT` | 6 |  |
 | `LIE_DOWN` | 5 |  |
 | `EQUIP` | 5 |  |
 | `FALL` | 5 |  |
-| `SHOOT` | 5 |  |
 | `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 304 | a time of day |
-| `HOLDING` | 102 |  |
-| `IN_BIOME` | 70 | a biome |
-| `WEATHER` | 54 | the weather |
+| `TIME` | 309 | a time of day |
+| `HOLDING` | 108 |  |
+| `IN_BIOME` | 71 | a biome |
+| `WEATHER` | 57 | the weather |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 40 | a dimension |
-| `Y_RANGE` | 35 | an altitude band |
+| `Y_RANGE` | 37 | an altitude band |
+| `NEAR_BLOCK` | 27 | a block nearby |
 | `SKY` | 26 |  |
-| `NEAR_BLOCK` | 25 | a block nearby |
 | `NEAR_ENTITY` | 20 | a mob nearby |
 | `IN_WATER` | 12 |  |
-| `FACING` | 7 |  |
+| `FACING` | 8 |  |
 
 ## Levels
 
@@ -493,9 +493,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenwacht` | 왕관의 수호자 | Der Kronenwächter | 3 | `kronenlicht`, `gipfelwaechter`, `ewiges_eis`, `leuchtturmpfad`, `sternenkarte`, `festungpfad`, `schatzkammer`, `druckerei`, `ziegelpfad`, `brauerei`, `bienenzucht` |
+| `kronenwacht` | 왕관의 수호자 | Der Kronenwächter | 4 | `kronenlicht`, `gipfelwaechter`, `ewiges_eis`, `leuchtturmpfad`, `sternenkarte`, `festungpfad`, `schatzkammer`, `druckerei`, `ziegelpfad`, `brauerei`, `bienenzucht` |
 | `zeitportal` | 시간의 문 | Das Zeitportal | 4 | `sternenkarte`, `handelsflotte` |
-| `schattenpfad` | 그림자의 길 | Der Schattenpfad | 4 | `sternenkarte`, `handelsflotte` |
+| `schattenpfad` | 그림자의 길 | Der Schattenpfad | 5 | `sternenkarte`, `handelsflotte` |
 | `handwerksmeister` | 장인의 길 | Der Handwerksmeister | 4 | `sternenkarte`, `leuchtturmpfad` |
 | `w9_01` | 빛나는 서약 | Der leuchtende Schwur | 4 | `kronenlicht` |
 | `w9_02` | 별의 왕관 | Die Krone der Sterne | 4 | `sternenkarte` |
@@ -508,7 +508,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenpfad` | 왕관의 길 | Der Kronenpfad | 3 | `kronenwacht`, `wolkenpfad`, `bibliothekpfad`, `handelsflotte`, `handwerksmeister`, `steinmetz`, `faerberei`, `obstgarten` |
+| `kronenpfad` | 왕관의 길 | Der Kronenpfad | 4 | `kronenwacht`, `wolkenpfad`, `bibliothekpfad`, `handelsflotte`, `handwerksmeister`, `steinmetz`, `faerberei`, `obstgarten` |
 | `seelenpfad` | 영혼의 길 | Der Seelenpfad | 4 | `schattenpfad`, `handwerksmeister` |
 | `golemwerkstatt` | 골렘 공방 | Die Golemwerkstatt | 4 | `schattenpfad`, `handwerksmeister` |
 | `w9_04` | 왕관의 성벽 | Die Mauer der Krone | 4 | `kronenwacht` |
@@ -524,9 +524,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenglanz` | 왕관의 빛남 | Der Kronenglanz | 3 | `kronenpfad`, `kristallschmiede`, `zeitportal`, `seelenpfad`, `gartenkunst`, `wolkenstadt`, `schmuckgilde` |
-| `kronenrat` | 왕관 회의 | Der Kronenrat | 4 | `seelenpfad`, `golemwerkstatt` |
-| `richterpfad` | 심판의 길 | Der Richterpfad | 4 | `seelenpfad`, `golemwerkstatt` |
+| `kronenglanz` | 왕관의 빛남 | Der Kronenglanz | 5 | `kronenpfad`, `kristallschmiede`, `zeitportal`, `seelenpfad`, `gartenkunst`, `wolkenstadt`, `schmuckgilde` |
+| `kronenrat` | 왕관 회의 | Der Kronenrat | 5 | `seelenpfad`, `golemwerkstatt` |
+| `richterpfad` | 심판의 길 | Der Richterpfad | 5 | `seelenpfad`, `golemwerkstatt` |
 | `runenpfad` | 룬의 길 | Der Runenpfad | 4 | `handwerksmeister`, `seelenpfad` |
 | `w9_08` | 왕관의 유산 | Das Erbe der Krone | 4 | `kronenpfad` |
 | `w10_08` | 모래 골렘의 등불 | Die Laterne des Sandgolems | 4 | `golemwerkstatt` |
