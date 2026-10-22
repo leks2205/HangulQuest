@@ -21,32 +21,32 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 276 | place a block |
-| `ACQUIRE_ITEM` | 260 | collect an item |
-| `PLACE_REL` | 184 |  |
-| `CRAFT` | 139 |  |
-| `PLACE_ON_PATTERN` | 88 |  |
-| `BUILD_PATTERN` | 80 |  |
-| `BREAK_BLOCK` | 71 | break a block |
-| `LOOK_AT_ENTITY` | 70 | look at a mob |
-| `REACH_BIOME` | 61 | reach a biome |
-| `GIVE` | 61 |  |
-| `USE_BLOCK` | 55 | use a block |
-| `SEQUENCE` | 48 |  |
-| `LOOK_AT_BLOCK` | 48 | look at a block |
-| `CONSUME_ITEM` | 44 | eat or drink an item |
+| `PLACE_BLOCK` | 253 | place a block |
+| `ACQUIRE_ITEM` | 250 | collect an item |
+| `PLACE_REL` | 189 |  |
+| `CRAFT` | 144 |  |
+| `PLACE_ON_PATTERN` | 94 |  |
+| `BUILD_PATTERN` | 86 |  |
+| `BREAK_BLOCK` | 72 | break a block |
+| `LOOK_AT_ENTITY` | 68 | look at a mob |
+| `GIVE` | 62 |  |
+| `REACH_BIOME` | 58 | reach a biome |
+| `SEQUENCE` | 54 |  |
+| `USE_BLOCK` | 53 | use a block |
+| `LOOK_AT_BLOCK` | 47 | look at a block |
+| `CONSUME_ITEM` | 43 | eat or drink an item |
+| `HOLD_WHILE` | 32 |  |
 | `PUT_IN` | 32 |  |
-| `HOLD_WHILE` | 31 |  |
-| `DEFEAT_ENTITY` | 24 | defeat a mob |
-| `SMELT` | 22 |  |
+| `DEFEAT_ENTITY` | 25 | defeat a mob |
+| `AVOID` | 23 |  |
+| `SMELT` | 23 |  |
 | `INTERACT_ENTITY` | 19 | interact with a mob |
 | `WAIT` | 18 |  |
-| `AVOID` | 17 |  |
 | `REACH_HEIGHT` | 17 | reach an altitude |
-| `TRADE` | 15 |  |
+| `TRADE` | 17 |  |
 | `BREED` | 9 |  |
 | `TAKE_OUT` | 7 |  |
-| `MOUNT` | 6 |  |
+| `MOUNT` | 7 |  |
 | `SWIM` | 6 |  |
 | `LIE_DOWN` | 4 |  |
 | `EQUIP` | 4 |  |
@@ -57,16 +57,16 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 256 | a time of day |
-| `HOLDING` | 68 |  |
-| `IN_BIOME` | 57 | a biome |
+| `TIME` | 253 | a time of day |
+| `HOLDING` | 70 |  |
+| `IN_BIOME` | 60 | a biome |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 36 | a dimension |
 | `Y_RANGE` | 25 | an altitude band |
 | `NEAR_BLOCK` | 21 | a block nearby |
 | `SKY` | 21 |  |
-| `WEATHER` | 17 | the weather |
-| `NEAR_ENTITY` | 17 | a mob nearby |
+| `WEATHER` | 18 | the weather |
+| `NEAR_ENTITY` | 18 | a mob nearby |
 | `IN_WATER` | 7 |  |
 
 ## Levels

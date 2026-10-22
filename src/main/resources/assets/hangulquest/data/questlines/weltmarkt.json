@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "weltmarkt",
  "titleKo": "세계 시장",
+ "topic": "시장",
  "tier": 4,
  "order": 525,
  "concepts": [
-  "gen_copper_spear",
-  "gen_cactus_flower",
-  "gen_snort_pottery_sherd",
-  "gen_kelp"
+  "carrot",
+  "sign",
+  "gen_wandering_trader",
+  "bread"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,47 +24,40 @@
   {
    "id": "s1",
    "teach": [
-    "gen_copper_spear"
+    "carrot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_spear",
-    "count": 6
-   }
+    "type": "TRADE",
+    "item": "minecraft:carrot",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 22
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cactus_flower"
+    "sign"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cactus_flower",
+    "type": "PLACE_REL",
+    "block": "minecraft:spruce_sign",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:chest",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_snort_pottery_sherd"
+    "gen_wandering_trader"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:snort_pottery_sherd",
-    "count": 4
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_kelp"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:kelp",
-    "count": 3
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:wandering_trader",
+    "dwellMs": 1000
    },
    "conditions": [
     {
@@ -71,18 +65,57 @@
      "phase": "DAY"
     }
    ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "TRADE",
+      "item": "minecraft:wheat",
+      "entity": "minecraft:villager",
+      "direction": "SELL",
+      "count": 20
+     },
+     {
+      "type": "TRADE",
+      "item": "minecraft:bread",
+      "entity": "minecraft:villager",
+      "direction": "BUY",
+      "count": 3
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
-  "textKo": "낮에 켈프를 세 개 심었어요."
+  "textKo": "주민에게 밀을 스무 개 판 후에 주민에게서 빵을 세 개 샀어요. 시장에는 사람이 많아요."
  },
  "reward": {
   "badge": "weltmarkt",
   "words": [
-   "emerald",
-   "pickaxe",
-   "bread",
-   "bell"
+   "carrot",
+   "sign",
+   "gen_wandering_trader"
   ]
  },
  "koreanLevel": 3,
- "topic": "마을"
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.ege",
+  "L1.loc_ap_e",
+  "L1.obj_eul",
+  "L2.num_sino",
+  "L3.eun_hue",
+  "L2.ege_source",
+  "L3.past"
+ ]
 }

@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "koenigspfad",
  "titleKo": "왕의 길",
+ "topic": "길",
  "tier": 4,
  "order": 540,
  "concepts": [
-  "gen_cinnabar_stairs",
-  "gen_beetroot",
-  "gen_terracotta",
-  "gen_red_carpet"
+  "stone_bricks",
+  "carpet",
+  "helmet",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,65 +24,93 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cinnabar_stairs"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cinnabar_stairs",
-    "count": 6
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:stone_bricks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_beetroot"
+    "carpet"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:beetroot",
-    "count": 1
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_carpet",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:stone_bricks"
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_terracotta"
+    "helmet"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:terracotta",
+    "type": "CRAFT",
+    "item": "minecraft:golden_helmet",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:gold_ingot"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_carpet"
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_carpet",
-    "count": 3
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "EQUIP",
+      "item": "minecraft:golden_helmet"
+     },
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:villager",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 빨간색 양탄자를 세 장 깔았어요."
+  "textKo": "금 투구를 쓴 후에 주민을 바라봤어요."
  },
  "reward": {
   "badge": "koenigspfad",
   "words": [
-   "emerald",
-   "cake",
-   "bell"
+   "stone_bricks",
+   "carpet",
+   "helmet"
   ]
  },
  "koreanLevel": 3,
- "topic": "나무"
+ "grammar": [
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L2.seyo",
+  "L1.loc_wi_e",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L3.eun_hue",
+  "L2.num_sino",
+  "L3.past"
+ ]
 }
