@@ -15,6 +15,11 @@ import java.util.Locale;
 /** The time of day. */
 final class TimeType implements ConditionType<Condition.Time> {
 	@Override
+	public int rank() {
+		return 0;
+	}
+
+	@Override
 	public String id() {
 		return "TIME";
 	}

@@ -110,6 +110,12 @@ public final class Counters {
 	 * the goal needs its count in the sentence.
 	 */
 	public String counter(String id, String noun) {
+		String found = pick(id, noun);
+		// 꿀이 든 병 네 병, 그릇 두 그릇: a name that ends in its own counter is counted with 개
+		return noun != null && !DEFAULT.equals(found) && noun.strip().endsWith(found) ? DEFAULT : found;
+	}
+
+	private String pick(String id, String noun) {
 		String byId = id == null ? null : byId(id);
 		if (byId != null && !DEFAULT.equals(byId)) {
 			return byId;

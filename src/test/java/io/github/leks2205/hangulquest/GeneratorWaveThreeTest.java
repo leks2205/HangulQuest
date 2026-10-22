@@ -271,7 +271,7 @@ class GeneratorWaveThreeTest {
 		assertEquals("물 위에 수련잎을 놓아요.", clue(new Goal.PlaceRel("minecraft:lily_pad", Relation.ON_TOP_OF,
 				"minecraft:water", 1), null));
 		Goal look = new Goal.LookAtBlock("minecraft:water", 800);
-		assertEquals("물을 1초 동안 바라봐요.", clue(look, "water"));
+		assertEquals("물을 일 초 동안 바라봐요.", clue(look, "water"));
 		assertEquals(List.of(), problems(look, List.of(), "water"));
 		Observation obs = new Observation();
 		assertFalse(GoalEvaluator.tick(look, List.of(), obs, new GoalEvaluator.Tracker()));

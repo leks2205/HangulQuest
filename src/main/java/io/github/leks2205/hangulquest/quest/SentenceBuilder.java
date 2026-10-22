@@ -147,6 +147,15 @@ public final class SentenceBuilder {
 		return Math.max(1L, (dwellMs + 999L) / 1000L);
 	}
 
+	/**
+	 * How long a look lasts, as the clue says it: "삼 초 동안". The seconds are a Sino-Korean numeral with the unit,
+	 * the same as a wait ("십 초 동안"); the live countdown in the status line stays in digits.
+	 */
+	public static String secondsPhrase(long dwellMs) {
+		long seconds = seconds(dwellMs);
+		return (seconds > 999 ? seconds + "초" : KoGrammar.sino((int) seconds) + " 초") + " 동안";
+	}
+
 	private static int clampLevel(int level) {
 		return Math.max(1, Math.min(6, level));
 	}
@@ -458,10 +467,19 @@ public final class SentenceBuilder {
 		return head;
 	}
 
+	/** The conditions in the order they are spoken: time, weather, place, what is held (see {@link ConditionType#rank}). */
+	static List<Condition> spokenOrder(List<Condition> conditions) {
+		if (conditions == null || conditions.size() < 2) {
+			return conditions;
+		}
+		return conditions.stream().sorted(java.util.Comparator.comparingInt(c -> ConditionTypes.of(c).rank())).toList();
+	}
+
 	private static Front prefix(Goal goal, List<Condition> conditions, Word word, Namer namer, int level) {
 		if (conditions == null || conditions.isEmpty()) {
 			return Front.NONE;
 		}
+		conditions = spokenOrder(conditions);
 		GoalType<Goal> type = GoalTypes.of(goal);
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		List<String> phrases = new java.util.ArrayList<>();
@@ -498,7 +516,7 @@ public final class SentenceBuilder {
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 			GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-			for (Condition condition : conditions) {
+			for (Condition condition : spokenOrder(conditions)) {
 				if (type != null && type.says(goal, condition)) {
 					continue;
 				}
@@ -529,7 +547,7 @@ public final class SentenceBuilder {
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		GoalType<Goal> type = goal == null ? null : GoalTypes.of(goal);
-		for (Condition condition : conditions) {
+		for (Condition condition : spokenOrder(conditions)) {
 			if (type != null && type.says(goal, condition)) {
 				continue;
 			}

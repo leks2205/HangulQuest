@@ -439,6 +439,11 @@
             },
             "material": {
               "$ref": "#/definitions/resourceId"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 4
             }
           },
           "required": [

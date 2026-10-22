@@ -283,7 +283,7 @@ public final class SpatialSentences {
 		}
 		// Both names stay whole: a stone-brick pillar with stone-brick stairs is "석재 벽돌 기둥 앞에 석재 벽돌 계단을",
 		// not "기둥 앞에 계단을", which hides the material that the sentence is about.
-		String head = SentenceBuilder.relationPhrase(patternNoun(goal.pattern(), material, goal.material()),
+		String head = SentenceBuilder.relationPhrase(patternNoun(goal.pattern(), goal.size(), material, goal.material()),
 				goal.relation(), Role.TARGET) + " " + SentenceBuilder.objectPhrase(obj, verb);
 		return finish(head, verb, level, finale, past, grammar);
 	}
@@ -320,9 +320,14 @@ public final class SpatialSentences {
 	}
 
 	public static String patternNoun(Pattern pattern, String material, String materialId) {
+		return patternNoun(pattern, pattern.defaultSize(), material, materialId);
+	}
+
+	/** Same for a structure of a given size: a row of four is "자갈 네 개", the count of the blocks that were built. */
+	public static String patternNoun(Pattern pattern, int size, String material, String materialId) {
 		String stuff = material == null || material.isBlank() ? "" : material + " ";
 		if (pattern == Pattern.ROW) {
-			return stuff + SentenceBuilder.counter(pattern.defaultSize(), counter(materialId, material));
+			return stuff + SentenceBuilder.counter(size, counter(materialId, material));
 		}
 		if (pattern == Pattern.RING && materialId != null && Pattern.ringOfFences(materialId)) {
 			return stuff.isBlank() ? "울타리" : stuff.strip(); // a ring of fences is the fence, not a "fence fence"

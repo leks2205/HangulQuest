@@ -28,7 +28,7 @@ hold.biome	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"RE
 hold.night	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	-	횃불을 들고 밤에 걸어요.	L2.go_state,L1.eoyo
 hold.night.l2	2	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	-	횃불을 들고 밤에 걸으세요.	L2.go_state,L2.seyo
 hold.break	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}}	-	횃불을 들고 돌을 세 개 캐요.	L2.go_state,L1.eoyo,L1.eul_reul
-hold.look	1	-	{"type":"HOLD_WHILE","item":"minecraft:wheat","inner":{"type":"LOOK_AT_ENTITY","entity":"minecraft:cow","dwellMs":1000}}	-	밀을 들고 소를 1초 동안 바라봐요.	L2.go_state,L1.eoyo,L1.eul_reul
+hold.look	1	-	{"type":"HOLD_WHILE","item":"minecraft:wheat","inner":{"type":"LOOK_AT_ENTITY","entity":"minecraft:cow","dwellMs":1000}}	-	밀을 들고 소를 일 초 동안 바라봐요.	L2.go_state,L1.eoyo,L1.eul_reul
 hold.sky	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 밖에서 걸어요.	L2.go_state,L1.eoyo,L2.eseo_activity
 hold.water	1	-	{"type":"HOLD_WHILE","item":"minecraft:stick","inner":{"type":"IN_WATER"}}	-	막대기를 들고 물속에서 걸어요.	L2.go_state,L1.eoyo,L2.eseo_activity
 hold.defeat	1	-	{"type":"HOLD_WHILE","item":"minecraft:bread","inner":{"type":"DEFEAT_ENTITY","entity":"minecraft:zombie"}}	-	빵을 들고 좀비를 한 마리 물리쳐요.	L2.go_state,L1.eoyo,L1.eul_reul
@@ -154,8 +154,8 @@ use.sign.name	1	name	{"type":"USE_BLOCK","block":"minecraft:oak_sign"}	-	표지�
 use.sign.name.l2	2	name	{"type":"USE_BLOCK","block":"minecraft:oak_sign"}	-	표지판에 이름을 쓰세요.	L2.seyo,L1.eul_reul,L1.e_place
 hear.bell	1	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":3000}	-	종소리를 들어요.	L1.eoyo,L1.eul_reul
 hear.bell.l2	2	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":3000}	-	종소리를 들으세요.	L2.seyo,L1.eul_reul
-look.fish.cod	1	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:cod","dwellMs":3000}	-	물고기를 3초 동안 바라봐요.	L1.eoyo,L1.eul_reul
-look.fish.salmon	2	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:salmon","dwellMs":3000}	-	물고기를 3초 동안 바라보세요.	L2.seyo,L1.eul_reul
+look.fish.cod	1	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:cod","dwellMs":3000}	-	물고기를 삼 초 동안 바라봐요.	L1.eoyo,L1.eul_reul
+look.fish.salmon	2	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:salmon","dwellMs":3000}	-	물고기를 삼 초 동안 바라보세요.	L2.seyo,L1.eul_reul,L2.num_sino
 mount.boat.spruce	1	boat	{"type":"MOUNT","entity":"minecraft:spruce_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
 mount.boat.chest	2	boat	{"type":"MOUNT","entity":"minecraft:oak_chest_boat","dwellMs":1500}	-	배에 앉으세요.	L2.seyo,L1.e_place
 wait.sixty.l2	2	-	{"type":"WAIT","seconds":60}	-	육십 초 동안 기다리세요.	L2.seyo,L2.num_sino

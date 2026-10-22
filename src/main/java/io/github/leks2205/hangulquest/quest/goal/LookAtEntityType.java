@@ -75,8 +75,17 @@ final class LookAtEntityType implements GoalType<Goal.LookAtEntity> {
 
 	@Override
 	public String korean(Goal.LookAtEntity goal, SentenceContext c) {
-		return SentenceBuilder.phrase(KoGrammar.eul(c.obj()) + " " + SentenceBuilder.seconds(goal.dwellMs())
-				+ "초 동안", c.verb(), c.level(), c.finale());
+		return SentenceBuilder.phrase(KoGrammar.eul(c.obj()) + " " + SentenceBuilder.secondsPhrase(goal.dwellMs()),
+				c.verb(), c.level(), c.finale());
+	}
+
+	@Override
+	public List<String> grammarIds(Goal.LookAtEntity goal, SentenceContext c) {
+		List<String> ids = new java.util.ArrayList<>(GoalType.super.grammarIds(goal, c));
+		if (c.level() >= 2) {
+			ids.add("L2.num_sino"); // 삼 초
+		}
+		return ids;
 	}
 
 	@Override

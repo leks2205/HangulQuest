@@ -89,6 +89,15 @@ public interface ConditionType<C extends Condition> {
 	default void validate(C condition, ValidationContext context) {
 	}
 
+	/**
+	 * Where the phrase of this condition stands among the others in front of the goal: the time of day first, then
+	 * the weather, then any place, and last what is held ("밤에 비가 올 때 해변에서 횃불을 들고 ..."), whatever order the
+	 * JSON lists them in. Equal ranks keep the order they were written in.
+	 */
+	default int rank() {
+		return 2;
+	}
+
 	/** True for the time-of-day condition, which a goal may excuse once the night has passed. */
 	default boolean timeOfDay() {
 		return false;

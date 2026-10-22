@@ -41,7 +41,8 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 						Arrays.stream(Relation.values()).map(Enum::name).toArray(String[]::new)),
 				Field.choice("pattern", true, "The shape of the structure.",
 						Arrays.stream(Pattern.values()).map(Enum::name).toArray(String[]::new)),
-				Field.resource("material"));
+				Field.resource("material"),
+				Field.integer("size", 2, 4, false));
 	}
 
 	@Override
@@ -49,7 +50,7 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 		return new Goal.PlaceOnPattern(JsonFields.string(json, "block", ""),
 				Relation.byId(JsonFields.string(json, "relation", ""), Relation.ON_TOP_OF),
 				Pattern.byId(JsonFields.string(json, "pattern", ""), Pattern.PILLAR),
-				JsonFields.string(json, "material", ""));
+				JsonFields.string(json, "material", ""), JsonFields.integer(json, "size", 0));
 	}
 
 	@Override
@@ -60,20 +61,25 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 		json.addProperty("relation", goal.relation().name());
 		json.addProperty("pattern", goal.pattern().name());
 		json.addProperty("material", goal.material());
+		if (goal.size() != goal.pattern().defaultSize()) {
+			json.addProperty("size", goal.size());
+		}
 		return json;
 	}
 
 	@Override
 	public String keyPart(Goal.PlaceOnPattern goal) {
-		return goal.block() + "/" + goal.relation() + "/" + goal.pattern() + "/" + goal.material();
+		// the size only enters the key when it is not the usual one, so saved progress keeps its keys
+		return goal.block() + "/" + goal.relation() + "/" + goal.pattern() + "/" + goal.material()
+				+ (goal.size() == goal.pattern().defaultSize() ? "" : "/" + goal.size());
 	}
 
 	private static Anchor anchor(Goal.PlaceOnPattern goal) {
-		return new Anchor.Built(goal.pattern(), goal.material());
+		return new Anchor.Built(goal.pattern(), goal.material(), goal.size());
 	}
 
 	private static Anchor anchor(Goal.PlaceOnPattern goal, GoalEvaluator.Tracker tracker) {
-		return new Anchor.Built(goal.pattern(), tracker.accepted.union(goal.material()));
+		return new Anchor.Built(goal.pattern(), tracker.accepted.union(goal.material()), goal.size());
 	}
 
 	@Override
@@ -164,6 +170,10 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 			return;
 		}
 		SpatialRules.checkTagWord(goal.material(), context);
+		if (!goal.pattern().validSize(goal.size())) {
+			context.problem(goal.pattern() + " cannot be size " + goal.size() + " (allowed "
+					+ goal.pattern().minSize() + ".." + goal.pattern().maxSize() + ")");
+		}
 		if (!Relations.supported(goal.relation(), anchor(goal))) {
 			context.problem(goal.relation() + " does not fit a " + goal.pattern());
 		}
