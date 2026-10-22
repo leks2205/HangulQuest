@@ -12,7 +12,7 @@ coal	석탄	[석탄]		rule	sino
 iron	철	[철]		rule	sino
 gold	금	[금]		rule	sino
 diamond	다이아몬드	[다이아몬드]		rule	loan
-obsidian	흑요석	[흥뇨석]	nasalisation,n_insertion	lexical	sino
+obsidian	흑요석	[흐교석]	liaison	rule	sino
 water	물	[물]		rule	native
 lava	용암	[용암]		rule	sino
 snow	눈	[눈]		rule	native
@@ -115,7 +115,7 @@ paper	종이	[종이]		rule	native
 string	실	[실]		rule	native
 leather	가죽	[가죽]		rule	native
 wool	양털	[양털]		rule	mixed
-feather	깃털	[긷털]	neutralisation	rule	native
+feather	깃털	[기털]	neutralisation	lexical	native
 bone	뼈	[뼈]		rule	native
 gunpowder	화약	[화약]		rule	sino
 stick	막대기	[막때기]	tensification	rule	native
@@ -252,7 +252,7 @@ adv_item_axolotl_bucket	아홀로틀이 담긴 양동이	[아홀로트리 담긴
 adv_item_golden_carrot	황금 당근	[황금 당근]		rule	mixed
 adv_block_torchflower_seeds	횃불꽃 씨앗	[홰뿔꼳 씨앋]	tensification,neutralisation	lexical	native
 adv_item_verdant_froglight	잔딧빛 개구리불	[잔디삗 개구리불]	tensification,neutralisation	lexical	native
-adv_item_ochre_froglight	황톳빛 개구리불	[황톧삗 개구리불]	tensification,neutralisation	rule	mixed
+adv_item_ochre_froglight	황톳빛 개구리불	[황토삗 개구리불]	tensification	lexical	mixed
 adv_item_tropical_fish_bucket	열대어가 담긴 양동이	[열때어가 담긴 양동이]	tensification	rule	mixed
 adv_item_lead	끈	[끈]		rule	native
 adv_item_glow_ink_sac	발광 먹물 주머니	[발광 멍물 주머니]	nasalisation	rule	mixed
@@ -277,7 +277,7 @@ adv_block_netherite_chestplate	네더라이트 흉갑	[네더라이트 흉갑]		
 adv_item_netherite_helmet	네더라이트 투구	[네더라이트 투구]		rule	mixed
 adv_item_ancient_debris	고대 잔해	[고대 잔해]		rule	sino
 adv_item_blaze_rod	블레이즈 막대기	[블레이즈 막때기]	tensification	rule	mixed
-adv_item_crying_obsidian	우는 흑요석	[우는 흥뇨석]	nasalisation,n_insertion	lexical	mixed
+adv_item_crying_obsidian	우는 흑요석	[우는 흐교석]	liaison	rule	mixed
 adv_item_fire_charge	화염구	[화염구]		rule	sino
 adv_item_warped_fungus_on_a_stick	뒤틀린 균 낚싯대	[뒤틀린 균 낙씨때]	tensification,neutralisation	lexical	mixed
 adv_block_red_nether_bricks	붉은 네더 벽돌	[불근 네더 벽똘]	liaison,tensification,double_final	rule	mixed
@@ -866,7 +866,7 @@ gen_bamboo_button	대나무 버튼	[대나무 버튼]		rule	mixed
 gen_mule	노새	[노새]		rule	native
 gen_pale_oak_sapling	창백한 참나무 묘목	[창배칸 참나무 묘목]	h	rule	mixed
 gen_exposed_cut_copper	약간 녹슨 깎인 구리	[약깐 녹쓴 까낀 구리]	liaison,tensification	rule	native
-gen_scrape_pottery_sherd	긁개 도자기 조각	[극깨 도자기 조각]	tensification,double_final	rule	mixed
+gen_scrape_pottery_sherd	긁개 도자기 조각	[글깨 도자기 조각]	tensification,double_final	lexical	mixed
 gen_jagged_peaks	뾰족한 봉우리	[뾰조칸 봉우리]	h	rule	native
 gen_red_tulip	빨간색 튤립	[빨간색 튤립]		rule	mixed
 gen_warped_pressure_plate	뒤틀린 압력판	[뒤틀린 암녁판]	nasalisation	rule	mixed

@@ -2,6 +2,9 @@
 "_comment": "What the rules in quest/grammar/Pronunciation cannot know from the spelling (WP3.8/4.4). overrides: whole word, pron without brackets, rule ids. nInsertion: bar before the second part of a compound that gets an inserted ㄴ. linked: bar before a vowel-initial second part that counts as a word of its own, so the first final is neutralised and carried over. tenseJoin: bar before a second part that is tensed (사이시옷 words). stems: verb stems in ㄴ/ㅁ whose dictionary form is tensed (신다 -> 신따). sinoWords: Sino-Korean words inside a phrase, whose own origin the phrase tag does not show (the ㄹ + ㄷ/ㅅ/ㅈ rule applies per word; a trailing * means only inside a longer phrase, so 갈색 alone keeps its tag). Keep it small; the forms follow the 표준 발음법 and are checked in the native review.",
 "schema": 1,
 "overrides": {
+"깃털": {"pron": "기털", "rules": ["neutralisation"]},
+"황톳빛": {"pron": "황토삗", "rules": ["tensification"]},
+"긁개": {"pron": "글깨", "rules": ["tensification", "double_final"]},
 	"결단력": {"pron": "결딴녁", "rules": ["tensification", "nasalisation"]},
 	"공권력": {"pron": "공꿘녁", "rules": ["tensification", "nasalisation"]},
 	"구근류": {"pron": "구근뉴", "rules": ["nasalisation"]},
@@ -21,7 +24,7 @@
 	"횃불꽃": {"pron": "홰뿔꼳", "rules": ["tensification", "neutralisation"]},
 	"횡단로": {"pron": "횡단노", "rules": ["nasalisation"]}
 },
-"nInsertion": ["솜|이불", "꽃|잎", "나뭇|잎", "색|연필", "한|여름", "눈|요기", "담|요", "맨|입", "막|일", "홑|이불", "알|약", "물|약", "식용|유", "영업|용", "늑막|염", "내복|약", "밭|일", "흑|요석", "색|유리", "수련|잎", "흘림|잎"],
+"nInsertion": ["솜|이불", "꽃|잎", "나뭇|잎", "색|연필", "한|여름", "눈|요기", "담|요", "맨|입", "막|일", "홑|이불", "알|약", "물|약", "식용|유", "영업|용", "늑막|염", "내복|약", "밭|일", "색|유리", "수련|잎", "흘림|잎"],
 "linked": ["맛|없다", "맛|있다", "멋|있다", "겉|옷", "헛|웃음", "꽃|위"],
 "tenseJoin": ["창|살", "밀|짚", "숨|결", "열|쇠", "벌|집"],
 "sinoWords": ["철사", "불사의", "열대어가", "갈색*"],
