@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 123,
  "concepts": [
-  "gen_oak_wood",
-  "gen_shulker_box",
-  "gen_detector_rail",
-  "gen_blue_concrete_powder"
+  "adv_item_trial_key",
+  "gen_breeze",
+  "adv_item_crossbow",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -23,60 +23,107 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oak_wood"
+    "adv_item_trial_key"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_wood",
-    "count": 3
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:trial_key",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_shulker_box"
+    "gen_breeze",
+    "adv_item_crossbow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:shulker_box",
-    "count": 3
-   }
+    "type": "SHOOT",
+    "weapon": "minecraft:crossbow",
+    "entity": "minecraft:breeze",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_detector_rail"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:detector_rail",
-    "count": 4
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "LIE_DOWN",
+     "block": "minecraft:black_bed",
+     "dwellMs": 3000
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_crossbow",
+    "gen_breeze"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:crossbow",
+    "inner": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:breeze",
+     "dwellMs": 800
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_concrete_powder"
+    "gen_breeze"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_concrete_powder",
-    "count": 3
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:breeze",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 0
+    }
+   ]
   },
-  "textKo": "파란색 콘크리트 가루를 세 개 놓았어요."
+  "textKo": "높이 0 이하에서 브리즈를 물리쳤어요. 브리즈는 바람을 일으켜요."
  },
  "reward": {
   "badge": "richterpfad",
   "words": [
-   "bell",
-   "zombie",
-   "gold_block",
-   "anvil"
+   "adv_item_trial_key",
+   "gen_breeze",
+   "adv_item_crossbow",
+   "bed"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.euro_material",
+  "L3.jima",
+  "L1.e_place",
+  "L5.eodo",
+  "L2.go_state",
+  "L5.neun_dongan",
+  "L2.num_sino"
+ ]
 }

@@ -8,8 +8,9 @@
  "concepts": [
   "bat",
   "soul_torch",
-  "gen_cherry_fence",
-  "coal"
+  "bed",
+  "gen_deep_dark",
+  "adv_item_sculk_sensor"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -29,31 +30,41 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:bat",
     "dwellMs": 800
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "soul_torch"
+    "bat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_torch",
-    "count": 3
+    "type": "AVOID",
+    "action": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:bat",
+     "count": 1
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
    },
-   "hint": {
-    "ko": "영혼 횃불은 석탄, 막대기, 영혼 모래로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_fence"
+    "soul_torch",
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_fence",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:soul_torch",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:blue_bed",
+    "count": 1
    },
    "conditions": [
     {
@@ -61,22 +72,34 @@
      "phase": "NIGHT"
     }
    ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_deep_dark"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:deep_dark",
+    "dwellMs": 1000
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "coal"
+    "adv_item_sculk_sensor"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:coal",
-    "count": 8
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sculk_sensor",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "그림자 속에서 석탄을 모아요."
+  "textKo": "스컬크 감지체를 바라봤어요. 스컬크 감지체는 소리를 느껴요."
  },
  "reward": {
   "badge": "schattenpfad",
@@ -84,8 +107,20 @@
    "bat",
    "soul_torch",
    "bed",
-   "coal"
+   "gen_deep_dark"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.jima",
+  "L5.eodo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L4.myeon",
+  "L5.adn_adj_eun",
+  "L1.euro_direction"
+ ]
 }

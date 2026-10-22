@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1088,
  "concepts": [
-  "gen_tall_grass",
-  "gen_deepslate_lapis_ore",
-  "gen_birch_sapling",
-  "gen_yellow_banner"
+  "gen_glowstone",
+  "door",
+  "east"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -21,61 +20,94 @@
  "steps": [
   {
    "id": "s1",
-   "teach": [
-    "gen_tall_grass"
-   ],
+   "teach": [],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tall_grass",
-    "count": 1
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 150,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:glowstone"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_deepslate_lapis_ore"
+    "gen_glowstone"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_lapis_ore",
-    "count": 1
-   }
+    "block": "minecraft:glowstone",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_birch_sapling"
+    "door"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:birch_sapling",
-    "count": 3
-   }
+    "block": "minecraft:jungle_door",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "EAST"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_yellow_banner"
+    "east"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_banner",
-    "count": 4
+    "type": "WALK",
+    "direction": "EAST",
+    "blocks": 12
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   },
-  "textKo": "노란색 현수막을 네 장 걸었어요."
+  "textKo": "새벽에 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요."
  },
  "reward": {
   "badge": "w8_08",
   "words": [
-   "nether_star",
-   "beacon",
-   "enchanting_table",
-   "candle"
+   "gen_glowstone",
+   "door",
+   "east"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L4.myeon",
+  "L2.go_state",
+  "L1.eul_reul",
+  "L2.go_sequence",
+  "L2.euro_direction",
+  "L2.num_sino"
+ ]
 }

@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 72,
  "concepts": [
-  "gen_stony_peaks",
-  "diamond",
-  "crown",
-  "gen_waxed_exposed_cut_copper_slab"
+  "gen_plains",
+  "gold",
+  "gen_emerald_block",
+  "gold_block"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -29,43 +29,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stony_peaks"
+    "gen_plains",
+    "gold"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:stony_peaks",
-    "dwellMs": 1000
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:plains",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:gold_ore",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:plains"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_pickaxe"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "diamond",
-    "crown"
+    "gen_emerald_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:emerald_block",
+    "count": 1
    },
-   "clue": {
-    "ko": "왕관을 만들 다이아몬드를 캐요."
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:gold_block",
+    "size": 2
    },
-   "hint": {
-    "ko": "왕관을 만들려면 다이아몬드가 필요해요. 철 곡괭이로 캐요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_cut_copper_slab"
+    "gen_emerald_block",
+    "gold_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_cut_copper_slab",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:emerald_block",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:gold_block",
+    "size": 2
    },
    "conditions": [
     {
@@ -74,15 +113,29 @@
     }
    ]
   },
-  "textKo": "낮에 밀랍칠한 약간 녹슨 깎인 구리 반 블록을 놓았어요."
+  "textKo": "낮에 금 블록 기둥 위에 에메랄드 블록을 놓았어요. 금은 반짝여요."
  },
  "reward": {
   "badge": "kronenpfad",
   "words": [
-   "mountain",
-   "diamond",
-   "bell"
+   "gen_plains",
+   "gold",
+   "gen_emerald_block",
+   "gold_block"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eureo_gayo",
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L4.myeon",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e"
+ ]
 }

@@ -1,0 +1,752 @@
+{
+ "batch": "BATCH-026",
+ "brief": "content/briefs/BATCH-026.md",
+ "chapter": "the crown's workshop (levels 4 and 5; every trail has the level its tree depth gives, 12 for the two level-4 trails and 13 to 15 for the others)",
+ "summary": {
+  "trails": 13,
+  "steps": 56,
+  "formDependentSteps": 36,
+  "formDependentShareOwn": 0.6429,
+  "goalTypes": {
+   "CRAFT": 10,
+   "ACQUIRE_ITEM": 3,
+   "LOOK_AT_ENTITY": 3,
+   "REACH_HEIGHT": 1,
+   "PLACE_BLOCK": 4,
+   "WALK": 1,
+   "PLACE_REL": 11,
+   "HOLD_WHILE": 5,
+   "AVOID": 3,
+   "DEFEAT_ENTITY": 2,
+   "SEQUENCE": 2,
+   "BUILD_PATTERN": 2,
+   "PLACE_ON_PATTERN": 2,
+   "WAIT": 2,
+   "REACH_BIOME": 2,
+   "LOOK_AT_BLOCK": 1,
+   "SHOOT": 1,
+   "BREAK_BLOCK": 1
+  }
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w8_07",
+   "title": "엔더맨의 속삭임",
+   "order": 1087,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.go_state",
+    "L2.num_sino"
+   ],
+   "finaleKo": "밤에 엔더맨을 바라봤어요. 엔더맨은 키가 커요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:shears:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 가위를 만들어야 해요.",
+     "hintKo": "낮에 가위를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:carved_pumpkin:OBTAIN|HOLDING:minecraft:shears",
+     "formDependent": false,
+     "clueKo": "가위를 들고 조각된 호박을 구해야 해요.",
+     "hintKo": "가위를 들고 조각된 호박을 구해요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:jack_o_lantern:CRAFT|HOLDING:minecraft:torch",
+     "formDependent": false,
+     "clueKo": "횃불을 들고 잭오랜턴을 만들어야 해요.",
+     "hintKo": "횃불을 들고 잭오랜턴을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:enderman:WATCH|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 엔더맨을 일 초 동안 바라봐야 해요.",
+     "hintKo": "밤에 엔더맨을 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "w8_08",
+   "title": "별의 문",
+   "order": 1088,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L4.myeon",
+    "L2.go_state",
+    "L1.eul_reul",
+    "L2.go_sequence",
+    "L2.euro_direction",
+    "L2.num_sino"
+   ],
+   "finaleKo": "새벽에 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:glowstone,TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 발광석을 들고 높이 150블록 위로 올라가야 해요.",
+     "hintKo": "해가 지면 발광석을 들고 높이 150블록 위로 올라가야 해요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:glowstone:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 발광석을 두 개 놓아야 해요.",
+     "hintKo": "밤에 발광석을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:jungle_door:HANG_DOOR|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 문을 달아야 해요.",
+     "hintKo": "동쪽을 보고 문을 달아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 동쪽으로 십이 블록 가야 해요.",
+     "hintKo": "새벽에 동쪽으로 가요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "kronenwacht",
+   "title": "왕관의 수호자",
+   "order": 71,
+   "koreanLevel": 5,
+   "grammar": [
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L4.eoya_haeyo",
+    "L5.adn_adj_eun",
+    "L2.go_state",
+    "L5.neun_dongan",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.jima",
+    "L5.eodo",
+    "L4.myeon"
+   ],
+   "finaleKo": "비가 올 때 마녀를 물리쳤어요. 마녀는 물약을 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:barrel:NEXT_TO:minecraft:red_banner:PLACE",
+     "formDependent": true,
+     "clueKo": "빨간 현수막 옆에 통을 놓아야 해요.",
+     "hintKo": "빨간색 현수막 옆에 통을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:shield:HOLD+LOOK_AT_ENTITY:minecraft:skeleton:WATCH",
+     "formDependent": true,
+     "clueKo": "방패를 들고 있는 동안 스켈레톤을 일 초 동안 바라봐야 해요.",
+     "hintKo": "방패를 들고 스켈레톤을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:DEFEAT_ENTITY:minecraft:villager:DEFEAT@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 주민을 물리치지 마세요.",
+     "hintKo": "밤에 주민을 물리치지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:witch:DEFEAT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 마녀를 한 마리 물리쳐야 해요.",
+     "hintKo": "비가 올 때 마녀를 물리쳐요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "kronenpfad",
+   "title": "왕관의 길",
+   "order": 72,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eureo_gayo",
+    "L4.eoya_haeyo",
+    "L1.euro_direction",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L4.myeon",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "낮에 금 블록 기둥 위에 에메랄드 블록을 놓았어요. 금은 반짝여요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:plains:GO>BREAK_BLOCK:minecraft:gold_ore:MINE|HOLDING:minecraft:iron_pickaxe,IN_BIOME:minecraft:plains",
+     "formDependent": true,
+     "clueKo": "철 곡괭이를 들고 금 광석을 캐러 평원으로 가야 해요.",
+     "hintKo": "철 곡괭이를 들고 금을 캐러 평원으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:emerald_block:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 에메랄드 블록을 만들어야 해요.",
+     "hintKo": "비가 올 때 에메랄드 블록을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/2:minecraft:gold_block:STACK",
+     "formDependent": false,
+     "clueKo": "금 블록 두 개로 기둥을 쌓아야 해요.",
+     "hintKo": "금 블록으로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:emerald_block:ON_TOP_OF:PILLAR/minecraft:gold_block/2:PLACE|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 금 블록 기둥 위에 에메랄드 블록을 놓아야 해요.",
+     "hintKo": "낮에 금 블록 기둥 위에 에메랄드 블록을 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "kronenglanz",
+   "title": "왕관의 빛남",
+   "order": 73,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L4.myeon",
+    "L5.neun_dongan"
+   ],
+   "finaleKo": "밤에 발광석 근처에서 십 초 동안 기다렸어요. 발광석은 밝게 빛나요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:copper_block:COLLECT",
+     "formDependent": false,
+     "clueKo": "구리 블록을 네 개 모아야 해요.",
+     "hintKo": "구리 블록을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:copper_block:STACK",
+     "formDependent": false,
+     "clueKo": "구리 블록 세 개로 기둥을 쌓아야 해요.",
+     "hintKo": "구리 블록으로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:glowstone:ON_TOP_OF:PILLAR/minecraft:copper_block:PLACE",
+     "formDependent": true,
+     "clueKo": "구리 블록 기둥 위에 발광석을 놓아야 해요.",
+     "hintKo": "구리 블록 기둥 위에 발광석을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:copper_bulb:HANG_DOOR|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 구리 전구를 두 개 달아야 해요.",
+     "hintKo": "밤에 구리 전구를 달아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:glowstone,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤인 동안 발광석 근처에서 기다려야 해요.",
+     "hintKo": "밤에 발광석 근처에서 잠깐 기다려요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "zeitportal",
+   "title": "시간의 문",
+   "order": 117,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L5.neun_dongan",
+    "L2.euro_direction",
+    "L2.num_sino",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L5.adn_adj_eun"
+   ],
+   "finaleKo": "낮에 햇빛 감지기 근처에서 십 초 동안 기다렸어요. 햇빛 감지기는 햇빛을 느껴요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:daylight_detector:CRAFT",
+     "formDependent": false,
+     "clueKo": "햇빛 감지기를 만들어야 해요.",
+     "hintKo": "햇빛 감지기를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:clock:HOLD+WALK:EAST:GO",
+     "formDependent": true,
+     "clueKo": "시계를 들고 있는 동안 동쪽으로 이십 블록 가야 해요.",
+     "hintKo": "시계를 들고 동쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:daylight_detector:NEXT_TO:minecraft:yellow_bed:PLACE",
+     "formDependent": true,
+     "clueKo": "노란 침대 옆에 햇빛 감지기를 놓아야 해요.",
+     "hintKo": "노란색 침대 옆에 햇빛 감지기를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:daylight_detector,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "해가 떠 있는 동안 햇빛 감지기 근처에서 기다려야 해요.",
+     "hintKo": "낮에 햇빛 감지기 근처에서 잠깐 기다려요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "schattenpfad",
+   "title": "그림자의 길",
+   "order": 118,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.jima",
+    "L5.eodo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L4.myeon",
+    "L5.adn_adj_eun",
+    "L1.euro_direction"
+   ],
+   "finaleKo": "스컬크 감지체를 바라봤어요. 스컬크 감지체는 소리를 느껴요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:bat:WATCH",
+     "formDependent": false,
+     "clueKo": "박쥐를 일 초 동안 바라봐야 해요.",
+     "hintKo": "박쥐를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:DEFEAT_ENTITY:minecraft:bat:DEFEAT@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 박쥐를 물리치지 마세요.",
+     "hintKo": "밤에 박쥐를 물리치지 마세요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:soul_torch:NEXT_TO:minecraft:blue_bed:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 파란 침대 옆에 영혼 횃불을 놓아야 해요.",
+     "hintKo": "밤에 침대 옆에 영혼 횃불을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:deep_dark:ENTER",
+     "formDependent": false,
+     "clueKo": "깊은 어둠으로 들어가야 해요.",
+     "hintKo": "깊은 어둠으로 들어가요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:sculk_sensor:WATCH",
+     "formDependent": false,
+     "clueKo": "스컬크 감지체를 일 초 동안 바라봐야 해요.",
+     "hintKo": "스컬크 감지체를 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "handwerksmeister",
+   "title": "장인의 길",
+   "order": 119,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L1.loc_yeop_e",
+    "L1.obj_eul"
+   ],
+   "finaleKo": "모루 옆에 석재 절단기를 놓았어요. 모루는 도구를 고쳐요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:stonecutter:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 석재 절단기를 만들어야 해요.",
+     "hintKo": "비가 올 때 석재 절단기를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:grindstone:CRAFT",
+     "formDependent": false,
+     "clueKo": "숫돌을 만들어야 해요.",
+     "hintKo": "숫돌을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:anvil:NEXT_TO:minecraft:grindstone:PLACE",
+     "formDependent": true,
+     "clueKo": "숫돌 옆에 모루를 놓아야 해요.",
+     "hintKo": "숫돌 옆에 모루를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:stonecutter:NEXT_TO:minecraft:anvil:PLACE",
+     "formDependent": true,
+     "clueKo": "모루 옆에 석재 절단기를 놓아야 해요.",
+     "hintKo": "모루 옆에 석재 절단기를 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "seelenpfad",
+   "title": "영혼의 길",
+   "order": 120,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L4.myeon",
+    "L2.go_state",
+    "L5.neun_dongan",
+    "L2.num_sino",
+    "L1.euro_direction"
+   ],
+   "finaleKo": "영혼 랜턴을 들고 영혼 모닥불을 피웠어요. 영혼 불꽃은 파란색이에요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:soul_lantern:CRAFT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 영혼 랜턴을 만들어야 해요.",
+     "hintKo": "밤에 영혼 랜턴을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:soul_lantern:HOLD+LOOK_AT_BLOCK:minecraft:soul_sand:WATCH",
+     "formDependent": true,
+     "clueKo": "영혼 랜턴을 들고 있는 동안 영혼 모래를 일 초 동안 바라봐야 해요.",
+     "hintKo": "영혼 랜턴을 들고 영혼 모래를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:soul_sand_valley:GO",
+     "formDependent": false,
+     "clueKo": "영혼 모래 골짜기로 가야 해요.",
+     "hintKo": "영혼 모래 골짜기로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:soul_campfire:KINDLE|HOLDING:minecraft:soul_lantern",
+     "formDependent": false,
+     "clueKo": "영혼 랜턴을 들고 영혼 모닥불을 피워야 해요.",
+     "hintKo": "영혼 랜턴을 들고 영혼 모닥불을 피워요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "golemwerkstatt",
+   "title": "골렘 공방",
+   "order": 121,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoseo",
+    "L1.eul_reul",
+    "L4.eoya_haeyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L2.num_sino",
+    "L4.myeon"
+   ],
+   "finaleKo": "낮에 눈 골렘을 바라봤어요. 눈 골렘은 눈으로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:BREAK_BLOCK:minecraft:copper_ore:MINE>CRAFT:minecraft:copper_block:CRAFT",
+     "formDependent": true,
+     "clueKo": "구리 광석을 세 개 캐서 구리 블록을 만들어야 해요.",
+     "hintKo": "구리 광석을 캐서 구리 블록을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:copper_chest:CRAFT",
+     "formDependent": false,
+     "clueKo": "구리 상자를 만들어야 해요.",
+     "hintKo": "구리 상자를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:green_stained_glass:NEXT_TO:minecraft:copper_block:PLACE",
+     "formDependent": true,
+     "clueKo": "구리 블록 옆에 초록색 색유리를 놓아야 해요.",
+     "hintKo": "구리 블록 옆에 초록색 색유리를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:snow_golem:WATCH|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 눈 골렘을 일 초 동안 바라봐야 해요.",
+     "hintKo": "낮에 눈 골렘을 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "kronenrat",
+   "title": "왕관 회의",
+   "order": 122,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L1.loc_yeop_e",
+    "L1.obj_eul"
+   ],
+   "finaleKo": "독서대 옆에 보라색 현수막을 걸었어요. 현수막은 벽에 걸어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:lectern:CRAFT",
+     "formDependent": false,
+     "clueKo": "독서대를 만들어야 해요.",
+     "hintKo": "독서대를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:bookshelf:NEXT_TO:minecraft:lectern:PLACE",
+     "formDependent": true,
+     "clueKo": "독서대 옆에 책장을 놓아야 해요.",
+     "hintKo": "독서대 옆에 책장을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:brown_banner:NEXT_TO:minecraft:lectern:HANG",
+     "formDependent": true,
+     "clueKo": "독서대 옆에 갈색 현수막을 걸어야 해요.",
+     "hintKo": "독서대 옆에 갈색 현수막을 걸어요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:gray_banner:NEXT_TO:minecraft:lectern:HANG",
+     "formDependent": true,
+     "clueKo": "독서대 옆에 회색 현수막을 걸어야 해요.",
+     "hintKo": "독서대 옆에 회색 현수막을 걸어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:purple_banner:NEXT_TO:minecraft:lectern:HANG",
+     "formDependent": true,
+     "clueKo": "독서대 옆에 보라색 현수막을 걸어야 해요.",
+     "hintKo": "독서대 옆에 보라색 현수막을 걸어요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "richterpfad",
+   "title": "심판의 길",
+   "order": 123,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L2.euro_material",
+    "L3.jima",
+    "L1.e_place",
+    "L5.eodo",
+    "L2.go_state",
+    "L5.neun_dongan",
+    "L2.num_sino"
+   ],
+   "finaleKo": "높이 0 이하에서 브리즈를 물리쳤어요. 브리즈는 바람을 일으켜요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:trial_key:OBTAIN",
+     "formDependent": false,
+     "clueKo": "시련 열쇠를 구해야 해요.",
+     "hintKo": "시련 열쇠를 구해요."
+    },
+    {
+     "id": "s2",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:crossbow:minecraft:breeze:HIT",
+     "formDependent": false,
+     "clueKo": "쇠뇌로 브리즈를 맞혀야 해요.",
+     "hintKo": "쇠뇌로 브리즈를 맞혀요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:LIE_DOWN:minecraft:black_bed:LIE@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 침대에 눕지 마세요.",
+     "hintKo": "밤에 침대에 눕지 마세요."
+    },
+    {
+     "id": "s4",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:crossbow:HOLD+LOOK_AT_ENTITY:minecraft:breeze:WATCH",
+     "formDependent": true,
+     "clueKo": "쇠뇌를 들고 있는 동안 브리즈를 일 초 동안 바라봐야 해요.",
+     "hintKo": "쇠뇌를 들고 브리즈를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:breeze:DEFEAT|Y_RANGE:-64..0",
+     "formDependent": false,
+     "clueKo": "높이 0 이하에서 브리즈를 한 마리 물리쳐야 해요.",
+     "hintKo": "높이 0 이하에서 브리즈를 물리쳐요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "runenpfad",
+   "title": "룬의 길",
+   "order": 124,
+   "koreanLevel": 5,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.eul_reul",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L2.go_state",
+    "L5.neun_dongan",
+    "L2.num_sino"
+   ],
+   "finaleKo": "청금석을 들고 마법 부여대를 바라봤어요. 청금석은 파란색이에요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:deepslate_lapis_ore:MINE|Y_RANGE:-64..0",
+     "formDependent": false,
+     "clueKo": "높이 0 이하에서 심층암 청금석 광석을 세 개 캐야 해요.",
+     "hintKo": "높이 0 이하에서 심층암 청금석 광석을 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:enchanting_table:CRAFT",
+     "formDependent": false,
+     "clueKo": "마법 부여대를 만들어야 해요.",
+     "hintKo": "마법 부여대를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:chiseled_bookshelf:NEXT_TO:minecraft:enchanting_table:PLACE",
+     "formDependent": true,
+     "clueKo": "마법 부여대 옆에 조각된 책장을 놓아야 해요.",
+     "hintKo": "마법 부여대 옆에 조각된 책장을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:lapis_lazuli:HOLD+LOOK_AT_BLOCK:minecraft:enchanting_table:WATCH",
+     "formDependent": true,
+     "clueKo": "청금석을 들고 있는 동안 마법 부여대를 일 초 동안 바라봐야 해요.",
+     "hintKo": "청금석을 들고 마법 부여대를 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 2
+  }
+ ]
+}
