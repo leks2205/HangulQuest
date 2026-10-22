@@ -6,7 +6,6 @@
  "tier": 2,
  "order": 100,
  "concepts": [
-  "redstone",
   "redstone_torch",
   "lever"
  ],
@@ -21,19 +20,29 @@
   {
    "id": "s1",
    "teach": [
-    "redstone"
+    "redstone_torch"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:redstone_ore",
-    "count": 3
-   },
-   "hint": {
-    "ko": "철 곡괭이로 레드스톤 원석을 캐요."
+    "type": "CRAFT",
+    "item": "minecraft:redstone_torch",
+    "count": 1
    }
   },
   {
    "id": "s2",
+   "teach": [
+    "lever"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:lever",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
    "teach": [
     "redstone_torch"
    ],
@@ -41,38 +50,37 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:redstone_torch",
     "count": 2
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "lever"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:lever"
-   }
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "redstone"
+    "lever"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone",
-    "count": 16
+    "type": "USE_BLOCK",
+    "block": "minecraft:lever"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "레드스톤을 모아요."
+  "textKo": "밤에 레버를 당겼어요."
  },
  "reward": {
   "badge": "redstonepfad",
   "words": [
-   "redstone",
    "redstone_torch",
    "lever"
   ]

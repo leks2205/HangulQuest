@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "id": "steintiefe",
- "titleKo": "돌의 깊은 길",
+ "titleKo": "돌과 철의 길",
+ "topic": "돌",
  "tier": 3,
+ "order": 110,
  "concepts": [
-  "gen_black_wool_slab",
-  "gen_coal_block",
-  "gen_poplar_fence",
-  "gen_pale_oak_sapling"
+  "cave",
+  "iron",
+  "furnace"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -21,34 +22,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_wool_slab"
+    "cave"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:black_wool_slab",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:dripstone_caves",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_coal_block"
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:coal_block",
-    "count": 2
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:iron_ore",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_poplar_fence"
+    "furnace",
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_fence",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   "hint": {
+    "ko": "화로를 만들어요. 철을 녹여요."
    }
   }
  ],
@@ -56,32 +68,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_sapling"
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_sapling",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "Y_RANGE",
-     "minY": -64,
-     "maxY": 0
-    }
-   ]
+    "type": "SMELT",
+    "input": "minecraft:raw_iron",
+    "output": "minecraft:iron_ingot",
+    "count": 3
+   }
   },
-  "textKo": "높이 0 이하에서 창백한 참나무 묘목을 심었어요."
+  "textKo": "화로에서 철을 세 개 만들었어요."
  },
  "reward": {
   "badge": "steintiefe",
   "words": [
-   "iron",
    "cave",
-   "torch"
+   "iron",
+   "furnace"
   ]
  },
- "order": 110,
- "koreanLevel": 1,
- "topic": "돌"
+ "koreanLevel": 1
 }

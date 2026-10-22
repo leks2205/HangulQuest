@@ -1,15 +1,16 @@
 {
  "schema": 1,
  "id": "freundschaftspfad",
- "titleKo": "우정의 길",
+ "titleKo": "친구의 길",
  "topic": "우정",
  "tier": 1,
  "order": 98,
  "concepts": [
-  "gen_endermite",
-  "gen_donkey",
-  "gen_cracked_deepslate_bricks",
-  "gen_cyan_dye"
+  "horse",
+  "apple",
+  "carrot",
+  "villager",
+  "friend"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -20,56 +21,79 @@
   {
    "id": "s1",
    "teach": [
-    "gen_endermite"
+    "horse"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:endermite",
+    "entity": "minecraft:horse",
     "dwellMs": 800
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_donkey"
+    "apple"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:donkey"
+    "type": "GIVE",
+    "item": "minecraft:apple",
+    "entity": "minecraft:horse",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cracked_deepslate_bricks"
+    "carrot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_deepslate_bricks",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:carrot",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:villager"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_dye"
+    "villager",
+    "friend"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_dye",
-    "count": 3
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
    },
-   "conditions": []
+   "clue": {
+    "ko": "주민 친구와 이야기해요."
+   },
+   "hint": {
+    "ko": "주민 친구와 이야기해요."
+   }
   },
-  "textKo": "청록색 염료를 세 개 만들었어요."
+  "textKo": "주민과 이야기했어요."
  },
  "reward": {
   "badge": "freundschaftspfad",
   "words": [
+   "horse",
+   "apple",
+   "carrot",
    "villager",
-   "flower"
+   "friend"
   ]
  },
  "koreanLevel": 1

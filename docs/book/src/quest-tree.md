@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1547** |
+| Steps (incl. finales) | **1551** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,37 +21,38 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 559 | place a block |
-| `ACQUIRE_ITEM` | 510 | collect an item |
+| `PLACE_BLOCK` | 538 | place a block |
+| `ACQUIRE_ITEM` | 505 | collect an item |
 | `BREAK_BLOCK` | 85 | break a block |
-| `LOOK_AT_ENTITY` | 66 | look at a mob |
-| `USE_BLOCK` | 63 | use a block |
-| `REACH_BIOME` | 59 | reach a biome |
-| `LOOK_AT_BLOCK` | 58 | look at a block |
-| `DEFEAT_ENTITY` | 37 | defeat a mob |
-| `CONSUME_ITEM` | 35 | eat or drink an item |
+| `LOOK_AT_ENTITY` | 65 | look at a mob |
+| `USE_BLOCK` | 61 | use a block |
+| `REACH_BIOME` | 58 | reach a biome |
+| `LOOK_AT_BLOCK` | 55 | look at a block |
+| `CONSUME_ITEM` | 38 | eat or drink an item |
+| `DEFEAT_ENTITY` | 36 | defeat a mob |
 | `INTERACT_ENTITY` | 29 | interact with a mob |
-| `PLACE_REL` | 12 |  |
-| `CRAFT` | 10 |  |
-| `BUILD_PATTERN` | 6 |  |
-| `HOLD_WHILE` | 5 |  |
-| `PUT_IN` | 3 |  |
-| `GIVE` | 3 |  |
-| `PLACE_ON_PATTERN` | 3 |  |
-| `SMELT` | 2 |  |
+| `CRAFT` | 22 |  |
+| `PLACE_REL` | 20 |  |
+| `HOLD_WHILE` | 8 |  |
+| `BUILD_PATTERN` | 8 |  |
+| `GIVE` | 7 |  |
+| `PUT_IN` | 5 |  |
+| `SMELT` | 4 |  |
+| `PLACE_ON_PATTERN` | 4 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
+| `REACH_HEIGHT` | 1 | reach an altitude |
 | `SEQUENCE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 163 | a time of day |
+| `TIME` | 172 | a time of day |
 | `IN_BIOME` | 31 | a biome |
-| `Y_RANGE` | 10 | an altitude band |
-| `PLAYER_REL` | 5 |  |
-| `WEATHER` | 5 | the weather |
+| `Y_RANGE` | 11 | an altitude band |
+| `PLAYER_REL` | 6 |  |
+| `SKY` | 3 |  |
+| `WEATHER` | 3 | the weather |
 | `HOLDING` | 2 |  |
 | `IN_DIMENSION` | 2 | a dimension |
-| `SKY` | 1 |  |
 
 ## Levels
 
@@ -67,13 +68,13 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `tierpfad` | 닭과 돼지와 달걀의 길 | Huhn, Schwein und Ei | 5 | — |
 | `nachtpfad` | 해와 달의 길 | Sonne und Mond | 4 | — |
 | `wasserpfad` | 물의 길 | Der Wasserpfad | 4 | — |
-| `bergpfad` | 높은 곳의 길 | Der Höhenpfad | 4 | — |
-| `dorfpfad` | 마을의 길 | Der Dorfpfad | 4 | — |
-| `wurzelpfad` | 뿌리의 길 | Der Wurzelpfad | 3 | — |
-| `musikpfad` | 음악의 길 | Der Musikpfad | 3 | — |
-| `freundschaftspfad` | 우정의 길 | Der Freundschaftspfad | 4 | — |
-| `briefpfad` | 편지의 길 | Der Briefpfad | 4 | — |
-| `kerzenpfad` | 초의 길 | Der Kerzenpfad | 4 | — |
+| `bergpfad` | 산과 눈의 길 | Berg und Schnee | 4 | — |
+| `dorfpfad` | 마을의 길 | Das Dorf | 4 | — |
+| `wurzelpfad` | 나무와 묘목의 길 | Baum und Setzling | 4 | — |
+| `musikpfad` | 소리 블록의 길 | Der Notenblock | 4 | — |
+| `freundschaftspfad` | 친구의 길 | Freunde | 4 | — |
+| `briefpfad` | 종이와 편지의 길 | Papier und Brief | 4 | — |
+| `kerzenpfad` | 초와 밤의 길 | Kerze und Nacht | 4 | — |
 | `kuerbispfad` | 호박의 길 | Der Kürbispfad | 4 | — |
 | `schneemannpfad` | 눈사람의 길 | Der Schneemannpfad | 4 | — |
 | `apfelpfad` | 사과의 길 | Der Apfelpfad | 4 | — |
@@ -109,9 +110,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `kraeuterpfad` | 꽃과 감자의 길 | Blumen und Kartoffeln | 4 | `essenspfad` |
 | `wollpfad` | 양과 양털의 길 | Schaf und Wolle | 4 | `tierpfad` |
 | `flusslicht` | 종이와 책의 길 | Papier und Buch | 5 | `wasserpfad` |
-| `bienenpfad` | 꿀벌의 길 | Der Bienenpfad | 3 | `tierpfad` |
-| `redstonepfad` | 레드스톤의 길 | Der Redstonepfad | 4 | `steinpfad` |
-| `schneeballpfad` | 눈싸움의 길 | Der Schneeballpfad | 4 | `nachtpfad` |
+| `bienenpfad` | 꿀벌과 꽃의 길 | Biene und Blume | 4 | `tierpfad` |
+| `redstonepfad` | 레드스톤의 길 | Redstone | 4 | `steinpfad` |
+| `schneeballpfad` | 눈싸움의 길 | Schneeballschlacht | 4 | `nachtpfad` |
 | `waldhaus` | 숲의 집 | Das Waldhaus | 4 | `holzpfad`, `wurzelpfad` |
 | `glasfenster` | 유리창의 길 | Der Glasfensterpfad | 4 | `dorfpfad` |
 | `pilzpfad` | 버섯의 길 | Der Pilzpfad | 4 | `holzpfad` |
@@ -134,10 +135,10 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---|---|---:|---|
 | `waldlicht` | 유리와 초의 길 | Glas und Kerze | 4 | `hoehlenlicht`, `holzpfad` |
 | `feuerstelle` | 불과 빵의 길 | Feuer und Brot | 4 | `brotpfad`, `feuerpfad` |
-| `bogenpfad` | 활의 길 | Der Bogenpfad | 4 | `waldhaus`, `tierpfad` |
-| `wetterpfad` | 비의 길 | Der Regenpfad | 3 | `gipfelpfad`, `wasserpfad` |
-| `blumenpfad` | 꽃의 길 | Der Blumenpfad | 4 | `dorfpfad`, `waldhaus` |
-| `steintiefe` | 돌의 깊은 길 | Der tiefe Steinpfad | 4 | `steinpfad`, `hoehlenlicht` |
+| `bogenpfad` | 활의 길 | Der Bogen | 4 | `waldhaus`, `tierpfad` |
+| `wetterpfad` | 비와 물고기의 길 | Regen und Fisch | 4 | `gipfelpfad`, `wasserpfad` |
+| `blumenpfad` | 꽃과 토끼의 길 | Blumen und Kaninchen | 4 | `dorfpfad`, `waldhaus` |
+| `steintiefe` | 돌과 철의 길 | Stein und Eisen | 4 | `steinpfad`, `hoehlenlicht` |
 | `baeckerei` | 빵집의 길 | Der Bäckereipfad | 4 | `essenspfad`, `brotpfad`, `kraeuterpfad` |
 | `windpfad` | 바람의 길 | Der Windpfad | 4 | `gipfelpfad`, `nachtpfad` |
 | `inselpfad` | 섬의 길 | Der Inselpfad | 4 | `fischerpfad`, `gipfelpfad` |

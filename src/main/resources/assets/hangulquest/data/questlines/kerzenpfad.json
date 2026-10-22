@@ -1,15 +1,13 @@
 {
  "schema": 1,
  "id": "kerzenpfad",
- "titleKo": "초의 길",
+ "titleKo": "초와 밤의 길",
  "topic": "촛불",
  "tier": 1,
  "order": 128,
  "concepts": [
   "candle",
-  "gen_torchflower",
-  "gen_dark_oak_planks",
-  "campfire"
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,39 +21,45 @@
     "candle"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:candle",
-    "count": 3
+    "count": 2
+   },
+   "clue": {
+    "ko": "달이 떠요. 초를 두 개 만들어요."
    },
    "hint": {
-    "ko": "초는 실과 벌집 조각으로 만들어요."
+    "ko": "초를 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_torchflower"
+    "chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:torchflower",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:chest",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:beds",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dark_oak_planks"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_planks",
-    "count": 3
+    "type": "PUT_IN",
+    "item": "minecraft:candle",
+    "container": "minecraft:chest",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "ROOFED"
     }
    ]
   }
@@ -64,22 +68,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "campfire"
+    "candle"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:campfire"
-   },
-   "conditions": []
+    "type": "HOLD_WHILE",
+    "item": "minecraft:candle",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   }
   },
-  "textKo": "촛불과 모닥불로 밤을 밝혀요."
+  "textKo": "초를 들고 밤에 걸었어요."
  },
  "reward": {
   "badge": "kerzenpfad",
   "words": [
    "candle",
-   "bed",
-   "campfire"
+   "chest"
   ]
  },
  "koreanLevel": 1

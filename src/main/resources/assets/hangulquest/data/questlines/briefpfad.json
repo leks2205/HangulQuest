@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "briefpfad",
- "titleKo": "편지의 길",
+ "titleKo": "종이와 편지의 길",
  "topic": "편지",
  "tier": 1,
  "order": 99,
  "concepts": [
   "paper",
-  "gen_waxed_exposed_copper",
-  "gen_daylight_detector",
-  "chest"
+  "chest",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -26,30 +25,35 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:paper",
     "count": 3
-   },
-   "hint": {
-    "ko": "종이는 사탕수수로 만들어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_waxed_exposed_copper"
+    "chest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper",
+    "type": "CRAFT",
+    "item": "minecraft:chest",
     "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_daylight_detector"
+    "villager"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:daylight_detector"
+    "type": "GIVE",
+    "item": "minecraft:paper",
+    "entity": "minecraft:villager",
+    "count": 1
+   },
+   "clue": {
+    "ko": "주민 친구에게 종이를 줘요."
+   },
+   "hint": {
+    "ko": "주민에게 종이를 줘요."
    }
   }
  ],
@@ -64,16 +68,21 @@
     "block": "minecraft:chest",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "상자에 편지를 넣어요."
+  "textKo": "낮에 상자를 놓았어요."
  },
  "reward": {
   "badge": "briefpfad",
   "words": [
    "paper",
-   "ink_sac",
-   "chest"
+   "chest",
+   "villager"
   ]
  },
  "koreanLevel": 1
