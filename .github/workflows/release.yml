@@ -76,16 +76,32 @@ jobs:
           cp build/libs/hangulquest-*.jar release/
           (cd release && sha256sum ./*.jar > SHA256SUMS && cat SHA256SUMS)
 
+      # The release text is the CHANGELOG section of this version (an rc falls back to the section of the
+      # version it leads up to). The step fails when there is none, so a release never goes out with empty notes.
+      - name: Release notes from the CHANGELOG
+        env:
+          VERSION: ${{ steps.version.outputs.number }}
+        run: |
+          python3 tools/changelog_section.py "$VERSION" > release/NOTES.md
+          printf '\nFabric mod for Minecraft 26.3. Requires Fabric Loader 0.19.5+ and Fabric API 0.162.0+26.3 on Java 25. Client-side only. Check the download with `sha256sum -c SHA256SUMS`.\n' >> release/NOTES.md
+          cat release/NOTES.md
+
+      # A version with a hyphen (3.0.0-rc.1, 3.1.0-beta.2) is a pre-release. Only the jar and its checksums are
+      # uploaded; the notes file stays out of the assets. Nothing goes to Modrinth or CurseForge from here.
       - name: Publish the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.number }}
         run: |
+          flags=()
+          case "$VERSION" in *-*) flags+=(--prerelease) ;; esac
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" release/* --clobber
+            gh release upload "$TAG" release/*.jar release/SHA256SUMS --clobber
+            gh release edit "$TAG" --notes-file release/NOTES.md "${flags[@]}"
           else
-            gh release create "$TAG" release/* \
-              --title "Hangul Quest ${TAG#v}" \
-              --generate-notes \
-              --notes "Fabric mod for Minecraft 26.3. Requires Fabric Loader 0.19.5+ and Fabric API 0.162.0+26.3 on Java 25. Client-side only. Check the download with \`sha256sum -c SHA256SUMS\`."
+            gh release create "$TAG" release/*.jar release/SHA256SUMS \
+              --title "Hangul Quest ${VERSION}" \
+              --notes-file release/NOTES.md \
+              "${flags[@]}"
           fi

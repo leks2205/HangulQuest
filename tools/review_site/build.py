@@ -260,7 +260,7 @@ class Site:
         intro = ('<p lang="ko">먼저 보면 좋은 문장이에요. 레벨 1과 2가 먼저 나오고, 원어민 확인이 필요한 문장이 그 앞에 와요.</p>'
                  '<p lang="en">Level 1 and 2 first; within them the lines that need a native speaker come first.</p>')
         paths = self.paged("Q", "queue", "우선순위 목록", "Priority queue", todo, intro, "queue", limit=PAGE_SIZE * QUEUE_PAGES)
-        self.pages["queue.html"] = (f'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url={paths[0]}">'
+        self.pages["queue.html"] = (f'<!doctype html><meta charset="utf-8"><title>우선순위 목록 · Priority queue</title><meta http-equiv="refresh" content="0; url={paths[0]}">'
                                     f'<a href="{paths[0]}">우선순위 목록 · Priority queue</a>')
 
     def build_trails(self) -> None:

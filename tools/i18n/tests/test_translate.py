@@ -505,7 +505,8 @@ class ReviewSiteTest(Fake):
         self.assertIn("El sendero de la aventura", page)
         self.assertIn("Piedra", page)  # stale: still shown, with the new English next to it
         self.assertIn("English changed", page)
-        self.assertNotIn("Atrás", page)  # proofread, nothing left to check
+        self.assertIn("Atrás", page)  # proofread by AI only: a person has not approved it, so it is listed
+        self.assertIn("Proofread by AI", page)
         self.assertIn("template=translation-correction.yml", page)
         self.assertIn("language=es_es", page)
         self.assertIn("key=hangulquest.trail.t1.title", page)

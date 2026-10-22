@@ -1,5 +1,5 @@
-"""Translation pages of the review site: one page list per language with the rows that are still a machine draft
-or stale, each with a button that opens a prefilled translation-correction issue form.
+"""Translation pages of the review site: one page list per language with the rows no person has approved yet (a machine
+draft, stale, or proofread by a second model), each with a button that opens a prefilled translation-correction issue form.
 
 Nothing is built while no language has a status file (content/translations/<code>-status.json), so the
 site stays what it was until the first translation is imported. The rows come from tools/i18n (the
@@ -16,8 +16,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "i18n"))
 import tr_core as core  # noqa: E402
 
 PAGE_ROWS = 100
-LISTED = ("machine", "stale")
-STATE_TEXT = {"machine": "Machine draft", "stale": "English changed since the translation"}
+LISTED = ("machine", "stale", "proofread")
+BADGE = {"machine": "lint-ok", "stale": "unreviewed", "proofread": "ai-checked"}
+STATE_TEXT = {"machine": "Machine draft", "stale": "English changed since the translation",
+              "proofread": "Proofread by AI, not yet approved by a person"}
 
 
 def esc(text: object) -> str:
@@ -74,8 +76,9 @@ def build_pages(site, repo: core.Repo | None = None) -> dict[str, str]:
             if n < len(chunks):
                 nav.append(f'<a href="{code}-{n + 1}.html">Next</a>')
             pager = f'<p class="pager">{" · ".join(nav)}</p>'
-            body = (f'<p lang="en">{len(todo)} line(s) of {esc(code)} are still a machine draft or out of date '
-                    f"({translated} of {len(rows)} lines are translated). Read a line and, if it is wrong or unnatural, "
+            body = (f'<p lang="en">{len(todo)} line(s) of {esc(code)} have not been approved by a person yet: machine drafts, '
+                    f"lines whose English changed, and lines only proofread by AI ({translated} of {len(rows)} lines are translated; "
+                    "the others show the English text in the game). Read a line and, if it is wrong or unnatural, "
                     "press <strong>Suggest a correction</strong>. Fixing the file by pull request works too.</p>")
             body += pager + "".join(_row(site, code, row, text, state) for row, text, state in chunk) + pager
             pages[f"translation/{code}-{n}.html"] = site.shell(f"번역 {code}", f"Translation {code} {n}", body, 1, "")
@@ -83,7 +86,7 @@ def build_pages(site, repo: core.Repo | None = None) -> dict[str, str]:
                      f"{translated} of {len(rows)} translated</li>")
     pages["translations.html"] = site.shell(
         "번역", "Translations",
-        '<p lang="en">Machine-made translations that need a native speaker. English is the source; Korean is never translated.</p>'
+        '<p lang="en">Machine-made translations that need a native speaker. Lines already proofread by AI are listed too: a person has not approved them yet. English is the source; Korean is never translated.</p>'
         f'<ul class="list">{"".join(items)}</ul>', 0, "")
     return pages
 
@@ -93,6 +96,6 @@ def _row(site, code: str, row: core.Row, text: str, state: str) -> str:
     korean = f'<p class="ko" lang="ko">{esc(row["ko"])}</p>' if row.get("ko") else ""
     return (f'<article class="line" id="t-{esc(row["key"])}">\n{korean}'
             f'<p class="en" lang="en">{esc(row["en"])}</p>\n<p class="en">{esc(text)}</p>\n'
-            f'<p class="meta"><span class="badge s-{"lint-ok" if state == "machine" else "unreviewed"}">{STATE_TEXT[state]}</span></p>\n'
+            f'<p class="meta"><span class="badge s-{BADGE[state]}">{STATE_TEXT[state]}</span></p>\n'
             f'<p class="actions"><a class="btn fix" href="{esc(url)}">Suggest a correction</a></p>\n'
             f'<p class="id"><code>{esc(row["key"])}</code></p>\n</article>\n')
