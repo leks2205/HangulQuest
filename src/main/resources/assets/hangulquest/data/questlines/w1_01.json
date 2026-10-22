@@ -6,10 +6,8 @@
  "tier": 1,
  "order": 1011,
  "concepts": [
-  "gen_netherite_shovel",
-  "gen_big_dripleaf",
-  "gen_brown_wool_stairs",
-  "gen_purple_terracotta"
+  "planks",
+  "candle"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,23 +18,48 @@
   {
    "id": "s1",
    "teach": [
-    "gen_netherite_shovel"
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_shovel",
-    "count": 2
-   }
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:birch_planks",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_big_dripleaf"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:big_dripleaf",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:candle",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:candle",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
    },
    "conditions": [
     {
@@ -44,40 +67,38 @@
      "phase": "NIGHT"
     }
    ]
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_brown_wool_stairs"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_wool_stairs",
-    "count": 4
-   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_terracotta"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_terracotta",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:candle"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ],
+   "clue": {
+    "ko": "밤에 초에 불을 대요."
+   },
+   "hint": {
+    "ko": "밤에 초에 불을 대요."
+   }
   },
-  "textKo": "보라색 테라코타를 놓았어요."
+  "textKo": "밤에 초에 불을 댔어요."
  },
  "reward": {
   "badge": "w1_01",
   "words": [
-   "candle",
-   "torch",
-   "campfire"
+   "planks",
+   "candle"
   ]
  },
  "koreanLevel": 1

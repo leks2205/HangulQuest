@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "w1_02",
- "titleKo": "무지개 유리",
+ "titleKo": "유리 속 햇살",
  "topic": "유리",
  "tier": 1,
  "order": 1012,
  "concepts": [
-  "gen_poplar_trapdoor",
-  "gen_dark_oak_sign",
-  "gen_mangrove_pressure_plate",
-  "gen_nether_brick_fence"
+  "sand",
+  "glass",
+  "gen_yellow_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,34 +19,51 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_trapdoor"
+    "sand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_trapdoor",
-    "count": 6
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_sign"
+    "glass"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_sign",
-    "count": 4
-   }
+    "type": "SMELT",
+    "input": "minecraft:sand",
+    "output": "minecraft:glass",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mangrove_pressure_plate"
+    "gen_yellow_stained_glass_pane"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_pressure_plate",
-    "count": 3
+    "type": "CRAFT",
+    "item": "minecraft:yellow_stained_glass_pane",
+    "count": 1
    }
   }
  ],
@@ -55,23 +71,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_nether_brick_fence"
+    "gen_yellow_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_brick_fence",
-    "count": 4
+    "block": "minecraft:yellow_stained_glass_pane",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "네더 벽돌 울타리를 네 개 놓았어요."
+  "textKo": "낮에 노란색 색유리 판을 놓았어요."
  },
  "reward": {
   "badge": "w1_02",
   "words": [
+   "sand",
    "glass",
-   "glass_pane",
-   "dye"
+   "gen_yellow_stained_glass_pane"
   ]
  },
  "koreanLevel": 1

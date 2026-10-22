@@ -2,13 +2,17 @@
  "schema": 1,
  "id": "marktpfad",
  "titleKo": "시장의 길",
+ "topic": "마을",
  "tier": 2,
  "order": 380,
  "concepts": [
-  "gen_deepslate_brick_wall",
-  "gen_music_disc_11",
-  "gen_oxidized_copper_door",
-  "gen_red_stained_glass_pane"
+  "cow",
+  "milk",
+  "bread",
+  "villager",
+  "friend",
+  "talk",
+  "emerald"
  ],
  "requires": {
   "minWordsKnown": 9,
@@ -21,47 +25,13 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate_brick_wall"
+    "cow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_brick_wall",
-    "count": 3
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_music_disc_11"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:music_disc_11",
-    "count": 2
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_oxidized_copper_door"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_copper_door",
-    "count": 2
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_red_stained_glass_pane"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_stained_glass_pane",
-    "count": 3
+    "type": "GIVE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:cow",
+    "count": 1
    },
    "conditions": [
     {
@@ -70,17 +40,85 @@
     }
    ]
   },
-  "textKo": "낮에 빨간색 색유리 판을 세 개 놓았어요."
+  {
+   "id": "s2",
+   "teach": [
+    "milk"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cow",
+     "kind": "entity"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "villager",
+    "friend",
+    "talk"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager",
+    "count": 1
+   },
+   "clue": {
+    "ko": "주민 친구와 이야기해요. 빵을 줘요."
+   },
+   "hint": {
+    "ko": "주민 친구와 이야기해요. 빵을 줘요."
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
+   }
+  },
+  "textKo": "에메랄드를 두 개 모았어요."
  },
  "reward": {
   "badge": "marktpfad",
   "words": [
-   "emerald",
+   "cow",
+   "milk",
    "bread",
-   "carrot",
-   "bell"
+   "villager"
   ]
  },
- "koreanLevel": 1,
- "topic": "마을"
+ "koreanLevel": 1
 }

@@ -6,10 +6,9 @@
  "tier": 1,
  "order": 1019,
  "concepts": [
-  "gen_pointed_dripstone",
-  "gen_ender_chest",
-  "gen_spruce_hanging_sign",
-  "lectern"
+  "egg",
+  "feather",
+  "item_frame"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,33 +19,39 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pointed_dripstone"
+    "egg"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pointed_dripstone",
-    "count": 1
-   }
+    "item": "minecraft:egg",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_ender_chest"
+    "feather"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_chest",
-    "count": 2
+    "item": "minecraft:feather",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_hanging_sign"
+    "item_frame"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spruce_hanging_sign",
+    "type": "CRAFT",
+    "item": "minecraft:item_frame",
     "count": 1
    }
   }
@@ -55,24 +60,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "lectern"
+    "item_frame"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lectern",
+    "type": "PLACE_REL",
+    "block": "minecraft:item_frame",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "작은 발견을 액자에 담고 독서대에 올려요."
+  "textKo": "상자 옆에 아이템 액자를 걸었어요."
  },
  "reward": {
   "badge": "w1_09",
   "words": [
-   "compass",
-   "map",
-   "item_frame",
-   "lectern"
+   "egg",
+   "feather",
+   "item_frame"
   ]
  },
  "koreanLevel": 1
