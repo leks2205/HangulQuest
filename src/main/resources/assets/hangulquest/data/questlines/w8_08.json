@@ -20,7 +20,9 @@
  "steps": [
   {
    "id": "s1",
-   "teach": [],
+   "teach": [
+    "gen_glowstone"
+   ],
    "goal": {
     "type": "REACH_HEIGHT",
     "minY": 150,
@@ -87,10 +89,14 @@
     {
      "type": "TIME",
      "phase": "DAWN"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:glowstone"
     }
    ]
   },
-  "textKo": "새벽에 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요."
+  "textKo": "새벽에 발광석을 들고 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요."
  },
  "reward": {
   "badge": "w8_08",

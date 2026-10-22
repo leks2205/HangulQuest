@@ -94,7 +94,7 @@
     "L2.euro_direction",
     "L2.num_sino"
    ],
-   "finaleKo": "새벽에 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요.",
+   "finaleKo": "새벽에 발광석을 들고 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요.",
    "finaleSource": "authored",
    "steps": [
     {
@@ -103,7 +103,7 @@
      "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:glowstone,TIME:DUSK",
      "formDependent": true,
      "clueKo": "해가 지면 발광석을 들고 높이 150블록 위로 올라가야 해요.",
-     "hintKo": "해가 지면 발광석을 들고 높이 150블록 위로 올라가야 해요."
+     "hintKo": "저녁에 발광석을 들고 산 위로 올라가요."
     },
     {
      "id": "s2",
@@ -124,10 +124,10 @@
     {
      "id": "finale",
      "goal": "WALK",
-     "signature": "WALK:EAST:GO|TIME:DAWN",
+     "signature": "WALK:EAST:GO|HOLDING:minecraft:glowstone,TIME:DAWN",
      "formDependent": true,
-     "clueKo": "해가 뜨면 동쪽으로 십이 블록 가야 해요.",
-     "hintKo": "새벽에 동쪽으로 가요."
+     "clueKo": "해가 뜨면 발광석을 들고 동쪽으로 십이 블록 가야 해요.",
+     "hintKo": "새벽에 발광석을 들고 동쪽으로 가요."
     }
    ],
    "formDependentSteps": 3
@@ -141,14 +141,14 @@
     "L1.loc_yeop_e",
     "L1.obj_eul",
     "L4.eoya_haeyo",
+    "L4.myeon",
     "L5.adn_adj_eun",
     "L2.go_state",
     "L5.neun_dongan",
     "L1.eul_reul",
     "L2.num_sino",
     "L3.jima",
-    "L5.eodo",
-    "L4.myeon"
+    "L5.eodo"
    ],
    "finaleKo": "비가 올 때 마녀를 물리쳤어요. 마녀는 물약을 만들어요.",
    "finaleSource": "authored",
@@ -156,10 +156,10 @@
     {
      "id": "s1",
      "goal": "PLACE_REL",
-     "signature": "PLACE_REL:minecraft:barrel:NEXT_TO:minecraft:red_banner:PLACE",
+     "signature": "PLACE_REL:minecraft:barrel:NEXT_TO:minecraft:blue_bed:PLACE|TIME:NIGHT",
      "formDependent": true,
-     "clueKo": "빨간 현수막 옆에 통을 놓아야 해요.",
-     "hintKo": "빨간색 현수막 옆에 통을 놓아요."
+     "clueKo": "밤이 되면 파란 침대 옆에 통을 놓아야 해요.",
+     "hintKo": "밤에 침대 옆에 통을 놓아요."
     },
     {
      "id": "s2",
@@ -320,7 +320,7 @@
     "L2.num_sino",
     "L1.loc_yeop_e",
     "L1.obj_eul",
-    "L5.adn_adj_eun"
+    "L4.myeon"
    ],
    "finaleKo": "낮에 햇빛 감지기 근처에서 십 초 동안 기다렸어요. 햇빛 감지기는 햇빛을 느껴요.",
    "finaleSource": "authored",
@@ -344,10 +344,10 @@
     {
      "id": "s3",
      "goal": "PLACE_REL",
-     "signature": "PLACE_REL:minecraft:daylight_detector:NEXT_TO:minecraft:yellow_bed:PLACE",
+     "signature": "PLACE_REL:minecraft:daylight_detector:NEXT_TO:minecraft:iron_door:PLACE|TIME:DAY",
      "formDependent": true,
-     "clueKo": "노란 침대 옆에 햇빛 감지기를 놓아야 해요.",
-     "hintKo": "노란색 침대 옆에 햇빛 감지기를 놓아요."
+     "clueKo": "낮이 되면 철 문 옆에 햇빛 감지기를 놓아야 해요.",
+     "hintKo": "낮에 철 문 옆에 햇빛 감지기를 놓아요."
     },
     {
      "id": "finale",
