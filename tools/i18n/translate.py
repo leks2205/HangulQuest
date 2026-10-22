@@ -529,6 +529,7 @@ def cmd_check(args) -> int:
     codes = [target_code(args.lang)] if args.lang else [c for c in core.languages_in_repo(repo) if repo.status_path(c).is_file()]
     problems: list[str] = []
     checked = 0
+    english = core.merged_bundle(repo, "en_us")
     for code in codes:
         status = core.read_status(repo, code)
         bundle = core.merged_bundle(repo, code)
@@ -540,7 +541,8 @@ def cmd_check(args) -> int:
         for key, text in bundle.items():
             row = rows.get(key)
             if row is None:
-                if not core.SENTENCE_KEY.match(key):
+                # Korean-only English values (titles such as 한글 탐험) are real keys that are never exported.
+                if not core.SENTENCE_KEY.match(key) and key not in english:
                     problems.append(f"{code}: {key} is not a key of the English files")
                 continue
             checked += 1
