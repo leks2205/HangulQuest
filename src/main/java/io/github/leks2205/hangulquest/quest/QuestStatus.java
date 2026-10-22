@@ -23,7 +23,7 @@ public final class QuestStatus {
 		if (override != null) {
 			return override;
 		}
-		List<Condition> conditions = step.conditions();
+		List<Condition> conditions = GoalEvaluator.playerConditions(step.goal(), step.conditions());
 		if (conditions != null && !conditions.isEmpty()
 				&& !GoalEvaluator.conditionsMet(conditions, obs)) {
 			return conditionText(conditions, obs, catalog);

@@ -227,7 +227,7 @@ public final class SpatialSentences {
 				}
 			}
 			case WALL, CROSS, STAIRS -> {
-				// 돌로 벽을 쌓아요, 돌로 십자 모양을 만들어요, 흙으로 계단을 만들어요: the size is left to the status line.
+				// 돌로 벽을 쌓아요, 돌로 십자 모양을 만들어요, 흙으로 계단을 쌓아요: the size is left to the status line.
 				head = KoGrammar.euro(material) + " " + KoGrammar.eul(goal.pattern().ko());
 				grammar.add(EURO_MATERIAL);
 			}
@@ -299,9 +299,9 @@ public final class SpatialSentences {
 				&& !namer.builtEarlier(builtKey(goal.pattern(), goal.material()));
 	}
 
-	/** 쌓다 for what is piled up, 만들다 for a cross and stairs (see BuildPatternType). */
+	/** 쌓다 for what is piled up (stairs too), 만들다 for a cross (see BuildPatternType). */
 	private static Verb buildVerb(Pattern pattern) {
-		return pattern == Pattern.CROSS || pattern == Pattern.STAIRS ? Verb.CRAFT : Verb.STACK;
+		return pattern == Pattern.CROSS ? Verb.CRAFT : Verb.STACK;
 	}
 
 	/** The structure as a noun phrase: "조약돌 기둥", "조약돌 피라미드", "조약돌 담", "조약돌 세 개" (a row). */

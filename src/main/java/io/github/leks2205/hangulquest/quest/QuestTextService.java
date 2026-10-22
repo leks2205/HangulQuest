@@ -164,7 +164,7 @@ final class QuestTextService {
 			// authored clue gets the phrases it lacks.
 			cached = authored
 					? SentenceBuilder.authored(step.goal(), step.clueKo(), step.conditions(), firstWord(step),
-							namerFor(step), level)
+							clueNamer, level)
 					: SentenceBuilder.normal(step.goal(), firstWord(step), verbWord(step), step.conditions(),
 							level, "finale".equals(step.id()), clueNamer);
 			byLevel.put(cacheKey, cached);

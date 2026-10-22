@@ -40,6 +40,10 @@ final class HintService {
 		int level = track.trail.koreanLevel();
 		Word word = track.sideQuest != null ? track.sideQuest.word() : text.firstWord(step);
 		String simplified = text.hintKo(step, level, word);
+		String note = io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(step.goal()).hintNote(step.goal(), track.tracker);
+		if (!note.isBlank()) {
+			simplified = simplified + " " + note;
+		}
 		String description = word != null && word.hasDescKo() ? word.descKo : null;
 		boolean known = word != null && learn.isKnown(word.id);
 		boolean started = false;

@@ -120,6 +120,10 @@ public final class EnvironmentSensor {
 	private final ToggleTracker lights = new ToggleTracker();
 	private long musicAt;
 	private double musicDistance = -1;
+	private long nearBlockAt;
+	private BlockPos nearBlockFrom;
+	private Map<String, Integer> nearBlockWanted = Map.of();
+	private Map<String, Double> nearBlockFound = Map.of();
 	private final List<GiveTracker.Target> dropTargets = new ArrayList<>();
 	private final List<SeenItem> seenItems = new ArrayList<>();
 	private final BlockPos.MutableBlockPos probe = new BlockPos.MutableBlockPos();
@@ -159,6 +163,10 @@ public final class EnvironmentSensor {
 		lights.clear();
 		musicAt = 0L;
 		musicDistance = -1;
+		nearBlockAt = 0L;
+		nearBlockFrom = null;
+		nearBlockWanted = Map.of();
+		nearBlockFound = Map.of();
 		skyPos = null;
 		lookedAtNight = null;
 		lookedAtNightAt = 0L;
@@ -252,6 +260,7 @@ public final class EnvironmentSensor {
 		boolean wantFarLook = previous != null && previous.farEntityLookWanted;
 		boolean wantMusic = previous != null && previous.musicScanWanted;
 		boolean wantFluid = previous != null && previous.fluidLookWanted;
+		Map<String, Integer> wantNear = previous == null ? Map.of() : previous.nearBlocksWanted;
 		previous = obs;
 
 		LocalPlayer player = mc.player;
@@ -293,6 +302,7 @@ public final class EnvironmentSensor {
 		if (wantMusic) {
 			readMusic(obs, player, level);
 		}
+		readNearBlocks(obs, level, wantNear);
 
 		readBiome(obs, level);
 		if (obs.phase() == Condition.Phase.NIGHT) {
@@ -356,7 +366,7 @@ public final class EnvironmentSensor {
 			// The 7x7x7 snapshot is only taken here, once per placement.
 			for (PlacementDiff.Placed placed : PlacementDiff.primary(changed, pendingPlaceFace, pendingPlaceClicked)) {
 				obs.addPlacement(new PlacementFact(placed.block(), placed.pos(), tick, pendingPlaceNight,
-						obs.position, neighborhood(level, placed.pos())));
+						obs.position, neighborhood(level, placed.pos()), roofedAbove(level, placed.pos())));
 			}
 			skyPos = null; // a new block may have made a roof
 			pendingPlaceRegion = Map.of();
@@ -455,6 +465,35 @@ public final class EnvironmentSensor {
 			}
 		}
 		obs.jukeboxDistance = musicDistance;
+	}
+
+	/**
+	 * The nearest block of each kind a NEAR_BLOCK condition asks for. The scan runs twice a second, or when the
+	 * player has stepped to another block, and only while a step asks; the answer is carried over in between.
+	 */
+	private void readNearBlocks(Observation obs, ClientLevel level, Map<String, Integer> wanted) {
+		if (wanted.isEmpty()) {
+			nearBlockWanted = Map.of();
+			nearBlockFound = Map.of();
+			return;
+		}
+		if (!wanted.equals(nearBlockWanted) || !obs.blockPos.equals(nearBlockFrom) || obs.now - nearBlockAt >= 500L) {
+			nearBlockWanted = Map.copyOf(wanted);
+			nearBlockFrom = obs.blockPos;
+			nearBlockAt = obs.now;
+			nearBlockFound = BlockProximity.nearest(obs.position.x, obs.position.y, obs.position.z, wanted,
+					(x, y, z) -> blockId(level.getBlockState(probe.set(x, y, z))),
+					io.github.leks2205.hangulquest.quest.goal.Matching::matchesBlock);
+		}
+		obs.nearestBlock = nearBlockFound;
+	}
+
+	/** Whether a solid block covers the spot from above, the way {@link #readSky} asks it for the player. */
+	private boolean roofedAbove(ClientLevel level, BlockPos pos) {
+		int x = pos.getX();
+		int z = pos.getZ();
+		return SkyExposure.roofed(pos.getY(), y -> !level.getBlockState(probe.set(x, y, z))
+				.getCollisionShape(level, probe).isEmpty());
 	}
 
 	private BlockNeighborhood neighborhood(ClientLevel level, BlockPos center) {

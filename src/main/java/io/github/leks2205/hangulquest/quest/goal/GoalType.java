@@ -121,6 +121,20 @@ public interface GoalType<G extends Goal> {
 		return List.of();
 	}
 
+	/** A short line the hint adds to its sentence while the step runs ("7초 남았어요."); empty for most goals. */
+	default String hintNote(G goal, io.github.leks2205.hangulquest.quest.GoalEvaluator.Tracker tracker) {
+		return "";
+	}
+
+	/**
+	 * Whether the goal checks this condition itself, on the thing it acts on, instead of on the player: placing a
+	 * block under a roof asks for a roof over the block ({@code PlacementFact.roofed}), wherever the player
+	 * stands. The sentence then names the target ("지붕 아래에 통을 놓아요"), not the player's place.
+	 */
+	default boolean takesOver(G goal, io.github.leks2205.hangulquest.quest.Condition condition) {
+		return false;
+	}
+
 	/** Whether the sentence of the goal already says this condition, so the condition's own phrase is left out. */
 	default boolean says(G goal, io.github.leks2205.hangulquest.quest.Condition condition) {
 		return false;

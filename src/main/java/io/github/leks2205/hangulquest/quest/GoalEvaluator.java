@@ -46,6 +46,8 @@ public final class GoalEvaluator {
 		public boolean assisted;
 		public String goalKey;
 		private Goal goalRef;
+		/** Set every tick: the goal checks the roof over the block it places, not over the player. Never saved. */
+		public boolean roofedPlacement;
 		/** Trackers of the sub-goals of a sequence, an avoid or a hold; created by the type on first use. */
 		public List<Tracker> subs;
 		/** Sequence in any order: bit i is set once part i is done. */
@@ -203,6 +205,13 @@ public final class GoalEvaluator {
 		if (type.needsMusicScan(goal)) {
 			obs.musicScanWanted = true;
 		}
+		for (Condition condition : conditions) {
+			if (condition instanceof Condition.NearBlock near && near.radius() >= 0) {
+				obs.nearBlocksWanted.merge(near.block(), (int) Math.ceil(near.radius()), Math::max);
+			}
+		}
+		tracker.roofedPlacement = conditions.stream().anyMatch(c -> c instanceof Condition.Sky sky
+				&& sky.state() == Condition.SkyState.ROOFED && type.takesOver(goal, c));
 		type.beforeTick(goal, obs, tracker);
 		int countBefore = tracker.count;
 		long dwellBefore = tracker.dwellMs;
@@ -213,8 +222,18 @@ public final class GoalEvaluator {
 		return complete;
 	}
 
-	private static boolean evaluate(GoalType<Goal> type, Goal goal, List<Condition> conditions,
+	/** The conditions that are about the player: those the goal does not check on its target itself. */
+	public static List<Condition> playerConditions(Goal goal, List<Condition> conditions) {
+		if (conditions == null || conditions.isEmpty()) {
+			return conditions;
+		}
+		GoalType<Goal> type = GoalTypes.of(goal);
+		return conditions.stream().filter(condition -> !type.takesOver(goal, condition)).toList();
+	}
+
+	private static boolean evaluate(GoalType<Goal> type, Goal goal, List<Condition> allConditions,
 									Observation obs, Tracker tracker) {
+		List<Condition> conditions = playerConditions(goal, allConditions);
 		boolean nightLatch = type.nightLatchable()
 				&& hasNightCondition(conditions)
 				&& !conditionsMet(conditions, obs)

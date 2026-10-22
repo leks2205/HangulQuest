@@ -122,7 +122,7 @@ class NewShapeGoalsTest {
 		}
 		assertEquals("돌로 벽을 쌓아요.", say(BUILDS[1], 1));
 		assertEquals("유리로 십자 모양을 만들어요.", say(BUILDS[3], 1));
-		assertEquals("흙으로 계단을 만들어요.", say(BUILDS[4], 1));
+		assertEquals("흙으로 계단을 쌓아요.", say(BUILDS[4], 1));
 		assertEquals("돌로 벽을 쌓았어요.", SentenceBuilder.ceremony(BUILDS[1], null, List.of(), namer));
 	}
 
@@ -131,7 +131,7 @@ class NewShapeGoalsTest {
 		VerbTable table = VerbTable.shared();
 		assertEquals(Verb.STACK, GoalTypes.of(BUILDS[0]).verb(BUILDS[0], table), "a wall is piled up: 쌓다");
 		assertEquals(Verb.CRAFT, GoalTypes.of(BUILDS[3]).verb(BUILDS[3], table), "a plus is made: 만들다");
-		assertEquals(Verb.CRAFT, GoalTypes.of(BUILDS[4]).verb(BUILDS[4], table), "stairs are made: 만들다");
+		assertEquals(Verb.STACK, GoalTypes.of(BUILDS[4]).verb(BUILDS[4], table), "stairs are piled up: 쌓다");
 	}
 
 	// ----------------------------------------------------------------- JSON, tasks, sizes

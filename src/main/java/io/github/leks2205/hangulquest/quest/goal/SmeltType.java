@@ -121,6 +121,22 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		return kilnVerb(goal, c) && !fromInput(goal, c, inputName(goal, c));
 	}
 
+	/**
+	 * What 요리하다 is said of: the food that goes in ("감자를 요리해요"), because 구운 감자를 요리해요 cooks the
+	 * product twice. A step whose taught word names the product keeps the product (닭고기를 요리해요), and a goal
+	 * without an input has nothing else to name.
+	 */
+	private static String cooked(Goal.Smelt goal, SentenceContext c, String input, String made) {
+		return cooked(goal, c, input, made, c.withCounts());
+	}
+
+	private static String cooked(Goal.Smelt goal, SentenceContext c, String input, String made, boolean withCount) {
+		if (input.isEmpty() || c.wordNames(ObjectKind.ITEM, goal.output())) {
+			return made;
+		}
+		return counted(goal, c, input, withCount);
+	}
+
 	/** A food can also be cooked (요리해요) when the step teaches 요리하다; the baking stays the default. */
 	@Override
 	public List<Verb> alternativeVerbs(Goal.Smelt goal) {
@@ -138,7 +154,7 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		String input = inputName(goal, c);
 		String made = counted(goal, c, outputName(goal, c), c.withCounts());
 		if (c.verb() == Verb.COOK && (c.level() < CHAIN_LEVEL || input.isEmpty())) {
-			return SentenceBuilder.phrase(made, c.verb(), c.level(), c.finale()); // 닭고기를 요리해요
+			return SentenceBuilder.phrase(cooked(goal, c, input, made), c.verb(), c.level(), c.finale()); // 감자를 요리해요
 		}
 		if (c.level() >= CHAIN_LEVEL && !input.isEmpty()) {
 			// sand is melted into glass, a cobblestone baked into stone (the plain sentence says 구워요 for both)
@@ -179,7 +195,8 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 					+ Verb.CRAFT.past();
 		}
 		if (c.verb() == Verb.COOK) {
-			return counted(goal, c, outputName(goal, c), true) + " " + c.verb().past();
+			return cooked(goal, c, inputName(goal, c), counted(goal, c, outputName(goal, c), true), true) + " "
+					+ c.verb().past();
 		}
 		if (c.verb() == Verb.BAKE) {
 			String input = inputName(goal, c);

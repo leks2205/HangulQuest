@@ -39,6 +39,16 @@ public interface ConditionType<C extends Condition> {
 		return prefix(condition, namer);
 	}
 
+	/** The phrase when the goal takes the condition over and checks it on its target ({@code GoalType.takesOver}). */
+	default String targetPrefix(C condition, SentenceBuilder.Namer namer, int level) {
+		return prefix(condition, namer, level);
+	}
+
+	/** Grammar points of {@link #targetPrefix}. */
+	default List<String> targetGrammarIds(C condition, int level) {
+		return grammarIds(condition, level);
+	}
+
 	/**
 	 * For a prefix that says a place with 에서 ("해변에서 "): the place noun alone ("해변"), so that a sentence whose
 	 * body starts with a place of its own can use it as a modifier instead of doubling the 에서; null for every

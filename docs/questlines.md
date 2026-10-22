@@ -79,8 +79,10 @@ The template is `_template.json`.
 
 `conditions` always end up in the Korean text: `TIME` (밤에/낮에/새벽에/저녁에), `WEATHER`, `Y_RANGE`
 („땅 아래에서", „120블록보다 높은 곳에서"; before a place of the goal's own it modifies it: „높이 90블록 위 침대에서", from level 3 „…위의 침대에서"), `IN_BIOME` („해변에서"), `IN_DIMENSION` („지옥에서",
-„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"), `SKY` („밖에서" on levels 1 to 4, „하늘이 보이는
-곳에서" from level 5). A step without an authored clue uses the generated sentence, which speaks every
+„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"; `NEAR_BLOCK` is a proximity check, a block of that kind within the
+radius, not the block in the crosshair), `SKY` („밖에서" on levels 1 to 4, „하늘이 보이는 곳에서" from level 5;
+`ROOFED` says „지붕 아래에서" of the player, but with a `PLACE_BLOCK` goal it checks the roof over the placed block
+and says „지붕 아래에 통을 놓아요"). A step without an authored clue uses the generated sentence, which speaks every
 condition. An authored clue wins also on a step with conditions: it is shown as written, and a condition
 phrase it does not contain is put in front of it, so no condition can be missing from the text. A clue that
 says the condition in its own words does not get the phrase again: 밤에 / 한밤에 / 밤이 for `TIME` night, 비가 for

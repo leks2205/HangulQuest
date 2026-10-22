@@ -112,6 +112,13 @@ public final class Observation {
 	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
 	 */
 	public boolean musicScanWanted;
+	/**
+	 * Set by the goal evaluator while a tracked step has a NEAR_BLOCK condition: block spec to radius. The sensor
+	 * then scans the surroundings for it ({@link BlockProximity}); read on the following tick.
+	 */
+	public Map<String, Integer> nearBlocksWanted = new HashMap<>();
+	/** Distance to the nearest block of each wanted spec that lies within its radius; a spec with none is absent. */
+	public Map<String, Double> nearestBlock = Map.of();
 	/** Set while a tracked step looks at water or lava, which the vanilla crosshair pick passes through. */
 	public boolean fluidLookWanted;
 	/** Position and facing of the entities counted in {@link #nearbyEntities} (items and orbs excluded). */

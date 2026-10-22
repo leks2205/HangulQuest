@@ -67,6 +67,17 @@ final class SkyType implements ConditionType<Condition.Sky> {
 		return prefix(condition, namer);
 	}
 
+	/** A block placed under a roof is put there: 지붕 아래에 (the place of the thing), not 아래에서 (of the player). */
+	@Override
+	public String targetPrefix(Condition.Sky condition, SentenceBuilder.Namer namer, int level) {
+		return condition.state() == Condition.SkyState.ROOFED ? "지붕 아래에 " : prefix(condition, namer, level);
+	}
+
+	@Override
+	public List<String> targetGrammarIds(Condition.Sky condition, int level) {
+		return condition.state() == Condition.SkyState.ROOFED ? List.of("L1.e_place") : grammarIds(condition, level);
+	}
+
 	@Override
 	public List<String> grammarIds(Condition.Sky condition, int level) {
 		return condition.state() == Condition.SkyState.OPEN && level <= OUTSIDE_UP_TO
