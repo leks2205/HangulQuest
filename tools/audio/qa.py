@@ -138,7 +138,14 @@ def main():
             ogg = out / voice / f"{entry['hash']}.ogg"
             if not ogg.exists():
                 continue
-            audio = decode(ogg)
+            try:
+                audio = decode(ogg)
+            except subprocess.CalledProcessError:
+                # an empty or truncated file (the model said nothing and the trim took it all): never ship it
+                block.append({"voice": voice, "id": cid, "hash": entry["hash"], "reason": "undecodable clip"})
+                report.append({"voice": voice, "id": cid, "hash": entry["hash"], "ko": entry["ko"], "asr": "",
+                               "cer": 1.0, "seconds": 0.0, "flag": "undecodable clip"})
+                continue
             seconds = len(audio) / 16000 - 1.0
             segments, _ = asr.transcribe(audio, language="ko", beam_size=5, temperature=0.0,
                                          condition_on_previous_text=False, vad_filter=False)
