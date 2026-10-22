@@ -48,6 +48,20 @@ public final class SentenceBuilder {
 
 		String block(String id);
 
+		/** The block an earlier step of the trail placed, with the verb it used; null when unknown. */
+		record Placed(String block, Verb verb) {
+		}
+
+		/** What the step {@code stepId} before this one placed: "아까 놓은 횃불" for the anchor {@code @s2}. */
+		default Placed placedBy(String stepId) {
+			return null;
+		}
+
+		/** Whether an earlier step already builds the structure; its key is {@code SpatialSentences.builtKey}. */
+		default boolean builtEarlier(String key) {
+			return false;
+		}
+
 		/** Name of an item (for acquire and consume goals); defaults to the block lookup. */
 		default String item(String id) {
 			return block(id);

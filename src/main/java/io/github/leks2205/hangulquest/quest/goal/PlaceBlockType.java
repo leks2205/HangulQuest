@@ -10,7 +10,9 @@ import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.spatial.Placements;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.sense.PlacementFact;
 
 import java.util.List;
 
@@ -57,6 +59,11 @@ final class PlaceBlockType implements GoalType<Goal.PlaceBlock> {
 		for (String placed : placements) {
 			if (Matching.accepts(tracker, goal.block(), placed)) {
 				tracker.count++;
+			}
+		}
+		for (PlacementFact fact : obs.placements) {
+			if (Matching.accepts(tracker, goal.block(), fact.block())) {
+				Placements.remember(tracker, fact);
 			}
 		}
 		return tracker.count >= Math.max(1, goal.count());

@@ -44,11 +44,18 @@ public sealed interface Goal {
 	}
 
 	// Spatial goals (quest/spatial): where a block goes relative to an anchor, and small structures.
-	/** Place {@code count} of a block {@code relation} to an anchor block, family or tag (see BlockSpec). */
-	record PlaceRel(String block, Relation relation, String anchor, int count) implements Goal {
+	/**
+	 * Place {@code count} of a block {@code relation} to an anchor block, family or tag (see BlockSpec), or to
+	 * the block placed in an earlier step ({@code "@s2"}, see StepRef). {@code anchor2} is the second anchor
+	 * of a BETWEEN ("상자와 화로 사이에"); null otherwise.
+	 */
+	record PlaceRel(String block, Relation relation, String anchor, int count, String anchor2) implements Goal {
+		public PlaceRel(String block, Relation relation, String anchor, int count) {
+			this(block, relation, anchor, count, null);
+		}
 	}
 
-	/** Build a small structure (pillar, pyramid, ring, row) out of a block or family. */
+	/** Build a small structure (pillar, pyramid, ring, row, wall, cross, stairs) out of a block or family. */
 	record BuildPattern(Pattern pattern, String material, int size) implements Goal {
 	}
 

@@ -58,6 +58,11 @@ final class QuestTextService {
 		return namer;
 	}
 
+	/** The namer for one step: the registry names, plus what the steps before it placed and built. */
+	private SentenceBuilder.Namer namerFor(QuestStep step) {
+		return io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer, step);
+	}
+
 	/** Drops the cached sentences, for when the trails were replaced. */
 	void invalidate() {
 		clues.clear();
@@ -87,7 +92,7 @@ final class QuestTextService {
 		int level = effectiveLevel(koreanLevel);
 		return grammar.computeIfAbsent(step, key -> new java.util.HashMap<>()).computeIfAbsent(level, key -> {
 			List<String> emitted = SentenceBuilder.grammar(step.goal(), firstWord(step), step.conditions(), key,
-					"finale".equals(step.id()), namer);
+					"finale".equals(step.id()), namerFor(step));
 			return GrammarBook.shared().resolve(emitted, Ladder.shared());
 		});
 	}
@@ -123,7 +128,7 @@ final class QuestTextService {
 		if (cached == null) {
 			// Every condition must show up in the Korean sentence; generated text guarantees it.
 			cached = SentenceBuilder.normal(step.goal(), firstWord(step), step.conditions(),
-					level, "finale".equals(step.id()), namer);
+					level, "finale".equals(step.id()), namerFor(step));
 			byLevel[level] = cached;
 		}
 		return cached;
@@ -155,10 +160,10 @@ final class QuestTextService {
 			return clueKo(step, koreanLevel);
 		}
 		if (word != firstWord(step)) {
-			return SentenceBuilder.hint(step.goal(), word, step.conditions(), namer);
+			return SentenceBuilder.hint(step.goal(), word, step.conditions(), namerFor(step));
 		}
 		return hints.computeIfAbsent(step,
-				key -> SentenceBuilder.hint(key.goal(), word, key.conditions(), namer));
+				key -> SentenceBuilder.hint(key.goal(), word, key.conditions(), namerFor(key)));
 	}
 
 	/** The finale line of a finished trail in the interface language. */

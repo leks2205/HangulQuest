@@ -12,6 +12,7 @@ import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.sense.CraftFact;
 import io.github.leks2205.hangulquest.sense.Observation;
 
@@ -110,8 +111,10 @@ final class CraftType implements GoalType<Goal.Craft> {
 
 	@Override
 	public String korean(Goal.Craft goal, SentenceContext c) {
-		String head = stationPhrase(goal, c) + materials(goal.with(), c)
-				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()), goal.count(), c.withCounts(), goal.item(), c.obj());
+		String made = SentenceBuilder.counted(SentenceBuilder.objectPhrase(c.obj(), c.verb()), goal.count(), c.withCounts(), goal.item(), c.obj());
+		String gathered = gathered(goal, c);
+		String head = gathered.isEmpty() ? stationPhrase(goal, c) + materials(goal.with(), c) + made
+				: gathered + stationPhrase(goal, c) + made;
 		return SentenceBuilder.phrase(head, c.verb(), c.level(), c.finale());
 	}
 
@@ -127,7 +130,12 @@ final class CraftType implements GoalType<Goal.Craft> {
 		if (!stationPhrase(goal, c).isEmpty()) {
 			ids.add("L2.eseo_activity");
 		}
-		if (!materials(goal.with(), c).isEmpty()) {
+		if (!gathered(goal, c).isEmpty()) {
+			if (goal.with().stream().distinct().count() > 1) {
+				ids.add("L2.wa_gwa");
+			}
+			ids.add(Clauses.Link.AND.grammar());
+		} else if (!materials(goal.with(), c).isEmpty()) {
 			if (goal.with().stream().distinct().count() > 1) {
 				ids.add("L2.wa_gwa");
 			}
@@ -192,27 +200,54 @@ final class CraftType implements GoalType<Goal.Craft> {
 		return name.isEmpty() ? "" : KoGrammar.eseo(name) + " ";
 	}
 
+	/**
+	 * At a level that joins clauses (ladder.json {@code connectives}) the ingredients are gathered first:
+	 * "막대기와 석탄을 모으고 ". "" at any other level, or when there is nothing to name.
+	 */
+	private static String gathered(Goal.Craft goal, SentenceContext c) {
+		if (!Ladder.shared().rung(c.level()).connectives() || goal.with().isEmpty()) {
+			return "";
+		}
+		List<String> names = ingredientNames(goal.with(), c);
+		if (names.isEmpty()) {
+			return "";
+		}
+		String last = names.get(names.size() - 1);
+		String front = names.size() == 1 ? KoGrammar.eul(last) : joinWithAnd(names, KoGrammar.eul(last));
+		return front + " " + Verb.COLLECT.stem() + "고 ";
+	}
+
 	/** "막대기와 석탄으로 ", "나무 판자, 막대기와 철로 ", or "" when there are none or one has no name. */
 	static String materials(List<String> ids, SentenceContext c) {
-		List<String> names = new ArrayList<>();
-		for (String id : ids) {
-			String name = c.name(ObjectKind.ITEM, id);
-			if (name.isEmpty()) {
-				return "";
-			}
-			if (!names.contains(name)) {
-				names.add(name);
-			}
-		}
+		List<String> names = ingredientNames(ids, c);
 		if (names.isEmpty()) {
 			return "";
 		}
 		if (names.size() == 1) {
 			return KoGrammar.euro(names.get(0)) + " ";
 		}
-		String last = names.get(names.size() - 1);
+		return joinWithAnd(names, KoGrammar.euro(names.get(names.size() - 1))) + " ";
+	}
+
+	/** "A, B와 C를": the names in front of the last one, then 와/과 on the one before it and the last one marked. */
+	private static String joinWithAnd(List<String> names, String markedLast) {
 		String beforeLast = names.get(names.size() - 2);
 		String front = String.join(", ", names.subList(0, names.size() - 2));
-		return (front.isEmpty() ? "" : front + ", ") + KoGrammar.waGwa(beforeLast) + " " + KoGrammar.euro(last) + " ";
+		return (front.isEmpty() ? "" : front + ", ") + KoGrammar.waGwa(beforeLast) + " " + markedLast;
+	}
+
+	/** The distinct names of the ingredients; empty when there are none or one has no name. */
+	private static List<String> ingredientNames(List<String> ids, SentenceContext c) {
+		List<String> names = new ArrayList<>();
+		for (String id : ids) {
+			String name = c.name(ObjectKind.ITEM, id);
+			if (name.isEmpty()) {
+				return List.of();
+			}
+			if (!names.contains(name)) {
+				names.add(name);
+			}
+		}
+		return names;
 	}
 }

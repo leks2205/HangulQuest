@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +68,19 @@ public final class Clauses {
 				yield name == null ? "" : name;
 			}
 		};
-		return c.forPart(obj, type.verb(part, VerbTable.shared()), level);
+		return c.forPart(obj, type.verb(part, VerbTable.shared()), withoutConnectives(level));
+	}
+
+	/**
+	 * A part of a sentence that already has a connective does not get one of its own ("횃불을 들고 막대기를 모으고
+	 * …"): it is spoken one level down, which has the same ending but no connectives.
+	 */
+	private static int withoutConnectives(int level) {
+		int plain = level;
+		while (plain > 1 && Ladder.shared().rung(plain).connectives()) {
+			plain--;
+		}
+		return plain;
 	}
 
 	/** The tracker of sub-goal {@code index}, created with the others on first use. */

@@ -23,7 +23,9 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 		GOAL_LIST,
 		CONDITION,
 		/** A goal or a condition, told apart by its {@code type}. */
-		GOAL_OR_CONDITION
+		GOAL_OR_CONDITION,
+		/** A namespaced id or tag like {@link #RESOURCE_ID}, or {@code @stepId}: the block placed in that earlier step. */
+		ANCHOR
 	}
 
 	public static Field resource(String name) {
@@ -41,6 +43,16 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 
 	public static Field choice(String name, boolean required, String description, String... values) {
 		return new Field(name, Kind.ENUM, required, null, null, List.of(values), description);
+	}
+
+	/** A block, family or tag, or {@code @stepId} for the block placed in an earlier step of the trail. */
+	public static Field anchor(String name, boolean required, String description) {
+		return new Field(name, Kind.ANCHOR, required, null, null, List.of(), description);
+	}
+
+	/** Same, with a description for the schema. */
+	public static Field optionalResource(String name, String description) {
+		return new Field(name, Kind.RESOURCE_ID, false, null, null, List.of(), description);
 	}
 
 	public static Field optionalResource(String name) {
@@ -78,6 +90,10 @@ public record Field(String name, Kind kind, boolean required, Integer min, Integ
 		JsonObject schema = new JsonObject();
 		switch (kind) {
 			case RESOURCE_ID -> schema.addProperty("$ref", "#/definitions/resourceId");
+			case ANCHOR -> {
+				schema.addProperty("type", "string");
+				schema.addProperty("pattern", "^(#?[a-z0-9_.-]+:[a-z0-9_./-]+|@[A-Za-z0-9_-]+)$");
+			}
 			case INTEGER -> {
 				schema.addProperty("type", "integer");
 				schema.addProperty("minimum", min);

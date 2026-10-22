@@ -26,6 +26,8 @@ public final class Relations {
 		return switch (anchor) {
 			case Anchor.Block block -> holdingBlock(block.spec(), fact);
 			case Anchor.Built built -> holdingBuilt(built, fact);
+			case Anchor.Pair pair -> holdingPair(pair, fact);
+			case Anchor.Placed placed -> holdingPlaced(placed, fact);
 		};
 	}
 
@@ -35,12 +37,22 @@ public final class Relations {
 
 	/** Whether this relation can mean something for this anchor; the validator rejects the rest. */
 	public static boolean supported(Relation relation, Anchor anchor) {
+		if (anchor instanceof Anchor.Pair) {
+			return relation == Relation.BETWEEN;
+		}
+		if (anchor instanceof Anchor.Placed) {
+			return switch (relation) {
+				case ON_TOP_OF, UNDER, NEXT_TO, NEAR -> true;
+				default -> false;
+			};
+		}
 		return switch (relation) {
 			case ON_TOP_OF, UNDER, NEXT_TO, NEAR -> true;
 			case IN_FRONT_OF, BEHIND -> anchor instanceof Anchor.Block block && BlockSpec.hasFacing(block.spec());
 			case INSIDE, OUTSIDE -> switch (anchor) {
 				case Anchor.Block block -> BlockSpec.encloses(block.spec());
 				case Anchor.Built built -> built.pattern().encloses();
+				default -> false;
 			};
 			case BETWEEN -> anchor instanceof Anchor.Block;
 		};
@@ -165,6 +177,51 @@ public final class Relations {
 				}
 			}
 		}
+	}
+
+	// ------------------------------------------------------- two blocks, an earlier block
+
+	/**
+	 * 상자와 화로 사이: the placed block has one of the two to a side and the other directly opposite, 1 to 3
+	 * blocks away on the same row. Every other relation holds when it holds for either block.
+	 */
+	private static EnumSet<Relation> holdingPair(Anchor.Pair pair, PlacementFact fact) {
+		BlockNeighborhood around = fact.around();
+		EnumSet<Relation> held = holdingBlock(pair.first().spec(), fact);
+		held.addAll(holdingBlock(pair.second().spec(), fact));
+		held.remove(Relation.BETWEEN);
+		for (int[] axis : new int[][]{{1, 0}, {0, 1}}) {
+			int[] back = {-axis[0], -axis[1]};
+			if (ray(around, pair.first().spec(), axis) && ray(around, pair.second().spec(), back)
+					|| ray(around, pair.second().spec(), axis) && ray(around, pair.first().spec(), back)) {
+				held.add(Relation.BETWEEN);
+			}
+		}
+		return held;
+	}
+
+	/** The block remembered from an earlier step is a point in the world; the placed block lies at an offset from it. */
+	private static EnumSet<Relation> holdingPlaced(Anchor.Placed anchor, PlacementFact fact) {
+		int dx = fact.pos().getX() - anchor.x();
+		int dy = fact.pos().getY() - anchor.y();
+		int dz = fact.pos().getZ() - anchor.z();
+		EnumSet<Relation> held = EnumSet.noneOf(Relation.class);
+		if (dx == 0 && dy == 0 && dz == 0) {
+			return held;
+		}
+		if (dx == 0 && dz == 0 && dy == 1) {
+			held.add(Relation.ON_TOP_OF);
+		}
+		if (dx == 0 && dz == 0 && dy == -1) {
+			held.add(Relation.UNDER);
+		}
+		if (dy == 0 && Math.abs(dx) + Math.abs(dz) == 1) {
+			held.add(Relation.NEXT_TO);
+		}
+		if (Math.max(Math.abs(dx), Math.max(Math.abs(dy), Math.abs(dz))) <= R) {
+			held.add(Relation.NEAR);
+		}
+		return held;
 	}
 
 	// ---------------------------------------------------------------- structures

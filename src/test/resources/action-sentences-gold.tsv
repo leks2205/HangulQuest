@@ -7,7 +7,14 @@ craft.planks.table	1	-	{"type":"CRAFT","item":"minecraft:oak_planks","count":4,"
 craft.bricks.stonecutter	1	-	{"type":"CRAFT","item":"minecraft:stone_bricks","station":"stonecutter"}	-	석재 절단기에서 석재 벽돌을 만들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 craft.pie.three	1	-	{"type":"CRAFT","item":"minecraft:pumpkin_pie","with":["minecraft:pumpkin","minecraft:sugar","minecraft:egg"]}	-	호박, 설탕과 달걀로 호박 파이를 만들어요.	L1.eoyo,L1.eul_reul,L2.wa_gwa,L2.euro_material
 craft.chest.planks	1	-	{"type":"CRAFT","item":"minecraft:chest","with":["minecraft:oak_planks"]}	-	참나무 판자로 상자를 만들어요.	L1.eoyo,L1.eul_reul,L2.euro_material
-craft.torch.l3	3	-	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	-	막대기와 석탄으로 횃불을 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.euro_material
+craft.torch.l3	3	-	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	-	막대기와 석탄을 모으고 횃불을 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.go_and
+craft.torch.l3.one	3	-	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:coal"]}	-	석탄을 모으고 횃불을 만드세요.	L2.seyo,L1.eul_reul,L2.go_and
+craft.pie.l3	3	-	{"type":"CRAFT","item":"minecraft:pumpkin_pie","with":["minecraft:pumpkin","minecraft:sugar","minecraft:egg"]}	-	호박, 설탕과 달걀을 모으고 호박 파이를 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.go_and
+craft.planks.table.l3	3	-	{"type":"CRAFT","item":"minecraft:oak_planks","count":4,"station":"crafting_table","with":["minecraft:oak_log"]}	-	참나무 원목을 모으고 제작대에서 참나무 판자를 네 개 만드세요.	L2.seyo,L1.eul_reul,L2.eseo_activity,L2.go_and
+craft.torch.l2	2	-	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	-	막대기와 석탄으로 횃불을 만드세요.	L2.seyo,L1.eul_reul,L2.wa_gwa,L2.euro_material
+craft.torch.l5	5	-	{"type":"CRAFT","item":"minecraft:torch","with":["minecraft:stick","minecraft:coal"]}	-	막대기와 석탄으로 횃불을 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.wa_gwa,L2.euro_material
+hold.night.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	-	횃불을 들고 밤에 걸으세요.	L2.go_state,L2.seyo
+hold.biome.l4	4	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"REACH_BIOME","biome":"minecraft:forest"}}	-	횃불을 들고 숲으로 가야 해요.	L2.go_state,L4.eoya_haeyo,L1.euro_direction
 craft.torch.l4	4	-	{"type":"CRAFT","item":"minecraft:torch"}	-	횃불을 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul
 craft.torch.l6	6	-	{"type":"CRAFT","item":"minecraft:torch"}	-	횃불을 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul
 smelt.glass	1	-	{"type":"SMELT","output":"minecraft:glass"}	-	화로에서 유리를 만들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity

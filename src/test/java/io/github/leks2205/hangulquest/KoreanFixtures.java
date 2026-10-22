@@ -175,7 +175,8 @@ final class KoreanFixtures {
 	static String ceremony(io.github.leks2205.hangulquest.quest.Questline trail) {
 		io.github.leks2205.hangulquest.quest.QuestStep step = trail.finale();
 		Word word = step.teach().isEmpty() ? null : sharedCatalog().byConceptId(step.teach().get(0)).orElse(null);
-		return SentenceBuilder.ceremony(step.goal(), word, step.conditions(), registryNamer());
+		return SentenceBuilder.ceremony(step.goal(), word, step.conditions(),
+				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(registryNamer(), step));
 	}
 
 	/** The registry id a goal points at, or null for height goals. */

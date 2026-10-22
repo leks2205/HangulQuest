@@ -129,6 +129,12 @@ final class GiveType implements GoalType<Goal.Give> {
 		return ids;
 	}
 
+	/** The recipient marker decides who gets it: 소에게. A drop in front of someone has no marker. */
+	@Override
+	public List<String> decidingForms(Goal.Give goal) {
+		return verb(goal, VerbTable.shared()) == Verb.GIVE ? List.of("L2.ege") : List.of();
+	}
+
 	@Override
 	public String status(Goal.Give goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {

@@ -217,3 +217,12 @@ CONDITION	torch	-	-	CONDITION	6	횃불이 많을수록 밝아요	L6.eulsurok;L1.
 PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	6	문 옆에 횃불 놓아	L6.banmal;L1.loc_yeop_e
 PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	6	나는 문 옆에 횃불을 놓는다	L6.banmal_plain;L2.eun_neun_topic;L1.loc_yeop_e;L1.obj_eul
 CONDITION	torch	-	-	CONDITION	6	횃불이 없으면 돌아갈 수밖에 없어요	L6.su_bakke_eopda;L4.myeon;L1.subj_i
+CRAFT	torch	-	stick|coal	MATERIAL	2	막대기와 석탄을 모으고 횃불을 만들어요	L2.hago_wa_gwa;L2.go_sequence;L1.obj_eul;L1.eoyo
+CRAFT	torch	-	stick|coal	MATERIAL	2	막대기와 석탄을 모으고 횃불을 만드세요	L2.hago_wa_gwa;L2.go_sequence;L2.seyo;L1.obj_eul
+PLACE_RELATIVE	chest	NEXT_TO	@s1	TARGET	5	아까 놓은 횃불 옆에 상자를 놓아요	L1.loc_yeop_e;L5.adn_past_eun;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	UNDER	@s2	TARGET	5	아까 단 종 아래에 횃불을 놓아요	L1.loc_arae_e;L5.adn_past_eun;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	ON_TOP_OF	@s1	TARGET	5	아까 쌓은 돌 위에 상자를 놓아야 해요	L1.loc_wi_e;L5.adn_past_eun;L1.obj_eul;L4.eoya_haeyo
+BUILD_PATTERN	stone	ON_TOP_OF	pattern:PILLAR	MATERIAL	2	돌로 기둥을 쌓고 그 위에 횃불을 놓으세요	L2.euro_material;L2.go_sequence;L1.loc_wi_e;L2.seyo;L1.obj_eul
+BUILD_PATTERN	stone	NEXT_TO	pattern:WALL	MATERIAL	2	돌로 벽을 쌓고 그 옆에 상자를 놓아요	L2.euro_material;L2.go_sequence;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	ON_TOP_OF	pattern:STAIRS	TARGET	1	계단 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	NEXT_TO	pattern:WALL	TARGET	1	벽 옆에 상자를 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo

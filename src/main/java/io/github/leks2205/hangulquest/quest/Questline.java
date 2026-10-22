@@ -85,6 +85,10 @@ public final class Questline {
 		}
 		this.steps = List.copyOf(keyed);
 		this.finale = withKey(id, finale);
+		List<QuestStep> ordered = allSteps();
+		for (int i = 0; i < ordered.size(); i++) {
+			ordered.get(i).bindEarlier(ordered.subList(0, i));
+		}
 		this.finaleKo = finaleKo;
 		this.finaleDe = finaleDe;
 		this.finaleEn = finaleEn;

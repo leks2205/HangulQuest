@@ -142,6 +142,11 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 	}
 
 	@Override
+	public List<String> decidingForms(Goal.Avoid goal) {
+		return List.of("L3.jima");
+	}
+
+	@Override
 	public String status(Goal.Avoid goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
 		if (RETRY_MARK.equals(tracker.target) && tracker.dwellMs < RETRY_SHOWN_MS) {

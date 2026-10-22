@@ -96,7 +96,7 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 	@Override
 	public String korean(Goal.PlaceOnPattern goal, SentenceContext c) {
 		return SpatialSentences.placeOnPattern(goal, c.obj(), materialName(goal, c.namer()), c.verb(), c.level(),
-				c.finale(), false).ko();
+				c.finale(), false, c.namer()).ko();
 	}
 
 	@Override
@@ -113,7 +113,14 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 
 	@Override
 	public List<String> grammarIds(Goal.PlaceOnPattern goal, SentenceContext c) {
-		return SpatialSentences.grammarPoints(goal, List.of(), c.level(), c.withCounts(), false);
+		return SpatialSentences.placeOnPattern(goal, c.obj(), materialName(goal, c.namer()), c.verb(), c.level(),
+				c.finale(), false, c.namer()).grammar();
+	}
+
+	@Override
+	public List<String> decidingForms(Goal.PlaceOnPattern goal) {
+		String id = goal.relation().grammarId();
+		return id == null ? List.of() : List.of(id);
 	}
 
 	private static String materialName(Goal.PlaceOnPattern goal, SentenceBuilder.Namer namer) {

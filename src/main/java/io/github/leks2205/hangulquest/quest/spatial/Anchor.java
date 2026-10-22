@@ -1,6 +1,6 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
-/** What a relation is measured against: a block (or family, or tag) or a structure the player built. */
+/** What a relation is measured against: a block (or family, or tag), a structure the player built, or a block placed earlier. */
 public sealed interface Anchor {
 	/** A block id, a family such as the doors, or a tag-style pattern, see {@link BlockSpec}. */
 	record Block(String spec) implements Anchor {
@@ -19,6 +19,22 @@ public sealed interface Anchor {
 		@Override
 		public String key() {
 			return pattern + "/" + material + (size == pattern.defaultSize() ? "" : "/" + size);
+		}
+	}
+
+	/** Two different blocks that a BETWEEN is measured against: 상자와 화로 사이. */
+	record Pair(Block first, Block second) implements Anchor {
+		@Override
+		public String key() {
+			return first.key() + "+" + second.key();
+		}
+	}
+
+	/** The block placed to finish an earlier step ({@code "@s2"}), remembered by its position. */
+	record Placed(String step, int x, int y, int z) implements Anchor {
+		@Override
+		public String key() {
+			return "@" + step;
 		}
 	}
 

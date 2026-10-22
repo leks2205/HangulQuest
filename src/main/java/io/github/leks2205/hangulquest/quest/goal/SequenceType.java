@@ -97,6 +97,9 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 				GoalEvaluator.Tracker sub = Clauses.sub(tracker, tracker.count, parts.size());
 				boolean done = GoalEvaluator.tick(parts.get(tracker.count), List.of(), obs, sub);
 				tracker.assisted |= sub.assisted;
+				if (!done) {
+					tracker.formErrors += outOfOrder(parts, tracker.count, obs, tracker);
+				}
 				if (done) {
 					tracker.count++;
 				}
@@ -174,6 +177,12 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		return ids;
 	}
 
+	/** The connective decides the order; parts in any order have no deciding form. */
+	@Override
+	public List<String> decidingForms(Goal.Sequence goal) {
+		return goal.ordered() && goal.parts().size() > 1 ? List.of(link(goal).grammar()) : List.of();
+	}
+
 	@Override
 	public String status(Goal.Sequence goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
@@ -239,6 +248,36 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 			}
 		}
 		Clauses.checkClueDoesNotTeach(context, false);
+	}
+
+	/** Goals that one event completes, so a later part can be checked on a fresh tracker each tick. */
+	private static boolean isEvent(Goal part) {
+		return part instanceof Goal.PlaceBlock || part instanceof Goal.PlaceRel || part instanceof Goal.PlaceOnPattern
+				|| part instanceof Goal.BuildPattern || part instanceof Goal.BreakBlock || part instanceof Goal.Craft
+				|| part instanceof Goal.Smelt || part instanceof Goal.Give || part instanceof Goal.PutIn
+				|| part instanceof Goal.UseBlock || part instanceof Goal.InteractEntity
+				|| part instanceof Goal.ConsumeItem;
+	}
+
+	/**
+	 * Whether a part whose turn has not come happened this tick: the player did the later thing first. It
+	 * never counts toward the goal; the engine tells the learning side the order was not followed. A part that
+	 * is the same goal as an earlier one is left out, since one event cannot be told apart.
+	 */
+	private static int outOfOrder(List<Goal> parts, int turn, Observation obs, GoalEvaluator.Tracker tracker) {
+		int early = 0;
+		for (int later = turn + 1; later < parts.size(); later++) {
+			Goal part = parts.get(later);
+			if (!isEvent(part) || parts.subList(0, later).contains(part)) {
+				continue;
+			}
+			GoalEvaluator.Tracker probe = new GoalEvaluator.Tracker();
+			probe.accepted = tracker.accepted;
+			if (GoalEvaluator.tick(part, List.of(), obs, probe)) {
+				early++;
+			}
+		}
+		return early;
 	}
 
 	/** Which of the two parts is spoken last, with the finite verb. */

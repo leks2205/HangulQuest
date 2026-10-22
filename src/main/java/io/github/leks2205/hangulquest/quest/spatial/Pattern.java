@@ -16,7 +16,13 @@ public enum Pattern {
 	PILLAR("기둥", 2, 4, 3),
 	PYRAMID("피라미드", 3, 3, 3),
 	RING("울타리", 3, 3, 3),
-	ROW("줄", 2, 4, 3);
+	ROW("줄", 2, 4, 3),
+	/** Size 2 is 2 wide and 2 high, size 3 is 3x2, size 4 is 4x3; it can stand along x or z. */
+	WALL("벽", 2, 4, 3),
+	/** A plus of five blocks, flat on the ground or standing upright along x or z. */
+	CROSS("십자 모양", 3, 3, 3),
+	/** Columns that grow by one block per step, filled down to the ground; it rises toward any side. */
+	STAIRS("계단", 3, 4, 3);
 
 	/** One cell of a structure, relative to its corner. */
 	public record Cell(int x, int y, int z) {
@@ -37,7 +43,7 @@ public enum Pattern {
 		this.defaultSize = defaultSize;
 	}
 
-	/** The Korean noun: 기둥, 피라미드, 울타리 (a ring of blocks around an empty cell). */
+	/** The Korean noun: 기둥, 피라미드, 울타리 (a ring of blocks around an empty cell), 벽, 십자 모양, 계단. */
 	public String ko() {
 		return ko;
 	}
@@ -59,9 +65,22 @@ public enum Pattern {
 		return size >= minSize && size <= maxSize;
 	}
 
-	/** A row can lie along x (0) or along z (1); everything else has one orientation. */
+	/**
+	 * How many ways the structure can stand: a row or a wall lies along x (0) or z (1), a cross is flat (0) or
+	 * upright along x (1) or z (2), stairs rise toward +x, -x, +z or -z. Everything else has one.
+	 */
 	public int orientations() {
-		return this == ROW ? 2 : 1;
+		return switch (this) {
+			case ROW, WALL -> 2;
+			case CROSS -> 3;
+			case STAIRS -> 4;
+			default -> 1;
+		};
+	}
+
+	/** The height of a wall of this size: 2x2, 3x2, 4x3. */
+	private static int wallHeight(int size) {
+		return size >= 4 ? 3 : 2;
 	}
 
 	/** True when something can stand inside it. */
@@ -103,6 +122,49 @@ public enum Pattern {
 					}
 				}
 			}
+			case WALL -> {
+				for (int y = 0; y < wallHeight(size); y++) {
+					for (int i = 0; i < size; i++) {
+						cells.add(orientation == 0 ? new Cell(i, y, 0) : new Cell(0, y, i));
+					}
+				}
+			}
+			case CROSS -> {
+				int arm = (size - 1) / 2;
+				Cell middle = centre(size, orientation);
+				for (int d = -arm; d <= arm; d++) {
+					if (d == 0) {
+						continue;
+					}
+					switch (orientation) {
+						case 0 -> {
+							cells.add(middle.plus(d, 0, 0));
+							cells.add(middle.plus(0, 0, d));
+						}
+						case 1 -> {
+							cells.add(middle.plus(d, 0, 0));
+							cells.add(middle.plus(0, d, 0));
+						}
+						default -> {
+							cells.add(middle.plus(0, 0, d));
+							cells.add(middle.plus(0, d, 0));
+						}
+					}
+				}
+				cells.add(middle);
+			}
+			case STAIRS -> {
+				for (int i = 0; i < size; i++) {
+					for (int y = 0; y <= i; y++) {
+						cells.add(switch (orientation) {
+							case 0 -> new Cell(i, y, 0);
+							case 1 -> new Cell(size - 1 - i, y, 0);
+							case 2 -> new Cell(0, y, i);
+							default -> new Cell(0, y, size - 1 - i);
+						});
+					}
+				}
+			}
 		}
 		return cells;
 	}
@@ -110,6 +172,16 @@ public enum Pattern {
 	/** The cells directly above the highest blocks: where something sits "on top of" the structure. */
 	public List<Cell> top(int size, int orientation) {
 		List<Cell> cells = cells(size, orientation);
+		if (this == STAIRS) {
+			// Every step has its own tread: the cell above each column's highest block.
+			List<Cell> treads = new ArrayList<>();
+			for (Cell cell : cells) {
+				if (!cells.contains(cell.plus(0, 1, 0))) {
+					treads.add(cell.plus(0, 1, 0));
+				}
+			}
+			return treads;
+		}
 		int highest = 0;
 		for (Cell cell : cells) {
 			highest = Math.max(highest, cell.y());
@@ -129,7 +201,24 @@ public enum Pattern {
 			case PILLAR -> new Cell(0, 0, 0);
 			case PYRAMID -> new Cell(size / 2, 0, size / 2);
 			case RING -> new Cell(1, 0, 1);
-			case ROW -> orientation == 0 ? new Cell((size - 1) / 2, 0, 0) : new Cell(0, 0, (size - 1) / 2);
+			case ROW, WALL -> orientation == 0 ? new Cell((size - 1) / 2, 0, 0) : new Cell(0, 0, (size - 1) / 2);
+			case CROSS -> {
+				int arm = (size - 1) / 2;
+				yield switch (orientation) {
+					case 0 -> new Cell(arm, 0, arm);
+					case 1 -> new Cell(arm, arm, 0);
+					default -> new Cell(0, arm, arm);
+				};
+			}
+			case STAIRS -> {
+				int middle = (size - 1) / 2;
+				yield switch (orientation) {
+					case 0 -> new Cell(middle, 0, 0);
+					case 1 -> new Cell(size - 1 - middle, 0, 0);
+					case 2 -> new Cell(0, 0, middle);
+					default -> new Cell(0, 0, size - 1 - middle);
+				};
+			}
 		};
 	}
 

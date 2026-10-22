@@ -26,6 +26,9 @@ public final class SpatialSentences {
 	public static final String COUNTER_GAE = "L1.counter_gae";
 	public static final String OBJ_EUL = "L1.obj_eul";
 	public static final String PAST = "L3.past";
+	public static final String AND_NOUNS = "L2.hago_wa_gwa";
+	public static final String GO_SEQUENCE = "L2.go_sequence";
+	public static final String ADN_PAST = "L5.adn_past_eun";
 	public static final String E_TIME = "L1.e_time";
 
 	private SpatialSentences() {
@@ -33,16 +36,30 @@ public final class SpatialSentences {
 
 	// ------------------------------------------------------------------ place relative
 
-	/** "문 옆에 횃불을 놓아요." {@code past} gives the finale form "놓았어요" without the full stop. */
+	/**
+	 * "문 옆에 횃불을 놓아요." {@code past} gives the finale form "놓았어요" without the full stop. The anchor may
+	 * be two blocks ("상자와 화로 사이에") or the block of an earlier step ("아까 놓은 횃불 옆에").
+	 */
 	public static SpatialText placeRel(Goal.PlaceRel goal, String obj, Verb verb, int level, boolean withCounts,
 									   boolean finale, boolean past, SentenceBuilder.Namer namer) {
 		List<String> grammar = new ArrayList<>(goal.relation().grammarIds(Role.TARGET));
-		String[] names = shorten(anchorNoun(goal.anchor(), namer), obj);
-		String noun = names[0];
-		obj = names[1];
-		if (goal.relation() == Relation.BETWEEN) {
-			noun = betweenAnchor(noun);
-			grammar.add(NUM_NATIVE);
+		String noun;
+		if (goal.anchor2() != null) {
+			noun = KoGrammar.waGwa(anchorNoun(goal.anchor(), namer)) + " " + anchorNoun(goal.anchor2(), namer);
+			grammar.add(AND_NOUNS);
+		} else if (StepRef.isRef(goal.anchor())) {
+			String[] names = shorten(placedName(goal.anchor(), namer), obj);
+			noun = placedPrefix(goal.anchor(), namer) + names[0];
+			obj = names[1];
+			grammar.add(ADN_PAST);
+		} else {
+			String[] names = shorten(anchorNoun(goal.anchor(), namer), obj);
+			noun = names[0];
+			obj = names[1];
+			if (goal.relation() == Relation.BETWEEN) {
+				noun = betweenAnchor(noun);
+				grammar.add(NUM_NATIVE);
+			}
 		}
 		String head = SentenceBuilder.relationPhrase(noun, goal.relation(), Role.TARGET) + " "
 				+ SentenceBuilder.counted(SentenceBuilder.objectPhrase(obj, verb), goal.count(), withCounts,
@@ -52,6 +69,19 @@ public final class SpatialSentences {
 			grammar.add(counterGrammar(goal.block(), obj));
 		}
 		return finish(head, verb, level, finale, past, grammar);
+	}
+
+	/** "아까 놓은 ": the earlier step's verb as a past attributive, whatever that step did (놓다, 달다, 쌓다). */
+	public static String placedPrefix(String ref, SentenceBuilder.Namer namer) {
+		SentenceBuilder.Namer.Placed placed = namer.placedBy(StepRef.stepId(ref));
+		return "아까 " + (placed == null ? Verb.PLACE : placed.verb()).attributive() + " ";
+	}
+
+	/** The name of the block an earlier step placed; "것" (a plain thing) when that step is not known. */
+	public static String placedName(String ref, SentenceBuilder.Namer namer) {
+		SentenceBuilder.Namer.Placed placed = namer.placedBy(StepRef.stepId(ref));
+		String name = placed == null ? null : namer.block(BlockSpec.representative(placed.block()));
+		return name == null || name.isBlank() ? "것" : name;
 	}
 
 	/**
@@ -85,6 +115,20 @@ public final class SpatialSentences {
 		String counter = io.github.leks2205.hangulquest.quest.Counters.shared().counter(blockId, noun);
 		String id = io.github.leks2205.hangulquest.quest.Counters.shared().grammar(counter);
 		return id == null ? COUNTER_GAE : id;
+	}
+
+	/** Identifies a structure a step builds, to tell whether an earlier step already did. */
+	public static String builtKey(Pattern pattern, String material) {
+		return pattern + "/" + material;
+	}
+
+	/** The structure a goal builds or stands on, as a {@link #builtKey}; null for other goals. */
+	public static String builtKey(Goal goal) {
+		return switch (goal) {
+			case Goal.BuildPattern g -> builtKey(g.pattern(), g.material());
+			case Goal.PlaceOnPattern g -> builtKey(g.pattern(), g.material());
+			case null, default -> null;
+		};
 	}
 
 	/** "두 횃불": the anchor of 사이 comes twice. */
@@ -124,6 +168,11 @@ public final class SpatialSentences {
 				head = KoGrammar.euro(material) + " " + KoGrammar.eul(Pattern.RING.ko());
 				grammar.add(EURO_MATERIAL);
 			}
+			case WALL, CROSS, STAIRS -> {
+				// 돌로 벽을 쌓아요, 돌로 십자 모양을 만들어요, 흙으로 계단을 만들어요: the size is left to the status line.
+				head = KoGrammar.euro(material) + " " + KoGrammar.eul(goal.pattern().ko());
+				grammar.add(EURO_MATERIAL);
+			}
 			case ROW -> {
 				if (withCounts) {
 					head = KoGrammar.eul(material + " " + SentenceBuilder.counter(goal.size(), counter(goal.material(), material)))
@@ -144,7 +193,26 @@ public final class SpatialSentences {
 	/** "조약돌 기둥 위에 횃불을 놓아요." */
 	public static SpatialText placeOnPattern(Goal.PlaceOnPattern goal, String obj, String material, Verb verb,
 											 int level, boolean finale, boolean past) {
+		return placeOnPattern(goal, obj, material, verb, level, finale, past, SentenceBuilder.Namer.NONE);
+	}
+
+	/**
+	 * Same. At a level that joins clauses (ladder.json {@code connectives}) a structure that no earlier step
+	 * built is built in the same sentence: "조약돌로 기둥을 쌓고 그 위에 횃불을 놓아요."
+	 */
+	public static SpatialText placeOnPattern(Goal.PlaceOnPattern goal, String obj, String material, Verb verb,
+											 int level, boolean finale, boolean past, SentenceBuilder.Namer namer) {
 		List<String> grammar = new ArrayList<>(goal.relation().grammarIds(Role.TARGET));
+		if (builtHere(goal, material, level, past, namer)) {
+			Verb building = buildVerb(goal.pattern());
+			String built = KoGrammar.euro(material) + " " + KoGrammar.eul(goal.pattern().ko()) + " "
+					+ building.stem() + "고 ";
+			grammar.add(EURO_MATERIAL);
+			grammar.add(GO_SEQUENCE);
+			String head = built + SentenceBuilder.relationPhrase("그", goal.relation(), Role.TARGET) + " "
+					+ SentenceBuilder.objectPhrase(obj, verb);
+			return finish(head, verb, level, finale, past, grammar);
+		}
 		if (goal.pattern() == Pattern.ROW) {
 			grammar.add(NUM_NATIVE);
 			grammar.add(COUNTER_GAE);
@@ -153,6 +221,26 @@ public final class SpatialSentences {
 		String head = SentenceBuilder.relationPhrase(names[0], goal.relation(), Role.TARGET) + " "
 				+ SentenceBuilder.objectPhrase(names[1], verb);
 		return finish(head, verb, level, finale, past, grammar);
+	}
+
+	/** Relations that read naturally after "…을 쌓고 그": on it, beside it, in it. */
+	private static final java.util.Set<Relation> AFTER_BUILDING = java.util.EnumSet.of(Relation.ON_TOP_OF,
+			Relation.NEXT_TO, Relation.INSIDE);
+
+	/**
+	 * True when the sentence builds the structure itself: the level joins clauses, nothing before the step
+	 * built it, and the shape and the relation read as one sentence. A row stays a counted phrase.
+	 */
+	private static boolean builtHere(Goal.PlaceOnPattern goal, String material, int level, boolean past,
+									 SentenceBuilder.Namer namer) {
+		return !past && material != null && !material.isBlank() && Ladder.shared().rung(level).connectives()
+				&& goal.pattern() != Pattern.ROW && AFTER_BUILDING.contains(goal.relation())
+				&& !namer.builtEarlier(builtKey(goal.pattern(), goal.material()));
+	}
+
+	/** 쌓다 for what is piled up, 만들다 for a cross and stairs (see BuildPatternType). */
+	private static Verb buildVerb(Pattern pattern) {
+		return pattern == Pattern.CROSS || pattern == Pattern.STAIRS ? Verb.CRAFT : Verb.STACK;
 	}
 
 	/** The structure as a noun phrase: "조약돌 기둥", "조약돌 피라미드", "조약돌 울타리", "조약돌 세 개" (a row). */
@@ -188,7 +276,7 @@ public final class SpatialSentences {
 		List<String> ids = new ArrayList<>(switch (goal) {
 			case Goal.PlaceRel g -> placeRel(g, "", Verb.PLACE, level, withCounts, false, past, namer).grammar();
 			case Goal.BuildPattern g -> buildPattern(g, "", Verb.PLACE, level, withCounts, false, past).grammar();
-			case Goal.PlaceOnPattern g -> placeOnPattern(g, "", "", Verb.PLACE, level, false, past).grammar();
+			case Goal.PlaceOnPattern g -> placeOnPattern(g, "", "재료", Verb.PLACE, level, false, past).grammar();
 			default -> List.of();
 		});
 		if (!ids.isEmpty() && conditions.stream().anyMatch(c -> c instanceof Condition.Time)) {
