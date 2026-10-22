@@ -107,10 +107,10 @@ class GeneratorWaveNineTest {
 
 	@Test
 	void i2_aSizeOutsideTheRangeOfTheShapeIsRefused() {
-		Goal five = new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW, "minecraft:gravel", 5);
+		Goal five = new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW, "minecraft:gravel", 8);
 		assertFalse(problems(five).isEmpty());
 		assertEquals(List.of(), problems(new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW,
-				"minecraft:gravel", 4)));
+				"minecraft:gravel", 7)));
 	}
 
 	// ------------------------------------------------------------ 4. a SEQUENCE part teaches its word
@@ -422,8 +422,8 @@ class GeneratorWaveNineTest {
 				word("red"), List.of(), NAMES));
 		assertEquals("빨간색 염료를 만들었어요.", SentenceBuilder.ceremony(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
 				word("red"), List.of(), NAMES));
-		// without the colour the dye is the dye
-		assertEquals("염료를 만드세요.", SentenceBuilder.normal(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
+		// a dye is its colour: the general word 염료 never stands for the red dye
+		assertEquals("빨간색 염료를 만드세요.", SentenceBuilder.normal(new Goal.Craft("minecraft:red_dye", 1, null, List.of()),
 				word("dye"), List.of(), 2, false, NAMES));
 	}
 

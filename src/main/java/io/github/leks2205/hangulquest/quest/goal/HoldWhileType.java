@@ -84,7 +84,7 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 	@Override
 	public boolean evaluate(Goal.HoldWhile goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		boolean holding = Hands.holds(obs, goal.item());
+		boolean holding = Hands.holds(tracker, obs, goal.item());
 		if (goal.innerGoal() != null) {
 			GoalEvaluator.Tracker sub = Clauses.sub(tracker, 0, 1);
 			if (!holding) {
@@ -126,9 +126,21 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 	public String korean(Goal.HoldWhile goal, SentenceContext c) {
 		String held = KoGrammar.eul(heldName(goal, c)) + (whileHolding(goal, c.level()) ? " 들고 있는 동안" : " 들고");
 		if (goal.innerGoal() != null) {
-			return held + " " + Clauses.sentence(goal.innerGoal(), c, c.level());
+			String inner = Clauses.sentence(goal.innerGoal(), c, c.level());
+			// "들고 있는 동안 … 일 초 동안 바라봐요" would say 동안 twice: the look keeps its length, the sentence does not
+			return held + " " + (whileHolding(goal, c.level()) ? withoutSeconds(goal.innerGoal(), inner) : inner);
 		}
 		return SentenceBuilder.phrase(held + conditionPhrase(goal, c), Verb.WALK, c.level(), c.finale());
+	}
+
+	/** The look without its "일 초 동안": 들고 있는 동안 already is the 동안 of the sentence. */
+	private static String withoutSeconds(Goal inner, String sentence) {
+		long dwell = switch (inner) {
+			case Goal.LookAtBlock look -> look.dwellMs();
+			case Goal.LookAtEntity look -> look.dwellMs();
+			default -> 0L;
+		};
+		return dwell > 0 ? sentence.replace(" " + SentenceBuilder.secondsPhrase(dwell), "") : sentence;
 	}
 
 	@Override

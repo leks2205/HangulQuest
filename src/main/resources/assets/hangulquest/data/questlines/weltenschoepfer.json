@@ -7,8 +7,9 @@
  "order": 81,
  "concepts": [
   "gen_windswept_hills",
-  "gen_white_concrete_slab",
-  "gen_orange_concrete_powder"
+  "dirt",
+  "gen_quartz_block",
+  "amethyst_block"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -23,23 +24,91 @@
   {
    "id": "s1",
    "teach": [
-    "gen_windswept_hills"
+    "gen_windswept_hills",
+    "dirt"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:windswept_hills",
-    "dwellMs": 1000
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:windswept_hills",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:dirt",
+      "count": 4,
+      "verb": "DIG"
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:windswept_hills"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_concrete_slab"
+    "gen_quartz_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_concrete_slab",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:quartz_block",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_quartz_block"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:quartz_block",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "amethyst_block",
+    "gen_quartz_block"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:amethyst_block",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:quartz_block",
+    "size": 3
    },
    "conditions": [
     {
@@ -47,35 +116,18 @@
      "phase": "NIGHT"
     }
    ]
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_orange_concrete_powder"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_concrete_powder",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DAY"
-    }
-   ]
   },
-  "textKo": "낮에 주황색 콘크리트 가루를 놓았어요."
+  "textKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓았어요. 자수정 블록은 건드리면 맑은 소리가 나요."
  },
  "reward": {
   "badge": "weltenschoepfer",
   "words": [
-   "mountain",
-   "campfire",
-   "bell"
+   "gen_windswept_hills",
+   "dirt",
+   "gen_quartz_block",
+   "amethyst_block"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

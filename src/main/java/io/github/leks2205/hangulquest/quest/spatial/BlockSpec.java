@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
+import io.github.leks2205.hangulquest.quest.goal.Accepted;
 import io.github.leks2205.hangulquest.quest.goal.Matching;
 
 import java.util.Map;
@@ -79,10 +80,18 @@ public final class BlockSpec {
 		return ID.matcher(spec).matches();
 	}
 
+	/** The spec without the mark that makes it exact (see {@link Accepted#EXACT}). */
+	private static String bare(String spec) {
+		return spec != null && spec.startsWith(Accepted.EXACT) ? spec.substring(Accepted.EXACT.length()) : spec;
+	}
+
 	/** True when the observed block id satisfies the spec. */
 	public static boolean matches(String spec, String observed) {
 		if (spec == null || observed == null) {
 			return false;
+		}
+		if (spec.startsWith(Accepted.EXACT)) { // a coloured block the clue names by its colour
+			return bare(spec).equals(observed);
 		}
 		if (spec.indexOf('|') >= 0) { // a step that accepts every referent of its taught word (see Accepted)
 			for (String part : spec.split("\\|")) {
@@ -101,6 +110,7 @@ public final class BlockSpec {
 
 	/** A concrete block that stands for the spec when a name is needed: the oak door for {@code #minecraft:doors}. */
 	public static String representative(String spec) {
+		spec = bare(spec);
 		if (spec != null && spec.indexOf('|') >= 0) {
 			spec = spec.substring(0, spec.indexOf('|'));
 		}
@@ -185,7 +195,7 @@ public final class BlockSpec {
 
 	/** True for the id of a creature a placement is measured against; every other spec is a block, family or tag. */
 	public static boolean isEntityAnchor(String spec) {
-		return spec != null && ENTITY_ANCHORS.contains(spec);
+		return spec != null && ENTITY_ANCHORS.contains(bare(spec));
 	}
 
 	/** Workstations and the like: no facing property in the game, but a side the player works at. */

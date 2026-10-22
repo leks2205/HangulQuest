@@ -5,11 +5,12 @@
  "topic": "주황",
  "tier": 3,
  "order": 1134,
- "koreanLevel": 6,
  "concepts": [
   "gen_orange_dye",
-  "gen_orange_wool",
-  "gen_orange_wool"
+  "gen_yellow_dye",
+  "gen_copper_block",
+  "wool",
+  "gen_orange_banner"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -23,48 +24,14 @@
   {
    "id": "s1",
    "teach": [
-    "gen_orange_dye"
+    "gen_orange_dye",
+    "gen_yellow_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:orange_dye",
-    "count": 2
-   },
-   "clue": {
-    "ko": "주황색 염료를 만들어요."
-   },
-   "hint": {
-    "ko": "주황색 염료를 만들어요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_orange_wool"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:orange_wool",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "주황색 양털을 봐요."
-   },
-   "hint": {
-    "ko": "주황색 양털을 봐요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_orange_wool"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_wool",
-    "count": 1
+    "count": 1,
+    "with": ["minecraft:red_dye", "minecraft:yellow_dye"]
    },
    "conditions": [
     {
@@ -73,14 +40,63 @@
     }
    ]
   },
-  "textKo": "낮에 주황빛 천을 펼쳤어요."
+  {
+   "id": "s2",
+   "teach": [
+    "gen_copper_block",
+    "wool"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:copper_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:orange_wool",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_orange_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:orange_banner",
+    "count": 1
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_orange_banner"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:orange_banner",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
+  },
+  "textKo": "새벽에 주황색 현수막을 걸었어요. 주황색은 빨간색과 노란색을 섞으면 나와요."
  },
  "reward": {
   "badge": "orangewerk",
   "words": [
    "gen_orange_dye",
-   "gen_orange_wool",
-   "gen_orange_wool"
+   "gen_yellow_dye",
+   "gen_copper_block",
+   "wool"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

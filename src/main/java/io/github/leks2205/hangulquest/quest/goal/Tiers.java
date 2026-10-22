@@ -120,6 +120,11 @@ public final class Tiers {
 		return official(parts[0], parts[1]);
 	}
 
+	/** The name to say for an exact id: its tier (철 곡괭이) or its colour (빨간색 침대). */
+	public static String exact(String id, String name) {
+		return io.github.leks2205.hangulquest.quest.Colours.withColour(id, qualify(id, name));
+	}
+
 	/** The vanilla name of a material and piece: 철 흉갑, 가죽 조끼. */
 	public static String official(String registryMaterial, String registryPiece) {
 		if ("leather".equals(registryMaterial) && LEATHER.containsKey(registryPiece)) {

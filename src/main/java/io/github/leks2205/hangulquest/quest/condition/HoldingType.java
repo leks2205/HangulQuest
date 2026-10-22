@@ -55,6 +55,12 @@ final class HoldingType implements ConditionType<Condition.Holding> {
 	}
 
 	@Override
+	public boolean met(Condition.Holding condition, Observation obs,
+					   io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
+		return Hands.holds(accepted, obs, condition.item());
+	}
+
+	@Override
 	public String prefix(Condition.Holding condition, SentenceBuilder.Namer namer) {
 		String name = namer.item(condition.item());
 		return name == null || name.isBlank() ? "" : KoGrammar.eul(name) + " 들고 ";

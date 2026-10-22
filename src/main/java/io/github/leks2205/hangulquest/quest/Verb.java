@@ -19,6 +19,8 @@ public enum Verb {
 	LOOK("보다", "anschauen"),
 	WATCH("바라보다", "betrachten"),
 	DEFEAT("물리치다", "besiegen"),
+	/** Not to be done to a friendly creature: 주민을 해치지 마세요 (물리치다 is for an enemy). */
+	HARM("해치다", "verletzen"),
 	GO("가다", "gehen"),
 	CLIMB("올라가다", "hinaufsteigen"),
 	DESCEND("내려가다", "hinabsteigen"),

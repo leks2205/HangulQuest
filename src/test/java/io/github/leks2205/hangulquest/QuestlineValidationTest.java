@@ -138,14 +138,17 @@ class QuestlineValidationTest {
 				if (step.conditions().isEmpty()) {
 					continue;
 				}
-				var word = catalog.byConceptId(step.teach().get(0)).orElse(null);
+				var word = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
 				String plain = SentenceBuilder.normal(step.goal(), word, List.of(),
 						trail.koreanLevel(), "finale".equals(step.id()), namer);
 				String spoken = SentenceBuilder.normal(step.goal(), word, step.conditions(),
 						trail.koreanLevel(), "finale".equals(step.id()), namer);
-				assertFalse(plain.equals(spoken),
+				assertTrue(speaksItsConditions(step.goal(), step.conditions(), plain, spoken),
 						trail.id() + "/" + step.id() + " does not speak its conditions: " + spoken);
 				for (var condition : step.conditions()) {
+					if (io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(step.goal()).says(step.goal(), condition)) {
+						continue; // the goal's own sentence speaks it (바다에서 수영해요, 숲으로 … 가요)
+					}
 					if (condition instanceof Condition.InBiome biome
 							&& biome.biome().equals("minecraft:beach")) {
 						assertTrue(spoken.contains("해변에서"), spoken);
@@ -160,6 +163,18 @@ class QuestlineValidationTest {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Whether the sentence with the conditions says more than the one without: every condition is in it. A condition
+	 * the goal speaks by itself (the biome of a -(으)러 trip, the water of a swim) adds nothing, and a step whose
+	 * conditions are all of that kind is as spoken as it can be.
+	 */
+	static boolean speaksItsConditions(io.github.leks2205.hangulquest.quest.Goal goal, List<Condition> conditions,
+									   String plain, String spoken) {
+		var type = io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(goal);
+		boolean allSaid = conditions.stream().allMatch(condition -> type.says(goal, condition));
+		return allSaid || !plain.equals(spoken);
 	}
 
 	@Test
@@ -295,7 +310,7 @@ class QuestlineValidationTest {
 				if (ko == null || step.teach().isEmpty()) {
 					continue;
 				}
-				var word = catalog.byConceptId(step.teach().get(0)).orElse(null);
+				var word = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
 				// a verb is in the clue as a conjugated form (올라가요 for 올라가다)
 				assertTrue(word == null || SentenceBuilder.mentions(ko, word),
 						trail.id() + "/" + step.id() + " clue omits the taught word " + word + ": " + ko);

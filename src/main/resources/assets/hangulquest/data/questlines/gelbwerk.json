@@ -5,11 +5,13 @@
  "topic": "색",
  "tier": 2,
  "order": 1132,
- "koreanLevel": 6,
  "concepts": [
   "gen_yellow_dye",
-  "gen_yellow_concrete",
-  "gen_yellow_bed"
+  "dandelion",
+  "gen_yellow_wool",
+  "honey_block",
+  "gen_yellow_banner",
+  "gen_yellow_stained_glass"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -22,64 +24,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_dye"
+    "gen_yellow_dye",
+    "dandelion"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:yellow_dye",
-    "count": 2
-   },
-   "clue": {
-    "ko": "노란색 염료를 만들어요."
-   },
-   "hint": {
-    "ko": "노란색 염료를 만들어요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_yellow_concrete"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:yellow_concrete",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "노란색 콘크리트를 봐요."
-   },
-   "hint": {
-    "ko": "노란색 콘크리트를 봐요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_yellow_bed"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_bed",
     "count": 1
    },
    "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:dandelion"
+    },
     {
      "type": "TIME",
      "phase": "DAY"
     }
    ]
   },
-  "textKo": "낮에 노란 천을 펼쳤어요."
+  {
+   "id": "s2",
+   "teach": [
+    "gen_yellow_wool",
+    "honey_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:honey_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:yellow_wool",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_yellow_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:yellow_banner",
+    "count": 1
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_yellow_stained_glass"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:yellow_stained_glass",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  },
+  "textKo": "날씨가 맑을 때 노란색 색유리를 놓았어요. 노란색 염료는 민들레로 만들어요."
  },
  "reward": {
   "badge": "gelbwerk",
   "words": [
    "gen_yellow_dye",
-   "gen_yellow_concrete",
-   "gen_yellow_bed"
+   "dandelion",
+   "gen_yellow_wool",
+   "honey_block"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

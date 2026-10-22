@@ -200,7 +200,9 @@ def check_place_wrong_object(row, text, params, ctx):
     for clause in split_clauses(text):
         for match in PLACE_FORM.finditer(clause):
             phrase = _object_phrase(clause, match.start(), ctx.lex)
-            hit = next((w for w in wrong if phrase and w in phrase), None)
+            # the placed thing is the last word before 을/를; a banner or carpet earlier in the clause is an anchor
+            noun = phrase.split()[-1] if phrase else None
+            hit = next((w for w in wrong if noun and w in noun), None)
             if hit:
                 out.append(f"'{phrase}' + 놓다: use {hints.get(hit, '심다/깔다/걸다')}")
                 break

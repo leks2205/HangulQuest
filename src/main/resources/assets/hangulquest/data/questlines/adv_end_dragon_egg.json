@@ -6,8 +6,7 @@
  "tier": 2,
  "order": 248,
  "concepts": [
-  "ender_dragon",
-  "gen_blue_banner",
+  "gen_piston",
   "dragon_egg"
  ],
  "requires": {
@@ -21,24 +20,53 @@
   {
    "id": "s1",
    "teach": [
-    "ender_dragon"
+    "gen_piston"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ender_dragon",
+    "type": "CRAFT",
+    "item": "minecraft:piston",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_banner"
+    "gen_piston"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_banner",
+    "block": "minecraft:piston",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "NORTH"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "dragon_egg"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:dragon_egg",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_pickaxe"
+    }
+   ]
   }
  ],
  "finale": {
@@ -54,15 +82,15 @@
    },
    "conditions": []
   },
-  "textKo": "그다음 세대 — 드래곤 알을 손에 넣어 다음 세대를 준비해요."
+  "textKo": "드래곤 알을 구했어요. 드래곤 알은 드래곤을 물리치면 생겨요."
  },
  "reward": {
   "badge": "adv_end_dragon_egg",
   "words": [
-   "ender_dragon",
-   "torch",
+   "gen_piston",
    "dragon_egg"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

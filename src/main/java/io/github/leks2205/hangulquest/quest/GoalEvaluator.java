@@ -62,6 +62,13 @@ public final class GoalEvaluator {
 		/** Mistakes already reported for this step; capped, so spamming placements cannot sink a construction. */
 		public int formErrorsReported;
 		/**
+		 * The act of the step happened while a condition that is spoken as a clause (밤이 되면, 비가 오면) did not
+		 * hold: a slip against that clause, kept apart from {@link #formErrors} because it is evidence about a
+		 * different construction. Never saved; the engine reports and clears it.
+		 */
+		public int conditionSlips;
+		public int conditionSlipsReported;
+		/**
 		 * Blocks the player placed to finish earlier steps of the trail, by step id, as x, y, z. This is the
 		 * memory behind the anchor {@code "@s2"}. It outlives {@link #clear()} (it is per trail, not per
 		 * step) and is saved with the trail's progress.
@@ -88,6 +95,8 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			conditionSlips = 0;
+			conditionSlipsReported = 0;
 			scratch();
 		}
 
@@ -124,6 +133,8 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			conditionSlips = 0;
+			conditionSlipsReported = 0;
 			scratch();
 		}
 	}
@@ -150,7 +161,7 @@ public final class GoalEvaluator {
 		return false;
 	}
 
-	private static boolean conditionsMetIgnoringTime(List<Condition> conditions, Observation obs) {
+	private static boolean conditionsMetIgnoringTime(List<Condition> conditions, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
 		if (conditions == null) {
 			return true;
 		}
@@ -158,7 +169,7 @@ public final class GoalEvaluator {
 			if (ConditionTypes.of(condition).timeOfDay()) {
 				continue;
 			}
-			if (!conditionMet(condition, obs)) {
+			if (!conditionMet(condition, obs, accepted)) {
 				return false;
 			}
 		}
@@ -166,11 +177,15 @@ public final class GoalEvaluator {
 	}
 
 	public static boolean conditionsMet(List<Condition> conditions, Observation obs) {
+		return conditionsMet(conditions, obs, io.github.leks2205.hangulquest.quest.goal.Accepted.NONE);
+	}
+
+	public static boolean conditionsMet(List<Condition> conditions, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
 		if (conditions == null || conditions.isEmpty()) {
 			return true;
 		}
 		for (Condition condition : conditions) {
-			if (!conditionMet(condition, obs)) {
+			if (!conditionMet(condition, obs, accepted)) {
 				return false;
 			}
 		}
@@ -179,6 +194,10 @@ public final class GoalEvaluator {
 
 	public static boolean conditionMet(Condition condition, Observation obs) {
 		return ConditionTypes.of(condition).met(condition, obs);
+	}
+
+	public static boolean conditionMet(Condition condition, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
+		return ConditionTypes.of(condition).met(condition, obs, accepted);
 	}
 
 	/**
@@ -239,17 +258,48 @@ public final class GoalEvaluator {
 		List<Condition> conditions = playerConditions(goal, allConditions);
 		boolean nightLatch = type.nightLatchable()
 				&& hasNightCondition(conditions)
-				&& !conditionsMet(conditions, obs)
-				&& conditionsMetIgnoringTime(conditions, obs);
+				&& !conditionsMet(conditions, obs, tracker.accepted)
+				&& conditionsMetIgnoringTime(conditions, obs, tracker.accepted);
 		// Being in bed is proof of the night, even after the server skipped to morning. It excuses the
 		// time-of-day condition only: biome, dimension and the rest must still hold.
 		boolean sleepingProof = type.excusesTimeCondition(goal, obs)
 				&& hasNightCondition(conditions)
-				&& conditionsMetIgnoringTime(conditions, obs);
-		if (!conditionsMet(conditions, obs) && !nightLatch && !sleepingProof) {
+				&& conditionsMetIgnoringTime(conditions, obs, tracker.accepted);
+		if (!conditionsMet(conditions, obs, tracker.accepted) && !nightLatch && !sleepingProof) {
+			if (clauseBroken(goal, conditions, obs, tracker)) {
+				tracker.conditionSlips++;
+			}
 			return false;
 		}
-		return type.evaluate(goal, obs, tracker, nightLatch);
+		int before = tracker.count;
+		boolean done = type.evaluate(goal, obs, tracker, nightLatch);
+		if (nightLatch && !done && tracker.count == before && clauseBroken(goal, conditions, obs, tracker)) {
+			tracker.conditionSlips++; // done by day, where the night is what counts
+		}
+		return done;
+	}
+
+	/**
+	 * The act happened this tick although the only conditions that failed are ones spoken as a clause (-(으)면: 밤이
+	 * 되면, 비가 오면). Only a single event can be told: a fresh tracker sees it on the tick it happens. A dwell or a
+	 * distance is not an act, and a lapse of the world (the day ends while the player waits) is not a slip.
+	 */
+	private static boolean clauseBroken(Goal goal, List<Condition> conditions, Observation obs, Tracker tracker) {
+		if (!io.github.leks2205.hangulquest.quest.goal.Clauses.isEvent(goal)) {
+			return false;
+		}
+		for (Condition condition : conditions) {
+			if (!conditionMet(condition, obs, tracker.accepted) && !io.github.leks2205.hangulquest.quest.condition.ConditionForms.hasClause(condition)) {
+				return false;
+			}
+		}
+		Tracker probe = new Tracker();
+		probe.accepted = tracker.accepted;
+		probe.roofedPlacement = tracker.roofedPlacement;
+		probe.refBlocks = tracker.refBlocks;
+		probe.resetFor(goal);
+		GoalTypes.of(goal).evaluate(goal, obs, probe, false);
+		return probe.count > 0;
 	}
 
 	/**

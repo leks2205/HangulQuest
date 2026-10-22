@@ -254,7 +254,7 @@ class GeneratorWaveFourTest {
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, NIGHT, HIGH));
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자세요.", clue(BED, "bed", 2, NIGHT, HIGH));
 		// from level 3 with 의
-		assertEquals("밤에 높이 구십 블록 위의 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
+		assertEquals("밤에 높이 구십 블록 위의 빨간색 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
 		// the height first in the list still ends up next to the place
 		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH, NIGHT));
 		// the hint and the finale line say it the same way
@@ -279,7 +279,7 @@ class GeneratorWaveFourTest {
 	void i4_otherPlaceConditionsMergeLikewise() {
 		Goal apple = new Goal.TakeOut("minecraft:apple", "minecraft:chest", 1);
 		assertEquals("해변 상자에서 사과를 꺼내요.", clue(apple, null, 1, new Condition.InBiome("minecraft:beach")));
-		assertEquals("네더의 침대에서 자세요.", clue(BED, "bed", 3, new Condition.InDimension("minecraft:the_nether")));
+		assertEquals("네더의 빨간색 침대에서 자세요.", clue(BED, "bed", 3, new Condition.InDimension("minecraft:the_nether")));
 		assertEquals("북극곰 근처 침대에서 자요.", clue(BED, "bed", 1, new Condition.NearEntity("minecraft:polar_bear", 8)));
 	}
 
@@ -386,9 +386,9 @@ class GeneratorWaveFourTest {
 
 	/** Block, and the sentence: the choices of the linguist check (see the commit message). */
 	private static final String[][] USED = {
-		{"crafting_table", "제작대를 열어요."}, {"anvil", "모루를 열어요."}, {"stonecutter", "석재 절단기를 열어요."},
-		{"grindstone", "숫돌을 열어요."}, {"enchanting_table", "마법 부여대를 열어요."}, {"beacon", "신호기를 열어요."},
-		{"smithing_table", "대장장이 작업대를 열어요."}, {"cartography_table", "지도 제작대를 열어요."},
+		{"crafting_table", "제작대를 열어요."}, {"anvil", "모루를 사용해요."}, {"stonecutter", "석재 절단기를 사용해요."},
+		{"grindstone", "숫돌을 사용해요."}, {"enchanting_table", "마법 부여대를 열어요."}, {"beacon", "신호기를 사용해요."},
+		{"smithing_table", "대장장이 작업대를 사용해요."}, {"cartography_table", "지도 제작대를 사용해요."},
 		{"jukebox", "주크박스를 틀어요."}, {"respawn_anchor", "리스폰 정박기를 충전해요."},
 		{"copper_bulb", "구리 전구를 켜요."}, {"beehive", "벌통을 수확해요."}, {"bee_nest", "벌집을 수확해요."},
 		{"composter", "퇴비통을 채워요."}, {"cauldron", "가마솥을 채워요."}, {"flower_pot", "화분을 채워요."},
@@ -412,17 +412,17 @@ class GeneratorWaveFourTest {
 
 	@Test
 	void i10_noUsedBlockOfTheContentIsUsedWithTheOldDefault() {
-		int checked = 0;
+		// no floor on how many USE_BLOCK steps the content has: a trail that drops one must not fail this check
+		List<String> offenders = new java.util.ArrayList<>();
 		for (io.github.leks2205.hangulquest.quest.Questline trail : io.github.leks2205.hangulquest.quest.QuestLoader.loadAll()) {
 			for (QuestStep step : trail.allSteps()) {
-				if (step.goal() instanceof Goal.UseBlock use && use.change() == null) {
-					checked++;
-					assertFalse(SentenceBuilder.verbFor(step.goal()) == Verb.USE, trail.id() + "/" + step.id() + " "
-							+ use.block());
+				if (step.goal() instanceof Goal.UseBlock use && use.change() == null
+						&& SentenceBuilder.verbFor(step.goal()) == Verb.USE) {
+					offenders.add(trail.id() + "/" + step.id() + " " + use.block());
 				}
 			}
 		}
-		assertTrue(checked > 40, "only " + checked + " USE_BLOCK steps");
+		assertEquals(List.of(), offenders);
 	}
 
 	// -------------------------------------------------------------------- 12. the form-dependent steps

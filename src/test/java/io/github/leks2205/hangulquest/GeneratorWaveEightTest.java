@@ -88,17 +88,17 @@ class GeneratorWaveEightTest {
 		for (String boat : List.of("minecraft:oak_boat", "minecraft:spruce_boat", "minecraft:birch_boat",
 				"minecraft:bamboo_raft", "minecraft:oak_chest_boat", "minecraft:bamboo_chest_raft")) {
 			Goal mount = new Goal.Mount(boat, 1500);
-			assertEquals("배에 앉아요.", clue(mount, "boat", 1), boat);
-			assertEquals("배에 앉으세요.", clue(mount, "boat", 2), boat);
-			assertEquals("배에 앉아요.", SentenceBuilder.hint(mount, word("boat"), List.of(), ANIMALS), boat + " (fixture)");
-			assertEquals("배에 앉았어요.", SentenceBuilder.ceremony(mount, word("boat"), List.of(), ANIMALS), boat);
+			assertEquals("배를 타요.", clue(mount, "boat", 1), boat);
+			assertEquals("배를 타세요.", clue(mount, "boat", 2), boat);
+			assertEquals("배를 타요.", SentenceBuilder.hint(mount, word("boat"), List.of(), ANIMALS), boat + " (fixture)");
+			assertEquals("배를 탔어요.", SentenceBuilder.ceremony(mount, word("boat"), List.of(), ANIMALS), boat);
 			assertEquals(List.of(), problems(mount, "boat"), boat);
 		}
 	}
 
 	@Test
 	void i9_aHorseIsNoBoatAndAnUntaughtBoatKeepsItsOwnName() {
-		assertEquals("가문비나무 보트에 앉아요.", clue(new Goal.Mount("minecraft:spruce_boat", 1500), null, 1));
+		assertEquals("가문비나무 보트를 타요.", clue(new Goal.Mount("minecraft:spruce_boat", 1500), null, 1));
 		assertEquals("동물을 타요.", SentenceBuilder.normal(new Goal.Mount("minecraft:horse", 1500), word("boat"), List.of(), 1,
 				false, ANIMALS), "the boat word does not name a horse");
 		assertFalse(problems(new Goal.Mount("minecraft:horse", 1500), "boat").isEmpty());

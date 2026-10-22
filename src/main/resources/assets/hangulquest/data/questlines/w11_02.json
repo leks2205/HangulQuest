@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1112,
  "concepts": [
-  "moon",
-  "night",
-  "gen_cherry_grove",
-  "gen_weathered_copper_trapdoor"
+  "clock",
+  "go",
+  "map",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,72 +22,95 @@
   {
    "id": "s1",
    "teach": [
-    "moon"
+    "clock"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:clock",
     "count": 1
    },
-   "clue": {
-    "ko": "달빛 아래에서 쓸 시계를 만들어요."
-   },
-   "hint": {
-    "ko": "시계는 금 조각과 레드스톤으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:redstone"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "night"
+    "go"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:torch",
-    "count": 8
+    "type": "SWIM",
+    "blocks": 20
    },
-   "clue": {
-    "ko": "밤이 오기 전에 횃불 여덟 개를 놓아요."
-   },
-   "hint": {
-    "ko": "횃불은 막대기와 석탄으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cherry_grove"
+    "map"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:cherry_grove",
-    "dwellMs": 1000
-   }
+    "type": "WALK",
+    "direction": "SOUTH",
+    "blocks": 25
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:map"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_copper_trapdoor"
+    "wait"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper_trapdoor",
-    "count": 4
+    "type": "WAIT",
+    "seconds": 5,
+    "until": "DAY"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "WEST"
+    }
+   ]
   },
-  "textKo": "녹슨 구리 다락문을 네 개 달았어요."
+  "textKo": "서쪽을 보고 낮까지 기다렸어요. 달은 서쪽으로 져요."
  },
  "reward": {
   "badge": "w11_02",
   "words": [
-   "moon",
-   "night",
-   "desert",
-   "candle"
+   "clock",
+   "go",
+   "map",
+   "wait"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

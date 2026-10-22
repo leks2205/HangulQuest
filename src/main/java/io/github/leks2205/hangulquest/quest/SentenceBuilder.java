@@ -121,8 +121,8 @@ public final class SentenceBuilder {
 	/** The clue before the colours turn into adjectives (level 5). */
 	private static String plain(Goal goal, Word word, Word verbWord, List<Condition> conditions, int level,
 								boolean finale, Namer namer) {
-		return attach(prefix(goal, conditions, word, namer, level), core(goal, word, verbWord, conditions, true, level,
-				finale, namer), level);
+		return Colours.at(level, () -> attach(prefix(goal, conditions, word, namer, level),
+				core(goal, word, verbWord, conditions, true, level, finale, namer), level));
 	}
 
 	public static String normal(Goal goal, Word word, List<Condition> conditions) {
@@ -139,9 +139,19 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
+		return hint(goal, word, verbWord, conditions, namer, 1);
+	}
+
+	/**
+	 * The hint of a clue read at {@code clueLevel}. The hint is always written at the easiest level, but it agrees
+	 * with the clue on the colour of a coloured block: kept from level 3, left out below.
+	 */
+	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer,
+							  int clueLevel) {
 		Goal shown = GoalTypes.of(goal).forHint(goal);
-		return Tiers.forHint(() -> attach(prefix(shown, conditions, word, namer, 1),
-				core(shown, word, verbWord, conditions, false, 1, false, namer), 1));
+		return Colours.at(clampLevel(clueLevel), () -> Tiers.forHint(() -> attach(
+				prefix(shown, conditions, word, namer, 1),
+				core(shown, word, verbWord, conditions, false, 1, false, namer), 1)));
 	}
 
 	/**
@@ -150,13 +160,19 @@ public final class SentenceBuilder {
 	 */
 	public static String hint(Goal goal, Word word, Word verbWord, List<Word> more, List<Condition> conditions,
 							  Namer namer) {
+		return hint(goal, word, verbWord, more, conditions, namer, 1);
+	}
+
+	/** Same, for a clue read at {@code clueLevel} (see above). */
+	public static String hint(Goal goal, Word word, Word verbWord, List<Word> more, List<Condition> conditions,
+							  Namer namer, int clueLevel) {
 		Namer all = namer;
 		for (Word extra : more) {
 			if (extra != null && extra != word && !isVerbWord(extra)) {
 				all = SentenceContext.taught(extra, all);
 			}
 		}
-		return hint(goal, word, verbWord, conditions, all);
+		return hint(goal, word, verbWord, conditions, all, clueLevel);
 	}
 
 	public static long seconds(long dwellMs) {
@@ -190,7 +206,7 @@ public final class SentenceBuilder {
 	private static SentenceContext context(Goal goal, Word word, Word verbWord, List<Condition> conditions,
 										   Namer namer, boolean withCounts, int level, boolean finale) {
 		Word named = word == null || isVerbWord(word) ? null : word;
-		return new SentenceContext(objectName(goal, word, namer), verbOf(goal, verbWord, conditions),
+		return new SentenceContext(objectName(goal, word, namer, level), verbOf(goal, verbWord, conditions),
 				withCounts, level, finale, named, SentenceContext.taught(named, namer),
 				conditions == null ? List.of() : conditions);
 	}
@@ -237,11 +253,22 @@ public final class SentenceBuilder {
 	}
 
 	public static String ceremony(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
+		return ceremony(goal, word, verbWord, conditions, namer, 1);
+	}
+
+	/**
+	 * Same, for the finale of a trail of {@code trailLevel}: it names the colour of a coloured block where the clues of
+	 * that trail do (from level 3), because there the step checked it.
+	 */
+	public static String ceremony(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer,
+								  int trailLevel) {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		// The clue may point at the porkchop with the word for the pig; the line that says what was done must not.
 		Word said = word != null && word.entityId != null && word.iconItem != null ? withoutPicture(word) : word;
-		String body = type.ceremony(goal, context(goal, said, verbWord, conditions, namer, true, 1, true));
-		return attach(prefix(goal, conditions, said, namer, 1), body, 1) + ".";
+		return Colours.at(clampLevel(trailLevel), () -> {
+			String body = type.ceremony(goal, context(goal, said, verbWord, conditions, namer, true, 1, true));
+			return attach(prefix(goal, conditions, said, namer, 1), body, 1) + ".";
+		});
 	}
 
 	public static Word withoutPicture(Word word) {
@@ -373,7 +400,7 @@ public final class SentenceBuilder {
 	 * drawn with it), else the registry name. A word that covers another role of the goal (the anchor, the
 	 * recipient) is spoken in that role by the goal type.
 	 */
-	private static String objectName(Goal goal, Word word, Namer namer) {
+	private static String objectName(Goal goal, Word word, Namer namer, int level) {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		// A verb concept (보다, 걷다, 짓다) can be taught by a step but is never the object of one.
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
@@ -388,7 +415,8 @@ public final class SentenceBuilder {
 					String named = type.objectName(goal, SentenceContext.taught(word, namer));
 					return named == null || named.isBlank() ? word.ko : named;
 				}
-				return Tiers.qualify(id, word.ko);
+				return typed && (kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM) && id != null
+						? SentenceContext.stand(word, kind, id, namer) : Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);
 			return registry == null || registry.isBlank() ? word.ko : registry;
@@ -543,7 +571,7 @@ public final class SentenceBuilder {
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		List<String> phrases = new java.util.ArrayList<>();
 		List<String> places = new java.util.ArrayList<>();
-		for (Said said : said(goal, conditions, taught, level)) {
+		for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 			phrases.add(said.phrase());
 			places.add(said.place());
 		}
@@ -621,7 +649,7 @@ public final class SentenceBuilder {
 		List<String> phrases = new java.util.ArrayList<>();
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-			for (Said said : said(goal, conditions, taught, level)) {
+			for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 				String phrase = said.phrase().trim();
 				if (!phrase.isEmpty()) {
 					phrases.add(phrase);
@@ -653,7 +681,7 @@ public final class SentenceBuilder {
 			return missing;
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-		for (Said said : said(goal, conditions, taught, level)) {
+		for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 			ConditionType<Condition> conditionType = ConditionTypes.of(said.condition());
 			String phrase = said.phrase().trim();
 			if (phrase.isEmpty() || clue.contains(phrase)) {

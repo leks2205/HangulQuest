@@ -65,6 +65,10 @@ public final class Clauses {
 
 	/** The sentence context of a part of the step: its own object name and verb at the given level. */
 	public static SentenceContext contextFor(Goal part, SentenceContext c, int level) {
+		return contextFor(part, c, level, false);
+	}
+
+	private static SentenceContext contextFor(Goal part, SentenceContext c, int level, boolean avoided) {
 		GoalType<Goal> type = GoalTypes.of(part);
 		ObjectKind kind = type.objectKind(part);
 		String obj = switch (kind) {
@@ -75,7 +79,8 @@ public final class Clauses {
 				yield name == null ? "" : name;
 			}
 		};
-		return c.forPart(obj, type.verb(part, VerbTable.shared()), withoutConnectives(level));
+		return c.forPart(obj, avoided ? type.avoidedVerb(part, VerbTable.shared()) : type.verb(part, VerbTable.shared()),
+				withoutConnectives(level));
 	}
 
 	/**
@@ -119,10 +124,14 @@ public final class Clauses {
 
 	/** Cuts the part's level-1 sentence in front of its verb; null when it does not end the expected way. */
 	public static Split split(Goal part, SentenceContext c) {
+		return split(part, c, false);
+	}
+
+	private static Split split(Goal part, SentenceContext c, boolean avoided) {
 		if (part == null) {
 			return null;
 		}
-		SentenceContext partContext = contextFor(part, c, 1);
+		SentenceContext partContext = contextFor(part, c, 1, avoided);
 		String sentence = GoalTypes.of(part).korean(part, partContext);
 		String tail = partContext.verb().polite() + ".";
 		if (sentence == null || !sentence.endsWith(tail)) {
@@ -139,13 +148,13 @@ public final class Clauses {
 
 	/** "침대에서 자지 마세요" (no full stop). */
 	public static String negative(Goal part, SentenceContext c) {
-		Split split = split(part, withoutCounts(c));
+		Split split = split(part, withoutCounts(c), true);
 		return split == null ? "" : split.head() + split.verb().stem() + "지 마세요";
 	}
 
 	/** "침대에서 자지 않았어요" (no full stop). */
 	public static String pastNegative(Goal part, SentenceContext c) {
-		Split split = split(part, withoutCounts(c));
+		Split split = split(part, withoutCounts(c), true);
 		return split == null ? "" : split.head() + split.verb().stem() + "지 않았어요";
 	}
 
@@ -165,6 +174,16 @@ public final class Clauses {
 		} catch (RuntimeException broken) {
 			return false;
 		}
+	}
+
+	/** Goals that one event completes: a fresh tracker sees it on the tick it happens (no dwell, no distance). */
+	public static boolean isEvent(Goal part) {
+		return part instanceof Goal.PlaceBlock || part instanceof Goal.PlaceRel || part instanceof Goal.PlaceOnPattern
+				|| part instanceof Goal.BuildPattern || part instanceof Goal.BreakBlock || part instanceof Goal.Craft
+				|| part instanceof Goal.Smelt || part instanceof Goal.Give || part instanceof Goal.PutIn
+				|| part instanceof Goal.TakeOut
+				|| part instanceof Goal.UseBlock || part instanceof Goal.InteractEntity
+				|| part instanceof Goal.ConsumeItem;
 	}
 
 	/** Checks the registry ids of a part without comparing it to the taught word. */

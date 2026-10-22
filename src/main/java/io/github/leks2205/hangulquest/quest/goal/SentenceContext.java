@@ -1,6 +1,7 @@
 package io.github.leks2205.hangulquest.quest.goal;
 
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.Colours;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
@@ -140,7 +141,7 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 			return "";
 		}
 		if (wordNames(kind, id)) {
-			return Tiers.qualify(id, word.ko);
+			return kind == ObjectKind.ENTITY ? Tiers.qualify(id, word.ko) : stand(word, kind, id, namer);
 		}
 		String name = switch (kind) {
 			case BLOCK -> namer.block(id);
@@ -153,7 +154,11 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 	/** Same, for the main object of a part: the word also counts when it is only drawn with the id. */
 	public String nameOfObject(ObjectKind kind, String id) {
-		return id != null && word != null && wordCovers(word, kind, id) ? Tiers.qualify(id, word.ko) : name(kind, id);
+		if (id != null && word != null && wordCovers(word, kind, id)) {
+			return kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM ? stand(word, kind, id, namer)
+					: Tiers.qualify(id, word.ko);
+		}
+		return name(kind, id);
 	}
 
 	/** The same context with another taught word. */
@@ -182,6 +187,34 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		return word.ko + " " + name;
 	}
 
+	/**
+	 * The word a taught noun stands for in a sentence about this id. Usually the word itself, but it does not shorten
+	 * away what the goal depends on: the colour of a coloured block stays in front of the word (빨간색 침대, a
+	 * level-5 sentence turns it into the adjective), and a variant with a longer name of its own that the word merely
+	 * covers keeps its full name (영혼 랜턴, 영혼 모닥불), unless the word is drawn with that very item.
+	 */
+	public static String stand(Word word, ObjectKind kind, String id, SentenceBuilder.Namer base) {
+		String general = Tiers.exact(id, word.ko);
+		SentenceBuilder.Namer registryNamer = base.untaught();
+		String registry = kind == ObjectKind.ITEM ? registryNamer.item(id) : registryNamer.block(id);
+		if (registry == null || registry.equals(word.ko) || !registry.endsWith(word.ko) || !general.equals(word.ko)) {
+			return general;
+		}
+		String colour = Colours.leadingColour(registry);
+		if (colour != null && !word.ko.startsWith(colour)) {
+			// levels 1 and 2 leave the colour out (and the goal then takes any colour of the family)
+			return Colours.kept() ? colour + " " + general : general;
+		}
+		// a soul torch or campfire is of the same family as the plain one but not the same thing (blue fire): it keeps its
+		// name, while a spruce door is any door
+		String family = Matching.blockFamily(id);
+		boolean variant = family.equals("torch") || family.equals("campfire");
+		if (variant && !word.referents.contains(id) && !wordPictures(word, id) && registry.endsWith(" " + word.ko)) {
+			return registry;
+		}
+		return general;
+	}
+
 	/** A namer that says the taught word for the ids it names and defers to {@code base} for the rest. */
 	public static SentenceBuilder.Namer taught(Word word, SentenceBuilder.Namer base) {
 		if (word == null || word.ko == null || word.ko.isBlank()) {
@@ -200,13 +233,13 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 			@Override
 			public String block(String id) {
-				return wordNames(word, ObjectKind.BLOCK, id, base) ? Tiers.qualify(id, word.ko)
+				return wordNames(word, ObjectKind.BLOCK, id, base) ? stand(word, ObjectKind.BLOCK, id, base)
 						: described(word, id, base.block(id));
 			}
 
 			@Override
 			public String item(String id) {
-				return wordNames(word, ObjectKind.ITEM, id, base) ? Tiers.qualify(id, word.ko)
+				return wordNames(word, ObjectKind.ITEM, id, base) ? stand(word, ObjectKind.ITEM, id, base)
 						: described(word, id, base.item(id));
 			}
 

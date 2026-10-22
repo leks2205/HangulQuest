@@ -450,7 +450,7 @@ class SpatialGoalsTest {
 
 	@Test
 	void patternSizesMustFitTheSevenCube() {
-		for (int size : new int[]{1, 5, 9}) {
+		for (int size : new int[]{1, 8, 9}) {
 			assertFalse(problems(new Goal.BuildPattern(Pattern.PILLAR, COBBLE, size), List.of("cobblestone"), null,
 					CLEAN_EN, CLEAN_DE).isEmpty(), "pillar " + size);
 		}
@@ -458,7 +458,7 @@ class SpatialGoalsTest {
 				CLEAN_EN, CLEAN_DE).isEmpty());
 		assertFalse(problems(new Goal.BuildPattern(Pattern.RING, COBBLE, 4), List.of("cobblestone"), null,
 				CLEAN_EN, CLEAN_DE).isEmpty());
-		assertEquals(List.of(), problems(new Goal.BuildPattern(Pattern.ROW, COBBLE, 4), List.of("cobblestone"), null,
+		assertEquals(List.of(), problems(new Goal.BuildPattern(Pattern.ROW, COBBLE, 7), List.of("cobblestone"), null,
 				CLEAN_EN, CLEAN_DE));
 		assertFalse(problems(new Goal.BuildPattern(Pattern.PILLAR, "#minecraft:nonsense", 3), List.of(), null,
 				CLEAN_EN, CLEAN_DE).isEmpty());

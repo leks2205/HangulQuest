@@ -188,6 +188,27 @@ class PlaytestTest {
 	}
 
 	@Test
+	void aLongWalkCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String goal : List.of("{\"type\": \"WALK\", \"direction\": \"NORTH\", \"blocks\": 60}",
+				"{\"type\": \"WALK\", \"direction\": \"EAST\", \"blocks\": 150}")) {
+			assertEquals("completed in 2 steps", play(probe("longwalk", goal), catalog), goal);
+		}
+	}
+
+	@Test
+	void aLongPillarOfLogsAndALongRowCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String goal : List.of(
+				"{\"type\": \"BUILD_PATTERN\", \"pattern\": \"PILLAR\", \"material\": \"#minecraft:logs\", \"size\": 7}",
+				"{\"type\": \"BUILD_PATTERN\", \"pattern\": \"PILLAR\", \"material\": \"minecraft:oak_log\", \"size\": 5}",
+				"{\"type\": \"BUILD_PATTERN\", \"pattern\": \"ROW\", \"material\": \"minecraft:stone\", \"size\": 7}",
+				"{\"type\": \"PLACE_ON_PATTERN\", \"block\": \"minecraft:torch\", \"relation\": \"ON_TOP_OF\", \"pattern\": \"PILLAR\", \"material\": \"#minecraft:logs\", \"size\": 6}")) {
+			assertEquals("completed in 2 steps", play(probe("longpillar", goal), catalog), goal);
+		}
+	}
+
+	@Test
 	void anAvoidOnACreatureAndAnEquipOnASlotTagCanBePlayed() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
 		for (String goal : List.of(
@@ -307,6 +328,7 @@ class PlaytestTest {
 			case Goal.LieDown g -> (int) (g.dwellMs() / 50) + 40;
 			case Goal.Mount g -> (int) (g.dwellMs() / 50) + 40;
 			case Goal.Swim g -> g.blocks() + 40;
+			case Goal.Walk g -> g.blocks() + 40; // one block a tick
 			case Goal.Transit g -> 60;
 			case Goal.Breed g -> 40;
 			default -> 40;

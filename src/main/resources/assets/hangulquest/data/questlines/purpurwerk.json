@@ -5,11 +5,12 @@
  "topic": "보라",
  "tier": 3,
  "order": 1133,
- "koreanLevel": 6,
  "concepts": [
   "gen_purple_dye",
-  "gen_purple_wool",
-  "gen_purple_wool"
+  "gen_blue_dye",
+  "adv_block_purpur_block",
+  "wool",
+  "gen_purple_banner"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -23,47 +24,59 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_dye"
+    "gen_purple_dye",
+    "gen_blue_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:purple_dye",
-    "count": 2
+    "count": 1,
+    "with": ["minecraft:blue_dye", "minecraft:red_dye"]
    },
-   "clue": {
-    "ko": "보라색 염료를 만들어요."
-   },
-   "hint": {
-    "ko": "보라색 염료를 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_purple_wool"
+    "adv_block_purpur_block",
+    "wool"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:purple_wool",
-    "dwellMs": 800
+    "type": "PLACE_REL",
+    "block": "minecraft:purpur_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:purple_wool",
+    "count": 1
    },
-   "clue": {
-    "ko": "보라색 양털을 봐요."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_purple_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:purple_banner",
+    "count": 1
    },
-   "hint": {
-    "ko": "보라색 양털을 봐요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_wool"
+    "gen_purple_banner"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_wool",
+    "block": "minecraft:purple_banner",
     "count": 1
    },
    "conditions": [
@@ -73,14 +86,17 @@
     }
    ]
   },
-  "textKo": "저녁에 보랏빛 천을 펼쳤어요."
+  "textKo": "저녁에 보라색 현수막을 걸었어요. 보라색은 빨간색과 파란색을 섞으면 나와요."
  },
  "reward": {
   "badge": "purpurwerk",
   "words": [
    "gen_purple_dye",
-   "gen_purple_wool",
-   "gen_purple_wool"
+   "gen_blue_dye",
+   "adv_block_purpur_block",
+   "wool"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

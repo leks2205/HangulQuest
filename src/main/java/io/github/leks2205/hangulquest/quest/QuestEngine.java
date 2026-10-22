@@ -209,7 +209,8 @@ public final class QuestEngine {
 			}
 			int beforeCount = track.tracker.count;
 			long beforeDwell = track.tracker.dwellMs;
-			track.tracker.accepted = acceptedFor(step);
+			track.tracker.accepted = acceptedFor(step).withExact(text.exactColours(step, text.effectiveLevel(
+					track.trail.koreanLevel())));
 			track.tracker.refBlocks = step.placedBefore();
 			boolean complete = GoalEvaluator.tick(step.goal(), step.conditions(), obs, track.tracker);
 			completion.formMisses(track, obs);

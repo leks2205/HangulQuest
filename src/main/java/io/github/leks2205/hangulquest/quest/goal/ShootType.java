@@ -263,7 +263,14 @@ final class ShootType implements GoalType<Goal.Shoot> {
 
 	@Override
 	public ObjectKind objectKind(Goal.Shoot goal) {
-		return goal.entity() != null ? ObjectKind.ENTITY : goal.block() != null ? ObjectKind.BLOCK : ObjectKind.ITEM;
+		// without a target there is no object to check (the weapon is a mention): not "bad item null"
+		return goal.entity() != null ? ObjectKind.ENTITY : goal.block() != null ? ObjectKind.BLOCK : ObjectKind.NONE;
+	}
+
+	/** A targetless shot is still about its weapon: the taught word may name it. */
+	@Override
+	public boolean covers(Goal.Shoot goal, io.github.leks2205.hangulquest.data.Concept concept) {
+		return mentions(goal).stream().anyMatch(mention -> GoalType.covers(mention, concept));
 	}
 
 	@Override

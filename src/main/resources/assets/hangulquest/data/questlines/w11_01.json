@@ -6,10 +6,8 @@
  "tier": 2,
  "order": 1111,
  "concepts": [
-  "gen_weathered_copper_bulb",
-  "gen_orange_bed",
-  "gen_resin_block",
-  "gen_deepslate_brick_wall"
+  "sea_lantern",
+  "gen_end_rod"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,60 +20,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weathered_copper_bulb"
+    "sea_lantern"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_bulb",
-    "count": 1
-   }
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:sea_lantern",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_orange_bed"
+    "gen_end_rod"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_bed",
-    "count": 2
-   }
+    "block": "minecraft:end_rod",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_resin_block"
+    "gen_end_rod"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:resin_block",
-    "count": 4
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:end_rod",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_deepslate_brick_wall"
+    "gen_end_rod"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:deepslate_brick_wall",
-    "count": 3
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:end_rod",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "심층암 벽돌 담장을 세 개 놓았어요."
+  "textKo": "엔드 막대기를 바라봤어요. 엔드 막대기는 빛을 내요."
  },
  "reward": {
   "badge": "w11_01",
   "words": [
-   "nether_star",
-   "beacon",
-   "obsidian",
-   "sky"
+   "sea_lantern",
+   "gen_end_rod"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

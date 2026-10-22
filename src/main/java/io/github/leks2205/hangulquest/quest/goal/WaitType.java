@@ -174,6 +174,13 @@ final class WaitType implements GoalType<Goal.Wait> {
 		return null;
 	}
 
+	/** A wait has no object, so its length and its end are the handle: ten seconds and until night are two tasks. */
+	@Override
+	public String taskSignature(Goal.Wait goal) {
+		return id() + ":" + goal.seconds() + (goal.until() == null ? "" : ":until " + goal.until()) + ":"
+				+ verb(goal, VerbTable.shared()).name();
+	}
+
 	@Override
 	public ObjectKind objectKind() {
 		return ObjectKind.NONE;

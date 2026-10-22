@@ -17,7 +17,41 @@ import java.util.Set;
  * form is evidence against. Ids are those of grammar.json.
  */
 public final class DecidingForms {
+	static final String ADJECTIVE = "L5.adn_adj_eun";
+
 	private DecidingForms() {
+	}
+
+	/** Only those that name the condition of the step (-(으)면, -는 동안) at {@code level}. */
+	public static List<String> ofConditions(QuestStep step, int level) {
+		Goal goal = step.goal();
+		if (goal == null) {
+			return List.of();
+		}
+		Set<String> ids = new LinkedHashSet<>();
+		for (ConditionForm form : SentenceBuilder.conditionForms(goal, step.conditions(), level)) {
+			if (form.decides()) {
+				ids.add(form.grammar());
+			}
+		}
+		return GrammarBook.shared().resolve(List.copyOf(ids), Ladder.shared());
+	}
+
+	/**
+	 * The colour adjective (빨간 침대) when the clue says it and the goal checks that colour. The engine matches
+	 * the coloured block of a goal exactly wherever the clue names its colour, so there the adjective decides the
+	 * step; {@code written} is the grammar the clue carries.
+	 */
+	public static List<String> ofColour(QuestStep step, List<String> written) {
+		Goal goal = step.goal();
+		if (goal == null || !written.contains(ADJECTIVE)) {
+			return List.of();
+		}
+		boolean coloured = GoalTypes.of(goal).mentions(goal).stream().anyMatch(mention ->
+				(mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.BLOCK
+						|| mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.ITEM)
+						&& Colours.isColoured(mention.id()));
+		return coloured ? GrammarBook.shared().resolve(List.of(ADJECTIVE), Ladder.shared()) : List.of();
 	}
 
 	/** The deciding constructions of the step as its text is written at {@code level}. */

@@ -6,9 +6,11 @@
  "tier": 4,
  "order": 80,
  "concepts": [
-  "gen_gray_stained_glass",
-  "gen_ravager",
-  "gen_yellow_banner",
+  "enderman",
+  "ender_pearl",
+  "adv_dimension_the_end",
+  "bow",
+  "adv_item_end_crystal",
   "dragon_egg"
  ],
  "requires": {
@@ -24,35 +26,55 @@
   {
    "id": "s1",
    "teach": [
-    "gen_gray_stained_glass"
+    "enderman"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_stained_glass",
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_ravager"
+    "ender_pearl",
+    "adv_dimension_the_end"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:ravager",
-    "count": 1
-   }
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ender_pearl"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_yellow_banner"
+    "bow",
+    "adv_item_end_crystal"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:yellow_banner",
+    "type": "SHOOT",
+    "weapon": "minecraft:bow",
+    "entity": "minecraft:end_crystal",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   ]
   }
  ],
  "finale": {
@@ -68,15 +90,17 @@
    },
    "conditions": []
   },
-  "textKo": "드래곤 알을 놓아 엔드를 자유롭게 해요."
+  "textKo": "드래곤 알을 놓았어요. 드래곤 알은 엔더 드래곤이 죽으면 나와요."
  },
  "reward": {
   "badge": "letzte_reise",
   "words": [
-   "end",
-   "ender_dragon",
-   "dragon_egg"
+   "enderman",
+   "ender_pearl",
+   "adv_dimension_the_end",
+   "bow"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

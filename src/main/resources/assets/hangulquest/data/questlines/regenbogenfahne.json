@@ -5,12 +5,11 @@
  "topic": "무지개",
  "tier": 3,
  "order": 1135,
- "koreanLevel": 6,
  "concepts": [
-  "gen_magenta_dye",
-  "gen_lime_carpet",
+  "gen_green_dye",
   "adv_item_white_banner",
-  "gen_magenta_banner"
+  "gen_cherry_planks",
+  "gen_green_banner"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -24,65 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_dye"
+    "gen_green_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_dye",
+    "item": "minecraft:green_dye",
     "count": 2
-   },
-   "clue": {
-    "ko": "자홍색 염료를 만들어요."
-   },
-   "hint": {
-    "ko": "자홍색 염료를 만들어요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_lime_carpet"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_carpet",
-    "count": 1
-   },
-   "clue": {
-    "ko": "연두색 양탄자를 깔아요."
-   },
-   "hint": {
-    "ko": "연두색 양탄자를 깔아요."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "adv_item_white_banner"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:white_banner",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "하얀색 현수막을 봐요."
-   },
-   "hint": {
-    "ko": "하얀색 현수막을 봐요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_magenta_banner"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_banner",
-    "count": 1
    },
    "conditions": [
     {
@@ -91,15 +37,64 @@
     }
    ]
   },
-  "textKo": "낮에 무지개 깃발을 세웠어요."
+  {
+   "id": "s2",
+   "teach": [
+    "adv_item_white_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:white_banner",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:white_wool"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_cherry_planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks",
+    "size": 3
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_green_banner"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:green_banner",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks",
+    "size": 3
+   },
+   "conditions": []
+  },
+  "textKo": "판자 기둥 위에 초록색 현수막을 세웠어요. 현수막은 염료로 색을 바꿀 수 있어요."
  },
  "reward": {
   "badge": "regenbogenfahne",
   "words": [
-   "gen_magenta_dye",
-   "gen_lime_carpet",
+   "gen_green_dye",
    "adv_item_white_banner",
-   "gen_magenta_banner"
+   "gen_cherry_planks",
+   "gen_green_banner"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

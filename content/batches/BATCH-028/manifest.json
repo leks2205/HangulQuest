@@ -1,0 +1,701 @@
+{
+ "batch": "BATCH-028",
+ "brief": "content/briefs/BATCH-028.md",
+ "chapter": "the last journeys and the colour chain (w10_08 at level 5; the other fourteen at level 6 by tree depth 16 to 19)",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 49,
+  "formDependentShareOwn": 0.8167,
+  "goalTypes": {
+   "CRAFT": 15,
+   "HOLD_WHILE": 3,
+   "BUILD_PATTERN": 2,
+   "PLACE_ON_PATTERN": 2,
+   "PUT_IN": 1,
+   "CONSUME_ITEM": 3,
+   "DEFEAT_ENTITY": 1,
+   "REACH_DIMENSION": 1,
+   "SHOOT": 1,
+   "PLACE_BLOCK": 6,
+   "SEQUENCE": 1,
+   "AVOID": 2,
+   "REACH_BIOME": 2,
+   "LOOK_AT_ENTITY": 3,
+   "HEAR": 1,
+   "ACQUIRE_ITEM": 3,
+   "REACH_HEIGHT": 1,
+   "SMELT": 1,
+   "EQUIP": 1,
+   "TRADE": 1,
+   "WALK": 1,
+   "LIE_DOWN": 1,
+   "WAIT": 1,
+   "LOOK_AT_BLOCK": 1,
+   "PLACE_REL": 5
+  }
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w10_08",
+   "title": "모래 골렘의 등불",
+   "order": 1108,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "밤에 깎인 사암 기둥 위에 잭오랜턴을 놓았어요. 잭오랜턴은 호박으로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:lantern:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 랜턴을 만들어야 해요.",
+     "hintKo": "낮에 랜턴을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:lantern:HOLD+BREAK_BLOCK:minecraft:gravel:DIG",
+     "formDependent": true,
+     "clueKo": "랜턴을 들고 있는 동안 자갈을 네 개 파야 해요.",
+     "hintKo": "랜턴을 들고 자갈을 파요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:cut_sandstone:STACK",
+     "formDependent": false,
+     "clueKo": "깎인 사암 세 개로 기둥을 쌓아야 해요.",
+     "hintKo": "깎인 사암으로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:jack_o_lantern:ON_TOP_OF:PILLAR/minecraft:cut_sandstone:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 깎인 사암 기둥 위에 잭오랜턴을 놓아야 해요.",
+     "hintKo": "밤에 깎인 사암 기둥 위에 잭오랜턴을 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "kronenfeier",
+   "title": "왕관의 잔치",
+   "order": 74,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 케이크를 먹었어요. 케이크는 달아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:cookie:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 쿠키를 세 개 만들어야 해요.",
+     "hintKo": "낮에 쿠키를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:cookie>minecraft:barrel:PUT_IN|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 통 안에 쿠키를 세 개 넣어야 해요.",
+     "hintKo": "비가 올 때 통 안에 쿠키를 넣어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CONSUME_ITEM",
+     "signature": "CONSUME_ITEM:minecraft:sweet_berries:EAT|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 달콤한 열매를 먹어야 해요.",
+     "hintKo": "저녁에 달콤한 열매를 먹어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "signature": "CONSUME_ITEM:minecraft:cake:EAT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 케이크를 먹어야 해요.",
+     "hintKo": "밤에 케이크를 먹어요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "letzte_reise",
+   "title": "엔드의 끝",
+   "order": 80,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "드래곤 알을 놓았어요. 드래곤 알은 엔더 드래곤이 죽으면 나와요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:enderman:DEFEAT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 엔더맨을 한 마리 물리쳐야 해요.",
+     "hintKo": "맑을 때 엔더맨을 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_DIMENSION",
+     "signature": "REACH_DIMENSION:minecraft:the_end:GO|HOLDING:minecraft:ender_pearl",
+     "formDependent": false,
+     "clueKo": "엔더 진주를 들고 엔드로 가야 해요.",
+     "hintKo": "엔더 진주를 들고 엔드로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:bow:minecraft:end_crystal:HIT|IN_DIMENSION:minecraft:the_end",
+     "formDependent": false,
+     "clueKo": "엔드에서 활로 엔드 수정을 맞혀야 해요.",
+     "hintKo": "엔드에서 활로 엔드 수정을 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:dragon_egg:PLACE",
+     "formDependent": false,
+     "clueKo": "드래곤 알을 놓아야 해요.",
+     "hintKo": "드래곤 알을 놓아요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "weltenschoepfer",
+   "title": "세계의 창조자",
+   "order": 81,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓았어요. 자수정 블록은 반짝여요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:windswept_hills:GO>BREAK_BLOCK:minecraft:dirt:DIG|IN_BIOME:minecraft:windswept_hills,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 흙을 네 개 파러 바람이 세찬 언덕으로 가야 해요.",
+     "hintKo": "낮에 흙을 파러 바람이 세찬 언덕으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PYRAMID/3:minecraft:quartz_block:STACK|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 석영 블록으로 피라미드를 쌓아야 해요.",
+     "hintKo": "맑을 때 석영 블록으로 피라미드를 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:quartz_block:BREAK@WeatherState[weather=RAIN]",
+     "formDependent": true,
+     "clueKo": "비가 와도 석영 블록을 부수지 마세요.",
+     "hintKo": "비가 올 때 석영 블록을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:amethyst_block:ON_TOP_OF:PYRAMID/minecraft:quartz_block:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 석영 블록 피라미드 위에 자수정 블록을 놓아야 해요.",
+     "hintKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓아요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "kronenklang",
+   "title": "왕관의 소리",
+   "order": 85,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "새벽에 종소리를 들었어요. 종은 치면 소리가 나요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:jagged_peaks:GO|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 뾰족한 봉우리로 가야 해요.",
+     "hintKo": "낮에 뾰족한 봉우리로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:jukebox:CRAFT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 주크박스를 만들어야 해요.",
+     "hintKo": "밤에 주크박스를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:parrot:WATCH|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 앵무새를 일 초 동안 바라봐야 해요.",
+     "hintKo": "맑을 때 앵무새를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "HEAR",
+     "signature": "HEAR:minecraft:bell:HEAR|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 종소리를 들어야 해요.",
+     "hintKo": "새벽에 종소리를 들어요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "weltwaechter",
+   "title": "세계의 수호자",
+   "order": 86,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "방패를 들고 높이 백 블록 이상으로 올라갔어요. 높이 올라갈수록 추워져요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:shield:CRAFT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 방패를 만들어야 해요.",
+     "hintKo": "밤에 방패를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_sword:HOLD+DEFEAT_ENTITY:minecraft:witch:DEFEAT",
+     "formDependent": true,
+     "clueKo": "철 검을 들고 있는 동안 마녀를 두 마리 물리쳐야 해요.",
+     "hintKo": "철 검을 들고 마녀를 물리쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:iron_golem:WATCH|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 철 골렘을 일 초 동안 바라봐야 해요.",
+     "hintKo": "밤에 철 골렘을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:h100|HOLDING:minecraft:shield",
+     "formDependent": false,
+     "clueKo": "방패를 들고 높이 백 블록 이상으로 올라가야 해요.",
+     "hintKo": "방패를 들고 산 위로 올라가요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "ewige_krone",
+   "title": "영원의 왕관",
+   "order": 87,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 금 투구를 썼어요. 금은 녹슬지 않아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:gold_ingot:MELT|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 금 원석을 녹여서 금 주괴를 다섯 개 만들어야 해요.",
+     "hintKo": "저녁에 화로에서 금 원석을 녹여요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:piglin:WATCH|HOLDING:minecraft:gold_ingot",
+     "formDependent": false,
+     "clueKo": "금 주괴를 들고 피글린을 일 초 동안 바라봐야 해요.",
+     "hintKo": "금 주괴를 들고 피글린을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:gold_block:CRAFT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 금 블록을 만들어야 해요.",
+     "hintKo": "맑을 때 금 블록을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:golden_helmet:WEAR_HEAD|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 금 투구를 써야 해요.",
+     "hintKo": "밤에 투구를 써요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "schicksalspfad",
+   "title": "운명의 길",
+   "order": 125,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 침대에 누웠어요. 아침이 되면 침대에서 일어나요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:map:BUY|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 주민에게서 지도를 사야 해요.",
+     "hintKo": "낮에 주민에게서 지도를 사요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:WEST:GO|HOLDING:minecraft:map,WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 지도를 들고 서쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "맑을 때 지도를 들고 서쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:cherry_grove:GO|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 벚나무 숲으로 가야 해요.",
+     "hintKo": "비가 올 때 벚나무 숲으로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "LIE_DOWN",
+     "signature": "LIE_DOWN:minecraft:purple_bed:LIE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 보라색 침대에 누워야 해요.",
+     "hintKo": "밤에 보라색 침대에 누워요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "weltenrichter",
+   "title": "세계 심판",
+   "order": 126,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 피뢰침을 바라봤어요. 피뢰침은 번개를 끌어당겨요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:copper_block:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 구리 블록을 만들어야 해요.",
+     "hintKo": "낮에 구리 블록을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT:15:WAIT|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치는 동안 기다려야 해요.",
+     "hintKo": "천둥이 칠 때 잠깐 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:lightning_rod:BREAK@WeatherState[weather=RAIN]",
+     "formDependent": true,
+     "clueKo": "비가 와도 피뢰침을 부수지 마세요.",
+     "hintKo": "비가 올 때 피뢰침을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:lightning_rod:WATCH|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 피뢰침을 일 초 동안 바라봐야 해요.",
+     "hintKo": "밤에 피뢰침을 일 초 동안 바라봐요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "unsterblichkeit",
+   "title": "불멸의 길",
+   "order": 127,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 불사의 토템을 구했어요. 불사의 토템은 죽음을 막아 줘요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:golden_apple:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 황금 사과를 두 개 만들어야 해요.",
+     "hintKo": "낮에 황금 사과를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CONSUME_ITEM",
+     "signature": "CONSUME_ITEM:minecraft:golden_apple:EAT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 황금 사과를 먹어야 해요.",
+     "hintKo": "비가 올 때 황금 사과를 먹어요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_sword:HOLD+DEFEAT_ENTITY:minecraft:evoker:DEFEAT",
+     "formDependent": true,
+     "clueKo": "철 검을 들고 있는 동안 소환사를 한 마리 물리쳐야 해요.",
+     "hintKo": "철 검을 들고 소환사를 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:totem_of_undying:OBTAIN|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 불사의 토템을 구해야 해요.",
+     "hintKo": "밤에 불사의 토템을 구해요."
+    }
+   ],
+   "formDependentSteps": 4
+  },
+  {
+   "id": "rotwerk",
+   "title": "붉은 실의 길",
+   "order": 1130,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "저녁에 빨간색 양탄자를 깔았어요. 빨간색 염료는 비트로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:red_dye:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 빨간색 염료를 두 개 만들어야 해요.",
+     "hintKo": "낮에 빨간색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:bricks:NEXT_TO:minecraft:red_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "빨간색 양털 옆에 벽돌을 놓아야 해요.",
+     "hintKo": "빨간색 양털 옆에 벽돌을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:red_banner:CRAFT|HOLDING:minecraft:red_wool",
+     "formDependent": false,
+     "clueKo": "빨간색 양털을 들고 빨간색 현수막을 만들어야 해요.",
+     "hintKo": "빨간색 양털을 들고 빨간색 현수막을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:red_carpet:SPREAD|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 빨간색 양탄자를 깔아야 해요.",
+     "hintKo": "저녁에 빨간색 양탄자를 깔아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "blauwerk",
+   "title": "푸른 실의 길",
+   "order": 1131,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "밤에 파란색 침대를 놓았어요. 파란색 염료는 청금석으로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:blue_dye:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 파란색 염료를 만들어야 해요.",
+     "hintKo": "낮에 파란색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:ice:NEXT_TO:minecraft:blue_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "파란 양털 옆에 얼음을 놓아야 해요.",
+     "hintKo": "파란색 양털 옆에 얼음을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:blue_banner:CRAFT",
+     "formDependent": false,
+     "clueKo": "파란색 현수막을 만들어야 해요.",
+     "hintKo": "파란색 현수막을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:blue_bed:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 파란색 침대를 놓아야 해요.",
+     "hintKo": "밤에 파란색 침대를 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "gelbwerk",
+   "title": "노란 실의 길",
+   "order": 1132,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "날씨가 맑을 때 노란색 색유리를 놓았어요. 노란색 염료는 민들레로 만들어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:yellow_dye:CRAFT|HOLDING:minecraft:dandelion,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 민들레를 들고 노란색 염료를 만들어야 해요.",
+     "hintKo": "낮에 민들레를 들고 노란색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:honey_block:NEXT_TO:minecraft:yellow_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "노란색 양털 옆에 꿀 블록을 놓아야 해요.",
+     "hintKo": "노란색 양털 옆에 꿀 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:yellow_banner:CRAFT",
+     "formDependent": false,
+     "clueKo": "노란색 현수막을 만들어야 해요.",
+     "hintKo": "노란색 현수막을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:yellow_stained_glass:PLACE|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 노란색 색유리를 놓아야 해요.",
+     "hintKo": "맑을 때 노란색 색유리를 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "purpurwerk",
+   "title": "보랏빛 천의 길",
+   "order": 1133,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "저녁에 보라색 현수막을 걸었어요. 보라색은 빨간색과 파란색을 섞으면 나와요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:purple_dye:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 파란 염료로 보라색 염료를 만들어야 해요.",
+     "hintKo": "낮에 파란색 염료로 보라색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:purpur_block:NEXT_TO:minecraft:purple_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "보라색 양털 옆에 퍼퍼 블록을 놓아야 해요.",
+     "hintKo": "보라색 양털 옆에 퍼퍼 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:purple_banner:CRAFT",
+     "formDependent": false,
+     "clueKo": "보라색 현수막을 만들어야 해요.",
+     "hintKo": "보라색 현수막을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:purple_banner:HANG|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 보라색 현수막을 걸어야 해요.",
+     "hintKo": "저녁에 보라색 현수막을 걸어요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "orangewerk",
+   "title": "주황빛 천의 길",
+   "order": 1134,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "새벽에 주황색 현수막을 걸었어요. 주황색은 빨간색과 노란색을 섞으면 나와요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:orange_dye:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 노란 염료로 주황색 염료를 만들어야 해요.",
+     "hintKo": "낮에 노란색 염료로 주황색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:copper_block:NEXT_TO:minecraft:orange_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "주황색 양털 옆에 구리 블록을 놓아야 해요.",
+     "hintKo": "주황색 양털 옆에 구리 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:orange_banner:CRAFT",
+     "formDependent": false,
+     "clueKo": "주황색 현수막을 만들어야 해요.",
+     "hintKo": "주황색 현수막을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:orange_banner:HANG|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 주황색 현수막을 걸어야 해요.",
+     "hintKo": "새벽에 주황색 현수막을 걸어요."
+    }
+   ],
+   "formDependentSteps": 3
+  }
+ ]
+}

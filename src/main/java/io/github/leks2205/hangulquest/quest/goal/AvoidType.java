@@ -209,8 +209,23 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 		}
 		if (goal.during() != null) {
 			ConditionTypes.of(goal.during()).validate(goal.during(), context);
+			if (cannotBite(goal.action(), goal.during())) {
+				context.problem("a bed can only be used at night: avoiding it when the time is "
+						+ ((Condition.Time) goal.during()).phase().name().toLowerCase(java.util.Locale.ROOT)
+						+ " forbids nothing, so the rule cannot bite");
+			}
 		}
 		Clauses.checkClueDoesNotTeach(context, true);
+	}
+
+	/**
+	 * A rule that forbids something the game does not allow in that window anyway: no one sleeps in a bed by day, at
+	 * dusk or at dawn (only at night), so "해가 져도 침대에 눕지 마세요" holds the player to nothing.
+	 */
+	static boolean cannotBite(Goal action, Condition during) {
+		boolean sleeping = action instanceof Goal.UseBlock use && Matching.isBed(use.block())
+				|| action instanceof Goal.LieDown lie && Matching.isBed(lie.block());
+		return sleeping && during instanceof Condition.Time time && time.phase() != Condition.Phase.NIGHT;
 	}
 
 	/**

@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1114,
  "concepts": [
-  "gen_magenta_stained_glass",
-  "gen_dripstone_block",
-  "gen_purple_wool_stairs",
-  "adv_block_purpur_block"
+  "amethyst_shard",
+  "go",
+  "map",
+  "adv_block_lodestone"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,63 +22,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_stained_glass"
+    "amethyst_shard"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_stained_glass",
-    "count": 4
-   }
+    "item": "minecraft:amethyst_shard",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dripstone_block"
+    "go"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dripstone_block",
-    "count": 3
-   }
+    "type": "WALK",
+    "direction": "EAST",
+    "blocks": 35
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:compass"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_purple_wool_stairs"
+    "map"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_wool_stairs",
+    "item": "minecraft:map",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_purpur_block"
+    "adv_block_lodestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purpur_block",
-    "count": 8
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lodestone",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "퍼퍼 블록은 엔드에서만 나와요."
-   },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "NORTH"
+    }
+   ]
   },
-  "textKo": "별의 지도를 따라 엔드의 하늘을 날아요."
+  "textKo": "북쪽을 보고 자석석을 바라봤어요."
  },
  "reward": {
   "badge": "w11_04",
   "words": [
-   "adv_item_ender_eye",
-   "end",
-   "adv_item_elytra",
-   "adv_block_purpur_block"
+   "amethyst_shard",
+   "go",
+   "map",
+   "adv_block_lodestone"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

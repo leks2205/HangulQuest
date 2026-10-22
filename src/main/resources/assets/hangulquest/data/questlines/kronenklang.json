@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 85,
  "concepts": [
-  "gen_snowy_plains",
-  "gen_crimson_nylium",
-  "gen_resin_bricks",
-  "gen_cyan_concrete_slab"
+  "gen_jagged_peaks",
+  "jukebox",
+  "parrot",
+  "bell"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -29,23 +29,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snowy_plains"
+    "gen_jagged_peaks"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:snowy_plains",
+    "biome": "minecraft:jagged_peaks",
     "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_crimson_nylium"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_nylium",
-    "count": 2
    },
    "conditions": [
     {
@@ -55,19 +44,36 @@
    ]
   },
   {
-   "id": "s3",
+   "id": "s2",
    "teach": [
-    "gen_resin_bricks"
+    "jukebox"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:resin_bricks",
+    "type": "CRAFT",
+    "item": "minecraft:jukebox",
     "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "parrot"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:parrot",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
     }
    ]
   }
@@ -76,34 +82,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cyan_concrete_slab"
+    "bell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_concrete_slab",
-    "count": 1
+    "type": "HEAR",
+    "source": "minecraft:bell"
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "phase": "DAWN"
     }
    ]
   },
-  "textKo": "밤에 산에서 청록색 콘크리트 반 블록을 놓았어요."
+  "textKo": "새벽에 종소리를 들었어요. 종은 치면 소리가 나요."
  },
  "reward": {
   "badge": "kronenklang",
   "words": [
-   "mountain",
-   "bell",
-   "campfire",
-   "bed"
+   "gen_jagged_peaks",
+   "jukebox",
+   "parrot",
+   "bell"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

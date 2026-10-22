@@ -83,6 +83,12 @@ final class DefeatEntityType implements GoalType<Goal.DefeatEntity> {
 		return Verb.DEFEAT;
 	}
 
+	/** A friendly creature is not "defeated": 주민을 해치지 마세요. */
+	@Override
+	public Verb avoidedVerb(Goal.DefeatEntity goal, VerbTable table) {
+		return table.choose("AVOID_DEFEAT_ENTITY", goal.entity(), 1, Verb.DEFEAT);
+	}
+
 	@Override
 	public String korean(Goal.DefeatEntity goal, SentenceContext c) {
 		return SentenceBuilder.phrase(c.withCounts()

@@ -25,7 +25,15 @@ public final class Matching {
 
 	/** The goal's own match, or one of the other referents of the word the step teaches. */
 	public static boolean accepts(GoalEvaluator.Tracker tracker, String goal, String observed) {
+		if (tracker.accepted.isExact(goal)) {
+			return goal.equals(observed); // the clue says the colour: a red bed is no blue bed
+		}
 		return matchesBlock(goal, observed) || tracker.accepted.matches(goal, observed);
+	}
+
+	/** The family match of {@link #matchesBlock}, unless the clue names the colour of the goal's block. */
+	public static boolean matches(GoalEvaluator.Tracker tracker, String goal, String observed) {
+		return tracker.accepted.isExact(goal) ? goal.equals(observed) : matchesBlock(goal, observed);
 	}
 
 	/** The creature the goal names, or one the taught word stands for as well (any fish for 물고기). */
@@ -35,6 +43,9 @@ public final class Matching {
 
 	/** How many of the item the player holds, counting every referent the step accepts. */
 	public static int heldCount(Observation obs, String item, GoalEvaluator.Tracker tracker) {
+		if (tracker.accepted.isExact(item)) {
+			return obs.count(item);
+		}
 		if (!tracker.accepted.widens(item)) {
 			return familyCount(obs, item);
 		}
