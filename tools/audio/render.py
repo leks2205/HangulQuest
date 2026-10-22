@@ -8,6 +8,8 @@ Output, all outside the repo:
   <out>/<voice>/<sha1(text+voice+model)>.ogg   mono, 24 kHz, Ogg Vorbis ~32 kbps, -16 LUFS, silence trimmed
   <out>/manifest.json                          model, licences, voices, id -> hash map, dates
 Clips that already exist are skipped, so a changed text only renders again for that text.
+--redo <audio-blocklist.json> deletes the clips that qa.py flagged and renders them again with other random
+seeds (same text, same voice, so the file name stays the same); run qa.py afterwards.
 Nothing here uses the network except the first model download from Hugging Face
 (set HF_HUB_OFFLINE=1 afterwards).
 """
@@ -127,7 +129,12 @@ def file_sha1(path: Path) -> str:
     return hashlib.sha1(path.read_bytes()).hexdigest()
 
 
-def render_voice(engine, cfg, name, voice, rows, out_dir, batch):
+def seed_for(name, batch_index, attempt, salt=""):
+    """A new salt gives other seeds, so rendering a flagged clip again does not repeat the same mistake."""
+    return int(sha1(name, str(batch_index), str(attempt), *([salt] if salt else []))[:8], 16)
+
+
+def render_voice(engine, cfg, name, voice, rows, out_dir, batch, salt=""):
     repos = cfg["model"]["repos"]
     model_id = cfg["model"]["name"]
     if voice["kind"] == "clone":
@@ -165,7 +172,7 @@ def render_voice(engine, cfg, name, voice, rows, out_dir, batch):
         chunk = todo[i:i + batch]
         pending = chunk
         for attempt in range(MAX_TRIES):
-            engine.seed(int(sha1(name, str(i), str(attempt))[:8], 16))
+            engine.seed(seed_for(name, i, attempt, salt))
             wavs, sr = generate([t[1] for t in pending])
             failed = []
             for (cid, text, h), wav in zip(pending, wavs):
@@ -193,6 +200,8 @@ def main():
     ap.add_argument("--device", default="cpu", help="cpu (default) or cuda:0; CPU is about 4x slower than real time")
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--redo", help="audio-blocklist.json from qa.py: delete those clips and render them again")
+    ap.add_argument("--seed-salt", default="", help="changes the random seeds, so a repeat render sounds different")
     args = ap.parse_args()
 
     cfg = load_voices()
@@ -204,6 +213,16 @@ def main():
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
+    salt = args.seed_salt
+    if args.redo:
+        salt = salt or "redo"
+        redone = 0
+        for item in json.loads(Path(args.redo).read_text(encoding="utf-8")).get("blocked", []):
+            clip = out_dir / item["voice"] / f"{item['hash']}.ogg"
+            if item["voice"] in names and clip.exists():
+                clip.unlink()
+                redone += 1
+        print(f"{redone} flagged clips removed, rendering them again")
     manifest_path = out_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {"voices": {}}
     manifest.update({
@@ -222,7 +241,7 @@ def main():
     # clone voices need the design model first, the custom voice needs its own; group by kind
     for name in sorted(names, key=lambda n: cfg["voices"][n]["kind"]):
         voice = cfg["voices"][name]
-        entries, seconds, retries = render_voice(engine, cfg, name, voice, rows, out_dir, args.batch)
+        entries, seconds, retries = render_voice(engine, cfg, name, voice, rows, out_dir, args.batch, salt)
         previous = manifest["voices"].get(name, {}).get("entries", {})
         previous.update(entries)
         manifest["voices"][name] = {"kind": voice["kind"], "about": voice.get("about", voice.get("design", "")),

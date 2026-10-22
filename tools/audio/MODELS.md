@@ -69,3 +69,13 @@ Python 3.12 venv outside the repo (`requirements.txt`; ffmpeg must be installed)
   voice is the least reliable (mean 0.21), the designed `female2` voice the most reliable (0.07).
 - Pack: 11.8 MB, 1294 clips, 374 events, about 9 KB per clip.
 - Loudness of a 78-clip sample: mean -16.4 LUFS (range -19 to -15.4), peaks at most -0.5 dBFS.
+
+## Update 2026-10 (all words and eligible sentences)
+
+`select_texts.py --all` takes every concept and every authored sentence that passes the length and end-mark
+filter (about 1300 words, 1330 sentences) instead of the 300 + 100 sample, and reports how many still lack a
+clip. `render.py` skips cached clips, so only new or reworded texts render; `render.py --redo` removes the clips
+`qa.py` flagged and renders them once more with other seeds. `qa.py texts.jsonl` checks only those texts and
+reuses earlier results. `build_pack.py --texts` leaves out clips of texts that no longer exist.
+Memory: batch 4 (`--batch 4`) and `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` keep long sentences within
+about 8 GB when another model shares the GPU.
