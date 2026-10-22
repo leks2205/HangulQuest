@@ -1,0 +1,26 @@
+{
+	"schema": 1,
+	"id": "sea_boat",
+	"chapter": "sea",
+	"level": 4,
+	"titleKo": "바다로 간 날",
+	"unlock": {"trails": ["grossesmeer", "kuestenfest"], "minWords": 35},
+	"paragraphs": [
+		"오늘 저는 배를 타고 바다로 나갔어요. 바다는 넓고 깊었어요.",
+		"섬에 도착해서 해변을 걸었어요. 해변에 거북이 있었어요.",
+		"거북은 물에서 수영해요. 그리고 해변에 알을 낳아요.",
+		"저는 낚싯대로 물고기를 잡으러 갔어요. 물고기를 잡으면 바로 구워서 먹어요.",
+		"해가 지기 전에 배를 타고 집으로 왔어요. 바다 여행은 정말 좋았어요!"
+	],
+	"words": [
+		"concept:boat", "concept:ride", "concept:ocean", "concept:go_out", "concept:wide", "concept:deep",
+		"concept:gen_island", "concept:beach", "concept:walk", "concept:turtle", "concept:water", "concept:swim",
+		"concept:fishing_rod", "concept:fish", "concept:catch", "concept:go", "concept:bake", "concept:eat",
+		"concept:sun", "concept:house"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L2.eseo_activity", "L2.eun_neun_topic",
+		"L2.go_sequence", "L3.gi_jeone", "L3.past", "L4.eoseo", "L4.eureo_gayo",
+		"L4.myeon"
+	]
+}

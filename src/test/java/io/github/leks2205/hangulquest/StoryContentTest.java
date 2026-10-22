@@ -67,10 +67,28 @@ class StoryContentTest {
 	}
 
 	@Test
-	void eachStoryIsEightyToTwoHundredSyllablesAtLevelOneOrTwo() {
+	void thereAreStoriesForTheLaterChaptersToo() {
+		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
+		assertTrue(chapters.containsAll(Set.of("weather", "cave", "journey", "sea", "festival", "nether", "end")),
+				chapters.toString());
+	}
+
+	@Test
+	void eachStoryIsEightyToFourHundredSyllablesAtALevelOfTheLadder() {
 		for (Story story : stories) {
-			assertTrue(story.syllables() >= 80 && story.syllables() <= 200, story.id() + " has " + story.syllables());
-			assertTrue(story.level() >= 1 && story.level() <= 2, story.id() + " is level " + story.level());
+			assertTrue(story.syllables() >= 80 && story.syllables() <= 400, story.id() + " has " + story.syllables());
+			assertTrue(story.level() >= 1 && story.level() <= 6, story.id() + " is level " + story.level());
+		}
+	}
+
+	@Test
+	void theLaterStoriesReachTheirLevelAndNoMore() {
+		for (Story story : stories) {
+			if (story.level() < 3) {
+				continue;
+			}
+			int highest = story.grammar().stream().mapToInt(id -> GrammarBook.shared().get(id).level()).max().orElse(0);
+			assertEquals(story.level(), highest, story.id() + " should use grammar of its own level");
 		}
 	}
 
@@ -83,7 +101,6 @@ class StoryContentTest {
 				assertTrue(book.get(id) != null, story.id() + " names the unknown construction " + id);
 				highest = Math.max(highest, book.get(id).level());
 			}
-			assertTrue(highest <= 2, story.id() + " uses level " + highest + " grammar");
 			assertTrue(highest <= story.level(), story.id() + " is level " + story.level() + " but uses level " + highest);
 		}
 	}
@@ -173,6 +190,18 @@ class StoryContentTest {
 		ChapterSet chapters = StoryFixtures.chapters();
 		for (Story story : stories) {
 			assertTrue(chapters.byId(story.chapter()).isPresent(), story.id());
+		}
+	}
+
+	@Test
+	void everyStoryLineIsInTheKoreanReviewRegistry() throws java.io.IOException {
+		String registry = java.nio.file.Files.readString(java.nio.file.Path.of("content/korean/lines.jsonl"));
+		for (Story story : stories) {
+			assertTrue(registry.contains("\"id\":\"story." + story.id() + ".title\""), story.id() + " title is not exported");
+			for (int i = 0; i < story.paragraphs().size(); i++) {
+				assertTrue(registry.contains("\"id\":\"story." + story.id() + ".p" + (i + 1) + "\""),
+						story.id() + " paragraph " + (i + 1) + " is not exported; run tools/review/export_lines.py");
+			}
 		}
 	}
 }

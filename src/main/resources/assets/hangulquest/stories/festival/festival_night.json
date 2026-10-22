@@ -1,0 +1,27 @@
+{
+	"schema": 1,
+	"id": "festival_night",
+	"chapter": "festival",
+	"level": 5,
+	"titleKo": "마을 축제",
+	"unlock": {"trails": ["w8_05", "w9_01"], "minWords": 100},
+	"paragraphs": [
+		"어제 밤에 마을에서 축제가 있었어요. 저는 케이크를 만들었어요.",
+		"케이크는 우유와 설탕과 달걀과 밀로 만들어요.",
+		"저는 종을 쳤어요. 종을 치면 소리가 나요.",
+		"랜턴이 있는 길에 주크박스를 놓았어요. 주크박스에서 노래가 나와요.",
+		"저는 노래를 듣는 동안 큰 케이크를 먹었어요.",
+		"케이크가 맛있으니까 한 조각 더 먹었어요. 축제는 정말 즐거웠어요!"
+	],
+	"words": [
+		"concept:yesterday", "concept:night", "concept:village", "concept:cake", "concept:make", "concept:milk",
+		"concept:sugar", "concept:egg", "concept:wheat", "concept:bell", "concept:sound", "concept:lantern",
+		"concept:road", "concept:jukebox", "concept:place", "concept:song", "concept:come_out", "concept:hear",
+		"concept:big", "concept:eat"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L2.eseo_activity", "L2.eun_neun_topic",
+		"L2.hago_wa_gwa", "L3.past", "L4.myeon", "L5.adn_adj_eun", "L5.adn_present_neun",
+		"L5.eunikka", "L5.neun_dongan"
+	]
+}

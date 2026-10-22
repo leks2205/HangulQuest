@@ -50,14 +50,78 @@ public final class StoryText {
 	private StoryText() {
 	}
 
+	/** The longest name of several words that is looked for (엔더 드래곤 is two, 약간 녹슨 깎인 구리 is four). */
+	private static final int LONGEST_NAME = 4;
+
 	public static List<Token> analyze(String paragraph, StoryVocabulary vocabulary) {
 		List<Token> tokens = new ArrayList<>();
-		for (String eojeol : paragraph.strip().split("\\s+")) {
-			if (!eojeol.isEmpty()) {
-				tokens.add(token(eojeol, vocabulary));
+		String[] eojeols = paragraph.strip().split("\\s+");
+		for (int i = 0; i < eojeols.length; i++) {
+			if (eojeols[i].isEmpty()) {
+				continue;
+			}
+			int span = 0;
+			for (int n = Math.min(LONGEST_NAME, eojeols.length - i); n >= 2 && span == 0; n--) {
+				String joined = String.join(" ", java.util.Arrays.copyOfRange(eojeols, i, i + n));
+				Token name = name(joined, vocabulary);
+				if (name != null) {
+					tokens.add(name);
+					span = n;
+				}
+			}
+			if (span > 0) {
+				i += span - 1;
+			} else {
+				tokens.add(token(eojeols[i], vocabulary));
 			}
 		}
+		boundNouns(tokens);
 		return tokens;
+	}
+
+	/** What a bound noun makes of the adnominal in front of it: -(으)ㄹ 수, -(으)ㄴ 후에 and -(으)ㄹ 거예요 are L3 constructions, -(으)ㄹ 때 has none. */
+	private static final Map<String, String> BOUND_NOUNS = Map.of("수", "L3.su_itda", "후에", "L3.eun_hue", "때", "", "거", "L3.future_geoyeyo");
+
+	/** Before 수, 후에, 거 or 때 the -(으)ㄴ / -(으)ㄹ form is part of that phrase, not the level-5 adnominal. */
+	private static void boundNouns(List<Token> tokens) {
+		for (int i = 0; i + 1 < tokens.size(); i++) {
+			Token verb = tokens.get(i);
+			if (verb.breakdown() == null || !(verb.breakdown().grammar().equals("L5.adn_past_eun")
+					|| verb.breakdown().grammar().equals("L5.adn_future_eul"))) {
+				continue;
+			}
+			String next = strip(tokens.get(i + 1).text());
+			for (Map.Entry<String, String> bound : BOUND_NOUNS.entrySet()) {
+				String key = bound.getKey();
+				if (next.equals(key) || (next.startsWith(key) && TAILS.contains(next.substring(key.length())))) {
+					Breakdown old = verb.breakdown();
+					tokens.set(i, new Token(verb.text(), verb.word(), verb.state(), verb.id(), verb.gloss(),
+							new Breakdown(old.base(), old.stem(), old.ending(), bound.getValue())));
+					break;
+				}
+			}
+		}
+	}
+
+	/** Several eojeol read as one name with a particle after it (엔더 드래곤을), or null. */
+	private static Token name(String joined, StoryVocabulary vocabulary) {
+		String core = strip(joined);
+		for (int end = core.length(); end >= 1; end--) {
+			String tail = core.substring(end);
+			if (!TAILS.contains(tail)) {
+				continue;
+			}
+			String stem = core.substring(0, end);
+			if (stem.indexOf(' ') < 0) {
+				break;
+			}
+			Hit hit = vocabulary.findPhrase(stem);
+			if (hit != null) {
+				return new Token(joined, true, hit.known() ? State.KNOWN : State.UNKNOWN, hit.id(), hit.gloss(),
+						nounBreakdown(stem, tail, vocabulary));
+			}
+		}
+		return null;
 	}
 
 	private static Token token(String eojeol, StoryVocabulary vocabulary) {

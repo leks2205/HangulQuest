@@ -25,7 +25,15 @@ import java.util.function.Predicate;
 public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 	/** An ending a verb takes, with the grammar.json construction that teaches it. */
 	public enum Ending {
-		EOYO("-아/어요", "L1.eoyo"), SEYO("-(으)세요", "L2.seyo"), GO("-고", "L2.go_sequence");
+		EOYO("-아/어요", "L1.eoyo"), SEYO("-(으)세요", "L2.seyo"), GO("-고", "L2.go_sequence"),
+		// the forms of levels 3 to 6 that stand in one eojeol; the particles after them (전에, 동안) are lexicon words
+		PAST("-았/었어요", "L3.past"), JI("-지", "L3.ji_anayo"), GI("-기", "L3.gi_jeone"),
+		MYEON("-(으)면", "L4.myeon"), ASEO("-아/어서", "L4.eoseo"), EURO("-(으)러", "L4.eureo_gayo"),
+		JIMAN("-지만", "L4.jiman"), EOYA("-아/어야", "L4.eoya_haeyo"), EULGE("-(으)ㄹ게요", "L4.eulgeyo"),
+		ADN_PAST("-(으)ㄴ", "L5.adn_past_eun"), ADN_ADJ("-(으)ㄴ", "L5.adn_adj_eun"),
+		ADN_PRESENT("-는", "L5.adn_present_neun"), ADN_FUTURE("-(으)ㄹ", "L5.adn_future_eul"),
+		NIKKA("-(으)니까", "L5.eunikka"), ADO("-아/어도", "L5.eodo"), NEUNDE("-는데", "L5.neunde"),
+		EULSUROK("-(으)ㄹ수록", "L6.eulsurok"), DEUSI("-듯이", "L6.deusi");
 
 		private final String label;
 		private final String grammar;
@@ -59,6 +67,10 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 	/** Function words that carry a construction, by stem; each with the particles it is meant for (empty: any). */
 	private final Map<String, List<Map.Entry<Set<String>, String>>> formGrammar = new HashMap<>();
 	private final Map<String, VerbMatch> verbs = new HashMap<>();
+	/** Names of more than one word (엔더 드래곤, 철 주괴), by their spelling with single spaces. */
+	private final Map<String, Hit> phrases = new HashMap<>();
+	/** The forms of levels 3 to 6: a noun or function word that is spelled the same wins over them (눈, 안, 말). */
+	private final Map<String, VerbMatch> later = new HashMap<>();
 
 	private StoryVocabulary() {
 	}
@@ -85,10 +97,17 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 		// Words that share a spelling (two kinds of 문): the player knows the spelling when he knows either.
 		Map<String, Hit> byKo = new HashMap<>();
 		for (Word word : catalog.all()) {
-			if (word.phrase || word.ko == null || word.ko.isBlank() || word.ko.contains(" ")) {
+			if (word.phrase || word.ko == null || word.ko.isBlank()) {
 				continue;
 			}
 			Hit hit = new Hit(word.id, word.gloss(lang), knows.test(word.id));
+			if (word.ko.contains(" ")) {
+				Hit before = vocabulary.phrases.get(word.ko);
+				if (before == null || (!before.known() && hit.known())) {
+					vocabulary.phrases.put(word.ko, hit);
+				}
+				continue;
+			}
 			if (word.category == Category.ACTIONS && word.ko.endsWith("다")) {
 				vocabulary.addVerb(hit, word.ko, "");
 			} else {
@@ -103,6 +122,11 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 		// 그리고 is the conjunction before it is the -고 form of 그리다: a function word of the lexicon wins.
 		vocabulary.verbs.entrySet().removeIf(entry -> functionForms.contains(entry.getKey())
 				&& !entry.getValue().hit().id().startsWith("lexicon:"));
+		vocabulary.later.forEach((form, match) -> {
+			if (!vocabulary.nouns.containsKey(form)) {
+				vocabulary.verbs.putIfAbsent(form, match);
+			}
+		});
 		return vocabulary;
 	}
 
@@ -123,12 +147,40 @@ public final class StoryVocabulary implements DialogueCoverage.Vocabulary {
 					Ending.SEYO.grammar()));
 		}
 		verbs.putIfAbsent(word.go(), new VerbMatch(hit, dictionary, word.stem(), Ending.GO, Ending.GO.grammar()));
+		laterForm(hit, word, Ending.PAST, word.past());
+		laterForm(hit, word, Ending.JI, word.stem() + "지");
+		laterForm(hit, word, Ending.GI, word.stem() + "기");
+		laterForm(hit, word, Ending.MYEON, word.myeon());
+		laterForm(hit, word, Ending.ASEO, word.aseo());
+		laterForm(hit, word, Ending.EURO, word.eureo());
+		laterForm(hit, word, Ending.JIMAN, word.jiman());
+		laterForm(hit, word, Ending.EOYA, word.eo() + "야");
+		laterForm(hit, word, Ending.EULGE, word.eulgeyo());
+		laterForm(hit, word, word.adjective() ? Ending.ADN_ADJ : Ending.ADN_PAST, word.eun());
+		laterForm(hit, word, Ending.ADN_PRESENT, word.neun());
+		laterForm(hit, word, Ending.ADN_FUTURE, word.future());
+		laterForm(hit, word, Ending.NIKKA, word.nikka());
+		laterForm(hit, word, Ending.ADO, word.ado());
+		laterForm(hit, word, Ending.NEUNDE, word.neunde());
+		laterForm(hit, word, Ending.EULSUROK, word.eulsurok());
+		laterForm(hit, word, Ending.DEUSI, word.deusi());
+	}
+
+	private void laterForm(Hit hit, Conjugator.Word word, Ending ending, String form) {
+		if (form != null && !form.isBlank() && !form.contains(" ")) {
+			later.putIfAbsent(form, new VerbMatch(hit, word.dictionary(), word.stem(), ending, ending.grammar()));
+		}
 	}
 
 	@Override
 	public Hit find(String stem) {
 		List<Reading> readings = nouns.get(stem);
 		return readings == null ? null : readings.get(0).hit();
+	}
+
+	/** The name of several words (엔더 드래곤) written with single spaces, or null. */
+	public Hit findPhrase(String name) {
+		return phrases.get(name);
 	}
 
 	/** The word this stem is when the particle {@code tail} follows (it may be empty): the first reading that accepts it. */
