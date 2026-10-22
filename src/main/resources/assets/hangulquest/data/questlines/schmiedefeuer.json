@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "schmiedefeuer",
  "titleKo": "대장간의 불",
+ "topic": "돌",
  "tier": 4,
  "order": 511,
  "concepts": [
-  "gen_cracked_deepslate_bricks",
-  "gen_chiseled_sulfur",
-  "gen_mossy_cobblestone_wall",
-  "gen_stripped_acacia_wood"
+  "stone_bricks",
+  "gen_blast_furnace",
+  "gen_hopper",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,72 +24,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cracked_deepslate_bricks"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cracked_deepslate_bricks",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks",
+    "size": 4
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_sulfur"
+    "gen_blast_furnace"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:chiseled_sulfur",
-    "count": 4
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:blast_furnace",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mossy_cobblestone_wall"
+    "gen_iron_trapdoor"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_cobblestone_wall",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:iron_trapdoor",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_hopper"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:hopper",
+    "relation": "UNDER",
+    "anchor": "minecraft:blast_furnace",
+    "count": 1
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_acacia_wood"
+    "villager",
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_acacia_wood",
-    "count": 1
+    "type": "GIVE",
+    "item": "minecraft:iron_ingot",
+    "entity": "minecraft:villager",
+    "count": 2,
+    "method": "TRADE"
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "clue": {
+    "ko": "주민에게 철을 주고 에메랄드를 받으세요."
+   },
+   "hint": {
+    "ko": "주민에게 철을 주고 에메랄드를 받아요."
+   }
   },
-  "textKo": "밤에 껍질 벗긴 아카시아나무를 놓았어요."
+  "textKo": "주민에게 철 주괴를 주고 에메랄드를 받았어요."
  },
  "reward": {
   "badge": "schmiedefeuer",
   "words": [
-   "pickaxe",
-   "coal",
-   "torch",
-   "furnace"
+   "stone_bricks",
+   "gen_blast_furnace",
+   "gen_hopper",
+   "villager"
   ]
  },
- "koreanLevel": 2,
- "topic": "돌"
+ "koreanLevel": 2
 }

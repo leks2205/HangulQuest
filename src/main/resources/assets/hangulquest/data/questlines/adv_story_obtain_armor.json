@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 321,
  "concepts": [
-  "adv_item_bee_nest",
   "adv2_item_iron_helmet",
   "adv_item_iron_boots",
-  "gen_chainmail_helmet"
+  "iron_chestplate",
+  "iron_golem"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,30 +22,18 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_bee_nest"
+    "adv2_item_iron_helmet",
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bee_nest",
-    "count": 17
+    "type": "CRAFT",
+    "item": "minecraft:iron_helmet",
+    "count": 1,
+    "station": "crafting_table"
    }
   },
   {
    "id": "s2",
-   "teach": [
-    "adv2_item_iron_helmet"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_helmet",
-    "count": 1
-   },
-   "hint": {
-    "ko": "철 투구는 철 주괴 다섯 개로 만들어요."
-   }
-  },
-  {
-   "id": "s3",
    "teach": [
     "adv_item_iron_boots"
    ],
@@ -54,33 +42,61 @@
     "item": "minecraft:iron_boots",
     "count": 1
    },
-   "hint": {
-    "ko": "철 부츠는 철 주괴 네 개로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "iron_chestplate"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:iron_chestplate",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_ingot"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chainmail_helmet"
+    "iron_golem"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:chainmail_helmet",
-    "count": 1
+    "type": "GIVE",
+    "item": "minecraft:iron_ingot",
+    "entity": "minecraft:iron_golem",
+    "count": 1,
+    "method": "USE_WITH"
    },
-   "conditions": []
+   "clue": {
+    "ko": "철 골렘에게 철을 주세요."
+   },
+   "hint": {
+    "ko": "철 골렘에게 철을 줘요."
+   }
   },
-  "textKo": "사슬 투구를 구했어요."
+  "textKo": "차려입기 — 철 갑옷을 입었어요. 철 갑옷은 무거워요."
  },
  "reward": {
   "badge": "adv_story_obtain_armor",
   "words": [
-   "iron",
    "adv2_item_iron_helmet",
    "adv_item_iron_boots",
-   "iron_chestplate"
+   "iron_chestplate",
+   "iron_golem"
   ]
  },
  "koreanLevel": 2

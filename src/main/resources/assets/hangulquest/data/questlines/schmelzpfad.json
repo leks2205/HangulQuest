@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "schmelzpfad",
- "titleKo": "용광로의 길",
+ "titleKo": "화로의 길",
+ "topic": "돌",
  "tier": 2,
  "order": 310,
  "concepts": [
-  "gen_piglin_wall_head",
-  "gen_red_sandstone",
-  "gen_red_nether_brick_slab",
-  "loom"
+  "coal",
+  "furnace",
+  "crafting_table",
+  "log"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -21,34 +22,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_piglin_wall_head"
+    "coal"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:piglin_wall_head",
-    "count": 2
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:coal",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_sandstone"
+    "furnace",
+    "crafting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_sandstone",
+    "type": "PLACE_REL",
+    "block": "minecraft:furnace",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafting_table",
     "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_red_nether_brick_slab"
+    "coal"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_nether_brick_slab",
-    "count": 1
+    "type": "PUT_IN",
+    "item": "minecraft:coal",
+    "container": "minecraft:furnace",
+    "count": 2
    }
   }
  ],
@@ -56,30 +68,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "loom"
+    "log"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:loom",
-    "count": 1
+    "type": "SMELT",
+    "output": "minecraft:charcoal",
+    "count": 2,
+    "input": "minecraft:oak_log"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:furnace"
     }
    ]
   },
-  "textKo": "밤에 베틀을 놓았어요."
+  "textKo": "숯을 두 개 만들었어요."
  },
  "reward": {
   "badge": "schmelzpfad",
   "words": [
    "coal",
    "furnace",
-   "iron"
+   "crafting_table",
+   "log"
   ]
  },
- "koreanLevel": 2,
- "topic": "돌"
+ "koreanLevel": 2
 }

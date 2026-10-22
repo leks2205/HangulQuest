@@ -1,0 +1,2316 @@
+{
+ "batch": "BATCH-008",
+ "brief": "content/briefs/BATCH-008.md",
+ "chapter": "fire and iron, the smithy (first level-2 batch)",
+ "note": "Encounters follow tools/coverage.py: a word is met once per step when the clue, hint, title or finale line says it. \"InBatch\" is the difference to the old trails. \"Before\" is phase0 after generator wave 5. The trail-level `grammar` list is recorded here and not in the trail files, because the questline schema does not know the field (see openIssues).",
+ "summary": {
+  "trails": 15,
+  "steps": 64,
+  "bareSteps": 0,
+  "bareShare": 0.0,
+  "formDependentSteps": 21,
+  "formDependentShareOwn": 0.328125,
+  "topGoalType": "PLACE_REL",
+  "topGoalTypeShare": 0.1875,
+  "goalTypes": {
+   "PLACE_REL": 12,
+   "CRAFT": 11,
+   "ACQUIRE_ITEM": 7,
+   "PLACE_ON_PATTERN": 7,
+   "PUT_IN": 6,
+   "BREAK_BLOCK": 6,
+   "BUILD_PATTERN": 5,
+   "SMELT": 3,
+   "GIVE": 2,
+   "CONSUME_ITEM": 1,
+   "HOLD_WHILE": 1,
+   "WAIT": 1,
+   "TAKE_OUT": 1,
+   "REACH_HEIGHT": 1
+  },
+  "mechanics": [
+   "cond:HOLDING",
+   "cond:NEAR_BLOCK",
+   "cond:PLAYER_REL",
+   "cond:Y_RANGE",
+   "goal:ACQUIRE_ITEM",
+   "goal:BREAK_BLOCK",
+   "goal:BUILD_PATTERN",
+   "goal:CONSUME_ITEM",
+   "goal:CRAFT",
+   "goal:GIVE",
+   "goal:HOLD_WHILE",
+   "goal:PLACE_ON_PATTERN",
+   "goal:PLACE_REL",
+   "goal:PUT_IN",
+   "goal:REACH_HEIGHT",
+   "goal:SMELT",
+   "goal:TAKE_OUT",
+   "goal:WAIT",
+   "pattern:PILLAR",
+   "pattern:RING",
+   "pattern:WALL",
+   "rel:BEHIND",
+   "rel:BETWEEN",
+   "rel:INSIDE",
+   "rel:IN_FRONT_OF",
+   "rel:NEXT_TO",
+   "rel:ON_TOP_OF",
+   "rel:UNDER"
+  ]
+ },
+ "metrics": {
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.053881,
+   "after": 0.053674
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.957665,
+   "after": 0.950799
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.917896,
+   "after": 0.92524
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.950498,
+   "after": 0.956204
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 2.0,
+   "after": 2.0
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.127962,
+   "after": 0.127962
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.663507,
+   "after": 0.682464
+  },
+  "coverage.recycling.medianRetrievals": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 13,
+   "after": 12
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 139,
+   "after": 131
+  },
+  "variety.verbObjectMax": {
+   "before": 6,
+   "after": 6
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 3,
+   "after": 3
+  },
+  "variety.noveltyShare": {
+   "before": 0.497619,
+   "after": 0.52619
+  },
+  "variety.boredomIndex": {
+   "before": 0.074454,
+   "after": 0.070332
+  },
+  "variety.bareShare.1": {
+   "before": 0.062972,
+   "after": 0.062972
+  },
+  "variety.topTypeShare.1": {
+   "before": 0.130982,
+   "after": 0.130982
+  },
+  "variety.distinctTypes.1": {
+   "before": 25,
+   "after": 25
+  },
+  "variety.formDependentShare.1": {
+   "before": 0.196474,
+   "after": 0.196474
+  },
+  "variety.bareShare.2": {
+   "before": 0.644592,
+   "after": 0.53159
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.362031,
+   "after": 0.32244
+  },
+  "variety.distinctTypes.2": {
+   "before": 10,
+   "after": 21
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.0,
+   "after": 0.045752
+  },
+  "variety.bareShare.3": {
+   "before": 0.694524,
+   "after": 0.694524
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.391931,
+   "after": 0.391931
+  },
+  "variety.distinctTypes.3": {
+   "before": 11,
+   "after": 11
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.4": {
+   "before": 0.785124,
+   "after": 0.785124
+  },
+  "variety.topTypeShare.4": {
+   "before": 0.520661,
+   "after": 0.520661
+  },
+  "variety.distinctTypes.4": {
+   "before": 8,
+   "after": 8
+  },
+  "variety.formDependentShare.4": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.5": {
+   "before": 0.742268,
+   "after": 0.742268
+  },
+  "variety.topTypeShare.5": {
+   "before": 0.515464,
+   "after": 0.515464
+  },
+  "variety.distinctTypes.5": {
+   "before": 9,
+   "after": 9
+  },
+  "variety.formDependentShare.5": {
+   "before": 0.0,
+   "after": 0.0
+  },
+  "variety.bareShare.6": {
+   "before": 0.652778,
+   "after": 0.652778
+  },
+  "variety.topTypeShare.6": {
+   "before": 0.486111,
+   "after": 0.486111
+  },
+  "variety.distinctTypes.6": {
+   "before": 10,
+   "after": 10
+  },
+  "variety.formDependentShare.6": {
+   "before": 0.0,
+   "after": 0.0
+  }
+ },
+ "trails": [
+  {
+   "id": "schmelzpfad",
+   "title": "화로의 길",
+   "titleEn": "The Smelting Trail",
+   "topic": "돌",
+   "order": 310,
+   "koreanLevel": 2,
+   "requires": [
+    "steintiefe"
+   ],
+   "project": "Dig coal underground, put a furnace next to the crafting table, fuel it, and bake logs into charcoal while standing by it (a place of action with 에서 against a place for a block with 에).",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "Y_RANGE:-64..50"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "coal"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "땅속에서 석탄을 네 개 모으세요.",
+     "clueSource": "generated",
+     "hintKo": "땅속에서 석탄을 모아요.",
+     "clueEn": "Underground, collect four pieces of coal."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "furnace",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "제작대 옆에 화로를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에 화로를 놓아요.",
+     "clueEn": "Place a furnace — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "coal"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "화로 안에 석탄을 두 개 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 안에 석탄을 넣어요.",
+     "clueEn": "Put two pieces of coal into the furnace."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:furnace"
+     ],
+     "verb": "BAKE",
+     "teach": [
+      "log"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:SMELT"
+     ],
+     "clueKo": "화로 옆에서 통나무를 두 개 구우세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에서 통나무를 구워요.",
+     "clueEn": "Bake two logs in the furnace — read the Korean to see where to stand."
+    }
+   ],
+   "finaleKo": "숯을 두 개 만들었어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "schmelzofen",
+   "title": "용광로의 불",
+   "titleEn": "The Smelting Fire",
+   "topic": "돌",
+   "order": 60,
+   "koreanLevel": 2,
+   "requires": [
+    "schmelzpfad"
+   ],
+   "project": "Smelt iron with coal in hand, craft a blast furnace, place it next to the furnace and feed it raw iron.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:coal"
+     ],
+     "verb": "MELT",
+     "teach": [
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:SMELT"
+     ],
+     "clueKo": "석탄을 들고 화로에서 철을 다섯 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "석탄을 들고 화로에서 철을 만들어요.",
+     "clueEn": "Holding coal, smelt five iron ingots in the furnace."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_blast_furnace"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "용광로를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "용광로를 만들어요.",
+     "clueEn": "Craft a blast furnace."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_blast_furnace"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "화로 옆에 용광로를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에 용광로를 놓아요.",
+     "clueEn": "Place the blast furnace — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "gen_blast_furnace",
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "용광로 안에 철 원석을 세 개 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "용광로 안에 철 원석을 넣어요.",
+     "clueEn": "Put three pieces of raw iron into the blast furnace."
+    }
+   ],
+   "finaleKo": "용광로 안에 철 원석을 세 개 넣었어요. 용광로는 뜨거워요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "steinherz",
+   "title": "돌심장",
+   "titleEn": "The Stone Heart",
+   "topic": "돌",
+   "order": 83,
+   "koreanLevel": 2,
+   "requires": [
+    "steintiefe",
+    "schmelzofen"
+   ],
+   "project": "Build a ring of stone, put a furnace inside it and a chest behind the furnace, then eat beef by the fire.",
+   "grammar": [
+    "L2.euro_material",
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 2,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:RING"
+     ],
+     "clueKo": "돌로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌로 담을 쌓아요.",
+     "clueEn": "Build a ring wall out of stone."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "furnace"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:RING",
+      "rel:INSIDE"
+     ],
+     "clueKo": "돌담 안에 화로를 놓으세요.",
+     "clueSource": "authored",
+     "hintKo": "돌담 안에 화로를 놓아요.",
+     "clueEn": "Place a furnace — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "BEHIND",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:BEHIND"
+     ],
+     "clueKo": "화로 뒤에 상자를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 뒤에 상자를 놓아요.",
+     "clueEn": "Place a chest — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:furnace"
+     ],
+     "verb": "EAT",
+     "teach": [
+      "beef"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "화로 옆에서 소고기를 먹으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에서 소고기를 먹어요.",
+     "clueEn": "Eat some beef — read the Korean to see where to stand."
+    }
+   ],
+   "finaleKo": "화로 옆에서 소고기를 먹었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "adv_story_upgrade_tools",
+   "title": "더욱더 좋게",
+   "titleEn": "Getting an Upgrade",
+   "topic": "story",
+   "order": 325,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_story_mine_stone"
+   ],
+   "project": "Wooden pickaxe to stone: mine stone, craft a stone axe, chop logs with it and craft the stone pickaxe (the vanilla \"Getting an Upgrade\").",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held",
+    "L2.eseo_activity",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 0,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wooden_pickaxe"
+     ],
+     "verb": "MINE",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "나무 곡괭이를 들고 돌을 세 개 캐세요.",
+     "clueSource": "generated",
+     "hintKo": "나무 곡괭이를 들고 돌을 캐요.",
+     "clueEn": "Holding a wooden pickaxe, mine three stones."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_block_stone_axe",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 조약돌로 돌 도끼를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 조약돌로 돌 도끼를 만들어요.",
+     "clueEn": "Craft a stone axe out of cobblestone at a crafting table."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "CHOP",
+     "teach": [
+      "log"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BREAK_BLOCK",
+      "goal:HOLD_WHILE"
+     ],
+     "clueKo": "돌 도끼를 들고 통나무를 세 개 베세요.",
+     "clueSource": "generated",
+     "hintKo": "돌 도끼를 들고 통나무를 베어요.",
+     "clueEn": "Holding the stone axe, chop three birch logs."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:crafting_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_block_stone_pickaxe"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "제작대 옆에서 돌 곡괭이를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에서 돌 곡괭이를 만들어요.",
+     "clueEn": "Craft a stone pickaxe — read the Korean to see where to stand."
+    }
+   ],
+   "finaleKo": "더욱더 좋게 — 돌 곡괭이를 만들었어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "adv_story_smelt_iron",
+   "title": "철이 철철 넘쳐",
+   "titleEn": "Acquire Hardware",
+   "topic": "story",
+   "order": 324,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_story_upgrade_tools"
+   ],
+   "project": "Mine iron ore, put raw iron in the furnace, wait ten seconds and take the ingots out (the vanilla \"Acquire Hardware\").",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 0,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "Y_RANGE:-64..40"
+     ],
+     "verb": "MINE",
+     "teach": [
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "땅속에서 철 광석을 세 개 캐세요.",
+     "clueSource": "authored",
+     "hintKo": "땅속에서 철 광석을 캐요.",
+     "clueEn": "Underground, mine three iron ores."
+    },
+    {
+     "id": "s2",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "furnace"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "화로 안에 철 원석을 세 개 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 안에 철 원석을 넣어요.",
+     "clueEn": "Put three pieces of raw iron into the furnace."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:furnace"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "furnace"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:NEAR_BLOCK",
+      "goal:WAIT"
+     ],
+     "clueKo": "철이 녹아요. 화로 근처에서 십 초 동안 기다리세요.",
+     "clueSource": "authored",
+     "hintKo": "철이 녹아요. 화로 근처에서 십 초 기다려요.",
+     "clueEn": "The iron is melting. Wait ten seconds — read the Korean to see where to stand."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "relation": null,
+     "conditions": [],
+     "verb": "TAKE_OUT",
+     "teach": [
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:TAKE_OUT"
+     ],
+     "clueKo": "화로에서 철을 세 개 꺼내세요.",
+     "clueSource": "generated",
+     "hintKo": "화로에서 철을 꺼내요.",
+     "clueEn": "Take three iron ingots out of the furnace."
+    }
+   ],
+   "finaleKo": "철이 철철 넘쳐 — 화로에서 철 주괴를 세 개 꺼냈어요. 화로는 뜨거워요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "adv_story_iron_tools",
+   "title": "이젠 철 좀 들어라",
+   "titleEn": "Isn't It Iron Pick?",
+   "topic": "story",
+   "order": 317,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_story_smelt_iron"
+   ],
+   "project": "Set the crafting table before the furnace, collect ingots, make sticks and craft the iron pickaxe (the vanilla \"Isn't It Iron Pick?\").",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:IN_FRONT_OF"
+     ],
+     "clueKo": "화로 앞에 제작대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 앞에 제작대를 놓아요.",
+     "clueEn": "Place a crafting table — read the Korean to see where."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:furnace"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "화로 옆에서 철 주괴를 세 개 모으세요.",
+     "clueSource": "authored",
+     "hintKo": "화로 옆에서 철 주괴를 모아요.",
+     "clueEn": "Collect three iron ingots — read the Korean to see where to stand."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:crafting_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "stick"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대 옆에서 막대기를 두 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에서 막대기를 만들어요.",
+     "clueEn": "Craft two sticks — read the Korean to see where to stand."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "pickaxe",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 철로 곡괭이를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 철로 곡괭이를 만들어요.",
+     "clueEn": "Craft an iron pickaxe at the crafting table, out of iron."
+    }
+   ],
+   "finaleKo": "이젠 철 좀 들어라 — 철 곡괭이를 만들었어요. 철은 차갑고 단단해요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "adv_story_obtain_armor",
+   "title": "차려입기",
+   "titleEn": "Suit Up",
+   "topic": "story",
+   "order": 321,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_story_smelt_iron"
+   ],
+   "project": "Craft an iron helmet, boots and chestplate, then give iron to the iron golem (the vanilla \"Suit Up\").",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.go_held",
+    "L2.ege"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv2_item_iron_helmet",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 철 투구를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 철 투구를 만들어요.",
+     "clueEn": "Craft an iron helmet at a crafting table."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:crafting_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_iron_boots"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "제작대 옆에서 철 부츠를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에서 철 부츠를 만들어요.",
+     "clueEn": "Craft iron boots — read the Korean to see where to stand."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:iron_ingot"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "iron_chestplate"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:CRAFT"
+     ],
+     "clueKo": "철을 들고 철 흉갑을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "철을 들고 철 흉갑을 만들어요.",
+     "clueEn": "Holding iron, craft an iron chestplate."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "iron_golem"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:GIVE"
+     ],
+     "clueKo": "철 골렘에게 철을 주세요.",
+     "clueSource": "authored",
+     "hintKo": "철 골렘에게 철을 줘요.",
+     "clueEn": "Give some iron to the iron golem."
+    }
+   ],
+   "finaleKo": "차려입기 — 철 갑옷을 입었어요. 철 갑옷은 무거워요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "schmiedepfad",
+   "title": "대장간의 길",
+   "titleEn": "The Smithy Path",
+   "topic": "돌",
+   "order": 410,
+   "koreanLevel": 2,
+   "requires": [
+    "schmelzpfad",
+    "waldhaus",
+    "handelspfad",
+    "feuerpfad",
+    "feuerstelle"
+   ],
+   "project": "Craft a smithing table, place it by the furnace, put a grindstone between the two and craft an iron hoe at the smithy.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.loc_sai_e",
+    "L2.hago_wa_gwa"
+   ],
+   "formDependentSteps": 2,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_smithing_table",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 대장장이 작업대를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 대장장이 작업대를 만들어요.",
+     "clueEn": "Craft a smithing table at a crafting table."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_smithing_table"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "화로 옆에 대장장이 작업대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에 대장장이 작업대를 놓아요.",
+     "clueEn": "Place the smithing table — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "BETWEEN",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_grindstone"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:BETWEEN"
+     ],
+     "clueKo": "화로와 대장장이 작업대 사이에 숫돌을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로와 대장장이 작업대 사이에 숫돌을 놓아요.",
+     "clueEn": "Place a grindstone — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:smithing_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "hoe",
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CRAFT"
+     ],
+     "clueKo": "대장장이 작업대 옆에서 괭이를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "대장장이 작업대 옆에서 괭이를 만들어요.",
+     "clueEn": "Craft an iron hoe — read the Korean to see where to stand."
+    }
+   ],
+   "finaleKo": "대장장이 작업대 옆에서 철 괭이를 만들었어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "kohlenpfad",
+   "title": "석탄의 길",
+   "titleEn": "The Coal Trail",
+   "topic": "돌",
+   "order": 500,
+   "koreanLevel": 2,
+   "requires": [
+    "schmelzpfad"
+   ],
+   "project": "Mine coal with a torch in hand, craft a block of coal, store it by the furnace and burn it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:torch"
+     ],
+     "verb": "MINE",
+     "teach": [
+      "coal"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "횃불을 들고 석탄을 세 개 캐세요.",
+     "clueSource": "generated",
+     "hintKo": "횃불을 들고 석탄을 캐요.",
+     "clueEn": "Holding a torch, mine three coal ores."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_coal_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "석탄 블록을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "석탄 블록을 만들어요.",
+     "clueEn": "Craft a block of coal."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_coal_block"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "화로 옆에 석탄 블록을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에 석탄 블록을 놓아요.",
+     "clueEn": "Place the block of coal — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "furnace",
+      "gen_coal_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "화로 안에 석탄 블록을 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 안에 석탄 블록을 넣어요.",
+     "clueEn": "Put the block of coal into the furnace."
+    }
+   ],
+   "finaleKo": "화로 안에 석탄 블록을 넣었어요. 불은 뜨거워요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "steinbruch",
+   "title": "채석장의 길",
+   "titleEn": "The Quarry",
+   "topic": "돌",
+   "order": 508,
+   "koreanLevel": 2,
+   "requires": [
+    "schmelzpfad"
+   ],
+   "project": "Mine deepslate, craft a stonecutter, place it by the crafting table and build a wall of stone.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "Y_RANGE:-64..50"
+     ],
+     "verb": "MINE",
+     "teach": [
+      "gen_deepslate"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "땅속에서 심층암을 여섯 개 캐세요.",
+     "clueSource": "generated",
+     "hintKo": "땅속에서 심층암을 캐요.",
+     "clueEn": "Underground, mine six pieces of deepslate."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_stonecutter",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 석재 절단기를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 석재 절단기를 만들어요.",
+     "clueEn": "Craft a stonecutter at a crafting table."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_stonecutter"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "제작대 옆에 석재 절단기를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에 석재 절단기를 놓아요.",
+     "clueEn": "Place the stonecutter — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:WALL"
+     ],
+     "clueKo": "돌로 벽을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌로 벽을 쌓아요.",
+     "clueEn": "Build a wall out of stone."
+    }
+   ],
+   "finaleKo": "돌로 벽을 쌓았어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "ziegelpfad",
+   "title": "벽돌의 길",
+   "titleEn": "The Brick Trail",
+   "topic": "벽돌",
+   "order": 157,
+   "koreanLevel": 2,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "project": "Collect clay near water, bake it into bricks, build a brick wall, hang a door beside it and plant a daisy.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 2,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEAR:minecraft:water"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "clay"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "물 근처에서 점토를 네 개 모으세요.",
+     "clueSource": "generated",
+     "hintKo": "물 근처에서 점토를 모아요.",
+     "clueEn": "Collect four clay balls — read the Korean to see where to stand."
+    },
+    {
+     "id": "s2",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [],
+     "verb": "BAKE",
+     "teach": [
+      "clay",
+      "bake"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:SMELT"
+     ],
+     "clueKo": "점토를 네 개 구우세요.",
+     "clueSource": "generated",
+     "hintKo": "점토를 구워요.",
+     "clueEn": "Bake four balls of clay."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:WALL"
+     ],
+     "clueKo": "벽돌로 벽을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌로 벽을 쌓아요.",
+     "clueEn": "Build a wall out of bricks."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:WALL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "벽돌 벽 옆에 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌 벽 옆에 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "gen_oxeye_daisy"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:WALL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "벽돌 벽 옆에 데이지를 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌 벽 옆에 데이지를 심어요.",
+     "clueEn": "Plant a daisy — read the Korean to see where."
+    }
+   ],
+   "finaleKo": "벽돌 벽 옆에 데이지를 심었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "steinmetz",
+   "title": "석공의 길",
+   "titleEn": "The Stonemason Trail",
+   "topic": "석공",
+   "order": 160,
+   "koreanLevel": 2,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "project": "Craft stone bricks and slabs, raise a stone pillar, cap it with a chiseled stone brick and set stairs beside it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 2,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "stone_bricks",
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대에서 석재 벽돌을 네 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 석재 벽돌을 만들어요.",
+     "clueEn": "Craft four stone bricks at a crafting table."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:crafting_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_stone_brick_slab"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "제작대 옆에서 석재 벽돌 반 블록을 두 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에서 석재 벽돌 반 블록을 만들어요.",
+     "clueEn": "Craft two stone brick slabs — read the Korean to see where to stand."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:PILLAR"
+     ],
+     "clueKo": "돌 세 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar out of stone."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "chiseled_stone_bricks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "돌 기둥 위에 조각된 석재 벽돌을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌 기둥 위에 조각된 석재 벽돌을 놓아요.",
+     "clueEn": "Place a chiseled stone brick — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "돌 기둥 옆에 석재 벽돌 계단을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돌 기둥 옆에 석재 벽돌 계단을 놓아요.",
+     "clueEn": "Place stone brick stairs — read the Korean to see where."
+    }
+   ],
+   "finaleKo": "돌 기둥 옆에 석재 벽돌 계단을 놓았어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "werkzeugpfad",
+   "title": "도구의 길",
+   "titleEn": "The Tool Trail",
+   "topic": "도구",
+   "order": 169,
+   "koreanLevel": 2,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "project": "Craft an iron axe, chop logs with it, place a barrel before the furnace and store the axe in a chest.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 1,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:crafting_table"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "axe"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "제작대 옆에서 도끼를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대 옆에서 도끼를 만들어요.",
+     "clueEn": "Craft an iron axe — read the Korean to see where to stand."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:iron_axe"
+     ],
+     "verb": "CHOP",
+     "teach": [
+      "log"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "철 도끼를 들고 통나무를 네 개 베세요.",
+     "clueSource": "authored",
+     "hintKo": "철 도끼를 들고 통나무를 베어요.",
+     "clueEn": "Holding the iron axe, chop four logs."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_barrel"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:IN_FRONT_OF"
+     ],
+     "clueKo": "화로 앞에 통을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 앞에 통을 놓아요.",
+     "clueEn": "Place a barrel — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "axe",
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "상자 안에 철 도끼를 넣으세요.",
+     "clueSource": "authored",
+     "hintKo": "상자 안에 철 도끼를 넣어요.",
+     "clueEn": "Put the iron axe into a chest."
+    }
+   ],
+   "finaleKo": "상자 안에 철 도끼를 넣었어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "tiefenpfad",
+   "title": "깊은 광맥의 길",
+   "titleEn": "The Deep Trail",
+   "topic": "돌",
+   "order": 510,
+   "koreanLevel": 2,
+   "requires": [
+    "kohlenpfad",
+    "schmelzpfad"
+   ],
+   "project": "Go below height 0 with a torch, mine a diamond, set up an underground camp (table by the furnace, rails before the furnace) and store the diamond.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held"
+   ],
+   "formDependentSteps": 2,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:torch"
+     ],
+     "verb": "DESCEND",
+     "teach": [
+      "go_down",
+      "torch"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "횃불을 들고 높이 0 이하로 내려가세요.",
+     "clueSource": "generated",
+     "hintKo": "횃불을 들고 아래로 내려가요.",
+     "clueEn": "Holding a torch, go down below height zero."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "Y_RANGE:-64..16"
+     ],
+     "verb": "MINE",
+     "teach": [
+      "diamond"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "땅속에서 다이아몬드를 캐세요.",
+     "clueSource": "generated",
+     "hintKo": "땅속에서 다이아몬드를 캐요.",
+     "clueEn": "Underground, mine a diamond."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [
+      "Y_RANGE:-64..50"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "crafting_table"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "땅속에서 화로 옆에 제작대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "땅속에서 화로 옆에 제작대를 놓아요.",
+     "clueEn": "Underground, place a crafting table — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [
+      "Y_RANGE:-64..50"
+     ],
+     "verb": "SPREAD",
+     "teach": [
+      "gen_rail"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "cond:Y_RANGE",
+      "goal:PLACE_REL",
+      "rel:IN_FRONT_OF"
+     ],
+     "clueKo": "땅속에서 화로 앞에 레일을 까세요.",
+     "clueSource": "generated",
+     "hintKo": "땅속에서 화로 앞에 레일을 깔아요.",
+     "clueEn": "Underground, lay a rail — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "diamond",
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:PUT_IN"
+     ],
+     "clueKo": "상자 안에 다이아몬드를 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 안에 다이아몬드를 넣어요.",
+     "clueEn": "Put the diamond into a chest."
+    }
+   ],
+   "finaleKo": "상자 안에 다이아몬드를 넣었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "schmiedefeuer",
+   "title": "대장간의 불",
+   "titleEn": "The Forge Fire",
+   "topic": "돌",
+   "order": 511,
+   "koreanLevel": 2,
+   "requires": [
+    "schmiedepfad",
+    "kohlenpfad",
+    "steinbruch"
+   ],
+   "project": "Raise a stone-brick chimney pillar, put a blast furnace beside it, an iron trapdoor on top and a hopper under the furnace, then trade iron to a villager.",
+   "grammar": [
+    "L2.euro_material",
+    "L2.seyo",
+    "L2.ege"
+   ],
+   "formDependentSteps": 4,
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "stone_bricks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "mechanics": [
+      "goal:BUILD_PATTERN",
+      "pattern:PILLAR"
+     ],
+     "clueKo": "석재 벽돌 네 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "석재 벽돌로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar out of four stone bricks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_blast_furnace"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "석재 벽돌 기둥 옆에 용광로를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "석재 벽돌 기둥 옆에 용광로를 놓아요.",
+     "clueEn": "Place a blast furnace — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "gen_iron_trapdoor"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "석재 벽돌 기둥 위에 철 다락문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "석재 벽돌 기둥 위에 철 다락문을 달아요.",
+     "clueEn": "Place iron bars — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "UNDER",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_hopper"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:UNDER"
+     ],
+     "clueKo": "용광로 아래에 호퍼를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "용광로 아래에 호퍼를 놓아요.",
+     "clueEn": "Place a hopper — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "villager",
+      "iron"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "mechanics": [
+      "goal:GIVE"
+     ],
+     "clueKo": "주민에게 철을 주고 에메랄드를 받으세요.",
+     "clueSource": "authored",
+     "hintKo": "주민에게 철을 주고 에메랄드를 받아요.",
+     "clueEn": "Give two iron ingots to a villager and get an emerald."
+    }
+   ],
+   "finaleKo": "주민에게 철 주괴를 주고 에메랄드를 받았어요.",
+   "finaleSource": "authored"
+  }
+ ],
+ "recycledWords": {
+  "석탄": {
+   "encountersBefore": 6,
+   "encountersAfter": 9,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "철": {
+   "encountersBefore": 9,
+   "encountersAfter": 15,
+   "encountersInBatch": 6,
+   "rolesInBatch": [
+    "mention",
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "화로": {
+   "encountersBefore": 11,
+   "encountersAfter": 28,
+   "encountersInBatch": 17,
+   "rolesInBatch": [
+    "anchor",
+    "condition"
+   ],
+   "coreWord": false
+  },
+  "용광로": {
+   "encountersBefore": 3,
+   "encountersAfter": 7,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "anchor",
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "제작대": {
+   "encountersBefore": 4,
+   "encountersAfter": 17,
+   "encountersInBatch": 13,
+   "rolesInBatch": [
+    "anchor",
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "상자": {
+   "encountersBefore": 16,
+   "encountersAfter": 19,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "돌": {
+   "encountersBefore": 10,
+   "encountersAfter": 16,
+   "encountersInBatch": 6,
+   "rolesInBatch": [
+    "material"
+   ],
+   "coreWord": true
+  },
+  "조약돌": {
+   "encountersBefore": 10,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "횃불": {
+   "encountersBefore": 17,
+   "encountersAfter": 19,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "통": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "삽": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "도끼": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "곡괭이": {
+   "encountersBefore": 1,
+   "encountersAfter": 1,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "벽돌": {
+   "encountersBefore": 5,
+   "encountersAfter": 7,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "material"
+   ],
+   "coreWord": false
+  },
+  "석재 벽돌": {
+   "encountersBefore": 4,
+   "encountersAfter": 7,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "material"
+   ],
+   "coreWord": false
+  },
+  "불": {
+   "encountersBefore": 10,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "뜨겁다": {
+   "encountersBefore": 3,
+   "encountersAfter": 6,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "차갑다": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "무겁다": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "입다": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "굽다": {
+   "encountersBefore": 5,
+   "encountersAfter": 7,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "만들다": {
+   "encountersBefore": 261,
+   "encountersAfter": 264,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "캐다": {
+   "encountersBefore": 23,
+   "encountersAfter": 24,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "녹이다": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "쓰다": {
+   "encountersBefore": 5,
+   "encountersAfter": 5,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "벗다": {
+   "encountersBefore": 1,
+   "encountersAfter": 1,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "바꾸다": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "가볍다": {
+   "encountersBefore": 2,
+   "encountersAfter": 2,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "신발": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "주민": {
+   "encountersBefore": 16,
+   "encountersAfter": 17,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "문": {
+   "encountersBefore": 30,
+   "encountersAfter": 31,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "유리": {
+   "encountersBefore": 5,
+   "encountersAfter": 5,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "다이아몬드": {
+   "encountersBefore": 7,
+   "encountersAfter": 7,
+   "encountersInBatch": 0,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": false
+  },
+  "점토": {
+   "encountersBefore": 1,
+   "encountersAfter": 3,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "숯": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": false
+  },
+  "철 주괴": {
+   "encountersBefore": 1,
+   "encountersAfter": 4,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "finale"
+   ],
+   "coreWord": false
+  },
+  "철 광석": {
+   "encountersBefore": 0,
+   "encountersAfter": 1,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "철 원석": {
+   "encountersBefore": 0,
+   "encountersAfter": 2,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "옆": {
+   "encountersBefore": 44,
+   "encountersAfter": 63,
+   "encountersInBatch": 19,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "앞": {
+   "encountersBefore": 6,
+   "encountersAfter": 9,
+   "encountersInBatch": 3,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "뒤": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "안": {
+   "encountersBefore": 17,
+   "encountersAfter": 24,
+   "encountersInBatch": 7,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "위": {
+   "encountersBefore": 34,
+   "encountersAfter": 36,
+   "encountersInBatch": 2,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "아래": {
+   "encountersBefore": 17,
+   "encountersAfter": 18,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "사이": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "근처": {
+   "encountersBefore": 0,
+   "encountersAfter": 0,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "소고기": {
+   "encountersBefore": 3,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "침대": {
+   "encountersBefore": 16,
+   "encountersAfter": 16,
+   "encountersInBatch": 0,
+   "rolesInBatch": [],
+   "coreWord": true
+  },
+  "막대기": {
+   "encountersBefore": 1,
+   "encountersAfter": 2,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  }
+ },
+ "newWordsWithDescKo": [
+  "gen_blast_furnace",
+  "gen_smithing_table",
+  "gen_grindstone",
+  "gen_coal_block",
+  "gen_deepslate",
+  "gen_stonecutter",
+  "gen_oxeye_daisy",
+  "gen_stone_brick_slab",
+  "gen_hopper",
+  "gen_iron_door",
+  "gen_rail",
+  "gen_iron_trapdoor"
+ ],
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: descKo inserted for gen_blast_furnace, gen_smithing_table, gen_grindstone, gen_coal_block, gen_deepslate, gen_stonecutter, gen_oxeye_daisy, gen_stone_brick_slab, gen_hopper, gen_iron_door, gen_rail, gen_iron_trapdoor (one line each, nothing reformatted; gen_barrel took phase0's line).",
+  "src/test/resources/content-baseline.json: adv_story_upgrade_tools removed from reachabilityDebt (it needed end stone; the new trail does not).",
+  "chapters.json, docs/book/src/quest-tree.md, content/korean/lines.jsonl and review-status.json regenerated; content/metrics-baseline.json updated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "The questline schema has no trail-level `grammar` field (additionalProperties is false, validate_schema.py rejects it), so the per-trail grammar lists live in this manifest only.",
+  "PLACE_ON_PATTERN prints a ring of stone as '돌 담' (two words, not 돌담), and its shortener drops the words that the structure and the block share: a stone-brick pillar with stone-brick stairs read '기둥 앞에 계단을', which hides the material. steinherz s2 is authored as '돌담 안에 화로를 놓으세요' for the spacing; the stairs step uses a pillar of plain stone to avoid the shortener.",
+  "IN_FRONT_OF and BEHIND accept only a facing block as anchor (door, chest, bed, furnace, blast furnace); a crafting table, barrel or smithing table cannot be 'in front of' anything, and PILLAR/WALL anchors take only ON_TOP_OF, UNDER, NEXT_TO and NEAR (INSIDE only for a RING). NEAR and OUTSIDE have no grammar id, so they never count as form-dependent. This limits the natural level-2 smithy lines like '제작대 앞에 …'.",
+  "authoredCluesNameTheAction looks for the stem 만들 but the -(으)세요 form of 만들다 is 만드세요, so an authored CRAFT or craft-ACQUIRE clue at level 2 cannot name its action. Three authored clues (iron pickaxe, iron hoe, iron axe) were dropped for the generated line (not retested after generator wave 5, whose note says conjugated verbs now count).",
+  "The tool concepts 곡괭이, 도끼, 삽 and 괭이 list only the iron tool, so the generator always says the bare word ('제작대에서 철과 막대기로 곡괭이를 만드세요'), never 철 곡괭이; the namer maps iron_pickaxe and its kin to the concept before any registry name can be used.",
+  "철 stands for iron_ore, raw_iron and iron_ingot (one concept, no 철 광석 / 철 원석 / 철 주괴 concept), so generated clues say bare 철 for ore, raw iron and ingot, which the BATCH-004 review asked to avoid. Authored clues are used where one unknown word allows it (smelt_iron s1 철 광석, iron_tools s2 철 주괴); the rest stay generated.",
+  "SMELT names the input when the step does not teach the product: stone to smooth stone reads '화로에서 돌을 구우세요', the same words as adv_story_mine_stone's cobblestone to stone. No concept names 매끄러운 돌, so the task was dropped from schmelzofen.",
+  "The default verb of PLACE_REL and PLACE_ON_PATTERN is 놓다 for every block that is not a plant, door, banner or rail, so form-dependent placements push the level-2 top verb to the ratchet limit (19.7%). Three placements were switched to 달다 (door, trapdoor) and 깔다 (rail) to stay under it. A verb for pillars/walls/stairs (세우다, 쌓다) in verbs.json would give later batches room.",
+  "An extra flavour sentence in a clue ('용광로는 뜨거워요.') puts an unknown adjective next to the new noun and the sentence has two unknown words; the adjectives (뜨겁다, 차갑다, 무겁다) therefore live in the finale lines only.",
+  "The German relation-giveaway check flags 'auf' inside the verb 'aufstellen' and 'unter' in 'unter der Erde' on any spatial step; the German lines say 'Platziere …' and 'in der Tiefe'.",
+  "Y_RANGE puts '땅속에서' in front of a place clue ('땅속에서 화로 옆에 제작대를 놓으세요'): readable, and it shows 에서 against 에 in one sentence, but the condition phrase cannot be dropped."
+ ],
+ "openIssues": [
+  "No trail is proposed for level 3: every step is reachable in a first week (iron tools, caves, a village for the golem and the villager). adv_story_upgrade_tools no longer needs end stone and was removed from reachabilityDebt.",
+  "formDependentShare.2 is a share of all level-2 steps, so it only rises from 0 to 0.046 with this batch; the batch's own share is 21 of 64 steps (32.8%). HOLD_WHILE has no deciding form in the code, so '들고' steps (go_held) count as practice but not as form-dependent.",
+  "tiefenpfad must keep four clue steps plus the finale: three engine tests use it as a fixture with a fixed step count.",
+  "The per-trail grammar lists could not be written into the trail files (see generatorWeaknesses); ARCH may add an optional `grammar` array to the schema and the loader, then the manifest lists can be copied over.",
+  "The reward words of every trail are words the trail teaches itself; tiefenpfad rewards go_down, diamond, crafting_table, gen_rail, adv_story_obtain_armor rewards the three armour words and the golem.",
+  "adv_story_obtain_armor finale text says '철 갑옷을 입었어요': the game checks that the armour pieces were crafted and iron was given to the golem, not that they are worn."
+ ]
+}

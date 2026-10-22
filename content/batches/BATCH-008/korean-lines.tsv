@@ -1,0 +1,171 @@
+id	ko	context
+trail.adv_story_iron_tools.title	이젠 철 좀 들어라	title, authored; project: Set the crafting table before the furnace, collect ingots, make sticks and craft the iron pickaxe (the vanilla "Isn't It Iron Pick?").
+trail.adv_story_iron_tools.s1.clue	화로 앞에 제작대를 놓으세요.	clue, generated; PlaceRel
+trail.adv_story_iron_tools.s1.hint	화로 앞에 제작대를 놓아요.	hint, generated; PlaceRel
+trail.adv_story_iron_tools.s2.clue	화로 옆에서 철 주괴를 세 개 모으세요.	clue, authored; AcquireItem
+trail.adv_story_iron_tools.s2.hint	화로 옆에서 철 주괴를 모아요.	hint, authored; AcquireItem
+trail.adv_story_iron_tools.s3.clue	제작대 옆에서 막대기를 두 개 만드세요.	clue, generated; Craft
+trail.adv_story_iron_tools.s3.hint	제작대 옆에서 막대기를 만들어요.	hint, generated; Craft
+trail.adv_story_iron_tools.finale.clue	제작대에서 철로 곡괭이를 만드세요.	clue, generated; Craft
+trail.adv_story_iron_tools.finale.hint	제작대에서 철로 곡괭이를 만들어요.	hint, generated; Craft
+trail.adv_story_iron_tools.finale	이젠 철 좀 들어라 — 철 곡괭이를 만들었어요. 철은 차갑고 단단해요.	finale, authored; Craft
+trail.adv_story_obtain_armor.title	차려입기	title, authored; project: Craft an iron helmet, boots and chestplate, then give iron to the iron golem (the vanilla "Suit Up").
+trail.adv_story_obtain_armor.s1.clue	제작대에서 철 투구를 만드세요.	clue, generated; Craft
+trail.adv_story_obtain_armor.s1.hint	제작대에서 철 투구를 만들어요.	hint, generated; Craft
+trail.adv_story_obtain_armor.s2.clue	제작대 옆에서 철 부츠를 만드세요.	clue, generated; AcquireItem
+trail.adv_story_obtain_armor.s2.hint	제작대 옆에서 철 부츠를 만들어요.	hint, generated; AcquireItem
+trail.adv_story_obtain_armor.s3.clue	철을 들고 철 흉갑을 만드세요.	clue, generated; Craft
+trail.adv_story_obtain_armor.s3.hint	철을 들고 철 흉갑을 만들어요.	hint, generated; Craft
+trail.adv_story_obtain_armor.finale.clue	철 골렘에게 철을 주세요.	clue, authored; Give
+trail.adv_story_obtain_armor.finale.hint	철 골렘에게 철을 줘요.	hint, authored; Give
+trail.adv_story_obtain_armor.finale	차려입기 — 철 갑옷을 입었어요. 철 갑옷은 무거워요.	finale, authored; Give
+trail.adv_story_smelt_iron.title	철이 철철 넘쳐	title, authored; project: Mine iron ore, put raw iron in the furnace, wait ten seconds and take the ingots out (the vanilla "Acquire Hardware").
+trail.adv_story_smelt_iron.s1.clue	땅속에서 철 광석을 세 개 캐세요.	clue, authored; BreakBlock
+trail.adv_story_smelt_iron.s1.hint	땅속에서 철 광석을 캐요.	hint, authored; BreakBlock
+trail.adv_story_smelt_iron.s2.clue	화로 안에 철 원석을 세 개 넣으세요.	clue, generated; PutIn
+trail.adv_story_smelt_iron.s2.hint	화로 안에 철 원석을 넣어요.	hint, generated; PutIn
+trail.adv_story_smelt_iron.s3.clue	철이 녹아요. 화로 근처에서 십 초 동안 기다리세요.	clue, authored; Wait
+trail.adv_story_smelt_iron.s3.hint	철이 녹아요. 화로 근처에서 십 초 기다려요.	hint, authored; Wait
+trail.adv_story_smelt_iron.finale.clue	화로에서 철을 세 개 꺼내세요.	clue, generated; TakeOut
+trail.adv_story_smelt_iron.finale.hint	화로에서 철을 꺼내요.	hint, generated; TakeOut
+trail.adv_story_smelt_iron.finale	철이 철철 넘쳐 — 화로에서 철 주괴를 세 개 꺼냈어요. 화로는 뜨거워요.	finale, authored; TakeOut
+trail.adv_story_upgrade_tools.title	더욱더 좋게	title, authored; project: Wooden pickaxe to stone: mine stone, craft a stone axe, chop logs with it and craft the stone pickaxe (the vanilla "Getting an Upgrade").
+trail.adv_story_upgrade_tools.s1.clue	나무 곡괭이를 들고 돌을 세 개 캐세요.	clue, generated; BreakBlock
+trail.adv_story_upgrade_tools.s1.hint	나무 곡괭이를 들고 돌을 캐요.	hint, generated; BreakBlock
+trail.adv_story_upgrade_tools.s2.clue	제작대에서 조약돌로 돌 도끼를 만드세요.	clue, generated; Craft
+trail.adv_story_upgrade_tools.s2.hint	제작대에서 조약돌로 돌 도끼를 만들어요.	hint, generated; Craft
+trail.adv_story_upgrade_tools.s3.clue	돌 도끼를 들고 통나무를 세 개 베세요.	clue, generated; HoldWhile
+trail.adv_story_upgrade_tools.s3.hint	돌 도끼를 들고 통나무를 베어요.	hint, generated; HoldWhile
+trail.adv_story_upgrade_tools.finale.clue	제작대 옆에서 돌 곡괭이를 만드세요.	clue, generated; AcquireItem
+trail.adv_story_upgrade_tools.finale.hint	제작대 옆에서 돌 곡괭이를 만들어요.	hint, generated; AcquireItem
+trail.adv_story_upgrade_tools.finale	더욱더 좋게 — 돌 곡괭이를 만들었어요.	finale, authored; AcquireItem
+trail.kohlenpfad.title	석탄의 길	title, authored; project: Mine coal with a torch in hand, craft a block of coal, store it by the furnace and burn it.
+trail.kohlenpfad.s1.clue	횃불을 들고 석탄을 세 개 캐세요.	clue, generated; BreakBlock
+trail.kohlenpfad.s1.hint	횃불을 들고 석탄을 캐요.	hint, generated; BreakBlock
+trail.kohlenpfad.s2.clue	석탄 블록을 만드세요.	clue, generated; Craft
+trail.kohlenpfad.s2.hint	석탄 블록을 만들어요.	hint, generated; Craft
+trail.kohlenpfad.s3.clue	화로 옆에 석탄 블록을 놓으세요.	clue, generated; PlaceRel
+trail.kohlenpfad.s3.hint	화로 옆에 석탄 블록을 놓아요.	hint, generated; PlaceRel
+trail.kohlenpfad.finale.clue	화로 안에 석탄 블록을 넣으세요.	clue, generated; PutIn
+trail.kohlenpfad.finale.hint	화로 안에 석탄 블록을 넣어요.	hint, generated; PutIn
+trail.kohlenpfad.finale	화로 안에 석탄 블록을 넣었어요. 불은 뜨거워요.	finale, authored; PutIn
+trail.schmelzofen.title	용광로의 불	title, authored; project: Smelt iron with coal in hand, craft a blast furnace, place it next to the furnace and feed it raw iron.
+trail.schmelzofen.s1.clue	석탄을 들고 화로에서 철을 다섯 개 만드세요.	clue, generated; Smelt
+trail.schmelzofen.s1.hint	석탄을 들고 화로에서 철을 만들어요.	hint, generated; Smelt
+trail.schmelzofen.s2.clue	용광로를 만드세요.	clue, generated; Craft
+trail.schmelzofen.s2.hint	용광로를 만들어요.	hint, generated; Craft
+trail.schmelzofen.s3.clue	화로 옆에 용광로를 놓으세요.	clue, generated; PlaceRel
+trail.schmelzofen.s3.hint	화로 옆에 용광로를 놓아요.	hint, generated; PlaceRel
+trail.schmelzofen.finale.clue	용광로 안에 철 원석을 세 개 넣으세요.	clue, generated; PutIn
+trail.schmelzofen.finale.hint	용광로 안에 철 원석을 넣어요.	hint, generated; PutIn
+trail.schmelzofen.finale	용광로 안에 철 원석을 세 개 넣었어요. 용광로는 뜨거워요.	finale, authored; PutIn
+trail.schmelzpfad.title	화로의 길	title, authored; project: Dig coal underground, put a furnace next to the crafting table, fuel it, and bake logs into charcoal while standing by it (a place of action with 에서 against a place for a block with 에).
+trail.schmelzpfad.s1.clue	땅속에서 석탄을 네 개 모으세요.	clue, generated; AcquireItem
+trail.schmelzpfad.s1.hint	땅속에서 석탄을 모아요.	hint, generated; AcquireItem
+trail.schmelzpfad.s2.clue	제작대 옆에 화로를 놓으세요.	clue, generated; PlaceRel
+trail.schmelzpfad.s2.hint	제작대 옆에 화로를 놓아요.	hint, generated; PlaceRel
+trail.schmelzpfad.s3.clue	화로 안에 석탄을 두 개 넣으세요.	clue, generated; PutIn
+trail.schmelzpfad.s3.hint	화로 안에 석탄을 넣어요.	hint, generated; PutIn
+trail.schmelzpfad.finale.clue	화로 옆에서 통나무를 두 개 구우세요.	clue, generated; Smelt
+trail.schmelzpfad.finale.hint	화로 옆에서 통나무를 구워요.	hint, generated; Smelt
+trail.schmelzpfad.finale	숯을 두 개 만들었어요.	finale, authored; Smelt
+trail.schmiedefeuer.title	대장간의 불	title, authored; project: Raise a stone-brick chimney pillar, put a blast furnace beside it, an iron trapdoor on top and a hopper under the furnace, then trade iron to a villager.
+trail.schmiedefeuer.s1.clue	석재 벽돌 네 개로 기둥을 쌓으세요.	clue, generated; BuildPattern
+trail.schmiedefeuer.s1.hint	석재 벽돌로 기둥을 쌓아요.	hint, generated; BuildPattern
+trail.schmiedefeuer.s2.clue	석재 벽돌 기둥 옆에 용광로를 놓으세요.	clue, generated; PlaceOnPattern
+trail.schmiedefeuer.s2.hint	석재 벽돌 기둥 옆에 용광로를 놓아요.	hint, generated; PlaceOnPattern
+trail.schmiedefeuer.s3.clue	석재 벽돌 기둥 위에 철 다락문을 다세요.	clue, generated; PlaceOnPattern
+trail.schmiedefeuer.s3.hint	석재 벽돌 기둥 위에 철 다락문을 달아요.	hint, generated; PlaceOnPattern
+trail.schmiedefeuer.s4.clue	용광로 아래에 호퍼를 놓으세요.	clue, generated; PlaceRel
+trail.schmiedefeuer.s4.hint	용광로 아래에 호퍼를 놓아요.	hint, generated; PlaceRel
+trail.schmiedefeuer.finale.clue	주민에게 철을 주고 에메랄드를 받으세요.	clue, authored; Give
+trail.schmiedefeuer.finale.hint	주민에게 철을 주고 에메랄드를 받아요.	hint, authored; Give
+trail.schmiedefeuer.finale	주민에게 철 주괴를 주고 에메랄드를 받았어요.	finale, authored; Give
+trail.schmiedepfad.title	대장간의 길	title, authored; project: Craft a smithing table, place it by the furnace, put a grindstone between the two and craft an iron hoe at the smithy.
+trail.schmiedepfad.s1.clue	제작대에서 대장장이 작업대를 만드세요.	clue, generated; Craft
+trail.schmiedepfad.s1.hint	제작대에서 대장장이 작업대를 만들어요.	hint, generated; Craft
+trail.schmiedepfad.s2.clue	화로 옆에 대장장이 작업대를 놓으세요.	clue, generated; PlaceRel
+trail.schmiedepfad.s2.hint	화로 옆에 대장장이 작업대를 놓아요.	hint, generated; PlaceRel
+trail.schmiedepfad.s3.clue	화로와 대장장이 작업대 사이에 숫돌을 놓으세요.	clue, generated; PlaceRel
+trail.schmiedepfad.s3.hint	화로와 대장장이 작업대 사이에 숫돌을 놓아요.	hint, generated; PlaceRel
+trail.schmiedepfad.finale.clue	대장장이 작업대 옆에서 괭이를 만드세요.	clue, generated; Craft
+trail.schmiedepfad.finale.hint	대장장이 작업대 옆에서 괭이를 만들어요.	hint, generated; Craft
+trail.schmiedepfad.finale	대장장이 작업대 옆에서 철 괭이를 만들었어요.	finale, authored; Craft
+trail.steinbruch.title	채석장의 길	title, authored; project: Mine deepslate, craft a stonecutter, place it by the crafting table and build a wall of stone.
+trail.steinbruch.s1.clue	땅속에서 심층암을 여섯 개 캐세요.	clue, generated; BreakBlock
+trail.steinbruch.s1.hint	땅속에서 심층암을 캐요.	hint, generated; BreakBlock
+trail.steinbruch.s2.clue	제작대에서 석재 절단기를 만드세요.	clue, generated; Craft
+trail.steinbruch.s2.hint	제작대에서 석재 절단기를 만들어요.	hint, generated; Craft
+trail.steinbruch.s3.clue	제작대 옆에 석재 절단기를 놓으세요.	clue, generated; PlaceRel
+trail.steinbruch.s3.hint	제작대 옆에 석재 절단기를 놓아요.	hint, generated; PlaceRel
+trail.steinbruch.finale.clue	돌로 벽을 쌓으세요.	clue, generated; BuildPattern
+trail.steinbruch.finale.hint	돌로 벽을 쌓아요.	hint, generated; BuildPattern
+trail.steinbruch.finale	돌로 벽을 쌓았어요.	finale, generated; BuildPattern
+trail.steinherz.title	돌심장	title, authored; project: Build a ring of stone, put a furnace inside it and a chest behind the furnace, then eat beef by the fire.
+trail.steinherz.s1.clue	돌로 담을 쌓으세요.	clue, generated; BuildPattern
+trail.steinherz.s1.hint	돌로 담을 쌓아요.	hint, generated; BuildPattern
+trail.steinherz.s2.clue	돌담 안에 화로를 놓으세요.	clue, authored; PlaceOnPattern
+trail.steinherz.s2.hint	돌담 안에 화로를 놓아요.	hint, authored; PlaceOnPattern
+trail.steinherz.s3.clue	화로 뒤에 상자를 놓으세요.	clue, generated; PlaceRel
+trail.steinherz.s3.hint	화로 뒤에 상자를 놓아요.	hint, generated; PlaceRel
+trail.steinherz.finale.clue	화로 옆에서 소고기를 먹으세요.	clue, generated; ConsumeItem
+trail.steinherz.finale.hint	화로 옆에서 소고기를 먹어요.	hint, generated; ConsumeItem
+trail.steinherz.finale	화로 옆에서 소고기를 먹었어요.	finale, generated; ConsumeItem
+trail.steinmetz.title	석공의 길	title, authored; project: Craft stone bricks and slabs, raise a stone pillar, cap it with a chiseled stone brick and set stairs beside it.
+trail.steinmetz.s1.clue	제작대에서 석재 벽돌을 네 개 만드세요.	clue, generated; Craft
+trail.steinmetz.s1.hint	제작대에서 석재 벽돌을 만들어요.	hint, generated; Craft
+trail.steinmetz.s2.clue	제작대 옆에서 석재 벽돌 반 블록을 두 개 만드세요.	clue, generated; AcquireItem
+trail.steinmetz.s2.hint	제작대 옆에서 석재 벽돌 반 블록을 만들어요.	hint, generated; AcquireItem
+trail.steinmetz.s3.clue	돌 세 개로 기둥을 쌓으세요.	clue, generated; BuildPattern
+trail.steinmetz.s3.hint	돌로 기둥을 쌓아요.	hint, generated; BuildPattern
+trail.steinmetz.s4.clue	돌 기둥 위에 조각된 석재 벽돌을 놓으세요.	clue, generated; PlaceOnPattern
+trail.steinmetz.s4.hint	돌 기둥 위에 조각된 석재 벽돌을 놓아요.	hint, generated; PlaceOnPattern
+trail.steinmetz.finale.clue	돌 기둥 옆에 석재 벽돌 계단을 놓으세요.	clue, generated; PlaceOnPattern
+trail.steinmetz.finale.hint	돌 기둥 옆에 석재 벽돌 계단을 놓아요.	hint, generated; PlaceOnPattern
+trail.steinmetz.finale	돌 기둥 옆에 석재 벽돌 계단을 놓았어요.	finale, generated; PlaceOnPattern
+trail.tiefenpfad.title	깊은 광맥의 길	title, authored; project: Go below height 0 with a torch, mine a diamond, set up an underground camp (table by the furnace, rails before the furnace) and store the diamond.
+trail.tiefenpfad.s1.clue	횃불을 들고 높이 0 이하로 내려가세요.	clue, generated; ReachHeight
+trail.tiefenpfad.s1.hint	횃불을 들고 아래로 내려가요.	hint, generated; ReachHeight
+trail.tiefenpfad.s2.clue	땅속에서 다이아몬드를 캐세요.	clue, generated; BreakBlock
+trail.tiefenpfad.s2.hint	땅속에서 다이아몬드를 캐요.	hint, generated; BreakBlock
+trail.tiefenpfad.s3.clue	땅속에서 화로 옆에 제작대를 놓으세요.	clue, generated; PlaceRel
+trail.tiefenpfad.s3.hint	땅속에서 화로 옆에 제작대를 놓아요.	hint, generated; PlaceRel
+trail.tiefenpfad.s4.clue	땅속에서 화로 앞에 레일을 까세요.	clue, generated; PlaceRel
+trail.tiefenpfad.s4.hint	땅속에서 화로 앞에 레일을 깔아요.	hint, generated; PlaceRel
+trail.tiefenpfad.finale.clue	상자 안에 다이아몬드를 넣으세요.	clue, generated; PutIn
+trail.tiefenpfad.finale.hint	상자 안에 다이아몬드를 넣어요.	hint, generated; PutIn
+trail.tiefenpfad.finale	상자 안에 다이아몬드를 넣었어요.	finale, generated; PutIn
+trail.werkzeugpfad.title	도구의 길	title, authored; project: Craft an iron axe, chop logs with it, place a barrel before the furnace and store the axe in a chest.
+trail.werkzeugpfad.s1.clue	제작대 옆에서 도끼를 만드세요.	clue, generated; AcquireItem
+trail.werkzeugpfad.s1.hint	제작대 옆에서 도끼를 만들어요.	hint, generated; AcquireItem
+trail.werkzeugpfad.s2.clue	철 도끼를 들고 통나무를 네 개 베세요.	clue, authored; BreakBlock
+trail.werkzeugpfad.s2.hint	철 도끼를 들고 통나무를 베어요.	hint, authored; BreakBlock
+trail.werkzeugpfad.s3.clue	화로 앞에 통을 놓으세요.	clue, generated; PlaceRel
+trail.werkzeugpfad.s3.hint	화로 앞에 통을 놓아요.	hint, generated; PlaceRel
+trail.werkzeugpfad.finale.clue	상자 안에 철 도끼를 넣으세요.	clue, authored; PutIn
+trail.werkzeugpfad.finale.hint	상자 안에 철 도끼를 넣어요.	hint, authored; PutIn
+trail.werkzeugpfad.finale	상자 안에 철 도끼를 넣었어요.	finale, authored; PutIn
+trail.ziegelpfad.title	벽돌의 길	title, authored; project: Collect clay near water, bake it into bricks, build a brick wall, hang a door beside it and plant a daisy.
+trail.ziegelpfad.s1.clue	물 근처에서 점토를 네 개 모으세요.	clue, generated; AcquireItem
+trail.ziegelpfad.s1.hint	물 근처에서 점토를 모아요.	hint, generated; AcquireItem
+trail.ziegelpfad.s2.clue	점토를 네 개 구우세요.	clue, generated; Smelt
+trail.ziegelpfad.s2.hint	점토를 구워요.	hint, generated; Smelt
+trail.ziegelpfad.s3.clue	벽돌로 벽을 쌓으세요.	clue, generated; BuildPattern
+trail.ziegelpfad.s3.hint	벽돌로 벽을 쌓아요.	hint, generated; BuildPattern
+trail.ziegelpfad.s4.clue	벽돌 벽 옆에 문을 다세요.	clue, generated; PlaceOnPattern
+trail.ziegelpfad.s4.hint	벽돌 벽 옆에 문을 달아요.	hint, generated; PlaceOnPattern
+trail.ziegelpfad.finale.clue	벽돌 벽 옆에 데이지를 심으세요.	clue, generated; PlaceOnPattern
+trail.ziegelpfad.finale.hint	벽돌 벽 옆에 데이지를 심어요.	hint, generated; PlaceOnPattern
+trail.ziegelpfad.finale	벽돌 벽 옆에 데이지를 심었어요.	finale, generated; PlaceOnPattern
+concept.gen_blast_furnace.descKo	철을 빨리 녹여요. 아주 뜨거워요.	descKo of the taught word 용광로, authored
+concept.gen_smithing_table.descKo	도구를 더 좋게 바꿔요.	descKo of the taught word 대장장이 작업대, authored
+concept.gen_grindstone.descKo	도구를 갈아요.	descKo of the taught word 숫돌, authored
+concept.gen_coal_block.descKo	석탄 아홉 개로 만들어요. 오래 타요.	descKo of the taught word 석탄 블록, authored
+concept.gen_deepslate.descKo	깊은 땅속에 있는 단단한 돌이에요.	descKo of the taught word 심층암, authored
+concept.gen_stonecutter.descKo	돌을 여러 모양으로 잘라요.	descKo of the taught word 석재 절단기, authored
+concept.gen_oxeye_daisy.descKo	하얀색 꽃이에요. 가운데가 노란색이에요.	descKo of the taught word 데이지, authored
+concept.gen_stone_brick_slab.descKo	석재 벽돌의 반이에요. 얇아요.	descKo of the taught word 석재 벽돌 반 블록, authored
+concept.gen_hopper.descKo	물건을 아래로 옮겨요.	descKo of the taught word 호퍼, authored
+concept.gen_iron_door.descKo	철로 만든 문이에요. 단단해요.	descKo of the taught word 철 문, authored
+concept.gen_rail.descKo	기차가 가는 길이에요.	descKo of the taught word 레일, authored
+concept.gen_iron_trapdoor.descKo	철로 만든 작은 문이에요.	descKo of the taught word 철 다락문, authored
