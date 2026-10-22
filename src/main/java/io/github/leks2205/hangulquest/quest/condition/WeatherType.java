@@ -66,10 +66,35 @@ final class WeatherType implements ConditionType<Condition.WeatherState> {
 		};
 	}
 
+	/** -(으)면 / -아/어도 / -는 동안 on the weather ("비가 오면", "비가 와도", "비가 오는 동안"). */
+	@Override
+	public String phrase(Condition.WeatherState condition, SentenceBuilder.Namer namer, ConditionForm form) {
+		return switch (condition.weather()) {
+			case CLEAR -> switch (form) {
+				case IF -> "날씨가 맑으면 ";
+				case EVEN_IF -> "날씨가 맑아도 ";
+				case WHILE -> "날씨가 맑은 동안 ";
+				case PLAIN -> null;
+			};
+			case RAIN -> switch (form) {
+				case IF -> "비가 오면 ";
+				case EVEN_IF -> "비가 와도 ";
+				case WHILE -> "비가 오는 동안 ";
+				case PLAIN -> null;
+			};
+			case THUNDER -> switch (form) {
+				case IF -> "천둥이 치면 ";
+				case EVEN_IF -> "천둥이 쳐도 ";
+				case WHILE -> "천둥이 치는 동안 ";
+				case PLAIN -> null;
+			};
+		};
+	}
+
 	@Override
 	public List<String> words(Condition.WeatherState condition, SentenceBuilder.Namer namer) {
 		return switch (condition.weather()) {
-			case CLEAR -> List.of("맑은", "맑을", "맑아");
+			case CLEAR -> List.of("맑은", "맑을", "맑아", "맑으");
 			case RAIN -> List.of("비가", "비를", "비는", "비 오", "빗속", "비에");
 			case THUNDER -> List.of("천둥", "번개");
 		};

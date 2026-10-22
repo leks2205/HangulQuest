@@ -183,3 +183,39 @@ w9.dye.sheep	2	-	{"type":"GIVE","item":"minecraft:blue_dye","entity":"minecraft:
 w9.seq.shared.object	2	-	{"type":"SEQUENCE","connector":"AND","parts":[{"type":"CRAFT","item":"minecraft:leather_boots"},{"type":"EQUIP","item":"minecraft:leather_boots"}]}	-	가죽 장화를 만들고 신으세요.	L2.go_and,L1.eul_reul,L2.seyo
 w9.seq.two.objects	2	-	{"type":"SEQUENCE","connector":"AND","parts":[{"type":"CRAFT","item":"minecraft:leather_boots"},{"type":"EQUIP","item":"minecraft:iron_helmet"}]}	-	가죽 장화를 만들고 철 투구를 쓰세요.	L2.go_and,L1.eul_reul,L2.seyo
 w9.colour.dye	2	red	{"type":"CRAFT","item":"minecraft:red_dye"}	-	빨간색 염료를 만드세요.	L2.seyo,L1.eul_reul
+w11.if.night.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"TIME","phase":"NIGHT"}]	밤이 되면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.day.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"TIME","phase":"DAY"}]	낮이 되면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.rain.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"WEATHER","weather":"RAIN"}]	비가 오면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.thunder.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"WEATHER","weather":"THUNDER"}]	천둥이 치면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.clear.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"WEATHER","weather":"CLEAR"}]	날씨가 맑으면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.two.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"WEATHER","weather":"RAIN"},{"type":"TIME","phase":"NIGHT"}]	밤에 비가 오면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.beach.l4	4	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"IN_BIOME","biome":"#minecraft:is_beach"},{"type":"TIME","phase":"NIGHT"}]	밤이 되면 해변에서 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.if.l3.plain	3	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"TIME","phase":"NIGHT"}]	밤에 횃불을 놓으세요.	L2.seyo,L1.eul_reul
+w11.if.rain.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"WEATHER","weather":"RAIN"}]	비가 오면 횃불을 놓아야 해요.	L4.myeon,L1.eul_reul,L4.eoya_haeyo
+w11.while.dusk.l5	5	-	{"type":"WAIT","seconds":10}	[{"type":"TIME","phase":"DUSK"}]	해가 지는 동안 기다려야 해요.	L5.neun_dongan,L4.eoya_haeyo
+w11.while.dawn.l5	5	-	{"type":"WAIT","seconds":10}	[{"type":"TIME","phase":"DAWN"}]	해가 뜨는 동안 기다려야 해요.	L5.neun_dongan,L4.eoya_haeyo
+w11.while.rain.l6	6	-	{"type":"WAIT","seconds":10}	[{"type":"WEATHER","weather":"RAIN"}]	비가 오는 동안 기다려야 해요.	L5.neun_dongan,L4.eoya_haeyo
+w11.while.thunder.l5	5	-	{"type":"WAIT","seconds":10}	[{"type":"WEATHER","weather":"THUNDER"}]	천둥이 치는 동안 기다려야 해요.	L5.neun_dongan,L4.eoya_haeyo
+w11.while.clear.l5	5	-	{"type":"WAIT","seconds":10}	[{"type":"WEATHER","weather":"CLEAR"}]	날씨가 맑은 동안 기다려야 해요.	L5.neun_dongan,L4.eoya_haeyo
+w11.while.wait.l4	4	-	{"type":"WAIT","seconds":10}	[{"type":"TIME","phase":"DUSK"}]	해가 지면 십 초 동안 기다려야 해요.	L4.myeon,L2.num_sino,L4.eoya_haeyo
+w11.while.hold.l5	5	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}}	-	횃불을 들고 있는 동안 돌을 세 개 캐야 해요.	L2.go_state,L5.neun_dongan,L4.eoya_haeyo,L1.eul_reul
+w11.while.hold.l4	4	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}}	-	횃불을 들고 돌을 세 개 캐야 해요.	L2.go_state,L4.eoya_haeyo,L1.eul_reul
+w11.even.night.l5	5	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되어도 횃불을 놓지 마세요.	L3.jima,L5.eodo,L1.eul_reul
+w11.even.rain.l6	6	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:stone"},"windowSeconds":60,"during":{"type":"WEATHER","weather":"RAIN"}}	-	비가 와도 돌을 캐지 마세요.	L3.jima,L5.eodo,L1.eul_reul
+w11.even.bed.l5	5	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되어도 침대에서 자지 마세요.	L3.jima,L5.eodo,L2.eseo_activity
+w11.even.if.l4	4	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되면 횃불을 놓지 마세요.	L3.jima,L4.myeon,L1.eul_reul
+w11.eoseo.stone.l4	4	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 캐서 화로를 만들어야 해요.	L4.eoseo,L4.eoya_haeyo,L1.eul_reul
+w11.eoseo.log.l4	4	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베어서 참나무 판자를 만들어야 해요.	L4.eoseo,L4.eoya_haeyo,L1.eul_reul
+w11.eoseo.night.l4	4	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"CRAFT","item":"minecraft:furnace"}]}	[{"type":"TIME","phase":"NIGHT"}]	밤이 되면 돌을 캐서 화로를 만들어야 해요.	L4.eoseo,L4.myeon,L4.eoya_haeyo,L1.eul_reul
+w11.eoseo.hint	1	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 캐서 화로를 만들어요.	L4.eoseo,L1.eoyo,L1.eul_reul
+w11.eureo.log.l4	4	-	{"type":"SEQUENCE","connector":"EUREO","parts":[{"type":"REACH_BIOME","biome":"#minecraft:is_forest"},{"type":"BREAK_BLOCK","block":"minecraft:oak_log"}]}	[{"type":"IN_BIOME","biome":"#minecraft:is_forest"}]	참나무 원목을 베러 숲으로 가야 해요.	L4.eureo_gayo,L4.eoya_haeyo,L1.euro_direction,L1.eul_reul
+w11.eureo.stone.l4	4	-	{"type":"SEQUENCE","connector":"EUREO","parts":[{"type":"REACH_BIOME","biome":"#minecraft:is_mountain"},{"type":"BREAK_BLOCK","block":"minecraft:stone"}]}	[{"type":"IN_BIOME","biome":"#minecraft:is_mountain"}]	돌을 캐러 산으로 가야 해요.	L4.eureo_gayo,L4.eoya_haeyo,L1.euro_direction,L1.eul_reul
+w11.eureo.night.l5	5	-	{"type":"SEQUENCE","connector":"EUREO","parts":[{"type":"REACH_BIOME","biome":"#minecraft:is_forest"},{"type":"BREAK_BLOCK","block":"minecraft:oak_log"}]}	[{"type":"IN_BIOME","biome":"#minecraft:is_forest"},{"type":"TIME","phase":"NIGHT"}]	밤이 되면 참나무 원목을 베러 숲으로 가야 해요.	L4.myeon,L4.eureo_gayo,L4.eoya_haeyo,L1.euro_direction,L1.eul_reul
+w11.colour.red.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간 침대를 놓아야 해요.	L5.adn_adj_eun,L1.eul_reul,L4.eoya_haeyo
+w11.colour.blue.l6	6	-	{"type":"PLACE_BLOCK","block":"minecraft:blue_wool"}	-	파란 양털을 놓아야 해요.	L5.adn_adj_eun,L1.eul_reul,L4.eoya_haeyo
+w11.colour.yellow.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:yellow_wool"}	-	노란 양털을 놓아야 해요.	L5.adn_adj_eun,L1.eul_reul,L4.eoya_haeyo
+w11.colour.white.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:white_wool","count":3}	-	하얀 양털을 세 개 쌓아야 해요.	L4.eoya_haeyo,L1.eul_reul,L5.adn_adj_eun
+w11.colour.black.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:black_wool"}	-	검은 양털을 놓아야 해요.	L5.adn_adj_eun,L1.eul_reul,L4.eoya_haeyo
+w11.colour.purple.l5	5	-	{"type":"PLACE_BLOCK","block":"minecraft:purple_wool"}	-	보라색 양털을 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo
+w11.colour.l4.noun	4	-	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo
+w11.colour.taught.l5	5	red	{"type":"PLACE_BLOCK","block":"minecraft:red_bed"}	-	빨간색 침대를 놓아야 해요.	L1.eul_reul,L4.eoya_haeyo

@@ -70,7 +70,8 @@ class AuthoredClueConditionsTest {
 			QuestStep step = step(clue, NIGHT, OPEN_SKY);
 			String said = text.clueKo(step, 5);
 			assertTrue(said.contains(clue), said);
-			assertTrue(said.contains("밤에"), said);
+			// a clue that does not say the night itself gets the level-5 if clause in front: 밤이 되면
+			assertTrue(said.contains("밤에") || said.startsWith("밤이 되면 "), said);
 			assertTrue(said.contains("하늘이 보이는 곳에서"), said);
 			assertTrue(SentenceBuilder.missingPhrases(said, step.conditions(), text.firstWord(step), text.namer(), 5)
 					.isEmpty(), said);

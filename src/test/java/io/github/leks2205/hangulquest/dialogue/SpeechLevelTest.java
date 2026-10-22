@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.dialogue;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,6 +44,20 @@ class SpeechLevelTest {
 	@Test
 	void onlyFinishedSentencesCount() {
 		assertEquals(Set.of(), SpeechLevel.ofLine("저는 농부예요"));
+	}
+
+	/** The forms the Conjugator makes for the two upper styles are read as those styles (a dialogue line built from them). */
+	@Test
+	void theConjugatorFormsOfTheUpperStylesAreRecognised() {
+		for (String dictionary : List.of("먹다", "가다", "만들다", "걷다", "줍다", "짓다", "쓰다", "누르다", "하다", "열다")) {
+			var word = io.github.leks2205.hangulquest.quest.grammar.Conjugator.of(dictionary);
+			assertEquals(SpeechLevel.HAPSYO, SpeechLevel.ofSentence("우리는 " + word.hapnida() + "."), word.hapnida());
+			assertEquals(SpeechLevel.HAPSYO, SpeechLevel.ofSentence("우리가 " + word.hapnikka() + "?"), word.hapnikka());
+			assertEquals(SpeechLevel.HAPSYO, SpeechLevel.ofSentence("어제 " + word.hapnidaPast() + "."), word.hapnidaPast());
+			assertEquals(SpeechLevel.BANMAL, SpeechLevel.ofSentence("우리 같이 " + word.ja() + "!"), word.ja());
+			assertEquals(SpeechLevel.BANMAL, SpeechLevel.ofSentence("너도 빨리 " + word.eora() + "!"), word.eora());
+			assertEquals(SpeechLevel.BANMAL, SpeechLevel.ofSentence("나는 어제 그것을 " + word.banmalPast() + "."), word.banmalPast());
+		}
 	}
 
 	@Test

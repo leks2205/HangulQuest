@@ -7,10 +7,12 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
@@ -31,7 +33,9 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	static final int MIN_LEVEL = 3;
 	/** The level of the plain -고, which is a level-2 construction (L2.go_sequence). */
 	static final int MIN_LEVEL_AND = 2;
-	private static final String[] CONNECTORS = {"BEFORE", "AFTER", "THEN", "AND"};
+	/** The level of -아/어서 and -(으)러 가다. */
+	static final int MIN_LEVEL_EOSEO = 4;
+	private static final String[] CONNECTORS = {"BEFORE", "AFTER", "THEN", "AND", "EOSEO", "EUREO"};
 	/** What an ordered sequence without a connector picks from (by its parts); -고 is only ever written. */
 	private static final String[] DEFAULT_CONNECTORS = {"BEFORE", "AFTER", "THEN"};
 
@@ -50,8 +54,9 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		return List.of(Field.goalList("parts", 2, 3, "The goals, in the order they have to happen."),
 				Field.flag("ordered", "False lets the parts happen in any order (default true)."),
 				Field.choice("connector", false, "Which Korean connective ties the two parts of an ordered "
-						+ "sequence; chosen from the parts when left out. AND is the plain -고 (level 2); the order "
-						+ "is checked all the same.", CONNECTORS));
+						+ "sequence; chosen from the parts when left out. AND is the plain -고 (level 2); EOSEO is -아/어서 "
+						+ "and EUREO -(으)러 가다 (level 4, never chosen by itself); the order is checked all the same.",
+						CONNECTORS));
 	}
 
 	@Override
@@ -241,10 +246,15 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	public void validate(Goal.Sequence goal, ValidationContext context) {
 		GoalType.super.validate(goal, context);
 		boolean plainGo = !goal.ordered() || "AND".equals(goal.connector());
-		int minLevel = plainGo ? MIN_LEVEL_AND : MIN_LEVEL;
+		boolean level4 = goal.ordered() && ("EOSEO".equals(goal.connector()) || "EUREO".equals(goal.connector()));
+		int minLevel = plainGo ? MIN_LEVEL_AND : level4 ? MIN_LEVEL_EOSEO : MIN_LEVEL;
 		if (context.koreanLevel() > 0 && context.koreanLevel() < minLevel) {
 			context.problem("SEQUENCE needs koreanLevel " + minLevel + " or higher ("
-					+ (plainGo ? "-고" : "-기 전에, -(으)ㄴ 후에, -고 나서; at level 2 only the connector AND, -고") + ")");
+					+ (plainGo ? "-고" : level4 ? "-아/어서, -(으)러 가다"
+					: "-기 전에, -(으)ㄴ 후에, -고 나서; at level 2 only the connector AND, -고") + ")");
+		}
+		if (!goal.ordered() && ("EOSEO".equals(goal.connector()) || "EUREO".equals(goal.connector()))) {
+			context.problem("the connector " + goal.connector() + " needs an ordered sequence");
 		}
 		int size = goal.parts().size();
 		if (size < 2 || size > (goal.ordered() ? 2 : 3)) {
@@ -261,7 +271,53 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 				context.problem("parts[" + i + "] cannot be spoken as a clause (use a simple goal)");
 			}
 		}
+		if (goal.ordered() && size == 2) {
+			checkLevelFour(goal, context);
+		}
 		Clauses.checkClueDoesNotTeach(context, false);
+	}
+
+	/**
+	 * -아/어서 ties two acts of the same player, one after the other: both must be single events, so the order can be
+	 * checked. -(으)러 가다 is a trip and what is done there: the trip comes first, goes to a place the verb 가다 or
+	 * 들어가다 can name, and the step must hold IN_BIOME for that place, since the act is done there.
+	 */
+	private static void checkLevelFour(Goal.Sequence goal, ValidationContext context) {
+		List<Goal> parts = goal.parts();
+		if ("EOSEO".equals(goal.connector())) {
+			for (Goal part : parts) {
+				if (!isEvent(part)) {
+					context.problem("-아/어서 needs two acts that happen at one moment each, not " + part.getClass().getSimpleName());
+				}
+			}
+		}
+		if (!"EUREO".equals(goal.connector())) {
+			return;
+		}
+		if (!(parts.get(0) instanceof Goal.ReachBiome trip)) {
+			context.problem("-(으)러 가다 starts with the trip: the first part must be REACH_BIOME");
+			return;
+		}
+		Verb way = GoalTypes.of(trip).verb(trip, VerbTable.shared());
+		if (way != Verb.GO && way != Verb.ENTER) {
+			context.problem("-(으)러 가다 needs a trip that 가다 or 들어가다 names, not " + way.dictionary());
+		}
+		if (!isEvent(parts.get(1))) {
+			context.problem("-(으)러 가다 needs one act to do there, not " + parts.get(1).getClass().getSimpleName());
+		}
+		boolean there = context.step() != null && context.step().conditions().stream()
+				.anyMatch(condition -> condition instanceof Condition.InBiome in && in.biome().equals(trip.biome()));
+		if (!there) {
+			context.problem("-(으)러 가다 says the act is done there: add the condition IN_BIOME " + trip.biome());
+		}
+	}
+
+	/** The sentence of a trip "to do it" already says the place: IN_BIOME for the biome of the trip is not spoken twice. */
+	@Override
+	public boolean says(Goal.Sequence goal, Condition condition) {
+		return goal.ordered() && "EUREO".equals(goal.connector()) && !goal.parts().isEmpty()
+				&& goal.parts().get(0) instanceof Goal.ReachBiome trip && condition instanceof Condition.InBiome in
+				&& in.biome().equals(trip.biome());
 	}
 
 	/** Goals that one event completes, so a later part can be checked on a fresh tracker each tick. */
@@ -298,7 +354,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	/** Which of the two parts is spoken last, with the finite verb. */
 	private static int finiteIndex(Goal.Sequence goal) {
 		int last = goal.parts().size() - 1;
-		return goal.ordered() && "BEFORE".equals(effectiveConnector(goal)) ? 0 : last;
+		return goal.ordered() && ("BEFORE".equals(effectiveConnector(goal)) || "EUREO".equals(goal.connector())) ? 0 : last;
 	}
 
 	private static String effectiveConnector(Goal.Sequence goal) {
@@ -317,6 +373,8 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 			case "AND" -> Clauses.Link.AND;
 			case "BEFORE" -> Clauses.Link.BEFORE;
 			case "AFTER" -> Clauses.Link.AFTER;
+			case "EOSEO" -> Clauses.Link.EOSEO;
+			case "EUREO" -> Clauses.Link.EUREO;
 			default -> Clauses.Link.THEN;
 		};
 	}
@@ -345,11 +403,20 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		if (parts.size() == 2) {
 			dropRepeatedDwell(parts.get(1 - finite), main, text);
 		}
-		String last = past ? Clauses.ceremony(main, c) : Clauses.sentence(main, c, c.level());
+		String last = past ? tripCeremony(link, main, c) : Clauses.sentence(main, c, c.level());
 		if (parts.size() == 2) {
 			last = withoutRepeatedObject(parts.get(1 - finite), main, text.toString(), last);
 		}
 		return text + last;
+	}
+
+	/** The past of the main part; the trip of a -(으)러 clause is a movement ("숲으로 갔어요"), never "숲에 도착했어요". */
+	private static String tripCeremony(Clauses.Link link, Goal main, SentenceContext c) {
+		if (link != Clauses.Link.EUREO) {
+			return Clauses.ceremony(main, c);
+		}
+		SentenceContext part = Clauses.contextFor(main, c, 1);
+		return KoGrammar.euro(part.obj()) + " " + part.verb().past();
 	}
 
 	/**

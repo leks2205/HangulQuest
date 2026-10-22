@@ -76,7 +76,7 @@ final class StepCompletion {
 		rememberPlaced(track, step);
 		if (!assisted) {
 			Graded graded = Grader.quest(false, hinted);
-			for (String id : decidingForms(step)) {
+			for (String id : DecidingForms.of(step, text.effectiveLevel(track.trail.koreanLevel()))) {
 				learn.grammarOutcome(id, graded, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
 			}
 		}
@@ -104,18 +104,6 @@ final class StepCompletion {
 	private static final int MAX_MISSES = 3;
 	private static final Graded MISS = new Graded(ReviewMode.QUEST_UNAIDED, Fsrs.AGAIN);
 
-	/**
-	 * The constructions whose form decides the step's goal (the relation word, the recipient marker, the
-	 * connective, the "don't"), as grammar.json ids.
-	 */
-	private static List<String> decidingForms(QuestStep step) {
-		if (step.goal() == null) {
-			return List.of();
-		}
-		GoalType<Goal> type = GoalTypes.of(step.goal());
-		return GrammarBook.shared().resolve(type.decidingForms(step.goal()), Ladder.shared());
-	}
-
 	private static String source(Track track, QuestStep step) {
 		return "quest:" + track.trail.id() + "/" + step.id();
 	}
@@ -137,7 +125,7 @@ final class StepCompletion {
 			return;
 		}
 		tracker.formErrorsReported += fresh;
-		for (String id : decidingForms(step)) {
+		for (String id : DecidingForms.of(step, text.effectiveLevel(track.trail.koreanLevel()))) {
 			for (int i = 0; i < fresh; i++) {
 				learn.grammarOutcome(id, MISS, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
 			}

@@ -63,13 +63,44 @@ final class TimeType implements ConditionType<Condition.Time> {
 		};
 	}
 
+	/** -(으)면 / -아/어도 on the part of the day ("밤이 되면", "밤이 되어도"); -는 동안 says it as a state. */
+	@Override
+	public String phrase(Condition.Time condition, SentenceBuilder.Namer namer, ConditionForm form) {
+		String part = switch (condition.phase()) {
+			case NIGHT -> "밤";
+			case DAY -> "낮";
+			case DAWN -> "새벽";
+			case DUSK -> "저녁";
+		};
+		return switch (form) {
+			// Minecraft has no evening or morning as such: the sun rises and sets
+			case IF -> switch (condition.phase()) {
+				case DAWN -> "해가 뜨면 ";
+				case DUSK -> "해가 지면 ";
+				default -> part + "이 되면 ";
+			};
+			case EVEN_IF -> switch (condition.phase()) {
+				case DAWN -> "해가 떠도 ";
+				case DUSK -> "해가 져도 ";
+				default -> part + "이 되어도 ";
+			};
+			case WHILE -> switch (condition.phase()) {
+				case NIGHT -> "밤인 동안 ";
+				case DAY -> "해가 떠 있는 동안 ";
+				case DAWN -> "해가 뜨는 동안 ";
+				case DUSK -> "해가 지는 동안 ";
+			};
+			case PLAIN -> null;
+		};
+	}
+
 	@Override
 	public List<String> words(Condition.Time condition, SentenceBuilder.Namer namer) {
 		return switch (condition.phase()) {
-			case NIGHT -> List.of("밤에", "밤이", "밤마다", "밤 동안", "한밤", "밤중");
-			case DAY -> List.of("낮에", "낮이", "낮마다", "낮 동안", "한낮");
-			case DAWN -> List.of("새벽");
-			case DUSK -> List.of("저녁에", "저녁이", "해 질 때", "해가 질");
+			case NIGHT -> List.of("밤에", "밤이", "밤마다", "밤 동안", "밤인", "한밤", "밤중");
+			case DAY -> List.of("낮에", "낮이", "낮마다", "낮 동안", "낮인", "한낮");
+			case DAWN -> List.of("새벽", "해가 뜨");
+			case DUSK -> List.of("저녁에", "저녁이", "해 질 때", "해가 질", "해가 지");
 		};
 	}
 

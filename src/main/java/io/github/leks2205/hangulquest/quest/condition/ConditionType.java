@@ -39,6 +39,14 @@ public interface ConditionType<C extends Condition> {
 		return prefix(condition, namer);
 	}
 
+	/**
+	 * The condition as a clause of the level-4 and level-5 grammar ("밤이 되면 ", "비가 오는 동안 "), with its trailing
+	 * space; null when the condition has no such form, and the plain {@link #prefix} is spoken.
+	 */
+	default String phrase(C condition, SentenceBuilder.Namer namer, ConditionForm form) {
+		return null;
+	}
+
 	/** The phrase when the goal takes the condition over and checks it on its target ({@code GoalType.takesOver}). */
 	default String targetPrefix(C condition, SentenceBuilder.Namer namer, int level) {
 		return prefix(condition, namer, level);

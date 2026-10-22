@@ -165,6 +165,28 @@ class DialogueValidatorTest {
 				"names no grammar point");
 	}
 
+	private static final String ASK_RIGHT_HAPSYO = "\"choices\":["
+			+ "{\"ko\":\"네, 가져오겠습니다.\",\"speechLevel\":\"hapsyo\",\"correct\":true,\"next\":\"b\"},"
+			+ "{\"ko\":\"응, 가져올 거야.\",\"speechLevel\":\"banmal\",\"correct\":false}]},"
+			+ "\"b\":{\"speaker\":\"librarian\",\"ko\":\"감사합니다.\",\"end\":true}";
+
+	@Test
+	void aSpeechLevelTaskIsAskedByASpeakerOfThatLevel() {
+		assertEquals(List.of(), problems("\"a\":{\"speaker\":\"librarian\",\"ko\":\"책을 가져와 주시겠습니까?\","
+				+ "\"grammar\":\"L5.hapsyo\"," + ASK_RIGHT_HAPSYO));
+		// the farmer talks 해요체: a task about 합쇼체 would grade the player against the wrong person
+		assertProblem(problems("\"a\":{\"speaker\":\"farmer\",\"ko\":\"책을 가져와 주시겠어요?\","
+				+ "\"grammar\":\"L5.hapsyo\"," + ASK_RIGHT_HAPSYO.replace("librarian", "farmer")), "teaches hapsyo");
+	}
+
+	@Test
+	void theRightChoiceOfASpeechLevelTaskIsInThatLevel() {
+		String swapped = ASK_RIGHT_HAPSYO.replace("\"speechLevel\":\"hapsyo\",\"correct\":true", "\"speechLevel\":\"hapsyo\",\"correct\":false")
+				.replace("\"speechLevel\":\"banmal\",\"correct\":false", "\"speechLevel\":\"banmal\",\"correct\":true,\"next\":\"b\"");
+		assertProblem(problems("\"a\":{\"speaker\":\"librarian\",\"ko\":\"책을 가져와 주시겠습니까?\","
+				+ "\"grammar\":\"L5.hapsyo\"," + swapped), "the right choice must be hapsyo");
+	}
+
 	@Test
 	void aTypedNodeNeedsNextAndSomethingToExpect() {
 		assertProblem(problems("\"a\":{\"speaker\":\"farmer\",\"ko\":\"뭐예요?\",\"typed\":{\"expected\":[\"돌\"]}}"),

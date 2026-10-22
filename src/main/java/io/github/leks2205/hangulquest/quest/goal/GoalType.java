@@ -183,6 +183,11 @@ public interface GoalType<G extends Goal> {
 		return List.of();
 	}
 
+	/** Same at a Korean level, for the forms that only appear from a level on (-는 동안 on a held item). */
+	default List<String> decidingForms(G goal, int level) {
+		return decidingForms(goal);
+	}
+
 	/** The Korean name of the object, or null when there is none. */
 	default String objectName(G goal, SentenceBuilder.Namer namer) {
 		String object = object(goal);

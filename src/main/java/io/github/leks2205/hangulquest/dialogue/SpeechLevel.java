@@ -19,7 +19,7 @@ public enum SpeechLevel {
 	private static final Pattern HAPSYO_END = Pattern.compile("(?:습니다|ㅂ니다|입니다|니다|습니까|니까|십시오)$");
 	private static final Pattern HAEYO_END = Pattern.compile("요$");
 	private static final Pattern PLAIN_END = Pattern.compile("[^니]다$|[는ㄴ]다$");
-	private static final Pattern BANMAL_END = Pattern.compile("(?:해|어|아|야|지|네|래|니|냐|자)$");
+	private static final Pattern BANMAL_END = Pattern.compile("(?:해|어|아|야|지|네|래|니|냐|자|라)$");
 	private static final Pattern SENTENCE_BREAK = Pattern.compile("(?<=[.!?])\\s*");
 
 	private final String id;

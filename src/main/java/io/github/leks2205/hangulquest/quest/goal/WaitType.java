@@ -12,6 +12,7 @@ import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
+import io.github.leks2205.hangulquest.quest.condition.ConditionForm;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
@@ -103,7 +104,17 @@ final class WaitType implements GoalType<Goal.Wait> {
 
 	@Override
 	public String korean(Goal.Wait goal, SentenceContext c) {
+		if (spokenAsWhile(goal, c)) {
+			// "해가 지는 동안 기다려야 해요": the clause already says how long the wait lasts, so no second 동안
+			String how = goal.until() != null ? how(goal, true, c.level()) : "";
+			return SentenceBuilder.phrase(how, c.verb(), c.level(), c.finale()).strip();
+		}
 		return SentenceBuilder.phrase(how(goal, c.withCounts(), c.level()), c.verb(), c.level(), c.finale());
+	}
+
+	/** Whether a condition of the step is spoken as -는 동안 (level 5 and up): the wait goes on while it holds. */
+	private static boolean spokenAsWhile(Goal.Wait goal, SentenceContext c) {
+		return SentenceBuilder.conditionForms(goal, c.conditions(), c.level()).contains(ConditionForm.WHILE);
 	}
 
 	@Override
@@ -130,7 +141,7 @@ final class WaitType implements GoalType<Goal.Wait> {
 	@Override
 	public List<String> grammarIds(Goal.Wait goal, SentenceContext c) {
 		List<String> ids = new java.util.ArrayList<>(GoalType.super.grammarIds(goal, c));
-		if (goal.until() == null && c.withCounts() && c.level() >= 2) {
+		if (goal.until() == null && c.withCounts() && c.level() >= 2 && !spokenAsWhile(goal, c)) {
 			ids.add("L2.num_sino"); // 십 초
 		}
 		return ids;

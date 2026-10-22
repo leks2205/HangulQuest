@@ -119,9 +119,12 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 		return inner == null ? Verb.WALK : GoalTypes.of(inner).verb(inner, table);
 	}
 
+	/** From this level the item is held "while" the rest is done: 들고 있는 동안 (-는 동안), not 들고 (-고). */
+	static final int WHILE_LEVEL = 5;
+
 	@Override
 	public String korean(Goal.HoldWhile goal, SentenceContext c) {
-		String held = KoGrammar.eul(heldName(goal, c)) + " 들고";
+		String held = KoGrammar.eul(heldName(goal, c)) + (whileHolding(goal, c.level()) ? " 들고 있는 동안" : " 들고");
 		if (goal.innerGoal() != null) {
 			return held + " " + Clauses.sentence(goal.innerGoal(), c, c.level());
 		}
@@ -146,6 +149,9 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 	public List<String> grammarIds(Goal.HoldWhile goal, SentenceContext c) {
 		List<String> ids = new ArrayList<>();
 		ids.add("L2.go_state");
+		if (whileHolding(goal, c.level())) {
+			ids.add("L5.neun_dongan");
+		}
 		if (goal.innerGoal() != null) {
 			Goal inner = goal.innerGoal();
 			ids.addAll(GoalTypes.of(inner).grammarIds(inner, Clauses.contextFor(inner, c, c.level())));
@@ -156,6 +162,17 @@ final class HoldWhileType implements GoalType<Goal.HoldWhile> {
 			}
 		}
 		return ids;
+	}
+
+	/** The item stays in the hand for as long as the rest goes on; -는 동안 says so, the plain -고 does not. */
+	@Override
+	public List<String> decidingForms(Goal.HoldWhile goal, int level) {
+		return whileHolding(goal, level) ? List.of("L5.neun_dongan") : List.of();
+	}
+
+	/** Holding while doing something (an inner goal) is -는 동안; walking at night with it in the hand stays 들고. */
+	private static boolean whileHolding(Goal.HoldWhile goal, int level) {
+		return level >= WHILE_LEVEL && goal.innerGoal() != null;
 	}
 
 	@Override
