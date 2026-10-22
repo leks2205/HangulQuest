@@ -6,7 +6,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.9)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.10)
+
+**New in rc.10: level 5 begins.**
+- **28 more trails:** the crown's workshop (guards, smiths, golems, runes, the council, the deep dark and a trial
+  chamber) and 15 small poems. Two of the workshop trails are level 4; the rest are level 5.
+- **Level 5 speaks in longer sentences:** "while" (해가 지는 동안 기다려야 해요), "even if" (밤이 되어도 자지 마세요)
+  and colour adjectives (파란 침대 옆에 …). About two thirds of the new steps depend on the Korean form.
+- Flavour lines were checked for being true in the game: witches throw potions, sculk sensors detect vibrations, and
+  soul fire uses its official name 영혼 불.
 
 **New in rc.9: level 4 begins, and the sound forge.**
 - **30 level-4 trails:** the far kingdoms (the End and the dragon, an ocean monument, a library, a lighthouse, the star
