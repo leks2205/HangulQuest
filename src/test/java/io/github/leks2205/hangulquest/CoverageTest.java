@@ -44,6 +44,15 @@ class CoverageTest {
 		return new ContentFacts.Trail(id, 1, order, false, List.of(), "", finale, List.of(step));
 	}
 
+	/** A one-step trail whose step teaches the given concept ids; title and finale are free text. */
+	static ContentFacts.Trail teaching(String id, int order, String title, String clue, String hint, String finale,
+									   List<String> teach) {
+		ContentFacts.Step step = new ContentFacts.Step("s1", "PLACE_BLOCK", "PLACE_BLOCK:x:PLACE", "PLACE_BLOCK:PLACE",
+				"PLACE", "x", "", List.of(), List.of("goal:PLACE_BLOCK"), true, false, List.of("L1.eoyo"), teach,
+				List.of(), clue, hint);
+		return new ContentFacts.Trail(id, 1, order, false, List.of(), title, finale, List.of(step));
+	}
+
 	static ContentFacts.Target target(String role, String id) {
 		return new ContentFacts.Target(role, id);
 	}
@@ -212,6 +221,72 @@ class CoverageTest {
 		Result missed = run(scratch, trails, scratch.resolve("gaps.csv"), "--check", "--baseline", baseline.toString());
 		assertEquals(1, missed.exit(), missed.output());
 		assertTrue(missed.output().contains("meanUnknown got worse"), missed.output());
+	}
+
+	// ---------------------------------------------------------------------------- teach entries (wave 5)
+
+	/** Encounters of a word, from the gap list (the core words with something missing). */
+	private int encounters(String word, ContentFacts.Trail... trails) throws IOException {
+		Path csv = scratch.resolve("gaps.csv");
+		run(scratch, List.of(trails), csv, "--json");
+		List<String> lines = Files.readAllLines(csv, StandardCharsets.UTF_8);
+		for (String line : lines.subList(1, lines.size())) {
+			String[] cells = line.split(",", -1);
+			if (cells[0].equals(word)) {
+				return Integer.parseInt(cells[6]);
+			}
+		}
+		return -1;
+	}
+
+	@Test
+	void aTeachEntryIsNoEncounterWhenTheWordIsInNoSentenceOfTheStep() throws IOException {
+		requirePython();
+		// 돌 is taught, but neither the clue, the hint, the title nor the finale says it
+		assertEquals(0, encounters("돌", teaching("a", 1, "문의 길", "문을 놓아요.", "문을 놓아요.", "문이 서 있어요.",
+				List.of("stone"))), "a teach entry alone is no encounter");
+	}
+
+	@Test
+	void aTeachEntryCountsWhenTheHintTheTitleOrTheFinaleCarriesTheWord() throws IOException {
+		requirePython();
+		assertEquals(1, encounters("돌", teaching("a", 1, "문의 길", "문을 놓아요.", "돌 옆에 문을 놓아요.", "",
+				List.of("stone"))), "the hint carries the taught word");
+		assertEquals(1, encounters("돌", teaching("a", 1, "돌의 길", "문을 놓아요.", "", "", List.of("stone"))),
+				"the title carries the taught word");
+		assertEquals(1, encounters("돌", teaching("a", 1, "문의 길", "문을 놓아요.", "", "돌이 있어요.",
+				List.of("stone"))), "the finale carries the taught word");
+		assertEquals(1, encounters("돌", teaching("a", 1, "문의 길", "돌을 놓아요.", "", "", List.of("stone"))),
+				"the clue carries it once; the teach entry does not count a second time");
+	}
+
+	// ------------------------------------------------------------------------- ㄹ verbs (wave 5)
+
+	private static String tokens(Path dir, String text) throws IOException {
+		Path lexicon = dir.resolve("lexicon.json");
+		Files.writeString(lexicon, """
+				[{"id":"dig","ko":"파다","verb":true},{"id":"sell","ko":"팔다","verb":true},
+				 {"id":"buy","ko":"사다","verb":true},{"id":"live","ko":"살다","verb":true},
+				 {"id":"make","ko":"만들다","verb":true},{"id":"play","ko":"놀다","verb":true}]""", StandardCharsets.UTF_8);
+		QuestScaffoldTest.Run run = QuestScaffoldTest.python("tools/coverage.py", "--lexicon", lexicon.toString(),
+				"--tokens", text);
+		assertEquals(0, run.exit(), run.output());
+		return run.output().strip().replace("\n", " ");
+	}
+
+	@Test
+	void anLStemVerbIsNotReadAsTheVerbWithoutTheL() throws IOException {
+		requirePython();
+		assertEquals("팔다", tokens(scratch, "팔아요"), "팔다, not 파다");
+		assertEquals("팔다", tokens(scratch, "팔아"));
+		assertEquals("파다", tokens(scratch, "파요"));
+		assertEquals("살다", tokens(scratch, "살아요"), "살다, not 사다");
+		assertEquals("사다", tokens(scratch, "사요"), "사다, not 살다");
+		assertEquals("사다", tokens(scratch, "샀어요"));
+		assertEquals("만들다", tokens(scratch, "만들어요"));
+		assertEquals("만들다", tokens(scratch, "만듭니다"), "the ㄹ drops in front of ㅂ");
+		assertEquals("놀다", tokens(scratch, "놀아요"));
+		assertEquals("놀다", tokens(scratch, "놀았어요"));
 	}
 
 	@Test

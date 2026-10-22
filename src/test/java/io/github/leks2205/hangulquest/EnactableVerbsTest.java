@@ -578,8 +578,8 @@ class EnactableVerbsTest {
 		assertEquals("닭고기를 요리해요.", clueTeaching(chicken, "chicken_meat", "cook"));
 		assertEquals("닭고기를 요리했어요.", SentenceBuilder.ceremony(chicken, word("chicken_meat"), word("cook"),
 				List.of(), KoreanFixtures.registryNamer()));
-		// the verb alone: the product is named
-		assertEquals("닭고기를 요리해요.", clueTeaching(chicken, null, "cook"));
+		// the verb alone: the food that goes in is named, not the product (wave 5)
+		assertEquals("익히지 않은 닭고기를 요리해요.", clueTeaching(chicken, null, "cook"));
 		assertEquals(List.of(), problems(chicken, "cook"));
 		// iron is not food: it stays 만들어요 in the furnace even when the step teaches cooking
 		Goal iron = new Goal.Smelt("minecraft:raw_iron", "minecraft:iron_ingot", 1);

@@ -9,7 +9,8 @@ Per sentence (the clue of every step):
   unknown words        words the learner has not met KNOWN_AFTER times yet; target: at most 1
   hint coverage        the hint may only use words the learner knows or has just read in the clue; target: 100%
 Per core word (curriculum band 초급 or NIKL grade A in lexicon-tags.json, not mcOnly):
-  encounters           steps (and trail titles and finale lines) in which the word occurs; target: 10
+  encounters           steps (and trail titles and finale lines) in which the word occurs, or is taught and then said in
+                       the clue, the hint, the title or the finale line (a teach entry alone is none); target: 10
   contexts             distinct roles: object, anchor, tool, recipient, material, condition, verb, mention, finale, title
   retrievals           later days within RETRIEVAL_DAYS of the first encounter on which the word comes back, with
                        TRAILS_PER_DAY trails per simulated day; target: RETRIEVAL_TARGET
@@ -84,6 +85,7 @@ def spec(key: str) -> tuple[str, float]:
 
 S_BASE, N_V, N_F = 0xAC00, 21, 28
 VERB_ENDING = set("다요아어여야지세시셔고는면며니서게기자네죠려라으을은았었였")
+L_DROP_ENDING = set("세시셔는니")                  # the endings an ㄹ stem loses its ㄹ in front of: 사세요, 사시는, 사니까
 PARTICLES = {
     "", "이", "가", "은", "는", "을", "를", "의", "에", "에서", "에게", "한테", "께", "로", "으로", "와", "과", "랑",
     "이랑", "도", "만", "까지", "부터", "보다", "처럼", "이나", "나", "마다", "조차", "밖에", "이에요", "예요", "입니다",
@@ -109,27 +111,29 @@ def join(i: int, v: int, f: int) -> str:
     return chr(S_BASE + (i * N_V + v) * N_F + f)
 
 
-def last_syllable_variants(syllable: str) -> list[tuple[str, bool]]:
-    """Forms the last stem syllable takes in front of an ending: (syllable, merged with the ending)."""
+def last_syllable_variants(syllable: str) -> list[tuple[str, bool, bool]]:
+    """Forms the last stem syllable takes in front of an ending: (syllable, merged with the ending, ㄹ dropped)."""
     if not is_syllable(syllable):
-        return [(syllable, False)]
+        return [(syllable, False, False)]
     i, v, f = split(syllable)
-    out: list[tuple[str, bool]] = [(syllable, False)]
+    out: list[tuple[str, bool, bool]] = [(syllable, False, False)]
     open_forms = []
+    finals = MERGE_FINALS
     if f == 0:
         open_forms.append((i, v))
         if v in CONTRACT:
-            out.append((join(i, CONTRACT[v], 0), True))
+            out.append((join(i, CONTRACT[v], 0), True, False))
             open_forms.append((i, CONTRACT[v]))
         if i == 18 and v == 0:  # 하 > 해
-            out.append((join(i, 1, 0), True))
+            out.append((join(i, 1, 0), True, False))
             open_forms.append((i, 1))
-    elif f == 8:  # ㄹ stems drop the ㄹ in front of ㄴ ㅂ ㅅ
-        out.append((join(i, v, 0), False))
+    elif f == 8:  # ㄹ stems drop the ㄹ in front of ㄴ ㅂ ㅅ (사는, 삽니다, 사세요), never in front of 아요 or ㅆ
+        out.append((join(i, v, 0), False, True))
         open_forms.append((i, v))
+        finals = (4, 8, 17)
     for oi, ov in open_forms:
-        for final in MERGE_FINALS:
-            out.append((join(oi, ov, final), True))
+        for final in finals:
+            out.append((join(oi, ov, final), True, False))
     return out
 
 
@@ -137,10 +141,14 @@ def verb_matches(stem: str, word: str) -> bool:
     """Whether the eojeol is the dictionary form or a conjugated form of the verb with this stem."""
     if not word or not stem or not is_syllable(stem[-1]):
         return False
-    for syllable, merged in last_syllable_variants(stem[-1]):
+    for syllable, merged, dropped in last_syllable_variants(stem[-1]):
         prefix = stem[:-1] + syllable
         if word.startswith(prefix):
             rest = word[len(prefix):]
+            if dropped and not (rest and rest[0] in L_DROP_ENDING):
+                continue                            # 팔아요 is not 파요's ㄹ-drop twin: 파다 and 사다 keep their own
+            if merged and rest and is_syllable(rest[0]) and split(syllable)[2] in (4, 8, 17) and split(rest[0])[0] == 11:
+                continue                            # a final ㄴ ㄹ ㅂ is never followed by a vowel-initial ending: 팔 + 아요
             if (not rest and merged) or (rest and rest[0] in VERB_ENDING):
                 return True
     # 으-drop: 모으다 > 모아요
@@ -345,19 +353,27 @@ def simulate(trails: list[dict], lexicon: Lexicon, include_demo: bool = False) -
                 if role is None:
                     role = "verb" if word in lexicon.verb_words else "mention"
                 met[word].add(role)
-            for concept_id in step["teach"]:
-                canonical = lexicon.by_id.get(concept_id)
-                if canonical:
-                    met.setdefault(canonical, set())
             if COUNT_HINTS:
                 for word in hint_words:
                     met[word].add("hint")
             if step_index == 0:
-                for word in tokens(trail["titleKo"]):
+                title_words = tokens(trail["titleKo"])
+                for word in title_words:
                     met[word].add("title")
+            else:
+                title_words = []
             if step_index == len(trail["steps"]) - 1:
-                for word in tokens(trail["finaleKo"]):
+                finale_words = tokens(trail["finaleKo"])
+                for word in finale_words:
                     met[word].add("finale")
+            else:
+                finale_words = []
+            # a taught word is met only when a sentence of the step says it: clue, hint, title or finale line
+            said = {*clue, *hint_words, *title_words, *finale_words}
+            for concept_id in step["teach"]:
+                canonical = lexicon.by_id.get(concept_id)
+                if canonical and canonical in said:
+                    met.setdefault(canonical, set())
 
             for word, word_roles in met.items():       # after the sentence: only earlier steps make a word known
                 encounters[word] += 1

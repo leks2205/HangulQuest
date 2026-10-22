@@ -9,6 +9,7 @@ import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Topik;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.TrailGraph;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.util.TextClean;
@@ -238,47 +239,62 @@ class QuestlineValidationTest {
 				if (ko == null) {
 					continue;
 				}
-				var verbs = switch (step.goal()) {
-					case Goal.PlaceBlock g -> placing();
-					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써", "닫", "쳐");
-					case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐", "잡", "담");
-					case Goal.ConsumeItem g -> List.of("먹", "마시");
-					case Goal.BreakBlock g -> List.of("캐", "베", "수확", "부수", "채", "파", "꺾", "뽑", "깨", "따");
-					case Goal.LookAtBlock g -> List.of("봐", "바라", "보");
-					case Goal.LookAtEntity g -> List.of("봐", "바라", "보");
-					case Goal.ReachBiome g -> List.of("가", "도착", "걸", "올라");
-					case Goal.ReachDimension g -> List.of("가", "도착", "걸");
-					case Goal.ReachHeight g -> List.of("올라", "내려", "가");
-					case Goal.DefeatEntity g -> List.of("물리", "죽", "잡");
-					case Goal.InteractEntity g -> List.of("이야기", "대화", "말", "만나");
-					case Goal.PlaceRel g -> placing();
-					case Goal.BuildPattern g -> concat(placing(), List.of("만들"));
-					case Goal.PlaceOnPattern g -> placing();
-					case Goal.Craft g -> List.of("만들");
-					case Goal.Smelt g -> List.of("만들", "구", "녹");
-					case Goal.Give g -> List.of("주", "떨어뜨");
-					case Goal.PutIn g -> List.of("넣");
-					case Goal.HoldWhile g -> List.of("들");
-					case Goal.Sequence g -> List.of("전에", "후에", "나서", "고");
-					case Goal.Avoid g -> List.of("마세요");
-					case Goal.TakeOut g -> List.of("꺼내", "꺼낸");
-					case Goal.Transit g -> List.of("들어가", "나가", "나와", "나오");
-					case Goal.Hear g -> List.of("들어", "듣");
-					case Goal.LieDown g -> List.of("누워", "누우");
-					case Goal.Wait g -> List.of("기다");
-					case Goal.Breed g -> List.of("키워", "키우");
-					case Goal.Mount g -> List.of("타", "앉");
-					case Goal.Swim g -> List.of("수영");
-					case Goal.Trade g -> List.of("사", "팔");
-				};
-				boolean namesAction = verbs.stream().anyMatch(ko::contains);
-				assertTrue(namesAction, trail.id() + "/" + step.id()
+				assertTrue(namesAction(step.goal(), ko), trail.id() + "/" + step.id()
 						+ " clue does not name the action (" + step.goal().getClass().getSimpleName()
 						+ "): " + ko);
 			}
 		}
 	}
 
+	/**
+	 * Whether the clue says what the goal asks for: a verb stem the goal can be said with, or any conjugated form
+	 * of the verbs of its type (줘요 holds no 주). A counter phrase between the object and the verb ("감자를 한 개
+	 * 넣어요") changes nothing; the check looks at the verb, not at what stands in front of it.
+	 */
+	static boolean namesAction(Goal goal, String ko) {
+		var verbs = switch (goal) {
+			case Goal.PlaceBlock g -> placing();
+			case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써", "닫", "쳐");
+			case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐", "잡", "담");
+			case Goal.ConsumeItem g -> List.of("먹", "마시");
+			case Goal.BreakBlock g -> List.of("캐", "베", "수확", "부수", "채", "파", "꺾", "뽑", "깨", "따");
+			case Goal.LookAtBlock g -> List.of("봐", "바라", "보");
+			case Goal.LookAtEntity g -> List.of("봐", "바라", "보");
+			case Goal.ReachBiome g -> List.of("가", "도착", "걸", "올라");
+			case Goal.ReachDimension g -> List.of("가", "도착", "걸");
+			case Goal.ReachHeight g -> List.of("올라", "내려", "가");
+			case Goal.DefeatEntity g -> List.of("물리", "죽", "잡");
+			case Goal.InteractEntity g -> List.of("이야기", "대화", "말", "만나");
+			case Goal.PlaceRel g -> placing();
+			case Goal.BuildPattern g -> concat(placing(), List.of("만들"));
+			case Goal.PlaceOnPattern g -> placing();
+			case Goal.Craft g -> List.of("만들");
+			case Goal.Smelt g -> List.of("만들", "구", "녹");
+			case Goal.Give g -> List.of("주", "떨어뜨");
+			case Goal.PutIn g -> List.of("넣");
+			case Goal.HoldWhile g -> List.of("들");
+			case Goal.Sequence g -> List.of("전에", "후에", "나서", "고");
+			case Goal.Avoid g -> List.of("마세요");
+			case Goal.TakeOut g -> List.of("꺼내", "꺼낸");
+			case Goal.Transit g -> List.of("들어가", "나가", "나와", "나오");
+			case Goal.Hear g -> List.of("들어", "듣");
+			case Goal.LieDown g -> List.of("누워", "누우");
+			case Goal.Wait g -> List.of("기다");
+			case Goal.Breed g -> List.of("키워", "키우");
+			case Goal.Mount g -> List.of("타", "앉");
+			case Goal.Swim g -> List.of("수영");
+			case Goal.Trade g -> List.of("사", "팔");
+		};
+		if (verbs.stream().anyMatch(ko::contains)) {
+			return true;
+		}
+		List<io.github.leks2205.hangulquest.quest.Verb> spoken = new java.util.ArrayList<>(
+				io.github.leks2205.hangulquest.quest.VerbTable.shared().verbsFor(GoalTypes.of(goal).id()));
+		spoken.add(SentenceBuilder.verbFor(goal));
+		spoken.addAll(GoalTypes.of(goal).alternativeVerbs(goal));
+		return spoken.stream().anyMatch(
+				verb -> io.github.leks2205.hangulquest.quest.grammar.Conjugator.contains(ko, verb.dictionary()));
+	}
 
 	@Test
 	void authoredCluesMentionTheirTargetWord() {

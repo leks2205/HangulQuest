@@ -55,6 +55,16 @@ final class PlaceBlockType implements GoalType<Goal.PlaceBlock> {
 	@Override
 	public boolean evaluate(Goal.PlaceBlock goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
+		if (tracker.roofedPlacement) {
+			// a block under a roof: only a placement with a roof over the block itself counts
+			for (PlacementFact fact : obs.placements) {
+				if (fact.roofed() && (!nightLatch || fact.night()) && Matching.accepts(tracker, goal.block(), fact.block())) {
+					tracker.count++;
+					Placements.remember(tracker, fact);
+				}
+			}
+			return tracker.count >= Math.max(1, goal.count());
+		}
 		List<String> placements = nightLatch ? obs.placedBlocksAtNight : obs.placedBlocks;
 		for (String placed : placements) {
 			if (Matching.accepts(tracker, goal.block(), placed)) {
@@ -67,6 +77,13 @@ final class PlaceBlockType implements GoalType<Goal.PlaceBlock> {
 			}
 		}
 		return tracker.count >= Math.max(1, goal.count());
+	}
+
+	/** 지붕 아래에 통을 놓아요: the roof is over the barrel, wherever the player stands. */
+	@Override
+	public boolean takesOver(Goal.PlaceBlock goal, io.github.leks2205.hangulquest.quest.Condition condition) {
+		return condition instanceof io.github.leks2205.hangulquest.quest.Condition.Sky sky
+				&& sky.state() == io.github.leks2205.hangulquest.quest.Condition.SkyState.ROOFED;
 	}
 
 	@Override

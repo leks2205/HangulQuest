@@ -200,6 +200,12 @@ class PlaytestTest {
 			applyCondition(obs, condition);
 		}
 		applyGoal(obs, goal);
+		if (goal instanceof Goal.PlaceBlock place && obs.roofed) {
+			// a block placed under a roof is checked on the block: the sensor reports a roofed placement
+			obs.addPlacement(new io.github.leks2205.hangulquest.sense.PlacementFact(place.block(), new BlockPos(10, 64, 10),
+					1L, obs.phase() == Condition.Phase.NIGHT, new Vec3(10.5, 64, 10.5),
+					io.github.leks2205.hangulquest.sense.BlockNeighborhood.capture(10, 64, 10, (x, y, z) -> null), true));
+		}
 		return obs;
 	}
 

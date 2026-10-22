@@ -123,12 +123,26 @@ final class WaitType implements GoalType<Goal.Wait> {
 		return withCounts && level >= 2 ? goal.seconds() + "초 동안" : "잠깐";
 	}
 
+	/** Whole seconds still to wait, rounded up: 10 at the start, 1 for the last moments, 0 when the time is up. */
+	private static long remaining(Goal.Wait goal, GoalEvaluator.Tracker tracker) {
+		long left = goal.seconds() * 1000L - tracker.dwellMs;
+		return Math.max(0L, (left + 999L) / 1000L);
+	}
+
 	@Override
 	public String status(Goal.Wait goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
-		long done = Math.min(goal.seconds(), tracker.dwellMs / 1000L);
-		return done + "/" + goal.seconds() + "초"
-				+ (arrived(goal, obs) ? "" : " · 아직 " + QuestStatus.phase(obs.phase()));
+		long left = remaining(goal, tracker);
+		String time = left > 0 ? left + "초 남았어요" : "";
+		String phase = arrived(goal, obs) ? "" : "아직 " + QuestStatus.phase(obs.phase());
+		return time.isEmpty() || phase.isEmpty() ? time + phase : time + " · " + phase;
+	}
+
+	/** The hint says how long the wait still takes: "10초 남았어요." */
+	@Override
+	public String hintNote(Goal.Wait goal, GoalEvaluator.Tracker tracker) {
+		long left = remaining(goal, tracker);
+		return left > 0 ? left + "초 남았어요." : "";
 	}
 
 	@Override

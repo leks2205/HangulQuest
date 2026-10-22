@@ -11,7 +11,7 @@ import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
 
-/** The block the player looks at is within some blocks of the player. */
+/** A block of that kind is within some blocks of the player. */
 final class NearBlockType implements ConditionType<Condition.NearBlock> {
 	@Override
 	public String id() {
@@ -42,10 +42,22 @@ final class NearBlockType implements ConditionType<Condition.NearBlock> {
 		return json;
 	}
 
+	/**
+	 * A block of that kind lies within the radius of the player, seen or not: a crop or a nest the player waits
+	 * beside is near without being stared at. The sensor scans for it while a step asks
+	 * ({@link Observation#nearBlocksWanted}); the block in the crosshair counts too, so a far look still works.
+	 */
 	@Override
 	public boolean met(Condition.NearBlock condition, Observation obs) {
 		String block = condition.block();
-		if (condition.radius() < 0 || block == null || !block.equals(obs.lookedBlock)) {
+		if (condition.radius() < 0 || block == null) {
+			return false;
+		}
+		Double scanned = obs.nearestBlock.get(block);
+		if (scanned != null && scanned <= condition.radius()) {
+			return true;
+		}
+		if (!block.equals(obs.lookedBlock)) {
 			return false;
 		}
 		if (obs.lookedBlockPos == null) {

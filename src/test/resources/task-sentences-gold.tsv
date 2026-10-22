@@ -89,7 +89,7 @@ BUILD_PATTERN	cobblestone	-	pattern:WALL	MATERIAL	2	조약돌로 벽을 쌓아�
 BUILD_PATTERN	stone x5	-	pattern:ROW	NONE	1	돌 다섯 개를 나란히 놓아요	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
 BUILD_PATTERN	stone	-	pattern:RING	MATERIAL	2	돌로 원 모양을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
 BUILD_PATTERN	glass	-	pattern:CROSS	MATERIAL	2	유리로 십자 모양을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
-BUILD_PATTERN	dirt	-	pattern:STAIRS	MATERIAL	2	흙으로 계단을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	dirt	-	pattern:STAIRS	MATERIAL	2	흙으로 계단을 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
 BUILD_PATTERN	bricks x10	-	pattern:PILLAR	MATERIAL	2	벽돌 열 개로 기둥을 쌓아요	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
 BUILD_PATTERN	ice	-	pattern:ROW	MATERIAL	2	얼음으로 다리를 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
 BUILD_PATTERN	dirt	-	structure:house	MATERIAL	2	흙으로 집을 지어요	L2.euro_material;L1.obj_eul;L1.eoyo

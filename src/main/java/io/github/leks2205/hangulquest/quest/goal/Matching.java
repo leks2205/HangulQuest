@@ -109,6 +109,9 @@ public final class Matching {
 		if (path.equals("campfire") || path.equals("soul_campfire")) {
 			return "campfire";
 		}
+		if (path.endsWith("_sign")) { // signs and hanging signs, standing or on a wall
+			return "sign";
+		}
 		if (path.equals("chest") || path.equals("trapped_chest")) {
 			return "chest";
 		}

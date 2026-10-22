@@ -126,7 +126,7 @@ class ConnectiveSentencesTest {
 		assertEquals("돌로 벽을 쌓고 그 옆에 횃불을 놓으세요.", say(onPattern(Relation.NEXT_TO, Pattern.WALL, STONE), 3));
 		assertEquals("돌로 담을 쌓고 그 안에 횃불을 놓으세요.", say(onPattern(Relation.INSIDE, Pattern.RING, STONE), 3));
 		assertEquals("돌로 십자 모양을 만들고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.CROSS, STONE), 3));
-		assertEquals("돌로 계단을 만들고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.STAIRS, STONE), 3));
+		assertEquals("돌로 계단을 쌓고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.STAIRS, STONE), 3));
 	}
 
 	@Test

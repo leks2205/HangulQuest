@@ -3,6 +3,7 @@ package io.github.leks2205.hangulquest.quest;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ import java.util.function.Predicate;
  * Which of the nouns a step teaches the clue may say. The first one is the word of the step and always stands
  * in the clue. A further noun stands there too when that keeps the clue to at most one unknown word: it counts as
  * known when the player knows it or an earlier step of the trail already taught it. A new one stays in the
- * hint, which names every noun the goal has a place for.
+ * hint, which names every noun the goal has a place for. A word that names the item in the player's hand always
+ * stands in the clue.
  */
 public final class ClueWords {
 	private ClueWords() {
@@ -32,7 +34,7 @@ public final class ClueWords {
 			if (word == null || word == first || word.category == Category.ACTIONS && word.ko.endsWith("다")) {
 				continue;
 			}
-			if (met(step, word, known)) {
+			if (met(step, word, known) || namesHeldItem(step, word)) {
 				extras.add(word);
 			} else if (unknown < 1) {
 				unknown++;
@@ -40,6 +42,20 @@ public final class ClueWords {
 			}
 		}
 		return extras;
+	}
+
+	/**
+	 * A word for the item in the player's hand is spoken in the clue as in the hint: "배를 들고", not "참나무 보트를
+	 * 들고". It stands in for the registry name, so it adds no word the clue would not have.
+	 */
+	private static boolean namesHeldItem(QuestStep step, Word word) {
+		for (Condition condition : step.conditions()) {
+			if (condition instanceof Condition.Holding holding
+					&& SentenceContext.wordNames(word, ObjectKind.ITEM, holding.item())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static boolean met(QuestStep step, Word word, Predicate<String> known) {

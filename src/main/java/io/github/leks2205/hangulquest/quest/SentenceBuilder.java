@@ -255,7 +255,9 @@ public final class SentenceBuilder {
 		if (conditions != null) {
 			for (Condition condition : conditions) {
 				if (!type.says(goal, condition)) {
-					ids.addAll(ConditionTypes.of(condition).grammarIds(condition, level));
+					ids.addAll(type.takesOver(goal, condition)
+							? ConditionTypes.of(condition).targetGrammarIds(condition, level)
+							: ConditionTypes.of(condition).grammarIds(condition, level));
 				}
 			}
 		}
@@ -440,11 +442,21 @@ public final class SentenceBuilder {
 		for (Condition condition : conditions) {
 			if (!type.says(goal, condition)) { // 바다에서 수영해요 already says IN_WATER
 				ConditionType<Condition> conditionType = ConditionTypes.of(condition);
-				phrases.add(conditionType.prefix(condition, taught, level));
+				phrases.add(phraseOf(goal, condition, taught, level));
 				places.add(conditionType.placeNoun(condition, taught));
 			}
 		}
 		return new Front(phrases, places);
+	}
+
+	/**
+	 * The phrase of one condition. A goal that checks the condition on its target (a block placed under a roof)
+	 * names that target's place instead of the player's.
+	 */
+	private static String phraseOf(Goal goal, Condition condition, Namer taught, int level) {
+		ConditionType<Condition> type = ConditionTypes.of(condition);
+		return goal != null && GoalTypes.of(goal).takesOver(goal, condition)
+				? type.targetPrefix(condition, taught, level) : type.prefix(condition, taught, level);
 	}
 
 	/** The phrases the conditions put in front of the goal ("밤에", "해변에서"), one per condition that has one. */
@@ -463,7 +475,7 @@ public final class SentenceBuilder {
 				if (type != null && type.says(goal, condition)) {
 					continue;
 				}
-				String phrase = ConditionTypes.of(condition).prefix(condition, taught, clampLevel(level)).trim();
+				String phrase = phraseOf(goal, condition, taught, clampLevel(level)).trim();
 				if (!phrase.isEmpty()) {
 					phrases.add(phrase);
 				}
@@ -495,7 +507,7 @@ public final class SentenceBuilder {
 				continue;
 			}
 			ConditionType<Condition> conditionType = ConditionTypes.of(condition);
-			String phrase = conditionType.prefix(condition, taught, clampLevel(level)).trim();
+			String phrase = phraseOf(goal, condition, taught, clampLevel(level)).trim();
 			if (phrase.isEmpty() || clue.contains(phrase)) {
 				continue;
 			}
@@ -529,7 +541,7 @@ public final class SentenceBuilder {
 			String place = null;
 			for (Condition condition : conditions) {
 				ConditionType<Condition> type = ConditionTypes.of(condition);
-				if (type.prefix(condition, taught, clampLevel(level)).trim().equals(phrase)) {
+				if (phraseOf(goal, condition, taught, clampLevel(level)).trim().equals(phrase)) {
 					place = type.placeNoun(condition, taught);
 				}
 			}

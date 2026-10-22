@@ -10,6 +10,16 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 - **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.
 
+### Fixed (generator wave 5)
+
+- **Limits from the seventh content batch.** 요리하다 names the food that goes in (감자를 요리해요), not the baked
+  product; the held item of a HOLDING phrase uses the taught word in the clue as in the hint (배를 들고); stairs are
+  piled up (계단을 쌓아요); a block placed under a roof is checked on the block (`PlacementFact.roofed`) and said as
+  지붕 아래에 통을 놓아요; 표지판 (every sign and hanging sign) and 괭이 (every hoe) are words; `NEAR_BLOCK` is a
+  proximity scan (twice a second, only while a step asks) instead of a stare; a wait shows the seconds left in the
+  status line and in the hint. `tools/coverage.py` counts a taught word as an encounter only when the clue, the hint,
+  the title or the finale line says it, and reads 팔아요 as 팔다.
+
 ### Fixed (generator wave 4)
 
 - **Limits from the fifth and sixth content batches.** Lighting a candle is checked (the `lit` state flips; `USE_BLOCK`

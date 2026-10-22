@@ -590,10 +590,59 @@
   "items": [
    "minecraft:iron_hoe"
   ],
+  "covers": [
+   "minecraft:wooden_hoe",
+   "minecraft:stone_hoe",
+   "minecraft:golden_hoe",
+   "minecraft:copper_hoe",
+   "minecraft:diamond_hoe",
+   "minecraft:netherite_hoe"
+  ],
   "sentenceKo": "괭이를 써요.",
   "descKo": "밭을 만들어요.",
   "aliases": [
    "괭이"
+  ]
+ },
+ {
+  "id": "sign",
+  "ko": "표지판",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [
+   "minecraft:oak_sign"
+  ],
+  "covers": [
+   "minecraft:oak_hanging_sign",
+   "minecraft:spruce_sign",
+   "minecraft:spruce_hanging_sign",
+   "minecraft:birch_sign",
+   "minecraft:birch_hanging_sign",
+   "minecraft:jungle_sign",
+   "minecraft:jungle_hanging_sign",
+   "minecraft:acacia_sign",
+   "minecraft:acacia_hanging_sign",
+   "minecraft:dark_oak_sign",
+   "minecraft:dark_oak_hanging_sign",
+   "minecraft:mangrove_sign",
+   "minecraft:mangrove_hanging_sign",
+   "minecraft:cherry_sign",
+   "minecraft:cherry_hanging_sign",
+   "minecraft:pale_oak_sign",
+   "minecraft:pale_oak_hanging_sign",
+   "minecraft:bamboo_sign",
+   "minecraft:bamboo_hanging_sign",
+   "minecraft:crimson_sign",
+   "minecraft:crimson_hanging_sign",
+   "minecraft:warped_sign",
+   "minecraft:warped_hanging_sign",
+   "minecraft:poplar_sign",
+   "minecraft:poplar_hanging_sign"
+  ],
+  "sentenceKo": "표지판에 글을 써요.",
+  "descKo": "나무로 만들어요. 글을 써요.",
+  "aliases": [
+   "표지판"
   ]
  },
  {
