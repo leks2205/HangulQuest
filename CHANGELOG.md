@@ -6,7 +6,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.3)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.4)
+
+**New in rc.4:** two more level-3 batches.
+- The village heroes: curing a zombie villager, the iron golem, the raid patrol, enchanting, the ender eye, diamond
+  gear, and the trade, post and fishing guilds.
+- The hunter: bow, crossbow, spear and shield, night hunts, the wolf.
+
+Finale lines across levels 3 and 4 now claim only what the quest checks. Pouring water reads 붓다, and rails laid in
+a row read 깔다.
 
 **New in rc.3:** the second level-3 batch: the first diamond, the jewellers' guild, amethyst and the crystal smithy,
 the mine with rails and a minecart, the respawn anchor, wither skeletons and the bastion. The first four level-4
