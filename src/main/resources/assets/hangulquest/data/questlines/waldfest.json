@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "waldfest",
  "titleKo": "숲의 잔치",
+ "topic": "나무",
  "tier": 4,
  "order": 420,
  "concepts": [
-  "gen_mycelium",
+  "planks",
+  "mushroom",
   "gen_mushroom_stew",
-  "gen_waxed_weathered_copper_chest",
-  "gen_polished_andesite"
+  "bowl",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,66 +25,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mycelium"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mycelium",
-    "count": 8
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:acacia_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mushroom_stew"
+    "mushroom"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:mushroom_stew",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:brown_mushroom",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:acacia_planks"
+   },
+   "clue": {
+    "ko": "판자 담 안에 버섯을 심으세요."
+   },
+   "hint": {
+    "ko": "판자 담 안에 버섯을 심어요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_weathered_copper_chest"
+    "gen_mushroom_stew",
+    "bowl"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_chest",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:mushroom_stew",
+    "count": 1,
+    "with": [
+     "minecraft:bowl"
+    ]
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_andesite"
+    "gen_mushroom_stew",
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_andesite",
+    "type": "GIVE",
+    "item": "minecraft:mushroom_stew",
+    "entity": "minecraft:villager",
     "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   }
   },
-  "textKo": "밤에 윤나는 안산암을 놓았어요."
+  "textKo": "주민에게 버섯 스튜를 줬어요. 스튜는 뜨거워요."
  },
  "reward": {
   "badge": "waldfest",
   "words": [
    "planks",
-   "cake",
-   "chicken",
-   "campfire"
+   "mushroom",
+   "gen_mushroom_stew",
+   "bowl",
+   "villager"
   ]
  },
- "koreanLevel": 2,
- "topic": "나무"
+ "koreanLevel": 2
 }

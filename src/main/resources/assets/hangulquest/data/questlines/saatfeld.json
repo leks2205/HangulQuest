@@ -6,8 +6,9 @@
  "tier": 2,
  "order": 61,
  "concepts": [
-  "netherrack",
-  "gen_dark_oak_log",
+  "hoe",
+  "dirt",
+  "potato",
   "pig"
  ],
  "requires": {
@@ -21,23 +22,41 @@
   {
    "id": "s1",
    "teach": [
-    "netherrack"
+    "hoe"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherrack",
-    "count": 5
+    "type": "CRAFT",
+    "item": "minecraft:wooden_hoe",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_log"
+    "dirt"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:dark_oak_log",
-    "dwellMs": 600
+    "type": "USE_BLOCK",
+    "block": "minecraft:dirt"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wooden_hoe"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "potato"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:potatoes",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
    }
   }
  ],
@@ -45,23 +64,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "pig"
+    "pig",
+    "potato"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:porkchop",
-    "count": 1
+    "type": "GIVE",
+    "item": "minecraft:potato",
+    "entity": "minecraft:pig",
+    "count": 1,
+    "method": "FEED"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "익히지 않은 돼지고기를 먹었어요."
+  "textKo": "낮에 돼지에게 감자를 줬어요. 감자는 맛있어요."
  },
  "reward": {
   "badge": "saatfeld",
   "words": [
-   "wheat",
-   "flower",
-   "bread"
+   "hoe",
+   "dirt",
+   "potato",
+   "pig"
   ]
  },
  "koreanLevel": 2

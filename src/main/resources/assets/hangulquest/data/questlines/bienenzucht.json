@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 159,
  "concepts": [
-  "gen_blackstone",
+  "beehive",
+  "flower",
   "honey_bottle",
-  "gen_phantom",
-  "gen_polished_andesite_slab"
+  "honey"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,37 +23,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blackstone"
+    "beehive"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blackstone",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:beehive",
+    "count": 1,
+    "with": [
+     "minecraft:honeycomb"
+    ]
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "honey_bottle"
+    "beehive",
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honey_bottle",
-    "count": 2
-   },
-   "hint": {
-    "ko": "꿀이 든 병은 벌집에서 꿀을 모아 만들어요."
+    "type": "PLACE_REL",
+    "block": "minecraft:beehive",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:flowers",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_phantom"
+    "flower"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:phantom",
-    "dwellMs": 800
+    "type": "PLACE_REL",
+    "block": "minecraft:cornflower",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:beehive",
+    "count": 1
    }
   }
  ],
@@ -61,24 +73,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_polished_andesite_slab"
+    "honey_bottle",
+    "honey"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_andesite_slab",
-    "count": 3
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:honey_bottle",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:beehive"
+    }
+   ]
   },
-  "textKo": "윤나는 안산암 반 블록을 세 개 만들었어요."
+  "textKo": "벌통 옆에서 꿀이 든 병을 마셨어요. 꿀은 달아요."
  },
  "reward": {
   "badge": "bienenzucht",
   "words": [
-   "bee",
-   "honeycomb",
-   "honey_block",
-   "honey_bottle"
+   "beehive",
+   "flower",
+   "honey_bottle",
+   "honey"
   ]
  },
  "koreanLevel": 2

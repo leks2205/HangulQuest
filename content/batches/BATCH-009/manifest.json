@@ -1,0 +1,777 @@
+{
+ "summary": {
+  "trails": 15,
+  "steps": 65,
+  "formDependent": 23,
+  "formDependentShare": 0.3538,
+  "goalTypes": {
+   "CRAFT": 13,
+   "USE_BLOCK": 4,
+   "PLACE_REL": 13,
+   "GIVE": 7,
+   "BUILD_PATTERN": 3,
+   "PLACE_ON_PATTERN": 3,
+   "SMELT": 3,
+   "CONSUME_ITEM": 9,
+   "ACQUIRE_ITEM": 5,
+   "PUT_IN": 2,
+   "TAKE_OUT": 1,
+   "REACH_BIOME": 1,
+   "TRADE": 1
+  }
+ },
+ "metricsNote": "Start (phase0 before either level-2 batch): unknownOverOneShare 0.053881, duplicateSignatures 13, formDependentShare.2 0.0, bareShare.2 0.6446, topTypeShare.2 0.3620, distinctTypes.2 10. Merged with BATCH-008 (baseline 0.054313 / 12) and then rebaselined: unknownOverOneShare 0.0540, duplicateSignatures 10, formDependentShare.2 0.0940, bareShare.2 0.4487, topTypeShare.2 0.2799, distinctTypes.2 22, verbObjectMax 6, verbObjectPairsOver3 3. This batch alone: 23 of 65 steps form-dependent (0.354), 0 sentences with more than one unknown word.",
+ "trails": [
+  {
+   "id": "saatfeld",
+   "title": "씨앗밭의 길",
+   "koreanLevel": 2,
+   "order": 61,
+   "requires": [
+    "baeckerei"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L2.ege",
+    "L1.loc_yeop_e"
+   ],
+   "finaleKo": "낮에 돼지에게 감자를 줬어요. 감자는 맛있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "괭이를 만드세요.",
+     "hintKo": "괭이를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "나무 괭이를 들고 흙을 가세요.",
+     "hintKo": "나무 괭이를 들고 흙을 갈아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "물 옆에 감자를 심으세요.",
+     "hintKo": "물 옆에 감자를 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "낮에 돼지에게 감자를 주세요.",
+     "hintKo": "낮에 돼지에게 감자를 줘요."
+    }
+   ]
+  },
+  {
+   "id": "festmahl",
+   "title": "잔치의 길",
+   "koreanLevel": 2,
+   "order": 330,
+   "requires": [
+    "baeckerei"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.hago_wa_gwa",
+    "L2.euro_material",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "케이크 옆에서 고기를 먹었어요. 고기는 맛있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "formDependent": false,
+     "clueKo": "판자 세 개를 나란히 놓으세요.",
+     "hintKo": "판자를 나란히 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 밀과 설탕으로 케이크를 만드세요.",
+     "hintKo": "제작대 옆에서 밀과 설탕으로 케이크를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "formDependent": true,
+     "clueKo": "자작나무 판자 세 개 위에 케이크를 놓으세요.",
+     "hintKo": "자작나무 판자 세 개 위에 케이크를 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "SMELT",
+     "formDependent": false,
+     "clueKo": "고기를 구우세요.",
+     "hintKo": "고기를 구워요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "케이크 옆에서 고기를 먹으세요.",
+     "hintKo": "케이크 옆에서 고기를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "schmauspfad",
+   "title": "산해진미의 길",
+   "koreanLevel": 2,
+   "order": 502,
+   "requires": [
+    "festmahl"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.ege",
+    "L2.euro_material"
+   ],
+   "finaleKo": "모닥불 옆에서 호박 파이를 먹었어요. 파이는 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "통나무 옆에서 달콤한 열매를 세 개 모으세요.",
+     "hintKo": "통나무 옆에서 달콤한 열매를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 호박으로 호박 파이를 만드세요.",
+     "hintKo": "제작대 옆에서 호박으로 호박 파이를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "여우에게 달콤한 열매를 주세요.",
+     "hintKo": "여우에게 달콤한 열매를 줘요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "모닥불 옆에서 호박 파이를 먹으세요.",
+     "hintKo": "모닥불 옆에서 호박 파이를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "kochkunst",
+   "title": "요리의 길",
+   "koreanLevel": 2,
+   "order": 512,
+   "requires": [
+    "schmauspfad",
+    "festmahl"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L1.loc_yeop_e",
+    "L1.loc_ap_e"
+   ],
+   "finaleKo": "훈연기 옆에서 고기를 요리했어요. 훈연기는 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대에서 훈연기를 만드세요.",
+     "hintKo": "제작대에서 훈연기를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "제작대 옆에 훈연기를 놓으세요.",
+     "hintKo": "제작대 옆에 훈연기를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "훈연기 앞에 모닥불을 피우세요.",
+     "hintKo": "훈연기 앞에 모닥불을 피워요."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "formDependent": false,
+     "clueKo": "훈연기 옆에서 고기를 요리하세요.",
+     "hintKo": "훈연기 옆에서 고기를 요리해요."
+    }
+   ]
+  },
+  {
+   "id": "milchpfad",
+   "title": "우유의 길",
+   "koreanLevel": 2,
+   "order": 141,
+   "requires": [
+    "weidepfad",
+    "wollpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.ege"
+   ],
+   "finaleKo": "상자 안에 우유를 넣었어요. 우유는 맛있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 양동이를 만드세요.",
+     "hintKo": "제작대 옆에서 양동이를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "밖에서 소에게 밀을 주세요.",
+     "hintKo": "밖에서 소에게 밀을 줘요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "울타리 옆에서 우유를 구하세요.",
+     "hintKo": "울타리 옆에서 우유를 구해요."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "formDependent": false,
+     "clueKo": "상자 안에 우유를 넣으세요.",
+     "hintKo": "상자 안에 우유를 넣어요."
+    }
+   ]
+  },
+  {
+   "id": "brauerei",
+   "title": "지하 저장고의 길",
+   "koreanLevel": 2,
+   "order": 158,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.loc_sai_e",
+    "L2.hago_wa_gwa",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "통에서 달콤한 열매를 꺼냈어요. 열매는 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 통을 만드세요.",
+     "hintKo": "제작대 옆에서 통을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "땅속에서 통과 화로 사이에 랜턴을 놓으세요.",
+     "hintKo": "땅속에서 통과 화로 사이에 랜턴을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "formDependent": false,
+     "clueKo": "통 안에 달콤한 열매를 세 개 넣으세요.",
+     "hintKo": "통 안에 달콤한 열매를 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "formDependent": false,
+     "clueKo": "통에서 달콤한 열매를 꺼내세요.",
+     "hintKo": "통에서 달콤한 열매를 꺼내요."
+    }
+   ]
+  },
+  {
+   "id": "bienenzucht",
+   "title": "양봉의 길",
+   "koreanLevel": 2,
+   "order": 159,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.euro_material",
+    "L1.loc_yeop_e"
+   ],
+   "finaleKo": "벌통 옆에서 꿀이 든 병을 마셨어요. 꿀은 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 벌집 조각으로 벌통을 만드세요.",
+     "hintKo": "제작대 옆에서 벌집 조각으로 벌통을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "꽃 옆에 벌통을 놓으세요.",
+     "hintKo": "꽃 옆에 벌통을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "벌통 옆에 꽃을 심으세요.",
+     "hintKo": "벌통 옆에 꽃을 심어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "벌통 옆에서 꿀이 든 병을 마시세요.",
+     "hintKo": "벌통 옆에서 꿀이 든 병을 마셔요."
+    }
+   ]
+  },
+  {
+   "id": "obstgarten",
+   "title": "과수원의 길",
+   "koreanLevel": 2,
+   "order": 168,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L1.loc_an_e",
+    "L1.loc_yeop_e"
+   ],
+   "finaleKo": "묘목 옆에서 사과를 먹었어요. 사과는 맛있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "formDependent": false,
+     "clueKo": "울타리를 치세요.",
+     "hintKo": "울타리를 쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "formDependent": true,
+     "clueKo": "자작나무 울타리 안에 묘목을 심으세요.",
+     "hintKo": "자작나무 울타리 안에 묘목을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "울타리 옆에 묘목을 심으세요.",
+     "hintKo": "울타리 옆에 묘목을 심어요."
+    },
+    {
+     "id": "s4",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "밖에서 사과를 두 개 모으세요.",
+     "hintKo": "밖에서 사과를 모아요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "묘목 옆에서 사과를 먹으세요.",
+     "hintKo": "묘목 옆에서 사과를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "alchemiepfad",
+   "title": "꿀단지의 길",
+   "koreanLevel": 2,
+   "order": 103,
+   "requires": [
+    "schmelzofen",
+    "schmauspfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L2.ege"
+   ],
+   "finaleKo": "주민에게 꿀이 든 병을 줬어요. 꿀은 달아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 유리병을 만드세요.",
+     "hintKo": "제작대 옆에서 유리병을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "벌통을 수확하세요.",
+     "hintKo": "벌통을 수확해요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "설탕을 만드세요.",
+     "hintKo": "설탕을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 꿀이 든 병을 주세요.",
+     "hintKo": "주민에게 꿀이 든 병을 줘요."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_balanced_diet",
+   "title": "균형 잡힌 식단",
+   "koreanLevel": 2,
+   "order": 259,
+   "requires": [
+    "adv_husbandry_plant_seed"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "finaleKo": "균형 잡힌 식단 — 밤에 고기까지 골고루 먹었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "통나무 옆에서 과일을 먹으세요.",
+     "hintKo": "통나무 옆에서 과일을 먹어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "낮에 채소를 먹으세요.",
+     "hintKo": "낮에 채소를 먹어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "지붕 아래에서 생선을 먹으세요.",
+     "hintKo": "지붕 아래에서 생선을 먹어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "밤에 고기를 먹으세요.",
+     "hintKo": "밤에 고기를 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_wax_on",
+   "title": "밀랍을 칠하자",
+   "koreanLevel": 2,
+   "order": 285,
+   "requires": [
+    "adv_husbandry_safely_harvest_honey"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L1.loc_yeop_e",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "벌집 조각을 들고 구리 블록에 밀랍을 칠했어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "낮에 벌집 조각을 두 개 모으세요.",
+     "hintKo": "낮에 벌집 조각을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대에서 구리 블록을 만드세요.",
+     "hintKo": "제작대에서 구리 블록을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 옆에 구리 블록을 놓으세요.",
+     "hintKo": "문 옆에 구리 블록을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "돌 위에 구리 블록을 놓으세요.",
+     "hintKo": "돌 위에 구리 블록을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "벌집 조각을 들고 구리 블록을 사용하세요.",
+     "hintKo": "벌집 조각을 들고 구리 블록을 사용해요."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_wax_off",
+   "title": "밀랍을 벗기자",
+   "koreanLevel": 2,
+   "order": 284,
+   "requires": [
+    "adv_husbandry_wax_on"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L2.euro_material",
+    "L1.loc_ap_e",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "돌 도끼를 들고 밀랍칠한 구리 블록의 밀랍을 벗겼어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 돌 도끼를 만드세요.",
+     "hintKo": "제작대 옆에서 돌 도끼를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대에서 구리 블록으로 밀랍칠한 구리 블록을 만드세요.",
+     "hintKo": "제작대에서 구리 블록으로 밀랍칠한 구리 블록을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "문 앞에 밀랍칠한 구리 블록을 놓으세요.",
+     "hintKo": "문 앞에 밀랍칠한 구리 블록을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "돌 위에 밀랍칠한 구리 블록을 놓으세요.",
+     "hintKo": "돌 위에 밀랍칠한 구리 블록을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "formDependent": false,
+     "clueKo": "돌 도끼를 들고 밀랍칠한 구리 블록을 사용하세요.",
+     "hintKo": "돌 도끼를 들고 밀랍칠한 구리 블록을 사용해요."
+    }
+   ]
+  },
+  {
+   "id": "waldfest",
+   "title": "숲의 잔치",
+   "koreanLevel": 2,
+   "order": 420,
+   "requires": [
+    "waldhaus",
+    "festmahl",
+    "farmpfad"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.euro_material",
+    "L1.loc_an_e"
+   ],
+   "finaleKo": "주민에게 버섯 스튜를 줬어요. 스튜는 뜨거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "formDependent": false,
+     "clueKo": "판자로 담을 쌓으세요.",
+     "hintKo": "판자로 담을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "formDependent": true,
+     "clueKo": "판자 담 안에 버섯을 심으세요.",
+     "hintKo": "판자 담 안에 버섯을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "제작대 옆에서 그릇으로 버섯 스튜를 만드세요.",
+     "hintKo": "제작대 옆에서 그릇으로 버섯 스튜를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 버섯 스튜를 주세요.",
+     "hintKo": "주민에게 버섯 스튜를 줘요."
+    }
+   ]
+  },
+  {
+   "id": "kuestenfest",
+   "title": "바닷가 잔치",
+   "koreanLevel": 2,
+   "order": 430,
+   "requires": [
+    "brandung",
+    "festmahl"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.eseo_activity",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "하늘색 양탄자 위에서 생선을 먹었어요. 생선은 맛있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "formDependent": false,
+     "clueKo": "낮에 해변으로 가세요.",
+     "hintKo": "낮에 해변으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "모래 위에 양탄자를 까세요.",
+     "hintKo": "모래 위에 양탄자를 깔아요."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "해변에서 거북에게 해초를 주세요.",
+     "hintKo": "해변에서 거북에게 해초를 줘요."
+    },
+    {
+     "id": "s4",
+     "goal": "SMELT",
+     "formDependent": false,
+     "clueKo": "생선을 구우세요.",
+     "hintKo": "생선을 구워요."
+    },
+    {
+     "id": "finale",
+     "goal": "CONSUME_ITEM",
+     "formDependent": false,
+     "clueKo": "하늘색 양탄자 위에서 생선을 먹으세요.",
+     "hintKo": "하늘색 양탄자 위에서 생선을 먹어요."
+    }
+   ]
+  },
+  {
+   "id": "gartenfest",
+   "title": "정원 잔치",
+   "koreanLevel": 2,
+   "order": 511,
+   "requires": [
+    "gartenpfad",
+    "waldfest",
+    "waldlicht",
+    "saatfeld",
+    "musikpfad",
+    "freundschaftspfad",
+    "blumenpfad",
+    "kerzenpfad",
+    "apfelpfad",
+    "sonnenblume",
+    "milchpfad",
+    "regenbogenpfad",
+    "gartenzaun",
+    "blumentopf",
+    "blumenkranz",
+    "uhrmacher",
+    "muschelpfad",
+    "vogelscheuche",
+    "pferderennen"
+   ],
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.wa_gwa",
+    "L2.euro_material",
+    "L1.loc_wi_e"
+   ],
+   "finaleKo": "주민에게 사과를 줬어요. 친구하고 같이 잔치를 했어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "formDependent": false,
+     "clueKo": "낮에 제작대에서 밀과 설탕으로 케이크를 만드세요.",
+     "hintKo": "낮에 제작대에서 밀과 설탕으로 케이크를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "formDependent": true,
+     "clueKo": "판자 위에 케이크를 놓으세요.",
+     "hintKo": "판자 위에 케이크를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "TRADE",
+     "formDependent": false,
+     "clueKo": "주민에게 사과를 사세요.",
+     "hintKo": "주민에게 사과를 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "formDependent": true,
+     "clueKo": "주민에게 사과를 주세요.",
+     "hintKo": "주민에게 사과를 줘요."
+    }
+   ]
+  }
+ ]
+}

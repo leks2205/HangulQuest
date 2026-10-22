@@ -1,14 +1,16 @@
 {
  "schema": 1,
  "id": "alchemiepfad",
- "titleKo": "연금술의 길",
- "topic": "연금술",
+ "titleKo": "꿀단지의 길",
+ "topic": "꿀",
  "tier": 3,
  "order": 103,
  "concepts": [
-  "cauldron",
-  "gen_cyan_stained_glass_pane",
-  "sugar"
+  "glass_bottle",
+  "beehive",
+  "sugar",
+  "honey_bottle",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,22 +24,29 @@
   {
    "id": "s1",
    "teach": [
-    "cauldron"
+    "glass_bottle"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:cauldron"
-   }
+    "type": "CRAFT",
+    "item": "minecraft:glass_bottle",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cyan_stained_glass_pane"
+    "beehive"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_stained_glass_pane",
-    "count": 3
+    "type": "USE_BLOCK",
+    "block": "minecraft:beehive"
    }
   },
   {
@@ -46,12 +55,9 @@
     "sugar"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:sugar",
-    "count": 3
-   },
-   "hint": {
-    "ko": "설탕은 사탕수수로 만들어요."
+    "count": 1
    }
   }
  ],
@@ -59,23 +65,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cauldron"
+    "honey_bottle",
+    "villager"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cauldron",
+    "type": "GIVE",
+    "item": "minecraft:honey_bottle",
+    "entity": "minecraft:villager",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "가마솥에 재료를 넣어요."
+  "textKo": "주민에게 꿀이 든 병을 줬어요. 꿀은 달아요."
  },
  "reward": {
   "badge": "alchemiepfad",
   "words": [
-   "cauldron",
    "glass_bottle",
-   "sugar"
+   "beehive",
+   "sugar",
+   "honey_bottle",
+   "villager"
   ]
  },
  "koreanLevel": 2
