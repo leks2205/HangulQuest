@@ -6,10 +6,10 @@
  "tier": 5,
  "order": 87,
  "concepts": [
-  "gen_dark_forest",
-  "chicken_meat",
-  "gen_water_cauldron",
-  "adv_item_target"
+  "raw_gold",
+  "gen_piglin",
+  "gold_block",
+  "helmet"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -25,38 +25,52 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_forest"
+    "raw_gold"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:dark_forest",
-    "dwellMs": 1000
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "chicken_meat"
-   ],
-   "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_chicken",
-    "count": 1
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_water_cauldron"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:water_cauldron"
+    "type": "SMELT",
+    "input": "minecraft:raw_gold",
+    "output": "minecraft:gold_ingot",
+    "count": 5
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "DAY"
+     "phase": "DUSK"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_piglin"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:piglin",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:gold_ingot"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gold_block"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:gold_block",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
     }
    ]
   }
@@ -65,35 +79,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_target"
+    "helmet"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:target"
+    "type": "EQUIP",
+    "item": "minecraft:golden_helmet"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
     }
    ]
   },
-  "textKo": "밤에 산에서 과녁을 사용했어요."
+  "textKo": "밤에 금 투구를 썼어요. 금은 녹슬지 않아요."
  },
  "reward": {
   "badge": "ewige_krone",
   "words": [
-   "mountain",
-   "cake",
-   "bell",
-   "bed",
-   "crown",
-   "eternity"
+   "raw_gold",
+   "gen_piglin",
+   "gold_block",
+   "helmet"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
