@@ -6,7 +6,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.1)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.2)
+
+**New in rc.2:** the first level-3 batch. The way into the Nether is rebuilt: obsidian, the portal, piglins and
+gold, the fortress and blaze rods, the bastion, striders, crying obsidian and ancient debris. Level 3 brings
+"before" and "after" (-기 전에, -(으)ㄴ 후에), "don't" (-지 마세요) and "can" (-(으)ㄹ 수 있어요). The Nether
+branch now starts after the lava-bucket trail. Several BATCH-015 finale lines were corrected so they claim only
+what the quest checks.
 
 Hangul Quest 3.0 rebuilds the curriculum around what a player does in the world, replaces the old review ladder
 with a real spaced-repetition scheduler, and opens the Korean text to review by native speakers. It needs
