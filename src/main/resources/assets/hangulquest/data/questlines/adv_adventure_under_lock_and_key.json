@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_under_lock_and_key",
- "titleKo": "열쇠로 잠금 해제",
+ "titleKo": "철 문과 버튼",
  "topic": "adventure",
  "tier": 2,
  "order": 240,
  "concepts": [
-  "gen_birch_sign",
-  "gen_short_dry_grass",
-  "adv_item_enchanted_book"
+  "gen_iron_door",
+  "cobblestone",
+  "gen_stone_button"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +21,75 @@
   {
    "id": "s1",
    "teach": [
-    "gen_birch_sign"
+    "gen_iron_door"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_sign",
+    "type": "CRAFT",
+    "item": "minecraft:iron_door",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_short_dry_grass"
+    "cobblestone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:short_dry_grass",
+    "type": "PLACE_REL",
+    "block": "minecraft:iron_door",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:cobblestone",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_stone_button"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:stone_button",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_enchanted_book"
+    "gen_stone_button"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:enchanted_book",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:stone_button"
    },
    "conditions": []
   },
-  "textKo": "열쇠로 잠금 해제 — 시련 열쇠로 금고를 열고 보물을 가져요."
+  "textKo": "돌 버튼을 눌렀어요. 버튼으로 철 문을 열 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_under_lock_and_key",
   "words": [
-   "adv_item_trial_key",
-   "adv_item_ominous_trial_key",
-   "adv_item_enchanted_book"
+   "gen_iron_door",
+   "cobblestone",
+   "gen_stone_button"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.loc_sai_e",
+  "L1.num_native",
+  "L1.obj_eul",
+  "L1.loc_yeop_e",
+  "L3.su_itda",
+  "L3.past",
+  "L3.euro_instrument"
+ ]
 }

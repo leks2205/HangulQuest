@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "adv_story_shiny_gear",
- "titleKo": "다이아몬드로 날 감싸줘",
+ "titleKo": "다이아몬드 장비",
  "topic": "story",
  "tier": 2,
  "order": 323,
  "concepts": [
-  "gen_iron_nautilus_armor",
-  "adv2_item_diamond_helmet",
-  "gen_waxed_weathered_copper_chest",
-  "bell"
+  "diamond",
+  "adv_item_diamond_boots",
+  "anvil",
+  "adv2_item_diamond_helmet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,63 +22,93 @@
   {
    "id": "s1",
    "teach": [
-    "gen_iron_nautilus_armor"
+    "diamond"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_nautilus_armor",
-    "count": 17
-   }
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:diamond_ore",
+    "count": 5
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv2_item_diamond_helmet"
+    "adv_item_diamond_boots"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_helmet",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:diamond_boots",
+      "count": 1
+     },
+     {
+      "type": "EQUIP",
+      "item": "minecraft:diamond_boots"
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "hint": {
-    "ko": "다이아몬드 투구는 다이아몬드 다섯 개로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_weathered_copper_chest"
+    "anvil"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_copper_chest",
+    "type": "PLACE_REL",
+    "block": "minecraft:anvil",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:smithing_table",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "bell"
+    "adv2_item_diamond_helmet"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bell",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:diamond_helmet",
+      "count": 1
+     },
+     {
+      "type": "EQUIP",
+      "item": "minecraft:diamond_helmet"
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "종을 구했어요."
+  "textKo": "다이아몬드 투구를 만든 후에 썼어요."
  },
  "reward": {
   "badge": "adv_story_shiny_gear",
   "words": [
    "diamond",
-   "adv2_item_diamond_helmet",
    "adv_item_diamond_boots",
-   "adv_block_diamond_chestplate"
+   "anvil"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L3.eun_hue",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.past"
+ ]
 }

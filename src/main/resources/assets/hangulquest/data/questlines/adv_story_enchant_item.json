@@ -1,15 +1,13 @@
 {
  "schema": 1,
  "id": "adv_story_enchant_item",
- "titleKo": "마법 부여자",
+ "titleKo": "마법 부여대",
  "topic": "story",
  "tier": 2,
  "order": 312,
  "concepts": [
-  "gen_snowy_village_map",
-  "enchanting_table",
-  "gen_ender_chest",
-  "adv_item_enchanted_book"
+  "obsidian",
+  "enchanting_table"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,13 +20,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snowy_village_map"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:snowy_village_map",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
     "count": 4
-   }
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:diamond_pickaxe"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -36,47 +40,57 @@
     "enchanting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:enchanting_table",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:book",
+      "count": 1
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:enchanting_table",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "hint": {
-    "ko": "마법 부여대는 흑요석 네 개와 다이아몬드 두 개, 책 한 권으로 만들어요."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_ender_chest"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:ender_chest"
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_enchanted_book"
+    "enchanting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:enchanted_book",
+    "type": "PLACE_REL",
+    "block": "minecraft:enchanting_table",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafting_table",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "마법이 부여된 책을 구했어요."
+  "textKo": "제작대 옆에 마법 부여대를 놓았어요. 이제 마법을 부여할 수 있어요."
  },
  "reward": {
   "badge": "adv_story_enchant_item",
   "words": [
    "obsidian",
-   "enchanting_table",
-   "adv_item_enchanted_book"
+   "enchanting_table"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.go_state",
+  "L3.eun_hue",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "adv_story_follow_ender_eye",
- "titleKo": "스무고개",
+ "titleKo": "엔더의 눈 만들기",
  "topic": "story",
  "tier": 2,
  "order": 315,
  "concepts": [
-  "gen_cave_spider",
-  "gen_stripped_spruce_log",
-  "gen_burn_pottery_sherd",
-  "gen_stone_pressure_plate"
+  "enderman",
+  "ender_pearl",
+  "gen_blaze_powder",
+  "adv_item_ender_eye"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,60 +22,96 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cave_spider"
+    "enderman"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:cave_spider",
-    "count": 3
-   }
+    "entity": "minecraft:enderman",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stripped_spruce_log"
+    "ender_pearl"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stripped_spruce_log",
-    "count": 2
-   }
+    "item": "minecraft:ender_pearl",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_burn_pottery_sherd"
+    "gen_blaze_powder"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:burn_pottery_sherd",
+    "item": "minecraft:blaze_powder",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_ender_eye"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:ender_eye",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stone_pressure_plate"
+    "adv_item_ender_eye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stone_pressure_plate",
-    "count": 1
+    "type": "HOLD_WHILE",
+    "item": "minecraft:ender_eye",
+    "inner": {
+     "type": "REACH_HEIGHT",
+     "minY": -64,
+     "maxY": 40
+    }
    },
    "conditions": []
   },
-  "textKo": "돌 압력판을 만들었어요."
+  "textKo": "엔더의 눈을 들고 아래로 내려갔어요. 내일 요새를 찾을 거예요."
  },
  "reward": {
   "badge": "adv_story_follow_ender_eye",
   "words": [
    "enderman",
    "ender_pearl",
-   "adv_item_blaze_rod",
-   "adv_item_ender_eye"
+   "gen_blaze_powder"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.jima",
+  "L1.eul_reul",
+  "L2.seyo",
+  "L2.go_state",
+  "L3.future_geoyeyo",
+  "L3.past"
+ ]
 }

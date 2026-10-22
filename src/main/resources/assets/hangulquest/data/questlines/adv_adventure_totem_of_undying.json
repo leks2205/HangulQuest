@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_totem_of_undying",
- "titleKo": "죽음을 초월한 자",
+ "titleKo": "불사의 토템",
  "topic": "adventure",
  "tier": 2,
  "order": 234,
  "concepts": [
-  "adv_item_totem_of_undying",
-  "gen_husk",
-  "gen_pillager"
+  "gen_evoker",
+  "adv2_item_iron_helmet",
+  "adv_item_totem_of_undying"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,6 +21,48 @@
   {
    "id": "s1",
    "teach": [
+    "gen_evoker"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:evoker",
+    "dwellMs": 1000
+   },
+   "conditions": []
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv2_item_iron_helmet"
+   ],
+   "goal": {
+    "type": "EQUIP",
+    "item": "minecraft:iron_helmet"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_evoker"
+   ],
+   "goal": {
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:evoker",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
     "adv_item_totem_of_undying"
    ],
    "goal": {
@@ -28,44 +70,24 @@
     "item": "minecraft:totem_of_undying",
     "count": 1
    },
-   "hint": {
-    "ko": "소환사가 불사의 토템을 떨어뜨려요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_husk"
-   ],
-   "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:husk",
-    "count": 1
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_pillager"
-   ],
-   "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:pillager",
-    "count": 1
-   },
    "conditions": []
   },
-  "textKo": "약탈자를 물리쳤어요."
+  "textKo": "불사의 토템을 얻었어요. 위험할 때 쓸 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_totem_of_undying",
   "words": [
-   "adv_item_totem_of_undying",
-   "creeper",
-   "witch"
+   "gen_evoker",
+   "adv2_item_iron_helmet",
+   "adv_item_totem_of_undying"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }
