@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "w7_09",
- "titleKo": "가스트의 눈물",
- "topic": "눈물",
+ "titleKo": "천둥의 노래",
+ "topic": "천둥",
  "tier": 2,
  "order": 1079,
  "concepts": [
-  "gen_crimson_slab",
-  "brewing_stand",
-  "gen_flow_armor_trim_smithing_template",
-  "soul_torch"
+  "gen_raw_copper",
+  "lightning_rod",
+  "climb"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,63 +21,83 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_slab"
+    "gen_raw_copper"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_slab",
-    "count": 2
-   }
+    "item": "minecraft:raw_copper",
+    "count": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "brewing_stand"
+    "lightning_rod"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brewing_stand",
+    "type": "CRAFT",
+    "item": "minecraft:lightning_rod",
     "count": 1
    },
-   "hint": {
-    "ko": "양조기는 블레이즈 막대기와 조약돌로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_flow_armor_trim_smithing_template"
+    "climb"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flow_armor_trim_smithing_template",
-    "count": 3
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 90,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "soul_torch"
+    "lightning_rod"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:soul_torch",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lightning_rod",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
   },
-  "textKo": "영혼 횃불을 구했어요."
+  "textKo": "천둥이 칠 때 피뢰침을 바라봤어요. 피뢰침은 구리로 만들어요."
  },
  "reward": {
   "badge": "w7_09",
   "words": [
-   "adv_item_ghast_tear",
-   "brewing_stand",
-   "nether_wart",
-   "adv_item_potion"
+   "gen_raw_copper",
+   "lightning_rod",
+   "climb"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.num_sino"
+ ]
 }

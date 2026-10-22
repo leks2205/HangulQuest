@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "w8_04",
- "titleKo": "용의 섬",
+ "titleKo": "작은 섬",
  "topic": "섬",
  "tier": 2,
  "order": 1084,
  "concepts": [
-  "gen_cyan_concrete_powder",
-  "gen_yellow_glazed_terracotta",
-  "gen_mangrove_roots",
-  "gen_skull_pottery_sherd"
+  "gen_mushroom_fields",
+  "mushroom",
+  "boat",
+  "swim"
  ],
  "requires": {
   "minWordsKnown": 80,
@@ -22,60 +22,109 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cyan_concrete_powder"
+    "gen_mushroom_fields",
+    "mushroom"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_concrete_powder",
-    "count": 2
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:mushroom_fields",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:brown_mushroom",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:mushroom_fields"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_yellow_glazed_terracotta"
+    "boat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_glazed_terracotta",
-    "count": 4
-   }
+    "type": "CRAFT",
+    "item": "minecraft:birch_boat",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:birch_planks"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mangrove_roots"
+    "swim"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_roots",
-    "count": 2
-   }
+    "type": "SWIM",
+    "blocks": 15
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_skull_pottery_sherd"
+    "boat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:skull_pottery_sherd",
-    "count": 4
+    "type": "MOUNT",
+    "entity": "minecraft:birch_boat",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
-  "textKo": "해골 도자기 조각을 네 개 모았어요."
+  "textKo": "맑을 때 배에 앉았어요. 배는 물 위에 떠요."
  },
  "reward": {
   "badge": "w8_04",
   "words": [
-   "end",
-   "adv_block_purpur_block",
-   "adv_item_shulker_shell",
-   "adv_item_end_crystal"
+   "gen_mushroom_fields",
+   "mushroom",
+   "boat",
+   "swim"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eureo_gayo",
+  "L4.eoya_haeyo",
+  "L1.euro_direction",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.go_state",
+  "L2.eseo_activity",
+  "L1.e_place"
+ ]
 }
