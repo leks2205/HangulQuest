@@ -55,6 +55,7 @@ class QuestLogTextTest {
 		assertEquals("", QuestLogText.situationalMarker(plain));
 		assertEquals(I18n.t("hangulquest.ui.hud.situational"), QuestLogText.situationalMarker(here));
 		assertFalse(QuestLogText.situationalMarker(here).isBlank(), "the translation is not empty");
-		assertEquals("상황", QuestLogText.SITUATIONAL_KO);
+		// 여기 = "here", the translation shown beside it (상황 meant "situation" and did not match)
+		assertEquals("여기", QuestLogText.SITUATIONAL_KO);
 	}
 }
