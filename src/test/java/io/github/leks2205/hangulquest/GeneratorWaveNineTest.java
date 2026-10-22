@@ -107,10 +107,10 @@ class GeneratorWaveNineTest {
 
 	@Test
 	void i2_aSizeOutsideTheRangeOfTheShapeIsRefused() {
-		Goal five = new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW, "minecraft:gravel", 5);
+		Goal five = new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW, "minecraft:gravel", 8);
 		assertFalse(problems(five).isEmpty());
 		assertEquals(List.of(), problems(new Goal.PlaceOnPattern("minecraft:torch", Relation.NEXT_TO, Pattern.ROW,
-				"minecraft:gravel", 4)));
+				"minecraft:gravel", 7)));
 	}
 
 	// ------------------------------------------------------------ 4. a SEQUENCE part teaches its word

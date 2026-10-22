@@ -51,17 +51,17 @@ class BlockNeighborhoodTest {
 	}
 
 	@Test
-	void readsExactlySevenCubedBlocksAndNothingMore() {
+	void readsExactlyThirteenCubedBlocksAndNothingMore() {
 		FakeBlocks world = new FakeBlocks();
 		BlockNeighborhood.capture(0, 0, 0, world);
-		assertEquals(7 * 7 * 7, world.lookups);
+		assertEquals(13 * 13 * 13, world.lookups);
 	}
 
 	@Test
 	void offsetsOutsideTheCubeAreUnknown() {
 		BlockNeighborhood around = BlockNeighborhood.capture(0, 0, 0, new FakeBlocks());
-		assertNull(around.at(4, 0, 0));
-		assertNull(around.at(0, -4, 0));
+		assertNull(around.at(7, 0, 0));
+		assertNull(around.at(0, -7, 0));
 		assertNull(around.at(0, 0, 9));
 	}
 

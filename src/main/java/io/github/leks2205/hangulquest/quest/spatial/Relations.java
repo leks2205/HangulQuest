@@ -10,14 +10,14 @@ import java.util.List;
 
 /**
  * The geometry of each {@link Relation}: which ones hold between a block that was just placed and an
- * {@link Anchor}, judged from the 7x7x7 cube around it. All offsets are relative to the placed block.
+ * {@link Anchor}, judged from the 7x7x7 cube around it (the nearest part of the captured cube). All offsets are relative to the placed block.
  *
  * <p>Facing: the sensor stores block ids, not block states, so the front of a door or a chest is not
  * known. Until it is, the front is the side the player stands on when placing (the dominant horizontal
  * axis from the anchor to the player); the back is the opposite side.
  */
 public final class Relations {
-	private static final int R = BlockNeighborhood.RADIUS;
+	private static final int R = BlockNeighborhood.NEAR;
 	private static final int[][] DIRS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
 	private Relations() {

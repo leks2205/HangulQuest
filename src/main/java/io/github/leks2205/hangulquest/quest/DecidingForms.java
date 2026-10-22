@@ -20,6 +20,21 @@ public final class DecidingForms {
 	private DecidingForms() {
 	}
 
+	/** Only those that name the condition of the step (-(으)면, -는 동안) at {@code level}. */
+	public static List<String> ofConditions(QuestStep step, int level) {
+		Goal goal = step.goal();
+		if (goal == null) {
+			return List.of();
+		}
+		Set<String> ids = new LinkedHashSet<>();
+		for (ConditionForm form : SentenceBuilder.conditionForms(goal, step.conditions(), level)) {
+			if (form.decides()) {
+				ids.add(form.grammar());
+			}
+		}
+		return GrammarBook.shared().resolve(List.copyOf(ids), Ladder.shared());
+	}
+
 	/** The deciding constructions of the step as its text is written at {@code level}. */
 	public static List<String> of(QuestStep step, int level) {
 		Goal goal = step.goal();

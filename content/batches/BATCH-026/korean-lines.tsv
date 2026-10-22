@@ -1,14 +1,14 @@
 id	ko	context
 trail.w8_07.finale	밤에 엔더맨을 바라봤어요. 엔더맨은 키가 커요.	finale, authored; LookAtEntity minecraft:enderman 
 trail.w8_08.finale	새벽에 발광석을 들고 동쪽으로 십이 블록 갔어요. 해는 동쪽에서 떠요.	finale, authored; Walk 
-trail.kronenwacht.finale	비가 올 때 마녀를 물리쳤어요. 마녀는 물약을 만들어요.	finale, authored; DefeatEntity minecraft:witch x1
+trail.kronenwacht.finale	비가 올 때 마녀를 물리쳤어요. 마녀는 물약을 던져요.	finale, authored; DefeatEntity minecraft:witch x1
 trail.kronenpfad.finale	낮에 금 블록 기둥 위에 에메랄드 블록을 놓았어요. 금은 반짝여요.	finale, authored; PlaceOnPattern minecraft:emerald_block ON_TOP_OF PILLAR minecraft:gold_block
 trail.kronenglanz.finale	밤에 발광석 근처에서 십 초 동안 기다렸어요. 발광석은 밝게 빛나요.	finale, authored; Wait 
-trail.zeitportal.finale	낮에 햇빛 감지기 근처에서 십 초 동안 기다렸어요. 햇빛 감지기는 햇빛을 느껴요.	finale, authored; Wait 
-trail.schattenpfad.finale	스컬크 감지체를 바라봤어요. 스컬크 감지체는 소리를 느껴요.	finale, authored; LookAtBlock minecraft:sculk_sensor 
+trail.zeitportal.finale	낮에 햇빛 감지기 근처에서 십 초 동안 기다렸어요. 햇빛 감지기는 햇빛을 감지해요.	finale, authored; Wait 
+trail.schattenpfad.finale	스컬크 감지체를 바라봤어요. 스컬크 감지체는 진동을 감지해요.	finale, authored; LookAtBlock minecraft:sculk_sensor 
 trail.handwerksmeister.finale	모루 옆에 석재 절단기를 놓았어요. 모루는 도구를 고쳐요.	finale, authored; PlaceRel minecraft:stonecutter NEXT_TO minecraft:anvil
-trail.seelenpfad.finale	영혼 랜턴을 들고 영혼 모닥불을 피웠어요. 영혼 불꽃은 파란색이에요.	finale, authored; PlaceBlock minecraft:soul_campfire x1
+trail.seelenpfad.finale	영혼 랜턴을 들고 영혼 모닥불을 피웠어요. 영혼 불은 파란색이에요.	finale, authored; PlaceBlock minecraft:soul_campfire x1
 trail.golemwerkstatt.finale	낮에 눈 골렘을 바라봤어요. 눈 골렘은 눈으로 만들어요.	finale, authored; LookAtEntity minecraft:snow_golem 
-trail.kronenrat.finale	독서대 옆에 보라색 현수막을 걸었어요. 현수막은 벽에 걸어요.	finale, authored; PlaceRel minecraft:purple_banner NEXT_TO minecraft:lectern
+trail.kronenrat.finale	독서대 옆에 보라색 현수막을 걸었어요. 현수막에는 무늬를 넣을 수 있어요.	finale, authored; PlaceRel minecraft:purple_banner NEXT_TO minecraft:lectern
 trail.richterpfad.finale	높이 0 이하에서 브리즈를 물리쳤어요. 브리즈는 바람을 일으켜요.	finale, authored; DefeatEntity minecraft:breeze x1
 trail.runenpfad.finale	청금석을 들고 마법 부여대를 바라봤어요. 청금석은 파란색이에요.	finale, authored; HoldWhile minecraft:lapis_lazuli 

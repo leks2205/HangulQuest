@@ -49,6 +49,11 @@ public final class ConditionForms {
 		return form == ConditionForm.PLAIN ? null : ConditionTypes.of(condition).phrase(condition, namer, form);
 	}
 
+	/** Whether the condition can be spoken as a clause (-(으)면) at all: a time of day or the weather. */
+	public static boolean hasClause(Condition condition) {
+		return has(condition, ConditionForm.IF);
+	}
+
 	private static boolean has(Condition condition, ConditionForm form) {
 		return phrase(condition, SentenceBuilder.Namer.NONE, form) != null;
 	}

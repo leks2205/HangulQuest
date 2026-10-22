@@ -115,6 +115,7 @@ final class StepCompletion {
 	 */
 	void formMisses(Track track, Observation obs) {
 		GoalEvaluator.Tracker tracker = track.tracker;
+		conditionMisses(track, obs);
 		if (tracker.formErrors <= 0) {
 			return;
 		}
@@ -126,6 +127,26 @@ final class StepCompletion {
 		}
 		tracker.formErrorsReported += fresh;
 		for (String id : DecidingForms.of(step, text.effectiveLevel(track.trail.koreanLevel()))) {
+			for (int i = 0; i < fresh; i++) {
+				learn.grammarOutcome(id, MISS, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
+			}
+		}
+	}
+
+	/** The act done while its -(으)면 clause did not hold: a slip against that clause, on the same terms. */
+	private void conditionMisses(Track track, Observation obs) {
+		GoalEvaluator.Tracker tracker = track.tracker;
+		if (tracker.conditionSlips <= 0) {
+			return;
+		}
+		int fresh = Math.min(tracker.conditionSlips, MAX_MISSES - tracker.conditionSlipsReported);
+		tracker.conditionSlips = 0;
+		QuestStep step = track.step();
+		if (fresh <= 0 || step == null || tracker.assisted || obs.assisted()) {
+			return;
+		}
+		tracker.conditionSlipsReported += fresh;
+		for (String id : DecidingForms.ofConditions(step, text.effectiveLevel(track.trail.koreanLevel()))) {
 			for (int i = 0; i < fresh; i++) {
 				learn.grammarOutcome(id, MISS, Grader.UNKNOWN_LATENCY, source(track, step), obs.now);
 			}

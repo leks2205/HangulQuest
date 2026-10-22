@@ -51,8 +51,8 @@ putin.barrel	1	-	{"type":"PUT_IN","item":"minecraft:bread","container":"minecraf
 putin.diamond.l3	3	-	{"type":"PUT_IN","item":"minecraft:diamond","container":"minecraft:chest"}	-	상자 안에 다이아몬드를 넣으세요.	L2.seyo,L1.eul_reul,L1.loc_an_e
 putin.word.chest	1	chest	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc_an_e
 putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어야 해요.	L4.eoya_haeyo,L1.eul_reul,L1.loc_an_e
-seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 드세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
-seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
+seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빨간색 침대에서 자기 전에 빵을 드세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
+seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 빨간색 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.then	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베고 나서 참나무 판자를 만들어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
 seq.before.door	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	참나무 문을 열기 전에 횃불을 놓아요.	L1.eoyo,L3.gi_jeone,L1.eul_reul
 seq.after.stone	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 세 개 캔 후에 화로를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul
@@ -60,17 +60,17 @@ seq.any.two	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"PLACE_BLOCK
 seq.any.three	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"BREAK_BLOCK","block":"minecraft:dirt"},{"type":"PLACE_BLOCK","block":"minecraft:torch"}]}	-	돌을 캐고 흙을 파고 횃불을 놓아요.	L1.eoyo,L2.go_and,L1.eul_reul
 seq.after.smelt	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"SMELT","output":"minecraft:iron_ingot"},{"type":"CRAFT","item":"minecraft:iron_pickaxe"}]}	-	화로에서 철 주괴를 만든 후에 철 곡괭이를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.before.give	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"},{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}]}	-	상자 안에 사과를 넣기 전에 주민에게 빵을 줘요.	L1.eoyo,L3.gi_jeone,L2.ege,L1.eul_reul,L1.loc_an_e
-seq.before.l4	4	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 먹어야 해요.	L4.eoya_haeyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
+seq.before.l4	4	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빨간색 침대에서 자기 전에 빵을 먹어야 해요.	L4.eoya_haeyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
 seq.then.bake	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"SMELT","input":"minecraft:beef","output":"minecraft:cooked_beef"},{"type":"CONSUME_ITEM","item":"minecraft:cooked_beef"}]}	-	익히지 않은 소고기를 굽고 나서 스테이크를 먹어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
-avoid.bed.night	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
+avoid.bed.night	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 빨간색 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 avoid.log	3	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:oak_log"}}	-	참나무 원목을 베지 마세요.	L3.jima,L1.eul_reul
 avoid.bread	3	-	{"type":"AVOID","action":{"type":"CONSUME_ITEM","item":"minecraft:bread"}}	-	빵을 먹지 마세요.	L3.jima,L1.eul_reul
 avoid.torch.night	3	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 횃불을 놓지 마세요.	L3.jima,L1.eul_reul
 avoid.zombie	3	-	{"type":"AVOID","action":{"type":"DEFEAT_ENTITY","entity":"minecraft:zombie"}}	-	좀비를 물리치지 마세요.	L3.jima,L1.eul_reul
 avoid.stone.water	4	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:stone"},"during":{"type":"IN_WATER"}}	-	물속에서 돌을 캐지 마세요.	L3.jima,L1.eul_reul,L2.eseo_activity
-avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
+avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 빨간색 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 avoid.craft	3	-	{"type":"AVOID","action":{"type":"CRAFT","item":"minecraft:torch"}}	-	횃불을 만들지 마세요.	L3.jima,L1.eul_reul
-avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"DAY"}}	-	낮에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
+avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"DAY"}}	-	낮에 빨간색 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 cond.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
 cond.sky.open	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.sky.open.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 드세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
@@ -105,7 +105,7 @@ takeout.apple	1	-	{"type":"TAKE_OUT","item":"minecraft:apple","container":"minec
 takeout.bread.three	1	-	{"type":"TAKE_OUT","item":"minecraft:bread","container":"minecraft:chest","count":3}	-	상자에서 빵을 세 개 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellMs":3000}	-	주크박스 근처에서 노래를 들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.note	1	-	{"type":"HEAR","source":"minecraft:note_block","radius":10,"dwellMs":3000}	-	소리 블록의 소리를 들어요.	L1.eoyo,L1.eul_reul
-lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	침대에 누워요.	L1.eoyo,L1.e_place
+lie.bed	1	bed	{"type":"LIE_DOWN","block":"minecraft:red_bed","dwellMs":2000}	-	빨간색 침대에 누워요.	L1.eoyo,L1.e_place
 wait.short	1	-	{"type":"WAIT","seconds":5}	-	잠깐 기다려요.	L1.eoyo
 wait.ten.l2	2	-	{"type":"WAIT","seconds":10}	-	십 초 동안 기다리세요.	L2.seyo,L2.num_sino
 wait.night	1	-	{"type":"WAIT","seconds":5,"until":"NIGHT"}	-	밤까지 기다려요.	L1.eoyo
@@ -114,7 +114,7 @@ cook.chicken	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","ou
 swim.sea	1	ocean	{"type":"REACH_BIOME","biome":"#minecraft:is_ocean","dwellMs":1000}	[{"type":"IN_WATER"}]	바다에서 수영해요.	L1.eoyo,L2.eseo_activity
 swim.distance	1	swim	{"type":"SWIM","blocks":20}	-	물에서 수영해요.	L1.eoyo,L2.eseo_activity
 swim.distance.l2	2	swim	{"type":"SWIM","blocks":20}	-	물에서 이십 블록 수영하세요.	L2.seyo,L2.eseo_activity
-mount.boat	1	boat	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
+mount.boat	1	boat	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배를 타요.	L1.eoyo,L1.eul_reul
 mount.boat.ride	1	boat+ride	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배를 타요.	L1.eoyo,L1.eul_reul
 mount.horse	1	horse	{"type":"MOUNT","entity":"minecraft:horse","dwellMs":1500}	-	말을 타요.	L1.eoyo,L1.eul_reul
 breed.cow	1	cow	{"type":"BREED","entity":"minecraft:cow","count":1}	-	소를 키워요.	L1.eoyo,L1.eul_reul
@@ -157,8 +157,8 @@ hear.bell	1	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":
 hear.bell.l2	2	bell	{"type":"HEAR","source":"minecraft:bell","radius":10,"dwellMs":3000}	-	종소리를 들으세요.	L2.seyo,L1.eul_reul
 look.fish.cod	1	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:cod","dwellMs":3000}	-	물고기를 삼 초 동안 바라봐요.	L1.eoyo,L1.eul_reul
 look.fish.salmon	2	fish	{"type":"LOOK_AT_ENTITY","entity":"minecraft:salmon","dwellMs":3000}	-	물고기를 삼 초 동안 바라보세요.	L2.seyo,L1.eul_reul,L2.num_sino
-mount.boat.spruce	1	boat	{"type":"MOUNT","entity":"minecraft:spruce_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
-mount.boat.chest	2	boat	{"type":"MOUNT","entity":"minecraft:oak_chest_boat","dwellMs":1500}	-	배에 앉으세요.	L2.seyo,L1.e_place
+mount.boat.spruce	1	boat	{"type":"MOUNT","entity":"minecraft:spruce_boat","dwellMs":1500}	-	배를 타요.	L1.eoyo,L1.eul_reul
+mount.boat.chest	2	boat	{"type":"MOUNT","entity":"minecraft:oak_chest_boat","dwellMs":1500}	-	배를 타세요.	L2.seyo,L1.eul_reul
 wait.sixty.l2	2	-	{"type":"WAIT","seconds":60}	-	육십 초 동안 기다리세요.	L2.seyo,L2.num_sino
 cond.near.people	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:villager","radius":8,"count":2}]	주민 두 명 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L2.counter_more
 cond.near.animals	2	-	{"type":"WAIT","seconds":10}	[{"type":"NEAR_ENTITY","entity":"minecraft:cow","radius":8,"count":3}]	소 세 마리 근처에서 십 초 동안 기다리세요.	L2.seyo,L2.num_sino,L1.num_native,L1.counter_mari
@@ -202,7 +202,7 @@ w11.while.hold.l5	5	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"ty
 w11.while.hold.l4	4	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3}}	-	횃불을 들고 돌을 세 개 캐야 해요.	L2.go_state,L4.eoya_haeyo,L1.eul_reul
 w11.even.night.l5	5	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되어도 횃불을 놓지 마세요.	L3.jima,L5.eodo,L1.eul_reul
 w11.even.rain.l6	6	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:stone"},"windowSeconds":60,"during":{"type":"WEATHER","weather":"RAIN"}}	-	비가 와도 돌을 캐지 마세요.	L3.jima,L5.eodo,L1.eul_reul
-w11.even.bed.l5	5	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되어도 침대에서 자지 마세요.	L3.jima,L5.eodo,L2.eseo_activity
+w11.even.bed.l5	5	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되어도 빨간 침대에서 자지 마세요.	L3.jima,L5.eodo,L2.eseo_activity,L5.adn_adj_eun
 w11.even.if.l4	4	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤이 되면 횃불을 놓지 마세요.	L3.jima,L4.myeon,L1.eul_reul
 w11.eoseo.stone.l4	4	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 캐서 화로를 만들어야 해요.	L4.eoseo,L4.eoya_haeyo,L1.eul_reul
 w11.eoseo.log.l4	4	-	{"type":"SEQUENCE","connector":"EOSEO","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베어서 참나무 판자를 만들어야 해요.	L4.eoseo,L4.eoya_haeyo,L1.eul_reul

@@ -921,11 +921,11 @@ class GeneratorWaveSixTest {
 	}
 
 	@Test
-	void b18_theHintTellsHowToHandItOver() {
+	void b18_theHintHandsItOverWithTheVerbOfTheClue() {
 		SentenceBuilder.Namer names = KoreanFixtures.registryNamer();
 		Goal bread = new Goal.Give("minecraft:bread", VILLAGER, null, 1);
 		assertEquals("주민에게 빵을 주세요.", SentenceBuilder.normal(bread, null, List.of(), 2, false, names));
-		assertEquals("주민 앞에 빵을 놓아요.", SentenceBuilder.hint(bread, null, List.of(), names));
+		assertEquals("주민에게 빵을 줘요.", SentenceBuilder.hint(bread, null, List.of(), names), "wave 12: 주다 with 에게, as the clue");
 		assertEquals("주민에게 빵을 줬어요.", SentenceBuilder.ceremony(bread, null, List.of(), names));
 		// an explicit drop is spoken as it was written
 		assertEquals("주민 앞에 빵을 떨어뜨려요.", SentenceBuilder.hint(new Goal.Give("minecraft:bread", VILLAGER, "DROP_NEAR", 1),

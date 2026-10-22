@@ -62,6 +62,13 @@ public final class GoalEvaluator {
 		/** Mistakes already reported for this step; capped, so spamming placements cannot sink a construction. */
 		public int formErrorsReported;
 		/**
+		 * The act of the step happened while a condition that is spoken as a clause (밤이 되면, 비가 오면) did not
+		 * hold: a slip against that clause, kept apart from {@link #formErrors} because it is evidence about a
+		 * different construction. Never saved; the engine reports and clears it.
+		 */
+		public int conditionSlips;
+		public int conditionSlipsReported;
+		/**
 		 * Blocks the player placed to finish earlier steps of the trail, by step id, as x, y, z. This is the
 		 * memory behind the anchor {@code "@s2"}. It outlives {@link #clear()} (it is per trail, not per
 		 * step) and is saved with the trail's progress.
@@ -88,6 +95,8 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			conditionSlips = 0;
+			conditionSlipsReported = 0;
 			scratch();
 		}
 
@@ -124,6 +133,8 @@ public final class GoalEvaluator {
 			lastPlaced = null;
 			formErrors = 0;
 			formErrorsReported = 0;
+			conditionSlips = 0;
+			conditionSlipsReported = 0;
 			scratch();
 		}
 	}
@@ -247,9 +258,40 @@ public final class GoalEvaluator {
 				&& hasNightCondition(conditions)
 				&& conditionsMetIgnoringTime(conditions, obs);
 		if (!conditionsMet(conditions, obs) && !nightLatch && !sleepingProof) {
+			if (clauseBroken(goal, conditions, obs, tracker)) {
+				tracker.conditionSlips++;
+			}
 			return false;
 		}
-		return type.evaluate(goal, obs, tracker, nightLatch);
+		int before = tracker.count;
+		boolean done = type.evaluate(goal, obs, tracker, nightLatch);
+		if (nightLatch && !done && tracker.count == before && clauseBroken(goal, conditions, obs, tracker)) {
+			tracker.conditionSlips++; // done by day, where the night is what counts
+		}
+		return done;
+	}
+
+	/**
+	 * The act happened this tick although the only conditions that failed are ones spoken as a clause (-(으)면: 밤이
+	 * 되면, 비가 오면). Only a single event can be told: a fresh tracker sees it on the tick it happens. A dwell or a
+	 * distance is not an act, and a lapse of the world (the day ends while the player waits) is not a slip.
+	 */
+	private static boolean clauseBroken(Goal goal, List<Condition> conditions, Observation obs, Tracker tracker) {
+		if (!io.github.leks2205.hangulquest.quest.goal.Clauses.isEvent(goal)) {
+			return false;
+		}
+		for (Condition condition : conditions) {
+			if (!conditionMet(condition, obs) && !io.github.leks2205.hangulquest.quest.condition.ConditionForms.hasClause(condition)) {
+				return false;
+			}
+		}
+		Tracker probe = new Tracker();
+		probe.accepted = tracker.accepted;
+		probe.roofedPlacement = tracker.roofedPlacement;
+		probe.refBlocks = tracker.refBlocks;
+		probe.resetFor(goal);
+		GoalTypes.of(goal).evaluate(goal, obs, probe, false);
+		return probe.count > 0;
 	}
 
 	/**

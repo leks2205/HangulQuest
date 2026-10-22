@@ -102,20 +102,6 @@ final class GiveType implements GoalType<Goal.Give> {
 		return !TRADER.equals(goal.entity()) || way.equals("TRADE");
 	}
 
-	/**
-	 * The hint of a gift to a villager says how it is done, because 줘요 alone leaves the player at the villager
-	 * with an item in the hand and nothing to click: "주민 앞에 빵을 놓아요". A payment (emerald) is a trade and keeps
-	 * its sentence.
-	 */
-	@Override
-	public Goal.Give forHint(Goal.Give goal) {
-		boolean villager = GiveTracker.PICKUP_TYPES.contains(goal.entity());
-		if (villager && goal.method() == null && !"minecraft:emerald".equals(goal.item())) {
-			return new Goal.Give(goal.item(), goal.entity(), PLACE_NEAR, goal.count());
-		}
-		return goal;
-	}
-
 	@Override
 	public boolean countable() {
 		return true;

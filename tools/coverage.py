@@ -46,6 +46,11 @@ GAPS_CSV = ROOT / "build" / "reports" / "content" / "recycling-gaps.csv"
 # Every surface form the game's Conjugator makes for the verbs it knows; VerbFormsDumpTest writes it.
 VERB_FORMS = ROOT / "build" / "reports" / "content" / "verb-forms.json"
 # Verbs of the first-steps list that the game enacts but no concept or curriculum row carries yet.
+# The colour adjectives in front of a noun (검은 양털) are forms of their colour words, not of 검 (sword) or a verb.
+ADNOMINAL_COLOURS = {"빨간": "빨간색", "파란": "파란색", "노란": "노란색", "하얀": "하얀색", "검은": "검은색"}
+
+COLOURED_NAME = re.compile(r"^(\S+색) (\S+)$")
+
 ENACTED_EXTRA = ("쌓다", "들다", "쓰다듬다")
 
 # ---- Parameters of the simulated learner. Change one and the baseline has to be rewritten.
@@ -238,6 +243,11 @@ class Lexicon:
             if isinstance(value, list) and value and isinstance(value[0], str) and value[0]:
                 registry = f"minecraft:{parts[2]}"
                 ko = value[0]
+                coloured = COLOURED_NAME.match(ko)
+                if coloured and coloured.group(1) in lex.forms and coloured.group(2) in lex.forms:
+                    # 검은색 양털 is two words the player knows, not one unknown name
+                    lex.by_id.setdefault(registry, lex.forms[coloured.group(2)])
+                    continue
                 canonical = lex.forms.get(ko, ko)
                 if canonical in lex.words:
                     lex.by_id.setdefault(registry, canonical)
@@ -296,6 +306,9 @@ class Lexicon:
         return found, placed, len(eojeols)
 
     def _match(self, eojeols: list[str], i: int) -> tuple[str, int] | None:
+        colour = ADNOMINAL_COLOURS.get(eojeols[i])
+        if colour is not None and colour in self.forms and i + 1 < len(eojeols):
+            return self.forms[colour], 1
         for length in range(min(self.max_words, len(eojeols) - i), 0, -1):
             head = eojeols[i:i + length - 1]
             last = eojeols[i + length - 1]
