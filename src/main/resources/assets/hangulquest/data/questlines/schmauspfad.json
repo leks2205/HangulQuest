@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "schmauspfad",
  "titleKo": "산해진미의 길",
+ "topic": "음식",
  "tier": 2,
  "order": 502,
  "concepts": [
-  "gen_cinnabar_brick_stairs",
-  "cake",
+  "sweet_berries",
+  "gen_pumpkin_pie",
   "fox",
-  "gen_glow_berries"
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -21,34 +22,54 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cinnabar_brick_stairs"
+    "sweet_berries"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cinnabar_brick_stairs",
-    "count": 1
-   }
+    "item": "minecraft:sweet_berries",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_log"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "cake"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cake",
-    "count": 1
-   }
+    "type": "CRAFT",
+    "item": "minecraft:pumpkin_pie",
+    "count": 1,
+    "with": [
+     "minecraft:pumpkin"
+    ]
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "fox"
+    "fox",
+    "sweet_berries"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
+    "type": "GIVE",
     "item": "minecraft:sweet_berries",
-    "count": 1
+    "entity": "minecraft:fox",
+    "count": 1,
+    "method": "FEED"
    }
   }
  ],
@@ -56,31 +77,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_glow_berries"
+    "gen_pumpkin_pie",
+    "campfire"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:glow_berries",
+    "item": "minecraft:pumpkin_pie",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:campfire"
     }
    ]
   },
-  "textKo": "밤에 발광 열매를 먹었어요."
+  "textKo": "모닥불 옆에서 호박 파이를 먹었어요. 파이는 달아요."
  },
  "reward": {
   "badge": "schmauspfad",
   "words": [
-   "fish",
-   "furnace",
-   "bread",
-   "cake"
+   "sweet_berries",
+   "gen_pumpkin_pie",
+   "fox",
+   "campfire"
   ]
  },
- "koreanLevel": 2,
- "topic": "음식"
+ "koreanLevel": 2
 }

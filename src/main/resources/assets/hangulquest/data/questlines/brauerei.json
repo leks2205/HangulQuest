@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "brauerei",
- "titleKo": "양조장의 길",
- "topic": "양조",
+ "titleKo": "지하 저장고의 길",
+ "topic": "저장",
  "tier": 3,
  "order": 158,
  "concepts": [
-  "gen_golden_dandelion",
-  "gen_iron_trapdoor",
-  "gen_copper_axe",
-  "gen_brown_candle"
+  "gen_barrel",
+  "crafting_table",
+  "sweet_berries"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,34 +22,53 @@
   {
    "id": "s1",
    "teach": [
-    "gen_golden_dandelion"
+    "gen_barrel",
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_dandelion",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:barrel",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_iron_trapdoor"
+    "gen_barrel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:iron_trapdoor",
-    "count": 1
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:barrel",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:chest",
+    "count": 1,
+    "anchor2": "minecraft:furnace"
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_copper_axe"
+    "sweet_berries"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_axe",
-    "count": 2
+    "type": "PUT_IN",
+    "item": "minecraft:sweet_berries",
+    "container": "minecraft:barrel",
+    "count": 3
    }
   }
  ],
@@ -58,24 +76,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_candle"
+    "sweet_berries"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_candle",
-    "count": 3
-   },
-   "conditions": []
+    "type": "TAKE_OUT",
+    "item": "minecraft:sweet_berries",
+    "container": "minecraft:barrel",
+    "count": 1
+   }
   },
-  "textKo": "갈색 초를 세 개 모았어요."
+  "textKo": "통에서 달콤한 열매를 꺼냈어요. 열매는 달아요."
  },
  "reward": {
   "badge": "brauerei",
   "words": [
-   "glass_bottle",
-   "brewing_stand",
-   "nether_wart",
-   "sugar"
+   "gen_barrel",
+   "crafting_table",
+   "sweet_berries"
   ]
  },
  "koreanLevel": 2

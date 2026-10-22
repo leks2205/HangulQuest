@@ -2,13 +2,16 @@
  "schema": 1,
  "id": "kuestenfest",
  "titleKo": "바닷가 잔치",
+ "topic": "물",
  "tier": 3,
  "order": 430,
  "concepts": [
-  "gen_stony_shore",
-  "gen_black_wool",
-  "gen_sulfur_brick_wall",
-  "gen_brown_concrete_slab"
+  "beach",
+  "carpet",
+  "sand",
+  "turtle",
+  "seagrass",
+  "fish_dish"
  ],
  "requires": {
   "minWordsKnown": 14,
@@ -22,33 +25,62 @@
   {
    "id": "s1",
    "teach": [
-    "gen_stony_shore"
+    "beach"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:stony_shore",
+    "biome": "minecraft:beach",
     "dwellMs": 1000
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_black_wool"
+    "carpet",
+    "sand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:black_wool",
+    "type": "PLACE_REL",
+    "block": "minecraft:light_blue_carpet",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
     "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sulfur_brick_wall"
+    "turtle",
+    "seagrass"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_brick_wall",
+    "type": "GIVE",
+    "item": "minecraft:seagrass",
+    "entity": "minecraft:turtle",
+    "count": 1,
+    "method": "FEED"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "fish_dish"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "output": "minecraft:cooked_salmon",
     "count": 1
    }
   }
@@ -57,30 +89,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_concrete_slab"
+    "fish_dish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_concrete_slab",
-    "count": 3
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_salmon",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "ON_TOP_OF",
+     "anchor": "minecraft:light_blue_carpet"
     }
    ]
   },
-  "textKo": "밤에 갈색 콘크리트 반 블록을 세 개 놓았어요."
+  "textKo": "하늘색 양탄자 위에서 생선을 먹었어요. 생선은 맛있어요."
  },
  "reward": {
   "badge": "kuestenfest",
   "words": [
    "beach",
-   "fish",
-   "campfire"
+   "carpet",
+   "sand",
+   "turtle",
+   "seagrass",
+   "fish_dish"
   ]
  },
- "koreanLevel": 2,
- "topic": "물"
+ "koreanLevel": 2
 }

@@ -6,10 +6,12 @@
  "tier": 3,
  "order": 141,
  "concepts": [
-  "gen_tripwire_hook",
-  "gen_large_amethyst_bud",
-  "gen_pale_oak_chest_boat",
-  "gen_pink_wool"
+  "bucket",
+  "crafting_table",
+  "cow",
+  "wheat",
+  "milk",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,59 +25,87 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tripwire_hook"
+    "bucket",
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tripwire_hook",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_large_amethyst_bud"
+    "cow",
+    "wheat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:large_amethyst_bud",
-    "count": 3
-   }
+    "type": "GIVE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:cow",
+    "count": 1,
+    "method": "FEED"
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pale_oak_chest_boat"
+    "milk",
+    "cow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_chest_boat",
-    "count": 3
-   }
+    "item": "minecraft:milk_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_fence"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pink_wool"
+    "milk",
+    "chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_wool",
+    "type": "PUT_IN",
+    "item": "minecraft:milk_bucket",
+    "container": "minecraft:chest",
     "count": 1
-   },
-   "conditions": []
+   }
   },
-  "textKo": "분홍색 양털을 놓았어요."
+  "textKo": "상자 안에 우유를 넣었어요. 우유는 맛있어요."
  },
  "reward": {
   "badge": "milchpfad",
   "words": [
+   "bucket",
+   "crafting_table",
+   "cow",
+   "wheat",
    "milk",
-   "cauldron",
-   "sugar",
-   "cake"
+   "chest"
   ]
  },
  "koreanLevel": 2

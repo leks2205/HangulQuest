@@ -2,12 +2,13 @@
  "schema": 1,
  "id": "festmahl",
  "titleKo": "잔치의 길",
+ "topic": "음식",
  "tier": 2,
  "order": 330,
  "concepts": [
-  "milk",
-  "egg",
-  "pork"
+  "planks",
+  "cake",
+  "meat"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -20,33 +21,58 @@
   {
    "id": "s1",
    "teach": [
-    "milk"
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:milk_bucket",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:birch_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "egg"
+    "cake"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:egg",
-    "count": 1
-   }
+    "type": "CRAFT",
+    "item": "minecraft:cake",
+    "count": 1,
+    "with": [
+     "minecraft:wheat",
+     "minecraft:sugar"
+    ]
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "pork"
+    "cake"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cooked_porkchop",
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cake",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:birch_planks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "meat"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "output": "minecraft:cooked_porkchop",
     "count": 1
    }
   }
@@ -55,7 +81,7 @@
   "step": {
    "id": "finale",
    "teach": [
-    "pork"
+    "meat"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
@@ -64,21 +90,21 @@
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cake"
     }
    ]
   },
-  "textKo": "밤에 돼지고기를 먹었어요."
+  "textKo": "케이크 옆에서 고기를 먹었어요. 고기는 맛있어요."
  },
  "reward": {
   "badge": "festmahl",
   "words": [
-   "milk",
-   "egg",
-   "cake"
+   "planks",
+   "cake",
+   "meat"
   ]
  },
- "koreanLevel": 2,
- "topic": "음식"
+ "koreanLevel": 2
 }

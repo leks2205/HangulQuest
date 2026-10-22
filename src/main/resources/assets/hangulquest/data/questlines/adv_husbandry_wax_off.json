@@ -6,9 +6,8 @@
  "tier": 2,
  "order": 284,
  "concepts": [
-  "axe",
-  "gen_cyan_stained_glass_pane",
-  "gen_yellow_bed"
+  "adv_block_stone_axe",
+  "gen_waxed_copper_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,25 +20,59 @@
   {
    "id": "s1",
    "teach": [
-    "axe"
+    "adv_block_stone_axe"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:iron_axe",
+    "item": "minecraft:stone_axe",
     "count": 1
    },
-   "hint": {
-    "ko": "철 도끼를 만들어요. 철 주괴 세 개와 막대기 두 개가 필요해요."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cyan_stained_glass_pane"
+    "gen_waxed_copper_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_stained_glass_pane",
+    "type": "CRAFT",
+    "item": "minecraft:waxed_copper_block",
+    "count": 1,
+    "station": "crafting_table",
+    "with": [
+     "minecraft:copper_block"
+    ]
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_waxed_copper_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:waxed_copper_block",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_waxed_copper_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:waxed_copper_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:stone",
     "count": 1
    }
   }
@@ -48,21 +81,27 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_yellow_bed"
+    "gen_waxed_copper_block",
+    "adv_block_stone_axe"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:yellow_bed"
+    "block": "minecraft:waxed_copper_block"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:stone_axe"
+    }
+   ]
   },
-  "textKo": "노란색 침대에서 잤어요."
+  "textKo": "돌 도끼를 들고 밀랍칠한 구리 블록의 밀랍을 벗겼어요."
  },
  "reward": {
   "badge": "adv_husbandry_wax_off",
   "words": [
-   "axe",
-   "adv_item_copper_bulb"
+   "adv_block_stone_axe",
+   "gen_waxed_copper_block"
   ]
  },
  "koreanLevel": 2
