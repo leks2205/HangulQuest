@@ -61,12 +61,17 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().isOpen()),
 				"the banner should stay until the hint key is pressed");
 		context.takeScreenshot(shot("02c-window", shots));
+		// Other windows (the auto-pick notice, word cards) may queue behind the banner meanwhile: the press must close
+		// exactly the banner, and the next one may then show.
+		HudWindows.Window banner = context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top());
 		context.getInput().pressKey(InputConstants.KEY_H);
 		context.waitTicks(5);
-		check(context.computeOnClient(mc -> !HangulQuestClient.get().hud().windows().isOpen()),
+		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top() != banner),
 				"the hint key should close the window");
 		check(context.computeOnClient(mc -> !HangulQuestClient.get().quests().hintUsed()),
 				"closing a window must not count as a hint");
+		context.runOnClient(mc -> HangulQuestClient.get().hud().windows().clear());
+		context.waitTicks(2);
 		// with nothing open the same key is a hint, and its panel is a window too
 		check(context.computeOnClient(mc -> HangulQuestClient.get().quests().focusedId() != null),
 				"a quest should be in focus for the hint check");
