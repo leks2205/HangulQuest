@@ -1,0 +1,26 @@
+{
+	"schema": 1,
+	"id": "nether_fortress",
+	"chapter": "nether",
+	"level": 4,
+	"titleKo": "블레이즈와 물약",
+	"unlock": {"trails": ["adv_nether_brew_potion"], "minWords": 30},
+	"paragraphs": [
+		"저는 네더에 갔어요. 네더는 아주 뜨거워요.",
+		"네더에는 블레이즈가 있어요. 블레이즈를 물리치면 블레이즈 막대기를 얻을 수 있어요.",
+		"저는 블레이즈를 물리쳐야 했어요. 그래서 활과 화살을 들고 갔어요.",
+		"블레이즈 막대기 한 개와 조약돌 세 개로 양조기를 만들었어요.",
+		"저는 유리병에 물을 넣었어요. 그리고 양조기 안에 유리병과 네더 사마귀를 넣어서 물약을 만들었어요.",
+		"집에 가서 물약을 마실 거예요."
+	],
+	"words": [
+		"concept:nether", "concept:go", "concept:hot", "concept:gen_blaze", "concept:adv_item_blaze_rod", "concept:bow",
+		"concept:arrow", "concept:cobblestone", "concept:brewing_stand", "concept:make", "concept:glass_bottle", "concept:water",
+		"concept:put_in", "concept:nether_wart", "concept:adv_item_potion", "concept:house", "concept:drink"
+	],
+	"grammar": [
+		"L1.copula_ieyo", "L1.eoyo", "L1.itda_eopda", "L1.loc_an_e", "L1.obj_eul",
+		"L1.subj_i", "L2.eun_neun_topic", "L2.go_sequence", "L2.hago_wa_gwa", "L3.future_geoyeyo",
+		"L3.past", "L3.su_itda", "L4.eoseo", "L4.eoya_haeyo", "L4.myeon"
+	]
+}

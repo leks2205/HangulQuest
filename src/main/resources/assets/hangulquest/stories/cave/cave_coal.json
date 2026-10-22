@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "cave_coal",
+	"chapter": "cave",
+	"level": 2,
+	"titleKo": "첫 석탄",
+	"unlock": {"trails": ["schmelzpfad", "adv_story_iron_tools"], "minWords": 12},
+	"paragraphs": [
+		"저는 동굴에 들어가요. 동굴 안은 어두워요. 횃불이 없어요.",
+		"돌 옆에 석탄이 있어요. 저는 곡괭이를 들고 석탄을 캐요.",
+		"석탄을 세 개 모아요. 그리고 집으로 가요.",
+		"집에서 막대기와 석탄으로 횃불을 만들어요.",
+		"동굴 안에 횃불을 놓아요. 이제 동굴은 밝아요. 정말 좋아요!"
+	],
+	"words": [
+		"concept:cave", "concept:enter", "concept:torch", "concept:stone", "concept:coal", "concept:pickaxe",
+		"concept:mine", "concept:collect", "concept:house", "concept:go", "concept:stick", "concept:make",
+		"concept:place"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.itda_eopda", "L1.loc_an_e", "L1.loc_yeop_e", "L1.obj_eul",
+		"L1.subj_i", "L2.eseo_activity", "L2.eun_neun_topic", "L2.go_sequence", "L2.hago_wa_gwa"
+	]
+}

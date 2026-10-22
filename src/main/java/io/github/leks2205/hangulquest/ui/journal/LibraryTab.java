@@ -406,7 +406,7 @@ public final class LibraryTab extends JournalTab {
 			return;
 		}
 		StoryText.Token token = placed.token();
-		String core = token.text().replaceAll("[^가-힣ㄱ-ㅣ]", "");
+		String core = token.text().replaceAll("[^가-힣ㄱ-ㅣ ]", "");
 		String gloss = token.gloss() == null ? "?" : token.gloss();
 		int color = token.known() ? Ink.INK : token.state() == DialogueCoverage.State.UNRESOLVED ? Ink.BAD : Ink.ACCENT;
 		Draw.truncated(g, host.font(), Component.empty().append(KoText.ko(core)).append(Component.literal("  " + gloss)), x, y, width, color);
@@ -459,7 +459,7 @@ public final class LibraryTab extends JournalTab {
 	private static String baseForm(StoryText.Token token) {
 		StoryText.Breakdown parts = token.breakdown();
 		if (parts == null) {
-			return token.text().replaceAll("[^가-힣ㄱ-ㅣ]", "");
+			return token.text().replaceAll("[^가-힣ㄱ-ㅣ ]", "");
 		}
 		return parts.base().endsWith("다") ? parts.base() : parts.stem();
 	}

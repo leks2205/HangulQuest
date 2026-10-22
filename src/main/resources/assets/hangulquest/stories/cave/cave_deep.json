@@ -1,0 +1,25 @@
+{
+	"schema": 1,
+	"id": "cave_deep",
+	"chapter": "cave",
+	"level": 3,
+	"titleKo": "동굴 아래로",
+	"unlock": {"trails": ["bergwerk", "w5_05", "adv_story_iron_tools"], "minWords": 30},
+	"paragraphs": [
+		"어제 저는 동굴로 내려갔어요. 동굴은 아주 깊었어요.",
+		"내려가기 전에 횃불을 많이 만들었어요. 동굴 안은 어두웠어요.",
+		"동굴 아래에서 다이아몬드를 찾았어요. 다이아몬드는 철 곡괭이로 캘 수 있어요.",
+		"저는 다이아몬드를 두 개 캤어요. 올라가기 전에 박쥐를 봤어요. 박쥐는 동굴에 살아요.",
+		"저는 집으로 갔어요. 다이아몬드를 상자에 넣었어요. 정말 행복했어요!"
+	],
+	"words": [
+		"concept:yesterday", "concept:cave", "concept:go_down", "concept:deep", "concept:torch", "concept:make",
+		"concept:below", "concept:diamond", "concept:find", "mc:item:minecraft:iron_pickaxe", "concept:mine", "concept:climb",
+		"concept:bat", "concept:look", "concept:live", "concept:house", "concept:go", "concept:chest",
+		"concept:put_in"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.itda_eopda", "L1.obj_eul", "L2.eseo_activity", "L2.eun_neun_topic",
+		"L3.gi_jeone", "L3.past", "L3.su_itda"
+	]
+}
