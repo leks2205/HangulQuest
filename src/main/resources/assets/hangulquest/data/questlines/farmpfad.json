@@ -1,13 +1,15 @@
 {
  "schema": 1,
  "id": "farmpfad",
- "titleKo": "동물의 집",
+ "titleKo": "농장의 길",
+ "topic": "동물",
  "tier": 2,
+ "order": 140,
  "concepts": [
-  "gen_snow_golem",
-  "gen_desert_village_map",
+  "planks",
   "chicken",
-  "gen_soul_campfire"
+  "cook",
+  "chicken_meat"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -20,34 +22,48 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snow_golem"
+    "planks"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:snow_golem",
-    "dwellMs": 800
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_desert_village_map"
+    "chicken"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:desert_village_map",
-    "count": 1
-   }
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:chicken"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat_seeds"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "chicken"
+    "chicken",
+    "cook"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:chicken",
-    "dwellMs": 800
+    "type": "SMELT",
+    "input": "minecraft:chicken",
+    "output": "minecraft:cooked_chicken",
+    "count": 1
+   },
+   "clue": {
+    "ko": "닭을 요리해요. 맛있게 만들어요."
+   },
+   "hint": {
+    "ko": "닭을 요리해요."
    }
   }
  ],
@@ -55,31 +71,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_soul_campfire"
+    "chicken_meat"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:soul_campfire"
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_chicken",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
   },
-  "textKo": "밤에 영혼 모닥불을 썼어요."
+  "textKo": "낮에 닭고기를 먹었어요."
  },
  "reward": {
   "badge": "farmpfad",
   "words": [
-   "sheep",
-   "wool",
+   "planks",
    "chicken",
-   "campfire"
+   "cook",
+   "chicken_meat"
   ]
  },
- "order": 140,
- "koreanLevel": 1,
- "topic": "동물"
+ "koreanLevel": 1
 }

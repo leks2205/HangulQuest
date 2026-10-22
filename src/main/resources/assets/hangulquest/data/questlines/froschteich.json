@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 139,
  "concepts": [
-  "gen_polar_bear",
-  "lily_pad",
-  "slime"
+  "flower",
+  "frog",
+  "lily_pad"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,27 +21,36 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polar_bear"
+    "flower"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:polar_bear",
-    "dwellMs": 800
-   }
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:blue_orchid",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:swamp"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "lily_pad"
+    "frog"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lily_pad",
-    "count": 3
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:frog",
+    "dwellMs": 800
    },
-   "hint": {
-    "ko": "수련잎은 물 위에서 찾아요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
@@ -49,36 +58,44 @@
     "lily_pad"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lily_pad",
-    "count": 3
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:lily_pad",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "slime"
+    "lily_pad"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:slime_ball",
-    "count": 2
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:lily_pad",
+    "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "슬라임볼은 슬라임을 물리치면 얻어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "연못에서 슬라임볼을 모아요."
+  "textKo": "낮에 수련잎을 놓았어요."
  },
  "reward": {
   "badge": "froschteich",
   "words": [
+   "flower",
    "frog",
-   "lily_pad",
-   "slime"
+   "lily_pad"
   ]
  },
  "koreanLevel": 1

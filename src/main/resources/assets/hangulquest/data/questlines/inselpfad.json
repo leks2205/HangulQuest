@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 136,
  "concepts": [
-  "beach",
   "sand",
-  "gen_stripped_cherry_wood",
-  "gen_pale_moss_block"
+  "ocean",
+  "swim",
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,13 +23,19 @@
   {
    "id": "s1",
    "teach": [
-    "beach"
+    "sand"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
-    "dwellMs": 1000
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sand",
+    "dwellMs": 600
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -37,20 +43,34 @@
     "sand"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sand",
-    "count": 4
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:sand",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_cherry_wood"
+    "ocean",
+    "swim"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_cherry_wood",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
+   },
+   "clue": {
+    "ko": "바다로 가요. 수영해요."
+   },
+   "hint": {
+    "ko": "바다로 가요. 수영해요."
    }
   }
  ],
@@ -58,29 +78,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_moss_block"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_moss_block",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:campfire",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:sand"
+   }
   },
-  "textKo": "밤에 창백한 이끼 블록을 두 개 쌓았어요."
+  "textKo": "모래 울타리 안에 모닥불을 놓았어요."
  },
  "reward": {
   "badge": "inselpfad",
   "words": [
-   "beach",
    "sand",
-   "chest",
-   "torch"
+   "ocean",
+   "swim",
+   "campfire"
   ]
  },
  "koreanLevel": 1
