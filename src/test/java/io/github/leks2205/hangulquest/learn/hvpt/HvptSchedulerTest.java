@@ -177,4 +177,17 @@ class HvptSchedulerTest {
 		}
 		assertEquals(set.items().size(), seen.size());
 	}
+
+	@Test
+	void aThinPackLetsTheTestBorrowOtherItemsOfAContrast() {
+		// only one test item of the bilabial contrast has sounds, but other items do
+		Predicate<String> thin = event -> !event.startsWith("hvpt.bp_") || event.startsWith("hvpt.bp_s3.")
+				|| event.startsWith("hvpt.bp_s4.") || event.startsWith("hvpt.bp_w1.");
+		List<HvptTrial> trials = HvptScheduler.build(set, HvptPhase.PRE, thin, new Random(1));
+		Set<String> items = new HashSet<>();
+		trials.stream().filter(t -> t.contrast().equals("bp")).forEach(t -> items.add(t.itemId()));
+		assertTrue(items.size() >= 3, items.toString());
+		assertEquals(30, trials.size());
+		trials.forEach(t -> assertTrue(set.heldOutVoices().contains(t.voice())));
+	}
 }

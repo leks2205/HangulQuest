@@ -92,6 +92,13 @@ Pipeline (GPU only for the rendering and the ASR check, so run it when the GPU i
    `hvpt.<item>.<form>.<voice>`, one clip each (the mod picks the voice, not the game). The pack manifest says
    `"hvpt": {"source": "tts", ...}` and every entry `"source": "tts"`.
 
+First render (2026-10, GPU/CPU, 6 voices x 123 forms = 738 clips): single syllables are the model's weak spot (clips of
+0.2 to 0.4 s, often clipped or read as another syllable), so the ASR gate is strict and `qa.py --recheck` plus a
+re-render (different seeds) was run three times. 489 of 738 clips pass (110 of 123 forms in at least one voice; 151
+clips in the two held-out voices). Per contrast there are 10 to 24 playable item-voice pairs for training; the test
+borrows non-test items where a contrast has fewer than three playable test items in the held-out voices. A native
+review and, above all, natural recordings will do better than more retries.
+
 Natural recordings: the set is synthetic. Record several native talkers per item and form, keep the ids and the
 event names (or add a `source` per clip to the manifest), and the mod needs no change. Keep two or more talkers
 out of training for the tests. A native review of the tense and aspirated forms is the first thing to ask for.

@@ -61,30 +61,43 @@ public final class HvptScheduler {
 	private record Pick(String contrast, HvptSet.Item item, String target) {
 	}
 
+	/** A test contrast with fewer playable test items than this borrows the other items of the contrast. */
+	static final int MIN_TEST_ITEMS = 3;
+
 	/** Contrast to the items that can be played, each with the voices that have every form of it. */
 	private static Map<String, Map<HvptSet.Item, List<String>>> usable(HvptSet set, HvptPhase phase, Predicate<String> has) {
 		Map<String, Map<HvptSet.Item, List<String>>> usable = new LinkedHashMap<>();
 		for (HvptSet.Contrast contrast : set.contrasts()) {
-			Map<HvptSet.Item, List<String>> items = new LinkedHashMap<>();
-			for (HvptSet.Item item : set.itemsOf(contrast.id())) {
-				if (phase.test() && !item.test()) {
-					continue;
-				}
-				List<String> voices = new ArrayList<>();
-				for (String voice : set.voicesFor(phase)) {
-					if (item.forms().stream().allMatch(form -> has.test(HvptSet.event(item.id(), form.key(), voice)))) {
-						voices.add(voice);
-					}
-				}
-				if (!voices.isEmpty()) {
-					items.put(item, voices);
-				}
+			Map<HvptSet.Item, List<String>> items = playable(set, phase, has, contrast, phase.test());
+			if (phase.test() && items.size() < MIN_TEST_ITEMS) {
+				// a thin pack: the test borrows the contrast's other items rather than ask one item over and over
+				items = playable(set, phase, has, contrast, false);
 			}
 			if (!items.isEmpty()) {
 				usable.put(contrast.id(), items);
 			}
 		}
 		return usable;
+	}
+
+	private static Map<HvptSet.Item, List<String>> playable(HvptSet set, HvptPhase phase, Predicate<String> has,
+															HvptSet.Contrast contrast, boolean testItemsOnly) {
+		Map<HvptSet.Item, List<String>> items = new LinkedHashMap<>();
+		for (HvptSet.Item item : set.itemsOf(contrast.id())) {
+			if (testItemsOnly && !item.test()) {
+				continue;
+			}
+			List<String> voices = new ArrayList<>();
+			for (String voice : set.voicesFor(phase)) {
+				if (item.forms().stream().allMatch(form -> has.test(HvptSet.event(item.id(), form.key(), voice)))) {
+					voices.add(voice);
+				}
+			}
+			if (!voices.isEmpty()) {
+				items.put(item, voices);
+			}
+		}
+		return items;
 	}
 
 	private static Map<String, Integer> quotas(List<String> contrasts, int total, Random draw) {

@@ -119,6 +119,9 @@ def main():
     ap.add_argument("--threshold", type=float, default=0.15)
     ap.add_argument("--model", default="large-v3")
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--recheck", action="store_true",
+                    help="only check the clips on the current blocklist again (after they were rendered anew); "
+                         "the rest keep their earlier verdict")
     args = ap.parse_args()
 
     out = Path(args.out)
@@ -133,10 +136,16 @@ def main():
                        download_root=str(MODELS / "whisper"))
 
     report, block = [], []
+    again = None
+    if args.recheck:
+        old = json.loads((out / "audio-blocklist.json").read_text(encoding="utf-8"))["blocked"]
+        again = {(b["voice"], b["id"]) for b in old}
+        kept = json.loads((out / "qa-report.json").read_text(encoding="utf-8"))["clips"]
+        report = [c for c in kept if (c["voice"], c["id"]) not in again]
     for voice, vdata in manifest["voices"].items():
         for cid, entry in vdata["entries"].items():
             ogg = out / voice / f"{entry['hash']}.ogg"
-            if not ogg.exists():
+            if not ogg.exists() or (again is not None and (voice, cid) not in again):
                 continue
             try:
                 audio = decode(ogg)
