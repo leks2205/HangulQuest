@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "wetterpfad",
- "titleKo": "비의 길",
+ "titleKo": "비와 물고기의 길",
  "topic": "날씨",
  "tier": 3,
  "order": 95,
  "concepts": [
-  "gen_swamp",
-  "gen_white_shulker_box",
-  "gen_poplar_button"
+  "fishing_rod",
+  "fish",
+  "gen_cooked_cod",
+  "rain"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -22,47 +23,54 @@
   {
    "id": "s1",
    "teach": [
-    "gen_swamp"
+    "fishing_rod"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:swamp",
-    "dwellMs": 1000
-   },
-   "conditions": [
-    {
-     "type": "WEATHER",
-     "weather": "RAIN"
-    }
-   ]
+    "type": "CRAFT",
+    "item": "minecraft:fishing_rod",
+    "count": 1
+   }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_white_shulker_box"
+    "fish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_shulker_box",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cod",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "WEATHER",
-     "weather": "RAIN"
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
     }
    ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "input": "minecraft:cod",
+    "output": "minecraft:cooked_cod",
+    "count": 1
+   }
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_button"
+    "gen_cooked_cod",
+    "rain"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_button",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_cod",
     "count": 1
    },
    "conditions": [
@@ -70,16 +78,20 @@
      "type": "WEATHER",
      "weather": "RAIN"
     }
-   ]
+   ],
+   "hint": {
+    "ko": "비가 올 때 익힌 대구를 먹어요."
+   }
   },
-  "textKo": "비가 올 때 포플러나무 버튼을 놓았어요."
+  "textKo": "비가 올 때 익힌 대구를 먹었어요."
  },
  "reward": {
   "badge": "wetterpfad",
   "words": [
-   "beach",
-   "torch",
-   "campfire"
+   "fishing_rod",
+   "fish",
+   "gen_cooked_cod",
+   "rain"
   ]
  },
  "koreanLevel": 1

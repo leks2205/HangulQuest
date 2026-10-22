@@ -6,13 +6,9 @@
  "tier": 3,
  "order": 64,
  "concepts": [
-  "bow",
   "string",
-  "arrow",
-  "feather",
-  "flint",
-  "gen_elder_guardian",
-  "gen_slime"
+  "bow",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -26,49 +22,41 @@
   {
    "id": "s1",
    "teach": [
-    "bow",
     "string"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bow",
+    "item": "minecraft:string",
     "count": 1
    },
-   "clue": {
-    "ko": "나무와 실로 활을 만들어요."
-   },
-   "hint": {
-    "ko": "활은 나무와 실로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "arrow",
-    "feather",
-    "flint"
+    "bow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arrow",
-    "count": 4
-   },
-   "clue": {
-    "ko": "깃털과 나무로 화살을 만들어요."
-   },
-   "hint": {
-    "ko": "화살은 깃털, 나무, 부싯돌로 만들어요."
+    "type": "CRAFT",
+    "item": "minecraft:bow",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_elder_guardian"
+    "chest"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:elder_guardian",
-    "dwellMs": 800
+    "type": "PUT_IN",
+    "item": "minecraft:arrow",
+    "container": "minecraft:chest",
+    "count": 4
    }
   }
  ],
@@ -76,23 +64,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_slime"
+    "bow"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:slime",
-    "count": 1
-   },
-   "conditions": []
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   }
   },
-  "textKo": "슬라임을 물리쳤어요."
+  "textKo": "활을 들고 밤에 걸었어요."
  },
  "reward": {
   "badge": "bogenpfad",
   "words": [
+   "string",
    "bow",
-   "arrow",
-   "cow"
+   "chest"
   ]
  },
  "koreanLevel": 1
