@@ -6,9 +6,11 @@
  "tier": 2,
  "order": 251,
  "concepts": [
-  "gen_leaf_litter",
-  "gen_chiseled_sandstone",
-  "adv_block_purpur_block"
+  "gen_end_highlands",
+  "pickaxe",
+  "adv_block_purpur_block",
+  "gen_end_rod",
+  "gen_purpur_pillar"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,47 +23,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_leaf_litter"
+    "gen_end_highlands"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:leaf_litter",
-    "count": 1
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:end_highlands",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ender_pearl"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chiseled_sandstone"
+    "pickaxe",
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:iron_pickaxe",
+    "inner": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:purpur_block",
+     "count": 2
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_end_rod"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:chiseled_sandstone",
-    "dwellMs": 600
-   }
+    "block": "minecraft:end_rod",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "SOUTH"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_purpur_block"
+    "gen_purpur_pillar"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purpur_block",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:purpur_pillar",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "게임의 끝에서 만난 도시 — 퍼퍼 블록으로 엔드 도시를 확인해요."
+  "textKo": "퍼퍼 기둥을 바라봤어요. 퍼퍼 기둥은 엔드 도시에서 찾을 수 있어요."
  },
  "reward": {
   "badge": "adv_end_find_end_city",
   "words": [
-   "adv_dimension_the_end",
-   "adv_block_purpur_block"
+   "gen_end_highlands",
+   "pickaxe",
+   "adv_block_purpur_block",
+   "gen_end_rod",
+   "gen_purpur_pillar"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 253,
  "concepts": [
+  "gen_shulker",
   "adv_item_shulker_shell",
-  "gen_chorus_plant",
-  "gen_brown_concrete_powder"
+  "adv_block_purpur_block",
+  "sky"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,75 @@
   {
    "id": "s1",
    "teach": [
+    "gen_shulker"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:shulker",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shield"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
     "adv_item_shulker_shell"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:shulker_shell",
     "count": 2
-   }
+   },
+   "conditions": []
   },
   {
-   "id": "s2",
+   "id": "s3",
    "teach": [
-    "gen_chorus_plant"
+    "adv_block_purpur_block"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:chorus_plant",
-    "dwellMs": 700
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:purpur_block",
+    "size": 4
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_concrete_powder"
+    "sky"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_concrete_powder",
-    "count": 1
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_end"
+    }
+   ]
   },
-  "textKo": "갈색 콘크리트 가루를 놓았어요."
+  "textKo": "엔드에서 높은 곳으로 올라갔어요. 높이 올라갈수록 땅이 멀어져요."
  },
  "reward": {
   "badge": "adv_end_levitate",
   "words": [
+   "gen_shulker",
    "adv_item_shulker_shell",
    "adv_block_purpur_block",
-   "height"
+   "sky"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

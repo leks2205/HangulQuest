@@ -5,11 +5,12 @@
  "topic": "색",
  "tier": 2,
  "order": 1130,
- "koreanLevel": 6,
  "concepts": [
-  "gen_beetroot",
-  "gen_beetroots",
-  "gen_red_banner"
+  "gen_red_dye",
+  "gen_red_wool",
+  "brick",
+  "gen_red_banner",
+  "gen_red_carpet"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -22,47 +23,62 @@
   {
    "id": "s1",
    "teach": [
-    "gen_beetroot"
+    "gen_red_dye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:beetroot",
+    "item": "minecraft:red_dye",
     "count": 2
    },
-   "clue": {
-    "ko": "비트를 두 개 모아요."
-   },
-   "hint": {
-    "ko": "비트를 모아요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_beetroots"
+    "gen_red_wool",
+    "brick"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:beetroots",
-    "dwellMs": 800
+    "type": "PLACE_REL",
+    "block": "minecraft:bricks",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:red_wool",
+    "count": 1
    },
-   "clue": {
-    "ko": "비트를 봐요."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_red_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:red_banner",
+    "count": 1
    },
-   "hint": {
-    "ko": "비트를 봐요."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:red_wool"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_banner"
+    "gen_red_carpet"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:red_banner",
+    "block": "minecraft:red_carpet",
     "count": 1
    },
    "conditions": [
@@ -72,14 +88,17 @@
     }
    ]
   },
-  "textKo": "저녁에 붉은 천을 펼쳤어요."
+  "textKo": "저녁에 빨간색 양탄자를 깔았어요. 빨간색 염료는 비트로 만들어요."
  },
  "reward": {
   "badge": "rotwerk",
   "words": [
-   "gen_beetroot",
-   "gen_beetroots",
+   "gen_red_dye",
+   "gen_red_wool",
+   "brick",
    "gen_red_banner"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

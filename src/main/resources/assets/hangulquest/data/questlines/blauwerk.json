@@ -5,10 +5,11 @@
  "topic": "색",
  "tier": 2,
  "order": 1131,
- "koreanLevel": 6,
  "concepts": [
-  "gen_cornflower",
-  "gen_cornflower",
+  "gen_blue_dye",
+  "ice",
+  "wool",
+  "gen_blue_banner",
   "gen_blue_bed"
  ],
  "requires": {
@@ -22,36 +23,46 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cornflower"
+    "gen_blue_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cornflower",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:blue_dye",
+    "count": 1
    },
-   "clue": {
-    "ko": "수레국화를 두 개 모아요."
-   },
-   "hint": {
-    "ko": "수레국화를 모아요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cornflower"
+    "ice",
+    "wool"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:cornflower",
-    "dwellMs": 800
+    "type": "PLACE_REL",
+    "block": "minecraft:ice",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:blue_wool",
+    "count": 1
    },
-   "clue": {
-    "ko": "수레국화를 봐요."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_blue_banner"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:blue_banner",
+    "count": 1
    },
-   "hint": {
-    "ko": "수레국화를 봐요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
@@ -72,14 +83,17 @@
     }
    ]
   },
-  "textKo": "밤에 푸른 천을 펼쳤어요."
+  "textKo": "밤에 파란색 침대를 놓았어요. 파란색 염료는 청금석으로 만들어요."
  },
  "reward": {
   "badge": "blauwerk",
   "words": [
-   "gen_cornflower",
-   "gen_cornflower",
-   "gen_blue_bed"
+   "gen_blue_dye",
+   "ice",
+   "wool",
+   "gen_blue_banner"
   ]
- }
+ },
+ "koreanLevel": 6,
+ "grammar": []
 }

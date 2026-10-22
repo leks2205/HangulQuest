@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1115,
  "concepts": [
-  "gen_polished_sulfur_wall",
-  "gen_waxed_exposed_chiseled_copper",
   "adv_block_end_stone",
-  "gen_magenta_bundle"
+  "adv_block_purpur_block",
+  "redstone_torch",
+  "gen_ender_chest"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,28 +22,6 @@
   {
    "id": "s1",
    "teach": [
-    "gen_polished_sulfur_wall"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_sulfur_wall",
-    "count": 3
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_waxed_exposed_chiseled_copper"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_chiseled_copper",
-    "count": 8
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
     "adv_block_end_stone"
    ],
    "goal": {
@@ -51,34 +29,71 @@
     "block": "minecraft:end_stone",
     "count": 8
    },
-   "hint": {
-    "ko": "엔드 돌은 엔드 섬에서 캐요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_purpur_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:purpur_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:obsidian",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "redstone_torch"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:redstone_torch",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:purpur_block",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "EAST"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_magenta_bundle"
+    "gen_ender_chest"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_bundle",
-    "count": 2
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:ender_chest",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "자홍색 꾸러미를 두 개 만들었어요."
+  "textKo": "엔더 상자를 바라봤어요."
  },
  "reward": {
   "badge": "w11_05",
   "words": [
-   "enchanting_table",
-   "ender_pearl",
    "adv_block_end_stone",
-   "adv_item_end_crystal"
+   "adv_block_purpur_block",
+   "redstone_torch",
+   "gen_ender_chest"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
