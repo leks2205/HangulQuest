@@ -187,7 +187,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---|---|---:|---|
 | `saatfeld` | 씨 뿌리는 밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
 | `wanderpfad` | 산길의 길 | Der Wanderpfad | 4 | `weidepfad`, `gipfelpfad` |
-| `nachthafen` | 밤항구의 길 | Der Nachthafen | 5 | `brandung`, `nachtpfad` |
+| `nachthafen` | 밤 항구의 길 | Der Nachthafen | 5 | `brandung`, `nachtpfad` |
 | `farbenpfad` | 색의 길 | Der Farbenpfad | 3 | `weidepfad`, `wollpfad` |
 | `glockenpfad` | 종의 길 | Der Glockenpfad | 4 | `marktpfad` |
 | `milchpfad` | 우유의 길 | Der Milchpfad | 4 | `weidepfad`, `wollpfad` |
