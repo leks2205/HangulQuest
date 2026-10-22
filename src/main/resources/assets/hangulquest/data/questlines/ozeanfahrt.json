@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "ozeanfahrt",
  "titleKo": "대양 항해",
+ "topic": "물",
  "tier": 3,
  "order": 523,
  "concepts": [
-  "gen_snowy_beach",
-  "gen_windswept_savanna",
-  "gen_exposed_copper_bulb",
-  "gen_bush"
+  "gen_oak_chest_boat",
+  "boat",
+  "ride",
+  "gen_lukewarm_ocean",
+  "carpet"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,46 +24,61 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snowy_beach"
+    "gen_oak_chest_boat"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:snowy_beach",
-    "dwellMs": 1000
+    "type": "CRAFT",
+    "item": "minecraft:oak_chest_boat",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_windswept_savanna"
+    "boat",
+    "ride"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:windswept_savanna",
-    "dwellMs": 1000
-   }
+    "type": "MOUNT",
+    "entity": "minecraft:oak_boat",
+    "dwellMs": 3000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_copper_bulb"
+    "gen_lukewarm_ocean"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_bulb",
-    "count": 1
-   }
+    "type": "REACH_BIOME",
+    "biome": "minecraft:lukewarm_ocean",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bush"
+    "carpet"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bush",
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_carpet",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
     "count": 1
    },
    "conditions": [
@@ -71,17 +88,21 @@
     }
    ]
   },
-  "textKo": "해변에서 덤불을 심었어요."
+  "textKo": "섬의 해변에 양탄자를 깔았어요. 섬은 멀어요."
  },
  "reward": {
   "badge": "ozeanfahrt",
   "words": [
-   "ocean",
-   "beach",
-   "fish",
-   "campfire"
+   "gen_oak_chest_boat",
+   "boat",
+   "gen_lukewarm_ocean",
+   "carpet"
   ]
  },
  "koreanLevel": 2,
- "topic": "물"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.eseo_activity"
+ ]
 }

@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1585** |
+| Steps (incl. finales) | **1594** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 129 |
@@ -21,46 +21,48 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 427 | collect an item |
-| `PLACE_BLOCK` | 419 | place a block |
+| `ACQUIRE_ITEM` | 411 | collect an item |
+| `PLACE_BLOCK` | 402 | place a block |
+| `PLACE_REL` | 86 |  |
+| `CRAFT` | 85 |  |
 | `BREAK_BLOCK` | 81 | break a block |
-| `CRAFT` | 77 |  |
-| `PLACE_REL` | 73 |  |
 | `LOOK_AT_ENTITY` | 67 | look at a mob |
-| `REACH_BIOME` | 61 | reach a biome |
 | `USE_BLOCK` | 57 | use a block |
+| `REACH_BIOME` | 56 | reach a biome |
 | `CONSUME_ITEM` | 48 | eat or drink an item |
 | `LOOK_AT_BLOCK` | 47 | look at a block |
-| `DEFEAT_ENTITY` | 36 | defeat a mob |
-| `BUILD_PATTERN` | 34 |  |
-| `PLACE_ON_PATTERN` | 28 |  |
-| `INTERACT_ENTITY` | 27 | interact with a mob |
-| `GIVE` | 27 |  |
-| `PUT_IN` | 18 |  |
-| `SMELT` | 17 |  |
+| `BUILD_PATTERN` | 39 |  |
+| `PLACE_ON_PATTERN` | 37 |  |
+| `DEFEAT_ENTITY` | 35 | defeat a mob |
+| `GIVE` | 31 |  |
+| `INTERACT_ENTITY` | 25 | interact with a mob |
+| `PUT_IN` | 19 |  |
+| `SMELT` | 18 |  |
 | `HOLD_WHILE` | 12 |  |
 | `REACH_HEIGHT` | 9 | reach an altitude |
-| `WAIT` | 5 |  |
+| `WAIT` | 6 |  |
+| `SWIM` | 5 |  |
+| `MOUNT` | 4 |  |
 | `TAKE_OUT` | 3 |  |
 | `BREED` | 3 |  |
-| `MOUNT` | 2 |  |
-| `TRADE` | 2 |  |
+| `TRADE` | 3 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
-| `SWIM` | 1 |  |
 | `TRANSIT` | 1 |  |
 | `EQUIP` | 1 |  |
+| `LIE_DOWN` | 1 |  |
 | `SEQUENCE` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 215 | a time of day |
-| `IN_BIOME` | 48 | a biome |
-| `PLAYER_REL` | 43 |  |
-| `HOLDING` | 32 |  |
+| `TIME` | 228 | a time of day |
+| `IN_BIOME` | 51 | a biome |
+| `PLAYER_REL` | 44 |  |
+| `HOLDING` | 34 |  |
 | `Y_RANGE` | 20 | an altitude band |
 | `SKY` | 15 |  |
-| `WEATHER` | 10 | the weather |
-| `NEAR_BLOCK` | 3 | a block nearby |
+| `WEATHER` | 14 | the weather |
+| `IN_WATER` | 7 |  |
+| `NEAR_BLOCK` | 6 | a block nearby |
 | `NEAR_ENTITY` | 2 | a mob nearby |
 | `IN_DIMENSION` | 2 | a dimension |
 
@@ -185,7 +187,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---|---|---:|---|
 | `saatfeld` | 씨 뿌리는 밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
 | `wanderpfad` | 산길의 길 | Der Wanderpfad | 4 | `weidepfad`, `gipfelpfad` |
-| `nachthafen` | 밤항구의 길 | Der Nachthafen | 4 | `brandung`, `nachtpfad` |
+| `nachthafen` | 밤항구의 길 | Der Nachthafen | 5 | `brandung`, `nachtpfad` |
 | `farbenpfad` | 색의 길 | Der Farbenpfad | 3 | `weidepfad`, `wollpfad` |
 | `glockenpfad` | 종의 길 | Der Glockenpfad | 4 | `marktpfad` |
 | `milchpfad` | 우유의 길 | Der Milchpfad | 4 | `weidepfad`, `wollpfad` |
@@ -212,7 +214,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `sternenhaus` | 별의 집 | Das Sternenhaus | 4 | `nachtwache`, `dorfhaus` |
 | `gartenpfad` | 정원의 길 | Der Gartenpfad | 4 | `dorfhaus`, `bienenpfad`, `kuerbispfad`, `pilzpfad`, `fuchsbau` |
 | `reitpfad` | 말타기의 길 | Der Reitpfad | 4 | `weidepfad` |
-| `riffpfad` | 물결의 길 | Der Riffpfad | 4 | `brandung` |
+| `riffpfad` | 물결의 길 | Der Riffpfad | 5 | `brandung` |
 | `mondpfad` | 달빛의 길 | Der Mondpfad | 4 | `nachtwache` |
 | `eiswand` | 얼음벽의 길 | Der Eiswall | 4 | `firstpfad`, `schneeballpfad`, `schneemannpfad`, `ziegenpfad` |
 | `alpental` | 알펜 계곡 | Das Alpental | 4 | `weidepfad` |
@@ -230,7 +232,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `brauerei` | 지하 저장고의 길 | Der Kellerpfad | 4 | `alpental`, `gartenpfad` |
 | `bienenzucht` | 양봉의 길 | Der Bienenzuchtpfad | 4 | `alpental`, `gartenpfad` |
 | `adv_adventure_root` | 모험 | Abenteuer | 3 | `abenteuerpfad` |
-| `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 3 | `adv_husbandry_tactical_fishing` |
+| `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 4 | `adv_husbandry_tactical_fishing` |
 | `adv_husbandry_froglights` | 우리의 힘을 합친다면! | Mit vereinten Kräften! | 3 | `adv_husbandry_leash_all_frog_variants` |
 | `adv_husbandry_plant_any_sniffer_seed` | 과거를 심다 | Wir säen Geschichte | 3 | `adv_husbandry_feed_snifflet` |
 | `adv_husbandry_wax_off` | 밀랍을 벗기자 | Polieren | 5 | `adv_husbandry_wax_on` |
@@ -246,7 +248,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `karawanepfad` | 상단의 길 | Die Karawanenstraße | 4 | `marktpfad`, `glockenpfad` |
 | `steinbruch` | 채석장의 길 | Der Steinbruch | 4 | `schmelzpfad` |
 | `pferdehof` | 말 목장의 길 | Der Pferdehof | 4 | `reitpfad`, `weidepfad`, `bogenpfad` |
-| `meerestiefe` | 바다 깊은 길 | Die Meerestiefe | 4 | `riffpfad`, `fischerpfad` |
+| `meerestiefe` | 바다 깊은 길 | Die Meerestiefe | 5 | `riffpfad`, `fischerpfad` |
 | `sternwarte` | 달빛 정원 | Der Mondgarten | 4 | `mondpfad`, `nachtwache` |
 | `gletscherpfad` | 빙하의 길 | Der Gletscherpfad | 4 | `eiswand`, `firstpfad` |
 | `w3_01` | 장터의 길 | Der Marktweg | 4 | `schmelzpfad` |
@@ -259,13 +261,13 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w3_08` | 항구의 손님 | Der Gast am Hafen | 4 | `riffpfad` |
 | `w3_09` | 등불의 이웃 | Die Laternen-Nachbarn | 4 | `mondpfad` |
 | `w4_01` | 산호초의 길 | Der Korallenriffpfad | 4 | `riffpfad` |
-| `w4_02` | 등대 불빛 | Das Leuchtturmlicht | 4 | `kuestenwacht` |
-| `w4_03` | 달빛 낚시 | Das Mondlichtangeln | 4 | `mondpfad` |
+| `w4_02` | 등대 불빛 | Das Leuchtturmlicht | 5 | `kuestenwacht` |
+| `w4_03` | 달빛 낚시 | Das Mondlichtangeln | 5 | `mondpfad` |
 | `w4_04` | 부두의 배 | Das Boot am Kai | 4 | `wanderpfad` |
-| `w4_05` | 밤바다 등불 | Lichter am Nachtmeer | 4 | `nachthafen` |
+| `w4_05` | 밤바다 등불 | Lichter am Nachtmeer | 5 | `nachthafen` |
 | `w4_06` | 산속 호수 | Der Bergsee | 4 | `alpental` |
-| `w4_07` | 항구 시장 | Der Hafenmarkt | 4 | `festmahl` |
-| `w4_08` | 모래 정원 | Der Sandgarten | 4 | `gartenpfad` |
+| `w4_07` | 항구 시장 | Der Hafenmarkt | 5 | `festmahl` |
+| `w4_08` | 모래 정원 | Der Sandgarten | 5 | `gartenpfad` |
 
 ### Level 6 · TOPIK 2 · 48 trails
 

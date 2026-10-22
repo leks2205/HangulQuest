@@ -6,10 +6,11 @@
  "tier": 2,
  "order": 1047,
  "concepts": [
-  "gen_tinted_glass",
-  "gen_mooshroom",
-  "gen_blue_ice",
-  "gen_azalea"
+  "gen_barrel",
+  "gen_yellow_banner",
+  "fish",
+  "villager",
+  "fish_dish"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -22,33 +23,56 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tinted_glass"
+    "gen_barrel"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tinted_glass",
-    "count": 4
-   }
+    "type": "CRAFT",
+    "item": "minecraft:barrel",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mooshroom"
+    "gen_yellow_banner"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:mooshroom"
+    "type": "PLACE_REL",
+    "block": "minecraft:yellow_banner",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:barrel",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_blue_ice"
+    "fish"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_ice",
-    "count": 2
+    "type": "PUT_IN",
+    "item": "minecraft:cod",
+    "container": "minecraft:barrel",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
+    "type": "TRADE",
+    "item": "minecraft:cod",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 1
    }
   }
  ],
@@ -56,24 +80,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_azalea"
+    "villager",
+    "fish_dish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:azalea",
+    "type": "GIVE",
+    "item": "minecraft:cooked_cod",
+    "entity": "minecraft:villager",
     "count": 1
    }
   },
-  "textKo": "진달래를 심었어요."
+  "textKo": "주민에게 익힌 대구를 줬어요."
  },
  "reward": {
   "badge": "w4_07",
   "words": [
+   "gen_barrel",
+   "gen_yellow_banner",
    "fish",
-   "villager",
-   "emerald",
-   "chest"
+   "villager"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

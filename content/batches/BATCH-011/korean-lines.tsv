@@ -1,0 +1,165 @@
+id	ko	context
+trail.nachthafen.title	밤항구의 길	title, authored; project: A pier of three planks on the beach, a pumpkin lantern on it and a sapling beside it, a boat, and a night ride.
+trail.nachthafen.s1.clue	해변에서 판자 세 개를 나란히 놓으세요.	clue, generated; BuildPattern minecraft:jungle_planks ROW 3
+trail.nachthafen.s1.hint	해변에서 판자를 나란히 놓아요.	hint, generated; BuildPattern minecraft:jungle_planks ROW 3
+trail.nachthafen.s2.clue	밤에 판자 세 개 위에 잭오랜턴을 놓으세요.	clue, generated; PlaceOnPattern minecraft:jack_o_lantern ON_TOP_OF ROW minecraft:jungle_planks
+trail.nachthafen.s2.hint	밤에 판자 세 개 위에 잭오랜턴을 놓아요.	hint, generated; PlaceOnPattern minecraft:jack_o_lantern ON_TOP_OF ROW minecraft:jungle_planks
+trail.nachthafen.s3.clue	배를 만드세요.	clue, generated; Craft minecraft:birch_boat x1
+trail.nachthafen.s3.hint	배를 만들어요.	hint, generated; Craft minecraft:birch_boat x1
+trail.nachthafen.s4.clue	판자 세 개 옆에 묘목을 심으세요.	clue, generated; PlaceOnPattern minecraft:acacia_sapling NEXT_TO ROW minecraft:jungle_planks
+trail.nachthafen.s4.hint	판자 세 개 옆에 묘목을 심어요.	hint, generated; PlaceOnPattern minecraft:acacia_sapling NEXT_TO ROW minecraft:jungle_planks
+trail.nachthafen.finale.clue	밤에 배를 타세요.	clue, generated; Mount minecraft:oak_boat 
+trail.nachthafen.finale.hint	밤에 배를 타요.	hint, generated; Mount minecraft:oak_boat 
+trail.nachthafen.finale	밤에 배를 탔어요.	finale, generated; Mount minecraft:oak_boat 
+trail.adv_husbandry_tactical_fishing.title	이 대신 잇몸으로	title, authored; project: Make a bucket from iron, watch a fish, and scoop a cod into the bucket without a rod.
+trail.adv_husbandry_tactical_fishing.s1.clue	물 근처에서 철 주괴로 양동이를 만드세요.	clue, generated; Craft minecraft:bucket x1
+trail.adv_husbandry_tactical_fishing.s1.hint	물 근처에서 철 주괴로 양동이를 만들어요.	hint, generated; Craft minecraft:bucket x1
+trail.adv_husbandry_tactical_fishing.s2.clue	낮에 바다에서 물고기를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cod 
+trail.adv_husbandry_tactical_fishing.s2.hint	낮에 바다에서 물고기를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cod 
+trail.adv_husbandry_tactical_fishing.finale.clue	대구가 담긴 양동이를 구하세요.	clue, generated; AcquireItem minecraft:cod_bucket x1
+trail.adv_husbandry_tactical_fishing.finale.hint	대구가 담긴 양동이를 구해요.	hint, generated; AcquireItem minecraft:cod_bucket x1
+trail.adv_husbandry_tactical_fishing.finale	이 대신 잇몸으로 — 양동이로 물고기를 잡았어요. 물은 차가워요.	finale, authored; AcquireItem minecraft:cod_bucket x1
+trail.adv_husbandry_axolotl_in_a_bucket.title	귀여운 포식자	title, authored; project: Go to a lush cave, light a copper torch by the pool, watch the axolotl, and scoop it into the bucket.
+trail.adv_husbandry_axolotl_in_a_bucket.s1.clue	낮에 무성한 동굴로 가세요.	clue, authored; ReachBiome minecraft:lush_caves 
+trail.adv_husbandry_axolotl_in_a_bucket.s1.hint	무성한 동굴로 가요.	hint, authored; ReachBiome minecraft:lush_caves 
+trail.adv_husbandry_axolotl_in_a_bucket.s2.clue	물 옆에 구리 횃불을 놓으세요.	clue, generated; PlaceRel minecraft:copper_torch NEXT_TO minecraft:water
+trail.adv_husbandry_axolotl_in_a_bucket.s2.hint	물 옆에 구리 횃불을 놓아요.	hint, generated; PlaceRel minecraft:copper_torch NEXT_TO minecraft:water
+trail.adv_husbandry_axolotl_in_a_bucket.s3.clue	물속에서 아홀로틀을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:axolotl 
+trail.adv_husbandry_axolotl_in_a_bucket.s3.hint	물속에서 아홀로틀을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:axolotl 
+trail.adv_husbandry_axolotl_in_a_bucket.finale.clue	아홀로틀이 담긴 양동이를 구하세요.	clue, generated; AcquireItem minecraft:axolotl_bucket x1
+trail.adv_husbandry_axolotl_in_a_bucket.finale.hint	아홀로틀이 담긴 양동이를 구해요.	hint, generated; AcquireItem minecraft:axolotl_bucket x1
+trail.adv_husbandry_axolotl_in_a_bucket.finale	귀여운 포식자 — 물속 아홀로틀을 양동이로 잡았어요.	finale, authored; AcquireItem minecraft:axolotl_bucket x1
+trail.riffpfad.title	물결의 길	title, authored; project: Warm sea by day, swim, plant kelp on the sand, watch a dolphin and give it a fish.
+trail.riffpfad.s1.clue	낮에 따뜻한 바다로 가세요.	clue, generated; ReachBiome minecraft:warm_ocean 
+trail.riffpfad.s1.hint	낮에 따뜻한 바다로 가요.	hint, generated; ReachBiome minecraft:warm_ocean 
+trail.riffpfad.s2.clue	낮에 물에서 20블록 수영하세요.	clue, generated; Swim 
+trail.riffpfad.s2.hint	낮에 물에서 수영해요.	hint, generated; Swim 
+trail.riffpfad.s3.clue	물속에서 모래 위에 켈프를 심으세요.	clue, generated; PlaceRel minecraft:kelp ON_TOP_OF minecraft:sand
+trail.riffpfad.s3.hint	물속에서 모래 위에 켈프를 심어요.	hint, generated; PlaceRel minecraft:kelp ON_TOP_OF minecraft:sand
+trail.riffpfad.s4.clue	물속에서 돌고래를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:dolphin 
+trail.riffpfad.s4.hint	물속에서 돌고래를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:dolphin 
+trail.riffpfad.finale.clue	돌고래에게 물고기를 주세요.	clue, generated; Give minecraft:cod x1
+trail.riffpfad.finale.hint	돌고래에게 물고기를 줘요.	hint, generated; Give minecraft:cod x1
+trail.riffpfad.finale	돌고래에게 물고기를 줬어요.	finale, generated; Give minecraft:cod x1
+trail.kuestenwacht.title	해안 초소	title, authored; project: A ring wall of planks on the beach, a bed inside it, a banner beside it, and a night in the bed.
+trail.kuestenwacht.s1.clue	해변에서 판자로 담을 쌓으세요.	clue, generated; BuildPattern minecraft:spruce_planks RING 3
+trail.kuestenwacht.s1.hint	해변에서 판자로 담을 쌓아요.	hint, generated; BuildPattern minecraft:spruce_planks RING 3
+trail.kuestenwacht.s2.clue	판자 담 안에 침대를 놓으세요.	clue, generated; PlaceOnPattern minecraft:white_bed INSIDE RING minecraft:spruce_planks
+trail.kuestenwacht.s2.hint	판자 담 안에 침대를 놓아요.	hint, generated; PlaceOnPattern minecraft:white_bed INSIDE RING minecraft:spruce_planks
+trail.kuestenwacht.s3.clue	판자 담 옆에 하얀색 현수막을 거세요.	clue, generated; PlaceOnPattern minecraft:white_banner NEXT_TO RING minecraft:spruce_planks
+trail.kuestenwacht.s3.hint	판자 담 옆에 하얀색 현수막을 걸어요.	hint, generated; PlaceOnPattern minecraft:white_banner NEXT_TO RING minecraft:spruce_planks
+trail.kuestenwacht.finale.clue	밤에 침대에 누우세요.	clue, generated; LieDown minecraft:white_bed 
+trail.kuestenwacht.finale.hint	밤에 침대에 누워요.	hint, generated; LieDown minecraft:white_bed 
+trail.kuestenwacht.finale	밤에 침대에 누웠어요.	finale, generated; LieDown minecraft:white_bed 
+trail.meerestiefe.title	바다 깊은 길	title, authored; project: Craft a boat, sail to the deep sea, catch a fish with the rod in hand, sail to an island and plant a sapling on its beach.
+trail.meerestiefe.s1.clue	배를 만드세요.	clue, generated; Craft minecraft:acacia_boat x1
+trail.meerestiefe.s1.hint	배를 만들어요.	hint, generated; Craft minecraft:acacia_boat x1
+trail.meerestiefe.s2.clue	맑을 때 깊은 바다로 가세요.	clue, generated; ReachBiome minecraft:deep_ocean 
+trail.meerestiefe.s2.hint	맑을 때 깊은 바다로 가요.	hint, generated; ReachBiome minecraft:deep_ocean 
+trail.meerestiefe.s3.clue	낚싯대를 들고 물고기를 구하세요.	clue, generated; AcquireItem minecraft:cod x1
+trail.meerestiefe.s3.hint	낚싯대를 들고 물고기를 구해요.	hint, generated; AcquireItem minecraft:cod x1
+trail.meerestiefe.s4.clue	맑을 때 배를 타고 섬의 해변으로 가세요.	clue, authored; ReachBiome minecraft:beach 
+trail.meerestiefe.s4.hint	배를 타고 섬의 해변으로 가요.	hint, authored; ReachBiome minecraft:beach 
+trail.meerestiefe.finale.clue	해변에서 모래 옆에 묘목을 심으세요.	clue, generated; PlaceRel minecraft:jungle_sapling NEXT_TO minecraft:sand
+trail.meerestiefe.finale.hint	해변에서 모래 옆에 묘목을 심어요.	hint, generated; PlaceRel minecraft:jungle_sapling NEXT_TO minecraft:sand
+trail.meerestiefe.finale	섬의 해변에 묘목을 심었어요. 바다는 깊고 넓어요.	finale, authored; PlaceRel minecraft:jungle_sapling NEXT_TO minecraft:sand
+trail.ozeanfahrt.title	대양 항해	title, authored; project: A boat with a chest, a ride in clear weather, the lukewarm sea, and a carpet on the beach of the far island.
+trail.ozeanfahrt.s1.clue	상자가 실린 참나무 보트를 만드세요.	clue, generated; Craft minecraft:oak_chest_boat x1
+trail.ozeanfahrt.s1.hint	상자가 실린 참나무 보트를 만들어요.	hint, generated; Craft minecraft:oak_chest_boat x1
+trail.ozeanfahrt.s2.clue	맑을 때 배를 타세요.	clue, generated; Mount minecraft:oak_boat 
+trail.ozeanfahrt.s2.hint	맑을 때 배를 타요.	hint, generated; Mount minecraft:oak_boat 
+trail.ozeanfahrt.s3.clue	낮에 미지근한 바다로 가세요.	clue, generated; ReachBiome minecraft:lukewarm_ocean 
+trail.ozeanfahrt.s3.hint	낮에 미지근한 바다로 가요.	hint, generated; ReachBiome minecraft:lukewarm_ocean 
+trail.ozeanfahrt.finale.clue	해변에서 모래 위에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:orange_carpet ON_TOP_OF minecraft:sand
+trail.ozeanfahrt.finale.hint	해변에서 모래 위에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:orange_carpet ON_TOP_OF minecraft:sand
+trail.ozeanfahrt.finale	섬의 해변에 양탄자를 깔았어요. 섬은 멀어요.	finale, authored; PlaceRel minecraft:orange_carpet ON_TOP_OF minecraft:sand
+trail.w3_08.title	항구의 손님	title, authored; project: The guest of the harbour is a cat: catch salmon with the rod in hand, spread a carpet on the planks, watch the cat, give it a salmon.
+trail.w3_08.s1.clue	낚싯대를 들고 연어를 두 마리 모으세요.	clue, generated; AcquireItem minecraft:salmon x2
+trail.w3_08.s1.hint	낚싯대를 들고 연어를 모아요.	hint, generated; AcquireItem minecraft:salmon x2
+trail.w3_08.s2.clue	판자 위에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:cyan_carpet ON_TOP_OF #minecraft:planks
+trail.w3_08.s2.hint	판자 위에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:cyan_carpet ON_TOP_OF #minecraft:planks
+trail.w3_08.s3.clue	해변에서 고양이를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:cat 
+trail.w3_08.s3.hint	해변에서 고양이를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:cat 
+trail.w3_08.finale.clue	낮에 고양이에게 연어를 주세요.	clue, generated; Give minecraft:salmon x1
+trail.w3_08.finale.hint	낮에 고양이에게 연어를 줘요.	hint, generated; Give minecraft:salmon x1
+trail.w3_08.finale	낮에 고양이에게 연어를 줬어요.	finale, generated; Give minecraft:salmon x1
+trail.w4_01.title	산호초의 길	title, authored; project: The reef: watch a turtle, plant seagrass and kelp on the sand underwater, and swim in clear weather.
+trail.w4_01.s1.clue	물속에서 거북을 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:turtle 
+trail.w4_01.s1.hint	물속에서 거북을 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:turtle 
+trail.w4_01.s2.clue	물속에서 모래 위에 해초를 심으세요.	clue, generated; PlaceRel minecraft:seagrass ON_TOP_OF minecraft:sand
+trail.w4_01.s2.hint	물속에서 모래 위에 해초를 심어요.	hint, generated; PlaceRel minecraft:seagrass ON_TOP_OF minecraft:sand
+trail.w4_01.s3.clue	물속에서 모래 옆에 켈프를 심으세요.	clue, generated; PlaceRel minecraft:kelp NEXT_TO minecraft:sand
+trail.w4_01.s3.hint	물속에서 모래 옆에 켈프를 심어요.	hint, generated; PlaceRel minecraft:kelp NEXT_TO minecraft:sand
+trail.w4_01.finale.clue	맑을 때 물에서 30블록 수영하세요.	clue, generated; Swim 
+trail.w4_01.finale.hint	맑을 때 물에서 수영해요.	hint, generated; Swim 
+trail.w4_01.finale	맑을 때 물에서 수영했어요.	finale, generated; Swim 
+trail.w4_02.title	등대 불빛	title, authored; project: The lighthouse: a pillar of stone bricks at the beach, a banner beside it, a copper lantern on top, ten seconds of watch at night.
+trail.w4_02.s1.clue	해변에서 석재 벽돌 네 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:stone_bricks PILLAR 4
+trail.w4_02.s1.hint	해변에서 석재 벽돌로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:stone_bricks PILLAR 4
+trail.w4_02.s2.clue	석재 벽돌 기둥 옆에 하얀색 현수막을 거세요.	clue, generated; PlaceOnPattern minecraft:white_banner NEXT_TO PILLAR minecraft:stone_bricks
+trail.w4_02.s2.hint	석재 벽돌 기둥 옆에 하얀색 현수막을 걸어요.	hint, generated; PlaceOnPattern minecraft:white_banner NEXT_TO PILLAR minecraft:stone_bricks
+trail.w4_02.s3.clue	구리 랜턴을 만드세요.	clue, generated; Craft minecraft:copper_lantern x1
+trail.w4_02.s3.hint	구리 랜턴을 만들어요.	hint, generated; Craft minecraft:copper_lantern x1
+trail.w4_02.s4.clue	밤에 석재 벽돌 기둥 위에 구리 랜턴을 놓으세요.	clue, generated; PlaceOnPattern minecraft:copper_lantern ON_TOP_OF PILLAR minecraft:stone_bricks
+trail.w4_02.s4.hint	밤에 석재 벽돌 기둥 위에 구리 랜턴을 놓아요.	hint, generated; PlaceOnPattern minecraft:copper_lantern ON_TOP_OF PILLAR minecraft:stone_bricks
+trail.w4_02.finale.clue	밤에 구리 랜턴 근처에서 십 초 동안 기다리세요.	clue, authored; Wait 
+trail.w4_02.finale.hint	밤에 구리 랜턴 근처에서 십 초 기다려요.	hint, authored; Wait 
+trail.w4_02.finale	밤에 구리 랜턴 근처에서 십 초 동안 기다렸어요. 바다는 어두워요.	finale, authored; Wait 
+trail.w4_03.title	달빛 낚시	title, authored; project: Fishing by moonlight: a rod, a lily pad on the pond, salmon caught on the planks, roasted fish, a salmon for the cat.
+trail.w4_03.s1.clue	밤에 낚싯대를 만드세요.	clue, generated; Craft minecraft:fishing_rod x1
+trail.w4_03.s1.hint	밤에 낚싯대를 만들어요.	hint, generated; Craft minecraft:fishing_rod x1
+trail.w4_03.s2.clue	밤에 물 위에 수련잎을 놓으세요.	clue, generated; PlaceRel minecraft:lily_pad ON_TOP_OF minecraft:water
+trail.w4_03.s2.hint	밤에 물 위에 수련잎을 놓아요.	hint, generated; PlaceRel minecraft:lily_pad ON_TOP_OF minecraft:water
+trail.w4_03.s3.clue	밤에 판자 위에서 연어를 구하세요.	clue, generated; AcquireItem minecraft:salmon x1
+trail.w4_03.s3.hint	밤에 판자 위에서 연어를 구해요.	hint, generated; AcquireItem minecraft:salmon x1
+trail.w4_03.s4.clue	밤에 생선을 구우세요.	clue, generated; Smelt minecraft:cooked_salmon x1
+trail.w4_03.s4.hint	밤에 생선을 구워요.	hint, generated; Smelt minecraft:cooked_salmon x1
+trail.w4_03.finale.clue	밤에 고양이에게 연어를 주세요.	clue, generated; Give minecraft:salmon x1
+trail.w4_03.finale.hint	밤에 고양이에게 연어를 줘요.	hint, generated; Give minecraft:salmon x1
+trail.w4_03.finale	밤에 고양이에게 연어를 줬어요.	finale, generated; Give minecraft:salmon x1
+trail.w4_04.title	부두의 배	title, authored; project: The quay: a boat, a blue banner by the water, a ladder beside the planks, a swim by the ladder.
+trail.w4_04.s1.clue	배를 만드세요.	clue, generated; Craft minecraft:jungle_boat x1
+trail.w4_04.s1.hint	배를 만들어요.	hint, generated; Craft minecraft:jungle_boat x1
+trail.w4_04.s2.clue	물 옆에 파란색 현수막을 거세요.	clue, generated; PlaceRel minecraft:blue_banner NEXT_TO minecraft:water
+trail.w4_04.s2.hint	물 옆에 파란색 현수막을 걸어요.	hint, generated; PlaceRel minecraft:blue_banner NEXT_TO minecraft:water
+trail.w4_04.s3.clue	판자 옆에 사다리를 놓으세요.	clue, generated; PlaceRel minecraft:ladder NEXT_TO #minecraft:planks
+trail.w4_04.s3.hint	판자 옆에 사다리를 놓아요.	hint, generated; PlaceRel minecraft:ladder NEXT_TO #minecraft:planks
+trail.w4_04.finale.clue	사다리 근처 물에서 10블록 수영하세요.	clue, generated; Swim 
+trail.w4_04.finale.hint	사다리 근처 물에서 수영해요.	hint, generated; Swim 
+trail.w4_04.finale	사다리 근처 물에서 수영했어요.	finale, generated; Swim 
+trail.w4_05.title	밤바다 등불	title, authored; project: Lights on the night sea: a fence ring on the beach with a copper lantern on top and a black banner beside it, a night swim, a squid.
+trail.w4_05.s1.clue	해변에서 울타리를 치세요.	clue, generated; BuildPattern minecraft:birch_fence RING 3
+trail.w4_05.s1.hint	해변에서 울타리를 쳐요.	hint, generated; BuildPattern minecraft:birch_fence RING 3
+trail.w4_05.s2.clue	밤에 울타리 위에 구리 랜턴을 놓으세요.	clue, generated; PlaceOnPattern minecraft:copper_lantern ON_TOP_OF RING minecraft:birch_fence
+trail.w4_05.s2.hint	밤에 울타리 위에 구리 랜턴을 놓아요.	hint, generated; PlaceOnPattern minecraft:copper_lantern ON_TOP_OF RING minecraft:birch_fence
+trail.w4_05.s3.clue	밤에 울타리 옆에 검은색 현수막을 거세요.	clue, generated; PlaceOnPattern minecraft:black_banner NEXT_TO RING minecraft:birch_fence
+trail.w4_05.s3.hint	밤에 울타리 옆에 검은색 현수막을 걸어요.	hint, generated; PlaceOnPattern minecraft:black_banner NEXT_TO RING minecraft:birch_fence
+trail.w4_05.s4.clue	밤에 물에서 20블록 수영하세요.	clue, generated; Swim 
+trail.w4_05.s4.hint	밤에 물에서 수영해요.	hint, generated; Swim 
+trail.w4_05.finale.clue	밤에 물속에서 오징어를 1초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:squid 
+trail.w4_05.finale.hint	밤에 물속에서 오징어를 1초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:squid 
+trail.w4_05.finale	밤에 물속에서 오징어를 바라봤어요.	finale, generated; LookAtEntity minecraft:squid 
+trail.w4_07.title	항구 시장	title, authored; project: The market: a barrel on the beach with a yellow banner beside it, a fish in the barrel, a fish sold, cooked cod given to a villager.
+trail.w4_07.s1.clue	해변에서 통을 만드세요.	clue, generated; Craft minecraft:barrel x1
+trail.w4_07.s1.hint	해변에서 통을 만들어요.	hint, generated; Craft minecraft:barrel x1
+trail.w4_07.s2.clue	통 옆에 노란색 현수막을 거세요.	clue, generated; PlaceRel minecraft:yellow_banner NEXT_TO minecraft:barrel
+trail.w4_07.s2.hint	통 옆에 노란색 현수막을 걸어요.	hint, generated; PlaceRel minecraft:yellow_banner NEXT_TO minecraft:barrel
+trail.w4_07.s3.clue	통 안에 물고기를 넣으세요.	clue, generated; PutIn minecraft:cod x1
+trail.w4_07.s3.hint	통 안에 물고기를 넣어요.	hint, generated; PutIn minecraft:cod x1
+trail.w4_07.s4.clue	주민에게 물고기를 파세요.	clue, generated; Trade minecraft:cod x1
+trail.w4_07.s4.hint	주민에게 물고기를 팔아요.	hint, generated; Trade minecraft:cod x1
+trail.w4_07.finale.clue	주민에게 익힌 대구를 주세요.	clue, generated; Give minecraft:cooked_cod x1
+trail.w4_07.finale.hint	주민 앞에 생선을 놓아요.	hint, generated; Give minecraft:cooked_cod x1
+trail.w4_07.finale	주민에게 익힌 대구를 줬어요.	finale, generated; Give minecraft:cooked_cod x1
+trail.w4_08.title	모래 정원	title, authored; project: The sand garden: sand dug, a cactus on the sand, sugar cane by the water, a fence ring, a flower inside it.
+trail.w4_08.s1.clue	해변에서 모래를 세 개 파세요.	clue, generated; BreakBlock minecraft:sand x3
+trail.w4_08.s1.hint	해변에서 모래를 파요.	hint, generated; BreakBlock minecraft:sand x3
+trail.w4_08.s2.clue	모래 위에 선인장을 심으세요.	clue, generated; PlaceRel minecraft:cactus ON_TOP_OF minecraft:sand
+trail.w4_08.s2.hint	모래 위에 선인장을 심어요.	hint, generated; PlaceRel minecraft:cactus ON_TOP_OF minecraft:sand
+trail.w4_08.s3.clue	물 옆에 사탕수수를 심으세요.	clue, generated; PlaceRel minecraft:sugar_cane NEXT_TO minecraft:water
+trail.w4_08.s3.hint	물 옆에 사탕수수를 심어요.	hint, generated; PlaceRel minecraft:sugar_cane NEXT_TO minecraft:water
+trail.w4_08.s4.clue	울타리를 치세요.	clue, generated; BuildPattern minecraft:jungle_fence RING 3
+trail.w4_08.s4.hint	울타리를 쳐요.	hint, generated; BuildPattern minecraft:jungle_fence RING 3
+trail.w4_08.finale.clue	울타리 안에 꽃을 심으세요.	clue, generated; PlaceOnPattern minecraft:allium INSIDE RING minecraft:jungle_fence
+trail.w4_08.finale.hint	울타리 안에 꽃을 심어요.	hint, generated; PlaceOnPattern minecraft:allium INSIDE RING minecraft:jungle_fence
+trail.w4_08.finale	울타리 안에 꽃을 심었어요.	finale, generated; PlaceOnPattern minecraft:allium INSIDE RING minecraft:jungle_fence
