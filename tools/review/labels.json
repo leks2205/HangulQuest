@@ -1,0 +1,28 @@
+{
+ "comment": "Labels of the Korean review pipeline. `python3 tools/review/bot.py ensure-labels` creates the missing ones. Only the maintainer labels (accepted, rejected, recheck, needs-maintainer) can start a write action; the bot checks the sender's repository permission before it acts on them.",
+ "maintainerLabels": ["accepted", "rejected", "recheck"],
+ "labels": [
+  {"name": "korean-review", "color": "0e8a16", "description": "Review of a Korean line"},
+  {"name": "korean:correction", "color": "d93f0b", "description": "Suggested correction of a Korean line"},
+  {"name": "korean:approve", "color": "0e8a16", "description": "Approval of one Korean line"},
+  {"name": "korean:batch-approve", "color": "0e8a16", "description": "Approval of a whole review page"},
+  {"name": "korean:general", "color": "5319e7", "description": "Question about Korean style or wording"},
+  {"name": "bot:stale", "color": "fbca04", "description": "The line changed since the form was filled in"},
+  {"name": "bot:unknown-line", "color": "fbca04", "description": "The line id does not exist"},
+  {"name": "bot:invalid", "color": "fbca04", "description": "The form is incomplete or malformed"},
+  {"name": "bot:lint-error", "color": "e99695", "description": "The suggestion fails the Korean linter"},
+  {"name": "bot:lint-ok", "color": "c2e0c6", "description": "The suggestion passes the Korean linter"},
+  {"name": "approval:pending", "color": "bfd4f2", "description": "Valid approval, waiting for the daily batch"},
+  {"name": "approval:counted", "color": "0e8a16", "description": "Approval written to review-status.json"},
+  {"name": "approval:ignored", "color": "cccccc", "description": "Approval that does not count (see the bot comment)"},
+  {"name": "needs-maintainer", "color": "d4c5f9", "description": "Waiting for a maintainer decision"},
+  {"name": "needs-native", "color": "b60205", "description": "Line that needs a native speaker"},
+  {"name": "accepted", "color": "0e8a16", "description": "Maintainer: apply this correction"},
+  {"name": "rejected", "color": "cccccc", "description": "Maintainer: do not apply this correction"},
+  {"name": "applied", "color": "1d76db", "description": "The correction was turned into a pull request or a task"},
+  {"name": "credited", "color": "1d76db", "description": "The merged correction was credited to the reviewer"},
+  {"name": "generator-rule", "color": "5319e7", "description": "A generator rule needs a fix"},
+  {"name": "good-first-review", "color": "7057ff", "description": "Easy to review without any setup"},
+  {"name": "recheck", "color": "ededed", "description": "Maintainer: run the bot checks again"}
+ ]
+}

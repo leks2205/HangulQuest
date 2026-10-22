@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "w3_02",
  "titleKo": "이웃의 문",
- "titleDe": "Die Tür des Nachbarn",
  "topic": "집",
  "tier": 2,
  "order": 1032,
  "concepts": [
-  "gen_orange_wool_slab",
-  "gen_chorus_fruit",
-  "gen_mud",
-  "gen_warped_fence_gate"
+  "door",
+  "sign",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +21,36 @@
   {
    "id": "s1",
    "teach": [
-    "gen_orange_wool_slab"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_wool_slab",
-    "count": 1
-   },
-   "clue": {
-    "de": "Platziere Orange Wollstufe.",
-    "en": "Place Orange Wool Slab."
-   },
-   "hint": {
-    "en": "Place Orange Wool Slab."
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_door",
+    "change": "OPEN"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_chorus_fruit"
+    "sign"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:chorus_fruit",
+    "type": "PLACE_REL",
+    "block": "minecraft:spruce_sign",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Chorusfrucht.",
-    "en": "Eat Chorus Fruit."
-   },
-   "hint": {
-    "en": "Eat Chorus Fruit."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mud"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mud",
-    "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schlamm.",
-    "en": "Place Mud."
-   },
-   "hint": {
-    "en": "Place Mud."
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_door",
+    "change": "CLOSE"
    }
   }
  ],
@@ -79,35 +58,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warped_fence_gate"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_fence_gate",
+    "type": "PLACE_REL",
+    "block": "minecraft:lily_of_the_valley",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Wirrzauntor.",
-    "en": "Place Warped Fence Gate."
-   },
-   "hint": {
-    "en": "Place Warped Fence Gate."
    }
   },
-  "textKo": "뒤틀린 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Wirrzauntor — Zeremonie vollendet.",
-  "textEn": "the ritual of Warped Fence Gate is complete."
+  "textKo": "문 앞에 꽃을 심었어요."
  },
  "reward": {
   "badge": "w3_02",
   "words": [
    "door",
-   "bread",
-   "bed",
-   "chest"
+   "sign",
+   "flower"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Neighbour's Door"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_ap_e"
+ ]
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "regenbogenfahne",
  "titleKo": "무지개 깃발의 길",
- "titleDe": "Die Regenbogenfahne",
  "topic": "무지개",
  "tier": 3,
  "order": 1135,
@@ -33,14 +32,10 @@
     "count": 2
    },
    "clue": {
-    "ko": "자홍색 염료를 만들어요.",
-    "de": "Stelle Magenta Farbstoff her.",
-    "en": "Collect 2× Magenta Dye."
+    "ko": "자홍색 염료를 만들어요."
    },
    "hint": {
-    "ko": "자홍색 염료를 만들어요.",
-    "de": "Stelle Magenta Farbstoff her.",
-    "en": "Collect 2× Magenta Dye."
+    "ko": "자홍색 염료를 만들어요."
    }
   },
   {
@@ -54,14 +49,10 @@
     "count": 1
    },
    "clue": {
-    "ko": "연두색 양탄자를 놓아요.",
-    "de": "Platziere Hellgrüner Teppich.",
-    "en": "Place Lime Carpet."
+    "ko": "연두색 양탄자를 깔아요."
    },
    "hint": {
-    "ko": "연두색 양탄자를 놓아요.",
-    "de": "Platziere Hellgrüner Teppich.",
-    "en": "Place Lime Carpet."
+    "ko": "연두색 양탄자를 깔아요."
    }
   },
   {
@@ -75,14 +66,10 @@
     "dwellMs": 800
    },
    "clue": {
-    "ko": "하얀색 현수막을 봐요.",
-    "de": "Sieh dir Weißes Banner an.",
-    "en": "Look at White Banner."
+    "ko": "하얀색 현수막을 봐요."
    },
    "hint": {
-    "ko": "하얀색 현수막을 봐요.",
-    "de": "Sieh dir Weißes Banner an.",
-    "en": "Look at White Banner."
+    "ko": "하얀색 현수막을 봐요."
    }
   }
  ],
@@ -102,17 +89,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "en": "Place Magenta Banner. During the day."
-   },
-   "hint": {
-    "en": "Place Magenta Banner. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 무지개 깃발을 세웠어요.",
-  "textDe": "Die Zeremonie ist vollendet.",
-  "textEn": "By day the ritual of Magenta Banner is complete."
+  "textKo": "낮에 무지개 깃발을 세웠어요."
  },
  "reward": {
   "badge": "regenbogenfahne",
@@ -122,6 +101,5 @@
    "adv_item_white_banner",
    "gen_magenta_banner"
   ]
- },
- "titleEn": "The Rainbow Banner"
+ }
 }

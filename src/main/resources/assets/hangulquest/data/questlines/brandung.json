@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "brandung",
  "titleKo": "파도의 길",
- "titleDe": "Der Brandungspfad",
+ "topic": "물",
  "tier": 5,
  "order": 350,
  "concepts": [
+  "adv_item_oak_boat",
   "ocean",
-  "turtle",
-  "cartography_table",
-  "gen_pointed_dripstone"
+  "fish",
+  "map"
  ],
  "requires": {
   "minWordsKnown": 7,
@@ -25,6 +25,23 @@
   {
    "id": "s1",
    "teach": [
+    "adv_item_oak_boat"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:oak_boat",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
     "ocean"
    ],
    "goal": {
@@ -32,94 +49,53 @@
     "biome": "#minecraft:is_ocean",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Geh zum Ozean.",
-    "en": "Reach the ocean."
-   },
-   "hint": {
-    "en": "Reach the ocean."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "turtle"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:turtle",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau eine Schildkröte an.",
-    "en": "Look at Turtle."
-   },
-   "hint": {
-    "en": "Look at Turtle."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "cartography_table"
+    "fish"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cartography_table",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cod",
+    "dwellMs": 800
    },
-   "clue": {
-    "de": "Sammle Kartentisch.",
-    "en": "Collect Cartography Table."
-   },
-   "hint": {
-    "en": "Collect Cartography Table."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_ocean"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pointed_dripstone"
+    "map"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pointed_dripstone",
+    "type": "CRAFT",
+    "item": "minecraft:map",
     "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    }
-   ],
-   "clue": {
-    "de": "Platziere Spitzer Tropfstein. Nachts. In einem passenden Biom.",
-    "en": "Place Pointed Dripstone. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Pointed Dripstone. At night. In a fitting biome."
    }
   },
-  "textKo": "밤에 해변에서 뾰족한 점적석라는 길의 의식을 마쳤어요.",
-  "textDe": "Spitzer Tropfstein — Zeremonie vollendet.",
-  "textEn": "By night On the beach the ritual of Pointed Dripstone is complete."
+  "textKo": "지도를 만들었어요."
  },
  "reward": {
   "badge": "brandung",
   "words": [
+   "adv_item_oak_boat",
    "ocean",
-   "turtle",
-   "squid",
-   "campfire"
+   "fish",
+   "map"
   ]
  },
- "koreanLevel": 1,
- "topic": "물",
- "titleEn": "The Surf Trail"
+ "koreanLevel": 1
 }

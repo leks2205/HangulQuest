@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "farbenpfad",
  "titleKo": "색의 길",
- "titleDe": "Der Farbenpfad",
  "topic": "색",
  "tier": 3,
  "order": 96,
  "concepts": [
-  "gen_damaged_anvil",
-  "gen_smooth_red_sandstone_slab",
-  "coal"
+  "gen_blue_dye",
+  "gen_blue_wool",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 25,
@@ -23,37 +22,50 @@
   {
    "id": "s1",
    "teach": [
-    "gen_damaged_anvil"
+    "gen_blue_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:damaged_anvil",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Beschädigter Amboss.",
-    "en": "Collect 3× Damaged Anvil."
-   },
-   "hint": {
-    "en": "Collect 3× Damaged Anvil."
+    "type": "GIVE",
+    "item": "minecraft:blue_dye",
+    "entity": "minecraft:sheep",
+    "count": 1,
+    "method": "USE_WITH"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_red_sandstone_slab"
+    "gen_blue_wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_red_sandstone_slab",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Glatte rote Sandsteinstufe.",
-    "en": "Place 3× Smooth Red Sandstone Slab."
-   },
-   "hint": {
-    "en": "Place 3× Smooth Red Sandstone Slab."
+    "type": "CRAFT",
+    "item": "minecraft:blue_wool",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_blue_wool"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:blue_wool",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "flower"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:white_tulip",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:blue_wool",
+    "count": 1
    }
   }
  ],
@@ -61,33 +73,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "coal"
+    "gen_blue_wool"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:coal_ore",
-    "dwellMs": 600
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:blue_wool"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sieh dir Steinkohle an.",
-    "en": "Look at Coal Ore."
-   },
-   "hint": {
-    "en": "Look at Coal Ore."
-   }
+   "conditions": []
   },
-  "textKo": "석탄 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Steinkohle — Zeremonie vollendet.",
-  "textEn": "the ritual of Coal Ore is complete."
+  "textKo": "양털은 파란색이에요. 초는 빨간색이에요."
  },
  "reward": {
   "badge": "farbenpfad",
   "words": [
-   "wool",
+   "gen_blue_dye",
+   "gen_blue_wool",
    "flower"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Colour Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.euro_material",
+  "L2.eun_neun_contrast"
+ ]
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_05",
  "titleKo": "영혼의 등불",
- "titleDe": "Das Seelenlicht",
  "topic": "영혼",
  "tier": 2,
  "order": 1075,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:red_candle_cake",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Kuchen mit roter Kerze ab.",
-    "en": "Break 4× Cake with Red Candle."
-   },
-   "hint": {
-    "en": "Break 4× Cake with Red Candle."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pale_oak_planks",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Blasseichenholzbretter.",
-    "en": "Place 3× Pale Oak Planks."
-   },
-   "hint": {
-    "en": "Place 3× Pale Oak Planks."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:lime_shulker_box",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Hellgrüne Shulker-Kiste.",
-    "en": "Place 2× Lime Shulker Box."
-   },
-   "hint": {
-    "en": "Place 2× Lime Shulker Box."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:coarse_dirt",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Grobe Erde.",
-    "en": "Place Coarse Dirt."
-   },
-   "hint": {
-    "en": "Place Coarse Dirt."
-   }
+   "conditions": []
   },
-  "textKo": "거친 흙라는 길의 의식을 마쳤어요.",
-  "textDe": "Grobe Erde — Zeremonie vollendet.",
-  "textEn": "the ritual of Coarse Dirt is complete."
+  "textKo": "거친 흙을 놓았어요."
  },
  "reward": {
   "badge": "w7_05",
@@ -108,6 +77,5 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Soul Light"
+ "koreanLevel": 4
 }

@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "village_errands_demo",
+ "titleKo": "마을 심부름",
+ "topic": "마을",
+ "tier": 2,
+ "order": 700,
+ "concepts": [
+  "bread",
+  "villager",
+  "chest",
+  "bed",
+  "torch"
+ ],
+ "requires": {
+  "minWordsKnown": 12,
+  "dimension": "minecraft:overworld",
+  "completed": [
+   "handelsstrasse"
+  ]
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:bread",
+    "count": 1,
+    "with": [
+     "minecraft:wheat"
+    ]
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:apple",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:bread",
+      "count": 1
+     },
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:red_bed"
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   },
+   "conditions": []
+  },
+  "textKo": "횃불을 들고 밤에 걸었어요."
+ },
+ "reward": {
+  "badge": "village_errands_demo",
+  "words": [
+   "bread",
+   "villager",
+   "chest"
+  ]
+ },
+ "koreanLevel": 3
+}

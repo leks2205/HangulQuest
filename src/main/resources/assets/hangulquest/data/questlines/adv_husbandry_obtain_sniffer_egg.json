@@ -1,15 +1,16 @@
 {
  "schema": 1,
  "id": "adv_husbandry_obtain_sniffer_egg",
- "titleKo": "흥미로운 냄새",
- "titleDe": "Ein ungewöhnlicher Geruch",
- "topic": "husbandry",
+ "titleKo": "닭장의 아침",
+ "topic": "닭",
  "tier": 2,
  "order": 270,
  "concepts": [
-  "gen_turtle_helmet",
-  "sand",
-  "redstone_torch"
+  "log",
+  "chicken",
+  "wait",
+  "egg",
+  "raise"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,72 +23,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_turtle_helmet"
+    "log"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:turtle_helmet",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schildkrötenpanzer.",
-    "en": "Collect Turtle Shell."
-   },
-   "hint": {
-    "en": "Collect Turtle Shell."
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:oak_log",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sand"
+    "chicken",
+    "wait"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:sand",
-    "dwellMs": 600
+    "type": "WAIT",
+    "seconds": 60
    },
-   "clue": {
-    "de": "Halte in einer warmen Ozeanruine nach verdächtigem Sand Ausschau.",
-    "en": "Look at Sand."
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:chicken",
+     "radius": 8
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "egg"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:egg",
+    "count": 2
    },
-   "hint": {
-    "en": "Look at Sand."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat_seeds"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "redstone_torch"
+    "raise"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone_torch",
+    "type": "BREED",
+    "entity": "minecraft:chicken",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Redstone-Fackel.",
-    "en": "Collect Redstone Torch."
-   },
-   "hint": {
-    "en": "Collect Redstone Torch."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat_seeds"
+    }
+   ]
   },
-  "textKo": "레드스톤 횃불라는 길의 의식을 마쳤어요.",
-  "textDe": "Redstone-Fackel — Zeremonie vollendet.",
-  "textEn": "the ritual of Redstone Torch is complete."
+  "textKo": "밀 씨앗을 들고 닭을 키웠어요."
  },
  "reward": {
   "badge": "adv_husbandry_obtain_sniffer_egg",
   "words": [
-   "adv_item_brush",
-   "sand",
-   "adv_item_sniffer_egg"
+   "log",
+   "chicken",
+   "wait",
+   "egg",
+   "raise"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Smells Interesting"
+ "koreanLevel": 1
 }

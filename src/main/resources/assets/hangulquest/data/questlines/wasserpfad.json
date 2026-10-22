@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "wasserpfad",
  "titleKo": "물의 길",
- "titleDe": "Der Wasserpfad",
+ "topic": "물",
  "tier": 1,
+ "order": 60,
  "concepts": [
   "river",
-  "sand",
   "bucket",
-  "gen_mossy_cobblestone_slab"
+  "water",
+  "sapling",
+  "fish"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -26,41 +28,17 @@
     "dwellMs": 1000
    },
    "clue": {
-    "ko": "강으로 가요.",
-    "de": "Finde einen Ort, an dem Wasser fließt.",
-    "en": "Reach a river."
+    "ko": "강에 도착해요."
    },
    "hint": {
-    "ko": "강에 가요.",
-    "de": "Geh zum Fluss.",
-    "en": "Reach a river."
+    "ko": "강에 도착해요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sand"
-   ],
-   "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:sand",
-    "count": 3
-   },
-   "clue": {
-    "ko": "노란 모래를 세 개 수확해요.",
-    "de": "Hol dir drei gelbe Dinge.",
-    "en": "Break 3× Sand."
-   },
-   "hint": {
-    "ko": "모래를 캐요.",
-    "de": "Baue Sand ab.",
-    "en": "Break 3× Sand."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "bucket"
+    "bucket",
+    "water"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
@@ -68,14 +46,26 @@
     "count": 1
    },
    "clue": {
-    "ko": "양동이를 만들어요.",
-    "de": "Stelle etwas her, das Wasser hält.",
-    "en": "Collect Water Bucket."
+    "ko": "양동이에 물을 담아요."
    },
    "hint": {
-    "ko": "양동이를 만들어요.",
-    "de": "Stelle einen Eimer her.",
-    "en": "Collect Water Bucket."
+    "ko": "양동이에 물을 담아요."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sapling"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:birch_sapling",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
+   },
+   "hint": {
+    "ko": "물 옆에 묘목을 심어요."
    }
   }
  ],
@@ -83,42 +73,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mossy_cobblestone_slab"
+    "fish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_cobblestone_slab",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cod",
+    "dwellMs": 800
    },
    "conditions": [
     {
      "type": "IN_BIOME",
-     "biome": "minecraft:beach"
+     "biome": "#minecraft:is_river"
     }
-   ],
-   "clue": {
-    "de": "Platziere Bemooste Bruchsteinstufe. In einem passenden Biom.",
-    "en": "Place Mossy Cobblestone Slab. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Mossy Cobblestone Slab. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "해변에서 이끼 낀 조약돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Bemooste Bruchsteinstufe — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Mossy Cobblestone Slab is complete."
+  "textKo": "강에서 물고기를 바라봤어요."
  },
  "reward": {
   "badge": "wasserpfad",
   "words": [
    "river",
-   "sand",
    "bucket",
-   "campfire"
+   "water",
+   "sapling"
   ]
  },
- "order": 60,
- "koreanLevel": 1,
- "topic": "물",
- "titleEn": "The Water Trail"
+ "koreanLevel": 1
 }

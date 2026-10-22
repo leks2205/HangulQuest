@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "schmuckgilde",
  "titleKo": "보석 길드의 길",
- "titleDe": "Der Schmuckgildenpfad",
  "topic": "보석 길드",
  "tier": 3,
  "order": 170,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:oxidized_copper_lantern",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Oxidierte Kupferlaterne.",
-    "en": "Collect 4× Oxidized Copper Lantern."
-   },
-   "hint": {
-    "en": "Collect 4× Oxidized Copper Lantern."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bubble_coral_block",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Blasenkorallenblock.",
-    "en": "Collect 4× Bubble Coral Block."
-   },
-   "hint": {
-    "en": "Collect 4× Bubble Coral Block."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mangrove_leaves",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Mangrovenlaub.",
-    "en": "Place 2× Mangrove Leaves."
-   },
-   "hint": {
-    "en": "Place 2× Mangrove Leaves."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:waxed_oxidized_copper_golem_statue",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Gewachste oxidierte Kupfergolemstatue.",
-    "en": "Place Waxed Oxidized Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Place Waxed Oxidized Copper Golem Statue."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 산화된 구리 골렘 동상라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste oxidierte Kupfergolemstatue — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Oxidized Copper Golem Statue is complete."
+  "textKo": "밀랍칠한 산화된 구리 골렘 동상을 세웠어요."
  },
  "reward": {
   "badge": "schmuckgilde",
@@ -109,6 +78,5 @@
    "chest"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Jeweller's Guild Trail"
+ "koreanLevel": 3
 }

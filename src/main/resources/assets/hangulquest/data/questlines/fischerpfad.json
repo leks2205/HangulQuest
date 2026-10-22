@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "fischerpfad",
  "titleKo": "물고기의 길",
- "titleDe": "Der Fischerpfad",
+ "topic": "물고기",
  "tier": 2,
+ "order": 160,
  "concepts": [
-  "gen_large_amethyst_bud",
-  "gen_gray_candle",
-  "beach",
-  "gen_damaged_anvil"
+  "fish",
+  "fishing_rod",
+  "gen_cooked_cod",
+  "cat"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -21,55 +22,56 @@
   {
    "id": "s1",
    "teach": [
-    "gen_large_amethyst_bud"
+    "fish",
+    "fishing_rod"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:large_amethyst_bud",
+    "item": "minecraft:cod",
     "count": 1
    },
-   "clue": {
-    "de": "Sammle Große Amethystknospe.",
-    "en": "Collect Large Amethyst Bud."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    }
+   ],
    "hint": {
-    "en": "Collect Large Amethyst Bud."
+    "ko": "낚싯대를 들고 물고기를 구해요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gray_candle"
+    "fish"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_candle",
+    "type": "SMELT",
+    "input": "minecraft:cod",
+    "output": "minecraft:cooked_cod",
     "count": 1
    },
-   "clue": {
-    "de": "Sammle Graue Kerze.",
-    "en": "Collect Gray Candle."
-   },
-   "hint": {
-    "en": "Collect Gray Candle."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "beach"
+    "gen_cooked_cod"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:beach",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Geh an den Sandstrand.",
-    "en": "Reach Beach."
-   },
-   "hint": {
-    "en": "Reach Beach."
+    "type": "PUT_IN",
+    "item": "minecraft:cooked_cod",
+    "container": "minecraft:chest",
+    "count": 1
    }
   }
  ],
@@ -77,45 +79,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_damaged_anvil"
+    "fish",
+    "cat"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:damaged_anvil"
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
-    {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    }
-   ],
-   "clue": {
-    "de": "Benutze Beschädigter Amboss. Nachts. In einem passenden Biom.",
-    "en": "Use Damaged Anvil. At night. In a fitting biome."
+    "type": "GIVE",
+    "item": "minecraft:cod",
+    "entity": "minecraft:cat",
+    "count": 2
    },
    "hint": {
-    "en": "Use Damaged Anvil. At night. In a fitting biome."
+    "ko": "고양이에게 물고기를 두 마리 줘요."
    }
   },
-  "textKo": "밤에 해변에서 손상된 모루라는 길의 의식을 마쳤어요.",
-  "textDe": "Beschädigter Amboss — Zeremonie vollendet.",
-  "textEn": "By night On the beach the ritual of Damaged Anvil is complete."
+  "textKo": "고양이에게 물고기를 두 마리 줬어요."
  },
  "reward": {
   "badge": "fischerpfad",
   "words": [
-   "fishing_rod",
    "fish",
-   "beach",
-   "campfire"
+   "fishing_rod",
+   "gen_cooked_cod",
+   "cat"
   ]
  },
- "order": 160,
- "koreanLevel": 1,
- "topic": "물",
- "titleEn": "The Fishing Trail"
+ "koreanLevel": 1
 }

@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_complete_catalogue",
  "titleKo": "집사 그 자체",
- "titleDe": "Ein kompletter Katerlog",
  "topic": "husbandry",
  "tier": 2,
  "order": 262,
  "concepts": [
   "cat",
-  "gen_birch_hanging_sign"
+  "bed",
+  "carpet",
+  "fish"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,34 +25,42 @@
     "cat"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cat",
-    "dwellMs": 600
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:cat"
    },
-   "clue": {
-    "de": "Finde im Dorf eine Katze und schau sie dir an.",
-    "en": "Look at Cat."
-   },
-   "hint": {
-    "en": "Look at Cat."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_birch_hanging_sign"
+    "bed",
+    "cat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_hanging_sign",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Birkenholzhängeschild.",
-    "en": "Collect 2× Birch Hanging Sign."
-   },
-   "hint": {
-    "en": "Collect 2× Birch Hanging Sign."
+    "type": "PLACE_REL",
+    "block": "minecraft:purple_bed",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:cat",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carpet",
+    "cat"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:pink_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:cat",
+    "count": 1
    }
   }
  ],
@@ -59,30 +68,43 @@
   "step": {
    "id": "finale",
    "teach": [
+    "fish",
     "cat"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:cat"
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Cat."
-   },
-   "hint": {
-    "en": "Talk to Cat."
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "GIVE",
+      "item": "minecraft:cod",
+      "entity": "minecraft:cat",
+      "count": 1
+     },
+     {
+      "type": "INTERACT_ENTITY",
+      "entity": "minecraft:cat"
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   },
-  "textKo": "집사 그 자체 — 대구를 주고 고양이를 길들여요.",
-  "textDe": "Ein kompletter Katerlog: Mit rohem Kabeljau zähmst du die Katze.",
-  "textEn": "the ritual of Cat is complete."
+  "textKo": "고양이가 친구가 됐어요. 고양이는 작아요."
  },
  "reward": {
   "badge": "adv_husbandry_complete_catalogue",
   "words": [
-   "cat"
+   "cat",
+   "bed",
+   "carpet",
+   "fish"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "A Complete Catalogue"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.go_sequence",
+  "L2.eun_neun_topic"
+ ]
 }

@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "adv_adventure_ol_betsy",
  "titleKo": "부러진 화살",
- "titleDe": "Ich habe die Knarre gesichert",
  "topic": "adventure",
  "tier": 2,
  "order": 218,
  "concepts": [
-  "gen_bamboo_stairs",
-  "gen_red_wool",
-  "gen_warden"
+  "adv_item_crossbow",
+  "arrow",
+  "adv_item_target",
+  "hay_block",
+  "skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,72 +23,93 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_stairs"
+    "adv_item_crossbow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo_stairs",
+    "type": "CRAFT",
+    "item": "minecraft:crossbow",
     "count": 1
    },
-   "clue": {
-    "de": "Sammle Bambustreppe.",
-    "en": "Collect Bamboo Stairs."
-   },
-   "hint": {
-    "en": "Collect Bamboo Stairs."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_wool"
+    "arrow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_wool",
-    "count": 8
+    "type": "CRAFT",
+    "item": "minecraft:arrow",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 8× Rote Wolle.",
-    "en": "Collect 8× Red Wool."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_target",
+    "hay_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:target",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:hay_block",
+    "count": 1,
+    "anchor2": "minecraft:chest"
    },
-   "hint": {
-    "en": "Collect 8× Red Wool."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_crossbow"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:crossbow",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_warden"
+    "skeleton"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:warden",
-    "count": 1
+    "entity": "minecraft:skeleton",
+    "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Wärter.",
-    "en": "Defeat Warden."
-   },
-   "hint": {
-    "en": "Defeat Warden."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "워든라는 길의 의식을 마쳤어요.",
-  "textDe": "Wärter — Zeremonie vollendet.",
-  "textEn": "the ritual of Warden is complete."
+  "textKo": "밤에 쇠뇌를 들고 스켈레톤을 물리쳤어요. 스켈레톤이 죽었어요."
  },
  "reward": {
   "badge": "adv_adventure_ol_betsy",
   "words": [
    "adv_item_crossbow",
    "arrow",
-   "zombie"
+   "adv_item_target"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Ol' Betsy"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.loc_sai_e",
+  "L2.hago_wa_gwa"
+ ]
 }

@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "adv_husbandry_make_a_sign_glow",
  "titleKo": "밝은 말 고운 말",
- "titleDe": "Leuchte und staune!",
- "topic": "husbandry",
+ "topic": "표지판",
  "tier": 2,
  "order": 268,
  "concepts": [
-  "planks",
-  "stick",
-  "adv_item_glow_ink_sac"
+  "ink_sac",
+  "write",
+  "door"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,77 +21,80 @@
   {
    "id": "s1",
    "teach": [
-    "planks"
+    "ink_sac",
+    "write"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_planks",
-    "count": 6
-   },
-   "clue": {
-    "de": "Mach aus einem Stamm sechs Holzbretter für das Schild.",
-    "en": "Collect 6× Oak Planks."
-   },
-   "hint": {
-    "ko": "판자는 통나무 하나로 만들어요.",
-    "de": "Sechs Bretter entstehen aus einem Stamm.",
-    "en": "Collect 6× Oak Planks."
+    "item": "minecraft:ink_sac",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "stick"
+    "door",
+    "ink_sac",
+    "write"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stick",
-    "count": 2
-   },
-   "clue": {
-    "de": "Schnitze aus zwei Brettern einen Stock für den Pfosten.",
-    "en": "Collect 2× Stick."
-   },
-   "hint": {
-    "ko": "막대기는 판자 두 개로 만들어요.",
-    "de": "Zwei Bretter ergeben vier Stöcke.",
-    "en": "Collect 2× Stick."
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_sign",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ink_sac"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:oak_sign",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ink_sac"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_glow_ink_sac"
+    "ink_sac"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glow_ink_sac",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_sign"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "발광 먹물 주머니는 발광 오징어를 잡으면 나와요.",
-    "de": "Leuchttinte lässt einen Leuchttintenfisch fallen.",
-    "en": "Collect Glow Ink Sac."
-   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ink_sac"
+    }
+   ],
    "clue": {
-    "en": "Collect Glow Ink Sac."
+    "ko": "먹물 주머니를 들고 참나무 표지판에 글을 써요."
+   },
+   "hint": {
+    "ko": "먹물 주머니를 들고 참나무 표지판에 글을 써요."
    }
   },
-  "textKo": "밝은 말 고운 말 — 발광 먹물로 표지판을 빛나게 해요.",
-  "textDe": "Leuchte und staune: Mit Leuchttinte bringen die Worte auf dem Schild Licht ins Dunkel.",
-  "textEn": "the ritual of Glow Ink Sac is complete."
+  "textKo": "참나무 표지판에 글을 썼어요."
  },
  "reward": {
   "badge": "adv_husbandry_make_a_sign_glow",
   "words": [
-   "planks",
-   "stick",
-   "adv_item_glow_ink_sac"
+   "ink_sac",
+   "write",
+   "door"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Glow and Behold!"
+ "koreanLevel": 1
 }

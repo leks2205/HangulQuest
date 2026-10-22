@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_husbandry_place_dried_ghast_in_water",
- "titleKo": "수분 충전!",
- "titleDe": "Bleib hydriert!",
- "topic": "husbandry",
+ "titleKo": "들판의 말",
+ "topic": "말",
  "tier": 2,
  "order": 271,
  "concepts": [
-  "adv_item_dried_ghast",
-  "gen_weathered_copper_golem_statue"
+  "gen_plains",
+  "hay_block",
+  "horse",
+  "ride"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,37 +22,48 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_dried_ghast"
+    "gen_plains"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dried_ghast",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:plains",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Finde einen ausgetrockneten Ghast im Seelensandtal oder tausche ihn bei einem Piglin ein.",
-    "en": "Collect Dried Ghast."
-   },
-   "hint": {
-    "en": "Collect Dried Ghast."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_weathered_copper_golem_statue"
+    "hay_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_golem_statue",
+    "item": "minecraft:hay_block",
     "count": 1
    },
-   "clue": {
-    "de": "Sammle Verwitterte Kupfergolemstatue.",
-    "en": "Collect Weathered Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Collect Weathered Copper Golem Statue."
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:plains"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:hay_block",
+    "entity": "minecraft:horse",
+    "method": "FEED",
+    "count": 1
    }
   }
  ],
@@ -59,32 +71,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_dried_ghast"
+    "ride"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dried_ghast",
-    "count": 1
+    "type": "MOUNT",
+    "entity": "minecraft:horse",
+    "dwellMs": 3000
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Dried Ghast."
-   },
-   "hint": {
-    "en": "Place Dried Ghast."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "수분 충전! — 마른 가스트를 물속에 넣어요.",
-  "textDe": "Bleib hydriert! — Du setzt den ausgetrockneten Ghast ins Wasser.",
-  "textEn": "the ritual of Dried Ghast is complete."
+  "textKo": "낮에 말을 탔어요."
  },
  "reward": {
   "badge": "adv_husbandry_place_dried_ghast_in_water",
   "words": [
-   "adv_item_dried_ghast",
-   "bucket"
+   "gen_plains",
+   "hay_block",
+   "horse",
+   "ride"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Stay Hydrated!"
+ "koreanLevel": 1
 }

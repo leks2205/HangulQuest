@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "lighthouse_demo",
+ "demo": true,
+ "titleKo": "등대",
+ "topic": "등대",
+ "tier": 1,
+ "order": 990,
+ "concepts": [
+  "cobblestone",
+  "torch",
+  "door"
+ ],
+ "requires": {
+  "minWordsKnown": 0,
+  "dimension": "minecraft:overworld",
+  "completed": []
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone",
+    "size": 3
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch",
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:torch",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "hint": {
+    "ko": "문 옆에 횃불을 놓아요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "cobblestone"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:cobblestone",
+    "size": 3
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "torch"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:cobblestone"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  "textKo": "밤에 조약돌 담 안에 횃불을 놓았어요."
+ },
+ "reward": {
+  "badge": "lighthouse_demo",
+  "words": [
+   "torch",
+   "cobblestone",
+   "door"
+  ]
+ },
+ "koreanLevel": 1
+}

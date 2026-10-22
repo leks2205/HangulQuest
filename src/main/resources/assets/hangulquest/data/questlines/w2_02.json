@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w2_02",
  "titleKo": "첫눈 소리",
- "titleDe": "Der Klang des ersten Schnees",
  "topic": "눈",
  "tier": 1,
  "order": 1022,
  "concepts": [
-  "gen_brown_concrete",
-  "gen_terracotta",
-  "gen_oxidized_chiseled_copper",
-  "gen_blue_candle"
+  "gen_snowy_plains",
+  "snowball",
+  "snow_block",
+  "snow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,96 +20,85 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_concrete"
+    "gen_snowy_plains"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:brown_concrete",
-    "count": 4
+    "type": "REACH_BIOME",
+    "biome": "minecraft:snowy_plains",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Baue 4× Brauner Beton ab.",
-    "en": "Break 4× Brown Concrete."
-   },
-   "hint": {
-    "en": "Break 4× Brown Concrete."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_terracotta"
+    "snowball"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:terracotta",
-    "count": 8
+    "item": "minecraft:snowball",
+    "count": 4
    },
-   "clue": {
-    "de": "Sammle 8× Keramik.",
-    "en": "Collect 8× Terracotta."
-   },
-   "hint": {
-    "en": "Collect 8× Terracotta."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_plains"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oxidized_chiseled_copper"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_chiseled_copper",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:snow_block",
+    "count": 1
    },
-   "clue": {
-    "de": "Platziere 2× Oxidierter gemeißelter Kupferblock.",
-    "en": "Place 2× Oxidized Chiseled Copper."
-   },
-   "hint": {
-    "en": "Place 2× Oxidized Chiseled Copper."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_candle"
+    "snowball",
+    "snow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_candle",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "de": "Platziere Blaue Kerze. Nachts.",
-    "en": "Place Blue Candle. At night."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:snowball",
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:snowy_plains"
+    },
+    "seconds": 10
    },
    "hint": {
-    "en": "Place Blue Candle. At night."
+    "ko": "눈덩이를 들고 눈 덮인 평원에서 걸어요."
    }
   },
-  "textKo": "밤에 파란색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaue Kerze — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Blue Candle is complete."
+  "textKo": "눈덩이를 들고 눈 덮인 평원에서 걸었어요."
  },
  "reward": {
   "badge": "w2_02",
   "words": [
-   "snow",
+   "gen_snowy_plains",
    "snowball",
-   "ice",
-   "campfire"
+   "snow_block",
+   "snow"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Sound of the First Snow"
+ "koreanLevel": 1
 }

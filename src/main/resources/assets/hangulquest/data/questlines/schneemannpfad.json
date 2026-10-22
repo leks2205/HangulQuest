@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "schneemannpfad",
  "titleKo": "눈사람의 길",
- "titleDe": "Der Schneemannpfad",
  "topic": "눈사람",
  "tier": 1,
  "order": 133,
  "concepts": [
-  "gen_podzol",
-  "gen_trapped_chest",
-  "gen_rooted_dirt",
-  "gen_orange_glazed_terracotta"
+  "snowball",
+  "ice",
+  "pumpkin",
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,55 +20,58 @@
   {
    "id": "s1",
    "teach": [
-    "gen_podzol"
+    "snowball"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:podzol",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:snowball",
+    "count": 4
    },
-   "clue": {
-    "de": "Platziere 2× Podsol.",
-    "en": "Place 2× Podzol."
-   },
-   "hint": {
-    "en": "Place 2× Podzol."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_trapped_chest"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:trapped_chest",
-    "count": 1
+    "type": "CRAFT",
+    "item": "minecraft:snow_block",
+    "count": 2
    },
-   "clue": {
-    "de": "Platziere Redstone-Truhe.",
-    "en": "Place Trapped Chest."
-   },
-   "hint": {
-    "en": "Place Trapped Chest."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_rooted_dirt"
+    "ice"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:rooted_dirt",
+    "block": "minecraft:ice",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Wurzelerde an.",
-    "en": "Look at Rooted Dirt."
-   },
-   "hint": {
-    "en": "Look at Rooted Dirt."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "snow_block"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:snow_block",
+    "size": 2
    }
   }
  ],
@@ -77,34 +79,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_glazed_terracotta"
+    "pumpkin"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:orange_glazed_terracotta",
-    "count": 8
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 8× Orange glasierte Keramik.",
-    "en": "Collect 8× Orange Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 8× Orange Glazed Terracotta."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:pumpkin",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:snow_block"
    }
   },
-  "textKo": "주황색 유광 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Orange glasierte Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Orange Glazed Terracotta is complete."
+  "textKo": "눈 블록 기둥 위에 호박을 놓았어요."
  },
  "reward": {
   "badge": "schneemannpfad",
   "words": [
+   "snowball",
    "snow",
-   "carved_pumpkin",
-   "snowball"
+   "ice",
+   "pumpkin"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Snowman Trail"
+ "koreanLevel": 1
 }

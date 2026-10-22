@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kristallhoehle",
  "titleKo": "수정 동굴",
- "titleDe": "Die Kristallhöhle",
  "tier": 4,
  "order": 530,
  "concepts": [
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pale_moss_carpet",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Blassmoosteppich.",
-    "en": "Collect 2× Pale Moss Carpet."
-   },
-   "hint": {
-    "en": "Collect 2× Pale Moss Carpet."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:brown_bed",
     "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Braunes Bett ab.",
-    "en": "Break 2× Brown Bed."
-   },
-   "hint": {
-    "en": "Break 2× Brown Bed."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:poplar_trapdoor",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue Pappelholzfalltür ab.",
-    "en": "Break Poplar Trapdoor."
-   },
-   "hint": {
-    "en": "Break Poplar Trapdoor."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Tuffsteinstufe. Nachts.",
-    "en": "Place Tuff Slab. At night."
-   },
-   "hint": {
-    "en": "Place Tuff Slab. At night."
-   }
+   ]
   },
-  "textKo": "밤에 응회암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Tuffsteinstufe — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Tuff Slab is complete."
+  "textKo": "밤에 응회암 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "kristallhoehle",
@@ -115,6 +84,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "돌",
- "titleEn": "The Crystal Cave"
+ "topic": "돌"
 }

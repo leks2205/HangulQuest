@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "blumenkranz",
- "titleKo": "꽃관의 길",
- "titleDe": "Der Blumenkranz",
- "topic": "꽃관",
+ "titleKo": "꽃밭의 길",
+ "topic": "꽃",
  "tier": 3,
  "order": 150,
  "concepts": [
-  "hay_block",
   "flower",
-  "wool"
+  "dirt",
+  "gen_yellow_dye"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,57 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "hay_block"
+    "flower"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:hay_block",
-    "dwellMs": 600
+    "type": "BREAK_BLOCK",
+    "block": "#minecraft:flowers",
+    "count": 5
    },
-   "clue": {
-    "de": "Sieh dir Strohballen an.",
-    "en": "Look at Hay Bale."
-   },
-   "hint": {
-    "en": "Look at Hay Bale."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "flower"
+    "dirt"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poppy",
-    "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Mohnblumen.",
-    "en": "Place 3× Poppy."
-   },
-   "hint": {
-    "en": "Place 3× Poppy."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:dirt",
+    "size": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "wool"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_wool",
-    "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Wollblöcke.",
-    "en": "Place 2× White Wool."
-   },
-   "hint": {
-    "ko": "양털은 가위로 양을 깎아요.",
-    "de": "Wolle bekommst du mit einer Schere vom Schaf.",
-    "en": "Place 2× White Wool."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:poppy",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:dirt"
    }
   }
  ],
@@ -81,32 +66,23 @@
   "step": {
    "id": "finale",
    "teach": [
-    "flower"
+    "gen_yellow_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poppy",
-    "count": 5
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 5× Poppy."
-   },
-   "hint": {
-    "en": "Collect 5× Poppy."
+    "type": "CRAFT",
+    "item": "minecraft:yellow_dye",
+    "count": 1
    }
   },
-  "textKo": "꽃과 양털로 꽃관을 만들어요.",
-  "textDe": "Blumen und Wolle für den Kranz.",
-  "textEn": "the ritual of Poppy is complete."
+  "textKo": "노란색 염료를 만들었어요."
  },
  "reward": {
   "badge": "blumenkranz",
   "words": [
    "flower",
-   "wool"
+   "dirt",
+   "gen_yellow_dye"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Flower Wreath"
+ "koreanLevel": 1
 }

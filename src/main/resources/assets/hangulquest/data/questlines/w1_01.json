@@ -2,15 +2,12 @@
  "schema": 1,
  "id": "w1_01",
  "titleKo": "첫 촛불",
- "titleDe": "Die erste Kerze",
  "topic": "촛불",
  "tier": 1,
  "order": 1011,
  "concepts": [
-  "gen_netherite_shovel",
-  "gen_big_dripleaf",
-  "gen_brown_wool_stairs",
-  "gen_purple_terracotta"
+  "planks",
+  "candle"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,96 +18,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_netherite_shovel"
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_shovel",
-    "count": 2
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:birch_planks",
+    "count": 4
    },
-   "clue": {
-    "de": "Sammle 2× Netheritschaufel.",
-    "en": "Collect 2× Netherite Shovel."
-   },
-   "hint": {
-    "en": "Collect 2× Netherite Shovel."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_big_dripleaf"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:big_dripleaf",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:candle",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "candle"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:candle",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Großes Tropfblatt. Nachts.",
-    "en": "Place 2× Big Dripleaf. At night."
-   },
-   "hint": {
-    "en": "Place 2× Big Dripleaf. At night."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_brown_wool_stairs"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_wool_stairs",
-    "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Braune Wolltreppe.",
-    "en": "Collect 4× Brown Wool Stairs."
-   },
-   "hint": {
-    "en": "Collect 4× Brown Wool Stairs."
-   }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_terracotta"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_terracotta",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:candle"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Violette Keramik.",
-    "en": "Place Purple Terracotta."
-   },
-   "hint": {
-    "en": "Place Purple Terracotta."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "보라색 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Violette Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Purple Terracotta is complete."
+  "textKo": "밤에 초를 켰어요."
  },
  "reward": {
   "badge": "w1_01",
   "words": [
-   "candle",
-   "torch",
-   "campfire"
+   "planks",
+   "candle"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The First Candle"
+ "koreanLevel": 1
 }

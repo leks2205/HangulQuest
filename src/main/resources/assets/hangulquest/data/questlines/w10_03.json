@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_03",
  "titleKo": "잊혀진 사원",
- "titleDe": "Der Tempel unter dem Sand",
  "topic": "유적",
  "tier": 2,
  "order": 1103,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:dark_oak_planks",
     "count": 10
-   },
-   "clue": {
-    "de": "Baue 10× Schwarzeichenholzbretter ab.",
-    "en": "Break 10× Dark Oak Planks."
-   },
-   "hint": {
-    "en": "Break 10× Dark Oak Planks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:tube_coral_fan",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Orgelkorallenfächer.",
-    "en": "Place 4× Tube Coral Fan."
-   },
-   "hint": {
-    "en": "Place 4× Tube Coral Fan."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:lime_wool_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Hellgrüne Wollstufe.",
-    "en": "Collect Lime Wool Slab."
-   },
-   "hint": {
-    "en": "Collect Lime Wool Slab."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:dead_horn_coral",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 4× Abgestorbene Geweihkoralle.",
-    "en": "Collect 4× Dead Horn Coral."
-   },
-   "hint": {
-    "en": "Collect 4× Dead Horn Coral."
-   }
+   "conditions": []
   },
-  "textKo": "죽은 사방산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbene Geweihkoralle — Zeremonie vollendet.",
-  "textEn": "the ritual of Dead Horn Coral is complete."
+  "textKo": "죽은 사방산호를 네 개 모았어요."
  },
  "reward": {
   "badge": "w10_03",
@@ -108,6 +77,5 @@
    "gold"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Temple Under the Sand"
+ "koreanLevel": 5
 }

@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "waldhaus",
  "titleKo": "숲의 집",
- "titleDe": "Das Waldhaus",
+ "topic": "나무",
  "tier": 3,
+ "order": 120,
  "concepts": [
-  "gen_purple_concrete",
-  "gen_brown_glazed_terracotta",
-  "gen_cobblestone_wall",
-  "gen_azure_bluet"
+  "planks",
+  "door",
+  "glass_pane",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -22,55 +23,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_concrete"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_concrete",
-    "count": 8
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks",
+    "size": 3
    },
    "clue": {
-    "de": "Platziere 8× Violetter Beton.",
-    "en": "Place 8× Purple Concrete."
+    "ko": "집을 지어요. 판자로 벽을 쌓아요."
    },
    "hint": {
-    "en": "Place 8× Purple Concrete."
+    "ko": "판자로 벽을 쌓아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_glazed_terracotta"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_glazed_terracotta",
+    "type": "PLACE_REL",
+    "block": "minecraft:birch_door",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:planks",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Braune glasierte Keramik.",
-    "en": "Place Brown Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Place Brown Glazed Terracotta."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cobblestone_wall"
+    "glass_pane"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cobblestone_wall",
+    "type": "CRAFT",
+    "item": "minecraft:glass_pane",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Bruchsteinmauer.",
-    "en": "Place Cobblestone Wall."
-   },
-   "hint": {
-    "en": "Place Cobblestone Wall."
    }
   }
  ],
@@ -78,41 +67,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_azure_bluet"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:azure_bluet",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:oak_planks"
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
    "clue": {
-    "de": "Platziere Porzellansternchen. Nachts.",
-    "en": "Place Azure Bluet. At night."
+    "ko": "집 안에 침대를 놓아요."
    },
    "hint": {
-    "en": "Place Azure Bluet. At night."
+    "ko": "집 안에 침대를 놓아요."
    }
   },
-  "textKo": "밤에 선애기별꽃라는 길의 의식을 마쳤어요.",
-  "textDe": "Porzellansternchen — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Azure Bluet is complete."
+  "textKo": "집 안에 침대를 놓았어요."
  },
  "reward": {
   "badge": "waldhaus",
   "words": [
    "planks",
    "door",
+   "glass_pane",
    "bed"
   ]
  },
- "order": 120,
- "koreanLevel": 1,
- "topic": "나무",
- "titleEn": "The Forest House"
+ "koreanLevel": 1
 }

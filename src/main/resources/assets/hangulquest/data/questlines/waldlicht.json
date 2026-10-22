@@ -1,16 +1,14 @@
 {
  "schema": 1,
  "id": "waldlicht",
- "titleKo": "숲빛의 길",
- "titleDe": "Das Waldlicht",
+ "titleKo": "유리와 초의 길",
  "topic": "나무",
  "tier": 3,
  "order": 46,
  "concepts": [
   "glass",
-  "gen_lime_wool_slab",
-  "gen_jungle_fence_gate",
-  "gen_orange_stained_glass"
+  "candle",
+  "door"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -27,58 +25,36 @@
     "glass"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:glass",
-    "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Glas ab.",
-    "en": "Break 3× Glass."
-   },
-   "hint": {
-    "en": "Break 3× Glass."
+    "type": "SMELT",
+    "input": "minecraft:sand",
+    "output": "minecraft:glass",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_lime_wool_slab"
+    "glass"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:lime_wool_slab",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Hellgrüne Wollstufe an.",
-    "en": "Look at Lime Wool Slab."
-   },
-   "hint": {
-    "en": "Look at Lime Wool Slab."
+    "type": "PLACE_REL",
+    "block": "minecraft:glass",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_jungle_fence_gate"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_fence_gate",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "de": "Platziere 2× Tropenholzzauntor. Nachts.",
-    "en": "Place 2× Jungle Fence Gate. At night."
-   },
-   "hint": {
-    "en": "Place 2× Jungle Fence Gate. At night."
+    "type": "PLACE_REL",
+    "block": "minecraft:candle",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   }
  ],
@@ -86,39 +62,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_orange_stained_glass"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_stained_glass",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_door"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "ROOFED"
     }
-   ],
-   "clue": {
-    "de": "Platziere Oranges Glas. Nachts.",
-    "en": "Place Orange Stained Glass. At night."
-   },
-   "hint": {
-    "en": "Place Orange Stained Glass. At night."
-   }
+   ]
   },
-  "textKo": "밤에 주황색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Oranges Glas — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Orange Stained Glass is complete."
+  "textKo": "지붕 아래에서 문을 열었어요."
  },
  "reward": {
   "badge": "waldlicht",
   "words": [
-   "log",
-   "flower",
-   "torch"
+   "glass",
+   "candle",
+   "door"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Forest Light"
+ "koreanLevel": 1
 }

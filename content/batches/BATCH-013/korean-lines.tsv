@@ -1,0 +1,171 @@
+id	ko	context
+trail.pferderennen.title	말 경주의 길	title, authored; project: Fence a paddock near two horses, hang a fence gate and a banner in front of a horse, give it sugar by day, then feed it an apple and ride it.
+trail.pferderennen.s1.clue	말 두 마리 근처에서 울타리를 치세요.	clue, generated; BuildPattern minecraft:oak_fence RING 3
+trail.pferderennen.s1.hint	말 두 마리 근처에서 울타리를 쳐요.	hint, generated; BuildPattern minecraft:oak_fence RING 3
+trail.pferderennen.s2.clue	울타리 옆에 가문비나무 울타리 문을 다세요.	clue, generated; PlaceOnPattern minecraft:spruce_fence_gate NEXT_TO RING minecraft:oak_fence
+trail.pferderennen.s2.hint	울타리 옆에 가문비나무 울타리 문을 달아요.	hint, generated; PlaceOnPattern minecraft:spruce_fence_gate NEXT_TO RING minecraft:oak_fence
+trail.pferderennen.s3.clue	말 앞에 자홍색 현수막을 거세요.	clue, generated; PlaceRel minecraft:magenta_banner IN_FRONT_OF minecraft:horse
+trail.pferderennen.s3.hint	말 앞에 자홍색 현수막을 걸어요.	hint, generated; PlaceRel minecraft:magenta_banner IN_FRONT_OF minecraft:horse
+trail.pferderennen.s4.clue	낮에 말에게 설탕을 주세요.	clue, generated; Give minecraft:sugar x1
+trail.pferderennen.s4.hint	낮에 말에게 설탕을 줘요.	hint, generated; Give minecraft:sugar x1
+trail.pferderennen.finale.clue	말에게 사과를 주고 말을 타세요.	clue, generated; Sequence [Give minecraft:apple x1 > Mount minecraft:horse ]
+trail.pferderennen.finale.hint	말에게 사과를 주고 말을 타요.	hint, generated; Sequence [Give minecraft:apple x1 > Mount minecraft:horse ]
+trail.pferderennen.finale	말을 타고 달렸어요. 말은 빨라요.	finale, authored; Sequence [Give minecraft:apple x1 > Mount minecraft:horse ]
+trail.reitpfad.title	말타기의 길	title, authored; project: A donkey's riding trail: look at a donkey, give it hay, put a sign in front of it and a fence gate beside it, open the gate and ride out.
+trail.reitpfad.s1.clue	낮에 당나귀를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:donkey 
+trail.reitpfad.s1.hint	낮에 당나귀를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:donkey 
+trail.reitpfad.s2.clue	당나귀에게 건초 더미를 주세요.	clue, generated; Give minecraft:hay_block x1
+trail.reitpfad.s2.hint	당나귀에게 건초 더미를 줘요.	hint, generated; Give minecraft:hay_block x1
+trail.reitpfad.s3.clue	당나귀 앞에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:dark_oak_sign IN_FRONT_OF minecraft:donkey
+trail.reitpfad.s3.hint	당나귀 앞에 표지판을 세워요.	hint, generated; PlaceRel minecraft:dark_oak_sign IN_FRONT_OF minecraft:donkey
+trail.reitpfad.s4.clue	당나귀 옆에 아카시아나무 울타리 문을 다세요.	clue, generated; PlaceRel minecraft:acacia_fence_gate NEXT_TO minecraft:donkey
+trail.reitpfad.s4.hint	당나귀 옆에 아카시아나무 울타리 문을 달아요.	hint, generated; PlaceRel minecraft:acacia_fence_gate NEXT_TO minecraft:donkey
+trail.reitpfad.finale.clue	아카시아나무 울타리 문을 열고 당나귀를 타세요.	clue, generated; Sequence [UseBlock minecraft:acacia_fence_gate  > Mount minecraft:donkey ]
+trail.reitpfad.finale.hint	아카시아나무 울타리 문을 열고 당나귀를 타요.	hint, generated; Sequence [UseBlock minecraft:acacia_fence_gate  > Mount minecraft:donkey ]
+trail.reitpfad.finale	당나귀를 타고 나갔어요. 당나귀는 작아요. 말은 커요.	finale, authored; Sequence [UseBlock minecraft:acacia_fence_gate  > Mount minecraft:donkey ]
+trail.pferdehof.title	말 목장의 길	title, authored; project: A horse farm: a plank ring wall near three horses, a door, a cauldron as trough beside a horse, and an apple for a horse at the cauldron.
+trail.pferdehof.s1.clue	말 세 마리 근처에서 판자로 담을 쌓으세요.	clue, generated; BuildPattern minecraft:jungle_planks RING 3
+trail.pferdehof.s1.hint	말 세 마리 근처에서 판자로 담을 쌓아요.	hint, generated; BuildPattern minecraft:jungle_planks RING 3
+trail.pferdehof.s2.clue	판자 담 옆에 문을 다세요.	clue, generated; PlaceOnPattern minecraft:birch_door NEXT_TO RING minecraft:jungle_planks
+trail.pferdehof.s2.hint	판자 담 옆에 문을 달아요.	hint, generated; PlaceOnPattern minecraft:birch_door NEXT_TO RING minecraft:jungle_planks
+trail.pferdehof.s3.clue	말 옆에 가마솥을 놓으세요.	clue, generated; PlaceRel minecraft:cauldron NEXT_TO minecraft:horse
+trail.pferdehof.s3.hint	말 옆에 가마솥을 놓아요.	hint, generated; PlaceRel minecraft:cauldron NEXT_TO minecraft:horse
+trail.pferdehof.finale.clue	가마솥 근처에서 말에게 사과를 주세요.	clue, generated; Give minecraft:apple x1
+trail.pferdehof.finale.hint	가마솥 근처에서 말에게 사과를 줘요.	hint, generated; Give minecraft:apple x1
+trail.pferdehof.finale	가마솥 근처에서 말에게 사과를 줬어요.	finale, generated; Give minecraft:apple x1
+trail.gestuet.title	마구간의 길	title, authored; project: A stable: a plank ring wall with a rug inside, a sign in front of a horse, and the horse's name written on the sign.
+trail.gestuet.s1.clue	판자로 담을 쌓으세요.	clue, generated; BuildPattern minecraft:bamboo_planks RING 3
+trail.gestuet.s1.hint	판자로 담을 쌓아요.	hint, generated; BuildPattern minecraft:bamboo_planks RING 3
+trail.gestuet.s2.clue	판자 담 안에 양탄자를 까세요.	clue, generated; PlaceOnPattern minecraft:brown_carpet INSIDE RING minecraft:bamboo_planks
+trail.gestuet.s2.hint	판자 담 안에 양탄자를 깔아요.	hint, generated; PlaceOnPattern minecraft:brown_carpet INSIDE RING minecraft:bamboo_planks
+trail.gestuet.s3.clue	말 앞에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:bamboo_sign IN_FRONT_OF minecraft:horse
+trail.gestuet.s3.hint	말 앞에 표지판을 세워요.	hint, generated; PlaceRel minecraft:bamboo_sign IN_FRONT_OF minecraft:horse
+trail.gestuet.finale.clue	말 근처에서 표지판에 이름을 쓰세요.	clue, generated; UseBlock minecraft:bamboo_sign 
+trail.gestuet.finale.hint	말 근처에서 표지판에 이름을 써요.	hint, generated; UseBlock minecraft:bamboo_sign 
+trail.gestuet.finale	표지판에 말의 이름을 썼어요. 말은 커요.	finale, authored; UseBlock minecraft:bamboo_sign 
+trail.adv_husbandry_bred_all_animals.title	짝지어주기	title, authored; project: A pen near three cows with a gate, a sheep raised with wheat, a sign in front of the sheep, and a cow raised by day.
+trail.adv_husbandry_bred_all_animals.s1.clue	소 세 마리 근처에서 울타리를 치세요.	clue, generated; BuildPattern minecraft:dark_oak_fence RING 3
+trail.adv_husbandry_bred_all_animals.s1.hint	소 세 마리 근처에서 울타리를 쳐요.	hint, generated; BuildPattern minecraft:dark_oak_fence RING 3
+trail.adv_husbandry_bred_all_animals.s2.clue	울타리 옆에 자작나무 울타리 문을 다세요.	clue, generated; PlaceOnPattern minecraft:birch_fence_gate NEXT_TO RING minecraft:dark_oak_fence
+trail.adv_husbandry_bred_all_animals.s2.hint	울타리 옆에 자작나무 울타리 문을 달아요.	hint, generated; PlaceOnPattern minecraft:birch_fence_gate NEXT_TO RING minecraft:dark_oak_fence
+trail.adv_husbandry_bred_all_animals.s3.clue	밀을 들고 양을 키우세요.	clue, generated; Breed minecraft:sheep 
+trail.adv_husbandry_bred_all_animals.s3.hint	밀을 들고 양을 키워요.	hint, generated; Breed minecraft:sheep 
+trail.adv_husbandry_bred_all_animals.s4.clue	양 앞에 표지판을 세우세요.	clue, generated; PlaceRel minecraft:mangrove_sign IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_bred_all_animals.s4.hint	양 앞에 표지판을 세워요.	hint, generated; PlaceRel minecraft:mangrove_sign IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_bred_all_animals.s5.clue	밖에서 닭을 키우세요.	clue, generated; Breed minecraft:chicken 
+trail.adv_husbandry_bred_all_animals.s5.hint	밖에서 닭을 키워요.	hint, generated; Breed minecraft:chicken 
+trail.adv_husbandry_bred_all_animals.finale.clue	낮에 소를 키우세요.	clue, generated; Breed minecraft:cow 
+trail.adv_husbandry_bred_all_animals.finale.hint	낮에 소를 키워요.	hint, generated; Breed minecraft:cow 
+trail.adv_husbandry_bred_all_animals.finale	낮에 송아지가 태어났어요. 송아지는 작아요.	finale, authored; Breed minecraft:cow 
+trail.adv_husbandry_complete_catalogue.title	집사 그 자체	title, authored; project: Befriend a village cat: pet it near a villager, put a bed beside it and a rug in front of it, give it a fish and pet it.
+trail.adv_husbandry_complete_catalogue.s1.clue	주민 근처에서 고양이를 쓰다듬으세요.	clue, generated; InteractEntity minecraft:cat 
+trail.adv_husbandry_complete_catalogue.s1.hint	주민 근처에서 고양이를 쓰다듬어요.	hint, generated; InteractEntity minecraft:cat 
+trail.adv_husbandry_complete_catalogue.s2.clue	고양이 옆에 침대를 놓으세요.	clue, generated; PlaceRel minecraft:purple_bed NEXT_TO minecraft:cat
+trail.adv_husbandry_complete_catalogue.s2.hint	고양이 옆에 침대를 놓아요.	hint, generated; PlaceRel minecraft:purple_bed NEXT_TO minecraft:cat
+trail.adv_husbandry_complete_catalogue.s3.clue	고양이 앞에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:pink_carpet IN_FRONT_OF minecraft:cat
+trail.adv_husbandry_complete_catalogue.s3.hint	고양이 앞에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:pink_carpet IN_FRONT_OF minecraft:cat
+trail.adv_husbandry_complete_catalogue.finale.clue	고양이에게 물고기를 주고 고양이를 쓰다듬으세요.	clue, generated; Sequence [Give minecraft:cod x1 > InteractEntity minecraft:cat ]
+trail.adv_husbandry_complete_catalogue.finale.hint	고양이에게 물고기를 주고 고양이를 쓰다듬어요.	hint, generated; Sequence [Give minecraft:cod x1 > InteractEntity minecraft:cat ]
+trail.adv_husbandry_complete_catalogue.finale	고양이가 친구가 됐어요. 고양이는 작아요.	finale, authored; Sequence [Give minecraft:cod x1 > InteractEntity minecraft:cat ]
+trail.adv_husbandry_whole_pack.title	외롭지 못한 늑대	title, authored; project: A wolf pack: look at a wolf in the forest, a bone by day, a rug beside the wolf, raise a wolf with beef, wait ten seconds near three wolves at night.
+trail.adv_husbandry_whole_pack.s1.clue	숲에서 늑대를 일 초 동안 바라보세요.	clue, generated; LookAtEntity minecraft:wolf 
+trail.adv_husbandry_whole_pack.s1.hint	숲에서 늑대를 일 초 동안 바라봐요.	hint, generated; LookAtEntity minecraft:wolf 
+trail.adv_husbandry_whole_pack.s2.clue	낮에 늑대에게 뼈를 주세요.	clue, generated; Give minecraft:bone x1
+trail.adv_husbandry_whole_pack.s2.hint	낮에 늑대에게 뼈를 줘요.	hint, generated; Give minecraft:bone x1
+trail.adv_husbandry_whole_pack.s3.clue	늑대 옆에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:green_carpet NEXT_TO minecraft:wolf
+trail.adv_husbandry_whole_pack.s3.hint	늑대 옆에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:green_carpet NEXT_TO minecraft:wolf
+trail.adv_husbandry_whole_pack.s4.clue	소고기를 들고 늑대를 키우세요.	clue, generated; Breed minecraft:wolf 
+trail.adv_husbandry_whole_pack.s4.hint	소고기를 들고 늑대를 키워요.	hint, generated; Breed minecraft:wolf 
+trail.adv_husbandry_whole_pack.finale.clue	밤에 늑대 세 마리 근처에서 십 초 동안 기다리세요.	clue, generated; Wait 
+trail.adv_husbandry_whole_pack.finale.hint	밤에 늑대 세 마리 근처에서 잠깐 기다려요.	hint, generated; Wait 
+trail.adv_husbandry_whole_pack.finale	늑대 세 마리와 밤을 보냈어요. 늑대는 친구예요.	finale, authored; Wait 
+trail.adv_husbandry_remove_wolf_armor.title	탁월한 가위질	title, authored; project: Craft shears, give a wolf a bone at night, put wolf armor on it, then pet it with the shears in hand (armor off).
+trail.adv_husbandry_remove_wolf_armor.s1.clue	가위를 만드세요.	clue, generated; Craft minecraft:shears x1
+trail.adv_husbandry_remove_wolf_armor.s1.hint	가위를 만들어요.	hint, generated; Craft minecraft:shears x1
+trail.adv_husbandry_remove_wolf_armor.s2.clue	밤에 늑대에게 뼈를 주세요.	clue, generated; Give minecraft:bone x1
+trail.adv_husbandry_remove_wolf_armor.s2.hint	밤에 늑대에게 뼈를 줘요.	hint, generated; Give minecraft:bone x1
+trail.adv_husbandry_remove_wolf_armor.s3.clue	늑대에게 늑대 갑옷을 입히세요.	clue, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_remove_wolf_armor.s3.hint	늑대에게 늑대 갑옷을 입혀요.	hint, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_remove_wolf_armor.finale.clue	가위로 늑대의 갑옷을 벗기세요.	clue, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_remove_wolf_armor.finale.hint	가위로 늑대의 갑옷을 벗겨요.	hint, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_remove_wolf_armor.finale	가위로 늑대의 갑옷을 벗겼어요. 갑옷은 무거워요.	finale, authored; InteractEntity minecraft:wolf 
+trail.adv_husbandry_repair_wolf_armor.title	새것처럼	title, authored; project: Craft wolf armor, put it on a wolf, repair it with an armadillo scute, pet the wolf.
+trail.adv_husbandry_repair_wolf_armor.s1.clue	늑대 갑옷을 만드세요.	clue, generated; Craft minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s1.hint	늑대 갑옷을 만들어요.	hint, generated; Craft minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s2.clue	밖에서 늑대에게 늑대 갑옷을 입히세요.	clue, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s2.hint	밖에서 늑대에게 늑대 갑옷을 입혀요.	hint, generated; Give minecraft:wolf_armor x1
+trail.adv_husbandry_repair_wolf_armor.s3.clue	늑대에게 아르마딜로 인갑을 주세요.	clue, generated; Give minecraft:armadillo_scute x1
+trail.adv_husbandry_repair_wolf_armor.s3.hint	늑대에게 아르마딜로 인갑을 줘요.	hint, generated; Give minecraft:armadillo_scute x1
+trail.adv_husbandry_repair_wolf_armor.finale.clue	늑대를 쓰다듬으세요.	clue, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_repair_wolf_armor.finale.hint	늑대를 쓰다듬어요.	hint, generated; InteractEntity minecraft:wolf 
+trail.adv_husbandry_repair_wolf_armor.finale	늑대 갑옷이 새것처럼 됐어요.	finale, authored; InteractEntity minecraft:wolf 
+trail.adv_husbandry_leash_all_frog_variants.title	개구리 삼총사 출동!	title, authored; project: At the swamp: craft leads, put a fence beside the water, give a frog a slimeball, wait ten seconds near three frogs at night.
+trail.adv_husbandry_leash_all_frog_variants.s1.clue	늪으로 가세요.	clue, generated; ReachBiome minecraft:swamp 
+trail.adv_husbandry_leash_all_frog_variants.s1.hint	늪으로 가요.	hint, generated; ReachBiome minecraft:swamp 
+trail.adv_husbandry_leash_all_frog_variants.s2.clue	끈을 두 개 만드세요.	clue, generated; Craft minecraft:lead x2
+trail.adv_husbandry_leash_all_frog_variants.s2.hint	끈을 만들어요.	hint, generated; Craft minecraft:lead x2
+trail.adv_husbandry_leash_all_frog_variants.s3.clue	물 옆에 울타리를 세우세요.	clue, generated; PlaceRel minecraft:jungle_fence NEXT_TO minecraft:water
+trail.adv_husbandry_leash_all_frog_variants.s3.hint	물 옆에 울타리를 세워요.	hint, generated; PlaceRel minecraft:jungle_fence NEXT_TO minecraft:water
+trail.adv_husbandry_leash_all_frog_variants.s4.clue	개구리에게 슬라임볼을 주세요.	clue, generated; Give minecraft:slime_ball x1
+trail.adv_husbandry_leash_all_frog_variants.s4.hint	개구리에게 슬라임볼을 줘요.	hint, generated; Give minecraft:slime_ball x1
+trail.adv_husbandry_leash_all_frog_variants.finale.clue	밤에 개구리 세 마리 근처에서 십 초 동안 기다리세요.	clue, generated; Wait 
+trail.adv_husbandry_leash_all_frog_variants.finale.hint	밤에 개구리 세 마리 근처에서 잠깐 기다려요.	hint, generated; Wait 
+trail.adv_husbandry_leash_all_frog_variants.finale	밤에 개구리 세 마리 근처에서 십 초 동안 기다렸어요.	finale, generated; Wait 
+trail.adv_husbandry_froglights.title	개구리 연못의 밤	title, authored; project: A night at a mangrove-swamp pond: a lime candle beside the water, a small plank dock with a rug on top, and a frog fed near the candle.
+trail.adv_husbandry_froglights.s1.clue	밤에 맹그로브 늪으로 가세요.	clue, generated; ReachBiome minecraft:mangrove_swamp 
+trail.adv_husbandry_froglights.s1.hint	밤에 맹그로브 늪으로 가요.	hint, generated; ReachBiome minecraft:mangrove_swamp 
+trail.adv_husbandry_froglights.s2.clue	물 옆에 연두색 초를 세우세요.	clue, generated; PlaceRel minecraft:lime_candle NEXT_TO minecraft:water
+trail.adv_husbandry_froglights.s2.hint	물 옆에 연두색 초를 세워요.	hint, generated; PlaceRel minecraft:lime_candle NEXT_TO minecraft:water
+trail.adv_husbandry_froglights.s3.clue	판자 세 개를 나란히 놓으세요.	clue, generated; BuildPattern minecraft:mangrove_planks ROW 3
+trail.adv_husbandry_froglights.s3.hint	판자를 나란히 놓아요.	hint, generated; BuildPattern minecraft:mangrove_planks ROW 3
+trail.adv_husbandry_froglights.s4.clue	판자 세 개 위에 양탄자를 까세요.	clue, generated; PlaceOnPattern minecraft:cyan_carpet ON_TOP_OF ROW minecraft:mangrove_planks
+trail.adv_husbandry_froglights.s4.hint	판자 세 개 위에 양탄자를 깔아요.	hint, generated; PlaceOnPattern minecraft:cyan_carpet ON_TOP_OF ROW minecraft:mangrove_planks
+trail.adv_husbandry_froglights.finale.clue	밤에 연두색 초 근처에서 개구리에게 먹이를 주세요.	clue, generated; InteractEntity minecraft:frog 
+trail.adv_husbandry_froglights.finale.hint	밤에 연두색 초 근처에서 개구리에게 먹이를 줘요.	hint, generated; InteractEntity minecraft:frog 
+trail.adv_husbandry_froglights.finale	밤에 연두색 초 근처에서 개구리에게 먹이를 줬어요.	finale, generated; InteractEntity minecraft:frog 
+trail.adv_husbandry_kill_axolotl_target.title	양털 깎는 날	title, authored; project: Shearing day: wool with shears in hand, a white banner crafted from it and hung in front of a sheep, a sheep fed near the banner.
+trail.adv_husbandry_kill_axolotl_target.s1.clue	가위를 들고 양털을 여섯 개 모으세요.	clue, generated; AcquireItem minecraft:white_wool x6
+trail.adv_husbandry_kill_axolotl_target.s1.hint	가위를 들고 양털을 모아요.	hint, generated; AcquireItem minecraft:white_wool x6
+trail.adv_husbandry_kill_axolotl_target.s2.clue	하얀색 현수막을 만드세요.	clue, generated; Craft minecraft:white_banner x1
+trail.adv_husbandry_kill_axolotl_target.s2.hint	하얀색 현수막을 만들어요.	hint, generated; Craft minecraft:white_banner x1
+trail.adv_husbandry_kill_axolotl_target.s3.clue	양 앞에 하얀색 현수막을 거세요.	clue, generated; PlaceRel minecraft:white_banner IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_kill_axolotl_target.s3.hint	양 앞에 하얀색 현수막을 걸어요.	hint, generated; PlaceRel minecraft:white_banner IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_kill_axolotl_target.finale.clue	하얀색 현수막 근처에서 양에게 먹이를 주세요.	clue, generated; InteractEntity minecraft:sheep 
+trail.adv_husbandry_kill_axolotl_target.finale.hint	하얀색 현수막 근처에서 양에게 먹이를 줘요.	hint, generated; InteractEntity minecraft:sheep 
+trail.adv_husbandry_kill_axolotl_target.finale	하얀색 현수막 근처에서 양에게 먹이를 줬어요.	finale, generated; InteractEntity minecraft:sheep 
+trail.adv_husbandry_allay_deliver_cake_to_note_block.title	동물들의 노래	title, authored; project: A song for the animals: craft a note block near a cow, put it beside a cow, listen, a rug in front of a sheep, listen again near two sheep.
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s1.clue	소 근처에서 소리 블록을 만드세요.	clue, generated; Craft minecraft:note_block x1
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s1.hint	소 근처에서 소리 블록을 만들어요.	hint, generated; Craft minecraft:note_block x1
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s2.clue	소 옆에 소리 블록을 놓으세요.	clue, generated; PlaceRel minecraft:note_block NEXT_TO minecraft:cow
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s2.hint	소 옆에 소리 블록을 놓아요.	hint, generated; PlaceRel minecraft:note_block NEXT_TO minecraft:cow
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s3.clue	소리 블록의 소리를 들으세요.	clue, generated; Hear minecraft:note_block 
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s3.hint	소리 블록의 소리를 들어요.	hint, generated; Hear minecraft:note_block 
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s4.clue	양 앞에 양탄자를 까세요.	clue, generated; PlaceRel minecraft:blue_carpet IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_allay_deliver_cake_to_note_block.s4.hint	양 앞에 양탄자를 깔아요.	hint, generated; PlaceRel minecraft:blue_carpet IN_FRONT_OF minecraft:sheep
+trail.adv_husbandry_allay_deliver_cake_to_note_block.finale.clue	양 두 마리 근처에서 소리 블록의 소리를 들으세요.	clue, generated; Hear minecraft:note_block 
+trail.adv_husbandry_allay_deliver_cake_to_note_block.finale.hint	양 두 마리 근처에서 소리 블록의 소리를 들어요.	hint, generated; Hear minecraft:note_block 
+trail.adv_husbandry_allay_deliver_cake_to_note_block.finale	양 두 마리 근처에서 소리 블록의 소리를 들었어요.	finale, generated; Hear minecraft:note_block 
+trail.adv_husbandry_feed_snifflet.title	돼지 우리	title, authored; project: A pig pen: a plank ring wall near three pigs, a door, mud beside a pig, and a pig raised with a carrot.
+trail.adv_husbandry_feed_snifflet.s1.clue	돼지 세 마리 근처에서 판자로 담을 쌓으세요.	clue, generated; BuildPattern minecraft:pale_oak_planks RING 3
+trail.adv_husbandry_feed_snifflet.s1.hint	돼지 세 마리 근처에서 판자로 담을 쌓아요.	hint, generated; BuildPattern minecraft:pale_oak_planks RING 3
+trail.adv_husbandry_feed_snifflet.s2.clue	판자 담 옆에 문을 다세요.	clue, generated; PlaceOnPattern minecraft:dark_oak_door NEXT_TO RING minecraft:pale_oak_planks
+trail.adv_husbandry_feed_snifflet.s2.hint	판자 담 옆에 문을 달아요.	hint, generated; PlaceOnPattern minecraft:dark_oak_door NEXT_TO RING minecraft:pale_oak_planks
+trail.adv_husbandry_feed_snifflet.s3.clue	돼지 옆에 진흙을 놓으세요.	clue, generated; PlaceRel minecraft:mud NEXT_TO minecraft:pig
+trail.adv_husbandry_feed_snifflet.s3.hint	돼지 옆에 진흙을 놓아요.	hint, generated; PlaceRel minecraft:mud NEXT_TO minecraft:pig
+trail.adv_husbandry_feed_snifflet.finale.clue	당근을 들고 돼지를 키우세요.	clue, generated; Breed minecraft:pig 
+trail.adv_husbandry_feed_snifflet.finale.hint	당근을 들고 돼지를 키워요.	hint, generated; Breed minecraft:pig 
+trail.adv_husbandry_feed_snifflet.finale	새끼 돼지가 태어났어요. 새끼는 작아요.	finale, authored; Breed minecraft:pig 
+trail.adv_husbandry_plant_any_sniffer_seed.title	토끼 밭	title, authored; project: A rabbit patch: feed a rabbit in a meadow, a fence pen with a tulip and carrots inside, raise a rabbit, wait ten seconds near two rabbits.
+trail.adv_husbandry_plant_any_sniffer_seed.s1.clue	목초지에서 토끼에게 먹이를 주세요.	clue, generated; InteractEntity minecraft:rabbit 
+trail.adv_husbandry_plant_any_sniffer_seed.s1.hint	목초지에서 토끼에게 먹이를 줘요.	hint, generated; InteractEntity minecraft:rabbit 
+trail.adv_husbandry_plant_any_sniffer_seed.s2.clue	울타리를 치세요.	clue, generated; BuildPattern minecraft:cherry_fence RING 3
+trail.adv_husbandry_plant_any_sniffer_seed.s2.hint	울타리를 쳐요.	hint, generated; BuildPattern minecraft:cherry_fence RING 3
+trail.adv_husbandry_plant_any_sniffer_seed.s3.clue	울타리 안에 분홍색 튤립을 심으세요.	clue, generated; PlaceOnPattern minecraft:pink_tulip INSIDE RING minecraft:cherry_fence
+trail.adv_husbandry_plant_any_sniffer_seed.s3.hint	울타리 안에 분홍색 튤립을 심어요.	hint, generated; PlaceOnPattern minecraft:pink_tulip INSIDE RING minecraft:cherry_fence
+trail.adv_husbandry_plant_any_sniffer_seed.s4.clue	울타리 안에 당근을 심으세요.	clue, generated; PlaceOnPattern minecraft:carrots INSIDE RING minecraft:cherry_fence
+trail.adv_husbandry_plant_any_sniffer_seed.s4.hint	울타리 안에 당근을 심어요.	hint, generated; PlaceOnPattern minecraft:carrots INSIDE RING minecraft:cherry_fence
+trail.adv_husbandry_plant_any_sniffer_seed.s5.clue	당근을 들고 토끼를 키우세요.	clue, generated; Breed minecraft:rabbit 
+trail.adv_husbandry_plant_any_sniffer_seed.s5.hint	당근을 들고 토끼를 키워요.	hint, generated; Breed minecraft:rabbit 
+trail.adv_husbandry_plant_any_sniffer_seed.finale.clue	토끼 두 마리 근처에서 십 초 동안 기다리세요.	clue, generated; Wait 
+trail.adv_husbandry_plant_any_sniffer_seed.finale.hint	토끼 두 마리 근처에서 잠깐 기다려요.	hint, generated; Wait 
+trail.adv_husbandry_plant_any_sniffer_seed.finale	토끼 두 마리 근처에서 십 초 동안 기다렸어요.	finale, generated; Wait 

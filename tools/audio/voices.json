@@ -1,0 +1,42 @@
+{
+  "model": {
+    "name": "Qwen3-TTS-12Hz-1.7B",
+    "version": "2026-01 (qwen-tts 0.1.1)",
+    "repos": {
+      "custom": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "base": "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
+    },
+    "code_licence": "Apache-2.0",
+    "weights_licence": "Apache-2.0",
+    "licence_urls": [
+      "https://github.com/QwenLM/Qwen3-TTS",
+      "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base"
+    ]
+  },
+  "ref_text": "안녕하세요. 오늘은 한국어를 천천히 또박또박 말해 볼게요.",
+  "voices": {
+    "sohee": {
+      "kind": "custom",
+      "speaker": "Sohee",
+      "about": "preset native Korean female voice"
+    },
+    "female2": {
+      "kind": "clone",
+      "seed": 11,
+      "design": "A native Korean woman in her late twenties with a standard Seoul accent. Calm, clear, friendly teacher voice, medium pitch, slow and precise pronunciation."
+    },
+    "male1": {
+      "kind": "clone",
+      "seed": 23,
+      "design": "A native Korean man in his thirties with a standard Seoul accent. Clear, warm, steady voice, medium-low pitch, slow and precise pronunciation like a language teacher."
+    },
+    "male2": {
+      "kind": "clone",
+      "seed": 37,
+      "design": "A native Korean man in his twenties with a standard Seoul accent. Bright, friendly, slightly higher pitch, clear and unhurried pronunciation."
+    }
+  }
+}

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_netherite_armor",
  "titleKo": "잔해로 날 감싸줘",
- "titleDe": "Bedeck mich mit Schrott",
  "topic": "nether",
  "tier": 2,
  "order": 300,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:conduit",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Aquisator.",
-    "en": "Collect 4× Conduit."
-   },
-   "hint": {
-    "en": "Collect 4× Conduit."
    }
   },
   {
@@ -47,13 +39,8 @@
     "item": "minecraft:netherite_helmet",
     "count": 1
    },
-   "clue": {
-    "de": "Schmiede den ersten Helm aus Netherit.",
-    "en": "Collect Netherite Helmet."
-   },
    "hint": {
-    "ko": "고대 잔해를 화로에 구우면 네더라이트 주괴가 돼요.",
-    "en": "Collect Netherite Helmet."
+    "ko": "네더라이트 투구는 대장장이 작업대에서 다이아몬드 투구와 네더라이트 주괴로 업그레이드해요."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "item": "minecraft:netherite_chestplate",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Schließe den Harnisch an – die Rüstung sitzt.",
-    "en": "Collect Netherite Chestplate."
-   },
-   "hint": {
-    "en": "Collect Netherite Chestplate."
-   }
+   "conditions": []
   },
-  "textKo": "잔해로 날 감싸줘 — 고대 잔해로 네더라이트 갑옷을 만들었어요.",
-  "textDe": "Bedeck mich mit Schrott — aus uraltem Schrott wird Netheritrüstung.",
-  "textEn": "the ritual of Netherite Chestplate is complete."
+  "textKo": "잔해로 날 감싸줘 — 고대 잔해로 네더라이트 갑옷을 만들었어요."
  },
  "reward": {
   "badge": "adv_nether_netherite_armor",
@@ -89,6 +67,5 @@
    "adv_block_netherite_chestplate"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Cover Me in Debris"
+ "koreanLevel": 3
 }

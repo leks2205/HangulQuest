@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_plant_seed",
  "titleKo": "씨앗이 자라나는 곳",
- "titleDe": "Hobbygärtner",
- "topic": "husbandry",
+ "topic": "밀",
  "tier": 2,
  "order": 273,
  "concepts": [
-  "grass",
-  "nether_wart",
-  "wheat"
+  "water",
+  "wheat",
+  "wait",
+  "grow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +22,53 @@
   {
    "id": "s1",
    "teach": [
-    "grass"
+    "water"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:grass_block"
-   },
-   "clue": {
-    "de": "Mach mit der Hacke aus Gras Ackerboden.",
-    "en": "Use Grass Block."
-   },
-   "hint": {
-    "ko": "괭이로 잔디를 갈아요.",
-    "en": "Use Grass Block."
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:water",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "nether_wart"
+    "wheat",
+    "water"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_wart",
-    "count": 1
-   },
-   "clue": {
-    "de": "Pflanze Netherwarze auf Seelensand im Nether.",
-    "en": "Place Nether Wart."
+    "type": "PLACE_REL",
+    "block": "minecraft:wheat",
+    "relation": "NEAR",
+    "anchor": "minecraft:water",
+    "count": 5
    },
    "hint": {
-    "en": "Place Nether Wart."
+    "ko": "괭이로 땅을 갈아요. 물 근처에 밀을 심어요."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wait",
+    "grow"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 30
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:wheat",
+     "radius": 6
+    }
+   ],
+   "clue": {
+    "ko": "밀이 자라요. 밀 근처에서 기다려요."
+   },
+   "hint": {
+    "ko": "밀이 자라요. 밀 근처에서 기다려요."
    }
   }
  ],
@@ -63,30 +79,21 @@
     "wheat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "BREAK_BLOCK",
     "block": "minecraft:wheat",
-    "count": 3
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Place 3× Wheat Crops."
-   },
-   "hint": {
-    "en": "Place 3× Wheat Crops."
+    "count": 1
    }
   },
-  "textKo": "씨앗이 자라나는 곳 — 밀 씨앗을 심고 밭을 가꿔요.",
-  "textDe": "Hobbygärtner — Du säst Weizenkörner und pflegst dein Feld.",
-  "textEn": "the ritual of Wheat Crops is complete."
+  "textKo": "밀을 수확했어요."
  },
  "reward": {
   "badge": "adv_husbandry_plant_seed",
   "words": [
-   "grass",
-   "nether_wart",
-   "wheat"
+   "water",
+   "wheat",
+   "wait",
+   "grow"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "A Seedy Place"
+ "koreanLevel": 1
 }

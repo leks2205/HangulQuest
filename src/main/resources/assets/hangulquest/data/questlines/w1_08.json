@@ -1,16 +1,15 @@
 {
  "schema": 1,
  "id": "w1_08",
- "titleKo": "바다의 등불",
- "titleDe": "Das Licht des Meeres",
- "topic": "등불",
+ "titleKo": "작은 집의 아침",
+ "topic": "집",
  "tier": 1,
  "order": 1018,
  "concepts": [
-  "lantern",
-  "gen_cobbled_deepslate_slab",
-  "gen_green_concrete_powder",
-  "gen_pale_oak_fence_gate"
+  "planks",
+  "house",
+  "door",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,57 +20,64 @@
   {
    "id": "s1",
    "teach": [
-    "lantern"
+    "planks",
+    "house"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lantern",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks",
+    "size": 3
    },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
    "clue": {
-    "de": "Bau zwei Laternen.",
-    "en": "Collect 2× Lantern."
+    "ko": "낮에 판자로 작은 집의 벽을 쌓아요."
    },
    "hint": {
-    "ko": "랜턴은 횃불과 철 조각으로 만들어요.",
-    "de": "Laternen brauchen eine Fackel und Eisenstücke.",
-    "en": "Collect 2× Lantern."
+    "ko": "낮에 판자로 작은 집의 벽을 쌓아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cobbled_deepslate_slab"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cobbled_deepslate_slab",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bruchtiefenschieferstufe.",
-    "en": "Place 2× Cobbled Deepslate Slab."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:acacia_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks"
    },
    "hint": {
-    "en": "Place 2× Cobbled Deepslate Slab."
+    "ko": "판자 벽 옆에 문을 달아요."
+   },
+   "clue": {
+    "ko": "판자 벽 옆에 문을 달아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_green_concrete_powder"
+    "bed"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_concrete_powder",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:light_gray_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_planks"
    },
    "clue": {
-    "de": "Sammle 2× Grüner Trockenbeton.",
-    "en": "Collect 2× Green Concrete Powder."
+    "ko": "작은 집 안에 침대를 놓아요."
    },
    "hint": {
-    "en": "Collect 2× Green Concrete Powder."
+    "ko": "작은 집 안에 침대를 놓아요."
    }
   }
  ],
@@ -79,34 +85,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_fence_gate"
+    "door"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_fence_gate",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:acacia_door"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Blasseichenholzzauntor.",
-    "en": "Place 2× Pale Oak Fence Gate."
-   },
-   "hint": {
-    "en": "Place 2× Pale Oak Fence Gate."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   },
-  "textKo": "창백한 참나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenholzzauntor — Zeremonie vollendet.",
-  "textEn": "the ritual of Pale Oak Fence Gate is complete."
+  "textKo": "새벽에 문을 열었어요."
  },
  "reward": {
   "badge": "w1_08",
   "words": [
-   "lantern",
-   "sea_lantern",
-   "adv_item_glow_ink_sac"
+   "planks",
+   "house",
+   "door",
+   "bed"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Light of the Sea"
+ "koreanLevel": 1
 }

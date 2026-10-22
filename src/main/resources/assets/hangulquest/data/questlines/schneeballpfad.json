@@ -2,15 +2,12 @@
  "schema": 1,
  "id": "schneeballpfad",
  "titleKo": "눈싸움의 길",
- "titleDe": "Der Schneeballpfad",
  "topic": "겨울",
  "tier": 2,
  "order": 101,
  "concepts": [
   "snowball",
-  "gen_cherry_sign",
-  "gen_chiseled_copper",
-  "snow"
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -28,52 +25,29 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:snowball",
-    "count": 8
-   },
-   "clue": {
-    "de": "Sammle acht Schneebälle.",
-    "en": "Collect 8× Snowball."
-   },
-   "hint": {
-    "ko": "삽으로 눈을 캐면 눈덩이가 나와요.",
-    "de": "Mit einer Schaufel bekommst du aus Schnee Schneebälle.",
-    "en": "Collect 8× Snowball."
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_sign"
+    "snowball"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:cherry_sign",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Kirschholzschild an.",
-    "en": "Look at Cherry Sign."
-   },
-   "hint": {
-    "en": "Look at Cherry Sign."
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:snowball",
+    "count": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_chiseled_copper"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_copper",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Gemeißelter Kupferblock.",
-    "en": "Place 2× Chiseled Copper."
-   },
-   "hint": {
-    "en": "Place 2× Chiseled Copper."
+    "type": "CRAFT",
+    "item": "minecraft:snow_block",
+    "count": 1
    }
   }
  ],
@@ -81,24 +55,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "snow"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:snow",
-    "count": 3
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Place 3× Snow."
-   },
-   "hint": {
-    "en": "Place 3× Snow."
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:snow_block",
+    "size": 3
    }
   },
-  "textKo": "눈을 쌓아요.",
-  "textDe": "Schnee aufschichten.",
-  "textEn": "the ritual of Snow is complete."
+  "textKo": "눈 블록 세 개로 기둥을 쌓았어요."
  },
  "reward": {
   "badge": "schneeballpfad",
@@ -107,6 +73,5 @@
    "snow"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Snowball Trail"
+ "koreanLevel": 1
 }

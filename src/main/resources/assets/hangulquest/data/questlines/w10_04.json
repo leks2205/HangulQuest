@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_04",
  "titleKo": "뼈의 수호자",
- "titleDe": "Der Wächter aus Knochen",
  "topic": "유적",
  "tier": 2,
  "order": 1104,
@@ -10,7 +9,7 @@
   "gen_weathered_copper_bars",
   "gen_bamboo_fence_gate",
   "gen_cobbled_deepslate",
-  "gen_infested_chiseled_stone_bricks"
+  "gen_bone_block"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:weathered_copper_bars",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Verwittertes Kupfergitter.",
-    "en": "Collect 4× Weathered Copper Bars."
-   },
-   "hint": {
-    "en": "Collect 4× Weathered Copper Bars."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:bamboo_fence_gate",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bambuszauntor.",
-    "en": "Place 2× Bamboo Fence Gate."
-   },
-   "hint": {
-    "en": "Place 2× Bamboo Fence Gate."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cobbled_deepslate",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Bruchtiefenschiefer.",
-    "en": "Place Cobbled Deepslate."
-   },
-   "hint": {
-    "en": "Place Cobbled Deepslate."
    }
   }
  ],
@@ -79,25 +57,16 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_infested_chiseled_stone_bricks"
+    "gen_bone_block"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_chiseled_stone_bricks",
+    "block": "minecraft:bone_block",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Befallene gemeißelte Steinziegel.",
-    "en": "Place 2× Infested Chiseled Stone Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Infested Chiseled Stone Bricks."
-   }
+   "conditions": []
   },
-  "textKo": "벌레 먹은 조각된 석재 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Befallene gemeißelte Steinziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Infested Chiseled Stone Bricks is complete."
+  "textKo": "뼈 블록을 두 개 쌓았어요."
  },
  "reward": {
   "badge": "w10_04",
@@ -108,6 +77,5 @@
    "candle"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Keeper of Bones"
+ "koreanLevel": 5
 }

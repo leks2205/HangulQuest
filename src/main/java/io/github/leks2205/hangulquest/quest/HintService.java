@@ -1,0 +1,110 @@
+package io.github.leks2205.hangulquest.quest;
+
+import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.learn.LearningSink;
+import io.github.leks2205.hangulquest.sense.Observation;
+
+/** The hint key and its sidequest: a small quiz that pauses the focused trail until it is answered. */
+final class HintService {
+	private final TrackRegistry registry;
+	private final QuestTextService text;
+	private final QuestPersistence persistence;
+	private final LearningSink learn;
+	private final Catalog catalog;
+
+	private long lastHintAt;
+
+	HintService(TrackRegistry registry, QuestTextService text, QuestPersistence persistence,
+				LearningSink learn, Catalog catalog) {
+		this.registry = registry;
+		this.text = text;
+		this.persistence = persistence;
+		this.learn = learn;
+		this.catalog = catalog;
+	}
+
+	QuestEngine.HintView hint(Observation obs, QuestEngine.Feedback feedback) {
+		Track track = registry.focused();
+		if (track == null) {
+			return null;
+		}
+		if (obs.now - lastHintAt < 2000) {
+			return null;
+		}
+		lastHintAt = obs.now;
+		QuestStep step = track.step();
+		if (step == null) {
+			return null;
+		}
+		int level = track.trail.koreanLevel();
+		Word word = track.sideQuest != null ? track.sideQuest.word() : text.firstWord(step);
+		String simplified = text.hintKo(step, level, word);
+		String note = io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(step.goal()).hintNote(step.goal(), track.tracker);
+		if (!note.isBlank()) {
+			simplified = simplified + " " + note;
+		}
+		String description = word != null && word.hasDescKo() ? word.descKo : null;
+		boolean known = word != null && learn.isKnown(word.id);
+		boolean started = false;
+		if (step.reverse()) {
+			// A reverse step keeps the word hidden: no word card, no sidequest. The hint still counts as help.
+			track.hintUsed = true;
+			persistence.persist(registry, obs.now);
+			return new QuestEngine.HintView(text.clueKo(step, level), simplified, description, null, false);
+		}
+		if (track.sideQuest == null && !known && word != null && !track.hintUsed) {
+			track.sideQuest = SideQuest.start(word, catalog);
+			track.hintUsed = true;
+			feedback.wordCard(word);
+			// The hint shows the word: an encounter in its own context.
+			learn.expose(word, obs.now, StepCompletion.context(track, step, "hint"));
+			persistence.persist(registry, obs.now);
+			started = true;
+		}
+		return new QuestEngine.HintView(text.clueKo(step, level), simplified, description, word,
+				started || track.sideQuest != null);
+	}
+
+	boolean answerSidequest(int index, QuestEngine.Feedback feedback) {
+		Track track = registry.focused();
+		if (track == null || track.sideQuest == null) {
+			return false;
+		}
+		int optionCount = track.sideQuest.options().size();
+		boolean correct = track.sideQuest.answer(index);
+		Word word = track.sideQuest.word();
+		long now = System.currentTimeMillis();
+		// Two or three options: logged and counted, never a schedule change.
+		learn.practice(word.id, optionCount, correct, now);
+		if (track.sideQuest.isDone()) {
+			Word learned = track.sideQuest.word();
+			track.sideQuest = null;
+			learn.noteSidequestCompleted();
+			persistence.persist(registry, now);
+			feedback.sidequestCompleted(learned);
+			feedback.sound(true);
+			StepCompletion.unlock(feedback, learn.checkAchievements());
+		} else {
+			persistence.persist(registry, now);
+			feedback.sound(correct);
+		}
+		return correct;
+	}
+
+	void hintWordCard(QuestEngine.Feedback feedback) {
+		Track track = registry.focused();
+		if (track == null) {
+			return;
+		}
+		Word word = text.firstWord(track.step());
+		if (word != null) {
+			feedback.wordCard(word);
+		}
+	}
+
+	boolean hintUsed() {
+		Track track = registry.focused();
+		return track != null && track.hintUsed;
+	}
+}

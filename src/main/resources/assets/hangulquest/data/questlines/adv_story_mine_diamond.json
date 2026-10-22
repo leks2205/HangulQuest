@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_mine_diamond",
  "titleKo": "다이아몬드다!",
- "titleDe": "Diamanten!",
  "topic": "story",
  "tier": 2,
  "order": 319,
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:tuff_slab",
     "count": 24
-   },
-   "clue": {
-    "de": "Baue 24× Tuffsteinstufe ab.",
-    "en": "Break 24× Tuff Slab."
-   },
-   "hint": {
-    "en": "Break 24× Tuff Slab."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:diamond_ore",
     "dwellMs": 600
-   },
-   "clue": {
-    "de": "Halte nach einem Diamanten im Erz Ausschau.",
-    "en": "Look at Diamond Ore."
-   },
-   "hint": {
-    "en": "Look at Diamond Ore."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:exposed_copper_chain",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Angelaufene Kupferkette.",
-    "en": "Collect Exposed Copper Chain."
-   },
-   "hint": {
-    "en": "Collect Exposed Copper Chain."
-   }
+   "conditions": []
   },
-  "textKo": "약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Angelaufene Kupferkette — Zeremonie vollendet.",
-  "textEn": "the ritual of Exposed Copper Chain is complete."
+  "textKo": "약간 녹슨 구리 사슬을 구했어요."
  },
  "reward": {
   "badge": "adv_story_mine_diamond",
@@ -87,6 +63,5 @@
    "diamond"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Diamonds!"
+ "koreanLevel": 3
 }

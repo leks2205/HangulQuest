@@ -1,0 +1,161 @@
+id	ko	context
+trail.steinpfad.title	돌과 불의 길	title, authored; project: Mine coal, stack a cobblestone pillar and put a torch on top of it at night.
+trail.steinpfad.s1.clue	해가 떠요. 석탄을 두 개 캐요.	clue, authored; BREAK_BLOCK
+trail.steinpfad.s1.hint	석탄을 캐요.	hint, authored; BREAK_BLOCK
+trail.steinpfad.s2.clue	돌을 캐요. 조약돌 세 개로 기둥을 쌓아요.	clue, authored; BUILD_PATTERN
+trail.steinpfad.s2.hint	조약돌로 기둥을 쌓아요.	hint, authored; BUILD_PATTERN
+trail.steinpfad.s3.clue	횃불을 만들어요.	clue, generated; CRAFT
+trail.steinpfad.s3.hint	횃불을 만들어요.	hint, generated; CRAFT
+trail.steinpfad.finale.clue	밤에 조약돌 기둥 위에 횃불을 놓아요.	clue, generated; PLACE_ON_PATTERN ON_TOP_OF TIME:NIGHT
+trail.steinpfad.finale.hint	밤에 조약돌 기둥 위에 횃불을 놓아요.	hint, generated; PLACE_ON_PATTERN ON_TOP_OF TIME:NIGHT
+trail.steinpfad.finale	밤에 조약돌 기둥 위에 횃불을 놓았어요.	finale line, generated
+trail.holzpfad.title	나무 집과 문의 길	title, authored; project: Plant a tree, craft a door and hang it next to the trunk: a tree house.
+trail.holzpfad.s1.clue	낮에 나무를 심어요.	clue, generated; PLACE_BLOCK  TIME:DAY
+trail.holzpfad.s1.hint	낮에 나무를 심어요.	hint, generated; PLACE_BLOCK  TIME:DAY
+trail.holzpfad.s2.clue	문을 만들어요.	clue, generated; CRAFT
+trail.holzpfad.s2.hint	문을 만들어요.	hint, generated; CRAFT
+trail.holzpfad.s3.clue	나무 위에 횃불을 놓아요.	clue, authored; PLACE_REL ON_TOP_OF
+trail.holzpfad.s3.hint	나무 위에 횃불을 놓아요.	hint, authored; PLACE_REL ON_TOP_OF
+trail.holzpfad.finale.clue	통나무 옆에 문을 달아요.	clue, generated; PLACE_REL NEXT_TO
+trail.holzpfad.finale.hint	통나무 옆에 문을 달아요.	hint, generated; PLACE_REL NEXT_TO
+trail.holzpfad.finale	나무 집에 문을 달았어요.	finale line, authored
+trail.essenspfad.title	사과와 달걀과 소의 길	title, authored; project: A farm picnic: find an apple, feed the chicken, eat the apple next to the cow.
+trail.essenspfad.s1.clue	사과를 구해요.	clue, generated; ACQUIRE_ITEM
+trail.essenspfad.s1.hint	사과를 구해요.	hint, generated; ACQUIRE_ITEM
+trail.essenspfad.s2.clue	낮에 닭을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.essenspfad.s2.hint	낮에 닭을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.essenspfad.s3.clue	닭에게 밀 씨앗을 줘요.	clue, generated; GIVE
+trail.essenspfad.s3.hint	닭에게 밀 씨앗을 줘요.	hint, generated; GIVE
+trail.essenspfad.finale.clue	소 옆에서 사과를 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
+trail.essenspfad.finale.hint	소 옆에서 사과를 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
+trail.essenspfad.finale	소 옆에서 사과를 먹었어요.	finale line, generated
+trail.feuerpfad.title	물과 불의 길	title, authored; project: Chop logs, craft a campfire, fetch water at the river and light the fire with water in hand.
+trail.feuerpfad.s1.clue	달이 떠요. 통나무를 두 개 베어요.	clue, authored; BREAK_BLOCK
+trail.feuerpfad.s1.hint	통나무를 베어요.	hint, authored; BREAK_BLOCK
+trail.feuerpfad.s2.clue	모닥불을 만들어요.	clue, generated; CRAFT
+trail.feuerpfad.s2.hint	모닥불을 만들어요.	hint, generated; CRAFT
+trail.feuerpfad.s3.clue	강에서 물을 구해요.	clue, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.feuerpfad.s3.hint	강에서 물을 구해요.	hint, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.feuerpfad.s4.clue	물을 들고 나무 옆에 모닥불을 놓아요.	clue, authored; HOLD_WHILE NEXT_TO
+trail.feuerpfad.s4.hint	물을 들고 나무 옆에 모닥불을 놓아요.	hint, authored; HOLD_WHILE NEXT_TO
+trail.feuerpfad.finale.clue	밤에 모닥불을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK  TIME:NIGHT
+trail.feuerpfad.finale.hint	밤에 모닥불을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK  TIME:NIGHT
+trail.feuerpfad.finale	밤에 모닥불을 바라봤어요.	finale line, generated
+trail.tierfreund.title	소와 우유의 길	title, authored; project: Meet the cow: make a bucket, get milk next to her, drink it, feed her.
+trail.tierfreund.s1.clue	낮에 소를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.tierfreund.s1.hint	낮에 소를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.tierfreund.s2.clue	소가 우유를 줘요. 양동이를 만들어요.	clue, authored; CRAFT
+trail.tierfreund.s2.hint	양동이를 만들어요.	hint, authored; CRAFT
+trail.tierfreund.s3.clue	소 옆에서 우유를 구해요.	clue, generated; ACQUIRE_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
+trail.tierfreund.s3.hint	소 옆에서 우유를 구해요.	hint, generated; ACQUIRE_ITEM  PLAYER_REL:NEXT_TO:minecraft:cow
+trail.tierfreund.s4.clue	낮에 우유를 마셔요.	clue, generated; CONSUME_ITEM  TIME:DAY
+trail.tierfreund.s4.hint	낮에 우유를 마셔요.	hint, generated; CONSUME_ITEM  TIME:DAY
+trail.tierfreund.finale.clue	낮에 소에게 먹이를 줘요.	clue, generated; INTERACT_ENTITY  TIME:DAY
+trail.tierfreund.finale.hint	낮에 소에게 먹이를 줘요.	hint, generated; INTERACT_ENTITY  TIME:DAY
+trail.tierfreund.finale	낮에 소에게 먹이를 줬어요.	finale line, generated
+trail.brotpfad.title	밀과 빵의 길	title, authored; project: Harvest wheat, bake the first bread, store it in a chest and eat it beside the chest.
+trail.brotpfad.s1.clue	낮에 밀을 수확해요.	clue, generated; BREAK_BLOCK  TIME:DAY
+trail.brotpfad.s1.hint	낮에 밀을 수확해요.	hint, generated; BREAK_BLOCK  TIME:DAY
+trail.brotpfad.s2.clue	빵을 만들어요.	clue, generated; CRAFT
+trail.brotpfad.s2.hint	빵을 만들어요.	hint, generated; CRAFT
+trail.brotpfad.s3.clue	달이 떠요. 상자 안에 빵을 넣어요.	clue, authored; PUT_IN
+trail.brotpfad.s3.hint	상자 안에 빵을 넣어요.	hint, authored; PUT_IN
+trail.brotpfad.finale.clue	상자 옆에서 빵을 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:chest
+trail.brotpfad.finale.hint	상자 옆에서 빵을 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:chest
+trail.brotpfad.finale	상자 옆에서 빵을 먹었어요.	finale line, generated
+trail.tierpfad.title	닭과 돼지와 달걀의 길	title, authored; project: Animal farm: feed a pig a potato, throw an egg, fence a row, hang a gate and open it.
+trail.tierpfad.s1.clue	감자를 들고 돼지에게 먹이를 줘요.	clue, generated; INTERACT_ENTITY  HOLDING:minecraft:potato
+trail.tierpfad.s1.hint	감자를 들고 돼지에게 먹이를 줘요.	hint, generated; INTERACT_ENTITY  HOLDING:minecraft:potato
+trail.tierpfad.s2.clue	달걀을 던져요.	clue, generated; CONSUME_ITEM
+trail.tierpfad.s2.hint	달걀을 던져요.	hint, generated; CONSUME_ITEM
+trail.tierpfad.s3.clue	닭이 달걀을 줘요. 울타리 세 개를 나란히 놓아요.	clue, authored; BUILD_PATTERN
+trail.tierpfad.s3.hint	울타리 세 개를 나란히 놓아요.	hint, authored; BUILD_PATTERN
+trail.tierpfad.s4.clue	울타리 옆에 문을 달아요.	clue, generated; PLACE_REL NEXT_TO
+trail.tierpfad.s4.hint	울타리 옆에 문을 달아요.	hint, generated; PLACE_REL NEXT_TO
+trail.tierpfad.finale.clue	낮에 문을 열어요.	clue, generated; USE_BLOCK  TIME:DAY
+trail.tierpfad.finale.hint	낮에 문을 열어요.	hint, generated; USE_BLOCK  TIME:DAY
+trail.tierpfad.finale	낮에 참나무 울타리 문을 열었어요.	finale line, generated
+trail.haustierpfad.title	고양이의 집	title, authored; project: A house for the cat: befriend it with a salmon, craft planks, a bed inside, a flower outside.
+trail.haustierpfad.s1.clue	낮에 고양이를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.haustierpfad.s1.hint	낮에 고양이를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.haustierpfad.s2.clue	고양이에게 물고기를 줘요.	clue, generated; GIVE
+trail.haustierpfad.s2.hint	고양이에게 물고기를 줘요.	hint, generated; GIVE
+trail.haustierpfad.s3.clue	고양이 집을 지어요. 판자를 만들어요.	clue, authored; CRAFT
+trail.haustierpfad.s3.hint	판자를 만들어요.	hint, authored; CRAFT
+trail.haustierpfad.s4.clue	판자 안에 침대를 놓아요.	clue, generated; PLACE_REL INSIDE
+trail.haustierpfad.s4.hint	판자 안에 침대를 놓아요.	hint, generated; PLACE_REL INSIDE
+trail.haustierpfad.finale.clue	고양이 집 밖에 민들레를 심어요.	clue, authored; PLACE_REL OUTSIDE
+trail.haustierpfad.finale.hint	집 밖에 민들레를 심어요.	hint, authored; PLACE_REL OUTSIDE
+trail.haustierpfad.finale	참나무 판자 밖에 민들레를 심었어요.	finale line, generated
+trail.hoehlenlicht.title	돌과 횃불의 길	title, authored; project: Light the way into a cave: mine stone underground, a cairn, torches, walk in with one.
+trail.hoehlenlicht.s1.clue	땅속에서 돌을 세 개 캐요.	clue, generated; BREAK_BLOCK  Y_RANGE:-64..50
+trail.hoehlenlicht.s1.hint	땅속에서 돌을 캐요.	hint, generated; BREAK_BLOCK  Y_RANGE:-64..50
+trail.hoehlenlicht.s2.clue	횃불을 들고 조약돌로 피라미드를 쌓아요.	clue, generated; BUILD_PATTERN  HOLDING:minecraft:torch
+trail.hoehlenlicht.s2.hint	횃불을 들고 조약돌로 피라미드를 쌓아요.	hint, generated; BUILD_PATTERN  HOLDING:minecraft:torch
+trail.hoehlenlicht.s3.clue	땅속에서 횃불을 두 개 밝혀요.	clue, generated; PLACE_BLOCK  Y_RANGE:-64..50
+trail.hoehlenlicht.s3.hint	땅속에서 횃불을 밝혀요.	hint, generated; PLACE_BLOCK  Y_RANGE:-64..50
+trail.hoehlenlicht.finale.clue	횃불을 들고 땅속에서 걸어요.	clue, generated; HOLD_WHILE
+trail.hoehlenlicht.finale.hint	횃불을 들고 땅속에서 걸어요.	hint, generated; HOLD_WHILE
+trail.hoehlenlicht.finale	횃불을 들고 땅속에서 걸었어요.	finale line, generated
+trail.kraeuterpfad.title	꽃과 감자의 길	title, authored; project: A small garden: a flower by the fence, a potato, bake it, eat it next to the flower.
+trail.kraeuterpfad.s1.clue	해가 떠요. 울타리 옆에 꽃을 심어요.	clue, authored; PLACE_REL NEXT_TO
+trail.kraeuterpfad.s1.hint	울타리 옆에 꽃을 심어요.	hint, authored; PLACE_REL NEXT_TO
+trail.kraeuterpfad.s2.clue	낮에 감자를 구해요.	clue, generated; ACQUIRE_ITEM  TIME:DAY
+trail.kraeuterpfad.s2.hint	낮에 감자를 구해요.	hint, generated; ACQUIRE_ITEM  TIME:DAY
+trail.kraeuterpfad.s3.clue	감자를 구워요.	clue, generated; SMELT
+trail.kraeuterpfad.s3.hint	감자를 구워요.	hint, generated; SMELT
+trail.kraeuterpfad.finale.clue	꽃 옆에서 구운 감자를 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:poppy
+trail.kraeuterpfad.finale.hint	꽃 옆에서 구운 감자를 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:poppy
+trail.kraeuterpfad.finale	양귀비 옆에서 구운 감자를 먹었어요.	finale line, generated
+trail.wollpfad.title	양과 양털의 길	title, authored; project: From the sheep to a bed: wool, a bed, a chest behind it.
+trail.wollpfad.s1.clue	양을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.wollpfad.s1.hint	양을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.wollpfad.s2.clue	양털을 구해요.	clue, generated; ACQUIRE_ITEM
+trail.wollpfad.s2.hint	양털을 구해요.	hint, generated; ACQUIRE_ITEM
+trail.wollpfad.s3.clue	달이 떠요. 양털과 판자로 침대를 만들어요.	clue, authored; CRAFT
+trail.wollpfad.s3.hint	양털과 판자로 침대를 만들어요.	hint, authored; CRAFT
+trail.wollpfad.finale.clue	침대 앞에 양탄자를 깔아요.	clue, generated; PLACE_REL IN_FRONT_OF
+trail.wollpfad.finale.hint	침대 앞에 양탄자를 깔아요.	hint, generated; PLACE_REL IN_FRONT_OF
+trail.wollpfad.finale	빨간색 침대 앞에 하얀색 양탄자를 깔았어요.	finale line, generated
+trail.waldlicht.title	유리와 초의 길	title, authored; project: A cosy cabin: make glass, a window, a candle on the boards, open the door under the roof.
+trail.waldlicht.s1.clue	화로에서 유리를 만들어요.	clue, generated; SMELT
+trail.waldlicht.s1.hint	화로에서 유리를 만들어요.	hint, generated; SMELT
+trail.waldlicht.s2.clue	판자 옆에 유리를 놓아요.	clue, generated; PLACE_REL NEXT_TO
+trail.waldlicht.s2.hint	판자 옆에 유리를 놓아요.	hint, generated; PLACE_REL NEXT_TO
+trail.waldlicht.s3.clue	판자 위에 초를 놓아요.	clue, generated; PLACE_REL ON_TOP_OF
+trail.waldlicht.s3.hint	판자 위에 초를 놓아요.	hint, generated; PLACE_REL ON_TOP_OF
+trail.waldlicht.finale.clue	지붕 아래에서 문을 열어요.	clue, generated; USE_BLOCK  SKY:ROOFED
+trail.waldlicht.finale.hint	지붕 아래에서 문을 열어요.	hint, generated; USE_BLOCK  SKY:ROOFED
+trail.waldlicht.finale	지붕 아래에서 참나무 문을 열었어요.	finale line, generated
+trail.feuerstelle.title	불과 빵의 길	title, authored; project: A fireplace at the door: a campfire in front of the door, a candle inside, bread, supper at night.
+trail.feuerstelle.s1.clue	문 앞에 모닥불을 놓아요.	clue, generated; PLACE_REL IN_FRONT_OF
+trail.feuerstelle.s1.hint	문 앞에 모닥불을 놓아요.	hint, generated; PLACE_REL IN_FRONT_OF
+trail.feuerstelle.s2.clue	문 뒤에 초를 놓아요.	clue, generated; PLACE_REL BEHIND
+trail.feuerstelle.s2.hint	문 뒤에 초를 놓아요.	hint, generated; PLACE_REL BEHIND
+trail.feuerstelle.s3.clue	저녁에 빵을 구해요.	clue, generated; ACQUIRE_ITEM  TIME:DUSK
+trail.feuerstelle.s3.hint	저녁에 빵을 구해요.	hint, generated; ACQUIRE_ITEM  TIME:DUSK
+trail.feuerstelle.finale.clue	밤에 모닥불 옆에서 빵을 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:campfire,TIME:NIGHT
+trail.feuerstelle.finale.hint	밤에 모닥불 옆에서 빵을 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:campfire,TIME:NIGHT
+trail.feuerstelle.finale	밤에 모닥불 옆에서 빵을 먹었어요.	finale line, generated
+trail.nachtpfad.title	해와 달의 길	title, authored; project: Sun and moon: a clock, a night walk with it, a book into the chest, sleep until sunrise.
+trail.nachtpfad.s1.clue	시계를 만들어요.	clue, generated; CRAFT
+trail.nachtpfad.s1.hint	시계를 만들어요.	hint, generated; CRAFT
+trail.nachtpfad.s2.clue	시계를 들고 밤에 걸어요.	clue, generated; HOLD_WHILE
+trail.nachtpfad.s2.hint	시계를 들고 밤에 걸어요.	hint, authored; HOLD_WHILE
+trail.nachtpfad.s3.clue	상자 안에 책을 넣어요.	clue, generated; PUT_IN
+trail.nachtpfad.s3.hint	상자 안에 책을 넣어요.	hint, generated; PUT_IN
+trail.nachtpfad.finale.clue	밤에 침대에서 자요.	clue, generated; USE_BLOCK  TIME:NIGHT
+trail.nachtpfad.finale.hint	밤에 침대에서 자요.	hint, generated; USE_BLOCK  TIME:NIGHT
+trail.nachtpfad.finale	밤에 침대에서 잤어요. 시계를 봤어요. 이제 해가 떠요.	finale line, authored
+trail.flusslicht.title	종이와 책의 길	title, authored; project: By the river: a plank dock, paper, a book, a walk along the river with the book.
+trail.flusslicht.s1.clue	낮에 강으로 가요.	clue, generated; REACH_BIOME  TIME:DAY
+trail.flusslicht.s1.hint	낮에 강으로 가요.	hint, generated; REACH_BIOME  TIME:DAY
+trail.flusslicht.s2.clue	강에서 판자 세 개를 나란히 놓아요.	clue, generated; BUILD_PATTERN  IN_BIOME:#minecraft:is_river
+trail.flusslicht.s2.hint	강에서 판자를 나란히 놓아요.	hint, generated; BUILD_PATTERN  IN_BIOME:#minecraft:is_river
+trail.flusslicht.s3.clue	강에서 종이를 세 개 만들어요.	clue, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.flusslicht.s3.hint	강에서 종이를 만들어요.	hint, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.flusslicht.s4.clue	종이로 책을 만들어요.	clue, generated; CRAFT
+trail.flusslicht.s4.hint	종이로 책을 만들어요.	hint, generated; CRAFT
+trail.flusslicht.finale.clue	책을 들고 강에서 걸어요.	clue, generated; HOLD_WHILE
+trail.flusslicht.finale.hint	책을 들고 강에서 걸어요.	hint, generated; HOLD_WHILE
+trail.flusslicht.finale	책을 들고 강에서 걸었어요.	finale line, generated

@@ -1,14 +1,16 @@
 {
  "schema": 1,
  "id": "adv_husbandry_feed_snifflet",
- "titleKo": "조그만 킁킁이",
- "titleDe": "Schnupperkurs",
+ "titleKo": "돼지 우리",
  "topic": "husbandry",
  "tier": 2,
  "order": 263,
  "concepts": [
-  "adv_item_sniffer_egg",
-  "gen_waxed_weathered_copper_bars"
+  "planks",
+  "pig",
+  "door",
+  "gen_mud",
+  "raise"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,37 +23,49 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_sniffer_egg"
+    "planks",
+    "pig"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sniffer_egg",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:pale_oak_planks",
+    "size": 3
    },
-   "clue": {
-    "de": "Hol ein Schnüffler-Ei aus einer Truhe im warmen Ozean.",
-    "en": "Collect Sniffer Egg."
-   },
-   "hint": {
-    "en": "Collect Sniffer Egg."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:pig",
+     "count": 3
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_sniffer_egg"
+    "door",
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sniffer_egg",
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:dark_oak_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:pale_oak_planks"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_mud",
+    "pig"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:mud",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:pig",
     "count": 1
-   },
-   "clue": {
-    "de": "Leg das Ei auf Moos und brüte den kleinen Schnüffler aus.",
-    "en": "Place Sniffer Egg."
-   },
-   "hint": {
-    "en": "Place Sniffer Egg."
    }
   }
  ],
@@ -59,33 +73,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_weathered_copper_bars"
+    "raise",
+    "pig"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_copper_bars",
+    "type": "BREED",
+    "entity": "minecraft:pig",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Gewachstes verwittertes Kupfergitter.",
-    "en": "Collect Waxed Weathered Copper Bars."
-   },
-   "hint": {
-    "en": "Collect Waxed Weathered Copper Bars."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:carrot"
+    }
+   ]
   },
-  "textKo": "밀랍칠한 녹슨 구리 창살라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachstes verwittertes Kupfergitter — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Weathered Copper Bars is complete."
+  "textKo": "새끼 돼지가 태어났어요. 새끼는 작아요."
  },
  "reward": {
   "badge": "adv_husbandry_feed_snifflet",
   "words": [
-   "adv_item_sniffer_egg",
-   "adv_block_torchflower_seeds"
+   "planks",
+   "pig",
+   "door",
+   "gen_mud"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Little Sniffs"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.go_held",
+  "L2.eun_neun_topic"
+ ]
 }

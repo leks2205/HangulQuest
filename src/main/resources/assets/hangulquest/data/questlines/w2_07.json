@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w2_07",
  "titleKo": "겨울 아침",
- "titleDe": "Der Wintermorgen",
  "topic": "겨울",
  "tier": 1,
  "order": 1027,
  "concepts": [
-  "gen_mud_brick_wall",
-  "gen_pale_oak_button",
+  "flower_pot",
   "milk",
-  "gen_green_wool_slab"
+  "book",
+  "glass_pane"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,41 +20,61 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mud_brick_wall"
+    "flower_pot",
+    "glass_pane"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:mud_brick_wall",
-    "count": 5
+    "type": "PLACE_REL",
+    "block": "minecraft:flower_pot",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:glass_pane",
+    "count": 1
    },
    "clue": {
-    "de": "Baue 5× Schlammziegelmauer ab.",
-    "en": "Break 5× Mud Brick Wall."
+    "ko": "유리판 옆에 화분을 놓아요."
    },
    "hint": {
-    "en": "Break 5× Mud Brick Wall."
+    "ko": "유리판 옆에 화분을 놓아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pale_oak_button"
+    "milk"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_button",
-    "count": 3
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
    },
-   "clue": {
-    "de": "Platziere 3× Blasseichenholzknopf.",
-    "en": "Place 3× Pale Oak Button."
-   },
-   "hint": {
-    "en": "Place 3× Pale Oak Button."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
+   "teach": [
+    "book"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:book",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "milk"
    ],
@@ -64,56 +83,23 @@
     "item": "minecraft:milk_bucket",
     "count": 1
    },
-   "clue": {
-    "ko": "겨울 아침에는 따뜻한 우유를 마시고 힘을 내요.",
-    "de": "Trink am Morgen einen Schluck Milch.",
-    "en": "Eat Milk Bucket."
-   },
-   "hint": {
-    "ko": "우유는 따뜻하게 마셔요.",
-    "de": "Milch trinkst du warm.",
-    "en": "Eat Milk Bucket."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_green_wool_slab"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_wool_slab",
-    "count": 1
-   },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAWN"
     }
-   ],
-   "clue": {
-    "de": "Platziere Grüne Wollstufe. Im Morgengrauen.",
-    "en": "Place Green Wool Slab. At dawn."
-   },
-   "hint": {
-    "en": "Place Green Wool Slab. At dawn."
-   }
+   ]
   },
-  "textKo": "새벽에 초록색 양털 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Wollstufe — Zeremonie vollendet.",
-  "textEn": "At dawn the ritual of Green Wool Slab is complete."
+  "textKo": "새벽에 우유를 마셨어요."
  },
  "reward": {
   "badge": "w2_07",
   "words": [
-   "ice",
-   "snow",
+   "flower_pot",
    "milk",
-   "lantern"
+   "book",
+   "glass_pane"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Winter Morning"
+ "koreanLevel": 1
 }

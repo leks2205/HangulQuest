@@ -2,14 +2,16 @@
  "schema": 1,
  "id": "adv_husbandry_bred_all_animals",
  "titleKo": "짝지어주기",
- "titleDe": "Paarweise",
  "topic": "husbandry",
  "tier": 2,
  "order": 260,
  "concepts": [
+  "fence",
   "cow",
+  "gen_birch_fence_gate",
+  "raise",
   "sheep",
-  "frog"
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,68 +24,122 @@
   {
    "id": "s1",
    "teach": [
+    "fence",
     "cow"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:cow"
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_fence",
+    "size": 3
    },
-   "clue": {
-    "de": "Füttere zwei Kühe mit Weizen, bis Herzen erscheinen.",
-    "en": "Talk to Cow."
-   },
-   "hint": {
-    "en": "Talk to Cow."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:cow",
+     "count": 3
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
+    "gen_birch_fence_gate",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:birch_fence_gate",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:dark_oak_fence"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "raise",
     "sheep"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:sheep"
+    "type": "BREED",
+    "entity": "minecraft:sheep",
+    "count": 1
    },
-   "clue": {
-    "de": "Paare zwei Schafe mit einer Handvoll Weizen.",
-    "en": "Talk to Sheep."
-   },
-   "hint": {
-    "en": "Talk to Sheep."
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sign",
+    "sheep"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:mangrove_sign",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:sheep",
+    "count": 1
    }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "raise",
+    "chicken"
+   ],
+   "goal": {
+    "type": "BREED",
+    "entity": "minecraft:chicken",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "frog"
+    "raise",
+    "cow"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:frog"
+    "type": "BREED",
+    "entity": "minecraft:cow",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Frog."
-   },
-   "hint": {
-    "en": "Talk to Frog."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "짝지어주기 — 개구리까지 모두 짝을 지어 줘요.",
-  "textDe": "Paarweise: Auch zwei Frösche finden mit Schleimkugeln zueinander.",
-  "textEn": "the ritual of Frog is complete."
+  "textKo": "낮에 송아지가 태어났어요. 송아지는 작아요."
  },
  "reward": {
   "badge": "adv_husbandry_bred_all_animals",
   "words": [
+   "fence",
    "cow",
-   "sheep",
-   "frog"
+   "gen_birch_fence_gate",
+   "raise"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Pair by Pair"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.eun_neun_topic"
+ ]
 }

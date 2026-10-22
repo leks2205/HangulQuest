@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "gipfelwaechter",
  "titleKo": "봉우리의 수호자",
- "titleDe": "Der Gipfelwächter",
+ "topic": "산",
  "tier": 4,
  "order": 450,
  "concepts": [
-  "gen_swamp",
-  "gen_glowstone_dust",
-  "nether",
-  "gen_white_candle"
+  "climb",
+  "mountain",
+  "planks",
+  "gen_copper_torch",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -24,73 +25,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_swamp"
+    "climb",
+    "mountain"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:swamp",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Sumpf.",
-    "en": "Reach Swamp."
-   },
-   "hint": {
-    "en": "Reach Swamp."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_glowstone_dust"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glowstone_dust",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Leuchtsteinstaub.",
-    "en": "Collect 2× Glowstone Dust."
-   },
-   "hint": {
-    "en": "Collect 2× Glowstone Dust."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "nether"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:netherrack",
-    "count": 1
+    "type": "REACH_HEIGHT",
+    "minY": 110,
+    "maxY": 320
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "planks"
    ],
-   "clue": {
-    "de": "Platziere Netherrack. Nachts.",
-    "en": "Place Netherrack. At night."
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks",
+    "size": 4
    },
-   "hint": {
-    "en": "Place Netherrack. At night."
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:gray_banner",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks"
    }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_copper_torch",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:copper_torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_white_candle"
+    "wait"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:white_candle"
+    "type": "WAIT",
+    "seconds": 10
    },
    "conditions": [
     {
@@ -98,31 +108,26 @@
      "phase": "NIGHT"
     },
     {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:copper_torch"
     }
-   ],
-   "clue": {
-    "de": "Benutze Weiße Kerze. Nachts. In einem passenden Biom.",
-    "en": "Use White Candle. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use White Candle. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산 지형에서 하얀색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Weiße Kerze — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of White Candle is complete."
+  "textKo": "밤에 구리 횃불 근처에서 십 초 동안 기다렸어요."
  },
  "reward": {
   "badge": "gipfelwaechter",
   "words": [
-   "climb",
-   "diamond",
-   "torch"
+   "mountain",
+   "planks",
+   "gen_copper_torch"
   ]
  },
  "koreanLevel": 2,
- "topic": "산",
- "titleEn": "The Summit Keeper"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }

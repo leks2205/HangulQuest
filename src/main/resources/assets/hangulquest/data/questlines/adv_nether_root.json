@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_root",
  "titleKo": "네더",
- "titleDe": "Nether",
  "topic": "nether",
  "tier": 2,
  "order": 307,
@@ -29,13 +28,8 @@
     "item": "minecraft:flint_and_steel",
     "count": 1
    },
-   "clue": {
-    "de": "Baue ein Feuerzeug aus Eisen und Feuerstein.",
-    "en": "Collect Flint and Steel."
-   },
    "hint": {
-    "ko": "철 주괴와 부싯돌로 만들어요.",
-    "en": "Collect Flint and Steel."
+    "ko": "철 주괴와 부싯돌로 만들어요."
    }
   },
   {
@@ -48,13 +42,8 @@
     "block": "minecraft:obsidian",
     "count": 10
    },
-   "clue": {
-    "de": "Setz zehn Obsidianblöcke zum Portalrahmen.",
-    "en": "Place 10× Obsidian."
-   },
    "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로 캐요.",
-    "en": "Place 10× Obsidian."
+    "ko": "흑요석은 다이아몬드 곡괭이로 캐요."
    }
   }
  ],
@@ -69,18 +58,9 @@
     "block": "minecraft:mangrove_trapdoor",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Mangrovenholzfalltür.",
-    "en": "Place 2× Mangrove Trapdoor."
-   },
-   "hint": {
-    "en": "Place 2× Mangrove Trapdoor."
-   }
+   "conditions": []
   },
-  "textKo": "맹그로브나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Mangrovenholzfalltür — Zeremonie vollendet.",
-  "textEn": "the ritual of Mangrove Trapdoor is complete."
+  "textKo": "맹그로브나무 다락문을 두 개 달았어요."
  },
  "reward": {
   "badge": "adv_nether_root",
@@ -90,6 +70,5 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Nether"
+ "koreanLevel": 2
 }

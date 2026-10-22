@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_create_full_beacon",
  "titleKo": "신호자",
- "titleDe": "Leuchtturmwärter",
  "topic": "nether",
  "tier": 2,
  "order": 292,
@@ -28,13 +27,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:dead_bush",
     "count": 9
-   },
-   "clue": {
-    "de": "Platziere 9× Toter Busch.",
-    "en": "Place 9× Dead Bush."
-   },
-   "hint": {
-    "en": "Place 9× Dead Bush."
    }
   },
   {
@@ -47,13 +39,8 @@
     "block": "minecraft:gold_block",
     "count": 9
    },
-   "clue": {
-    "de": "Zweite Stufe: neun Goldblöcke kommen direkt darauf.",
-    "en": "Place 9× Block of Gold."
-   },
    "hint": {
-    "ko": "금 블록을 아홉 개 놓아요.",
-    "en": "Place 9× Block of Gold."
+    "ko": "금 블록을 아홉 개 놓아요."
    }
   }
  ],
@@ -68,18 +55,11 @@
     "block": "minecraft:beacon"
    },
    "conditions": [],
-   "clue": {
-    "de": "Aktiviere das Leuchtfeuer auf dem vollen Sockel und wähle eine Kraft.",
-    "en": "Use Beacon."
-   },
    "hint": {
-    "ko": "신호기를 사용해서 효과를 골라요.",
-    "en": "Use Beacon."
+    "ko": "신호기를 사용해서 효과를 골라요."
    }
   },
-  "textKo": "네 층 신호기가 완성됐어요! 온 마을이 이 빛을 봐요.",
-  "textDe": "Ein volles Leuchtfeuer – der ganze Ort sieht dein Licht.",
-  "textEn": "the ritual of Beacon is complete."
+  "textKo": "네 층 신호기가 완성됐어요! 온 마을이 이 빛을 봐요."
  },
  "reward": {
   "badge": "adv_nether_create_full_beacon",
@@ -89,6 +69,5 @@
    "beacon"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "Beaconator"
+ "koreanLevel": 4
 }

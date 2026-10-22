@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Random;
 
 /**
  * Two-question mini quiz about the word that blocked the player. The first
- * question goes Korean -> German, the second German -> Korean; getting both
+ * question goes Korean -> gloss (interface language), the second gloss -> Korean; getting both
  * right restores the original quest. Options are deterministic per word/stage/
  * attempt so a restart cannot change the right answer.
  */
@@ -21,6 +22,7 @@ public final class SideQuest {
 	private int attempts;
 	private List<String> options = new ArrayList<>();
 	private int correctIndex;
+	private Lang builtFor = Lang.current();
 
 	private SideQuest(Word word, Catalog catalog, int stage, int attempts) {
 		this.word = word;
@@ -39,13 +41,14 @@ public final class SideQuest {
 	}
 
 	private void build() {
+		builtFor = Lang.current();
 		Random random = new Random(Objects.hash(word.id, stage, attempts));
 		List<String> built = new ArrayList<>();
-		String correct = stage == 1 ? word.deShort : word.ko;
+		String correct = stage == 1 ? word.gloss(builtFor) : word.ko;
 		built.add(correct);
 		List<Word> distractors = catalog.distractors(word, attempts > 0 ? 1 : 2, random);
 		for (Word distractor : distractors) {
-			String option = stage == 1 ? distractor.deShort : distractor.ko;
+			String option = stage == 1 ? distractor.gloss(builtFor) : distractor.ko;
 			if (!option.isBlank() && !built.contains(option)) {
 				built.add(option);
 			}
@@ -71,7 +74,7 @@ public final class SideQuest {
 	}
 
 	public String prompt() {
-		return stage == 1 ? word.ko : word.deShort;
+		return stage == 1 ? word.ko : word.gloss(Lang.current());
 	}
 
 	public boolean reversed() {
@@ -79,10 +82,12 @@ public final class SideQuest {
 	}
 
 	public List<String> options() {
+		rebuildIfLanguageChanged();
 		return options;
 	}
 
 	public int correctIndex() {
+		rebuildIfLanguageChanged();
 		return correctIndex;
 	}
 
@@ -92,6 +97,7 @@ public final class SideQuest {
 
 	/** Returns true when the answer was right; wrong answers do not fail the quest. */
 	public boolean answer(int index) {
+		rebuildIfLanguageChanged();
 		if (index == correctIndex) {
 			stage++;
 			attempts = 0;
@@ -103,6 +109,13 @@ public final class SideQuest {
 		attempts++;
 		build();
 		return false;
+	}
+
+	/** The glosses depend on the interface language, so a switch mid-quest rebuilds the options. */
+	private void rebuildIfLanguageChanged() {
+		if (builtFor != Lang.current() && !isDone()) {
+			build();
+		}
 	}
 
 	public String wordId() {

@@ -2,15 +2,15 @@
  "schema": 1,
  "id": "festungpfad",
  "titleKo": "요새의 길",
- "titleDe": "Der Festungspfad",
  "topic": "요새",
  "tier": 3,
  "order": 142,
  "concepts": [
-  "gen_waxed_weathered_cut_copper",
-  "gen_composter",
-  "gen_cyan_concrete",
-  "gen_mangrove_log"
+  "brick",
+  "door",
+  "bed",
+  "gen_yellow_candle",
+  "gen_red_banner"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,60 +24,65 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_cut_copper"
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_cut_copper",
-    "count": 8
-   },
-   "clue": {
-    "de": "Platziere 8× Gewachster verwitterter geschnittener Kupferblock.",
-    "en": "Place 8× Waxed Weathered Cut Copper."
-   },
-   "hint": {
-    "en": "Place 8× Waxed Weathered Cut Copper."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:bricks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_composter"
+    "door"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:composter"
-   },
-   "clue": {
-    "de": "Benutze Komposter.",
-    "en": "Use Composter."
-   },
-   "hint": {
-    "en": "Use Composter."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:birch_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:bricks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cyan_concrete"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cyan_concrete",
-    "count": 4
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:bricks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_yellow_candle"
    ],
-   "clue": {
-    "de": "Platziere 4× Türkiser Beton. Nachts.",
-    "en": "Place 4× Cyan Concrete. At night."
-   },
-   "hint": {
-    "en": "Place 4× Cyan Concrete. At night."
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:yellow_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "RING",
+    "material": "minecraft:bricks"
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "gen_red_banner"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_banner",
+    "relation": "OUTSIDE",
+    "pattern": "RING",
+    "material": "minecraft:bricks"
    }
   }
  ],
@@ -85,35 +90,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mangrove_log"
+    "door"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_log",
-    "count": 8
+    "type": "USE_BLOCK",
+    "block": "minecraft:birch_door",
+    "change": "CLOSE"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 8× Mangrovenstamm.",
-    "en": "Collect 8× Mangrove Log."
-   },
-   "hint": {
-    "en": "Collect 8× Mangrove Log."
-   }
+   "conditions": []
   },
-  "textKo": "맹그로브나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Mangrovenstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Mangrove Log is complete."
+  "textKo": "문을 닫았어요."
  },
  "reward": {
   "badge": "festungpfad",
   "words": [
-   "stone_bricks",
-   "chest",
-   "torch",
-   "iron"
+   "brick",
+   "door",
+   "bed"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Fortress Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material"
+ ]
 }

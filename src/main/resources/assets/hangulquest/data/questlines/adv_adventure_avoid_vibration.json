@@ -1,13 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_avoid_vibration",
- "titleKo": "은밀하게 위대하게",
- "titleDe": "Schleichen 100",
+ "titleKo": "소리 경보",
  "topic": "adventure",
  "tier": 2,
  "order": 202,
  "concepts": [
-  "adv_item_sculk_sensor"
+  "sandstone",
+  "note_block",
+  "gen_stone_pressure_plate",
+  "door"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,71 +22,80 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_sculk_sensor"
+    "sandstone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sculk_sensor",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:sandstone",
+    "size": 3
    },
-   "clue": {
-    "de": "Hole zwei Sculk-Sensoren aus der Tiefe, ohne sie auszulösen.",
-    "en": "Collect 2× Sculk Sensor."
-   },
-   "hint": {
-    "ko": "섬세한 손길이 붙은 곡괭이로 캐야 해요.",
-    "en": "Collect 2× Sculk Sensor."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_sculk_sensor"
+    "note_block",
+    "sandstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sculk_sensor",
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:note_block",
+    "relation": "NEXT_TO",
+    "pattern": "WALL",
+    "material": "minecraft:sandstone"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_stone_pressure_plate",
+    "door"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:stone_pressure_plate",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
     "count": 1
    },
-   "clue": {
-    "de": "Setze einen der Sensoren vor dir auf den Boden ab.",
-    "en": "Place Sculk Sensor."
-   },
-   "hint": {
-    "en": "Place Sculk Sensor."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_sculk_sensor"
+    "note_block"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:sculk_sensor",
-    "dwellMs": 600
+    "type": "HEAR",
+    "source": "minecraft:note_block",
+    "radius": 6,
+    "dwellMs": 1000
    },
-   "conditions": [],
-   "clue": {
-    "de": "Schleiche auf Zehenspitzen vorbei und sieh den Sensor dabei an.",
-    "en": "Look at Sculk Sensor."
-   },
-   "hint": {
-    "en": "Look at Sculk Sensor."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "은밀하게 위대하게 — 스컬크 감지체 앞에서 숨을 죽였어요.",
-  "textDe": "Schleichen 100 — am Sculk-Sensor vorbei, ohne Vibration.",
-  "textEn": "the ritual of Sculk Sensor is complete."
+  "textKo": "밤에 소리 블록의 소리를 들었어요. 문 앞은 조용해요."
  },
  "reward": {
   "badge": "adv_adventure_avoid_vibration",
   "words": [
-   "adv_item_sculk_sensor"
+   "sandstone",
+   "note_block",
+   "gen_stone_pressure_plate"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Sneak 100"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.loc_ap_e"
+ ]
 }

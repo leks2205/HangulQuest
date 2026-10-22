@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_remove_wolf_armor",
  "titleKo": "탁월한 가위질",
- "titleDe": "Schnipp‐schnapp!",
  "topic": "husbandry",
  "tier": 2,
  "order": 274,
  "concepts": [
   "shears",
-  "gen_jungle_pressure_plate",
-  "wolf"
+  "bone",
+  "wolf",
+  "wolf_armor"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -25,35 +25,42 @@
     "shears"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:shears",
     "count": 1
-   },
-   "clue": {
-    "de": "Schmiede eine Schere aus zwei Eisenbarren.",
-    "en": "Collect Shears."
-   },
-   "hint": {
-    "ko": "철 주괴 두 개로 만들어요.",
-    "en": "Collect Shears."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_jungle_pressure_plate"
+    "bone",
+    "wolf"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_pressure_plate",
+    "type": "GIVE",
+    "item": "minecraft:bone",
+    "entity": "minecraft:wolf",
     "count": 1
    },
-   "clue": {
-    "de": "Sammle Tropenholzdruckplatte.",
-    "en": "Collect Jungle Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect Jungle Pressure Plate."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wolf_armor",
+    "wolf"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:wolf_armor",
+    "entity": "minecraft:wolf",
+    "count": 1,
+    "method": "USE_WITH"
    }
   }
  ],
@@ -61,32 +68,36 @@
   "step": {
    "id": "finale",
    "teach": [
+    "shears",
     "wolf"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
     "entity": "minecraft:wolf"
    },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Wolf."
-   },
-   "hint": {
-    "en": "Talk to Wolf."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shears"
+    }
+   ]
   },
-  "textKo": "탁월한 가위질 — 늑대의 갑옷을 가위로 벗겨요.",
-  "textDe": "Schnipp‐schnapp! — Du schneidest dem Wolf die Rüstung vom Leib.",
-  "textEn": "the ritual of Wolf is complete."
+  "textKo": "가위로 늑대의 갑옷을 벗겼어요. 갑옷은 무거워요."
  },
  "reward": {
   "badge": "adv_husbandry_remove_wolf_armor",
   "words": [
    "shears",
-   "wolf_armor",
-   "wolf"
+   "bone",
+   "wolf",
+   "wolf_armor"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Shear Brilliance"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.go_held",
+  "L2.eun_neun_topic"
+ ]
 }

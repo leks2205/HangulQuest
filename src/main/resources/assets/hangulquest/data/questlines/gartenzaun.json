@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "gartenzaun",
  "titleKo": "정원 울타리",
- "titleDe": "Der Gartenzaun",
  "topic": "울타리",
  "tier": 3,
  "order": 146,
  "concepts": [
   "fence",
-  "gate",
-  "gen_orange_banner",
-  "gen_green_stained_glass_pane"
+  "flower",
+  "open",
+  "carpet"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -27,59 +26,48 @@
     "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence",
-    "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Zäune.",
-    "en": "Place 6× Oak Fence."
-   },
-   "hint": {
-    "ko": "울타리는 막대기로 만들어요.",
-    "de": "Zäune bestehen aus Stöcken.",
-    "en": "Place 6× Oak Fence."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gate"
+    "flower",
+    "fence"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:oak_fence_gate"
-   },
-   "clue": {
-    "de": "Benutz ein Tor.",
-    "en": "Use Oak Fence Gate."
-   },
-   "hint": {
-    "en": "Use Oak Fence Gate."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:allium",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_orange_banner"
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_banner",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
+    "type": "PLACE_REL",
+    "block": "minecraft:spruce_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "open"
    ],
-   "clue": {
-    "de": "Platziere 3× Oranges Banner. Nachts.",
-    "en": "Place 3× Orange Banner. At night."
-   },
-   "hint": {
-    "en": "Place 3× Orange Banner. At night."
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:spruce_fence_gate",
+    "change": "OPEN"
    }
   }
  ],
@@ -87,35 +75,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_stained_glass_pane"
+    "carpet",
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_stained_glass_pane",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:green_carpet",
+    "relation": "OUTSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Grüne Glasscheibe.",
-    "en": "Place 2× Green Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Place 2× Green Stained Glass Pane."
-   }
+   "conditions": []
   },
-  "textKo": "초록색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Grüne Glasscheibe — Zeremonie vollendet.",
-  "textEn": "the ritual of Green Stained Glass Pane is complete."
+  "textKo": "꽃은 울타리 안에 있어요. 양탄자는 울타리 밖에 있어요."
  },
  "reward": {
   "badge": "gartenzaun",
   "words": [
    "fence",
-   "gate",
-   "torch",
-   "lantern"
+   "flower",
+   "carpet"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Garden Fence"
+ "grammar": [
+  "L2.seyo",
+  "L2.eun_neun_contrast"
+ ]
 }

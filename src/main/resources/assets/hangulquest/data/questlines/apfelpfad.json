@@ -1,16 +1,15 @@
 {
  "schema": 1,
  "id": "apfelpfad",
- "titleKo": "사과의 길",
- "titleDe": "Der Apfelpfad",
+ "titleKo": "사과나무의 길",
  "topic": "사과",
  "tier": 1,
  "order": 138,
  "concepts": [
-  "gen_cyan_concrete_slab",
-  "gen_spider_eye",
-  "leaves",
-  "sapling"
+  "sapling",
+  "apple",
+  "chest",
+  "leaves"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,41 +20,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cyan_concrete_slab"
+    "sapling"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_concrete_slab",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Türkise Betonstufe.",
-    "en": "Collect 3× Cyan Concrete Slab."
-   },
-   "hint": {
-    "en": "Collect 3× Cyan Concrete Slab."
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_sapling",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spider_eye"
+    "apple"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:spider_eye",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:apple",
     "count": 1
    },
-   "clue": {
-    "de": "Iss Spinnenauge.",
-    "en": "Eat Spider Eye."
-   },
-   "hint": {
-    "en": "Eat Spider Eye."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:apple",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "leaves"
    ],
@@ -64,48 +71,23 @@
     "block": "minecraft:oak_leaves",
     "dwellMs": 600
    },
-   "clue": {
-    "de": "Schau auf Blätter.",
-    "en": "Look at Oak Leaves."
-   },
-   "hint": {
-    "en": "Look at Oak Leaves."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "sapling"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_sapling",
-    "count": 1
-   },
-   "conditions": [],
-   "hint": {
-    "ko": "묘목은 나뭇잎을 깨면 나와요.",
-    "de": "Setzlinge bekommst du von Blättern.",
-    "en": "Place Oak Sapling."
-   },
-   "clue": {
-    "en": "Place Oak Sapling."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "사과나무 묘목을 심어요.",
-  "textDe": "Einen Apfelbaum pflanzen.",
-  "textEn": "the ritual of Oak Sapling is complete."
+  "textKo": "낮에 나뭇잎을 바라봤어요."
  },
  "reward": {
   "badge": "apfelpfad",
   "words": [
+   "sapling",
    "apple",
-   "leaves",
-   "sapling"
+   "chest",
+   "leaves"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Apple Trail"
+ "koreanLevel": 1
 }

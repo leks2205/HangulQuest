@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_ride_a_boat_with_a_goat",
  "titleKo": "염소 떴소",
- "titleDe": "Ohne Geiß kein Preis!",
- "topic": "husbandry",
+ "topic": "배",
  "tier": 2,
  "order": 276,
  "concepts": [
-  "adv_item_oak_boat",
-  "gen_prismarine_brick_slab",
-  "goat"
+  "boat",
+  "goat",
+  "ocean",
+  "ride"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,38 +22,51 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_oak_boat"
+    "boat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:oak_boat",
     "count": 1
-   },
-   "clue": {
-    "de": "Zimmere ein Eichenholzboot aus fünf Brettern.",
-    "en": "Collect Oak Boat."
-   },
-   "hint": {
-    "ko": "참나무 판자 다섯 개로 만들어요.",
-    "en": "Collect Oak Boat."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_prismarine_brick_slab"
+    "goat",
+    "boat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_brick_slab",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:goat",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sammle Prismarinziegelstufe.",
-    "en": "Collect Prismarine Brick Slab."
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ocean",
+    "boat"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
    },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ],
    "hint": {
-    "en": "Collect Prismarine Brick Slab."
+    "ko": "배와 함께 바다로 가요."
    }
   }
  ],
@@ -61,32 +74,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "goat"
+    "boat",
+    "ride"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:goat"
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Talk to Goat."
-   },
-   "hint": {
-    "en": "Talk to Goat."
+    "type": "MOUNT",
+    "entity": "minecraft:oak_boat",
+    "dwellMs": 3000
    }
   },
-  "textKo": "염소 떴소 — 염소를 배에 태우고 함께 떠요.",
-  "textDe": "Ohne Geiß kein Preis! — Du ruderst mit einer Ziege im Boot.",
-  "textEn": "the ritual of Goat is complete."
+  "textKo": "배를 탔어요."
  },
  "reward": {
   "badge": "adv_husbandry_ride_a_boat_with_a_goat",
   "words": [
-   "adv_item_oak_boat",
-   "adv_item_lead",
-   "goat"
+   "boat",
+   "goat",
+   "ocean",
+   "ride"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Whatever Floats Your Goat!"
+ "koreanLevel": 1
 }

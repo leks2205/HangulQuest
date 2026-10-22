@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "steinpfad",
- "titleKo": "돌의 길",
- "titleDe": "Der Steinpfad",
+ "titleKo": "돌과 불의 길",
+ "topic": "돌",
  "tier": 1,
+ "order": 10,
  "concepts": [
-  "stone",
-  "cobblestone",
   "coal",
-  "gen_black_banner"
+  "cobblestone",
+  "torch"
  ],
  "requires": {
   "minWordsKnown": 0,
@@ -18,22 +18,18 @@
   {
    "id": "s1",
    "teach": [
-    "stone"
+    "coal"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:stone",
-    "count": 3
+    "block": "minecraft:coal_ore",
+    "count": 2
    },
    "clue": {
-    "ko": "회색 돌을 세 개 캐요.",
-    "de": "Baue drei harte, graue Dinge ab.",
-    "en": "Break 3× Stone."
+    "ko": "해가 떠요. 석탄을 두 개 캐요."
    },
    "hint": {
-    "ko": "돌을 캐요. 세 개요.",
-    "de": "Baue Stein ab, drei Stück.",
-    "en": "Break 3× Stone."
+    "ko": "석탄을 캐요."
    }
   },
   {
@@ -42,40 +38,27 @@
     "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cobblestone",
-    "count": 3
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone",
+    "size": 3
    },
    "clue": {
-    "ko": "조약돌을 세 개 놓아요.",
-    "de": "Stapel die gebrochenen Steine wieder auf.",
-    "en": "Place 3× Cobblestone."
+    "ko": "돌을 캐요. 조약돌 세 개로 기둥을 쌓아요."
    },
    "hint": {
-    "ko": "조약돌을 놓아요.",
-    "de": "Platziere Bruchstein.",
-    "en": "Place 3× Cobblestone."
+    "ko": "조약돌로 기둥을 쌓아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "coal"
+    "torch"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:coal_ore",
+    "type": "CRAFT",
+    "item": "minecraft:torch",
     "count": 1
-   },
-   "clue": {
-    "ko": "반짝이는 검은 석탄을 캐요.",
-    "de": "Ein schwarzer Stein glitzert. Baue ihn ab.",
-    "en": "Break Coal Ore."
-   },
-   "hint": {
-    "ko": "석탄을 캐요.",
-    "de": "Baue Kohle ab.",
-    "en": "Break Coal Ore."
    }
   }
  ],
@@ -83,42 +66,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_black_banner"
+    "torch"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:black_banner",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cobblestone"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Schwarzes Banner. Nachts.",
-    "en": "Place Black Banner. At night."
-   },
-   "hint": {
-    "en": "Place Black Banner. At night."
-   }
+   ]
   },
-  "textKo": "밤에 검은색 현수막라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzes Banner — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Black Banner is complete."
+  "textKo": "밤에 조약돌 기둥 위에 횃불을 놓았어요."
  },
  "reward": {
   "badge": "steinpfad",
   "words": [
-   "stone",
-   "cobblestone",
    "coal",
+   "cobblestone",
    "torch"
   ]
  },
- "order": 10,
- "koreanLevel": 1,
- "topic": "돌",
- "titleEn": "The Stone Trail"
+ "koreanLevel": 1
 }

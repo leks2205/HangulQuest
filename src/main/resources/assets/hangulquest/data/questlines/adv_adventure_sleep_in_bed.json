@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "adv_adventure_sleep_in_bed",
  "titleKo": "달콤한 꿈",
- "titleDe": "Träum was Schönes",
  "topic": "adventure",
  "tier": 2,
  "order": 226,
  "concepts": [
-  "gen_music_disc_otherside",
-  "bed"
+  "gen_orange_bed",
+  "chest",
+  "carpet",
+  "bed",
+  "sleep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,37 +23,40 @@
   {
    "id": "s1",
    "teach": [
-    "gen_music_disc_otherside"
+    "gen_orange_bed"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:music_disc_otherside",
+    "type": "CRAFT",
+    "item": "minecraft:orange_bed",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
    "id": "s2",
    "teach": [
+    "gen_orange_bed",
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_bed",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "carpet",
     "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_bed",
+    "type": "PLACE_REL",
+    "block": "minecraft:lime_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:beds",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell das Bett in dein Schlafzimmer.",
-    "en": "Place Red Bed."
-   },
-   "hint": {
-    "en": "Place Red Bed."
    }
   }
  ],
@@ -59,31 +64,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "bed"
+    "gen_orange_bed",
+    "sleep"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:red_bed"
+    "block": "minecraft:orange_bed"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Leg dich ins Bett und schlaf bis zum Morgen.",
-    "en": "Use Red Bed."
-   },
-   "hint": {
-    "en": "Use Red Bed."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "달콤한 꿈 — 침대에서 자고 아침을 맞아요.",
-  "textDe": "Träum was Schönes — Schlaf in deinem Bett bis zum Morgen.",
-  "textEn": "the ritual of Red Bed is complete."
+  "textKo": "밤에 주황색 침대에서 잤어요."
  },
  "reward": {
   "badge": "adv_adventure_sleep_in_bed",
   "words": [
-   "bed"
+   "bed",
+   "carpet",
+   "chest"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Sweet Dreams"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

@@ -1,16 +1,13 @@
 {
  "schema": 1,
  "id": "muschelpfad",
- "titleKo": "조개의 길",
- "titleDe": "Der Muschelpfad",
- "topic": "조개",
+ "titleKo": "모래성의 길",
+ "topic": "해변",
  "tier": 1,
  "order": 153,
  "concepts": [
-  "shell",
-  "gen_husk",
-  "gen_warped_door",
-  "prismarine"
+  "sand",
+  "gen_oak_sign"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -21,57 +18,41 @@
   {
    "id": "s1",
    "teach": [
-    "shell"
+    "sand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nautilus_shell",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Muschel.",
-    "en": "Collect Nautilus Shell."
-   },
-   "hint": {
-    "ko": "조개는 바다 밑이나 익사한 좀비에게서 얻어요.",
-    "de": "Muscheln findest du am Meeresgrund oder bei Ertrunkenen.",
-    "en": "Collect Nautilus Shell."
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:sand",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_husk"
+    "sand"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:husk",
-    "dwellMs": 800
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 3
    },
-   "clue": {
-    "de": "Sieh dir Wüstenzombie an.",
-    "en": "Look at Husk."
-   },
-   "hint": {
-    "en": "Look at Husk."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_warped_door"
+    "gen_oak_sign"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:warped_door",
-    "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Wirrtür.",
-    "en": "Place 4× Warped Door."
-   },
-   "hint": {
-    "en": "Place 4× Warped Door."
+    "type": "CRAFT",
+    "item": "minecraft:oak_sign",
+    "count": 1
    }
   }
  ],
@@ -79,36 +60,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "prismarine"
+    "gen_oak_sign"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:prismarine_shard",
-    "count": 2
-   },
-   "conditions": [],
-   "hint": {
-    "ko": "프리즈머린은 바다 신전의 수호자를 물리치면 얻어요.",
-    "de": "Prismarin kommt von Wächtern im Meerestempel.",
-    "en": "Collect 2× Prismarine Shard."
-   },
-   "clue": {
-    "en": "Collect 2× Prismarine Shard."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:oak_sign",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:sand"
    }
   },
-  "textKo": "프리즈머린을 모아요.",
-  "textDe": "Prismarin sammeln.",
-  "textEn": "the ritual of Prismarine Shard is complete."
+  "textKo": "모래 피라미드 위에 참나무 표지판을 세웠어요."
  },
  "reward": {
   "badge": "muschelpfad",
   "words": [
-   "shell",
-   "turtle",
    "sand",
-   "prismarine"
+   "gen_oak_sign"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Shell Trail"
+ "koreanLevel": 1
 }

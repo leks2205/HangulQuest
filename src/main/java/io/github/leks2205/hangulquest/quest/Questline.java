@@ -1,11 +1,18 @@
 package io.github.leks2205.hangulquest.quest;
 
+import io.github.leks2205.hangulquest.util.I18n;
 import io.github.leks2205.hangulquest.util.Lang;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/** A Schnitzeljagd clue chain with a ritual finale. */
+/**
+ * A Schnitzeljagd clue chain with a ritual finale.
+ *
+ * <p>Title and finale text come from the lang files ({@code hangulquest.trail.<id>.title} and
+ * {@code .finale}); the inline {@code titleEn}-style fields are what a player's questline file may
+ * carry, and they win. Each step reads its own text from {@code hangulquest.trail.<id>.step.<sid>.*}.
+ */
 public final class Questline {
 	public record Requires(int minWordsKnown, String dimension, List<String> completed) {
 		public Requires {
@@ -17,23 +24,29 @@ public final class Questline {
 		}
 	}
 
+	private static final String DEFAULT_FINALE_EN = "You reached the goal.";
+	private static final String DEFAULT_FINALE_DE = "Du hast das Ziel erreicht.";
+
 	private final String id;
 	private final String titleKo;
+	/** Inline German title; null when the text comes from the lang files. */
 	private final String titleDe;
-	private String titleEn;
+	private final String titleEn;
 	private final int tier;
 	private final List<String> concepts;
 	private final Requires requires;
 	private final List<QuestStep> steps;
-	private QuestStep finale;
+	private final QuestStep finale;
 	private final String finaleKo;
 	private final String finaleDe;
-	private String finaleEn;
+	private final String finaleEn;
 	private final String badge;
 	private final int order;
 	private final int koreanLevel;
 	private final String topic;
 	private final boolean adaptive;
+	/** The grammar.json constructions the trail teaches, as its author lists them; empty when it lists none. */
+	private final List<String> grammar;
 
 	public Questline(String id, String titleKo, String titleDe, int tier, List<String> concepts,
 					 Requires requires, List<QuestStep> steps, QuestStep finale,
@@ -47,21 +60,57 @@ public final class Questline {
 					 List<String> concepts, Requires requires, List<QuestStep> steps,
 					 QuestStep finale, String finaleKo, String finaleDe, String badge, int order,
 					 int koreanLevel, boolean adaptive) {
+		this(id, titleKo, titleDe, null, topic, tier, concepts, requires, steps, finale, finaleKo,
+				finaleDe, null, badge, order, koreanLevel, adaptive);
+	}
+
+	/** Every field but the grammar list. */
+	public Questline(String id, String titleKo, String titleDe, String titleEn, String topic, int tier,
+					 List<String> concepts, Requires requires, List<QuestStep> steps,
+					 QuestStep finale, String finaleKo, String finaleDe, String finaleEn,
+					 String badge, int order, int koreanLevel, boolean adaptive) {
+		this(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires, steps, finale, finaleKo, finaleDe,
+				finaleEn, badge, order, koreanLevel, adaptive, List.of());
+	}
+
+	/**
+	 * The canonical constructor: every field, including the English title and finale text and the grammar
+	 * list. All copies go through here (see the {@code with...} methods), so no field can be dropped.
+	 */
+	public Questline(String id, String titleKo, String titleDe, String titleEn, String topic, int tier,
+					 List<String> concepts, Requires requires, List<QuestStep> steps,
+					 QuestStep finale, String finaleKo, String finaleDe, String finaleEn,
+					 String badge, int order, int koreanLevel, boolean adaptive, List<String> grammar) {
 		this.id = id;
 		this.titleKo = titleKo;
 		this.titleDe = titleDe;
+		this.titleEn = titleEn;
 		this.tier = tier;
 		this.concepts = concepts == null ? List.of() : List.copyOf(concepts);
 		this.requires = requires == null ? Requires.none() : requires;
-		this.steps = steps == null ? List.of() : List.copyOf(steps);
-		this.finale = finale;
+		List<QuestStep> keyed = new ArrayList<>();
+		if (steps != null) {
+			for (QuestStep step : steps) {
+				keyed.add(withKey(id, step));
+			}
+		}
+		this.steps = List.copyOf(keyed);
+		this.finale = withKey(id, finale);
+		List<QuestStep> ordered = allSteps();
+		for (int i = 0; i < ordered.size(); i++) {
+			ordered.get(i).bindEarlier(ordered.subList(0, i));
+		}
 		this.finaleKo = finaleKo;
 		this.finaleDe = finaleDe;
+		this.finaleEn = finaleEn;
 		this.badge = badge == null ? id : badge;
 		this.order = order;
 		this.koreanLevel = Math.max(1, Math.min(6, koreanLevel));
-		this.topic = topic == null || topic.isBlank() ? titleDe : topic;
+		this.topic = topic != null && !topic.isBlank() ? topic
+				: titleDe != null && !titleDe.isBlank() ? titleDe
+				: titleEn != null && !titleEn.isBlank() ? titleEn : id;
 		this.adaptive = adaptive;
+		this.grammar = grammar == null ? List.of() : List.copyOf(grammar);
 	}
 
 	public String id() {
@@ -72,12 +121,14 @@ public final class Questline {
 		return titleKo;
 	}
 
+	/** The German title; the English one when German has none. */
 	public String titleDe() {
-		return titleDe;
+		return title(Lang.DE);
 	}
 
+	/** The English title. */
 	public String titleEn() {
-		return titleEn == null || titleEn.isBlank() ? titleDe : titleEn;
+		return title(Lang.EN);
 	}
 
 	/** Title in the current interface language. */
@@ -85,18 +136,57 @@ public final class Questline {
 		return title(Lang.current());
 	}
 
+	/** The title in a language; English where that language has none, the trail id when there is no text. */
 	public String title(Lang lang) {
-		return lang == Lang.DE ? titleDe : titleEn();
+		String text = I18n.content(lang, key("title"), titleEn, titleDe);
+		return text == null ? id : text;
 	}
 
-	/** Copy carrying the English title and finale text, used by the loader. */
+	/** The authored English title, null when the trail has none (no fallback to German). */
+	public String titleEnRaw() {
+		return I18n.own(Lang.EN, key("title"), titleEn, titleDe);
+	}
+
+	/** Copy carrying the English title and finale text. The finale step is left untouched. */
 	public Questline withEnglish(String englishTitle, String englishFinale) {
-		this.titleEn = englishTitle;
-		this.finaleEn = englishFinale;
-		if (finale != null && englishFinale != null) {
-			this.finale = finale.withEnglish(englishFinale, null);
-		}
-		return this;
+		return new Questline(id, titleKo, titleDe, englishTitle, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, englishFinale, badge, order, koreanLevel, adaptive, grammar);
+	}
+
+	/** Copy with other clue steps and finale step. */
+	public Questline withSteps(List<QuestStep> newSteps, QuestStep newFinale) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				newSteps, newFinale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
+	}
+
+	/** Copy with other prerequisites. */
+	public Questline withRequires(Requires newRequires) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, newRequires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
+	}
+
+	/** Copy with another branch topic. */
+	public Questline withTopic(String newTopic) {
+		return new Questline(id, titleKo, titleDe, titleEn, newTopic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
+	}
+
+	/** Copy with another tree tier and Korean difficulty. */
+	public Questline withLevels(int newTier, int newKoreanLevel) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, newTier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, newKoreanLevel, adaptive, grammar);
+	}
+
+	/** Copy with the adaptive flag set or cleared. */
+	public Questline withAdaptive(boolean newAdaptive) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, newAdaptive, grammar);
+	}
+
+	/** Copy with another grammar list. */
+	public Questline withGrammar(List<String> newGrammar) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, newGrammar);
 	}
 
 	public int tier() {
@@ -124,15 +214,40 @@ public final class Questline {
 	}
 
 	public String finaleDe() {
-		return finaleDe;
+		return finale(Lang.DE);
+	}
+
+	/** The authored English finale text, null when the trail has none (no fallback to German). */
+	public String finaleEnRaw() {
+		return I18n.own(Lang.EN, key("finale"), finaleEn, finaleDe);
 	}
 
 	public String finaleEn() {
-		return finaleEn == null || finaleEn.isBlank() ? finaleDe : finaleEn;
+		return finale(Lang.EN);
 	}
 
+	/**
+	 * The finale line in a language; English where that language has none. A trail without any text
+	 * gets a plain line, so the ceremony never shows nothing.
+	 */
 	public String finale(Lang lang) {
-		return lang == Lang.DE ? finaleDe : finaleEn();
+		String text = I18n.content(lang, key("finale"), finaleEn, finaleDe);
+		if (text != null) {
+			return text;
+		}
+		return lang == Lang.DE ? DEFAULT_FINALE_DE : DEFAULT_FINALE_EN;
+	}
+
+	private String key(String field) {
+		return "hangulquest.trail." + id + "." + field;
+	}
+
+	/** The step with its key prefix set, unless it already carries one. */
+	private static QuestStep withKey(String trailId, QuestStep step) {
+		if (step == null || step.textKey() != null) {
+			return step;
+		}
+		return step.withTextKey("hangulquest.trail." + trailId + ".step." + step.id());
 	}
 
 	public String badge() {
@@ -159,6 +274,14 @@ public final class Questline {
 
 	public boolean adaptive() {
 		return adaptive;
+	}
+
+	/**
+	 * The grammar-point ids the trail declares ({@code "grammar": ["L2.seyo", ...]} in the file): what the author
+	 * means it to practise. Ids of grammar.json or their ladder aliases; empty when the file lists none.
+	 */
+	public List<String> grammar() {
+		return grammar;
 	}
 
 	/** Clue steps followed by the finale, which is the actual last step. */

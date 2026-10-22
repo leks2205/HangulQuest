@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "schmelzofen",
  "titleKo": "용광로의 불",
- "titleDe": "Das Schmelzfeuer",
  "topic": "돌",
  "tier": 2,
  "order": 60,
  "concepts": [
-  "gen_shulker_box",
-  "furnace",
-  "gen_purple_stained_glass"
+  "gen_blast_furnace",
+  "iron",
+  "coal",
+  "furnace"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_shulker_box"
+    "iron"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:shulker_box",
-    "count": 2
+    "type": "SMELT",
+    "output": "minecraft:iron_ingot",
+    "count": 5,
+    "input": "minecraft:raw_iron"
    },
-   "clue": {
-    "de": "Baue 2× Shulker-Kiste ab.",
-    "en": "Break 2× Shulker Box."
-   },
-   "hint": {
-    "en": "Break 2× Shulker Box."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:coal"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "furnace"
+    "gen_blast_furnace"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:furnace",
+    "type": "CRAFT",
+    "item": "minecraft:blast_furnace",
     "count": 1
-   },
-   "clue": {
-    "de": "Stell einen Ofen auf.",
-    "en": "Place Furnace."
-   },
-   "hint": {
-    "en": "Place Furnace."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_blast_furnace"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:blast_furnace",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:furnace",
+    "count": 1
    }
   }
  ],
@@ -60,34 +66,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purple_stained_glass"
+    "gen_blast_furnace",
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purple_stained_glass",
-    "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Violettes Glas.",
-    "en": "Place Purple Stained Glass."
-   },
-   "hint": {
-    "en": "Place Purple Stained Glass."
+    "type": "PUT_IN",
+    "item": "minecraft:raw_iron",
+    "container": "minecraft:blast_furnace",
+    "count": 3
    }
   },
-  "textKo": "보라색 색유리라는 길의 의식을 마쳤어요.",
-  "textDe": "Violettes Glas — Zeremonie vollendet.",
-  "textEn": "the ritual of Purple Stained Glass is complete."
+  "textKo": "용광로 안에 철 원석을 세 개 넣었어요. 용광로는 뜨거워요."
  },
  "reward": {
   "badge": "schmelzofen",
   "words": [
+   "gen_blast_furnace",
    "iron",
-   "furnace",
-   "torch"
+   "coal",
+   "furnace"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Smelting Fire"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.go_held"
+ ]
 }

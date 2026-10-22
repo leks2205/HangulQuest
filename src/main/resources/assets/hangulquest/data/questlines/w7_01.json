@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_01",
  "titleKo": "불의 문",
- "titleDe": "Das Feuertor",
  "topic": "불",
  "tier": 2,
  "order": 1071,
@@ -28,13 +27,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:deepslate_redstone_ore",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Tiefenschiefer-Redstone-Erz ab.",
-    "en": "Break 3× Deepslate Redstone Ore."
-   },
-   "hint": {
-    "en": "Break 3× Deepslate Redstone Ore."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:purple_concrete_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Violette Betonstufe.",
-    "en": "Collect Purple Concrete Slab."
-   },
-   "hint": {
-    "en": "Collect Purple Concrete Slab."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:granite_slab",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Granitstufe.",
-    "en": "Place 2× Granite Slab."
-   },
-   "hint": {
-    "en": "Place 2× Granite Slab."
-   }
+   "conditions": []
   },
-  "textKo": "화강암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Granitstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Granite Slab is complete."
+  "textKo": "화강암 반 블록을 두 개 놓았어요."
  },
  "reward": {
   "badge": "w7_01",
@@ -88,6 +64,5 @@
    "adv_dimension_the_nether"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Gate of Fire"
+ "koreanLevel": 4
 }

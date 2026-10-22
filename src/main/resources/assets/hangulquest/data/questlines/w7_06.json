@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_06",
  "titleKo": "마그마의 길",
- "titleDe": "Der Magmaweg",
  "topic": "마그마",
  "tier": 2,
  "order": 1076,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:emerald_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Smaragdblock.",
-    "en": "Collect Block of Emerald."
-   },
-   "hint": {
-    "en": "Collect Block of Emerald."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:oxidized_copper",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue 8× Oxidierter Kupferblock ab.",
-    "en": "Break 8× Oxidized Copper."
-   },
-   "hint": {
-    "en": "Break 8× Oxidized Copper."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_bed",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Weißes Bett.",
-    "en": "Place 3× White Bed."
-   },
-   "hint": {
-    "en": "Place 3× White Bed."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:waxed_exposed_copper_chain",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Gewachste angelaufene Kupferkette.",
-    "en": "Place Waxed Exposed Copper Chain."
-   },
-   "hint": {
-    "en": "Place Waxed Exposed Copper Chain."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste angelaufene Kupferkette — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Exposed Copper Chain is complete."
+  "textKo": "밀랍칠한 약간 녹슨 구리 사슬을 놓았어요."
  },
  "reward": {
   "badge": "w7_06",
@@ -108,6 +77,5 @@
    "ghast"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Magma Road"
+ "koreanLevel": 4
 }

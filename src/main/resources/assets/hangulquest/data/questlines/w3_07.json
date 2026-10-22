@@ -2,15 +2,16 @@
  "schema": 1,
  "id": "w3_07",
  "titleKo": "말과 장터",
- "titleDe": "Pferd und Markt",
  "topic": "동물",
  "tier": 2,
  "order": 1037,
  "concepts": [
-  "gen_llama",
-  "gen_mangrove_fence_gate",
-  "gen_sulfur",
-  "gen_lime_wool"
+  "horse",
+  "sugar",
+  "gate",
+  "hay_block",
+  "villager",
+  "talk"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,91 +24,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_llama"
+    "horse",
+    "sugar"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:llama",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Lama an.",
-    "en": "Look at Llama."
-   },
-   "hint": {
-    "en": "Look at Llama."
+    "type": "GIVE",
+    "item": "minecraft:sugar",
+    "entity": "minecraft:horse",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_fence_gate"
+    "gate",
+    "hay_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_fence_gate",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Mangrovenholzzauntor.",
-    "en": "Collect 3× Mangrove Fence Gate."
-   },
-   "hint": {
-    "en": "Collect 3× Mangrove Fence Gate."
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:hay_block",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_sulfur"
+    "gate"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate",
+    "change": "OPEN"
    },
-   "clue": {
-    "de": "Sammle Schwefel.",
-    "en": "Collect Sulfur."
-   },
-   "hint": {
-    "en": "Collect Sulfur."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:horse",
+     "kind": "entity"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_wool"
+    "villager",
+    "talk"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:lime_wool",
-    "count": 4
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:villager"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Hellgrüne Wolle.",
-    "en": "Place 4× Lime Wool."
-   },
-   "hint": {
-    "en": "Place 4× Lime Wool."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:horse",
+     "kind": "entity"
+    }
+   ]
   },
-  "textKo": "연두색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrüne Wolle — Zeremonie vollendet.",
-  "textEn": "the ritual of Lime Wool is complete."
+  "textKo": "말 옆에서 주민과 이야기했어요."
  },
  "reward": {
   "badge": "w3_07",
   "words": [
    "horse",
-   "leather",
-   "saddle",
-   "fence"
+   "sugar",
+   "gate",
+   "hay_block",
+   "villager",
+   "talk"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Horse and Market"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L1.loc_yeop_e",
+  "L2.eseo_activity"
+ ]
 }

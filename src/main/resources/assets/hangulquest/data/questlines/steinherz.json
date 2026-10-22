@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "steinherz",
  "titleKo": "돌심장",
- "titleDe": "Das Steinherz",
  "topic": "돌",
  "tier": 3,
  "order": 83,
  "concepts": [
-  "gen_observer",
-  "gen_cherry_boat",
-  "gen_open_eyeblossom"
+  "stone",
+  "furnace",
+  "chest",
+  "beef"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,37 +23,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_observer"
+    "stone"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:observer",
-    "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Beobachter ab.",
-    "en": "Break 3× Observer."
-   },
-   "hint": {
-    "en": "Break 3× Observer."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:stone",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cherry_boat"
+    "furnace"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_boat",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:furnace",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:stone"
    },
    "clue": {
-    "de": "Sammle 2× Kirschholzboot.",
-    "en": "Collect 2× Cherry Boat."
+    "ko": "돌담 안에 화로를 놓으세요."
    },
    "hint": {
-    "en": "Collect 2× Cherry Boat."
+    "ko": "돌담 안에 화로를 놓아요."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:chest",
+    "relation": "BEHIND",
+    "anchor": "minecraft:furnace",
+    "count": 1
    }
   }
  ],
@@ -61,34 +69,36 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_open_eyeblossom"
+    "beef"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:open_eyeblossom",
-    "count": 2
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_beef",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Geöffnete Augenblüte.",
-    "en": "Place 2× Open Eyeblossom."
-   },
-   "hint": {
-    "en": "Place 2× Open Eyeblossom."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:furnace"
+    }
+   ]
   },
-  "textKo": "뜬 눈망울꽃라는 길의 의식을 마쳤어요.",
-  "textDe": "Geöffnete Augenblüte — Zeremonie vollendet.",
-  "textEn": "the ritual of Open Eyeblossom is complete."
+  "textKo": "화로 옆에서 소고기를 먹었어요."
  },
  "reward": {
   "badge": "steinherz",
   "words": [
-   "coal",
-   "iron",
-   "furnace"
+   "stone",
+   "furnace",
+   "chest",
+   "beef"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Stone Heart"
+ "grammar": [
+  "L2.euro_material",
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

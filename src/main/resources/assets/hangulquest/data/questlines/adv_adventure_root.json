@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_adventure_root",
  "titleKo": "모험",
- "titleDe": "Abenteuer",
  "topic": "adventure",
  "tier": 2,
  "order": 223,
  "concepts": [
-  "spider",
-  "gen_wither",
-  "gen_vex"
+  "shield",
+  "planks",
+  "bed",
+  "spider"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,72 +22,92 @@
   {
    "id": "s1",
    "teach": [
-    "spider"
+    "shield"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:spider",
+    "type": "CRAFT",
+    "item": "minecraft:shield",
     "count": 1
    },
-   "clue": {
-    "de": "Besiege Spinne.",
-    "en": "Defeat Spider."
-   },
-   "hint": {
-    "en": "Defeat Spider."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_wither"
+    "shield"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:wither",
-    "count": 2
+    "type": "HOLD_WHILE",
+    "item": "minecraft:shield",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
    },
-   "clue": {
-    "de": "Besiege 2× Wither.",
-    "en": "Defeat 2× Wither."
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "WALL",
+    "material": "minecraft:acacia_planks",
+    "size": 3
    },
-   "hint": {
-    "en": "Defeat 2× Wither."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:orange_bed",
+    "relation": "NEXT_TO",
+    "pattern": "WALL",
+    "material": "minecraft:acacia_planks"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_vex"
+    "spider"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:vex",
-    "count": 1
+    "entity": "minecraft:spider",
+    "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Plagegeist.",
-    "en": "Defeat Vex."
-   },
-   "hint": {
-    "en": "Defeat Vex."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "벡스라는 길의 의식을 마쳤어요.",
-  "textDe": "Plagegeist — Zeremonie vollendet.",
-  "textEn": "the ritual of Vex is complete."
+  "textKo": "방패를 들고 밤에 거미를 물리쳤어요. 모험이 시작돼요."
  },
  "reward": {
   "badge": "adv_adventure_root",
   "words": [
-   "zombie",
-   "skeleton",
-   "creeper"
+   "shield",
+   "planks",
+   "bed"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Adventure"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L1.loc_an_e"
+ ]
 }

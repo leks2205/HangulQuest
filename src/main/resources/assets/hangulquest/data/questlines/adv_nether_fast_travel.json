@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_fast_travel",
  "titleKo": "천 리 길도 한 걸음",
- "titleDe": "Subraumtransport",
  "topic": "nether",
  "tier": 2,
  "order": 295,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_13",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:cobweb",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Spinnennetz.",
-    "en": "Place 3× Cobweb."
-   },
-   "hint": {
-    "en": "Place 3× Cobweb."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:pale_oak_trapdoor",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Blasseichenholzfalltür.",
-    "en": "Place 2× Pale Oak Trapdoor."
-   },
-   "hint": {
-    "en": "Place 2× Pale Oak Trapdoor."
-   }
+   "conditions": []
   },
-  "textKo": "창백한 참나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenholzfalltür — Zeremonie vollendet.",
-  "textEn": "the ritual of Pale Oak Trapdoor is complete."
+  "textKo": "창백한 참나무 다락문을 두 개 달았어요."
  },
  "reward": {
   "badge": "adv_nether_fast_travel",
@@ -88,6 +64,5 @@
    "height"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Subspace Bubble"
+ "koreanLevel": 2
 }

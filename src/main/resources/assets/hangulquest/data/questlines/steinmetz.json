@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "steinmetz",
  "titleKo": "석공의 길",
- "titleDe": "Der Steinmetzpfad",
  "topic": "석공",
  "tier": 3,
  "order": 160,
  "concepts": [
-  "gen_muddy_mangrove_roots",
-  "chiseled_stone_bricks",
-  "gen_conduit",
-  "stone_bricks"
+  "stone",
+  "stone_bricks",
+  "gen_stone_brick_slab",
+  "chiseled_stone_bricks"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,57 +23,57 @@
   {
    "id": "s1",
    "teach": [
-    "gen_muddy_mangrove_roots"
+    "stone_bricks",
+    "crafting_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:muddy_mangrove_roots",
-    "count": 8
-   },
-   "clue": {
-    "de": "Platziere 8× Schlammige Mangrovenwurzeln.",
-    "en": "Place 8× Muddy Mangrove Roots."
-   },
-   "hint": {
-    "en": "Place 8× Muddy Mangrove Roots."
+    "type": "CRAFT",
+    "item": "minecraft:stone_bricks",
+    "count": 4,
+    "station": "crafting_table"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "chiseled_stone_bricks"
+    "gen_stone_brick_slab"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_stone_bricks",
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:stone_brick_slab",
     "count": 2
    },
-   "clue": {
-    "de": "Setz zwei gemeißelte Steinziegel.",
-    "en": "Place 2× Chiseled Stone Bricks."
-   },
-   "hint": {
-    "ko": "조각된 석재 벽돌은 석재 벽돌 두 개로 만들어요.",
-    "de": "Gemeißelte Steinziegel bestehen aus zwei Steinziegeln.",
-    "en": "Place 2× Chiseled Stone Bricks."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_conduit"
+    "stone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:conduit",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Aquisator.",
-    "en": "Place 2× Conduit."
-   },
-   "hint": {
-    "en": "Place 2× Conduit."
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "chiseled_stone_bricks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:chiseled_stone_bricks",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone"
    }
   }
  ],
@@ -82,33 +81,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "stone_bricks"
+    "stone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:stone_bricks",
-    "count": 6
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 6× Stone Bricks."
-   },
-   "hint": {
-    "en": "Collect 6× Stone Bricks."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:stone_brick_stairs",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone"
    }
   },
-  "textKo": "석재 벽돌을 모아요.",
-  "textDe": "Steinziegel sammeln.",
-  "textEn": "the ritual of Stone Bricks is complete."
+  "textKo": "돌기둥 옆에 석재 벽돌 계단을 놓았어요."
  },
  "reward": {
   "badge": "steinmetz",
   "words": [
+   "stone",
    "stone_bricks",
-   "chiseled_stone_bricks",
-   "chest"
+   "gen_stone_brick_slab",
+   "chiseled_stone_bricks"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Stonemason Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.euro_material"
+ ]
 }

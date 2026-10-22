@@ -1,0 +1,8 @@
+qwen-tts==0.1.1
+faster-whisper==1.2.1
+soundfile
+numpy
+torch
+# only for qa.py on the GPU (ctranslate2 wants CUDA 12 libraries)
+nvidia-cublas-cu12
+nvidia-cudnn-cu12

@@ -2,14 +2,16 @@
  "schema": 1,
  "id": "meerestiefe",
  "titleKo": "바다 깊은 길",
- "titleDe": "Die Meerestiefe",
+ "topic": "물",
  "tier": 3,
  "order": 514,
  "concepts": [
-  "gen_mushroom_fields",
-  "gen_mooshroom",
-  "gen_waxed_exposed_copper_trapdoor",
-  "gen_cherry_trapdoor"
+  "boat",
+  "gen_deep_ocean",
+  "fishing_rod",
+  "beach",
+  "gen_island",
+  "sapling"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,55 +25,70 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mushroom_fields"
+    "boat"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:mushroom_fields",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Pilzland.",
-    "en": "Reach Mushroom Fields."
-   },
-   "hint": {
-    "en": "Reach Mushroom Fields."
+    "type": "CRAFT",
+    "item": "minecraft:acacia_boat",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mooshroom"
+    "gen_deep_ocean"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:mooshroom",
-    "dwellMs": 800
+    "type": "REACH_BIOME",
+    "biome": "minecraft:deep_ocean",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sieh dir Mooshroom an.",
-    "en": "Look at Mooshroom."
-   },
-   "hint": {
-    "en": "Look at Mooshroom."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_exposed_copper_trapdoor"
+    "fishing_rod"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_copper_trapdoor",
+    "item": "minecraft:cod",
     "count": 1
    },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "beach",
+    "gen_island"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:beach",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ],
    "clue": {
-    "de": "Sammle Gewachste angelaufene Kupferfalltür.",
-    "en": "Collect Waxed Exposed Copper Trapdoor."
+    "ko": "배를 타고 섬의 해변으로 가세요."
    },
    "hint": {
-    "en": "Collect Waxed Exposed Copper Trapdoor."
+    "ko": "배를 타고 섬의 해변으로 가요."
    }
   }
  ],
@@ -79,11 +96,13 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cherry_trapdoor"
+    "sapling"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_trapdoor",
+    "type": "PLACE_REL",
+    "block": "minecraft:jungle_sapling",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:sand",
     "count": 1
    },
    "conditions": [
@@ -91,29 +110,25 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kirschholzfalltür. In einem passenden Biom.",
-    "en": "Place Cherry Trapdoor. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Cherry Trapdoor. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "해변에서 벚나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschholzfalltür — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Cherry Trapdoor is complete."
+  "textKo": "섬의 해변에 묘목을 심었어요. 바다는 깊고 넓어요."
  },
  "reward": {
   "badge": "meerestiefe",
   "words": [
-   "ocean",
-   "squid",
-   "fish",
-   "campfire"
+   "boat",
+   "gen_deep_ocean",
+   "fishing_rod",
+   "beach",
+   "gen_island"
   ]
  },
  "koreanLevel": 2,
- "topic": "물",
- "titleEn": "The Deep Sea"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.go_held",
+  "L2.go_sequence"
+ ]
 }

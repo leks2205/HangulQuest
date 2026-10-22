@@ -2,12 +2,11 @@
  "schema": 1,
  "id": "adv_story_enter_the_end",
  "titleKo": "이걸로 끝이야?",
- "titleDe": "Das Ende?",
  "topic": "story",
  "tier": 2,
  "order": 313,
  "concepts": [
-  "gen_test_instance_block",
+  "adv_item_ender_eye",
   "stone_bricks",
   "gen_polished_blackstone_wall"
  ],
@@ -22,19 +21,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_test_instance_block"
+    "adv_item_ender_eye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:test_instance_block",
+    "item": "minecraft:ender_eye",
     "count": 12
-   },
-   "clue": {
-    "de": "Sammle 12× Testinstanzblock.",
-    "en": "Collect 12× Test Instance Block."
-   },
-   "hint": {
-    "en": "Collect 12× Test Instance Block."
    }
   },
   {
@@ -47,14 +39,8 @@
     "block": "minecraft:stone_bricks",
     "count": 4
    },
-   "clue": {
-    "de": "Schlage dich durch vier Steinziegel der Festung.",
-    "en": "Break 4× Stone Bricks."
-   },
    "hint": {
-    "ko": "요새 벽을 뚫으려면 곡괭이가 필요해요.",
-    "de": "Für die Festungsmauer braucht es eine Spitzhacke.",
-    "en": "Break 4× Stone Bricks."
+    "ko": "요새 벽을 뚫으려면 곡괭이가 필요해요."
    }
   }
  ],
@@ -69,18 +55,9 @@
     "block": "minecraft:polished_blackstone_wall",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Polierte Schwarzsteinmauer.",
-    "en": "Place 3× Polished Blackstone Wall."
-   },
-   "hint": {
-    "en": "Place 3× Polished Blackstone Wall."
-   }
+   "conditions": []
   },
-  "textKo": "윤나는 흑암 담장라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Schwarzsteinmauer — Zeremonie vollendet.",
-  "textEn": "the ritual of Polished Blackstone Wall is complete."
+  "textKo": "윤나는 흑암 담장을 세 개 놓았어요."
  },
  "reward": {
   "badge": "adv_story_enter_the_end",
@@ -90,6 +67,5 @@
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The End?"
+ "koreanLevel": 4
 }

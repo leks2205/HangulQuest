@@ -1,0 +1,153 @@
+id	ko	context
+trail.adv_story_root.title	마인크래프트	title, authored; project: Chop three logs, craft planks and a crafting table, and make a wooden pickaxe.
+trail.adv_story_root.s1.clue	통나무를 세 개 베어요.	clue, generated; BREAK_BLOCK
+trail.adv_story_root.s1.hint	통나무를 베어요.	hint, generated; BREAK_BLOCK
+trail.adv_story_root.s2.clue	판자를 여덟 개 만들어요.	clue, generated; ACQUIRE_ITEM
+trail.adv_story_root.s2.hint	판자를 만들어요.	hint, generated; ACQUIRE_ITEM
+trail.adv_story_root.s3.clue	제작대를 만들어요.	clue, generated; CRAFT
+trail.adv_story_root.s3.hint	제작대를 만들어요.	hint, generated; CRAFT
+trail.adv_story_root.finale.clue	나무 곡괭이를 만들어요.	clue, generated; CRAFT
+trail.adv_story_root.finale.hint	나무 곡괭이를 만들어요.	hint, generated; CRAFT
+trail.adv_story_root.finale	나무 곡괭이를 만들었어요.	finale line, generated
+trail.adv_story_mine_stone.title	석기 시대	title, authored; project: Mine stone, craft a stone pickaxe, collect cobblestone and smelt a first stone in a furnace.
+trail.adv_story_mine_stone.s1.clue	돌을 세 개 캐요.	clue, generated; BREAK_BLOCK
+trail.adv_story_mine_stone.s1.hint	돌을 캐요.	hint, generated; BREAK_BLOCK
+trail.adv_story_mine_stone.s2.clue	조약돌을 들고 돌 곡괭이를 만들어요.	clue, generated; CRAFT
+trail.adv_story_mine_stone.s2.hint	조약돌을 들고 돌 곡괭이를 만들어요.	hint, generated; CRAFT
+trail.adv_story_mine_stone.s3.clue	조약돌을 여덟 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.adv_story_mine_stone.s3.hint	조약돌을 모아요.	hint, generated; ACQUIRE_ITEM
+trail.adv_story_mine_stone.finale.clue	화로에서 돌을 만들어요.	clue, generated; SMELT
+trail.adv_story_mine_stone.finale.hint	화로에서 돌을 만들어요.	hint, generated; SMELT
+trail.adv_story_mine_stone.finale	화로에서 돌을 만들었어요.	finale line, generated
+trail.marktpfad.title	시장의 길	title, authored; project: Give the cow wheat, drink its milk, bake bread, give it to a villager friend and collect the emeralds.
+trail.marktpfad.s1.clue	낮에 소에게 밀을 줘요.	clue, generated; GIVE
+trail.marktpfad.s1.hint	낮에 소에게 밀을 줘요.	hint, generated; GIVE
+trail.marktpfad.s2.clue	소 옆에서 우유를 마셔요.	clue, generated; CONSUME_ITEM
+trail.marktpfad.s2.hint	소 옆에서 우유를 마셔요.	hint, generated; CONSUME_ITEM
+trail.marktpfad.s3.clue	낮에 빵을 만들어요.	clue, generated; CRAFT
+trail.marktpfad.s3.hint	낮에 빵을 만들어요.	hint, generated; CRAFT
+trail.marktpfad.s4.clue	주민 친구와 이야기해요. 빵을 줘요.	clue, authored; GIVE
+trail.marktpfad.s4.hint	주민 친구와 이야기해요. 빵을 줘요.	hint, authored; GIVE
+trail.marktpfad.finale.clue	에메랄드를 두 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.marktpfad.finale.hint	에메랄드를 모아요.	hint, generated; ACQUIRE_ITEM
+trail.marktpfad.finale	에메랄드를 두 개 모았어요.	finale line, generated
+trail.nachtwache.title	별빛의 길	title, authored; project: Build a plank column by day, set a candle on top at night, ring the bell with a clock in hand and watch a zombie.
+trail.nachtwache.s1.clue	낮에 판자 세 개로 기둥을 쌓아요.	clue, generated; BUILD_PATTERN
+trail.nachtwache.s1.hint	낮에 판자로 기둥을 쌓아요.	hint, generated; BUILD_PATTERN
+trail.nachtwache.s2.clue	밤에 달이 떠요. 판자 기둥 위에 하얀색 초를 놓아요.	clue, authored; PLACE_ON_PATTERN
+trail.nachtwache.s2.hint	밤에 달이 떠요. 판자 기둥 위에 하얀색 초를 놓아요.	hint, authored; PLACE_ON_PATTERN
+trail.nachtwache.s3.clue	밤에 시계를 들고 종을 울려요.	clue, generated; USE_BLOCK
+trail.nachtwache.s3.hint	밤에 시계를 들고 종을 울려요.	hint, generated; USE_BLOCK
+trail.nachtwache.finale.clue	밤에 좀비를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.nachtwache.finale.hint	밤에 좀비를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.nachtwache.finale	밤에 좀비를 바라봤어요.	finale line, generated
+trail.firstpfad.title	봉우리의 길	title, authored; project: Break ice on the mountain, collect and throw snowballs, then look at the snow from the peak.
+trail.firstpfad.s1.clue	산에서 얼음을 두 개 깨요.	clue, generated; BREAK_BLOCK
+trail.firstpfad.s1.hint	산에서 얼음을 깨요.	hint, generated; BREAK_BLOCK
+trail.firstpfad.s2.clue	눈덩이를 네 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.firstpfad.s2.hint	눈덩이를 모아요.	hint, generated; ACQUIRE_ITEM
+trail.firstpfad.s3.clue	산에서 눈덩이를 던져요.	clue, generated; CONSUME_ITEM
+trail.firstpfad.s3.hint	산에서 눈덩이를 던져요.	hint, generated; CONSUME_ITEM
+trail.firstpfad.finale.clue	낮에 산에서 눈을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.firstpfad.finale.hint	낮에 산에서 눈을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.firstpfad.finale	낮에 산에서 눈을 바라봤어요.	finale line, generated
+trail.gipfelblick.title	정상의 전망	title, authored; project: Climb a mountain, set up a sign, put a bed beside it and sleep on the summit.
+trail.gipfelblick.s1.clue	횃불을 들고 산 위로 올라가요.	clue, generated; REACH_HEIGHT
+trail.gipfelblick.s1.hint	산 위로 올라가요.	hint, authored; REACH_HEIGHT
+trail.gipfelblick.s2.clue	산에서 참나무 표지판을 세워요.	clue, generated; PLACE_BLOCK
+trail.gipfelblick.s2.hint	산에서 참나무 표지판을 세워요.	hint, generated; PLACE_BLOCK
+trail.gipfelblick.s3.clue	참나무 표지판 옆에 침대를 놓아요.	clue, generated; PLACE_REL
+trail.gipfelblick.s3.hint	참나무 표지판 옆에 침대를 놓아요.	hint, generated; PLACE_REL
+trail.gipfelblick.finale.clue	밤에 산 위의 침대에서 자요.	clue, authored; USE_BLOCK
+trail.gipfelblick.finale.hint	밤에 산 위의 침대에서 자요.	hint, authored; USE_BLOCK
+trail.gipfelblick.finale	밤에 산 위의 침대에서 잤어요.	finale line, authored
+trail.w1_01.title	첫 촛불	title, authored; project: Stack planks for a table, craft a candle, set it on the planks at night and light it.
+trail.w1_01.s1.clue	낮에 판자를 네 개 쌓아요.	clue, generated; PLACE_BLOCK
+trail.w1_01.s1.hint	낮에 판자를 쌓아요.	hint, generated; PLACE_BLOCK
+trail.w1_01.s2.clue	낮에 초를 만들어요.	clue, generated; CRAFT
+trail.w1_01.s2.hint	낮에 초를 만들어요.	hint, generated; CRAFT
+trail.w1_01.s3.clue	밤에 판자 위에 초를 놓아요.	clue, generated; PLACE_REL
+trail.w1_01.s3.hint	밤에 판자 위에 초를 놓아요.	hint, generated; PLACE_REL
+trail.w1_01.finale.clue	밤에 초에 불을 대요.	clue, authored; USE_BLOCK
+trail.w1_01.finale.hint	밤에 초에 불을 대요.	hint, authored; USE_BLOCK
+trail.w1_01.finale	밤에 초에 불을 댔어요.	finale line, authored
+trail.w1_02.title	유리 속 햇살	title, authored; project: Dig sand on the beach, smelt it to glass, craft a yellow glass pane and set it where the sun shines.
+trail.w1_02.s1.clue	낮에 해변에서 모래를 세 개 파요.	clue, generated; BREAK_BLOCK
+trail.w1_02.s1.hint	낮에 해변에서 모래를 파요.	hint, generated; BREAK_BLOCK
+trail.w1_02.s2.clue	낮에 화로에서 유리를 만들어요.	clue, generated; SMELT
+trail.w1_02.s2.hint	낮에 화로에서 유리를 만들어요.	hint, generated; SMELT
+trail.w1_02.s3.clue	노란색 색유리 판을 만들어요.	clue, generated; CRAFT
+trail.w1_02.s3.hint	노란색 색유리 판을 만들어요.	hint, generated; CRAFT
+trail.w1_02.finale.clue	낮에 노란색 색유리 판을 놓아요.	clue, generated; PLACE_BLOCK
+trail.w1_02.finale.hint	낮에 노란색 색유리 판을 놓아요.	hint, generated; PLACE_BLOCK
+trail.w1_02.finale	낮에 노란색 색유리 판을 놓았어요.	finale line, generated
+trail.w1_03.title	노란 꽃밭	title, authored; project: Pick dandelions, plant a sunflower with a dandelion beside it and look at the yellow flower bed.
+trail.w1_03.s1.clue	낮에 민들레를 세 송이 꺾어요.	clue, generated; BREAK_BLOCK
+trail.w1_03.s1.hint	낮에 민들레를 꺾어요.	hint, generated; BREAK_BLOCK
+trail.w1_03.s2.clue	해가 떠요. 해바라기를 심어요.	clue, authored; PLACE_BLOCK
+trail.w1_03.s2.hint	해가 떠요. 해바라기를 심어요.	hint, authored; PLACE_BLOCK
+trail.w1_03.s3.clue	해바라기 옆에 민들레를 심어요.	clue, authored; PLACE_REL
+trail.w1_03.s3.hint	해바라기 옆에 민들레를 심어요.	hint, authored; PLACE_REL
+trail.w1_03.finale.clue	낮에 해바라기를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.w1_03.finale.hint	낮에 해바라기를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.w1_03.finale	낮에 해바라기를 바라봤어요.	finale line, generated
+trail.w1_04.title	달빛 산책	title, authored; project: Craft torches, walk into a forest by moonlight, look at a log by torchlight and watch a sheep.
+trail.w1_04.s1.clue	낮에 횃불을 네 개 만들어요.	clue, generated; CRAFT
+trail.w1_04.s1.hint	낮에 횃불을 만들어요.	hint, generated; CRAFT
+trail.w1_04.s2.clue	밤에 달이 떠요. 숲으로 가요.	clue, authored; REACH_BIOME
+trail.w1_04.s2.hint	밤에 달이 떠요. 숲으로 가요.	hint, authored; REACH_BIOME
+trail.w1_04.s3.clue	밤에 횃불을 들고 통나무를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.w1_04.s3.hint	밤에 횃불을 들고 통나무를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.w1_04.finale.clue	밤에 양을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.w1_04.finale.hint	밤에 양을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.w1_04.finale	밤에 양을 바라봤어요.	finale line, generated
+trail.w1_05.title	물가의 불빛	title, authored; project: Go to a beach, set a lily pad on the water, craft a campfire and light it at night.
+trail.w1_05.s1.clue	낮에 해변으로 가요.	clue, generated; REACH_BIOME
+trail.w1_05.s1.hint	낮에 해변으로 가요.	hint, generated; REACH_BIOME
+trail.w1_05.s2.clue	물 위에 수련잎을 놓아요.	clue, generated; PLACE_REL
+trail.w1_05.s2.hint	물 위에 수련잎을 놓아요.	hint, generated; PLACE_REL
+trail.w1_05.s3.clue	해변에서 모닥불을 만들어요.	clue, generated; CRAFT
+trail.w1_05.s3.hint	해변에서 모닥불을 만들어요.	hint, generated; CRAFT
+trail.w1_05.finale.clue	밤에 해변에서 모닥불을 피워요.	clue, generated; PLACE_BLOCK
+trail.w1_05.finale.hint	밤에 해변에서 모닥불을 피워요.	hint, generated; PLACE_BLOCK
+trail.w1_05.finale	밤에 해변에서 모닥불을 피웠어요.	finale line, generated
+trail.w1_06.title	겨울 창가	title, authored; project: Break snow blocks, craft glass panes, put a bed by the window and look at the snow from under a roof.
+trail.w1_06.s1.clue	눈 블록을 두 개 부숴요.	clue, generated; BREAK_BLOCK
+trail.w1_06.s1.hint	눈 블록을 부숴요.	hint, generated; BREAK_BLOCK
+trail.w1_06.s2.clue	낮에 유리판을 세 개 만들어요.	clue, generated; CRAFT
+trail.w1_06.s2.hint	낮에 유리판을 만들어요.	hint, generated; CRAFT
+trail.w1_06.s3.clue	창문 옆에 침대를 놓아요.	clue, authored; PLACE_REL
+trail.w1_06.s3.hint	유리판 옆에 침대를 놓아요.	hint, authored; PLACE_REL
+trail.w1_06.finale.clue	지붕 아래에서 눈 블록을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK
+trail.w1_06.finale.hint	지붕 아래에서 눈 블록을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK
+trail.w1_06.finale	지붕 아래에서 눈 블록을 바라봤어요.	finale line, generated
+trail.w1_07.title	나무 아래의 점심	title, authored; project: Lay a carpet by a log, collect sweet berries, eat them there and watch a pig.
+trail.w1_07.s1.clue	낮에 통나무 옆에 하늘색 양탄자를 깔아요.	clue, generated; PLACE_REL
+trail.w1_07.s1.hint	통나무 옆에 양탄자를 깔아요.	hint, authored; PLACE_REL
+trail.w1_07.s2.clue	낮에 달콤한 열매를 세 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.w1_07.s2.hint	낮에 달콤한 열매를 모아요.	hint, generated; ACQUIRE_ITEM
+trail.w1_07.s3.clue	통나무 옆에서 달콤한 열매를 먹어요.	clue, generated; CONSUME_ITEM
+trail.w1_07.s3.hint	통나무 옆에서 달콤한 열매를 먹어요.	hint, generated; CONSUME_ITEM
+trail.w1_07.finale.clue	낮에 돼지를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY
+trail.w1_07.finale.hint	낮에 돼지를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY
+trail.w1_07.finale	낮에 돼지를 바라봤어요.	finale line, generated
+trail.w1_08.title	작은 집의 아침	title, authored; project: Build the walls of a little house, hang a door, put a bed inside and open the door at dawn.
+trail.w1_08.s1.clue	낮에 판자로 작은 집의 벽을 쌓아요.	clue, authored; BUILD_PATTERN
+trail.w1_08.s1.hint	낮에 판자로 작은 집의 벽을 쌓아요.	hint, authored; BUILD_PATTERN
+trail.w1_08.s2.clue	짙은 참나무 판자 울타리 옆에 문을 달아요.	clue, generated; PLACE_ON_PATTERN
+trail.w1_08.s2.hint	판자 벽 옆에 문을 달아요.	hint, authored; PLACE_ON_PATTERN
+trail.w1_08.s3.clue	작은 집 안에 침대를 놓아요.	clue, authored; PLACE_ON_PATTERN
+trail.w1_08.s3.hint	작은 집 안에 침대를 놓아요.	hint, authored; PLACE_ON_PATTERN
+trail.w1_08.finale.clue	새벽에 문을 열어요.	clue, generated; USE_BLOCK
+trail.w1_08.finale.hint	새벽에 문을 열어요.	hint, generated; USE_BLOCK
+trail.w1_08.finale	새벽에 문을 열었어요.	finale line, generated
+trail.w1_09.title	작은 발견	title, authored; project: Collect eggs and a feather, craft an item frame and hang it next to a chest.
+trail.w1_09.s1.clue	낮에 달걀을 두 개 모아요.	clue, generated; ACQUIRE_ITEM
+trail.w1_09.s1.hint	낮에 달걀을 모아요.	hint, generated; ACQUIRE_ITEM
+trail.w1_09.s2.clue	깃털을 구해요.	clue, generated; ACQUIRE_ITEM
+trail.w1_09.s2.hint	깃털을 구해요.	hint, generated; ACQUIRE_ITEM
+trail.w1_09.s3.clue	아이템 액자를 만들어요.	clue, generated; CRAFT
+trail.w1_09.s3.hint	아이템 액자를 만들어요.	hint, generated; CRAFT
+trail.w1_09.finale.clue	상자 옆에 아이템 액자를 걸어요.	clue, generated; PLACE_REL
+trail.w1_09.finale.hint	상자 옆에 아이템 액자를 걸어요.	hint, generated; PLACE_REL
+trail.w1_09.finale	상자 옆에 아이템 액자를 걸었어요.	finale line, generated

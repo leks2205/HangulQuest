@@ -1,16 +1,14 @@
 {
  "schema": 1,
  "id": "w1_02",
- "titleKo": "무지개 유리",
- "titleDe": "Regenbogen aus Glas",
+ "titleKo": "유리 속 햇살",
  "topic": "유리",
  "tier": 1,
  "order": 1012,
  "concepts": [
-  "gen_poplar_trapdoor",
-  "gen_dark_oak_sign",
-  "gen_mangrove_pressure_plate",
-  "gen_nether_brick_fence"
+  "sand",
+  "glass",
+  "gen_yellow_stained_glass_pane"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,55 +19,51 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_trapdoor"
+    "sand"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:poplar_trapdoor",
-    "count": 6
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 3
    },
-   "clue": {
-    "de": "Sammle 6× Pappelholzfalltür.",
-    "en": "Collect 6× Poplar Trapdoor."
-   },
-   "hint": {
-    "en": "Collect 6× Poplar Trapdoor."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_sign"
+    "glass"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_sign",
-    "count": 4
+    "type": "SMELT",
+    "input": "minecraft:sand",
+    "output": "minecraft:glass",
+    "count": 1
    },
-   "clue": {
-    "de": "Platziere 4× Schwarzeichenholzschild.",
-    "en": "Place 4× Dark Oak Sign."
-   },
-   "hint": {
-    "en": "Place 4× Dark Oak Sign."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_mangrove_pressure_plate"
+    "gen_yellow_stained_glass_pane"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:mangrove_pressure_plate",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Mangrovenholzdruckplatte.",
-    "en": "Collect 3× Mangrove Pressure Plate."
-   },
-   "hint": {
-    "en": "Collect 3× Mangrove Pressure Plate."
+    "type": "CRAFT",
+    "item": "minecraft:yellow_stained_glass_pane",
+    "count": 1
    }
   }
  ],
@@ -77,34 +71,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_nether_brick_fence"
+    "gen_yellow_stained_glass_pane"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_brick_fence",
-    "count": 4
+    "block": "minecraft:yellow_stained_glass_pane",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Netherziegelzaun.",
-    "en": "Place 4× Nether Brick Fence."
-   },
-   "hint": {
-    "en": "Place 4× Nether Brick Fence."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "네더 벽돌 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Netherziegelzaun — Zeremonie vollendet.",
-  "textEn": "the ritual of Nether Brick Fence is complete."
+  "textKo": "낮에 노란색 색유리 판을 놓았어요."
  },
  "reward": {
   "badge": "w1_02",
   "words": [
+   "sand",
    "glass",
-   "glass_pane",
-   "dye"
+   "gen_yellow_stained_glass_pane"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "A Rainbow of Glass"
+ "koreanLevel": 1
 }

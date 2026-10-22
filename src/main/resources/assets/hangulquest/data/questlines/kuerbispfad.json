@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "kuerbispfad",
- "titleKo": "호박의 길",
- "titleDe": "Der Kürbispfad",
+ "titleKo": "호박 파이의 길",
  "topic": "호박",
  "tier": 1,
  "order": 129,
  "concepts": [
   "pumpkin",
-  "carved_pumpkin",
-  "gen_purpur_pillar"
+  "sugar",
+  "gen_pumpkin_pie",
+  "chicken"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,54 +23,43 @@
     "pumpkin"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pumpkin",
-    "count": 3
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:pumpkin",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle drei Kürbisse.",
-    "en": "Collect 3× Pumpkin."
-   },
-   "hint": {
-    "en": "Collect 3× Pumpkin."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "pumpkin"
+    "sugar"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pumpkin",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sugar",
+    "count": 1
    },
-   "clue": {
-    "de": "Setz zwei Kürbisse.",
-    "en": "Place 2× Pumpkin."
-   },
-   "hint": {
-    "ko": "조각된 호박은 가위로 호박을 깎아 만들어요.",
-    "de": "Geschnitzte Kürbisse entstehen mit einer Schere.",
-    "en": "Place 2× Pumpkin."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "carved_pumpkin"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:carved_pumpkin",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau einen geschnitzten Kürbis an.",
-    "en": "Look at Carved Pumpkin."
-   },
-   "hint": {
-    "en": "Look at Carved Pumpkin."
+    "type": "CRAFT",
+    "item": "minecraft:pumpkin_pie",
+    "count": 1
    }
   }
  ],
@@ -78,33 +67,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_purpur_pillar"
+    "chicken"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purpur_pillar",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:pumpkin_pie",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Purpursäule.",
-    "en": "Place Purpur Pillar."
-   },
-   "hint": {
-    "en": "Place Purpur Pillar."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:chicken",
+     "kind": "entity"
+    }
+   ]
   },
-  "textKo": "퍼퍼 기둥라는 길의 의식을 마쳤어요.",
-  "textDe": "Purpursäule — Zeremonie vollendet.",
-  "textEn": "the ritual of Purpur Pillar is complete."
+  "textKo": "닭 옆에서 호박 파이를 먹었어요."
  },
  "reward": {
   "badge": "kuerbispfad",
   "words": [
    "pumpkin",
-   "carved_pumpkin"
+   "sugar",
+   "gen_pumpkin_pie",
+   "chicken"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Pumpkin Trail"
+ "koreanLevel": 1
 }

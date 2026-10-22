@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_01",
  "titleKo": "흑요석 문",
- "titleDe": "Das Obsidiantor",
  "topic": "문",
  "tier": 2,
  "order": 1081,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:pale_hanging_moss",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Hängendes Blassmoos ab.",
-    "en": "Break 3× Pale Hanging Moss."
-   },
-   "hint": {
-    "en": "Break 3× Pale Hanging Moss."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:wooden_hoe",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Holzhacke.",
-    "en": "Collect 2× Wooden Hoe."
-   },
-   "hint": {
-    "en": "Collect 2× Wooden Hoe."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:stripped_mangrove_log",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Entrindeter Mangrovenstamm.",
-    "en": "Place 4× Stripped Mangrove Log."
-   },
-   "hint": {
-    "en": "Place 4× Stripped Mangrove Log."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "block": "minecraft:spruce_fence",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Fichtenholzzaun.",
-    "en": "Place Spruce Fence."
-   },
-   "hint": {
-    "en": "Place Spruce Fence."
-   }
+   "conditions": []
   },
-  "textKo": "가문비나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzzaun — Zeremonie vollendet.",
-  "textEn": "the ritual of Spruce Fence is complete."
+  "textKo": "가문비나무 울타리를 놓았어요."
  },
  "reward": {
   "badge": "w8_01",
@@ -108,6 +77,5 @@
    "end"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Obsidian Gate"
+ "koreanLevel": 4
 }

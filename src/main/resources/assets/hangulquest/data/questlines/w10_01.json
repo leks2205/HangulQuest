@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_01",
  "titleKo": "모래 아래의 빛",
- "titleDe": "Licht unter dem Sand",
  "topic": "사막",
  "tier": 2,
  "order": 1101,
@@ -29,13 +28,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:crimson_planks",
     "count": 12
-   },
-   "clue": {
-    "de": "Baue 12× Karmesinbretter ab.",
-    "en": "Break 12× Crimson Planks."
-   },
-   "hint": {
-    "en": "Break 12× Crimson Planks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oxidized_copper_door",
     "count": 8
-   },
-   "clue": {
-    "de": "Platziere 8× Oxidierte Kupfertür.",
-    "en": "Place 8× Oxidized Copper Door."
-   },
-   "hint": {
-    "en": "Place 8× Oxidized Copper Door."
    }
   },
   {
@@ -66,14 +51,8 @@
     "block": "minecraft:chiseled_stone_bricks",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Schau die gemeißelten Steinziegel an der Ruinenwand an.",
-    "en": "Look at Chiseled Stone Bricks."
-   },
    "hint": {
-    "ko": "조각된 석재 벽돌은 유적의 벽에 있어요.",
-    "de": "Gemeißelte Steinziegel findest du an Ruinenwänden.",
-    "en": "Look at Chiseled Stone Bricks."
+    "ko": "조각된 석재 벽돌은 유적의 벽에 있어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:blue_carpet",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Blauer Teppich.",
-    "en": "Place 4× Blue Carpet."
-   },
-   "hint": {
-    "en": "Place 4× Blue Carpet."
-   }
+   "conditions": []
   },
-  "textKo": "파란색 양탄자라는 길의 의식을 마쳤어요.",
-  "textDe": "Blauer Teppich — Zeremonie vollendet.",
-  "textEn": "the ritual of Blue Carpet is complete."
+  "textKo": "파란색 양탄자를 네 장 깔았어요."
  },
  "reward": {
   "badge": "w10_01",
@@ -110,6 +80,5 @@
    "torch"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "Light Beneath the Sand"
+ "koreanLevel": 5
 }

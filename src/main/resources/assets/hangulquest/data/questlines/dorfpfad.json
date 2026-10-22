@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "dorfpfad",
  "titleKo": "마을의 길",
- "titleDe": "Der Dorfpfad",
+ "topic": "마을",
  "tier": 1,
+ "order": 80,
  "concepts": [
   "villager",
   "village",
   "bell",
-  "emerald",
-  "gen_dropper"
+  "carrot"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -27,56 +27,52 @@
     "entity": "minecraft:villager",
     "dwellMs": 800
    },
-   "clue": {
-    "ko": "주민을 1초 동안 바라봐요.",
-    "de": "Finde einen Dorfbewohner.",
-    "en": "Look at Villager."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
    "hint": {
-    "ko": "마을 사람인 주민을 봐요. 마을은 집들이 모인 곳이에요.",
-    "de": "Schau den Dorfbewohner an; ein Dorf besteht aus Häusern.",
-    "en": "Look at Villager."
+    "ko": "마을 주민을 바라봐요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "bell",
+    "villager"
    ],
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:bell"
    },
    "clue": {
-    "ko": "마을에서 종을 울려요.",
-    "de": "Läute im Dorf das Ding, das klingt.",
-    "en": "Use Bell."
+    "ko": "해가 떠요. 종을 울려요."
    },
    "hint": {
-    "ko": "종을 울려요.",
-    "de": "Läute die Glocke.",
-    "en": "Use Bell."
+    "ko": "주민 옆에서 종을 울려요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "emerald"
+    "carrot",
+    "villager"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:emerald",
+    "item": "minecraft:carrot",
     "count": 1
    },
-   "clue": {
-    "ko": "에메랄드를 하나 모아요.",
-    "de": "Hol dir einen grünen Edelstein.",
-    "en": "Collect Emerald."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
    "hint": {
-    "ko": "에메랄드를 모아요.",
-    "de": "Sammle einen Smaragd.",
-    "en": "Collect Emerald."
+    "ko": "당근을 구해요. 주민에게 줘요."
    }
   }
  ],
@@ -84,41 +80,25 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dropper"
+    "villager"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:dropper"
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "de": "Benutze Spender. Nachts.",
-    "en": "Use Dropper. At night."
-   },
-   "hint": {
-    "en": "Use Dropper. At night."
+    "type": "GIVE",
+    "item": "minecraft:carrot",
+    "entity": "minecraft:villager",
+    "count": 1
    }
   },
-  "textKo": "밤에 공급기라는 길의 의식을 마쳤어요.",
-  "textDe": "Spender — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Dropper is complete."
+  "textKo": "주민에게 당근을 줬어요."
  },
  "reward": {
   "badge": "dorfpfad",
   "words": [
-   "village",
    "villager",
+   "village",
    "bell",
-   "emerald"
+   "carrot"
   ]
  },
- "order": 80,
- "koreanLevel": 1,
- "topic": "마을",
- "titleEn": "The Village Trail"
+ "koreanLevel": 1
 }

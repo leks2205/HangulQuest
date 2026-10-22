@@ -1,5 +1,6 @@
 package io.github.leks2205.hangulquest.data;
 
+import io.github.leks2205.hangulquest.util.Lang;
 import io.github.leks2205.hangulquest.util.TextClean;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -14,6 +15,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
+import java.util.Set;
 
 /** Merged vocabulary: curated concepts, dynamic vanilla names and imported Lute words. */
 public final class Catalog {
@@ -23,6 +25,7 @@ public final class Catalog {
 	private final Map<String, Word> byBiome = new HashMap<>();
 	private final Map<String, Word> byTranslationKey = new HashMap<>();
 	private final Map<String, Word> byConcept = new HashMap<>();
+	private final Map<String, Word> byCovered = new HashMap<>();
 	private final Map<String, Concept> concepts = new LinkedHashMap<>();
 	private final List<Word> all = new ArrayList<>();
 
@@ -51,7 +54,8 @@ public final class Catalog {
 		return catalog;
 	}
 
-	public void add(Word word) {		if (word == null || word.id == null) {
+	public void add(Word word) {
+		if (word == null || word.id == null) {
 			return;
 		}
 		Word previous = byId.putIfAbsent(word.id, word);
@@ -59,8 +63,9 @@ public final class Catalog {
 			return;
 		}
 		all.add(word);
-		if (word.iconItem != null) {
-			byItem.putIfAbsent(word.iconItem, word);
+		// Only what the word names, never its picture: gunpowder must not resolve to 크리퍼.
+		for (String item : word.referents) {
+			byItem.putIfAbsent(item, word);
 		}
 		if (word.entityId != null) {
 			byEntity.putIfAbsent(word.entityId, word);
@@ -70,6 +75,12 @@ public final class Catalog {
 		}
 		if (word.conceptId != null) {
 			byConcept.putIfAbsent(word.conceptId, word);
+		}
+		// a word for a kind (울타리 for every fence) stands for the members it lists; a colour only describes them
+		if (word.curated() && !"DESCRIPTOR".equals(word.grammar)) {
+			for (String cover : word.covers) {
+				byCovered.putIfAbsent(cover, word);
+			}
 		}
 	}
 
@@ -83,18 +94,11 @@ public final class Catalog {
 				continue;
 			}
 			String key = item.getDescriptionId();
-			if (key == null || !tables.has(key)) {
+			Word word = dynamicWord(id, key, tables, false);
+			if (word == null) {
 				continue;
 			}
-			String ko = tables.ko(key);
-			String de = tables.de(key);
-			String en = tables.en(key);
-			if (!acceptable(ko, de, id)) {
-				continue;
-			}
-			Category category = itemCategory(id.getPath());
-			add(new Word("mc:item:" + id, ko, de, en, de, category, 2, null, id.toString(), null, null,
-					null, Origin.MINECRAFT, false, null));
+			add(word);
 			byTranslationKey.putIfAbsent(key, byItem.get(id.toString()));
 		}
 
@@ -104,49 +108,86 @@ public final class Catalog {
 				continue;
 			}
 			String key = type.getDescriptionId();
-			if (key == null || !tables.has(key)) {
+			Word word = dynamicWord(id, key, tables, true);
+			if (word == null) {
 				continue;
 			}
-			String ko = tables.ko(key);
-			String de = tables.de(key);
-			String en = tables.en(key);
-			if (!acceptable(ko, de, id)) {
-				continue;
-			}
-			Category category = isHostile(id.getPath()) ? Category.COMBAT : Category.ANIMALS;
-			add(new Word("mc:entity:" + id, ko, de, en, de, category, 2, null, null, id.toString(), null,
-					null, Origin.MINECRAFT, false, null));
+			add(word);
 			byTranslationKey.putIfAbsent(key, byEntity.get(id.toString()));
 		}
 	}
 
+	/**
+	 * The word for a vanilla item or entity, or null when it is not learnable. Needs a Korean name;
+	 * the German name, English name and the interface language's name are glosses when present.
+	 */
+	static Word dynamicWord(Identifier id, String key, LangTables tables, boolean entity) {
+		if (key == null || !tables.has(key)) {
+			return null;
+		}
+		String ko = tables.ko(key);
+		String de = tables.de(key);
+		String en = tables.en(key);
+		if (!acceptable(ko, de, id)) {
+			return null;
+		}
+		Map<String, String> others = tables.otherNames(key);
+		if (entity) {
+			Category category = isHostile(id.getPath()) ? Category.COMBAT : Category.ANIMALS;
+			return new Word("mc:entity:" + id, ko, de, en, de, category, 2, null, null, id.toString(), null,
+					null, Origin.MINECRAFT, false, null, List.of(), others);
+		}
+		return new Word("mc:item:" + id, ko, de, en, de, itemCategory(id.getPath()), 2, null, id.toString(),
+				null, null, null, Origin.MINECRAFT, false, null, List.of(id.toString()), others);
+	}
+
 	private static boolean acceptable(String ko, String de, Identifier id) {
-		if (ko == null || de == null || ko.isBlank() || de.isBlank()) {
+		// Korean decides; the German name is only checked when the German file is there.
+		if (ko == null || ko.isBlank()) {
 			return false;
 		}
 		if (!TextClean.hasHangul(ko) || !TextClean.isHangulOnly(ko)) {
 			return false;
 		}
-		if (ko.length() > 40 || de.length() > 60) {
+		if (ko.length() > 40 || (de != null && de.length() > 60)) {
 			return false;
 		}
-		if (ko.equalsIgnoreCase(de) || ko.equals(de)) {
+		if (ko.equalsIgnoreCase(de)) {
 			return false;
 		}
-		String path = id.getPath();
-		for (String skip : TECHNICAL) {
-			if (path.contains(skip)) {
-				return false;
-			}
-		}
-		return true;
+		return !isTechnical(id.getPath());
 	}
 
-	private static final String[] TECHNICAL = {
-			"spawn_egg", "banner_pattern", "smithing_template", "music_disc", "debug",
-			"command_block", "structure_block", "jigsaw", "barrier", "light", "test_",
-			"knowledge_book", "infested", "air", "moving_piston", "player_head"
-	};
+	/** Exact ids that are not learnable vocabulary. */
+	private static final Set<String> TECHNICAL_IDS = Set.of(
+			"air", "cave_air", "void_air", "light", "barrier", "jigsaw", "structure_block",
+			"command_block", "chain_command_block", "repeating_command_block", "command_block_minecart",
+			"debug_stick", "knowledge_book", "moving_piston", "player_head", "test_block",
+			"test_instance_block");
+	private static final String[] TECHNICAL_PREFIXES = {"music_disc_", "infested_", "debug_", "test_"};
+	private static final String[] TECHNICAL_SUFFIXES = {"_spawn_egg", "_banner_pattern", "_smithing_template"};
+
+	/**
+	 * Whether a registry path is a technical or creative-only entry. Exact ids and
+	 * prefix/suffix rules only: a substring test would also drop stairs (air), light_gray_*,
+	 * light_blue_*, lightning_rod and daylight_detector.
+	 */
+	static boolean isTechnical(String path) {
+		if (TECHNICAL_IDS.contains(path)) {
+			return true;
+		}
+		for (String prefix : TECHNICAL_PREFIXES) {
+			if (path.startsWith(prefix)) {
+				return true;
+			}
+		}
+		for (String suffix : TECHNICAL_SUFFIXES) {
+			if (path.endsWith(suffix)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	private static Category itemCategory(String path) {
 		String lower = path.toLowerCase(Locale.ROOT);
@@ -196,8 +237,14 @@ public final class Catalog {
 		return byId("concept:" + conceptId);
 	}
 
+	/** The word that names this item. Resolves by referent only; a word's icon never counts. */
 	public Optional<Word> byItemId(String itemId) {
 		return Optional.ofNullable(itemId == null ? null : byItem.get(itemId));
+	}
+
+	/** The hand-made word for the kind this item belongs to (울타리 for the spruce fence), or none. */
+	public Optional<Word> byCoveredId(String itemId) {
+		return Optional.ofNullable(itemId == null ? null : byCovered.get(itemId));
 	}
 
 	public Optional<Word> byEntityId(String entityId) {
@@ -218,6 +265,11 @@ public final class Catalog {
 
 	public List<Word> all() {
 		return all;
+	}
+
+	/** The curated concepts this catalog was built from. */
+	public java.util.Collection<Concept> concepts() {
+		return java.util.Collections.unmodifiableCollection(concepts.values());
 	}
 
 	public List<Word> byCategory(Category category) {
@@ -242,9 +294,11 @@ public final class Catalog {
 
 	public List<Word> distractors(Word word, int count, Random random) {
 		List<Word> pool = new ArrayList<>();
+		Lang lang = Lang.current();
+		String own = word.gloss(lang);
 		for (Word candidate : all) {
-			if (candidate.id.equals(word.id) || candidate.phrase || candidate.deShort.isBlank()
-					|| candidate.deShort.equals(word.deShort)) {
+			if (candidate.id.equals(word.id) || candidate.phrase || candidate.gloss(lang).isBlank()
+					|| candidate.gloss(lang).equals(own)) {
 				continue;
 			}
 			if (candidate.category == word.category) {
@@ -253,8 +307,8 @@ public final class Catalog {
 		}
 		if (pool.size() < count) {
 			for (Word candidate : all) {
-				if (candidate.id.equals(word.id) || candidate.phrase || candidate.deShort.isBlank()
-						|| pool.contains(candidate) || candidate.deShort.equals(word.deShort)) {
+				if (candidate.id.equals(word.id) || candidate.phrase || candidate.gloss(lang).isBlank()
+						|| pool.contains(candidate) || candidate.gloss(lang).equals(own)) {
 					continue;
 				}
 				pool.add(candidate);

@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "alpental",
  "titleKo": "알펜 계곡",
- "titleDe": "Das Alpental",
+ "topic": "동물",
  "tier": 2,
  "order": 509,
  "concepts": [
-  "gen_wither",
-  "gen_piglin",
-  "gen_sulfur_wall",
-  "gen_stonecutter"
+  "goat",
+  "fence",
+  "cauldron",
+  "chicken",
+  "cow"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,67 +23,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_wither"
+    "goat"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wither",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Wither an.",
-    "en": "Look at Wither."
-   },
-   "hint": {
-    "en": "Look at Wither."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_piglin"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:piglin",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Piglin an.",
-    "en": "Look at Piglin."
-   },
-   "hint": {
-    "en": "Look at Piglin."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_sulfur_wall"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_wall",
-    "count": 1
-   },
-   "clue": {
-    "de": "Platziere Schwefelmauer.",
-    "en": "Place Sulfur Wall."
-   },
-   "hint": {
-    "en": "Place Sulfur Wall."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_stonecutter"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:stonecutter"
+    "entity": "minecraft:goat",
+    "dwellMs": 1000
    },
    "conditions": [
     {
@@ -91,30 +37,87 @@
     },
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "fence"
    ],
-   "clue": {
-    "de": "Benutze Steinsäge. In einem passenden Biom. Nachts.",
-    "en": "Use Stonecutter. In a fitting biome. At night."
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
    },
-   "hint": {
-    "en": "Use Stonecutter. In a fitting biome. At night."
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cauldron",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cauldron",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence"
    }
   },
-  "textKo": "산 지형에서 밤에 석재 절단기라는 길의 의식을 마쳤어요.",
-  "textDe": "Steinsäge — Zeremonie vollendet.",
-  "textEn": "In the mountains By night the ritual of Stonecutter is complete."
+  {
+   "id": "s4",
+   "teach": [
+    "chicken"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:melon_seeds",
+    "entity": "minecraft:chicken",
+    "count": 1
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "cow"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cow",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:cauldron"
+    }
+   ]
+  },
+  "textKo": "가마솥 근처에서 소를 바라봤어요."
  },
  "reward": {
   "badge": "alpental",
   "words": [
    "goat",
-   "cow",
-   "campfire"
+   "cauldron",
+   "chicken"
   ]
  },
  "koreanLevel": 2,
- "topic": "동물",
- "titleEn": "The Alpine Valley"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

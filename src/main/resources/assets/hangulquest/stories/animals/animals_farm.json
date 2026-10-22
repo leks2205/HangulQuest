@@ -1,0 +1,24 @@
+{
+	"schema": 1,
+	"id": "animals_farm",
+	"chapter": "animals",
+	"level": 2,
+	"titleKo": "우리 집 동물",
+	"unlock": {"trails": ["tierpfad", "farmpfad"], "minWords": 10},
+	"paragraphs": [
+		"우리 집 옆에 울타리가 있어요. 울타리 안에 동물이 많아요.",
+		"소는 한 마리, 닭은 세 마리, 양은 두 마리 있어요.",
+		"아침에 닭이 달걀을 낳아요. 저는 달걀을 모아요.",
+		"돼지도 한 마리 있어요. 돼지는 당근을 먹어요.",
+		"고양이도 있어요. 고양이는 집 안에서 자요.",
+		"동물과 같이 있어요. 정말 행복해요!"
+	],
+	"words": [
+		"concept:house", "concept:fence", "concept:cow", "concept:chicken", "concept:sheep", "concept:egg",
+		"concept:collect", "concept:pig", "concept:carrot", "concept:eat", "concept:cat", "concept:sleep"
+	],
+	"grammar": [
+		"L1.eoyo", "L1.obj_eul", "L1.subj_i", "L1.e_time", "L1.itda_eopda", "L1.loc_yeop_e", "L1.loc_an_e",
+		"L1.counter_mari", "L1.num_native", "L2.eun_neun_topic", "L2.eun_neun_contrast", "L2.eseo_activity", "L2.hago_wa_gwa"
+	]
+}

@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_husbandry_allay_deliver_cake_to_note_block",
- "titleKo": "생일 축하 노래",
- "titleDe": "Geburtstagslied",
+ "titleKo": "동물들의 노래",
  "topic": "husbandry",
  "tier": 2,
  "order": 256,
  "concepts": [
-  "cake",
-  "note_block"
+  "note_block",
+  "cow",
+  "carpet",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,41 +22,59 @@
   {
    "id": "s1",
    "teach": [
-    "cake"
+    "note_block",
+    "cow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cake",
+    "type": "CRAFT",
+    "item": "minecraft:note_block",
     "count": 1
    },
-   "clue": {
-    "de": "Backe einen Kuchen für das Geburtstagslied.",
-    "en": "Collect Cake."
-   },
-   "hint": {
-    "ko": "케이크는 우유 세 개와 설탕 두 개, 달걀 하나, 밀 세 개로 만들어요.",
-    "de": "Ein Kuchen braucht drei Milch, zwei Zucker, ein Ei und drei Weizen.",
-    "en": "Collect Cake."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:cow"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
+    "note_block",
+    "cow"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:note_block",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:cow",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
     "note_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:note_block",
+    "type": "HEAR",
+    "source": "minecraft:note_block",
+    "radius": 4,
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "carpet",
+    "sheep"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:blue_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:sheep",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz einen Notenblock als Bühne für das Lied.",
-    "en": "Place Note Block."
-   },
-   "hint": {
-    "ko": "음표 블록은 판자 여덟 개와 레드스톤 하나로 만들어요.",
-    "de": "Ein Notenblock besteht aus acht Brettern und einem Redstone.",
-    "en": "Place Note Block."
    }
   }
  ],
@@ -63,32 +82,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "cake"
+    "note_block",
+    "sheep"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cake",
-    "count": 1
+    "type": "HEAR",
+    "source": "minecraft:note_block",
+    "radius": 6,
+    "dwellMs": 1000
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Cake."
-   },
-   "hint": {
-    "en": "Place Cake."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:sheep",
+     "count": 2
+    }
+   ]
   },
-  "textKo": "생일 축하 노래 — 케이크를 음표 블록 앞에 놓아요.",
-  "textDe": "Zum Geburtstagslied legst du den Kuchen an den Notenblock.",
-  "textEn": "the ritual of Cake is complete."
+  "textKo": "양 두 마리 근처에서 소리 블록의 소리를 들었어요."
  },
  "reward": {
   "badge": "adv_husbandry_allay_deliver_cake_to_note_block",
   "words": [
-   "cake",
-   "note_block"
+   "note_block",
+   "cow",
+   "carpet",
+   "sheep"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Birthday Song"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

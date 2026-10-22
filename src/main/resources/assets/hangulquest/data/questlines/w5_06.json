@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_06",
  "titleKo": "땅속의 보석",
- "titleDe": "Der Schatz in der Tiefe",
  "topic": "보석",
  "tier": 2,
  "order": 1056,
@@ -30,14 +29,8 @@
     "block": "minecraft:deepslate_gold_ore",
     "count": 3
    },
-   "clue": {
-    "de": "Baue drei Golderz im Tiefenschiefer ab.",
-    "en": "Break 3× Deepslate Gold Ore."
-   },
    "hint": {
-    "ko": "금은 철 곡괭이로 캐요.",
-    "de": "Gold braucht eine Eisenspitzhacke.",
-    "en": "Break 3× Deepslate Gold Ore."
+    "ko": "금은 철 곡괭이로 캐요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dried_kelp",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Getrockneter Seetang.",
-    "en": "Collect 3× Dried Kelp."
-   },
-   "hint": {
-    "en": "Collect 3× Dried Kelp."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_harness",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Blaues Geschirr.",
-    "en": "Collect 4× Blue Harness."
-   },
-   "hint": {
-    "en": "Collect 4× Blue Harness."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:mud",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Baue 3× Schlamm ab.",
-    "en": "Break 3× Mud."
-   },
-   "hint": {
-    "en": "Break 3× Mud."
-   }
+   "conditions": []
   },
-  "textKo": "진흙라는 길의 의식을 마쳤어요.",
-  "textDe": "Schlamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Mud is complete."
+  "textKo": "진흙을 세 개 팠어요."
  },
  "reward": {
   "badge": "w5_06",
@@ -110,6 +80,5 @@
    "diamond"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Treasure in the Deep"
+ "koreanLevel": 3
 }

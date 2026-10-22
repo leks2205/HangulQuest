@@ -21,16 +21,28 @@ Questlines are data. You do not need to compile anything.
 2. Scaffold a file:
 
    ```bash
-   python3 tools/new_questline.py <id> --words stone,dirt --tier 1 \
-     --title-ko "나의 길" --title-de "Mein Pfad"
+   python3 tools/new_questline.py <id> --words stone,apple,cow --after <parent ids> \
+     --title-ko "나의 길" --title-de "Mein Pfad" --title-en "My Trail"
    ```
 
+   One step per word, with English clue and hint, `koreanLevel`, `tier` and `order` worked out from
+   the tree position. The Korean clues are generated, so the file has none of its own. The finale
+   comes from `tools/data/finales.json`: a goal every player can reach in a fresh world (a torch at
+   night, a chest, a cow), picked so that no sibling trail and no step of this trail uses it. Pass
+   `--finale <id>` to choose one yourself. `QuestScaffoldTest` runs this script and checks the result
+   against the content rules.
+
 3. Write the clues. Korean fields must be Hangul-only (`clue.ko`, `hint.ko`, `textKo`, `titleKo`).
+   The English and German text of a shipped trail is not in the JSON but in
+   `lang/content/en_us.json` and `de_de.json` (keys `hangulquest.trail.<id>.…`); the script has already
+   put the English there, and `python3 tools/i18n/extract_content.py` moves anything you write inline.
    The clue has to name the action *and* the target, and every condition has to be spoken in the
    Korean sentence, or the content tests fail.
 4. Link the trail into the tree: a `next` for everything that is not the last level, a `previous`
-   for everything that is not a root. Set `koreanLevel` to the band of your trail's depth
-   (`Topik.levelForDepth`), not to a guess.
+   for everything that is not a root (`--after`). The scaffold sets `koreanLevel` to the band of the
+   depth (`Topik.levelForDepth`); keep it if you move the trail. `tools/quest_tree.py` regenerates
+   `docs/book/src/quest-tree.md`, and the trail count asserted in `QuestlineValidationTest` and
+   `TrailGraphTest` goes up by one.
 5. Run `./gradlew test` until it is green. A red `QuestlineValidationTest` means the content is
    broken, not the code.
 6. Open a pull request with the JSON file and a one-paragraph note on what the trail teaches and
@@ -43,15 +55,46 @@ Two rules that are easy to break and hard to notice:
 - **The clue must match the check.** If the goal is `PLACE_BLOCK minecraft:torch`, the sentence
   says to place a torch; it must not ask the player to "make light".
 
-Translations are welcome too: the German `clue.de` / `textDe` lines are optional in the schema, and
-the interface strings live in `src/main/resources/assets/hangulquest/lang/`.
+Translations are welcome too: the interface strings live in `src/main/resources/assets/hangulquest/lang/`,
+and the quest and word text (titles, clues, hints, finale lines, word glosses) in
+`src/main/resources/assets/hangulquest/lang/content/`. Both are flat key/value files, one per language;
+German may have gaps (it falls back to English), English may not.
+
+## Fixing a translation
+
+English is the source language and Korean is never translated. Other languages are drafted by a machine
+(Gemini), checked by a second pass (Claude) and corrected by people like you. A line in the game that reads
+wrong in your language is a one-line fix:
+
+1. Find the key. Interface text is in `src/main/resources/assets/hangulquest/lang/<code>.json`, trail titles,
+   clues, hints, finale lines and word meanings in `lang/content/<code>.json` (for example `es_es`). The key is
+   the part before the colon; search the file for the wrong text.
+2. Change the text after the colon. Keep the placeholders (`%s`, `%1$s`, `%%`) and do not add Korean. Keep it as
+   short as the English: buttons and labels have a length limit.
+3. Clues that say "read the Korean to see where" hide the position on purpose, so the translation must not
+   name it either (no "next to", "above" and the like in your language).
+4. Check the file: `python3 tools/i18n/translate.py check` runs the same rules as the import (placeholders,
+   Hangul, untranslated text, length, giveaways). Open a pull request.
+
+No pull request needed: the **Translation correction** issue form takes the key, the current text and your
+suggestion. The review site has a page per language listing the lines that are still machine drafts.
+
+A line you edit by hand counts as `community-approved` in `content/translations/<code>-status.json` once the
+pull request is merged. A line whose English text changes becomes `stale` and is translated again; nobody has
+to remember it. The tools (`export`, `import`, `proofread-export`, `proofread-import`, `status`, `sync`,
+`fonts`, `ship`) are in `tools/i18n/translate.py`; run it with `--help`. Their tests:
+`python3 -m unittest discover -s tools/i18n/tests`.
+
+Text outside the Basic Multilingual Plane (emoji) cannot be drawn. Everything else in vi, th, ja and zh can:
+the default font falls back to Unifont, and the mod's own Noto Sans CJK KR subset is only used for Korean.
 
 ## Contributing code
 
 ### Setting up
 
-JDK 25 is required (the wrapper pins Gradle 9.7.1 and Loom 1.18; the first build downloads
-Minecraft and takes a few minutes).
+JDK 25 is required (the wrapper pins Gradle 9.7.1; Loom is pinned to a release in
+`gradle.properties` and mapped in `settings.gradle`; the first build downloads Minecraft and takes a
+few minutes).
 
 ```bash
 git clone https://github.com/leks2205/HangulQuest.git
@@ -63,6 +106,34 @@ cd HangulQuest
 `./gradlew runClient -Dhangulquest.selftest=true` starts the dev client straight into a world, shows
 a hint and opens the journal after a few seconds, writing `[selftest]` lines to the log. It is the
 fastest way to see the UI without playing.
+
+### Client game tests
+
+`src/gametest` holds scripted sessions that run in a real client through Fabric's client game test
+API: create a world, see the welcome screen once, open the journal, learn a word, save and quit, join
+the same world again. They take screenshots into `build/gametest/` and fail the run on any assertion.
+
+```bash
+./gradlew runClientGameTest                                    # needs a display
+# Inside a Wayland session SDL otherwise picks the Wayland driver and finds no display under Xvfb.
+xvfb-run -a -s "-screen 0 1280x720x24" env -u WAYLAND_DISPLAY SDL_VIDEODRIVER=x11 \
+    ./gradlew runClientGameTest                                  # headless
+```
+
+The run directory is `build/run/clientGameTest`, wiped on every start, so nothing touches your own
+game folder. It is deliberately not part of `./gradlew test` or `build`; CI only checks that it still
+compiles (`./gradlew gametestClasses`). A nightly job on a machine with Xvfb is the place to run it.
+
+### Before a release
+
+- `mod_version` in `gradle.properties` is the single source of the version. The release workflow
+  fails when the tag is not exactly `v<mod_version>`.
+- Add `src/test/resources/progress-fixtures/v<mod_version>.json` (the `progress.json` that version
+  writes, synthetic data) and list it in `ProgressCompatibilityTest`. `ReleaseFixtureTest` and the
+  release workflow both refuse a version without it. See the README in that folder.
+- The mod makes no network requests. `NetworkUsageTest` fails on `java.net.http`, `HttpClient`,
+  `URLConnection`, sockets and `URL.openStream` in `src/main/java`; the only allowed way out of the
+  game is a link through Minecraft's `ConfirmLinkScreen`.
 
 ### Style
 
@@ -82,7 +153,56 @@ fastest way to see the UI without playing.
 ./gradlew build         # also builds the jar
 ```
 
-CI runs the same two steps on Linux with JDK 25, plus a JSON-schema check on all questline files.
+CI runs the same two steps on Linux with JDK 25, plus the Korean lint, a JSON-schema check on all
+questline files and a check that `tools/quest_tree.py` computes the same depths as the mod.
+
+### Content metrics and the ratchet
+
+The content follows one rule: recycle words, not tasks. Two tools measure it, and
+`content/metrics-baseline.json` records the value and the roadmap target of every metric. A metric
+passes when it is **not worse than its baseline value, or when it meets its roadmap target**
+(`target`, stored next to the value). So a change may improve a metric, and it may also give back some
+of the headroom as long as the metric stays inside the target: the (verb, object) maximum was recorded
+as 2, the target is at most 3, so a batch may use a third occurrence. Below the target the baseline is
+the bar. `TaskVarietyTest`, `CoverageTest` and `RecyclingTest` fail on a regression, and CI runs the
+same checks (`tools/variety.py` and `tools/coverage.py` for Python, `MetricsBaseline` for Java: keep the
+two rules identical). The roadmap targets (bare steps at most 30/20/10% on levels 1/2/3 and up, no goal
+type above 25% of a level, at least 30% form-dependent steps on every level from 2 up, 10 encounters in
+3 roles for every core word, ...) are printed next to the numbers. A step is *form-dependent* when the Korean
+form decides which action is right (a relation word such as 옆에, the recipient marker of 에게, a connective
+like -기 전에, the "don't" of -지 마세요); `variety.formDependentShare.<level>` is their share, written to
+`steps.json` as `formDependent` from `GoalType.decidingForms`. Level 1 is reported, never demanded.
+
+Two decisions authors keep asking about. 밖 is form-dependent (it contrasts with 안: standing outside when 안 was
+asked is a slip), 근처 is not (it is too loose to be wrong). 들고 (`HOLD_WHILE`, and the `HOLDING` phrase) is not
+form-dependent and will not become so: holding an item while doing something is not a choice between two
+actions, there is no wrong thing to do with the wrong form, so the step counts as practice (-고 is still in the
+grammar list of the trail) but never towards `formDependentShare`. Do not write a trail around the expectation
+that 들고 steps move that number.
+
+```bash
+./gradlew test --tests '*StepsDumpTest'      # writes build/reports/content/steps.json
+python3 tools/variety.py                     # task variety: duplicates, object-only twins, bare steps, novelty
+python3 tools/coverage.py                    # unknown words per sentence, hint coverage, word recycling
+python3 tools/variety.py --check             # what CI runs; so does coverage.py --check
+```
+
+`build/reports/content/recycling-gaps.csv` lists the core words that are met too rarely, in too few
+roles or not coming back within 14 days. It is the input for the content briefs.
+
+If a change makes a metric worse on purpose (say, a new level needs plain steps first), rewrite the
+baseline and say why in the commit message:
+
+```bash
+./gradlew test --tests '*StepsDumpTest'
+python3 tools/variety.py --update-baseline   # variety and coverage metrics
+```
+
+`*_demo` trails are measured but exempt from the ratchet. A pull request that changes the Korean
+text of more than 15 trail files or more than 300 Korean strings fails `tools/content_guard.py`
+unless it has the label `mass-change-approved` or a commit message or the PR body references an ADR
+in `docs/decisions/`. Korean that stays byte-identical (only en/de text or the structure moved) does
+not count.
 
 ### Commit messages
 
@@ -110,3 +230,67 @@ Prefixes in use: `quest:` content, `ui:` interface, `engine:` quest logic, `docs
 
 Be decent. Disagreements about grammar, quest design and Minecraft versions are expected; personal
 attacks, harassment and bigotry are not, and will get a pull request closed and a comment removed.
+
+## Help review Korean
+
+The game shows thousands of Korean lines: quest clues, hints, finale messages, word cards. A linter
+and two AI reviewers check them, but only a person who speaks Korean can say that a line sounds
+natural. You can help without git and without installing anything. A Korean guide is in
+[`docs/review/README.ko.md`](docs/review/README.ko.md).
+
+1. Open the [review site](https://leks2205.github.io/HangulQuest/review/). It shows the Korean first and
+   starts with the lines that matter most (levels 1 and 2, then lines flagged `needs-native`).
+2. Read a line. Press **맞아요 / Looks right**, or **고치기 제안 / Suggest a correction** and write the
+   better line. After reading a whole page you can press **이 페이지 전체 승인 / Approve this page**.
+3. Each button opens a prefilled GitHub issue form (a GitHub account is needed). Leave the prefilled
+   fields as they are, tick the box, submit.
+
+What happens next:
+
+- A bot checks that the line still exists with the same text (every line has a hash, so a form for an
+  older text is answered with the current text), runs the Korean linter on your suggestion and labels
+  the issue.
+- **Approvals** are written to `content/korean/review-status.json` in one pull request per day. An
+  approval counts only from a native, fluent or teacher account at least 30 days old; nobody can
+  approve a line they wrote; one approval per person. A line is *native approved* after two different
+  people approve it, or one **trusted reviewer** (30 accepted suggestions, none reverted, confirmed by
+  the maintainer in `content/korean/reviewers.json`). If the text of a line changes, its approvals
+  and AI verdicts drop and it starts again.
+- **Corrections** wait for the maintainer. With the label `accepted` the bot opens a pull request that
+  changes exactly that one value (JSON pointer) with a `Co-authored-by` credit for you. Many lines are
+  produced by generator rules (`SentenceBuilder`, `verbs.json`); for those the bot opens the task "fix
+  generator rule X (affects N lines)" instead, because a single line cannot be edited by hand.
+- Your name appears on the [credits page](https://leks2205.github.io/HangulQuest/credits.html). Write
+  `anonymous` in the credit field to stay out of it.
+
+Status of a line: `unreviewed` → `lint-ok` → `ai-checked` (Claude and Gemini both said ok) →
+`native-approved`, or `native-flagged`. Lines where an AI said "error" or the two disagreed carry the
+flag `needs-native`. The registry is `content/korean/lines.jsonl` (ids come from the place in the
+source, never from the text).
+
+For maintainers:
+
+```bash
+./gradlew test --offline --tests '*SentenceDumpTest'    # writes build/reports/korean/sentences.tsv
+python3 tools/review/export_lines.py                    # lines.jsonl (add --check in CI)
+python3 tools/review/status.py sync                     # follow text changes, lint, AI verdicts
+python3 tools/review/import_ai.py --reviewer claude review-1.jsonl review-2.jsonl
+python3 tools/review_site/build.py --repo owner/name    # docs/book/book/review/
+python3 tools/review/credits.py                         # credits page and in-game credits.json
+python3 -m unittest discover -s tools/review/tests      # parser, hash check, approvals, site
+```
+
+AI review files are JSONL, one `{"id","verdict":"ok|minor|error","issue","suggestion"}` per line. Set
+the repository once in `--repo` or `REVIEW_REPO` (it is a parameter because the project may move to an
+organisation). One-time setup: run the workflow *Korean review bot* with `ensure-labels`, and allow
+Actions to create pull requests (Settings, Actions, General). Only the maintainer labels `accepted`,
+`rejected` and `recheck` start anything that writes, and the bot verifies the label's author has write
+access. Issue text is only ever data: it is never evaluated or put into a shell command.
+
+## Running every content gate at once
+
+`tools/gates.sh` regenerates the derived content files (sentence dump, review registry, quest tree, chapters) and
+runs every content gate CI runs: the Korean linter, the variety and coverage ratchets, the full test suite, the
+registry, i18n, schema and translation checks. It stops at the first failure. `tools/gates.sh rebaseline` also
+rewrites `content/metrics-baseline.json`; use it only for a deliberate change, and explain every moved metric in the
+commit message. Run it unpiped (a pipe hides its exit status) and commit only when it ends with `ALL GATES GREEN`.

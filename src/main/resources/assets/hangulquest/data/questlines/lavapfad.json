@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "lavapfad",
  "titleKo": "용암의 길",
- "titleDe": "Der Lavapfad",
  "topic": "용암",
  "tier": 3,
  "order": 145,
  "concepts": [
-  "gen_dropper",
-  "gen_mangrove_planks",
-  "gen_waxed_copper_chest",
-  "gen_spruce_trapdoor"
+  "coal",
+  "cobblestone",
+  "lava"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,55 +22,53 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dropper"
+    "coal"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:dropper",
-    "dwellMs": 600
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:coal_ore",
+    "count": 3
    },
-   "clue": {
-    "de": "Sieh dir Spender an.",
-    "en": "Look at Dropper."
-   },
-   "hint": {
-    "en": "Look at Dropper."
-   }
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 40
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_mangrove_planks"
+    "cobblestone"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:mangrove_planks",
-    "count": 3
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:cobblestone",
+    "count": 5
    },
-   "clue": {
-    "de": "Baue 3× Mangrovenholzbretter ab.",
-    "en": "Break 3× Mangrove Planks."
-   },
-   "hint": {
-    "en": "Break 3× Mangrove Planks."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_copper_chest"
+    "cobblestone",
+    "lava"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_chest",
-    "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Gewachste Kupfertruhe.",
-    "en": "Place 4× Waxed Copper Chest."
+    "type": "PLACE_REL",
+    "block": "minecraft:cobblestone",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:lava",
+    "count": 2
    },
    "hint": {
-    "en": "Place 4× Waxed Copper Chest."
+    "ko": "용암 옆에 조약돌을 두 개 놓아요."
    }
   }
  ],
@@ -80,40 +76,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_trapdoor"
+    "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_trapdoor",
+    "type": "PLACE_REL",
+    "block": "minecraft:cobblestone",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:lava",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "HOLDING",
+     "item": "minecraft:torch"
     }
-   ],
-   "clue": {
-    "de": "Platziere Fichtenholzfalltür. Nachts.",
-    "en": "Place Spruce Trapdoor. At night."
-   },
-   "hint": {
-    "en": "Place Spruce Trapdoor. At night."
-   }
+   ]
   },
-  "textKo": "밤에 가문비나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholzfalltür — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Spruce Trapdoor is complete."
+  "textKo": "횃불을 들고 용암 위에 조약돌을 놓았어요."
  },
  "reward": {
   "badge": "lavapfad",
   "words": [
-   "lava",
-   "magma",
-   "obsidian",
-   "campfire"
+   "coal",
+   "cobblestone",
+   "lava"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Lava Trail"
+ "koreanLevel": 1
 }

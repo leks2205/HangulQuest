@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "bibliothekpfad",
  "titleKo": "도서관의 길",
- "titleDe": "Der Bibliothekspfad",
  "topic": "책",
  "tier": 3,
  "order": 111,
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:lime_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Hellgrüne Glasscheibe.",
-    "en": "Collect 3× Lime Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Collect 3× Lime Stained Glass Pane."
    }
   },
   {
@@ -47,13 +39,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:trapped_chest"
-   },
-   "clue": {
-    "de": "Benutze Redstone-Truhe.",
-    "en": "Use Trapped Chest."
-   },
-   "hint": {
-    "en": "Use Trapped Chest."
    }
   },
   {
@@ -66,14 +51,8 @@
     "item": "minecraft:ink_sac",
     "count": 2
    },
-   "clue": {
-    "de": "Sammle zwei Tintenbeutel.",
-    "en": "Collect 2× Ink Sac."
-   },
    "hint": {
-    "ko": "잉크 주머니는 오징어에게서 얻어요.",
-    "de": "Tintenbeutel bekommst du von Tintenfischen.",
-    "en": "Collect 2× Ink Sac."
+    "ko": "먹물 주머니는 오징어에게서 얻어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:red_shulker_box",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Rote Shulker-Kiste.",
-    "en": "Place 4× Red Shulker Box."
-   },
-   "hint": {
-    "en": "Place 4× Red Shulker Box."
-   }
+   "conditions": []
   },
-  "textKo": "빨간색 셜커 상자라는 길의 의식을 마쳤어요.",
-  "textDe": "Rote Shulker-Kiste — Zeremonie vollendet.",
-  "textEn": "the ritual of Red Shulker Box is complete."
+  "textKo": "빨간색 셜커 상자를 네 개 놓았어요."
  },
  "reward": {
   "badge": "bibliothekpfad",
@@ -110,6 +80,5 @@
    "bookshelf"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Library Trail"
+ "koreanLevel": 4
 }

@@ -1,7 +1,9 @@
 package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
-import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
+import io.github.leks2205.hangulquest.quest.goal.GoalType;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.List;
@@ -16,21 +18,17 @@ public final class QuestStatus {
 		if (step == null || obs == null) {
 			return "";
 		}
-		if (step.goal() instanceof Goal.UseBlock use
-				&& use.block() != null && use.block().endsWith("_bed")) {
-			if (obs.sleeping) {
-				return "침대에서 자는 중";
-			}
-			if (obs.bedUseRecent) {
-				return "침대를 사용했지만 잘 수 없어요";
-			}
+		GoalType<Goal> type = GoalTypes.of(step.goal());
+		String override = type.statusOverride(step.goal(), obs);
+		if (override != null) {
+			return override;
 		}
-		List<Condition> conditions = step.conditions();
+		List<Condition> conditions = GoalEvaluator.playerConditions(step.goal(), step.conditions());
 		if (conditions != null && !conditions.isEmpty()
 				&& !GoalEvaluator.conditionsMet(conditions, obs)) {
 			return conditionText(conditions, obs, catalog);
 		}
-		return goalText(step, obs, tracker, catalog);
+		return goalText(type, step, obs, tracker, catalog);
 	}
 
 	private static String conditionText(List<Condition> conditions, Observation obs, Catalog catalog) {
@@ -38,54 +36,28 @@ public final class QuestStatus {
 			if (GoalEvaluator.conditionMet(condition, obs)) {
 				continue;
 			}
-			return switch (condition) {
-				case Condition.Time t -> "지금 " + phase(obs.phase()) + " · " + phase(t.phase()) + " 필요";
-				case Condition.InBiome b -> "지금 " + biome(obs.biome, catalog) + " 지형 · "
-						+ biome(b.biome(), catalog) + " 지형 필요";
-				case Condition.InDimension d -> "지금 " + dimension(obs.dimension) + " · "
-						+ dimension(d.dimension()) + " 차원 필요";
-				case Condition.YRange y -> yText(obs.y, y.minY(), y.maxY());
-				case Condition.NearEntity n -> "가까이에 " + entity(n.entity(), catalog) + " 필요";
-				case Condition.NearBlock n -> "가까이에 " + block(n.block(), catalog) + " 필요";
-				case Condition.WeatherState w -> "날씨가 맞지 않아요 · " + weather(w.weather());
-			};
+			return ConditionTypes.of(condition).unmetText(condition, obs, catalog);
 		}
 		return "";
 	}
 
-	private static String goalText(QuestStep step, Observation obs, GoalEvaluator.Tracker tracker,
+	private static String goalText(GoalType<Goal> type, QuestStep step, Observation obs, GoalEvaluator.Tracker tracker,
 								   Catalog catalog) {
 		String word = step.teach().isEmpty() ? "" : catalog.byConceptId(step.teach().get(0))
 				.map(w -> w.ko).orElse("");
-		return switch (step.goal()) {
-			case Goal.BreakBlock g -> count(tracker.count, g.count());
-			case Goal.PlaceBlock g -> count(tracker.count, g.count());
-			case Goal.ConsumeItem g -> count(tracker.count, g.count());
-			case Goal.DefeatEntity g -> count(tracker.count, g.count());
-			case Goal.AcquireItem g -> word + " " + GoalEvaluator.heldCount(obs, g.item())
-					+ "/" + Math.max(1, g.count());
-			case Goal.LookAtBlock g -> look(tracker.dwellMs, g.dwellMs());
-			case Goal.LookAtEntity g -> look(tracker.dwellMs, g.dwellMs());
-			case Goal.ReachHeight g -> yText(obs.y, g.minY(), g.maxY());
-			case Goal.ReachBiome g -> "현재: " + biome(obs.biome, catalog) + " 지형 · 목표: "
-					+ biome(g.biome(), catalog) + " 지형";
-			case Goal.ReachDimension g -> "현재: " + dimension(obs.dimension) + " · 목표: "
-					+ dimension(g.dimension()) + " 차원";
-			case Goal.UseBlock g -> "";
-			case Goal.InteractEntity g -> "";
-		};
+		return type.status(step.goal(), obs, tracker, catalog, word);
 	}
 
-	private static String count(int current, int needed) {
+	public static String count(int current, int needed) {
 		return current + "/" + Math.max(1, needed);
 	}
 
-	private static String look(long dwell, long needed) {
+	public static String look(long dwell, long needed) {
 		long target = Math.max(50, needed);
 		return Math.min(100L, dwell * 100L / target) + "%";
 	}
 
-	private static String yText(int y, int minY, int maxY) {
+	public static String yText(int y, int minY, int maxY) {
 		int current = y;
 		if (maxY <= 0) {
 			return "Y " + current + " / " + maxY + " 이하";
@@ -96,7 +68,7 @@ public final class QuestStatus {
 		return "Y " + current + " / " + minY + " 위";
 	}
 
-	private static String phase(Condition.Phase phase) {
+	public static String phase(Condition.Phase phase) {
 		return switch (phase) {
 			case DAY -> "낮";
 			case NIGHT -> "밤";
@@ -105,7 +77,7 @@ public final class QuestStatus {
 		};
 	}
 
-	private static String weather(Condition.Weather weather) {
+	public static String weather(Condition.Weather weather) {
 		return switch (weather) {
 			case CLEAR -> "맑음";
 			case RAIN -> "비";
@@ -113,19 +85,15 @@ public final class QuestStatus {
 		};
 	}
 
-	private static String dimension(String id) {
+	public static String dimension(String id) {
 		if (id == null) {
 			return "다른 차원";
 		}
-		return switch (id) {
-			case "minecraft:overworld" -> "지상";
-			case "minecraft:the_nether" -> "지옥";
-			case "minecraft:the_end" -> "엔더";
-			default -> "다른 차원";
-		};
+		String name = SentenceBuilder.dimension(id);
+		return name == null ? "다른 차원" : name;
 	}
 
-	private static String biome(String id, Catalog catalog) {
+	public static String biome(String id, Catalog catalog) {
 		if (id == null) {
 			return "알 수 없음";
 		}
@@ -140,17 +108,17 @@ public final class QuestStatus {
 				case "#minecraft:is_badlands" -> "메사";
 				case "#minecraft:is_savanna" -> "사바나";
 				case "#minecraft:is_river" -> "강";
-				default -> "그 지형";
+				default -> "그 생물 군계";
 			};
 		}
-		return catalog.byBiomeId(id).map(word -> word.ko).orElse("그 지형");
+		return catalog.byBiomeId(id).map(word -> word.ko).orElse("그 생물 군계");
 	}
 
-	private static String entity(String id, Catalog catalog) {
+	public static String entity(String id, Catalog catalog) {
 		return catalog.byEntityId(id).map(word -> word.ko).orElse("그것");
 	}
 
-	private static String block(String id, Catalog catalog) {
+	public static String block(String id, Catalog catalog) {
 		return catalog.byItemId(id).map(word -> word.ko).orElse("그것");
 	}
 }

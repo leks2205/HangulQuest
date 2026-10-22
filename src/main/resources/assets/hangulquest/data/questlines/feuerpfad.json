@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "feuerpfad",
- "titleKo": "불의 길",
- "titleDe": "Der Feuerpfad",
+ "titleKo": "물과 불의 길",
  "topic": "불",
  "tier": 1,
  "order": 30,
  "concepts": [
-  "gen_horn_coral",
-  "gen_dark_oak_trapdoor",
-  "adv_item_ancient_debris"
+  "log",
+  "campfire",
+  "water"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,37 +19,69 @@
   {
    "id": "s1",
    "teach": [
-    "gen_horn_coral"
+    "log"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:horn_coral",
+    "block": "minecraft:oak_log",
     "count": 2
    },
    "clue": {
-    "de": "Baue 2× Geweihkoralle ab.",
-    "en": "Break 2× Horn Coral."
+    "ko": "달이 떠요. 통나무를 두 개 베어요."
    },
    "hint": {
-    "en": "Break 2× Horn Coral."
+    "ko": "통나무를 베어요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_trapdoor"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_trapdoor",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:campfire",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:water_bucket",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_river"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "water"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:water_bucket",
+    "inner": {
+     "type": "PLACE_REL",
+     "block": "minecraft:campfire",
+     "relation": "NEXT_TO",
+     "anchor": "#minecraft:logs",
+     "count": 1
+    }
    },
    "clue": {
-    "de": "Platziere 2× Schwarzeichenholzfalltür.",
-    "en": "Place 2× Dark Oak Trapdoor."
+    "ko": "물 양동이를 들고 나무 옆에 모닥불을 놓아요."
    },
    "hint": {
-    "en": "Place 2× Dark Oak Trapdoor."
+    "ko": "물 양동이를 들고 나무 옆에 모닥불을 놓아요."
    }
   }
  ],
@@ -58,39 +89,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ancient_debris"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:ancient_debris",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:campfire",
+    "dwellMs": 1000
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Antiker Schrott. Nachts.",
-    "en": "Place Ancient Debris. At night."
-   },
-   "hint": {
-    "en": "Place Ancient Debris. At night."
-   }
+   ]
   },
-  "textKo": "밤에 고대 잔해라는 길의 의식을 마쳤어요.",
-  "textDe": "Antiker Schrott — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Ancient Debris is complete."
+  "textKo": "밤에 모닥불을 바라봤어요."
  },
  "reward": {
   "badge": "feuerpfad",
   "words": [
-   "coal",
-   "torch",
-   "campfire"
+   "log",
+   "campfire",
+   "water"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Fire Trail"
+ "koreanLevel": 1
 }

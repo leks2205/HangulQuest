@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "adv_story_upgrade_tools",
  "titleKo": "더욱더 좋게",
- "titleDe": "Technischer Fortschritt",
  "topic": "story",
  "tier": 2,
  "order": 325,
  "concepts": [
-  "adv_block_end_stone",
-  "adv_item_decorated_pot",
-  "gen_cracked_deepslate_tiles",
+  "stone",
+  "adv_block_stone_axe",
+  "log",
   "adv_block_stone_pickaxe"
  ],
  "requires": {
@@ -23,54 +22,50 @@
   {
    "id": "s1",
    "teach": [
-    "adv_block_end_stone"
+    "stone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_stone",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:stone",
     "count": 3
    },
-   "clue": {
-    "de": "Sammle 3× Endstein.",
-    "en": "Collect 3× End Stone."
-   },
-   "hint": {
-    "en": "Collect 3× End Stone."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wooden_pickaxe"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_decorated_pot"
+    "adv_block_stone_axe",
+    "crafting_table"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:decorated_pot"
-   },
-   "clue": {
-    "de": "Benutze Verzierter Krug.",
-    "en": "Use Decorated Pot."
-   },
-   "hint": {
-    "en": "Use Decorated Pot."
+    "type": "CRAFT",
+    "item": "minecraft:stone_axe",
+    "count": 1,
+    "station": "crafting_table",
+    "with": [
+     "minecraft:cobblestone"
+    ]
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cracked_deepslate_tiles"
+    "log"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cracked_deepslate_tiles",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Rissige Tiefenschieferfliesen.",
-    "en": "Collect 2× Cracked Deepslate Tiles."
-   },
-   "hint": {
-    "en": "Collect 2× Cracked Deepslate Tiles."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:stone_axe",
+    "seconds": 10,
+    "inner": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:birch_log",
+     "count": 3
+    }
    }
   }
  ],
@@ -85,30 +80,30 @@
     "item": "minecraft:stone_pickaxe",
     "count": 1
    },
-   "clue": {
-    "de": "Baue eine Steinspitzhacke an der Werkbank.",
-    "en": "Collect Stone Pickaxe."
-   },
-   "hint": {
-    "ko": "돌 곡괭이는 조약돌 세 개와 막대기 두 개로 만들어요.",
-    "de": "Steinspitzhacke: drei Bruchstein und zwei Stöcke.",
-    "en": "Collect Stone Pickaxe."
-   },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
-  "textKo": "더욱더 좋게 — 돌 곡괭이를 들었어요. 이제 더 단단한 것도 캐요.",
-  "textDe": "Technischer Fortschritt — Mit der Steinspitzhacke geht es tiefer.",
-  "textEn": "the ritual of Stone Pickaxe is complete."
+  "textKo": "더욱더 좋게 — 돌 곡괭이를 만들었어요."
  },
  "reward": {
   "badge": "adv_story_upgrade_tools",
   "words": [
-   "cobblestone",
-   "crafting_table",
-   "stick",
+   "stone",
+   "adv_block_stone_axe",
+   "log",
    "adv_block_stone_pickaxe"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Getting an Upgrade"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.eseo_activity",
+  "L2.euro_material"
+ ]
 }

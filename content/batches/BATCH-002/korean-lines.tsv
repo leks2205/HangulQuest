@@ -1,0 +1,151 @@
+id	ko	context
+trail.bergpfad.title	산과 눈의 길	title, authored; project: Climb a mountain, look at the snow, light a campfire on a stone at night and walk the mountain with a torch.
+trail.bergpfad.s1.clue	산 위로 올라가요.	clue, generated; REACH_HEIGHT
+trail.bergpfad.s1.hint	산 위로 올라가요.	hint, authored; REACH_HEIGHT
+trail.bergpfad.s2.clue	낮에 눈을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_BLOCK  TIME:DAY
+trail.bergpfad.s2.hint	낮에 눈을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_BLOCK  TIME:DAY
+trail.bergpfad.s3.clue	밤에 돌 위에 모닥불을 놓아요.	clue, generated; PLACE_REL ON_TOP_OF TIME:NIGHT
+trail.bergpfad.s3.hint	밤에 돌 위에 모닥불을 놓아요.	hint, generated; PLACE_REL ON_TOP_OF TIME:NIGHT
+trail.bergpfad.finale.clue	횃불을 들고 산에서 걸어요.	clue, generated; HOLD_WHILE
+trail.bergpfad.finale.hint	횃불을 들고 산에서 걸어요.	hint, generated; HOLD_WHILE
+trail.bergpfad.finale	횃불을 들고 산에서 걸었어요.	finale line, generated
+trail.dorfpfad.title	마을의 길	title, authored; project: A day in the village: look at a villager, ring the bell, get a carrot and give it to the villager.
+trail.dorfpfad.s1.clue	낮에 주민을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.dorfpfad.s1.hint	마을 주민을 바라봐요.	hint, authored; LOOK_AT_ENTITY  TIME:DAY
+trail.dorfpfad.s2.clue	해가 떠요. 종을 울려요.	clue, authored; USE_BLOCK
+trail.dorfpfad.s2.hint	주민과 종을 울려요.	hint, authored; USE_BLOCK
+trail.dorfpfad.s3.clue	낮에 당근을 구해요.	clue, generated; ACQUIRE_ITEM  TIME:DAY
+trail.dorfpfad.s3.hint	당근을 구해요. 주민에게 줘요.	hint, authored; ACQUIRE_ITEM  TIME:DAY
+trail.dorfpfad.finale.clue	주민에게 당근을 줘요.	clue, generated; GIVE
+trail.dorfpfad.finale.hint	주민에게 당근을 줘요.	hint, generated; GIVE
+trail.dorfpfad.finale	주민에게 당근을 줬어요.	finale line, generated
+trail.wurzelpfad.title	나무와 묘목의 길	title, authored; project: From sapling to table: find a sapling, chop logs, craft sticks and put a crafting table beside a log.
+trail.wurzelpfad.s1.clue	묘목을 구해요. 묘목이 나무가 돼요.	clue, authored; ACQUIRE_ITEM
+trail.wurzelpfad.s1.hint	묘목을 구해요. 묘목이 나무가 돼요.	hint, authored; ACQUIRE_ITEM
+trail.wurzelpfad.s2.clue	낮에 통나무를 세 개 베어요.	clue, generated; BREAK_BLOCK  TIME:DAY
+trail.wurzelpfad.s2.hint	낮에 통나무를 베어요.	hint, generated; BREAK_BLOCK  TIME:DAY
+trail.wurzelpfad.s3.clue	막대기를 네 개 만들어요.	clue, generated; CRAFT
+trail.wurzelpfad.s3.hint	막대기를 만들어요.	hint, generated; CRAFT
+trail.wurzelpfad.finale.clue	통나무 옆에 제작대를 놓아요.	clue, generated; PLACE_REL NEXT_TO
+trail.wurzelpfad.finale.hint	통나무 옆에 제작대를 놓아요.	hint, generated; PLACE_REL NEXT_TO
+trail.wurzelpfad.finale	참나무 원목 옆에 제작대를 놓았어요.	finale line, generated
+trail.musikpfad.title	소리 블록의 길	title, authored; project: Mine redstone, craft a note block, ring it at night and put a button beside it.
+trail.musikpfad.s1.clue	땅속에서 레드스톤을 두 개 캐요.	clue, generated; BREAK_BLOCK  Y_RANGE:-64..16
+trail.musikpfad.s1.hint	땅속에서 레드스톤을 캐요.	hint, generated; BREAK_BLOCK  Y_RANGE:-64..16
+trail.musikpfad.s2.clue	소리 블록을 만들어요.	clue, generated; CRAFT
+trail.musikpfad.s2.hint	소리 블록을 만들어요.	hint, generated; CRAFT
+trail.musikpfad.s3.clue	밤에 소리 블록을 울려요.	clue, generated; USE_BLOCK  TIME:NIGHT
+trail.musikpfad.s3.hint	밤에 소리 블록을 울려요.	hint, generated; USE_BLOCK  TIME:NIGHT
+trail.musikpfad.finale.clue	소리 블록 옆에 참나무 버튼을 놓아요.	clue, generated; PLACE_REL NEXT_TO
+trail.musikpfad.finale.hint	소리 블록 옆에 참나무 버튼을 놓아요.	hint, generated; PLACE_REL NEXT_TO
+trail.musikpfad.finale	소리 블록 옆에 참나무 버튼을 놓았어요.	finale line, generated
+trail.bienenpfad.title	꿀벌과 꽃의 길	title, authored; project: Meet the bees: a flower by the fence, a beehive, hung under a log.
+trail.bienenpfad.s1.clue	낮에 꿀벌을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.bienenpfad.s1.hint	낮에 꿀벌을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.bienenpfad.s2.clue	낮에 울타리 옆에 꽃을 심어요.	clue, generated; PLACE_REL NEXT_TO TIME:DAY
+trail.bienenpfad.s2.hint	낮에 울타리 옆에 꽃을 심어요.	hint, generated; PLACE_REL NEXT_TO TIME:DAY
+trail.bienenpfad.s3.clue	벌통을 만들어요.	clue, generated; CRAFT
+trail.bienenpfad.s3.hint	벌통을 만들어요.	hint, generated; CRAFT
+trail.bienenpfad.finale.clue	통나무 아래에 벌통을 놓아요.	clue, generated; PLACE_REL UNDER
+trail.bienenpfad.finale.hint	통나무 아래에 벌통을 놓아요.	hint, generated; PLACE_REL UNDER
+trail.bienenpfad.finale	참나무 원목 아래에 벌통을 놓았어요.	finale line, generated
+trail.freundschaftspfad.title	친구의 길	title, authored; project: Make friends: look at a horse, give it an apple, eat a carrot beside a villager, talk to a friend.
+trail.freundschaftspfad.s1.clue	낮에 말을 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.freundschaftspfad.s1.hint	낮에 말을 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.freundschaftspfad.s2.clue	말에게 사과를 줘요.	clue, generated; GIVE
+trail.freundschaftspfad.s2.hint	말에게 사과를 줘요.	hint, generated; GIVE
+trail.freundschaftspfad.s3.clue	주민 옆에서 당근을 먹어요.	clue, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:villager
+trail.freundschaftspfad.s3.hint	주민 옆에서 당근을 먹어요.	hint, generated; CONSUME_ITEM  PLAYER_REL:NEXT_TO:minecraft:villager
+trail.freundschaftspfad.finale.clue	주민 친구와 이야기해요.	clue, authored; INTERACT_ENTITY
+trail.freundschaftspfad.finale.hint	주민 친구와 이야기해요.	hint, authored; INTERACT_ENTITY
+trail.freundschaftspfad.finale	주민과 이야기했어요.	finale line, generated
+trail.briefpfad.title	종이와 편지의 길	title, authored; project: Paper and a mailbox: make paper and a chest, give a sheet to a villager friend, set the chest down.
+trail.briefpfad.s1.clue	종이를 세 장 만들어요.	clue, generated; ACQUIRE_ITEM
+trail.briefpfad.s1.hint	종이를 만들어요.	hint, generated; ACQUIRE_ITEM
+trail.briefpfad.s2.clue	상자를 만들어요.	clue, generated; CRAFT
+trail.briefpfad.s2.hint	상자를 만들어요.	hint, generated; CRAFT
+trail.briefpfad.s3.clue	주민 친구에게 종이를 줘요.	clue, authored; GIVE
+trail.briefpfad.s3.hint	주민에게 종이를 줘요.	hint, authored; GIVE
+trail.briefpfad.finale.clue	낮에 상자를 놓아요.	clue, generated; PLACE_BLOCK  TIME:DAY
+trail.briefpfad.finale.hint	낮에 상자를 놓아요.	hint, generated; PLACE_BLOCK  TIME:DAY
+trail.briefpfad.finale	낮에 상자를 놓았어요.	finale line, generated
+trail.redstonepfad.title	레드스톤의 길	title, authored; project: Redstone torch, a lever beside the door, torches under a roof, and pull the lever at night.
+trail.redstonepfad.s1.clue	레드스톤 횃불을 만들어요.	clue, generated; CRAFT
+trail.redstonepfad.s1.hint	레드스톤 횃불을 만들어요.	hint, generated; CRAFT
+trail.redstonepfad.s2.clue	문 옆에 레버를 놓아요.	clue, generated; PLACE_REL NEXT_TO
+trail.redstonepfad.s2.hint	문 옆에 레버를 놓아요.	hint, generated; PLACE_REL NEXT_TO
+trail.redstonepfad.s3.clue	지붕 아래에서 레드스톤 횃불을 두 개 밝혀요.	clue, generated; PLACE_BLOCK  SKY:ROOFED
+trail.redstonepfad.s3.hint	지붕 아래에서 레드스톤 횃불을 밝혀요.	hint, generated; PLACE_BLOCK  SKY:ROOFED
+trail.redstonepfad.finale.clue	밤에 레버를 당겨요.	clue, generated; USE_BLOCK  TIME:NIGHT
+trail.redstonepfad.finale.hint	밤에 레버를 당겨요.	hint, generated; USE_BLOCK  TIME:NIGHT
+trail.redstonepfad.finale	밤에 레버를 당겼어요.	finale line, generated
+trail.schneeballpfad.title	눈싸움의 길	title, authored; project: A snowball fight: get a snowball, throw three, craft a snow block and stack a pillar.
+trail.schneeballpfad.s1.clue	눈덩이를 구해요.	clue, generated; ACQUIRE_ITEM
+trail.schneeballpfad.s1.hint	눈덩이를 구해요.	hint, generated; ACQUIRE_ITEM
+trail.schneeballpfad.s2.clue	눈덩이를 세 개 던져요.	clue, generated; CONSUME_ITEM
+trail.schneeballpfad.s2.hint	눈덩이를 던져요.	hint, generated; CONSUME_ITEM
+trail.schneeballpfad.s3.clue	눈 블록을 만들어요.	clue, authored; CRAFT
+trail.schneeballpfad.s3.hint	눈 블록을 만들어요.	hint, authored; CRAFT
+trail.schneeballpfad.finale.clue	눈 블록 세 개로 기둥을 쌓아요.	clue, authored; BUILD_PATTERN
+trail.schneeballpfad.finale.hint	눈 블록으로 기둥을 쌓아요.	hint, authored; BUILD_PATTERN
+trail.schneeballpfad.finale	눈 블록 세 개로 기둥을 쌓았어요.	finale line, authored
+trail.steintiefe.title	돌과 철의 길	title, authored; project: Go deeper: enter a cave, mine iron, craft a furnace and smelt the iron.
+trail.steintiefe.s1.clue	동굴로 들어가요.	clue, generated; REACH_BIOME
+trail.steintiefe.s1.hint	동굴로 들어가요.	hint, generated; REACH_BIOME
+trail.steintiefe.s2.clue	땅속에서 철을 세 개 캐요.	clue, generated; BREAK_BLOCK  Y_RANGE:-64..50
+trail.steintiefe.s2.hint	땅속에서 철을 캐요.	hint, generated; BREAK_BLOCK  Y_RANGE:-64..50
+trail.steintiefe.s3.clue	화로를 만들어요.	clue, generated; CRAFT
+trail.steintiefe.s3.hint	화로를 만들어요. 철을 녹여요.	hint, authored; CRAFT
+trail.steintiefe.finale.clue	화로에서 철을 세 개 만들어요.	clue, generated; SMELT
+trail.steintiefe.finale.hint	화로에서 철을 만들어요.	hint, generated; SMELT
+trail.steintiefe.finale	화로에서 철을 세 개 만들었어요.	finale line, generated
+trail.waldhaus.title	숲의 집	title, authored; project: A forest house: ring of planks, a door beside it, a glass pane and a bed inside.
+trail.waldhaus.s1.clue	집을 지어요. 판자로 벽을 쌓아요.	clue, authored; BUILD_PATTERN
+trail.waldhaus.s1.hint	판자로 벽을 쌓아요.	hint, authored; BUILD_PATTERN
+trail.waldhaus.s2.clue	판자 옆에 문을 달아요.	clue, generated; PLACE_REL NEXT_TO
+trail.waldhaus.s2.hint	판자 옆에 문을 달아요.	hint, generated; PLACE_REL NEXT_TO
+trail.waldhaus.s3.clue	유리판을 만들어요.	clue, generated; CRAFT
+trail.waldhaus.s3.hint	유리판을 만들어요.	hint, generated; CRAFT
+trail.waldhaus.finale.clue	집 안에 침대를 놓아요.	clue, authored; PLACE_ON_PATTERN INSIDE
+trail.waldhaus.finale.hint	집 안에 침대를 놓아요.	hint, authored; PLACE_ON_PATTERN INSIDE
+trail.waldhaus.finale	집 안에 침대를 놓았어요.	finale line, authored
+trail.bogenpfad.title	활의 길	title, authored; project: Get string at night, craft a bow, store arrows in a chest and walk at night with the bow.
+trail.bogenpfad.s1.clue	밤에 실을 구해요.	clue, generated; ACQUIRE_ITEM  TIME:NIGHT
+trail.bogenpfad.s1.hint	밤에 실을 구해요.	hint, generated; ACQUIRE_ITEM  TIME:NIGHT
+trail.bogenpfad.s2.clue	활을 만들어요.	clue, generated; CRAFT
+trail.bogenpfad.s2.hint	활을 만들어요.	hint, generated; CRAFT
+trail.bogenpfad.s3.clue	상자 안에 화살을 네 개 넣어요.	clue, generated; PUT_IN
+trail.bogenpfad.s3.hint	상자 안에 화살을 넣어요.	hint, generated; PUT_IN
+trail.bogenpfad.finale.clue	활을 들고 밤에 걸어요.	clue, generated; HOLD_WHILE
+trail.bogenpfad.finale.hint	활을 들고 밤에 걸어요.	hint, generated; HOLD_WHILE
+trail.bogenpfad.finale	활을 들고 밤에 걸었어요.	finale line, generated
+trail.blumenpfad.title	꽃과 토끼의 길	title, authored; project: Flowers and a rabbit: look at a rabbit, give it a carrot, pick flowers and craft a dye.
+trail.blumenpfad.s1.clue	낮에 토끼를 일 초 동안 바라봐요.	clue, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.blumenpfad.s1.hint	낮에 토끼를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY  TIME:DAY
+trail.blumenpfad.s2.clue	토끼에게 당근을 줘요.	clue, generated; GIVE
+trail.blumenpfad.s2.hint	토끼에게 당근을 줘요.	hint, generated; GIVE
+trail.blumenpfad.s3.clue	꽃을 세 송이 꺾어요.	clue, generated; BREAK_BLOCK
+trail.blumenpfad.s3.hint	꽃을 꺾어요.	hint, generated; BREAK_BLOCK
+trail.blumenpfad.finale.clue	염료를 만들어요.	clue, generated; CRAFT
+trail.blumenpfad.finale.hint	염료를 만들어요.	hint, generated; CRAFT
+trail.blumenpfad.finale	염료를 만들었어요.	finale line, generated
+trail.kerzenpfad.title	초와 밤의 길	title, authored; project: Light for the night: craft candles, a chest beside the bed, store the candles, walk with one at night.
+trail.kerzenpfad.s1.clue	달이 떠요. 초를 두 개 만들어요.	clue, authored; CRAFT
+trail.kerzenpfad.s1.hint	초를 만들어요.	hint, authored; CRAFT
+trail.kerzenpfad.s2.clue	침대 옆에 상자를 놓아요.	clue, generated; PLACE_REL NEXT_TO
+trail.kerzenpfad.s2.hint	침대 옆에 상자를 놓아요.	hint, generated; PLACE_REL NEXT_TO
+trail.kerzenpfad.s3.clue	지붕 아래에서 상자 안에 초를 넣어요.	clue, generated; PUT_IN  SKY:ROOFED
+trail.kerzenpfad.s3.hint	지붕 아래에서 상자 안에 초를 넣어요.	hint, generated; PUT_IN  SKY:ROOFED
+trail.kerzenpfad.finale.clue	초를 들고 밤에 걸어요.	clue, generated; HOLD_WHILE
+trail.kerzenpfad.finale.hint	초를 들고 밤에 걸어요.	hint, generated; HOLD_WHILE
+trail.kerzenpfad.finale	초를 들고 밤에 걸었어요.	finale line, generated
+trail.wetterpfad.title	비와 물고기의 길	title, authored; project: A rainy fishing day: make a rod, fish at the river, cook the fish and eat it in the rain.
+trail.wetterpfad.s1.clue	낚싯대를 만들어요.	clue, generated; CRAFT
+trail.wetterpfad.s1.hint	낚싯대를 만들어요.	hint, generated; CRAFT
+trail.wetterpfad.s2.clue	강에서 물고기를 구해요.	clue, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.wetterpfad.s2.hint	강에서 물고기를 구해요.	hint, generated; ACQUIRE_ITEM  IN_BIOME:#minecraft:is_river
+trail.wetterpfad.s3.clue	물고기를 구워요.	clue, generated; SMELT
+trail.wetterpfad.s3.hint	물고기를 구워요.	hint, generated; SMELT
+trail.wetterpfad.finale.clue	비가 올 때 익힌 대구를 먹어요.	clue, generated; CONSUME_ITEM  WEATHER:RAIN
+trail.wetterpfad.finale.hint	비가 올 때 익힌 대구를 먹어요.	hint, authored; CONSUME_ITEM  WEATHER:RAIN
+trail.wetterpfad.finale	비가 올 때 익힌 대구를 먹었어요.	finale line, generated

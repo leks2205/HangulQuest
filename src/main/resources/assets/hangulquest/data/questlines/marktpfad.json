@@ -2,14 +2,17 @@
  "schema": 1,
  "id": "marktpfad",
  "titleKo": "시장의 길",
- "titleDe": "Der Marktpfad",
+ "topic": "마을",
  "tier": 2,
  "order": 380,
  "concepts": [
-  "gen_deepslate_brick_wall",
-  "gen_music_disc_11",
-  "gen_oxidized_copper_door",
-  "gen_red_stained_glass_pane"
+  "cow",
+  "milk",
+  "bread",
+  "villager",
+  "friend",
+  "talk",
+  "emerald"
  ],
  "requires": {
   "minWordsKnown": 9,
@@ -22,55 +25,75 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate_brick_wall"
+    "cow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_brick_wall",
-    "count": 3
+    "type": "GIVE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:cow",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 3× Tiefenschieferziegelmauer.",
-    "en": "Collect 3× Deepslate Brick Wall."
-   },
-   "hint": {
-    "en": "Collect 3× Deepslate Brick Wall."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_music_disc_11"
+    "milk"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:music_disc_11",
-    "count": 2
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:milk_bucket",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 2× Schallplatte.",
-    "en": "Collect 2× Music Disc."
-   },
-   "hint": {
-    "en": "Collect 2× Music Disc."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cow",
+     "kind": "entity"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_oxidized_copper_door"
+    "bread"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oxidized_copper_door",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:bread",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "villager",
+    "friend",
+    "talk"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:villager",
+    "count": 1
    },
    "clue": {
-    "de": "Sammle 2× Oxidierte Kupfertür.",
-    "en": "Collect 2× Oxidized Copper Door."
+    "ko": "주민 친구와 이야기해요. 빵을 줘요."
    },
    "hint": {
-    "en": "Collect 2× Oxidized Copper Door."
+    "ko": "주민 친구와 이야기해요. 빵을 줘요."
    }
   }
  ],
@@ -78,41 +101,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_red_stained_glass_pane"
+    "emerald"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_stained_glass_pane",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DAY"
-    }
-   ],
-   "clue": {
-    "de": "Platziere 3× Rote Glasscheibe. Tagsüber.",
-    "en": "Place 3× Red Stained Glass Pane. During the day."
-   },
-   "hint": {
-    "en": "Place 3× Red Stained Glass Pane. During the day."
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 2
    }
   },
-  "textKo": "낮에 빨간색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Rote Glasscheibe — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Red Stained Glass Pane is complete."
+  "textKo": "에메랄드를 두 개 모았어요."
  },
  "reward": {
   "badge": "marktpfad",
   "words": [
-   "emerald",
+   "cow",
+   "milk",
    "bread",
-   "carrot",
-   "bell"
+   "villager"
   ]
  },
- "koreanLevel": 1,
- "topic": "마을",
- "titleEn": "The Market Trail"
+ "koreanLevel": 1
 }

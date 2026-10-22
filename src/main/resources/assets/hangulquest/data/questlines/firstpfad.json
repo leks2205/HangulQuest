@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "firstpfad",
  "titleKo": "봉우리의 길",
- "titleDe": "Der Gratpfad",
+ "topic": "산",
  "tier": 2,
  "order": 370,
  "concepts": [
-  "gen_cave_spider",
-  "gen_smooth_quartz",
-  "gen_copper_bars",
-  "gen_jungle_hanging_sign"
+  "ice",
+  "snowball",
+  "snow"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -22,101 +21,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cave_spider"
+    "ice"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cave_spider",
-    "dwellMs": 800
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:ice",
+    "count": 2
    },
-   "clue": {
-    "de": "Sieh dir Höhlenspinne an.",
-    "en": "Look at Cave Spider."
-   },
-   "hint": {
-    "en": "Look at Cave Spider."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_quartz"
+    "snowball"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:smooth_quartz",
-    "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Glatter Quarzblock ab.",
-    "en": "Break 3× Smooth Quartz Block."
-   },
-   "hint": {
-    "en": "Break 3× Smooth Quartz Block."
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:snowball",
+    "count": 4
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_copper_bars"
+    "snowball"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:copper_bars",
-    "dwellMs": 600
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:snowball",
+    "count": 1
    },
-   "clue": {
-    "de": "Sieh dir Kupfergitter an.",
-    "en": "Look at Copper Bars."
-   },
-   "hint": {
-    "en": "Look at Copper Bars."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_hanging_sign"
+    "snow"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_hanging_sign",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow",
+    "dwellMs": 600
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     },
     {
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Tropenholzhängeschild. Nachts. In einem passenden Biom.",
-    "en": "Place Jungle Hanging Sign. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Jungle Hanging Sign. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산 지형에서 정글나무 매다는 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzhängeschild — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Jungle Hanging Sign is complete."
+  "textKo": "낮에 산에서 눈을 바라봤어요."
  },
  "reward": {
   "badge": "firstpfad",
   "words": [
-   "goat",
    "ice",
-   "snow",
-   "torch"
+   "snowball",
+   "snow"
   ]
  },
- "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The Ridge Trail"
+ "koreanLevel": 1
 }

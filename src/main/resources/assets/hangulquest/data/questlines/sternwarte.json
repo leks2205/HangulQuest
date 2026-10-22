@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "sternwarte",
  "titleKo": "달빛 정원",
- "titleDe": "Der Mondgarten",
+ "topic": "달빛",
  "tier": 3,
  "order": 515,
  "concepts": [
-  "gen_magenta_shulker_box",
-  "gen_crimson_fence",
-  "gen_magenta_concrete_powder",
-  "gen_waxed_exposed_copper_grate"
+  "brick",
+  "gen_white_stained_glass",
+  "gen_lily_of_the_valley",
+  "make",
+  "walk"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,98 +24,103 @@
   {
    "id": "s1",
    "teach": [
-    "gen_magenta_shulker_box"
+    "brick"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:magenta_shulker_box",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Magenta Shulker-Kiste an.",
-    "en": "Look at Magenta Shulker Box."
-   },
-   "hint": {
-    "en": "Look at Magenta Shulker Box."
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:bricks",
+    "size": 4
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_crimson_fence"
+    "gen_white_stained_glass",
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crimson_fence",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Karmesinzaun.",
-    "en": "Place 3× Crimson Fence."
-   },
-   "hint": {
-    "en": "Place 3× Crimson Fence."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_stained_glass",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:bricks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_magenta_concrete_powder"
+    "gen_lily_of_the_valley",
+    "brick"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_concrete_powder",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:lily_of_the_valley",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:bricks",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "make"
    ],
-   "clue": {
-    "de": "Platziere 3× Magenta Trockenbeton. Nachts.",
-    "en": "Place 3× Magenta Concrete Powder. At night."
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:spyglass",
+    "count": 1
    },
-   "hint": {
-    "en": "Place 3× Magenta Concrete Powder. At night."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_exposed_copper_grate"
+    "walk"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_exposed_copper_grate",
-    "count": 3
+    "type": "HOLD_WHILE",
+    "item": "minecraft:spyglass",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Gewachster angelaufener Kupferrost.",
-    "en": "Place 3× Waxed Exposed Copper Grate."
-   },
-   "hint": {
-    "en": "Place 3× Waxed Exposed Copper Grate."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bricks"
+    }
+   ]
   },
-  "textKo": "밀랍칠한 약간 녹슨 구리 격자라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster angelaufener Kupferrost — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Exposed Copper Grate is complete."
+  "textKo": "벽돌 근처에서 망원경을 들고 밤에 걸었어요."
  },
  "reward": {
   "badge": "sternwarte",
   "words": [
-   "flower",
-   "sea_lantern",
-   "bed",
-   "flower_pot"
+   "brick",
+   "walk",
+   "gen_lily_of_the_valley"
   ]
  },
  "koreanLevel": 2,
- "topic": "달빛",
- "titleEn": "The Moon Garden"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.go_held"
+ ]
 }

@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "haustierpfad",
- "titleKo": "집동물의 길",
- "titleDe": "Der Haustierpfad",
+ "titleKo": "고양이의 집",
  "topic": "동물",
  "tier": 3,
  "order": 41,
  "concepts": [
-  "spider",
-  "gen_zoglin",
-  "gen_jungle_trapdoor"
+  "cat",
+  "planks",
+  "bed",
+  "dandelion"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -23,37 +23,60 @@
   {
    "id": "s1",
    "teach": [
-    "spider"
+    "cat"
    ],
    "goal": {
     "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:spider",
+    "entity": "minecraft:cat",
     "dwellMs": 800
    },
-   "clue": {
-    "de": "Sieh dir Spinne an.",
-    "en": "Look at Spider."
-   },
-   "hint": {
-    "en": "Look at Spider."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_zoglin"
+    "cat"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:zoglin",
-    "dwellMs": 800
+    "type": "GIVE",
+    "item": "minecraft:salmon",
+    "entity": "minecraft:cat",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:oak_planks",
+    "count": 1
    },
    "clue": {
-    "de": "Sieh dir Zoglin an.",
-    "en": "Look at Zoglin."
+    "ko": "고양이 집을 지어요. 판자를 만들어요."
    },
    "hint": {
-    "en": "Look at Zoglin."
+    "ko": "판자를 만들어요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:red_bed",
+    "relation": "INSIDE",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   }
  ],
@@ -61,34 +84,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_trapdoor"
+    "dandelion"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_trapdoor",
+    "type": "PLACE_REL",
+    "block": "minecraft:dandelion",
+    "relation": "OUTSIDE",
+    "anchor": "#minecraft:planks",
     "count": 1
    },
-   "conditions": [],
    "clue": {
-    "de": "Platziere Tropenholzfalltür.",
-    "en": "Place Jungle Trapdoor."
+    "ko": "고양이 집 밖에 민들레를 심어요."
    },
    "hint": {
-    "en": "Place Jungle Trapdoor."
+    "ko": "집 밖에 민들레를 심어요."
    }
   },
-  "textKo": "정글나무 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzfalltür — Zeremonie vollendet.",
-  "textEn": "the ritual of Jungle Trapdoor is complete."
+  "textKo": "판자 밖에 민들레를 심었어요."
  },
  "reward": {
   "badge": "haustierpfad",
   "words": [
    "cat",
-   "wolf",
-   "bed"
+   "planks",
+   "bed",
+   "dandelion"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Pet Trail"
+ "koreanLevel": 1
 }

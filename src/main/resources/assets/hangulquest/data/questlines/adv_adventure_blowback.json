@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_blowback",
  "titleKo": "역풍",
- "titleDe": "Gegenwind",
  "topic": "adventure",
  "tier": 2,
  "order": 203,
@@ -27,13 +26,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_wool",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Rote Wolle.",
-    "en": "Place Red Wool."
-   },
-   "hint": {
-    "en": "Place Red Wool."
    }
   },
   {
@@ -45,13 +37,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:wind_charge",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle zwei Windkugeln von einem Briesen ein.",
-    "en": "Collect 2× Wind Charge."
-   },
-   "hint": {
-    "en": "Collect 2× Wind Charge."
    }
   }
  ],
@@ -66,18 +51,9 @@
     "item": "minecraft:wind_charge",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Wirf eine Windkugel zurück in den Briesen, der sie geschickt hat.",
-    "en": "Eat Wind Charge."
-   },
-   "hint": {
-    "en": "Eat Wind Charge."
-   }
+   "conditions": []
   },
-  "textKo": "역풍 — 돌풍구를 되받아쳐 바람 정령을 날려 버렸어요.",
-  "textDe": "Gegenwind — die Windkugel zurückgeschleudert.",
-  "textEn": "the ritual of Wind Charge is complete."
+  "textKo": "역풍 — 돌풍구를 되받아쳐 바람 정령을 날려 버렸어요."
  },
  "reward": {
   "badge": "adv_adventure_blowback",
@@ -85,6 +61,5 @@
    "adv_item_wind_charge"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Blowback"
+ "koreanLevel": 3
 }

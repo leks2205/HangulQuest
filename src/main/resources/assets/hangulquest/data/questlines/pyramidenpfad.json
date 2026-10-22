@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "pyramidenpfad",
  "titleKo": "피라미드의 길",
- "titleDe": "Der Pyramidenpfad",
  "topic": "피라미드",
  "tier": 3,
  "order": 110,
@@ -30,13 +29,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:stony_shore",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Steinige Küste.",
-    "en": "Reach Stony Shore."
-   },
-   "hint": {
-    "en": "Reach Stony Shore."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:sandstone",
     "count": 6
-   },
-   "clue": {
-    "de": "Setz sechs Sandsteinblöcke.",
-    "en": "Place 6× Sandstone."
-   },
-   "hint": {
-    "en": "Place 6× Sandstone."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:prismarine_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Prismarinmauer.",
-    "en": "Place 3× Prismarine Wall."
-   },
-   "hint": {
-    "en": "Place 3× Prismarine Wall."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Kirschstamm. Nachts.",
-    "en": "Place 3× Cherry Log. At night."
-   },
-   "hint": {
-    "en": "Place 3× Cherry Log. At night."
-   }
+   ]
   },
-  "textKo": "밤에 벚나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Kirschstamm — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Cherry Log is complete."
+  "textKo": "밤에 벚나무 원목을 세 개 놓았어요."
  },
  "reward": {
   "badge": "pyramidenpfad",
@@ -114,6 +83,5 @@
    "torch"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Pyramid Trail"
+ "koreanLevel": 4
 }

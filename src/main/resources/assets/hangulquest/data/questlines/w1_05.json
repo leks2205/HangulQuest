@@ -1,16 +1,14 @@
 {
  "schema": 1,
  "id": "w1_05",
- "titleKo": "물 위의 빛",
- "titleDe": "Licht auf dem Wasser",
+ "titleKo": "물가의 불빛",
  "topic": "물빛",
  "tier": 1,
  "order": 1015,
  "concepts": [
-  "gen_brown_egg",
-  "gen_orange_terracotta",
-  "seagrass",
-  "gen_heart_pottery_sherd"
+  "beach",
+  "lily_pad",
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,92 +19,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_egg"
+    "beach"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_egg",
-    "count": 2
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_beach",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sammle 2× Braunes Ei.",
-    "en": "Collect 2× Brown Egg."
-   },
-   "hint": {
-    "en": "Collect 2× Brown Egg."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_orange_terracotta"
+    "lily_pad"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:orange_terracotta",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Orange Keramik.",
-    "en": "Place 2× Orange Terracotta."
-   },
-   "hint": {
-    "en": "Place 2× Orange Terracotta."
+    "type": "PLACE_REL",
+    "block": "minecraft:lily_pad",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:water",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "seagrass"
+    "campfire"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:seagrass",
-    "dwellMs": 600
+    "type": "CRAFT",
+    "item": "minecraft:campfire",
+    "count": 1
    },
-   "clue": {
-    "de": "Schau dir Seegras unter Wasser an.",
-    "en": "Look at Seagrass."
-   },
-   "hint": {
-    "ko": "해초는 바다 밑에서 자라요.",
-    "de": "Seegras wächst auf dem Meeresgrund.",
-    "en": "Look at Seagrass."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_beach"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_heart_pottery_sherd"
+    "campfire"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:heart_pottery_sherd",
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:campfire",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Herz-Töpferscherbe.",
-    "en": "Collect Heart Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect Heart Pottery Sherd."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_beach"
+    }
+   ]
   },
-  "textKo": "심장 도자기 조각라는 길의 의식을 마쳤어요.",
-  "textDe": "Herz-Töpferscherbe — Zeremonie vollendet.",
-  "textEn": "the ritual of Heart Pottery Sherd is complete."
+  "textKo": "밤에 해변에서 모닥불을 피웠어요."
  },
  "reward": {
   "badge": "w1_05",
   "words": [
+   "beach",
    "lily_pad",
-   "seagrass",
-   "water"
+   "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Light on the Water"
+ "koreanLevel": 1
 }

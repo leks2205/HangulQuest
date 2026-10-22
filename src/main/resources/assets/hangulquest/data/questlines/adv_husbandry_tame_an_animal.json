@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_tame_an_animal",
  "titleKo": "인생의 동반자",
- "titleDe": "Allerbeste Freunde",
- "topic": "husbandry",
+ "topic": "동물",
  "tier": 2,
  "order": 282,
  "concepts": [
   "bone",
   "wolf",
-  "gen_panda"
+  "house",
+  "enter"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -28,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:bone",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Knochen von Skeletten.",
-    "en": "Collect 3× Bone."
-   },
-   "hint": {
-    "en": "Collect 3× Bone."
    }
   },
   {
@@ -45,14 +38,20 @@
    "goal": {
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:wolf",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Suche im Wald oder in der Taiga nach einem Wolf.",
-    "en": "Look at Wolf."
-   },
-   "hint": {
-    "en": "Look at Wolf."
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bone"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bone",
+    "entity": "minecraft:wolf",
+    "method": "FEED",
+    "count": 3
    }
   }
  ],
@@ -60,32 +59,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_panda"
+    "house",
+    "enter"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:panda"
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Panda.",
-    "en": "Talk to Panda."
-   },
-   "hint": {
-    "en": "Talk to Panda."
+    "type": "TRANSIT",
+    "direction": "IN"
    }
   },
-  "textKo": "판다라는 길의 의식을 마쳤어요.",
-  "textDe": "Panda — Zeremonie vollendet.",
-  "textEn": "the ritual of Panda is complete."
+  "textKo": "집 안으로 들어갔어요."
  },
  "reward": {
   "badge": "adv_husbandry_tame_an_animal",
   "words": [
    "bone",
-   "wolf"
+   "wolf",
+   "house",
+   "enter"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Best Friends Forever"
+ "koreanLevel": 1
 }

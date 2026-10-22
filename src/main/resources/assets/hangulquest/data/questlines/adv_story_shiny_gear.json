@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_shiny_gear",
  "titleKo": "다이아몬드로 날 감싸줘",
- "titleDe": "Bedeck mich mit Diamanten",
  "topic": "story",
  "tier": 2,
  "order": 323,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:iron_nautilus_armor",
     "count": 17
-   },
-   "clue": {
-    "de": "Sammle 17× Eiserner Nautiluspanzer.",
-    "en": "Collect 17× Iron Nautilus Armor."
-   },
-   "hint": {
-    "en": "Collect 17× Iron Nautilus Armor."
    }
   },
   {
@@ -48,14 +40,8 @@
     "item": "minecraft:diamond_helmet",
     "count": 1
    },
-   "clue": {
-    "de": "Baue einen Diamanthelm.",
-    "en": "Collect Diamond Helmet."
-   },
    "hint": {
-    "ko": "다이아몬드 투구는 다이아몬드 다섯 개로 만들어요.",
-    "de": "Ein Diamanthelm braucht fünf Diamanten.",
-    "en": "Collect Diamond Helmet."
+    "ko": "다이아몬드 투구는 다이아몬드 다섯 개로 만들어요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_weathered_copper_chest",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gewachste verwitterte Kupfertruhe.",
-    "en": "Collect Waxed Weathered Copper Chest."
-   },
-   "hint": {
-    "en": "Collect Waxed Weathered Copper Chest."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:bell",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Glocke.",
-    "en": "Collect Bell."
-   },
-   "hint": {
-    "en": "Collect Bell."
-   }
+   "conditions": []
   },
-  "textKo": "종라는 길의 의식을 마쳤어요.",
-  "textDe": "Glocke — Zeremonie vollendet.",
-  "textEn": "the ritual of Bell is complete."
+  "textKo": "종을 구했어요."
  },
  "reward": {
   "badge": "adv_story_shiny_gear",
@@ -110,6 +80,5 @@
    "adv_block_diamond_chestplate"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Cover Me with Diamonds"
+ "koreanLevel": 3
 }

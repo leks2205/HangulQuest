@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w9_05",
  "titleKo": "영원의 시간",
- "titleDe": "Die Zeit der Ewigkeit",
  "topic": "영원",
  "tier": 2,
  "order": 1095,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:oak_wood",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Eichenholz.",
-    "en": "Collect Oak Wood."
-   },
-   "hint": {
-    "en": "Collect Oak Wood."
    }
   },
   {
@@ -47,14 +39,10 @@
     "block": "minecraft:enchanting_table"
    },
    "clue": {
-    "de": "Verzaubere die Krone am Zaubertisch.",
-    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요.",
-    "en": "Use Enchanting Table."
+    "ko": "왕관에 힘을 담으려고 마법 부여대를 사용해요."
    },
    "hint": {
-    "ko": "마법 부여대는 흑요석과 다이아몬드와 책으로 만들어요.",
-    "de": "Ein Zaubertisch braucht Obsidian, Diamanten und Bücher.",
-    "en": "Use Enchanting Table."
+    "ko": "마법 부여대는 흑요석과 다이아몬드와 책으로 만들어요."
    }
   }
  ],
@@ -69,18 +57,9 @@
     "item": "minecraft:poplar_fence_gate",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Pappelholzzauntor.",
-    "en": "Collect Poplar Fence Gate."
-   },
-   "hint": {
-    "en": "Collect Poplar Fence Gate."
-   }
+   "conditions": []
   },
-  "textKo": "포플러나무 울타리 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzzauntor — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Fence Gate is complete."
+  "textKo": "포플러나무 울타리 문을 만들었어요."
  },
  "reward": {
   "badge": "w9_05",
@@ -90,6 +69,5 @@
    "nether_star"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Time of Eternity"
+ "koreanLevel": 5
 }

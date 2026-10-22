@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "schmauspfad",
  "titleKo": "산해진미의 길",
- "titleDe": "Der Schlemmerpfad",
+ "topic": "음식",
  "tier": 2,
  "order": 502,
  "concepts": [
-  "gen_cinnabar_brick_stairs",
-  "gen_frogspawn",
+  "sweet_berries",
+  "gen_pumpkin_pie",
   "fox",
-  "gen_glow_berries"
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,55 +22,54 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cinnabar_brick_stairs"
+    "sweet_berries"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cinnabar_brick_stairs",
-    "count": 1
+    "item": "minecraft:sweet_berries",
+    "count": 3
    },
-   "clue": {
-    "de": "Sammle Zinnoberziegeltreppe.",
-    "en": "Collect Cinnabar Brick Stairs."
-   },
-   "hint": {
-    "en": "Collect Cinnabar Brick Stairs."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_log"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_frogspawn"
+    "gen_pumpkin_pie"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:frogspawn",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:pumpkin_pie",
+    "count": 1,
+    "with": [
+     "minecraft:pumpkin"
+    ]
    },
-   "clue": {
-    "de": "Platziere 2× Froschlaich.",
-    "en": "Place 2× Frogspawn."
-   },
-   "hint": {
-    "en": "Place 2× Frogspawn."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "fox"
+    "fox",
+    "sweet_berries"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
+    "type": "GIVE",
     "item": "minecraft:sweet_berries",
-    "count": 1
-   },
-   "clue": {
-    "de": "Iss Süßbeeren.",
-    "en": "Eat Sweet Berries."
-   },
-   "hint": {
-    "en": "Eat Sweet Berries."
+    "entity": "minecraft:fox",
+    "count": 1,
+    "method": "FEED"
    }
   }
  ],
@@ -78,41 +77,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_glow_berries"
+    "gen_pumpkin_pie",
+    "campfire"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:glow_berries",
+    "item": "minecraft:pumpkin_pie",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:campfire"
     }
-   ],
-   "clue": {
-    "de": "Iss Leuchtbeeren. Nachts.",
-    "en": "Eat Glow Berries. At night."
-   },
-   "hint": {
-    "en": "Eat Glow Berries. At night."
-   }
+   ]
   },
-  "textKo": "밤에 발광 열매라는 길의 의식을 마쳤어요.",
-  "textDe": "Leuchtbeeren — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Glow Berries is complete."
+  "textKo": "모닥불 옆에서 호박 파이를 먹었어요. 파이는 달아요."
  },
  "reward": {
   "badge": "schmauspfad",
   "words": [
-   "fish",
-   "furnace",
-   "bread",
-   "cake"
+   "sweet_berries",
+   "gen_pumpkin_pie",
+   "fox",
+   "campfire"
   ]
  },
- "koreanLevel": 2,
- "topic": "음식",
- "titleEn": "The Gourmet Trail"
+ "koreanLevel": 2
 }

@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "pferdehof",
  "titleKo": "말 목장의 길",
- "titleDe": "Der Pferdehof",
+ "topic": "동물",
  "tier": 4,
  "order": 513,
  "concepts": [
-  "gen_wandering_trader",
-  "gen_crimson_shelf",
-  "gen_warped_trapdoor",
-  "gen_bamboo_button"
+  "planks",
+  "horse",
+  "door",
+  "cauldron",
+  "apple"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -24,55 +25,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_wandering_trader"
+    "planks",
+    "horse"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:wandering_trader",
-    "dwellMs": 800
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:jungle_planks",
+    "size": 3
    },
-   "clue": {
-    "de": "Sieh dir Fahrender Händler an.",
-    "en": "Look at Wandering Trader."
-   },
-   "hint": {
-    "en": "Look at Wandering Trader."
-   }
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:horse",
+     "count": 3
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_crimson_shelf"
+    "door",
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:crimson_shelf",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Karmesinregal.",
-    "en": "Collect 2× Crimson Shelf."
-   },
-   "hint": {
-    "en": "Collect 2× Crimson Shelf."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:birch_door",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:jungle_planks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_warped_trapdoor"
+    "cauldron",
+    "horse"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:warped_trapdoor",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Wirrfalltür.",
-    "en": "Collect 2× Warped Trapdoor."
-   },
-   "hint": {
-    "en": "Collect 2× Warped Trapdoor."
+    "type": "PLACE_REL",
+    "block": "minecraft:cauldron",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:horse",
+    "count": 1
    }
   }
  ],
@@ -80,41 +75,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bamboo_button"
+    "apple",
+    "horse"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_button",
+    "type": "GIVE",
+    "item": "minecraft:apple",
+    "entity": "minecraft:horse",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:cauldron"
     }
-   ],
-   "clue": {
-    "de": "Platziere Bambusknopf. Nachts.",
-    "en": "Place Bamboo Button. At night."
-   },
-   "hint": {
-    "en": "Place Bamboo Button. At night."
-   }
+   ]
   },
-  "textKo": "밤에 대나무 버튼라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusknopf — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Bamboo Button is complete."
+  "textKo": "가마솥 근처에서 말에게 사과를 줬어요."
  },
  "reward": {
   "badge": "pferdehof",
   "words": [
+   "planks",
    "horse",
-   "leather",
-   "wool",
-   "campfire"
+   "door",
+   "cauldron"
   ]
  },
  "koreanLevel": 2,
- "topic": "동물",
- "titleEn": "The Horse Farm"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.euro_material"
+ ]
 }

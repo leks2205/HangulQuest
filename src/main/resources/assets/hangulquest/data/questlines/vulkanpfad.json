@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "vulkanpfad",
  "titleKo": "화산의 길",
- "titleDe": "Der Vulkanpfad",
  "topic": "화산",
  "tier": 3,
  "order": 109,
@@ -30,13 +29,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:small_end_islands",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Kleine Endinseln.",
-    "en": "Reach Small End Islands."
-   },
-   "hint": {
-    "en": "Reach Small End Islands."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:cherry_button",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Kirschholzknopf ab.",
-    "en": "Break 3× Cherry Button."
-   },
-   "hint": {
-    "en": "Break 3× Cherry Button."
    }
   },
   {
@@ -72,14 +57,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Steinkohle. Nachts.",
-    "en": "Place Coal Ore. At night."
-   },
-   "hint": {
-    "en": "Place Coal Ore. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -98,18 +76,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 4× Kalibrierter Sculk-Sensor. Nachts.",
-    "en": "Place 4× Calibrated Sculk Sensor. At night."
-   },
-   "hint": {
-    "en": "Place 4× Calibrated Sculk Sensor. At night."
-   }
+   ]
   },
-  "textKo": "밤에 조율한 스컬크 감지체라는 길의 의식을 마쳤어요.",
-  "textDe": "Kalibrierter Sculk-Sensor — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Calibrated Sculk Sensor is complete."
+  "textKo": "밤에 조율한 스컬크 감지체를 네 개 놓았어요."
  },
  "reward": {
   "badge": "vulkanpfad",
@@ -120,6 +89,5 @@
    "torch"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Volcano Trail"
+ "koreanLevel": 3
 }

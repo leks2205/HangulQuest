@@ -1,0 +1,58 @@
+name: 맞아요 / This Korean line looks right
+description: 한국어 문장 하나가 자연스럽다고 알려 주세요. / Confirm that one Korean line is natural and correct.
+title: "[Korean] approve: "
+labels: ["korean-review", "korean:approve"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        리뷰 사이트에서 **맞아요** 버튼을 누르면 아래 칸이 채워져요. 그대로 두고 맨 아래에서 확인만 해 주세요.
+
+        Press **맞아요 / Looks right** on the review site and the fields below are filled in. Leave them and tick the box at the bottom.
+
+        승인은 만든 지 30일이 지난 GitHub 계정만 세어요. 자기가 쓴 문장은 승인할 수 없어요. / Only accounts at least 30 days old count, and nobody can approve their own line.
+  - type: input
+    id: line-id
+    attributes:
+      label: "문장 번호 / Line id"
+      description: "고치지 마세요. / Do not change it."
+    validations:
+      required: true
+  - type: input
+    id: text-hash
+    attributes:
+      label: "확인 코드 / Text hash"
+      description: "고치지 마세요. / Do not change it."
+    validations:
+      required: false
+  - type: input
+    id: current
+    attributes:
+      label: "지금 문장 / Current text"
+    validations:
+      required: true
+  - type: dropdown
+    id: proficiency
+    attributes:
+      label: "한국어 실력 / Your Korean"
+      options:
+        - native (원어민)
+        - fluent (유창함)
+        - teacher (한국어 선생님)
+        - learner (학습자)
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: "크레딧에 쓸 이름 (선택) / Name for the credits (optional)"
+      description: "비워 두면 GitHub 이름을 써요. 이름을 빼고 싶으면 anonymous 라고 적어 주세요. / Leave empty to use your GitHub name. Write anonymous to stay out of the credits."
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "확인 / Confirmation"
+      options:
+        - label: "이 문장을 읽었고, 자연스러운 한국어라고 생각해요. / I read this line and it is natural, correct Korean."
+          required: true

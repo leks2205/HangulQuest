@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "inselpfad",
  "titleKo": "섬의 길",
- "titleDe": "Der Inselpfad",
  "topic": "섬",
  "tier": 3,
  "order": 136,
  "concepts": [
-  "gen_crimson_forest",
   "sand",
-  "gen_stripped_cherry_wood",
-  "gen_pale_moss_block"
+  "ocean",
+  "swim",
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,20 +23,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_forest"
+    "sand"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:crimson_forest",
-    "dwellMs": 1000
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sand",
+    "dwellMs": 600
    },
-   "clue": {
-    "de": "Erreiche Karmesinwald.",
-    "en": "Reach Crimson Forest."
-   },
-   "hint": {
-    "en": "Reach Crimson Forest."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -45,34 +43,34 @@
     "sand"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sand",
-    "count": 4
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:sand",
+    "size": 3
    },
-   "clue": {
-    "de": "Setz vier Sandblöcke.",
-    "en": "Place 4× Sand."
-   },
-   "hint": {
-    "en": "Place 4× Sand."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_cherry_wood"
+    "ocean",
+    "swim"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_cherry_wood",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_ocean",
+    "dwellMs": 1000
    },
    "clue": {
-    "de": "Platziere Entrindetes Kirschholz.",
-    "en": "Place Stripped Cherry Wood."
+    "ko": "바다로 가요. 수영해요."
    },
    "hint": {
-    "en": "Place Stripped Cherry Wood."
+    "ko": "바다로 가요. 수영해요."
    }
   }
  ],
@@ -80,40 +78,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_moss_block"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_moss_block",
-    "count": 2
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "de": "Platziere 2× Blassmoosblock. Nachts.",
-    "en": "Place 2× Pale Moss Block. At night."
-   },
-   "hint": {
-    "en": "Place 2× Pale Moss Block. At night."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:campfire",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:sand"
    }
   },
-  "textKo": "밤에 창백한 이끼 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Blassmoosblock — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Pale Moss Block is complete."
+  "textKo": "모래 담 안에 모닥불을 피웠어요."
  },
  "reward": {
   "badge": "inselpfad",
   "words": [
-   "beach",
    "sand",
-   "chest",
-   "torch"
+   "ocean",
+   "swim",
+   "campfire"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Island Trail"
+ "koreanLevel": 1
 }

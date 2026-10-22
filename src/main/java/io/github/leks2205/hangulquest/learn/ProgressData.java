@@ -5,9 +5,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Whole progress document (schema v2: learning + quests + vocabulary import info). */
+/** Whole progress document (schema v4: learning + quests + vocabulary import info + install metadata). */
 public final class ProgressData {
-	public int version = 2;
+	/** Highest schema this build reads and writes; a file with a higher version is opened read-only. */
+	public static final int CURRENT_VERSION = 4;
+
+	public int version = CURRENT_VERSION;
 	public Map<String, WordProgress> words = new LinkedHashMap<>();
 	public Map<String, DayCounts> days = new LinkedHashMap<>();
 	public Map<String, Long> achievements = new LinkedHashMap<>();
@@ -21,11 +24,19 @@ public final class ProgressData {
 		public int correct;
 		public int wrong;
 		public int reviews;
+		/** Sidequests finished, over all sessions. */
+		public int sidequestsCompleted;
+		/** Quest steps finished, over all sessions. */
+		public int questStepsCompleted;
 	}
 
 	public static final class Meta {
 		public long firstPlayed;
 		public long lastPlayed;
+		/** Schema versions this file has been through, ascending. */
+		public List<Integer> schemaHistory = new ArrayList<>();
+		/** Random hex made once per install, local only, for future A/B assignment. */
+		public String installSalt;
 	}
 
 	public static final class QuestData {
@@ -45,6 +56,21 @@ public final class ProgressData {
 		 * {@code null} means "an old save before this field existed": every saved trail is treated as tracked.
 		 */
 		public List<String> tracked;
+		/**
+		 * The tracked trails the game picked for the player; the rest of {@code tracked} the player chose.
+		 * Added without a version bump: a file without it means "the player chose every one", and a build that
+		 * does not know it keeps it. Only these may be replaced by the quest picker; a chosen trail never is.
+		 */
+		public List<String> auto;
+		/** The tracked trail that sits in the situational slot (it is in {@code auto} too); null when empty. */
+		public String situational;
+		/**
+		 * Trails the player took out of the log, by the {@link #playMs} at that moment. The picker leaves them out
+		 * for 30 minutes of play or until the next finished trail. Added without a version bump, like {@code auto}.
+		 */
+		public Map<String, Long> dismissed;
+		/** Milliseconds of play the quest picker has seen (clipped per tick, so a paused game does not count). */
+		public long playMs;
 	}
 
 	public static final class Active {
@@ -53,6 +79,12 @@ public final class ProgressData {
 		public int goalProgress;
 		public boolean hintUsed;
 		public Side sidequest;
+		/**
+		 * Where the block that finished an earlier step stands (x, y, z), by step id: the memory behind an
+		 * "@stepId" anchor. Left out when the trail has none. Added without a version bump: a file without
+		 * it reads as "nothing remembered", and a build that does not know it keeps it.
+		 */
+		public Map<String, int[]> placed;
 		public long startedAt;
 		public long lastSeenAt;
 	}

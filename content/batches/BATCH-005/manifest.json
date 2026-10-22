@@ -1,0 +1,2192 @@
+{
+ "batch": "BATCH-005",
+ "brief": "content/briefs/BATCH-005.md",
+ "chapter": "first tools, the market, night and the small poems",
+ "note": "Encounters follow tools/coverage.py: a word is met once per step (clue, taught word, title on the first step, finale line on the last step). \"InBatch\" counts only the 15 trails. Words in no lexicon list count for nothing.",
+ "summary": {
+  "trails": 15,
+  "steps": 61,
+  "bareSteps": 9,
+  "bareShare": 0.14754098360655737,
+  "topGoalType": "CRAFT",
+  "topGoalTypeShare": 0.16393442622950818,
+  "goalTypes": {
+   "CRAFT": 10,
+   "ACQUIRE_ITEM": 7,
+   "PLACE_REL": 7,
+   "BREAK_BLOCK": 6,
+   "PLACE_BLOCK": 5,
+   "USE_BLOCK": 4,
+   "LOOK_AT_BLOCK": 4,
+   "CONSUME_ITEM": 3,
+   "PLACE_ON_PATTERN": 3,
+   "LOOK_AT_ENTITY": 3,
+   "SMELT": 2,
+   "GIVE": 2,
+   "BUILD_PATTERN": 2,
+   "REACH_BIOME": 2,
+   "REACH_HEIGHT": 1
+  },
+  "mechanics": [
+   "cond:HOLDING",
+   "cond:IN_BIOME",
+   "cond:PLAYER_REL",
+   "cond:SKY",
+   "cond:TIME",
+   "goal:ACQUIRE_ITEM",
+   "goal:BREAK_BLOCK",
+   "goal:BUILD_PATTERN",
+   "goal:CONSUME_ITEM",
+   "goal:CRAFT",
+   "goal:GIVE",
+   "goal:LOOK_AT_BLOCK",
+   "goal:LOOK_AT_ENTITY",
+   "goal:PLACE_BLOCK",
+   "goal:PLACE_ON_PATTERN",
+   "goal:PLACE_REL",
+   "goal:REACH_BIOME",
+   "goal:REACH_HEIGHT",
+   "goal:SMELT",
+   "goal:USE_BLOCK",
+   "pattern:PILLAR",
+   "pattern:RING",
+   "rel:INSIDE",
+   "rel:NEXT_TO",
+   "rel:ON_TOP_OF"
+  ],
+  "authoredClues": 10,
+  "authoredFinales": 2,
+  "targetWordsWith4EncountersIn2RolesInBatch": 6,
+  "targetWordsInBatchMedianEncounters": 2,
+  "targetWordCount": 44
+ },
+ "metrics": {
+  "coverage.recycling.medianEncounters": {
+   "before": 7.0,
+   "after": 7.0
+  },
+  "coverage.recycling.medianRetrievals": {
+   "before": 1.0,
+   "after": 1.0
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.984848,
+   "after": 0.984848
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.212121,
+   "after": 0.257576
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.907383,
+   "after": 0.911327
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.940551,
+   "after": 0.94363
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.996114,
+   "after": 0.973463
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.061528,
+   "after": 0.056958
+  },
+  "variety.bareShare.1": {
+   "before": 0.264398,
+   "after": 0.174935
+  },
+  "variety.bareShare.2": {
+   "before": 0.644592,
+   "after": 0.644592
+  },
+  "variety.bareShare.3": {
+   "before": 0.694524,
+   "after": 0.694524
+  },
+  "variety.bareShare.4": {
+   "before": 0.785124,
+   "after": 0.785124
+  },
+  "variety.bareShare.5": {
+   "before": 0.742268,
+   "after": 0.742268
+  },
+  "variety.bareShare.6": {
+   "before": 0.652778,
+   "after": 0.652778
+  },
+  "variety.boredomIndex": {
+   "before": 0.081659,
+   "after": 0.080959
+  },
+  "variety.distinctTypes.1": {
+   "before": 18.0,
+   "after": 18
+  },
+  "variety.distinctTypes.2": {
+   "before": 10.0,
+   "after": 10
+  },
+  "variety.distinctTypes.3": {
+   "before": 11.0,
+   "after": 11
+  },
+  "variety.distinctTypes.4": {
+   "before": 8.0,
+   "after": 8
+  },
+  "variety.distinctTypes.5": {
+   "before": 9.0,
+   "after": 9
+  },
+  "variety.distinctTypes.6": {
+   "before": 10.0,
+   "after": 10
+  },
+  "variety.duplicateSignatures": {
+   "before": 15.0,
+   "after": 13
+  },
+  "variety.noveltyShare": {
+   "before": 0.457143,
+   "after": 0.47381
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 152.0,
+   "after": 146
+  },
+  "variety.topTypeShare.1": {
+   "before": 0.217277,
+   "after": 0.169713
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.362031,
+   "after": 0.362031
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.391931,
+   "after": 0.391931
+  },
+  "variety.topTypeShare.4": {
+   "before": 0.520661,
+   "after": 0.520661
+  },
+  "variety.topTypeShare.5": {
+   "before": 0.515464,
+   "after": 0.515464
+  },
+  "variety.topTypeShare.6": {
+   "before": 0.486111,
+   "after": 0.486111
+  },
+  "variety.verbObjectMax": {
+   "before": 3.0,
+   "after": 3
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 0.0,
+   "after": 0
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_story_root",
+   "title": "마인크래프트",
+   "titleEn": "Minecraft",
+   "topic": "story",
+   "order": 322,
+   "koreanLevel": 1,
+   "requires": [
+    "steinpfad"
+   ],
+   "pathPosition": 72,
+   "project": "Chop three logs, craft planks and a crafting table, and make a wooden pickaxe.",
+   "newWords": [
+    {
+     "concept": "adv_item_wooden_pickaxe",
+     "ko": "나무 곡괭이",
+     "semSet": "tool"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "CHOP",
+     "teach": [
+      "log"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "통나무를 세 개 베어요.",
+     "clueSource": "generated",
+     "hintKo": "통나무를 베어요.",
+     "clueEn": "Chop down three logs."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "planks"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "판자를 여덟 개 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "판자를 만들어요.",
+     "clueEn": "Craft eight planks from the logs."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "crafting_table"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "제작대를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "제작대를 만들어요.",
+     "clueEn": "Craft a crafting table."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_wooden_pickaxe"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "나무 곡괭이를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "나무 곡괭이를 만들어요.",
+     "clueEn": "Craft a wooden pickaxe at the crafting table."
+    }
+   ],
+   "finaleKo": "나무 곡괭이를 만들었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "adv_story_mine_stone",
+   "title": "석기 시대",
+   "titleEn": "Stone Age",
+   "topic": "story",
+   "order": 320,
+   "koreanLevel": 1,
+   "requires": [
+    "adv_story_root"
+   ],
+   "pathPosition": 73,
+   "project": "Mine stone, craft a stone pickaxe, collect cobblestone and smelt a first stone in a furnace.",
+   "newWords": [
+    {
+     "concept": "adv_block_stone_pickaxe",
+     "ko": "돌 곡괭이",
+     "semSet": "tool"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "MINE",
+     "teach": [
+      "stone"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "돌을 세 개 캐요.",
+     "clueSource": "generated",
+     "hintKo": "돌을 캐요.",
+     "clueEn": "Mine three blocks of stone with your wooden pickaxe."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:cobblestone"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_block_stone_pickaxe"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:CRAFT"
+     ],
+     "clueKo": "조약돌을 들고 돌 곡괭이를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "조약돌을 들고 돌 곡괭이를 만들어요.",
+     "clueEn": "Holding cobblestone, craft a stone pickaxe."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "cobblestone"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "조약돌을 여덟 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "조약돌을 모아요.",
+     "clueEn": "Collect eight blocks of cobblestone."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "stone"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:SMELT"
+     ],
+     "clueKo": "화로에서 돌을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "화로에서 돌을 만들어요.",
+     "clueEn": "Smelt cobblestone into stone in a furnace."
+    }
+   ],
+   "finaleKo": "화로에서 돌을 만들었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "marktpfad",
+   "title": "시장의 길",
+   "titleEn": "The Market",
+   "topic": "마을",
+   "order": 380,
+   "koreanLevel": 1,
+   "requires": [
+    "handelspfad"
+   ],
+   "pathPosition": 78,
+   "project": "Give the cow wheat, drink its milk, bake bread, give it to a villager friend and collect the emeralds.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "cow"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:GIVE"
+     ],
+     "clueKo": "낮에 소에게 밀을 줘요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 소에게 밀을 줘요.",
+     "clueEn": "By day, give the cow some wheat."
+    },
+    {
+     "id": "s2",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:cow"
+     ],
+     "verb": "DRINK",
+     "teach": [
+      "milk"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "소 옆에서 우유를 마셔요.",
+     "clueSource": "generated",
+     "hintKo": "소 옆에서 우유를 마셔요.",
+     "clueEn": "Drink some milk — read the Korean to see where to stand."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "bread"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "낮에 빵을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 빵을 만들어요.",
+     "clueEn": "By day, craft some bread."
+    },
+    {
+     "id": "s4",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "villager",
+      "friend",
+      "talk"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:GIVE"
+     ],
+     "clueKo": "주민 친구와 이야기해요. 빵을 줘요.",
+     "clueSource": "authored",
+     "hintKo": "주민 친구와 이야기해요. 빵을 줘요.",
+     "clueEn": "Talk to a villager friend and give them some bread."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "emerald"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "에메랄드를 두 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "에메랄드를 모아요.",
+     "clueEn": "Collect two emeralds."
+    }
+   ],
+   "finaleKo": "에메랄드를 두 개 모았어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "nachtwache",
+   "title": "별빛의 길",
+   "titleEn": "The Night Watch",
+   "topic": "밤",
+   "order": 360,
+   "koreanLevel": 1,
+   "requires": [
+    "sternenpfad"
+   ],
+   "pathPosition": 76,
+   "project": "Build a plank column by day, set a candle on top at night, ring the bell with a clock in hand and watch a zombie.",
+   "newWords": [
+    {
+     "concept": "gen_white_candle",
+     "ko": "하얀색 초",
+     "semSet": "light"
+    },
+    {
+     "concept": "zombie",
+     "ko": "좀비",
+     "semSet": "mob"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:BUILD_PATTERN",
+      "pattern:PILLAR"
+     ],
+     "clueKo": "낮에 판자 세 개로 기둥을 쌓아요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 판자로 기둥을 쌓아요.",
+     "clueEn": "By day, build a column out of planks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gen_white_candle",
+      "planks"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_ON_PATTERN",
+      "pattern:PILLAR",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "밤에 달이 떠요. 판자 기둥 위에 하얀색 초를 놓아요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 달이 떠요. 판자 기둥 위에 하얀색 초를 놓아요.",
+     "clueEn": "The moon is out. Place a candle — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:clock",
+      "TIME:NIGHT"
+     ],
+     "verb": "RING",
+     "teach": [
+      "bell"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "cond:TIME",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "밤에 시계를 들고 종을 울려요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 시계를 들고 종을 울려요.",
+     "clueEn": "At night, holding a clock, ring a bell."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "zombie"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "밤에 좀비를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 좀비를 1초 동안 바라봐요.",
+     "clueEn": "At night, watch a zombie."
+    }
+   ],
+   "finaleKo": "밤에 좀비를 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "firstpfad",
+   "title": "봉우리의 길",
+   "titleEn": "The Peak",
+   "topic": "산",
+   "order": 370,
+   "koreanLevel": 1,
+   "requires": [
+    "gipfelpfad"
+   ],
+   "pathPosition": 77,
+   "project": "Break ice on the mountain, collect and throw snowballs, then look at the snow from the peak.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "SHATTER",
+     "teach": [
+      "ice"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "산에서 얼음을 두 개 깨요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 얼음을 깨요.",
+     "clueEn": "On the mountain, break two blocks of ice."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "snowball"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "눈덩이를 네 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "눈덩이를 모아요.",
+     "clueEn": "Collect four snowballs."
+    },
+    {
+     "id": "s3",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "THROW",
+     "teach": [
+      "snowball"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "산에서 눈덩이를 던져요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 눈덩이를 던져요.",
+     "clueEn": "On the mountain, throw a snowball."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain",
+      "TIME:DAY"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "snow"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "cond:TIME",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "낮에 산에서 눈을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 산에서 눈을 1초 동안 바라봐요.",
+     "clueEn": "By day, on the mountain, look at the snow."
+    }
+   ],
+   "finaleKo": "낮에 산에서 눈을 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "gipfelblick",
+   "title": "정상의 전망",
+   "titleEn": "The View from the Top",
+   "topic": "산",
+   "order": 512,
+   "koreanLevel": 1,
+   "requires": [
+    "gipfelpfad",
+    "sternenpfad"
+   ],
+   "pathPosition": 79,
+   "project": "Climb a mountain, set up a sign, put a bed beside it and sleep on the summit.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:torch"
+     ],
+     "verb": "CLIMB",
+     "teach": [
+      "mountain",
+      "climb"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "goal:REACH_HEIGHT"
+     ],
+     "clueKo": "횃불을 들고 산 위로 올라가요.",
+     "clueSource": "generated",
+     "hintKo": "산 위로 올라가요.",
+     "clueEn": "Holding a torch, climb a mountain."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_mountain"
+     ],
+     "verb": "STAND",
+     "teach": [
+      "gen_oak_sign"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "산에서 참나무 표지판을 세워요.",
+     "clueSource": "generated",
+     "hintKo": "산에서 참나무 표지판을 세워요.",
+     "clueEn": "On the mountain, set up a sign."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "참나무 표지판 옆에 침대를 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "참나무 표지판 옆에 침대를 놓아요.",
+     "clueEn": "Place a bed — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "SLEEP",
+     "teach": [
+      "bed"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "밤에 산 위의 침대에서 자요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 산 위의 침대에서 자요.",
+     "clueEn": "At night, sleep in the bed."
+    }
+   ],
+   "finaleKo": "밤에 산 위의 침대에서 잤어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "w1_01",
+   "title": "첫 촛불",
+   "titleEn": "The First Candle",
+   "topic": "촛불",
+   "order": 1011,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 80,
+   "project": "Stack planks for a table, craft a candle, set it on the planks at night and light it.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "낮에 판자를 네 개 쌓아요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 판자를 쌓아요.",
+     "clueEn": "By day, stack four planks."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "candle"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "낮에 초를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 초를 만들어요.",
+     "clueEn": "By day, craft a candle."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "candle"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_REL",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "밤에 판자 위에 초를 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 판자 위에 초를 놓아요.",
+     "clueEn": "At night, place the candle — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "USE",
+     "teach": [
+      "candle"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "밤에 초에 불을 대요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 초에 불을 대요.",
+     "clueEn": "At night, light the candle."
+    }
+   ],
+   "finaleKo": "밤에 초에 불을 댔어요.",
+   "finaleSource": "authored"
+  },
+  {
+   "id": "w1_02",
+   "title": "유리 속 햇살",
+   "titleEn": "Sunlight in Glass",
+   "topic": "유리",
+   "order": 1012,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 81,
+   "project": "Dig sand on the beach, smelt it to glass, craft a yellow glass pane and set it where the sun shines.",
+   "newWords": [
+    {
+     "concept": "gen_yellow_stained_glass_pane",
+     "ko": "노란색 색유리 판",
+     "semSet": "building"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_beach",
+      "TIME:DAY"
+     ],
+     "verb": "DIG",
+     "teach": [
+      "sand"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "cond:TIME",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "낮에 해변에서 모래를 세 개 파요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 해변에서 모래를 파요.",
+     "clueEn": "By day, on the beach, dig three blocks of sand."
+    },
+    {
+     "id": "s2",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "glass"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:SMELT"
+     ],
+     "clueKo": "낮에 화로에서 유리를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 화로에서 유리를 만들어요.",
+     "clueEn": "By day, smelt sand into glass in a furnace."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_yellow_stained_glass_pane"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "노란색 색유리 판을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "노란색 색유리 판을 만들어요.",
+     "clueEn": "Craft a yellow stained glass pane."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "PLACE",
+     "teach": [
+      "gen_yellow_stained_glass_pane"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "낮에 노란색 색유리 판을 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 노란색 색유리 판을 놓아요.",
+     "clueEn": "By day, place the glass pane."
+    }
+   ],
+   "finaleKo": "낮에 노란색 색유리 판을 놓았어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_03",
+   "title": "노란 꽃밭",
+   "titleEn": "The Yellow Flower Bed",
+   "topic": "꽃밭",
+   "order": 1013,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 82,
+   "project": "Pick dandelions, plant a sunflower with a dandelion beside it and look at the yellow flower bed.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "SNAP",
+     "teach": [
+      "dandelion"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "낮에 민들레를 세 송이 꺾어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 민들레를 꺾어요.",
+     "clueEn": "By day, pick three dandelions."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "sunflower"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "해가 떠요. 해바라기를 심어요.",
+     "clueSource": "authored",
+     "hintKo": "해가 떠요. 해바라기를 심어요.",
+     "clueEn": "The sun is up. Plant a sunflower."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "sunflower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "해바라기 옆에 민들레를 심어요.",
+     "clueSource": "authored",
+     "hintKo": "해바라기 옆에 민들레를 심어요.",
+     "clueEn": "Plant a dandelion — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "sunflower"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "낮에 해바라기를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 해바라기를 1초 동안 바라봐요.",
+     "clueEn": "By day, look at the sunflower."
+    }
+   ],
+   "finaleKo": "낮에 해바라기를 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_04",
+   "title": "달빛 산책",
+   "titleEn": "A Walk by Moonlight",
+   "topic": "달빛",
+   "order": 1014,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 83,
+   "project": "Craft torches, walk into a forest by moonlight, look at a log by torchlight and watch a sheep.",
+   "newWords": [
+    {
+     "concept": "forest",
+     "ko": "숲",
+     "semSet": "place"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "torch"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "낮에 횃불을 네 개 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 횃불을 만들어요.",
+     "clueEn": "By day, craft four torches."
+    },
+    {
+     "id": "s2",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "GO",
+     "teach": [
+      "forest"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "밤에 달이 떠요. 숲으로 가요.",
+     "clueSource": "authored",
+     "hintKo": "밤에 달이 떠요. 숲으로 가요.",
+     "clueEn": "The moon is out. Go to a forest."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:torch",
+      "TIME:NIGHT"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "log"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:HOLDING",
+      "cond:TIME",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "밤에 횃불을 들고 통나무를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 횃불을 들고 통나무를 1초 동안 바라봐요.",
+     "clueEn": "At night, with a torch in your hand, look at a log."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "sheep"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "밤에 양을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 양을 1초 동안 바라봐요.",
+     "clueEn": "At night, watch a sheep."
+    }
+   ],
+   "finaleKo": "밤에 양을 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_05",
+   "title": "물가의 불빛",
+   "titleEn": "Light by the Water",
+   "topic": "물빛",
+   "order": 1015,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 84,
+   "project": "Go to a beach, set a lily pad on the water, craft a campfire and light it at night.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GO",
+     "teach": [
+      "beach"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:REACH_BIOME"
+     ],
+     "clueKo": "낮에 해변으로 가요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 해변으로 가요.",
+     "clueEn": "By day, go to a beach."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "lily_pad"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:ON_TOP_OF"
+     ],
+     "clueKo": "물 위에 수련잎을 놓아요.",
+     "clueSource": "generated",
+     "hintKo": "물 위에 수련잎을 놓아요.",
+     "clueEn": "Place a lily pad — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_beach"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "campfire"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "해변에서 모닥불을 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "해변에서 모닥불을 만들어요.",
+     "clueEn": "On the beach, craft a campfire."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:#minecraft:is_beach",
+      "TIME:NIGHT"
+     ],
+     "verb": "KINDLE",
+     "teach": [
+      "campfire"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:IN_BIOME",
+      "cond:TIME",
+      "goal:PLACE_BLOCK"
+     ],
+     "clueKo": "밤에 해변에서 모닥불을 피워요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 해변에서 모닥불을 피워요.",
+     "clueEn": "At night, on the beach, light the campfire."
+    }
+   ],
+   "finaleKo": "밤에 해변에서 모닥불을 피웠어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_06",
+   "title": "겨울 창가",
+   "titleEn": "A Winter Window",
+   "topic": "겨울",
+   "order": 1016,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 85,
+   "project": "Break snow blocks, craft glass panes, put a bed by the window and look at the snow from under a roof.",
+   "newWords": [
+    {
+     "concept": "snow_block",
+     "ko": "눈 블록",
+     "semSet": "weather"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "BREAK",
+     "teach": [
+      "snow_block"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:BREAK_BLOCK"
+     ],
+     "clueKo": "눈 블록을 두 개 부숴요.",
+     "clueSource": "generated",
+     "hintKo": "눈 블록을 부숴요.",
+     "clueEn": "Break two blocks of snow."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "glass_pane"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:CRAFT"
+     ],
+     "clueKo": "낮에 유리판을 세 개 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 유리판을 만들어요.",
+     "clueEn": "By day, craft three glass panes."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "창문 옆에 침대를 놓아요.",
+     "clueSource": "authored",
+     "hintKo": "유리판 옆에 침대를 놓아요.",
+     "clueEn": "Place a bed — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [
+      "SKY:ROOFED"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "snow_block"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:SKY",
+      "goal:LOOK_AT_BLOCK"
+     ],
+     "clueKo": "지붕 아래에서 눈 블록을 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "지붕 아래에서 눈 블록을 1초 동안 바라봐요.",
+     "clueEn": "From under a roof, look at the snow."
+    }
+   ],
+   "finaleKo": "지붕 아래에서 눈 블록을 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_07",
+   "title": "나무 아래의 점심",
+   "titleEn": "Lunch Under the Tree",
+   "topic": "점심",
+   "order": 1017,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 86,
+   "project": "Lay a carpet by a log, collect sweet berries, eat them there and watch a pig.",
+   "newWords": [
+    {
+     "concept": "sweet_berries",
+     "ko": "달콤한 열매",
+     "semSet": "food"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "낮에 통나무 옆에 하늘색 양탄자를 깔아요.",
+     "clueSource": "generated",
+     "hintKo": "통나무 옆에 양탄자를 깔아요.",
+     "clueEn": "By day, lay a carpet — read the Korean to see where."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "sweet_berries"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "낮에 달콤한 열매를 세 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 달콤한 열매를 모아요.",
+     "clueEn": "By day, collect three sweet berries."
+    },
+    {
+     "id": "s3",
+     "goal": "CONSUME_ITEM",
+     "relation": null,
+     "conditions": [
+      "PLAYER_REL:NEXT_TO:minecraft:oak_log"
+     ],
+     "verb": "EAT",
+     "teach": [
+      "sweet_berries"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:PLAYER_REL",
+      "goal:CONSUME_ITEM"
+     ],
+     "clueKo": "통나무 옆에서 달콤한 열매를 먹어요.",
+     "clueSource": "generated",
+     "hintKo": "통나무 옆에서 달콤한 열매를 먹어요.",
+     "clueEn": "Eat a sweet berry — read the Korean to see where to stand."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "pig"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:LOOK_AT_ENTITY"
+     ],
+     "clueKo": "낮에 돼지를 1초 동안 바라봐요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 돼지를 1초 동안 바라봐요.",
+     "clueEn": "By day, watch a pig."
+    }
+   ],
+   "finaleKo": "낮에 돼지를 바라봤어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_08",
+   "title": "작은 집의 아침",
+   "titleEn": "Morning in a Little House",
+   "topic": "집",
+   "order": 1018,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 87,
+   "project": "Build the walls of a little house, hang a door, put a bed inside and open the door at dawn.",
+   "newWords": [],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks",
+      "house"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:BUILD_PATTERN",
+      "pattern:RING"
+     ],
+     "clueKo": "낮에 판자로 작은 집의 벽을 쌓아요.",
+     "clueSource": "authored",
+     "hintKo": "낮에 판자로 작은 집의 벽을 쌓아요.",
+     "clueEn": "By day, build the walls of a little house out of planks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:RING",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "짙은 참나무 판자 울타리 옆에 문을 달아요.",
+     "clueSource": "generated",
+     "hintKo": "판자 벽 옆에 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_ON_PATTERN",
+      "pattern:RING",
+      "rel:INSIDE"
+     ],
+     "clueKo": "작은 집 안에 침대를 놓아요.",
+     "clueSource": "authored",
+     "hintKo": "작은 집 안에 침대를 놓아요.",
+     "clueEn": "Place a bed — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "TIME:DAWN"
+     ],
+     "verb": "OPEN",
+     "teach": [
+      "door"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:USE_BLOCK"
+     ],
+     "clueKo": "새벽에 문을 열어요.",
+     "clueSource": "generated",
+     "hintKo": "새벽에 문을 열어요.",
+     "clueEn": "At dawn, open the door."
+    }
+   ],
+   "finaleKo": "새벽에 문을 열었어요.",
+   "finaleSource": "generated"
+  },
+  {
+   "id": "w1_09",
+   "title": "작은 발견",
+   "titleEn": "A Small Discovery",
+   "topic": "발견",
+   "order": 1019,
+   "koreanLevel": 1,
+   "requires": [],
+   "pathPosition": 88,
+   "project": "Collect eggs and a feather, craft an item frame and hang it next to a chest.",
+   "newWords": [
+    {
+     "concept": "feather",
+     "ko": "깃털",
+     "semSet": "material"
+    },
+    {
+     "concept": "item_frame",
+     "ko": "아이템 액자",
+     "semSet": "furniture"
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "egg"
+     ],
+     "bare": false,
+     "mechanics": [
+      "cond:TIME",
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "낮에 달걀을 두 개 모아요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 달걀을 모아요.",
+     "clueEn": "By day, collect two eggs."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "OBTAIN",
+     "teach": [
+      "feather"
+     ],
+     "bare": true,
+     "mechanics": [
+      "goal:ACQUIRE_ITEM"
+     ],
+     "clueKo": "깃털을 구해요.",
+     "clueSource": "generated",
+     "hintKo": "깃털을 구해요.",
+     "clueEn": "Collect a feather."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "item_frame"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:CRAFT"
+     ],
+     "clueKo": "아이템 액자를 만들어요.",
+     "clueSource": "generated",
+     "hintKo": "아이템 액자를 만들어요.",
+     "clueEn": "Craft an item frame."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "item_frame"
+     ],
+     "bare": false,
+     "mechanics": [
+      "goal:PLACE_REL",
+      "rel:NEXT_TO"
+     ],
+     "clueKo": "상자 옆에 아이템 액자를 걸어요.",
+     "clueSource": "generated",
+     "hintKo": "상자 옆에 아이템 액자를 걸어요.",
+     "clueEn": "Hang the frame — read the Korean to see where."
+    }
+   ],
+   "finaleKo": "상자 옆에 아이템 액자를 걸었어요.",
+   "finaleSource": "generated"
+  }
+ ],
+ "recycledWords": {
+  "마시다": {
+   "encountersBefore": 4,
+   "encountersAfter": 5,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "verb"
+   ],
+   "coreWord": true
+  },
+  "우유": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "얼음": {
+   "encountersBefore": 5,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": true
+  },
+  "시계": {
+   "encountersBefore": 4,
+   "encountersAfter": 5,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "tool"
+   ],
+   "coreWord": true
+  },
+  "빵": {
+   "encountersBefore": 7,
+   "encountersAfter": 9,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": true
+  },
+  "초": {
+   "encountersBefore": 9,
+   "encountersAfter": 12,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": true
+  },
+  "달": {
+   "encountersBefore": 7,
+   "encountersAfter": 9,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "해": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "밤": {
+   "encountersBefore": 131,
+   "encountersAfter": 134,
+   "encountersInBatch": 10,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "낮": {
+   "encountersBefore": 64,
+   "encountersAfter": 82,
+   "encountersInBatch": 19,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "산": {
+   "encountersBefore": 22,
+   "encountersAfter": 25,
+   "encountersInBatch": 6,
+   "rolesInBatch": [
+    "condition",
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "집": {
+   "encountersBefore": 17,
+   "encountersAfter": 19,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "mention",
+    "title"
+   ],
+   "coreWord": true
+  },
+  "문": {
+   "encountersBefore": 24,
+   "encountersAfter": 26,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "친구": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "이야기하다": {
+   "encountersBefore": 4,
+   "encountersAfter": 5,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "verb"
+   ],
+   "coreWord": true
+  },
+  "돌": {
+   "encountersBefore": 9,
+   "encountersAfter": 10,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": true
+  },
+  "나무": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "title"
+   ],
+   "coreWord": true
+  },
+  "불": {
+   "encountersBefore": 10,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "상자": {
+   "encountersBefore": 15,
+   "encountersAfter": 16,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "anchor",
+    "finale"
+   ],
+   "coreWord": true
+  },
+  "소": {
+   "encountersBefore": 9,
+   "encountersAfter": 11,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "anchor",
+    "recipient"
+   ],
+   "coreWord": true
+  },
+  "주민": {
+   "encountersBefore": 13,
+   "encountersAfter": 14,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "recipient"
+   ],
+   "coreWord": false
+  },
+  "눈": {
+   "encountersBefore": 11,
+   "encountersAfter": 11,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": true
+  },
+  "눈덩이": {
+   "encountersBefore": 3,
+   "encountersAfter": 5,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": false
+  },
+  "침대": {
+   "encountersBefore": 11,
+   "encountersAfter": 15,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": true
+  },
+  "횃불": {
+   "encountersBefore": 11,
+   "encountersAfter": 14,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "object",
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "모닥불": {
+   "encountersBefore": 13,
+   "encountersAfter": 15,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "판자": {
+   "encountersBefore": 16,
+   "encountersAfter": 22,
+   "encountersInBatch": 6,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "통나무": {
+   "encountersBefore": 6,
+   "encountersAfter": 10,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "anchor",
+    "mention",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "제작대": {
+   "encountersBefore": 3,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": false
+  },
+  "화로": {
+   "encountersBefore": 8,
+   "encountersAfter": 10,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "조약돌": {
+   "encountersBefore": 8,
+   "encountersAfter": 9,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "object",
+    "tool"
+   ],
+   "coreWord": false
+  },
+  "올라가다": {
+   "encountersBefore": 3,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "verb"
+   ],
+   "coreWord": true
+  },
+  "에메랄드": {
+   "encountersBefore": 2,
+   "encountersAfter": 3,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "유리": {
+   "encountersBefore": 4,
+   "encountersAfter": 5,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "object",
+    "title"
+   ],
+   "coreWord": true
+  },
+  "양탄자": {
+   "encountersBefore": 6,
+   "encountersAfter": 7,
+   "encountersInBatch": 1,
+   "rolesInBatch": [],
+   "coreWord": false
+  },
+  "모래": {
+   "encountersBefore": 14,
+   "encountersAfter": 15,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": false
+  },
+  "민들레": {
+   "encountersBefore": 7,
+   "encountersAfter": 7,
+   "encountersInBatch": 2,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": false
+  },
+  "해바라기": {
+   "encountersBefore": 3,
+   "encountersAfter": 6,
+   "encountersInBatch": 3,
+   "rolesInBatch": [
+    "anchor",
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "숲": {
+   "encountersBefore": 7,
+   "encountersAfter": 8,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "양": {
+   "encountersBefore": 3,
+   "encountersAfter": 4,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": false
+  },
+  "수련잎": {
+   "encountersBefore": 2,
+   "encountersAfter": 3,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": false
+  },
+  "해변": {
+   "encountersBefore": 11,
+   "encountersAfter": 15,
+   "encountersInBatch": 4,
+   "rolesInBatch": [
+    "finale",
+    "mention"
+   ],
+   "coreWord": false
+  },
+  "돼지": {
+   "encountersBefore": 6,
+   "encountersAfter": 7,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "finale",
+    "object"
+   ],
+   "coreWord": true
+  },
+  "달걀": {
+   "encountersBefore": 5,
+   "encountersAfter": 6,
+   "encountersInBatch": 1,
+   "rolesInBatch": [
+    "object"
+   ],
+   "coreWord": true
+  }
+ },
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: descKo for gen_white_candle (하얀색 초) and gen_yellow_stained_glass_pane (노란색 색유리 판), which the batch teaches. Two lines inserted, nothing reformatted.",
+  "chapters.json: regenerated by tools/assign_chapters.py (w1_08 moves to the house chapter, firstpfad gets a chapter).",
+  "docs/book/src/quest-tree.md regenerated; content/korean/lines.jsonl and review-status.json regenerated; content/metrics-baseline.json updated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "PLACE_ON_PATTERN and BUILD_PATTERN speak the pattern material by its registry name when it is not the concept's own item: a PILLAR of dark_oak_planks reads '짙은 참나무 판자 기둥 위에 …' even though the step teaches 판자 (a second taught word does not change this). nachtwache s2 therefore carries an authored clue ('밤에 달이 떠요. 판자 기둥 위에 하얀색 초를 놓아요.'). w1_08 s2 keeps the generated '짙은 참나무 판자 울타리 옆에 문을 달아요' (one compound unknown word) because the authored version could not say 달아요.",
+  "QuestlineValidationTest.authoredCluesNameTheAction accepts only 놓/심/걸/깔 for PlaceOnPattern and PlaceRel, while PlaceBlock also accepts 달: the natural authored clue '판자 벽 옆에 문을 달아요' for a door beside a wall is rejected. A RING of planks is still spoken as 울타리 (the house walls read 벽 in s1 of w1_08 and 울타리 in s2).",
+  "USE_BLOCK on a candle has no 'light' verb: the verb table gives 쓰다 and the action check for authored UseBlock clues wants 사용/자/열/울/먹/마시/대/누르/당기/써. '초를 켜요' is rejected, so w1_01 says '밤에 초에 불을 대요.' (finale line authored as well). A SWITCH_ON (켜다) rule for candles, campfires and lamps would fix it.",
+  "A taught flower word covers every flower id: with teach sunflower, PLACE_REL dandelion NEXT_TO sunflower is spoken '해바라기 옆에 해바라기를 심어요' (the object takes the taught word). w1_03 s3 is authored ('해바라기 옆에 민들레를 심어요.').",
+  "PLAYER_REL with a tag anchor (#minecraft:wool_carpets) is spoken '그것 위에서' (wave 3 item 13 is still open). w1_07 s3 uses the block anchor oak_log ('통나무 옆에서 달콤한 열매를 먹어요').",
+  "TIME DUSK lasts 1000 ticks (50 s) and DAWN 2000 ticks, so they are unusable on early steps of a trail. The batch uses DAY and NIGHT; the only DAWN step is the finale of w1_08 (sleeping in the new bed ends the night at dawn).",
+  "SMELT of a non-food output is spoken '화로에서 돌을 만들어요' (no input shown, no 구워/녹여 below the chain level); the first-furnace finale of adv_story_mine_stone cannot say that cobblestone is smelted into stone.",
+  "A covered colour variant of a non-first object is spoken by its registry name, so the taught word is not recycled: '하늘색 양탄자를 깔아요' (light_blue_carpet) does not count as an encounter of 양탄자, and the generated hint needs an authored line (WaveQaTest, w1_07 s1).",
+  "Signatures ignore the count, so a plain step on an object that another trail already asks for is a duplicate (CRAFT bread, CRAFT candle, CRAFT torch, CRAFT campfire, CRAFT glass_pane, SMELT glass, DIG sand, COLLECT dandelion). The batch separates them with a TIME, IN_BIOME or HOLDING condition, which also makes the sentence longer; a real 'how many' or 'where from' field would be a better handle.",
+  "The relation-giveaway check for German uses \\b, which is ASCII only in Java: 'tagsüber' contains the word 'über' and is rejected in a relation step ('Breite am Tag einen Teppich aus' is used instead).",
+  "No goal speaks a trade: there is no 사다/팔다 yet (generator wave 3 is still open), so the market of marktpfad is give bread (이야기해요. 빵을 줘요.) and collect emeralds. The cow comes first for the milk (GIVE wheat, then DRINK milk_bucket with PLAYER_REL cow); the bucket and the cow are the only parts that need iron.",
+  "A clock (nachtwache s3, HOLDING) needs gold and redstone and a candle needs honeycomb (shears), so these two trails lean on items that are not strictly day-one; the brief asked for both."
+ ]
+}

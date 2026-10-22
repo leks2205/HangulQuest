@@ -1,0 +1,38 @@
+name: Korean review CI
+
+on:
+  pull_request:
+    paths:
+      - "tools/review/**"
+      - "tools/review_site/**"
+      - "tools/lint_korean.py"
+      - "tools/lint/**"
+      - "content/korean/**"
+      - ".github/ISSUE_TEMPLATE/korean-*.yml"
+      - ".github/workflows/korean-review-*.yml"
+      - "docs/book/src/credits.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    name: Review pipeline
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Unit tests (form parser, hash check, approvals, pointer edit, site)
+        run: python3 -m unittest discover -s tools/review/tests
+
+      - name: Linter rules still fire
+        run: python3 tools/lint_korean.py --self-test
+
+      - name: Registry and status agree
+        run: |
+          python3 tools/review/status.py check
+          python3 tools/review/credits.py --check
+
+      - name: The review site builds
+        run: python3 tools/review_site/build.py --out "$RUNNER_TEMP/review"

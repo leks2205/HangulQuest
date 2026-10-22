@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "bambuspfad",
- "titleKo": "대나무의 길",
- "titleDe": "Der Bambuspfad",
+ "titleKo": "대나무와 수박의 길",
  "topic": "대나무",
  "tier": 3,
  "order": 137,
  "concepts": [
-  "gen_taiga",
-  "bamboo"
+  "jungle",
+  "bamboo",
+  "gen_melon"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,20 +22,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_taiga"
+    "jungle"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:taiga",
+    "biome": "minecraft:jungle",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Erreiche Taiga.",
-    "en": "Reach Taiga."
-   },
-   "hint": {
-    "en": "Reach Taiga."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -45,35 +44,27 @@
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:bamboo",
-    "count": 4
-   },
-   "clue": {
-    "de": "Baue vier Bambus ab.",
-    "en": "Break 4× Bamboo."
-   },
-   "hint": {
-    "ko": "대나무는 손이나 도끼로 캐요.",
-    "de": "Bambus baust du mit der Hand oder Axt ab.",
-    "en": "Break 4× Bamboo."
+    "count": 4,
+    "verb": "HARVEST"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "bamboo"
+    "gen_melon"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo",
-    "count": 4
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:melon",
+    "count": 3,
+    "verb": "PICK"
    },
-   "clue": {
-    "de": "Setz vier Bambus.",
-    "en": "Place 4× Bamboo."
-   },
-   "hint": {
-    "en": "Place 4× Bamboo."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
@@ -83,29 +74,26 @@
     "bamboo"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bamboo",
-    "count": 8
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:bamboo",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 8× Bamboo."
-   },
-   "hint": {
-    "en": "Collect 8× Bamboo."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "대나무를 모아요.",
-  "textDe": "Bambus sammeln.",
-  "textEn": "the ritual of Bamboo is complete."
+  "textKo": "밤에 대나무를 심었어요."
  },
  "reward": {
   "badge": "bambuspfad",
   "words": [
    "jungle",
-   "bamboo"
+   "bamboo",
+   "melon"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Bamboo Trail"
+ "koreanLevel": 1
 }

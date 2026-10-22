@@ -6,14 +6,14 @@ This page is generated from the content itself, so the numbers below are what th
 
 | | |
 |---|---|
-| Questlines | **420** |
-| Steps (incl. finales) | **1524** |
+| Questlines | **422** |
+| Steps (incl. finales) | **1683** |
 | Tree levels | **22** |
-| Roots | 38 |
+| Roots | 39 |
 | Merges (more than one parent) | 129 |
-| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
+| Vocabulary | hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |
 
-A trail's `koreanLevel` is the TOPIK band of its depth: levels 1–3 speak polite Korean, 4–6 add obligation, 7–9 emphatic forms, 10–12 the double negative, 13–15 literary forms and 16 and deeper the `-(으)ㄹ 수밖에 없어요` band.
+A trail's `koreanLevel` (1 to 6) follows its depth in the tree and picks the instruction ending of `data/ladder.json`: level 1 speaks `-아/어요`, levels 2 and 3 `-(으)세요`, levels 4 to 6 `-아/어야 해요` (level 6 may use `-(으)ㄹ 수밖에 없어요` where a sentence states a forced conclusion).
 
 ## Goals and conditions
 
@@ -21,210 +21,237 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_BLOCK` | 574 | place a block |
-| `ACQUIRE_ITEM` | 511 | collect an item |
-| `BREAK_BLOCK` | 88 | break a block |
-| `LOOK_AT_ENTITY` | 71 | look at a mob |
-| `USE_BLOCK` | 63 | use a block |
-| `LOOK_AT_BLOCK` | 61 | look at a block |
-| `REACH_BIOME` | 58 | reach a biome |
-| `DEFEAT_ENTITY` | 37 | defeat a mob |
-| `CONSUME_ITEM` | 32 | eat or drink an item |
-| `INTERACT_ENTITY` | 27 | interact with a mob |
-| `REACH_DIMENSION` | 2 | reach a dimension |
+| `ACQUIRE_ITEM` | 334 | collect an item |
+| `PLACE_BLOCK` | 318 | place a block |
+| `PLACE_REL` | 157 |  |
+| `CRAFT` | 121 |  |
+| `PLACE_ON_PATTERN` | 81 |  |
+| `BREAK_BLOCK` | 72 | break a block |
+| `BUILD_PATTERN` | 71 |  |
+| `REACH_BIOME` | 60 | reach a biome |
+| `LOOK_AT_ENTITY` | 60 | look at a mob |
+| `USE_BLOCK` | 59 | use a block |
+| `GIVE` | 55 |  |
+| `CONSUME_ITEM` | 45 | eat or drink an item |
+| `LOOK_AT_BLOCK` | 43 | look at a block |
+| `DEFEAT_ENTITY` | 31 | defeat a mob |
+| `PUT_IN` | 29 |  |
+| `HOLD_WHILE` | 26 |  |
+| `SMELT` | 20 |  |
+| `INTERACT_ENTITY` | 19 | interact with a mob |
+| `REACH_HEIGHT` | 14 | reach an altitude |
+| `WAIT` | 14 |  |
+| `SEQUENCE` | 12 |  |
+| `BREED` | 9 |  |
+| `TRADE` | 7 |  |
+| `SWIM` | 6 |  |
+| `LIE_DOWN` | 4 |  |
+| `TAKE_OUT` | 4 |  |
+| `MOUNT` | 4 |  |
+| `HEAR` | 3 |  |
+| `TRANSIT` | 3 |  |
+| `REACH_DIMENSION` | 1 | reach a dimension |
+| `EQUIP` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 160 | a time of day |
-| `IN_BIOME` | 28 | a biome |
-| `Y_RANGE` | 8 | an altitude band |
-| `WEATHER` | 5 | the weather |
-| `IN_DIMENSION` | 3 | a dimension |
+| `TIME` | 251 | a time of day |
+| `IN_BIOME` | 54 | a biome |
+| `PLAYER_REL` | 49 |  |
+| `HOLDING` | 43 |  |
+| `SKY` | 20 |  |
+| `Y_RANGE` | 19 | an altitude band |
+| `NEAR_BLOCK` | 18 | a block nearby |
+| `WEATHER` | 17 | the weather |
+| `NEAR_ENTITY` | 14 | a mob nearby |
+| `IN_WATER` | 7 |  |
+| `IN_DIMENSION` | 2 | a dimension |
 
 ## Levels
 
-### Level 1 · TOPIK 1 · 38 trails
+### Level 1 · TOPIK 1 · 39 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `steinpfad` | 돌의 길 | Der Steinpfad | 4 | — |
-| `holzpfad` | 나무의 길 | Der Holzpfad | 4 | — |
-| `essenspfad` | 먹을 것의 길 | Der Speisepfad | 4 | — |
-| `feuerpfad` | 불의 길 | Der Feuerpfad | 3 | — |
-| `tierfreund` | 동물 친구의 길 | Der Tierfreund-Pfad | 3 | — |
-| `tierpfad` | 동물의 길 | Der Tierpfad | 4 | — |
-| `nachtpfad` | 밤의 길 | Der Nachtpfad | 4 | — |
-| `wasserpfad` | 물의 길 | Der Wasserpfad | 4 | — |
-| `bergpfad` | 높은 곳의 길 | Der Höhenpfad | 4 | — |
-| `dorfpfad` | 마을의 길 | Der Dorfpfad | 4 | — |
-| `wurzelpfad` | 뿌리의 길 | Der Wurzelpfad | 3 | — |
-| `musikpfad` | 음악의 길 | Der Musikpfad | 3 | — |
-| `freundschaftspfad` | 우정의 길 | Der Freundschaftspfad | 4 | — |
-| `briefpfad` | 편지의 길 | Der Briefpfad | 4 | — |
-| `kerzenpfad` | 초의 길 | Der Kerzenpfad | 4 | — |
-| `kuerbispfad` | 호박의 길 | Der Kürbispfad | 4 | — |
-| `schneemannpfad` | 눈사람의 길 | Der Schneemannpfad | 4 | — |
-| `apfelpfad` | 사과의 길 | Der Apfelpfad | 4 | — |
-| `regenbogenpfad` | 무지개의 길 | Der Regenbogenpfad | 4 | — |
-| `blumentopf` | 화분의 길 | Der Blumentopfpfad | 4 | — |
-| `muschelpfad` | 조개의 길 | Der Muschelpfad | 4 | — |
+| `steinpfad` | 돌과 불의 길 | Stein und Feuer | 4 | — |
+| `holzpfad` | 나무 집과 문의 길 | Baumhaus und Tür | 4 | — |
+| `essenspfad` | 사과와 달걀과 소의 길 | Apfel, Ei und Kuh | 4 | — |
+| `feuerpfad` | 물과 불의 길 | Wasser und Feuer | 5 | — |
+| `tierfreund` | 소와 우유의 길 | Kuh und Milch | 5 | — |
+| `tierpfad` | 닭과 돼지와 달걀의 길 | Huhn, Schwein und Ei | 5 | — |
+| `nachtpfad` | 해와 달의 길 | Sonne und Mond | 4 | — |
+| `wasserpfad` | 물의 길 | Der Wasserweg | 4 | — |
+| `bergpfad` | 산과 눈의 길 | Berg und Schnee | 4 | — |
+| `dorfpfad` | 마을의 길 | Das Dorf | 4 | — |
+| `wurzelpfad` | 나무와 묘목의 길 | Baum und Setzling | 4 | — |
+| `musikpfad` | 소리 블록의 길 | Der Notenblock | 4 | — |
+| `freundschaftspfad` | 친구의 길 | Freunde | 4 | — |
+| `briefpfad` | 종이와 편지의 길 | Papier und Brief | 4 | — |
+| `kerzenpfad` | 초와 밤의 길 | Kerze und Nacht | 4 | — |
+| `kuerbispfad` | 호박 파이의 길 | Kürbiskuchen | 4 | — |
+| `schneemannpfad` | 눈사람의 길 | Der Schneemann | 5 | — |
+| `apfelpfad` | 사과나무의 길 | Der Apfelbaum | 4 | — |
+| `regenbogenpfad` | 비와 해의 길 | Regen und Sonne | 4 | — |
+| `blumentopf` | 화분의 길 | Der Blumentopf | 4 | — |
+| `muschelpfad` | 모래성의 길 | Die Sandburg | 4 | — |
+| `lighthouse_demo` | 등대 | Der Leuchtturm (Demo) | 5 | — |
 | `w1_01` | 첫 촛불 | Die erste Kerze | 4 | — |
-| `w1_02` | 무지개 유리 | Regenbogen aus Glas | 4 | — |
-| `w1_03` | 노란 꽃밭 | Das gelbe Blumenfeld | 4 | — |
-| `w1_04` | 달빛 산책 | Mondlicht-Spaziergang | 4 | — |
-| `w1_05` | 물 위의 빛 | Licht auf dem Wasser | 4 | — |
-| `w1_06` | 겨울 창가 | Am Winterfenster | 4 | — |
-| `w1_07` | 반짝이는 자수정 | Glitzernder Amethyst | 4 | — |
-| `w1_08` | 바다의 등불 | Das Licht des Meeres | 4 | — |
-| `w1_09` | 작은 발견 | Kleine Entdeckungen | 4 | — |
+| `w1_02` | 유리 속 햇살 | Sonnenlicht im Glas | 4 | — |
+| `w1_03` | 노란 꽃밭 | Das gelbe Blumenbeet | 4 | — |
+| `w1_04` | 달빛 산책 | Ein Spaziergang im Mondlicht | 4 | — |
+| `w1_05` | 물가의 불빛 | Licht am Wasser | 4 | — |
+| `w1_06` | 겨울 창가 | Ein Winterfenster | 4 | — |
+| `w1_07` | 나무 아래의 점심 | Mittagessen unter dem Baum | 4 | — |
+| `w1_08` | 작은 집의 아침 | Morgen im kleinen Haus | 4 | — |
+| `w1_09` | 작은 발견 | Eine kleine Entdeckung | 4 | — |
 | `w2_01` | 비 그친 하늘 | Der Himmel nach dem Regen | 4 | — |
-| `w2_02` | 첫눈 소리 | Der Klang des ersten Schnees | 4 | — |
-| `w2_03` | 해질녘 언덕 | Der Hügel im Abendlicht | 4 | — |
-| `w2_04` | 천둥의 언덕 | Der Donnerhügel | 4 | — |
-| `w2_05` | 계절의 문 | Das Tor der Jahreszeiten | 4 | — |
-| `w2_06` | 별이 뜨는 밤 | Die Nacht der Sterne | 4 | — |
-| `w2_07` | 겨울 아침 | Der Wintermorgen | 4 | — |
+| `w2_02` | 첫눈 소리 | Das Geräusch des ersten Schnees | 4 | — |
+| `w2_03` | 해 질 녘 언덕 | Der Hügel bei Sonnenuntergang | 4 | — |
+| `w2_04` | 빗속의 불빛 | Licht im Regen | 4 | — |
+| `w2_05` | 계절의 문 | Die Tür der Jahreszeiten | 4 | — |
+| `w2_06` | 별이 뜨는 밤 | Eine Sternennacht | 4 | — |
+| `w2_07` | 겨울 아침 | Ein Wintermorgen | 4 | — |
 | `w2_08` | 구름 위 탑 | Der Turm über den Wolken | 4 | — |
 
 ### Level 2 · TOPIK 1 · 24 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `brotpfad` | 빵의 길 | Der Brotpfad | 3 | `essenspfad` |
-| `haustierpfad` | 집동물의 길 | Der Haustierpfad | 3 | `tierpfad`, `tierfreund` |
-| `hoehlenlicht` | 동굴의 빛 | Das Höhlenlicht | 3 | `steinpfad` |
-| `kraeuterpfad` | 빵과 꽃의 길 | Der Brot-und-Blumen-Pfad | 3 | `essenspfad` |
-| `wollpfad` | 양털의 길 | Der Wollpfad | 3 | `tierpfad` |
-| `flusslicht` | 강빛의 길 | Das Flusslicht | 4 | `wasserpfad` |
-| `bienenpfad` | 꿀벌의 길 | Der Bienenpfad | 3 | `tierpfad` |
-| `redstonepfad` | 레드스톤의 길 | Der Redstonepfad | 4 | `steinpfad` |
-| `schneeballpfad` | 눈싸움의 길 | Der Schneeballpfad | 4 | `nachtpfad` |
+| `brotpfad` | 밀과 빵의 길 | Weizen und Brot | 4 | `essenspfad` |
+| `haustierpfad` | 고양이의 집 | Das Haus der Katze | 5 | `tierpfad`, `tierfreund` |
+| `hoehlenlicht` | 돌과 횃불의 길 | Stein und Fackel | 4 | `steinpfad` |
+| `kraeuterpfad` | 꽃과 감자의 길 | Blumen und Kartoffeln | 4 | `essenspfad` |
+| `wollpfad` | 양과 양털의 길 | Schaf und Wolle | 4 | `tierpfad` |
+| `flusslicht` | 종이와 책의 길 | Papier und Buch | 5 | `wasserpfad` |
+| `bienenpfad` | 꿀벌과 꽃의 길 | Biene und Blume | 4 | `tierpfad` |
+| `redstonepfad` | 레드스톤의 길 | Redstone | 4 | `steinpfad` |
+| `schneeballpfad` | 눈싸움의 길 | Schneeballschlacht | 4 | `nachtpfad` |
 | `waldhaus` | 숲의 집 | Das Waldhaus | 4 | `holzpfad`, `wurzelpfad` |
-| `glasfenster` | 유리창의 길 | Der Glasfensterpfad | 4 | `dorfpfad` |
-| `pilzpfad` | 버섯의 길 | Der Pilzpfad | 4 | `holzpfad` |
-| `teppichpfad` | 양탄자의 길 | Der Teppichpfad | 4 | `dorfpfad` |
-| `froschteich` | 개구리 연못 | Der Froschteich | 4 | `wasserpfad` |
-| `farmpfad` | 동물의 집 | Der Hofpfad | 4 | `tierpfad` |
-| `fuchsbau` | 여우의 길 | Der Fuchsbau | 4 | `holzpfad` |
-| `schildkroete` | 거북의 길 | Der Schildkrötenpfad | 4 | `wasserpfad` |
-| `sternenpfad` | 별의 길 | Der Sternenpfad | 4 | `nachtpfad` |
-| `vogelscheuche` | 허수아비의 길 | Der Vogelscheuchenpfad | 4 | `dorfpfad` |
-| `fischerpfad` | 물고기의 길 | Der Fischerpfad | 4 | `wasserpfad` |
-| `gipfelpfad` | 꼭대기의 길 | Der Gipfelpfad | 4 | `bergpfad` |
-| `handelspfad` | 거래의 길 | Der Handelspfad | 4 | `dorfpfad` |
-| `adv_husbandry_root` | 농사 | Landwirtschaft | 3 | `tierpfad` |
+| `glasfenster` | 유리창의 길 | Glasfenster | 4 | `dorfpfad` |
+| `pilzpfad` | 버섯 스튜의 길 | Pilzeintopf | 5 | `holzpfad` |
+| `teppichpfad` | 양탄자의 길 | Der Teppich | 4 | `dorfpfad` |
+| `froschteich` | 개구리 연못 | Froschteich | 4 | `wasserpfad` |
+| `farmpfad` | 농장의 길 | Der Bauernhof | 4 | `tierpfad` |
+| `fuchsbau` | 토끼의 집 | Der Kaninchenstall | 4 | `holzpfad` |
+| `schildkroete` | 거북의 길 | Die Schildkröte | 4 | `wasserpfad` |
+| `sternenpfad` | 별의 길 | Unter den Sternen | 4 | `nachtpfad` |
+| `vogelscheuche` | 허수아비의 길 | Die Vogelscheuche | 4 | `dorfpfad` |
+| `fischerpfad` | 물고기의 길 | Der Fischer | 4 | `wasserpfad` |
+| `gipfelpfad` | 꼭대기의 길 | Der Gipfel | 4 | `bergpfad` |
+| `handelspfad` | 거래의 길 | Der Handel | 4 | `dorfpfad` |
+| `adv_husbandry_root` | 농사 | Landwirtschaft | 4 | `tierpfad` |
 | `adv_story_root` | 마인크래프트 | Minecraft | 4 | `steinpfad` |
 
 ### Level 3 · TOPIK 1 · 35 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `waldlicht` | 숲빛의 길 | Das Waldlicht | 4 | `hoehlenlicht`, `holzpfad` |
-| `feuerstelle` | 불자리 | Die Feuerstelle | 3 | `brotpfad`, `feuerpfad` |
-| `bogenpfad` | 활의 길 | Der Bogenpfad | 4 | `waldhaus`, `tierpfad` |
-| `wetterpfad` | 비의 길 | Der Regenpfad | 3 | `gipfelpfad`, `wasserpfad` |
-| `blumenpfad` | 꽃의 길 | Der Blumenpfad | 4 | `dorfpfad`, `waldhaus` |
-| `steintiefe` | 돌의 깊은 길 | Der tiefe Steinpfad | 4 | `steinpfad`, `hoehlenlicht` |
-| `baeckerei` | 빵집의 길 | Der Bäckereipfad | 4 | `essenspfad`, `brotpfad`, `kraeuterpfad` |
-| `windpfad` | 바람의 길 | Der Windpfad | 4 | `gipfelpfad`, `nachtpfad` |
-| `inselpfad` | 섬의 길 | Der Inselpfad | 4 | `fischerpfad`, `gipfelpfad` |
-| `bambuspfad` | 대나무의 길 | Der Bambuspfad | 4 | `waldhaus`, `kraeuterpfad` |
-| `sonnenblume` | 해바라기의 길 | Der Sonnenblumenpfad | 4 | `kraeuterpfad`, `waldhaus` |
-| `lavapfad` | 용암의 길 | Der Lavapfad | 4 | `gipfelpfad`, `nachtpfad` |
-| `blumenkranz` | 꽃관의 길 | Der Blumenkranz | 4 | `kraeuterpfad`, `waldhaus` |
-| `ziegenpfad` | 염소의 길 | Der Ziegenpfad | 4 | `gipfelpfad`, `nachtpfad` |
-| `adv_husbandry_allay_deliver_item_to_player` | 난 너의 친구야 | Du hast ’n Freund in mir | 3 | `adv_husbandry_root` |
-| `adv_husbandry_breed_an_animal` | 아기는 어떻게 태어나? | Die Hühnchen und die Blümchen | 3 | `adv_husbandry_root` |
-| `adv_husbandry_fishy_business` | 강태공이 세월을 낚듯 | Anglerglück | 3 | `adv_husbandry_root` |
-| `adv_husbandry_make_a_sign_glow` | 밝은 말 고운 말 | Leuchte und staune! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_obtain_sniffer_egg` | 흥미로운 냄새 | Ein ungewöhnlicher Geruch | 3 | `adv_husbandry_root` |
-| `adv_husbandry_place_dried_ghast_in_water` | 수분 충전! | Bleib hydriert! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_plant_seed` | 씨앗이 자라나는 곳 | Hobbygärtner | 3 | `adv_husbandry_root` |
-| `adv_husbandry_ride_a_boat_with_a_goat` | 염소 떴소 | Ohne Geiß kein Preis! | 3 | `adv_husbandry_root` |
-| `adv_husbandry_safely_harvest_honey` | 벌집을 내 집처럼 | Sssei unser Gast | 3 | `adv_husbandry_root` |
-| `adv_husbandry_silk_touch_nest` | 한 벌 한 벌 정성껏 모시겠습니다 | Bienenwanderung | 3 | `adv_husbandry_root` |
-| `adv_husbandry_tadpole_in_a_bucket` | 양동이에 올챙이 한 마리 | Im Eimer | 3 | `adv_husbandry_root` |
-| `adv_husbandry_tame_an_animal` | 인생의 동반자 | Allerbeste Freunde | 3 | `adv_husbandry_root` |
-| `adv_husbandry_uh_oh` | 폭탄 받아라 | Oh, oh | 3 | `adv_husbandry_root` |
+| `waldlicht` | 유리와 초의 길 | Glas und Kerze | 4 | `hoehlenlicht`, `holzpfad` |
+| `feuerstelle` | 불과 빵의 길 | Feuer und Brot | 4 | `brotpfad`, `feuerpfad` |
+| `bogenpfad` | 활의 길 | Der Bogen | 4 | `waldhaus`, `tierpfad` |
+| `wetterpfad` | 비와 물고기의 길 | Regen und Fisch | 4 | `gipfelpfad`, `wasserpfad` |
+| `blumenpfad` | 꽃과 토끼의 길 | Blumen und Kaninchen | 4 | `dorfpfad`, `waldhaus` |
+| `steintiefe` | 돌과 철의 길 | Stein und Eisen | 4 | `steinpfad`, `hoehlenlicht` |
+| `baeckerei` | 빵집과 케이크의 길 | Bäckerei und Kuchen | 4 | `essenspfad`, `brotpfad`, `kraeuterpfad` |
+| `windpfad` | 바람의 길 | Der Wind auf dem Berg | 4 | `gipfelpfad`, `nachtpfad` |
+| `inselpfad` | 섬의 길 | Die Insel | 4 | `fischerpfad`, `gipfelpfad` |
+| `bambuspfad` | 대나무와 수박의 길 | Bambus und Melone | 4 | `waldhaus`, `kraeuterpfad` |
+| `sonnenblume` | 해바라기의 길 | Sonnenblumengarten | 4 | `kraeuterpfad`, `waldhaus` |
+| `lavapfad` | 용암의 길 | Der Lavaweg | 4 | `gipfelpfad`, `nachtpfad` |
+| `blumenkranz` | 꽃밭의 길 | Das Blumenbeet | 4 | `kraeuterpfad`, `waldhaus` |
+| `ziegenpfad` | 염소의 길 | Die Ziege | 4 | `gipfelpfad`, `nachtpfad` |
+| `adv_husbandry_allay_deliver_item_to_player` | 작은 창고 | Eine kleine Vorratskammer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_breed_an_animal` | 아기는 어떻게 태어나? | Woher kommen die Babys? | 4 | `adv_husbandry_root` |
+| `adv_husbandry_fishy_business` | 강태공이 세월을 낚듯 | Ein geduldiger Angler | 4 | `adv_husbandry_root` |
+| `adv_husbandry_make_a_sign_glow` | 밝은 말 고운 말 | Helle Worte, freundliche Worte | 4 | `adv_husbandry_root` |
+| `adv_husbandry_obtain_sniffer_egg` | 닭장의 아침 | Morgen im Hühnerstall | 4 | `adv_husbandry_root` |
+| `adv_husbandry_place_dried_ghast_in_water` | 들판의 말 | Ein Pferd auf dem Feld | 4 | `adv_husbandry_root` |
+| `adv_husbandry_plant_seed` | 씨앗이 자라나는 곳 | Wo die Samen wachsen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_ride_a_boat_with_a_goat` | 염소 떴소 | Was deine Ziege schwimmen lässt! | 4 | `adv_husbandry_root` |
+| `adv_husbandry_safely_harvest_honey` | 벌집을 내 집처럼 | Bienen willkommen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_silk_touch_nest` | 벌들의 정원 | Der Garten der Bienen | 4 | `adv_husbandry_root` |
+| `adv_husbandry_tadpole_in_a_bucket` | 양동이에 올챙이 한 마리 | Eine Kaulquappe im Eimer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_tame_an_animal` | 인생의 동반자 | Beste Freunde für immer | 4 | `adv_husbandry_root` |
+| `adv_husbandry_uh_oh` | 농부와 거래 | Handel mit dem Bauern | 4 | `adv_husbandry_root` |
 | `adv_story_mine_stone` | 석기 시대 | Steinzeit | 4 | `adv_story_root` |
-| `dorfhaus` | 마을 집의 길 | Das Dorfhaus | 4 | `waldhaus`, `glasfenster`, `teppichpfad` |
-| `weidepfad` | 목장의 길 | Der Weidepfad | 4 | `farmpfad`, `wollpfad` |
-| `brandung` | 파도의 길 | Der Brandungspfad | 4 | `fischerpfad`, `flusslicht`, `froschteich`, `schildkroete` |
-| `nachtwache` | 별빛의 길 | Der Sternwachtpfad | 4 | `sternenpfad` |
-| `firstpfad` | 봉우리의 길 | Der Gratpfad | 4 | `gipfelpfad` |
-| `marktpfad` | 시장의 길 | Der Marktpfad | 4 | `handelspfad` |
-| `gipfelblick` | 정상의 전망 | Der Gipfelblick | 4 | `gipfelpfad`, `sternenpfad` |
+| `dorfhaus` | 마을 집의 길 | Das Dorfhaus | 5 | `waldhaus`, `glasfenster`, `teppichpfad` |
+| `weidepfad` | 목장의 길 | Die Weide | 4 | `farmpfad`, `wollpfad` |
+| `brandung` | 파도의 길 | Die Brandung | 4 | `fischerpfad`, `flusslicht`, `froschteich`, `schildkroete` |
+| `nachtwache` | 별빛의 길 | Die Nachtwache | 4 | `sternenpfad` |
+| `firstpfad` | 봉우리의 길 | Der Gipfelgrat | 4 | `gipfelpfad` |
+| `marktpfad` | 시장의 길 | Der Markt | 5 | `handelspfad` |
+| `gipfelblick` | 정상의 전망 | Der Blick vom Gipfel | 4 | `gipfelpfad`, `sternenpfad` |
 
 ### Level 4 · TOPIK 2 · 34 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `saatfeld` | 씨앗밭의 길 | Der Saatfeldpfad | 3 | `baeckerei` |
-| `wanderpfad` | 산길의 길 | Der Wanderpfad | 4 | `weidepfad`, `gipfelpfad` |
-| `nachthafen` | 밤항구의 길 | Der Nachthafen | 4 | `brandung`, `nachtpfad` |
-| `farbenpfad` | 색의 길 | Der Farbenpfad | 3 | `weidepfad`, `wollpfad` |
+| `saatfeld` | 씨 뿌리는 밭의 길 | Der Saatfeldpfad | 4 | `baeckerei` |
+| `wanderpfad` | 산길 | Der Wanderpfad | 5 | `weidepfad`, `gipfelpfad` |
+| `nachthafen` | 밤 항구의 길 | Der Nachthafen | 5 | `brandung`, `nachtpfad` |
+| `farbenpfad` | 색의 길 | Der Farbenpfad | 5 | `weidepfad`, `wollpfad` |
 | `glockenpfad` | 종의 길 | Der Glockenpfad | 4 | `marktpfad` |
 | `milchpfad` | 우유의 길 | Der Milchpfad | 4 | `weidepfad`, `wollpfad` |
-| `gartenzaun` | 정원 울타리 | Der Gartenzaun | 4 | `weidepfad`, `wollpfad` |
-| `uhrmacher` | 시계공의 길 | Der Uhrmacherpfad | 4 | `weidepfad`, `wollpfad` |
-| `pferderennen` | 말 경주의 길 | Der Pferderennpfad | 4 | `weidepfad`, `wollpfad` |
-| `abenteuerpfad` | 모험의 길 | Der Abenteuerpfad | 4 | `steintiefe`, `gipfelpfad` |
-| `zuhausepfad` | 우리 집의 길 | Der Zuhause-Pfad | 4 | `waldhaus`, `baeckerei` |
-| `adv_husbandry_allay_deliver_cake_to_note_block` | 생일 축하 노래 | Geburtstagslied | 3 | `adv_husbandry_allay_deliver_item_to_player` |
-| `adv_husbandry_balanced_diet` | 균형 잡힌 식단 | Ausgewogene Ernährung | 3 | `adv_husbandry_plant_seed` |
-| `adv_husbandry_bred_all_animals` | 짝지어주기 | Paarweise | 3 | `adv_husbandry_breed_an_animal` |
-| `adv_husbandry_complete_catalogue` | 집사 그 자체 | Ein kompletter Katerlog | 3 | `adv_husbandry_tame_an_animal` |
-| `adv_husbandry_feed_snifflet` | 조그만 킁킁이 | Schnupperkurs | 3 | `adv_husbandry_obtain_sniffer_egg` |
-| `adv_husbandry_leash_all_frog_variants` | 개구리 삼총사 출동! | Wenn die Kerle um die Häuser ziehen | 3 | `adv_husbandry_tadpole_in_a_bucket` |
-| `adv_husbandry_obtain_netherite_hoe` | 도를 넘은 전념 | Landwirt aus Leidenschaft | 3 | `adv_husbandry_plant_seed` |
-| `adv_husbandry_remove_wolf_armor` | 탁월한 가위질 | Schnipp‐schnapp! | 3 | `adv_husbandry_tame_an_animal` |
-| `adv_husbandry_repair_wolf_armor` | 새것처럼 | So gut wie neu | 3 | `adv_husbandry_tame_an_animal` |
+| `gartenzaun` | 정원 울타리 | Der Gartenzaun | 5 | `weidepfad`, `wollpfad` |
+| `uhrmacher` | 시계공의 길 | Der Uhrmacherpfad | 5 | `weidepfad`, `wollpfad` |
+| `pferderennen` | 말 경주의 길 | Der Pferderennpfad | 5 | `weidepfad`, `wollpfad` |
+| `abenteuerpfad` | 모험의 길 | Der Abenteuerpfad | 6 | `steintiefe`, `gipfelpfad` |
+| `zuhausepfad` | 우리 집의 길 | Der Zuhause-Pfad | 5 | `waldhaus`, `baeckerei` |
+| `adv_husbandry_allay_deliver_cake_to_note_block` | 동물들의 노래 | Ein Lied für die Tiere | 5 | `adv_husbandry_allay_deliver_item_to_player` |
+| `adv_husbandry_balanced_diet` | 균형 잡힌 식단 | Ausgewogene Ernährung | 4 | `adv_husbandry_plant_seed` |
+| `adv_husbandry_bred_all_animals` | 짝지어주기 | Paarweise | 6 | `adv_husbandry_breed_an_animal` |
+| `adv_husbandry_complete_catalogue` | 집사 그 자체 | Ein kompletter Katerlog | 4 | `adv_husbandry_tame_an_animal` |
+| `adv_husbandry_feed_snifflet` | 돼지 우리 | Der Schweinestall | 4 | `adv_husbandry_obtain_sniffer_egg` |
+| `adv_husbandry_leash_all_frog_variants` | 개구리 삼총사 출동! | Wenn die Kerle um die Häuser ziehen | 5 | `adv_husbandry_tadpole_in_a_bucket` |
+| `adv_husbandry_obtain_netherite_hoe` | 괭이의 길 | Der Hackenpfad | 4 | `adv_husbandry_plant_seed` |
+| `adv_husbandry_remove_wolf_armor` | 탁월한 가위질 | Schnipp‐schnapp! | 4 | `adv_husbandry_tame_an_animal` |
+| `adv_husbandry_repair_wolf_armor` | 새것처럼 | So gut wie neu | 4 | `adv_husbandry_tame_an_animal` |
 | `adv_husbandry_tactical_fishing` | 이 대신 잇몸으로 | Taktisches Fischen | 3 | `adv_husbandry_fishy_business` |
-| `adv_husbandry_wax_on` | 밀랍을 칠하자 | Auftragen | 3 | `adv_husbandry_safely_harvest_honey` |
-| `adv_husbandry_whole_pack` | 외롭지 못한 늑대 | Das ganze Rudel | 3 | `adv_husbandry_tame_an_animal` |
-| `schmelzpfad` | 용광로의 길 | Der Schmelzpfad | 4 | `steintiefe` |
+| `adv_husbandry_wax_on` | 밀랍을 칠하자 | Auftragen | 5 | `adv_husbandry_safely_harvest_honey` |
+| `adv_husbandry_whole_pack` | 외롭지 못한 늑대 | Das ganze Rudel | 5 | `adv_husbandry_tame_an_animal` |
+| `schmelzpfad` | 화로의 길 | Der Schmelzpfad | 4 | `steintiefe` |
 | `adv_story_upgrade_tools` | 더욱더 좋게 | Technischer Fortschritt | 4 | `adv_story_mine_stone` |
-| `festmahl` | 잔치의 길 | Das Festmahl | 4 | `baeckerei` |
-| `sternenhaus` | 별의 집 | Das Sternenhaus | 4 | `nachtwache`, `dorfhaus` |
-| `gartenpfad` | 정원의 길 | Der Gartenpfad | 4 | `dorfhaus`, `bienenpfad`, `kuerbispfad`, `pilzpfad`, `fuchsbau` |
-| `reitpfad` | 말타기의 길 | Der Reitpfad | 4 | `weidepfad` |
-| `riffpfad` | 물결의 길 | Der Riffpfad | 4 | `brandung` |
-| `mondpfad` | 달빛의 길 | Der Mondpfad | 4 | `nachtwache` |
-| `eiswand` | 얼음벽의 길 | Der Eiswall | 4 | `firstpfad`, `schneeballpfad`, `schneemannpfad`, `ziegenpfad` |
-| `alpental` | 알펜 계곡 | Das Alpental | 4 | `weidepfad` |
+| `festmahl` | 잔치의 길 | Das Festmahl | 5 | `baeckerei` |
+| `sternenhaus` | 별의 집 | Das Sternenhaus | 5 | `nachtwache`, `dorfhaus` |
+| `gartenpfad` | 정원의 길 | Der Gartenpfad | 5 | `dorfhaus`, `bienenpfad`, `kuerbispfad`, `pilzpfad`, `fuchsbau` |
+| `reitpfad` | 말타기의 길 | Der Reitpfad | 5 | `weidepfad` |
+| `riffpfad` | 물결의 길 | Der Riffpfad | 5 | `brandung` |
+| `mondpfad` | 달빛의 길 | Der Mondpfad | 6 | `nachtwache` |
+| `eiswand` | 얼음벽의 길 | Der Eiswall | 5 | `firstpfad`, `schneeballpfad`, `schneemannpfad`, `ziegenpfad` |
+| `alpental` | 알펜 계곡 | Das Alpental | 5 | `weidepfad` |
 | `kuestenwacht` | 해안 초소 | Die Küstenwacht | 4 | `brandung` |
 
 ### Level 5 · TOPIK 2 · 44 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `schmelzofen` | 용광로의 불 | Das Schmelzfeuer | 3 | `schmelzpfad` |
-| `festungpfad` | 요새의 길 | Der Festungspfad | 4 | `alpental`, `gartenpfad` |
-| `schatzkammer` | 보물방의 길 | Die Schatzkammer | 4 | `alpental`, `gartenpfad` |
+| `schmelzofen` | 용광로의 불 | Das Schmelzfeuer | 4 | `schmelzpfad` |
+| `festungpfad` | 요새의 길 | Der Festungspfad | 6 | `alpental`, `gartenpfad` |
+| `schatzkammer` | 보물방의 길 | Die Schatzkammer | 5 | `alpental`, `gartenpfad` |
 | `druckerei` | 인쇄소의 길 | Der Druckereipfad | 4 | `alpental`, `gartenpfad` |
-| `ziegelpfad` | 벽돌의 길 | Der Ziegelpfad | 4 | `alpental`, `gartenpfad` |
-| `brauerei` | 양조장의 길 | Der Brauereipfad | 4 | `alpental`, `gartenpfad` |
+| `ziegelpfad` | 벽돌의 길 | Der Ziegelpfad | 5 | `alpental`, `gartenpfad` |
+| `brauerei` | 지하 저장고의 길 | Der Kellerpfad | 4 | `alpental`, `gartenpfad` |
 | `bienenzucht` | 양봉의 길 | Der Bienenzuchtpfad | 4 | `alpental`, `gartenpfad` |
-| `adv_adventure_root` | 모험 | Abenteuer | 3 | `abenteuerpfad` |
-| `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 3 | `adv_husbandry_tactical_fishing` |
-| `adv_husbandry_froglights` | 우리의 힘을 합친다면! | Mit vereinten Kräften! | 3 | `adv_husbandry_leash_all_frog_variants` |
-| `adv_husbandry_plant_any_sniffer_seed` | 과거를 심다 | Wir säen Geschichte | 3 | `adv_husbandry_feed_snifflet` |
-| `adv_husbandry_wax_off` | 밀랍을 벗기자 | Polieren | 3 | `adv_husbandry_wax_on` |
+| `adv_adventure_root` | 모험 | Abenteuer | 5 | `abenteuerpfad` |
+| `adv_husbandry_axolotl_in_a_bucket` | 귀여운 포식자 | Das niedlichste Raubtier | 4 | `adv_husbandry_tactical_fishing` |
+| `adv_husbandry_froglights` | 개구리 연못의 밤 | Eine Nacht am Froschteich | 5 | `adv_husbandry_leash_all_frog_variants` |
+| `adv_husbandry_plant_any_sniffer_seed` | 토끼 밭 | Das Kaninchenbeet | 6 | `adv_husbandry_feed_snifflet` |
+| `adv_husbandry_wax_off` | 밀랍을 벗기자 | Polieren | 5 | `adv_husbandry_wax_on` |
 | `adv_nether_root` | 네더 | Nether | 3 | `abenteuerpfad` |
 | `adv_story_smelt_iron` | 철이 철철 넘쳐 | Metallurgie | 4 | `adv_story_upgrade_tools` |
-| `glueckspfad` | 보물의 길 | Der Schatzpfad | 4 | `abenteuerpfad` |
+| `glueckspfad` | 보물의 길 | Der Schatzpfad | 5 | `abenteuerpfad` |
 | `familienpfad` | 가족의 길 | Der Familienpfad | 4 | `zuhausepfad`, `haustierpfad` |
-| `schmiedepfad` | 대장간의 길 | Der Meisterpfad | 4 | `schmelzpfad`, `waldhaus`, `handelspfad`, `feuerpfad`, `feuerstelle` |
+| `schmiedepfad` | 대장간의 길 | Der Schmiedepfad | 4 | `schmelzpfad`, `waldhaus`, `handelspfad`, `feuerpfad`, `feuerstelle` |
 | `waldfest` | 숲의 잔치 | Das Waldfest | 4 | `waldhaus`, `festmahl`, `farmpfad` |
-| `kuestenfest` | 바닷가 잔치 | Das Küstenfest | 4 | `brandung`, `festmahl` |
+| `kuestenfest` | 바닷가 잔치 | Das Küstenfest | 5 | `brandung`, `festmahl` |
 | `kohlenpfad` | 석탄의 길 | Der Kohlenpfad | 4 | `schmelzpfad` |
 | `schmauspfad` | 산해진미의 길 | Der Schlemmerpfad | 4 | `festmahl` |
 | `karawanepfad` | 상단의 길 | Die Karawanenstraße | 4 | `marktpfad`, `glockenpfad` |
 | `steinbruch` | 채석장의 길 | Der Steinbruch | 4 | `schmelzpfad` |
 | `pferdehof` | 말 목장의 길 | Der Pferdehof | 4 | `reitpfad`, `weidepfad`, `bogenpfad` |
-| `meerestiefe` | 바다 깊은 길 | Die Meerestiefe | 4 | `riffpfad`, `fischerpfad` |
-| `sternwarte` | 달빛 정원 | Der Mondgarten | 4 | `mondpfad`, `nachtwache` |
-| `gletscherpfad` | 빙하의 길 | Der Gletscherpfad | 4 | `eiswand`, `firstpfad` |
+| `meerestiefe` | 바다 깊은 길 | Die Meerestiefe | 5 | `riffpfad`, `fischerpfad` |
+| `sternwarte` | 달빛 정원 | Der Mondgarten | 5 | `mondpfad`, `nachtwache` |
+| `gletscherpfad` | 빙하의 길 | Der Gletscherpfad | 5 | `eiswand`, `firstpfad` |
 | `w3_01` | 장터의 길 | Der Marktweg | 4 | `schmelzpfad` |
 | `w3_02` | 이웃의 문 | Die Tür des Nachbarn | 4 | `zuhausepfad` |
 | `w3_03` | 나그네의 주머니 | Der Beutel des Wanderers | 4 | `abenteuerpfad` |
@@ -235,47 +262,47 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w3_08` | 항구의 손님 | Der Gast am Hafen | 4 | `riffpfad` |
 | `w3_09` | 등불의 이웃 | Die Laternen-Nachbarn | 4 | `mondpfad` |
 | `w4_01` | 산호초의 길 | Der Korallenriffpfad | 4 | `riffpfad` |
-| `w4_02` | 등대 불빛 | Das Leuchtturmlicht | 4 | `kuestenwacht` |
-| `w4_03` | 달빛 낚시 | Das Mondlichtangeln | 4 | `mondpfad` |
+| `w4_02` | 등대 불빛 | Das Leuchtturmlicht | 5 | `kuestenwacht` |
+| `w4_03` | 달빛 낚시 | Das Mondlichtangeln | 5 | `mondpfad` |
 | `w4_04` | 부두의 배 | Das Boot am Kai | 4 | `wanderpfad` |
-| `w4_05` | 밤바다 등불 | Lichter am Nachtmeer | 4 | `nachthafen` |
-| `w4_06` | 산속 호수 | Der Bergsee | 4 | `alpental` |
-| `w4_07` | 항구 시장 | Der Hafenmarkt | 4 | `festmahl` |
-| `w4_08` | 모래 정원 | Der Sandgarten | 4 | `gartenpfad` |
+| `w4_05` | 밤바다 등불 | Lichter am Nachtmeer | 5 | `nachthafen` |
+| `w4_06` | 산속 호수 | Der Bergsee | 5 | `alpental` |
+| `w4_07` | 항구 시장 | Der Hafenmarkt | 5 | `festmahl` |
+| `w4_08` | 모래 정원 | Der Sandgarten | 5 | `gartenpfad` |
 
 ### Level 6 · TOPIK 2 · 48 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `steinherz` | 돌심장 | Das Steinherz | 3 | `steintiefe`, `schmelzofen` |
-| `schneesturm` | 눈보라의 길 | Der Schneesturm | 3 | `eiswand`, `gletscherpfad` |
-| `kartenpfad` | 지도의 길 | Der Kartenpfad | 3 | `handelspfad`, `karawanepfad` |
-| `alchemiepfad` | 연금술의 길 | Der Alchemiepfad | 4 | `schmelzofen`, `schmauspfad` |
-| `steinmetz` | 석공의 길 | Der Steinmetzpfad | 4 | `festungpfad`, `schatzkammer` |
-| `gartenkunst` | 정원 예술의 길 | Der Gartenkunstpfad | 4 | `festungpfad`, `schatzkammer` |
-| `faerberei` | 염색의 길 | Der Färberpfad | 4 | `festungpfad`, `schatzkammer` |
-| `gerberei` | 가죽 공방의 길 | Der Gerberpfad | 4 | `festungpfad`, `schatzkammer` |
-| `obstgarten` | 과수원의 길 | Der Obstgarten | 4 | `festungpfad`, `schatzkammer` |
+| `steinherz` | 돌심장 | Das Steinherz | 4 | `steintiefe`, `schmelzofen` |
+| `schneesturm` | 눈보라의 길 | Der Schneesturm | 6 | `eiswand`, `gletscherpfad` |
+| `kartenpfad` | 지도의 길 | Der Kartenpfad | 5 | `handelspfad`, `karawanepfad` |
+| `alchemiepfad` | 꿀단지의 길 | Der Honigtopfpfad | 4 | `schmelzofen`, `schmauspfad` |
+| `steinmetz` | 석공의 길 | Der Steinmetzpfad | 5 | `festungpfad`, `schatzkammer` |
+| `gartenkunst` | 정원 예술의 길 | Die Gartenkunst | 5 | `festungpfad`, `schatzkammer` |
+| `faerberei` | 염색의 길 | Die Färberei | 5 | `festungpfad`, `schatzkammer` |
+| `gerberei` | 가죽 공방의 길 | Die Gerberei | 5 | `festungpfad`, `schatzkammer` |
+| `obstgarten` | 과수원의 길 | Der Obstgarten | 5 | `festungpfad`, `schatzkammer` |
 | `werkzeugpfad` | 도구의 길 | Der Werkzeugpfad | 4 | `festungpfad`, `schatzkammer` |
-| `adv_adventure_avoid_vibration` | 은밀하게 위대하게 | Schleichen 100 | 3 | `adv_adventure_root` |
-| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 3 | `adv_adventure_root` |
-| `adv_adventure_crafters_crafting_crafters` | 제작기 제 자신 제작기 | Werker werkeln Werker | 3 | `adv_adventure_root` |
-| `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 3 | `adv_adventure_root` |
-| `adv_adventure_heart_transplanter` | 심장 이식 수술 | Herzverpflanzer | 3 | `adv_adventure_root` |
-| `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 3 | `adv_adventure_root` |
-| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 3 | `adv_adventure_root` |
-| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 3 | `adv_adventure_root` |
-| `adv_adventure_minecraft_trials_edition` | 인생은 시련의 연속 | Minecraft: Prüfungs‐Edition | 3 | `adv_adventure_root` |
-| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 3 | `adv_adventure_root` |
-| `adv_adventure_read_power_of_chiseled_bookshelf` | 책의 힘 | Spannung in jedem Band | 3 | `adv_adventure_root` |
-| `adv_adventure_salvage_sherd` | 소중한 잔해 | Achtung vor dem Alten | 3 | `adv_adventure_root` |
-| `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 3 | `adv_adventure_root` |
-| `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 3 | `adv_adventure_root` |
-| `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 3 | `adv_adventure_root` |
-| `adv_adventure_trim_with_any_armor_pattern` | 유행의 선도자 | Ein neues Aussehen | 3 | `adv_adventure_root` |
-| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 3 | `adv_adventure_root` |
-| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 3 | `adv_adventure_root` |
-| `adv_husbandry_kill_axolotl_target` | 우정의 치유력! | Die heilende Kraft der Freundschaft! | 3 | `adv_husbandry_axolotl_in_a_bucket` |
+| `adv_adventure_avoid_vibration` | 소리 경보 | Der leise Alarm | 4 | `adv_adventure_root` |
+| `adv_adventure_brush_armadillo` | 이게 인갑인갑다 | Ist das nicht putzig? | 5 | `adv_adventure_root` |
+| `adv_adventure_crafters_crafting_crafters` | 제작기 제 자신 제작기 | Werker, die Werker herstellen | 5 | `adv_adventure_root` |
+| `adv_adventure_fall_from_world_height` | 동굴과 절벽 | Höhlen & Klippen | 5 | `adv_adventure_root` |
+| `adv_adventure_heart_transplanter` | 망루 | Der Wachturm | 5 | `adv_adventure_root` |
+| `adv_adventure_honey_block_slide` | 달콤함에 몸을 맡기다 | Eine klebrige Angelegenheit | 6 | `adv_adventure_root` |
+| `adv_adventure_kill_a_mob` | 몬스터 사냥꾼 | Monsterjäger | 4 | `adv_adventure_root` |
+| `adv_adventure_lightning_rod_with_villager_no_fire` | 번개 멈춰! | Überspannungsschutz | 6 | `adv_adventure_root` |
+| `adv_adventure_minecraft_trials_edition` | 훈련장 | Der Übungsplatz | 5 | `adv_adventure_root` |
+| `adv_adventure_ol_betsy` | 부러진 화살 | Ich habe die Knarre gesichert | 5 | `adv_adventure_root` |
+| `adv_adventure_read_power_of_chiseled_bookshelf` | 책의 힘 | Die Macht der Bücher | 6 | `adv_adventure_root` |
+| `adv_adventure_salvage_sherd` | 여행 준비 | Reisevorbereitungen | 4 | `adv_adventure_root` |
+| `adv_adventure_sleep_in_bed` | 달콤한 꿈 | Träum was Schönes | 4 | `adv_adventure_root` |
+| `adv_adventure_spyglass_at_parrot` | 새인가? | Ist es ein Vogel? | 6 | `adv_adventure_root` |
+| `adv_adventure_trade` | 훌륭한 거래군요! | Was für ein Geschäft! | 4 | `adv_adventure_root` |
+| `adv_adventure_trim_with_any_armor_pattern` | 멋쟁이 | Der Modefan | 4 | `adv_adventure_root` |
+| `adv_adventure_use_lodestone` | 집으로 이끌려가네 | Weißt du, wo die Leitstein’ stehen? | 6 | `adv_adventure_root` |
+| `adv_adventure_voluntary_exile` | 자진 유배 | Freiwilliges Exil | 5 | `adv_adventure_root` |
+| `adv_husbandry_kill_axolotl_target` | 양털 깎는 날 | Schertag | 4 | `adv_husbandry_axolotl_in_a_bucket` |
 | `adv_nether_distract_piglin` | 반짝반짝 눈이 부셔 | Oh, wie glänzend! | 3 | `adv_nether_root` |
 | `adv_nether_fast_travel` | 천 리 길도 한 걸음 | Subraumtransport | 3 | `adv_nether_root` |
 | `adv_nether_find_bastion` | 그때가 좋았지 | Das waren noch Zeiten … | 3 | `adv_nether_root` |
@@ -285,18 +312,18 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_nether_return_to_sender` | 전해지지 않은 러브레터 | Zurück zum Absender | 3 | `adv_nether_root` |
 | `adv_nether_ride_strider` | 두 발 달린 보트 | Mach diesem „Boot“ Beine | 3 | `adv_nether_root` |
 | `adv_story_iron_tools` | 이젠 철 좀 들어라 | Zu viel Eisen im Blut | 4 | `adv_story_smelt_iron` |
-| `adv_story_lava_bucket` | 화끈한 화제 | Manche mögen’s heiß | 4 | `adv_story_smelt_iron` |
-| `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 4 | `adv_story_smelt_iron` |
-| `gipfelwaechter` | 봉우리의 수호자 | Der Gipfelwächter | 4 | `firstpfad`, `glueckspfad`, `gipfelblick` |
-| `tiefenpfad` | 깊은 광맥의 길 | Der Tiefenpfad | 4 | `kohlenpfad`, `schmelzpfad` |
+| `adv_story_lava_bucket` | 화끈한 화제 | Heiße Sache | 4 | `adv_story_smelt_iron` |
+| `adv_story_obtain_armor` | 차려입기 | Mach dich fein | 5 | `adv_story_smelt_iron` |
+| `gipfelwaechter` | 봉우리의 수호자 | Der Gipfelwächter | 5 | `firstpfad`, `glueckspfad`, `gipfelblick` |
+| `tiefenpfad` | 깊은 광맥의 길 | Der Tiefenpfad | 5 | `kohlenpfad`, `schmelzpfad` |
 | `gartenfest` | 정원 잔치 | Das Gartenfest | 4 | `gartenpfad`, `waldfest`, `waldlicht`, `saatfeld`, `musikpfad`, `freundschaftspfad`, `blumenpfad`, `kerzenpfad`, `apfelpfad`, `sonnenblume`, `milchpfad`, `regenbogenpfad`, `gartenzaun`, `blumentopf`, `blumenkranz`, `uhrmacher`, `muschelpfad`, `vogelscheuche`, `pferderennen` |
-| `schmiedefeuer` | 대장간의 불 | Das Schmiedefeuer | 4 | `schmiedepfad`, `kohlenpfad`, `steinbruch` |
+| `schmiedefeuer` | 대장간의 불 | Das Schmiedefeuer | 5 | `schmiedepfad`, `kohlenpfad`, `steinbruch` |
 | `kochkunst` | 요리의 길 | Die Kochkunst | 4 | `schmauspfad`, `festmahl` |
 | `handelsstrasse` | 무역로 | Die Handelsstraße | 4 | `karawanepfad`, `marktpfad` |
 | `gestuet` | 마구간의 길 | Das Gestüt | 4 | `pferdehof`, `waldfest` |
 | `ozeanfahrt` | 대양 항해 | Die Ozeanfahrt | 4 | `meerestiefe`, `kuestenfest` |
 
-### Level 7 · TOPIK 3 · 46 trails
+### Level 7 · TOPIK 3 · 47 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
@@ -346,6 +373,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `weltmarkt` | 세계 시장 | Der Weltmarkt | 4 | `handelsstrasse`, `schmiedepfad`, `briefpfad` |
 | `weltbaum` | 세계수 | Der Weltbaum | 4 | `waldfest`, `gartenfest`, `alpental`, `familienpfad`, `alchemiepfad` |
 | `tiefseehafen` | 심해 항구 | Der Tiefseehafen | 4 | `ozeanfahrt`, `meerestiefe`, `nachthafen`, `inselpfad` |
+| `village_errands_demo` | 마을 심부름 | Dorf-Besorgungen | 5 | `handelsstrasse` |
 
 ### Level 8 · TOPIK 3 · 40 trails
 

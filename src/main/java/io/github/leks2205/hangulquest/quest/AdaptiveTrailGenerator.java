@@ -4,6 +4,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Category;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
+import io.github.leks2205.hangulquest.learn.ProgressData;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public final class AdaptiveTrailGenerator {
 	public static Questline generate(Catalog catalog, LearningService learn, String worldKey, long now) {
 		long seed = Objects.hash(worldKey, LocalDate.now().toString());
 		Random random = new Random(seed);
-		List<Word> picks = new ArrayList<>(learn.dueWords(now, 16));
+		List<Word> picks = new ArrayList<>(learn.dueForPlay(now, 16));
 		picks.removeIf(word -> word.conceptId == null || word.phrase);
 		Collections.shuffle(picks, random);
 
@@ -51,6 +52,27 @@ public final class AdaptiveTrailGenerator {
 			return null;
 		}
 
+		return build(chosen);
+	}
+
+	/**
+	 * Rebuilds today's trail from the concept ids saved when it was generated, so a restart on the
+	 * same day gets the identical trail back and the engine can restore its progress. Null when
+	 * nothing was saved for today or none of the saved concepts has a goal any more.
+	 */
+	public static Questline restore(Catalog catalog, ProgressData.Adaptive saved, String today) {
+		if (saved == null || saved.generatedFor == null || !saved.generatedFor.equals(today)
+				|| saved.wordIds == null || saved.wordIds.isEmpty()) {
+			return null;
+		}
+		List<Word> words = new ArrayList<>();
+		for (String conceptId : saved.wordIds) {
+			catalog.byConceptId(conceptId).ifPresent(words::add);
+		}
+		return words.isEmpty() ? null : build(words);
+	}
+
+	private static Questline build(List<Word> chosen) {
 		List<QuestStep> steps = new ArrayList<>();
 		List<String> concepts = new ArrayList<>();
 		int index = 0;
@@ -70,11 +92,13 @@ public final class AdaptiveTrailGenerator {
 				new Goal.PlaceBlock("minecraft:torch", 1),
 				List.of(new Condition.Time(Condition.Phase.NIGHT)),
 				null, null, null, null, null);
-		return new Questline("adaptive", "복습의 길", io.github.leks2205.hangulquest.util.Tr.t("Der Wiederholungspfad"), 1, concepts,
+		return new Questline("adaptive", "복습의 길", "Der Wiederholungspfad", 1, concepts,
 				Questline.Requires.none(), steps, finale,
-				"밤이 왔어요. 횃불을 들어요. 오늘의 복습을 마쳤어요!",
+				"밤이 왔어요. 횃불을 놓았어요. 오늘의 복습을 마쳤어요!",
 				"Die Nacht ist da. Ein Licht entzündet: die Wiederholung ist geschafft.",
-				"adaptive", 900, 2, true);
+				"adaptive", 900, 2, true)
+				.withEnglish("The review path",
+						"Night has fallen. A light is lit: today's review is done.");
 	}
 
 	public static Goal goalFor(Word word) {
@@ -84,7 +108,8 @@ public final class AdaptiveTrailGenerator {
 		if (word.biomeId != null) {
 			return new Goal.ReachBiome(word.biomeId, 1000);
 		}
-		String item = word.iconItem;
+		// Only a word's referents can be asked for: an icon is an illustration (an apple for 먹다).
+		String item = word.referents.isEmpty() ? null : word.referents.get(0);
 		if (item == null) {
 			return null;
 		}

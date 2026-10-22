@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_07",
  "titleKo": "위더의 뼈",
- "titleDe": "Die Knochen des Withers",
  "topic": "해골",
  "tier": 2,
  "order": 1077,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:gray_concrete_stairs",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Graue Betontreppe.",
-    "en": "Collect Gray Concrete Stairs."
-   },
-   "hint": {
-    "en": "Collect Gray Concrete Stairs."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:crimson_hanging_sign",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Karmesinhängeschild.",
-    "en": "Place 3× Crimson Hanging Sign."
-   },
-   "hint": {
-    "en": "Place 3× Crimson Hanging Sign."
    }
   },
   {
@@ -66,14 +51,8 @@
     "block": "minecraft:respawn_anchor",
     "count": 1
    },
-   "clue": {
-    "de": "Stell einen Seelenanker auf.",
-    "en": "Place Respawn Anchor."
-   },
    "hint": {
-    "ko": "리스폰 정박기는 우는 흑요석과 발광석으로 만들어요.",
-    "de": "Ein Seelenanker besteht aus weinendem Obsidian und Glowstone.",
-    "en": "Place Respawn Anchor."
+    "ko": "리스폰 정박기는 우는 흑요석과 발광석으로 만들어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:golden_carrot",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Goldene Karotte.",
-    "en": "Collect Golden Carrot."
-   },
-   "hint": {
-    "en": "Collect Golden Carrot."
-   }
+   "conditions": []
   },
-  "textKo": "황금 당근라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldene Karotte — Zeremonie vollendet.",
-  "textEn": "the ritual of Golden Carrot is complete."
+  "textKo": "황금 당근을 구했어요."
  },
  "reward": {
   "badge": "w7_07",
@@ -110,6 +80,5 @@
    "adv_item_crying_obsidian"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Bones of the Wither"
+ "koreanLevel": 4
 }

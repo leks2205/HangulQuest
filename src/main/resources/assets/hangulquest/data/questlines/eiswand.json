@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "eiswand",
  "titleKo": "얼음벽의 길",
- "titleDe": "Der Eiswall",
+ "topic": "산",
  "tier": 5,
  "order": 506,
  "concepts": [
-  "gen_birch_sapling",
-  "snow",
-  "gen_slime",
-  "gen_jungle_fence"
+  "ladder",
+  "ice",
+  "climb",
+  "gen_blue_ice"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -25,55 +25,55 @@
   {
    "id": "s1",
    "teach": [
-    "gen_birch_sapling"
+    "ladder"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:birch_sapling",
+    "type": "CRAFT",
+    "item": "minecraft:ladder",
     "count": 3
-   },
-   "clue": {
-    "de": "Baue 3× Birkensetzling ab.",
-    "en": "Break 3× Birch Sapling."
-   },
-   "hint": {
-    "en": "Break 3× Birch Sapling."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "snow"
+    "ladder",
+    "ice"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow_block",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Schau auf den Schnee.",
-    "en": "Look at Snow Block."
-   },
-   "hint": {
-    "en": "Look at Snow Block."
+    "type": "PLACE_REL",
+    "block": "minecraft:ladder",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:ice",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_slime"
+    "climb",
+    "ladder"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:slime",
-    "dwellMs": 800
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
    },
-   "clue": {
-    "de": "Sieh dir Schleim an.",
-    "en": "Look at Slime."
-   },
-   "hint": {
-    "en": "Look at Slime."
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ladder"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_blue_ice"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:blue_ice",
+    "dwellMs": 1000
    }
   }
  ],
@@ -81,41 +81,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_fence"
+    "ladder"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_fence",
+    "type": "PLACE_REL",
+    "block": "minecraft:cyan_banner",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:ladder",
     "count": 1
-   },
-   "conditions": [
-    {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
-    }
-   ],
-   "clue": {
-    "de": "Platziere Tropenholzzaun. In einem passenden Biom.",
-    "en": "Place Jungle Fence. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Jungle Fence. In a fitting biome."
    }
   },
-  "textKo": "산 지형에서 정글나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzzaun — Zeremonie vollendet.",
-  "textEn": "In the mountains the ritual of Jungle Fence is complete."
+  "textKo": "사다리 옆에 청록색 현수막을 걸었어요."
  },
  "reward": {
   "badge": "eiswand",
   "words": [
+   "ladder",
    "ice",
-   "snow",
-   "goat",
-   "torch"
+   "snow"
   ]
  },
  "koreanLevel": 2,
- "topic": "산",
- "titleEn": "The Ice Wall"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held"
+ ]
 }

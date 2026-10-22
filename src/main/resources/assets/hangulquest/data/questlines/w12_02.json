@@ -2,13 +2,12 @@
  "schema": 1,
  "id": "w12_02",
  "titleKo": "밤의 신화",
- "titleDe": "Der Mythos der Nacht",
  "topic": "밤",
  "tier": 2,
  "order": 1122,
  "concepts": [
   "gen_poplar_hanging_sign",
-  "friend",
+  "carved_pumpkin",
   "gen_oxidized_copper_chest",
   "gen_poplar_sign"
  ],
@@ -29,31 +28,17 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:poplar_hanging_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Pappelholzhängeschild.",
-    "en": "Place 2× Poplar Hanging Sign."
-   },
-   "hint": {
-    "en": "Place 2× Poplar Hanging Sign."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "friend"
+    "carved_pumpkin"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:player_head",
+    "block": "minecraft:carved_pumpkin",
     "count": 4
-   },
-   "clue": {
-    "de": "Baue 4× Spielerkopf ab.",
-    "en": "Break 4× Player Head."
-   },
-   "hint": {
-    "en": "Break 4× Player Head."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:oxidized_copper_chest",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Oxidierte Kupfertruhe.",
-    "en": "Place 4× Oxidized Copper Chest."
-   },
-   "hint": {
-    "en": "Place 4× Oxidized Copper Chest."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Pappelholzschild. Nachts.",
-    "en": "Place 2× Poplar Sign. At night."
-   },
-   "hint": {
-    "en": "Place 2× Poplar Sign. At night."
-   }
+   ]
   },
-  "textKo": "밤에 포플러나무 표지판라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelholzschild — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Poplar Sign is complete."
+  "textKo": "밤에 포플러나무 표지판을 두 개 세웠어요."
  },
  "reward": {
   "badge": "w12_02",
@@ -113,6 +82,5 @@
    "bell"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Myth of the Night"
+ "koreanLevel": 6
 }

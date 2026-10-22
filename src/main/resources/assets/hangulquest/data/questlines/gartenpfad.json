@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "gartenpfad",
  "titleKo": "정원의 길",
- "titleDe": "Der Gartenpfad",
+ "topic": "나무",
  "tier": 5,
  "order": 501,
  "concepts": [
-  "gen_mangrove_propagule",
-  "carrot",
-  "gen_deepslate_brick_wall",
-  "gen_rabbit_stew"
+  "brick",
+  "flower",
+  "gen_composter",
+  "beehive",
+  "bee"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -26,55 +27,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mangrove_propagule"
+    "brick"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:mangrove_propagule",
-    "count": 2
-   },
-   "clue": {
-    "de": "Baue 2× Mangroven-Keimling ab.",
-    "en": "Break 2× Mangrove Propagule."
-   },
-   "hint": {
-    "en": "Break 2× Mangrove Propagule."
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:bricks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "carrot"
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:carrot",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Karotte.",
-    "en": "Collect Carrot."
-   },
-   "hint": {
-    "en": "Collect Carrot."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:azure_bluet",
+    "relation": "NEXT_TO",
+    "pattern": "ROW",
+    "material": "minecraft:bricks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_deepslate_brick_wall"
+    "gen_composter"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:deepslate_brick_wall",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Tiefenschieferziegelmauer an.",
-    "en": "Look at Deepslate Brick Wall."
-   },
-   "hint": {
-    "en": "Look at Deepslate Brick Wall."
+    "type": "USE_BLOCK",
+    "block": "minecraft:composter"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "beehive"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:beehive",
+    "relation": "BETWEEN",
+    "anchor": "#minecraft:flowers",
+    "count": 1
    }
   }
  ],
@@ -82,41 +77,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_rabbit_stew"
+    "bee"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:rabbit_stew",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:bee",
+    "dwellMs": 1000
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:dandelion"
     }
-   ],
-   "clue": {
-    "de": "Iss Kaninchenragout. Nachts.",
-    "en": "Eat Rabbit Stew. At night."
-   },
-   "hint": {
-    "en": "Eat Rabbit Stew. At night."
-   }
+   ]
   },
-  "textKo": "밤에 토끼 스튜라는 길의 의식을 마쳤어요.",
-  "textDe": "Kaninchenragout — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Rabbit Stew is complete."
+  "textKo": "민들레 근처에서 꿀벌을 바라봤어요."
  },
  "reward": {
   "badge": "gartenpfad",
   "words": [
-   "wheat",
-   "carrot",
+   "brick",
    "flower",
-   "bread"
+   "gen_composter"
   ]
  },
  "koreanLevel": 2,
- "topic": "나무",
- "titleEn": "The Garden Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.loc_sai_e"
+ ]
 }

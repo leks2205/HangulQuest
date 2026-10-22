@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.sense;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -20,21 +21,40 @@ public final class ConsumptionTracker {
 	}
 
 	public List<String> update(Map<String, Integer> before, Map<String, Integer> after, long now) {
-		List<String> consumed = new ArrayList<>();
-		for (String item : new ArrayList<>(recent.keySet())) {
-			long usedAt = recent.getOrDefault(item, 0L);
-			if (now - usedAt > WINDOW_MS) {
-				recent.remove(item);
+		if (recent.isEmpty()) {
+			return List.of();
+		}
+		List<String> consumed = new ArrayList<>(1);
+		Iterator<Map.Entry<String, Long>> it = recent.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, Long> entry = it.next();
+			String item = entry.getKey();
+			if (now - entry.getValue() > WINDOW_MS) {
+				it.remove();
 				continue;
 			}
-			int had = before.getOrDefault(item, 0);
-			int has = after.getOrDefault(item, 0);
-			if (has < had) {
+			if (after.getOrDefault(item, 0) < before.getOrDefault(item, 0)) {
 				consumed.add(item);
-				recent.remove(item);
+				it.remove();
 			}
 		}
 		return consumed;
+	}
+
+	/**
+	 * Writes what was eaten straight into {@code obs}, the only place a consumption is recorded, so
+	 * one bite can never show up in two observations. Returns the consumed items.
+	 */
+	public List<String> credit(Observation obs, Map<String, Integer> before, Map<String, Integer> after,
+							   boolean night) {
+		List<String> eaten = update(before, after, obs.now);
+		for (String item : eaten) {
+			obs.consumedItems.add(item);
+			if (night) {
+				obs.consumedItemsAtNight.add(item);
+			}
+		}
+		return eaten;
 	}
 
 	public void clear() {

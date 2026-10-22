@@ -2,15 +2,15 @@
  "schema": 1,
  "id": "w4_08",
  "titleKo": "모래 정원",
- "titleDe": "Der Sandgarten",
  "topic": "모래",
  "tier": 2,
  "order": 1048,
  "concepts": [
-  "gen_mossy_stone_brick_wall",
-  "gen_armadillo",
-  "gen_flowering_azalea",
-  "gen_jungle_wood"
+  "sand",
+  "gen_cactus",
+  "water",
+  "fence",
+  "flower"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +23,56 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mossy_stone_brick_wall"
+    "sand"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mossy_stone_brick_wall",
-    "count": 5
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:sand",
+    "count": 3
    },
-   "clue": {
-    "de": "Platziere 5× Bemooste Steinziegelmauer.",
-    "en": "Place 5× Mossy Stone Brick Wall."
-   },
-   "hint": {
-    "en": "Place 5× Mossy Stone Brick Wall."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_armadillo"
+    "gen_cactus"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:armadillo",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Gürteltier an.",
-    "en": "Look at Armadillo."
-   },
-   "hint": {
-    "en": "Look at Armadillo."
+    "type": "PLACE_REL",
+    "block": "minecraft:cactus",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_flowering_azalea"
+    "water"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:flowering_azalea",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Blühende Azalee.",
-    "en": "Place 3× Flowering Azalea."
-   },
-   "hint": {
-    "en": "Place 3× Flowering Azalea."
+    "type": "PLACE_REL",
+    "block": "minecraft:sugar_cane",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "fence"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:jungle_fence",
+    "size": 3
    }
   }
  ],
@@ -79,40 +80,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_wood"
+    "flower",
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_wood",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    }
-   ],
-   "clue": {
-    "de": "Sammle Tropenholz. In einem passenden Biom.",
-    "en": "Collect Jungle Wood. In a fitting biome."
-   },
-   "hint": {
-    "en": "Collect Jungle Wood. In a fitting biome."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:allium",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:jungle_fence"
    }
   },
-  "textKo": "해변에서 정글나무라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholz — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Jungle Wood is complete."
+  "textKo": "울타리 안에 꽃을 심었어요."
  },
  "reward": {
   "badge": "w4_08",
   "words": [
    "sand",
-   "turtle",
-   "glass",
-   "turtle_egg"
+   "gen_cactus",
+   "fence",
+   "flower"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Sand Garden"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

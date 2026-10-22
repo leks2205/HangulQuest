@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_05",
  "titleKo": "은하의 제단",
- "titleDe": "Der Altar der Galaxie",
  "topic": "은하",
  "tier": 2,
  "order": 1115,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:polished_sulfur_wall",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Polierte Schwefelmauer.",
-    "en": "Place 3× Polished Sulfur Wall."
-   },
-   "hint": {
-    "en": "Place 3× Polished Sulfur Wall."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_exposed_chiseled_copper",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Gewachster angelaufener gemeißelter Kupferblock.",
-    "en": "Collect 8× Waxed Exposed Chiseled Copper."
-   },
-   "hint": {
-    "en": "Collect 8× Waxed Exposed Chiseled Copper."
    }
   },
   {
@@ -66,14 +51,8 @@
     "block": "minecraft:end_stone",
     "count": 8
    },
-   "clue": {
-    "de": "Setz acht Endsteinblöcke als Altarstufe.",
-    "en": "Place 8× End Stone."
-   },
    "hint": {
-    "ko": "엔드 돌은 엔드 섬에서 캐요.",
-    "de": "Endstein brichst du auf den Endinseln.",
-    "en": "Place 8× End Stone."
+    "ko": "엔드 돌은 엔드 섬에서 캐요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:magenta_bundle",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Magenta Bündel.",
-    "en": "Collect 2× Magenta Bundle."
-   },
-   "hint": {
-    "en": "Collect 2× Magenta Bundle."
-   }
+   "conditions": []
   },
-  "textKo": "자홍색 꾸러미라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta Bündel — Zeremonie vollendet.",
-  "textEn": "the ritual of Magenta Bundle is complete."
+  "textKo": "자홍색 꾸러미를 두 개 만들었어요."
  },
  "reward": {
   "badge": "w11_05",
@@ -110,6 +80,5 @@
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Altar of the Galaxy"
+ "koreanLevel": 6
 }

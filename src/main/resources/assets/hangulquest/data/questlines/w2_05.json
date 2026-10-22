@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w2_05",
  "titleKo": "계절의 문",
- "titleDe": "Das Tor der Jahreszeiten",
  "topic": "계절",
  "tier": 1,
  "order": 1025,
  "concepts": [
-  "gen_snowy_slopes",
-  "leaves",
+  "door",
   "flower",
-  "gen_waxed_copper_trapdoor"
+  "sunflower",
+  "snow_block"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,59 +20,50 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snowy_slopes"
+    "door"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:snowy_slopes",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Verschneite Hänge.",
-    "en": "Reach Snowy Slopes."
-   },
-   "hint": {
-    "en": "Reach Snowy Slopes."
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:oak_door",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "leaves"
+    "flower"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:oak_leaves",
-    "count": 5
+    "type": "PLACE_REL",
+    "block": "minecraft:oxeye_daisy",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
    },
    "clue": {
-    "de": "Pflück fünf Blätter vom Baum.",
-    "en": "Break 5× Oak Leaves."
+    "ko": "봄이에요. 문 옆에 꽃을 심어요."
    },
    "hint": {
-    "ko": "나뭇잎은 나무에 달려 있어요.",
-    "de": "Blätter hängen an den Bäumen.",
-    "en": "Break 5× Oak Leaves."
+    "ko": "봄이에요. 문 옆에 꽃을 심어요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "flower"
+    "sunflower"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:poppy",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:sunflower",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
+    "count": 1
    },
    "clue": {
-    "de": "Pflück drei Blumen am Wegrand.",
-    "en": "Break 3× Poppy."
+    "ko": "여름이에요. 문 앞에 해바라기를 심어요."
    },
    "hint": {
-    "ko": "꽃은 땅에서 자라요.",
-    "de": "Blumen wachsen auf der Erde.",
-    "en": "Break 3× Poppy."
+    "ko": "여름이에요. 문 앞에 해바라기를 심어요."
    }
   }
  ],
@@ -81,40 +71,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_copper_trapdoor"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_copper_trapdoor",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:snow_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:doors",
+    "count": 1
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DUSK"
-    }
-   ],
    "clue": {
-    "de": "Platziere 2× Gewachste Kupferfalltür. In der Dämmerung.",
-    "en": "Place 2× Waxed Copper Trapdoor. At dusk."
+    "ko": "겨울이에요. 문 위에 눈 블록을 놓아요."
    },
    "hint": {
-    "en": "Place 2× Waxed Copper Trapdoor. At dusk."
+    "ko": "겨울이에요. 문 위에 눈 블록을 놓아요."
    }
   },
-  "textKo": "저녁에 밀랍칠한 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachste Kupferfalltür — Zeremonie vollendet.",
-  "textEn": "At dusk the ritual of Waxed Copper Trapdoor is complete."
+  "textKo": "문 위에 눈 블록을 놓았어요."
  },
  "reward": {
   "badge": "w2_05",
   "words": [
-   "forest",
-   "leaves",
+   "door",
    "flower",
-   "lantern"
+   "sunflower",
+   "snow_block"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Gate of the Seasons"
+ "koreanLevel": 1
 }

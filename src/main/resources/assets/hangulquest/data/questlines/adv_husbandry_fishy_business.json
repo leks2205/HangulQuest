@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_fishy_business",
  "titleKo": "강태공이 세월을 낚듯",
- "titleDe": "Anglerglück",
- "topic": "husbandry",
+ "topic": "낚시",
  "tier": 2,
  "order": 264,
  "concepts": [
-  "string",
+  "river",
   "fishing_rod",
-  "gen_jungle_chest_boat"
+  "fish",
+  "fish_dish"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,20 +22,19 @@
   {
    "id": "s1",
    "teach": [
-    "string"
+    "river"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:string",
-    "count": 2
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_river",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sammle zwei Fäden von Spinnen oder aus einer Mine.",
-    "en": "Collect 2× String."
-   },
-   "hint": {
-    "en": "Collect 2× String."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -43,53 +42,67 @@
     "fishing_rod"
    ],
    "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:water",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish"
+   ],
+   "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:fishing_rod",
+    "item": "minecraft:salmon",
     "count": 1
    },
-   "clue": {
-    "de": "Baue aus Stöcken und Fäden eine Angel.",
-    "en": "Collect Fishing Rod."
-   },
-   "hint": {
-    "ko": "낚싯대는 막대기 세 개와 실 두 개로 만들어요.",
-    "de": "Eine Angel braucht drei Stöcke und zwei Fäden.",
-    "en": "Collect Fishing Rod."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    },
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:river"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_chest_boat"
+    "fish_dish"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_chest_boat",
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_salmon",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Tropenholztruhenboot.",
-    "en": "Collect Jungle Boat with Chest."
-   },
-   "hint": {
-    "en": "Collect Jungle Boat with Chest."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:river"
+    }
+   ]
   },
-  "textKo": "상자가 실린 정글나무 보트라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholztruhenboot — Zeremonie vollendet.",
-  "textEn": "the ritual of Jungle Boat with Chest is complete."
+  "textKo": "강에서 생선을 먹었어요."
  },
  "reward": {
   "badge": "adv_husbandry_fishy_business",
   "words": [
-   "string",
+   "river",
    "fishing_rod",
-   "fish"
+   "fish",
+   "fish_dish"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Fishy Business"
+ "koreanLevel": 1
 }

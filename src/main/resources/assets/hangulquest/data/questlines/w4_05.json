@@ -2,15 +2,15 @@
  "schema": 1,
  "id": "w4_05",
  "titleKo": "밤바다 등불",
- "titleDe": "Lichter am Nachtmeer",
  "topic": "밤바다",
  "tier": 2,
  "order": 1045,
  "concepts": [
-  "gen_waxed_weathered_chiseled_copper",
-  "gen_black_concrete",
-  "gen_piglin_banner_pattern",
-  "gen_dead_horn_coral_block"
+  "fence",
+  "gen_copper_lantern",
+  "gen_black_banner",
+  "swim",
+  "squid"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,100 +23,113 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_weathered_chiseled_copper"
+    "fence"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:waxed_weathered_chiseled_copper",
-    "count": 8
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:birch_fence",
+    "size": 3
    },
-   "clue": {
-    "de": "Baue 8× Gewachster verwitterter gemeißelter Kupferblock ab.",
-    "en": "Break 8× Waxed Weathered Chiseled Copper."
-   },
-   "hint": {
-    "en": "Break 8× Waxed Weathered Chiseled Copper."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_black_concrete"
+    "gen_copper_lantern",
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:black_concrete",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:copper_lantern",
+    "relation": "ON_TOP_OF",
+    "pattern": "RING",
+    "material": "minecraft:birch_fence"
    },
-   "clue": {
-    "de": "Platziere 2× Schwarzer Beton.",
-    "en": "Place 2× Black Concrete."
-   },
-   "hint": {
-    "en": "Place 2× Black Concrete."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_piglin_banner_pattern"
+    "gen_black_banner",
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:piglin_banner_pattern",
-    "count": 2
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:black_banner",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:birch_fence"
    },
-   "clue": {
-    "de": "Sammle 2× Bannervorlage.",
-    "en": "Collect 2× Banner Pattern."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "swim"
+   ],
+   "goal": {
+    "type": "SWIM",
+    "blocks": 20
    },
-   "hint": {
-    "en": "Collect 2× Banner Pattern."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dead_horn_coral_block"
+    "squid"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dead_horn_coral_block",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:squid",
+    "dwellMs": 800
    },
    "conditions": [
     {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    },
-    {
      "type": "TIME",
      "phase": "NIGHT"
+    },
+    {
+     "type": "IN_WATER"
     }
-   ],
-   "clue": {
-    "de": "Platziere Abgestorbener Geweihkorallenblock. In einem passenden Biom. Nachts.",
-    "en": "Place Dead Horn Coral Block. In a fitting biome. At night."
-   },
-   "hint": {
-    "en": "Place Dead Horn Coral Block. In a fitting biome. At night."
-   }
+   ]
   },
-  "textKo": "해변에서 밤에 죽은 사방산호 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbener Geweihkorallenblock — Zeremonie vollendet.",
-  "textEn": "On the beach By night the ritual of Dead Horn Coral Block is complete."
+  "textKo": "밤에 물속에서 오징어를 바라봤어요."
  },
  "reward": {
   "badge": "w4_05",
   "words": [
-   "sand",
-   "sea_lantern",
-   "fish",
-   "campfire"
+   "fence",
+   "gen_copper_lantern",
+   "gen_black_banner",
+   "squid"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Lights on the Night Sea"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

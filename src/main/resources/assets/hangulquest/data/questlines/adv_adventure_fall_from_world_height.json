@@ -2,14 +2,16 @@
  "schema": 1,
  "id": "adv_adventure_fall_from_world_height",
  "titleKo": "동굴과 절벽",
- "titleDe": "Höhlen & Klippen",
  "topic": "adventure",
  "tier": 2,
  "order": 208,
  "concepts": [
-  "gen_waxed_exposed_cut_copper",
-  "mushroom",
-  "gen_poplar_log"
+  "gen_grove",
+  "gen_powder_snow_bucket",
+  "gen_powder_snow",
+  "stone",
+  "climb",
+  "go_down"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,71 +24,90 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_exposed_cut_copper"
+    "gen_grove"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_exposed_cut_copper",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gewachster angelaufener geschnittener Kupferblock.",
-    "en": "Collect Waxed Exposed Cut Copper."
-   },
-   "hint": {
-    "en": "Collect Waxed Exposed Cut Copper."
+    "type": "REACH_BIOME",
+    "biome": "minecraft:grove",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "mushroom"
+    "gen_powder_snow_bucket"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:red_mushroom",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Roter Pilz.",
-    "en": "Place 3× Red Mushroom."
-   },
-   "hint": {
-    "en": "Place 3× Red Mushroom."
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:powder_snow_bucket",
+    "count": 1
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_powder_snow",
+    "stone"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:powder_snow",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:stone",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "climb"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 120,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_log"
+    "go_down"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_log",
-    "count": 3
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 62
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Pappelstamm.",
-    "en": "Place 3× Poplar Log."
-   },
-   "hint": {
-    "en": "Place 3× Poplar Log."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bucket"
+    }
+   ]
   },
-  "textKo": "포플러나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Pappelstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Poplar Log is complete."
+  "textKo": "높은 곳에서 가루눈 위로 떨어졌어요. 눈은 부드러워요."
  },
  "reward": {
   "badge": "adv_adventure_fall_from_world_height",
   "words": [
-   "water",
-   "height"
+   "height",
+   "fall",
+   "snow"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Caves & Cliffs"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.go_held",
+  "L2.num_sino"
+ ]
 }

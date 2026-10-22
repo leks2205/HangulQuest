@@ -11,7 +11,7 @@
 
 ## No quests appear
 
-- Press `K` → **Optionen** → is **Quests** on?
+- Press `K` → **Settings** → is **Quests** on?
 - The first trail starts when you enter a world; if you abandoned everything, the **Quests** tab lists
   open roots. Pick one.
 - If you are on a server with a very restrictive client mod policy, no quest can finish, because the
@@ -31,10 +31,11 @@ counter (`1/3`) or the dwell percentage. Common causes:
 
 ## A quest does not advance
 
-Check the journal's **Quests** tab: only quests with the **Im Log** checkbox ticked are checked against
-the world. A quest that is listed as `○ offen` or `▸ im Log` but not highlighted still advances; one that
-lost its tick does not, on purpose — that is how the mod keeps you from completing quests you are not
-reading.
+Check the journal's **Quests** tab: only quests with the **In log** checkbox ticked are checked against
+the world. A quest that is listed as `▸ in log` but not highlighted still advances; `○ open` does not, on purpose:
+that is how the mod keeps you from completing quests you are not reading. The game also takes quests out of the log
+when you finish them and may fill the slots again; switch *Pick quests automatically* off in the settings to choose
+everything yourself.
 
 ## My own questline does not show up
 
@@ -58,15 +59,27 @@ The quiz picks distractors from words you have already met, so with a small voca
 similar. It gets easier as the dictionary grows. You can also turn **Auto-Quiz** off and practise only in
 the journal and the sidequests.
 
+## A window stays on the screen
+
+That is on purpose: hints, rule cards, banners and the quiz prompt wait until you close them. Press `H` (or your
+hint key) once per window; a "+N" badge says how many are waiting. If you would rather have them close by
+themselves, switch on *Auto-close windows* in the settings.
+
+## Some text is in English although I chose another language
+
+Spanish and French cover the interface completely but only part of the quest text so far, and a text a language
+lacks is shown in English. You can help: see [Contributing](contributing.md).
+
 ## Progress disappeared after an update
 
-Look in `config/hangulquest/` for `progress.v1-backup-*.json` (migration) or
-`progress.json.broken-*` (unreadable file). Rename the backup to `progress.json` with the game closed to
-restore it. See [Files and backups](files.md).
+Look in `config/hangulquest/profiles/<account-id>/` for `progress.v*-backup-*.json` (migration),
+`progress.json.broken-*` (unreadable file) and `backups/` (daily and weekly copies). Rename the backup to
+`progress.json` with the game closed to restore it. The `progress.json` of 2.x in `config/hangulquest/` is never
+changed by 3.0 either. See [Files and backups](files.md).
 
 ## I want to start over
 
-**Optionen** → **Fortschritt zurücksetzen**, twice. It writes a backup first. For a complete reset,
+**Settings** → **Reset progress**, twice. It writes a backup first. For a complete reset,
 delete `config/hangulquest/`.
 
 ## Something else

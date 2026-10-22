@@ -2,14 +2,17 @@
  "schema": 1,
  "id": "adv_adventure_spyglass_at_parrot",
  "titleKo": "새인가?",
- "titleDe": "Ist es ein Vogel?",
  "topic": "adventure",
  "tier": 2,
  "order": 231,
  "concepts": [
-  "gen_dead_brain_coral_block",
-  "gen_meadow",
-  "parrot"
+  "jungle",
+  "make",
+  "walk",
+  "sapling",
+  "log",
+  "parrot",
+  "look"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +25,74 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dead_brain_coral_block"
+    "jungle"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_brain_coral_block",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:sparse_jungle",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sammle Abgestorbener Hirnkorallenblock.",
-    "en": "Collect Dead Brain Coral Block."
-   },
-   "hint": {
-    "en": "Collect Dead Brain Coral Block."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_meadow"
+    "make"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:meadow",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Alm.",
-    "en": "Reach Meadow."
-   },
-   "hint": {
-    "en": "Reach Meadow."
+    "type": "CRAFT",
+    "item": "minecraft:spyglass",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "walk"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:spyglass",
+    "inner": {
+     "type": "TIME",
+     "phase": "DAY"
+    },
+    "seconds": 10
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sapling",
+    "log"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:spyglass",
+    "inner": {
+     "type": "PLACE_REL",
+     "block": "minecraft:jungle_sapling",
+     "relation": "NEXT_TO",
+     "anchor": "#minecraft:logs",
+     "count": 1
+    }
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "parrot"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:wheat_seeds",
+    "entity": "minecraft:parrot",
+    "count": 1
    }
   }
  ],
@@ -60,33 +100,34 @@
   "step": {
    "id": "finale",
    "teach": [
-    "parrot"
+    "parrot",
+    "look"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:parrot",
-    "dwellMs": 600
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Look at Parrot."
-   },
-   "hint": {
-    "en": "Look at Parrot."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:spyglass",
+    "inner": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:parrot",
+     "dwellMs": 1000
+    }
    }
   },
-  "textKo": "새인가? — 망원경으로 앵무새를 봐요. 색이 알록달록해요.",
-  "textDe": "Ist es ein Vogel? — Durch das Fernrohr siehst du einen bunten Papagei.",
-  "textEn": "the ritual of Parrot is complete."
+  "textKo": "망원경을 들고 앵무새를 바라봤어요."
  },
  "reward": {
   "badge": "adv_adventure_spyglass_at_parrot",
   "words": [
-   "look",
-   "jungle",
-   "parrot"
+   "parrot",
+   "bird",
+   "look"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Is It a Bird?"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.ege",
+  "L2.go_held"
+ ]
 }

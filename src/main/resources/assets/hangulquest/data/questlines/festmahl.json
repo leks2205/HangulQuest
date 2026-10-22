@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "festmahl",
  "titleKo": "잔치의 길",
- "titleDe": "Das Festmahl",
+ "topic": "음식",
  "tier": 2,
  "order": 330,
  "concepts": [
-  "milk",
-  "egg",
-  "pork"
+  "planks",
+  "cake",
+  "meat"
  ],
  "requires": {
   "minWordsKnown": 6,
@@ -21,55 +21,59 @@
   {
    "id": "s1",
    "teach": [
-    "milk"
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:milk_bucket",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle eine Milch.",
-    "en": "Collect Milk Bucket."
-   },
-   "hint": {
-    "en": "Collect Milk Bucket."
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:birch_planks",
+    "size": 3
    }
   },
   {
    "id": "s2",
    "teach": [
-    "egg"
+    "cake"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:egg",
-    "count": 1
+    "type": "CRAFT",
+    "item": "minecraft:cake",
+    "count": 1,
+    "with": [
+     "minecraft:wheat",
+     "minecraft:sugar"
+    ]
    },
-   "clue": {
-    "de": "Sammle ein Ei.",
-    "en": "Collect Egg."
-   },
-   "hint": {
-    "en": "Collect Egg."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "pork"
+    "cake"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cooked_porkchop",
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cake",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:birch_planks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "meat"
+   ],
+   "goal": {
+    "type": "SMELT",
+    "output": "minecraft:cooked_porkchop",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gebratenes Schweinefleisch.",
-    "en": "Collect Cooked Porkchop."
-   },
-   "hint": {
-    "en": "Collect Cooked Porkchop."
    }
   }
  ],
@@ -77,7 +81,7 @@
   "step": {
    "id": "finale",
    "teach": [
-    "pork"
+    "meat"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
@@ -86,31 +90,21 @@
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cake"
     }
-   ],
-   "clue": {
-    "de": "Iss Gebratenes Schweinefleisch. Nachts.",
-    "en": "Eat Cooked Porkchop. At night."
-   },
-   "hint": {
-    "en": "Eat Cooked Porkchop. At night."
-   }
+   ]
   },
-  "textKo": "밤에 익힌 돼지고기라는 길의 의식을 마쳤어요.",
-  "textDe": "Gebratenes Schweinefleisch — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Cooked Porkchop is complete."
+  "textKo": "케이크 옆에서 고기를 먹었어요. 고기는 맛있어요."
  },
  "reward": {
   "badge": "festmahl",
   "words": [
-   "milk",
-   "egg",
-   "cake"
+   "planks",
+   "cake",
+   "meat"
   ]
  },
- "koreanLevel": 2,
- "topic": "음식",
- "titleEn": "The Feast"
+ "koreanLevel": 2
 }

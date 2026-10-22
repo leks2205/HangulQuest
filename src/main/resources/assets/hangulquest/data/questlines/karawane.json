@@ -2,13 +2,12 @@
  "schema": 1,
  "id": "karawane",
  "titleKo": "대상단",
- "titleDe": "Die Karawane",
  "tier": 4,
  "order": 532,
  "concepts": [
   "gen_sniffer",
   "gen_polished_diorite_stairs",
-  "gen_test_block",
+  "adv_item_lead",
   "gen_jungle_slab"
  ],
  "requires": {
@@ -30,13 +29,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:sniffer",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Schnüffler an.",
-    "en": "Look at Sniffer."
-   },
-   "hint": {
-    "en": "Look at Sniffer."
    }
   },
   {
@@ -48,31 +40,17 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:polished_diorite_stairs",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Polierte Diorittreppe.",
-    "en": "Collect 4× Polished Diorite Stairs."
-   },
-   "hint": {
-    "en": "Collect 4× Polished Diorite Stairs."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_test_block"
+    "adv_item_lead"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:test_block",
+    "item": "minecraft:lead",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Testblock.",
-    "en": "Collect 3× Test Block."
-   },
-   "hint": {
-    "en": "Collect 3× Test Block."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Tropenholzstufe. Tagsüber.",
-    "en": "Place 3× Jungle Slab. During the day."
-   },
-   "hint": {
-    "en": "Place 3× Jungle Slab. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 정글나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Tropenholzstufe — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Jungle Slab is complete."
+  "textKo": "낮에 정글나무 반 블록을 세 개 놓았어요."
  },
  "reward": {
   "badge": "karawane",
@@ -115,6 +84,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "동물",
- "titleEn": "The Caravan"
+ "topic": "동물"
 }

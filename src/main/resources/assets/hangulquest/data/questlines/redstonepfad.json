@@ -2,12 +2,10 @@
  "schema": 1,
  "id": "redstonepfad",
  "titleKo": "레드스톤의 길",
- "titleDe": "Der Redstonepfad",
  "topic": "레드스톤",
  "tier": 2,
  "order": 100,
  "concepts": [
-  "redstone",
   "redstone_torch",
   "lever"
  ],
@@ -22,25 +20,29 @@
   {
    "id": "s1",
    "teach": [
-    "redstone"
+    "redstone_torch"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:redstone_ore",
-    "count": 3
-   },
-   "clue": {
-    "de": "Baue drei Redstone-Erze ab.",
-    "en": "Break 3× Redstone Ore."
-   },
-   "hint": {
-    "ko": "철 곡괭이로 레드스톤 원석을 캐요.",
-    "de": "Baue Redstone-Erz mit einer Eisenspitzhacke ab.",
-    "en": "Break 3× Redstone Ore."
+    "type": "CRAFT",
+    "item": "minecraft:redstone_torch",
+    "count": 1
    }
   },
   {
    "id": "s2",
+   "teach": [
+    "lever"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:lever",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
    "teach": [
     "redstone_torch"
    ],
@@ -49,16 +51,17 @@
     "block": "minecraft:redstone_torch",
     "count": 2
    },
-   "clue": {
-    "de": "Setz zwei Redstonefackeln.",
-    "en": "Place 2× Redstone Torch."
-   },
-   "hint": {
-    "en": "Place 2× Redstone Torch."
-   }
-  },
-  {
-   "id": "s3",
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "lever"
    ],
@@ -66,46 +69,21 @@
     "type": "USE_BLOCK",
     "block": "minecraft:lever"
    },
-   "clue": {
-    "de": "Benutz einen Hebel.",
-    "en": "Use Lever."
-   },
-   "hint": {
-    "en": "Use Lever."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "redstone"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone",
-    "count": 16
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 16× Redstone Dust."
-   },
-   "hint": {
-    "en": "Collect 16× Redstone Dust."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "레드스톤을 모아요.",
-  "textDe": "Redstone sammeln.",
-  "textEn": "the ritual of Redstone Dust is complete."
+  "textKo": "밤에 레버를 당겼어요."
  },
  "reward": {
   "badge": "redstonepfad",
   "words": [
-   "redstone",
    "redstone_torch",
    "lever"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Redstone Trail"
+ "koreanLevel": 1
 }

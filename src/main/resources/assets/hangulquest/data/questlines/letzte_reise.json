@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "letzte_reise",
  "titleKo": "엔드의 끝",
- "titleDe": "Free the End",
  "topic": "엔드",
  "tier": 4,
  "order": 80,
@@ -31,13 +30,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:gray_stained_glass",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Graues Glas.",
-    "en": "Place Gray Stained Glass."
-   },
-   "hint": {
-    "en": "Place Gray Stained Glass."
    }
   },
   {
@@ -49,13 +41,6 @@
     "type": "DEFEAT_ENTITY",
     "entity": "minecraft:ravager",
     "count": 1
-   },
-   "clue": {
-    "de": "Besiege Verwüster.",
-    "en": "Defeat Ravager."
-   },
-   "hint": {
-    "en": "Defeat Ravager."
    }
   },
   {
@@ -67,13 +52,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:yellow_banner",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gelbes Banner.",
-    "en": "Collect Yellow Banner."
-   },
-   "hint": {
-    "en": "Collect Yellow Banner."
    }
   }
  ],
@@ -88,17 +66,9 @@
     "block": "minecraft:dragon_egg",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Dragon Egg."
-   },
-   "hint": {
-    "en": "Place Dragon Egg."
-   }
+   "conditions": []
   },
-  "textKo": "드래곤 알을 놓아 엔드를 자유롭게 해요.",
-  "textDe": "Das Drachenei befreit das Ende.",
-  "textEn": "the ritual of Dragon Egg is complete."
+  "textKo": "드래곤 알을 놓아 엔드를 자유롭게 해요."
  },
  "reward": {
   "badge": "letzte_reise",
@@ -108,6 +78,5 @@
    "dragon_egg"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "Free the End"
+ "koreanLevel": 6
 }

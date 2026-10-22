@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "riesenfest",
  "titleKo": "큰 잔치",
- "titleDe": "Das Riesenfest",
  "tier": 5,
  "order": 531,
  "concepts": [
@@ -32,13 +31,6 @@
     "type": "CONSUME_ITEM",
     "item": "minecraft:dried_kelp",
     "count": 1
-   },
-   "clue": {
-    "de": "Iss Getrockneter Seetang.",
-    "en": "Eat Dried Kelp."
-   },
-   "hint": {
-    "en": "Eat Dried Kelp."
    }
   },
   {
@@ -50,13 +42,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:piglin_brute",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Piglin-Barbar an.",
-    "en": "Look at Piglin Brute."
-   },
-   "hint": {
-    "en": "Look at Piglin Brute."
    }
   },
   {
@@ -68,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:weathered_copper_bulb",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Verwitterte Kupferleuchte.",
-    "en": "Place Weathered Copper Bulb."
-   },
-   "hint": {
-    "en": "Place Weathered Copper Bulb."
    }
   }
  ],
@@ -94,18 +72,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Blasseichenholzzaun. Tagsüber.",
-    "en": "Place 3× Pale Oak Fence. During the day."
-   },
-   "hint": {
-    "en": "Place 3× Pale Oak Fence. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 창백한 참나무 울타리라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenholzzaun — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Pale Oak Fence is complete."
+  "textKo": "낮에 창백한 참나무 울타리를 세 개 놓았어요."
  },
  "reward": {
   "badge": "riesenfest",
@@ -116,6 +85,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "나무",
- "titleEn": "The Giant's Feast"
+ "topic": "나무"
 }

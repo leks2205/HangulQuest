@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "adv_adventure_crafters_crafting_crafters",
  "titleKo": "제작기 제 자신 제작기",
- "titleDe": "Werker werkeln Werker",
  "topic": "adventure",
  "tier": 2,
  "order": 207,
  "concepts": [
   "adv_item_crafter",
-  "gen_zombie_head"
+  "sign",
+  "lever"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,17 +24,9 @@
     "adv_item_crafter"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:crafter",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue den ersten Werker aus Eisen, Werkbank, Spender und Redstone.",
-    "en": "Collect Crafter."
-   },
-   "hint": {
-    "ko": "철 주괴 다섯 개와 작업대와 공급기와 레드스톤으로 만들어요.",
-    "en": "Collect Crafter."
    }
   },
   {
@@ -43,16 +35,37 @@
     "adv_item_crafter"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_REL",
     "block": "minecraft:crafter",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:chest",
     "count": 1
-   },
-   "clue": {
-    "de": "Stelle den Werker auf und lege ein Rezept in seine Fächer.",
-    "en": "Place Crafter."
-   },
-   "hint": {
-    "en": "Place Crafter."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "sign"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:acacia_sign",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:crafter",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "lever"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:lever",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:crafter",
+    "count": 1
    }
   }
  ],
@@ -60,32 +73,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_zombie_head"
+    "lever"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:zombie_head",
-    "count": 2
+    "type": "USE_BLOCK",
+    "block": "minecraft:lever"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Zombiekopf.",
-    "en": "Collect 2× Zombie Head."
-   },
-   "hint": {
-    "en": "Collect 2× Zombie Head."
-   }
+   "conditions": []
   },
-  "textKo": "좀비 머리라는 길의 의식을 마쳤어요.",
-  "textDe": "Zombiekopf — Zeremonie vollendet.",
-  "textEn": "the ritual of Zombie Head is complete."
+  "textKo": "레버를 당겼어요."
  },
  "reward": {
   "badge": "adv_adventure_crafters_crafting_crafters",
   "words": [
-   "adv_item_crafter"
+   "adv_item_crafter",
+   "sign",
+   "lever"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Crafters Crafting Crafters"
+ "grammar": [
+  "L2.seyo"
+ ]
 }

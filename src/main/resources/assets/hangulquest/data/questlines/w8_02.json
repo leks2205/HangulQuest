@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_02",
  "titleKo": "엔더의 눈",
- "titleDe": "Das Auge des Enders",
  "topic": "눈",
  "tier": 2,
  "order": 1082,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:blue_banner",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Blaues Banner.",
-    "en": "Collect 6× Blue Banner."
-   },
-   "hint": {
-    "en": "Collect 6× Blue Banner."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:buried_mineshaft_map",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Minenkarte.",
-    "en": "Collect 6× Buried Mineshaft Map."
-   },
-   "hint": {
-    "en": "Collect 6× Buried Mineshaft Map."
    }
   },
   {
@@ -66,14 +51,8 @@
     "block": "minecraft:stone_bricks",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sieh dir die Steinziegel der Festung an.",
-    "en": "Look at Stone Bricks."
-   },
    "hint": {
-    "ko": "석재 벽돌은 돌을 구워서 만들어요.",
-    "de": "Steinziegel brennst du aus Stein.",
-    "en": "Look at Stone Bricks."
+    "ko": "석재 벽돌은 돌 네 개로 만들어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:stripped_acacia_log",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 3× Entrindeter Akazienstamm.",
-    "en": "Place 3× Stripped Acacia Log."
-   },
-   "hint": {
-    "en": "Place 3× Stripped Acacia Log."
-   }
+   "conditions": []
   },
-  "textKo": "껍질 벗긴 아카시아나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Akazienstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Stripped Acacia Log is complete."
+  "textKo": "껍질 벗긴 아카시아나무 원목을 세 개 놓았어요."
  },
  "reward": {
   "badge": "w8_02",
@@ -110,6 +80,5 @@
    "adv_block_end_stone"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Eye of Ender"
+ "koreanLevel": 4
 }

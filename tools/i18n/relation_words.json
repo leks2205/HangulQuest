@@ -1,0 +1,62 @@
+{
+	"en": {
+		"relation": ["on top of", "onto", "on", "upon", "at", "under", "underneath", "below", "beneath", "above", "over", "next to", "beside", "by", "near", "nearby", "close to", "in front of", "behind", "inside", "into", "in", "within", "outside", "out of", "between", "among", "around"],
+		"order": ["first", "then", "after", "afterwards", "before", "next", "finally", "later"]
+	},
+	"de": {
+		"clauseEndParticles": ["auf", "an", "aus", "ein"],
+		"relation": ["auf", "über", "oben", "drauf", "darauf", "obendrauf", "darüber", "unter", "unten", "darunter", "neben", "daneben", "nahe", "in der Nähe", "vor", "davor", "vorne", "hinter", "dahinter", "hinten", "ins", "in den", "in die", "in das", "hinein", "drin", "drinnen", "darin", "innen", "außen", "draußen", "außerhalb", "zwischen", "dazwischen", "herum"],
+		"order": ["zuerst", "erst", "dann", "danach", "vorher", "bevor", "nachdem", "anschließend", "als Erstes", "als Nächstes", "zum Schluss"],
+		"conditions": ["unter der Erde", "unter Wasser", "im Regen", "in der Hand", "in der Tiefe", "unter einem Dach", "unter dem Dach"]
+	},
+	"es": {
+		"relation": ["encima", "arriba", "sobre", "debajo", "abajo", "bajo", "junto", "al lado", "a un lado", "al costado", "pegado", "pegada", "cerca", "cerquita", "próximo", "delante", "enfrente", "frente a", "al frente", "detrás", "atrás", "tras", "a espaldas de", "al fondo", "dentro", "adentro", "interior", "fuera", "afuera", "exterior", "entre", "en medio", "en el medio", "alrededor", "adyacente", "contiguo", "en lo alto", "en la cima", "en el suelo", "en el piso"],
+		"order": ["primero", "primer", "primera", "luego", "después", "antes", "a continuación", "seguidamente", "posteriormente", "tras", "entonces", "acto seguido", "por último"],
+		"conditions": ["bajo tierra", "bajo el agua", "bajo la lluvia", "en la mano", "en las manos", "en tu mano", "bajo techo", "bajo un techo", "bajo el techo"]
+	},
+	"pt": {
+		"relation": ["em cima", "por cima", "acima", "sobre", "embaixo", "em baixo", "debaixo", "por baixo", "abaixo", "sob", "ao lado", "lado a lado", "junto", "perto", "próximo", "rente", "colado", "ao pé de", "ao redor", "em volta", "em torno", "em frente", "frente a", "à frente", "na frente", "diante", "atrás", "por trás", "detrás", "dentro", "interior", "fora", "exterior", "no meio", "entre", "adjacente", "no chão", "no topo"],
+		"order": ["primeiro", "primeira", "depois", "antes", "em seguida", "a seguir", "então", "após", "posteriormente", "por fim", "por último"],
+		"conditions": ["debaixo da terra", "embaixo da terra", "debaixo d'água", "embaixo d'água", "debaixo da água", "sob a chuva", "na chuva", "na mão", "nas mãos", "sob um teto", "sob o teto", "debaixo de um teto"]
+	},
+	"fr": {
+		"relation": ["sur", "dessus", "sous", "dessous", "en haut", "en bas", "là-haut", "au sol", "par terre", "à côté", "côte à côte", "près", "proche", "proximité", "contre", "collé", "au pied de", "devant", "en face", "face à", "derrière", "arrière", "intérieur", "dedans", "dehors", "extérieur", "hors", "entre", "parmi", "milieu", "autour", "adjacent"],
+		"order": ["d'abord", "ensuite", "puis", "avant", "après", "premièrement", "deuxièmement", "premier", "première", "deuxième", "au début", "par la suite", "à la suite"],
+		"conditions": ["sous terre", "sous l'eau", "sous la pluie", "en main", "dans la main", "dans ta main", "dans votre main", "sous un toit", "sous le toit", "à l'abri"]
+	},
+	"id": {
+		"relation": ["atas", "bawah", "samping", "sebelah", "dekat", "depan", "belakang", "di dalam", "ke dalam", "dari dalam", "bagian dalam", "sisi dalam", "luar", "antara", "di tengah", "sekitar", "sekeliling", "berdampingan", "bersebelahan", "berhadapan", "di lantai", "di tanah", "atasnya", "bawahnya", "sampingnya", "sebelahnya", "depannya", "belakangnya", "dalamnya", "luarnya", "dekatnya"],
+		"order": ["pertama", "lalu", "kemudian", "setelah", "sebelum", "sesudah", "selanjutnya", "berikutnya", "mula-mula", "dahulu", "dulu", "habis itu", "abis itu", "lantas", "usai", "sebelumnya", "sesudahnya"],
+		"conditions": ["di bawah tanah", "di dalam air", "di bawah air", "di bawah hujan", "saat hujan", "di tangan", "di bawah atap"]
+	},
+	"vi": {
+		"relation": ["trên", "dưới", "cạnh", "kế bên", "kề", "sát bên", "gần", "đối diện", "lân cận", "phía trước", "đằng trước", "trước mặt", "ở trước", "ngay trước", "phía sau", "đằng sau", "sau lưng", "ở sau", "ngay sau", "bên trong", "phía trong", "ở trong", "ngoài", "giữa", "quanh", "mặt đất"],
+		"order": ["đầu tiên", "trước", "rồi", "tiếp theo", "tiếp đó", "kế tiếp", "kế đến", "sau", "thứ nhất", "thứ hai"]
+	},
+	"ja": {
+		"substring": true,
+		"relation": ["の上", "上に", "上方", "上部", "真上", "頭上", "上側", "の下", "下に", "下方", "下部", "真下", "下側", "直下", "地面に", "床に", "の横", "横に", "横で", "隣", "となり", "脇に", "そばに", "のそば", "傍ら", "近く", "付近", "周り", "まわり", "周囲", "周辺", "辺り", "の前", "手前", "前方", "正面", "向かい", "後ろ", "うしろ", "後方", "背後", "の裏", "裏に", "裏側", "の中", "中に", "内側", "内部", "屋内", "の外", "外に", "外側", "外部", "屋外", "の間", "あいだ"],
+		"order": ["まず", "最初に", "最初の", "初めに", "はじめに", "先に", "次に", "つぎに", "次いで", "続いて", "それから", "その後", "あとで", "後で", "前に", "後に", "てから"]
+	},
+	"zh": {
+		"substring": true,
+		"relation": ["上面", "上方", "上边", "上邊", "上头", "上頭", "之上", "顶上", "頂上", "顶部", "頂部", "地上", "地面", "下面", "下方", "下边", "下邊", "下头", "下頭", "之下", "底下", "底部", "旁边", "旁邊", "身旁", "边上", "邊上", "隔壁", "紧挨", "緊挨", "挨着", "挨著", "紧邻", "緊鄰", "靠近", "前面", "前方", "前边", "前邊", "前头", "前頭", "面前", "跟前", "对面", "對面", "后面", "後面", "后方", "後方", "后边", "後邊", "后头", "後頭", "背后", "背後", "里面", "裡面", "里边", "裡邊", "里头", "裡頭", "内部", "內部", "内侧", "內側", "之内", "之內", "之中", "外面", "外边", "外邊", "外头", "外頭", "外部", "外侧", "外側", "之外", "之间", "之間", "中间", "中間", "当中", "當中", "附近", "周围", "周圍", "四周"],
+		"order": ["首先", "然后", "然後", "接着", "接著", "随后", "隨後", "之前", "之后", "之後", "以前", "以后", "以後", "再接", "第一", "第二", "其次", "最后", "最後", "接下来", "接下來", "下一步", "先做", "先去", "先把", "先吃", "先拿", "先放", "先在", "先用", "先完成", "先进行", "先進行", "先从", "先從", "先挖", "先砍", "先建", "先造", "先走", "先打", "先种", "先種", "先看", "先说", "先說", "先喝", "先站", "先踩", "先跳", "先点", "先點", "先收集", "先取", "再做", "再去", "再把", "再吃", "再拿", "再放", "再用", "再进行", "再進行", "再挖", "再建", "再走", "再取", "再看"]
+	},
+	"ru": {
+		"relation": ["над", "под", "подо", "поверх", "сверху", "снизу", "наверху", "наверх", "внизу", "вверху", "на полу", "на земле", "на вершине", "на верхушке", "рядом", "возле", "около", "близ", "близко", "недалеко", "неподалёку", "неподалеку", "поблизости", "по соседству", "вплотную", "бок о бок", "сбоку", "у края", "напротив", "перед", "впереди", "спереди", "позади", "сзади", "за", "внутри", "внутрь", "изнутри", "снаружи", "наружу", "извне", "вне", "между", "среди", "посередине", "посреди", "в середине", "в центре", "вокруг", "кругом"],
+		"order": ["сначала", "сперва", "вначале", "в начале", "потом", "затем", "после", "прежде", "перед тем", "перед этим", "до того", "далее", "дальше", "позже", "раньше", "следом", "вслед за", "первым делом", "для начала", "в первую очередь"]
+	},
+	"pl": {
+		"relation": ["nad", "ponad", "powyżej", "pod", "poniżej", "obok", "przy", "koło", "przed", "naprzeciw", "naprzeciwko", "za", "z tyłu", "w tyle", "z przodu", "wewnątrz", "wnętrze", "wnętrzu", "w środku", "na zewnątrz", "poza", "na górze", "na dole", "u góry", "u dołu", "na szczycie", "na wierzchu", "na ziemi", "na podłodze", "między", "pomiędzy", "pośród", "wśród", "pośrodku", "blisko", "niedaleko", "w pobliżu", "w okolicy", "dookoła", "wokół", "naokoło", "sąsiaduje", "sąsiadujący", "przylegający"],
+		"order": ["najpierw", "wpierw", "potem", "następnie", "wcześniej", "później", "przedtem", "po tym", "po czym", "przed", "dopiero", "na początku", "na końcu", "pierwsze", "pierwszy", "pierwszą"]
+	},
+	"tr": {
+		"relation": ["üstünde", "üstüne", "üstünden", "üstündeki", "üzerinde", "üzerine", "üzerinden", "üzerindeki", "üstte", "üstü", "tepesinde", "yukarıda", "altında", "altına", "altından", "altındaki", "altta", "aşağıda", "yanında", "yanına", "yanından", "yanındaki", "yanda", "yan yana", "yanyana", "bitişiğinde", "bitişiğine", "bitişik", "önünde", "önüne", "önünden", "önündeki", "önde", "karşısında", "karşısına", "arkasında", "arkasına", "arkasından", "arkasındaki", "arkada", "içinde", "içine", "içinden", "içindeki", "içeride", "içeri", "içeriye", "dışında", "dışına", "dışından", "dışındaki", "dışarıda", "dışarı", "dışarıya", "arasında", "arasına", "arasından", "arasındaki", "aralarında", "ortasında", "ortasına", "ortada", "yakınında", "yakınına", "yakınlarında", "yakınındaki", "yakın", "civarında", "etrafında", "etrafına", "etrafta", "çevresinde", "çevresine", "çevrede"],
+		"order": ["önce", "ilk", "i̇lk", "ilkin", "i̇lkin", "evvela", "sonra", "ardından", "ardı sıra", "sonrasında", "sonrası", "öncesinde", "öncesi", "önceden", "sonradan", "birinci", "ikinci", "i̇kinci"]
+	},
+	"tl": {
+		"relation": ["ibabaw", "itaas", "taas", "ilalim", "ibaba", "sa baba", "tabi", "katabi", "gilid", "malapit", "kalapit", "sa may", "harap", "harapan", "sa tapat", "katapat", "unahan", "likod", "likuran", "loob", "labas", "pagitan", "gitna", "palibot", "paligid", "tuktok", "sa lupa", "sa sahig"],
+		"order": ["una", "unang", "muna", "pagkatapos", "tapos", "saka", "matapos", "bago", "kasunod", "susunod", "pagkaraan", "nauna", "mauna"]
+	}
+}

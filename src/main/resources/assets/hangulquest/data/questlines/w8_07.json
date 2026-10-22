@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w8_07",
  "titleKo": "엔더맨의 속삭임",
- "titleDe": "Das Flüstern der Endermen",
  "topic": "속삭임",
  "tier": 2,
  "order": 1087,
@@ -30,14 +29,8 @@
     "entity": "minecraft:enderman",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sieh einen Enderman an.",
-    "en": "Look at Enderman."
-   },
    "hint": {
-    "ko": "엔더맨은 밤에 자주 나타나요.",
-    "de": "Endermen zeigen sich vor allem nachts.",
-    "en": "Look at Enderman."
+    "ko": "엔더맨은 밤에 자주 나타나요."
    }
   },
   {
@@ -49,13 +42,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:pumpkin_pie",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Kürbiskuchen.",
-    "en": "Collect 4× Pumpkin Pie."
-   },
-   "hint": {
-    "en": "Collect 4× Pumpkin Pie."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:chiseled_sulfur",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Gemeißelter Schwefel.",
-    "en": "Place Chiseled Sulfur."
-   },
-   "hint": {
-    "en": "Place Chiseled Sulfur."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:polished_sulfur_slab",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Polierte Schwefelstufe.",
-    "en": "Place 2× Polished Sulfur Slab."
-   },
-   "hint": {
-    "en": "Place 2× Polished Sulfur Slab."
-   }
+   "conditions": []
   },
-  "textKo": "윤나는 유황 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Polierte Schwefelstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Polished Sulfur Slab is complete."
+  "textKo": "윤나는 유황 반 블록을 두 개 놓았어요."
  },
  "reward": {
   "badge": "w8_07",
@@ -110,6 +80,5 @@
    "torch"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Whisper of the Endermen"
+ "koreanLevel": 4
 }

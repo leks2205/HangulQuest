@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "comment": "Which instruction ending each Korean level uses, and how the player climbs the ladder. 'ending' and 'forcedEnding' are generator names from grammar.json (see quest/grammar/Endings); 'grammar' is the construction a step at that level exercises. 'forcedEnding' is used only where the sentence states a forced conclusion, otherwise 'ending' applies. 'connectives' marks the levels whose tasks may add a connective where the goal type supports it. 'gateSteps' is how many quest steps at a level the player must have met before the next level opens. 'aliases' map ids that goal types emit to the construction in grammar.json that teaches them; an id with no entry in grammar.json and no alias is ignored. L2.ege_source (에게서, where a purchase comes from) has no card of its own yet and stands for L2.ege, whose card teaches the recipient 에게; a card for 에게서 would be a content job.",
+ "gateSteps": 3,
+ "levels": {
+  "1": {"ending": "ending:eoyo", "grammar": "L1.eoyo"},
+  "2": {"ending": "ending:seyo", "grammar": "L2.seyo"},
+  "3": {"ending": "ending:seyo", "grammar": "L2.seyo", "connectives": true},
+  "4": {"ending": "ending:eoya_haeyo", "grammar": "L4.eoya_haeyo"},
+  "5": {"ending": "ending:eoya_haeyo", "grammar": "L4.eoya_haeyo"},
+  "6": {"ending": "ending:eoya_haeyo", "grammar": "L4.eoya_haeyo", "forcedEnding": "nominal:su_bakke", "forcedGrammar": "L6.su_bakke_eopda"}
+ },
+ "aliases": {
+  "L1.eul_reul": "L1.obj_eul",
+  "L1.euro_direction": "L2.euro_direction",
+  "L2.wa_gwa": "L2.hago_wa_gwa",
+  "L2.wa_gwa_with": "L2.hago_wa_gwa",
+  "L2.go_and": "L2.go_sequence",
+  "L2.go_state": "L2.go_held",
+  "L3.go_naseo": "L2.go_sequence",
+  "L3.jima": "L3.jima_seyo",
+  "L1.loc.an": "L1.loc_an_e",
+  "L1.loc.ap": "L1.loc_ap_e",
+  "L4.aseo": "L4.eoseo",
+  "L2.ege_source": "L2.ege"
+ }
+}

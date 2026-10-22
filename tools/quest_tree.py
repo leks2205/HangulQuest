@@ -6,9 +6,11 @@ breakdown, and one table per tree level. The file is committed, so readers can s
 tree on GitHub, and CI fails when it is out of date.
 
 Usage:
-    python3 tools/quest_tree.py [--check]
+    python3 tools/quest_tree.py [--check] [--check-depths build/reports/quest-depths.json]
 
 --check exits 1 when the committed report differs from what the content produces.
+--check-depths compares this script's depths and TOPIK bands with the ones the mod computes
+(TrailGraph, Topik): QuestDepthDumpTest writes the JSON, so the two implementations cannot drift apart.
 """
 
 from __future__ import annotations
@@ -21,6 +23,9 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools", "i18n"))
+import content_text  # noqa: E402  (the German title is a lang key, not a field of the trail file)
+
 DATA = os.path.join(ROOT, "src/main/resources/assets/hangulquest/data/questlines")
 OUT = os.path.join(ROOT, "docs/book/src/quest-tree.md")
 
@@ -52,13 +57,14 @@ CONDITION_TEXT = {
 
 def load_trails() -> dict[str, dict]:
     trails: dict[str, dict] = {}
+    bundles = content_text.load_bundles()
     for path in sorted(glob.glob(os.path.join(DATA, "*.json"))):
         name = os.path.basename(path)
         if name.startswith("_") or name == "index.json":
             continue
         with open(path, encoding="utf-8") as handle:
             trail = json.load(handle)
-        trails[trail["id"]] = trail
+        trails[trail["id"]] = content_text.merge_trail(trail, bundles)
     return trails
 
 
@@ -123,13 +129,13 @@ def build() -> str:
     lines.append(f"| Roots | {roots} |")
     lines.append(f"| Merges (more than one parent) | {merges} |")
     lines.append(
-        "| Vocabulary | 293 hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |"
+        "| Vocabulary | hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import |"
     )
     lines.append("")
     lines.append(
-        "A trail's `koreanLevel` is the TOPIK band of its depth: levels 1–3 speak polite Korean, "
-        "4–6 add obligation, 7–9 emphatic forms, 10–12 the double negative, 13–15 literary forms and "
-        "16 and deeper the `-(으)ㄹ 수밖에 없어요` band."
+        "A trail's `koreanLevel` (1 to 6) follows its depth in the tree and picks the instruction ending of "
+        "`data/ladder.json`: level 1 speaks `-아/어요`, levels 2 and 3 `-(으)세요`, levels 4 to 6 "
+        "`-아/어야 해요` (level 6 may use `-(으)ㄹ 수밖에 없어요` where a sentence states a forced conclusion)."
     )
     lines.append("")
 
@@ -187,10 +193,41 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def check_depths(path: str) -> int:
+    """Compares depth_of and band_for with the Java dump {"id": {"depth": n, "level": n}}."""
+    if not os.path.exists(path):
+        print(f"{path} is missing: run ./gradlew test --tests '*QuestDepthDumpTest' first", file=sys.stderr)
+        return 1
+    with open(path, encoding="utf-8") as handle:
+        java = json.load(handle)
+    trails = load_trails()
+    memo: dict[str, int] = {}
+    problems = []
+    for trail_id in sorted(set(trails) | set(java)):
+        if trail_id not in java or trail_id not in trails:
+            problems.append(f"{trail_id}: only in {'the mod' if trail_id in java else 'the JSON files'}")
+            continue
+        depth = depth_of(trail_id, trails, memo)
+        mine = {"depth": depth, "level": band_for(depth)}
+        if java[trail_id] != mine:
+            problems.append(f"{trail_id}: mod {java[trail_id]}, quest_tree.py {mine}")
+    for problem in problems[:20]:
+        print(problem, file=sys.stderr)
+    if problems:
+        print(f"{len(problems)} trail(s) differ between TrailGraph/Topik and quest_tree.py", file=sys.stderr)
+        return 1
+    print(f"quest_tree.py agrees with the mod on {len(trails)} trails")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail when the report is out of date")
+    parser.add_argument("--check-depths", metavar="JSON", help="compare depths with the mod's TrailGraph dump")
     args = parser.parse_args()
+
+    if args.check_depths:
+        return check_depths(args.check_depths)
 
     report = build()
     if args.check:

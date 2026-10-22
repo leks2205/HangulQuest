@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_respawn_dragon",
  "titleKo": "끝 아녔어?",
- "titleDe": "Das Ende … Schon wieder …",
  "topic": "end",
  "tier": 2,
  "order": 254,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ghast_tear",
     "count": 1
-   },
-   "clue": {
-    "de": "Erlege einen Ghast im Nether und bring seine Träne mit.",
-    "en": "Collect Ghast Tear."
-   },
-   "hint": {
-    "en": "Collect Ghast Tear."
    }
   },
   {
@@ -47,13 +39,8 @@
     "item": "minecraft:end_crystal",
     "count": 4
    },
-   "clue": {
-    "de": "Baue vier Enderkristalle für die Beschwörung.",
-    "en": "Collect 4× End Crystal."
-   },
    "hint": {
-    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요.",
-    "en": "Collect 4× End Crystal."
+    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "block": "minecraft:crying_obsidian",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Weinender Obsidian.",
-    "en": "Place 4× Crying Obsidian."
-   },
-   "hint": {
-    "en": "Place 4× Crying Obsidian."
-   }
+   "conditions": []
   },
-  "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요.",
-  "textDe": "Das Ende … Schon wieder … — Setze vier Enderkristalle auf das Portal und beschwöre den Drachen erneut.",
-  "textEn": "the ritual of Crying Obsidian is complete."
+  "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요."
  },
  "reward": {
   "badge": "adv_end_respawn_dragon",
@@ -88,6 +66,5 @@
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The End... Again..."
+ "koreanLevel": 6
 }

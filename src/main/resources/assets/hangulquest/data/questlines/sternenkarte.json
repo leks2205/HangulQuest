@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "sternenkarte",
  "titleKo": "별자리 지도",
- "titleDe": "Die Sternenkarte",
  "topic": "별자리",
  "tier": 3,
  "order": 115,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:mossy_stone_brick_slab",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bemooste Steinziegelstufe.",
-    "en": "Place 2× Mossy Stone Brick Slab."
-   },
-   "hint": {
-    "en": "Place 2× Mossy Stone Brick Slab."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:weathered_cut_copper_slab",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Verwitterte geschnittene Kupferstufe.",
-    "en": "Collect 3× Weathered Cut Copper Slab."
-   },
-   "hint": {
-    "en": "Collect 3× Weathered Cut Copper Slab."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:jack_o_lantern",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Kürbislaterne.",
-    "en": "Place Jack o'Lantern."
-   },
-   "hint": {
-    "en": "Place Jack o'Lantern."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:waxed_weathered_copper",
     "count": 2
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Gewachster verwitterter Kupferblock.",
-    "en": "Place 2× Waxed Weathered Copper."
-   },
-   "hint": {
-    "en": "Place 2× Waxed Weathered Copper."
-   }
+   "conditions": []
   },
-  "textKo": "밀랍칠한 녹슨 구리라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster verwitterter Kupferblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Weathered Copper is complete."
+  "textKo": "밀랍칠한 녹슨 구리를 두 개 놓았어요."
  },
  "reward": {
   "badge": "sternenkarte",
@@ -109,6 +78,5 @@
    "amethyst_block"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Star Map"
+ "koreanLevel": 4
 }

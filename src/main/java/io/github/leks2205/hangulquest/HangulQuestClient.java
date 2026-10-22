@@ -1,33 +1,40 @@
 package io.github.leks2205.hangulquest;
 
+import io.github.leks2205.hangulquest.audio.AudioService;
+import io.github.leks2205.hangulquest.audio.MinecraftSoundBackend;
 import io.github.leks2205.hangulquest.config.Config;
+import io.github.leks2205.hangulquest.config.WelcomePolicy;
 import io.github.leks2205.hangulquest.data.Catalog;
-import io.github.leks2205.hangulquest.data.Concept;
-import io.github.leks2205.hangulquest.data.ConceptLoader;
-import io.github.leks2205.hangulquest.data.LangTables;
-import io.github.leks2205.hangulquest.data.LuteCsv;
-import io.github.leks2205.hangulquest.data.LuteImport;
+import io.github.leks2205.hangulquest.content.Background;
+import io.github.leks2205.hangulquest.content.Content;
+import io.github.leks2205.hangulquest.content.ContentLoader;
+import io.github.leks2205.hangulquest.content.ContentReloadListener;
 import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.dialogue.DialogueHook;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.quest.AdaptiveTrailGenerator;
 import io.github.leks2205.hangulquest.quest.QuestEngine;
-import io.github.leks2205.hangulquest.quest.QuestLoader;
+import io.github.leks2205.hangulquest.quest.OverlayReloader;
 import io.github.leks2205.hangulquest.quest.QuestlineStore;
+import io.github.leks2205.hangulquest.quest.QuestlineWatcher;
 import io.github.leks2205.hangulquest.quest.QuestValidator;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.sense.EnvironmentSensor;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.story.LibraryHook;
 import io.github.leks2205.hangulquest.ui.HudController;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.KoText;
+import io.github.leks2205.hangulquest.ui.WelcomeScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
@@ -40,6 +47,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FontDescription;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -50,7 +58,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,19 +76,26 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private final Minecraft mc = Minecraft.getInstance();
 	private Path dir;
 	private Path questlineDir;
-	private long questlineSnapshot;
+	private OverlayReloader<QuestValidator.Result> overlayReloader;
+	private QuestlineWatcher watcher;
+	private final java.util.concurrent.atomic.AtomicBoolean loading = new java.util.concurrent.atomic.AtomicBoolean();
+	private boolean contentFailed;
+	private boolean failureBannerPending;
 	private Config config;
 	private ProgressStore store;
 	private Catalog catalog;
 	private LearningService learn;
 	private QuestEngine quests;
+	private final LoadBackoff loadBackoff = new LoadBackoff();
 	private HudController hud;
+	private AudioService audio;
 	private EnvironmentSensor sensor;
 	private KeyMapping keyJournal;
 	private KeyMapping keyHint;
 	private KeyMapping keyReview;
 	private KeyMapping keyHud;
 	private KeyMapping keyFocus;
+	private KeyMapping keyAnswer;
 
 	private Observation lastObservation = new Observation();
 	private final Map<String, Long> wordCooldowns = new HashMap<>();
@@ -90,6 +104,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private long lookedSince;
 	private long lastAmbientAt;
 	private boolean pendingAutoStart;
+	private boolean welcomeChecked;
 	private long lastTouch;
 	private static final boolean SELFTEST = Boolean.getBoolean("hangulquest.selftest");
 	private static final boolean CELEBRATE_DEMO = Boolean.getBoolean("hangulquest.celebrateDemo");
@@ -134,12 +149,35 @@ public final class HangulQuestClient implements ClientModInitializer {
 		return quests;
 	}
 
+	public AudioService audio() {
+		return audio;
+	}
+
 	public HudController hud() {
 		return hud;
 	}
 
+	/** The rebindable hint key; it also closes the window on top. */
+	public KeyMapping hintKey() {
+		return keyHint;
+	}
+
+	/** The rebindable key that opens the quiz screen. */
+	public KeyMapping answerKey() {
+		return keyAnswer;
+	}
+
 	public Observation lastObservation() {
 		return lastObservation;
+	}
+
+	/** The signed-in account, or null when the session has none (dev, offline); that maps to the default profile. */
+	private java.util.UUID accountId() {
+		try {
+			return mc.getUser().getProfileId();
+		} catch (RuntimeException unavailable) {
+			return null;
+		}
 	}
 
 	@Override
@@ -153,7 +191,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		config = Config.load(dir.resolve("config.json"));
 		io.github.leks2205.hangulquest.util.Lang.set(config.language);
-		store = new ProgressStore(dir, LOG);
+		store = new ProgressStore(io.github.leks2205.hangulquest.learn.ProfilePaths.open(dir, accountId(), LOG), LOG);
+		questlineDir = dir.resolve("questlines");
+		audio = new AudioService(new MinecraftSoundBackend(mc), () -> config.audio);
 		hud = new HudController(this);
 		hud.register();
 		sensor = new EnvironmentSensor();
@@ -168,19 +208,30 @@ public final class HangulQuestClient implements ClientModInitializer {
 			}
 		});
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+			io.github.leks2205.hangulquest.learn.ReviewLog.flushAll();
 			if (store != null) {
 				store.flush();
 			}
 			lastObservation = new Observation();
+			sensor.reset();
 		});
 		ClientLifecycleEvents.CLIENT_STOPPING.register(client -> {
+			if (watcher != null) {
+				watcher.close();
+			}
+			io.github.leks2205.hangulquest.learn.ReviewLog.flushAll();
 			if (store != null) {
 				store.flush();
 			}
 			saveConfig();
 		});
+		// Concepts, language tables and trails load with every resource reload (start-up, F3+T).
+		ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloadListener(id("content"),
+				new ContentReloadListener(this::contentInputs, this::publish, LOG));
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 		ItemTooltipCallback.EVENT.register(this::addTooltip);
+		DialogueHook.register();
+		LibraryHook.register();
 
 		LOG.info("hangulquest ready (config {})", dir);
 	}
@@ -197,6 +248,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 				"key.hangulquest.hud", InputConstants.Type.KEYBOARD, InputConstants.KEY_F8, category));
 		keyFocus = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.hangulquest.focus", InputConstants.Type.KEYBOARD, InputConstants.KEY_V, category));
+		// R: vanilla leaves it unbound (G is "quick actions", O "friends", P "social interactions").
+		keyAnswer = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+				"key.hangulquest.answer", InputConstants.Type.KEYBOARD, InputConstants.KEY_R, category));
 	}
 
 	private void onTick(Minecraft client) {
@@ -218,6 +272,14 @@ public final class HangulQuestClient implements ClientModInitializer {
 		if (now - lastTouch > 20_000L) {
 			lastTouch = now;
 			learn.touch(now);
+		}
+		if (!welcomeChecked && mc.gui.screen() == null) {
+			// Once per game start, on the first world join: the screen never blocks quests.
+			welcomeChecked = true;
+			if (WelcomePolicy.onFirstJoin(config, store.data())) {
+				WelcomeScreen.openOnJoin();
+			}
+			saveConfig();
 		}
 		if (pendingAutoStart) {
 			pendingAutoStart = false;
@@ -342,7 +404,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		QuestEngine.TrackView next = views.get((index + 1) % views.size());
 		if (quests.focus(next.id())) {
-			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.Tr.pick(next.titleEn(), next.titleDe()), true);
+			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()), true,
+					"focus");
 		}
 	}
 
@@ -356,9 +419,17 @@ public final class HangulQuestClient implements ClientModInitializer {
 			return;
 		}
 		while (keyHint.consumeClick()) {
-			QuestEngine.HintView view = quests.hint(obs, hud);
-			if (view != null) {
-				hud.showHint(view, obs.now);
+			// With a window open the key only closes it; it is a hint request when none is open.
+			boolean closed = hud.pressHintKey(() -> {
+				QuestEngine.HintView view = quests.hint(obs, hud);
+				if (view != null) {
+					hud.showHint(view, obs.now);
+				}
+			});
+			if (closed) {
+				while (keyHint.consumeClick()) {
+					// one press closes one window: presses piled up in the same tick are dropped
+				}
 			}
 		}
 		while (keyReview.consumeClick()) {
@@ -366,6 +437,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		while (keyFocus.consumeClick()) {
 			cycleFocus();
+		}
+		while (keyAnswer.consumeClick()) {
+			hud.openAnswer();
 		}
 		while (keyHud.consumeClick()) {
 			config.hudCards = !config.hudCards;
@@ -426,7 +500,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		hud.wordCard(word);
 		lastAmbientAt = now;
 		for (var achievement : learn.checkAchievements()) {
-			hud.banner(achievement.ko(), achievement.de(), true);
+			hud.banner(achievement.ko(), achievement.label(), true);
 		}
 	}
 
@@ -443,33 +517,97 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		word.ifPresent(found -> lines.add(Component.empty()
 				.append(KoText.ko(found.ko))
-				.append(Component.literal(" · " + io.github.leks2205.hangulquest.util.Tr.pick(found.en, found.deShort)).withStyle(ChatFormatting.GRAY))));
+				.append(Component.literal(" · " + found.gloss(io.github.leks2205.hangulquest.util.Lang.current())).withStyle(ChatFormatting.GRAY))));
 	}
 
+	/** True once the content is published; after a failed first load, retries with a growing delay. */
 	private boolean ensureLoaded() {
-		if (catalog != null) {
+		if (quests != null) {
 			return true;
 		}
-		if (mc.getResourceManager() == null) {
-			return false;
+		if (failureBannerPending && hud != null) {
+			failureBannerPending = false;
+			hud.banner("콘텐츠를 불러오지 못했어요.",
+					io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.hud.load_failed"), false);
 		}
+		if (contentFailed && loadBackoff.mayAttempt(System.currentTimeMillis())) {
+			reloadContent();
+		}
+		return false;
+	}
+
+	private ContentLoader.Inputs contentInputs() {
+		Path luteFile = dir.resolve("vocab").resolve("lute-vocab.csv");
+		return new ContentLoader.Inputs(questlineDir, config.luteImport ? luteFile : null);
+	}
+
+	/**
+	 * Reloads concepts, language tables and trails without a resource reload: parsed on a
+	 * background thread, published on the main thread. Ignored while another load is running.
+	 */
+	public void reloadContent() {
+		if (!loading.compareAndSet(false, true)) {
+			return;
+		}
+		var manager = mc.getResourceManager();
+		ContentLoader.Inputs inputs = contentInputs();
+		Background.executor().execute(() -> {
+			Content content = ContentLoader.prepare(manager, inputs, LOG);
+			mc.execute(() -> {
+				loading.set(false);
+				publish(content);
+			});
+		});
+	}
+
+	/** Re-reads every file of the local questline folder (not only the changed ones). */
+	public void reloadQuestlines() {
+		OverlayReloader<QuestValidator.Result> reloader = overlayReloader;
+		if (reloader != null) {
+			reloader.requestFull();
+		}
+	}
+
+	/**
+	 * Builds the learning service and quest engine from prepared content and publishes everything
+	 * together, so a failure never leaves half the services set. A failed first load is retried with
+	 * a growing delay; a failed reload keeps what is running.
+	 */
+	private void publish(Content content) {
+		long attemptAt = System.currentTimeMillis();
 		try {
-			List<Concept> concepts = ConceptLoader.load();
-			LangTables tables = LangTables.load(mc);
-			LuteImport.Result lute = null;
-			Path luteFile = dir.resolve("vocab").resolve("lute-vocab.csv");
-			if (config.luteImport && Files.exists(luteFile)) {
-				lute = LuteImport.importRows(LuteCsv.parseFile(luteFile), concepts);
+			if (!content.ok()) {
+				throw new IllegalStateException("content could not be prepared", content.failure());
 			}
-			catalog = Catalog.build(concepts, tables,
-					lute == null ? List.of() : lute.words());
-			learn = new LearningService(store.data(), store, catalog);
+			var builtCatalog = content.catalog();
+			var lute = content.lute();
+			var builtLearn = new LearningService(store.data(), store, builtCatalog);
+			builtLearn.configure(config.retention, config.newWordsPerDay);
+			builtLearn.enableResearch();
+			// Today's review trail must exist before the engine restores, or its progress is dropped.
+			List<Questline> trails = new java.util.ArrayList<>(content.validated().trails());
+			Questline adaptive = AdaptiveTrailGenerator.restore(builtCatalog,
+					store.data().quests.adaptive, io.github.leks2205.hangulquest.learn.Streak.dayKey(java.time.LocalDateTime.now()));
+			if (adaptive != null) {
+				trails.removeIf(trail -> trail.id().equals(adaptive.id()));
+				trails.add(adaptive);
+			}
+			QuestEngine builtQuests = new QuestEngine(trails, builtCatalog, builtLearn, LOG);
+			builtQuests.setAutoPick(() -> config.autoPickQuests);
+			builtQuests.setTranslations(() -> config.questTranslations);
+			builtQuests.setPopupsExpire(() -> config.autoCloseWindows);
+			io.github.leks2205.hangulquest.story.ChapterSet chapters = content.library().chapters();
+			builtQuests.setChapters(trail -> chapters.ofTrail(trail)
+							.map(io.github.leks2205.hangulquest.story.ChapterSet.Chapter::id).orElse(null),
+					chapters.all().stream().map(io.github.leks2205.hangulquest.story.ChapterSet.Chapter::id).toList());
+
+			// Nothing above has thrown: apply the progress changes and publish.
 			if (lute != null) {
 				long now = System.currentTimeMillis();
-				learn.seedFromLute(lute.levels(), lute.known(), now);
+				builtLearn.seedFromLute(lute.levels(), lute.known(), now);
 				ProgressData.LuteInfo info = new ProgressData.LuteInfo();
-				info.file = luteFile.getFileName().toString();
-				info.mtime = Files.getLastModifiedTime(luteFile).toMillis();
+				info.file = content.luteFile().getFileName().toString();
+				info.mtime = Files.getLastModifiedTime(content.luteFile()).toMillis();
 				info.imported = lute.words().size();
 				info.skipped = lute.skipped();
 				info.phrases = lute.phrases();
@@ -477,45 +615,70 @@ public final class HangulQuestClient implements ClientModInitializer {
 				store.data().vocab.luteImport = info;
 				store.markDirty();
 			}
-			questlineDir = dir.resolve("questlines");
-			QuestlineStore.exportShipped(questlineDir, LOG);
-			questlineSnapshot = QuestlineStore.snapshot(questlineDir);
-			QuestValidator.Result validated = QuestValidator.validate(
-					QuestlineStore.loadAll(questlineDir, LOG), catalog, LOG);
-			quests = new QuestEngine(validated.trails(), catalog, learn, LOG);
-			LOG.info("questline folder: {} ({} trail files)", questlineDir,
-					QuestlineStore.fileCount(questlineDir));
+			catalog = builtCatalog;
+			learn = builtLearn;
+			quests = builtQuests;
+			DialogueHook.publish(content.dialogues());
+			LibraryHook.publish(content.library());
+			contentFailed = false;
+			failureBannerPending = false;
+			loadBackoff.succeeded();
+			watchQuestlines(content);
 			writeVocabReadme();
-			LOG.info("catalog: {} words ({} curated), {} questlines", catalog.size(), concepts.size(),
-					validated.trails().size());
-			return true;
+			LOG.info("catalog: {} words ({} curated), {} questlines, overlay folder {} ({} files)",
+					catalog.size(), content.concepts().size(), content.validated().trails().size(),
+					questlineDir, QuestlineStore.fileCount(questlineDir));
 		} catch (Exception failed) {
-			LOG.error("could not initialise hangulquest content", failed);
-			return false;
+			if (quests != null) {
+				LOG.warn("content reload failed, keeping the loaded content", failed);
+				return;
+			}
+			contentFailed = true;
+			boolean first = loadBackoff.failed(attemptAt);
+			if (first) {
+				LOG.error("could not initialise hangulquest content, retrying in {} s",
+						LoadBackoff.DELAYS_MS[0] / 1000, failed);
+				failureBannerPending = true;
+			} else {
+				LOG.warn("hangulquest content still not loading (attempt {}), next try in {} s: {}",
+						loadBackoff.failures(), loadBackoff.waitMs(attemptAt) / 1000, failed.toString());
+			}
 		}
 	}
 
-	/** Re-reads config/hangulquest/questlines when a file was added or changed. */
-	public void reloadQuestlinesIfChanged(Observation obs) {
-		if (questlineDir == null || quests == null) {
+	/** Points the overlay reloader at the new content; the folder watcher starts once and stays. */
+	private void watchQuestlines(Content content) {
+		if (overlayReloader != null) {
+			overlayReloader.close();
+		}
+		var builtCatalog = content.catalog();
+		overlayReloader = new OverlayReloader<>(questlineDir, content.overlay(),
+				content.shipped().trails(), trails -> QuestValidator.validate(trails, builtCatalog, LOG),
+				Background.executor(), mc::execute, this::applyOverlay, LOG);
+		if (watcher == null) {
+			watcher = QuestlineWatcher.start(questlineDir, QuestlineWatcher.DEBOUNCE_MS, () -> {
+				OverlayReloader<QuestValidator.Result> reloader = overlayReloader;
+				if (reloader != null) {
+					reloader.request();
+				}
+			}, LOG);
+		}
+	}
+
+	/** Main thread: swaps in the trails after a change in the local folder. */
+	private void applyOverlay(QuestValidator.Result validated) {
+		if (quests == null) {
 			return;
 		}
-		long snapshot = QuestlineStore.snapshot(questlineDir);
-		if (snapshot == questlineSnapshot) {
-			return;
-		}
-		questlineSnapshot = snapshot;
-		QuestValidator.Result validated = QuestValidator.validate(
-				QuestlineStore.loadAll(questlineDir, LOG), catalog, LOG);
 		quests.replaceTrails(validated.trails());
 		if (quests.activeTrail() == null) {
-			quests.autoStart(obs, hud);
+			pendingAutoStart = true;
 		}
 		int count = validated.trails().size();
 		LOG.info("questlines reloaded: {} trails, {} problems", count, validated.problems().size());
 		if (hud != null) {
-			hud.banner("새 퀘스트 " + count + "개를 읽었어요.",
-					"Questlinien neu geladen: " + count + ".", true);
+			hud.banner("퀘스트 " + count + "개를 다시 읽었어요.",
+					io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.quest.reloaded", count), true);
 		}
 	}
 
@@ -524,11 +687,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 	}
 
 	private void ensureAdaptiveTrail(Observation obs) {
-		String today = LocalDate.now().toString();
+		// The study day (it turns over at 04:00), so the review trail lasts as long as the streak day.
+		String today = io.github.leks2205.hangulquest.learn.Streak.dayKey(java.time.LocalDateTime.now());
 		ProgressData.Adaptive adaptive = store.data().quests.adaptive;
-		if (adaptive != null && today.equals(adaptive.generatedFor)) {
-			quests.byId("adaptive");
-			return;
+		if (adaptive != null && today.equals(adaptive.generatedFor) && quests.byId("adaptive") != null) {
+			return; // rebuilt from the saved concepts before the engine restored
 		}
 		String worldKey = mc.level == null ? "unknown" : mc.level.dimension().identifier() + "@" + today;
 		Questline generated = AdaptiveTrailGenerator.generate(catalog, learn, worldKey, obs.now);
@@ -553,13 +716,16 @@ public final class HangulQuestClient implements ClientModInitializer {
 		try {
 			Files.createDirectories(vocabDir);
 			Files.writeString(readme, """
-					Lute-Import für 한글 탐험
-					=======================
+					Lute import for 한글 탐험 (Hangul Quest)
+					=====================================
 
-					Lege hier eine Lute-CSV ab (Term;Übersetzung;Aussprache;Status;Tags).
-					Der Mod liest sie beim Start und übernimmt Status 1–5 sowie 99 (bekannt).
-					Status 0 wird ignoriert. Neu importieren: Optionen → Lute-Import aus/an.
-					Die Datei wird nie verändert.
+					Put a Lute CSV export here as lute-vocab.csv (term;translation;pronunciation;status;tags).
+					The mod reads it at start and takes over statuses 1–5 and 99 (known); status 0 is ignored.
+					To import again, switch the Lute import off and on in the journal settings.
+					The file is never changed.
+
+					Deutsch: Lege hier einen Lute-CSV-Export als lute-vocab.csv ab. Der Mod liest ihn beim Start
+					und verändert die Datei nie.
 					""");
 		} catch (IOException failed) {
 			LOG.warn("could not write vocab README: {}", failed.toString());

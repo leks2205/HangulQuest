@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "schatzkammer",
  "titleKo": "보물방의 길",
- "titleDe": "Die Schatzkammer",
  "topic": "보물",
  "tier": 3,
  "order": 147,
  "concepts": [
-  "gen_purpur_slab",
-  "gen_smooth_sandstone",
-  "gen_yellow_concrete_powder",
-  "gen_sulfur_stairs"
+  "go_down",
+  "gold_block",
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,55 +22,49 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purpur_slab"
+    "go_down"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:purpur_slab",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Purpurstufe.",
-    "en": "Place 3× Purpur Slab."
-   },
-   "hint": {
-    "en": "Place 3× Purpur Slab."
+    "type": "REACH_HEIGHT",
+    "minY": -60,
+    "maxY": 40
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_smooth_sandstone"
+    "gold_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:smooth_sandstone",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Glatter Sandstein.",
-    "en": "Place 2× Smooth Sandstone."
-   },
-   "hint": {
-    "en": "Place 2× Smooth Sandstone."
+    "type": "CRAFT",
+    "item": "minecraft:gold_block",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_yellow_concrete_powder"
+    "gold_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_concrete_powder",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Gelber Trockenbeton.",
-    "en": "Place 3× Yellow Concrete Powder."
-   },
-   "hint": {
-    "en": "Place 3× Yellow Concrete Powder."
+    "type": "PLACE_REL",
+    "block": "minecraft:gold_block",
+    "relation": "BETWEEN",
+    "anchor": "minecraft:torch",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sign"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:jungle_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:gold_block",
+    "count": 1
    }
   }
  ],
@@ -80,35 +72,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sulfur_stairs"
+    "gold_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sulfur_stairs",
-    "count": 5
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:gold_block",
+    "dwellMs": 1000
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 5× Schwefeltreppe.",
-    "en": "Collect 5× Sulfur Stairs."
-   },
-   "hint": {
-    "en": "Collect 5× Sulfur Stairs."
-   }
+   "conditions": []
   },
-  "textKo": "유황 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwefeltreppe — Zeremonie vollendet.",
-  "textEn": "the ritual of Sulfur Stairs is complete."
+  "textKo": "금 블록을 바라봤어요."
  },
  "reward": {
   "badge": "schatzkammer",
   "words": [
-   "chest",
    "gold_block",
-   "anvil",
-   "diamond"
+   "sign"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Treasury"
+ "grammar": [
+  "L2.seyo",
+  "L2.loc_sai_e",
+  "L2.num_sino"
+ ]
 }

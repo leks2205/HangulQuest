@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w4_01",
  "titleKo": "산호초의 길",
- "titleDe": "Der Korallenriffpfad",
  "topic": "산호초",
  "tier": 2,
  "order": 1041,
  "concepts": [
-  "gen_grove",
-  "gen_spruce_fence_gate",
-  "gen_jungle_sign",
-  "gen_diamond_axe"
+  "turtle",
+  "seagrass",
+  "gen_kelp",
+  "swim"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,90 +22,87 @@
   {
    "id": "s1",
    "teach": [
-    "gen_grove"
+    "turtle"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:grove",
-    "dwellMs": 1000
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:turtle",
+    "dwellMs": 800
    },
-   "clue": {
-    "de": "Erreiche Berghain.",
-    "en": "Reach Grove."
-   },
-   "hint": {
-    "en": "Reach Grove."
-   }
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spruce_fence_gate"
+    "seagrass"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_fence_gate",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:seagrass",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
+    "count": 1
    },
-   "clue": {
-    "de": "Platziere 3× Fichtenholzzauntor.",
-    "en": "Place 3× Spruce Fence Gate."
-   },
-   "hint": {
-    "en": "Place 3× Spruce Fence Gate."
-   }
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_jungle_sign"
+    "gen_kelp"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_sign",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:kelp",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:sand",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 2× Tropenholzschild.",
-    "en": "Collect 2× Jungle Sign."
-   },
-   "hint": {
-    "en": "Collect 2× Jungle Sign."
-   }
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_diamond_axe"
+    "swim"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_axe",
-    "count": 1
+    "type": "SWIM",
+    "blocks": 30
    },
-   "clue": {
-    "de": "Sammle Diamantaxt.",
-    "en": "Collect Diamond Axe."
-   },
-   "hint": {
-    "en": "Collect Diamond Axe."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
-  "textKo": "다이아몬드 도끼라는 길의 의식을 마쳤어요.",
-  "textDe": "Diamantaxt — Zeremonie vollendet.",
-  "textEn": "the ritual of Diamond Axe is complete."
+  "textKo": "맑을 때 물에서 수영했어요."
  },
  "reward": {
   "badge": "w4_01",
   "words": [
-   "ocean",
+   "turtle",
    "seagrass",
-   "prismarine",
-   "shell"
+   "gen_kelp",
+   "swim"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Coral Reef Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

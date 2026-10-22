@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "adv_husbandry_silk_touch_nest",
- "titleKo": "한 벌 한 벌 정성껏 모시겠습니다",
- "titleDe": "Bienenwanderung",
- "topic": "husbandry",
+ "titleKo": "벌들의 정원",
+ "topic": "꿀벌",
  "tier": 2,
  "order": 279,
  "concepts": [
-  "gen_iron_door",
+  "flower",
   "bee",
-  "adv_item_bee_nest"
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,70 +21,81 @@
   {
    "id": "s1",
    "teach": [
-    "gen_iron_door"
+    "flower",
+    "bee"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:iron_door"
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:dandelion",
+    "count": 6
    },
-   "clue": {
-    "de": "Benutze Eisentür.",
-    "en": "Use Iron Door."
-   },
-   "hint": {
-    "en": "Use Iron Door."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
+    "flower",
     "bee"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:bee",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Beobachte drei Bienen, die in ihr Nest kriechen.",
-    "en": "Look at Bee."
-   },
-   "hint": {
-    "en": "Look at Bee."
+    "type": "PLACE_REL",
+    "block": "minecraft:dandelion",
+    "relation": "NEAR",
+    "anchor": "minecraft:bee_nest",
+    "count": 3
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "wait"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 30
+   },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bee_nest",
+     "radius": 8
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_bee_nest"
+    "bee",
+    "flower"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:bee_nest",
+    "type": "BREED",
+    "entity": "minecraft:bee",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Break Bee Nest."
-   },
-   "hint": {
-    "en": "Break Bee Nest."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:dandelion"
+    }
+   ]
   },
-  "textKo": "한 벌 한 벌 정성껏 모시겠습니다 — 벌이 든 벌집을 통째로 옮겨요.",
-  "textDe": "Bienenwanderung — Du trägst das Nest samt drei Bienen um.",
-  "textEn": "the ritual of Bee Nest is complete."
+  "textKo": "꽃을 들고 꿀벌을 키웠어요."
  },
  "reward": {
   "badge": "adv_husbandry_silk_touch_nest",
   "words": [
-   "enchanting_table",
+   "flower",
    "bee",
-   "adv_item_bee_nest"
+   "wait"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Total Beelocation"
+ "koreanLevel": 1
 }

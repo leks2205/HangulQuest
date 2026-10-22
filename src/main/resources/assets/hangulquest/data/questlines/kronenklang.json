@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kronenklang",
  "titleKo": "왕관의 소리",
- "titleDe": "Der Kronenklang",
  "topic": "산",
  "tier": 5,
  "order": 85,
@@ -36,13 +35,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:snowy_plains",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Verschneite Ebene.",
-    "en": "Reach Snowy Plains."
-   },
-   "hint": {
-    "en": "Reach Snowy Plains."
    }
   },
   {
@@ -60,14 +52,7 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Karmesin-Nezel. Tagsüber.",
-    "en": "Place 2× Crimson Nylium. During the day."
-   },
-   "hint": {
-    "en": "Place 2× Crimson Nylium. During the day."
-   }
+   ]
   },
   {
    "id": "s3",
@@ -84,14 +69,7 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Harzziegel. Nachts.",
-    "en": "Place Resin Bricks. At night."
-   },
-   "hint": {
-    "en": "Place Resin Bricks. At night."
-   }
+   ]
   }
  ],
  "finale": {
@@ -114,18 +92,9 @@
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere Türkise Betonstufe. Nachts. In einem passenden Biom.",
-    "en": "Place Cyan Concrete Slab. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Cyan Concrete Slab. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산 지형에서 청록색 콘크리트 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Türkise Betonstufe — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Cyan Concrete Slab is complete."
+  "textKo": "밤에 산에서 청록색 콘크리트 반 블록을 놓았어요."
  },
  "reward": {
   "badge": "kronenklang",
@@ -136,6 +105,5 @@
    "bed"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Crown Chime"
+ "koreanLevel": 6
 }

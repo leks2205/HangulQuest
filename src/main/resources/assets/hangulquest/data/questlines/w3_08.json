@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "w3_08",
  "titleKo": "항구의 손님",
- "titleDe": "Der Gast am Hafen",
  "topic": "물",
  "tier": 2,
  "order": 1038,
  "concepts": [
-  "gen_ice_spikes",
-  "gen_piston",
-  "mushroom_block",
-  "gen_allay"
+  "salmon",
+  "carpet",
+  "cat"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,90 +21,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_ice_spikes"
+    "salmon"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:ice_spikes",
-    "dwellMs": 1000
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:salmon",
+    "count": 2
    },
-   "clue": {
-    "de": "Erreiche Eiszapfentundra.",
-    "en": "Reach Ice Spikes."
-   },
-   "hint": {
-    "en": "Reach Ice Spikes."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:fishing_rod"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_piston"
+    "carpet"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:piston",
+    "type": "PLACE_REL",
+    "block": "minecraft:cyan_carpet",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kolben.",
-    "en": "Collect Piston."
-   },
-   "hint": {
-    "en": "Collect Piston."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "mushroom_block"
+    "cat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_mushroom_block",
-    "count": 2
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:cat",
+    "dwellMs": 800
    },
-   "clue": {
-    "de": "Sammle 2× Brauner Pilzblock.",
-    "en": "Collect 2× Brown Mushroom Block."
-   },
-   "hint": {
-    "en": "Collect 2× Brown Mushroom Block."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_allay"
+    "cat",
+    "salmon"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:allay"
+    "type": "GIVE",
+    "item": "minecraft:salmon",
+    "entity": "minecraft:cat",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Interagiere mit Hilfsgeist.",
-    "en": "Talk to Allay."
-   },
-   "hint": {
-    "en": "Talk to Allay."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "알레이라는 길의 의식을 마쳤어요.",
-  "textDe": "Hilfsgeist — Zeremonie vollendet.",
-  "textEn": "the ritual of Allay is complete."
+  "textKo": "낮에 고양이에게 연어를 줬어요."
  },
  "reward": {
   "badge": "w3_08",
   "words": [
-   "beach",
-   "fishing_rod",
-   "fish",
-   "villager"
+   "salmon",
+   "carpet",
+   "cat"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Guest at the Harbour"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_held",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

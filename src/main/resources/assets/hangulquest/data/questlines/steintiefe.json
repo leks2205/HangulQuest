@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "steintiefe",
- "titleKo": "돌의 깊은 길",
- "titleDe": "Der tiefe Steinpfad",
+ "titleKo": "돌과 철의 길",
+ "topic": "돌",
  "tier": 3,
+ "order": 110,
  "concepts": [
-  "gen_black_wool_slab",
-  "gen_coal_block",
-  "gen_poplar_fence",
-  "gen_pale_oak_sapling"
+  "cave",
+  "iron",
+  "furnace"
  ],
  "requires": {
   "minWordsKnown": 3,
@@ -22,55 +22,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_wool_slab"
+    "cave"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:black_wool_slab",
-    "count": 1
-   },
-   "clue": {
-    "de": "Baue Schwarze Wollstufe ab.",
-    "en": "Break Black Wool Slab."
-   },
-   "hint": {
-    "en": "Break Black Wool Slab."
+    "type": "REACH_BIOME",
+    "biome": "minecraft:dripstone_caves",
+    "dwellMs": 1000
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_coal_block"
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:coal_block",
-    "count": 2
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:iron_ore",
+    "count": 3
    },
-   "clue": {
-    "de": "Platziere 2× Kohleblock.",
-    "en": "Place 2× Block of Coal."
-   },
-   "hint": {
-    "en": "Place 2× Block of Coal."
-   }
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 50
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_poplar_fence"
+    "furnace",
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_fence",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Pappelholzzaun.",
-    "en": "Place 2× Poplar Fence."
+    "type": "CRAFT",
+    "item": "minecraft:furnace",
+    "count": 1
    },
    "hint": {
-    "en": "Place 2× Poplar Fence."
+    "ko": "화로를 만들어요. 철을 녹여요."
    }
   }
  ],
@@ -78,42 +68,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_sapling"
+    "iron"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_sapling",
-    "count": 1
-   },
-   "conditions": [
-    {
-     "type": "Y_RANGE",
-     "minY": -64,
-     "maxY": 0
-    }
-   ],
-   "clue": {
-    "de": "Platziere Blasseichensetzling. Zwischen Y -64 und 0.",
-    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place Pale Oak Sapling. Between Y -64 and 0."
+    "type": "SMELT",
+    "input": "minecraft:raw_iron",
+    "output": "minecraft:iron_ingot",
+    "count": 3
    }
   },
-  "textKo": "높이 0 이하에서 창백한 참나무 묘목라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichensetzling — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Pale Oak Sapling is complete."
+  "textKo": "화로에서 철을 세 개 만들었어요."
  },
  "reward": {
   "badge": "steintiefe",
   "words": [
-   "iron",
    "cave",
-   "torch"
+   "iron",
+   "furnace"
   ]
  },
- "order": 110,
- "koreanLevel": 1,
- "topic": "돌",
- "titleEn": "The Deep Stone Trail"
+ "koreanLevel": 1
 }

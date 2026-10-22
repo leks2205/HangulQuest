@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_story_smelt_iron",
  "titleKo": "철이 철철 넘쳐",
- "titleDe": "Metallurgie",
  "topic": "story",
  "tier": 2,
  "order": 324,
  "concepts": [
   "iron",
   "furnace",
-  "gen_pufferfish"
+  "stone",
+  "coal"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -29,14 +29,18 @@
     "block": "minecraft:iron_ore",
     "count": 3
    },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 40
+    }
+   ],
    "clue": {
-    "de": "Baue drei Eisenerze mit einer Steinspitzhacke ab.",
-    "en": "Break 3× Iron Ore."
+    "ko": "땅속에서 철 광석을 세 개 캐세요."
    },
    "hint": {
-    "ko": "철 원석은 돌 곡괭이로 캘 수 있어요.",
-    "de": "Eisenerz braucht mindestens eine Steinspitzhacke.",
-    "en": "Break 3× Iron Ore."
+    "ko": "땅속에서 철 광석을 캐요."
    }
   },
   {
@@ -45,18 +49,10 @@
     "furnace"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:furnace",
-    "count": 1
-   },
-   "clue": {
-    "de": "Baue aus acht Bruchstein einen Ofen.",
-    "en": "Collect Furnace."
-   },
-   "hint": {
-    "ko": "화로는 조약돌 여덟 개로 만들어요.",
-    "de": "Ein Ofen braucht acht Bruchstein.",
-    "en": "Collect Furnace."
+    "type": "PUT_IN",
+    "item": "minecraft:raw_iron",
+    "container": "minecraft:furnace",
+    "count": 3
    }
   },
   {
@@ -65,17 +61,20 @@
     "furnace"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:furnace"
+    "type": "WAIT",
+    "seconds": 10
    },
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:furnace"
+    }
+   ],
    "clue": {
-    "de": "Lege Eisenerz und Kohle in den Ofen.",
-    "en": "Use Furnace."
+    "ko": "철이 녹아요. 화로 근처에서 십 초 동안 기다리세요."
    },
    "hint": {
-    "ko": "화로에 철 원석과 석탄을 넣고 기다려요.",
-    "de": "Eisenerz und Kohle in den Ofen legen.",
-    "en": "Use Furnace."
+    "ko": "철이 녹아요. 화로 근처에서 십 초 기다려요."
    }
   }
  ],
@@ -83,33 +82,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pufferfish"
+    "iron"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pufferfish",
-    "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Kugelfisch.",
-    "en": "Collect Pufferfish."
-   },
-   "hint": {
-    "en": "Collect Pufferfish."
+    "type": "TAKE_OUT",
+    "item": "minecraft:iron_ingot",
+    "container": "minecraft:furnace",
+    "count": 3
    }
   },
-  "textKo": "복어라는 길의 의식을 마쳤어요.",
-  "textDe": "Kugelfisch — Zeremonie vollendet.",
-  "textEn": "the ritual of Pufferfish is complete."
+  "textKo": "철이 철철 넘쳐 — 화로에서 철 주괴를 세 개 꺼냈어요. 화로는 뜨거워요."
  },
  "reward": {
   "badge": "adv_story_smelt_iron",
   "words": [
    "iron",
-   "furnace"
+   "furnace",
+   "stone",
+   "coal"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Acquire Hardware"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

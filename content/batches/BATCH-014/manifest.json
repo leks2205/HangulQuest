@@ -1,0 +1,1732 @@
+{
+ "batch": "BATCH-014",
+ "brief": "content/briefs/BATCH-014.md",
+ "chapter": "colours, garden and treasure (level 2)",
+ "note": "Built on phase0 at the BATCH-014 brief (28af90a) and merged with phase0 again before the final gates (the UI pass, the Spanish language and BATCH-013 landed meanwhile; the merge conflicts were only in generated files, concepts.json (one descKo) and the reachabilityDebt list). `metrics` compares the baseline I started from with the rebaselined values. The per-trail grammar lists are in the trail files.",
+ "summary": {
+  "trails": 15,
+  "steps": 76,
+  "bareSteps": 3,
+  "formDependentSteps": 35,
+  "formDependentShareOwn": 0.4605,
+  "topGoalType": "PLACE_REL",
+  "topGoalTypeShare": 0.237,
+  "goalTypes": {
+   "PLACE_REL": 18,
+   "PLACE_ON_PATTERN": 13,
+   "CRAFT": 10,
+   "BUILD_PATTERN": 8,
+   "USE_BLOCK": 7,
+   "PUT_IN": 5,
+   "LOOK_AT_BLOCK": 3,
+   "GIVE": 2,
+   "ACQUIRE_ITEM": 2,
+   "SEQUENCE": 2,
+   "HOLD_WHILE": 1,
+   "LIE_DOWN": 1,
+   "BREAK_BLOCK": 1,
+   "SMELT": 1,
+   "REACH_HEIGHT": 1,
+   "LOOK_AT_ENTITY": 1
+  }
+ },
+ "metrics": {
+  "coverage.recycling.medianEncounters": {
+   "before": 3.0,
+   "phase0AfterBatch013": 3.5,
+   "after": 4.0
+  },
+  "coverage.recycling.medianRetrievals": {
+   "before": 0.0,
+   "phase0AfterBatch013": 0.0,
+   "after": 0.0
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.726415,
+   "phase0AfterBatch013": 0.740566,
+   "after": 0.745283
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.165094,
+   "phase0AfterBatch013": 0.169811,
+   "after": 0.169811
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.931635,
+   "phase0AfterBatch013": 0.935583,
+   "after": 0.942459
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.96432,
+   "phase0AfterBatch013": 0.967018,
+   "after": 0.971304
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.88005,
+   "phase0AfterBatch013": 0.861963,
+   "after": 0.844337
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.052206,
+   "phase0AfterBatch013": 0.051534,
+   "after": 0.050273
+  },
+  "variety.bareShare.2": {
+   "before": 0.242545,
+   "phase0AfterBatch013": 0.175573,
+   "after": 0.102752
+  },
+  "variety.boredomIndex": {
+   "before": 0.05597,
+   "phase0AfterBatch013": 0.052179,
+   "after": 0.049091
+  },
+  "variety.distinctTypes.2": {
+   "before": 28.0,
+   "phase0AfterBatch013": 30.0,
+   "after": 30
+  },
+  "variety.duplicateSignatures": {
+   "before": 8.0,
+   "phase0AfterBatch013": 6.0,
+   "after": 5
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.272366,
+   "phase0AfterBatch013": 0.328244,
+   "after": 0.379817
+  },
+  "variety.noveltyShare": {
+   "before": 0.597619,
+   "phase0AfterBatch013": 0.611905,
+   "after": 0.614286
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 105.0,
+   "phase0AfterBatch013": 101.0,
+   "after": 95
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.184891,
+   "phase0AfterBatch013": 0.162214,
+   "after": 0.188991
+  },
+  "variety.verbObjectMax": {
+   "before": 6.0,
+   "phase0AfterBatch013": 6.0,
+   "after": 6
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 5.0,
+   "phase0AfterBatch013": 5.0,
+   "after": 5
+  }
+ },
+ "trails": [
+  {
+   "id": "farbenpfad",
+   "title": "색의 길",
+   "titleEn": "The Color Trail",
+   "topic": "색",
+   "order": 96,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad",
+    "wollpfad"
+   ],
+   "project": "Dye a sheep blue, craft blue wool, build a pillar of it, plant a flower beside it, top the pillar with a red candle; the finale contrasts the two colours.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.euro_material",
+    "L2.eun_neun_contrast"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "양털은 파란색이에요. 초는 빨간색이에요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "gen_blue_dye"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "양에게 파란색 염료를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "양에게 파란색 염료를 줘요.",
+     "clueEn": "Dye a sheep blue by giving it blue dye."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_blue_wool"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "파란색 양털을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "파란색 양털을 만들어요.",
+     "clueEn": "Craft blue wool."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "gen_blue_wool"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "파란색 양털 세 개로 기둥을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "파란색 양털로 기둥을 쌓아요.",
+     "clueEn": "Build a pillar of blue wool."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "flower"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "파란색 양털 옆에 꽃을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "파란색 양털 옆에 꽃을 심어요.",
+     "clueEn": "Plant a flower — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "gen_blue_wool"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "파란색 양털 기둥 위에 빨간색 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "파란색 양털 기둥 위에 빨간색 초를 세워요.",
+     "clueEn": "Put up a red candle — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "gartenzaun",
+   "title": "정원 울타리",
+   "titleEn": "The Garden Fence",
+   "topic": "울타리",
+   "order": 146,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad",
+    "wollpfad"
+   ],
+   "project": "A garden fence: a ring of spruce fence, a flower inside it, a gate beside the fence that opens, a carpet outside; the finale contrasts inside and outside.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eun_neun_contrast"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "꽃은 울타리 안에 있어요. 양탄자는 울타리 밖에 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "FENCE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리를 쳐요.",
+     "clueEn": "Build a ring of fence."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "flower",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 안에 꽃을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 안에 꽃을 심어요.",
+     "clueEn": "Plant a flower — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 옆에 가문비나무 울타리 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 옆에 가문비나무 울타리 문을 달아요.",
+     "clueEn": "Hang a gate — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "OPEN",
+     "teach": [
+      "open"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가문비나무 울타리 문을 여세요.",
+     "clueSource": "generated",
+     "hintKo": "가문비나무 울타리 문을 열어요.",
+     "clueEn": "Open the gate."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "OUTSIDE",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 밖에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 밖에 양탄자를 깔아요.",
+     "clueEn": "Spread a carpet — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "abenteuerpfad",
+   "title": "모험의 길",
+   "titleEn": "The Adventure Trail",
+   "topic": "돌",
+   "order": 210,
+   "koreanLevel": 2,
+   "requires": [
+    "steintiefe",
+    "gipfelpfad"
+   ],
+   "project": "Craft a compass, walk to a mountain with it in hand, build a camp ring of planks with a bed inside and a sign on top.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_direction",
+    "L2.go_held",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 침대에 누웠어요. 밖은 어두워요. 담 안은 따뜻해요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "compass"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "나침반을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "나침반을 만들어요.",
+     "clueEn": "Craft a compass."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GO",
+     "teach": [
+      "compass",
+      "mountain"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "나침반을 들고 산으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "나침반을 들고 산으로 가요.",
+     "clueEn": "Walk to a mountain with the compass in your hand."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of dark oak planks."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 안에 침대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 안에 침대를 놓아요.",
+     "clueEn": "Put a bed — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 위에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 위에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LIE_DOWN",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "LIE",
+     "teach": [
+      "lie_down"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 침대에 누우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 침대에 누워요.",
+     "clueEn": "Lie down in the bed at night."
+    }
+   ]
+  },
+  {
+   "id": "glueckspfad",
+   "title": "보물의 길",
+   "titleEn": "The Treasure Trail",
+   "topic": "돌",
+   "order": 390,
+   "koreanLevel": 2,
+   "requires": [
+    "abenteuerpfad"
+   ],
+   "project": "Mine gold ore, smelt an ingot, store it in a chest, put a sign beside the chest and write on it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 1,
+   "finaleKo": "표지판에 글을 썼어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "MINE",
+     "teach": [
+      "gold"
+     ],
+     "bare": true,
+     "formDependent": false,
+     "clueKo": "금을 캐세요.",
+     "clueSource": "generated",
+     "hintKo": "금을 캐요.",
+     "clueEn": "Mine gold ore."
+    },
+    {
+     "id": "s2",
+     "goal": "SMELT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gold_ingot"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "화로에서 금 주괴를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "화로에서 금 주괴를 만들어요.",
+     "clueEn": "Smelt a gold ingot in the furnace."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "상자 안에 금 주괴를 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 안에 금 주괴를 넣어요.",
+     "clueEn": "Put the gold ingot in a chest."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 옆에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 옆에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WRITE",
+     "teach": [
+      "sign"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "표지판에 글을 쓰세요.",
+     "clueSource": "generated",
+     "hintKo": "표지판에 글을 써요.",
+     "clueEn": "Write on the sign."
+    }
+   ]
+  },
+  {
+   "id": "kartenpfad",
+   "title": "지도의 길",
+   "titleEn": "The Map Trail",
+   "topic": "지도",
+   "order": 97,
+   "koreanLevel": 2,
+   "requires": [
+    "handelspfad",
+    "karawanepfad"
+   ],
+   "project": "A map room: craft and place a cartography table, open it, store a map in a chest, hang an item frame beside the table.",
+   "grammar": [
+    "L2.seyo"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "지도 제작대 옆에 아이템 액자를 걸었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "cartography_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "지도 제작대를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "지도 제작대를 만들어요.",
+     "clueEn": "Craft a cartography table."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "cartography_table"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 앞에 지도 제작대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 앞에 지도 제작대를 놓아요.",
+     "clueEn": "Put a cartography table — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "OPEN",
+     "teach": [
+      "cartography_table"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "지도 제작대를 여세요.",
+     "clueSource": "generated",
+     "hintKo": "지도 제작대를 열어요.",
+     "clueEn": "Open the cartography table."
+    },
+    {
+     "id": "s4",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "map"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "상자 안에 지도를 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 안에 지도를 넣어요.",
+     "clueEn": "Put a map in a chest."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "item_frame"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "지도 제작대 옆에 아이템 액자를 거세요.",
+     "clueSource": "generated",
+     "hintKo": "지도 제작대 옆에 아이템 액자를 걸어요.",
+     "clueEn": "Hang an item frame — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "festungpfad",
+   "title": "요새의 길",
+   "titleEn": "The Fortress Trail",
+   "topic": "요새",
+   "order": 142,
+   "koreanLevel": 2,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "project": "A small brick fortress: a ring wall, a door beside it, a bed inside, a yellow candle on top, a red banner at the door, and the door closed.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 4,
+   "finaleKo": "문을 닫았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "벽돌로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of bricks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌담 옆에 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌담 옆에 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌담 안에 침대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌담 안에 침대를 놓아요.",
+     "clueEn": "Put a bed — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "gen_yellow_candle"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌담 위에 노란색 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌담 위에 노란색 초를 세워요.",
+     "clueEn": "Put up a yellow candle — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "OUTSIDE",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "gen_red_banner"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌담 밖에 빨간색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌담 밖에 빨간색 현수막을 걸어요.",
+     "clueEn": "Hang a red banner — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "CLOSE",
+     "teach": [
+      "door"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "문을 닫으세요.",
+     "clueSource": "generated",
+     "hintKo": "문을 닫아요.",
+     "clueEn": "Close the door."
+    }
+   ]
+  },
+  {
+   "id": "schatzkammer",
+   "title": "보물방의 길",
+   "titleEn": "The Treasury",
+   "topic": "보물",
+   "order": 147,
+   "koreanLevel": 2,
+   "requires": [
+    "alpental",
+    "gartenpfad"
+   ],
+   "project": "A treasure room underground: go down, craft a gold block, put it between two torches, a sign beside it, and look at it by torchlight.",
+   "grammar": [
+    "L2.seyo",
+    "L2.loc_sai_e",
+    "L2.num_sino"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "금 블록을 바라봤어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "relation": null,
+     "conditions": [],
+     "verb": "DESCEND",
+     "teach": [
+      "go_down"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "높이 40 이하로 내려가세요.",
+     "clueSource": "generated",
+     "hintKo": "아래로 내려가요.",
+     "clueEn": "Go down to height 40 or lower."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gold_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "금 블록을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "금 블록을 만들어요.",
+     "clueEn": "Craft a gold block."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "BETWEEN",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gold_block"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "두 횃불 사이에 금 블록을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "두 횃불 사이에 금 블록을 놓아요.",
+     "clueEn": "Put the gold block — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "금 블록 옆에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "금 블록 옆에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "gold_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "금 블록을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "금 블록을 1초 동안 바라봐요.",
+     "clueEn": "Look at the gold block for a second."
+    }
+   ]
+  },
+  {
+   "id": "gartenkunst",
+   "title": "정원 예술의 길",
+   "titleEn": "The Art of the Garden",
+   "topic": "정원",
+   "order": 161,
+   "koreanLevel": 2,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "project": "Flower beds: a dirt cross with a pink tulip, a dirt pyramid with an orange tulip, and a gravel path between the flowers and the fence.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.hago_wa_gwa",
+    "L2.loc_sai_e"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "꽃과 울타리 사이에 자갈을 놓았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "흙으로 십자 모양을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "흙으로 십자 모양을 만들어요.",
+     "clueEn": "Build a cross of dirt."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "gen_red_tulip",
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "흙 십자 모양 위에 빨간색 튤립을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "흙 십자 모양 위에 빨간색 튤립을 심어요.",
+     "clueEn": "Plant a red tulip — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "흙으로 피라미드를 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "흙으로 피라미드를 쌓아요.",
+     "clueEn": "Build a pyramid of dirt."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "흙 피라미드 위에 주황색 튤립을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "흙 피라미드 위에 주황색 튤립을 심어요.",
+     "clueEn": "Plant an orange tulip — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "BETWEEN",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gravel"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "꽃과 울타리 사이에 자갈을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "꽃과 울타리 사이에 자갈을 놓아요.",
+     "clueEn": "Put gravel — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "faerberei",
+   "title": "염색의 길",
+   "titleEn": "The Dye Works",
+   "topic": "염색",
+   "order": 163,
+   "koreanLevel": 2,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "project": "A dye works: green dye from a cactus in the furnace, a cauldron beside the furnace, green wool, a dyed sheep, and the wool laid on a fence to dry.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "울타리 위에 주황색 양털을 놓았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_orange_dye"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "제작대에서 주황색 염료를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작대에서 주황색 염료를 만들어요.",
+     "clueEn": "Craft orange dye at the crafting table."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "cauldron"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "화로 옆에 가마솥을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 옆에 가마솥을 놓아요.",
+     "clueEn": "Put a cauldron — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "gen_orange_wool"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "주황색 양털을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "주황색 양털을 만들어요.",
+     "clueEn": "Craft orange wool."
+    },
+    {
+     "id": "s4",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "양에게 주황색 염료를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "양에게 주황색 염료를 줘요.",
+     "clueEn": "Dye a sheep orange by giving it orange dye."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_orange_wool"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 위에 주황색 양털을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 위에 주황색 양털을 놓아요.",
+     "clueEn": "Put orange wool — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "gerberei",
+   "title": "가죽 공방의 길",
+   "titleEn": "The Tannery",
+   "topic": "가죽",
+   "order": 164,
+   "koreanLevel": 2,
+   "requires": [
+    "festungpfad",
+    "schatzkammer"
+   ],
+   "project": "A tannery: collect leather, craft a leather cap and wear it, put a cauldron in front of a chest and fill it.",
+   "grammar": [
+    "L2.seyo"
+   ],
+   "formDependentSteps": 1,
+   "finaleKo": "가마솥을 채웠어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "COLLECT",
+     "teach": [
+      "leather"
+     ],
+     "bare": true,
+     "formDependent": false,
+     "clueKo": "가죽을 다섯 개 모으세요.",
+     "clueSource": "generated",
+     "hintKo": "가죽을 모아요.",
+     "clueEn": "Collect five pieces of leather."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "make"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가죽 모자를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "가죽 모자를 만들어요.",
+     "clueEn": "Craft a leather cap."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "상자 안에 가죽 모자를 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 안에 가죽 모자를 넣어요.",
+     "clueEn": "Put the leather cap in a chest."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "chest"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 앞에 갑옷 거치대를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 앞에 갑옷 거치대를 세워요.",
+     "clueEn": "Put an armor stand — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "FILL",
+     "teach": [
+      "cauldron"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가마솥을 채우세요.",
+     "clueSource": "generated",
+     "hintKo": "가마솥을 채워요.",
+     "clueEn": "Fill the cauldron."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_crafters_crafting_crafters",
+   "title": "제작기 제 자신 제작기",
+   "titleEn": "Crafters Crafting Crafters",
+   "topic": "adventure",
+   "order": 207,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "A crafter next to a chest, a sign and a lever beside it, and the lever pulled.",
+   "grammar": [
+    "L2.seyo"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "레버를 당겼어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_crafter"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "제작기를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "제작기를 만들어요.",
+     "clueEn": "Craft a crafter."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "adv_item_crafter"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 앞에 제작기를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 앞에 제작기를 놓아요.",
+     "clueEn": "Put a crafter — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "제작기 위에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "제작기 위에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "lever"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "제작기 옆에 레버를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "제작기 옆에 레버를 놓아요.",
+     "clueEn": "Put a lever — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "FLIP",
+     "teach": [
+      "lever"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "레버를 당기세요.",
+     "clueSource": "generated",
+     "hintKo": "레버를 당겨요.",
+     "clueEn": "Pull the lever."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_read_power_of_chiseled_bookshelf",
+   "title": "책의 힘",
+   "titleEn": "The Power of Books",
+   "topic": "adventure",
+   "order": 221,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_adventure_root"
+   ],
+   "project": "Craft a chiseled bookshelf and six books, set the shelf by a chest, fill it with the books, and put a lectern in front of it.",
+   "grammar": [
+    "L2.seyo"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "조각된 책장 위에 독서대를 놓았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_chiseled_bookshelf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "조각된 책장을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "조각된 책장을 만들어요.",
+     "clueEn": "Craft a chiseled bookshelf."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "book"
+     ],
+     "bare": true,
+     "formDependent": false,
+     "clueKo": "책을 여섯 권 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "책을 만들어요.",
+     "clueEn": "Make six books."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "adv_item_chiseled_bookshelf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "상자 옆에 조각된 책장을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "상자 옆에 조각된 책장을 놓아요.",
+     "clueEn": "Put a chiseled bookshelf — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "adv_item_chiseled_bookshelf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "조각된 책장을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "조각된 책장을 1초 동안 바라봐요.",
+     "clueEn": "Look at the chiseled bookshelf for a second."
+    },
+    {
+     "id": "s5",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "book"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "조각된 책장 안에 책을 여섯 권 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "조각된 책장 안에 책을 넣어요.",
+     "clueEn": "Fill the chiseled bookshelf with six books."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "lectern"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "조각된 책장 위에 독서대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "조각된 책장 위에 독서대를 놓아요.",
+     "clueEn": "Put a lectern — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_obtain_netherite_hoe",
+   "title": "괭이의 길",
+   "titleEn": "The Hoe Trail",
+   "topic": "husbandry",
+   "order": 269,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_plant_seed"
+   ],
+   "project": "A garden-tool trail: a stone hoe, till the soil and plant wheat seeds, fence the field and put a carved pumpkin inside as a scarecrow.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_sequence"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "울타리 안에 조각된 호박을 놓았어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "hoe"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "돌 괭이를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "돌 괭이를 만들어요.",
+     "clueEn": "Craft a stone hoe."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "흙을 갈고 밀 씨앗을 네 개 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "흙을 갈고 밀 씨앗을 심어요.",
+     "clueEn": "Till the soil and plant four wheat seeds — read the Korean for the order."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "FENCE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리를 쳐요.",
+     "clueEn": "Build a ring of fence."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "carved_pumpkin",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 안에 조각된 호박을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 안에 조각된 호박을 놓아요.",
+     "clueEn": "Put a carved pumpkin — read the Korean to see where."
+    }
+   ]
+  },
+  {
+   "id": "adv_story_lava_bucket",
+   "title": "화끈한 화제",
+   "titleEn": "Hot Stuff",
+   "topic": "story",
+   "order": 318,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_story_smelt_iron"
+   ],
+   "project": "Look at lava, put dirt beside it as a barrier, fill a bucket with lava and climb up with it, then fuel a furnace with it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_sequence"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "화로 안에 용암 양동이를 넣었어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "lava"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "용암을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "용암을 1초 동안 바라봐요.",
+     "clueEn": "Look at lava for a second."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "dirt"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "용암 옆에 흙을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "용암 옆에 흙을 놓아요.",
+     "clueEn": "Put down dirt — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "CLIMB",
+     "teach": [
+      "lava_bucket"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "용암 양동이를 구하고 높이 70블록 위로 올라가세요.",
+     "clueSource": "generated",
+     "hintKo": "용암 양동이를 구하고 언덕 위로 올라가요.",
+     "clueEn": "Fill a bucket with lava and climb up — read the Korean for the order."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PUT_IN",
+     "teach": [
+      "furnace"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "화로 안에 용암 양동이를 넣으세요.",
+     "clueSource": "generated",
+     "hintKo": "화로 안에 용암 양동이를 넣어요.",
+     "clueEn": "Put the lava bucket into a furnace as fuel."
+    }
+   ]
+  },
+  {
+   "id": "gartenpfad",
+   "title": "정원의 길",
+   "titleEn": "The Garden Trail",
+   "topic": "나무",
+   "order": 501,
+   "koreanLevel": 2,
+   "requires": [
+    "dorfhaus",
+    "bienenpfad",
+    "kuerbispfad",
+    "pilzpfad",
+    "fuchsbau"
+   ],
+   "project": "A garden path: a brick row, a flower beside it, fill a composter, put a beehive between two flowers and watch a bee.",
+   "grammar": [
+    "L2.seyo",
+    "L2.loc_sai_e"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "민들레 근처에서 꿀벌을 바라봤어요.",
+   "finaleSource": "generated",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "brick"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "벽돌 세 개를 나란히 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌을 나란히 놓아요.",
+     "clueEn": "Lay three bricks in a row."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "flower"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "벽돌 세 개 옆에 꽃을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "벽돌 세 개 옆에 꽃을 심어요.",
+     "clueEn": "Plant a flower — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "FILL",
+     "teach": [
+      "gen_composter"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "퇴비통을 채우세요.",
+     "clueSource": "generated",
+     "hintKo": "퇴비통을 채워요.",
+     "clueEn": "Fill the composter."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "BETWEEN",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "beehive"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "두 꽃 사이에 벌통을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "두 꽃 사이에 벌통을 놓아요.",
+     "clueEn": "Put a beehive — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:dandelion"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "bee"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "민들레 근처에서 꿀벌을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "민들레 근처에서 꿀벌을 1초 동안 바라봐요.",
+     "clueEn": "Look at a bee near flowers."
+    }
+   ]
+  }
+ ],
+ "finales": {
+  "authored": [
+   "farbenpfad",
+   "gartenzaun",
+   "abenteuerpfad"
+  ],
+  "note": "The three authored finales are the 은/는 contrast the brief asks for (L2.eun_neun_contrast: blue wool and red candle, inside and outside the fence, outside dark and inside the camp wall warm) and are listed in korean-lines.tsv. The other 12 finales are generated."
+ },
+ "newWordsWithDescKo": [
+  "gen_blue_dye (descKo added)",
+  "gen_blue_wool (descKo added)",
+  "gen_orange_dye (descKo added)",
+  "gen_orange_wool (descKo added)",
+  "gen_yellow_candle (descKo added)",
+  "gen_red_tulip (descKo added)"
+ ],
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: six descKo lines added (the merge with BATCH-013 kept its descKo for gen_pink_tulip) to existing gen_ concepts that had none; no entry inserted, nothing reformatted.",
+  "lang/content/en_us.json and de_de.json: the step, finale and title keys of the 15 trails (old keys of removed steps dropped); German adopted as proofread with `translate.py adopt --refresh`.",
+  "src/test/resources/content-baseline.json: adv_husbandry_obtain_netherite_hoe leaves reachabilityDebt (the trail is a garden-tool trail now); BATCH-013 removed gestuet, so only adv_nether_obtain_ancient_debris is left.",
+  "src/test/resources/legacy-authored-finales.txt: gartenkunst and kartenpfad removed (their finales are generated now); the list only shrinks.",
+  "content/korean/lines.jsonl, review-status.json, content/translations/de_de-status.json, docs/book/src/quest-tree.md and content/metrics-baseline.json regenerated (all metrics equal or better)."
+ ],
+ "generatorWeaknesses": [
+  "There is no dye verb (물들이다, 칠하다). Colouring is only expressible as CRAFT of a coloured item or as GIVE of a dye to a sheep, which prints 양에게 파란색 염료를 주세요 and reads as feeding. A step `염료로 양털을 물들이세요` (L2.euro_material) is impossible; CRAFT with `with` ingredients prints \"염료와 양털로 …를 만드세요\" but needs three unknown words at once.",
+  "A colour word cannot be the taught word of a dyed item: teaching 빨간색 on red dye prints \"빨간색을 만드세요\" (the colour replaces the whole noun). And the concept 염료 owns minecraft:red_dye, so red dye can only be said as bare 염료; blue, orange and the others come from per-item gen_ concepts that must exist (gen_red_bed, gen_red_candle, gen_orange_tulip do not).",
+  "A general word with covers swallows the colour: teaching 침대, 초, 양탄자, 양털 or 꽃 prints the plain word for every colour, so \"빨간색 침대\" cannot be asked together with the word 침대. Colour contrast therefore needs the gen_ concept or no teach of the general word, and then the colour compound is a single unknown token.",
+  "The material of a PLACE_ON_PATTERN or the anchor is named with the general word only if the same step also teaches it (teach [flower, fence]); otherwise the full wood name appears (가문비나무 울타리), which is one more unknown word.",
+  "The `gate` concept names only the oak gate, and the validator requires the first taught word to describe the goal. A spruce gate cannot be taught (teach the fence for the placing step, the verb 열다 for the opening step) and prints its full official name. HANG_DOOR oak_fence_gate is also at the pair limit of 3.",
+  "Tiered armour does not mention its slot word: a leather cap prints 가죽 모자 while the taught concept is 투구, so the validator fails with \"clue omits the taught word\"; EQUIP on #minecraft:head_armor passes validation but has no status line and the playtest cannot drive it. The tannery therefore stores the cap in a chest instead of wearing it.",
+  "Step signatures ignore count, station and `with`, so CRAFT map / item_frame / book and ACQUIRE lava_bucket / map collide with steps of earlier or later trails. Every clash counts as a duplicate for whichever trail comes second on the learner path, even when it is not one of mine (obstgarten, a strider trail, w9_02 became duplicates of my first drafts).",
+  "Saturated (verb, object) pairs at the limit of 3 leave few objects for a garden or a treasure room: PLACE chest, barrel, furnace, crafting_table, flower_pot, lantern, torch, hay_block; STAND candle, oak_sign, spruce_sign; PLANT poppy, dandelion, cornflower; HANG_DOOR oak_fence_gate; CRAFT paper, bucket. I used birch, jungle, acacia and dark oak signs, coloured candles and tulips instead.",
+  "The unknown-word budget is global: dropping an old step that said 여섯 개 made a BATCH-012 sentence (adv_adventure_salvage_sherd/finale) go over one unknown word. I put the count 6 into the chiseled bookshelf trail (six books fill the shelf) to keep the ratchet.",
+  "A chiseled bookshelf has no front: IN_FRONT_OF is refused by the validator (the finale uses ON_TOP_OF). The playtest also could not satisfy a NEAR_BLOCK torch on a LOOK_AT_BLOCK finale after the torches were placed as BETWEEN anchors, so the treasure-room finale has no condition.",
+  "SEQUENCE prints the object of both parts: craft boots then wear boots reads \"가죽 장화를 만들고 가죽 장화를 신으세요\". The tannery uses separate steps instead.",
+  "The German giveaway check blocks the separable prefix \"auf\" (aufstellen, aufhängen) and \"nach\" (\"nach oben\") in relation and order clues, so the German verbs are platzieren / anbringen / hochklettern.",
+  "보물, 정원 and 예쁘다 are not in the lexicon, so no generated or authored sentence uses them (the titles that contain them are kept). 칠하다 and 물들이다 are not supported either."
+ ],
+ "openIssues": [
+  "Reachability in the first week: the gold block of the treasure room needs nine gold ingots; the coloured candles (farbenpfad, festungpfad) need honeycomb; the compass needs iron and redstone; the lava bucket needs an iron bucket and lava; a Y 40 descent needs a cave; the crafter needs five iron, redstone and a dropper. glueckspfad asks for gold ore, which is deep or in badlands. All are overworld and need no structure.",
+  "adv_husbandry_obtain_netherite_hoe is now a garden-tool trail with a new title (괭이의 길 / The Hoe Trail) and leaves reachabilityDebt. The vanilla advancement name is gone from the journal; if the owner wants it back it needs a Nether trail at level 3.",
+  "The dye-a-sheep steps (farbenpfad s1, faerberei s4) say 주세요 because GIVE is the only verb that fits (see the weakness above); a linguist may find it odd.",
+  "farbenpfad and festungpfad ask for coloured candles; no colour of 보라색, 검은색, 하얀색, 회색, 갈색 appears in a clue because each would be a second unknown compound word on a sentence that already has one.",
+  "No trail is proposed for level 3.",
+  "coverage.recycling.medianEncounters dropped from 3.5 (phase0 after BATCH-013) to 3.0 when the old trails were replaced (their sentences had given a few core words the fourth encounter); the finale of abenteuerpfad (lie down in the red bed at night, outside dark, inside warm) brings 눕다 and 어둡다 to four encounters and the median to 4.0.",
+  "BATCH-013 landed while I worked: after merging it I replaced the pink tulip (now four PLANT pink_tulip), the second PLACE cauldron (four) and moved the count six, which BATCH-013 had made scarcer, into the chiseled bookshelf trail; all metrics are measured after that merge."
+ ]
+}

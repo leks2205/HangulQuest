@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w4_04",
  "titleKo": "부두의 배",
- "titleDe": "Das Boot am Kai",
  "topic": "부두",
  "tier": 2,
  "order": 1044,
  "concepts": [
-  "gen_resin_brick",
-  "gen_exposed_copper_bars",
-  "gen_nether_brick_slab",
-  "gen_lime_glazed_terracotta"
+  "boat",
+  "gen_blue_banner",
+  "ladder",
+  "swim"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,55 +22,38 @@
   {
    "id": "s1",
    "teach": [
-    "gen_resin_brick"
+    "boat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:resin_brick",
+    "type": "CRAFT",
+    "item": "minecraft:jungle_boat",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Harzziegel.",
-    "en": "Collect Resin Brick."
-   },
-   "hint": {
-    "en": "Collect Resin Brick."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_exposed_copper_bars"
+    "gen_blue_banner"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper_bars",
+    "type": "PLACE_REL",
+    "block": "minecraft:blue_banner",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Angelaufenes Kupfergitter.",
-    "en": "Place Exposed Copper Bars."
-   },
-   "hint": {
-    "en": "Place Exposed Copper Bars."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_nether_brick_slab"
+    "ladder"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_brick_slab",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Netherziegelstufe.",
-    "en": "Place 3× Nether Brick Slab."
-   },
-   "hint": {
-    "en": "Place 3× Nether Brick Slab."
+    "type": "PLACE_REL",
+    "block": "minecraft:ladder",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:planks",
+    "count": 1
    }
   }
  ],
@@ -79,40 +61,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_lime_glazed_terracotta"
+    "swim"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:lime_glazed_terracotta",
-    "count": 1
+    "type": "SWIM",
+    "blocks": 10
    },
    "conditions": [
     {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_ocean"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:ladder"
     }
-   ],
-   "clue": {
-    "de": "Sammle Hellgrüne glasierte Keramik. In einem passenden Biom.",
-    "en": "Collect Lime Glazed Terracotta. In a fitting biome."
-   },
-   "hint": {
-    "en": "Collect Lime Glazed Terracotta. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "연두색 유광 테라코타라는 길의 의식을 마쳤어요.",
-  "textDe": "Hellgrüne glasierte Keramik — Zeremonie vollendet.",
-  "textEn": "the ritual of Lime Glazed Terracotta is complete."
+  "textKo": "사다리 근처 물에서 수영했어요."
  },
  "reward": {
   "badge": "w4_04",
   "words": [
-   "adv_item_oak_boat",
-   "chest",
-   "bell",
-   "water"
+   "boat",
+   "gen_blue_banner",
+   "ladder"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Boat at the Quay"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity"
+ ]
 }

@@ -2,18 +2,13 @@
  "schema": 1,
  "id": "bogenpfad",
  "titleKo": "활의 길",
- "titleDe": "Der Bogenpfad",
  "topic": "나무",
  "tier": 3,
  "order": 64,
  "concepts": [
-  "bow",
   "string",
-  "arrow",
-  "feather",
-  "flint",
-  "gen_elder_guardian",
-  "gen_slime"
+  "bow",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -27,64 +22,41 @@
   {
    "id": "s1",
    "teach": [
-    "bow",
     "string"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:bow",
+    "item": "minecraft:string",
     "count": 1
    },
-   "clue": {
-    "de": "Bau einen Bogen.",
-    "ko": "나무와 실로 활을 만들어요.",
-    "en": "Collect Bow."
-   },
-   "hint": {
-    "ko": "활은 나무와 실로 만들어요.",
-    "de": "Ein Bogen besteht aus Holz und Faden.",
-    "en": "Collect Bow."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "arrow",
-    "feather",
-    "flint"
+    "bow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arrow",
-    "count": 4
-   },
-   "clue": {
-    "de": "Sammle vier Pfeile.",
-    "ko": "깃털과 나무로 화살을 만들어요.",
-    "en": "Collect 4× Arrow."
-   },
-   "hint": {
-    "ko": "화살은 깃털, 나무, 부싯돌로 만들어요.",
-    "de": "Pfeile bestehen aus Feder, Holz und Feuerstein.",
-    "en": "Collect 4× Arrow."
+    "type": "CRAFT",
+    "item": "minecraft:bow",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_elder_guardian"
+    "chest"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:elder_guardian",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Großwächter an.",
-    "en": "Look at Elder Guardian."
-   },
-   "hint": {
-    "en": "Look at Elder Guardian."
+    "type": "PUT_IN",
+    "item": "minecraft:arrow",
+    "container": "minecraft:chest",
+    "count": 4
    }
   }
  ],
@@ -92,34 +64,27 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_slime"
+    "bow"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:slime",
-    "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Schleim.",
-    "en": "Defeat Slime."
-   },
-   "hint": {
-    "en": "Defeat Slime."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    "seconds": 10
    }
   },
-  "textKo": "슬라임라는 길의 의식을 마쳤어요.",
-  "textDe": "Schleim — Zeremonie vollendet.",
-  "textEn": "the ritual of Slime is complete."
+  "textKo": "활을 들고 밤에 걸었어요."
  },
  "reward": {
   "badge": "bogenpfad",
   "words": [
+   "string",
    "bow",
-   "arrow",
-   "cow"
+   "chest"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Bow Trail"
+ "koreanLevel": 1
 }

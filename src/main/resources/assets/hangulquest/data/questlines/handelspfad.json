@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "handelspfad",
  "titleKo": "거래의 길",
- "titleDe": "Der Handelspfad",
+ "topic": "마을",
  "tier": 2,
+ "order": 180,
  "concepts": [
-  "zombie",
-  "gen_trader_llama",
-  "gen_gold_nugget",
-  "gen_smoker"
+  "potato",
+  "villager",
+  "talk",
+  "emerald",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 5,
@@ -21,96 +23,82 @@
   {
    "id": "s1",
    "teach": [
-    "zombie"
+    "potato"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:rotten_flesh",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Verrottetes Fleisch.",
-    "en": "Collect 2× Rotten Flesh."
-   },
-   "hint": {
-    "en": "Collect 2× Rotten Flesh."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_trader_llama"
-   ],
-   "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:trader_llama"
-   },
-   "clue": {
-    "de": "Interagiere mit Händlerlama.",
-    "en": "Talk to Trader Llama."
-   },
-   "hint": {
-    "en": "Talk to Trader Llama."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_gold_nugget"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gold_nugget",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:potatoes",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Goldklumpen.",
-    "en": "Collect 3× Gold Nugget."
-   },
-   "hint": {
-    "en": "Collect 3× Gold Nugget."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_smoker"
-   ],
-   "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:smoker"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "DAY"
     }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "villager",
+    "talk"
    ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:potato",
+    "entity": "minecraft:villager",
+    "count": 1
+   },
    "clue": {
-    "de": "Benutze Räucherofen. Tagsüber.",
-    "en": "Use Smoker. During the day."
+    "ko": "주민과 이야기해요. 감자를 줘요."
    },
    "hint": {
-    "en": "Use Smoker. During the day."
+    "ko": "주민과 이야기해요. 감자를 줘요."
    }
   },
-  "textKo": "낮에 훈연기라는 길의 의식을 마쳤어요.",
-  "textDe": "Räucherofen — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Smoker is complete."
+  {
+   "id": "s3",
+   "teach": [
+    "emerald"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:emerald",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:villager",
+     "kind": "entity"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "chest"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:emerald",
+    "container": "minecraft:chest",
+    "count": 1
+   }
+  },
+  "textKo": "상자 안에 에메랄드를 넣었어요."
  },
  "reward": {
   "badge": "handelspfad",
   "words": [
-   "emerald",
+   "potato",
    "villager",
-   "bread",
-   "bell"
+   "talk",
+   "emerald"
   ]
  },
- "order": 180,
- "koreanLevel": 1,
- "topic": "마을",
- "titleEn": "The Trade Trail"
+ "koreanLevel": 1
 }

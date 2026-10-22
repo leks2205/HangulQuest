@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "blumentopf",
  "titleKo": "화분의 길",
- "titleDe": "Der Blumentopfpfad",
  "topic": "화분",
  "tier": 1,
  "order": 148,
  "concepts": [
+  "flower",
   "flower_pot",
-  "gen_prismarine",
-  "gen_chiseled_sandstone"
+  "villager",
+  "friend"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -20,22 +20,19 @@
   {
    "id": "s1",
    "teach": [
-    "flower_pot"
+    "flower"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:flower_pot",
-    "count": 3
+    "item": "minecraft:poppy",
+    "count": 2
    },
-   "clue": {
-    "de": "Sammle drei Blumentöpfe.",
-    "en": "Collect 3× Flower Pot."
-   },
-   "hint": {
-    "ko": "화분은 벽돌로 만들어요.",
-    "de": "Blumentöpfe bestehen aus Ziegeln.",
-    "en": "Collect 3× Flower Pot."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -43,34 +40,22 @@
     "flower_pot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:flower_pot",
-    "count": 3
-   },
-   "clue": {
-    "de": "Setz drei Blumentöpfe.",
-    "en": "Place 3× Flower Pot."
-   },
-   "hint": {
-    "en": "Place 3× Flower Pot."
+    "type": "CRAFT",
+    "item": "minecraft:flower_pot",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_prismarine"
+    "flower_pot"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:prismarine",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Prismarin an.",
-    "en": "Look at Prismarine."
-   },
-   "hint": {
-    "en": "Look at Prismarine."
+    "type": "PLACE_REL",
+    "block": "minecraft:flower_pot",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
    }
   }
  ],
@@ -78,33 +63,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chiseled_sandstone"
+    "villager",
+    "friend"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_sandstone",
+    "type": "GIVE",
+    "item": "minecraft:flower_pot",
+    "entity": "minecraft:villager",
     "count": 1
    },
-   "conditions": [],
    "clue": {
-    "de": "Platziere Gemeißelter Sandstein.",
-    "en": "Place Chiseled Sandstone."
+    "ko": "주민 친구에게 화분을 줘요."
    },
    "hint": {
-    "en": "Place Chiseled Sandstone."
+    "ko": "주민 친구에게 화분을 줘요."
    }
   },
-  "textKo": "조각된 사암라는 길의 의식을 마쳤어요.",
-  "textDe": "Gemeißelter Sandstein — Zeremonie vollendet.",
-  "textEn": "the ritual of Chiseled Sandstone is complete."
+  "textKo": "주민에게 화분을 줬어요."
  },
  "reward": {
   "badge": "blumentopf",
   "words": [
+   "flower",
    "flower_pot",
-   "flower"
+   "villager",
+   "friend"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Flower Pot Trail"
+ "koreanLevel": 1
 }

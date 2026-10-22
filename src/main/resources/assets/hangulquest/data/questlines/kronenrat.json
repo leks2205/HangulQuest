@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "kronenrat",
  "titleKo": "왕관 회의",
- "titleDe": "Der Kronenrat",
  "topic": "회의",
  "tier": 3,
  "order": 122,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:gilded_blackstone",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Golddurchzogener Schwarzstein.",
-    "en": "Place 2× Gilded Blackstone."
-   },
-   "hint": {
-    "en": "Place 2× Gilded Blackstone."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:straw_bed",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Strohbett.",
-    "en": "Place 2× Straw Bed."
-   },
-   "hint": {
-    "en": "Place 2× Straw Bed."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:prismarine_wall",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Prismarinmauer.",
-    "en": "Collect 6× Prismarine Wall."
-   },
-   "hint": {
-    "en": "Collect 6× Prismarine Wall."
    }
   }
  ],
@@ -87,18 +65,9 @@
     "block": "minecraft:pink_candle",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Rosa Kerze.",
-    "en": "Place 4× Pink Candle."
-   },
-   "hint": {
-    "en": "Place 4× Pink Candle."
-   }
+   "conditions": []
   },
-  "textKo": "분홍색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Rosa Kerze — Zeremonie vollendet.",
-  "textEn": "the ritual of Pink Candle is complete."
+  "textKo": "분홍색 초를 네 개 놓았어요."
  },
  "reward": {
   "badge": "kronenrat",
@@ -109,6 +78,5 @@
    "gold_block"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Crown Council"
+ "koreanLevel": 5
 }

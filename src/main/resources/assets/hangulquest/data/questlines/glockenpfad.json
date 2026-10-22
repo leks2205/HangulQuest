@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "glockenpfad",
  "titleKo": "종의 길",
- "titleDe": "Der Glockenpfad",
  "topic": "종",
  "tier": 2,
  "order": 131,
  "concepts": [
-  "bookshelf",
   "bell",
-  "gen_tuff_brick_slab",
-  "gen_infested_cracked_stone_bricks"
+  "flower",
+  "villager",
+  "talk"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,56 +22,52 @@
   {
    "id": "s1",
    "teach": [
-    "bookshelf"
+    "bell"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:bookshelf"
+    "block": "minecraft:bell"
    },
-   "clue": {
-    "de": "Benutze Bücherregal.",
-    "en": "Use Bookshelf."
-   },
-   "hint": {
-    "en": "Use Bookshelf."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "bell"
+    "flower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bell",
+    "type": "PLACE_REL",
+    "block": "minecraft:pink_tulip",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:bell",
     "count": 1
-   },
-   "clue": {
-    "de": "Setz eine Glocke.",
-    "en": "Place Bell."
-   },
-   "hint": {
-    "ko": "종은 금 조각으로 만들어요.",
-    "de": "Glocken bestehen aus Gold.",
-    "en": "Place Bell."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_tuff_brick_slab"
+    "villager",
+    "talk"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tuff_brick_slab",
-    "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Tuffsteinziegelstufe.",
-    "en": "Collect 4× Tuff Brick Slab."
-   },
-   "hint": {
-    "en": "Collect 4× Tuff Brick Slab."
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "USE_BLOCK",
+      "block": "minecraft:bell"
+     },
+     {
+      "type": "INTERACT_ENTITY",
+      "entity": "minecraft:villager"
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   }
  ],
@@ -80,34 +75,43 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_infested_cracked_stone_bricks"
+    "bell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:infested_cracked_stone_bricks",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10
    },
-   "conditions": [],
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:bell"
+    }
+   ],
    "clue": {
-    "de": "Platziere Befallene rissige Steinziegel.",
-    "en": "Place Infested Cracked Stone Bricks."
+    "ko": "종 근처에서 십 초 동안 기다리세요."
    },
    "hint": {
-    "en": "Place Infested Cracked Stone Bricks."
+    "ko": "종 근처에서 십 초 동안 기다려요."
    }
   },
-  "textKo": "벌레 먹은 금 간 석재 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Befallene rissige Steinziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Infested Cracked Stone Bricks is complete."
+  "textKo": "종이 울리고 마을 사람들이 모였어요. 시장에서 빵을 팔았어요."
  },
  "reward": {
   "badge": "glockenpfad",
   "words": [
    "bell",
-   "gold",
-   "gold_block"
+   "flower",
+   "villager",
+   "talk"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Bell Trail"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_ap_e",
+  "L2.go_sequence",
+  "L2.hago_wa_gwa",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }

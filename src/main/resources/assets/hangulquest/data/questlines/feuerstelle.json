@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "feuerstelle",
- "titleKo": "불자리",
- "titleDe": "Die Feuerstelle",
+ "titleKo": "불과 빵의 길",
  "topic": "불",
  "tier": 3,
  "order": 47,
  "concepts": [
-  "gen_chiseled_resin_bricks",
-  "gen_polished_blackstone",
-  "gen_chipped_anvil"
+  "campfire",
+  "candle",
+  "bread"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,82 +22,79 @@
   {
    "id": "s1",
    "teach": [
-    "gen_chiseled_resin_bricks"
+    "campfire"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_resin_bricks",
+    "type": "PLACE_REL",
+    "block": "minecraft:campfire",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Gemeißelte Harzziegel.",
-    "en": "Place Chiseled Resin Bricks."
-   },
-   "hint": {
-    "en": "Place Chiseled Resin Bricks."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_blackstone"
+    "candle"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:polished_blackstone",
-    "dwellMs": 400
+    "type": "PLACE_REL",
+    "block": "minecraft:candle",
+    "relation": "BEHIND",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DUSK"
     }
-   ],
-   "clue": {
-    "de": "Sieh dir Polierter Schwarzstein an. Nachts.",
-    "en": "Look at Polished Blackstone. At night."
-   },
-   "hint": {
-    "en": "Look at Polished Blackstone. At night."
-   }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chipped_anvil"
+    "bread"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chipped_anvil"
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:bread",
+    "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
+    },
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:campfire"
     }
-   ],
-   "clue": {
-    "de": "Benutze Angeschlagener Amboss. Nachts.",
-    "en": "Use Chipped Anvil. At night."
-   },
-   "hint": {
-    "en": "Use Chipped Anvil. At night."
-   }
+   ]
   },
-  "textKo": "밤에 금 간 모루라는 길의 의식을 마쳤어요.",
-  "textDe": "Angeschlagener Amboss — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Chipped Anvil is complete."
+  "textKo": "밤에 모닥불 옆에서 빵을 먹었어요."
  },
  "reward": {
   "badge": "feuerstelle",
   "words": [
    "campfire",
-   "torch",
-   "bed"
+   "candle",
+   "bread"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Hearth"
+ "koreanLevel": 1
 }

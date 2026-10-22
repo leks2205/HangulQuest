@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w12_03",
  "titleKo": "잊힌 신전",
- "titleDe": "Der vergessene Tempel",
  "topic": "신전",
  "tier": 2,
  "order": 1123,
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:andesite_wall",
     "count": 12
-   },
-   "clue": {
-    "de": "Platziere 12× Andesitmauer.",
-    "en": "Place 12× Andesite Wall."
-   },
-   "hint": {
-    "en": "Place 12× Andesite Wall."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:medium_amethyst_bud",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Mittlere Amethystknospe.",
-    "en": "Place 6× Medium Amethyst Bud."
-   },
-   "hint": {
-    "en": "Place 6× Medium Amethyst Bud."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:white_terracotta",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Weiße Keramik.",
-    "en": "Place White Terracotta."
-   },
-   "hint": {
-    "en": "Place White Terracotta."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "minY": 100,
      "maxY": 320
     }
-   ],
-   "clue": {
-    "de": "Platziere Gewachster oxidierter Kupferrost. Zwischen Y 100 und 320.",
-    "en": "Place Waxed Oxidized Copper Grate. Between Y 100 and 320."
-   },
-   "hint": {
-    "en": "Place Waxed Oxidized Copper Grate. Between Y 100 and 320."
-   }
+   ]
   },
-  "textKo": "밀랍칠한 산화된 구리 격자라는 길의 의식을 마쳤어요.",
-  "textDe": "Gewachster oxidierter Kupferrost — Zeremonie vollendet.",
-  "textEn": "the ritual of Waxed Oxidized Copper Grate is complete."
+  "textKo": "높이 100블록 위에서 밀랍칠한 산화된 구리 격자를 놓았어요."
  },
  "reward": {
   "badge": "w12_03",
@@ -114,6 +83,5 @@
    "beacon"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Forgotten Temple"
+ "koreanLevel": 6
 }

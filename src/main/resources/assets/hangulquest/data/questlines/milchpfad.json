@@ -2,15 +2,16 @@
  "schema": 1,
  "id": "milchpfad",
  "titleKo": "우유의 길",
- "titleDe": "Der Milchpfad",
  "topic": "우유",
  "tier": 3,
  "order": 141,
  "concepts": [
-  "gen_tripwire_hook",
-  "gen_large_amethyst_bud",
-  "gen_pale_oak_chest_boat",
-  "gen_pink_wool"
+  "bucket",
+  "crafting_table",
+  "cow",
+  "wheat",
+  "milk",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,91 +25,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tripwire_hook"
+    "bucket",
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:tripwire_hook",
-    "count": 2
+    "type": "CRAFT",
+    "item": "minecraft:bucket",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 2× Haken.",
-    "en": "Collect 2× Tripwire Hook."
-   },
-   "hint": {
-    "en": "Collect 2× Tripwire Hook."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_large_amethyst_bud"
+    "cow",
+    "wheat"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:large_amethyst_bud",
-    "count": 3
+    "type": "GIVE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:cow",
+    "count": 1,
+    "method": "FEED"
    },
-   "clue": {
-    "de": "Platziere 3× Große Amethystknospe.",
-    "en": "Place 3× Large Amethyst Bud."
-   },
-   "hint": {
-    "en": "Place 3× Large Amethyst Bud."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pale_oak_chest_boat"
+    "milk",
+    "cow"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_chest_boat",
-    "count": 3
+    "item": "minecraft:milk_bucket",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 3× Blasseichenholztruhenboot.",
-    "en": "Collect 3× Pale Oak Boat with Chest."
-   },
-   "hint": {
-    "en": "Collect 3× Pale Oak Boat with Chest."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_fence"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pink_wool"
+    "milk",
+    "chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pink_wool",
+    "type": "PUT_IN",
+    "item": "minecraft:milk_bucket",
+    "container": "minecraft:chest",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Rosa Wolle.",
-    "en": "Place Pink Wool."
-   },
-   "hint": {
-    "en": "Place Pink Wool."
    }
   },
-  "textKo": "분홍색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Rosa Wolle — Zeremonie vollendet.",
-  "textEn": "the ritual of Pink Wool is complete."
+  "textKo": "상자 안에 우유를 넣었어요. 우유는 맛있어요."
  },
  "reward": {
   "badge": "milchpfad",
   "words": [
+   "bucket",
+   "crafting_table",
+   "cow",
+   "wheat",
    "milk",
-   "cauldron",
-   "sugar",
-   "cake"
+   "chest"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "The Milk Trail"
+ "koreanLevel": 2
 }

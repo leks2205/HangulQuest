@@ -1,0 +1,1297 @@
+id	ko	pron	rules	source	origin
+stone	돌	[돌]		rule	native
+dirt	흙	[흑]	double_final	rule	native
+grass	잔디	[잔디]		rule	native
+sand	모래	[모래]		rule	native
+gravel	자갈	[자갈]		rule	native
+log	통나무	[통나무]		rule	native
+tree	나무	[나무]		rule	native
+planks	판자	[판자]		rule	sino
+cobblestone	조약돌	[조약똘]	tensification	rule	native
+coal	석탄	[석탄]		rule	sino
+iron_ore	철 광석	[철 광석]		rule	sino
+raw_iron	철 원석	[철 원석]		rule	sino
+iron_ingot	철 주괴	[철 주괴]		rule	sino
+iron	철	[철]		rule	sino
+gold_ore	금 광석	[금 광석]		rule	sino
+raw_gold	금 원석	[금 원석]		rule	sino
+gold_ingot	금 주괴	[금 주괴]		rule	sino
+gold	금	[금]		rule	sino
+diamond	다이아몬드	[다이아몬드]		rule	loan
+obsidian	흑요석	[흐교석]	liaison	rule	sino
+water	물	[물]		rule	native
+lava	용암	[용암]		rule	sino
+snow	눈	[눈]		rule	native
+snow_block	눈 블록	[눈 블록]		rule	mixed
+ice	얼음	[어름]	liaison	rule	native
+torch	횃불	[홰뿔]	tensification	lexical	native
+crafting_table	제작대	[제작때]	tensification	rule	sino
+furnace	화로	[화로]		rule	sino
+chest	상자	[상자]		rule	sino
+bed	침대	[침대]		rule	sino
+door	문	[문]		rule	sino
+ladder	사다리	[사다리]		rule	native
+bell	종	[종]		rule	sino
+wheat	밀	[밀]		rule	native
+carrot	당근	[당근]		rule	native
+potato	감자	[감자]		rule	native
+pumpkin	호박	[호박]		rule	native
+flower	꽃	[꼳]	neutralisation	rule	native
+mushroom	버섯	[버섣]	neutralisation	rule	native
+pickaxe	곡괭이	[곡꽹이]	tensification	rule	native
+axe	도끼	[도끼]		rule	native
+shovel	삽	[삽]		rule	native
+hoe	괭이	[괭이]		rule	native
+sign	표지판	[표지판]		rule	sino
+sword	검	[검]		rule	sino
+bow	활	[활]		rule	native
+arrow	화살	[화살]		rule	native
+shield	방패	[방패]		rule	sino
+bucket	양동이	[양동이]		rule	mixed
+fishing_rod	낚싯대	[낙씨때]	tensification,neutralisation	lexical	native
+shears	가위	[가위]		rule	native
+apple	사과	[사과]		rule	sino
+bread	빵	[빵]		rule	loan
+cookie	쿠키	[쿠키]		rule	loan
+cake	케이크	[케이크]		rule	loan
+beef	소고기	[소고기]		rule	native
+pork	돼지고기	[돼지고기]		rule	native
+chicken_meat	닭고기	[닥꼬기]	tensification,double_final	rule	native
+milk	우유	[우유]		rule	sino
+honey	꿀	[꿀]		rule	native
+melon	수박	[수박]		rule	native
+cow	소	[소]		rule	native
+pig	돼지	[돼지]		rule	native
+sheep	양	[양]		rule	sino
+chicken	닭	[닥]	double_final	rule	native
+horse	말	[말]		rule	native
+wolf	늑대	[늑때]	tensification	rule	native
+cat	고양이	[고양이]		rule	native
+rabbit	토끼	[토끼]		rule	native
+fox	여우	[여우]		rule	native
+bee	꿀벌	[꿀벌]		rule	native
+turtle	거북	[거북]		rule	native
+squid	오징어	[오징어]		rule	native
+zombie	좀비	[좀비]		rule	loan
+skeleton	스켈레톤	[스켈레톤]		rule	loan
+creeper	크리퍼	[크리퍼]		rule	mc_only
+spider	거미	[거미]		rule	native
+enderman	엔더맨	[엔더맨]		rule	mc_only
+witch	마녀	[마녀]		rule	sino
+villager	주민	[주민]		rule	sino
+forest	숲	[숩]	neutralisation	rule	native
+ocean	바다	[바다]		rule	native
+river	강	[강]		rule	sino
+mountain	산	[산]		rule	sino
+desert	사막	[사막]		rule	sino
+beach	해변	[해변]		rule	sino
+cave	동굴	[동굴]		rule	sino
+village	마을	[마을]		rule	native
+nether	네더	[네더]		rule	mc_only
+end	엔드	[엔드]		rule	mc_only
+sky	하늘	[하늘]		rule	native
+sun	해	[해]		rule	native
+moon	달	[달]		rule	native
+rain	비	[비]		rule	native
+thunder	천둥	[천둥]		rule	native
+night	밤	[밤]		rule	native
+day	낮	[낟]	neutralisation	rule	native
+house	집	[집]		rule	native
+mine	캐다	[캐다]		rule	native
+chop	베다	[베다]		rule	native
+place	놓다	[노타]	h	rule	native
+collect	모으다	[모으다]		rule	native
+eat	먹다	[먹따]	tensification	rule	native
+drink	마시다	[마시다]		rule	native
+look	보다	[보다]		rule	native
+walk	걷다	[걷따]	tensification	rule	native
+swim	수영하다	[수영하다]		rule	mixed
+sleep	자다	[자다]		rule	native
+make	만들다	[만들다]		rule	native
+open	열다	[열다]		rule	native
+fight	싸우다	[싸우다]		rule	native
+climb	올라가다	[올라가다]		rule	native
+dig	파다	[파다]		rule	native
+build	짓다	[짇따]	tensification,neutralisation	rule	native
+cook	요리하다	[요리하다]		rule	mixed
+fish	물고기	[물고기]		rule	native
+talk	이야기하다	[이야기하다]		rule	native
+friend	친구	[친구]		rule	sino
+family	가족	[가족]		rule	sino
+book	책	[책]		rule	sino
+paper	종이	[종이]		rule	native
+string	실	[실]		rule	native
+leather	가죽	[가죽]		rule	native
+wool	양털	[양털]		rule	mixed
+feather	깃털	[기털]	neutralisation	lexical	native
+bone	뼈	[뼈]		rule	native
+gunpowder	화약	[화약]		rule	sino
+stick	막대기	[막때기]	tensification	rule	native
+egg	달걀	[달걀]		rule	native
+emerald	에메랄드	[에메랄드]		rule	loan
+campfire	모닥불	[모닥뿔]	tensification	rule	native
+netherrack	네더랙	[네더랙]		rule	mc_only
+lightning_rod	피뢰침	[피뢰침]		rule	sino
+goat	염소	[염소]		rule	native
+clock	시계	[시계]		rule	sino
+fence	울타리	[울타리]		rule	native
+crown	왕관	[왕관]		rule	sino
+ritual	의식	[의식]		rule	sino
+eternity	영원	[영원]		rule	sino
+creation	창조	[창조]		rule	sino
+world	세계	[세계]		rule	sino
+flint	부싯돌	[부시똘]	tensification	lexical	native
+sugar	설탕	[설탕]		rule	sino
+note_block	소리 블록	[소리 블록]		rule	mixed
+jukebox	주크박스	[주크박쓰]	tensification	rule	loan
+honeycomb	벌집 조각	[벌찝 조각]	tensification	lexical	native
+beehive	벌통	[벌통]		rule	mixed
+map	지도	[지도]		rule	sino
+cartography_table	지도 제작대	[지도 제작때]	tensification	rule	sino
+item_frame	아이템 액자	[아이템 액짜]	tensification	rule	mixed
+ink_sac	먹물 주머니	[멍물 주머니]	nasalisation	rule	native
+redstone	레드스톤	[레드스톤]		rule	loan
+redstone_torch	레드스톤 횃불	[레드스톤 홰뿔]	tensification	lexical	mixed
+lever	레버	[레버]		rule	loan
+snowball	눈덩이	[눈덩이]		rule	native
+dandelion	민들레	[민들레]		rule	native
+cauldron	가마솥	[가마솓]	neutralisation	rule	native
+glass_bottle	유리병	[유리병]		rule	sino
+sandstone	사암	[사암]		rule	sino
+jungle	정글	[정글]		rule	loan
+cocoa_beans	코코아 콩	[코코아 콩]		rule	mixed
+parrot	앵무새	[앵무새]		rule	mixed
+jungle_log	정글나무 원목	[정글라무 원목]	lateralisation	rule	mixed
+magma	마그마 블록	[마그마 블록]		rule	loan
+lectern	독서대	[독써대]	tensification	rule	sino
+bookshelf	책장	[책짱]	tensification	rule	sino
+lantern	랜턴	[랜턴]		rule	loan
+sea_lantern	바다 랜턴	[바다 랜턴]		rule	mixed
+amethyst_shard	자수정 조각	[자수정 조각]		rule	mixed
+amethyst_block	자수정 블록	[자수정 블록]		rule	mixed
+height	높이	[노피]	liaison	rule	native
+bat	박쥐	[박쮜]	tensification	rule	native
+soul_torch	영혼 횃불	[영혼 홰뿔]	tensification	lexical	mixed
+anvil	모루	[모루]		rule	native
+soul_sand	영혼 모래	[영혼 모래]		rule	mixed
+soul_lantern	영혼 랜턴	[영혼 랜턴]		rule	mixed
+iron_block	철 블록	[철 블록]		rule	mixed
+carved_pumpkin	조각된 호박	[조각뙨 호박]	tensification	rule	native
+iron_golem	철 골렘	[철 골렘]		rule	mixed
+gold_block	금 블록	[금 블록]		rule	mixed
+enchanting_table	마법 부여대	[마법 부여대]		rule	sino
+ender_pearl	엔더 진주	[엔더 진주]		rule	mixed
+beacon	신호기	[신호기]		rule	sino
+nether_star	네더의 별	[네더의 별]		rule	mixed
+golden_apple	황금 사과	[황금 사과]		rule	sino
+candle	초	[초]		rule	native
+glass	유리	[유리]		rule	sino
+glass_pane	유리판	[유리판]		rule	sino
+window	창문	[창문]		rule	sino
+bowl	그릇	[그륻]	neutralisation	rule	native
+loom	베틀	[베틀]		rule	native
+carpet	양탄자	[양탄자]		rule	mixed
+mushroom_block	버섯 블록	[버섣 블록]	neutralisation	rule	mixed
+bamboo	대나무	[대나무]		rule	native
+leaves	나뭇잎	[나문닙]	nasalisation,neutralisation,n_insertion	lexical	native
+sapling	묘목	[묘목]		rule	sino
+frog	개구리	[개구리]		rule	native
+lily_pad	수련잎	[수련닙]	neutralisation,n_insertion	lexical	mixed
+slime	슬라임	[슬라임]		rule	loan
+sunflower	해바라기	[해바라기]		rule	native
+stone_bricks	석재 벽돌	[석째 벽똘]	tensification	rule	mixed
+sweet_berries	달콤한 열매	[달콤한 열매]		rule	native
+gate	울타리 문	[울타리 문]		rule	mixed
+flower_pot	화분	[화분]		rule	sino
+seagrass	해초	[해초]		rule	sino
+turtle_egg	거북 알	[거부 갈]	liaison	rule	native
+shell	조개	[조개]		rule	native
+prismarine	프리즈머린	[프리즈머린]		rule	mc_only
+hay_block	건초 더미	[건초 더미]		rule	mixed
+saddle	안장	[안장]		rule	sino
+brick	벽돌	[벽똘]	tensification	rule	mixed
+clay	점토	[점토]		rule	sino
+brewing_stand	양조기	[양조기]		rule	sino
+nether_wart	네더 사마귀	[네더 사마귀]		rule	mixed
+honey_block	꿀 블록	[꿀 블록]		rule	mixed
+honey_bottle	꿀이 든 병	[꾸리 든 병]	liaison	rule	mixed
+chiseled_stone_bricks	조각된 석재 벽돌	[조각뙨 석째 벽똘]	tensification	rule	mixed
+dye	염료	[염뇨]	nasalisation	rule	sino
+compass	나침반	[나침반]		rule	sino
+wolf_armor	늑대 갑옷	[늑때 가볻]	liaison,tensification,neutralisation	rule	mixed
+salmon	연어	[여너]	liaison	rule	sino
+lava_bucket	용암 양동이	[용암 양동이]		rule	mixed
+iron_chestplate	철 흉갑	[철 흉갑]		rule	sino
+ender_dragon	엔더 드래곤	[엔더 드래곤]		rule	loan
+dragon_egg	드래곤 알	[드래곤 알]		rule	mixed
+adv_item_diamond_boots	다이아몬드 부츠	[다이아몬드 부츠]		rule	loan
+adv_item_crossbow	쇠뇌	[쇠뇌]		rule	mixed
+adv_item_sculk_sensor	스컬크 감지체	[스컬크 감지체]		rule	mixed
+adv_item_wind_charge	돌풍구	[돌풍구]		rule	sino
+adv_item_armadillo_scute	아르마딜로 인갑	[아르마딜로 인갑]		rule	mixed
+adv_item_target	과녁	[과녁]		rule	native
+adv_item_decorated_pot	장식된 도자기	[장식뙨 도자기]	tensification	rule	sino
+adv_item_crafter	제작기	[제작끼]	tensification	rule	sino
+adv_item_creaking_heart	크리킹 심장	[크리킹 심장]		rule	mixed
+adv_item_white_banner	하얀색 현수막	[하얀새 켠수막]	h	rule	mixed
+adv_item_diamond_sword	다이아몬드 검	[다이아몬드 검]		rule	mixed
+adv_item_sculk_catalyst	스컬크 촉매	[스컬크 총매]	nasalisation	rule	mixed
+adv_item_copper_bulb	구리 전구	[구리 전구]		rule	mixed
+adv_item_chiseled_tuff	조각된 응회암	[조각뙨 응회암]	tensification	rule	sino
+adv_item_mace	철퇴	[철퇴]		rule	sino
+adv_item_chiseled_bookshelf	조각된 책장	[조각뙨 책짱]	tensification	rule	sino
+adv_item_ominous_trial_key	불길한 시련 열쇠	[불길한 시련 열쐬]	tensification	lexical	mixed
+adv_item_brush	솔	[솔]		rule	native
+adv_item_iron_spear	철 창	[철 창]		rule	sino
+adv_item_trident	삼지창	[삼지창]		rule	sino
+adv_item_totem_of_undying	불사의 토템	[불싸의 토템]	tensification	rule	mixed
+adv_item_silence_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
+adv_item_dune_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
+adv_item_trial_key	시련 열쇠	[시련 열쐬]	tensification	lexical	mixed
+adv_block_lodestone	자석석	[자석썩]	tensification	rule	sino
+adv_item_dragon_breath	드래곤의 숨결	[드래고늬 숨껼]	liaison,tensification	lexical	mixed
+adv_item_elytra	겉날개	[건날개]	nasalisation,neutralisation	rule	native
+adv_block_purpur_block	퍼퍼 블록	[퍼퍼 블록]		rule	loan
+adv_item_dragon_head	드래곤 머리	[드래곤 머리]		rule	mixed
+adv_item_shulker_shell	셜커 껍데기	[셜커 껍떼기]	tensification	rule	mixed
+adv_item_end_crystal	엔드 수정	[엔드 수정]		rule	mixed
+adv_block_end_stone	엔드 돌	[엔드 돌]		rule	mixed
+adv_dimension_the_end	엔드	[엔드]		rule	mc_only
+adv_item_axolotl_bucket	아홀로틀이 담긴 양동이	[아홀로트리 담긴 양동이]	liaison	rule	mixed
+gen_cod_bucket	대구가 담긴 양동이	[대구가 담긴 양동이]		rule	mixed
+adv_item_golden_carrot	황금 당근	[황금 당근]		rule	mixed
+adv_block_torchflower_seeds	횃불꽃 씨앗	[홰뿔꼳 씨앋]	tensification,neutralisation	lexical	native
+adv_item_verdant_froglight	잔딧빛 개구리불	[잔디삗 개구리불]	tensification,neutralisation	lexical	native
+adv_item_ochre_froglight	황톳빛 개구리불	[황토삗 개구리불]	tensification	lexical	mixed
+adv_item_tropical_fish_bucket	열대어가 담긴 양동이	[열때어가 담긴 양동이]	tensification	rule	mixed
+adv_item_lead	끈	[끈]		rule	native
+adv_item_glow_ink_sac	발광 먹물 주머니	[발광 멍물 주머니]	nasalisation	rule	mixed
+adv_item_netherite_hoe	네더라이트 괭이	[네더라이트 괭이]		rule	mixed
+adv_item_sniffer_egg	스니퍼 알	[스니퍼 알]		rule	mixed
+adv_item_dried_ghast	마른 가스트	[마른 가스트]		rule	mc_only
+adv_item_pitcher_pod	벌레잡이풀 꼬투리	[벌레자비풀 꼬투리]	liaison	rule	native
+adv_item_oak_boat	참나무 보트	[참나무 보트]		rule	mixed
+adv_item_bee_nest	벌집	[벌찝]	tensification	lexical	native
+adv_item_pufferfish_bucket	복어가 담긴 양동이	[보거가 담긴 양동이]	liaison	rule	mixed
+adv_item_tadpole_bucket	올챙이가 담긴 양동이	[올챙이가 담긴 양동이]		rule	mixed
+adv_item_tnt	티엔티	[티엔티]		rule	loan
+adv_block_stone_axe	돌 도끼	[돌 도끼]		rule	native
+adv_item_potion	물약	[물략]	lateralisation,n_insertion	lexical	mixed
+adv_item_respawn_anchor	리스폰 정박기	[리스폰 정박끼]	tensification	rule	mixed
+adv_item_netherite_boots	네더라이트 부츠	[네더라이트 부츠]		rule	loan
+adv_dimension_the_nether	네더	[네더]		rule	mc_only
+adv_block_polished_blackstone_bricks	윤나는 흑암 벽돌	[윤나는 흐감 벽똘]	liaison,tensification	rule	mixed
+adv_block_nether_bricks	네더 벽돌	[네더 벽똘]	tensification	rule	mixed
+adv_item_wither_skeleton_skull	위더 스켈레톤 해골	[위더 스켈레톤 해골]		rule	mixed
+adv_block_netherite_chestplate	네더라이트 흉갑	[네더라이트 흉갑]		rule	mixed
+adv_item_netherite_helmet	네더라이트 투구	[네더라이트 투구]		rule	mixed
+adv_item_ancient_debris	고대 잔해	[고대 잔해]		rule	sino
+adv_item_blaze_rod	블레이즈 막대기	[블레이즈 막때기]	tensification	rule	mixed
+adv_item_crying_obsidian	우는 흑요석	[우는 흐교석]	liaison	rule	mixed
+adv_item_fire_charge	화염구	[화염구]		rule	sino
+adv_item_warped_fungus_on_a_stick	뒤틀린 균 낚싯대	[뒤틀린 균 낙씨때]	tensification,neutralisation	lexical	mixed
+adv_block_red_nether_bricks	붉은 네더 벽돌	[불근 네더 벽똘]	liaison,tensification,double_final	rule	mixed
+adv_item_ghast_tear	가스트 눈물	[가스트 눈물]		rule	mixed
+adv_item_enchanted_book	마법이 부여된 책	[마버비 부여된 책]	liaison	rule	sino
+adv_item_flint_and_steel	부싯돌과 부시	[부시똘과 부시]	tensification	lexical	native
+adv_item_ender_eye	엔더의 눈	[엔더의 눈]		rule	mixed
+adv_item_wooden_pickaxe	나무 곡괭이	[나무 곡꽹이]	tensification	rule	native
+adv_item_iron_boots	철 부츠	[철 부츠]		rule	mixed
+adv_block_diamond_chestplate	다이아몬드 흉갑	[다이아몬드 흉갑]		rule	mixed
+adv_block_stone_pickaxe	돌 곡괭이	[돌 곡꽹이]	tensification	rule	native
+adv2_item_baked_potato	구운 감자	[구운 감자]		rule	native
+adv2_item_iron_helmet	철 투구	[철 투구]		rule	mixed
+adv2_item_diamond_helmet	다이아몬드 투구	[다이아몬드 투구]		rule	mixed
+ghast	가스트	[가스트]		rule	mc_only
+person	사람	[사람]		rule	native
+child	아이	[아이]		rule	native
+baby	아기	[아기]		rule	native
+body	몸	[몸]		rule	native
+face	얼굴	[얼굴]		rule	native
+hand	손	[손]		rule	native
+head	머리	[머리]		rule	native
+foot	발	[발]		rule	native
+leg	다리	[다리]		rule	native
+clothes	옷	[옫]	neutralisation	rule	native
+helmet	투구	[투구]		rule	native
+armor	갑옷	[가볻]	liaison,neutralisation	rule	mixed
+leggings	바지	[바지]		rule	native
+shoes	신발	[신발]		rule	native
+pair	켤레	[켤레]		rule	native
+money	돈	[돈]		rule	native
+name	이름	[이름]		rule	native
+story	이야기	[이야기]		rule	native
+sound	소리	[소리]		rule	native
+song	노래	[노래]		rule	native
+picture	그림	[그림]		rule	native
+key	열쇠	[열쐬]	tensification	lexical	native
+plate	접시	[접씨]	tensification	rule	native
+pot	냄비	[냄비]		rule	native
+notebook	공책	[공책]		rule	sino
+boat	배	[배]		rule	native
+train	기차	[기차]		rule	sino
+bird	새	[새]		rule	native
+puppy	강아지	[강아지]		rule	native
+rose	장미	[장미]		rule	sino
+meat	고기	[고기]		rule	native
+fish_dish	생선	[생선]		rule	sino
+vegetable	채소	[채소]		rule	sino
+fruit	과일	[과일]		rule	native
+room	방	[방]		rule	sino
+market	시장	[시장]		rule	sino
+road	길	[길]		rule	native
+ground	땅	[땅]		rule	native
+lake	호수	[호수]		rule	sino
+gen_island	섬	[섬]		rule	native
+fire	불	[불]		rule	native
+wind	바람	[바람]		rule	native
+time	시간	[시간]		rule	sino
+now	지금	[지금]		rule	sino
+today	오늘	[오늘]		rule	native
+yesterday	어제	[어제]		rule	native
+tomorrow	내일	[내일]		rule	sino
+morning	아침	[아침]		rule	native
+evening	저녁	[저녁]		rule	native
+one_day	하루	[하루]		rule	native
+above	위	[위]		rule	native
+below	아래	[아래]		rule	native
+underside	밑	[믿]	neutralisation	rule	native
+beside	옆	[엽]	neutralisation	rule	native
+in_front	앞	[압]	neutralisation	rule	native
+behind	뒤	[뒤]		rule	native
+inside	안	[안]		rule	native
+interior	속	[속]		rule	native
+outside	밖	[박]	neutralisation	rule	native
+middle	가운데	[가운데]		rule	native
+left	왼쪽	[왼쪽]		rule	native
+right	오른쪽	[오른쪽]		rule	native
+north	북쪽	[북쪽]		rule	mixed
+south	남쪽	[남쪽]		rule	mixed
+east	동쪽	[동쪽]		rule	mixed
+west	서쪽	[서쪽]		rule	mixed
+one	하나	[하나]		rule	native
+two	둘	[둘]		rule	native
+three	셋	[섿]	neutralisation	rule	native
+four	넷	[넫]	neutralisation	rule	native
+five	다섯	[다섣]	neutralisation	rule	native
+six	여섯	[여섣]	neutralisation	rule	native
+seven	일곱	[일곱]		rule	native
+eight	여덟	[여덜]	double_final	rule	native
+nine	아홉	[아홉]		rule	native
+ten	열	[열]		rule	native
+counter_thing	개	[개]		rule	sino
+counter_person	명	[명]		rule	sino
+counter_animal	마리	[마리]		rule	native
+colour	색	[색]		rule	sino
+red	빨간색	[빨간색]		rule	mixed
+orange	주황색	[주황색]		rule	sino
+yellow	노란색	[노란색]		rule	mixed
+green	초록색	[초록쌕]	tensification	rule	sino
+blue	파란색	[파란색]		rule	mixed
+purple	보라색	[보라색]		rule	mixed
+pink	분홍색	[분홍색]		rule	sino
+black	검은색	[거믄색]	liaison	rule	mixed
+gray	회색	[회색]		rule	sino
+brown	갈색	[갈쌕]	tensification	rule	sino
+white	하얀색	[하얀색]		rule	mixed
+give	주다	[주다]		rule	native
+receive	받다	[받따]	tensification	rule	native
+buy	사다	[사다]		rule	native
+sell	팔다	[팔다]		rule	native
+go	가다	[가다]		rule	native
+come	오다	[오다]		rule	native
+enter	들어가다	[드러가다]	liaison	rule	native
+go_out	나가다	[나가다]		rule	native
+come_out	나오다	[나오다]		rule	native
+go_down	내려가다	[내려가다]		rule	native
+meet	만나다	[만나다]		rule	native
+live	살다	[살다]		rule	native
+die	죽다	[죽따]	tensification	rule	native
+be_born	태어나다	[태어나다]		rule	native
+grow	자라다	[자라다]		rule	native
+raise	키우다	[키우다]		rule	native
+plant	심다	[심따]	tensification	lexical	native
+write	쓰다	[쓰다]		rule	native
+read	읽다	[익따]	tensification,double_final	rule	native
+draw	그리다	[그리다]		rule	native
+hear	듣다	[듣따]	tensification	rule	native
+call	부르다	[부르다]		rule	native
+find	찾다	[찯따]	tensification,neutralisation	rule	native
+catch	잡다	[잡따]	tensification	rule	native
+throw	던지다	[던지다]		rule	native
+put_in	넣다	[너타]	h	rule	native
+take_out	꺼내다	[꺼내다]		rule	native
+bake	굽다	[굽따]	tensification	rule	native
+wear	입다	[입따]	tensification	rule	native
+take_off	벗다	[벋따]	tensification,neutralisation	rule	native
+close	닫다	[닫따]	tensification	rule	native
+sit	앉다	[안따]	tensification,double_final	rule	native
+lie_down	눕다	[눕따]	tensification	rule	native
+get_up	일어나다	[이러나다]	liaison	rule	native
+wait	기다리다	[기다리다]		rule	native
+ride	타다	[타다]		rule	native
+run	달리다	[달리다]		rule	native
+fall	떨어지다	[떠러지다]	liaison	rule	native
+flow	흐르다	[흐르다]		rule	native
+big	크다	[크다]		rule	native
+small	작다	[작따]	tensification	rule	native
+many	많다	[만타]	h	rule	native
+high	높다	[놉따]	tensification,neutralisation	rule	native
+low	낮다	[낟따]	tensification,neutralisation	rule	native
+long	길다	[길다]		rule	native
+short	짧다	[짤따]	tensification,double_final	rule	native
+deep	깊다	[깁따]	tensification,neutralisation	rule	native
+wide	넓다	[널따]	tensification,double_final	rule	native
+far	멀다	[멀다]		rule	native
+fast	빠르다	[빠르다]		rule	native
+bright	밝다	[박따]	tensification,double_final	rule	native
+dark	어둡다	[어둡따]	tensification	rule	native
+hot	뜨겁다	[뜨겁따]	tensification	rule	native
+cold_touch	차갑다	[차갑따]	tensification	rule	native
+cold_weather	춥다	[춥따]	tensification	rule	native
+heavy	무겁다	[무겁따]	tensification	rule	native
+light_weight	가볍다	[가볍따]	tensification	rule	native
+scary	무섭다	[무섭따]	tensification	rule	native
+gen_music_disc_creator_music_box	음반	[음반]		rule	sino
+gen_weathered_copper_lantern	녹슨 구리 랜턴	[녹쓴 구리 랜턴]	tensification	rule	mixed
+gen_red_wool	빨간색 양털	[빨간색 양털]		rule	mixed
+gen_pink_glazed_terracotta	분홍색 유광 테라코타	[분홍색 유광 테라코타]		rule	mixed
+gen_zombie_head	좀비 머리	[좀비 머리]		rule	mixed
+gen_waxed_exposed_cut_copper	밀랍칠한 약간 녹슨 깎인 구리	[밀랍칠한 약깐 녹쓴 까낀 구리]	liaison,tensification	rule	native
+gen_poplar_log	포플러나무 원목	[포플러나무 원목]		rule	mixed
+gen_snow_golem	눈 골렘	[눈 골렘]		rule	mixed
+gen_endermite	엔더마이트	[엔더마이트]		rule	mc_only
+gen_guardian	가디언	[가디언]		rule	mc_only
+gen_piglin_brute	난폭한 피글린	[난포칸 피글린]	h	rule	mc_only
+gen_vindicator	변명자	[변명자]		rule	sino
+gen_green_terracotta	초록색 테라코타	[초록쌕 테라코타]	tensification	rule	loan
+gen_bamboo_stairs	대나무 계단	[대나무 계단]		rule	mixed
+gen_warden	워든	[워든]		rule	mc_only
+gen_tube_coral	관 산호	[관 산호]		rule	sino
+gen_elder_guardian	엘더 가디언	[엘더 가디언]		rule	mc_only
+gen_wither	위더	[위더]		rule	mc_only
+gen_vex	벡스	[벡쓰]	tensification	rule	mc_only
+gen_magenta_shulker_box	자홍색 셜커 상자	[자홍색 셜커 상자]		rule	mixed
+gen_eroded_badlands	침식된 악지	[침식뙨 악찌]	tensification	rule	sino
+gen_cave_vines_plant	동굴 덩굴 식물	[동굴 덩굴 싱물]	nasalisation	rule	mixed
+gen_deepslate	심층암	[심층암]		rule	sino
+gen_redstone_lamp	레드스톤 조명	[레드스톤 조명]		rule	mixed
+gen_wither_skeleton	위더 스켈레톤	[위더 스켈레톤]		rule	loan
+gen_music_disc_otherside	음반	[음반]		rule	sino
+gen_brown_carpet	갈색 양탄자	[갈쌕 양탄자]	tensification	rule	mixed
+gen_orange_concrete_slab	주황색 콘크리트 반 블록	[주황색 콘크리트 반 블록]		rule	loan
+gen_drowned	드라운드	[드라운드]		rule	mc_only
+gen_stray	스트레이	[스트레이]		rule	mc_only
+gen_bogged	보그드	[보그드]		rule	mc_only
+gen_cherry_chest_boat	상자가 실린 벚나무 보트	[상자가 실린 번나무 보트]	nasalisation,neutralisation	rule	mixed
+gen_waxed_cut_copper	밀랍칠한 깎인 구리	[밀랍칠한 까낀 구리]	liaison	rule	native
+gen_dead_brain_coral_block	죽은 뇌 산호 블록	[주근 뇌 산호 블록]	liaison	rule	mixed
+gen_meadow	목초지	[목초지]		rule	sino
+gen_zoglin	조글린	[조글린]		rule	mc_only
+gen_breeze	브리즈	[브리즈]		rule	mc_only
+gen_husk	허스크	[허스크]		rule	mc_only
+gen_pillager	약탈자	[약탈짜]	tensification	rule	sino
+gen_spruce_pressure_plate	가문비나무 압력판	[가문비나무 암녁판]	nasalisation	rule	mixed
+gen_dolphin	돌고래	[돌고래]		rule	native
+gen_lime_candle	연두색 초	[연두색 초]		rule	native
+gen_closed_eyeblossom	감은 눈망울꽃	[가믄 눈망울꼳]	liaison,neutralisation	rule	native
+gen_strider	스트라이더	[스트라이더]		rule	mc_only
+gen_howl_pottery_sherd	짖음 도자기 조각	[지즘 도자기 조각]	liaison	rule	mixed
+gen_dirt_path	흙 길	[흑 길]	double_final	rule	native
+gen_black_banner	검은색 현수막	[거믄새 켠수막]	liaison,h	rule	mixed
+gen_repeater	레드스톤 중계기	[레드스톤 중계기]		rule	mixed
+gen_shulker	셜커	[셜커]		rule	mc_only
+gen_birch_sign	자작나무 표지판	[자장나무 표지판]	nasalisation	rule	mixed
+gen_short_dry_grass	키 작은 마른 잔디	[키 자근 마른 잔디]	liaison	rule	native
+gen_dead_bubble_coral_block	죽은 거품 산호 블록	[주근 거품 산호 블록]	liaison	rule	mixed
+gen_end_stone_brick_wall	엔드 석재 벽돌 담장	[엔드 석째 벽똘 담장]	tensification	rule	mixed
+gen_piglin	피글린	[피글린]		rule	mc_only
+gen_heart_of_the_sea	바다의 심장	[바다의 심장]		rule	mixed
+gen_axolotl	아홀로틀	[아홀로틀]		rule	loan
+gen_blue_stained_glass	파란색 색유리	[파란색 생뉴리]	nasalisation,n_insertion	lexical	mixed
+gen_deepslate_tiles	심층암 타일	[심층암 타일]		rule	mixed
+gen_music_disc_relic	음반	[음반]		rule	sino
+gen_cinnabar_bricks	진사 벽돌	[진사 벽똘]	tensification	rule	mixed
+gen_blaze	블레이즈	[블레이즈]		rule	mc_only
+gen_silverfish	좀벌레	[좀벌레]		rule	native
+gen_blue_banner	파란색 현수막	[파란새 켠수막]	h	rule	mixed
+gen_red_terracotta	빨간색 테라코타	[빨간색 테라코타]		rule	mixed
+gen_poplar_pressure_plate	포플러나무 압력판	[포플러나무 암녁판]	nasalisation	rule	mixed
+gen_leaf_litter	낙엽	[나겹]	liaison	rule	sino
+gen_chiseled_sandstone	조각된 사암	[조각뙨 사암]	tensification	rule	sino
+gen_cyan_candle	청록색 초	[청녹쌕 초]	tensification,nasalisation	rule	native
+gen_weathered_copper_grate	녹슨 구리 격자	[녹쓴 구리 격짜]	tensification	rule	mixed
+gen_evoker	소환사	[소환사]		rule	sino
+gen_chorus_plant	후렴초	[후렴초]		rule	sino
+gen_brown_concrete_powder	갈색 콘크리트 가루	[갈쌕 콘크리트 가루]	tensification	rule	mixed
+gen_quartz_block	석영 블록	[서경 블록]	liaison	rule	mixed
+gen_weeping_vines	늘어진 덩굴	[느러진 덩굴]	liaison	rule	native
+gen_music_disc_stal	음반	[음반]		rule	sino
+gen_camel	낙타	[낙타]		rule	sino
+gen_birch_hanging_sign	자작나무 매다는 표지판	[자장나무 매다는 표지판]	nasalisation	rule	mixed
+gen_waxed_weathered_copper_bars	밀랍칠한 녹슨 구리 창살	[밀랍칠한 녹쓴 구리 창쌀]	tensification	lexical	mixed
+gen_jungle_chest_boat	상자가 실린 정글나무 보트	[상자가 실린 정글라무 보트]	lateralisation	rule	mixed
+gen_llama	라마	[라마]		rule	loan
+gen_gray_stained_glass_pane	회색 색유리 판	[회색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
+gen_dripstone_block	점적석 블록	[점적썩 블록]	tensification	rule	mixed
+gen_hoglin	호글린	[호글린]		rule	mc_only
+gen_turtle_helmet	거북 등딱지	[거북 등딱찌]	tensification	rule	native
+gen_weathered_copper_golem_statue	녹슨 구리 골렘 동상	[녹쓴 구리 골렘 동상]	tensification	rule	mixed
+gen_cherry_trapdoor	벚나무 다락문	[번나무 다랑문]	nasalisation,neutralisation	rule	mixed
+gen_jungle_pressure_plate	정글나무 압력판	[정글라무 암녁판]	nasalisation,lateralisation	rule	mixed
+gen_green_banner	초록색 현수막	[초록쌔 켠수막]	tensification,h	rule	sino
+gen_deepslate_redstone_ore	심층암 레드스톤 광석	[심층암 레드스톤 광석]		rule	mixed
+gen_wandering_trader	떠돌이 상인	[떠도리 상인]	liaison	rule	mixed
+gen_prismarine_brick_slab	프리즈머린 벽돌 반 블록	[프리즈머린 벽똘 반 블록]	tensification	rule	mixed
+gen_cooked_cod	익힌 대구	[이킨 대구]	h	rule	mixed
+gen_music_disc_strad	음반	[음반]		rule	sino
+gen_iron_door	철 문	[철 문]		rule	sino
+gen_danger_pottery_sherd	위험 도자기 조각	[위험 도자기 조각]		rule	mixed
+gen_birch_door	자작나무 문	[자장나무 문]	nasalisation	rule	mixed
+gen_oak_chest_boat	상자가 실린 참나무 보트	[상자가 실린 참나무 보트]		rule	mixed
+gen_blue_wool_stairs	파란색 양털 계단	[파란색 양털 계단]		rule	mixed
+gen_panda	판다	[판다]		rule	loan
+gen_cyan_stained_glass_pane	청록색 색유리 판	[청녹쌕 생뉴리 판]	tensification,nasalisation,n_insertion	lexical	sino
+gen_yellow_bed	노란색 침대	[노란색 침대]		rule	mixed
+gen_dispenser	발사기	[발싸기]	tensification	rule	sino
+gen_blue_wool_slab	파란색 양털 반 블록	[파란색 양털 반 블록]		rule	mixed
+gen_cracked_stone_bricks	금 간 석재 벽돌	[금 간 석째 벽똘]	tensification	rule	mixed
+gen_armadillo	아르마딜로	[아르마딜로]		rule	loan
+gen_blue_glazed_terracotta	파란색 유광 테라코타	[파란색 유광 테라코타]		rule	mixed
+gen_cyan_shulker_box	청록색 셜커 상자	[청녹쌕 셜커 상자]	tensification,nasalisation	rule	mixed
+gen_crimson_roots	진홍빛 뿌리	[진홍빋 뿌리]	neutralisation	rule	mixed
+gen_dead_bush	마른 덤불	[마른 덤불]		rule	native
+gen_cherry_sapling	벚나무 묘목	[번나무 묘목]	nasalisation,neutralisation	rule	mixed
+gen_blue_terracotta	파란색 테라코타	[파란색 테라코타]		rule	mixed
+gen_weathered_copper_chest	녹슨 구리 상자	[녹쓴 구리 상자]	tensification	rule	mixed
+gen_music_disc_13	음반	[음반]		rule	sino
+gen_cobweb	거미줄	[거미줄]		rule	native
+gen_pale_oak_trapdoor	창백한 참나무 다락문	[창배칸 참나무 다랑문]	nasalisation,h	rule	mixed
+gen_yellow_wool	노란색 양털	[노란색 양털]		rule	mixed
+gen_waxed_oxidized_copper_lantern	밀랍칠한 산화된 구리 랜턴	[밀랍칠한 산화된 구리 랜턴]		rule	mixed
+gen_arms_up_pottery_sherd	만세 도자기 조각	[만세 도자기 조각]		rule	mixed
+gen_birch_leaves	자작나무 잎	[자장나무 입]	nasalisation,neutralisation	rule	native
+gen_dead_tube_coral_fan	죽은 부채형 관 산호	[주근 부채형 관 산호]	liaison	rule	mixed
+gen_conduit	전달체	[전달체]		rule	sino
+gen_brown_concrete	갈색 콘크리트	[갈쌕 콘크리트]	tensification	rule	loan
+gen_magenta_glazed_terracotta	자홍색 유광 테라코타	[자홍색 유광 테라코타]		rule	mixed
+gen_deepslate_tile_slab	심층암 타일 반 블록	[심층암 타일 반 블록]		rule	mixed
+gen_cut_red_sandstone	깎인 붉은 사암	[까낀 불근 사암]	liaison,double_final	rule	mixed
+gen_experience_bottle	경험치 병	[경험치 병]		rule	sino
+gen_moss_block	이끼 블록	[이끼 블록]		rule	mixed
+gen_charcoal	숯	[숟]	neutralisation	rule	native
+gen_lime_concrete_stairs	연두색 콘크리트 계단	[연두색 콘크리트 계단]		rule	mixed
+gen_vine	덩굴	[덩굴]		rule	native
+gen_mossy_cobblestone_slab	이끼 낀 조약돌 반 블록	[이끼 낀 조약똘 반 블록]	tensification	rule	mixed
+gen_exposed_chiseled_copper	약간 녹슨 조각된 구리	[약깐 녹쓴 조각뙨 구리]	tensification	rule	native
+gen_mangrove_trapdoor	맹그로브나무 다락문	[맹그로브나무 다랑문]	nasalisation	rule	mixed
+gen_red_stained_glass_pane	빨간색 색유리 판	[빨간색 생뉴리 판]	nasalisation,n_insertion	lexical	mixed
+gen_chipped_anvil	금 간 모루	[금 간 모루]		rule	native
+gen_gray_concrete_powder	회색 콘크리트 가루	[회색 콘크리트 가루]		rule	mixed
+gen_waxed_exposed_copper_door	밀랍칠한 약간 녹슨 구리 문	[밀랍칠한 약깐 녹쓴 구리 문]	tensification	rule	mixed
+gen_red_bundle	빨간색 꾸러미	[빨간색 꾸러미]		rule	native
+gen_phantom	팬텀	[팬텀]		rule	mc_only
+gen_snowy_village_map	눈 덮인 마을 지도	[눈 더핀 마을 지도]	liaison	rule	mixed
+gen_ender_chest	엔더 상자	[엔더 상자]		rule	mixed
+gen_frogspawn	개구리알	[개구리알]		rule	native
+gen_test_instance_block	테스트 인스턴스 블록	[테스트 인스턴스 블록]		rule	loan
+gen_polished_blackstone_wall	윤나는 흑암 담장	[윤나는 흐감 담장]	liaison	rule	mixed
+gen_bone_block	뼈 블록	[뼈 블록]		rule	mixed
+gen_observer	관측기	[관측끼]	tensification	rule	sino
+gen_acacia_fence_gate	아카시아나무 울타리 문	[아카시아나무 울타리 문]		rule	mixed
+gen_poplar_trapdoor	포플러나무 다락문	[포플러나무 다랑문]	nasalisation	rule	mixed
+gen_cave_spider	동굴 거미	[동굴 거미]		rule	mixed
+gen_stripped_spruce_log	껍질 벗긴 가문비나무 원목	[껍찔 벋낀 가문비나무 원목]	tensification,neutralisation	rule	mixed
+gen_burn_pottery_sherd	불탐 도자기 조각	[불탐 도자기 조각]		rule	mixed
+gen_stone_pressure_plate	돌 압력판	[돌 암녁판]	nasalisation	rule	mixed
+gen_sandstone_slab	사암 반 블록	[사암 반 블록]		rule	mixed
+gen_spider_eye	거미 눈	[거미 눈]		rule	native
+gen_pale_oak_log	창백한 참나무 원목	[창배칸 참나무 원목]	h	rule	mixed
+gen_yellow_glazed_terracotta	노란색 유광 테라코타	[노란색 유광 테라코타]		rule	mixed
+gen_jungle_boat	정글나무 보트	[정글라무 보트]	lateralisation	rule	mixed
+gen_green_dye	초록색 염료	[초록쌕 염뇨]	tensification,nasalisation	rule	sino
+gen_deepslate_lapis_ore	심층암 청금석 광석	[심층암 청금석 광석]		rule	sino
+gen_black_harness	검은색 하네스	[거믄새 카네스]	liaison,h	rule	mixed
+gen_tuff_slab	응회암 반 블록	[응회암 반 블록]		rule	mixed
+gen_exposed_copper_chain	약간 녹슨 구리 사슬	[약깐 녹쓴 구리 사슬]	tensification	rule	native
+gen_exposed_copper	약간 녹슨 구리	[약깐 녹쓴 구리]	tensification	rule	native
+gen_lime_carpet	연두색 양탄자	[연두색 양탄자]		rule	mixed
+gen_chainmail_helmet	사슬 투구	[사슬 투구]		rule	native
+gen_quartz_pillar	석영 기둥	[서경 기둥]	liaison	rule	mixed
+gen_pale_oak_slab	창백한 참나무 반 블록	[창배칸 참나무 반 블록]	h	rule	mixed
+gen_cherry_leaves	벚나무 잎	[번나무 입]	nasalisation,neutralisation	rule	native
+gen_iron_nautilus_armor	철 앵무조개 갑옷	[철 앵무조개 가볻]	liaison,neutralisation	rule	mixed
+gen_waxed_weathered_copper_chest	밀랍칠한 녹슨 구리 상자	[밀랍칠한 녹쓴 구리 상자]	tensification	rule	mixed
+gen_pufferfish	복어	[보거]	liaison	rule	mixed
+gen_cracked_deepslate_tiles	금 간 심층암 타일	[금 간 심층암 타일]		rule	mixed
+gen_sulfur_wall	유황 담장	[유황 담장]		rule	mixed
+gen_stonecutter	석재 절단기	[석째 절딴기]	tensification	rule	sino
+gen_cyan_concrete_slab	청록색 콘크리트 반 블록	[청녹쌕 콘크리트 반 블록]	tensification,nasalisation	rule	loan
+gen_dead_tube_coral_wall_fan	죽은 부채형 관 산호 벽	[주근 부채형 관 산호 벽]	liaison	rule	mixed
+gen_barrel	통	[통]		rule	sino
+gen_crimson_fungus	진홍빛 균	[진홍빋 균]	neutralisation	rule	mixed
+gen_taiga	타이가	[타이가]		rule	loan
+gen_sulfur_bricks	유황 벽돌	[유황 벽똘]	tensification	rule	mixed
+gen_chiseled_deepslate	조각된 심층암	[조각뙨 심층암]	tensification	rule	sino
+gen_piston	피스톤	[피스톤]		rule	loan
+gen_green_concrete_slab	초록색 콘크리트 반 블록	[초록쌕 콘크리트 반 블록]	tensification	rule	loan
+gen_lime_stained_glass_pane	연두색 색유리 판	[연두색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
+gen_trapped_chest	덫 상자	[덛 상자]	neutralisation	rule	mixed
+gen_red_shulker_box	빨간색 셜커 상자	[빨간색 셜커 상자]		rule	mixed
+gen_chiseled_cinnabar	조각된 진사	[조각뙨 진사]	tensification	rule	sino
+gen_blackstone	흑암	[흐감]	liaison	rule	sino
+gen_polished_andesite_slab	윤나는 안산암 반 블록	[윤나는 안사남 반 블록]	liaison	rule	mixed
+gen_birch_shelf	자작나무 선반	[자장나무 선반]	nasalisation	rule	native
+gen_stripped_warped_hyphae	껍질 벗긴 뒤틀린 균사	[껍찔 벋낀 뒤틀린 균사]	tensification,neutralisation	rule	mixed
+gen_chiseled_sulfur	조각된 유황	[조각뙨 유황]	tensification	rule	sino
+gen_prismarine	프리즈머린	[프리즈머린]		rule	mc_only
+gen_slime	슬라임	[슬라임]		rule	loan
+gen_pointed_dripstone	뾰족한 점적석	[뾰조칸 점적썩]	tensification,h	rule	mixed
+gen_golden_dandelion	황금 민들레	[황금 민들레]		rule	mixed
+gen_iron_trapdoor	철 다락문	[철 다랑문]	nasalisation	rule	mixed
+gen_copper_axe	구리 도끼	[구리 도끼]		rule	native
+gen_brown_candle	갈색 초	[갈쌕 초]	tensification	rule	native
+gen_waxed_exposed_copper	밀랍칠한 약간 녹슨 구리	[밀랍칠한 약깐 녹쓴 구리]	tensification	rule	native
+gen_daylight_detector	햇빛 감지기	[해삗 감지기]	tensification,neutralisation	lexical	mixed
+gen_birch_planks	자작나무 판자	[자장나무 판자]	nasalisation	rule	mixed
+gen_polished_blackstone_brick_slab	윤나는 흑암 벽돌 반 블록	[윤나는 흐감 벽똘 반 블록]	liaison,tensification	rule	mixed
+gen_spruce_wood	가문비나무	[가문비나무]		rule	native
+gen_ravager	파괴수	[파괴수]		rule	sino
+gen_shulker_box	셜커 상자	[셜커 상자]		rule	mixed
+gen_dropper	공급기	[공급끼]	tensification	rule	sino
+gen_sulfur	유황	[유황]		rule	sino
+gen_wildflowers	들꽃	[들꼳]	neutralisation	rule	native
+gen_waxed_weathered_cut_copper	밀랍칠한 녹슨 깎인 구리	[밀랍칠한 녹쓴 까낀 구리]	liaison,tensification	rule	native
+gen_wheat_seeds	밀 씨앗	[밀 씨앋]	neutralisation	rule	native
+gen_oak_button	참나무 버튼	[참나무 버튼]		rule	mixed
+gen_infested_deepslate	벌레 먹은 심층암	[벌레 머근 심층암]	liaison	rule	mixed
+gen_windswept_forest	바람이 세찬 숲	[바라미 세찬 숩]	liaison,neutralisation	rule	native
+gen_red_glazed_terracotta	빨간색 유광 테라코타	[빨간색 유광 테라코타]		rule	mixed
+gen_dead_horn_coral_fan	죽은 부채형 사방산호	[주근 부채형 사방산호]	liaison	rule	mixed
+gen_birch_sapling	자작나무 묘목	[자장나무 묘목]	nasalisation	rule	mixed
+gen_jungle_fence	정글나무 울타리	[정글라무 울타리]	lateralisation	rule	mixed
+gen_spruce_door	가문비나무 문	[가문비나무 문]		rule	mixed
+gen_dark_forest	어두운 숲	[어두운 숩]	neutralisation	rule	native
+gen_water_cauldron	물 가마솥	[물 가마솓]	neutralisation	rule	native
+gen_desert_pyramid_map	사막 피라미드 지도	[사막 피라미드 지도]		rule	mixed
+gen_white_bed	하얀색 침대	[하얀색 침대]		rule	mixed
+gen_stone_button	돌 버튼	[돌 버튼]		rule	mixed
+gen_pitcher_plant	벌레잡이풀	[벌레자비풀]	liaison	rule	native
+gen_copper_leggings	구리 레깅스	[구리 레깅스]		rule	mixed
+gen_green_bed	초록색 침대	[초록쌕 침대]	tensification	rule	sino
+gen_damaged_anvil	손상된 모루	[손상된 모루]		rule	native
+gen_smooth_red_sandstone_slab	매끄러운 붉은 사암 반 블록	[매끄러운 불근 사암 반 블록]	liaison,double_final	rule	mixed
+gen_desert_village_map	사막 마을 지도	[사망 마을 지도]	nasalisation	rule	mixed
+gen_soul_campfire	영혼 모닥불	[영혼 모닥뿔]	tensification	rule	mixed
+gen_granite_slab	화강암 반 블록	[화강암 반 블록]		rule	mixed
+gen_composter	퇴비통	[퇴비통]		rule	sino
+gen_cyan_concrete	청록색 콘크리트	[청녹쌕 콘크리트]	tensification,nasalisation	rule	loan
+gen_mangrove_log	맹그로브나무 원목	[맹그로브나무 원목]		rule	mixed
+gen_horn_coral	사방산호	[사방산호]		rule	sino
+gen_dark_oak_trapdoor	짙은 참나무 다락문	[지튼 참나무 다랑문]	liaison,nasalisation	rule	mixed
+gen_chiseled_resin_bricks	조각된 수지 벽돌	[조각뙨 수지 벽똘]	tensification	rule	mixed
+gen_polished_blackstone	윤나는 흑암	[윤나는 흐감]	liaison	rule	mixed
+gen_smooth_quartz	매끄러운 석영 블록	[매끄러운 서경 블록]	liaison	rule	mixed
+gen_copper_bars	구리 창살	[구리 창쌀]	tensification	lexical	mixed
+gen_jungle_hanging_sign	정글나무 매다는 표지판	[정글라무 매다는 표지판]	lateralisation	rule	mixed
+gen_tuff_brick_wall	응회암 벽돌 담장	[응회암 벽똘 담장]	tensification	rule	mixed
+gen_waxed_weathered_copper_golem_statue	밀랍칠한 녹슨 구리 골렘 동상	[밀랍칠한 녹쓴 구리 골렘 동상]	tensification	rule	mixed
+gen_large_amethyst_bud	큰 자수정 봉오리	[큰 자수정 봉오리]		rule	mixed
+gen_gray_candle	회색 초	[회색 초]		rule	native
+gen_mangrove_swamp	맹그로브 늪	[맹그로브 늡]	neutralisation	rule	mixed
+gen_waxed_exposed_chiseled_copper	밀랍칠한 약간 녹슨 조각된 구리	[밀랍칠한 약깐 녹쓴 조각뙨 구리]	tensification	rule	native
+gen_copper_torch	구리 횃불	[구리 홰뿔]	tensification	lexical	native
+gen_donkey	당나귀	[당나귀]		rule	mixed
+gen_cracked_deepslate_bricks	금 간 심층암 벽돌	[금 간 심층암 벽똘]	tensification	rule	mixed
+gen_cyan_dye	청록색 염료	[청녹쌕 염뇨]	tensification,nasalisation	rule	sino
+gen_polar_bear	북극곰	[북끅꼼]	tensification	rule	mixed
+gen_gray_glazed_terracotta	회색 유광 테라코타	[회색 유광 테라코타]		rule	mixed
+gen_smithing_table	대장장이 작업대	[대장장이 자겁때]	liaison,tensification	rule	mixed
+gen_waxed_exposed_copper_lantern	밀랍칠한 약간 녹슨 구리 랜턴	[밀랍칠한 약깐 녹쓴 구리 랜턴]	tensification	rule	mixed
+gen_hopper	호퍼	[호퍼]		rule	loan
+gen_ocelot	오실롯	[오실롣]	neutralisation	rule	loan
+gen_oxidized_cut_copper_slab	산화된 깎인 구리 반 블록	[산화된 까낀 구리 반 블록]	liaison	rule	mixed
+gen_purple_glazed_terracotta	보라색 유광 테라코타	[보라색 유광 테라코타]		rule	mixed
+gen_yellow_candle_cake	노란색 초를 꽂은 케이크	[노란색 초를 꼬즌 케이크]	liaison	rule	mixed
+gen_short_grass	키 작은 잔디	[키 자근 잔디]	liaison	rule	native
+gen_acacia_sapling	아카시아나무 묘목	[아카시아나무 묘목]		rule	mixed
+gen_lime_bed	연두색 침대	[연두색 침대]		rule	sino
+gen_spruce_sapling	가문비나무 묘목	[가문비나무 묘목]		rule	mixed
+gen_oxidized_copper_bulb	산화된 구리 전구	[산화된 구리 전구]		rule	mixed
+gen_mangrove_propagule	맹그로브나무 주아	[맹그로브나무 주아]		rule	mixed
+gen_deepslate_brick_wall	심층암 벽돌 담장	[심층암 벽똘 담장]	tensification	rule	mixed
+gen_rabbit_stew	토끼 스튜	[토끼 스튜]		rule	mixed
+gen_waxed_oxidized_copper_bars	밀랍칠한 산화된 구리 창살	[밀랍칠한 산화된 구리 창쌀]	tensification	lexical	mixed
+gen_cherry_slab	벚나무 반 블록	[번나무 반 블록]	nasalisation,neutralisation	rule	mixed
+gen_grindstone	숫돌	[숟똘]	tensification,neutralisation	rule	native
+gen_orange_banner	주황색 현수막	[주황새 켠수막]	h	rule	sino
+gen_green_stained_glass_pane	초록색 색유리 판	[초록쌕 생뉴리 판]	tensification,nasalisation,n_insertion	lexical	sino
+gen_brain_coral	뇌 산호	[뇌 산호]		rule	sino
+gen_warped_nylium	뒤틀린 네사체	[뒤틀린 네사체]		rule	mc_only
+gen_sulfur_caves	유황 동굴	[유황 동굴]		rule	sino
+gen_acacia_slab	아카시아나무 반 블록	[아카시아나무 반 블록]		rule	mixed
+gen_gray_wool	회색 양털	[회색 양털]		rule	mixed
+gen_pink_concrete	분홍색 콘크리트	[분홍색 콘크리트]		rule	loan
+gen_snowy_taiga	눈 덮인 타이가	[눈 더핀 타이가]	liaison	rule	mixed
+gen_blast_furnace	용광로	[용광노]	nasalisation	rule	sino
+gen_swamp	늪	[늡]	neutralisation	rule	native
+gen_glowstone_dust	발광석 가루	[발광석 가루]		rule	mixed
+gen_white_candle	하얀색 초	[하얀색 초]		rule	native
+gen_diorite_slab	섬록암 반 블록	[섬노감 반 블록]	liaison,nasalisation	rule	mixed
+gen_honeycomb_block	벌집 조각 블록	[벌찝 조각 블록]	tensification	lexical	mixed
+gen_twisting_vines	휘어진 덩굴	[휘어진 덩굴]		rule	native
+gen_tuff_brick_slab	응회암 벽돌 반 블록	[응회암 벽똘 반 블록]	tensification	rule	mixed
+gen_infested_cracked_stone_bricks	벌레 먹은 금 간 석재 벽돌	[벌레 머근 금 간 석째 벽똘]	liaison,tensification	rule	mixed
+gen_blue_bed	파란색 침대	[파란색 침대]		rule	mixed
+gen_sulfur_brick_slab	유황 벽돌 반 블록	[유황 벽똘 반 블록]	tensification	rule	mixed
+gen_green_stained_glass	초록색 색유리	[초록쌕 생뉴리]	tensification,nasalisation,n_insertion	lexical	sino
+gen_cinnabar	진사	[진사]		rule	sino
+gen_melon	수박	[수박]		rule	native
+gen_deep_ocean	깊은 바다	[기픈 바다]	liaison	rule	native
+gen_mud	진흙	[진흑]	double_final	rule	native
+gen_crimson_door	진홍빛 문	[진홍빈 문]	nasalisation,neutralisation	rule	mixed
+gen_chiseled_nether_bricks	조각된 네더 벽돌	[조각뙨 네더 벽똘]	tensification	rule	mixed
+gen_waxed_copper_golem_statue	밀랍칠한 구리 골렘 동상	[밀랍칠한 구리 골렘 동상]		rule	mixed
+gen_white_shulker_box	하얀색 셜커 상자	[하얀색 셜커 상자]		rule	mixed
+gen_gray_concrete	회색 콘크리트	[회색 콘크리트]		rule	loan
+gen_bamboo_jungle	대나무 정글	[대나무 정글]		rule	mixed
+gen_oak_trapdoor	참나무 다락문	[참나무 다랑문]	nasalisation	rule	mixed
+gen_hanging_roots	매달린 뿌리	[매달린 뿌리]		rule	native
+gen_gray_carpet	회색 양탄자	[회색 양탄자]		rule	mixed
+gen_polished_tuff	윤나는 응회암	[윤나는 응회암]		rule	mixed
+gen_heavy_core	무거운 코어	[무거운 코어]		rule	mixed
+gen_trader_llama	상인 라마	[상인 라마]		rule	mixed
+gen_gold_nugget	금 조각	[금 조각]		rule	mixed
+gen_smoker	훈연기	[후년기]	liaison	rule	sino
+gen_golden_spear	금 창	[금 창]		rule	sino
+gen_pale_oak_shelf	창백한 참나무 선반	[창배칸 참나무 선반]	h	rule	native
+gen_oak_stairs	참나무 계단	[참나무 계단]		rule	mixed
+gen_spruce_leaves	가문비나무 잎	[가문비나무 입]	neutralisation	rule	native
+gen_jungle_trapdoor	정글나무 다락문	[정글라무 다랑문]	nasalisation,lateralisation	rule	mixed
+gen_flower_forest	꽃 숲	[꼳 숩]	neutralisation	rule	native
+gen_lily_of_the_valley	은방울꽃	[은방울꼳]	neutralisation	rule	mixed
+gen_weathered_cut_copper_slab	녹슨 깎인 구리 반 블록	[녹쓴 까낀 구리 반 블록]	liaison,tensification	rule	mixed
+gen_purple_concrete_powder	보라색 콘크리트 가루	[보라색 콘크리트 가루]		rule	mixed
+gen_red_shrub	붉은 관목	[불근 관목]	liaison,double_final	rule	mixed
+gen_purple_bed	보라색 침대	[보라색 침대]		rule	sino
+gen_pink_bed	분홍색 침대	[분홍색 침대]		rule	sino
+gen_cherry_sign	벚나무 표지판	[번나무 표지판]	nasalisation,neutralisation	rule	mixed
+gen_crimson_forest	진홍빛 숲	[진홍빋 숩]	neutralisation	rule	mixed
+gen_stripped_cherry_wood	껍질 벗긴 벚나무	[껍찔 벋낀 번나무]	tensification,nasalisation,neutralisation	rule	native
+gen_pale_moss_block	창백한 이끼 블록	[창배칸 이끼 블록]	h	rule	mixed
+gen_sniffer	스니퍼	[스니퍼]		rule	mc_only
+gen_polished_diorite_stairs	윤나는 섬록암 계단	[윤나는 섬노감 계단]	liaison,nasalisation	rule	mixed
+gen_test_block	테스트 블록	[테스트 블록]		rule	loan
+gen_jungle_slab	정글나무 반 블록	[정글라무 반 블록]	lateralisation	rule	mixed
+gen_sea_pickle	불우렁쉥이	[부루렁쉥이]	liaison	rule	native
+gen_netherite_upgrade_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
+gen_golden_pickaxe	금 곡괭이	[금 곡꽹이]	tensification	rule	mixed
+gen_weathered_chiseled_copper	녹슨 조각된 구리	[녹쓴 조각뙨 구리]	tensification	rule	native
+gen_cyan_cushion	청록색 방석	[청녹쌕 방석]	tensification,nasalisation	rule	sino
+gen_torchflower	횃불꽃	[홰뿔꼳]	tensification,neutralisation	lexical	native
+gen_dark_oak_planks	짙은 참나무 판자	[지튼 참나무 판자]	liaison	rule	mixed
+gen_golden_shovel	금 삽	[금 삽]		rule	mixed
+gen_chiseled_polished_blackstone	조각된 윤나는 흑암	[조각뙨 윤나는 흐감]	liaison,tensification	rule	mixed
+gen_copper_chain	구리 사슬	[구리 사슬]		rule	native
+gen_cinnabar_stairs	진사 계단	[진사 계단]		rule	sino
+gen_beetroot	비트	[비트]		rule	loan
+gen_terracotta	테라코타	[테라코타]		rule	loan
+gen_moss_carpet	이끼 바닥	[이끼 바닥]		rule	native
+gen_black_glazed_terracotta	검은색 유광 테라코타	[거믄색 유광 테라코타]	liaison	rule	mixed
+gen_infested_stone_bricks	벌레 먹은 석재 벽돌	[벌레 머근 석째 벽똘]	liaison,tensification	rule	mixed
+gen_green_candle	초록색 초	[초록쌕 초]	tensification	rule	native
+gen_end_stone_brick_slab	엔드 석재 벽돌 반 블록	[엔드 석째 벽똘 반 블록]	tensification	rule	mixed
+gen_enchanted_golden_apple	마법이 부여된 황금 사과	[마버비 부여된 황금 사과]	liaison	rule	sino
+gen_pale_moss_carpet	창백한 이끼 바닥	[창배칸 이끼 바닥]	h	rule	native
+gen_brown_bed	갈색 침대	[갈쌕 침대]	tensification	rule	sino
+gen_rose_bush	장미 덤불	[장미 덤불]		rule	mixed
+gen_cut_red_sandstone_slab	깎인 붉은 사암 반 블록	[까낀 불근 사암 반 블록]	liaison,double_final	rule	mixed
+gen_waxed_weathered_copper_grate	밀랍칠한 녹슨 구리 격자	[밀랍칠한 녹쓴 구리 격짜]	tensification	rule	mixed
+gen_jungle_door	정글나무 문	[정글라무 문]	lateralisation	rule	mixed
+gen_white_stained_glass	하얀색 색유리	[하얀색 생뉴리]	nasalisation,n_insertion	lexical	mixed
+gen_lilac	라일락	[라일락]		rule	loan
+gen_copper_block	구리 블록	[구리 블록]		rule	mixed
+gen_waxed_copper_block	밀랍칠한 구리 블록	[밀랍칠한 구리 블록]		rule	mixed
+gen_horn_coral_fan	부채형 사방산호	[부채형 사방산호]		rule	mixed
+gen_stripped_pale_oak_wood	껍질 벗긴 창백한 참나무	[껍찔 벋낀 창배칸 참나무]	tensification,h,neutralisation	rule	native
+gen_snowy_plains	눈 덮인 평원	[눈 더핀 평원]	liaison	rule	mixed
+gen_crimson_nylium	진홍빛 네사체	[진홍빈 네사체]	nasalisation,neutralisation	rule	mixed
+gen_resin_bricks	수지 벽돌	[수지 벽똘]	tensification	rule	mixed
+gen_end_highlands	엔드 고지	[엔드 고지]		rule	mixed
+gen_bubble_coral	거품 산호	[거품 산호]		rule	mixed
+gen_warped_trapdoor	뒤틀린 다락문	[뒤틀린 다랑문]	nasalisation	rule	mixed
+gen_stony_peaks	돌 봉우리	[돌 봉우리]		rule	native
+gen_waxed_exposed_cut_copper_slab	밀랍칠한 약간 녹슨 깎인 구리 반 블록	[밀랍칠한 약깐 녹쓴 까낀 구리 반 블록]	liaison,tensification	rule	mixed
+gen_gilded_blackstone	황금이 박힌 흑암	[황그미 바킨 흐감]	liaison,h	rule	mixed
+gen_straw_bed	밀짚 침대	[밀찝 침대]	tensification,neutralisation	lexical	mixed
+gen_prismarine_wall	프리즈머린 담장	[프리즈머린 담장]		rule	mixed
+gen_pink_candle	분홍색 초	[분홍색 초]		rule	native
+gen_polished_blackstone_pressure_plate	윤나는 흑암 압력판	[윤나는 흐감 암녁판]	liaison,nasalisation	rule	mixed
+gen_magma_cube	마그마 큐브	[마그마 큐브]		rule	loan
+gen_purpur_pillar	퍼퍼 기둥	[퍼퍼 기둥]		rule	mixed
+gen_deep_dark	깊은 어둠	[기픈 어둠]	liaison	rule	native
+gen_black_wool	검은색 양털	[거믄색 양털]	liaison	rule	mixed
+gen_sulfur_brick_wall	유황 벽돌 담장	[유황 벽똘 담장]	tensification	rule	mixed
+gen_brown_concrete_slab	갈색 콘크리트 반 블록	[갈쌕 콘크리트 반 블록]	tensification	rule	loan
+gen_dappled_forest	얼룩덜룩한 숲	[얼룩떨루칸 숩]	tensification,h,neutralisation	rule	native
+gen_polished_cinnabar_slab	윤나는 진사 반 블록	[윤나는 진사 반 블록]		rule	mixed
+gen_spore_blossom	포자 꽃	[포자 꼳]	neutralisation	rule	mixed
+gen_mangrove_planks	맹그로브나무 판자	[맹그로브나무 판자]		rule	mixed
+gen_waxed_copper_chest	밀랍칠한 구리 상자	[밀랍칠한 구리 상자]		rule	mixed
+gen_spruce_trapdoor	가문비나무 다락문	[가문비나무 다랑문]	nasalisation	rule	mixed
+gen_gray_stained_glass	회색 색유리	[회색 생뉴리]	nasalisation,n_insertion	lexical	sino
+gen_yellow_banner	노란색 현수막	[노란새 켠수막]	h	rule	mixed
+gen_mud_brick_slab	진흙 벽돌 반 블록	[진흑 벽똘 반 블록]	tensification,double_final	rule	mixed
+gen_infested_mossy_stone_bricks	벌레 먹은 이끼 낀 석재 벽돌	[벌레 머근 이끼 낀 석째 벽똘]	liaison,tensification	rule	mixed
+gen_savanna_plateau	사바나 고원	[사바나 고원]		rule	mixed
+gen_red_mushroom_block	빨간색 버섯 블록	[빨간색 버섣 블록]	neutralisation	rule	mixed
+gen_music_disc_11	음반	[음반]		rule	sino
+gen_oxidized_copper_door	산화된 구리 문	[산화된 구리 문]		rule	mixed
+gen_mushroom_fields	버섯 들판	[버섣 들판]	neutralisation	rule	native
+gen_mooshroom	무시룸	[무시룸]		rule	mc_only
+gen_waxed_exposed_copper_trapdoor	밀랍칠한 약간 녹슨 구리 다락문	[밀랍칠한 약깐 녹쓴 구리 다랑문]	tensification,nasalisation	rule	mixed
+gen_tripwire_hook	철사 덫 갈고리	[철싸 덛 갈고리]	tensification,neutralisation	rule	mixed
+gen_pale_oak_chest_boat	상자가 실린 창백한 참나무 보트	[상자가 실린 창배칸 참나무 보트]	h	rule	mixed
+gen_pink_wool	분홍색 양털	[분홍색 양털]		rule	mixed
+gen_polished_tuff_wall	윤나는 응회암 담장	[윤나는 응회암 담장]		rule	mixed
+gen_polished_granite_slab	윤나는 화강암 반 블록	[윤나는 화강암 반 블록]		rule	mixed
+gen_magenta_bed	자홍색 침대	[자홍색 침대]		rule	sino
+gen_warped_door	뒤틀린 문	[뒤틀린 문]		rule	mixed
+gen_waxed_oxidized_copper	밀랍칠한 산화된 구리	[밀랍칠한 산화된 구리]		rule	native
+gen_sticky_piston	끈끈이 피스톤	[끈끄니 피스톤]	liaison	rule	mixed
+gen_oak_slab	참나무 반 블록	[참나무 반 블록]		rule	mixed
+gen_sparse_jungle	듬성듬성한 정글	[듬성듬성한 정글]		rule	mixed
+gen_chiseled_quartz_block	조각된 석영 블록	[조각뙨 서경 블록]	liaison,tensification	rule	mixed
+gen_green_carpet	초록색 양탄자	[초록쌕 양탄자]	tensification	rule	mixed
+gen_pale_oak_hanging_sign	창백한 참나무 매다는 표지판	[창배칸 참나무 매다는 표지판]	h	rule	mixed
+gen_dark_prismarine_slab	짙은 프리즈머린 반 블록	[지튼 프리즈머린 반 블록]	liaison	rule	mixed
+gen_end_barrens	엔드 불모지	[엔드 불모지]		rule	mixed
+gen_birch_fence	자작나무 울타리	[자장나무 울타리]	nasalisation	rule	native
+gen_black_candle	검은색 초	[거믄색 초]	liaison	rule	native
+gen_blackstone_wall	흑암 담장	[흐감 담장]	liaison	rule	mixed
+gen_orange_stained_glass_pane	주황색 색유리 판	[주황색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
+gen_green_concrete_stairs	초록색 콘크리트 계단	[초록쌕 콘크리트 계단]	tensification	rule	mixed
+gen_polished_sulfur_stairs	윤나는 유황 계단	[윤나는 유황 계단]		rule	mixed
+gen_snowy_beach	눈 덮인 해변	[눈 더핀 해변]	liaison	rule	mixed
+gen_windswept_savanna	바람이 세찬 사바나	[바라미 세찬 사바나]	liaison	rule	mixed
+gen_exposed_copper_bulb	약간 녹슨 구리 전구	[약깐 녹쓴 구리 전구]	tensification	rule	mixed
+gen_bush	덤불	[덤불]		rule	native
+gen_crimson_shelf	진홍빛 선반	[진홍빋 선반]	neutralisation	rule	mixed
+gen_bamboo_button	대나무 버튼	[대나무 버튼]		rule	mixed
+gen_mule	노새	[노새]		rule	native
+gen_pale_oak_sapling	창백한 참나무 묘목	[창배칸 참나무 묘목]	h	rule	mixed
+gen_exposed_cut_copper	약간 녹슨 깎인 구리	[약깐 녹쓴 까낀 구리]	liaison,tensification	rule	native
+gen_scrape_pottery_sherd	긁개 도자기 조각	[글깨 도자기 조각]	tensification,double_final	lexical	mixed
+gen_jagged_peaks	뾰족한 봉우리	[뾰조칸 봉우리]	h	rule	native
+gen_red_tulip	빨간색 튤립	[빨간색 튤립]		rule	mixed
+gen_warped_pressure_plate	뒤틀린 압력판	[뒤틀린 암녁판]	nasalisation	rule	mixed
+gen_copper_sword	구리 검	[구리 검]		rule	mixed
+gen_green_wool_stairs	초록색 양털 계단	[초록쌕 양털 계단]	tensification	rule	mixed
+gen_tuff_bricks	응회암 벽돌	[응회암 벽똘]	tensification	rule	mixed
+gen_polished_cinnabar	윤나는 진사	[윤나는 진사]		rule	mixed
+gen_pink_shulker_box	분홍색 셜커 상자	[분홍색 셜커 상자]		rule	mixed
+gen_prismarine_brick_stairs	프리즈머린 벽돌 계단	[프리즈머린 벽똘 계단]	tensification	rule	mixed
+gen_stony_shore	돌 해안	[돌 해안]		rule	mixed
+gen_cherry_log	벚나무 원목	[번나무 원목]	nasalisation,neutralisation	rule	mixed
+gen_black_concrete_slab	검은색 콘크리트 반 블록	[거믄색 콘크리트 반 블록]	liaison	rule	mixed
+gen_medium_amethyst_bud	중간 자수정 봉오리	[중간 자수정 봉오리]		rule	mixed
+gen_acacia_leaves	아카시아나무 잎	[아카시아나무 입]	neutralisation	rule	mixed
+gen_old_growth_birch_forest	자작나무 원시림	[자장나무 원시림]	nasalisation	rule	mixed
+gen_exposed_cut_copper_stairs	약간 녹슨 깎인 구리 계단	[약깐 녹쓴 까낀 구리 계단]	liaison,tensification	rule	mixed
+gen_granite	화강암	[화강암]		rule	sino
+gen_blue_concrete_slab	파란색 콘크리트 반 블록	[파란색 콘크리트 반 블록]		rule	mixed
+gen_fermented_spider_eye	발효된 거미 눈	[발효된 거미 눈]		rule	native
+gen_dead_tube_coral_block	죽은 관 산호 블록	[주근 관 산호 블록]	liaison	rule	mixed
+gen_cyan_terracotta	청록색 테라코타	[청녹쌕 테라코타]	tensification,nasalisation	rule	loan
+gen_oak_wood	참나무	[참나무]		rule	native
+gen_detector_rail	감지 레일	[감지 레일]		rule	mixed
+gen_blue_concrete_powder	파란색 콘크리트 가루	[파란색 콘크리트 가루]		rule	mixed
+gen_dried_kelp	말린 켈프	[말린 켈프]		rule	mixed
+gen_weathered_copper_bulb	녹슨 구리 전구	[녹쓴 구리 전구]	tensification	rule	mixed
+gen_pale_oak_fence	창백한 참나무 울타리	[창배칸 참나무 울타리]	h	rule	native
+gen_nether_wastes	네더 황무지	[네더 황무지]		rule	mixed
+gen_pale_oak_sign	창백한 참나무 표지판	[창배칸 참나무 표지판]	h	rule	mixed
+gen_sulfur_slab	유황 반 블록	[유황 반 블록]		rule	mixed
+gen_cherry_planks	벚나무 판자	[번나무 판자]	nasalisation,neutralisation	rule	mixed
+gen_crimson_hyphae	진홍빛 균사	[진홍빋 균사]	neutralisation	rule	mixed
+gen_dark_oak_log	짙은 참나무 원목	[지튼 참나무 원목]	liaison	rule	mixed
+gen_cherry_fence	벚나무 울타리	[번나무 울타리]	nasalisation,neutralisation	rule	native
+gen_purpur_slab	퍼퍼 반 블록	[퍼퍼 반 블록]		rule	loan
+gen_smooth_sandstone	매끄러운 사암	[매끄러운 사암]		rule	mixed
+gen_yellow_concrete_powder	노란색 콘크리트 가루	[노란색 콘크리트 가루]		rule	mixed
+gen_sulfur_stairs	유황 계단	[유황 계단]		rule	sino
+gen_polished_diorite	윤나는 섬록암	[윤나는 섬노감]	liaison,nasalisation	rule	mixed
+gen_yellow_carpet	노란색 양탄자	[노란색 양탄자]		rule	mixed
+gen_tadpole	올챙이	[올챙이]		rule	native
+gen_cinnabar_brick_stairs	진사 벽돌 계단	[진사 벽똘 계단]	tensification	rule	mixed
+gen_glow_berries	발광 열매	[발광 열매]		rule	mixed
+gen_purple_stained_glass	보라색 색유리	[보라색 생뉴리]	nasalisation,n_insertion	lexical	sino
+gen_piglin_wall_head	피글린 벽 머리	[피글린 병 머리]	nasalisation	rule	mixed
+gen_red_sandstone	붉은 사암	[불근 사암]	liaison,double_final	rule	mixed
+gen_red_nether_brick_slab	붉은 네더 벽돌 반 블록	[불근 네더 벽똘 반 블록]	liaison,tensification,double_final	rule	mixed
+gen_mossy_cobblestone_wall	이끼 낀 조약돌 담장	[이끼 낀 조약똘 담장]	tensification	rule	mixed
+gen_stripped_acacia_wood	껍질 벗긴 아카시아나무	[껍찔 벋낀 아카시아나무]	tensification,neutralisation	rule	mixed
+gen_orange_carpet	주황색 양탄자	[주황색 양탄자]		rule	mixed
+gen_polished_granite	윤나는 화강암	[윤나는 화강암]		rule	mixed
+gen_oxidized_copper_lantern	산화된 구리 랜턴	[산화된 구리 랜턴]		rule	mixed
+gen_bubble_coral_block	거품 산호 블록	[거품 산호 블록]		rule	mixed
+gen_mangrove_leaves	맹그로브나무 잎	[맹그로브나무 입]	neutralisation	rule	mixed
+gen_waxed_oxidized_copper_golem_statue	밀랍칠한 산화된 구리 골렘 동상	[밀랍칠한 산화된 구리 골렘 동상]		rule	mixed
+gen_jungle_pyramid_map	정글 피라미드 지도	[정글 피라미드 지도]		rule	mixed
+gen_andesite_stairs	안산암 계단	[안사남 계단]	liaison	rule	sino
+gen_stone_brick_slab	석재 벽돌 반 블록	[석째 벽똘 반 블록]	tensification	rule	mixed
+gen_chiseled_copper	조각된 구리	[조각뙨 구리]	tensification	rule	native
+gen_podzol	회백토	[회백토]		rule	sino
+gen_rooted_dirt	뿌리내린 흙	[뿌리내린 흑]	double_final	rule	native
+gen_orange_glazed_terracotta	주황색 유광 테라코타	[주황색 유광 테라코타]		rule	mixed
+gen_purple_stained_glass_pane	보라색 색유리 판	[보라색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
+gen_stripped_birch_wood	껍질 벗긴 자작나무	[껍찔 벋낀 자장나무]	tensification,nasalisation,neutralisation	rule	native
+gen_purple_terracotta	보라색 테라코타	[보라색 테라코타]		rule	loan
+gen_acacia_sign	아카시아나무 표지판	[아카시아나무 표지판]		rule	mixed
+gen_dark_oak_pressure_plate	짙은 참나무 압력판	[지튼 참나무 암녁판]	liaison,nasalisation	rule	mixed
+gen_mangrove_sign	맹그로브나무 표지판	[맹그로브나무 표지판]		rule	mixed
+gen_cherry_hanging_sign	벚나무 매다는 표지판	[번나무 매다는 표지판]	nasalisation,neutralisation	rule	mixed
+gen_cherry_boat	벚나무 보트	[번나무 보트]	nasalisation,neutralisation	rule	mixed
+gen_open_eyeblossom	뜬 눈망울꽃	[뜬 눈망울꼳]	neutralisation	rule	native
+gen_muddy_mangrove_roots	진흙에 묻힌 맹그로브나무 뿌리	[진흘게 무친 맹그로브나무 뿌리]	liaison,h,palatalisation,double_final	rule	mixed
+gen_black_wool_slab	검은색 양털 반 블록	[거믄색 양털 반 블록]	liaison	rule	mixed
+gen_coal_block	석탄 블록	[석탄 블록]		rule	mixed
+gen_poplar_fence	포플러나무 울타리	[포플러나무 울타리]		rule	mixed
+gen_lukewarm_ocean	미지근한 바다	[미지근한 바다]		rule	native
+gen_raw_copper_block	구리 원석 블록	[구리 원석 블록]		rule	mixed
+gen_mossy_stone_brick_slab	이끼 낀 석재 벽돌 반 블록	[이끼 낀 석째 벽똘 반 블록]	tensification	rule	mixed
+gen_jack_o_lantern	잭오랜턴	[재고랜턴]	liaison	rule	loan
+gen_waxed_weathered_copper	밀랍칠한 녹슨 구리	[밀랍칠한 녹쓴 구리]	tensification	rule	native
+gen_river	강	[강]		rule	sino
+gen_granite_wall	화강암 담장	[화강암 담장]		rule	mixed
+gen_birch_trapdoor	자작나무 다락문	[자장나무 다랑문]	nasalisation	rule	mixed
+gen_crimson_fence	진홍빛 울타리	[진홍비 둘타리]	liaison,neutralisation	rule	mixed
+gen_magenta_concrete_powder	자홍색 콘크리트 가루	[자홍색 콘크리트 가루]		rule	mixed
+gen_waxed_exposed_copper_grate	밀랍칠한 약간 녹슨 구리 격자	[밀랍칠한 약깐 녹쓴 구리 격짜]	tensification	rule	mixed
+gen_deep_lukewarm_ocean	깊고 미지근한 바다	[깁꼬 미지근한 바다]	tensification,neutralisation	rule	native
+gen_stone_brick_wall	석재 벽돌 담장	[석째 벽똘 담장]	tensification	rule	mixed
+gen_allium	알리움	[알리움]		rule	loan
+gen_white_concrete	하얀색 콘크리트	[하얀색 콘크리트]		rule	mixed
+gen_exposed_copper_trapdoor	약간 녹슨 구리 다락문	[약깐 녹쓴 구리 다랑문]	tensification,nasalisation	rule	mixed
+gen_waxed_oxidized_copper_chain	밀랍칠한 산화된 구리 사슬	[밀랍칠한 산화된 구리 사슬]		rule	native
+gen_firework_rocket	폭죽 로켓	[폭쭉 로켇]	tensification,neutralisation	rule	mixed
+gen_mangrove_chest_boat	상자가 실린 맹그로브나무 보트	[상자가 실린 맹그로브나무 보트]		rule	mixed
+gen_red_stained_glass	빨간색 색유리	[빨간색 생뉴리]	nasalisation,n_insertion	lexical	mixed
+gen_warm_ocean	따뜻한 바다	[따뜨탄 바다]	h	rule	native
+gen_spruce_sign	가문비나무 표지판	[가문비나무 표지판]		rule	mixed
+gen_cinnabar_wall	진사 담장	[진사 담장]		rule	mixed
+gen_allay	알레이	[알레이]		rule	mc_only
+gen_copper_ore	구리 광석	[구리 광석]		rule	mixed
+gen_yellow_wool_slab	노란색 양털 반 블록	[노란색 양털 반 블록]		rule	mixed
+gen_orange_candle	주황색 초	[주황색 초]		rule	native
+gen_prize_pottery_sherd	보물 도자기 조각	[보물 도자기 조각]		rule	mixed
+gen_green_cushion	초록색 방석	[초록쌕 방석]	tensification	rule	sino
+gen_lush_caves	무성한 동굴	[무성한 동굴]		rule	sino
+gen_stripped_poplar_wood	껍질 벗긴 포플러나무	[껍찔 벋낀 포플러나무]	tensification,neutralisation	rule	mixed
+gen_stone_stairs	돌 계단	[돌 계단]		rule	mixed
+gen_fletching_table	화살 작업대	[화살 자겁때]	liaison,tensification	rule	mixed
+gen_quartz_bricks	석영 벽돌	[서경 벽똘]	liaison,tensification	rule	mixed
+gen_cracked_nether_bricks	금 간 네더 벽돌	[금 간 네더 벽똘]	tensification	rule	mixed
+gen_brain_coral_block	뇌 산호 블록	[뇌 산호 블록]		rule	mixed
+gen_golden_hoe	금 괭이	[금 괭이]		rule	mixed
+gen_small_end_islands	작은 엔드 섬	[자근 엔드 섬]	liaison	rule	mixed
+gen_cherry_button	벚나무 버튼	[번나무 버튼]	nasalisation,neutralisation	rule	mixed
+gen_calibrated_sculk_sensor	조율한 스컬크 감지체	[조율한 스컬크 감지체]		rule	mixed
+gen_crimson_planks	진홍빛 판자	[진홍빋 판자]	neutralisation	rule	mixed
+gen_blue_carpet	파란색 양탄자	[파란색 양탄자]		rule	mixed
+gen_dark_prismarine_stairs	짙은 프리즈머린 계단	[지튼 프리즈머린 계단]	liaison	rule	mixed
+gen_tube_coral_fan	부채형 관 산호	[부채형 관 산호]		rule	mixed
+gen_lime_wool_slab	연두색 양털 반 블록	[연두색 양털 반 블록]		rule	mixed
+gen_dead_horn_coral	죽은 사방산호	[주근 사방산호]	liaison	rule	mixed
+gen_weathered_copper_bars	녹슨 구리 창살	[녹쓴 구리 창쌀]	tensification	lexical	mixed
+gen_bamboo_fence_gate	대나무 울타리 문	[대나무 울타리 문]		rule	mixed
+gen_cobbled_deepslate	심층암 조약돌	[심층암 조약똘]	tensification	rule	mixed
+gen_infested_chiseled_stone_bricks	벌레 먹은 조각된 석재 벽돌	[벌레 머근 조각뙨 석째 벽똘]	liaison,tensification	rule	mixed
+gen_dark_oak_leaves	짙은 참나무 잎	[지튼 참나무 입]	liaison,neutralisation	rule	native
+gen_oxidized_cut_copper	산화된 깎인 구리	[산화된 까낀 구리]	liaison	rule	native
+gen_dark_oak_wood	짙은 참나무	[지튼 참나무]	liaison	rule	native
+gen_magenta_harness	자홍색 하네스	[자홍새 카네스]	h	rule	loan
+gen_spruce_planks	가문비나무 판자	[가문비나무 판자]		rule	mixed
+gen_dead_bubble_coral_fan	죽은 부채형 거품 산호	[주근 부채형 거품 산호]	liaison	rule	mixed
+gen_windswept_gravelly_hills	바람이 세찬 자갈투성이 언덕	[바라미 세찬 자갈투성이 언덕]	liaison	rule	native
+gen_warped_wart_block	뒤틀린 사마귀 블록	[뒤틀린 사마귀 블록]		rule	mixed
+gen_orange_bed	주황색 침대	[주황색 침대]		rule	sino
+gen_resin_block	수지 블록	[수지 블록]		rule	mixed
+gen_cherry_grove	벚나무 숲	[번나무 숩]	nasalisation,neutralisation	rule	native
+gen_weathered_copper_trapdoor	녹슨 구리 다락문	[녹쓴 구리 다랑문]	tensification,nasalisation	rule	mixed
+gen_emerald_ore	에메랄드 광석	[에메랄드 광석]		rule	mixed
+gen_waxed_copper_lantern	밀랍칠한 구리 랜턴	[밀랍칠한 구리 랜턴]		rule	mixed
+gen_magenta_stained_glass	자홍색 색유리	[자홍색 생뉴리]	nasalisation,n_insertion	lexical	sino
+gen_purple_wool_stairs	보라색 양털 계단	[보라색 양털 계단]		rule	mixed
+gen_polished_sulfur_wall	윤나는 유황 담장	[윤나는 유황 담장]		rule	mixed
+gen_magenta_bundle	자홍색 꾸러미	[자홍색 꾸러미]		rule	native
+gen_raw_copper	구리 원석	[구리 원석]		rule	mixed
+gen_poisonous_potato	독이 있는 감자	[도기 인는 감자]	liaison,nasalisation,neutralisation	rule	mixed
+gen_brown_banner	갈색 현수막	[갈쌔 켠수막]	tensification,h	rule	sino
+gen_stripped_mangrove_wood	껍질 벗긴 맹그로브나무	[껍찔 벋낀 맹그로브나무]	tensification,neutralisation	rule	mixed
+gen_brown_wool	갈색 양털	[갈쌕 양털]	tensification	rule	mixed
+gen_purpur_stairs	퍼퍼 계단	[퍼퍼 계단]		rule	mixed
+gen_blue_wool	파란색 양털	[파란색 양털]		rule	mixed
+gen_brick_wall	벽돌 담장	[벽똘 담장]	tensification	rule	mixed
+gen_cyan_harness	청록색 하네스	[청녹쌔 카네스]	tensification,nasalisation,h	rule	loan
+gen_netherite_horse_armor	네더라이트 말 갑옷	[네더라이트 말 가볻]	liaison,neutralisation	rule	mixed
+gen_polished_deepslate_wall	윤나는 심층암 담장	[윤나는 심층암 담장]		rule	mixed
+gen_gray_concrete_slab	회색 콘크리트 반 블록	[회색 콘크리트 반 블록]		rule	loan
+gen_waxed_oxidized_copper_door	밀랍칠한 산화된 구리 문	[밀랍칠한 산화된 구리 문]		rule	mixed
+gen_poplar_hanging_sign	포플러나무 매다는 표지판	[포플러나무 매다는 표지판]		rule	mixed
+gen_oxidized_copper_chest	산화된 구리 상자	[산화된 구리 상자]		rule	mixed
+gen_poplar_sign	포플러나무 표지판	[포플러나무 표지판]		rule	mixed
+gen_andesite_wall	안산암 담장	[안사남 담장]	liaison	rule	mixed
+gen_white_terracotta	하얀색 테라코타	[하얀색 테라코타]		rule	mixed
+gen_waxed_oxidized_copper_grate	밀랍칠한 산화된 구리 격자	[밀랍칠한 산화된 구리 격짜]	tensification	rule	mixed
+gen_white_wool_slab	하얀색 양털 반 블록	[하얀색 양털 반 블록]		rule	mixed
+gen_polished_diorite_slab	윤나는 섬록암 반 블록	[윤나는 섬노감 반 블록]	liaison,nasalisation	rule	mixed
+gen_cyan_wool	청록색 양털	[청녹쌕 양털]	tensification,nasalisation	rule	mixed
+gen_copper_golem_statue	구리 골렘 동상	[구리 골렘 동상]		rule	mixed
+gen_heartbreak_pottery_sherd	찢어진 심장 도자기 조각	[찌저진 심장 도자기 조각]	liaison	rule	mixed
+gen_resin_brick_wall	수지 벽돌 담장	[수지 벽똘 담장]	tensification	rule	mixed
+gen_music_disc_pigstep	음반	[음반]		rule	sino
+gen_stripped_jungle_log	껍질 벗긴 정글나무 원목	[껍찔 벋낀 정글라무 원목]	tensification,lateralisation,neutralisation	rule	mixed
+gen_lime_wool	연두색 양털	[연두색 양털]		rule	mixed
+gen_smooth_stone_slab	매끄러운 돌 반 블록	[매끄러운 돌 반 블록]		rule	mixed
+gen_end_rod	엔드 막대기	[엔드 막때기]	tensification	rule	mixed
+gen_polished_andesite_stairs	윤나는 안산암 계단	[윤나는 안사남 계단]	liaison	rule	mixed
+gen_white_stained_glass_pane	하얀색 색유리 판	[하얀색 생뉴리 판]	nasalisation,n_insertion	lexical	mixed
+gen_netherite_shovel	네더라이트 삽	[네더라이트 삽]		rule	mixed
+gen_big_dripleaf	큰 흘림잎	[큰 흘림닙]	neutralisation,n_insertion	lexical	native
+gen_brown_wool_stairs	갈색 양털 계단	[갈쌕 양털 계단]	tensification	rule	mixed
+gen_dark_oak_sign	짙은 참나무 표지판	[지튼 참나무 표지판]	liaison	rule	mixed
+gen_mangrove_pressure_plate	맹그로브나무 압력판	[맹그로브나무 암녁판]	nasalisation	rule	mixed
+gen_nether_brick_fence	네더 벽돌 울타리	[네더 벽똘 울타리]	tensification	rule	mixed
+gen_chiseled_tuff_bricks	조각된 응회암 벽돌	[조각뙨 응회암 벽똘]	tensification	rule	mixed
+gen_red_sand	붉은 모래	[불근 모래]	liaison,double_final	rule	native
+gen_dark_oak_fence_gate	짙은 참나무 울타리 문	[지튼 참나무 울타리 문]	liaison	rule	mixed
+gen_weathered_copper	녹슨 구리	[녹쓴 구리]	tensification	rule	native
+gen_brown_egg	갈색 달걀	[갈쌕 달걀]	tensification	rule	native
+gen_orange_terracotta	주황색 테라코타	[주황색 테라코타]		rule	loan
+gen_heart_pottery_sherd	심장 도자기 조각	[심장 도자기 조각]		rule	mixed
+gen_rail	레일	[레일]		rule	loan
+gen_blue_stained_glass_pane	파란색 색유리 판	[파란색 생뉴리 판]	nasalisation,n_insertion	lexical	mixed
+gen_dark_oak_sapling	짙은 참나무 묘목	[지튼 참나무 묘목]	liaison	rule	mixed
+gen_golden_nautilus_armor	금 앵무조개 갑옷	[금 앵무조개 가볻]	liaison,neutralisation	rule	mixed
+gen_cobbled_deepslate_slab	심층암 조약돌 반 블록	[심층암 조약똘 반 블록]	tensification	rule	mixed
+gen_green_concrete_powder	초록색 콘크리트 가루	[초록쌕 콘크리트 가루]	tensification	rule	mixed
+gen_pale_oak_fence_gate	창백한 참나무 울타리 문	[창배칸 참나무 울타리 문]	h	rule	mixed
+gen_spruce_hanging_sign	가문비나무 매다는 표지판	[가문비나무 매다는 표지판]		rule	mixed
+gen_nether_gold_ore	네더 금 광석	[네더 금 광석]		rule	mixed
+gen_oxidized_chiseled_copper	산화된 조각된 구리	[산화된 조각뙨 구리]	tensification	rule	native
+gen_blue_candle	파란색 초	[파란색 초]		rule	native
+gen_crimson_trapdoor	진홍빛 다락문	[진홍빋 다랑문]	nasalisation,neutralisation	rule	mixed
+gen_oak_pressure_plate	참나무 압력판	[참나무 암녁판]	nasalisation	rule	mixed
+gen_jungle_button	정글나무 버튼	[정글라무 버튼]	lateralisation	rule	mixed
+gen_smooth_sandstone_slab	매끄러운 사암 반 블록	[매끄러운 사암 반 블록]		rule	mixed
+gen_weathered_copper_door	녹슨 구리 문	[녹쓴 구리 문]	tensification	rule	mixed
+gen_cracked_polished_blackstone_bricks	금 간 윤나는 흑암 벽돌	[금 간 윤나는 흐감 벽똘]	liaison,tensification	rule	mixed
+gen_snowy_slopes	눈 덮인 비탈	[눈 더핀 비탈]	liaison	rule	native
+gen_frozen_peaks	얼어붙은 봉우리	[어러부튼 봉우리]	liaison	rule	native
+gen_waxed_copper_trapdoor	밀랍칠한 구리 다락문	[밀랍칠한 구리 다랑문]	nasalisation	rule	mixed
+gen_poplar_wood	포플러나무	[포플러나무]		rule	mixed
+gen_nether_brick_wall	네더 벽돌 담장	[네더 벽똘 담장]	tensification	rule	mixed
+gen_mossy_cobblestone	이끼 낀 조약돌	[이끼 낀 조약똘]	tensification	rule	native
+gen_pale_oak_pressure_plate	창백한 참나무 압력판	[창배칸 참나무 암녁판]	nasalisation,h	rule	mixed
+gen_mud_brick_wall	진흙 벽돌 담장	[진흑 벽똘 담장]	tensification,double_final	rule	mixed
+gen_pale_oak_button	창백한 참나무 버튼	[창배칸 참나무 버튼]	h	rule	mixed
+gen_green_wool_slab	초록색 양털 반 블록	[초록쌕 양털 반 블록]	tensification	rule	mixed
+gen_redstone_block	레드스톤 블록	[레드스톤 블록]		rule	loan
+gen_bamboo_trapdoor	대나무 다락문	[대나무 다랑문]	nasalisation	rule	mixed
+gen_orange_bundle	주황색 꾸러미	[주황색 꾸러미]		rule	native
+gen_cinnabar_brick_wall	진사 벽돌 담장	[진사 벽똘 담장]	tensification	rule	mixed
+gen_pale_hanging_moss	창백한 매달린 이끼	[창배칸 매달린 이끼]	h	rule	native
+gen_orange_wool_slab	주황색 양털 반 블록	[주황색 양털 반 블록]		rule	mixed
+gen_chorus_fruit	후렴과	[후렴과]		rule	sino
+gen_warped_fence_gate	뒤틀린 울타리 문	[뒤틀린 울타리 문]		rule	mixed
+gen_shelf_mushroom	선반 버섯	[선반 버섣]	neutralisation	rule	native
+gen_pink_tulip	분홍색 튤립	[분홍색 튤립]		rule	loan
+gen_spruce_log	가문비나무 원목	[가문비나무 원목]		rule	mixed
+gen_waxed_oxidized_copper_trapdoor	밀랍칠한 산화된 구리 다락문	[밀랍칠한 산화된 구리 다랑문]	nasalisation	rule	mixed
+gen_oxidized_copper_grate	산화된 구리 격자	[산화된 구리 격짜]	tensification	rule	mixed
+gen_waxed_oxidized_cut_copper_slab	밀랍칠한 산화된 깎인 구리 반 블록	[밀랍칠한 산화된 까낀 구리 반 블록]	liaison	rule	mixed
+gen_stripped_oak_log	껍질 벗긴 참나무 원목	[껍찔 벋낀 참나무 원목]	tensification,neutralisation	rule	mixed
+gen_red_sandstone_slab	붉은 사암 반 블록	[불근 사암 반 블록]	liaison,double_final	rule	mixed
+gen_blue_ice	푸른얼음	[푸르너름]	liaison	rule	native
+gen_powder_snow	가루눈	[가루눈]		rule	native
+gen_powder_snow_bucket	가루눈 양동이	[가루눈 양동이]		rule	mixed
+gen_cooked_mutton	익힌 양고기	[이킨 양고기]	h	rule	mixed
+gen_mangrove_fence_gate	맹그로브나무 울타리 문	[맹그로브나무 울타리 문]		rule	mixed
+gen_ice_spikes	역고드름	[역꼬드름]	tensification	rule	mixed
+gen_mangrove_button	맹그로브나무 버튼	[맹그로브나무 버튼]		rule	mixed
+gen_skeleton_skull	스켈레톤 해골	[스켈레톤 해골]		rule	mixed
+gen_grove	산림	[살림]	lateralisation	rule	sino
+gen_spruce_fence_gate	가문비나무 울타리 문	[가문비나무 울타리 문]		rule	mixed
+gen_jungle_sign	정글나무 표지판	[정글라무 표지판]	lateralisation	rule	mixed
+gen_diamond_axe	다이아몬드 도끼	[다이아몬드 도끼]		rule	mixed
+gen_old_growth_spruce_taiga	가문비나무 원시 타이가	[가문비나무 원시 타이가]		rule	mixed
+gen_white_concrete_stairs	하얀색 콘크리트 계단	[하얀색 콘크리트 계단]		rule	mixed
+gen_raw_iron_block	철 원석 블록	[철 원석 블록]		rule	mixed
+gen_savanna	사바나	[사바나]		rule	loan
+gen_mangrove_hanging_sign	맹그로브나무 매다는 표지판	[맹그로브나무 매다는 표지판]		rule	mixed
+gen_mossy_cobblestone_stairs	이끼 낀 조약돌 계단	[이끼 낀 조약똘 계단]	tensification	rule	mixed
+gen_resin_brick	수지 벽돌	[수지 벽똘]	tensification	rule	mixed
+gen_exposed_copper_bars	약간 녹슨 구리 창살	[약깐 녹쓴 구리 창쌀]	tensification	lexical	mixed
+gen_nether_brick_slab	네더 벽돌 반 블록	[네더 벽똘 반 블록]	tensification	rule	mixed
+gen_lime_glazed_terracotta	연두색 유광 테라코타	[연두색 유광 테라코타]		rule	mixed
+gen_waxed_weathered_chiseled_copper	밀랍칠한 녹슨 조각된 구리	[밀랍칠한 녹쓴 조각뙨 구리]	tensification	rule	native
+gen_black_concrete	검은색 콘크리트	[거믄색 콘크리트]	liaison	rule	mixed
+gen_piglin_banner_pattern	현수막 무늬	[현수망 무니]	nasalisation,ui	rule	mixed
+gen_dead_horn_coral_block	죽은 사방산호 블록	[주근 사방산호 블록]	liaison	rule	mixed
+gen_mossy_stone_brick_stairs	이끼 낀 석재 벽돌 계단	[이끼 낀 석째 벽똘 계단]	tensification	rule	mixed
+gen_blue_dye	파란색 염료	[파란색 염뇨]	nasalisation	rule	mixed
+gen_exposed_cut_copper_slab	약간 녹슨 깎인 구리 반 블록	[약깐 녹쓴 까낀 구리 반 블록]	liaison,tensification	rule	mixed
+gen_tinted_glass	차광 유리	[차광 유리]		rule	sino
+gen_azalea	진달래	[진달래]		rule	native
+gen_mossy_stone_brick_wall	이끼 낀 석재 벽돌 담장	[이끼 낀 석째 벽똘 담장]	tensification	rule	mixed
+gen_flowering_azalea	꽃 핀 진달래	[꼳 핀 진달래]	neutralisation	rule	native
+gen_jungle_wood	정글나무	[정글라무]	lateralisation	rule	mixed
+gen_lime_harness	연두색 하네스	[연두새 카네스]	h	rule	loan
+gen_oxidized_copper_trapdoor	산화된 구리 다락문	[산화된 구리 다랑문]	nasalisation	rule	mixed
+gen_rib_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
+gen_blue_orchid	파란색 난초	[파란생 난초]	nasalisation	rule	mixed
+gen_peony	모란	[모란]		rule	sino
+gen_gray_bed	회색 침대	[회색 침대]		rule	sino
+gen_dead_brain_coral_wall_fan	죽은 부채형 뇌 산호 벽	[주근 부채형 뇌 산호 벽]	liaison	rule	mixed
+gen_birch_button	자작나무 버튼	[자장나무 버튼]	nasalisation	rule	mixed
+gen_acacia_door	아카시아나무 문	[아카시아나무 문]		rule	mixed
+gen_waxed_weathered_copper_door	밀랍칠한 녹슨 구리 문	[밀랍칠한 녹쓴 구리 문]	tensification	rule	mixed
+gen_blue_harness	파란색 하네스	[파란새 카네스]	h	rule	mixed
+gen_stone_shovel	돌 삽	[돌 삽]		rule	native
+gen_birch_forest	자작나무 숲	[자장나무 숩]	nasalisation,neutralisation	rule	native
+gen_waxed_weathered_copper_chain	밀랍칠한 녹슨 구리 사슬	[밀랍칠한 녹쓴 구리 사슬]	tensification	rule	native
+gen_cyan_wool_slab	청록색 양털 반 블록	[청녹쌕 양털 반 블록]	tensification,nasalisation	rule	mixed
+gen_deepslate_copper_ore	심층암 구리 광석	[심층암 구리 광석]		rule	mixed
+gen_pale_oak_leaves	창백한 참나무 잎	[창배칸 참나무 입]	h,neutralisation	rule	native
+gen_music_disc_precipice	음반	[음반]		rule	sino
+gen_yellow_concrete	노란색 콘크리트	[노란색 콘크리트]		rule	mixed
+gen_waxed_chiseled_copper	밀랍칠한 조각된 구리	[밀랍칠한 조각뙨 구리]	tensification	rule	native
+gen_soul_soil	영혼 흙	[영혼 흑]	double_final	rule	mixed
+gen_waxed_cut_copper_stairs	밀랍칠한 깎인 구리 계단	[밀랍칠한 까낀 구리 계단]	liaison	rule	mixed
+gen_magenta_stained_glass_pane	자홍색 색유리 판	[자홍색 생뉴리 판]	nasalisation,n_insertion	lexical	sino
+gen_resin_clump	수지 덩어리	[수지 덩어리]		rule	mixed
+gen_cyan_stained_glass	청록색 색유리	[청녹쌕 생뉴리]	tensification,nasalisation,n_insertion	lexical	sino
+gen_birch_pressure_plate	자작나무 압력판	[자장나무 암녁판]	nasalisation	rule	mixed
+gen_brown_glazed_terracotta	갈색 유광 테라코타	[갈쌕 유광 테라코타]	tensification	rule	mixed
+gen_nether_sprouts	네더 싹	[네더 싹]		rule	mixed
+gen_gray_shulker_box	회색 셜커 상자	[회색 셜커 상자]		rule	mixed
+gen_red_wool_slab	빨간색 양털 반 블록	[빨간색 양털 반 블록]		rule	mixed
+gen_sunflower_plains	해바라기 평원	[해바라기 평원]		rule	mixed
+gen_brown_shulker_box	갈색 셜커 상자	[갈쌕 셜커 상자]	tensification	rule	mixed
+gen_cut_copper_stairs	깎인 구리 계단	[까낀 구리 계단]	liaison	rule	mixed
+gen_tube_coral_block	관 산호 블록	[관 산호 블록]		rule	mixed
+gen_purple_concrete_slab	보라색 콘크리트 반 블록	[보라색 콘크리트 반 블록]		rule	loan
+gen_creeper_head	크리퍼 머리	[크리퍼 머리]		rule	mixed
+gen_waxed_exposed_copper_bulb	밀랍칠한 약간 녹슨 구리 전구	[밀랍칠한 약깐 녹쓴 구리 전구]	tensification	rule	mixed
+gen_taiga_village_map	타이가 마을 지도	[타이가 마을 지도]		rule	mixed
+gen_pink_concrete_powder	분홍색 콘크리트 가루	[분홍색 콘크리트 가루]		rule	mixed
+gen_large_fern	큰 고사리	[큰 고사리]		rule	native
+gen_iron_chain	철 사슬	[철 사슬]		rule	mixed
+gen_red_candle_cake	빨간색 초를 꽂은 케이크	[빨간색 초를 꼬즌 케이크]	liaison	rule	mixed
+gen_pale_oak_planks	창백한 참나무 판자	[창배칸 참나무 판자]	h	rule	mixed
+gen_lime_shulker_box	연두색 셜커 상자	[연두색 셜커 상자]		rule	mixed
+gen_coarse_dirt	거친 흙	[거친 흑]	double_final	rule	native
+gen_emerald_block	에메랄드 블록	[에메랄드 블록]		rule	loan
+gen_oxidized_copper	산화된 구리	[산화된 구리]		rule	native
+gen_waxed_exposed_copper_chain	밀랍칠한 약간 녹슨 구리 사슬	[밀랍칠한 약깐 녹쓴 구리 사슬]	tensification	rule	native
+gen_gray_concrete_stairs	회색 콘크리트 계단	[회색 콘크리트 계단]		rule	mixed
+gen_crimson_hanging_sign	진홍빛 매다는 표지판	[진홍빈 매다는 표지판]	nasalisation,neutralisation	rule	mixed
+gen_crimson_slab	진홍빛 반 블록	[진홍빋 반 블록]	neutralisation	rule	mixed
+gen_flow_armor_trim_smithing_template	대장장이 형판	[대장장이 형판]		rule	mixed
+gen_wooden_hoe	나무 괭이	[나무 괭이]		rule	native
+gen_stripped_mangrove_log	껍질 벗긴 맹그로브나무 원목	[껍찔 벋낀 맹그로브나무 원목]	tensification,neutralisation	rule	mixed
+gen_spruce_fence	가문비나무 울타리	[가문비나무 울타리]		rule	native
+gen_buried_mineshaft_map	땅에 묻힌 폐광 지도	[땅에 무친 폐광 지도]	h,palatalisation	rule	mixed
+gen_stripped_acacia_log	껍질 벗긴 아카시아나무 원목	[껍찔 벋낀 아카시아나무 원목]	tensification,neutralisation	rule	mixed
+gen_green_wool	초록색 양털	[초록쌕 양털]	tensification	rule	mixed
+gen_black_cushion	검은색 방석	[거믄색 방석]	liaison	rule	mixed
+gen_cyan_concrete_powder	청록색 콘크리트 가루	[청녹쌕 콘크리트 가루]	tensification,nasalisation	rule	mixed
+gen_mangrove_roots	맹그로브나무 뿌리	[맹그로브나무 뿌리]		rule	mixed
+gen_skull_pottery_sherd	해골 도자기 조각	[해골 도자기 조각]		rule	mixed
+gen_copper_lantern	구리 랜턴	[구리 랜턴]		rule	mixed
+gen_tall_dry_grass	키 큰 마른 잔디	[키 큰 마른 잔디]		rule	native
+gen_end_stone_bricks	엔드 석재 벽돌	[엔드 석째 벽똘]	tensification	rule	mixed
+gen_crimson_fence_gate	진홍빛 울타리 문	[진홍비 둘타리 문]	liaison,neutralisation	rule	mixed
+gen_suspicious_gravel	수상한 자갈	[수상한 자갈]		rule	native
+gen_pumpkin_pie	호박 파이	[호박 파이]		rule	mixed
+gen_polished_sulfur_slab	윤나는 유황 반 블록	[윤나는 유황 반 블록]		rule	mixed
+gen_tall_grass	키 큰 잔디	[키 큰 잔디]		rule	native
+gen_poplar_sapling	포플러나무 묘목	[포플러나무 묘목]		rule	mixed
+gen_poplar_fence_gate	포플러나무 울타리 문	[포플러나무 울타리 문]		rule	mixed
+gen_cactus	선인장	[서닌장]	liaison	rule	sino
+gen_waxed_weathered_cut_copper_stairs	밀랍칠한 녹슨 깎인 구리 계단	[밀랍칠한 녹쓴 까낀 구리 계단]	liaison,tensification	rule	mixed
+gen_mycelium	균사체	[균사체]		rule	sino
+gen_mushroom_stew	버섯 스튜	[버섣 스튜]	neutralisation	rule	mixed
+gen_polished_andesite	윤나는 안산암	[윤나는 안사남]	liaison	rule	mixed
+gen_purple_concrete	보라색 콘크리트	[보라색 콘크리트]		rule	loan
+gen_cobblestone_wall	조약돌 담장	[조약똘 담장]	tensification	rule	mixed
+gen_azure_bluet	선애기별꽃	[서내기별꼳]	liaison,neutralisation	rule	native
+gen_jungle_fence_gate	정글나무 울타리 문	[정글라무 울타리 문]	lateralisation	rule	mixed
+gen_orange_stained_glass	주황색 색유리	[주황색 생뉴리]	nasalisation,n_insertion	lexical	sino
+gen_frozen_ocean	얼어붙은 바다	[어러부튼 바다]	liaison	rule	native
+gen_acacia_log	아카시아나무 원목	[아카시아나무 원목]		rule	mixed
+gen_yellow_stained_glass_pane	노란색 색유리 판	[노란색 생뉴리 판]	nasalisation,n_insertion	lexical	mixed
+gen_magenta_candle	자홍색 초	[자홍색 초]		rule	native
+gen_yellow_candle	노란색 초	[노란색 초]		rule	native
+gen_warped_fence	뒤틀린 울타리	[뒤틀린 울타리]		rule	native
+gen_copper_chest	구리 상자	[구리 상자]		rule	mixed
+gen_blue_shulker_box	파란색 셜커 상자	[파란색 셜커 상자]		rule	mixed
+gen_red_concrete	빨간색 콘크리트	[빨간색 콘크리트]		rule	mixed
+gen_windswept_hills	바람이 세찬 언덕	[바라미 세찬 언덕]	liaison	rule	native
+gen_white_concrete_slab	하얀색 콘크리트 반 블록	[하얀색 콘크리트 반 블록]		rule	mixed
+gen_orange_concrete_powder	주황색 콘크리트 가루	[주황색 콘크리트 가루]		rule	mixed
+gen_copper_spear	구리 창	[구리 창]		rule	mixed
+gen_cactus_flower	선인장 꽃	[서닌장 꼳]	liaison,neutralisation	rule	mixed
+gen_snort_pottery_sherd	콧바람 도자기 조각	[코빠람 도자기 조각]	tensification	lexical	mixed
+gen_kelp	켈프	[켈프]		rule	loan
+gen_end_midlands	엔드 중지	[엔드 중지]		rule	mixed
+gen_the_end	엔드	[엔드]		rule	mc_only
+gen_orange_poplar_leaves	주황색 포플러나무 잎	[주황색 포플러나무 입]	neutralisation	rule	mixed
+gen_cinnabar_brick_slab	진사 벽돌 반 블록	[진사 벽똘 반 블록]	tensification	rule	mixed
+gen_purple_banner	보라색 현수막	[보라새 켠수막]	h	rule	sino
+gen_red_carpet	빨간색 양탄자	[빨간색 양탄자]		rule	mixed
+gen_brain_coral_fan	부채형 뇌 산호	[부채형 뇌 산호]		rule	mixed
+gen_soul_sand_valley	영혼 모래 골짜기	[영혼 모래 골짜기]		rule	mixed
+gen_stripped_birch_log	껍질 벗긴 자작나무 원목	[껍찔 벋낀 자장나무 원목]	tensification,nasalisation,neutralisation	rule	mixed
+gen_amethyst_cluster	자수정 군집	[자수정 군집]		rule	sino
+gen_basalt_deltas	현무암 삼각주	[현무암 삼각쭈]	tensification	rule	sino
+gen_poplar_button	포플러나무 버튼	[포플러나무 버튼]		rule	mixed
+gen_birch_fence_gate	자작나무 울타리 문	[자장나무 울타리 문]	nasalisation	rule	mixed
+gen_raw_gold_block	금 원석 블록	[금 원석 블록]		rule	mixed
+gen_dried_kelp_block	말린 켈프 블록	[말린 켈프 블록]		rule	mixed
+gen_smooth_quartz_slab	매끄러운 석영 반 블록	[매끄러운 서경 반 블록]	liaison	rule	mixed
+gen_deep_frozen_ocean	깊고 얼어붙은 바다	[깁꼬 어러부튼 바다]	liaison,tensification,neutralisation	rule	native
+gen_cherry_wood	벚나무	[번나무]	nasalisation,neutralisation	rule	native
+gen_brown_stained_glass_pane	갈색 색유리 판	[갈쌕 생뉴리 판]	tensification,nasalisation,n_insertion	lexical	sino
+gen_green_concrete	초록색 콘크리트	[초록쌕 콘크리트]	tensification	rule	loan
+gen_bamboo_door	대나무 문	[대나무 문]		rule	mixed
+gen_bamboo_planks	대나무 판자	[대나무 판자]		rule	mixed
+gen_plains	평원	[평원]		rule	sino
+gen_smooth_basalt	매끄러운 현무암	[매끄러운 현무암]		rule	mixed
+gen_red_concrete_slab	빨간색 콘크리트 반 블록	[빨간색 콘크리트 반 블록]		rule	mixed
+gen_oak_sign	참나무 표지판	[참나무 표지판]		rule	mixed
+gen_pink_concrete_slab	분홍색 콘크리트 반 블록	[분홍색 콘크리트 반 블록]		rule	loan
+gen_flowering_azalea_leaves	꽃 핀 진달래 잎	[꼳 핀 진달래 입]	neutralisation	rule	native
+gen_fire_coral	불 산호	[불 산호]		rule	mixed
+gen_white_concrete_powder	하얀색 콘크리트 가루	[하얀색 콘크리트 가루]		rule	mixed
+gen_waxed_weathered_copper_bulb	밀랍칠한 녹슨 구리 전구	[밀랍칠한 녹쓴 구리 전구]	tensification	rule	mixed
+gen_stripped_poplar_log	껍질 벗긴 포플러나무 원목	[껍찔 벋낀 포플러나무 원목]	tensification,neutralisation	rule	mixed
+gen_copper_trapdoor	구리 다락문	[구리 다랑문]	nasalisation	rule	mixed
+gen_nether_quartz_ore	네더 석영 광석	[네더 서경 광석]	liaison	rule	mixed
+gen_pink_wool_slab	분홍색 양털 반 블록	[분홍색 양털 반 블록]		rule	mixed
+gen_oxeye_daisy	데이지	[데이지]		rule	loan
+gen_cooked_salmon	익힌 연어	[이킨 여너]	liaison,h	rule	mixed
+gen_white_glazed_terracotta	하얀색 유광 테라코타	[하얀색 유광 테라코타]		rule	mixed
+gen_exposed_copper_golem_statue	약간 녹슨 구리 골렘 동상	[약깐 녹쓴 구리 골렘 동상]	tensification	rule	mixed
+gen_beetroots	비트	[비트]		rule	loan
+gen_red_banner	빨간색 현수막	[빨간새 켠수막]	h	rule	mixed
+gen_cornflower	수레국화	[수레구콰]	h	rule	mixed
+gen_yellow_dye	노란색 염료	[노란색 염뇨]	nasalisation	rule	mixed
+gen_purple_dye	보라색 염료	[보라색 염뇨]	nasalisation	rule	sino
+gen_purple_wool	보라색 양털	[보라색 양털]		rule	mixed
+gen_orange_dye	주황색 염료	[주황색 염뇨]	nasalisation	rule	sino
+gen_orange_wool	주황색 양털	[주황색 양털]		rule	mixed
+gen_magenta_dye	자홍색 염료	[자홍색 염뇨]	nasalisation	rule	sino
+gen_magenta_banner	자홍색 현수막	[자홍새 켠수막]	h	rule	sino
+gen_basalt	현무암	[현무암]		rule	sino

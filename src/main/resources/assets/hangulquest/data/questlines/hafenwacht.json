@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "hafenwacht",
  "titleKo": "조선소의 길",
- "titleDe": "Der Werftpfad",
  "tier": 3,
  "order": 544,
  "concepts": [
@@ -29,13 +28,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:chiseled_nether_bricks",
     "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Gemeißelte Netherziegel.",
-    "en": "Place 6× Chiseled Nether Bricks."
-   },
-   "hint": {
-    "en": "Place 6× Chiseled Nether Bricks."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:waxed_copper_golem_statue",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Gewachste Kupfergolemstatue.",
-    "en": "Place 4× Waxed Copper Golem Statue."
-   },
-   "hint": {
-    "en": "Place 4× Waxed Copper Golem Statue."
    }
   },
   {
@@ -64,13 +49,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:white_shulker_box"
-   },
-   "clue": {
-    "de": "Benutze Weiße Shulker-Kiste.",
-    "en": "Use White Shulker Box."
-   },
-   "hint": {
-    "en": "Use White Shulker Box."
    }
   }
  ],
@@ -85,18 +63,9 @@
     "item": "minecraft:gray_concrete",
     "count": 6
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 6× Grauer Beton.",
-    "en": "Collect 6× Gray Concrete."
-   },
-   "hint": {
-    "en": "Collect 6× Gray Concrete."
-   }
+   "conditions": []
   },
-  "textKo": "회색 콘크리트라는 길의 의식을 마쳤어요.",
-  "textDe": "Grauer Beton — Zeremonie vollendet.",
-  "textEn": "the ritual of Gray Concrete is complete."
+  "textKo": "회색 콘크리트를 여섯 개 모았어요."
  },
  "reward": {
   "badge": "hafenwacht",
@@ -108,6 +77,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "조선",
- "titleEn": "The Shipyard Trail"
+ "topic": "조선"
 }

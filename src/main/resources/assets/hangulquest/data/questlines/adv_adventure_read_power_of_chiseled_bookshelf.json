@@ -2,13 +2,13 @@
  "schema": 1,
  "id": "adv_adventure_read_power_of_chiseled_bookshelf",
  "titleKo": "책의 힘",
- "titleDe": "Spannung in jedem Band",
  "topic": "adventure",
  "tier": 2,
  "order": 221,
  "concepts": [
   "adv_item_chiseled_bookshelf",
-  "book"
+  "book",
+  "lectern"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,17 +24,9 @@
     "adv_item_chiseled_bookshelf"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:chiseled_bookshelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Baue ein gearbeitetes Bücherregal aus sechs Planken und drei Holzstufen.",
-    "en": "Collect Chiseled Bookshelf."
-   },
-   "hint": {
-    "ko": "나무 판자 여섯 개와 나무 반 블록 세 개로 만들어요.",
-    "en": "Collect Chiseled Bookshelf."
    }
   },
   {
@@ -45,15 +37,43 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:book",
-    "count": 3
-   },
-   "clue": {
-    "de": "Fertige drei Bücher aus Papier und Leder für die Fächer.",
-    "en": "Collect 3× Book."
-   },
-   "hint": {
-    "ko": "종이 세 개와 가죽 하나로 책을 만들어요.",
-    "en": "Collect 3× Book."
+    "count": 6
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_chiseled_bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:chiseled_bookshelf",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_chiseled_bookshelf"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:chiseled_bookshelf",
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "book"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:book",
+    "container": "minecraft:chiseled_bookshelf",
+    "count": 6
    }
   }
  ],
@@ -61,33 +81,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_chiseled_bookshelf"
+    "lectern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_bookshelf",
+    "type": "PLACE_REL",
+    "block": "minecraft:lectern",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:chiseled_bookshelf",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Stell das Regal auf, füll es mit Büchern und lies mit einem Komparator die Signalstärke ab.",
-    "en": "Place Chiseled Bookshelf."
-   },
-   "hint": {
-    "en": "Place Chiseled Bookshelf."
-   }
+   "conditions": []
   },
-  "textKo": "책의 힘 — 조각된 책장에 책을 꽂고 신호를 읽어요.",
-  "textDe": "Spannung in jedem Band — Lies die Signalstärke des gearbeiteten Bücherregals.",
-  "textEn": "the ritual of Chiseled Bookshelf is complete."
+  "textKo": "조각된 책장 위에 독서대를 놓았어요."
  },
  "reward": {
   "badge": "adv_adventure_read_power_of_chiseled_bookshelf",
   "words": [
    "adv_item_chiseled_bookshelf",
-   "book"
+   "book",
+   "lectern"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Power in Every Volume"
+ "grammar": [
+  "L2.seyo"
+ ]
 }

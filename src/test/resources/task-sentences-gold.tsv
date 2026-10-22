@@ -1,0 +1,241 @@
+goalType	object	relation	anchor	role	level	expectedKorean	grammar
+PLACE_RELATIVE	torch	ON_TOP_OF	chest	TARGET	1	상자 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	ON_TOP_OF	pattern:PYRAMID	TARGET	1	피라미드 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	ON_TOP_OF	pattern:PILLAR	TARGET	1	기둥 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	apple	ON_TOP_OF	furnace	TARGET	1	화로 위에 사과를 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	ON_TOP_OF	crafting_table	TARGET	1	제작대 위에 상자를 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	lever	ON_TOP_OF	stone	TARGET	1	돌 위에 레버를 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	pumpkin	ON_TOP_OF	hay_block	TARGET	1	건초 더미 위에 호박을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	UNDER	chest	TARGET	1	상자 아래에 횃불을 놓아요	L1.loc_arae_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	UNDER	#beds	TARGET	1	침대 아래에 상자를 놓아요	L1.loc_arae_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	UNDER	ladder	TARGET	1	사다리 아래에 횃불을 놓아요	L1.loc_arae_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	crafting_table	UNDER	pattern:PILLAR	TARGET	1	기둥 아래에 제작대를 놓아요	L1.loc_arae_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	1	문 옆에 횃불을 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	NEXT_TO	#beds	TARGET	1	침대 옆에 상자를 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	crafting_table	NEXT_TO	furnace	TARGET	1	화로 옆에 제작대를 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	NEXT_TO	chest	TARGET	1	상자 옆에 횃불을 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	bell	NEXT_TO	#doors	TARGET	1	문 옆에 종을 달아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	painting	NEXT_TO	#doors	TARGET	1	문 옆에 그림을 걸어요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	lever	NEXT_TO	#doors	TARGET	1	문 옆에 레버를 달아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	#carpets	NEXT_TO	#beds	TARGET	1	침대 옆에 양탄자를 깔아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	IN_FRONT_OF	#doors	TARGET	1	문 앞에 횃불을 놓아요	L1.loc_ap_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	IN_FRONT_OF	chest	TARGET	1	상자 앞에 횃불을 놓아요	L1.loc_ap_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	#saplings	IN_FRONT_OF	#doors	TARGET	1	문 앞에 묘목을 심어요	L1.loc_ap_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	crafting_table	IN_FRONT_OF	furnace	TARGET	1	화로 앞에 제작대를 놓아요	L1.loc_ap_e;L1.obj_eul;L1.eoyo
+NEAR	-	IN_FRONT_OF	villager	TARGET	1	주민 앞에 서요	L1.loc_ap_e;L1.eoyo
+PLACE_RELATIVE	torch	BEHIND	#doors	TARGET	1	문 뒤에 횃불을 놓아요	L1.loc_dwi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	BEHIND	#beds	TARGET	1	침대 뒤에 상자를 놓아요	L1.loc_dwi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	BEHIND	furnace	TARGET	1	화로 뒤에 횃불을 놓아요	L1.loc_dwi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	crafting_table	BEHIND	chest	TARGET	1	상자 뒤에 제작대를 놓아요	L1.loc_dwi_e;L1.obj_eul;L1.eoyo
+NEAR	-	BEHIND	villager	TARGET	1	주민 뒤에 서요	L1.loc_dwi_e;L1.eoyo
+PLACE_RELATIVE	apple	INSIDE	chest	TARGET	1	상자 안에 사과를 넣어요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	coal	INSIDE	furnace	TARGET	1	화로 안에 석탄을 넣어요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	bread	INSIDE	chest	TARGET	1	상자 안에 빵을 넣어요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	wheat	INSIDE	barrel	TARGET	1	통 안에 밀을 넣어요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	book	INSIDE	bookshelf	TARGET	1	책장 안에 책을 넣어요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	INSIDE	region:cave	TARGET	1	동굴 안에 횃불을 놓아요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	#beds	INSIDE	structure:house	TARGET	1	집 안에 침대를 놓아요	L1.loc_an_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	OUTSIDE	structure:house	TARGET	1	집 밖에 횃불을 놓아요	L1.loc_bak_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	OUTSIDE	region:cave	TARGET	1	동굴 밖에 상자를 놓아요	L1.loc_bak_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	OUTSIDE	#doors	TARGET	1	문 밖에 횃불을 놓아요	L1.loc_bak_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch x2	OUTSIDE	structure:house	TARGET	1	밤에 집 밖에 횃불을 두 개 놓아요	L1.e_time;L1.loc_bak_e;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+NEAR	-	OUTSIDE	structure:house	TARGET	1	집 밖에 서요	L1.loc_bak_e;L1.eoyo
+PLACE_RELATIVE	torch x3	NEXT_TO	#doors	TARGET	1	문 옆에 횃불을 세 개 놓아요	L1.loc_yeop_e;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	sapling	NEXT_TO	structure:house	TARGET	1	집 옆에 묘목을 심어요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_BLOCK	torch	-	-	NONE	1	횃불을 놓아요	L1.obj_eul;L1.eoyo
+USE_ON	bone_meal	-	#saplings	TARGET	1	묘목에 뼛가루를 뿌려요	L1.e_place;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	BETWEEN	torch|torch	TARGET	2	두 횃불 사이에 상자를 놓아요	L2.loc_sai_e;L1.num_native;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	BETWEEN	chest|furnace	TARGET	2	상자와 화로 사이에 횃불을 놓아요	L2.loc_sai_e;L2.hago_wa_gwa;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	crafting_table	BETWEEN	#beds|#doors	TARGET	2	침대와 문 사이에 제작대를 놓아요	L2.loc_sai_e;L2.hago_wa_gwa;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	BETWEEN	#doors|chest	TARGET	2	문과 상자 사이에 횃불을 놓아요	L2.loc_sai_e;L2.hago_wa_gwa;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	BETWEEN	pattern:PILLAR|pattern:PILLAR	TARGET	2	두 기둥 사이에 횃불을 놓아요	L2.loc_sai_e;L1.num_native;L1.obj_eul;L1.eoyo
+NEAR	-	BETWEEN	cow|pig	TARGET	2	소와 돼지 사이에 서요	L2.loc_sai_e;L2.hago_wa_gwa;L1.eoyo
+CONSUME_ITEM	bread	UNDER	torch	ACTIVITY_PLACE	2	횃불 아래에서 빵을 먹어요	L2.eseo_activity;L1.loc_arae_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	apple	NEXT_TO	chest	ACTIVITY_PLACE	2	상자 옆에서 사과를 먹어요	L2.eseo_activity;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	bread	IN_FRONT_OF	#doors	ACTIVITY_PLACE	2	문 앞에서 빵을 먹어요	L2.eseo_activity;L1.loc_ap_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	carrot	INSIDE	structure:house	ACTIVITY_PLACE	2	집 안에서 당근을 먹어요	L2.eseo_activity;L1.loc_an_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	potion	INSIDE	region:cave	ACTIVITY_PLACE	2	동굴 안에서 물약을 마셔요	L2.eseo_activity;L1.loc_an_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	bread	ON_TOP_OF	pattern:PYRAMID	ACTIVITY_PLACE	2	피라미드 위에서 빵을 먹어요	L2.eseo_activity;L1.loc_wi_e;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	apple	OUTSIDE	structure:house	ACTIVITY_PLACE	2	집 밖에서 사과를 먹어요	L2.eseo_activity;L1.loc_bak_e;L1.obj_eul;L1.eoyo
+CRAFT	torch	-	crafting_table	ACTIVITY_PLACE	2	제작대에서 횃불을 만들어요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+CRAFT	iron_sword	-	crafting_table	ACTIVITY_PLACE	2	제작대에서 철 검을 만들어요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+SMELT	baked_potato	-	furnace	ACTIVITY_PLACE	2	화로에서 감자를 구워요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+SMELT	iron_ingot	-	furnace	ACTIVITY_PLACE	2	화로에서 철 주괴를 만들어요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+USE_BLOCK	-	-	#beds	ACTIVITY_PLACE	2	침대에서 자요	L2.eseo_activity;L1.eoyo
+BREED	pig x2	INSIDE	#fences	ACTIVITY_PLACE	2	울타리 안에서 돼지 두 마리를 교배시켜요	L2.eseo_activity;L1.loc_an_e;L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+BREED	cow x2	INSIDE	#fences	ACTIVITY_PLACE	2	울타리 안에서 소 두 마리를 교배시켜요	L2.eseo_activity;L1.loc_an_e;L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+FEED	wheat	-	cow	RECIPIENT	2	소에게 밀을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	carrot	-	pig	RECIPIENT	2	돼지에게 당근을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	wheat	-	sheep	RECIPIENT	2	양에게 밀을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	wheat_seeds	-	chicken	RECIPIENT	2	닭에게 밀 씨앗을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	bone	-	wolf	RECIPIENT	2	늑대에게 뼈다귀를 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	apple	-	horse	RECIPIENT	2	말에게 사과를 줘요	L2.ege;L1.obj_eul;L1.eoyo
+FEED	carrot	-	rabbit	RECIPIENT	2	토끼에게 당근을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+GIVE	bread	-	villager	RECIPIENT	2	주민에게 빵을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+GIVE	emerald	-	villager	RECIPIENT	2	주민에게 에메랄드를 줘요	L2.ege;L1.obj_eul;L1.eoyo
+GIVE	torch	-	villager	RECIPIENT	2	주민에게 횃불을 줘요	L2.ege;L1.obj_eul;L1.eoyo
+GIVE	emerald x3	-	villager	RECIPIENT	2	주민에게 에메랄드를 세 개 줘요	L2.ege;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+FEED	wheat	-	cow x2	RECIPIENT	2	소 두 마리에게 밀을 줘요	L2.ege;L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+GIVE	bread	-	villager	RECIPIENT	2	주민에게 빵을 주세요	L2.ege;L2.seyo;L1.obj_eul
+FEED	wheat_seeds	-	chicken	RECIPIENT	2	아침에 닭에게 밀 씨앗을 줘요	L1.e_time;L2.ege;L1.obj_eul;L1.eoyo
+FEED	wheat	-	cow	RECIPIENT	3	소한테 밀을 줘요	L3.hante;L1.obj_eul;L1.eoyo
+GIVE	apple	-	villager	RECIPIENT	3	주민한테 사과를 줘요	L3.hante;L1.obj_eul;L1.eoyo
+FEED	carrot	-	pig	RECIPIENT	3	돼지한테 당근을 줬어요	L3.hante;L3.past;L1.obj_eul
+FEED	bone	-	wolf	RECIPIENT	3	늑대한테 뼈다귀를 줘요	L3.hante;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone	-	pattern:PILLAR	MATERIAL	2	돌로 기둥을 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone	-	pattern:PILLAR	MATERIAL	2	돌로 탑을 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	sand	-	pattern:PYRAMID	MATERIAL	2	모래로 피라미드를 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	cobblestone	-	pattern:WALL	MATERIAL	2	조약돌로 벽을 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone x5	-	pattern:ROW	NONE	1	돌 다섯 개를 나란히 놓아요	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone	-	pattern:RING	MATERIAL	2	돌로 원 모양을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	glass	-	pattern:CROSS	MATERIAL	2	유리로 십자 모양을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	dirt	-	pattern:STAIRS	MATERIAL	2	흙으로 계단을 쌓아요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	bricks x10	-	pattern:PILLAR	MATERIAL	2	벽돌 열 개로 기둥을 쌓아요	L2.euro_material;L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	ice	-	pattern:ROW	MATERIAL	2	얼음으로 다리를 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	dirt	-	structure:house	MATERIAL	2	흙으로 집을 지어요	L2.euro_material;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	sand	-	pattern:PYRAMID	MATERIAL	5	모래로 작은 피라미드를 쌓아요	L2.euro_material;L5.adn_adj_eun;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone	ON_TOP_OF	pattern:PYRAMID	MATERIAL	2	돌로 피라미드를 쌓고 그 위에 횃불을 놓아요	L2.euro_material;L2.go_sequence;L1.loc_wi_e;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	stone	ON_TOP_OF	pattern:PILLAR	MATERIAL	3	돌로 탑을 쌓은 후에 그 위에 횃불을 놓아요	L2.euro_material;L3.eun_hue;L1.loc_wi_e;L1.obj_eul;L1.eoyo
+CRAFT	torch	-	stick|coal	MATERIAL	2	막대기와 석탄으로 횃불을 만들어요	L2.hago_wa_gwa;L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	crafting_table	-	#planks	MATERIAL	2	나무로 제작대를 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	furnace	-	cobblestone	MATERIAL	2	조약돌로 화로를 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	#doors	-	#planks	MATERIAL	2	판자로 문을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	iron_pickaxe	-	iron_ingot|stick	MATERIAL	2	철 주괴와 막대기로 철 곡괭이를 만들어요	L2.hago_wa_gwa;L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	#beds	-	#wool|#planks	MATERIAL	2	양털과 판자로 침대를 만들어요	L2.hago_wa_gwa;L2.euro_material;L1.obj_eul;L1.eoyo
+SMELT	glass	-	sand	MATERIAL	2	화로에서 모래로 유리를 만들어요	L2.eseo_activity;L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	bread	-	wheat	MATERIAL	2	밀로 빵을 만들어요	L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	golden_apple	-	gold_ingot|apple	MATERIAL	2	금 주괴와 사과로 황금 사과를 만들어요	L2.hago_wa_gwa;L2.euro_material;L1.obj_eul;L1.eoyo
+CRAFT	torch x10	-	-	NONE	1	횃불을 열 개 만들어요	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+HOLD_WHILE	torch	INSIDE	region:cave	HELD	2	횃불을 들고 동굴 안으로 들어가요	L2.go_held;L2.euro_direction;L1.loc_an_e;L1.obj_eul;L1.eoyo
+HOLD_WHILE	bow	INSIDE	region:cave	HELD	2	활을 들고 동굴로 들어가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+HOLD_WHILE	iron_sword	-	region:cave	HELD	2	철 검을 들고 동굴로 들어가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+HOLD_WHILE	book	-	structure:house	HELD	2	책을 들고 집으로 가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+HOLD_WHILE	torch	OUTSIDE	-	HELD	2	횃불을 들고 밖으로 나가요	L2.go_held;L2.euro_direction;L1.loc_bak_e;L1.obj_eul;L1.eoyo
+HOLD_WHILE	water_bucket	ON_TOP_OF	-	HELD	2	물 양동이를 들고 위로 올라가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+HOLD_WHILE	filled_map	-	biome:desert	HELD	2	지도를 들고 사막으로 가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+HOLD_WHILE	torch	IN_FRONT_OF	#doors	HELD	2	횃불을 들고 문 앞에 서요	L2.go_held;L1.loc_ap_e;L1.obj_eul;L1.eoyo
+HOLD_WHILE	apple	NEXT_TO	cow	HELD	2	사과를 들고 소 옆에 서요	L2.go_held;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+RIDE	horse	-	-	NONE	1	말을 타요	L1.obj_eul;L1.eoyo
+RIDE	horse	-	village	DIRECTION	2	말을 타고 마을로 가요	L2.go_held;L2.euro_direction;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	-	TIME	3	자기 전에 횃불을 놓아요	L3.gi_jeone;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	#doors	TIME	3	문을 닫기 전에 횃불을 놓아요	L3.gi_jeone;L1.obj_eul;L1.eoyo
+SEQUENCE	chest	-	structure:house	TIME	3	집에 가기 전에 상자를 열어요	L3.gi_jeone;L1.e_place;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	region:cave	TIME	3	동굴에 들어가기 전에 횃불을 만들어요	L3.gi_jeone;L1.e_place;L1.obj_eul;L1.eoyo
+SEQUENCE	baked_potato	-	furnace	TIME	3	감자를 먹기 전에 화로에서 구워요	L3.gi_jeone;L2.eseo_activity;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	#doors	TIME	3	문을 연 후에 횃불을 놓아요	L3.eun_hue;L1.obj_eul;L1.eoyo
+SEQUENCE	#doors	-	torch	TIME	3	횃불을 놓은 후에 문을 닫아요	L3.eun_hue;L1.obj_eul;L1.eoyo
+SEQUENCE	apple	INSIDE	chest	TIME	3	상자에 사과를 넣은 후에 문을 닫아요	L3.eun_hue;L1.e_place;L1.obj_eul;L1.eoyo
+SEQUENCE	#beds	-	-	TIME	3	침대를 놓은 후에 자요	L3.eun_hue;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	NEXT_TO	#beds	TIME	3	자기 전에 침대 옆에 횃불을 놓아요	L3.gi_jeone;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+SEQUENCE	structure:house	-	-	TIME	3	밤이 되기 전에 집을 지어요	L3.gi_jeone;L1.subj_i;L1.obj_eul;L1.eoyo
+SEQUENCE	bone_meal	-	#saplings	NONE	2	묘목을 심고 뼛가루를 뿌려요	L2.go_sequence;L1.obj_eul;L1.eoyo
+SEQUENCE	iron_sword	-	raw_iron	NONE	2	철 원석을 제련하고 철 검을 만들어요	L2.go_sequence;L1.obj_eul;L1.eoyo
+SEQUENCE	#planks	-	#logs	NONE	2	나무를 베고 판자를 만들어요	L2.go_sequence;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	#doors	NONE	2	문을 열고 횃불을 놓아요	L2.go_sequence;L1.obj_eul;L1.eoyo
+AVOID	sleep	-	-	TIME	3	밤에 자지 마세요	L1.e_time;L3.jima_seyo
+AVOID	open	-	#doors	NONE	3	문을 열지 마세요	L3.jima_seyo;L1.obj_eul
+AVOID	break	-	torch	NONE	3	횃불을 부수지 마세요	L3.jima_seyo;L1.obj_eul
+AVOID	stand	IN_FRONT_OF	creeper	TARGET	3	크리퍼 앞에 서지 마세요	L3.jima_seyo;L1.loc_ap_e
+AVOID	enter	INSIDE	lava	TARGET	3	용암에 들어가지 마세요	L3.jima_seyo;L1.e_place
+AVOID	walk	ON_TOP_OF	lava	TARGET	3	용암 위를 걷지 마세요	L3.jima_seyo;L1.loc_wi_e;L1.obj_eul
+AVOID	go	OUTSIDE	structure:house	TARGET	3	집 밖으로 나가지 마세요	L3.jima_seyo;L1.loc_bak_e
+AVOID	attack	-	creeper	NONE	3	크리퍼를 때리지 마세요	L3.jima_seyo;L1.obj_eul
+AVOID	sleep	INSIDE	#beds	ACTIVITY_PLACE	3	침대에서 자지 마세요	L3.jima_seyo;L2.eseo_activity
+AVOID	go	OUTSIDE	-	TIME	4	밤에 밖에 나가면 안 돼요	L1.e_time;L1.loc_bak_e;L4.myeon;L4.myeon_an_doeyo
+AVOID	stand	NEXT_TO	creeper	TARGET	4	크리퍼 옆에 서면 안 돼요	L1.loc_yeop_e;L4.myeon;L4.myeon_an_doeyo
+AVOID	open	-	#doors	NONE	4	문을 열면 안 돼요	L4.myeon;L4.myeon_an_doeyo;L1.obj_eul
+AVOID	break	-	torch	NONE	4	횃불을 부수면 안 돼요	L4.myeon;L4.myeon_an_doeyo;L1.obj_eul
+AVOID	enter	INSIDE	region:cave	TARGET	4	횃불이 없으면 동굴에 들어가지 마세요	L4.myeon;L1.subj_i;L1.itda_eopda;L1.e_place;L3.jima_seyo
+AVOID	sleep	-	-	TIME	2	밤에는 안 자요	L2.eun_neun_contrast;L1.e_time;L1.neg_an;L1.eoyo
+BREAK_BLOCK	stone	-	#pickaxes	INSTRUMENT	3	곡괭이로 돌을 캐요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+BREAK_BLOCK	#logs	-	#axes	INSTRUMENT	3	도끼로 나무를 베요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+BREAK_BLOCK	dirt	-	#shovels	INSTRUMENT	3	삽으로 흙을 파요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+USE_ON	wool	-	shears	INSTRUMENT	3	가위로 양털을 깎아요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+DEFEAT	zombie	-	bow	INSTRUMENT	3	활로 좀비를 물리쳐요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+USE_ON	fire	-	water	INSTRUMENT	3	물로 불을 꺼요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+USE_ON	water	-	bucket	INSTRUMENT	3	양동이로 물을 퍼요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+BREAK_BLOCK	iron_ore	-	iron_pickaxe	INSTRUMENT	3	철 곡괭이로 철 광석을 캐요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+DEFEAT	spider	-	iron_sword	INSTRUMENT	3	철 검으로 거미를 물리쳐요	L3.euro_instrument;L1.obj_eul;L1.eoyo
+ACQUIRE_ITEM	apple x3	-	-	NONE	1	사과를 세 개 모아요	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+ACQUIRE_ITEM	carrot x5	-	-	NONE	1	당근을 다섯 개 캐요	L1.num_native;L1.counter_gae;L1.obj_eul;L1.eoyo
+ACQUIRE_ITEM	#flowers x2	-	-	NONE	2	꽃을 두 송이 꺾어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+PLACE_BLOCK	#saplings x4	-	-	NONE	2	나무를 네 그루 심어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+ACQUIRE_ITEM	book	-	-	NONE	2	책을 한 권 구해요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	filled_map	-	-	NONE	2	지도를 한 장 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	potion x2	-	-	NONE	2	물약을 두 병 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	mushroom_stew	-	-	NONE	2	버섯 스튜를 한 그릇 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	iron_sword	-	-	NONE	2	철 검을 한 자루 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	iron_boots	-	-	NONE	2	철 부츠를 한 켤레 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+BUILD_PATTERN	-	-	structure:house	NONE	2	집을 한 채 지어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+CRAFT	oak_boat	-	-	NONE	2	참나무 보트를 한 척 만들어요	L2.counter_more;L1.num_native;L1.obj_eul;L1.eoyo
+BREED	pig x2	-	-	NONE	1	돼지 두 마리를 교배시켜요	L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+BREED	sheep x3	-	-	NONE	1	양 세 마리를 교배시켜요	L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+INTERACT_ENTITY	villager x3	-	-	NONE	2	주민 세 명과 이야기해요	L2.counter_more;L2.hago_wa_gwa;L1.num_native;L1.eoyo
+DEFEAT	zombie x5	-	-	NONE	1	좀비 다섯 마리를 물리쳐요	L1.num_native;L1.counter_mari;L1.obj_eul;L1.eoyo
+HARVEST	wheat	-	-	TIME	1	낮에 밀을 수확해요	L1.e_time;L1.obj_eul;L1.eoyo
+BREAK_BLOCK	coal_ore	-	-	NONE	1	석탄 광석을 캐요	L1.obj_eul;L1.eoyo
+BREAK_BLOCK	oak_log	-	-	NONE	1	참나무 원목을 베요	L1.obj_eul;L1.eoyo
+BREAK_BLOCK	dandelion	-	-	NONE	1	민들레를 꺾어요	L1.obj_eul;L1.eoyo
+BREAK_BLOCK	glass	-	-	NONE	1	유리를 깨요	L1.obj_eul;L1.eoyo
+BREAK_BLOCK	carrots	-	-	NONE	1	당근을 뽑아요	L1.obj_eul;L1.eoyo
+PLACE_BLOCK	oak_sapling	-	-	NONE	1	참나무 묘목을 심어요	L1.obj_eul;L1.eoyo
+PLACE_BLOCK	white_carpet	-	-	NONE	1	하얀색 양탄자를 깔아요	L1.obj_eul;L1.eoyo
+PLACE_BLOCK	oak_sign	-	-	NONE	1	참나무 표지판을 걸어요	L1.obj_eul;L1.eoyo
+PLACE_BLOCK	ladder	-	-	NONE	1	사다리를 세워요	L1.obj_eul;L1.eoyo
+PLACE_BLOCK	cobweb	-	-	NONE	1	거미줄을 쳐요	L1.obj_eul;L1.eoyo
+ACQUIRE_ITEM	diamond	-	-	NONE	1	다이아몬드를 구해요	L1.obj_eul;L1.eoyo
+CONSUME_ITEM	water	-	-	NONE	1	물을 마셔요	L1.obj_eul;L1.eoyo
+CONDITION	torch	-	-	CONDITION	4	어두우면 횃불을 놓아요	L4.myeon;L1.obj_eul;L1.eoyo
+CONDITION	torch	-	-	CONDITION	5	어두운 곳에서 횃불을 놓아요	L5.adn_adj_eun;L2.eseo_activity;L1.obj_eul;L1.eoyo
+CONSUME_ITEM	bread	-	-	CONDITION	4	배가 고파서 빵을 먹어요	L4.eoseo;L1.subj_i;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	-	-	CONDITION	4	얼음 위에 서서 횃불을 놓아요	L4.eoseo;L1.loc_wi_e;L1.obj_eul;L1.eoyo
+SEQUENCE	torch	-	region:cave	TIME	4	동굴에 들어가기 전에 횃불을 만들어야 해요	L4.eoya_haeyo;L3.gi_jeone;L1.e_place;L1.obj_eul
+ACQUIRE_ITEM	coal	-	region:cave	DIRECTION	4	석탄을 캐러 동굴에 가요	L4.eureo_gayo;L1.e_place;L1.obj_eul;L1.eoyo
+CONDITION	torch	-	-	CONDITION	5	어두우니까 횃불을 놓으세요	L5.eunikka;L2.seyo;L1.obj_eul
+PUT_IN	torch	INSIDE	chest	TARGET	5	제가 만든 횃불을 상자 안에 넣어요	L5.adn_past_eun;L1.loc_an_e;L1.obj_eul;L1.eoyo
+SEQUENCE	baked_potato	-	furnace	ACTIVITY_PLACE	5	감자를 굽는 동안 화로 앞에서 기다려요	L5.neun_dongan;L5.adn_present_neun;L2.eseo_activity;L1.loc_ap_e;L1.obj_eul;L1.eoyo
+CONDITION	torch	-	-	CONDITION	6	깊이 내려갈수록 횃불을 많이 놓아요	L6.eulsurok;L1.obj_eul;L1.eoyo
+USE_BLOCK	#doors	-	-	NONE	4	제가 문을 열게요	L4.eulgeyo;L1.obj_eul
+CRAFT	torch	-	crafting_table	ACTIVITY_PLACE	2	제작대에서 횃불을 만드세요	L2.eseo_activity;L2.seyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	3	문 옆에 횃불을 놓았어요	L1.loc_yeop_e;L3.past;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	2	문 옆에 횃불을 놓으세요	L1.loc_yeop_e;L2.seyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	3	문 옆에 횃불을 놓을 거예요	L1.loc_yeop_e;L3.future_geoyeyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	2	문 옆에 횃불을 놓고 싶어요	L1.loc_yeop_e;L2.go_sipeoyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	5	문 옆에 횃불을 놓습니다	L1.loc_yeop_e;L5.hapsyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	4	문 옆에 횃불을 놓아야 해요	L1.loc_yeop_e;L4.eoya_haeyo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	3	문 옆에 횃불을 놓을 수 있어요	L1.loc_yeop_e;L3.su_itda;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	3	문 옆에 횃불을 놓지 않아요	L1.loc_yeop_e;L3.ji_anayo;L1.obj_eul
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	5	문 옆에 횃불을 놓아도 돼요	L1.loc_yeop_e;L5.eodo;L1.obj_eul
+SEQUENCE	torch	NEXT_TO	#doors	TARGET	2	문 옆에 횃불을 놓고 상자를 열어요	L1.loc_yeop_e;L2.go_sequence;L1.obj_eul;L1.eoyo
+GIVE	bread	-	villager	RECIPIENT	5	문을 여는 주민에게 빵을 줘요	L5.adn_present_neun;L2.ege;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	NEXT_TO	#doors	TARGET	5	횃불을 놓은 문 옆에 상자를 놓아요	L5.adn_past_eun;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+HOLD_WHILE	torch	INSIDE	region:cave	HELD	5	어두운 동굴 안으로 횃불을 들고 들어가요	L5.adn_adj_eun;L2.euro_direction;L2.go_held;L1.loc_an_e;L1.obj_eul;L1.eoyo
+AVOID	go	OUTSIDE	structure:house	TARGET	5	밤이니까 집 밖으로 나가지 마세요	L5.eunikka;L1.copula_ieyo;L1.loc_bak_e;L3.jima_seyo
+NEAR	-	BEHIND	#doors	TARGET	5	크리퍼가 오는 동안 문 뒤에 서요	L5.neun_dongan;L5.adn_present_neun;L1.subj_i;L1.loc_dwi_e;L1.eoyo
+GIVE	bread	-	villager	RECIPIENT	5	주민에게 빵을 줍니다	L5.hapsyo;L2.ege;L1.obj_eul
+CONDITION	torch	-	-	CONDITION	6	횃불이 많을수록 밝아요	L6.eulsurok;L1.subj_i;L1.eoyo
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	6	문 옆에 횃불 놓아	L6.banmal;L1.loc_yeop_e
+PLACE_RELATIVE	torch	NEXT_TO	#doors	TARGET	6	나는 문 옆에 횃불을 놓는다	L6.banmal_plain;L2.eun_neun_topic;L1.loc_yeop_e;L1.obj_eul
+CONDITION	torch	-	-	CONDITION	6	횃불이 없으면 돌아갈 수밖에 없어요	L6.su_bakke_eopda;L4.myeon;L1.subj_i
+CRAFT	torch	-	stick|coal	MATERIAL	2	막대기와 석탄을 모으고 횃불을 만들어요	L2.hago_wa_gwa;L2.go_sequence;L1.obj_eul;L1.eoyo
+CRAFT	torch	-	stick|coal	MATERIAL	2	막대기와 석탄을 모으고 횃불을 만드세요	L2.hago_wa_gwa;L2.go_sequence;L2.seyo;L1.obj_eul
+PLACE_RELATIVE	chest	NEXT_TO	@s1	TARGET	5	아까 놓은 횃불 옆에 상자를 놓아요	L1.loc_yeop_e;L5.adn_past_eun;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	UNDER	@s2	TARGET	5	아까 단 종 아래에 횃불을 놓아요	L1.loc_arae_e;L5.adn_past_eun;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	ON_TOP_OF	@s1	TARGET	5	아까 쌓은 돌 위에 상자를 놓아야 해요	L1.loc_wi_e;L5.adn_past_eun;L1.obj_eul;L4.eoya_haeyo
+BUILD_PATTERN	stone	ON_TOP_OF	pattern:PILLAR	MATERIAL	2	돌로 기둥을 쌓고 그 위에 횃불을 놓으세요	L2.euro_material;L2.go_sequence;L1.loc_wi_e;L2.seyo;L1.obj_eul
+BUILD_PATTERN	stone	NEXT_TO	pattern:WALL	MATERIAL	2	돌로 벽을 쌓고 그 옆에 상자를 놓아요	L2.euro_material;L2.go_sequence;L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	torch	ON_TOP_OF	pattern:STAIRS	TARGET	1	계단 위에 횃불을 놓아요	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+PLACE_RELATIVE	chest	NEXT_TO	pattern:WALL	TARGET	1	벽 옆에 상자를 놓아요	L1.loc_yeop_e;L1.obj_eul;L1.eoyo
+USE_BLOCK	door	-	-	NONE	1	문을 닫아요	L1.obj_eul;L1.eoyo
+TAKE_OUT	apple	-	chest	ACTIVITY_PLACE	2	상자에서 사과를 꺼내요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+TRANSIT	-	INSIDE	structure:house	DIRECTION	2	집 안으로 들어가요	L2.euro_direction;L1.loc_an_e;L1.eoyo
+TRANSIT	-	OUTSIDE	structure:house	DIRECTION	2	집 밖으로 나가요	L2.euro_direction;L1.loc_bak_e;L1.eoyo
+HEAR	jukebox	NEAR	jukebox	ACTIVITY_PLACE	2	주크박스 근처에서 노래를 들어요	L2.eseo_activity;L1.obj_eul;L1.eoyo
+LIE_DOWN	bed	-	-	NONE	1	침대에 누워요	L1.e_place;L1.eoyo
+WAIT	-	-	-	TIME	1	잠깐 기다려요	L1.eoyo
+SWIM	-	-	water	ACTIVITY_PLACE	2	물에서 수영해요	L2.eseo_activity;L1.eoyo
+MOUNT	oak_boat	-	-	NONE	1	배에 앉아요	L1.e_place;L1.eoyo
+MOUNT	pig	-	-	NONE	1	돼지를 타요	L1.obj_eul;L1.eoyo
+RAISE	cow	-	-	NONE	1	소를 키워요	L1.obj_eul;L1.eoyo
+REACH_HEIGHT	-	-	-	DIRECTION	1	아래로 내려가요	L1.eoyo
+SMELT	cooked_chicken	-	furnace	NONE	1	닭고기를 요리해요	L1.obj_eul;L1.eoyo

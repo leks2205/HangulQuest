@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_end_kill_dragon",
  "titleKo": "엔드 해방",
- "titleDe": "Befreie das Ende",
  "topic": "end",
  "tier": 2,
  "order": 252,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cyan_candle",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Türkise Kerze.",
-    "en": "Collect Cyan Candle."
-   },
-   "hint": {
-    "en": "Collect Cyan Candle."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:weathered_copper_grate",
     "count": 32
-   },
-   "clue": {
-    "de": "Sammle 32× Verwitterter Kupferrost.",
-    "en": "Collect 32× Weathered Copper Grate."
-   },
-   "hint": {
-    "en": "Collect 32× Weathered Copper Grate."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:evoker",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Magier.",
-    "en": "Defeat Evoker."
-   },
-   "hint": {
-    "en": "Defeat Evoker."
-   }
+   "conditions": []
   },
-  "textKo": "소환사라는 길의 의식을 마쳤어요.",
-  "textDe": "Magier — Zeremonie vollendet.",
-  "textEn": "the ritual of Evoker is complete."
+  "textKo": "소환사를 물리쳤어요."
  },
  "reward": {
   "badge": "adv_end_kill_dragon",
@@ -88,6 +64,5 @@
    "ender_dragon"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "Free the End"
+ "koreanLevel": 6
 }

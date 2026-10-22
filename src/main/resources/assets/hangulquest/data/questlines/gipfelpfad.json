@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "gipfelpfad",
  "titleKo": "꼭대기의 길",
- "titleDe": "Der Gipfelpfad",
+ "topic": "산",
  "tier": 2,
+ "order": 170,
  "concepts": [
-  "gen_snowy_taiga",
-  "gen_gray_glazed_terracotta",
-  "iron",
-  "gen_blast_furnace"
+  "mountain",
+  "climb",
+  "dirt",
+  "gen_red_banner"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -21,55 +22,51 @@
   {
    "id": "s1",
    "teach": [
-    "gen_snowy_taiga"
+    "mountain",
+    "climb"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:snowy_taiga",
-    "dwellMs": 1000
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
    },
-   "clue": {
-    "de": "Erreiche Verschneite Taiga.",
-    "en": "Reach Snowy Taiga."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ],
    "hint": {
-    "en": "Reach Snowy Taiga."
+    "ko": "산 위로 올라가요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_gray_glazed_terracotta"
+    "dirt"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:gray_glazed_terracotta",
-    "count": 2
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:dirt",
+    "size": 3
    },
-   "clue": {
-    "de": "Baue 2× Graue glasierte Keramik ab.",
-    "en": "Break 2× Gray Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Break 2× Gray Glazed Terracotta."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "iron"
+    "gen_red_banner"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:iron_ore",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Sieh dir Eisenerz an.",
-    "en": "Look at Iron Ore."
-   },
-   "hint": {
-    "en": "Look at Iron Ore."
+    "type": "CRAFT",
+    "item": "minecraft:red_banner",
+    "count": 1
    }
   }
  ],
@@ -77,44 +74,32 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blast_furnace"
+    "gen_red_banner"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:blast_furnace"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_banner",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:dirt"
    },
    "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    },
     {
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Benutze Schmelzofen. Nachts. In einem passenden Biom.",
-    "en": "Use Blast Furnace. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Use Blast Furnace. At night. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "밤에 산 지형에서 용광로라는 길의 의식을 마쳤어요.",
-  "textDe": "Schmelzofen — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Blast Furnace is complete."
+  "textKo": "산에서 흙기둥 위에 빨간색 현수막을 걸었어요."
  },
  "reward": {
   "badge": "gipfelpfad",
   "words": [
+   "mountain",
    "climb",
-   "ice",
-   "snow"
+   "dirt",
+   "gen_red_banner"
   ]
  },
- "order": 170,
- "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The Summit Trail"
+ "koreanLevel": 1
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_story_form_obsidian",
  "titleKo": "아이스 버킷 챌린지",
- "titleDe": "Ice Bucket Challenge",
  "topic": "story",
  "tier": 2,
  "order": 316,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:sandstone_slab",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Sandsteinstufe.",
-    "en": "Collect Sandstone Slab."
-   },
-   "hint": {
-    "en": "Collect Sandstone Slab."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:spider_eye",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Spinnenauge.",
-    "en": "Collect Spider Eye."
-   },
-   "hint": {
-    "en": "Collect Spider Eye."
    }
   },
   {
@@ -66,14 +51,8 @@
     "block": "minecraft:obsidian",
     "dwellMs": 600
    },
-   "clue": {
-    "de": "Lass Wasser auf die Lava treffen und sieh dir den neuen Block an.",
-    "en": "Look at Obsidian."
-   },
    "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로만 캘 수 있어요.",
-    "de": "Obsidian braucht eine Diamantspitzhacke.",
-    "en": "Look at Obsidian."
+    "ko": "흑요석은 다이아몬드 곡괭이로만 캘 수 있어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "item": "minecraft:pale_oak_log",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Blasseichenstamm.",
-    "en": "Collect Pale Oak Log."
-   },
-   "hint": {
-    "en": "Collect Pale Oak Log."
-   }
+   "conditions": []
   },
-  "textKo": "창백한 참나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Blasseichenstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Pale Oak Log is complete."
+  "textKo": "창백한 참나무 원목을 구했어요."
  },
  "reward": {
   "badge": "adv_story_form_obsidian",
@@ -109,6 +79,5 @@
    "obsidian"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Ice Bucket Challenge"
+ "koreanLevel": 3
 }

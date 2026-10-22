@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w12_06",
  "titleKo": "끝의 노래",
- "titleDe": "Das Lied vom Ende",
  "topic": "엔드",
  "tier": 2,
  "order": 1126,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:resin_brick_wall",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Harzziegelmauer.",
-    "en": "Collect 4× Resin Brick Wall."
-   },
-   "hint": {
-    "en": "Collect 4× Resin Brick Wall."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:blaze",
     "dwellMs": 1500
-   },
-   "clue": {
-    "de": "Sieh dir Lohe an.",
-    "en": "Look at Blaze."
-   },
-   "hint": {
-    "en": "Look at Blaze."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:music_disc_pigstep",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Schallplatte.",
-    "en": "Collect Music Disc."
-   },
-   "hint": {
-    "en": "Collect Music Disc."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "IN_DIMENSION",
      "dimension": "minecraft:the_end"
     }
-   ],
-   "clue": {
-    "de": "Platziere Entrindeter Tropenbaumstamm. In einer anderen Dimension.",
-    "en": "Place Stripped Jungle Log. In another dimension."
-   },
-   "hint": {
-    "en": "Place Stripped Jungle Log. In another dimension."
-   }
+   ]
   },
-  "textKo": "다른 차원에서 껍질 벗긴 정글나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindeter Tropenbaumstamm — Zeremonie vollendet.",
-  "textEn": "In another dimension the ritual of Stripped Jungle Log is complete."
+  "textKo": "엔드에서 껍질 벗긴 정글나무 원목을 놓았어요."
  },
  "reward": {
   "badge": "w12_06",
@@ -113,6 +82,5 @@
    "dragon_egg"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Song of the End"
+ "koreanLevel": 6
 }

@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_01",
  "titleKo": "광부의 등불",
- "titleDe": "Die Grubenlampe",
  "topic": "광산",
  "tier": 2,
  "order": 1051,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:lime_harness",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Hellgrünes Geschirr.",
-    "en": "Collect 4× Lime Harness."
-   },
-   "hint": {
-    "en": "Collect 4× Lime Harness."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "BREAK_BLOCK",
     "block": "minecraft:lime_candle",
     "count": 8
-   },
-   "clue": {
-    "de": "Baue 8× Hellgrüne Kerze ab.",
-    "en": "Break 8× Lime Candle."
-   },
-   "hint": {
-    "en": "Break 8× Lime Candle."
    }
   }
  ],
@@ -73,18 +58,9 @@
      "minY": -64,
      "maxY": 0
     }
-   ],
-   "clue": {
-    "de": "Platziere 2× Oxidierte Kupferfalltür. Zwischen Y -64 und 0.",
-    "en": "Place 2× Oxidized Copper Trapdoor. Between Y -64 and 0."
-   },
-   "hint": {
-    "en": "Place 2× Oxidized Copper Trapdoor. Between Y -64 and 0."
-   }
+   ]
   },
-  "textKo": "높이 0 이하에서 산화된 구리 다락문라는 길의 의식을 마쳤어요.",
-  "textDe": "Oxidierte Kupferfalltür — Zeremonie vollendet.",
-  "textEn": "Below Y 0 the ritual of Oxidized Copper Trapdoor is complete."
+  "textKo": "높이 0 이하에서 산화된 구리 다락문을 두 개 달았어요."
  },
  "reward": {
   "badge": "w5_01",
@@ -94,6 +70,5 @@
    "torch"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Miner's Lamp"
+ "koreanLevel": 3
 }

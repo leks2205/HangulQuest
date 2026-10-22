@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "w1_06",
  "titleKo": "겨울 창가",
- "titleDe": "Am Winterfenster",
  "topic": "겨울",
  "tier": 1,
  "order": 1016,
  "concepts": [
-  "ice",
-  "snow",
-  "gen_rail"
+  "snow_block",
+  "glass_pane",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,61 +19,48 @@
   {
    "id": "s1",
    "teach": [
-    "ice"
+    "snow_block"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ice",
-    "count": 3
-   },
-   "clue": {
-    "de": "Bring drei Eisblöcke mit.",
-    "en": "Collect 3× Ice."
-   },
-   "hint": {
-    "ko": "얼음은 눈 덮인 곳에서 얻어요.",
-    "de": "Eis findest du in verschneiten Gegenden.",
-    "en": "Collect 3× Ice."
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:snow_block",
+    "count": 2
    }
   },
   {
    "id": "s2",
    "teach": [
-    "ice"
+    "glass_pane"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:ice",
+    "type": "CRAFT",
+    "item": "minecraft:glass_pane",
     "count": 3
    },
-   "clue": {
-    "de": "Setz drei Eisblöcke ans Fenster.",
-    "en": "Place 3× Ice."
-   },
-   "hint": {
-    "ko": "얼음을 창가에 놓아요.",
-    "de": "Stelle die Eisblöcke an das Fenster.",
-    "en": "Place 3× Ice."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "bed"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:snow",
-    "dwellMs": 600
+    "type": "PLACE_REL",
+    "block": "minecraft:light_blue_bed",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:glass_pane",
+    "count": 1
    },
    "clue": {
-    "de": "Schau dir eine Schneeschicht an.",
-    "en": "Look at Snow."
+    "ko": "유리판 옆에 침대를 놓아요."
    },
    "hint": {
-    "ko": "눈은 하얗고 차가워요.",
-    "de": "Schnee ist weiß und kalt.",
-    "en": "Look at Snow."
+    "ko": "유리판 옆에 침대를 놓아요."
    }
   }
  ],
@@ -82,34 +68,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_rail"
+    "snow_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:rail",
-    "count": 2
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow_block",
+    "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Schiene.",
-    "en": "Place 2× Rail."
-   },
-   "hint": {
-    "en": "Place 2× Rail."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   },
-  "textKo": "레일라는 길의 의식을 마쳤어요.",
-  "textDe": "Schiene — Zeremonie vollendet.",
-  "textEn": "the ritual of Rail is complete."
+  "textKo": "지붕 아래에서 눈 블록을 바라봤어요."
  },
  "reward": {
   "badge": "w1_06",
   "words": [
-   "ice",
-   "snow",
-   "glass_pane"
+   "snow_block",
+   "glass_pane",
+   "bed"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "At the Winter Window"
+ "koreanLevel": 1
 }

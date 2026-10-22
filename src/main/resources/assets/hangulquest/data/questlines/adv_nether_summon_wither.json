@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_summon_wither",
  "titleKo": "시들어 버린 언덕",
- "titleDe": "Umwitherte Höhen",
  "topic": "nether",
  "tier": 2,
  "order": 308,
@@ -29,13 +28,8 @@
     "item": "minecraft:soul_sand",
     "count": 4
    },
-   "clue": {
-    "de": "Hol vier Seelensandblöcke aus dem Seelensandtal – daraus wird das T für den Wither.",
-    "en": "Collect 4× Soul Sand."
-   },
    "hint": {
-    "ko": "영혼 모래는 삽으로 캐요.",
-    "en": "Collect 4× Soul Sand."
+    "ko": "영혼 모래는 삽으로 파요."
    }
   },
   {
@@ -47,13 +41,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:red_stained_glass_pane",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Rote Glasscheibe.",
-    "en": "Collect 3× Red Stained Glass Pane."
-   },
-   "hint": {
-    "en": "Collect 3× Red Stained Glass Pane."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "item": "minecraft:brown_concrete",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Brauner Beton.",
-    "en": "Collect Brown Concrete."
-   },
-   "hint": {
-    "en": "Collect Brown Concrete."
-   }
+   "conditions": []
   },
-  "textKo": "갈색 콘크리트라는 길의 의식을 마쳤어요.",
-  "textDe": "Brauner Beton — Zeremonie vollendet.",
-  "textEn": "the ritual of Brown Concrete is complete."
+  "textKo": "갈색 콘크리트를 구했어요."
  },
  "reward": {
   "badge": "adv_nether_summon_wither",
@@ -89,6 +67,5 @@
    "nether_star"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Withering Heights"
+ "koreanLevel": 3
 }

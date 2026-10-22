@@ -2,12 +2,13 @@
  "schema": 1,
  "id": "sonnenblume",
  "titleKo": "해바라기의 길",
- "titleDe": "Der Sonnenblumenpfad",
  "topic": "해바라기",
  "tier": 3,
  "order": 140,
  "concepts": [
-  "sunflower"
+  "sunflower",
+  "potato",
+  "pig"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -24,52 +25,40 @@
     "sunflower"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:sunflower",
-    "dwellMs": 600
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sunflower",
+    "count": 2
    },
-   "clue": {
-    "de": "Schau eine Sonnenblume an.",
-    "en": "Look at Sunflower."
-   },
-   "hint": {
-    "en": "Look at Sunflower."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "sunflower"
+    "potato"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:sunflower",
-    "count": 2
-   },
-   "clue": {
-    "de": "Baue zwei Sonnenblumen ab.",
-    "en": "Break 2× Sunflower."
-   },
-   "hint": {
-    "en": "Break 2× Sunflower."
+    "type": "PLACE_REL",
+    "block": "minecraft:potatoes",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:sunflower",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sunflower"
+    "pig"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sunflower",
-    "count": 2
-   },
-   "clue": {
-    "de": "Setz zwei Sonnenblumen.",
-    "en": "Place 2× Sunflower."
-   },
-   "hint": {
-    "en": "Place 2× Sunflower."
+    "type": "GIVE",
+    "item": "minecraft:potato",
+    "entity": "minecraft:pig",
+    "count": 1
    }
   }
  ],
@@ -77,31 +66,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sunflower"
+    "potato"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sunflower",
-    "count": 4
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:potato",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Collect 4× Sunflower."
-   },
-   "hint": {
-    "en": "Collect 4× Sunflower."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:sunflower",
+     "kind": "block"
+    }
+   ]
   },
-  "textKo": "해바라기를 모아요.",
-  "textDe": "Sonnenblumen sammeln.",
-  "textEn": "the ritual of Sunflower is complete."
+  "textKo": "해바라기 옆에서 감자를 먹었어요."
  },
  "reward": {
   "badge": "sonnenblume",
   "words": [
-   "sunflower"
+   "sunflower",
+   "potato",
+   "pig"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Sunflower Trail"
+ "koreanLevel": 1
 }

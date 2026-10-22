@@ -2,12 +2,14 @@
  "schema": 1,
  "id": "adv_adventure_honey_block_slide",
  "titleKo": "달콤함에 몸을 맡기다",
- "titleDe": "Eine klebrige Angelegenheit",
  "topic": "adventure",
  "tier": 2,
  "order": 211,
  "concepts": [
-  "honey_block"
+  "honey_bottle",
+  "honey_block",
+  "planks",
+  "sign"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,20 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "honey_block"
+    "honey_bottle"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:honey_block",
-    "count": 1
-   },
-   "clue": {
-    "de": "Stelle aus vier Honigflaschen einen Honigblock her.",
-    "en": "Collect Honey Block."
-   },
-   "hint": {
-    "ko": "꿀병 네 개를 작업대 네 칸에 놓아요.",
-    "en": "Collect Honey Block."
+    "item": "minecraft:honey_bottle",
+    "count": 4
    }
   },
   {
@@ -42,16 +36,49 @@
     "honey_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:honey_block",
+    "type": "CRAFT",
+    "item": "minecraft:honey_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Setze den Honigblock hoch oben an eine Wand.",
-    "en": "Place Honey Block."
-   },
-   "hint": {
-    "en": "Place Honey Block."
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:bamboo_planks",
+    "size": 4
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "honey_block",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:honey_block",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:bamboo_planks"
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "sign",
+    "honey_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:jungle_sign",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:honey_block",
+    "count": 1
    }
   }
  ],
@@ -64,27 +91,23 @@
    "goal": {
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:honey_block",
-    "dwellMs": 600
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Rutsche die Honigwand hinab und behalte den Block dabei im Blick.",
-    "en": "Look at Honey Block."
-   },
-   "hint": {
-    "en": "Look at Honey Block."
+    "dwellMs": 1000
    }
   },
-  "textKo": "달콤함에 몸을 맡기다 — 꿀 블록 벽을 타고 미끄러졌어요.",
-  "textDe": "Eine klebrige Angelegenheit — an der Honigwand hinabgerutscht.",
-  "textEn": "the ritual of Honey Block is complete."
+  "textKo": "꿀 블록을 바라봤어요."
  },
  "reward": {
   "badge": "adv_adventure_honey_block_slide",
   "words": [
-   "honey_block"
+   "honey_block",
+   "honey_bottle",
+   "planks"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Sticky Situation"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.counter_more"
+ ]
 }

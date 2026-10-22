@@ -1,0 +1,34 @@
+{
+	"schema": 1,
+	"id": "library",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "profession": "minecraft:librarian", "baby": false},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "librarian",
+			"ko": "어서 오십시오. 저는 사서입니다.",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "librarian",
+			"ko": "책이 필요합니다.",
+			"effects": [{"type": "exposeWords", "words": ["concept:book"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "librarian",
+			"ko": "책을 한 권 가져와 주시겠습니까?",
+			"grammar": "L5.hapsyo",
+			"choices": [
+				{"ko": "네, 가져오겠습니다.", "speechLevel": "hapsyo", "correct": true, "next": "thanks"},
+				{"ko": "응, 가져올 거야.", "speechLevel": "banmal", "correct": false}
+			]
+		},
+		"thanks": {
+			"speaker": "librarian",
+			"ko": "감사합니다. 안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

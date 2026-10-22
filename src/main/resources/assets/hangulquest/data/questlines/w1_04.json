@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w1_04",
  "titleKo": "달빛 산책",
- "titleDe": "Mondlicht-Spaziergang",
  "topic": "달빛",
  "tier": 1,
  "order": 1014,
  "concepts": [
-  "gen_white_concrete",
-  "gen_red_sand",
-  "gen_dark_oak_fence_gate",
-  "gen_weathered_copper"
+  "torch",
+  "forest",
+  "log",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,30 +20,29 @@
   {
    "id": "s1",
    "teach": [
-    "gen_white_concrete"
+    "torch"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_concrete",
-    "count": 1
+    "type": "CRAFT",
+    "item": "minecraft:torch",
+    "count": 4
    },
-   "clue": {
-    "de": "Sammle Weißer Beton.",
-    "en": "Collect White Concrete."
-   },
-   "hint": {
-    "en": "Collect White Concrete."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_sand"
+    "forest"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:red_sand",
-    "dwellMs": 600
+    "type": "REACH_BIOME",
+    "biome": "#minecraft:is_forest",
+    "dwellMs": 1000
    },
    "conditions": [
     {
@@ -53,65 +51,62 @@
     }
    ],
    "clue": {
-    "de": "Sieh dir Roter Sand an. Nachts.",
-    "en": "Look at Red Sand. At night."
+    "ko": "밤에 달이 떠요. 숲으로 가요."
    },
    "hint": {
-    "en": "Look at Red Sand. At night."
+    "ko": "밤에 달이 떠요. 숲으로 가요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dark_oak_fence_gate"
+    "log"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_fence_gate",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:oak_log",
+    "dwellMs": 600
    },
-   "clue": {
-    "de": "Platziere Schwarzeichenholzzauntor.",
-    "en": "Place Dark Oak Fence Gate."
-   },
-   "hint": {
-    "en": "Place Dark Oak Fence Gate."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:torch"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_weathered_copper"
+    "sheep"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:weathered_copper",
-    "count": 2
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:sheep",
+    "dwellMs": 800
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Verwitterter Kupferblock.",
-    "en": "Place 2× Weathered Copper."
-   },
-   "hint": {
-    "en": "Place 2× Weathered Copper."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "녹슨 구리라는 길의 의식을 마쳤어요.",
-  "textDe": "Verwitterter Kupferblock — Zeremonie vollendet.",
-  "textEn": "the ritual of Weathered Copper is complete."
+  "textKo": "밤에 양을 바라봤어요."
  },
  "reward": {
   "badge": "w1_04",
   "words": [
-   "moon",
-   "night",
-   "sky",
-   "torch"
+   "torch",
+   "forest",
+   "log",
+   "sheep"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "A Moonlit Walk"
+ "koreanLevel": 1
 }

@@ -2,15 +2,16 @@
  "schema": 1,
  "id": "w3_03",
  "titleKo": "나그네의 주머니",
- "titleDe": "Der Beutel des Wanderers",
  "topic": "길",
  "tier": 2,
  "order": 1033,
  "concepts": [
-  "gen_shelf_mushroom",
-  "gen_axolotl",
-  "gen_pink_tulip",
-  "gen_spruce_log"
+  "pumpkin",
+  "road",
+  "adv2_item_baked_potato",
+  "bread",
+  "villager",
+  "egg"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,54 +24,53 @@
   {
    "id": "s1",
    "teach": [
-    "gen_shelf_mushroom"
+    "pumpkin",
+    "road"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:shelf_mushroom",
+    "type": "PLACE_REL",
+    "block": "minecraft:pumpkin",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:dirt_path",
     "count": 1
    },
    "clue": {
-    "de": "Sammle Baumpilz.",
-    "en": "Collect Shelf Mushroom."
+    "ko": "길 옆에 호박을 놓으세요."
    },
    "hint": {
-    "en": "Collect Shelf Mushroom."
+    "ko": "길 옆에 호박을 놓아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_axolotl"
+    "adv2_item_baked_potato"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:axolotl"
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:baked_potato",
+    "count": 1
    },
-   "clue": {
-    "de": "Interagiere mit Axolotl.",
-    "en": "Talk to Axolotl."
-   },
-   "hint": {
-    "en": "Talk to Axolotl."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pink_tulip"
+    "bread"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pink_tulip",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle Rosa Tulpe.",
-    "en": "Collect Pink Tulip."
-   },
-   "hint": {
-    "en": "Collect Pink Tulip."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bread",
+    "seconds": 10,
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:plains"
+    }
    }
   }
  ],
@@ -78,35 +78,35 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_log"
+    "villager",
+    "egg"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_log",
+    "type": "GIVE",
+    "item": "minecraft:egg",
+    "entity": "minecraft:villager",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Fichtenstamm.",
-    "en": "Place Spruce Log."
-   },
-   "hint": {
-    "en": "Place Spruce Log."
    }
   },
-  "textKo": "가문비나무 원목라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenstamm — Zeremonie vollendet.",
-  "textEn": "the ritual of Spruce Log is complete."
+  "textKo": "주민에게 달걀을 줬어요."
  },
  "reward": {
   "badge": "w3_03",
   "words": [
-   "emerald",
+   "pumpkin",
+   "road",
+   "adv2_item_baked_potato",
+   "bread",
    "villager",
-   "map",
-   "campfire"
+   "egg"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Wanderer's Bundle"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L2.eseo_activity",
+  "L2.ege",
+  "L2.go_held"
+ ]
 }

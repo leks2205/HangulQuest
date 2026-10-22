@@ -1,15 +1,15 @@
 {
  "schema": 1,
  "id": "bergpfad",
- "titleKo": "높은 곳의 길",
- "titleDe": "Der Höhenpfad",
+ "titleKo": "산과 눈의 길",
+ "topic": "산",
  "tier": 1,
+ "order": 70,
  "concepts": [
   "mountain",
   "climb",
-  "goat",
   "snow",
-  "gen_sulfur_bricks"
+  "campfire"
  ],
  "requires": {
   "minWordsKnown": 4,
@@ -23,108 +23,77 @@
     "climb"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "#minecraft:is_mountain",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "ko": "산으로 가요.",
-    "de": "Finde einen sehr hohen Ort.",
-    "en": "Reach the mountains."
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
    },
    "hint": {
-    "ko": "산 지형으로 올라가요. 높은 산을 찾아가요.",
-    "de": "Geh ins Bergbiom hinauf; suche einen hohen Berg.",
-    "en": "Reach the mountains."
+    "ko": "산 위로 올라가요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "goat"
+    "snow"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:goat",
-    "dwellMs": 800
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:snow",
+    "dwellMs": 1000
    },
-   "clue": {
-    "ko": "산에서 염소를 1초 동안 바라봐요.",
-    "de": "Geh in ein Bergbiom.",
-    "en": "Look at Goat."
-   },
-   "hint": {
-    "ko": "높이 올라가요.",
-    "de": "Steig nach oben.",
-    "en": "Look at Goat."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "snow"
+    "campfire"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:snow_block",
-    "count": 2
-   },
-   "clue": {
-    "ko": "하얀 눈을 두 개 캐요.",
-    "de": "Hol dir zwei weiße, kalte Dinge.",
-    "en": "Break 2× Snow Block."
-   },
-   "hint": {
-    "ko": "눈을 캐요.",
-    "de": "Baue Schnee ab.",
-    "en": "Break 2× Snow Block."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_sulfur_bricks"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sulfur_bricks",
+    "type": "PLACE_REL",
+    "block": "minecraft:campfire",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:stone",
     "count": 1
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
-    },
-    {
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "mountain"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
      "type": "IN_BIOME",
      "biome": "#minecraft:is_mountain"
-    }
-   ],
-   "clue": {
-    "de": "Platziere Schwefelziegel. Nachts. In einem passenden Biom.",
-    "en": "Place Sulfur Bricks. At night. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Sulfur Bricks. At night. In a fitting biome."
+    },
+    "seconds": 10
    }
   },
-  "textKo": "밤에 산 지형에서 유황 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwefelziegel — Zeremonie vollendet.",
-  "textEn": "By night In the mountains the ritual of Sulfur Bricks is complete."
+  "textKo": "횃불을 들고 산에서 걸었어요."
  },
  "reward": {
   "badge": "bergpfad",
   "words": [
    "mountain",
-   "snow",
    "climb",
-   "torch"
+   "snow",
+   "campfire"
   ]
  },
- "order": 70,
- "koreanLevel": 1,
- "topic": "산",
- "titleEn": "The High Trail"
+ "koreanLevel": 1
 }

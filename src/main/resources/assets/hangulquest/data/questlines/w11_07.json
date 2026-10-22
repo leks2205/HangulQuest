@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w11_07",
  "titleKo": "영원을 두른 왕관",
- "titleDe": "Die Krone der Ewigkeit",
  "topic": "왕관",
  "tier": 2,
  "order": 1117,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:brown_banner",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Braunes Banner.",
-    "en": "Collect Brown Banner."
-   },
-   "hint": {
-    "en": "Collect Brown Banner."
    }
   },
   {
@@ -48,14 +40,10 @@
     "block": "minecraft:candle"
    },
    "clue": {
-    "de": "Entzünde eine Kerze für das Ritual.",
-    "ko": "의식에 쓸 초를 사용해 불을 붙여요.",
-    "en": "Use Candle."
+    "ko": "의식에 쓸 초를 사용해 불을 붙여요."
    },
    "hint": {
-    "ko": "초에 불을 붙이면 의식이 시작돼요.",
-    "de": "Mit Feuerzeug oder Feuerstein zündest du die Kerze an.",
-    "en": "Use Candle."
+    "ko": "초에 불을 붙이면 의식이 시작돼요."
    }
   },
   {
@@ -67,13 +55,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:stripped_mangrove_wood",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Entrindetes Mangrovenholz.",
-    "en": "Place 4× Stripped Mangrove Wood."
-   },
-   "hint": {
-    "en": "Place 4× Stripped Mangrove Wood."
    }
   }
  ],
@@ -88,18 +69,9 @@
     "item": "minecraft:brown_wool",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Braune Wolle.",
-    "en": "Collect Brown Wool."
-   },
-   "hint": {
-    "en": "Collect Brown Wool."
-   }
+   "conditions": []
   },
-  "textKo": "갈색 양털라는 길의 의식을 마쳤어요.",
-  "textDe": "Braune Wolle — Zeremonie vollendet.",
-  "textEn": "the ritual of Brown Wool is complete."
+  "textKo": "갈색 양털을 구했어요."
  },
  "reward": {
   "badge": "w11_07",
@@ -110,6 +82,5 @@
    "adv_item_totem_of_undying"
   ]
  },
- "koreanLevel": 6,
- "titleEn": "The Crown of Eternity"
+ "koreanLevel": 6
 }

@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "tierpfad",
- "titleKo": "동물의 길",
- "titleDe": "Der Tierpfad",
+ "titleKo": "닭과 돼지와 달걀의 길",
+ "topic": "동물",
  "tier": 1,
+ "order": 40,
  "concepts": [
-  "gen_allay",
   "pig",
-  "sheep",
-  "gen_copper_ore"
+  "egg",
+  "fence",
+  "gate"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -18,61 +19,59 @@
   {
    "id": "s1",
    "teach": [
-    "gen_allay"
+    "pig"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:allay",
-    "dwellMs": 800
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:pig"
    },
-   "clue": {
-    "de": "Sieh dir Hilfsgeist an.",
-    "en": "Look at Allay."
-   },
-   "hint": {
-    "en": "Look at Allay."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:potato"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "pig"
+    "egg"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:pig",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "분홍색 돼지를 1초 동안 바라봐요.",
-    "de": "Schau das rosafarbene Tier an.",
-    "en": "Look at Pig."
-   },
-   "hint": {
-    "ko": "돼지를 봐요.",
-    "de": "Schau ein Schwein an.",
-    "en": "Look at Pig."
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:egg",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "sheep"
+    "fence"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sheep",
-    "dwellMs": 800
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:oak_fence",
+    "size": 3
    },
    "clue": {
-    "ko": "털이 있는 양을 1초 동안 바라봐요.",
-    "de": "Schau das wollige Tier an.",
-    "en": "Look at Sheep."
+    "ko": "닭이 달걀을 낳아요. 울타리 세 개를 나란히 놓아요."
    },
    "hint": {
-    "ko": "양을 봐요.",
-    "de": "Schau ein Schaf an.",
-    "en": "Look at Sheep."
+    "ko": "울타리 세 개를 나란히 놓아요."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gate"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_fence_gate",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
    }
   }
  ],
@@ -80,42 +79,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_copper_ore"
+    "gate"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_ore",
-    "count": 1
+    "type": "USE_BLOCK",
+    "block": "minecraft:oak_fence_gate"
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere Kupfererz. Nachts.",
-    "en": "Place Copper Ore. At night."
-   },
-   "hint": {
-    "en": "Place Copper Ore. At night."
-   }
+   ]
   },
-  "textKo": "밤에 구리 광석라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupfererz — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Copper Ore is complete."
+  "textKo": "낮에 울타리 문을 열었어요."
  },
  "reward": {
   "badge": "tierpfad",
   "words": [
-   "cow",
    "pig",
-   "sheep",
-   "zombie"
+   "egg",
+   "fence",
+   "gate"
   ]
  },
- "order": 40,
- "koreanLevel": 1,
- "topic": "동물",
- "titleEn": "The Animal Trail"
+ "koreanLevel": 1
 }

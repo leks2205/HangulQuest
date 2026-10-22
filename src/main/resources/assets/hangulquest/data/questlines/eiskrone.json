@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "eiskrone",
  "titleKo": "북극 여우",
- "titleDe": "Der Polarfuchs",
  "topic": "겨울",
  "tier": 2,
  "order": 89,
@@ -29,13 +28,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:fox",
     "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Fuchs an.",
-    "en": "Look at Fox."
-   },
-   "hint": {
-    "en": "Look at Fox."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:sweet_berries",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei Süßbeeren.",
-    "en": "Collect 3× Sweet Berries."
-   },
-   "hint": {
-    "en": "Collect 3× Sweet Berries."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:red_glazed_terracotta",
     "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Rote glasierte Keramik.",
-    "en": "Place 4× Red Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Place 4× Red Glazed Terracotta."
    }
   }
  ],
@@ -91,18 +69,9 @@
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Abgestorbener Geweihkorallenfächer. Nachts.",
-    "en": "Place Dead Horn Coral Fan. At night."
-   },
-   "hint": {
-    "en": "Place Dead Horn Coral Fan. At night."
-   }
+   ]
   },
-  "textKo": "밤에 죽은 부채형 사방산호라는 길의 의식을 마쳤어요.",
-  "textDe": "Abgestorbener Geweihkorallenfächer — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Dead Horn Coral Fan is complete."
+  "textKo": "밤에 죽은 부채형 사방산호를 놓았어요."
  },
  "reward": {
   "badge": "eiskrone",
@@ -113,6 +82,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "The Arctic Fox"
+ "koreanLevel": 3
 }

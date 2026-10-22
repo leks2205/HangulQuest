@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_who_needs_rockets",
  "titleKo": "누가 로켓이 필요하대?",
- "titleDe": "Wer braucht schon Raketen?",
  "topic": "adventure",
  "tier": 2,
  "order": 245,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:weathered_copper_lantern",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Verwitterte Kupferlaterne.",
-    "en": "Collect 2× Weathered Copper Lantern."
-   },
-   "hint": {
-    "en": "Collect 2× Weathered Copper Lantern."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:zombie_head",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Zombiekopf.",
-    "en": "Place 2× Zombie Head."
-   },
-   "hint": {
-    "en": "Place 2× Zombie Head."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "block": "minecraft:deepslate_tiles",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Tiefenschieferfliesen.",
-    "en": "Place Deepslate Tiles."
-   },
-   "hint": {
-    "en": "Place Deepslate Tiles."
-   }
+   "conditions": []
   },
-  "textKo": "심층암 타일라는 길의 의식을 마쳤어요.",
-  "textDe": "Tiefenschieferfliesen — Zeremonie vollendet.",
-  "textEn": "the ritual of Deepslate Tiles is complete."
+  "textKo": "심층암 타일을 놓았어요."
  },
  "reward": {
   "badge": "adv_adventure_who_needs_rockets",
@@ -87,6 +63,5 @@
    "height"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Who Needs Rockets?"
+ "koreanLevel": 3
 }

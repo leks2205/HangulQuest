@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_04",
  "titleKo": "화로의 온기",
- "titleDe": "Die Wärme des Ofens",
  "topic": "화로",
  "tier": 2,
  "order": 1074,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:red_sand",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Roter Sand.",
-    "en": "Collect 8× Red Sand."
-   },
-   "hint": {
-    "en": "Collect 8× Red Sand."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:piston",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Kolben.",
-    "en": "Place Piston."
-   },
-   "hint": {
-    "en": "Place Piston."
    }
   },
   {
@@ -66,14 +51,8 @@
     "item": "minecraft:baked_potato",
     "count": 1
    },
-   "clue": {
-    "de": "Iss eine Ofenkartoffel.",
-    "en": "Eat Baked Potato."
-   },
    "hint": {
-    "ko": "구운 감자는 화로에 감자를 구워서 만들어요.",
-    "de": "Ofenkartoffeln backst du im Ofen aus Kartoffeln.",
-    "en": "Eat Baked Potato."
+    "ko": "구운 감자는 화로에 감자를 구워서 만들어요."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:iron_chain",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Eisenkette.",
-    "en": "Place Iron Chain."
-   },
-   "hint": {
-    "en": "Place Iron Chain."
-   }
+   "conditions": []
   },
-  "textKo": "철 사슬라는 길의 의식을 마쳤어요.",
-  "textDe": "Eisenkette — Zeremonie vollendet.",
-  "textEn": "the ritual of Iron Chain is complete."
+  "textKo": "철 사슬을 놓았어요."
  },
  "reward": {
   "badge": "w7_04",
@@ -110,6 +80,5 @@
    "campfire"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Warmth of the Furnace"
+ "koreanLevel": 4
 }

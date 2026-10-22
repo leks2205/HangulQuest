@@ -1,15 +1,14 @@
 {
  "schema": 1,
  "id": "adv_husbandry_uh_oh",
- "titleKo": "폭탄 받아라",
- "titleDe": "Oh, oh",
- "topic": "husbandry",
+ "titleKo": "농부와 거래",
+ "topic": "거래",
  "tier": 2,
  "order": 283,
  "concepts": [
-  "gunpowder",
-  "sand",
-  "adv_item_tnt"
+  "wheat",
+  "villager",
+  "sell"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,72 +21,70 @@
   {
    "id": "s1",
    "teach": [
-    "gunpowder"
+    "wheat"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gunpowder",
-    "count": 5
-   },
-   "clue": {
-    "de": "Sammle Schießpulver von erlegten Creepers.",
-    "en": "Collect 5× Gunpowder."
-   },
-   "hint": {
-    "en": "Collect 5× Gunpowder."
+    "item": "minecraft:wheat",
+    "count": 20
    }
   },
   {
    "id": "s2",
    "teach": [
-    "sand"
+    "wheat"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sand",
-    "count": 4
-   },
-   "clue": {
-    "de": "Grabe vier Sandblöcke für die TNT-Herstellung aus.",
-    "en": "Collect 4× Sand."
-   },
-   "hint": {
-    "ko": "화약 다섯 개와 모래 네 개로 티엔티를 만들어요.",
-    "en": "Collect 4× Sand."
+    "type": "HOLD_WHILE",
+    "item": "minecraft:wheat",
+    "inner": {
+     "type": "IN_BIOME",
+     "biome": "minecraft:plains"
+    },
+    "seconds": 10
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:villager",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:wheat"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_tnt"
+    "sell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:tnt",
+    "type": "TRADE",
+    "item": "minecraft:wheat",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "en": "Place TNT."
-   },
-   "hint": {
-    "en": "Place TNT."
    }
   },
-  "textKo": "폭탄 받아라 — 유황 큐브 앞에 티엔티를 놓아요.",
-  "textDe": "Oh, oh — Du legst TNT vor einen Schwefelwürfel, der es verschlingt.",
-  "textEn": "the ritual of TNT is complete."
+  "textKo": "주민에게 밀을 팔았어요."
  },
  "reward": {
   "badge": "adv_husbandry_uh_oh",
   "words": [
-   "gunpowder",
-   "sand",
-   "adv_item_tnt"
+   "wheat",
+   "villager",
+   "sell"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Uh Oh"
+ "koreanLevel": 1
 }

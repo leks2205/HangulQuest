@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "w4_02",
  "titleKo": "등대 불빛",
- "titleDe": "Das Leuchtturmlicht",
  "topic": "등대",
  "tier": 2,
  "order": 1042,
  "concepts": [
-  "gen_old_growth_spruce_taiga",
-  "squid",
-  "gen_white_concrete_stairs",
-  "gen_raw_iron_block"
+  "stone_bricks",
+  "adv_item_white_banner",
+  "gen_copper_lantern"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,98 +21,108 @@
   {
    "id": "s1",
    "teach": [
-    "gen_old_growth_spruce_taiga"
+    "stone_bricks"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:old_growth_spruce_taiga",
-    "dwellMs": 1000
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks",
+    "size": 4
    },
-   "clue": {
-    "de": "Erreiche Fichten-Urtaiga.",
-    "en": "Reach Old Growth Spruce Taiga."
-   },
-   "hint": {
-    "en": "Reach Old Growth Spruce Taiga."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "squid"
+    "adv_item_white_banner",
+    "stone_bricks"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:squid",
-    "count": 2
-   },
-   "clue": {
-    "de": "Erlege zwei Tintenfische.",
-    "en": "Defeat 2× Squid."
-   },
-   "hint": {
-    "ko": "오징어는 물속에서 헤엄쳐요.",
-    "de": "Tintenfische schwimmen im Wasser.",
-    "en": "Defeat 2× Squid."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_banner",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_concrete_stairs"
+    "gen_copper_lantern"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:white_concrete_stairs",
-    "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Weiße Betontreppe.",
-    "en": "Collect 2× White Concrete Stairs."
-   },
-   "hint": {
-    "en": "Collect 2× White Concrete Stairs."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_raw_iron_block"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:raw_iron_block",
+    "type": "CRAFT",
+    "item": "minecraft:copper_lantern",
     "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_copper_lantern"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:copper_lantern",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:stone_bricks"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "gen_copper_lantern"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 10
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:copper_lantern"
+    }
    ],
    "clue": {
-    "de": "Platziere Roheisenblock. Nachts.",
-    "en": "Place Block of Raw Iron. At night."
+    "ko": "밤에 구리 랜턴 근처에서 십 초 동안 기다리세요."
    },
    "hint": {
-    "en": "Place Block of Raw Iron. At night."
+    "ko": "밤에 구리 랜턴 근처에서 십 초 기다려요."
    }
   },
-  "textKo": "밤에 철 원석 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Roheisenblock — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Block of Raw Iron is complete."
+  "textKo": "밤에 구리 랜턴 근처에서 십 초 동안 기다렸어요. 바다는 어두워요."
  },
  "reward": {
   "badge": "w4_02",
   "words": [
-   "beach",
-   "squid",
-   "ink_sac",
-   "lantern"
+   "stone_bricks",
+   "adv_item_white_banner",
+   "gen_copper_lantern"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Lighthouse Light"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }

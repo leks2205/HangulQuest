@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w5_02",
  "titleKo": "쇠를 두드리는 손",
- "titleDe": "Hände, die Eisen schmieden",
  "topic": "대장간",
  "tier": 2,
  "order": 1052,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:rib_armor_trim_smithing_template",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Schmiedevorlage.",
-    "en": "Collect 6× Smithing Template."
-   },
-   "hint": {
-    "en": "Collect 6× Smithing Template."
    }
   },
   {
@@ -47,13 +39,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:blue_orchid",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Blaue Orchidee.",
-    "en": "Place Blue Orchid."
-   },
-   "hint": {
-    "en": "Place Blue Orchid."
    }
   },
   {
@@ -65,13 +50,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:spruce_hanging_sign",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Fichtenholzhängeschild.",
-    "en": "Place 2× Spruce Hanging Sign."
-   },
-   "hint": {
-    "en": "Place 2× Spruce Hanging Sign."
    }
   }
  ],
@@ -86,18 +64,9 @@
     "item": "minecraft:peony",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Pfingstrose.",
-    "en": "Collect Peony."
-   },
-   "hint": {
-    "en": "Collect Peony."
-   }
+   "conditions": []
   },
-  "textKo": "모란라는 길의 의식을 마쳤어요.",
-  "textDe": "Pfingstrose — Zeremonie vollendet.",
-  "textEn": "the ritual of Peony is complete."
+  "textKo": "모란을 구했어요."
  },
  "reward": {
   "badge": "w5_02",
@@ -108,6 +77,5 @@
    "iron_chestplate"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Hands That Forge Iron"
+ "koreanLevel": 3
 }

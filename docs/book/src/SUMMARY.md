@@ -23,4 +23,6 @@
 # Project
 
 - [Contributing](contributing.md)
+- [Help review Korean](help-review.md)
+- [Credits](credits.md)
 - [Third-party notices](notices.md)

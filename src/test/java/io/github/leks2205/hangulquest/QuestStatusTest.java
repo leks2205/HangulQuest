@@ -54,11 +54,13 @@ class QuestStatusTest {
 	}
 
 	@Test
-	void acquireShowsHeldOfNeeded() {
+	void acquireShowsGainedOfNeededNotTheHeldStack() {
 		Observation obs = new Observation();
-		obs.inventory.put("minecraft:bread", 1);
+		obs.inventory.put("minecraft:bread", 30);
+		GoalEvaluator.Tracker tracker = new GoalEvaluator.Tracker();
+		tracker.count = 1;
 		String text = QuestStatus.text(step(new Goal.AcquireItem("minecraft:bread", 2), List.of(),
-				"bread"), obs, new GoalEvaluator.Tracker(), CATALOG);
+				"bread"), obs, tracker, CATALOG);
 		assertTrue(text.contains("1/2"), text);
 	}
 

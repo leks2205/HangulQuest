@@ -7,6 +7,9 @@ on:
       - "docs/**"
       - "src/main/resources/assets/hangulquest/data/questlines/**"
       - "tools/quest_tree.py"
+      - "tools/review/**"
+      - "tools/review_site/**"
+      - "content/korean/**"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
 
@@ -34,8 +37,22 @@ jobs:
       - name: Regenerate the quest tree page
         run: python3 tools/quest_tree.py
 
+      # The review pipeline decides what strangers may change in the Korean text: its parser, hash
+      # check and approval rules are tested before anything is published.
+      - name: Test the Korean review pipeline
+        run: python3 -m unittest discover -s tools/review/tests
+
+      - name: Regenerate the credits page
+        run: python3 tools/review/credits.py
+
       - name: Build the guide
         run: mdbook build docs/book
+
+      # mdBook empties its output folder, so the review site is written after it. It is served at /review/.
+      - name: Build the Korean review site
+        env:
+          REVIEW_REPO: ${{ github.repository }}
+        run: python3 tools/review_site/build.py --out docs/book/book/review
 
       # Pages is served from the gh-pages branch on purpose: a branch deployment needs no Actions
       # artifact storage, so the guide cannot be blocked by the account's artifact quota.

@@ -2,13 +2,12 @@
  "schema": 1,
  "id": "adv_story_iron_tools",
  "titleKo": "이젠 철 좀 들어라",
- "titleDe": "Zu viel Eisen im Blut",
  "topic": "story",
  "tier": 2,
  "order": 317,
  "concepts": [
-  "gen_yellow_glazed_terracotta",
-  "gen_jungle_boat",
+  "iron",
+  "stick",
   "crafting_table",
   "pickaxe"
  ],
@@ -23,82 +22,77 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_glazed_terracotta"
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:yellow_glazed_terracotta",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Gelbe glasierte Keramik.",
-    "en": "Collect 3× Yellow Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 3× Yellow Glazed Terracotta."
+    "type": "PLACE_REL",
+    "block": "minecraft:crafting_table",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:furnace",
+    "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_jungle_boat"
+    "iron"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_boat",
-    "count": 2
+    "item": "minecraft:iron_ingot",
+    "count": 3
    },
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:furnace"
+    }
+   ],
    "clue": {
-    "de": "Sammle 2× Tropenholzboot.",
-    "en": "Collect 2× Jungle Boat."
+    "ko": "화로 옆에서 철 주괴를 세 개 모으세요."
    },
    "hint": {
-    "en": "Collect 2× Jungle Boat."
+    "ko": "화로 옆에서 철 주괴를 모아요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "crafting_table"
+    "stick"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:crafting_table"
+    "type": "CRAFT",
+    "item": "minecraft:stick",
+    "count": 2
    },
-   "clue": {
-    "de": "Stelle die Eisenstücke an der Werkbank zusammen.",
-    "en": "Use Crafting Table."
-   },
-   "hint": {
-    "en": "Use Crafting Table."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:crafting_table"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "pickaxe"
+    "pickaxe",
+    "crafting_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:iron_pickaxe",
-    "count": 1
-   },
-   "clue": {
-    "de": "Baue dir eine Eisenspitzhacke.",
-    "en": "Collect Iron Pickaxe."
-   },
-   "hint": {
-    "ko": "철 곡괭이는 철 주괴 세 개와 막대기 두 개로 만들어요.",
-    "de": "Eisenspitzhacke: drei Eisenbarren und zwei Stöcke.",
-    "en": "Collect Iron Pickaxe."
-   },
-   "conditions": []
+    "count": 1,
+    "station": "crafting_table",
+    "with": [
+     "minecraft:iron_ingot"
+    ]
+   }
   },
-  "textKo": "이젠 철 좀 들어라 — 철 곡괭이로 더 깊은 곳까지 캘 수 있어요.",
-  "textDe": "Zu viel Eisen im Blut — Die Eisenspitzhacke ist fertig.",
-  "textEn": "the ritual of Iron Pickaxe is complete."
+  "textKo": "이젠 철 좀 들어라 — 철 곡괭이를 만들었어요. 철은 차갑고 단단해요."
  },
  "reward": {
   "badge": "adv_story_iron_tools",
@@ -110,5 +104,9 @@
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Isn't It Iron Pick?"
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L2.euro_material"
+ ]
 }

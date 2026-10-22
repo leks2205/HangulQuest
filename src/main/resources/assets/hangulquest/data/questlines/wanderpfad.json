@@ -1,16 +1,17 @@
 {
  "schema": 1,
  "id": "wanderpfad",
- "titleKo": "산길의 길",
- "titleDe": "Der Wanderpfad",
+ "titleKo": "산길",
  "topic": "산",
  "tier": 3,
  "order": 62,
  "concepts": [
-  "gen_frozen_ocean",
-  "gen_acacia_log",
-  "gen_yellow_stained_glass_pane",
-  "gen_magenta_candle"
+  "mountain",
+  "climb",
+  "sapling",
+  "sign",
+  "gen_granite",
+  "candle"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -24,101 +25,112 @@
   {
    "id": "s1",
    "teach": [
-    "gen_frozen_ocean"
+    "mountain"
    ],
    "goal": {
     "type": "REACH_BIOME",
-    "biome": "minecraft:frozen_ocean",
+    "biome": "#minecraft:is_mountain",
     "dwellMs": 1000
    },
-   "clue": {
-    "de": "Erreiche Vereister Ozean.",
-    "en": "Reach Frozen Ocean."
-   },
-   "hint": {
-    "en": "Reach Frozen Ocean."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_acacia_log"
+    "climb",
+    "sapling"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_log",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Akazienstamm.",
-    "en": "Place 2× Acacia Log."
-   },
-   "hint": {
-    "en": "Place 2× Acacia Log."
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_HEIGHT",
+      "minY": 100,
+      "maxY": 320
+     },
+     {
+      "type": "PLACE_BLOCK",
+      "block": "minecraft:spruce_sapling",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_yellow_stained_glass_pane"
+    "sign",
+    "sapling"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_stained_glass_pane",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:spruce_sign",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:saplings",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_granite"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:granite",
+    "size": 3
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Gelbe Glasscheibe. Nachts.",
-    "en": "Place 3× Yellow Stained Glass Pane. At night."
-   },
-   "hint": {
-    "en": "Place 3× Yellow Stained Glass Pane. At night."
-   }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_magenta_candle"
+    "candle"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:magenta_candle",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:red_candle",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:granite"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Magenta Kerze. Nachts.",
-    "en": "Place Magenta Candle. At night."
-   },
-   "hint": {
-    "en": "Place Magenta Candle. At night."
-   }
+   ]
   },
-  "textKo": "밤에 자홍색 초라는 길의 의식을 마쳤어요.",
-  "textDe": "Magenta Kerze — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Magenta Candle is complete."
+  "textKo": "밤에 화강암 기둥 위에 초를 세웠어요."
  },
  "reward": {
   "badge": "wanderpfad",
   "words": [
    "mountain",
-   "goat",
-   "torch"
+   "sapling",
+   "candle"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Wanderer's Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.go_sequence",
+  "L2.euro_material"
+ ]
 }

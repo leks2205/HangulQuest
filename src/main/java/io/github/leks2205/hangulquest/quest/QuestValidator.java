@@ -1,6 +1,11 @@
 package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.data.Catalog;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
+import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.util.TextClean;
 import org.slf4j.Logger;
 
@@ -13,6 +18,10 @@ import java.util.Set;
 public final class QuestValidator {
 	public record Result(List<Questline> trails, List<String> problems) {
 	}
+
+	/** Goals whose target the player can recognise by looking at it or handling it: the reverse flag fits these. */
+	public static final Set<String> REVERSE_GOALS = Set.of(
+			"LOOK_AT_BLOCK", "LOOK_AT_ENTITY", "BREAK_BLOCK", "ACQUIRE_ITEM", "PLACE_REL");
 
 	private QuestValidator() {
 	}
@@ -58,15 +67,38 @@ public final class QuestValidator {
 				log.warn("skipping questline {}: missing finale", trail.id());
 				continue;
 			}
-			valid.add(new Questline(trail.id(), trail.titleKo(), trail.titleDe(), trail.topic(), trail.tier(),
-					trail.concepts(), trail.requires(), clueSteps, finale,
-					trail.finaleKo(), trail.finaleDe(), trail.badge(), trail.order(),
-					trail.koreanLevel(), trail.adaptive()));
+			valid.add(trail.withSteps(clueSteps, finale).withGrammar(knownGrammar(trail, problems, log)));
+		}
+		// Trails that require each other can never unlock; drop them instead of looping over them.
+		TrailGraph graph = TrailGraph.of(valid);
+		if (graph.hasCycle()) {
+			for (String id : graph.cyclic()) {
+				problems.add(id + ": prerequisite cycle");
+			}
+			valid.removeIf(trail -> graph.cyclic().contains(trail.id()));
 		}
 		for (String problem : problems) {
 			log.warn("questline problem: {}", problem);
 		}
 		return new Result(valid, problems);
+	}
+
+	/**
+	 * The trail's declared grammar ids that grammar.json knows, a ladder alias counting as its construction.
+	 * An unknown id is a problem and is dropped; the trail still loads.
+	 */
+	private static List<String> knownGrammar(Questline trail, List<String> problems, Logger log) {
+		List<String> known = new ArrayList<>();
+		GrammarBook book = GrammarBook.shared();
+		for (String id : trail.grammar()) {
+			if (book.has(Ladder.shared().resolve(id))) {
+				known.add(id);
+			} else {
+				problems.add(trail.id() + ": unknown grammar id " + id);
+				log.warn("questline {}: unknown grammar id {}", trail.id(), id);
+			}
+		}
+		return known;
 	}
 
 	private static List<String> validateStep(Questline trail, QuestStep step, Catalog catalog) {
@@ -86,106 +118,16 @@ public final class QuestValidator {
 		if (step.hintKo() != null && !TextClean.isHangulOnly(step.hintKo())) {
 			problems.add(trail.id() + "/" + step.id() + ": hintKo is not Hangul-only");
 		}
-		if (step.teach() != null && !step.teach().isEmpty()) {
-			var first = catalog.concept(step.teach().get(0));
-			if (first.isPresent() && !covers(first.get(), step.goal())) {
-				problems.add(trail.id() + "/" + step.id() + ": the sentence word '"
-						+ first.get().ko + "' (" + first.get().id + ") does not describe the goal "
-						+ describe(step.goal()));
-			}
+		if (step.reverse() && !REVERSE_GOALS.contains(GoalTypes.of(step.goal()).id())) {
+			problems.add(trail.id() + "/" + step.id() + ": reverse does not fit a "
+					+ GoalTypes.of(step.goal()).id() + " goal");
 		}
-		if (step.goal() instanceof Goal.BreakBlock g && bad(g.block())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad block " + g.block());
-		}
-		if (step.goal() instanceof Goal.PlaceBlock g && bad(g.block())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad block " + g.block());
-		}
-		if (step.goal() instanceof Goal.AcquireItem g && bad(g.item())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad item " + g.item());
-		}
-		if (step.goal() instanceof Goal.ConsumeItem g && bad(g.item())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad item " + g.item());
-		}
-		if (step.goal() instanceof Goal.LookAtBlock g && bad(g.block())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad block " + g.block());
-		}
-		if (step.goal() instanceof Goal.LookAtEntity g && bad(g.entity())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad entity " + g.entity());
-		}
-		if (step.goal() instanceof Goal.DefeatEntity g && bad(g.entity())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad entity " + g.entity());
-		}
-		if (step.goal() instanceof Goal.UseBlock g && bad(g.block())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad block " + g.block());
-		}
-		if (step.goal() instanceof Goal.InteractEntity g && bad(g.entity())) {
-			problems.add(trail.id() + "/" + step.id() + ": bad entity " + g.entity());
-		}
-		if (step.goal() instanceof Goal.ReachBiome g) {
-			String biome = g.biome();
-			if (biome == null || biome.isBlank()) {
-				problems.add(trail.id() + "/" + step.id() + ": no biome");
-			}
+		ValidationContext context = new ValidationContext(trail.id() + "/" + step.id(), step, catalog,
+				problems, trail.koreanLevel());
+		GoalTypes.of(step.goal()).validate(step.goal(), context);
+		for (Condition condition : step.conditions()) {
+			ConditionTypes.of(condition).validate(condition, context);
 		}
 		return problems;
-	}
-
-	/** The taught word must actually name what the step asks for. */
-	private static boolean covers(io.github.leks2205.hangulquest.data.Concept concept, Goal goal) {
-		String item = goalItem(goal);
-		if (item != null) {
-			return concept.items != null && concept.items.contains(item);
-		}
-		String entity = goalEntity(goal);
-		if (entity != null) {
-			return entity.equals(concept.entity);
-		}
-		if (goal instanceof Goal.ReachBiome biome && biome.biome() != null
-				&& !biome.biome().startsWith("#")) {
-			return biome.biome().equals(concept.biome);
-		}
-		return true;
-	}
-
-	private static String describe(Goal goal) {
-		String item = goalItem(goal);
-		if (item != null) {
-			return item;
-		}
-		String entity = goalEntity(goal);
-		return entity != null ? entity : goal.getClass().getSimpleName();
-	}
-
-	private static String goalItem(Goal goal) {
-		return switch (goal) {
-			case Goal.BreakBlock g -> g.block();
-			case Goal.PlaceBlock g -> g.block();
-			case Goal.AcquireItem g -> g.item();
-			case Goal.ConsumeItem g -> g.item();
-			case Goal.LookAtBlock g -> g.block();
-			case Goal.UseBlock g -> g.block();
-			default -> null;
-		};
-	}
-
-	private static String goalEntity(Goal goal) {
-		return switch (goal) {
-			case Goal.LookAtEntity g -> g.entity();
-			case Goal.DefeatEntity g -> g.entity();
-			case Goal.InteractEntity g -> g.entity();
-			default -> null;
-		};
-	}
-
-	private static boolean bad(String id) {
-		if (id == null || id.isBlank()) {
-			return true;
-		}
-		try {
-			net.minecraft.resources.Identifier.parse(id);
-			return false;
-		} catch (RuntimeException broken) {
-			return true;
-		}
 	}
 }

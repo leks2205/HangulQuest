@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "handwerksmeister",
  "titleKo": "장인의 길",
- "titleDe": "Der Handwerksmeister",
  "topic": "장인",
  "tier": 3,
  "order": 119,
@@ -30,13 +29,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pale_oak_shelf",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Blasseichenholzregal.",
-    "en": "Place Pale Oak Shelf."
-   },
-   "hint": {
-    "en": "Place Pale Oak Shelf."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:oak_stairs",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Eichenholztreppe.",
-    "en": "Collect 3× Oak Stairs."
-   },
-   "hint": {
-    "en": "Collect 3× Oak Stairs."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:spruce_leaves",
     "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Fichtennadeln.",
-    "en": "Place 3× Spruce Leaves."
-   },
-   "hint": {
-    "en": "Place 3× Spruce Leaves."
    }
   }
  ],
@@ -87,17 +65,9 @@
     "block": "minecraft:anvil",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "en": "Place Anvil."
-   },
-   "hint": {
-    "en": "Place Anvil."
-   }
+   "conditions": []
   },
-  "textKo": "모루를 놓아 작업장을 만들어요.",
-  "textDe": "Ein Amboss macht die Werkstatt.",
-  "textEn": "the ritual of Anvil is complete."
+  "textKo": "모루를 놓아 작업장을 만들어요."
  },
  "reward": {
   "badge": "handwerksmeister",
@@ -107,6 +77,5 @@
    "anvil"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Master Craftsman"
+ "koreanLevel": 5
 }

@@ -2,15 +2,13 @@
  "schema": 1,
  "id": "w3_06",
  "titleKo": "이웃의 밭",
- "titleDe": "Der Acker des Nachbarn",
  "topic": "밭",
  "tier": 2,
  "order": 1036,
  "concepts": [
-  "potato",
-  "gen_blue_ice",
-  "gen_exposed_copper",
-  "gen_cooked_mutton"
+  "carrot",
+  "fence",
+  "pig"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,57 +21,38 @@
   {
    "id": "s1",
    "teach": [
-    "potato"
+    "carrot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:potato",
-    "count": 4
-   },
-   "clue": {
-    "de": "Ernte vier Kartoffeln vom Nachbaracker.",
-    "en": "Collect 4× Potato."
-   },
-   "hint": {
-    "ko": "감자를 캐요.",
-    "de": "Ernte Kartoffeln.",
-    "en": "Collect 4× Potato."
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:carrots",
+    "count": 4,
+    "verb": "HARVEST"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_ice"
+    "fence"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_ice",
-    "count": 6
-   },
-   "clue": {
-    "de": "Platziere 6× Blaueis.",
-    "en": "Place 6× Blue Ice."
-   },
-   "hint": {
-    "en": "Place 6× Blue Ice."
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:acacia_fence",
+    "size": 3
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_copper"
+    "carrot"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_copper",
-    "count": 1
-   },
-   "clue": {
-    "de": "Platziere Angelaufener Kupferblock.",
-    "en": "Place Exposed Copper."
-   },
-   "hint": {
-    "en": "Place Exposed Copper."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carrots",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:acacia_fence"
    }
   }
  ],
@@ -81,35 +60,30 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_cooked_mutton"
+    "pig",
+    "carrot"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:cooked_mutton",
+    "type": "GIVE",
+    "item": "minecraft:carrot",
+    "entity": "minecraft:pig",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Iss Gebratenes Hammelfleisch.",
-    "en": "Eat Cooked Mutton."
-   },
-   "hint": {
-    "en": "Eat Cooked Mutton."
    }
   },
-  "textKo": "익힌 양고기라는 길의 의식을 마쳤어요.",
-  "textDe": "Gebratenes Hammelfleisch — Zeremonie vollendet.",
-  "textEn": "the ritual of Cooked Mutton is complete."
+  "textKo": "돼지에게 당근을 줬어요."
  },
  "reward": {
   "badge": "w3_06",
   "words": [
-   "potato",
+   "carrot",
    "fence",
-   "gate",
-   "bread"
+   "pig"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Neighbour's Field"
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_an_e",
+  "L2.eseo_activity"
+ ]
 }

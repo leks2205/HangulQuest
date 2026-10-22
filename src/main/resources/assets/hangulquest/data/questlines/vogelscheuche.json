@@ -2,15 +2,12 @@
  "schema": 1,
  "id": "vogelscheuche",
  "titleKo": "허수아비의 길",
- "titleDe": "Der Vogelscheuchenpfad",
  "topic": "허수아비",
  "tier": 2,
  "order": 154,
  "concepts": [
-  "gen_cracked_nether_bricks",
-  "gen_brain_coral_block",
-  "adv_item_white_banner",
-  "gen_golden_hoe"
+  "hay_block",
+  "carved_pumpkin"
  ],
  "requires": {
   "minWordsKnown": 10,
@@ -23,55 +20,44 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cracked_nether_bricks"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cracked_nether_bricks",
+    "type": "CRAFT",
+    "item": "minecraft:hay_block",
     "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Rissige Netherziegel.",
-    "en": "Place 2× Cracked Nether Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Cracked Nether Bricks."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brain_coral_block"
+    "hay_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brain_coral_block",
-    "count": 1
-   },
-   "clue": {
-    "de": "Platziere Hirnkorallenblock.",
-    "en": "Place Brain Coral Block."
-   },
-   "hint": {
-    "en": "Place Brain Coral Block."
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block",
+    "size": 2
    }
   },
   {
    "id": "s3",
    "teach": [
-    "adv_item_white_banner"
+    "carved_pumpkin"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_banner",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carved_pumpkin",
+    "count": 1
    },
-   "clue": {
-    "de": "Platziere 2× Weißes Banner.",
-    "en": "Place 2× White Banner."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
    "hint": {
-    "en": "Place 2× White Banner."
+    "ko": "가위를 들고 조각된 호박을 구해요."
    }
   }
  ],
@@ -79,35 +65,24 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_golden_hoe"
+    "carved_pumpkin"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_hoe",
-    "count": 3
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Goldhacke.",
-    "en": "Collect 3× Golden Hoe."
-   },
-   "hint": {
-    "en": "Collect 3× Golden Hoe."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carved_pumpkin",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block"
    }
   },
-  "textKo": "금 괭이라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldhacke — Zeremonie vollendet.",
-  "textEn": "the ritual of Golden Hoe is complete."
+  "textKo": "건초 더미 기둥 위에 조각된 호박을 놓았어요."
  },
  "reward": {
   "badge": "vogelscheuche",
   "words": [
    "hay_block",
-   "carved_pumpkin",
-   "torch",
-   "wheat"
+   "carved_pumpkin"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Scarecrow Trail"
+ "koreanLevel": 1
 }

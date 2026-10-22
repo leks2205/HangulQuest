@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "weltmarkt",
  "titleKo": "세계 시장",
- "titleDe": "Der Weltmarkt",
  "tier": 4,
  "order": 525,
  "concepts": [
@@ -30,13 +29,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_spear",
     "count": 6
-   },
-   "clue": {
-    "de": "Sammle 6× Kupferspeer.",
-    "en": "Collect 6× Copper Spear."
-   },
-   "hint": {
-    "en": "Collect 6× Copper Spear."
    }
   },
   {
@@ -48,13 +40,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:cactus_flower",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Kaktusblüte.",
-    "en": "Collect Cactus Flower."
-   },
-   "hint": {
-    "en": "Collect Cactus Flower."
    }
   },
   {
@@ -66,13 +51,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:snort_pottery_sherd",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Schnaub-Töpferscherbe.",
-    "en": "Collect 4× Snort Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect 4× Snort Pottery Sherd."
    }
   }
  ],
@@ -92,18 +70,9 @@
      "type": "TIME",
      "phase": "DAY"
     }
-   ],
-   "clue": {
-    "de": "Platziere 3× Seetang. Tagsüber.",
-    "en": "Place 3× Kelp. During the day."
-   },
-   "hint": {
-    "en": "Place 3× Kelp. During the day."
-   }
+   ]
   },
-  "textKo": "낮에 켈프라는 길의 의식을 마쳤어요.",
-  "textDe": "Seetang — Zeremonie vollendet.",
-  "textEn": "By day the ritual of Kelp is complete."
+  "textKo": "낮에 켈프를 세 개 심었어요."
  },
  "reward": {
   "badge": "weltmarkt",
@@ -115,6 +84,5 @@
   ]
  },
  "koreanLevel": 3,
- "topic": "마을",
- "titleEn": "The World Market"
+ "topic": "마을"
 }

@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "faerberei",
  "titleKo": "염색의 길",
- "titleDe": "Der Färberpfad",
  "topic": "염색",
  "tier": 3,
  "order": 163,
  "concepts": [
-  "dye",
-  "gen_stone_button",
-  "gen_pitcher_plant",
-  "gen_copper_leggings"
+  "gen_orange_dye",
+  "cauldron",
+  "gen_orange_wool",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -24,56 +23,50 @@
   {
    "id": "s1",
    "teach": [
-    "dye"
+    "gen_orange_dye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_dye",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle drei roten Farbstoff.",
-    "en": "Collect 3× Red Dye."
-   },
-   "hint": {
-    "ko": "빨간 염료는 양귀비나 비트로 만들어요.",
-    "de": "Roter Farbstoff kommt aus Mohn oder Rote Bete.",
-    "en": "Collect 3× Red Dye."
+    "type": "CRAFT",
+    "item": "minecraft:orange_dye",
+    "count": 1,
+    "station": "crafting_table"
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_stone_button"
+    "cauldron"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:stone_button"
-   },
-   "clue": {
-    "de": "Benutze Steinknopf.",
-    "en": "Use Stone Button."
-   },
-   "hint": {
-    "en": "Use Stone Button."
+    "type": "PLACE_REL",
+    "block": "minecraft:cauldron",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:furnace",
+    "count": 1
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_pitcher_plant"
+    "gen_orange_wool"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pitcher_plant",
-    "count": 4
-   },
-   "clue": {
-    "de": "Platziere 4× Kannenpflanze.",
-    "en": "Place 4× Pitcher Plant."
-   },
-   "hint": {
-    "en": "Place 4× Pitcher Plant."
+    "type": "CRAFT",
+    "item": "minecraft:orange_wool",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sheep"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:orange_dye",
+    "entity": "minecraft:sheep",
+    "count": 1,
+    "method": "USE_WITH"
    }
   }
  ],
@@ -81,34 +74,31 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_copper_leggings"
+    "gen_orange_wool"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:copper_leggings",
-    "count": 6
+    "type": "PLACE_REL",
+    "block": "minecraft:orange_wool",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:fences",
+    "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 6× Kupferbeinschutz.",
-    "en": "Collect 6× Copper Leggings."
-   },
-   "hint": {
-    "en": "Collect 6× Copper Leggings."
-   }
+   "conditions": []
   },
-  "textKo": "구리 레깅스라는 길의 의식을 마쳤어요.",
-  "textDe": "Kupferbeinschutz — Zeremonie vollendet.",
-  "textEn": "the ritual of Copper Leggings is complete."
+  "textKo": "울타리 위에 주황색 양털을 놓았어요."
  },
  "reward": {
   "badge": "faerberei",
   "words": [
-   "dye",
+   "gen_orange_dye",
    "cauldron",
-   "wool"
+   "gen_orange_wool"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Dyer's Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.eseo_activity"
+ ]
 }

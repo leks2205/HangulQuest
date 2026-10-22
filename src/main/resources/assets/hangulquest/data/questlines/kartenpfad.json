@@ -2,13 +2,12 @@
  "schema": 1,
  "id": "kartenpfad",
  "titleKo": "지도의 길",
- "titleDe": "Der Kartenpfad",
  "topic": "지도",
  "tier": 3,
  "order": 97,
  "concepts": [
-  "gen_cyan_cushion",
   "cartography_table",
+  "map",
   "item_frame"
  ],
  "requires": {
@@ -23,19 +22,12 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cyan_cushion"
+    "cartography_table"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_cushion",
+    "type": "CRAFT",
+    "item": "minecraft:cartography_table",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Türkises Kissen.",
-    "en": "Collect Cyan Cushion."
-   },
-   "hint": {
-    "en": "Collect Cyan Cushion."
    }
   },
   {
@@ -44,17 +36,33 @@
     "cartography_table"
    ],
    "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:cartography_table",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:chest",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "cartography_table"
+   ],
+   "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:cartography_table"
-   },
-   "clue": {
-    "de": "Benutz einen Kartentisch.",
-    "en": "Use Cartography Table."
-   },
-   "hint": {
-    "ko": "지도 제작대는 나무 판자와 종이로 만들어요.",
-    "de": "Ein Kartentisch besteht aus Holzbrettern und Papier.",
-    "en": "Use Cartography Table."
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "map"
+   ],
+   "goal": {
+    "type": "PUT_IN",
+    "item": "minecraft:map",
+    "container": "minecraft:chest",
+    "count": 1
    }
   }
  ],
@@ -65,32 +73,26 @@
     "item_frame"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:item_frame",
+    "type": "PLACE_REL",
+    "block": "minecraft:item_frame",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:cartography_table",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "아이템 액자는 막대기와 가죽으로 만들어요.",
-    "de": "Ein Rahmen besteht aus Stöcken und Leder.",
-    "en": "Collect Item Frame."
-   },
-   "clue": {
-    "en": "Collect Item Frame."
-   }
+   "conditions": []
   },
-  "textKo": "지도를 걸 아이템 액자를 모아요.",
-  "textDe": "Sammle einen Rahmen für die Karte.",
-  "textEn": "the ritual of Item Frame is complete."
+  "textKo": "지도 제작대 옆에 아이템 액자를 걸었어요."
  },
  "reward": {
   "badge": "kartenpfad",
   "words": [
-   "map",
    "cartography_table",
+   "map",
    "item_frame"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "The Map Trail"
+ "grammar": [
+  "L2.seyo"
+ ]
 }

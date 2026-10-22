@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "hangulquest-gametest",
+	"version": "1.0.0",
+	"name": "Hangul Quest game tests",
+	"environment": "client",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"io.github.leks2205.hangulquest.gametest.HangulQuestClientGameTest"
+		]
+	},
+	"depends": {
+		"hangulquest": "*"
+	}
+}

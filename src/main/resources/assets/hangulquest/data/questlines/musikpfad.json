@@ -1,15 +1,13 @@
 {
  "schema": 1,
  "id": "musikpfad",
- "titleKo": "음악의 길",
- "titleDe": "Der Musikpfad",
+ "titleKo": "소리 블록의 길",
  "topic": "음악",
  "tier": 1,
  "order": 93,
  "concepts": [
-  "gen_waxed_oxidized_copper",
-  "gen_sticky_piston",
-  "gen_oak_slab"
+  "redstone",
+  "note_block"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -20,72 +18,71 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper"
+    "redstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper",
-    "count": 3
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:redstone_ore",
+    "count": 2
    },
-   "clue": {
-    "de": "Platziere 3× Gewachster oxidierter Kupferblock.",
-    "en": "Place 3× Waxed Oxidized Copper."
-   },
-   "hint": {
-    "en": "Place 3× Waxed Oxidized Copper."
-   }
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_sticky_piston"
+    "note_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sticky_piston",
-    "count": 3
-   },
-   "clue": {
-    "de": "Platziere 3× Klebriger Kolben.",
-    "en": "Place 3× Sticky Piston."
-   },
-   "hint": {
-    "en": "Place 3× Sticky Piston."
+    "type": "CRAFT",
+    "item": "minecraft:note_block",
+    "count": 1
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "note_block"
+   ],
+   "goal": {
+    "type": "USE_BLOCK",
+    "block": "minecraft:note_block"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oak_slab"
+    "note_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_slab",
+    "type": "PLACE_REL",
+    "block": "minecraft:oak_button",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:note_block",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Eichenholzstufe.",
-    "en": "Place Oak Slab."
-   },
-   "hint": {
-    "en": "Place Oak Slab."
    }
   },
-  "textKo": "참나무 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Eichenholzstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Oak Slab is complete."
+  "textKo": "소리 블록 옆에 참나무 버튼을 놓았어요."
  },
  "reward": {
   "badge": "musikpfad",
   "words": [
-   "note_block",
-   "jukebox",
-   "music_disc"
+   "redstone",
+   "note_block"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Music Trail"
+ "koreanLevel": 1
 }

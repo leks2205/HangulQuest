@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "riffpfad",
  "titleKo": "물결의 길",
- "titleDe": "Der Riffpfad",
+ "topic": "물",
  "tier": 2,
  "order": 504,
  "concepts": [
+  "gen_warm_ocean",
+  "swim",
+  "gen_kelp",
   "gen_dolphin",
-  "gen_warden",
-  "gen_nether_wastes",
-  "gen_gray_stained_glass_pane"
+  "fish"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,6 +23,57 @@
   {
    "id": "s1",
    "teach": [
+    "gen_warm_ocean"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:warm_ocean",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "swim"
+   ],
+   "goal": {
+    "type": "SWIM",
+    "blocks": 20
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_kelp"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:kelp",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:sand",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
     "gen_dolphin"
    ],
    "goal": {
@@ -29,90 +81,43 @@
     "entity": "minecraft:dolphin",
     "dwellMs": 800
    },
-   "clue": {
-    "de": "Sieh dir Delfin an.",
-    "en": "Look at Dolphin."
-   },
-   "hint": {
-    "en": "Look at Dolphin."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_warden"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:warden",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Sieh dir Wärter an.",
-    "en": "Look at Warden."
-   },
-   "hint": {
-    "en": "Look at Warden."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_nether_wastes"
-   ],
-   "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:nether_wastes",
-    "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Nether-Ödland.",
-    "en": "Reach Nether Wastes."
-   },
-   "hint": {
-    "en": "Reach Nether Wastes."
-   }
+   "conditions": [
+    {
+     "type": "IN_WATER"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_stained_glass_pane"
+    "gen_dolphin",
+    "fish"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_stained_glass_pane",
+    "type": "GIVE",
+    "item": "minecraft:cod",
+    "entity": "minecraft:dolphin",
     "count": 1
-   },
-   "conditions": [
-    {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    }
-   ],
-   "clue": {
-    "de": "Platziere Graue Glasscheibe. In einem passenden Biom.",
-    "en": "Place Gray Stained Glass Pane. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Gray Stained Glass Pane. In a fitting biome."
    }
   },
-  "textKo": "해변에서 회색 색유리 판라는 길의 의식을 마쳤어요.",
-  "textDe": "Graue Glasscheibe — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Gray Stained Glass Pane is complete."
+  "textKo": "돌고래에게 물고기를 줬어요."
  },
  "reward": {
   "badge": "riffpfad",
   "words": [
-   "turtle",
-   "squid",
-   "ocean",
-   "campfire"
+   "gen_warm_ocean",
+   "swim",
+   "gen_kelp",
+   "gen_dolphin"
   ]
  },
  "koreanLevel": 2,
- "topic": "물",
- "titleEn": "The Reef Trail"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_direction",
+  "L2.eseo_activity",
+  "L2.ege"
+ ]
 }

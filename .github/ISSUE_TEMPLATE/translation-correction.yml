@@ -1,0 +1,74 @@
+name: Translation correction
+description: A wrong or unnatural translation in the interface, a clue, a hint or a word meaning.
+title: "[Translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you! The translations are drafted by a machine and checked by another one, so a native speaker's eye is the most useful thing you can give.
+
+        If you came from the translation page, the first three fields are already filled in; leave them as they are. You can also fix a line yourself with a pull request: it is a one-line edit in `src/main/resources/assets/hangulquest/lang/content/<code>.json` (or `lang/<code>.json` for the interface). See CONTRIBUTING.md.
+
+        This issue is public. Do not post personal details. Korean is never translated, so this form is only for the English meaning in your language.
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: "The language code of the file, for example es_es, pt_br, fr_fr, ja_jp."
+      placeholder: "es_es"
+    validations:
+      required: true
+  - type: input
+    id: key
+    attributes:
+      label: Key
+      description: "The key of the line in the lang file. Copy it from the file or from the translation page."
+      placeholder: "hangulquest.trail.example.step.s1.clue"
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: Current text
+      description: "The text the game shows now."
+    validations:
+      required: true
+  - type: input
+    id: suggestion
+    attributes:
+      label: Suggested text
+      description: "One line, the text you would use instead. Keep the placeholders (%s) and do not add Korean."
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: "A short reason: wrong meaning, unnatural, wrong Minecraft name, too long for the button..."
+    validations:
+      required: true
+  - type: dropdown
+    id: native
+    attributes:
+      label: Are you a native speaker of this language?
+      options:
+        - "Yes, native speaker"
+        - "Fluent (not native)"
+        - "No, I am a learner"
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Name for the credits (optional)
+      description: "Leave empty to use your GitHub name. Write anonymous to stay out of the credits."
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Agreement
+      options:
+        - label: "My suggestion may be used under the project's MIT licence."
+          required: true

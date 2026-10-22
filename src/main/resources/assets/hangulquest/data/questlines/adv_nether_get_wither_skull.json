@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_nether_get_wither_skull",
  "titleKo": "으스스한 스켈레톤",
- "titleDe": "Nicht den Kopf verlieren",
  "topic": "nether",
  "tier": 2,
  "order": 298,
@@ -29,13 +28,8 @@
     "item": "minecraft:wither_skeleton_skull",
     "count": 1
    },
-   "clue": {
-    "de": "Such in der Netherfestung die Wither-Skelette und hol dir den ersten Schädel.",
-    "en": "Collect Wither Skeleton Skull."
-   },
    "hint": {
-    "ko": "위더 스켈레톤은 네더 요새에서만 나와요. 강한 검이 필요해요.",
-    "en": "Collect Wither Skeleton Skull."
+    "ko": "위더 스켈레톤은 네더 요새에서만 나와요. 강한 검이 필요해요."
    }
   },
   {
@@ -47,13 +41,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:arms_up_pottery_sherd",
     "count": 2
-   },
-   "clue": {
-    "de": "Sammle 2× Gebärden-Töpferscherbe.",
-    "en": "Collect 2× Arms Up Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect 2× Arms Up Pottery Sherd."
    }
   }
  ],
@@ -68,18 +55,9 @@
     "item": "minecraft:birch_leaves",
     "count": 3
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 3× Birkenlaub.",
-    "en": "Collect 3× Birch Leaves."
-   },
-   "hint": {
-    "en": "Collect 3× Birch Leaves."
-   }
+   "conditions": []
   },
-  "textKo": "자작나무 잎라는 길의 의식을 마쳤어요.",
-  "textDe": "Birkenlaub — Zeremonie vollendet.",
-  "textEn": "the ritual of Birch Leaves is complete."
+  "textKo": "자작나무 잎을 세 개 모았어요."
  },
  "reward": {
   "badge": "adv_nether_get_wither_skull",
@@ -87,6 +65,5 @@
    "adv_item_wither_skeleton_skull"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Spooky Scary Skeleton"
+ "koreanLevel": 3
 }

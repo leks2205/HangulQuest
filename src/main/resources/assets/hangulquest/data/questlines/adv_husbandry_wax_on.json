@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "adv_husbandry_wax_on",
  "titleKo": "밀랍을 칠하자",
- "titleDe": "Auftragen",
  "topic": "husbandry",
  "tier": 2,
  "order": 285,
  "concepts": [
-  "adv_item_chiseled_tuff",
   "honeycomb",
-  "gen_dispenser"
+  "gen_copper_block",
+  "crafting_table"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,24 +21,6 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_chiseled_tuff"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:chiseled_tuff",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gemeißelter Tuffstein.",
-    "en": "Collect Chiseled Tuff."
-   },
-   "hint": {
-    "en": "Collect Chiseled Tuff."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "honeycomb"
    ],
    "goal": {
@@ -47,13 +28,50 @@
     "item": "minecraft:honeycomb",
     "count": 2
    },
-   "clue": {
-    "de": "Hol zwei Wachswaben aus dem Bienenstock – das ist dein Wachs.",
-    "en": "Collect 2× Honeycomb."
-   },
-   "hint": {
-    "ko": "벌통에 가위를 써서 벌집 조각을 얻어요.",
-    "en": "Collect 2× Honeycomb."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_copper_block",
+    "crafting_table"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:copper_block",
+    "count": 1,
+    "station": "crafting_table"
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_copper_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:copper_block",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_copper_block"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:copper_block",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:stone",
+    "count": 1
    }
   }
  ],
@@ -61,33 +79,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_dispenser"
+    "gen_copper_block",
+    "honeycomb"
    ],
    "goal": {
     "type": "USE_BLOCK",
-    "block": "minecraft:dispenser"
+    "block": "minecraft:copper_block"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Benutze Werfer.",
-    "en": "Use Dispenser."
-   },
-   "hint": {
-    "en": "Use Dispenser."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:honeycomb"
+    }
+   ]
   },
-  "textKo": "발사기라는 길의 의식을 마쳤어요.",
-  "textDe": "Werfer — Zeremonie vollendet.",
-  "textEn": "the ritual of Dispenser is complete."
+  "textKo": "벌집 조각을 들고 구리 블록에 밀랍을 칠했어요."
  },
  "reward": {
   "badge": "adv_husbandry_wax_on",
   "words": [
-   "shears",
    "honeycomb",
-   "adv_item_copper_bulb"
+   "gen_copper_block",
+   "crafting_table"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "Wax On"
+ "koreanLevel": 2
 }

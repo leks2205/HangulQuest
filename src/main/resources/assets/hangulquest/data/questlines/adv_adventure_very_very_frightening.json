@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "adv_adventure_very_very_frightening",
  "titleKo": "동에 번쩍 서에 번쩍",
- "titleDe": "Blitzezucken, Donnerkrach",
  "topic": "adventure",
  "tier": 2,
  "order": 242,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:dead_bubble_coral_block",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Abgestorbener Blasenkorallenblock.",
-    "en": "Collect Dead Bubble Coral Block."
-   },
-   "hint": {
-    "en": "Collect Dead Bubble Coral Block."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:end_stone_brick_wall",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Endsteinziegelmauer.",
-    "en": "Place End Stone Brick Wall."
-   },
-   "hint": {
-    "en": "Place End Stone Brick Wall."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "entity": "minecraft:piglin",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Besiege Piglin.",
-    "en": "Defeat Piglin."
-   },
-   "hint": {
-    "en": "Defeat Piglin."
-   }
+   "conditions": []
   },
-  "textKo": "피글린라는 길의 의식을 마쳤어요.",
-  "textDe": "Piglin — Zeremonie vollendet.",
-  "textEn": "the ritual of Piglin is complete."
+  "textKo": "피글린을 물리쳤어요."
  },
  "reward": {
   "badge": "adv_adventure_very_very_frightening",
@@ -88,6 +64,5 @@
    "zombie"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Very Very Frightening"
+ "koreanLevel": 3
 }

@@ -1,29 +1,223 @@
 package io.github.leks2205.hangulquest.learn;
 
+import io.github.leks2205.hangulquest.config.Config;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Category;
+import io.github.leks2205.hangulquest.data.LexiconTags;
 import io.github.leks2205.hangulquest.data.Origin;
 import io.github.leks2205.hangulquest.data.Word;
 
-import java.time.LocalDate;
+import io.github.leks2205.hangulquest.learn.fsrs.CardState;
+import io.github.leks2205.hangulquest.learn.fsrs.Fsrs;
+import io.github.leks2205.hangulquest.learn.fsrs.FsrsParams;
+import io.github.leks2205.hangulquest.learn.research.Experiments;
+import io.github.leks2205.hangulquest.learn.research.Placement;
+import io.github.leks2205.hangulquest.learn.research.Probes;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
+
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 /** The single place that mutates learning progress; quests and cards call into it. */
-public final class LearningService {
+public final class LearningService implements LearningSink {
+	/** A word first met in a quest step counts as due for recall only after it has had this long to settle. */
+	static final long SETTLE_MS = 10 * Srs.MINUTE;
+
 	private final ProgressData data;
 	private final ProgressStore store;
 	private final Catalog catalog;
-	private int sidequestsCompleted;
-	private int questStepsCompleted;
+	private final Clock clock;
+	private volatile Fsrs fsrs;
+	private final Grader grader = new Grader();
+	private final ReviewLog log;
+	private final GrammarProgress grammar = new GrammarProgress();
+	private final List<Runnable> resetListeners = new CopyOnWriteArrayList<>();
+	private final LexiconTags tags = LexiconTags.shared();
+	/** Right or wrong for the newest graded reviews, oldest first; the 85% controller reads it. */
+	private final Deque<Boolean> recentGraded = new ArrayDeque<>();
+	/** Words graded for the first time on {@link #newDay}, which is a study-day key. */
+	private final Set<String> newToday = new HashSet<>();
+	private String newDay = "";
+	/** Semantic sets that got a new word since the game started. */
+	private final Set<String> sessionSets = new HashSet<>();
+	private volatile int newWordsPerDay = Config.DEFAULT_NEW_WORDS;
+	/** Research harness; both stay off until {@link #enableResearch()}. */
+	private volatile Experiments experiments = Experiments.none();
+	private volatile Probes probes;
+	private volatile double configuredRetention = FsrsParams.DEFAULT_RETENTION;
 
 	public LearningService(ProgressData data, ProgressStore store, Catalog catalog) {
+		this(data, store, catalog, Clock.systemDefaultZone());
+	}
+
+	public LearningService(ProgressData data, ProgressStore store, Catalog catalog, Clock clock) {
+		this(data, store, catalog, clock, Srs.fsrs(), null);
+	}
+
+	/** {@code log} null opens the review log in the profile folder of {@code store} (none when read-only). */
+	public LearningService(ProgressData data, ProgressStore store, Catalog catalog, Clock clock, Fsrs fsrs,
+						   ReviewLog log) {
 		this.data = data;
 		this.store = store;
 		this.catalog = catalog;
+		this.clock = clock;
+		this.fsrs = fsrs;
+		this.log = log != null ? log
+				: store.readOnly() ? ReviewLog.disabled() : ReviewLog.open(store.file().toAbsolutePath().getParent(), clock);
+		loadHistory();
+	}
+
+	/** The learning settings from the config: desired retention (0.80 to 0.95) and new words per day. */
+	public void configure(double retention, int newWords) {
+		fsrs = new Fsrs(fsrs.params().withDesiredRetention(retention));
+		configuredRetention = fsrs.params().desiredRetention();
+		newWordsPerDay = Config.nearestNewWords(newWords);
+	}
+
+	public Fsrs fsrs() {
+		return fsrs;
+	}
+
+	/**
+	 * Turns on the research harness with the experiments from the jar: held-out probes, and the arm of each
+	 * word in the review log and in its scheduling. Off by default so a plain service behaves exactly as the
+	 * settings say; the game switches it on at startup.
+	 */
+	public void enableResearch() {
+		enableResearch(Experiments.shared());
+	}
+
+	public synchronized void enableResearch(Experiments active) {
+		experiments = active;
+		log.flush();
+		probes = Probes.open(log.enabled() ? log.dir() : null, salt(),
+				log.enabled() ? ReviewLog.readAll(log.dir()) : List.of());
+	}
+
+	public Experiments experiments() {
+		return experiments;
+	}
+
+	/** The held-out probes, or null while research is off. */
+	public Probes probes() {
+		return probes;
+	}
+
+	private String salt() {
+		return data.meta.installSalt == null ? "" : data.meta.installSalt;
+	}
+
+	/**
+	 * The scheduler for one word. While the retention experiment is on, the word's arm sets its desired
+	 * retention, unless the player chose a retention of their own in the settings: that choice wins.
+	 */
+	public Fsrs fsrsFor(String wordId) {
+		if (!retentionArmApplies()) {
+			return fsrs;
+		}
+		OptionalDouble arm = experiments.retention(salt(), wordId);
+		return arm.isPresent() ? new Fsrs(fsrs.params().withDesiredRetention(arm.getAsDouble())) : fsrs;
+	}
+
+	private boolean retentionArmApplies() {
+		return Math.abs(configuredRetention - FsrsParams.DEFAULT_RETENTION) < 1e-9;
+	}
+
+	/** What the review log's {@code arm} field says for a word; null without active experiments. */
+	String armTag(String wordId) {
+		return experiments.tag(salt(), wordId, retentionArmApplies() ? Set.of() : Set.of(Experiments.RETENTION));
+	}
+
+	/** Stability in days at which this word's tile and self-graded cards unlock (3 unless an arm says 7). */
+	public double productiveUnlockDays(String wordId) {
+		return experiments.productiveUnlockDays(salt(), wordId);
+	}
+
+	/** True while the word is a held-out probe: not planned, not reviewed, not recalled in quests. */
+	public boolean heldOut(String wordId, long now) {
+		Probes held = probes;
+		return held != null && held.held(wordId, now);
+	}
+
+	public ReviewLog reviewLog() {
+		return log;
+	}
+
+	public Grader grader() {
+		return grader;
+	}
+
+	/** What the player has met of the grammar ladder. */
+	public GrammarProgress grammar() {
+		return grammar;
+	}
+
+	@Override
+	public int grammarLevel() {
+		return grammar.level();
+	}
+
+	@Override
+	public boolean grammarMet(String id) {
+		return grammar.met(id);
+	}
+
+	@Override
+	public boolean grammarCardSeen(String id) {
+		return grammar.carded(id);
+	}
+
+	@Override
+	public void grammarStep(List<String> ids, int ladderLevel, long now, String where) {
+		for (String id : GrammarBook.shared().resolve(ids, Ladder.shared())) {
+			grammar.step(id);
+			log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null,
+					Grader.UNKNOWN_LATENCY, -1, where));
+		}
+		grammar.ladderStep(ladderLevel);
+		log.append(new ReviewLog.Event(now, GrammarProgress.LADDER + ladderLevel, ReviewKind.GRAMMAR,
+				ReviewMode.EXPOSURE, null, Grader.UNKNOWN_LATENCY, -1, where));
+		store.markDirty();
+	}
+
+	@Override
+	public void grammarCardShown(String id, long now) {
+		if (!GrammarProgress.isConstruction(id) || grammar.carded(id)) {
+			return;
+		}
+		grammar.cardShown(id);
+		log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null,
+				Grader.UNKNOWN_LATENCY, -1, GrammarProgress.CARD));
+	}
+
+	@Override
+	public void grammarOutcome(String id, Grader.Graded graded, long latencyMs, String source, long now) {
+		if (!GrammarProgress.isConstruction(id)) {
+			return;
+		}
+		grammar.outcome(id, graded.correct());
+		log.append(new ReviewLog.Event(now, id, ReviewKind.GRAMMAR, graded.mode(), graded.grade(), latencyMs, -1,
+				source));
+	}
+
+	/** A multiple-choice answer about a construction: graded like a word's, logged, never scheduled. */
+	public void answerGrammarMc(String id, int optionCount, boolean correct, long latencyMs, long now) {
+		grammarOutcome(id, grader.multipleChoice(optionCount, correct, latencyMs), latencyMs, "card:cloze", now);
 	}
 
 	public ProgressData data() {
@@ -72,6 +266,8 @@ public final class LearningService {
 		progress.level = 0;
 		progress.dueAt = now;
 		progress.origin = word.origin.name();
+		progress.fsrs = new CardState();
+		progress.fsrs.due = now;
 		return progress;
 	}
 
@@ -89,70 +285,274 @@ public final class LearningService {
 		return data.words.containsKey(wordId);
 	}
 
-	/** Regular answer: moves the schedule, counts the day and the totals. */
-	public List<Achievements.Achievement> answer(String wordId, boolean correct, long now) {
-		return answer(wordId, correct, false, now);
+	/**
+	 * An encounter without recall (a quest step taught the word): counts as seen and introduces the
+	 * word, but never touches the level or the due time. Only a graded answer moves the schedule.
+	 */
+	@Override
+	public void expose(Word word, long now, ExposureLedger.Context context) {
+		exposeLabelled(word, now, context, context == null ? null : context.trail() + "/" + context.role());
 	}
 
-	public List<Achievements.Achievement> answer(String wordId, boolean correct, boolean practice, long now) {
-		WordProgress progress = data.words.get(wordId);
+	private void exposeLabelled(Word word, long now, ExposureLedger.Context context, String label) {
+		if (word == null) {
+			return;
+		}
+		WordProgress progress = data.words.get(word.id);
 		if (progress == null) {
-			Optional<Word> word = catalog.byId(wordId);
-			if (word.isEmpty()) {
-				return List.of();
-			}
-			progress = newProgress(word.get(), now);
+			progress = newProgress(word, now);
 			progress.introducedAt = now;
-			data.words.put(wordId, progress);
+			data.words.put(word.id, progress);
 		}
 		progress.seen++;
 		progress.lastSeenAt = now;
-		if (correct) {
-			progress.correct++;
-			progress.level = practice ? Srs.onPractice(progress.level, true) : Srs.onCorrect(progress.level);
-			progress.dueAt = Srs.dueAt(progress.level, now);
-		} else {
-			progress.wrong++;
-			if (!practice) {
-				progress.level = Srs.onWrong(progress.level);
-				progress.dueAt = Srs.retryAt(now);
+		today().seen++;
+		data.totals.seen++;
+		ExposureLedger.encounter(progress, context, now);
+		log.append(new ReviewLog.Event(now, word.id, ReviewKind.WORD, ReviewMode.EXPOSURE, null,
+				Grader.UNKNOWN_LATENCY, elapsedDays(progress, now), label, armTag(word.id), ReviewLog.VERSION));
+		store.markDirty();
+	}
+
+	/**
+	 * A quest step taught this word. The word was due and the step unassisted: a recall, graded by
+	 * {@link Grader#quest}. Anything else is an encounter and leaves the schedule alone.
+	 */
+	@Override
+	public void questStep(Word word, long now, boolean assisted, boolean hinted, ExposureLedger.Context context,
+						  String step) {
+		if (word == null) {
+			return;
+		}
+		ExposureLedger.Context where = context == null ? ExposureLedger.Context.NONE : context;
+		String label = where.trail() + "/" + (step == null ? "" : step) + "/" + where.role();
+		WordProgress existing = data.words.get(word.id);
+		Grader.Graded graded = dueForRecall(word.id, existing, now) ? Grader.quest(assisted, hinted) : Grader.EXPOSURE;
+		if (!graded.schedules()) {
+			exposeLabelled(word, now, where, label);
+			return;
+		}
+		existing.seen++;
+		existing.lastSeenAt = now;
+		today().seen++;
+		data.totals.seen++;
+		finishGraded(existing, word.id, graded, Grader.UNKNOWN_LATENCY, where, label, now);
+	}
+
+	/** True when a quest step may count as a recall of this word right now. */
+	private boolean dueForRecall(String wordId, WordProgress progress, long now) {
+		if (progress == null || progress.known || heldOut(wordId, now)) {
+			return false;
+		}
+		if (progress.fsrs == null || progress.fsrs.isNew()) {
+			return now - progress.introducedAt >= SETTLE_MS;
+		}
+		return progress.fsrs.due <= now;
+	}
+
+	/**
+	 * Practice (sidequest answers): the counts move and the answer is logged, the schedule and the
+	 * "known" flag do not. A guess among a few options is not proof of recall.
+	 */
+	@Override
+	public void practice(String wordId, int optionCount, boolean correct, long now) {
+		ReviewMode mode = ReviewMode.multipleChoice(Math.min(optionCount, 3));
+		recordAnswer(wordId, new Grader.Graded(mode, correct ? Fsrs.GOOD : Fsrs.AGAIN), Grader.UNKNOWN_LATENCY,
+				"sidequest", now);
+	}
+
+	/**
+	 * A multiple-choice answer from the review quiz. Four options are graded by {@link Grader}
+	 * (Good, Hard when slow, Again when wrong); two or three options are logged without a schedule change.
+	 */
+	public List<Achievements.Achievement> answerMc(String wordId, int optionCount, boolean correct, long latencyMs,
+												   long now) {
+		Probes held = probes;
+		if (held != null && optionCount >= 4) {
+			Probes.Due due = held.dueFor(wordId, now).orElse(null);
+			if (due != null) {
+				// A held-out word is only ever on screen as its probe: log it, never schedule it.
+				List<Achievements.Achievement> earned = recordAnswer(wordId, Grader.probe(correct), latencyMs,
+						due.ctx(), now);
+				held.markDone(wordId, due.days());
+				return earned;
 			}
 		}
-		progress.known = false;
+		return recordAnswer(wordId, grader.multipleChoice(optionCount, correct, latencyMs), latencyMs, "quiz", now);
+	}
 
+	/** Real quiz or review answer with four options and no timing: the old entry point. Never clears "known". */
+	public List<Achievements.Achievement> answer(String wordId, boolean correct, long now) {
+		return answerMc(wordId, 4, correct, Grader.UNKNOWN_LATENCY, now);
+	}
+
+	/** A card the player graded themselves (1 Again to 4 Easy). */
+	public List<Achievements.Achievement> answerSelfGraded(String wordId, int grade, String source, long now) {
+		return recordAnswer(wordId, Grader.selfGraded(grade), Grader.UNKNOWN_LATENCY, source, now);
+	}
+
+	/** Any other graded outcome (typed, tile, probe), already mapped by {@link Grader}. */
+	public List<Achievements.Achievement> answerGraded(String wordId, Grader.Graded graded, long latencyMs,
+													   String source, long now) {
+		return recordAnswer(wordId, graded, latencyMs, source, now);
+	}
+
+	private List<Achievements.Achievement> recordAnswer(String wordId, Grader.Graded graded, long latencyMs,
+														String source, long now) {
+		WordProgress progress = obtain(wordId, now);
+		if (progress == null) {
+			return List.of();
+		}
+		progress.seen++;
+		progress.lastSeenAt = now;
 		DayCounts day = today();
 		day.seen++;
 		data.totals.seen++;
-		data.totals.reviews++;
-		if (correct) {
+		if (graded.correct()) {
+			progress.correct++;
 			day.correct++;
 			data.totals.correct++;
 		} else {
+			progress.wrong++;
 			data.totals.wrong++;
 		}
-		store.markDirty();
+		finishGraded(progress, wordId, graded, latencyMs, ExposureLedger.Context.NONE, source, now);
 		return Achievements.evaluate(this);
 	}
 
-	public List<Achievements.Achievement> markKnown(String wordId, boolean known, long now) {
+	/** The part every graded event shares: schedule (when the mode does), ledger, log. */
+	private void finishGraded(WordProgress progress, String wordId, Grader.Graded graded, long latencyMs,
+							  ExposureLedger.Context context, String label, long now) {
+		int elapsed = elapsedDays(progress, now);
+		if (graded.schedules()) {
+			noteGraded(wordId, isFresh(progress), graded.correct(), now);
+			schedule(progress, wordId, graded.grade(), now);
+			data.totals.reviews++;
+			Probes held = probes;
+			if (held != null && !progress.known && progress.fsrs.stability >= Probes.STABILITY_DAYS) {
+				held.reserveIfEligible(wordId, now);
+			}
+		}
+		if (graded.mode().recall()) {
+			ExposureLedger.retrieval(progress, context, now, graded.correct(), studyDay(now));
+		} else {
+			ExposureLedger.encounter(progress, context, now);
+		}
+		log.append(new ReviewLog.Event(now, wordId, ReviewKind.WORD, graded.mode(), graded.grade(), latencyMs,
+				elapsed, label, armTag(wordId), ReviewLog.VERSION));
+		store.markDirty();
+	}
+
+	/** Moves the FSRS card and keeps the display level and the old due field in step with it. */
+	private void schedule(WordProgress progress, String wordId, int grade, long now) {
+		CardState before = progress.fsrs != null ? progress.fsrs : Srs.seed(progress.level, now, fsrs);
+		CardState next = fsrsFor(wordId).review(before, grade, now);
+		progress.fsrs = next;
+		progress.level = progress.known ? Srs.MAX_LEVEL : Srs.levelFor(next.stability);
+		progress.dueAt = progress.known ? Long.MAX_VALUE : next.due;
+	}
+
+	/** A word that was met but never graded: it is a new card. */
+	private static boolean isFresh(WordProgress progress) {
+		return progress.fsrs == null || progress.fsrs.isNew();
+	}
+
+	private synchronized void noteGraded(String wordId, boolean fresh, boolean correct, long now) {
+		recentGraded.addLast(correct);
+		while (recentGraded.size() > SessionPlanner.WINDOW) {
+			recentGraded.removeFirst();
+		}
+		if (fresh) {
+			rollNewDay(studyDay(now));
+			newToday.add(wordId);
+			catalog.byId(wordId).ifPresent(word -> sessionSets.add(tags.semSet(word)));
+		}
+	}
+
+	private void rollNewDay(String day) {
+		if (!day.equals(newDay)) {
+			newDay = day;
+			newToday.clear();
+		}
+	}
+
+	/** Rebuilds the controller's window and today's new words from the review log of earlier sessions. */
+	private void loadHistory() {
+		try {
+			List<ReviewLog.Event> graded = new ArrayList<>();
+			List<ReviewLog.Event> history = ReviewLog.readAll(log.dir());
+			grammar.load(history);
+			for (ReviewLog.Event event : history) {
+				if (event.kind() == ReviewKind.WORD && event.grade() != null && event.mode().schedules()) {
+					graded.add(event);
+				}
+			}
+			graded.sort(Comparator.comparingLong(ReviewLog.Event::t));
+			Map<String, Long> first = new HashMap<>();
+			for (ReviewLog.Event event : graded) {
+				first.putIfAbsent(event.item(), event.t());
+				recentGraded.addLast(event.grade() > Fsrs.AGAIN);
+				while (recentGraded.size() > SessionPlanner.WINDOW) {
+					recentGraded.removeFirst();
+				}
+			}
+			String today = dayKey();
+			newDay = today;
+			first.forEach((item, at) -> {
+				if (studyDay(at).equals(today)) {
+					newToday.add(item);
+				}
+			});
+		} catch (RuntimeException unreadable) {
+			// A log that cannot be read only costs the controller its history.
+			recentGraded.clear();
+		}
+	}
+
+	/** Days since the previous review of the word; -1 when it has none. */
+	private static int elapsedDays(WordProgress progress, long now) {
+		if (progress.fsrs == null || progress.fsrs.lastReview <= 0) {
+			return -1;
+		}
+		return (int) Math.max(0, Math.floorDiv(now - progress.fsrs.lastReview, Srs.DAY));
+	}
+
+	/** The study day of a moment, {@code yyyy-MM-dd}; the day turns over at 04:00 local time. */
+	private String studyDay(long now) {
+		return Streak.dayKey(LocalDateTime.ofInstant(Instant.ofEpochMilli(now), clock.getZone()));
+	}
+
+	/** The saved progress of a word, created from the catalog when it is new; null for unknown ids. */
+	private WordProgress obtain(String wordId, long now) {
 		WordProgress progress = data.words.get(wordId);
 		if (progress == null) {
 			Optional<Word> word = catalog.byId(wordId);
 			if (word.isEmpty()) {
-				return List.of();
+				return null;
 			}
 			progress = newProgress(word.get(), now);
 			progress.introducedAt = now;
 			data.words.put(wordId, progress);
+		}
+		return progress;
+	}
+
+	public List<Achievements.Achievement> markKnown(String wordId, boolean known, long now) {
+		WordProgress progress = obtain(wordId, now);
+		if (progress == null) {
+			return List.of();
 		}
 		progress.known = known;
 		progress.lastSeenAt = now;
 		if (known) {
 			progress.level = Srs.MAX_LEVEL;
 			progress.dueAt = Long.MAX_VALUE;
+			progress.fsrs = Srs.seedKnown(now, fsrs);
 		} else {
 			progress.level = 0;
 			progress.dueAt = now;
+			progress.fsrs = Srs.seed(0, now, fsrs);
+			progress.fsrs.due = now;
 		}
 		store.markDirty();
 		return Achievements.evaluate(this);
@@ -171,7 +571,8 @@ public final class LearningService {
 			progress = newProgress(word.get(), now);
 			progress.introducedAt = now;
 			progress.level = Math.max(0, Math.min(Srs.MAX_LEVEL, entry.getValue()));
-			progress.dueAt = Srs.dueAt(progress.level, now);
+			progress.fsrs = Srs.seed(progress.level, now, fsrs);
+			progress.dueAt = progress.fsrs.due;
 			progress.origin = Origin.LUTE.name();
 			progress.luteStatus = entry.getValue();
 			data.words.put(entry.getKey(), progress);
@@ -184,6 +585,7 @@ public final class LearningService {
 			progress.introducedAt = now;
 			progress.level = Srs.MAX_LEVEL;
 			progress.dueAt = Long.MAX_VALUE;
+			progress.fsrs = Srs.seedKnown(now, fsrs);
 			progress.known = true;
 			progress.origin = Origin.LUTE.name();
 			progress.luteStatus = 99;
@@ -192,11 +594,52 @@ public final class LearningService {
 		store.markDirty();
 	}
 
+	/** The held-out word whose 7- or 30-day probe is due, if any; the HUD asks it as a pop quiz. */
+	public Optional<Probes.Due> dueProbe(long now) {
+		Probes held = probes;
+		return held == null ? Optional.empty() : held.nextDue(now);
+	}
+
+	/**
+	 * Words a placement test says the player knows: each gets a card with three days of stability, so it is
+	 * asked again soon rather than trusted. Words with real review history keep it. Touches no day counts
+	 * and no streak. Returns how many were seeded.
+	 */
+	public int seedFromPlacement(Collection<String> wordIds, long now) {
+		int seeded = 0;
+		for (String id : wordIds) {
+			Optional<Word> word = catalog.byId(id);
+			if (word.isEmpty()) {
+				continue;
+			}
+			WordProgress progress = data.words.get(id);
+			if (progress != null && (progress.known || !isFresh(progress))) {
+				continue;
+			}
+			if (progress == null) {
+				progress = newProgress(word.get(), now);
+				progress.introducedAt = now;
+				data.words.put(id, progress);
+			}
+			progress.fsrs = Srs.seedWithStability(Placement.SEED_STABILITY_DAYS, now, fsrsFor(id));
+			progress.level = Srs.levelFor(progress.fsrs.stability);
+			progress.dueAt = progress.fsrs.due;
+			progress.lastSeenAt = now;
+			log.append(new ReviewLog.Event(now, id, ReviewKind.WORD, ReviewMode.EXPOSURE, null,
+					Grader.UNKNOWN_LATENCY, -1, "placement", armTag(id), ReviewLog.VERSION));
+			seeded++;
+		}
+		if (seeded > 0) {
+			store.markDirty();
+		}
+		return seeded;
+	}
+
 	public List<Word> dueWords(long now, int limit) {
 		List<Map.Entry<String, WordProgress>> due = new ArrayList<>();
 		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
 			WordProgress progress = entry.getValue();
-			if (!progress.known && progress.dueAt <= now) {
+			if (!progress.known && progress.dueAt <= now && !heldOut(entry.getKey(), now)) {
 				due.add(entry);
 			}
 		}
@@ -211,10 +654,47 @@ public final class LearningService {
 		return words;
 	}
 
+	/**
+	 * The due words ranked for play (quests, the review quiz): reviews first, most forgotten at the top,
+	 * then the new words the daily budget, the 85% controller and the one-per-semantic-set rule allow.
+	 * {@link #dueWords} stays the plain list.
+	 */
+	public synchronized List<Word> dueForPlay(long now, int limit) {
+		List<SessionPlanner.Due> due = new ArrayList<>();
+		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
+			WordProgress progress = entry.getValue();
+			if (progress.known || progress.dueAt > now) {
+				continue;
+			}
+			Word word = catalog.byId(entry.getKey()).orElse(null);
+			if (word == null) {
+				continue;
+			}
+			boolean fresh = isFresh(progress);
+			double retrievability = fresh || progress.fsrs == null ? 1 : fsrs.retrievability(progress.fsrs, now);
+			LexiconTags.Tag tag = tags.tag(word);
+			due.add(new SessionPlanner.Due(word, tags.semSet(word), fresh, retrievability, progress.dueAt,
+					tag == null ? 0 : tag.curriculumGrade(), tag != null && tag.mcOnly()));
+		}
+		return SessionPlanner.rank(due, newWordsLeft(now), sessionSets, limit, id -> heldOut(id, now));
+	}
+
+	/** New words the player may still start today (daily budget, adjusted by the last reviews). */
+	public synchronized int newWordsLeft(long now) {
+		rollNewDay(studyDay(now));
+		return SessionPlanner.newWordsLeft(newWordsPerDay, recentGraded, newToday.size());
+	}
+
+	/** Right or wrong of the newest graded reviews, oldest first. */
+	public synchronized List<Boolean> recentOutcomes() {
+		return List.copyOf(recentGraded);
+	}
+
 	public int dueCount(long now) {
 		int count = 0;
-		for (WordProgress progress : data.words.values()) {
-			if (!progress.known && progress.dueAt <= now) {
+		for (Map.Entry<String, WordProgress> entry : data.words.entrySet()) {
+			WordProgress progress = entry.getValue();
+			if (!progress.known && progress.dueAt <= now && !heldOut(entry.getKey(), now)) {
 				count++;
 			}
 		}
@@ -225,14 +705,9 @@ public final class LearningService {
 		return data.words.size();
 	}
 
+	/** Words marked known or durably known ({@link Mastery}). */
 	public int mastered() {
-		int count = 0;
-		for (WordProgress progress : data.words.values()) {
-			if (progress.known || progress.level >= 5) {
-				count++;
-			}
-		}
-		return count;
+		return Mastery.count(data);
 	}
 
 	public int totalReviews() {
@@ -250,21 +725,29 @@ public final class LearningService {
 		return count;
 	}
 
+	/** Today's counts for display; reading never creates a day, only real activity does. */
 	public int todaySeen() {
-		return today().seen;
+		DayCounts day = data.days.get(dayKey());
+		return day == null ? 0 : day.seen;
 	}
 
 	public int todayCorrect() {
-		return today().correct;
+		DayCounts day = data.days.get(dayKey());
+		return day == null ? 0 : day.correct;
 	}
 
+	/** The study day as a key: {@code yyyy-MM-dd}, where the day turns over at 04:00 local time. */
+	public String dayKey() {
+		return Streak.dayKey(LocalDateTime.now(clock));
+	}
+
+	/** The day for recording activity; created on first use. */
 	private DayCounts today() {
-		String key = LocalDate.now().toString();
-		return data.days.computeIfAbsent(key, ignored -> new DayCounts());
+		return data.days.computeIfAbsent(dayKey(), ignored -> new DayCounts());
 	}
 
 	public Streak streak() {
-		return Streak.compute(data.days.keySet(), LocalDate.now());
+		return Streak.compute(data.days.keySet(), Streak.studyDay(LocalDateTime.now(clock)));
 	}
 
 	public int completedTrails() {
@@ -272,21 +755,55 @@ public final class LearningService {
 	}
 
 	public int sidequestsCompleted() {
-		return sidequestsCompleted;
+		return data.totals.sidequestsCompleted;
 	}
 
 	public int questStepsCompleted() {
-		return questStepsCompleted;
+		return data.totals.questStepsCompleted;
 	}
 
 	public void noteSidequestCompleted() {
-		sidequestsCompleted++;
+		data.totals.sidequestsCompleted++;
 		store.markDirty();
 	}
 
 	public void noteQuestStepCompleted() {
-		questStepsCompleted++;
+		data.totals.questStepsCompleted++;
 		store.markDirty();
+	}
+
+	/** Runs after {@link #reset()} so screens can drop what they cached (the dictionary list, for one). */
+	public void onReset(Runnable listener) {
+		resetListeners.add(listener);
+	}
+
+	/**
+	 * Wipes learning progress: words, days, achievements, totals and the adaptive trail. {@code meta.firstPlayed}
+	 * stays, and so do the finished and running quests. Saves the current state first and keeps it as a
+	 * {@code progress.json.backup-pre-reset-*} copy.
+	 *
+	 * @return false when nothing was reset because progress is read-only
+	 */
+	public boolean reset() {
+		if (store.readOnly()) {
+			return false;
+		}
+		store.flush();
+		store.backup("pre-reset");
+		data.words.clear();
+		data.days.clear();
+		data.achievements.clear();
+		data.totals = new ProgressData.Totals();
+		data.quests.adaptive = null;
+		// the review log stays, so a line in it tells the next start that the grammar began again here
+		ReviewLog.Event restart = new ReviewLog.Event(System.currentTimeMillis(), GrammarProgress.RESET,
+				ReviewKind.GRAMMAR, ReviewMode.EXPOSURE, null, Grader.UNKNOWN_LATENCY, -1, "reset");
+		grammar.apply(restart);
+		log.append(restart);
+		store.markDirty();
+		store.flush();
+		resetListeners.forEach(Runnable::run);
+		return true;
 	}
 
 	public List<Achievements.Achievement> checkAchievements() {

@@ -4,6 +4,158 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [Unreleased]
+
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.1)
+
+Hangul Quest 3.0 rebuilds the curriculum around what a player does in the world, replaces the old review ladder
+with a real spaced-repetition scheduler, and opens the Korean text to review by native speakers. It needs
+Minecraft 26.3, Fabric Loader 0.19.5+, Fabric API 0.162.0+26.3 and Java 25, like 2.1.0.
+
+### Before you update (read this)
+
+- **Your progress is kept.** Words, review state, streak, achievements, finished and started trails, the quest log
+  and the options are all converted when you first start 3.0. Nothing is reset.
+- **Saves are converted and backed up.** Progress is now stored per Minecraft account in
+  `config/hangulquest/profiles/<account-id>/progress.json` (schema 4). The first time a profile opens, your old
+  `config/hangulquest/progress.json` is **copied** into it; the old file is never moved, changed or deleted. Before
+  an old-format file is converted the mod also writes `progress.v<N>-backup-<time>.json` next to it, and daily and
+  weekly copies are kept in `backups/`. A word's old level stays in the file, and its new review card starts from
+  it (a word you had marked known starts at 30 days), so nothing comes due all at once. `config.json` is upgraded
+  in place (version 5).
+- **Trails that were rebuilt keep their state.** The curriculum was rebuilt trail by trail. Finished trails stay
+  finished; a renamed trail, step or word is mapped to its new id, and retired content is flagged, never deleted.
+- **How to roll back.** Close the game, put the 2.1.0 jar back into `mods/`, and delete
+  `config/hangulquest/config.json` (it is rebuilt with defaults). 2.1.0 reads the untouched
+  `config/hangulquest/progress.json`, so you are back where you were before updating. What you learned in 3.0 stays
+  in the `profiles/` folder and is not carried back. To go back to a state inside 3.0, copy one of the backup files
+  over the profile's `progress.json`. A copy of the whole `config/hangulquest/` folder made before updating is the
+  safest rollback of all.
+- **Release candidate.** This is a pre-release. Please report anything that looks wrong.
+
+### For players
+
+**What changes in play**
+
+- **Windows stay until you close them.** The hint, rule cards, culture notes, word cards, banners, toasts, the
+  quiz prompt, the next-quest popup and the completion cards no longer time out. One press of the hint key (`H`)
+  closes exactly one window, the top one; waiting windows show a "+N" badge; a repeat is not queued twice. Closing a
+  window is never a hint and never changes grading. Each window shows its key (`[H] 닫기 · close`) and none covers
+  the crosshair or the hotbar. *Settings → Auto-close windows* brings back the old timeouts (off by default).
+- **The game fills your quest log.** Three regular quests that fit the start of the game, and a fourth slot that
+  follows where you are (a snow trail in the snow, a cave trail underground). When you finish one, the next one
+  follows. Quests you tick yourself are never replaced, and a quest you take out stays out for 30 minutes of play.
+  *Settings → Pick quests automatically* turns this off.
+- **A readable quest tree.** The tree shows what matters now: trails you can start, the ones in your log and,
+  greyed out, those waiting directly behind them. Finished trails fold into one "완료 · Completed" button, and
+  *Show all trails* shows the whole map. A locked trail says what it is waiting for. There is also a second view by
+  life situation (house, fire and light, field, animals, ...).
+- **A welcome screen and the Hangul prerequisite.** The first time you join a world, a short screen asks whether
+  you can read Hangul and, if not, points to free lessons. The mod teaches words and grammar, not the alphabet.
+  Skip it, ask to be reminded once, or switch it off; it never blocks a quest. It stays in the journal's Info tab.
+- **The curriculum was rebuilt.** The 420 trails of 2.x were mostly generated and repeated themselves. Over 200
+  trails of levels 1 and 2 were rewritten in batches of 15 around one small idea each (the first steps, the village,
+  the kitchen and the feast, the smithy, the sea and harbour, animals and pets, colours and the garden, mountains,
+  ice and night, and more), with the words recycled on purpose. The rebuild goes on in the 3.x releases. The tree has
+  422 trails and 1,661 steps in a quest tree 22 trails deep; the word catalog has about 1,300 concepts.
+- **A grammar ladder that teaches.** Each Korean level has one instruction ending: level 1 `-아/어요`, levels 2 and 3
+  `-(으)세요`, levels 4 to 6 `-아/어야 해요`. You read at most one level above the grammar you have met; a new
+  construction shows a two-line rule card once, the journal has a grammar book, and the review quiz has grammar cloze
+  cards. Hints always stay at level 1.
+- **New things to do.** Trails now ask you to craft, smelt, give, put into a chest, hold while doing something, do
+  things in a sequence ("before", "after", "and then"), avoid something, place things next to or between other things
+  or in a wall, cross or stair pattern, light a candle, breed animals, trade (the direction of 에게서 / 에게 is
+  checked), write on a sign, hear a bell or a jukebox, wait, swim, lie down, mount, take out, go in and out, put
+  armour on, shear, dye and tie animals, and jump from a height onto snow. Every sentence still says every condition.
+- **A real review scheduler.** Reviews use FSRS-6 instead of the seven-step ladder, with a retention setting and 5, 10
+  or 15 new words a day. Cards are multiple choice with four options, self-graded recall, syllable tiles and, for
+  stable words, **typing** with a 두벌식 keyboard (also on QWERTZ). The streak is gentle: a weekly goal of four days
+  and two automatic freezes a month. Mastery needs recall on three study days.
+- **Reading and people.** A Books tab with graded stories (a word must be known to 98% before a story opens) and
+  eight culture notes; villagers you sneak-click talk Korean, with speech-level choices (반말 to a child, 합쇼체 to a
+  librarian). Verbs get their forms from a morphology engine; the word list shows Sino-Korean families.
+- **Pronunciation in brackets.** Where the spelling hides the sound, the card shows the sound in Hangul
+  (횃불 [홰뿔]). There is no romanisation.
+- **Four interface languages.** English, German, Spanish and French (see below).
+- **Privacy is unchanged.** No network code, no telemetry. The optional research export is manual only, hashes ids
+  and shows a consent text.
+
+**Languages shipped**
+
+| Language | Interface | Quest text | State |
+|---|---|---|---|
+| English | complete | complete | the source language |
+| Deutsch | complete | about 88% | proofread (Gemini draft, Claude second pass) |
+| Español | complete | about half | proofread (Gemini draft, Claude second pass) |
+| Français | complete | about a third | proofread (Gemini draft, Claude second pass); the rest of the quest text **falls back to English** |
+
+A text a language lacks is shown in English, never in German. The quest itself is always Korean. Coverage is measured
+against all 6,068 rows of the current content and moves with every new content batch. No translation has been
+approved by a native speaker yet.
+
+**The optional voices pack**
+
+"Hangul Quest Voices" is a separate resource pack with machine-made clips for words. It is **not part of the mod jar**
+and has its own download and project page. Without it the mod is silent, as before. Drop it into `resourcepacks/` and
+switch it on; a listen key plays a word when the pack has a clip for it. The clips are made offline with an open
+text-to-speech model and checked by a speech-recognition round trip. They are **not** native recordings. `audio` in
+`config.json` switches playback off.
+
+### Korean text and its review
+
+- Every Korean line, authored, generated or from the word catalog (6,536 lines in this build), passes the project's
+  Korean linter, and each line has an id, its context and a status.
+- **Two independent AI reviewers** (Claude and Gemini, blind to each other) have checked **365 lines, about 6%**, and
+  both said "fine" for all of them. The rest are lint-checked only. New content batches get a dual review; the registry
+  is updated as the reports are imported.
+- **No line is native-approved yet.** Nobody who speaks Korean natively has signed off on any line, and the review
+  site says so ("AI checked", not "native approved").
+- **The GitHub review path.** A static review site lists every Korean line with its context. Anyone with a GitHub
+  account presses **Looks right** or **Suggest a correction**, which opens a prefilled issue form. A line becomes
+  native-approved with two approvals from accounts at least 30 days old, or one from a trusted reviewer; nobody can
+  approve their own line. The review bot turns accepted corrections into pull requests that the maintainer merges.
+  A change in the Korean text sends the line back to "unreviewed". Reviewers are credited on the site.
+- Translations have the same loop: a **Translation correction** form and a page per language.
+
+### For contributors and translators
+
+- **A content pipeline with gates.** Content comes in batches of at most 15 trails from a written brief, with the
+  batch folder (manifest, lint, coverage delta, both reviews). CI runs the tests, the Korean linter, the schema
+  check, a metrics ratchet (task variety and word recycling may only improve), a mass-change guard and the review
+  registry check.
+- **Goals and conditions are registries.** A new goal is a record in the sealed `Goal`, one type class and one line
+  in `GoalTypes.ALL`; conditions work the same way. The loader is strict: an unknown or missing field makes a trail
+  unloadable. The generator learned from every batch (nine waves): authored clues with conditions, general words that
+  cover several items, official Minecraft names for exact tiers, counters, a fixed order of conditions, seconds in
+  words, tool-dependent verbs on creatures and more. `tools/variety.py` and `tools/coverage.py` report the numbers.
+- **Translation pipeline in the repository** (`tools/i18n/translate.py`, no external platform). English is the source
+  and Korean is never translated. `export` writes packets, `import` checks every row (placeholders, Hangul,
+  untranslated English, length, giveaway words), `proofread-export` / `-import` take a second pass, and
+  `content/translations/<code>-status.json` tracks each key as `machine`, `proofread`, `community-approved` or
+  `stale` (the English changed). New languages are listed with `translate.py ship`. `LangCompletenessTest` and
+  `LangPickerTest` guard coverage and the settings button.
+- **Progress safety.** Migrations are idempotent and run on the raw JSON; unknown fields survive; a file from a newer
+  version opens read-only; there is one fixture per release and per schema change (`ProgressCompatibilityTest`),
+  and `tools/new_fixture.sh <tag>` writes the one a release needs.
+- **Releases.** `release.yml` checks that the tag equals `mod_version` and that the progress fixture for the tag
+  exists, builds the jar, writes checksums, uses this section as the release text and marks versions with a hyphen
+  (`3.0.0-rc.1`) as pre-releases. `docs/release-checklist.md` is the manual part. The voices pack is released
+  separately.
+- **Tests.** An end-to-end client game test (new world, welcome screen, trail, quiz, save, reload), a playtest that
+  drives the goal types, and content QA in the unit tests.
+- A research harness (held-out probes, per-word experiments, an analysis script) runs locally; the data leaves the machine only if the player exports it by hand.
+
+### Fixed
+
+- Progress can no longer be lost by an update or a crash: `progress.json` is written to a temp file, forced to disk
+  and renamed; fields this version does not know are written back; a byte-order mark no longer makes it unreadable.
+- Typing now works in the real game (Minecraft 26.3 reports SDL scancodes, not GLFW codes); the daily review trail
+  and the streak turn over at 04:00; opening the journal no longer starts a streak day; the quiz no longer gives
+  credit without recall.
+- German text no longer leaks into the English interface.
+
+[3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0
+
 ## [2.1.0] — 2026-10-20
 
 ### Added

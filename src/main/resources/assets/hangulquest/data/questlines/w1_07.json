@@ -1,16 +1,14 @@
 {
  "schema": 1,
  "id": "w1_07",
- "titleKo": "반짝이는 자수정",
- "titleDe": "Glitzernder Amethyst",
- "topic": "자수정",
+ "titleKo": "나무 아래의 점심",
+ "topic": "점심",
  "tier": 1,
  "order": 1017,
  "concepts": [
-  "gen_blue_stained_glass_pane",
-  "gen_dark_oak_sapling",
-  "amethyst_block",
-  "gen_golden_nautilus_armor"
+  "carpet",
+  "sweet_berries",
+  "pig"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,92 +19,89 @@
   {
    "id": "s1",
    "teach": [
-    "gen_blue_stained_glass_pane"
+    "carpet"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_stained_glass_pane",
-    "count": 3
+    "type": "PLACE_REL",
+    "block": "minecraft:light_blue_carpet",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:logs",
+    "count": 1
    },
-   "clue": {
-    "de": "Sammle 3× Blaue Glasscheibe.",
-    "en": "Collect 3× Blue Stained Glass Pane."
-   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ],
    "hint": {
-    "en": "Collect 3× Blue Stained Glass Pane."
+    "ko": "통나무 옆에 양탄자를 깔아요."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dark_oak_sapling"
+    "sweet_berries"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dark_oak_sapling",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:sweet_berries",
+    "count": 3
    },
-   "clue": {
-    "de": "Platziere 2× Schwarzeichensetzling.",
-    "en": "Place 2× Dark Oak Sapling."
-   },
-   "hint": {
-    "en": "Place 2× Dark Oak Sapling."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "amethyst_block"
+    "sweet_berries"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:amethyst_block",
-    "dwellMs": 800
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:sweet_berries",
+    "count": 1
    },
-   "clue": {
-    "de": "Schau den Amethystblock im Licht an.",
-    "en": "Look at Block of Amethyst."
-   },
-   "hint": {
-    "ko": "자수정 블록은 빛을 반짝여요.",
-    "de": "Amethyst glitzert im Licht.",
-    "en": "Look at Block of Amethyst."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_log",
+     "kind": "block"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_golden_nautilus_armor"
+    "pig"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:golden_nautilus_armor",
-    "count": 2
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:pig",
+    "dwellMs": 800
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle 2× Goldener Nautiluspanzer.",
-    "en": "Collect 2× Golden Nautilus Armor."
-   },
-   "hint": {
-    "en": "Collect 2× Golden Nautilus Armor."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "금 앵무조개 갑옷라는 길의 의식을 마쳤어요.",
-  "textDe": "Goldener Nautiluspanzer — Zeremonie vollendet.",
-  "textEn": "the ritual of Golden Nautilus Armor is complete."
+  "textKo": "낮에 돼지를 바라봤어요."
  },
  "reward": {
   "badge": "w1_07",
   "words": [
-   "amethyst_shard",
-   "amethyst_block",
-   "glass_bottle"
+   "carpet",
+   "sweet_berries",
+   "pig"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Glittering Amethyst"
+ "koreanLevel": 1
 }

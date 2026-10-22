@@ -12,8 +12,23 @@ python3 tools/new_questline.py steinpfad2 --words stone,cobblestone --tier 1 \
 ./gradlew test
 ```
 
-Das Skript legt die Datei an und aktualisiert `index.json`. Der Build erzeugt den Index beim
-`processResources`-Schritt ohnehin neu; `index.json` wird also nicht von Hand gepflegt.
+Das Skript legt die Datei an und verschiebt ihre englischen und deutschen Texte in die Sprachdateien
+(siehe unten). Der Mod findet Questlinien, indem er den Ordner auflistet; einen Index gibt es nicht mehr.
+
+## Wo der englische und deutsche Text steht
+
+Eine mitgelieferte Questlinien-Datei enthält nur das Koreanische und die Struktur. Titel, Hinweise,
+Tipps und die Abschlusszeile stehen in zwei flachen Dateien, eine pro Sprache:
+`src/main/resources/assets/hangulquest/lang/content/en_us.json` (Referenz) und `de_de.json`. Die Schlüssel
+heißen `hangulquest.trail.<id>.title`, `hangulquest.trail.<id>.step.<stepId>.clue` und `.hint` sowie
+`hangulquest.trail.<id>.finale`; Wort-Glossen `hangulquest.word.<conceptId>.gloss`. Fehlt ein Schlüssel,
+zeigt das Spiel Englisch. Englisch muss vollständig sein, Deutsch darf Lücken haben.
+
+Neuen Text schreibst du zuerst inline in die Datei und führst dann
+`python3 tools/i18n/extract_content.py` aus; das Skript verschiebt ihn und entfernt die Felder.
+Eigene Dateien in `config/hangulquest/questlines/` und in Ressourcenpaketen dürfen die Inline-Felder
+(`titleEn`/`titleDe`, `clue.en`/`de`, `hint.en`/`de`, `finale.textEn`/`textDe`) weiter benutzen; ein
+Inline-Feld gewinnt immer gegen den Schlüssel.
 
 ## Externer Ordner (ohne Neustart)
 
@@ -36,7 +51,6 @@ Satz generiert, damit keine Bedingung im Text fehlt; `REACH_HEIGHT` unter der Er
   "schema": 1,
   "id": "steinpfad",
   "titleKo": "돌의 길",
-  "titleDe": "Der Steinpfad",
   "tier": 1,
   "concepts": ["stone", "cobblestone", "coal", "torch"],
   "requires": { "minWordsKnown": 0, "dimension": "minecraft:overworld",
@@ -47,8 +61,8 @@ Satz generiert, damit keine Bedingung im Text fehlt; `REACH_HEIGHT` unter der Er
       "teach": ["stone"],
       "goal": { "type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 3 },
       "conditions": [],
-      "clue": { "ko": "단단하고 회색인 것을 세 개 캐요.", "de": "Baue drei harte, graue Dinge ab." },
-      "hint": { "ko": "돌을 캐요. 세 개요.", "de": "Baue Stein ab, drei Stück." }
+      "clue": { "ko": "단단하고 회색인 것을 세 개 캐요." },
+      "hint": { "ko": "돌을 캐요. 세 개요." }
     }
   ],
   "finale": {
@@ -58,8 +72,7 @@ Satz generiert, damit keine Bedingung im Text fehlt; `REACH_HEIGHT` unter der Er
       "goal": { "type": "PLACE_BLOCK", "block": "minecraft:torch", "count": 1 },
       "conditions": [{ "type": "TIME", "phase": "NIGHT" }]
     },
-    "textKo": "어두운 곳에서 빛을 만들었어요.",
-    "textDe": "Du hast im Dunkeln Licht gemacht."
+    "textKo": "어두운 곳에서 빛을 만들었어요."
   },
   "reward": { "badge": "steinpfad", "words": ["stone", "torch"] }
 }

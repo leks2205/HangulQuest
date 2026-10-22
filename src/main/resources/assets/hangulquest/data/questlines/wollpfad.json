@@ -1,16 +1,15 @@
 {
  "schema": 1,
  "id": "wollpfad",
- "titleKo": "양털의 길",
- "titleDe": "Der Wollpfad",
+ "titleKo": "양과 양털의 길",
  "topic": "동물",
  "tier": 2,
  "order": 44,
  "concepts": [
-  "gen_bamboo_door",
+  "sheep",
   "wool",
-  "shears",
-  "gen_bamboo_planks"
+  "bed",
+  "carpet"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,41 +22,44 @@
   {
    "id": "s1",
    "teach": [
-    "gen_bamboo_door"
+    "sheep"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_door",
-    "count": 2
-   },
-   "clue": {
-    "de": "Platziere 2× Bambustür.",
-    "en": "Place 2× Bamboo Door."
-   },
-   "hint": {
-    "en": "Place 2× Bamboo Door."
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:sheep",
+    "dwellMs": 800
    }
   },
   {
    "id": "s2",
    "teach": [
-    "wool",
-    "shears"
+    "wool"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:white_wool",
-    "count": 2
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:red_bed",
+    "count": 1,
+    "with": [
+     "minecraft:white_wool",
+     "minecraft:oak_planks"
+    ]
    },
    "clue": {
-    "de": "Sammle zwei Wolle.",
-    "ko": "가위로 양털을 모아요.",
-    "en": "Collect 2× White Wool."
+    "ko": "달이 떠요. 양털과 판자로 침대를 만들어요."
    },
    "hint": {
-    "ko": "가위로 양털을 깎아요. 가위는 철 두 개로 만들어요.",
-    "de": "Scher die Wolle mit einer Schere aus zwei Eisen.",
-    "en": "Collect 2× White Wool."
+    "ko": "양털과 판자로 침대를 만들어요."
    }
   }
  ],
@@ -65,34 +67,26 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_bamboo_planks"
+    "carpet"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_planks",
+    "type": "PLACE_REL",
+    "block": "minecraft:white_carpet",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:beds",
     "count": 1
-   },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere Bambusbretter.",
-    "en": "Place Bamboo Planks."
-   },
-   "hint": {
-    "en": "Place Bamboo Planks."
    }
   },
-  "textKo": "대나무 판자라는 길의 의식을 마쳤어요.",
-  "textDe": "Bambusbretter — Zeremonie vollendet.",
-  "textEn": "the ritual of Bamboo Planks is complete."
+  "textKo": "침대 앞에 양탄자를 깔았어요."
  },
  "reward": {
   "badge": "wollpfad",
   "words": [
    "sheep",
    "wool",
-   "bed"
+   "bed",
+   "carpet"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Wool Trail"
+ "koreanLevel": 1
 }

@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "adv_story_lava_bucket",
  "titleKo": "화끈한 화제",
- "titleDe": "Manche mögen’s heiß",
  "topic": "story",
  "tier": 2,
  "order": 318,
  "concepts": [
-  "gen_green_dye",
-  "gen_deepslate_lapis_ore",
   "lava",
-  "gen_black_harness"
+  "dirt",
+  "lava_bucket",
+  "furnace"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,55 +22,48 @@
   {
    "id": "s1",
    "teach": [
-    "gen_green_dye"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_dye",
-    "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Grüner Farbstoff.",
-    "en": "Collect 3× Green Dye."
-   },
-   "hint": {
-    "en": "Collect 3× Green Dye."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_deepslate_lapis_ore"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_lapis_ore",
-    "count": 1
-   },
-   "clue": {
-    "de": "Sammle Tiefenschiefer-Lapislazulierz.",
-    "en": "Collect Deepslate Lapis Lazuli Ore."
-   },
-   "hint": {
-    "en": "Collect Deepslate Lapis Lazuli Ore."
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
     "lava"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:lava",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Stehe an einem Lavasee und sieh ins Feuer.",
-    "en": "Look at Lava."
-   },
-   "hint": {
-    "en": "Look at Lava."
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "dirt"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:dirt",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:lava",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lava_bucket"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:lava_bucket",
+      "count": 1
+     },
+     {
+      "type": "REACH_HEIGHT",
+      "minY": 70,
+      "maxY": 200
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
    }
   }
  ],
@@ -79,34 +71,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_black_harness"
+    "furnace"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:black_harness",
+    "type": "PUT_IN",
+    "item": "minecraft:lava_bucket",
+    "container": "minecraft:furnace",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Schwarzes Geschirr.",
-    "en": "Collect Black Harness."
-   },
-   "hint": {
-    "en": "Collect Black Harness."
-   }
+   "conditions": []
   },
-  "textKo": "검은색 하네스라는 길의 의식을 마쳤어요.",
-  "textDe": "Schwarzes Geschirr — Zeremonie vollendet.",
-  "textEn": "the ritual of Black Harness is complete."
+  "textKo": "화로 안에 용암 양동이를 넣었어요."
  },
  "reward": {
   "badge": "adv_story_lava_bucket",
   "words": [
-   "iron",
-   "bucket",
-   "lava"
+   "lava",
+   "dirt",
+   "lava_bucket"
   ]
  },
  "koreanLevel": 2,
- "titleEn": "Hot Stuff"
+ "grammar": [
+  "L2.seyo",
+  "L2.go_sequence"
+ ]
 }

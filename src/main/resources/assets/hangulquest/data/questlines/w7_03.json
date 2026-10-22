@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w7_03",
  "titleKo": "모루의 길",
- "titleDe": "Der Ambosspfad",
  "topic": "모루",
  "tier": 2,
  "order": 1073,
@@ -28,13 +27,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:taiga_village_map",
     "count": 3
-   },
-   "clue": {
-    "de": "Sammle 3× Taigadorfkarte.",
-    "en": "Collect 3× Taiga Village Map."
-   },
-   "hint": {
-    "en": "Collect 3× Taiga Village Map."
    }
   },
   {
@@ -46,13 +38,6 @@
     "type": "PLACE_BLOCK",
     "block": "minecraft:pink_concrete_powder",
     "count": 1
-   },
-   "clue": {
-    "de": "Platziere Rosa Trockenbeton.",
-    "en": "Place Pink Concrete Powder."
-   },
-   "hint": {
-    "en": "Place Pink Concrete Powder."
    }
   }
  ],
@@ -67,18 +52,9 @@
     "item": "minecraft:large_fern",
     "count": 1
    },
-   "conditions": [],
-   "clue": {
-    "de": "Sammle Großer Farn.",
-    "en": "Collect Large Fern."
-   },
-   "hint": {
-    "en": "Collect Large Fern."
-   }
+   "conditions": []
   },
-  "textKo": "큰 고사리라는 길의 의식을 마쳤어요.",
-  "textDe": "Großer Farn — Zeremonie vollendet.",
-  "textEn": "the ritual of Large Fern is complete."
+  "textKo": "큰 고사리를 구했어요."
  },
  "reward": {
   "badge": "w7_03",
@@ -88,6 +64,5 @@
    "adv_item_netherite_helmet"
   ]
  },
- "koreanLevel": 4,
- "titleEn": "The Anvil Trail"
+ "koreanLevel": 4
 }

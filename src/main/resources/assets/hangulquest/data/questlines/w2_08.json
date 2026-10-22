@@ -2,15 +2,14 @@
  "schema": 1,
  "id": "w2_08",
  "titleKo": "구름 위 탑",
- "titleDe": "Der Turm über den Wolken",
  "topic": "하늘",
  "tier": 1,
  "order": 1028,
  "concepts": [
   "ladder",
-  "gen_redstone_block",
-  "gen_bamboo_trapdoor",
-  "gen_sandstone_slab"
+  "height",
+  "sky",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,98 +20,93 @@
   {
    "id": "s1",
    "teach": [
-    "ladder"
+    "cobblestone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:ladder",
-    "count": 8
-   },
-   "clue": {
-    "de": "Bau eine Leiter acht Blöcke hoch.",
-    "en": "Place 8× Ladder."
-   },
-   "hint": {
-    "ko": "사다리로 위로 올라가요.",
-    "de": "Mit einer Leiter steigst du hinauf.",
-    "en": "Place 8× Ladder."
+    "type": "BUILD_PATTERN",
+    "pattern": "STAIRS",
+    "material": "minecraft:cobblestone",
+    "size": 4
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_redstone_block"
+    "sky",
+    "climb"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:redstone_block",
-    "count": 8
+    "type": "REACH_HEIGHT",
+    "minY": 90,
+    "maxY": 320
    },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ladder"
+    }
+   ],
    "clue": {
-    "de": "Platziere 8× Redstone-Block.",
-    "en": "Place 8× Block of Redstone."
+    "ko": "사다리를 들고 하늘로 올라가요."
    },
    "hint": {
-    "en": "Place 8× Block of Redstone."
+    "ko": "사다리를 들고 하늘로 올라가요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_bamboo_trapdoor"
+    "ladder"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_trapdoor",
+    "block": "minecraft:ladder",
     "count": 3
    },
-   "clue": {
-    "de": "Platziere 3× Bambusfalltür.",
-    "en": "Place 3× Bamboo Trapdoor."
-   },
-   "hint": {
-    "en": "Place 3× Bamboo Trapdoor."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_sandstone_slab"
+    "bed",
+    "height"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:sandstone_slab",
-    "count": 8
+    "type": "USE_BLOCK",
+    "block": "minecraft:white_bed"
    },
    "conditions": [
     {
      "type": "TIME",
      "phase": "NIGHT"
+    },
+    {
+     "type": "Y_RANGE",
+     "minY": 90,
+     "maxY": 320
     }
    ],
-   "clue": {
-    "de": "Platziere 8× Sandsteinstufe. Nachts.",
-    "en": "Place 8× Sandstone Slab. At night."
-   },
    "hint": {
-    "en": "Place 8× Sandstone Slab. At night."
+    "ko": "밤에 높이 90블록 위에서 침대에서 자요."
    }
   },
-  "textKo": "밤에 사암 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Sandsteinstufe — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Sandstone Slab is complete."
+  "textKo": "밤에 높이 90블록 위 침대에서 잤어요."
  },
  "reward": {
   "badge": "w2_08",
   "words": [
    "ladder",
-   "glass",
    "height",
-   "torch"
+   "sky",
+   "bed"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Tower Above the Clouds"
+ "koreanLevel": 1
 }

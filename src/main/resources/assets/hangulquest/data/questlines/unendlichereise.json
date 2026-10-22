@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "unendlichereise",
  "titleKo": "끝없는 여행",
- "titleDe": "Die Unendliche Reise",
  "tier": 5,
  "order": 550,
  "concepts": [
@@ -31,13 +30,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:prize_pottery_sherd",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Juwelen-Töpferscherbe.",
-    "en": "Collect 8× Prize Pottery Sherd."
-   },
-   "hint": {
-    "en": "Collect 8× Prize Pottery Sherd."
    }
   },
   {
@@ -49,13 +41,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:green_cushion",
     "count": 4
-   },
-   "clue": {
-    "de": "Sammle 4× Grünes Kissen.",
-    "en": "Collect 4× Green Cushion."
-   },
-   "hint": {
-    "en": "Collect 4× Green Cushion."
    }
   },
   {
@@ -67,13 +52,6 @@
     "type": "REACH_BIOME",
     "biome": "minecraft:lush_caves",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Erreiche Üppige Höhlen.",
-    "en": "Reach Lush Caves."
-   },
-   "hint": {
-    "en": "Reach Lush Caves."
    }
   }
  ],
@@ -93,18 +71,9 @@
      "type": "IN_BIOME",
      "biome": "minecraft:beach"
     }
-   ],
-   "clue": {
-    "de": "Platziere Entrindetes Pappelholz. In einem passenden Biom.",
-    "en": "Place Stripped Poplar Wood. In a fitting biome."
-   },
-   "hint": {
-    "en": "Place Stripped Poplar Wood. In a fitting biome."
-   }
+   ]
   },
-  "textKo": "해변에서 껍질 벗긴 포플러나무라는 길의 의식을 마쳤어요.",
-  "textDe": "Entrindetes Pappelholz — Zeremonie vollendet.",
-  "textEn": "On the beach the ritual of Stripped Poplar Wood is complete."
+  "textKo": "해변에서 껍질 벗긴 포플러나무를 놓았어요."
  },
  "reward": {
   "badge": "unendlichereise",
@@ -116,6 +85,5 @@
   ]
  },
  "koreanLevel": 4,
- "topic": "나무",
- "titleEn": "The Endless Journey"
+ "topic": "나무"
 }

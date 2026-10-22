@@ -2,14 +2,14 @@
  "schema": 1,
  "id": "adv_husbandry_balanced_diet",
  "titleKo": "균형 잡힌 식단",
- "titleDe": "Ausgewogene Ernährung",
  "topic": "husbandry",
  "tier": 2,
  "order": 259,
  "concepts": [
-  "apple",
-  "carrot",
-  "adv_item_golden_carrot"
+  "fruit",
+  "vegetable",
+  "fish_dish",
+  "meat"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,73 +22,84 @@
   {
    "id": "s1",
    "teach": [
-    "apple"
+    "fruit"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
     "item": "minecraft:apple",
     "count": 1
    },
-   "clue": {
-    "de": "Iss einen Apfel vom Baum.",
-    "en": "Eat Apple."
-   },
-   "hint": {
-    "en": "Eat Apple."
-   }
+   "conditions": [
+    {
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:oak_log"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "carrot"
+    "vegetable"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
     "item": "minecraft:carrot",
     "count": 1
    },
-   "clue": {
-    "de": "Iss Karotte.",
-    "en": "Eat Carrot."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "fish_dish"
+   ],
+   "goal": {
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:cooked_cod",
+    "count": 1
    },
-   "hint": {
-    "en": "Eat Carrot."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_golden_carrot"
+    "meat"
    ],
    "goal": {
     "type": "CONSUME_ITEM",
-    "item": "minecraft:golden_carrot",
+    "item": "minecraft:cooked_beef",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "황금 당근은 당근과 금 조각 여덟 개로 만들어요.",
-    "de": "Eine goldene Karotte braucht eine Karotte und acht Goldnuggets.",
-    "en": "Eat Golden Carrot."
-   },
-   "clue": {
-    "en": "Eat Golden Carrot."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "균형 잡힌 식단 — 황금 당근까지 골고루 먹어요.",
-  "textDe": "Ausgewogene Ernährung: Zum Schluss kommt eine goldene Karotte dazu.",
-  "textEn": "the ritual of Golden Carrot is complete."
+  "textKo": "균형 잡힌 식단 — 밤에 고기까지 골고루 먹었어요."
  },
  "reward": {
   "badge": "adv_husbandry_balanced_diet",
   "words": [
-   "apple",
-   "bread",
-   "adv_item_golden_carrot"
+   "fruit",
+   "vegetable",
+   "fish_dish",
+   "meat"
   ]
  },
- "koreanLevel": 2,
- "titleEn": "A Balanced Diet"
+ "koreanLevel": 2
 }

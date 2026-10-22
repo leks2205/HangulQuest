@@ -2,14 +2,15 @@
  "schema": 1,
  "id": "adv_husbandry_tadpole_in_a_bucket",
  "titleKo": "양동이에 올챙이 한 마리",
- "titleDe": "Im Eimer",
- "topic": "husbandry",
+ "topic": "개구리",
  "tier": 2,
  "order": 281,
  "concepts": [
-  "gen_oak_chest_boat",
+  "gen_swamp",
   "frog",
-  "gen_blue_wool_stairs"
+  "swim",
+  "bucket",
+  "water"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,20 +23,19 @@
   {
    "id": "s1",
    "teach": [
-    "gen_oak_chest_boat"
+    "gen_swamp"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_chest_boat",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:swamp",
+    "dwellMs": 1000
    },
-   "clue": {
-    "de": "Sammle Eichenholztruhenboot.",
-    "en": "Collect Oak Boat with Chest."
-   },
-   "hint": {
-    "en": "Collect Oak Boat with Chest."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
@@ -45,14 +45,17 @@
    "goal": {
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:frog",
-    "dwellMs": 600
-   },
-   "clue": {
-    "de": "Beobachte einen Frosch, seine Kaulquappen schwimmen im Wasser.",
-    "en": "Look at Frog."
-   },
-   "hint": {
-    "en": "Look at Frog."
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "swim"
+   ],
+   "goal": {
+    "type": "SWIM",
+    "blocks": 10
    }
   }
  ],
@@ -60,34 +63,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_wool_stairs"
+    "bucket",
+    "water"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blue_wool_stairs",
+    "item": "minecraft:water_bucket",
     "count": 1
    },
-   "conditions": [],
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:swamp"
+    }
+   ],
    "clue": {
-    "de": "Sammle Blaue Wolltreppe.",
-    "en": "Collect Blue Wool Stairs."
+    "ko": "늪에서 물 양동이를 구해요."
    },
    "hint": {
-    "en": "Collect Blue Wool Stairs."
+    "ko": "늪에서 물 양동이를 구해요."
    }
   },
-  "textKo": "파란색 양털 계단라는 길의 의식을 마쳤어요.",
-  "textDe": "Blaue Wolltreppe — Zeremonie vollendet.",
-  "textEn": "the ritual of Blue Wool Stairs is complete."
+  "textKo": "늪에서 물 양동이를 구했어요."
  },
  "reward": {
   "badge": "adv_husbandry_tadpole_in_a_bucket",
   "words": [
-   "bucket",
+   "gen_swamp",
    "frog",
-   "adv_item_tadpole_bucket"
+   "swim",
+   "bucket"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "Bukkit Bukkit"
+ "koreanLevel": 1
 }

@@ -1,62 +1,80 @@
 package io.github.leks2205.hangulquest.quest;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystemAlreadyExistsException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Stream;
 
-/** Reads questlines from the jar (index.json lists the files). */
+/**
+ * Parses questline JSON. In the game the files come from the resource manager (see
+ * {@code QuestResources}); {@link #loadAll()} reads the same files from the classpath for tools and tests.
+ */
 public final class QuestLoader {
 	public static final String BASE = "/assets/hangulquest/data/questlines/";
 
 	private QuestLoader() {
 	}
 
+	/** The shipped trails, read from the classpath. */
 	public static List<Questline> loadAll() {
-		List<Questline> trails = new ArrayList<>();
-		for (String file : index()) {
-			try (InputStream stream = QuestLoader.class.getResourceAsStream(BASE + file)) {
-				if (stream == null) {
-					continue;
-				}
-				try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-					JsonObject object = JsonParser.parseReader(reader).getAsJsonObject();
-					Questline trail = parse(object);
-					if (trail != null) {
-						trails.add(trail);
-					}
-				}
-			} catch (Exception broken) {
-				// A broken trail must never take the client down; validation logs it later.
-				logWarn("questline " + file + " is unreadable: " + broken);
-			}
-		}
-		return trails;
+		return QuestlineStore.readShipped(classpathFiles(), org.slf4j.LoggerFactory.getLogger("hangulquest")).trails();
 	}
 
+	/** File names of the shipped trails on the classpath, sorted. */
 	public static List<String> index() {
-		List<String> files = new ArrayList<>();
-		try (InputStream stream = QuestLoader.class.getResourceAsStream(BASE + "index.json")) {
-			if (stream == null) {
+		return new ArrayList<>(classpathFiles().keySet());
+	}
+
+	/** The shipped questline files on the classpath, name to bytes, sorted by name. */
+	public static Map<String, byte[]> classpathFiles() {
+		Map<String, byte[]> files = new TreeMap<>();
+		try {
+			var url = QuestLoader.class.getResource(BASE);
+			if (url == null) {
 				return files;
 			}
-			try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-				JsonArray array = JsonParser.parseReader(reader).getAsJsonArray();
-				for (JsonElement element : array) {
-					files.add(element.getAsString());
-				}
+			URI uri = url.toURI();
+			if ("file".equals(uri.getScheme())) {
+				collect(Path.of(uri), files);
+			} else {
+				collectFromJar(uri, files);
 			}
-		} catch (Exception ignored) {
-			// empty list
+		} catch (Exception broken) {
+			logWarn("could not list the shipped questlines: " + broken);
 		}
 		return files;
+	}
+
+	private static void collectFromJar(URI uri, Map<String, byte[]> files) throws IOException {
+		try (FileSystem jar = FileSystems.newFileSystem(uri, Map.of())) {
+			collect(jar.getPath(BASE), files);
+		} catch (FileSystemAlreadyExistsException shared) {
+			collect(FileSystems.getFileSystem(uri).getPath(BASE), files);
+		}
+	}
+
+	private static void collect(Path directory, Map<String, byte[]> files) throws IOException {
+		try (Stream<Path> stream = Files.list(directory)) {
+			for (Path path : (Iterable<Path>) stream::iterator) {
+				String name = path.getFileName().toString();
+				if (QuestlineStore.isTrailFile(name)) {
+					files.put(name, Files.readAllBytes(path));
+				}
+			}
+		}
 	}
 
 	public static Questline parse(JsonObject root) {
@@ -76,7 +94,14 @@ public final class QuestLoader {
 		QuestStep finale = root.has("finale") ? parseFinale(root.getAsJsonObject("finale")) : null;
 		JsonObject finaleWrapper = root.has("finale") ? root.getAsJsonObject("finale") : null;
 		String finaleKo = finaleWrapper != null ? string(finaleWrapper, "textKo", null) : null;
+		// English and German ceremony text are lang keys (hangulquest.trail.<id>.finale); a questline
+		// file may still carry them inline ("textDe" / "textEn" inside "finale"), and then they win.
 		String finaleDe = finaleWrapper != null ? string(finaleWrapper, "textDe", null) : null;
+		// A root "textEn" is the older spelling of the same inline field.
+		String finaleEn = finaleWrapper != null ? string(finaleWrapper, "textEn", null) : null;
+		if (finaleEn == null) {
+			finaleEn = string(root, "textEn", null);
+		}
 
 		JsonObject requiresObject = root.has("requires") ? root.getAsJsonObject("requires") : null;
 		Questline.Requires requires = requiresObject == null ? Questline.Requires.none()
@@ -87,22 +112,24 @@ public final class QuestLoader {
 		JsonObject reward = root.has("reward") ? root.getAsJsonObject("reward") : null;
 		String badge = reward != null ? string(reward, "badge", id) : id;
 
-		Questline trail = new Questline(id,
+		return new Questline(id,
 				string(root, "titleKo", id),
-				string(root, "titleDe", id),
-				string(root, "topic", string(root, "titleDe", id)),
+				string(root, "titleDe", null),
+				string(root, "titleEn", null),
+				string(root, "topic", null),
 				integer(root, "tier", 1),
 				strings(root, "concepts"),
 				requires,
 				steps,
 				finale,
 				finaleKo == null ? "여기까지 왔어요. 수고했어요!" : finaleKo,
-				finaleDe == null ? "Du hast das Ziel erreicht." : finaleDe,
+				finaleDe,
+				finaleEn,
 				badge,
 				integer(root, "order", 1000),
 				integer(root, "koreanLevel", integer(root, "tier", 1)),
-				false);
-		return trail.withEnglish(string(root, "titleEn", null), string(root, "textEn", null));
+				false,
+				strings(root, "grammar"));
 	}
 
 	private static QuestStep parseStep(JsonObject object) {
@@ -133,7 +160,7 @@ public final class QuestLoader {
 				hint == null ? null : string(hint, "ko", null),
 				hint == null ? null : string(hint, "de", null),
 				hint == null ? null : string(hint, "en", null),
-				bonus);
+				bonus, null, flag(object, "reverse"));
 	}
 
 	private static QuestStep parseFinale(JsonObject object) {
@@ -146,52 +173,19 @@ public final class QuestLoader {
 			return null;
 		}
 		if (!"finale".equals(parsed.id())) {
-			parsed = new QuestStep("finale", parsed.teach(), parsed.goal(), parsed.conditions(),
-					parsed.clueKo(), parsed.clueDe(), parsed.clueEn(),
-					parsed.hintKo(), parsed.hintDe(), parsed.hintEn(), parsed.bonus());
+			parsed = parsed.withId("finale");
 		}
 		return parsed;
 	}
 
+	/** Reads a goal object; null for an unknown type. */
 	public static Goal parseGoal(JsonObject object) {
-		String type = string(object, "type", "").toUpperCase(java.util.Locale.ROOT);
-		return switch (type) {
-			case "BREAK_BLOCK" -> new Goal.BreakBlock(string(object, "block", ""), integer(object, "count", 1),
-					string(object, "verb", null));
-			case "PLACE_BLOCK" -> new Goal.PlaceBlock(string(object, "block", ""), integer(object, "count", 1));
-			case "ACQUIRE_ITEM" -> new Goal.AcquireItem(string(object, "item", ""), integer(object, "count", 1));
-			case "CONSUME_ITEM" -> new Goal.ConsumeItem(string(object, "item", ""), integer(object, "count", 1));
-			case "LOOK_AT_BLOCK" -> new Goal.LookAtBlock(string(object, "block", ""),
-					integer(object, "dwellMs", 600));
-			case "LOOK_AT_ENTITY" -> new Goal.LookAtEntity(string(object, "entity", ""),
-					integer(object, "dwellMs", 800));
-			case "DEFEAT_ENTITY" -> new Goal.DefeatEntity(string(object, "entity", ""), integer(object, "count", 1));
-			case "REACH_BIOME" -> new Goal.ReachBiome(string(object, "biome", ""),
-					integer(object, "dwellMs", 1000));
-			case "REACH_DIMENSION" -> new Goal.ReachDimension(string(object, "dimension", ""));
-			case "REACH_HEIGHT" -> new Goal.ReachHeight(integer(object, "minY", 0), integer(object, "maxY", 320));
-			case "USE_BLOCK" -> new Goal.UseBlock(string(object, "block", ""));
-			case "INTERACT_ENTITY" -> new Goal.InteractEntity(string(object, "entity", ""));
-			default -> null;
-		};
+		return GoalTypes.parse(object);
 	}
 
+	/** Reads a condition object; null for an unknown type. */
 	public static Condition parseCondition(JsonObject object) {
-		String type = string(object, "type", "").toUpperCase(java.util.Locale.ROOT);
-		return switch (type) {
-			case "TIME" -> new Condition.Time(Condition.Phase.valueOf(
-					string(object, "phase", "DAY").toUpperCase(java.util.Locale.ROOT)));
-			case "WEATHER" -> new Condition.WeatherState(Condition.Weather.valueOf(
-					string(object, "weather", "CLEAR").toUpperCase(java.util.Locale.ROOT)));
-			case "Y_RANGE" -> new Condition.YRange(integer(object, "minY", 0), integer(object, "maxY", 320));
-			case "NEAR_ENTITY" -> new Condition.NearEntity(string(object, "entity", ""),
-					number(object, "radius", 16));
-			case "NEAR_BLOCK" -> new Condition.NearBlock(string(object, "block", ""),
-					number(object, "radius", 16));
-			case "IN_DIMENSION" -> new Condition.InDimension(string(object, "dimension", ""));
-			case "IN_BIOME" -> new Condition.InBiome(string(object, "biome", ""));
-			default -> null;
-		};
+		return ConditionTypes.parse(object);
 	}
 
 	private static List<Condition> parseConditions(JsonObject step) {
@@ -208,34 +202,27 @@ public final class QuestLoader {
 	}
 
 	private static String string(JsonObject object, String key, String fallback) {
-		return object != null && object.has(key) && !object.get(key).isJsonNull()
-				? object.get(key).getAsString() : fallback;
+		return JsonFields.string(object, key, fallback);
 	}
 
 	private static int integer(JsonObject object, String key, int fallback) {
+		return JsonFields.integer(object, key, fallback);
+	}
+
+	private static boolean flag(JsonObject object, String key) {
 		try {
-			return object != null && object.has(key) ? object.get(key).getAsInt() : fallback;
+			return object.has(key) && object.get(key).getAsBoolean();
 		} catch (RuntimeException broken) {
-			return fallback;
+			return false;
 		}
 	}
 
 	private static double number(JsonObject object, String key, double fallback) {
-		try {
-			return object != null && object.has(key) ? object.get(key).getAsDouble() : fallback;
-		} catch (RuntimeException broken) {
-			return fallback;
-		}
+		return JsonFields.number(object, key, fallback);
 	}
 
 	private static List<String> strings(JsonObject object, String key) {
-		List<String> values = new ArrayList<>();
-		if (object != null && object.has(key)) {
-			for (JsonElement element : object.getAsJsonArray(key)) {
-				values.add(element.getAsString());
-			}
-		}
-		return values;
+		return JsonFields.strings(object, key);
 	}
 
 	private static void logWarn(String message) {

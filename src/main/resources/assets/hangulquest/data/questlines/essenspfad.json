@@ -1,14 +1,13 @@
 {
  "schema": 1,
  "id": "essenspfad",
- "titleKo": "먹을 것의 길",
- "titleDe": "Der Speisepfad",
+ "titleKo": "사과와 달걀과 소의 길",
+ "topic": "음식",
  "tier": 1,
+ "order": 30,
  "concepts": [
   "apple",
-  "bread",
-  "cow",
-  "gen_spruce_door"
+  "chicken"
  ],
  "requires": {
   "minWordsKnown": 2,
@@ -24,58 +23,35 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:apple",
     "count": 1
-   },
-   "clue": {
-    "ko": "빨간 사과를 하나 모아요.",
-    "de": "Finde etwas Rotes.",
-    "en": "Collect Apple."
-   },
-   "hint": {
-    "ko": "사과를 모아요.",
-    "de": "Sammle einen Apfel.",
-    "en": "Collect Apple."
    }
   },
   {
    "id": "s2",
    "teach": [
-    "bread"
+    "chicken"
    ],
    "goal": {
-    "type": "CONSUME_ITEM",
-    "item": "minecraft:bread",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:chicken",
+    "dwellMs": 800
    },
-   "clue": {
-    "ko": "배가 고파요. 빵을 먹어요.",
-    "de": "Du hast Hunger. Iss Brot.",
-    "en": "Eat Bread."
-   },
-   "hint": {
-    "ko": "빵을 먹어요.",
-    "de": "Iss Brot.",
-    "en": "Eat Bread."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "cow"
+    "chicken"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:cow",
-    "dwellMs": 800
-   },
-   "clue": {
-    "ko": "고기를 주는 소를 1초 동안 바라봐요.",
-    "de": "Schau das Tier an, das Fleisch gibt.",
-    "en": "Look at Cow."
-   },
-   "hint": {
-    "ko": "소를 봐요.",
-    "de": "Schau eine Kuh an.",
-    "en": "Look at Cow."
+    "type": "GIVE",
+    "item": "minecraft:wheat_seeds",
+    "entity": "minecraft:chicken",
+    "count": 1
    }
   }
  ],
@@ -83,41 +59,29 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spruce_door"
+    "apple"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:spruce_door"
+    "type": "CONSUME_ITEM",
+    "item": "minecraft:apple",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "PLAYER_REL",
+     "relation": "NEXT_TO",
+     "anchor": "minecraft:cow"
     }
-   ],
-   "clue": {
-    "de": "Benutze Fichtenholztür. Nachts.",
-    "en": "Use Spruce Door. At night."
-   },
-   "hint": {
-    "en": "Use Spruce Door. At night."
-   }
+   ]
   },
-  "textKo": "밤에 가문비나무 문라는 길의 의식을 마쳤어요.",
-  "textDe": "Fichtenholztür — Zeremonie vollendet.",
-  "textEn": "By night the ritual of Spruce Door is complete."
+  "textKo": "소 옆에서 사과를 먹었어요."
  },
  "reward": {
   "badge": "essenspfad",
   "words": [
    "apple",
-   "bread",
-   "cow",
-   "bed"
+   "chicken"
   ]
  },
- "order": 30,
- "koreanLevel": 1,
- "topic": "음식",
- "titleEn": "The Dining Trail"
+ "koreanLevel": 1
 }

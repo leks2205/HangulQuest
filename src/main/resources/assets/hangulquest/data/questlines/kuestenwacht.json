@@ -2,14 +2,13 @@
  "schema": 1,
  "id": "kuestenwacht",
  "titleKo": "해안 초소",
- "titleDe": "Die Küstenwacht",
+ "topic": "물",
  "tier": 2,
  "order": 510,
  "concepts": [
-  "gen_dappled_forest",
-  "squid",
-  "gen_polished_cinnabar_slab",
-  "gen_spore_blossom"
+  "planks",
+  "bed",
+  "adv_item_white_banner"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,61 +21,47 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dappled_forest"
+    "planks"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:dappled_forest",
-    "dwellMs": 1000
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_planks",
+    "size": 3
    },
-   "clue": {
-    "de": "Erreiche Rotlaubwald.",
-    "en": "Reach Dappled Forest."
-   },
-   "hint": {
-    "en": "Reach Dappled Forest."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:beach"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "squid"
+    "bed",
+    "planks"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:squid",
-    "dwellMs": 800
-   },
-   "clue": {
-    "de": "Schau einen Tintenfisch an.",
-    "en": "Look at Squid."
-   },
-   "hint": {
-    "en": "Look at Squid."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_bed",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_planks"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_polished_cinnabar_slab"
+    "adv_item_white_banner",
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_cinnabar_slab",
-    "count": 3
-   },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ],
-   "clue": {
-    "de": "Platziere 3× Polierte Zinnoberstufe. Nachts.",
-    "en": "Place 3× Polished Cinnabar Slab. At night."
-   },
-   "hint": {
-    "en": "Place 3× Polished Cinnabar Slab. At night."
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:white_banner",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:spruce_planks"
    }
   }
  ],
@@ -84,44 +69,34 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_spore_blossom"
+    "bed"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spore_blossom",
-    "count": 1
+    "type": "LIE_DOWN",
+    "block": "minecraft:white_bed",
+    "dwellMs": 3000
    },
    "conditions": [
-    {
-     "type": "IN_BIOME",
-     "biome": "minecraft:beach"
-    },
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
-   ],
-   "clue": {
-    "de": "Platziere Sporenblüte. In einem passenden Biom. Nachts.",
-    "en": "Place Spore Blossom. In a fitting biome. At night."
-   },
-   "hint": {
-    "en": "Place Spore Blossom. In a fitting biome. At night."
-   }
+   ]
   },
-  "textKo": "해변에서 밤에 포자 꽃라는 길의 의식을 마쳤어요.",
-  "textDe": "Sporenblüte — Zeremonie vollendet.",
-  "textEn": "On the beach By night the ritual of Spore Blossom is complete."
+  "textKo": "밤에 침대에 누웠어요."
  },
  "reward": {
   "badge": "kuestenwacht",
   "words": [
-   "beach",
-   "squid",
-   "torch"
+   "planks",
+   "bed",
+   "adv_item_white_banner"
   ]
  },
  "koreanLevel": 2,
- "topic": "물",
- "titleEn": "The Coast Watch"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eseo_activity"
+ ]
 }

@@ -2,14 +2,12 @@
  "schema": 1,
  "id": "w1_03",
  "titleKo": "노란 꽃밭",
- "titleDe": "Das gelbe Blumenfeld",
  "topic": "꽃밭",
  "tier": 1,
  "order": 1013,
  "concepts": [
   "dandelion",
-  "loom",
-  "gen_chiseled_tuff_bricks"
+  "sunflower"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -23,56 +21,51 @@
     "dandelion"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dandelion",
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:dandelion",
     "count": 3
    },
-   "clue": {
-    "de": "Pflück drei Löwenzahn.",
-    "en": "Collect 3× Dandelion."
-   },
-   "hint": {
-    "ko": "민들레는 노란 꽃이에요.",
-    "de": "Löwenzahn erkennst du an der gelben Blüte.",
-    "en": "Collect 3× Dandelion."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "dandelion"
+    "sunflower"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:dandelion",
-    "count": 3
+    "block": "minecraft:sunflower",
+    "count": 1
    },
    "clue": {
-    "de": "Setz drei Löwenzahn in die Erde.",
-    "en": "Place 3× Dandelion."
+    "ko": "해가 떠요. 해바라기를 심어요."
    },
    "hint": {
-    "ko": "민들레를 흙 위에 놓아요.",
-    "de": "Pflanze den Löwenzahn auf Erde.",
-    "en": "Place 3× Dandelion."
+    "ko": "해가 떠요. 해바라기를 심어요."
    }
   },
   {
    "id": "s3",
    "teach": [
-    "loom"
+    "sunflower"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:loom",
-    "dwellMs": 600
+    "type": "PLACE_REL",
+    "block": "minecraft:dandelion",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:sunflower",
+    "count": 1
    },
    "clue": {
-    "de": "Sieh dir Webstuhl an.",
-    "en": "Look at Loom."
+    "ko": "해바라기 옆에 민들레를 심어요."
    },
    "hint": {
-    "en": "Look at Loom."
+    "ko": "해바라기 옆에 민들레를 심어요."
    }
   }
  ],
@@ -80,34 +73,28 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_chiseled_tuff_bricks"
+    "sunflower"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:chiseled_tuff_bricks",
-    "count": 2
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:sunflower",
+    "dwellMs": 600
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 2× Gemeißelte Tuffsteinziegel.",
-    "en": "Place 2× Chiseled Tuff Bricks."
-   },
-   "hint": {
-    "en": "Place 2× Chiseled Tuff Bricks."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "조각된 응회암 벽돌라는 길의 의식을 마쳤어요.",
-  "textDe": "Gemeißelte Tuffsteinziegel — Zeremonie vollendet.",
-  "textEn": "the ritual of Chiseled Tuff Bricks is complete."
+  "textKo": "낮에 해바라기를 바라봤어요."
  },
  "reward": {
   "badge": "w1_03",
   "words": [
    "dandelion",
-   "sunflower",
-   "flower"
+   "sunflower"
   ]
  },
- "koreanLevel": 1,
- "titleEn": "The Yellow Flower Field"
+ "koreanLevel": 1
 }

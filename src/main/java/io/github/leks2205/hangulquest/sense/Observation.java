@@ -39,11 +39,15 @@ public final class Observation {
 	public String lookedBlock;
 	public String lookedEntity;
 	public String lookedEntityUuid;
+	/** Where the looked-at block is, so NEAR_BLOCK can honour its radius. Null when unknown. */
+	public BlockPos lookedBlockPos;
 	public int hostilesNear;
 	public double nearestHostileDistance = 999;
 
 	public Map<String, Integer> inventory = new HashMap<>();
 	public Map<String, Integer> nearbyEntities = new HashMap<>();
+	/** Distance to the closest entity of each type in {@link #nearbyEntities}; transient, never persisted. */
+	public Map<String, Double> nearestEntityDistance = new HashMap<>();
 	public List<String> brokenBlocks = new ArrayList<>();
 	public List<String> placedBlocks = new ArrayList<>();
 	public List<String> usedBlocks = new ArrayList<>();
@@ -65,6 +69,161 @@ public final class Observation {
 	public List<String> attackedEntities = new ArrayList<>();
 	public List<String> defeatedEntities = new ArrayList<>();
 	public List<String> interactedEntities = new ArrayList<>();
+	/** The uuid of each entity in {@link #interactedEntities}, same order; null where it is not known. */
+	public List<java.util.UUID> interactedUuids = new ArrayList<>();
+
+	// Observation v2: facts for spatial and give/craft tasks. All transient, never persisted. The lists
+	// start as a shared empty list so a quiet tick allocates nothing; use the add methods to fill them.
+	/** Blocks the player placed this tick, each with a 7x7x7 snapshot of its surroundings. */
+	public List<PlacementFact> placements = List.of();
+	/** Item ids in the hands; null when empty. */
+	public String mainHand;
+	public String offHand;
+	/** Milliseconds the hand has held the same item (0 when empty). */
+	public long mainHandHeldMs;
+	public long offHandHeldMs;
+	public boolean inWater;
+	/** Blocks the player has fallen since leaving the ground; 0 on the ground and after a landing (the game resets it). */
+	public float fallDistance;
+	public boolean onGround = true;
+	/** The block the player is in (water, powder snow) or, in the air, standing on; null when there is none. */
+	public String landedOn;
+	public boolean canSeeSky;
+	/** A block that stops movement within {@value SkyExposure#ROOF_RANGE} blocks above the head. */
+	public boolean roofed;
+	/** Below the surface heightmap of a dimension that has a sky. */
+	public boolean underground;
+	public List<CraftFact> crafted = List.of();
+	public List<GiveFact> gave = List.of();
+	public List<ContainerPutFact> putIn = List.of();
+	/** Trades made on a merchant screen this tick. */
+	public List<TradeFact> traded = List.of();
+	/** Items the player moved out of an open container this tick. */
+	public List<ContainerTakeFact> takenOut = List.of();
+	/** Doors, trapdoors and fence gates the player opened this tick (the id of the block clicked). */
+	public List<String> openedBlocks = List.of();
+	/** The same for the ones the player closed. */
+	public List<String> closedBlocks = List.of();
+	/** Candles and campfires the player lit this tick (the {@code lit} state flipped on after a click). */
+	public List<String> litBlocks = List.of();
+	/** Signs the player closed the edit screen of with text on them this tick (the block id of each). */
+	public List<String> signsWritten = List.of();
+	/** The same for the ones the player put out. */
+	public List<String> snuffedBlocks = List.of();
+	/**
+	 * What the player wears, by slot name ({@code head}, {@code chest}, {@code legs}, {@code feet}) to item id; a
+	 * slot that is empty is absent. Read from the armour slots every tick.
+	 */
+	public Map<String, String> worn = Map.of();
+	/** Entity id of what the player sits in or rides (a horse, a boat, a minecart); null on foot. */
+	public String vehicle;
+	/** Distance to the nearest jukebox that is playing a disc; -1 when none is near or no scan was asked for. */
+	public double jukeboxDistance = -1;
+	/** Distance to the nearest bell that is ringing (it shakes for a few seconds); -1 when none is near or no scan was asked for. */
+	public double bellDistance = -1;
+	/**
+	 * Set by the goal evaluator while a tracked step listens for a jukebox, so the sensor only scans the
+	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
+	 */
+	public boolean musicScanWanted;
+	/**
+	 * Set by the goal evaluator while a tracked step has a NEAR_BLOCK condition: block spec to radius. The sensor
+	 * then scans the surroundings for it ({@link BlockProximity}); read on the following tick.
+	 */
+	public Map<String, Integer> nearBlocksWanted = new HashMap<>();
+	/** Distance to the nearest block of each wanted spec that lies within its radius; a spec with none is absent. */
+	public Map<String, Double> nearestBlock = Map.of();
+	/** Set while a tracked step looks at water or lava, which the vanilla crosshair pick passes through. */
+	public boolean fluidLookWanted;
+	/** Position and facing of the entities counted in {@link #nearbyEntities} (items and orbs excluded). */
+	public List<EntityFact> nearbyEntityPositions = List.of();
+
+	/**
+	 * Set by the goal evaluator while some tracked step needs a long-range look at an entity, so the
+	 * sensor only does its own camera pick when it is worth it. Read on the following tick.
+	 */
+	public boolean farEntityLookWanted;
+	/**
+	 * True for the first moments after joining or leaving a world: the inventory is still being
+	 * synced, so a rise in item counts is not a gain made by the player.
+	 */
+	public boolean inventorySettling;
+
+	/** Creative and spectator progress counts, but must not feed learning grades. */
+	public boolean assisted() {
+		return creative || spectator;
+	}
+
+	public void addPlacement(PlacementFact fact) {
+		placements = grow(placements);
+		placements.add(fact);
+	}
+
+	public void addCrafted(CraftFact fact) {
+		crafted = grow(crafted);
+		crafted.add(fact);
+	}
+
+	public void addGave(GiveFact fact) {
+		gave = grow(gave);
+		gave.add(fact);
+	}
+
+	public void addPutIn(ContainerPutFact fact) {
+		putIn = grow(putIn);
+		putIn.add(fact);
+	}
+
+	public void addTraded(TradeFact fact) {
+		traded = grow(traded);
+		traded.add(fact);
+	}
+
+	public void addTakenOut(ContainerTakeFact fact) {
+		takenOut = grow(takenOut);
+		takenOut.add(fact);
+	}
+
+	public void addOpened(String block) {
+		openedBlocks = grow(openedBlocks);
+		openedBlocks.add(block);
+	}
+
+	public void addClosed(String block) {
+		closedBlocks = grow(closedBlocks);
+		closedBlocks.add(block);
+	}
+
+	public void addLit(String block) {
+		litBlocks = grow(litBlocks);
+		litBlocks.add(block);
+	}
+
+	public void addSignWritten(String block) {
+		signsWritten = grow(signsWritten);
+		signsWritten.add(block);
+	}
+
+	public void addSnuffed(String block) {
+		snuffedBlocks = grow(snuffedBlocks);
+		snuffedBlocks.add(block);
+	}
+
+	public void addEntityPosition(EntityFact fact) {
+		nearbyEntityPositions = grow(nearbyEntityPositions);
+		nearbyEntityPositions.add(fact);
+	}
+
+	/** Swaps the shared empty list for a real one the first time something is added. */
+	private static <T> List<T> grow(List<T> list) {
+		return list.isEmpty() && !(list instanceof ArrayList) ? new ArrayList<>(2) : list;
+	}
+
+	/** Records one nearby entity of this type and keeps the closest distance. */
+	public void addNearby(String id, double distance) {
+		nearbyEntities.merge(id, 1, Integer::sum);
+		nearestEntityDistance.merge(id, distance, Math::min);
+	}
 
 	public Condition.Phase phase() {
 		long time = clockTime % 24000L;

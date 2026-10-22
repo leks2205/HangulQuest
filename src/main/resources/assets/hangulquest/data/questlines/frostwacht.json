@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "frostwacht",
  "titleKo": "철 갑옷의 길",
- "titleDe": "Suit Up",
  "topic": "장비",
  "tier": 2,
  "order": 90,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:gray_glazed_terracotta",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Graue glasierte Keramik.",
-    "en": "Collect 8× Gray Glazed Terracotta."
-   },
-   "hint": {
-    "en": "Collect 8× Gray Glazed Terracotta."
    }
   },
   {
@@ -46,13 +38,6 @@
    "goal": {
     "type": "USE_BLOCK",
     "block": "minecraft:smithing_table"
-   },
-   "clue": {
-    "de": "Benutze Schmiedetisch.",
-    "en": "Use Smithing Table."
-   },
-   "hint": {
-    "en": "Use Smithing Table."
    }
   },
   {
@@ -64,13 +49,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:waxed_exposed_copper_lantern",
     "count": 1
-   },
-   "clue": {
-    "de": "Sammle Gewachste angelaufene Kupferlaterne.",
-    "en": "Collect Waxed Exposed Copper Lantern."
-   },
-   "hint": {
-    "en": "Collect Waxed Exposed Copper Lantern."
    }
   }
  ],
@@ -84,18 +62,9 @@
     "type": "USE_BLOCK",
     "block": "minecraft:hopper"
    },
-   "conditions": [],
-   "clue": {
-    "de": "Benutze Trichter.",
-    "en": "Use Hopper."
-   },
-   "hint": {
-    "en": "Use Hopper."
-   }
+   "conditions": []
   },
-  "textKo": "호퍼라는 길의 의식을 마쳤어요.",
-  "textDe": "Trichter — Zeremonie vollendet.",
-  "textEn": "the ritual of Hopper is complete."
+  "textKo": "호퍼를 열었어요."
  },
  "reward": {
   "badge": "frostwacht",
@@ -106,6 +75,5 @@
    "anvil"
   ]
  },
- "koreanLevel": 3,
- "titleEn": "Suit Up"
+ "koreanLevel": 3
 }

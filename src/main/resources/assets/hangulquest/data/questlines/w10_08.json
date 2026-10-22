@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "w10_08",
  "titleKo": "모래 골렘의 등불",
- "titleDe": "Die Laterne des Sandgolems",
  "topic": "골렘",
  "tier": 2,
  "order": 1108,
@@ -29,13 +28,6 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:warped_wart_block",
     "count": 8
-   },
-   "clue": {
-    "de": "Sammle 8× Wirrwarzenblock.",
-    "en": "Collect 8× Warped Wart Block."
-   },
-   "hint": {
-    "en": "Collect 8× Warped Wart Block."
    }
   },
   {
@@ -48,14 +40,8 @@
     "block": "minecraft:lever",
     "count": 2
    },
-   "clue": {
-    "de": "Setz zwei Hebel an die Ruinenwand.",
-    "en": "Place 2× Lever."
-   },
    "hint": {
-    "ko": "레버는 조약돌과 막대기로 만들어요.",
-    "de": "Ein Hebel besteht aus Bruchstein und einem Stock.",
-    "en": "Place 2× Lever."
+    "ko": "레버는 조약돌과 막대기로 만들어요."
    }
   },
   {
@@ -67,13 +53,6 @@
     "type": "LOOK_AT_ENTITY",
     "entity": "minecraft:pillager",
     "dwellMs": 1000
-   },
-   "clue": {
-    "de": "Sieh dir Plünderer an.",
-    "en": "Look at Pillager."
-   },
-   "hint": {
-    "en": "Look at Pillager."
    }
   }
  ],
@@ -88,18 +67,9 @@
     "block": "minecraft:prismarine_brick_slab",
     "count": 4
    },
-   "conditions": [],
-   "clue": {
-    "de": "Platziere 4× Prismarinziegelstufe.",
-    "en": "Place 4× Prismarine Brick Slab."
-   },
-   "hint": {
-    "en": "Place 4× Prismarine Brick Slab."
-   }
+   "conditions": []
   },
-  "textKo": "프리즈머린 벽돌 반 블록라는 길의 의식을 마쳤어요.",
-  "textDe": "Prismarinziegelstufe — Zeremonie vollendet.",
-  "textEn": "the ritual of Prismarine Brick Slab is complete."
+  "textKo": "프리즈머린 벽돌 반 블록을 네 개 놓았어요."
  },
  "reward": {
   "badge": "w10_08",
@@ -110,6 +80,5 @@
    "lantern"
   ]
  },
- "koreanLevel": 5,
- "titleEn": "The Sand Golem's Lantern"
+ "koreanLevel": 5
 }
