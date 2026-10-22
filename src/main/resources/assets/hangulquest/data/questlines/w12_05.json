@@ -7,9 +7,10 @@
  "order": 1125,
  "concepts": [
   "soul_sand",
-  "gen_copper_golem_statue",
-  "gen_heartbreak_pottery_sherd",
-  "gen_pale_oak_sign"
+  "soul_lantern",
+  "sword",
+  "enderman",
+  "gen_ender_chest"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -27,58 +28,84 @@
    "goal": {
     "type": "PLACE_BLOCK",
     "block": "minecraft:soul_sand",
-    "count": 6
+    "count": 4
    },
-   "hint": {
-    "ko": "영혼 모래는 영혼 모래 골짜기에서 파요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "THUNDER"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_copper_golem_statue"
+    "soul_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:copper_golem_statue",
-    "count": 2
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:soul_lantern",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_heartbreak_pottery_sherd"
+    "sword",
+    "enderman"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:heartbreak_pottery_sherd",
-    "count": 1
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:diamond_sword",
+    "inner": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:enderman",
+     "count": 1
+    }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_sign"
+    "gen_ender_chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_sign",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:ender_chest",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ender_eye"
+    }
+   ]
   },
-  "textKo": "창백한 참나무 표지판을 세웠어요."
+  "textKo": "엔더의 눈을 들고 엔더 상자를 바라봤어요. 엔더 상자의 물건은 다른 엔더 상자에서도 꺼낼 수 있어요."
  },
  "reward": {
   "badge": "w12_05",
   "words": [
    "soul_sand",
    "soul_lantern",
-   "ender_pearl",
-   "end"
+   "sword",
+   "enderman"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

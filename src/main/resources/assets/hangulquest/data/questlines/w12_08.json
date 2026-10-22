@@ -6,10 +6,11 @@
  "tier": 2,
  "order": 1128,
  "concepts": [
-  "world",
-  "gen_polished_andesite_stairs",
+  "grass",
   "iron_golem",
-  "gen_white_stained_glass_pane"
+  "adv2_item_diamond_helmet",
+  "height",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,70 +23,102 @@
   {
    "id": "s1",
    "teach": [
-    "world"
+    "grass"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:grass_block",
-    "dwellMs": 1500
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "잔디 블록을 봐요. 세계는 잔디 블록에서 시작해요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_andesite_stairs"
+    "iron_golem"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_andesite_stairs",
-    "count": 1
-   }
+    "type": "GIVE",
+    "item": "minecraft:iron_ingot",
+    "entity": "minecraft:iron_golem",
+    "count": 1,
+    "method": "USE_WITH"
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "iron_golem"
+    "adv2_item_diamond_helmet"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:iron_golem"
+    "type": "EQUIP",
+    "item": "minecraft:diamond_helmet"
    },
-   "hint": {
-    "ko": "철 골렘은 철 블록과 조각된 호박으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "height"
+   ],
+   "goal": {
+    "type": "REACH_HEIGHT",
+    "minY": 100,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:compass"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_white_stained_glass_pane"
+    "wait"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_stained_glass_pane",
-    "count": 3
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "DAY"
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "SKY",
+     "state": "OPEN"
     }
    ]
   },
-  "textKo": "밤에 하얀색 색유리 판을 세 개 놓았어요."
+  "textKo": "하늘이 보이는 곳에서 낮까지 기다렸어요. 밤이 지나면 해가 다시 뜨기 마련이에요."
  },
  "reward": {
   "badge": "w12_08",
   "words": [
-   "world",
-   "crown",
+   "grass",
    "iron_golem",
+   "adv2_item_diamond_helmet",
    "height"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

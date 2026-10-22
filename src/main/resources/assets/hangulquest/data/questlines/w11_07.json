@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1117,
  "concepts": [
-  "gen_brown_banner",
-  "ritual",
-  "gen_stripped_mangrove_wood",
-  "gen_brown_wool"
+  "gold_ingot",
+  "gold_block",
+  "soul_lantern",
+  "adv_item_totem_of_undying"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,65 +22,92 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_banner"
+    "gold_ingot"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_banner",
-    "count": 1
-   }
+    "type": "SMELT",
+    "input": "minecraft:raw_gold",
+    "output": "minecraft:gold_ingot",
+    "count": 4
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "ritual"
+    "gold_block"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:candle"
-   },
-   "clue": {
-    "ko": "의식에 쓸 초를 사용해 불을 붙여요."
+    "type": "CRAFT",
+    "item": "minecraft:gold_block",
+    "count": 1
    },
    "hint": {
-    "ko": "초에 불을 붙이면 의식이 시작돼요."
-   }
+    "ko": "밤이 되면 금 주괴를 들고 금 블록을 만들어요."
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:gold_ingot"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_stripped_mangrove_wood"
+    "soul_lantern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_mangrove_wood",
-    "count": 4
-   }
+    "type": "CRAFT",
+    "item": "minecraft:soul_lantern",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:soul_torch"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_brown_wool"
+    "adv_item_totem_of_undying"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_wool",
+    "item": "minecraft:totem_of_undying",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   },
-  "textKo": "갈색 양털을 구했어요."
+  "textKo": "새벽에 불사의 토템을 구했어요. 불사의 토템은 소환사가 떨어뜨려요."
  },
  "reward": {
   "badge": "w11_07",
   "words": [
-   "crown",
-   "ritual",
+   "gold_ingot",
+   "gold_block",
    "soul_lantern",
    "adv_item_totem_of_undying"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

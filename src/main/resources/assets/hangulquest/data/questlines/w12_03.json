@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1123,
  "concepts": [
-  "gen_andesite_wall",
-  "gen_medium_amethyst_bud",
-  "gen_white_terracotta",
-  "gen_waxed_oxidized_copper_grate"
+  "gen_cracked_stone_bricks",
+  "chiseled_stone_bricks",
+  "lectern",
+  "beacon"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,66 +22,76 @@
   {
    "id": "s1",
    "teach": [
-    "gen_andesite_wall"
+    "gen_cracked_stone_bricks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:andesite_wall",
-    "count": 12
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PYRAMID",
+    "material": "minecraft:cracked_stone_bricks",
+    "size": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_medium_amethyst_bud"
+    "chiseled_stone_bricks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:medium_amethyst_bud",
-    "count": 6
-   }
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:chiseled_stone_bricks",
+    "relation": "ON_TOP_OF",
+    "pattern": "PYRAMID",
+    "material": "minecraft:cracked_stone_bricks"
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_white_terracotta"
+    "lectern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:white_terracotta",
-    "count": 1
-   }
+    "type": "USE_BLOCK",
+    "block": "minecraft:lectern"
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_grate"
+    "beacon"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_grate",
-    "count": 1
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:beacon",
+    "dwellMs": 1000
    },
    "conditions": [
     {
-     "type": "Y_RANGE",
-     "minY": 100,
-     "maxY": 320
+     "type": "TIME",
+     "phase": "NIGHT"
     }
    ]
   },
-  "textKo": "높이 백 블록 위에서 밀랍칠한 산화된 구리 격자를 놓았어요."
+  "textKo": "밤에 신호기를 바라봤어요. 신호기는 하늘로 빛을 쏘아요."
  },
  "reward": {
   "badge": "w12_03",
   "words": [
-   "stone_bricks",
+   "gen_cracked_stone_bricks",
    "chiseled_stone_bricks",
    "lectern",
    "beacon"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

@@ -6,10 +6,10 @@
  "tier": 2,
  "order": 1121,
  "concepts": [
-  "gen_netherite_horse_armor",
-  "gen_polished_deepslate_wall",
-  "gen_gray_concrete_slab",
-  "gen_waxed_oxidized_copper_door"
+  "compass",
+  "map",
+  "cartography_table",
+  "height"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,65 +22,88 @@
   {
    "id": "s1",
    "teach": [
-    "gen_netherite_horse_armor"
+    "compass"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_horse_armor",
-    "count": 1
-   }
+    "type": "WALK",
+    "direction": "NORTH",
+    "blocks": 30
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:compass"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_polished_deepslate_wall"
+    "map"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_deepslate_wall",
+    "type": "TRADE",
+    "item": "minecraft:map",
+    "entity": "minecraft:villager",
+    "direction": "BUY",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_gray_concrete_slab"
+    "cartography_table"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_concrete_slab",
-    "count": 2
-   }
+    "type": "USE_BLOCK",
+    "block": "minecraft:cartography_table"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:map"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_waxed_oxidized_copper_door"
+    "height"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_door",
-    "count": 1
+    "type": "REACH_HEIGHT",
+    "minY": 90,
+    "maxY": 320
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 밀랍칠한 산화된 구리 문을 달았어요."
+  "textKo": "높은 곳으로 올라갔어요. 높이 올라갈수록 추워져요."
  },
  "reward": {
   "badge": "w12_01",
   "words": [
-   "clock",
    "compass",
+   "map",
    "cartography_table",
    "height"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

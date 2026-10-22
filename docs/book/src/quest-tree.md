@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1776** |
+| Steps (incl. finales) | **1777** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -22,54 +22,54 @@ Every goal is checked on the client. Counts are per step, finales included.
 | Goal | Steps | What the player does |
 |---|---:|---|
 | `PLACE_REL` | 232 |  |
-| `CRAFT` | 208 |  |
-| `ACQUIRE_ITEM` | 145 | collect an item |
-| `BUILD_PATTERN` | 113 |  |
-| `PLACE_ON_PATTERN` | 113 |  |
+| `CRAFT` | 212 |  |
+| `ACQUIRE_ITEM` | 137 | collect an item |
+| `BUILD_PATTERN` | 114 |  |
+| `PLACE_ON_PATTERN` | 114 |  |
 | `SEQUENCE` | 88 |  |
 | `LOOK_AT_ENTITY` | 74 | look at a mob |
-| `PLACE_BLOCK` | 72 | place a block |
-| `GIVE` | 65 |  |
-| `LOOK_AT_BLOCK` | 63 | look at a block |
-| `BREAK_BLOCK` | 60 | break a block |
+| `GIVE` | 66 |  |
+| `LOOK_AT_BLOCK` | 66 | look at a block |
+| `BREAK_BLOCK` | 59 | break a block |
+| `HOLD_WHILE` | 57 |  |
 | `REACH_BIOME` | 57 | reach a biome |
-| `AVOID` | 55 |  |
-| `HOLD_WHILE` | 54 |  |
-| `USE_BLOCK` | 49 | use a block |
+| `AVOID` | 57 |  |
+| `PLACE_BLOCK` | 55 | place a block |
+| `USE_BLOCK` | 52 | use a block |
 | `CONSUME_ITEM` | 42 | eat or drink an item |
 | `PUT_IN` | 36 |  |
-| `WAIT` | 34 |  |
-| `REACH_HEIGHT` | 31 | reach an altitude |
-| `SMELT` | 29 |  |
-| `DEFEAT_ENTITY` | 28 | defeat a mob |
-| `TRADE` | 23 |  |
-| `WALK` | 19 |  |
-| `INTERACT_ENTITY` | 15 | interact with a mob |
+| `WAIT` | 36 |  |
+| `REACH_HEIGHT` | 33 | reach an altitude |
+| `SMELT` | 30 |  |
+| `DEFEAT_ENTITY` | 27 | defeat a mob |
+| `TRADE` | 24 |  |
+| `WALK` | 20 |  |
+| `INTERACT_ENTITY` | 14 | interact with a mob |
 | `BREED` | 10 |  |
 | `SWIM` | 10 |  |
+| `SHOOT` | 9 |  |
 | `MOUNT` | 9 |  |
-| `SHOOT` | 8 |  |
+| `EQUIP` | 7 |  |
 | `TAKE_OUT` | 7 |  |
 | `LIE_DOWN` | 6 |  |
-| `EQUIP` | 6 |  |
+| `HEAR` | 6 |  |
 | `FALL` | 5 |  |
-| `HEAR` | 4 |  |
 | `REACH_DIMENSION` | 3 | reach a dimension |
 | `TRANSIT` | 3 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 332 | a time of day |
-| `HOLDING` | 126 |  |
-| `WEATHER` | 71 | the weather |
+| `TIME` | 341 | a time of day |
+| `HOLDING` | 137 |  |
+| `WEATHER` | 80 | the weather |
 | `IN_BIOME` | 71 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `IN_DIMENSION` | 42 | a dimension |
-| `Y_RANGE` | 37 | an altitude band |
+| `IN_DIMENSION` | 43 | a dimension |
+| `Y_RANGE` | 36 | an altitude band |
 | `NEAR_BLOCK` | 27 | a block nearby |
-| `SKY` | 26 |  |
+| `SKY` | 27 |  |
 | `NEAR_ENTITY` | 21 | a mob nearby |
-| `FACING` | 14 |  |
+| `FACING` | 15 |  |
 | `IN_WATER` | 12 |  |
 
 ## Levels
@@ -570,7 +570,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w12_05` | 영혼의 문 | Das Tor der Seelen | 4 | `letzte_reise` |
 | `w12_06` | 끝의 노래 | Das Lied vom Ende | 4 | `weltwaechter` |
 | `w12_07` | 전설의 대장간 | Die Schmiede der Legende | 4 | `letzte_reise` |
-| `w12_08` | 세계의 왕관 | Die Krone der Welt | 4 | `weltwaechter` |
+| `w12_08` | 세계의 왕관 | Die Krone der Welt | 5 | `weltwaechter` |
 | `rotwerk` | 붉은 실의 길 | Der rote Faden | 4 | `weltwaechter` |
 | `blauwerk` | 푸른 실의 길 | Der blaue Faden | 4 | `unsterblichkeit` |
 | `gelbwerk` | 노란 실의 길 | Der gelbe Faden | 4 | `letzte_reise` |

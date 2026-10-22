@@ -6,10 +6,11 @@
  "tier": 2,
  "order": 1122,
  "concepts": [
-  "gen_poplar_hanging_sign",
   "carved_pumpkin",
-  "gen_oxidized_copper_chest",
-  "gen_poplar_sign"
+  "wait",
+  "bell",
+  "hear",
+  "soul_torch"
  ],
  "requires": {
   "minWordsKnown": 120,
@@ -22,65 +23,85 @@
   {
    "id": "s1",
    "teach": [
-    "gen_poplar_hanging_sign"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_hanging_sign",
-    "count": 2
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "carved_pumpkin"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:carved_pumpkin",
-    "count": 4
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_oxidized_copper_chest"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_chest",
-    "count": 4
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_poplar_sign"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_sign",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:carved_pumpkin",
+    "count": 1
    },
    "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shears"
+    },
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
    ]
   },
-  "textKo": "밤에 포플러나무 표지판을 두 개 세웠어요."
+  {
+   "id": "s2",
+   "teach": [
+    "wait"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "DAY"
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "EAST"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bell",
+    "hear"
+   ],
+   "goal": {
+    "type": "HEAR",
+    "source": "minecraft:bell",
+    "radius": 8,
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "soul_torch"
+   ],
+   "goal": {
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:soul_torch",
+    "count": 3
+   },
+   "conditions": []
+  },
+  "textKo": "영혼 횃불을 세 개 놓았어요. 영혼 횃불의 불은 파란색이에요."
  },
  "reward": {
   "badge": "w12_02",
   "words": [
    "carved_pumpkin",
-   "obsidian",
-   "soul_torch",
-   "bell"
+   "wait",
+   "bell",
+   "hear"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
