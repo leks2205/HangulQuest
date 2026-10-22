@@ -320,8 +320,8 @@ class GeneratorLimitsTest {
 		Goal bread = new Goal.ConsumeItem("minecraft:bread", 1);
 		Condition open = new Condition.Sky(Condition.SkyState.OPEN);
 		assertEquals("밖에서 빵을 먹어요.", clue(bread, null, 1, open));
-		assertEquals("밖에서 빵을 먹으세요.", clue(bread, null, 2, open));
-		assertEquals("밖에서 빵을 먹으세요.", clue(bread, null, 3, open));
+		assertEquals("밖에서 빵을 드세요.", clue(bread, null, 2, open));
+		assertEquals("밖에서 빵을 드세요.", clue(bread, null, 3, open));
 		assertEquals("밖에서 빵을 먹어야 해요.", clue(bread, null, 4, open));
 		assertEquals("하늘이 보이는 곳에서 빵을 먹어야 해요.", clue(bread, null, 5, open));
 		// the easy hint is level 1

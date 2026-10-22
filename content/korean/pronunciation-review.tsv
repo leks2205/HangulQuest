@@ -9,7 +9,13 @@ tree	나무	[나무]		rule	native
 planks	판자	[판자]		rule	sino
 cobblestone	조약돌	[조약똘]	tensification	rule	native
 coal	석탄	[석탄]		rule	sino
+iron_ore	철 광석	[철 광석]		rule	sino
+raw_iron	철 원석	[철 원석]		rule	sino
+iron_ingot	철 주괴	[철 주괴]		rule	sino
 iron	철	[철]		rule	sino
+gold_ore	금 광석	[금 광석]		rule	sino
+raw_gold	금 원석	[금 원석]		rule	sino
+gold_ingot	금 주괴	[금 주괴]		rule	sino
 gold	금	[금]		rule	sino
 diamond	다이아몬드	[다이아몬드]		rule	loan
 obsidian	흑요석	[흐교석]	liaison	rule	sino
@@ -304,6 +310,9 @@ head	머리	[머리]		rule	native
 foot	발	[발]		rule	native
 leg	다리	[다리]		rule	native
 clothes	옷	[옫]	neutralisation	rule	native
+helmet	투구	[투구]		rule	native
+armor	갑옷	[가볻]	liaison,neutralisation	rule	mixed
+leggings	바지	[바지]		rule	native
 shoes	신발	[신발]		rule	native
 pair	켤레	[켤레]		rule	native
 money	돈	[돈]		rule	native

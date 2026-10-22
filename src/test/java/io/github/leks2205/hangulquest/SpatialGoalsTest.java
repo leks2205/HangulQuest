@@ -386,23 +386,41 @@ class SpatialGoalsTest {
 	@Test
 	void theTranslationMustNotGiveTheRelationAway() {
 		Goal goal = new Goal.PlaceRel(TORCH, Relation.NEXT_TO, DOORS, 1);
-		for (String giveaway : new String[]{"Place a torch next to the door.", "Place a torch on top of it.",
-				"Put a torch beside the door.", "Place a torch inside the pen.", "Place a torch between two torches.",
-				"Place a torch behind the chest.", "Place a torch in front of the door.", "Place a torch under it.",
-				"Place a torch near the door.", "Place a torch above the door."}) {
+		for (String giveaway : new String[]{"Place a torch next to the door.", "Put a torch beside the door."}) {
 			List<String> found = problems(goal, List.of("torch"), null, giveaway, CLEAN_DE);
 			assertTrue(found.stream().anyMatch(p -> p.contains("gives the relation away")), giveaway + ": " + found);
 		}
-		for (String giveaway : new String[]{"Platziere eine Fackel neben der Tür.", "Platziere eine Fackel auf der Tür.",
-				"Platziere eine Fackel zwischen zwei Fackeln.", "Platziere eine Fackel hinter der Truhe.",
-				"Platziere eine Fackel unter der Treppe.", "Platziere eine Fackel in der Nähe.",
-				"Platziere eine Fackel draußen."}) {
+		for (String giveaway : new String[]{"Platziere eine Fackel neben der Tür.", "Platziere eine Fackel daneben."}) {
 			List<String> found = problems(goal, List.of("torch"), null, CLEAN_EN, giveaway);
 			assertTrue(found.stream().anyMatch(p -> p.contains("gives the relation away")), giveaway + ": " + found);
+		}
+		// every relation has its words: a translation gives away the relation of its own step only
+		Object[][] others = {
+				{Relation.ON_TOP_OF, "Place a torch on top of it.", "Platziere eine Fackel auf der Tür."},
+				{Relation.UNDER, "Place a torch under it.", "Platziere eine Fackel unter der Treppe."},
+				{Relation.IN_FRONT_OF, "Place a torch in front of the door.", "Platziere eine Fackel vor der Tür."},
+				{Relation.BEHIND, "Place a torch behind the chest.", "Platziere eine Fackel hinter der Truhe."},
+				{Relation.BETWEEN, "Place a torch between two torches.", "Platziere eine Fackel zwischen zwei Fackeln."},
+				{Relation.NEAR, "Place a torch near the door.", "Platziere eine Fackel in der Nähe."},
+				{Relation.OUTSIDE, "Place a torch outside.", "Platziere eine Fackel draußen."}};
+		for (Object[] row : others) {
+			Relation relation = (Relation) row[0];
+			String anchor = relation == Relation.OUTSIDE ? "minecraft:oak_fence" : DOORS;
+			Goal other = new Goal.PlaceRel(TORCH, relation, relation == Relation.IN_FRONT_OF || relation == Relation.BEHIND
+					? DOORS : anchor, 1);
+			assertTrue(problems(other, List.of("torch"), null, (String) row[1], CLEAN_DE).stream()
+					.anyMatch(p -> p.contains("gives the relation away")), relation + " en");
+			assertTrue(problems(other, List.of("torch"), null, CLEAN_EN, (String) row[2]).stream()
+					.anyMatch(p -> p.contains("gives the relation away")), relation + " de");
+			// ... and the words of another relation say nothing about this one
+			assertNull(io.github.leks2205.hangulquest.quest.spatial.RelationWords.leak((String) row[1],
+					relation == Relation.NEXT_TO ? Relation.UNDER : Relation.NEXT_TO, List.of()), relation + " en other");
 		}
 		assertNull(SpatialRules.leak(CLEAN_EN));
 		assertNull(SpatialRules.leak(CLEAN_DE));
 		assertNull(SpatialRules.leak("Place a torch at night — read the Korean to see where."));
+		// without a relation every relation's words are looked for
+		assertEquals("on top", SpatialRules.leak("Place a torch on top of it."));
 	}
 
 	@Test

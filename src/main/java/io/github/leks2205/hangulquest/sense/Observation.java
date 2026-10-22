@@ -103,6 +103,11 @@ public final class Observation {
 	public List<String> litBlocks = List.of();
 	/** The same for the ones the player put out. */
 	public List<String> snuffedBlocks = List.of();
+	/**
+	 * What the player wears, by slot name ({@code head}, {@code chest}, {@code legs}, {@code feet}) to item id; a
+	 * slot that is empty is absent. Read from the armour slots every tick.
+	 */
+	public Map<String, String> worn = Map.of();
 	/** Entity id of what the player sits in or rides (a horse, a boat, a minecart); null on foot. */
 	public String vehicle;
 	/** Distance to the nearest jukebox that is playing a disc; -1 when none is near or no scan was asked for. */

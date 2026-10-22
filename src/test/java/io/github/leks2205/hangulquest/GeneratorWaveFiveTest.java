@@ -115,7 +115,7 @@ class GeneratorWaveFiveTest {
 					material);
 		}
 		assertEquals(List.of(), problems(new Goal.Craft("minecraft:wooden_hoe", 1, null, null), "hoe"));
-		assertEquals("괭이를 만들어요.", SentenceBuilder.normal(new Goal.Craft("minecraft:stone_hoe", 1, null, null), hoe, List.of(),
+		assertEquals("돌 괭이를 만들어요.", SentenceBuilder.normal(new Goal.Craft("minecraft:stone_hoe", 1, null, null), hoe, List.of(),
 				1, false, KoreanFixtures.namer(CATALOG)));
 	}
 

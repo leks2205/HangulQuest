@@ -3,6 +3,7 @@ package io.github.leks2205.hangulquest.quest;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningSink;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.util.Lang;
@@ -49,7 +50,7 @@ final class QuestTextService {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
 			}
 
 			@Override

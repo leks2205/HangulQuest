@@ -140,6 +140,15 @@ public interface GoalType<G extends Goal> {
 		return false;
 	}
 
+	/**
+	 * The goal as its hint says it. The hint is the plain sentence at level 1, and a goal whose plain sentence
+	 * leaves the player without a way to do it may say how instead (a gift to a villager is put down in front of
+	 * it). The default is the goal itself.
+	 */
+	default G forHint(G goal) {
+		return goal;
+	}
+
 	/** The instruction sentence, without the condition prefix. */
 	String korean(G goal, SentenceContext context);
 

@@ -7,6 +7,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Goal;
+import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
@@ -88,7 +89,7 @@ class ActionSentenceGoldTest {
 		// Every new goal type and condition is in the table.
 		String all = rows.stream().map(row -> row.goal().getClass().getSimpleName()).distinct().sorted().toList().toString();
 		for (String type : List.of("Craft", "Smelt", "Give", "PutIn", "HoldWhile", "Sequence", "Avoid", "TakeOut",
-				"Transit", "Hear", "LieDown", "Wait", "Breed", "Mount", "Swim")) {
+				"Transit", "Hear", "LieDown", "Wait", "Breed", "Mount", "Swim", "Equip")) {
 			assertTrue(all.contains(type), type + " is missing from the gold table");
 		}
 	}
@@ -130,7 +131,8 @@ class ActionSentenceGoldTest {
 			if (row.goal() instanceof Goal.Avoid) {
 				assertTrue(hint.endsWith("지 마세요."), row.id() + " hint lost the 'not': " + hint);
 			}
-			if (!(row.goal() instanceof Goal.Smelt)) {
+			boolean saysHow = GoalTypes.of(row.goal()).forHint(row.goal()) != row.goal();
+			if (!(row.goal() instanceof Goal.Smelt) && !saysHow) {
 				// Counts go away in the hint, nothing else changes at level 1.
 				assertEquals(clue.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""), hint.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""),
 						row.id());
@@ -193,7 +195,7 @@ class ActionSentenceGoldTest {
 				new Forms(Verb.WALK, "걷다", "걸어요", "걸었어요", "걸을", "걸은", "걸으세요"),
 				// Existing verbs the sequences lean on.
 				new Forms(Verb.CRAFT, "만들다", "만들어요", "만들었어요", "만들", "만든", "만드세요"),
-				new Forms(Verb.EAT, "먹다", "먹어요", "먹었어요", "먹을", "먹은", "먹으세요"),
+				new Forms(Verb.EAT, "먹다", "먹어요", "먹었어요", "먹을", "먹은", "드세요"),
 				new Forms(Verb.SLEEP, "자다", "자요", "잤어요", "잘", "잔", "자세요"),
 				new Forms(Verb.OPEN, "열다", "열어요", "열었어요", "열", "연", "여세요"),
 				new Forms(Verb.PICK_UP, "줍다", "주워요", "주웠어요", "주울", "주운", "주우세요"));

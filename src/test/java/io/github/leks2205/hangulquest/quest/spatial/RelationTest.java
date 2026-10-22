@@ -153,12 +153,13 @@ class RelationTest {
 	@Test
 	void whichAnchorsHaveAFront() {
 		for (String front : new String[]{"minecraft:oak_door", "#minecraft:doors", "minecraft:chest", "#minecraft:chests",
-				"minecraft:furnace", "minecraft:red_bed", "#minecraft:beds", "minecraft:smoker", "minecraft:iron_door"}) {
+				"minecraft:furnace", "minecraft:red_bed", "#minecraft:beds", "minecraft:smoker", "minecraft:iron_door", "minecraft:crafting_table", "minecraft:oak_stairs",
+				"minecraft:barrel", "minecraft:oak_sign", "minecraft:white_banner", "minecraft:carved_pumpkin"}) {
 			assertTrue(BlockSpec.hasFacing(front), front);
 			assertTrue(Relations.supported(Relation.BEHIND, new Anchor.Block(front)), front);
 		}
 		for (String plain : new String[]{"minecraft:stone", "minecraft:torch", "minecraft:oak_fence", "#minecraft:planks",
-				"minecraft:crafting_table"}) {
+				"minecraft:cobblestone_wall"}) {
 			assertFalse(BlockSpec.hasFacing(plain), plain);
 			assertFalse(Relations.supported(Relation.IN_FRONT_OF, new Anchor.Block(plain)), plain);
 		}

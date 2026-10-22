@@ -51,6 +51,11 @@ public final class KoGrammar {
 		return word + "에게";
 	}
 
+	/** Person/animal source: 주민에게서 (사다 from a seller), the counterpart of {@link #ege}. */
+	public static String egeseo(String word) {
+		return word + "에게서";
+	}
+
 	/** Activity place: 화로에서, 나무 아래에서. */
 	public static String eseo(String word) {
 		return word + "에서";

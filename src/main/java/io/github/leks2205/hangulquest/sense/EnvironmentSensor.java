@@ -20,6 +20,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.LivingEntity;
@@ -99,6 +100,7 @@ public final class EnvironmentSensor {
 	}
 	private final Map<String, Integer> scratchInventory = new HashMap<>();
 	private Map<String, Integer> lastInventory = new HashMap<>();
+	private Map<String, String> lastWorn = Map.of();
 	private long lastDamageAt;
 	private float lastHealth = 20.0F;
 	private final ConsumptionTracker consumption = new ConsumptionTracker();
@@ -126,6 +128,9 @@ public final class EnvironmentSensor {
 	private Map<String, Double> nearBlockFound = Map.of();
 	private final List<GiveTracker.Target> dropTargets = new ArrayList<>();
 	private final List<SeenItem> seenItems = new ArrayList<>();
+	/** The item entities in sight and the villagers near, while an item lies in front of a villager. */
+	private final java.util.Set<Integer> itemsInSight = new java.util.HashSet<>();
+	private final java.util.Set<java.util.UUID> pickersNear = new java.util.HashSet<>();
 	private final BlockPos.MutableBlockPos probe = new BlockPos.MutableBlockPos();
 	private BlockPos skyPos;
 	private long skyAt;
@@ -290,6 +295,7 @@ public final class EnvironmentSensor {
 		obs.thunder = level.isThundering();
 		obs.idle = player.isSpectator() || isIdle();
 		readHands(obs, player);
+		readArmor(obs, player);
 		readSky(obs, player, level);
 		Entity vehicle = player.getVehicle();
 		obs.vehicle = vehicle == null ? null : entityId(resolve(vehicle));
@@ -390,6 +396,22 @@ public final class EnvironmentSensor {
 			obs.lookedBlockAtNight = lookedAtNight;
 		}
 		return obs;
+	}
+
+	/** The armour slots, kept as the same map object while nothing is put on or taken off. */
+	private void readArmor(Observation obs, LocalPlayer player) {
+		Map<String, String> now = WornItems.of(slotItem(player, EquipmentSlot.HEAD),
+				slotItem(player, EquipmentSlot.CHEST), slotItem(player, EquipmentSlot.LEGS),
+				slotItem(player, EquipmentSlot.FEET));
+		if (!now.equals(lastWorn)) {
+			lastWorn = now;
+		}
+		obs.worn = lastWorn;
+	}
+
+	private static String slotItem(LocalPlayer player, EquipmentSlot slot) {
+		ItemStack stack = player.getItemBySlot(slot);
+		return stack.isEmpty() ? null : itemId(stack);
 	}
 
 	private void readHands(Observation obs, LocalPlayer player) {
@@ -585,9 +607,17 @@ public final class EnvironmentSensor {
 	private void scanEntities(Observation obs, LocalPlayer player, ClientLevel level, boolean night) {
 		AABB nearBox = new AABB(player.blockPosition()).inflate(24.0);
 		boolean watchDrops = gives.hasDropCandidates(obs.now);
+		boolean watchPickups = gives.hasPickups(obs.now);
 		for (Entity entity : level.getEntities(player, nearBox, candidate -> true)) {
 			double distance = Math.sqrt(entity.distanceToSqr(player));
 			obs.addNearby(entityId(entity), distance);
+			if (watchPickups) {
+				if (entity instanceof ItemEntity) {
+					itemsInSight.add(entity.getId());
+				} else if (distance <= GiveTracker.PICKUP_RANGE && GiveTracker.PICKUP_TYPES.contains(entityId(entity))) {
+					pickersNear.add(entity.getUUID());
+				}
+			}
 			if (entity instanceof ItemEntity dropped) {
 				if (watchDrops && dropped.tickCount <= 40 && distance <= GiveTracker.SPAWN_RANGE) {
 					ItemStack stack = dropped.getItem();
@@ -617,6 +647,13 @@ public final class EnvironmentSensor {
 			seenItems.clear();
 		}
 		dropTargets.clear();
+		if (watchPickups || gives.hasPickups(obs.now)) {
+			for (GiveFact gave : gives.pickupsChecked(itemsInSight, pickersNear, obs.now)) {
+				obs.addGave(gave);
+			}
+		}
+		itemsInSight.clear();
+		pickersNear.clear();
 		for (DeathTracker.Kill kill : deaths.poll(obs.now, deathWorld)) {
 			obs.defeatedEntities.add(kill.type());
 			if (night) {

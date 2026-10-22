@@ -145,6 +145,13 @@ form decides which action is right (a relation word such as 옆에, the recipien
 like -기 전에, the "don't" of -지 마세요); `variety.formDependentShare.<level>` is their share, written to
 `steps.json` as `formDependent` from `GoalType.decidingForms`. Level 1 is reported, never demanded.
 
+Two decisions authors keep asking about. 밖 is form-dependent (it contrasts with 안: standing outside when 안 was
+asked is a slip), 근처 is not (it is too loose to be wrong). 들고 (`HOLD_WHILE`, and the `HOLDING` phrase) is not
+form-dependent and will not become so: holding an item while doing something is not a choice between two
+actions, there is no wrong thing to do with the wrong form, so the step counts as practice (-고 is still in the
+grammar list of the trail) but never towards `formDependentShare`. Do not write a trail around the expectation
+that 들고 steps move that number.
+
 ```bash
 ./gradlew test --tests '*StepsDumpTest'      # writes build/reports/content/steps.json
 python3 tools/variety.py                     # task variety: duplicates, object-only twins, bare steps, novelty

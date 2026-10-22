@@ -163,6 +163,51 @@
   ]
  },
  {
+  "id": "iron_ore",
+  "ko": "철 광석",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:iron_ore"
+  ],
+  "covers": [
+   "minecraft:deepslate_iron_ore"
+  ],
+  "sentenceKo": "철 광석을 캐요.",
+  "descKo": "땅속에 있어요. 안에 철이 있어요.",
+  "aliases": [
+   "철 광석"
+  ]
+ },
+ {
+  "id": "raw_iron",
+  "ko": "철 원석",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:raw_iron"
+  ],
+  "sentenceKo": "철 원석을 모아요.",
+  "descKo": "철 광석에서 나와요. 화로에서 녹여요.",
+  "aliases": [
+   "철 원석"
+  ]
+ },
+ {
+  "id": "iron_ingot",
+  "ko": "철 주괴",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:iron_ingot"
+  ],
+  "sentenceKo": "철 주괴를 만들어요.",
+  "descKo": "화로에서 철을 녹여요. 단단해요.",
+  "aliases": [
+   "철 주괴"
+  ]
+ },
+ {
   "id": "iron",
   "ko": "철",
   "category": "MATERIALS",
@@ -172,10 +217,58 @@
    "minecraft:iron_ore",
    "minecraft:deepslate_iron_ore"
   ],
+  "accepts": [
+   "minecraft:raw_iron"
+  ],
   "sentenceKo": "철을 모아요.",
   "descKo": "단단한 금속이에요.",
   "aliases": [
    "철"
+  ]
+ },
+ {
+  "id": "gold_ore",
+  "ko": "금 광석",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:gold_ore"
+  ],
+  "covers": [
+   "minecraft:deepslate_gold_ore"
+  ],
+  "sentenceKo": "금 광석을 캐요.",
+  "descKo": "땅속에 있어요. 안에 금이 있어요.",
+  "aliases": [
+   "금 광석"
+  ]
+ },
+ {
+  "id": "raw_gold",
+  "ko": "금 원석",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:raw_gold"
+  ],
+  "sentenceKo": "금 원석을 모아요.",
+  "descKo": "금 광석에서 나와요. 화로에서 녹여요.",
+  "aliases": [
+   "금 원석"
+  ]
+ },
+ {
+  "id": "gold_ingot",
+  "ko": "금 주괴",
+  "category": "MATERIALS",
+  "tier": 2,
+  "items": [
+   "minecraft:gold_ingot"
+  ],
+  "sentenceKo": "금 주괴를 만들어요.",
+  "descKo": "화로에서 금을 녹여요. 노랗고 반짝여요.",
+  "aliases": [
+   "금 주괴"
   ]
  },
  {
@@ -462,6 +555,9 @@
   "items": [
    "minecraft:carrot"
   ],
+  "covers": [
+   "minecraft:carrots"
+  ],
   "sentenceKo": "당근을 먹어요.",
   "descKo": "주황색이에요. 먹을 수 있어요.",
   "aliases": [
@@ -548,6 +644,14 @@
   "items": [
    "minecraft:iron_pickaxe"
   ],
+  "covers": [
+   "minecraft:wooden_pickaxe",
+   "minecraft:stone_pickaxe",
+   "minecraft:golden_pickaxe",
+   "minecraft:diamond_pickaxe",
+   "minecraft:netherite_pickaxe",
+   "minecraft:copper_pickaxe"
+  ],
   "sentenceKo": "곡괭이를 써요.",
   "descKo": "돌을 캐요.",
   "aliases": [
@@ -562,6 +666,14 @@
   "items": [
    "minecraft:iron_axe"
   ],
+  "covers": [
+   "minecraft:wooden_axe",
+   "minecraft:stone_axe",
+   "minecraft:golden_axe",
+   "minecraft:diamond_axe",
+   "minecraft:netherite_axe",
+   "minecraft:copper_axe"
+  ],
   "sentenceKo": "도끼를 써요.",
   "descKo": "나무를 베어요.",
   "aliases": [
@@ -575,6 +687,14 @@
   "tier": 1,
   "items": [
    "minecraft:iron_shovel"
+  ],
+  "covers": [
+   "minecraft:wooden_shovel",
+   "minecraft:stone_shovel",
+   "minecraft:golden_shovel",
+   "minecraft:diamond_shovel",
+   "minecraft:netherite_shovel",
+   "minecraft:copper_shovel"
   ],
   "sentenceKo": "삽을 써요.",
   "descKo": "흙을 파요.",
@@ -652,6 +772,14 @@
   "tier": 1,
   "items": [
    "minecraft:iron_sword"
+  ],
+  "covers": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword",
+   "minecraft:copper_sword"
   ],
   "sentenceKo": "검을 써요.",
   "descKo": "싸울 때 써요.",
@@ -2289,6 +2417,9 @@
   "items": [
    "minecraft:cocoa_beans"
   ],
+  "covers": [
+   "minecraft:cocoa"
+  ],
   "sentenceKo": "코코아 콩을 모아요.",
   "descKo": "초콜릿을 만드는 재료예요.",
   "aliases": [
@@ -2902,6 +3033,9 @@
   "tier": 2,
   "items": [
    "minecraft:sweet_berries"
+  ],
+  "covers": [
+   "minecraft:sweet_berry_bush"
   ],
   "sentenceKo": "달콤한 열매를 모아요.",
   "descKo": "숲에서 자라는 빨간 열매예요.",
@@ -3748,6 +3882,9 @@
   "items": [
    "minecraft:torchflower_seeds"
   ],
+  "covers": [
+   "minecraft:torchflower_crop"
+  ],
   "sentenceKo": "횃불꽃 씨앗을 봐요.",
   "descKo": "심으면 횃불꽃이 자라요.",
   "aliases": [
@@ -3873,6 +4010,9 @@
   "tier": 3,
   "items": [
    "minecraft:pitcher_pod"
+  ],
+  "covers": [
+   "minecraft:pitcher_crop"
   ],
   "sentenceKo": "벌레잡이풀 꼬투리를 봐요.",
   "descKo": "심으면 벌레잡이풀이 자라요.",
@@ -4474,6 +4614,72 @@
   "descKo": "몸에 입어요.",
   "aliases": [
    "옷"
+  ]
+ },
+ {
+  "id": "helmet",
+  "ko": "투구",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:iron_helmet",
+  "covers": [
+   "minecraft:leather_helmet",
+   "minecraft:chainmail_helmet",
+   "minecraft:iron_helmet",
+   "minecraft:golden_helmet",
+   "minecraft:diamond_helmet",
+   "minecraft:netherite_helmet",
+   "minecraft:copper_helmet"
+  ],
+  "sentenceKo": "머리에 투구를 써요.",
+  "descKo": "머리를 지켜 줘요.",
+  "aliases": [
+   "투구"
+  ]
+ },
+ {
+  "id": "armor",
+  "ko": "갑옷",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:iron_chestplate",
+  "covers": [
+   "minecraft:leather_chestplate",
+   "minecraft:chainmail_chestplate",
+   "minecraft:iron_chestplate",
+   "minecraft:golden_chestplate",
+   "minecraft:diamond_chestplate",
+   "minecraft:netherite_chestplate",
+   "minecraft:copper_chestplate"
+  ],
+  "sentenceKo": "몸에 갑옷을 입어요.",
+  "descKo": "몸을 지켜 줘요.",
+  "aliases": [
+   "갑옷"
+  ]
+ },
+ {
+  "id": "leggings",
+  "ko": "바지",
+  "category": "TOOLS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:iron_leggings",
+  "covers": [
+   "minecraft:leather_leggings",
+   "minecraft:chainmail_leggings",
+   "minecraft:iron_leggings",
+   "minecraft:golden_leggings",
+   "minecraft:diamond_leggings",
+   "minecraft:netherite_leggings",
+   "minecraft:copper_leggings"
+  ],
+  "sentenceKo": "다리에 바지를 입어요.",
+  "descKo": "다리를 지켜 줘요.",
+  "aliases": [
+   "바지"
   ]
  },
  {
@@ -9780,6 +9986,9 @@
   "tier": 1,
   "items": [
    "minecraft:beetroot"
+  ],
+  "covers": [
+   "minecraft:beetroots"
   ],
   "aliases": []
  },

@@ -45,6 +45,8 @@ public final class Questline {
 	private final int koreanLevel;
 	private final String topic;
 	private final boolean adaptive;
+	/** The grammar.json constructions the trail teaches, as its author lists them; empty when it lists none. */
+	private final List<String> grammar;
 
 	public Questline(String id, String titleKo, String titleDe, int tier, List<String> concepts,
 					 Requires requires, List<QuestStep> steps, QuestStep finale,
@@ -62,14 +64,23 @@ public final class Questline {
 				finaleDe, null, badge, order, koreanLevel, adaptive);
 	}
 
-	/**
-	 * The canonical constructor: every field, including the English title and finale text. All
-	 * copies go through here (see the {@code with...} methods), so no field can be dropped.
-	 */
+	/** Every field but the grammar list. */
 	public Questline(String id, String titleKo, String titleDe, String titleEn, String topic, int tier,
 					 List<String> concepts, Requires requires, List<QuestStep> steps,
 					 QuestStep finale, String finaleKo, String finaleDe, String finaleEn,
 					 String badge, int order, int koreanLevel, boolean adaptive) {
+		this(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires, steps, finale, finaleKo, finaleDe,
+				finaleEn, badge, order, koreanLevel, adaptive, List.of());
+	}
+
+	/**
+	 * The canonical constructor: every field, including the English title and finale text and the grammar
+	 * list. All copies go through here (see the {@code with...} methods), so no field can be dropped.
+	 */
+	public Questline(String id, String titleKo, String titleDe, String titleEn, String topic, int tier,
+					 List<String> concepts, Requires requires, List<QuestStep> steps,
+					 QuestStep finale, String finaleKo, String finaleDe, String finaleEn,
+					 String badge, int order, int koreanLevel, boolean adaptive, List<String> grammar) {
 		this.id = id;
 		this.titleKo = titleKo;
 		this.titleDe = titleDe;
@@ -99,6 +110,7 @@ public final class Questline {
 				: titleDe != null && !titleDe.isBlank() ? titleDe
 				: titleEn != null && !titleEn.isBlank() ? titleEn : id;
 		this.adaptive = adaptive;
+		this.grammar = grammar == null ? List.of() : List.copyOf(grammar);
 	}
 
 	public String id() {
@@ -138,37 +150,43 @@ public final class Questline {
 	/** Copy carrying the English title and finale text. The finale step is left untouched. */
 	public Questline withEnglish(String englishTitle, String englishFinale) {
 		return new Questline(id, titleKo, titleDe, englishTitle, topic, tier, concepts, requires,
-				steps, finale, finaleKo, finaleDe, englishFinale, badge, order, koreanLevel, adaptive);
+				steps, finale, finaleKo, finaleDe, englishFinale, badge, order, koreanLevel, adaptive, grammar);
 	}
 
 	/** Copy with other clue steps and finale step. */
 	public Questline withSteps(List<QuestStep> newSteps, QuestStep newFinale) {
 		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
-				newSteps, newFinale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+				newSteps, newFinale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
 	}
 
 	/** Copy with other prerequisites. */
 	public Questline withRequires(Requires newRequires) {
 		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, newRequires,
-				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
 	}
 
 	/** Copy with another branch topic. */
 	public Questline withTopic(String newTopic) {
 		return new Questline(id, titleKo, titleDe, titleEn, newTopic, tier, concepts, requires,
-				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive);
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, grammar);
 	}
 
 	/** Copy with another tree tier and Korean difficulty. */
 	public Questline withLevels(int newTier, int newKoreanLevel) {
 		return new Questline(id, titleKo, titleDe, titleEn, topic, newTier, concepts, requires,
-				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, newKoreanLevel, adaptive);
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, newKoreanLevel, adaptive, grammar);
 	}
 
 	/** Copy with the adaptive flag set or cleared. */
 	public Questline withAdaptive(boolean newAdaptive) {
 		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
-				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, newAdaptive);
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, newAdaptive, grammar);
+	}
+
+	/** Copy with another grammar list. */
+	public Questline withGrammar(List<String> newGrammar) {
+		return new Questline(id, titleKo, titleDe, titleEn, topic, tier, concepts, requires,
+				steps, finale, finaleKo, finaleDe, finaleEn, badge, order, koreanLevel, adaptive, newGrammar);
 	}
 
 	public int tier() {
@@ -256,6 +274,14 @@ public final class Questline {
 
 	public boolean adaptive() {
 		return adaptive;
+	}
+
+	/**
+	 * The grammar-point ids the trail declares ({@code "grammar": ["L2.seyo", ...]} in the file): what the author
+	 * means it to practise. Ids of grammar.json or their ladder aliases; empty when the file lists none.
+	 */
+	public List<String> grammar() {
+		return grammar;
 	}
 
 	/** Clue steps followed by the finale, which is the actual last step. */

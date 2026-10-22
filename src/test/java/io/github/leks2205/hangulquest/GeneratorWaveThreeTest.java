@@ -210,7 +210,7 @@ class GeneratorWaveThreeTest {
 				"minecraft:spruce_fence", 3), null, List.of(), 1, false, KoreanFixtures.registryNamer()));
 		assertEquals(Verb.FENCE, SentenceBuilder.verbFor(new Goal.BuildPattern(Pattern.RING, "minecraft:oak_fence", 3)));
 		assertEquals(Verb.STACK, SentenceBuilder.verbFor(new Goal.BuildPattern(Pattern.RING, "minecraft:stone", 3)));
-		assertEquals("돌 담 안에 횃불을 놓아요.", clue(new Goal.PlaceOnPattern(TORCH, Relation.INSIDE, Pattern.RING,
+		assertEquals("돌담 안에 횃불을 놓아요.", clue(new Goal.PlaceOnPattern(TORCH, Relation.INSIDE, Pattern.RING,
 				"minecraft:stone"), null));
 		assertEquals("울타리 안에 횃불을 놓아요.", clue(new Goal.PlaceOnPattern(TORCH, Relation.INSIDE, Pattern.RING,
 				"minecraft:oak_fence"), null));
@@ -375,7 +375,7 @@ class GeneratorWaveThreeTest {
 		assertEquals("초를 세워요.", clue(new Goal.PlaceBlock("minecraft:candle", 1), "candle"));
 		assertEquals("초를 세웠어요.", ceremony(new Goal.PlaceBlock("minecraft:red_candle", 1), "candle"));
 		assertEquals("초 옆에 횃불을 놓아요.", clue(new Goal.PlaceRel(TORCH, Relation.NEXT_TO, "minecraft:candle", 1), "candle"));
-		assertEquals("횃불 옆에 초를 놓아요.", clue(new Goal.PlaceRel("minecraft:candle", Relation.NEXT_TO, TORCH, 1), "torch"));
+		assertEquals("횃불 옆에 초를 세워요.", clue(new Goal.PlaceRel("minecraft:candle", Relation.NEXT_TO, TORCH, 1), "torch"));
 		assertEquals("모닥불을 피워요.", clue(new Goal.PlaceBlock("minecraft:soul_campfire", 1), "campfire"));
 	}
 
@@ -419,9 +419,9 @@ class GeneratorWaveThreeTest {
 	void b20_theInputIsSpokenForStoneGlassAndOres() {
 		assertEquals("화로에서 조약돌을 구워요.", clue(new Goal.Smelt("minecraft:cobblestone", "minecraft:stone", 1), null));
 		assertEquals("화로에서 모래를 구워요.", clue(new Goal.Smelt("minecraft:sand", "minecraft:glass", 1), null));
-		assertEquals("화로에서 철을 녹여요.", clue(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
+		assertEquals("화로에서 철 광석을 녹여요.", clue(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
 		assertEquals("화로에서 조약돌을 구웠어요.", ceremony(new Goal.Smelt("minecraft:cobblestone", "minecraft:stone", 1), null));
-		assertEquals("화로에서 철을 녹였어요.", ceremony(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
+		assertEquals("화로에서 철 광석을 녹였어요.", ceremony(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1), null));
 		assertEquals(Verb.BAKE, SentenceBuilder.verbFor(new Goal.Smelt("minecraft:sand", "minecraft:glass", 1)));
 		assertEquals(Verb.MELT, SentenceBuilder.verbFor(new Goal.Smelt("minecraft:iron_ore", "minecraft:iron_ingot", 1)));
 		// without the input the product is made, as before
@@ -449,9 +449,9 @@ class GeneratorWaveThreeTest {
 	void b21_buyingFromAVillagerAndSellingToOne() {
 		Goal buy = new Goal.Trade("minecraft:bread", "minecraft:villager", "BUY", 1);
 		Goal sell = new Goal.Trade("minecraft:wheat", "minecraft:villager", "SELL", 3);
-		assertEquals("주민에게 빵을 사요.", clue(buy, null));
+		assertEquals("주민에게서 빵을 사요.", clue(buy, null));
 		assertEquals("주민에게 밀을 세 개 팔아요.", clue(sell, null));
-		assertEquals("주민에게 빵을 샀어요.", ceremony(buy, null));
+		assertEquals("주민에게서 빵을 샀어요.", ceremony(buy, null));
 		assertEquals("주민에게 밀을 세 개 팔았어요.", ceremony(sell, null));
 		assertEquals(Verb.BUY, SentenceBuilder.verbFor(buy));
 		assertEquals(Verb.SELL, SentenceBuilder.verbFor(sell));
@@ -480,7 +480,7 @@ class GeneratorWaveThreeTest {
 		assertEquals(buy, GoalTypes.parse(GoalTypes.toJson(buy)));
 		assertEquals(new Goal.Trade("", "minecraft:villager", "BUY", 1),
 				GoalTypes.parse(com.google.gson.JsonParser.parseString("{\"type\":\"TRADE\"}").getAsJsonObject()));
-		assertEquals("L2.ege", SentenceBuilder.grammar(buy, null, List.of(), 1, false, NAMER).get(2));
+		assertEquals("L2.ege_source", SentenceBuilder.grammar(buy, null, List.of(), 1, false, NAMER).get(2));
 	}
 
 	// ---------------------------------------------------------------- the water biome with the water condition

@@ -125,7 +125,7 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 			return "";
 		}
 		if (wordNames(kind, id)) {
-			return word.ko;
+			return Tiers.qualify(id, word.ko);
 		}
 		String name = switch (kind) {
 			case BLOCK -> namer.block(id);
@@ -138,7 +138,7 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 	/** Same, for the main object of a part: the word also counts when it is only drawn with the id. */
 	public String nameOfObject(ObjectKind kind, String id) {
-		return id != null && word != null && wordCovers(word, kind, id) ? word.ko : name(kind, id);
+		return id != null && word != null && wordCovers(word, kind, id) ? Tiers.qualify(id, word.ko) : name(kind, id);
 	}
 
 	/** The same sentence context for another goal of the same step (a part of a sequence). */
@@ -164,12 +164,12 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 			@Override
 			public String block(String id) {
-				return wordNames(word, ObjectKind.BLOCK, id, base) ? word.ko : base.block(id);
+				return wordNames(word, ObjectKind.BLOCK, id, base) ? Tiers.qualify(id, word.ko) : base.block(id);
 			}
 
 			@Override
 			public String item(String id) {
-				return wordNames(word, ObjectKind.ITEM, id, base) ? word.ko : base.item(id);
+				return wordNames(word, ObjectKind.ITEM, id, base) ? Tiers.qualify(id, word.ko) : base.item(id);
 			}
 
 			@Override

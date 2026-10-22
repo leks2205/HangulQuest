@@ -28,6 +28,8 @@ How far each fact can be trusted when the game runs client-only:
 | `placements[].roofed` | a solid block within 6 above the placed block, read when the placement is noticed | Reliable; the roof over the player is `roofed` of the observation |
 | `jukeboxDistance` | the block entities of the 3x3 chunks around the player: a jukebox whose `has_record` state is set (it drops the disc when the song ends) | Reliable for what the client has loaded. Scanned twice a second and only while a step with a `HEAR` goal is tracked (`musicScanWanted`). The sound itself is not heard by the mod |
 | `nearbyEntityPositions[].baby`, `interactedUuids` | the synced "young" flag of a living entity; the uuid of each entity the player right-clicked | Reliable. A `BREED` goal waits for a new baby after a feeding, within 4 blocks of two of the animals the player fed or clicked |
+| `worn` | the four armour slots of the player (`getItemBySlot`), read every tick | Reliable. Slot name (`head`, `chest`, `legs`, `feet`) to item id; an `EQUIP` step needs to have seen the other state first |
+| `gave` DROP_NEAR for a villager | an item dropped with a villager within 3 blocks is not a give yet: it becomes one when the item entity is gone, the inventory shows no gain a moment later (the player did not take it back) and the villager is still within 8 blocks, within 30 s | Best effort. A villager takes no item by right-click, so FEED and USE_WITH never count for one. |
 | `gave` TRADE | merchant result slot taken; item and count are what was paid | Reliable for the payment. The merchant is the entity right-clicked in the last 5 s. |
 
 ## Costs

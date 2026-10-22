@@ -4,6 +4,8 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.quest.condition.ConditionTypes;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+import io.github.leks2205.hangulquest.quest.grammar.GrammarBook;
+import io.github.leks2205.hangulquest.quest.grammar.Ladder;
 import io.github.leks2205.hangulquest.util.TextClean;
 import org.slf4j.Logger;
 
@@ -65,7 +67,7 @@ public final class QuestValidator {
 				log.warn("skipping questline {}: missing finale", trail.id());
 				continue;
 			}
-			valid.add(trail.withSteps(clueSteps, finale));
+			valid.add(trail.withSteps(clueSteps, finale).withGrammar(knownGrammar(trail, problems, log)));
 		}
 		// Trails that require each other can never unlock; drop them instead of looping over them.
 		TrailGraph graph = TrailGraph.of(valid);
@@ -79,6 +81,24 @@ public final class QuestValidator {
 			log.warn("questline problem: {}", problem);
 		}
 		return new Result(valid, problems);
+	}
+
+	/**
+	 * The trail's declared grammar ids that grammar.json knows, a ladder alias counting as its construction.
+	 * An unknown id is a problem and is dropped; the trail still loads.
+	 */
+	private static List<String> knownGrammar(Questline trail, List<String> problems, Logger log) {
+		List<String> known = new ArrayList<>();
+		GrammarBook book = GrammarBook.shared();
+		for (String id : trail.grammar()) {
+			if (book.has(Ladder.shared().resolve(id))) {
+				known.add(id);
+			} else {
+				problems.add(trail.id() + ": unknown grammar id " + id);
+				log.warn("questline {}: unknown grammar id {}", trail.id(), id);
+			}
+		}
+		return known;
 	}
 
 	private static List<String> validateStep(Questline trail, QuestStep step, Catalog catalog) {

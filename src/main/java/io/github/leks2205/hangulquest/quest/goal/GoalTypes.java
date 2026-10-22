@@ -46,7 +46,9 @@ public final class GoalTypes {
 			new BreedType(),
 			new MountType(),
 			new SwimType(),
-			new TradeType());
+			new TradeType(),
+			// Wave 6: wearing armour.
+			new EquipType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

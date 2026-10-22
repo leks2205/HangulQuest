@@ -51,7 +51,7 @@ putin.barrel	1	-	{"type":"PUT_IN","item":"minecraft:bread","container":"minecraf
 putin.diamond.l3	3	-	{"type":"PUT_IN","item":"minecraft:diamond","container":"minecraft:chest"}	-	상자 안에 다이아몬드를 넣으세요.	L2.seyo,L1.eul_reul,L1.loc.an
 putin.word.chest	1	chest	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc.an
 putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어야 해요.	L4.eoya_haeyo,L1.eul_reul,L1.loc.an
-seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 먹으세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
+seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 드세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
 seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.then	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베고 나서 참나무 판자를 만들어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
 seq.before.door	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	참나무 문을 열기 전에 횃불을 놓아요.	L1.eoyo,L3.gi_jeone,L1.eul_reul
@@ -73,8 +73,8 @@ avoid.craft	3	-	{"type":"AVOID","action":{"type":"CRAFT","item":"minecraft:torch
 avoid.bed.day	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"DAY"}}	-	낮에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 cond.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"HOLDING","item":"minecraft:torch"}]	횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
 cond.sky.open	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
-cond.sky.open.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
-cond.sky.open.l3	3	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹으세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 드세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
+cond.sky.open.l3	3	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 드세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
 cond.sky.open.l4	4	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	밖에서 빵을 먹어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.eseo_activity
 cond.sky.open.l5	5	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"SKY","state":"OPEN"}]	하늘이 보이는 곳에서 빵을 먹어야 해요.	L4.eoya_haeyo,L1.eul_reul,L2.eseo_activity,L5.adn_present_neun
 hold.sky.l3	3	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"SKY","state":"OPEN"}}	-	횃불을 들고 밖에서 걸으세요.	L2.go_state,L2.seyo,L2.eseo_activity
@@ -125,3 +125,21 @@ smelt.ore	1	-	{"type":"SMELT","input":"minecraft:iron_ore","output":"minecraft:i
 smelt.raw.three	1	-	{"type":"SMELT","input":"minecraft:raw_gold","output":"minecraft:gold_ingot","count":3}	-	화로에서 금 원석을 세 개 녹여요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 smelt.raw.l4	4	-	{"type":"SMELT","input":"minecraft:raw_copper","output":"minecraft:copper_ingot"}	-	구리 원석을 녹여서 구리 주괴를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L4.aseo
 smelt.cook.word	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken"}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul
+equip.helmet	1	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet"}	-	철 투구를 써요.	L1.eoyo,L1.eul_reul
+equip.armor	1	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 갑옷을 입어요.	L1.eoyo,L1.eul_reul
+equip.leggings	1	leggings	{"type":"EQUIP","item":"minecraft:diamond_leggings"}	-	다이아몬드 바지를 입어요.	L1.eoyo,L1.eul_reul
+equip.shoes	1	shoes	{"type":"EQUIP","item":"minecraft:leather_boots"}	-	가죽 신발을 신어요.	L1.eoyo,L1.eul_reul
+equip.chestplate.untaught	1	-	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 흉갑을 입어요.	L1.eoyo,L1.eul_reul
+equip.helmet.l2	2	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet"}	-	철 투구를 쓰세요.	L2.seyo,L1.eul_reul
+equip.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate"}	-	철 갑옷을 입으세요.	L2.seyo,L1.eul_reul
+equip.shoes.l2	2	shoes	{"type":"EQUIP","item":"minecraft:iron_boots"}	-	철 신발을 신으세요.	L2.seyo,L1.eul_reul
+equip.off.helmet	1	helmet	{"type":"EQUIP","item":"minecraft:iron_helmet","change":"OFF"}	-	철 투구를 벗어요.	L1.eoyo,L1.eul_reul
+equip.off.armor.l2	2	armor	{"type":"EQUIP","item":"minecraft:iron_chestplate","change":"OFF"}	-	철 갑옷을 벗으세요.	L2.seyo,L1.eul_reul
+trade.buy	1	-	{"type":"TRADE","item":"minecraft:apple","entity":"minecraft:villager","direction":"BUY","count":1}	-	주민에게서 사과를 사요.	L1.eoyo,L1.eul_reul,L2.ege_source
+trade.buy.l2	2	-	{"type":"TRADE","item":"minecraft:apple","entity":"minecraft:villager","direction":"BUY","count":1}	-	주민에게서 사과를 사세요.	L2.seyo,L1.eul_reul,L2.ege_source
+trade.buy.three	1	-	{"type":"TRADE","item":"minecraft:bread","entity":"minecraft:villager","direction":"BUY","count":3}	-	주민에게서 빵을 세 개 사요.	L1.eoyo,L1.eul_reul,L2.ege_source
+trade.sell	1	-	{"type":"TRADE","item":"minecraft:wheat","entity":"minecraft:villager","direction":"SELL","count":1}	-	주민에게 밀을 팔아요.	L1.eoyo,L1.eul_reul,L2.ege
+trade.sell.l2	2	-	{"type":"TRADE","item":"minecraft:wheat","entity":"minecraft:villager","direction":"SELL","count":1}	-	주민에게 밀을 파세요.	L2.seyo,L1.eul_reul,L2.ege
+consume.bread.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:bread","count":1}	-	빵을 드세요.	L2.seyo,L1.eul_reul
+consume.steak.l2	2	-	{"type":"CONSUME_ITEM","item":"minecraft:cooked_beef","count":1}	-	스테이크를 드세요.	L2.seyo,L1.eul_reul
+consume.milk.l2	2	milk	{"type":"CONSUME_ITEM","item":"minecraft:milk_bucket","count":1}	-	우유를 마시세요.	L2.seyo,L1.eul_reul

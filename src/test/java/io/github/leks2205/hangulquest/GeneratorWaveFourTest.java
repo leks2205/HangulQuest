@@ -354,10 +354,9 @@ class GeneratorWaveFourTest {
 	void i8_beiRegenIsNotAGiveaway() {
 		assertEquals(List.of(), relationProblems("Bei Regen eine Fackel setzen."));
 		assertEquals(List.of(), relationProblems("Setze bei Regen eine Fackel."));
-		for (String real : List.of("Setze eine Fackel auf die Kiste.", "Setze eine Fackel unter die Kiste.",
-				"Setze eine Fackel neben die Kiste.", "Setze eine Fackel vor die Kiste.",
-				"Setze eine Fackel hinter die Kiste.", "Setze eine Fackel zwischen zwei Kisten.",
-				"Setze eine Fackel über die Kiste.")) {
+		// the step asks for ON_TOP_OF: only the words for "on top of" give it away
+		for (String real : List.of("Setze eine Fackel auf die Kiste.", "Setze eine Fackel über die Kiste.",
+				"Setze eine Fackel obendrauf.")) {
 			assertFalse(relationProblems(real).isEmpty(), real);
 		}
 	}

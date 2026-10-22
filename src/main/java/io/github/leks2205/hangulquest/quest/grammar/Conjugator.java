@@ -8,8 +8,9 @@ import io.github.leks2205.hangulquest.util.hangul.HangulCompose.Syllable;
  *
  * <p>{@link #classify} decides the irregular class (from the lexicon irregulars.json first, then
  * from the spelling), {@link #of} wraps a word, and the {@link Word} methods build the forms:
- * {@code Conjugator.of("돕다").eoyo()} gives 도와요. Honorific replacements (먹다 → 드세요,
- * 자다 → 주무세요) are not handled; 들다 → 드세요 is the ordinary ㄹ-drop.
+ * {@code Conjugator.of("돕다").eoyo()} gives 도와요. The -(으)세요 form of a verb with an honorific word of its
+ * own (먹다 → 드세요) comes from the lexicon's "honorific" list; the rest is plain stem + (으)세요 (자세요, 마시세요).
+ * 들다 → 드세요 is the ordinary ㄹ-drop.
  */
 public final class Conjugator {
 	/** The conjugation classes of the gold table. */
@@ -132,8 +133,14 @@ public final class Conjugator {
 			return pastStem() + "어요";
 		}
 
-		/** -(으)세요: 먹으세요, 가세요, 만드세요. */
+		/** -(으)세요: 가세요, 만드세요, and the verbs with a word of their own: 먹다 is 드세요. */
 		public String seyo() {
+			String own = Lexicon.SHARED.honorific(dictionary);
+			return own != null ? own : plainSeyo();
+		}
+
+		/** The regular -(으)세요 stem: 먹으세요, 가세요, also for a verb that has an honorific word. */
+		public String plainSeyo() {
 			return eu("세요");
 		}
 
@@ -356,7 +363,7 @@ public final class Conjugator {
 		/** The inflected forms a clue can hold for this word: 가요, 갔어요, 가세요, 가고, 갈, 가면, 가서, 가지 마세요 ... */
 		public java.util.Set<String> forms() {
 			java.util.Set<String> forms = new java.util.LinkedHashSet<>();
-			for (String form : new String[] {stem(), eo(), eoyo(), past(), seyo(), go(), future(), myeon(), aseo(),
+			for (String form : new String[] {stem(), eo(), eoyo(), past(), seyo(), plainSeyo(), go(), future(), myeon(), aseo(),
 					eun(), neun(), ge(), goseo(), eureo(), jiman(), nikka(), ado(), neunde(), eoyaHaeyo(), giJeone(),
 					jiAnko(), jimaseyo()}) {
 				if (form != null && !form.isBlank()) {

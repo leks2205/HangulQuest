@@ -7,10 +7,10 @@
   "coverage.recycling.medianRetrievals": {"value": 0.0, "better": "higher", "target": 3},
   "coverage.recycling.seenShare": {"value": 0.691943, "better": "higher", "target": 1.0},
   "coverage.recycling.targetMetShare": {"value": 0.137441, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintFullyKnownShare": {"value": 0.929479, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintWordCoverage": {"value": 0.96062, "better": "higher", "target": 1.0},
-  "coverage.sentences.meanUnknown": {"value": 0.94028, "better": "lower", "target": 1},
-  "coverage.sentences.unknownOverOneShare": {"value": 0.054003, "better": "lower", "target": 0},
+  "coverage.sentences.hintFullyKnownShare": {"value": 0.928844, "better": "higher", "target": 1.0},
+  "coverage.sentences.hintWordCoverage": {"value": 0.960284, "better": "higher", "target": 1.0},
+  "coverage.sentences.meanUnknown": {"value": 0.940915, "better": "lower", "target": 1},
+  "coverage.sentences.unknownOverOneShare": {"value": 0.055273, "better": "lower", "target": 0},
   "variety.bareShare.1": {"value": 0.062972, "better": "lower", "target": 0.3},
   "variety.bareShare.2": {"value": 0.448718, "better": "lower", "target": 0.2},
   "variety.bareShare.3": {"value": 0.694524, "better": "lower", "target": 0.1},
@@ -40,6 +40,6 @@
   "variety.topTypeShare.5": {"value": 0.515464, "better": "lower", "target": 0.25},
   "variety.topTypeShare.6": {"value": 0.486111, "better": "lower", "target": 0.25},
   "variety.verbObjectMax": {"value": 6.0, "better": "lower", "target": 3},
-  "variety.verbObjectPairsOver3": {"value": 3.0, "better": "lower", "target": 0}
+  "variety.verbObjectPairsOver3": {"value": 5.0, "better": "lower", "target": 0}
  }
 }

@@ -22,11 +22,16 @@ import java.util.stream.Collectors;
 /**
  * Several goals done one after the other: "침대에서 자기 전에 빵을 먹어요", "빵을 먹은 후에 자요",
  * "나무를 베고 나서 판자를 만들어요". An event that comes before its turn does not count. With
- * {@code ordered} false the parts may come in any order ("문을 닫고 횃불을 놓아요"). Level 3 and up.
+ * {@code ordered} false the parts may come in any order ("문을 닫고 횃불을 놓아요"). Level 3 and up, except the
+ * plain -고 (level 2): parts in any order, or in order with the connector {@code AND} ("문을 닫고 횃불을 놓으세요").
  */
 final class SequenceType implements GoalType<Goal.Sequence> {
 	static final int MIN_LEVEL = 3;
-	private static final String[] CONNECTORS = {"BEFORE", "AFTER", "THEN"};
+	/** The level of the plain -고, which is a level-2 construction (L2.go_sequence). */
+	static final int MIN_LEVEL_AND = 2;
+	private static final String[] CONNECTORS = {"BEFORE", "AFTER", "THEN", "AND"};
+	/** What an ordered sequence without a connector picks from (by its parts); -고 is only ever written. */
+	private static final String[] DEFAULT_CONNECTORS = {"BEFORE", "AFTER", "THEN"};
 
 	@Override
 	public String id() {
@@ -43,7 +48,8 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		return List.of(Field.goalList("parts", 2, 3, "The goals, in the order they have to happen."),
 				Field.flag("ordered", "False lets the parts happen in any order (default true)."),
 				Field.choice("connector", false, "Which Korean connective ties the two parts of an ordered "
-						+ "sequence; chosen from the parts when left out.", CONNECTORS));
+						+ "sequence; chosen from the parts when left out. AND is the plain -고 (level 2); the order "
+						+ "is checked all the same.", CONNECTORS));
 	}
 
 	@Override
@@ -177,7 +183,10 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		return ids;
 	}
 
-	/** The connective decides the order; parts in any order have no deciding form. */
+	/**
+	 * The connective decides the order; parts in any order have no deciding form, and neither has a plain -고 that
+	 * does not check the order.
+	 */
 	@Override
 	public List<String> decidingForms(Goal.Sequence goal) {
 		return goal.ordered() && goal.parts().size() > 1 ? List.of(link(goal).grammar()) : List.of();
@@ -229,8 +238,11 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	@Override
 	public void validate(Goal.Sequence goal, ValidationContext context) {
 		GoalType.super.validate(goal, context);
-		if (context.koreanLevel() > 0 && context.koreanLevel() < MIN_LEVEL) {
-			context.problem("SEQUENCE needs koreanLevel " + MIN_LEVEL + " or higher (-기 전에, -(으)ㄴ 후에, -고 나서)");
+		boolean plainGo = !goal.ordered() || "AND".equals(goal.connector());
+		int minLevel = plainGo ? MIN_LEVEL_AND : MIN_LEVEL;
+		if (context.koreanLevel() > 0 && context.koreanLevel() < minLevel) {
+			context.problem("SEQUENCE needs koreanLevel " + minLevel + " or higher ("
+					+ (plainGo ? "-고" : "-기 전에, -(으)ㄴ 후에, -고 나서; at level 2 only the connector AND, -고") + ")");
 		}
 		int size = goal.parts().size();
 		if (size < 2 || size > (goal.ordered() ? 2 : 3)) {
@@ -291,8 +303,8 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		if (goal.connector() != null) {
 			return goal.connector();
 		}
-		return CONNECTORS[Math.floorMod(goal.parts().stream().map(GoalEvaluator::key)
-				.collect(Collectors.joining("|")).hashCode(), CONNECTORS.length)];
+		return DEFAULT_CONNECTORS[Math.floorMod(goal.parts().stream().map(GoalEvaluator::key)
+				.collect(Collectors.joining("|")).hashCode(), DEFAULT_CONNECTORS.length)];
 	}
 
 	private static Clauses.Link link(Goal.Sequence goal) {
@@ -300,6 +312,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 			return Clauses.Link.AND;
 		}
 		return switch (effectiveConnector(goal)) {
+			case "AND" -> Clauses.Link.AND;
 			case "BEFORE" -> Clauses.Link.BEFORE;
 			case "AFTER" -> Clauses.Link.AFTER;
 			default -> Clauses.Link.THEN;

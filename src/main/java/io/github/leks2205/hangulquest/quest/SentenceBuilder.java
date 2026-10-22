@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.GoalTypes;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.SentenceContext;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.grammar.Conjugator;
 import io.github.leks2205.hangulquest.quest.grammar.Endings;
 import io.github.leks2205.hangulquest.quest.grammar.Ladder;
@@ -122,7 +123,8 @@ public final class SentenceBuilder {
 	}
 
 	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
-		return attach(prefix(goal, conditions, word, namer, 1), core(goal, word, verbWord, conditions, false, 1, false,
+		Goal shown = GoalTypes.of(goal).forHint(goal);
+		return attach(prefix(shown, conditions, word, namer, 1), core(shown, word, verbWord, conditions, false, 1, false,
 				namer), 1);
 	}
 
@@ -316,7 +318,7 @@ public final class SentenceBuilder {
 			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY
 					|| kind == ObjectKind.BIOME;
 			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id, namer)) {
-				return word.ko;
+				return Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);
 			return registry == null || registry.isBlank() ? word.ko : registry;
@@ -379,6 +381,9 @@ public final class SentenceBuilder {
 		}
 	}
 
+	/** What a request to till says before its object (see UseBlockType): the tool that tells 갈다 from 가다. */
+	private static final String TILL_TOOL = "괭이로 ";
+
 	/** Words that open a body with 에서 although they are no place a modifier could stand in front of. */
 	private static final java.util.Set<String> ADVERB_PLACES = java.util.Set.of("밖에서", "안에서", "물속에서",
 			"땅속에서", "여기에서", "그곳에서", "거기에서");
@@ -390,6 +395,10 @@ public final class SentenceBuilder {
 	 * "높이 90블록 위의 침대에서"), and moves right in front of it.
 	 */
 	static String attach(Front front, String body, int level) {
+		body = withoutRepeatedPlace(front, body);
+		if (body.startsWith(TILL_TOOL) && front.text().contains("괭이를 들고")) {
+			body = body.substring(TILL_TOOL.length()); // "나무 괭이를 들고 흙을 가세요": the hoe is already in the hand
+		}
 		int merge = -1;
 		String first = body.contains(" ") ? body.substring(0, body.indexOf(' ')) : body;
 		if (!ADVERB_PLACES.contains(first)) {
@@ -413,6 +422,24 @@ public final class SentenceBuilder {
 			}
 		}
 		return sb + front.places().get(merge) + (level >= 3 ? "의 " : " ") + body;
+	}
+
+	/**
+	 * A body that opens with the place the front already stands at drops it: "제작대 옆에서" in front of "제작대에서
+	 * 철 곡괭이를 만드세요" is one phrase, "제작대 옆에서 철 곡괭이를 만드세요", not the station named twice.
+	 */
+	private static String withoutRepeatedPlace(Front front, String body) {
+		String place = openingPlace(body);
+		if (place == null) {
+			return body;
+		}
+		for (String phrase : front.phrases()) {
+			String said = phrase.strip();
+			if (said.startsWith(place + " ") && said.endsWith("에서")) {
+				return body.substring(place.length() + "에서 ".length());
+			}
+		}
+		return body;
 	}
 
 	/** The place a body opens with ("침대에서", "석재 절단기에서"), or null: the words up to the first one ending in 에서. */

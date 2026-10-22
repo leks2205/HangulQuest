@@ -13,16 +13,24 @@ import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
 import io.github.leks2205.hangulquest.quest.VerbTable;
 import io.github.leks2205.hangulquest.sense.GiveFact;
+import io.github.leks2205.hangulquest.sense.GiveTracker;
 import io.github.leks2205.hangulquest.sense.Observation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/** Hand an item to a creature or a person: "소에게 밀을 줘요", "주민 앞에 빵을 떨어뜨려요". */
+/**
+ * Hand an item to a creature or a person: "소에게 밀을 줘요", "주민 앞에 빵을 떨어뜨려요". A villager takes no item
+ * by right-click: a gift to one counts when the villager picks the dropped item up (DROP_NEAR) or when it is paid
+ * in a trade (TRADE); a wandering trader only takes a trade.
+ */
 final class GiveType implements GoalType<Goal.Give> {
 	private static final String[] METHODS = Arrays.stream(GiveFact.Method.values()).map(Enum::name)
 			.toArray(String[]::new);
+	/** The way a hint tells how to give to a villager: the item is put down in front of it. Never written in a file. */
+	static final String PLACE_NEAR = "PLACE_NEAR";
+	private static final String TRADER = "minecraft:wandering_trader";
 	/** The "someone" in a sentence whose recipient has no name. */
 	private static final String SOMEONE = "누군가";
 
@@ -74,12 +82,38 @@ final class GiveType implements GoalType<Goal.Give> {
 	@Override
 	public boolean evaluate(Goal.Give goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (GiveFact fact : obs.gave) {
-			boolean way = goal.method() == null || goal.method().equals(fact.method().name());
+			boolean way = counts(goal, fact);
 			if (way && goal.entity().equals(fact.targetType()) && Matching.accepts(tracker, goal.item(), fact.item())) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}
 		return tracker.count >= Math.max(1, goal.count());
+	}
+
+	/** Whether the way the item was given is one that counts for this goal and its recipient. */
+	static boolean counts(Goal.Give goal, GiveFact fact) {
+		String way = fact.method().name();
+		if (goal.method() != null) {
+			return goal.method().equals(way);
+		}
+		if (GiveTracker.PICKUP_TYPES.contains(goal.entity())) {
+			return way.equals("DROP_NEAR") || way.equals("TRADE");
+		}
+		return !TRADER.equals(goal.entity()) || way.equals("TRADE");
+	}
+
+	/**
+	 * The hint of a gift to a villager says how it is done, because 줘요 alone leaves the player at the villager
+	 * with an item in the hand and nothing to click: "주민 앞에 빵을 놓아요". A payment (emerald) is a trade and keeps
+	 * its sentence.
+	 */
+	@Override
+	public Goal.Give forHint(Goal.Give goal) {
+		boolean villager = GiveTracker.PICKUP_TYPES.contains(goal.entity());
+		if (villager && goal.method() == null && !"minecraft:emerald".equals(goal.item())) {
+			return new Goal.Give(goal.item(), goal.entity(), PLACE_NEAR, goal.count());
+		}
+		return goal;
 	}
 
 	@Override
@@ -94,6 +128,9 @@ final class GiveType implements GoalType<Goal.Give> {
 
 	@Override
 	public Verb verb(Goal.Give goal, VerbTable table) {
+		if (PLACE_NEAR.equals(goal.method())) {
+			return Verb.PLACE;
+		}
 		return GiveFact.Method.DROP_NEAR.name().equals(goal.method()) ? Verb.DROP_AT : Verb.GIVE;
 	}
 
@@ -102,7 +139,7 @@ final class GiveType implements GoalType<Goal.Give> {
 		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), c.withCounts(), goal.item(),
 				item(goal, c));
 		String who = recipient(goal, c);
-		String head = c.verb() == Verb.DROP_AT ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
+		String head = inFront(goal, c) ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
 		return SentenceBuilder.phrase(head, c.verb(), c.level(), c.finale());
 	}
 
@@ -115,7 +152,7 @@ final class GiveType implements GoalType<Goal.Give> {
 	public String ceremony(Goal.Give goal, SentenceContext c) {
 		String item = SentenceBuilder.counted(KoGrammar.eul(item(goal, c)), goal.count(), true, goal.item(), item(goal, c));
 		String who = recipient(goal, c);
-		String head = c.verb() == Verb.DROP_AT ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
+		String head = inFront(goal, c) ? who + " 앞에 " + item : KoGrammar.ege(who) + " " + item;
 		return head + " " + c.verb().past();
 	}
 
@@ -123,7 +160,7 @@ final class GiveType implements GoalType<Goal.Give> {
 	public List<String> grammarIds(Goal.Give goal, SentenceContext c) {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
 		ids.add("L1.eul_reul");
-		if (c.verb() == Verb.DROP_AT) {
+		if (inFront(goal, c)) {
 			ids.add("L1.loc.ap");
 		}
 		return ids;
@@ -171,6 +208,19 @@ final class GiveType implements GoalType<Goal.Give> {
 		if (goal.method() != null && Arrays.stream(METHODS).noneMatch(goal.method()::equals)) {
 			context.problem("unknown give method " + goal.method());
 		}
+		boolean picks = GiveTracker.PICKUP_TYPES.contains(goal.entity());
+		if ((picks || TRADER.equals(goal.entity())) && ("FEED".equals(goal.method()) || "USE_WITH".equals(goal.method()))) {
+			context.problem("a " + goal.entity() + " takes no item by right-click: leave the method out, or use "
+					+ (picks ? "DROP_NEAR or " : "") + "TRADE");
+		}
+		if (TRADER.equals(goal.entity()) && "DROP_NEAR".equals(goal.method())) {
+			context.problem("a wandering trader does not pick up dropped items: use TRADE");
+		}
+	}
+
+	/** The item is put down in front of the recipient (떨어뜨려요, 놓아요) instead of handed over (줘요). */
+	private static boolean inFront(Goal.Give goal, SentenceContext c) {
+		return c.verb() == Verb.DROP_AT || PLACE_NEAR.equals(goal.method());
 	}
 
 	/**

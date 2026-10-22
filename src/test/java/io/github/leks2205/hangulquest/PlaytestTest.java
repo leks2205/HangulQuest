@@ -302,7 +302,9 @@ class PlaytestTest {
 					g.station() == null ? "crafting_table" : g.station()));
 			case Goal.Smelt g -> obs.addCrafted(new CraftFact(g.output(), Math.max(1, g.count()), "furnace"));
 			case Goal.Give g -> obs.addGave(new GiveFact(g.item(), Math.max(1, g.count()), g.entity(),
-					UUID.randomUUID(), g.method() == null ? GiveFact.Method.USE_WITH
+					UUID.randomUUID(), g.method() == null
+					? "minecraft:villager".equals(g.entity()) ? GiveFact.Method.DROP_NEAR
+					: "minecraft:wandering_trader".equals(g.entity()) ? GiveFact.Method.TRADE : GiveFact.Method.USE_WITH
 					: GiveFact.Method.valueOf(g.method())));
 			case Goal.PutIn g -> obs.addPutIn(new ContainerPutFact(g.item(), Math.max(1, g.count()),
 					g.container(), BlockPos.ZERO));
@@ -330,6 +332,10 @@ class PlaytestTest {
 			}
 			case Goal.Breed g -> {
 			}
+			// the armour is on in this observation; the play loop has shown it off before
+			case Goal.Equip g -> obs.worn = "OFF".equals(g.change()) ? java.util.Map.of()
+					: java.util.Map.of(g.item().contains("helmet") ? "head" : g.item().contains("chestplate") ? "chest"
+					: g.item().contains("leggings") ? "legs" : "feet", g.item());
 			case Goal.HoldWhile g -> {
 				obs.mainHand = g.item();
 				obs.idle = false;

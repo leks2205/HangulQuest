@@ -1,6 +1,6 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
-/** What a relation is measured against: a block (or family, or tag), a structure the player built, or a block placed earlier. */
+/** What a relation is measured against: a block (or family, or tag), a creature, a structure the player built, or a block placed earlier. */
 public sealed interface Anchor {
 	/** A block id, a family such as the doors, or a tag-style pattern, see {@link BlockSpec}. */
 	record Block(String spec) implements Anchor {
@@ -35,6 +35,14 @@ public sealed interface Anchor {
 		@Override
 		public String key() {
 			return "@" + step;
+		}
+	}
+
+	/** A creature (a villager, a golem, an animal) that faces a way: 앞 and 뒤 are measured from where it looks. */
+	record Entity(String type) implements Anchor {
+		@Override
+		public String key() {
+			return type;
 		}
 	}
 

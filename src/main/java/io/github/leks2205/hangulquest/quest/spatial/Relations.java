@@ -1,7 +1,9 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
 import io.github.leks2205.hangulquest.sense.BlockNeighborhood;
+import io.github.leks2205.hangulquest.sense.EntityFact;
 import io.github.leks2205.hangulquest.sense.PlacementFact;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 import java.util.List;
@@ -23,7 +25,13 @@ public final class Relations {
 
 	/** Every relation that holds for this placement and anchor. */
 	public static EnumSet<Relation> holding(Anchor anchor, PlacementFact fact) {
+		return holding(anchor, fact, List.of());
+	}
+
+	/** Same, with the creatures around the player, for an {@link Anchor.Entity}. */
+	public static EnumSet<Relation> holding(Anchor anchor, PlacementFact fact, List<EntityFact> entities) {
 		return switch (anchor) {
+			case Anchor.Entity entity -> holdingEntity(entity.type(), fact, entities);
 			case Anchor.Block block -> holdingBlock(block.spec(), fact);
 			case Anchor.Built built -> holdingBuilt(built, fact);
 			case Anchor.Pair pair -> holdingPair(pair, fact);
@@ -39,6 +47,12 @@ public final class Relations {
 	public static boolean supported(Relation relation, Anchor anchor) {
 		if (anchor instanceof Anchor.Pair) {
 			return relation == Relation.BETWEEN;
+		}
+		if (anchor instanceof Anchor.Entity) {
+			return switch (relation) {
+				case IN_FRONT_OF, BEHIND, NEXT_TO, NEAR -> true;
+				default -> false;
+			};
 		}
 		if (anchor instanceof Anchor.Placed) {
 			return switch (relation) {
@@ -59,13 +73,14 @@ public final class Relations {
 	}
 
 	/**
-	 * The relation the player used instead of the wanted one, or null. 근처 and 밖 are too loose to
-	 * count as a "wrong" answer; everything more specific is.
+	 * The relation the player used instead of the wanted one, or null. 근처 is too loose to count as a "wrong"
+	 * answer, and so is 밖 unless 안 was asked: the two contrast, so standing outside is the slip of a learner
+	 * who did not read 안.
 	 */
 	public static Relation wrongRelation(Relation wanted, EnumSet<Relation> held) {
 		for (Relation relation : Relation.values()) {
-			if (relation != wanted && relation != Relation.NEAR && relation != Relation.OUTSIDE
-					&& held.contains(relation)) {
+			boolean loose = relation == Relation.NEAR || relation == Relation.OUTSIDE && wanted != Relation.INSIDE;
+			if (relation != wanted && !loose && held.contains(relation)) {
 				return relation;
 			}
 		}
@@ -196,6 +211,51 @@ public final class Relations {
 					|| ray(around, pair.second().spec(), axis) && ray(around, pair.first().spec(), back)) {
 				held.add(Relation.BETWEEN);
 			}
+		}
+		return held;
+	}
+
+	/**
+	 * A creature as the anchor: the placed block lies in the direction it looks (앞), the opposite (뒤), within
+	 * two and a half blocks and about level (옆), or within six blocks (근처). The nearest creature of the kind
+	 * is the one measured.
+	 */
+	private static EnumSet<Relation> holdingEntity(String type, PlacementFact fact, List<EntityFact> entities) {
+		EnumSet<Relation> held = EnumSet.noneOf(Relation.class);
+		Vec3 block = new Vec3(fact.pos().getX() + 0.5, fact.pos().getY() + 0.5, fact.pos().getZ() + 0.5);
+		EntityFact nearest = null;
+		double best = Double.MAX_VALUE;
+		for (EntityFact entity : entities) {
+			double distance = entity.position().distanceToSqr(block);
+			if (entity.type().equals(type) && distance < best) {
+				best = distance;
+				nearest = entity;
+			}
+		}
+		if (nearest == null) {
+			return held;
+		}
+		double dx = block.x - nearest.x();
+		double dz = block.z - nearest.z();
+		double flat = Math.hypot(dx, dz);
+		double dy = Math.abs(block.y - (nearest.y() + 0.9));
+		if (Math.sqrt(flat * flat + dy * dy) <= 6.0) {
+			held.add(Relation.NEAR);
+		}
+		if (flat > 0.4 && flat <= 3.5 && dy <= 1.5) {
+			Vec3 look = nearest.facing();
+			double lookLength = Math.hypot(look.x, look.z);
+			if (lookLength > 1.0E-6) {
+				double alignment = (look.x * dx + look.z * dz) / (lookLength * flat);
+				if (alignment >= 0.7) {
+					held.add(Relation.IN_FRONT_OF);
+				} else if (alignment <= -0.7) {
+					held.add(Relation.BEHIND);
+				}
+			}
+		}
+		if (flat > 0.4 && flat <= 2.5 && dy <= 1.5) {
+			held.add(Relation.NEXT_TO);
 		}
 		return held;
 	}

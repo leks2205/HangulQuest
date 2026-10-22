@@ -10,6 +10,21 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 - **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.
 
+### Added and fixed (generator wave 6)
+
+- **Limits from the first level-2 batches.** A trail may list the constructions it practises (`"grammar": [...]`, checked
+  against `grammar.json`, dumped into `steps.json`; the 15 smithy trails carry theirs). The iron and gold chains have
+  words (철 광석, 철 원석, 철 주괴, 금 ...); 철 stays the core word. A tool or armour goal that asks for one tier says it
+  (철 곡괭이, 나무 도끼, 철 갑옷; 투구, 바지, 신발 are words too) and is exact. New goal `EQUIP` reads the four armour
+  slots (투구를 써요, 갑옷을 입어요, 신발을 신어요, 벗어요). 밖 is a deciding form; 앞 and 뒤 take stairs, workstations,
+  barrels, signs, banners, pumpkins and creatures (주민 앞에) as anchors. Compound pattern names are spelled as
+  표준국어대사전 does (돌담, 돌기둥) and the shortener keeps a shared material (석재 벽돌 기둥 옆에 석재 벽돌 계단을). Signs,
+  armour stands and single pillars are stood (세우다), hanging signs are fitted (달다). A plain -고 sequence is a level-2
+  sentence. The request to eat is 드세요, to till is 괭이로 흙을 가세요, to buy is 주민에게서 사세요; a villager takes a
+  dropped item it picks up, not a right-click. The German giveaway check looks at the step's own relation, as separate
+  words, and leaves out what its conditions say (unter der Erde). A concept without a German gloss that a trail teaches
+  now fails a test by name.
+
 ### Fixed (generator wave 5)
 
 - **Limits from the seventh content batch.** 요리하다 names the food that goes in (감자를 요리해요), not the baked

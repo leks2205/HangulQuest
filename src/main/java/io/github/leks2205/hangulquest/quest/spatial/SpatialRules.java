@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.Questline;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
+import io.github.leks2205.hangulquest.quest.goal.Tiers;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
 
 import java.util.ArrayList;
@@ -17,18 +18,6 @@ import java.util.Locale;
  * not give it away, and the materials must be reachable at the trail's level.
  */
 public final class SpatialRules {
-	/** English words that say where something goes. A translation with one of them gives the task away. */
-	private static final java.util.regex.Pattern EN_RELATION = java.util.regex.Pattern.compile(
-			"\\b(on top|atop|on|above|over|under|underneath|beneath|below|next to|beside|besides|adjacent|"
-					+ "in front|behind|inside|outside|between|near|nearby|around|within)\\b",
-			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
-	// no "bei": "bei Regen" is a time, not a place
-	private static final java.util.regex.Pattern DE_RELATION = java.util.regex.Pattern.compile(
-			"\\b(oben|auf|über|unter|unterhalb|darunter|darüber|neben|daneben|vor|davor|hinter|dahinter|"
-					+ "innerhalb|innen|drinnen|außerhalb|draußen|zwischen|dazwischen|nahe|nähe)\\b",
-			// \\b is ASCII-only without UNICODE_CHARACTER_CLASS: "tagsüber" would hold "über"
-			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
-
 	/** Materials of the Nether and the End; they are out of reach for a beginner. */
 	private static final String[] FAR_AWAY = {"nether", "soul_", "basalt", "blackstone", "crimson", "warped",
 			"glowstone", "magma", "quartz", "shroomlight", "ancient_debris", "end_", "purpur", "chorus", "gilded"};
@@ -54,23 +43,14 @@ public final class SpatialRules {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
 			}
 		};
 	}
 
-	/** The relation-revealing word in a translation, or null when it is clean. */
+	/** The relation-revealing word in a translation, whichever relation it names, or null when it is clean. */
 	public static String leak(String translation) {
-		if (translation == null) {
-			return null;
-		}
-		for (java.util.regex.Pattern pattern : new java.util.regex.Pattern[]{EN_RELATION, DE_RELATION}) {
-			java.util.regex.Matcher found = pattern.matcher(translation);
-			if (found.find()) {
-				return found.group();
-			}
-		}
-		return null;
+		return RelationWords.leak(translation, null, List.of());
 	}
 
 	/** True when the Korean has the relation as a place word: " 옆에", " 위에서". */
@@ -97,7 +77,7 @@ public final class SpatialRules {
 		}
 		String[] translations = {step.clueEn(), step.clueDe(), step.hintEn(), step.hintDe()};
 		for (String translation : translations) {
-			String leaked = leak(translation);
+			String leaked = RelationWords.leak(translation, relation, step.conditions());
 			if (leaked != null) {
 				context.problem("the translation gives the relation away ('" + leaked + "'): " + translation);
 			}
@@ -123,7 +103,7 @@ public final class SpatialRules {
 		return switch (goal) {
 			case Goal.PlaceRel g -> {
 				List<String> blocks = new ArrayList<>(List.of(g.block()));
-				if (!StepRef.isRef(g.anchor())) {
+				if (!StepRef.isRef(g.anchor()) && !BlockSpec.isEntityAnchor(g.anchor())) {
 					blocks.add(g.anchor());
 				}
 				if (g.anchor2() != null) {

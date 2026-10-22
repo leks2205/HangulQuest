@@ -622,9 +622,10 @@
               "enum": [
                 "BEFORE",
                 "AFTER",
-                "THEN"
+                "THEN",
+                "AND"
               ],
-              "description": "Which Korean connective ties the two parts of an ordered sequence; chosen from the parts when left out."
+              "description": "Which Korean connective ties the two parts of an ordered sequence; chosen from the parts when left out. AND is the plain -고 (level 2); the order is checked all the same."
             }
           },
           "required": [
@@ -854,6 +855,28 @@
             "item",
             "direction",
             "count"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "EQUIP"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "change": {
+              "enum": [
+                "ON",
+                "OFF"
+              ],
+              "description": "ON (the default) puts the armour piece on, OFF takes it off."
+            }
+          },
+          "required": [
+            "type",
+            "item"
           ],
           "additionalProperties": false
         }
@@ -1192,6 +1215,15 @@
         "type": "string",
         "description": "Concept ids shown in the journal under this trail."
       }
+    },
+    "grammar": {
+      "type": "array",
+      "description": "Optional. The constructions of grammar.json the trail is meant to practise (ids such as L2.seyo, or a ladder alias). The game checks every id and ignores the unknown ones; tools list them next to the trail.",
+      "items": {
+        "type": "string",
+        "pattern": "^L[1-6]\\.[a-z0-9_.]+$"
+      },
+      "uniqueItems": true
     },
     "requires": {
       "type": "object",

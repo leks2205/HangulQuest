@@ -94,7 +94,14 @@ public enum Verb {
 	PLAY("틀다", "abspielen"),
 	CHARGE("충전하다", "aufladen"),
 	FILL("채우다", "füllen"),
-	TILL("갈다", "pflügen");
+	TILL("갈다", "pflügen"),
+
+	// Wave 6: wearing armour. The verb follows the body part: a helmet is put on the head (쓰다), a chest piece and
+	// trousers are put on (입다), shoes are put on the feet (신다); taking any of them off is 벗다.
+	WEAR_HEAD("쓰다", "aufsetzen"),
+	PUT_ON("입다", "anziehen"),
+	PUT_ON_SHOES("신다", "anziehen"),
+	TAKE_OFF("벗다", "ausziehen");
 
 
 	/** How the target noun is marked in front of the verb. */

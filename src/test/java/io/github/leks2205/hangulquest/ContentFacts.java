@@ -62,8 +62,13 @@ final class ContentFacts {
 				boolean formDependent, List<String> grammar, List<String> teach, List<Target> targets, String clueKo, String hintKo) {
 	}
 
+	/** {@code grammar} is the trail-level list its file declares ("grammar": [...]); empty when it has none. */
 	record Trail(String id, int level, int order, boolean demo, List<String> requires, String titleKo,
-				 String finaleKo, List<Step> steps) {
+				 String finaleKo, List<Step> steps, List<String> grammar) {
+		Trail(String id, int level, int order, boolean demo, List<String> requires, String titleKo,
+			  String finaleKo, List<Step> steps) {
+			this(id, level, order, demo, requires, titleKo, finaleKo, steps, List.of());
+		}
 	}
 
 	// ------------------------------------------------------------------ building
@@ -94,7 +99,7 @@ final class ContentFacts {
 			}
 			out.add(new Trail(trail.id(), trail.koreanLevel(), trail.order(), isDemo(trail.id()),
 					List.copyOf(trail.requires().completed()), trail.titleKo() == null ? "" : trail.titleKo(),
-					trail.finaleKo() == null ? "" : trail.finaleKo(), List.copyOf(steps)));
+					trail.finaleKo() == null ? "" : trail.finaleKo(), List.copyOf(steps), trail.grammar()));
 		}
 		return out;
 	}
@@ -246,6 +251,7 @@ final class ContentFacts {
 			case Goal.ReachBiome g -> add(into, "object", g.biome());
 			case Goal.UseBlock g -> add(into, "object", g.block());
 			case Goal.InteractEntity g -> add(into, "object", g.entity());
+			case Goal.Equip g -> add(into, "object", g.item());
 			case Goal.PlaceRel g -> {
 				add(into, "object", g.block());
 				add(into, "anchor", g.anchor());
@@ -344,6 +350,7 @@ final class ContentFacts {
 			t.add("requires", strings(trail.requires()));
 			t.addProperty("titleKo", trail.titleKo());
 			t.addProperty("finaleKo", trail.finaleKo());
+			t.add("grammar", strings(trail.grammar()));
 			JsonArray steps = new JsonArray();
 			for (Step step : trail.steps()) {
 				JsonObject s = new JsonObject();
@@ -401,7 +408,7 @@ final class ContentFacts {
 			}
 			trails.add(new Trail(t.get("id").getAsString(), t.get("level").getAsInt(), t.get("order").getAsInt(),
 					t.get("demo").getAsBoolean(), list(t, "requires"), t.get("titleKo").getAsString(),
-					t.get("finaleKo").getAsString(), steps));
+					t.get("finaleKo").getAsString(), steps, t.has("grammar") ? list(t, "grammar") : List.of()));
 		}
 		return trails;
 	}
