@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 252,
  "concepts": [
-  "gen_cyan_candle",
-  "gen_weathered_copper_grate",
-  "gen_evoker"
+  "arrow",
+  "bow",
+  "sword",
+  "ender_dragon"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cyan_candle"
+    "arrow",
+    "bow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cyan_candle",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:bow",
+      "count": 1
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:arrow",
+      "count": 16
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_weathered_copper_grate"
+    "sword"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_grate",
-    "count": 32
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:iron_sword",
+    "inner": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:enderman",
+     "count": 2
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "ender_dragon"
+   ],
+   "goal": {
+    "type": "SHOOT",
+    "weapon": "minecraft:bow",
+    "entity": "minecraft:ender_dragon",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_evoker"
+    "ender_dragon"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:evoker",
+    "entity": "minecraft:ender_dragon",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "소환사를 물리쳤어요."
+  "textKo": "엔더 드래곤을 물리쳤어요. 엔더 드래곤은 엔드에 살아요."
  },
  "reward": {
   "badge": "adv_end_kill_dragon",
   "words": [
-   "bow",
    "arrow",
+   "bow",
+   "sword",
    "ender_dragon"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

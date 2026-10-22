@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 250,
  "concepts": [
-  "gen_silverfish",
   "ender_pearl",
-  "gen_poplar_pressure_plate"
+  "go",
+  "adv_block_end_stone",
+  "gen_end_midlands"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,79 @@
   {
    "id": "s1",
    "teach": [
-    "gen_silverfish"
-   ],
-   "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:silverfish",
-    "count": 1
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "ender_pearl"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ender_pearl",
     "count": 4
-   }
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "go"
+   ],
+   "goal": {
+    "type": "WALK",
+    "direction": "EAST",
+    "blocks": 30
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ender_pearl"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_block_end_stone"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:end_stone",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "NORTH"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_pressure_plate"
+    "gen_end_midlands"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_pressure_plate",
-    "count": 2
+    "type": "REACH_BIOME",
+    "biome": "minecraft:end_midlands",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "포플러나무 압력판을 두 개 놓았어요."
+  "textKo": "엔드 중지로 갔어요. 엔드 관문은 멀리 있는 섬으로 이어져요."
  },
  "reward": {
   "badge": "adv_end_enter_end_gateway",
   "words": [
-   "enderman",
    "ender_pearl",
-   "adv_dimension_the_end"
+   "go",
+   "adv_block_end_stone",
+   "gen_end_midlands"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

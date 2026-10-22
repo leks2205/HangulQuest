@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 255,
  "concepts": [
-  "adv_item_blaze_rod",
+  "enderman",
+  "ender_pearl",
   "adv_item_ender_eye",
-  "gen_quartz_block"
+  "adv_dimension_the_end"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +22,90 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_blaze_rod"
+    "enderman"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:blaze_rod",
-    "count": 6
-   }
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
+    "ender_pearl",
     "adv_item_ender_eye"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ender_eye",
-    "count": 12
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:ender_pearl",
+      "count": 2
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:ender_eye",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "hint": {
-    "ko": "엔더 진주와 블레이즈 가루로 만들어요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "enderman"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:enderman",
+     "dwellMs": 1000
+    },
+    "windowSeconds": 20
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_quartz_block"
+    "adv_dimension_the_end"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:quartz_block",
-    "count": 3
+    "type": "REACH_DIMENSION",
+    "dimension": "minecraft:the_end"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:ender_eye"
+    }
+   ]
   },
-  "textKo": "석영 블록을 세 개 쌓았어요."
+  "textKo": "엔드로 갔어요. 엔드에는 엔더맨이 많아요."
  },
  "reward": {
   "badge": "adv_end_root",
   "words": [
-   "adv_item_blaze_rod",
+   "enderman",
+   "ender_pearl",
    "adv_item_ender_eye",
    "adv_dimension_the_end"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }
