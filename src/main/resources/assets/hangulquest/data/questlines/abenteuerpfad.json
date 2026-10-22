@@ -9,7 +9,8 @@
   "compass",
   "mountain",
   "planks",
-  "sign"
+  "sign",
+  "lie_down"
  ],
  "requires": {
   "minWordsKnown": 8,
@@ -71,11 +72,9 @@
     "pattern": "RING",
     "material": "minecraft:dark_oak_planks"
    }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
+  },
+  {
+   "id": "s5",
    "teach": [
     "sign",
     "planks"
@@ -86,10 +85,28 @@
     "relation": "ON_TOP_OF",
     "pattern": "RING",
     "material": "minecraft:dark_oak_planks"
+   }
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
+    "lie_down"
+   ],
+   "goal": {
+    "type": "LIE_DOWN",
+    "block": "minecraft:red_bed",
+    "dwellMs": 3000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "판자 담 위에 표지판을 세웠어요."
+  "textKo": "밤에 침대에 누웠어요. 밖은 어두워요. 담 안은 따뜻해요."
  },
  "reward": {
   "badge": "abenteuerpfad",

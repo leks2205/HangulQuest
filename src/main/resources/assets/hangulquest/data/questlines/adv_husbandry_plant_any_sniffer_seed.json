@@ -1,14 +1,17 @@
 {
  "schema": 1,
  "id": "adv_husbandry_plant_any_sniffer_seed",
- "titleKo": "과거를 심다",
+ "titleKo": "토끼 밭",
  "topic": "husbandry",
  "tier": 2,
  "order": 272,
  "concepts": [
-  "gen_cherry_trapdoor",
-  "adv_item_pitcher_pod",
-  "flower"
+  "rabbit",
+  "fence",
+  "gen_pink_tulip",
+  "carrot",
+  "raise",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +24,114 @@
   {
    "id": "s1",
    "teach": [
-    "gen_cherry_trapdoor"
+    "rabbit"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cherry_trapdoor",
-    "count": 1
-   }
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:rabbit"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:meadow"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_pitcher_pod"
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pitcher_pod",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:cherry_fence",
+    "size": 3
    }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_pink_tulip",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:pink_tulip",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:cherry_fence"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "carrot",
+    "fence"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carrots",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:cherry_fence"
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
+    "raise",
+    "rabbit"
+   ],
+   "goal": {
+    "type": "BREED",
+    "entity": "minecraft:rabbit",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:carrot"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "flower"
+    "wait",
+    "rabbit"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:poppy",
-    "dwellMs": 600
+    "type": "WAIT",
+    "seconds": 10
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:rabbit",
+     "count": 2
+    }
+   ]
   },
-  "textKo": "과거를 심다 — 심은 고대 씨앗이 꽃으로 피어요."
+  "textKo": "토끼 두 마리 근처에서 십 초 동안 기다렸어요."
  },
  "reward": {
   "badge": "adv_husbandry_plant_any_sniffer_seed",
   "words": [
-   "adv_block_torchflower_seeds",
-   "adv_item_pitcher_pod",
-   "flower"
+   "rabbit",
+   "fence",
+   "gen_pink_tulip",
+   "carrot"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.go_held",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }

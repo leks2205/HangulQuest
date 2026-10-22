@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_husbandry_kill_axolotl_target",
- "titleKo": "우정의 치유력!",
+ "titleKo": "양털 깎는 날",
  "topic": "husbandry",
  "tier": 2,
  "order": 266,
  "concepts": [
-  "gen_gray_stained_glass_pane",
-  "gen_dripstone_block",
-  "squid"
+  "wool",
+  "shears",
+  "adv_item_white_banner",
+  "sheep"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,22 +22,43 @@
   {
    "id": "s1",
    "teach": [
-    "gen_gray_stained_glass_pane"
+    "wool",
+    "shears"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_stained_glass_pane",
-    "count": 1
-   }
+    "item": "minecraft:white_wool",
+    "count": 6
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:shears"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_dripstone_block"
+    "adv_item_white_banner"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dripstone_block",
+    "type": "CRAFT",
+    "item": "minecraft:white_banner",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_white_banner",
+    "sheep"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:white_banner",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:sheep",
     "count": 1
    }
   }
@@ -45,24 +67,35 @@
   "step": {
    "id": "finale",
    "teach": [
-    "squid"
+    "sheep"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:squid",
-    "count": 1
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:sheep"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:white_banner"
+    }
+   ]
   },
-  "textKo": "오징어를 물리쳤어요."
+  "textKo": "하얀색 현수막 근처에서 양에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "adv_husbandry_kill_axolotl_target",
   "words": [
-   "adv_item_axolotl_bucket",
-   "sword",
-   "zombie"
+   "wool",
+   "shears",
+   "adv_item_white_banner",
+   "sheep"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.go_held",
+  "L2.eseo_activity"
+ ]
 }

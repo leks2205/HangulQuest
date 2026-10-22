@@ -1,14 +1,17 @@
 {
  "schema": 1,
  "id": "adv_husbandry_froglights",
- "titleKo": "우리의 힘을 합친다면!",
+ "titleKo": "개구리 연못의 밤",
  "topic": "husbandry",
  "tier": 2,
  "order": 265,
  "concepts": [
-  "magma",
-  "gen_llama",
-  "adv_item_ochre_froglight"
+  "gen_mangrove_swamp",
+  "gen_lime_candle",
+  "water",
+  "planks",
+  "carpet",
+  "frog"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,25 +24,58 @@
   {
    "id": "s1",
    "teach": [
-    "magma"
+    "gen_mangrove_swamp"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:magma_block",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:mangrove_swamp",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "마그마 블록은 곡괭이로 캐요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_llama"
+    "gen_lime_candle",
+    "water"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:llama"
+    "type": "PLACE_REL",
+    "block": "minecraft:lime_candle",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
+   }
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "planks"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "ROW",
+    "material": "minecraft:mangrove_planks",
+    "size": 3
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "carpet",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cyan_carpet",
+    "relation": "ON_TOP_OF",
+    "pattern": "ROW",
+    "material": "minecraft:mangrove_planks"
    }
   }
  ],
@@ -47,24 +83,37 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_ochre_froglight"
+    "frog"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:ochre_froglight",
-    "count": 1
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:frog"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:lime_candle"
+    }
+   ]
   },
-  "textKo": "우리의 힘을 합친다면! — 개구리가 마그마를 먹고 빛을 남겨요."
+  "textKo": "밤에 연두색 초 근처에서 개구리에게 먹이를 줬어요."
  },
  "reward": {
   "badge": "adv_husbandry_froglights",
   "words": [
-   "magma",
-   "frog",
-   "adv_item_ochre_froglight"
+   "gen_mangrove_swamp",
+   "gen_lime_candle",
+   "water",
+   "planks"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege"
+ ]
 }

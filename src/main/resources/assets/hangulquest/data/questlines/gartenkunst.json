@@ -7,7 +7,7 @@
  "order": 161,
  "concepts": [
   "dirt",
-  "gen_pink_tulip",
+  "gen_red_tulip",
   "gravel"
  ],
  "requires": {
@@ -34,12 +34,12 @@
   {
    "id": "s2",
    "teach": [
-    "gen_pink_tulip",
+    "gen_red_tulip",
     "dirt"
    ],
    "goal": {
     "type": "PLACE_ON_PATTERN",
-    "block": "minecraft:pink_tulip",
+    "block": "minecraft:red_tulip",
     "relation": "ON_TOP_OF",
     "pattern": "CROSS",
     "material": "minecraft:dirt"
@@ -93,7 +93,7 @@
   "badge": "gartenkunst",
   "words": [
    "dirt",
-   "gen_pink_tulip",
+   "gen_red_tulip",
    "gravel"
   ]
  },

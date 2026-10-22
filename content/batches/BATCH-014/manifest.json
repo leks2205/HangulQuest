@@ -2,15 +2,15 @@
  "batch": "BATCH-014",
  "brief": "content/briefs/BATCH-014.md",
  "chapter": "colours, garden and treasure (level 2)",
- "note": "Built on phase0 at the BATCH-014 brief and merged with phase0 again before the final gates (UI pass and the Spanish language landed meanwhile; no BATCH-013 yet). `metrics` compares the baseline I started from with the rebaselined values. The per-trail grammar lists are in the trail files.",
+ "note": "Built on phase0 at the BATCH-014 brief (28af90a) and merged with phase0 again before the final gates (the UI pass, the Spanish language and BATCH-013 landed meanwhile; the merge conflicts were only in generated files, concepts.json (one descKo) and the reachabilityDebt list). `metrics` compares the baseline I started from with the rebaselined values. The per-trail grammar lists are in the trail files.",
  "summary": {
   "trails": 15,
-  "steps": 74,
+  "steps": 76,
   "bareSteps": 3,
   "formDependentSteps": 35,
-  "formDependentShareOwn": 0.473,
+  "formDependentShareOwn": 0.4605,
   "topGoalType": "PLACE_REL",
-  "topGoalTypeShare": 0.243,
+  "topGoalTypeShare": 0.237,
   "goalTypes": {
    "PLACE_REL": 18,
    "PLACE_ON_PATTERN": 13,
@@ -18,11 +18,12 @@
    "BUILD_PATTERN": 8,
    "USE_BLOCK": 7,
    "PUT_IN": 5,
+   "LOOK_AT_BLOCK": 3,
    "GIVE": 2,
-   "LOOK_AT_BLOCK": 2,
    "ACQUIRE_ITEM": 2,
    "SEQUENCE": 2,
    "HOLD_WHILE": 1,
+   "LIE_DOWN": 1,
    "BREAK_BLOCK": 1,
    "SMELT": 1,
    "REACH_HEIGHT": 1,
@@ -32,74 +33,92 @@
  "metrics": {
   "coverage.recycling.medianEncounters": {
    "before": 3.0,
-   "after": 3.0
+   "phase0AfterBatch013": 3.5,
+   "after": 4.0
   },
   "coverage.recycling.medianRetrievals": {
    "before": 0.0,
+   "phase0AfterBatch013": 0.0,
    "after": 0.0
   },
   "coverage.recycling.seenShare": {
    "before": 0.726415,
-   "after": 0.731132
+   "phase0AfterBatch013": 0.740566,
+   "after": 0.745283
   },
   "coverage.recycling.targetMetShare": {
    "before": 0.165094,
-   "after": 0.165094
+   "phase0AfterBatch013": 0.169811,
+   "after": 0.169811
   },
   "coverage.sentences.hintFullyKnownShare": {
    "before": 0.931635,
-   "after": 0.937961
+   "phase0AfterBatch013": 0.935583,
+   "after": 0.942459
   },
   "coverage.sentences.hintWordCoverage": {
    "before": 0.96432,
-   "after": 0.968528
+   "phase0AfterBatch013": 0.967018,
+   "after": 0.971304
   },
   "coverage.sentences.meanUnknown": {
    "before": 0.88005,
-   "after": 0.863022
+   "phase0AfterBatch013": 0.861963,
+   "after": 0.844337
   },
   "coverage.sentences.unknownOverOneShare": {
    "before": 0.052206,
-   "after": 0.051597
+   "phase0AfterBatch013": 0.051534,
+   "after": 0.050273
   },
   "variety.bareShare.2": {
    "before": 0.242545,
-   "after": 0.164751
+   "phase0AfterBatch013": 0.175573,
+   "after": 0.102752
   },
   "variety.boredomIndex": {
    "before": 0.05597,
-   "after": 0.052243
+   "phase0AfterBatch013": 0.052179,
+   "after": 0.049091
   },
   "variety.distinctTypes.2": {
    "before": 28.0,
-   "after": 28
+   "phase0AfterBatch013": 30.0,
+   "after": 30
   },
   "variety.duplicateSignatures": {
    "before": 8.0,
-   "after": 7
+   "phase0AfterBatch013": 6.0,
+   "after": 5
   },
   "variety.formDependentShare.2": {
    "before": 0.272366,
-   "after": 0.329502
+   "phase0AfterBatch013": 0.328244,
+   "after": 0.379817
   },
   "variety.noveltyShare": {
    "before": 0.597619,
-   "after": 0.604762
+   "phase0AfterBatch013": 0.611905,
+   "after": 0.614286
   },
   "variety.objectOnlyRepeats": {
    "before": 105.0,
-   "after": 99
+   "phase0AfterBatch013": 101.0,
+   "after": 95
   },
   "variety.topTypeShare.2": {
    "before": 0.184891,
-   "after": 0.168582
+   "phase0AfterBatch013": 0.162214,
+   "after": 0.188991
   },
   "variety.verbObjectMax": {
    "before": 6.0,
+   "phase0AfterBatch013": 6.0,
    "after": 6
   },
   "variety.verbObjectPairsOver3": {
    "before": 5.0,
+   "phase0AfterBatch013": 5.0,
    "after": 5
   }
  },
@@ -331,8 +350,8 @@
     "L2.euro_material"
    ],
    "formDependentSteps": 2,
-   "finaleKo": "판자 담 위에 표지판을 세웠어요.",
-   "finaleSource": "generated",
+   "finaleKo": "밤에 침대에 누웠어요. 밖은 어두워요. 담 안은 따뜻해요.",
+   "finaleSource": "authored",
    "steps": [
     {
      "id": "s1",
@@ -400,7 +419,7 @@
      "clueEn": "Put a bed — read the Korean to see where."
     },
     {
-     "id": "finale",
+     "id": "s5",
      "goal": "PLACE_ON_PATTERN",
      "relation": "ON_TOP_OF",
      "conditions": [],
@@ -415,6 +434,24 @@
      "clueSource": "generated",
      "hintKo": "판자 담 위에 표지판을 세워요.",
      "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "LIE_DOWN",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "LIE",
+     "teach": [
+      "lie_down"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 침대에 누우세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 침대에 누워요.",
+     "clueEn": "Lie down in the bed at night."
     }
    ]
   },
@@ -886,15 +923,15 @@
      "conditions": [],
      "verb": "PLANT",
      "teach": [
-      "gen_pink_tulip",
+      "gen_red_tulip",
       "dirt"
      ],
      "bare": false,
      "formDependent": true,
-     "clueKo": "흙 십자 모양 위에 분홍색 튤립을 심으세요.",
+     "clueKo": "흙 십자 모양 위에 빨간색 튤립을 심으세요.",
      "clueSource": "generated",
-     "hintKo": "흙 십자 모양 위에 분홍색 튤립을 심어요.",
-     "clueEn": "Plant a pink tulip — read the Korean to see where."
+     "hintKo": "흙 십자 모양 위에 빨간색 튤립을 심어요.",
+     "clueEn": "Plant a red tulip — read the Korean to see where."
     },
     {
      "id": "s3",
@@ -1121,16 +1158,16 @@
      "goal": "PLACE_REL",
      "relation": "IN_FRONT_OF",
      "conditions": [],
-     "verb": "PLACE",
+     "verb": "STAND",
      "teach": [
-      "cauldron"
+      "chest"
      ],
      "bare": false,
      "formDependent": true,
-     "clueKo": "상자 앞에 가마솥을 놓으세요.",
+     "clueKo": "상자 앞에 갑옷 거치대를 세우세요.",
      "clueSource": "generated",
-     "hintKo": "상자 앞에 가마솥을 놓아요.",
-     "clueEn": "Put a cauldron — read the Korean to see where."
+     "hintKo": "상자 앞에 갑옷 거치대를 세워요.",
+     "clueEn": "Put an armor stand — read the Korean to see where."
     },
     {
      "id": "finale",
@@ -1318,6 +1355,22 @@
     },
     {
      "id": "s4",
+     "goal": "LOOK_AT_BLOCK",
+     "relation": null,
+     "conditions": [],
+     "verb": "WATCH",
+     "teach": [
+      "adv_item_chiseled_bookshelf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "조각된 책장을 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "조각된 책장을 1초 동안 바라봐요.",
+     "clueEn": "Look at the chiseled bookshelf for a second."
+    },
+    {
+     "id": "s5",
      "goal": "PUT_IN",
      "relation": null,
      "conditions": [],
@@ -1632,9 +1685,10 @@
  "finales": {
   "authored": [
    "farbenpfad",
-   "gartenzaun"
+   "gartenzaun",
+   "abenteuerpfad"
   ],
-  "note": "Both authored finales are the 은/는 contrast the brief asks for (L2.eun_neun_contrast) and are listed in korean-lines.tsv. The other 13 finales are generated."
+  "note": "The three authored finales are the 은/는 contrast the brief asks for (L2.eun_neun_contrast: blue wool and red candle, inside and outside the fence, outside dark and inside the camp wall warm) and are listed in korean-lines.tsv. The other 12 finales are generated."
  },
  "newWordsWithDescKo": [
   "gen_blue_dye (descKo added)",
@@ -1642,12 +1696,12 @@
   "gen_orange_dye (descKo added)",
   "gen_orange_wool (descKo added)",
   "gen_yellow_candle (descKo added)",
-  "gen_pink_tulip (descKo added)"
+  "gen_red_tulip (descKo added)"
  ],
  "editsOutsideTheBatchFiles": [
-  "concepts.json: six descKo lines added to existing gen_ concepts that had none; no entry inserted, nothing reformatted.",
+  "concepts.json: six descKo lines added (the merge with BATCH-013 kept its descKo for gen_pink_tulip) to existing gen_ concepts that had none; no entry inserted, nothing reformatted.",
   "lang/content/en_us.json and de_de.json: the step, finale and title keys of the 15 trails (old keys of removed steps dropped); German adopted as proofread with `translate.py adopt --refresh`.",
-  "src/test/resources/content-baseline.json: adv_husbandry_obtain_netherite_hoe leaves reachabilityDebt (the trail is a garden-tool trail now).",
+  "src/test/resources/content-baseline.json: adv_husbandry_obtain_netherite_hoe leaves reachabilityDebt (the trail is a garden-tool trail now); BATCH-013 removed gestuet, so only adv_nether_obtain_ancient_debris is left.",
   "src/test/resources/legacy-authored-finales.txt: gartenkunst and kartenpfad removed (their finales are generated now); the list only shrinks.",
   "content/korean/lines.jsonl, review-status.json, content/translations/de_de-status.json, docs/book/src/quest-tree.md and content/metrics-baseline.json regenerated (all metrics equal or better)."
  ],
@@ -1672,6 +1726,7 @@
   "The dye-a-sheep steps (farbenpfad s1, faerberei s4) say 주세요 because GIVE is the only verb that fits (see the weakness above); a linguist may find it odd.",
   "farbenpfad and festungpfad ask for coloured candles; no colour of 보라색, 검은색, 하얀색, 회색, 갈색 appears in a clue because each would be a second unknown compound word on a sentence that already has one.",
   "No trail is proposed for level 3.",
-  "BATCH-013 had not landed when I merged phase0 the last time (UI pass and the Spanish language came in). If it lands first, regenerate and re-read the generated lines; my trails use (verb, object) pairs that BATCH-013 (animals) should not need."
+  "coverage.recycling.medianEncounters dropped from 3.5 (phase0 after BATCH-013) to 3.0 when the old trails were replaced (their sentences had given a few core words the fourth encounter); the finale of abenteuerpfad (lie down in the red bed at night, outside dark, inside warm) brings 눕다 and 어둡다 to four encounters and the median to 4.0.",
+  "BATCH-013 landed while I worked: after merging it I replaced the pink tulip (now four PLANT pink_tulip), the second PLACE cauldron (four) and moved the count six, which BATCH-013 had made scarcer, into the chiseled bookshelf trail; all metrics are measured after that merge."
  ]
 }

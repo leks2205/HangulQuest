@@ -56,6 +56,17 @@
   {
    "id": "s4",
    "teach": [
+    "adv_item_chiseled_bookshelf"
+   ],
+   "goal": {
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:chiseled_bookshelf",
+    "dwellMs": 1000
+   }
+  },
+  {
+   "id": "s5",
+   "teach": [
     "book"
    ],
    "goal": {

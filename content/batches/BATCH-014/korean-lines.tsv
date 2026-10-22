@@ -6,16 +6,16 @@ trail.farbenpfad.s2.clue	파란색 양털을 만드세요.	clue, generated; Craf
 trail.farbenpfad.s2.hint	파란색 양털을 만들어요.	hint, generated; Craft minecraft:blue_wool x1
 trail.farbenpfad.s3.clue	파란색 양털 세 개로 기둥을 쌓으세요.	clue, generated; BuildPattern minecraft:blue_wool PILLAR 3
 trail.farbenpfad.s3.hint	파란색 양털로 기둥을 쌓아요.	hint, generated; BuildPattern minecraft:blue_wool PILLAR 3
-trail.farbenpfad.s4.clue	파란색 양털 옆에 꽃을 심으세요.	clue, generated; PlaceRel minecraft:pink_tulip NEXT_TO minecraft:blue_wool
-trail.farbenpfad.s4.hint	파란색 양털 옆에 꽃을 심어요.	hint, generated; PlaceRel minecraft:pink_tulip NEXT_TO minecraft:blue_wool
+trail.farbenpfad.s4.clue	파란색 양털 옆에 꽃을 심으세요.	clue, generated; PlaceRel minecraft:white_tulip NEXT_TO minecraft:blue_wool
+trail.farbenpfad.s4.hint	파란색 양털 옆에 꽃을 심어요.	hint, generated; PlaceRel minecraft:white_tulip NEXT_TO minecraft:blue_wool
 trail.farbenpfad.finale.clue	파란색 양털 기둥 위에 빨간색 초를 세우세요.	clue, generated; PlaceOnPattern minecraft:red_candle ON_TOP_OF PILLAR minecraft:blue_wool
 trail.farbenpfad.finale.hint	파란색 양털 기둥 위에 빨간색 초를 세워요.	hint, generated; PlaceOnPattern minecraft:red_candle ON_TOP_OF PILLAR minecraft:blue_wool
 trail.farbenpfad.finale	양털은 파란색이에요. 초는 빨간색이에요.	finale, authored; PlaceOnPattern minecraft:red_candle ON_TOP_OF PILLAR minecraft:blue_wool
 trail.gartenzaun.title	정원 울타리	title, authored; project: A garden fence: a ring of spruce fence, a flower inside it, a gate beside the fence that opens, a carpet outside; the finale contrasts inside and outside.
 trail.gartenzaun.s1.clue	울타리를 치세요.	clue, generated; BuildPattern minecraft:spruce_fence RING 3
 trail.gartenzaun.s1.hint	울타리를 쳐요.	hint, generated; BuildPattern minecraft:spruce_fence RING 3
-trail.gartenzaun.s2.clue	울타리 안에 꽃을 심으세요.	clue, generated; PlaceOnPattern minecraft:red_tulip INSIDE RING minecraft:spruce_fence
-trail.gartenzaun.s2.hint	울타리 안에 꽃을 심어요.	hint, generated; PlaceOnPattern minecraft:red_tulip INSIDE RING minecraft:spruce_fence
+trail.gartenzaun.s2.clue	울타리 안에 꽃을 심으세요.	clue, generated; PlaceOnPattern minecraft:allium INSIDE RING minecraft:spruce_fence
+trail.gartenzaun.s2.hint	울타리 안에 꽃을 심어요.	hint, generated; PlaceOnPattern minecraft:allium INSIDE RING minecraft:spruce_fence
 trail.gartenzaun.s3.clue	울타리 옆에 가문비나무 울타리 문을 다세요.	clue, generated; PlaceRel minecraft:spruce_fence_gate NEXT_TO #minecraft:fences
 trail.gartenzaun.s3.hint	울타리 옆에 가문비나무 울타리 문을 달아요.	hint, generated; PlaceRel minecraft:spruce_fence_gate NEXT_TO #minecraft:fences
 trail.gartenzaun.s4.clue	가문비나무 울타리 문을 여세요.	clue, generated; UseBlock minecraft:spruce_fence_gate 
@@ -32,9 +32,11 @@ trail.abenteuerpfad.s3.clue	판자로 담을 쌓으세요.	clue, generated; Buil
 trail.abenteuerpfad.s3.hint	판자로 담을 쌓아요.	hint, generated; BuildPattern minecraft:dark_oak_planks RING 3
 trail.abenteuerpfad.s4.clue	판자 담 안에 침대를 놓으세요.	clue, generated; PlaceOnPattern minecraft:red_bed INSIDE RING minecraft:dark_oak_planks
 trail.abenteuerpfad.s4.hint	판자 담 안에 침대를 놓아요.	hint, generated; PlaceOnPattern minecraft:red_bed INSIDE RING minecraft:dark_oak_planks
-trail.abenteuerpfad.finale.clue	판자 담 위에 표지판을 세우세요.	clue, generated; PlaceOnPattern minecraft:dark_oak_sign ON_TOP_OF RING minecraft:dark_oak_planks
-trail.abenteuerpfad.finale.hint	판자 담 위에 표지판을 세워요.	hint, generated; PlaceOnPattern minecraft:dark_oak_sign ON_TOP_OF RING minecraft:dark_oak_planks
-trail.abenteuerpfad.finale	판자 담 위에 표지판을 세웠어요.	finale, generated; PlaceOnPattern minecraft:dark_oak_sign ON_TOP_OF RING minecraft:dark_oak_planks
+trail.abenteuerpfad.s5.clue	판자 담 위에 표지판을 세우세요.	clue, generated; PlaceOnPattern minecraft:dark_oak_sign ON_TOP_OF RING minecraft:dark_oak_planks
+trail.abenteuerpfad.s5.hint	판자 담 위에 표지판을 세워요.	hint, generated; PlaceOnPattern minecraft:dark_oak_sign ON_TOP_OF RING minecraft:dark_oak_planks
+trail.abenteuerpfad.finale.clue	밤에 침대에 누우세요.	clue, generated; LieDown minecraft:red_bed 
+trail.abenteuerpfad.finale.hint	밤에 침대에 누워요.	hint, generated; LieDown minecraft:red_bed 
+trail.abenteuerpfad.finale	밤에 침대에 누웠어요. 밖은 어두워요. 담 안은 따뜻해요.	finale, authored; LieDown minecraft:red_bed 
 trail.glueckspfad.title	보물의 길	title, authored; project: Mine gold ore, smelt an ingot, store it in a chest, put a sign beside the chest and write on it.
 trail.glueckspfad.s1.clue	금을 캐세요.	clue, generated; BreakBlock minecraft:gold_ore x1
 trail.glueckspfad.s1.hint	금을 캐요.	hint, generated; BreakBlock minecraft:gold_ore x1
@@ -88,8 +90,8 @@ trail.schatzkammer.finale	금 블록을 바라봤어요.	finale, generated; Look
 trail.gartenkunst.title	정원 예술의 길	title, authored; project: Flower beds: a dirt cross with a pink tulip, a dirt pyramid with an orange tulip, and a gravel path between the flowers and the fence.
 trail.gartenkunst.s1.clue	흙으로 십자 모양을 만드세요.	clue, generated; BuildPattern minecraft:dirt CROSS 3
 trail.gartenkunst.s1.hint	흙으로 십자 모양을 만들어요.	hint, generated; BuildPattern minecraft:dirt CROSS 3
-trail.gartenkunst.s2.clue	흙 십자 모양 위에 분홍색 튤립을 심으세요.	clue, generated; PlaceOnPattern minecraft:pink_tulip ON_TOP_OF CROSS minecraft:dirt
-trail.gartenkunst.s2.hint	흙 십자 모양 위에 분홍색 튤립을 심어요.	hint, generated; PlaceOnPattern minecraft:pink_tulip ON_TOP_OF CROSS minecraft:dirt
+trail.gartenkunst.s2.clue	흙 십자 모양 위에 빨간색 튤립을 심으세요.	clue, generated; PlaceOnPattern minecraft:red_tulip ON_TOP_OF CROSS minecraft:dirt
+trail.gartenkunst.s2.hint	흙 십자 모양 위에 빨간색 튤립을 심어요.	hint, generated; PlaceOnPattern minecraft:red_tulip ON_TOP_OF CROSS minecraft:dirt
 trail.gartenkunst.s3.clue	흙으로 피라미드를 쌓으세요.	clue, generated; BuildPattern minecraft:dirt PYRAMID 3
 trail.gartenkunst.s3.hint	흙으로 피라미드를 쌓아요.	hint, generated; BuildPattern minecraft:dirt PYRAMID 3
 trail.gartenkunst.s4.clue	흙 피라미드 위에 주황색 튤립을 심으세요.	clue, generated; PlaceOnPattern minecraft:orange_tulip ON_TOP_OF PYRAMID minecraft:dirt
@@ -116,8 +118,8 @@ trail.gerberei.s2.clue	가죽 모자를 만드세요.	clue, generated; Craft min
 trail.gerberei.s2.hint	가죽 모자를 만들어요.	hint, generated; Craft minecraft:leather_helmet x1
 trail.gerberei.s3.clue	상자 안에 가죽 모자를 넣으세요.	clue, generated; PutIn minecraft:leather_helmet x1
 trail.gerberei.s3.hint	상자 안에 가죽 모자를 넣어요.	hint, generated; PutIn minecraft:leather_helmet x1
-trail.gerberei.s4.clue	상자 앞에 가마솥을 놓으세요.	clue, generated; PlaceRel minecraft:cauldron IN_FRONT_OF minecraft:chest
-trail.gerberei.s4.hint	상자 앞에 가마솥을 놓아요.	hint, generated; PlaceRel minecraft:cauldron IN_FRONT_OF minecraft:chest
+trail.gerberei.s4.clue	상자 앞에 갑옷 거치대를 세우세요.	clue, generated; PlaceRel minecraft:armor_stand IN_FRONT_OF minecraft:chest
+trail.gerberei.s4.hint	상자 앞에 갑옷 거치대를 세워요.	hint, generated; PlaceRel minecraft:armor_stand IN_FRONT_OF minecraft:chest
 trail.gerberei.finale.clue	가마솥을 채우세요.	clue, generated; UseBlock minecraft:cauldron 
 trail.gerberei.finale.hint	가마솥을 채워요.	hint, generated; UseBlock minecraft:cauldron 
 trail.gerberei.finale	가마솥을 채웠어요.	finale, generated; UseBlock minecraft:cauldron 
@@ -140,8 +142,10 @@ trail.adv_adventure_read_power_of_chiseled_bookshelf.s2.clue	책을 여섯 권 �
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s2.hint	책을 만들어요.	hint, generated; AcquireItem minecraft:book x6
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s3.clue	상자 옆에 조각된 책장을 놓으세요.	clue, generated; PlaceRel minecraft:chiseled_bookshelf NEXT_TO minecraft:chest
 trail.adv_adventure_read_power_of_chiseled_bookshelf.s3.hint	상자 옆에 조각된 책장을 놓아요.	hint, generated; PlaceRel minecraft:chiseled_bookshelf NEXT_TO minecraft:chest
-trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.clue	조각된 책장 안에 책을 여섯 권 넣으세요.	clue, generated; PutIn minecraft:book x6
-trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.hint	조각된 책장 안에 책을 넣어요.	hint, generated; PutIn minecraft:book x6
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.clue	조각된 책장을 1초 동안 바라보세요.	clue, generated; LookAtBlock minecraft:chiseled_bookshelf 
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s4.hint	조각된 책장을 1초 동안 바라봐요.	hint, generated; LookAtBlock minecraft:chiseled_bookshelf 
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s5.clue	조각된 책장 안에 책을 여섯 권 넣으세요.	clue, generated; PutIn minecraft:book x6
+trail.adv_adventure_read_power_of_chiseled_bookshelf.s5.hint	조각된 책장 안에 책을 넣어요.	hint, generated; PutIn minecraft:book x6
 trail.adv_adventure_read_power_of_chiseled_bookshelf.finale.clue	조각된 책장 위에 독서대를 놓으세요.	clue, generated; PlaceRel minecraft:lectern ON_TOP_OF minecraft:chiseled_bookshelf
 trail.adv_adventure_read_power_of_chiseled_bookshelf.finale.hint	조각된 책장 위에 독서대를 놓아요.	hint, generated; PlaceRel minecraft:lectern ON_TOP_OF minecraft:chiseled_bookshelf
 trail.adv_adventure_read_power_of_chiseled_bookshelf.finale	조각된 책장 위에 독서대를 놓았어요.	finale, generated; PlaceRel minecraft:lectern ON_TOP_OF minecraft:chiseled_bookshelf

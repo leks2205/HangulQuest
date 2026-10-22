@@ -1,0 +1,1737 @@
+{
+ "batch": "BATCH-013",
+ "brief": "content/briefs/BATCH-013.md",
+ "chapter": "animals and pets (level 2)",
+ "note": "Built on phase0 at the BATCH-013 brief (28af90a), merged with phase0 (526df82) before the final gates. `metrics` shows the baseline I started from, the baseline of phase0 at the merge, and the rebaselined values. Per-trail grammar lists are in the trail files.",
+ "summary": {
+  "trails": 15,
+  "steps": 70,
+  "bareSteps": 0,
+  "formDependentSteps": 35,
+  "formDependentShareOwn": 0.5,
+  "topGoalType": "PLACE_REL",
+  "topGoalTypeShare": 0.214,
+  "goalTypes": {
+   "PLACE_REL": 15,
+   "GIVE": 9,
+   "PLACE_ON_PATTERN": 8,
+   "BUILD_PATTERN": 7,
+   "BREED": 6,
+   "INTERACT_ENTITY": 6,
+   "CRAFT": 5,
+   "SEQUENCE": 3,
+   "WAIT": 3,
+   "LOOK_AT_ENTITY": 2,
+   "REACH_BIOME": 2,
+   "HEAR": 2,
+   "USE_BLOCK": 1,
+   "ACQUIRE_ITEM": 1
+  }
+ },
+ "metrics": {
+  "coverage.recycling.seenShare": {
+   "before": 0.726415,
+   "phase0AtMerge": 0.726415,
+   "after": 0.740566
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.165094,
+   "phase0AtMerge": 0.165094,
+   "after": 0.169811
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.931635,
+   "phase0AtMerge": 0.931635,
+   "after": 0.935583
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.96432,
+   "phase0AtMerge": 0.96432,
+   "after": 0.967018
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.88005,
+   "phase0AtMerge": 0.88005,
+   "after": 0.861963
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.052206,
+   "phase0AtMerge": 0.052206,
+   "after": 0.051534
+  },
+  "variety.bareShare.2": {
+   "before": 0.242545,
+   "phase0AtMerge": 0.242545,
+   "after": 0.175573
+  },
+  "variety.boredomIndex": {
+   "before": 0.05597,
+   "phase0AtMerge": 0.05597,
+   "after": 0.052179
+  },
+  "variety.distinctTypes.2": {
+   "before": 28.0,
+   "phase0AtMerge": 28.0,
+   "after": 30.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 8.0,
+   "phase0AtMerge": 8.0,
+   "after": 6.0
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.272366,
+   "phase0AtMerge": 0.272366,
+   "after": 0.328244
+  },
+  "variety.noveltyShare": {
+   "before": 0.597619,
+   "phase0AtMerge": 0.597619,
+   "after": 0.611905
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 105.0,
+   "phase0AtMerge": 105.0,
+   "after": 101.0
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.184891,
+   "phase0AtMerge": 0.184891,
+   "after": 0.162214
+  },
+  "variety.verbObjectMax": {
+   "before": 6.0,
+   "phase0AtMerge": 6.0,
+   "after": 6.0
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 5.0,
+   "phase0AtMerge": 5.0,
+   "after": 5.0
+  }
+ },
+ "trails": [
+  {
+   "id": "pferderennen",
+   "title": "말 경주의 길",
+   "titleEn": "The Horse Race Trail",
+   "topic": "말",
+   "order": 156,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad",
+    "wollpfad"
+   ],
+   "project": "Fence a paddock near two horses, hang a fence gate and a banner in front of a horse, give it sugar by day, then feed it an apple and ride it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_sequence",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 4,
+   "finaleKo": "말을 타고 달렸어요. 말은 빨라요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:horse"
+     ],
+     "verb": "FENCE",
+     "teach": [
+      "fence",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "말 두 마리 근처에서 울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "말 두 마리 근처에서 울타리를 쳐요.",
+     "clueEn": "Build a fence ring near two horses."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "gen_spruce_fence_gate",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 옆에 가문비나무 울타리 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 옆에 가문비나무 울타리 문을 달아요.",
+     "clueEn": "Hang a fence gate — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "gen_magenta_banner",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "말 앞에 자홍색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "말 앞에 자홍색 현수막을 걸어요.",
+     "clueEn": "Hang a banner — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "sugar",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "낮에 말에게 설탕을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 말에게 설탕을 줘요.",
+     "clueEn": "By day, give sugar to a horse."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "RIDE",
+     "teach": [
+      "apple",
+      "ride",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "말에게 사과를 주고 말을 타세요.",
+     "clueSource": "generated",
+     "hintKo": "말에게 사과를 주고 말을 타요.",
+     "clueEn": "Give a horse an apple and ride it — read the Korean for the order."
+    }
+   ]
+  },
+  {
+   "id": "reitpfad",
+   "title": "말타기의 길",
+   "titleEn": "The Riding Trail",
+   "topic": "동물",
+   "order": 503,
+   "koreanLevel": 2,
+   "requires": [
+    "weidepfad"
+   ],
+   "project": "A donkey's riding trail: look at a donkey, give it hay, put a sign in front of it and a fence gate beside it, open the gate and ride out.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_sequence",
+    "L2.eun_neun_contrast"
+   ],
+   "formDependentSteps": 4,
+   "finaleKo": "당나귀를 타고 나갔어요. 당나귀는 작아요. 말은 커요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "gen_donkey"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "낮에 당나귀를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 당나귀를 1초 동안 바라봐요.",
+     "clueEn": "By day, look at a donkey for a second."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "hay_block",
+      "gen_donkey"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "당나귀에게 건초 더미를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "당나귀에게 건초 더미를 줘요.",
+     "clueEn": "Give hay to a donkey."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "gen_donkey"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "당나귀 앞에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "당나귀 앞에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "gen_acacia_fence_gate",
+      "gen_donkey"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "당나귀 옆에 아카시아나무 울타리 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "당나귀 옆에 아카시아나무 울타리 문을 달아요.",
+     "clueEn": "Hang a fence gate — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "RIDE",
+     "teach": [
+      "gen_acacia_fence_gate",
+      "ride",
+      "gen_donkey"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "아카시아나무 울타리 문을 열고 당나귀를 타세요.",
+     "clueSource": "generated",
+     "hintKo": "아카시아나무 울타리 문을 열고 당나귀를 타요.",
+     "clueEn": "Open the fence gate and ride a donkey — read the Korean for the order."
+    }
+   ]
+  },
+  {
+   "id": "pferdehof",
+   "title": "말 목장의 길",
+   "titleEn": "The Horse Farm",
+   "topic": "동물",
+   "order": 513,
+   "koreanLevel": 2,
+   "requires": [
+    "reitpfad",
+    "weidepfad",
+    "bogenpfad"
+   ],
+   "project": "A horse farm: a plank ring wall near three horses, a door, a cauldron as trough beside a horse, and an apple for a horse at the cauldron.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.euro_material"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "가마솥 근처에서 말에게 사과를 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:horse"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "말 세 마리 근처에서 판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "말 세 마리 근처에서 판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of planks near three horses."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 옆에 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 옆에 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "cauldron",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "말 옆에 가마솥을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "말 옆에 가마솥을 놓아요.",
+     "clueEn": "Place a cauldron — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:cauldron"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "apple",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "가마솥 근처에서 말에게 사과를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "가마솥 근처에서 말에게 사과를 줘요.",
+     "clueEn": "Give an apple to a horse near the cauldron."
+    }
+   ]
+  },
+  {
+   "id": "gestuet",
+   "title": "마구간의 길",
+   "titleEn": "The Stud Farm",
+   "topic": "동물",
+   "order": 522,
+   "koreanLevel": 2,
+   "requires": [
+    "pferdehof",
+    "waldfest"
+   ],
+   "project": "A stable: a plank ring wall with a rug inside, a sign in front of a horse, and the horse's name written on the sign.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.eseo_activity",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "표지판에 말의 이름을 썼어요. 말은 커요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "STACK",
+     "teach": [
+      "planks",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of planks."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 안에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 안에 양탄자를 깔아요.",
+     "clueEn": "Spread a rug — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "horse"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "말 앞에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "말 앞에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:horse"
+     ],
+     "verb": "WRITE",
+     "teach": [
+      "name",
+      "sign"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "말 근처에서 표지판에 이름을 쓰세요.",
+     "clueSource": "generated",
+     "hintKo": "말 근처에서 표지판에 이름을 써요.",
+     "clueEn": "Write a name on a sign near a horse."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_bred_all_animals",
+   "title": "짝지어주기",
+   "titleEn": "Pair by Pair",
+   "topic": "husbandry",
+   "order": 260,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_breed_an_animal"
+   ],
+   "project": "A pen near three cows with a gate, a sheep raised with wheat, a sign in front of the sheep, and a cow raised by day.",
+   "grammar": [
+    "L2.seyo",
+    "L2.go_held",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "낮에 송아지가 태어났어요. 송아지는 작아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:cow"
+     ],
+     "verb": "FENCE",
+     "teach": [
+      "fence",
+      "cow"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "소 세 마리 근처에서 울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "소 세 마리 근처에서 울타리를 쳐요.",
+     "clueEn": "Build a fence ring near three cows."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "gen_birch_fence_gate",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 옆에 자작나무 울타리 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 옆에 자작나무 울타리 문을 달아요.",
+     "clueEn": "Hang a fence gate — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:wheat"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밀을 들고 양을 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "밀을 들고 양을 키워요.",
+     "clueEn": "Holding wheat, raise a sheep."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "sign",
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "양 앞에 표지판을 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "양 앞에 표지판을 세워요.",
+     "clueEn": "Put up a sign — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "SKY:OPEN"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "chicken"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밖에서 닭을 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "밖에서 닭을 키워요.",
+     "clueEn": "Outside, raise a chicken."
+    },
+    {
+     "id": "finale",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "cow"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "낮에 소를 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 소를 키워요.",
+     "clueEn": "By day, raise a cow."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_complete_catalogue",
+   "title": "집사 그 자체",
+   "titleEn": "A Complete Catalogue",
+   "topic": "husbandry",
+   "order": 262,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_tame_an_animal"
+   ],
+   "project": "Befriend a village cat: pet it near a villager, put a bed beside it and a rug in front of it, give it a fish and pet it.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_sequence",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 3,
+   "finaleKo": "고양이가 친구가 됐어요. 고양이는 작아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:villager"
+     ],
+     "verb": "PET",
+     "teach": [
+      "cat"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "주민 근처에서 고양이를 쓰다듬으세요.",
+     "clueSource": "generated",
+     "hintKo": "주민 근처에서 고양이를 쓰다듬어요.",
+     "clueEn": "Near a villager, pet a cat."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "bed",
+      "cat"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "고양이 옆에 침대를 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "고양이 옆에 침대를 놓아요.",
+     "clueEn": "Place a bed — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "cat"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "고양이 앞에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "고양이 앞에 양탄자를 깔아요.",
+     "clueEn": "Spread a rug — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "relation": null,
+     "conditions": [],
+     "verb": "PET",
+     "teach": [
+      "fish",
+      "cat"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "고양이에게 물고기를 주고 고양이를 쓰다듬으세요.",
+     "clueSource": "generated",
+     "hintKo": "고양이에게 물고기를 주고 고양이를 쓰다듬어요.",
+     "clueEn": "Give a cat a fish and pet it — read the Korean for the order."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_whole_pack",
+   "title": "외롭지 못한 늑대",
+   "titleEn": "The Whole Pack",
+   "topic": "husbandry",
+   "order": 286,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_tame_an_animal"
+   ],
+   "project": "A wolf pack: look at a wolf in the forest, a bone by day, a rug beside the wolf, raise a wolf with beef, wait ten seconds near three wolves at night.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_held",
+    "L2.num_sino",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "늑대 세 마리와 밤을 보냈어요. 늑대는 친구예요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:forest"
+     ],
+     "verb": "WATCH",
+     "teach": [
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "숲에서 늑대를 1초 동안 바라보세요.",
+     "clueSource": "generated",
+     "hintKo": "숲에서 늑대를 1초 동안 바라봐요.",
+     "clueEn": "Look at a wolf in the forest for a second."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "TIME:DAY"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "bone",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "낮에 늑대에게 뼈를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "낮에 늑대에게 뼈를 줘요.",
+     "clueEn": "By day, give a bone to a wolf."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "늑대 옆에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "늑대 옆에 양탄자를 깔아요.",
+     "clueEn": "Spread a rug — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:cooked_beef"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "소고기를 들고 늑대를 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "소고기를 들고 늑대를 키워요.",
+     "clueEn": "Holding beef, raise a wolf."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:wolf",
+      "TIME:NIGHT"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 늑대 세 마리 근처에서 십 초 동안 기다리세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 늑대 세 마리 근처에서 잠깐 기다려요.",
+     "clueEn": "At night, wait ten seconds near three wolves."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_remove_wolf_armor",
+   "title": "탁월한 가위질",
+   "titleEn": "Shear Brilliance",
+   "topic": "husbandry",
+   "order": 274,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_tame_an_animal"
+   ],
+   "project": "Craft shears, give a wolf a bone at night, put wolf armor on it, then pet it with the shears in hand (armor off).",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_held",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "가위로 늑대의 갑옷을 벗겼어요. 갑옷은 무거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "shears"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가위를 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "가위를 만들어요.",
+     "clueEn": "Craft shears."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "bone",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밤에 늑대에게 뼈를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 늑대에게 뼈를 줘요.",
+     "clueEn": "At night, give a bone to a wolf."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "wolf_armor",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "늑대에게 늑대 갑옷을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "늑대에게 늑대 갑옷을 줘요.",
+     "clueEn": "Give wolf armor to a wolf."
+    },
+    {
+     "id": "finale",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:shears"
+     ],
+     "verb": "PET",
+     "teach": [
+      "shears",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가위를 들고 늑대를 쓰다듬으세요.",
+     "clueSource": "generated",
+     "hintKo": "가위를 들고 늑대를 쓰다듬어요.",
+     "clueEn": "Holding shears, pet a wolf."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_repair_wolf_armor",
+   "title": "새것처럼",
+   "titleEn": "Good as New",
+   "topic": "husbandry",
+   "order": 275,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_tame_an_animal"
+   ],
+   "project": "Craft wolf armor, put it on a wolf, repair it with an armadillo scute, pet the wolf.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "늑대 갑옷이 새것처럼 됐어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "wolf_armor"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "늑대 갑옷을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "늑대 갑옷을 만들어요.",
+     "clueEn": "Craft wolf armor."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [
+      "SKY:OPEN"
+     ],
+     "verb": "GIVE",
+     "teach": [
+      "wolf_armor",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "밖에서 늑대에게 늑대 갑옷을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "밖에서 늑대에게 늑대 갑옷을 줘요.",
+     "clueEn": "Outside, give wolf armor to a wolf."
+    },
+    {
+     "id": "s3",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "adv_item_armadillo_scute",
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "늑대에게 아르마딜로 인갑을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "늑대에게 아르마딜로 인갑을 줘요.",
+     "clueEn": "Give an armadillo scute to a wolf."
+    },
+    {
+     "id": "finale",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [],
+     "verb": "PET",
+     "teach": [
+      "wolf"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "늑대를 쓰다듬으세요.",
+     "clueSource": "generated",
+     "hintKo": "늑대를 쓰다듬어요.",
+     "clueEn": "Pet a wolf."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_leash_all_frog_variants",
+   "title": "개구리 삼총사 출동!",
+   "titleEn": "When the Squad Hops into Town",
+   "topic": "husbandry",
+   "order": 267,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_tadpole_in_a_bucket"
+   ],
+   "project": "At the swamp: craft leads, put a fence beside the water, give a frog a slimeball, wait ten seconds near three frogs at night.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.eseo_activity",
+    "L2.num_sino"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 개구리 세 마리 근처에서 십 초 동안 기다렸어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [],
+     "verb": "GO",
+     "teach": [
+      "gen_swamp",
+      "frog"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "늪으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "늪으로 가요.",
+     "clueEn": "Go to the swamp."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_lead"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "끈을 두 개 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "끈을 만들어요.",
+     "clueEn": "Craft two leads."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "fence",
+      "water"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "물 옆에 울타리를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "물 옆에 울타리를 세워요.",
+     "clueEn": "Put up a fence — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "GIVE",
+     "relation": null,
+     "conditions": [],
+     "verb": "GIVE",
+     "teach": [
+      "frog"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "개구리에게 슬라임볼을 주세요.",
+     "clueSource": "generated",
+     "hintKo": "개구리에게 슬라임볼을 줘요.",
+     "clueEn": "Give a slimeball to a frog."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:frog",
+      "TIME:NIGHT"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait",
+      "frog"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 개구리 세 마리 근처에서 십 초 동안 기다리세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 개구리 세 마리 근처에서 잠깐 기다려요.",
+     "clueEn": "At night, wait ten seconds near three frogs."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_froglights",
+   "title": "개구리 연못의 밤",
+   "titleEn": "A Night at the Frog Pond",
+   "topic": "husbandry",
+   "order": 265,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_leash_all_frog_variants"
+   ],
+   "project": "A night at a mangrove-swamp pond: a lime candle beside the water, a small plank dock with a rug on top, and a frog fed near the candle.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "밤에 연두색 초 근처에서 개구리에게 먹이를 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "relation": null,
+     "conditions": [
+      "TIME:NIGHT"
+     ],
+     "verb": "GO",
+     "teach": [
+      "gen_mangrove_swamp"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 맹그로브 늪으로 가세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 맹그로브 늪으로 가요.",
+     "clueEn": "At night, go to a mangrove swamp."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "STAND",
+     "teach": [
+      "gen_lime_candle",
+      "water"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "물 옆에 연두색 초를 세우세요.",
+     "clueSource": "generated",
+     "hintKo": "물 옆에 연두색 초를 세워요.",
+     "clueEn": "Put up a lime candle — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "판자 세 개를 나란히 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "판자를 나란히 놓아요.",
+     "clueEn": "Lay three planks side by side."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "ON_TOP_OF",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 세 개 위에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 세 개 위에 양탄자를 깔아요.",
+     "clueEn": "Spread a rug — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:lime_candle",
+      "TIME:NIGHT"
+     ],
+     "verb": "FEED",
+     "teach": [
+      "frog"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "밤에 연두색 초 근처에서 개구리에게 먹이를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "밤에 연두색 초 근처에서 개구리에게 먹이를 줘요.",
+     "clueEn": "At night, feed a frog near the lime candle."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_kill_axolotl_target",
+   "title": "양털 깎는 날",
+   "titleEn": "Shearing Day",
+   "topic": "husbandry",
+   "order": 266,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_axolotl_in_a_bucket"
+   ],
+   "project": "Shearing day: wool with shears in hand, a white banner crafted from it and hung in front of a sheep, a sheep fed near the banner.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_held",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 1,
+   "finaleKo": "하얀색 현수막 근처에서 양에게 먹이를 줬어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:shears"
+     ],
+     "verb": "COLLECT",
+     "teach": [
+      "wool",
+      "shears"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "가위를 들고 양털을 여섯 개 모으세요.",
+     "clueSource": "generated",
+     "hintKo": "가위를 들고 양털을 모아요.",
+     "clueEn": "Holding shears, collect six pieces of wool."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [],
+     "verb": "CRAFT",
+     "teach": [
+      "adv_item_white_banner"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "하얀색 현수막을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "하얀색 현수막을 만들어요.",
+     "clueEn": "Craft a white banner."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "HANG",
+     "teach": [
+      "adv_item_white_banner",
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "양 앞에 하얀색 현수막을 거세요.",
+     "clueSource": "generated",
+     "hintKo": "양 앞에 하얀색 현수막을 걸어요.",
+     "clueEn": "Hang a banner — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "NEAR_BLOCK:minecraft:white_banner"
+     ],
+     "verb": "FEED",
+     "teach": [
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "하얀색 현수막 근처에서 양에게 먹이를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "하얀색 현수막 근처에서 양에게 먹이를 줘요.",
+     "clueEn": "Near the white banner, feed a sheep."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_allay_deliver_cake_to_note_block",
+   "title": "동물들의 노래",
+   "titleEn": "A Song for the Animals",
+   "topic": "husbandry",
+   "order": 256,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_allay_deliver_item_to_player"
+   ],
+   "project": "A song for the animals: craft a note block near a cow, put it beside a cow, listen, a rug in front of a sheep, listen again near two sheep.",
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "양 두 마리 근처에서 소리 블록의 소리를 들었어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:cow"
+     ],
+     "verb": "CRAFT",
+     "teach": [
+      "note_block",
+      "cow"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "소 근처에서 소리 블록을 만드세요.",
+     "clueSource": "generated",
+     "hintKo": "소 근처에서 소리 블록을 만들어요.",
+     "clueEn": "Craft a note block near a cow."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "note_block",
+      "cow"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "소 옆에 소리 블록을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "소 옆에 소리 블록을 놓아요.",
+     "clueEn": "Place a note block — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "HEAR",
+     "relation": null,
+     "conditions": [],
+     "verb": "HEAR",
+     "teach": [
+      "note_block"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "소리 블록의 소리를 들으세요.",
+     "clueSource": "generated",
+     "hintKo": "소리 블록의 소리를 들어요.",
+     "clueEn": "Listen to the sound of the note block."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "relation": "IN_FRONT_OF",
+     "conditions": [],
+     "verb": "SPREAD",
+     "teach": [
+      "carpet",
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "양 앞에 양탄자를 까세요.",
+     "clueSource": "generated",
+     "hintKo": "양 앞에 양탄자를 깔아요.",
+     "clueEn": "Spread a rug — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "HEAR",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:sheep"
+     ],
+     "verb": "HEAR",
+     "teach": [
+      "note_block",
+      "sheep"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "양 두 마리 근처에서 소리 블록의 소리를 들으세요.",
+     "clueSource": "generated",
+     "hintKo": "양 두 마리 근처에서 소리 블록의 소리를 들어요.",
+     "clueEn": "Near two sheep, listen to the sound of the note block."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_feed_snifflet",
+   "title": "돼지 우리",
+   "titleEn": "The Pig Pen",
+   "topic": "husbandry",
+   "order": 263,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_obtain_sniffer_egg"
+   ],
+   "project": "A pig pen: a plank ring wall near three pigs, a door, mud beside a pig, and a pig raised with a carrot.",
+   "grammar": [
+    "L2.seyo",
+    "L2.euro_material",
+    "L2.go_held",
+    "L2.eun_neun_topic"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "새끼 돼지가 태어났어요. 새끼는 작아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:pig"
+     ],
+     "verb": "STACK",
+     "teach": [
+      "planks",
+      "pig"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "돼지 세 마리 근처에서 판자로 담을 쌓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돼지 세 마리 근처에서 판자로 담을 쌓아요.",
+     "clueEn": "Build a ring wall of planks near three pigs."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "HANG_DOOR",
+     "teach": [
+      "door",
+      "planks"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "판자 담 옆에 문을 다세요.",
+     "clueSource": "generated",
+     "hintKo": "판자 담 옆에 문을 달아요.",
+     "clueEn": "Hang a door — read the Korean to see where."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "relation": "NEXT_TO",
+     "conditions": [],
+     "verb": "PLACE",
+     "teach": [
+      "gen_mud",
+      "pig"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "돼지 옆에 진흙을 놓으세요.",
+     "clueSource": "generated",
+     "hintKo": "돼지 옆에 진흙을 놓아요.",
+     "clueEn": "Place mud — read the Korean to see where."
+    },
+    {
+     "id": "finale",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:carrot"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "pig"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "당근을 들고 돼지를 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "당근을 들고 돼지를 키워요.",
+     "clueEn": "Holding a carrot, raise a pig."
+    }
+   ]
+  },
+  {
+   "id": "adv_husbandry_plant_any_sniffer_seed",
+   "title": "토끼 밭",
+   "titleEn": "The Rabbit Patch",
+   "topic": "husbandry",
+   "order": 272,
+   "koreanLevel": 2,
+   "requires": [
+    "adv_husbandry_feed_snifflet"
+   ],
+   "project": "A rabbit patch: feed a rabbit in a meadow, a fence pen with a tulip and carrots inside, raise a rabbit, wait ten seconds near two rabbits.",
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.go_held",
+    "L2.eseo_activity",
+    "L2.num_sino"
+   ],
+   "formDependentSteps": 2,
+   "finaleKo": "토끼 두 마리 근처에서 십 초 동안 기다렸어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "INTERACT_ENTITY",
+     "relation": null,
+     "conditions": [
+      "IN_BIOME:minecraft:meadow"
+     ],
+     "verb": "FEED",
+     "teach": [
+      "rabbit"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "목초지에서 토끼에게 먹이를 주세요.",
+     "clueSource": "generated",
+     "hintKo": "목초지에서 토끼에게 먹이를 줘요.",
+     "clueEn": "In the meadow, feed a rabbit."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "relation": null,
+     "conditions": [],
+     "verb": "FENCE",
+     "teach": [
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "울타리를 치세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리를 쳐요.",
+     "clueEn": "Build a fence ring."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "gen_pink_tulip",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 안에 분홍색 튤립을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 안에 분홍색 튤립을 심어요.",
+     "clueEn": "Plant a pink tulip — read the Korean to see where."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_ON_PATTERN",
+     "relation": "INSIDE",
+     "conditions": [],
+     "verb": "PLANT",
+     "teach": [
+      "carrot",
+      "fence"
+     ],
+     "bare": false,
+     "formDependent": true,
+     "clueKo": "울타리 안에 당근을 심으세요.",
+     "clueSource": "generated",
+     "hintKo": "울타리 안에 당근을 심어요.",
+     "clueEn": "Plant carrots — read the Korean to see where."
+    },
+    {
+     "id": "s5",
+     "goal": "BREED",
+     "relation": null,
+     "conditions": [
+      "HOLDING:minecraft:carrot"
+     ],
+     "verb": "RAISE",
+     "teach": [
+      "raise",
+      "rabbit"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "당근을 들고 토끼를 키우세요.",
+     "clueSource": "generated",
+     "hintKo": "당근을 들고 토끼를 키워요.",
+     "clueEn": "Holding a carrot, raise a rabbit."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "relation": null,
+     "conditions": [
+      "NEAR_ENTITY:minecraft:rabbit"
+     ],
+     "verb": "WAIT",
+     "teach": [
+      "wait",
+      "rabbit"
+     ],
+     "bare": false,
+     "formDependent": false,
+     "clueKo": "토끼 두 마리 근처에서 십 초 동안 기다리세요.",
+     "clueSource": "generated",
+     "hintKo": "토끼 두 마리 근처에서 잠깐 기다려요.",
+     "clueEn": "Wait ten seconds near two rabbits."
+    }
+   ]
+  }
+ ],
+ "finales": {
+  "authored": [
+   "pferderennen",
+   "reitpfad",
+   "gestuet",
+   "adv_husbandry_bred_all_animals",
+   "adv_husbandry_complete_catalogue",
+   "adv_husbandry_whole_pack",
+   "adv_husbandry_remove_wolf_armor",
+   "adv_husbandry_repair_wolf_armor",
+   "adv_husbandry_feed_snifflet"
+  ],
+  "generatedFinalesOfAll": "300 of 422",
+  "note": "The nine authored finales are in content/batches/BATCH-013/korean-lines.tsv as they stand (the wave 8 rule). Eight close with a flavour sentence (a 은/는 sentence about size, speed or weight; reitpfad contrasts the donkey with the horse), repair_wolf_armor is a single sentence. bred_all_animals says 낮에 because its goal has a TIME condition and the finale text has to speak it."
+ },
+ "newWordsWithDescKo": [
+  "gen_donkey (new descKo)",
+  "gen_spruce_fence_gate (new descKo)",
+  "gen_acacia_fence_gate (new descKo)",
+  "gen_birch_fence_gate (new descKo)",
+  "gen_magenta_banner (new descKo)",
+  "gen_mangrove_swamp (new descKo)",
+  "gen_lime_candle (new descKo)",
+  "gen_mud (new descKo)",
+  "gen_pink_tulip (new descKo)",
+  "already had one: gen_swamp, gen_copper_torch, adv_item_lead, adv_item_white_banner, adv_item_armadillo_scute, wolf_armor, cauldron, shears"
+ ],
+ "proposedForLevel3": [],
+ "editsOutsideTheBatchFiles": [
+  "concepts.json: nine descKo lines inserted into existing gen_ entries (listed above); nothing reformatted, no concept added.",
+  "lang/content/en_us.json and de_de.json: the title, step, hint and finale keys of the 15 trails (old keys of the 15 removed first, so no stale step key is left). German written together with the English and recorded with translate.py adopt --state proofread --refresh.",
+  "src/test/resources/content-baseline.json: gestuet leaves reachabilityDebt (its old finale placed a warped nylium).",
+  "content/metrics-baseline.json (rebaselined), content/korean/lines.jsonl, content/korean/review-status.json, content/translations/de_de-status.json, docs/book/src/quest-tree.md: regenerated by the gates and translate.py."
+ ],
+ "generatorWeaknesses": [
+  "The concept `gate` (울타리 문) has no `covers`, unlike fence, door and sign. Only the oak gate is spoken as 울타리 문; every other gate says its full name (\"가문비나무 울타리 문\", one unknown word), and the validator refuses to teach `gate` for a spruce or birch gate (QuestScaffoldTest: \"the sentence word '울타리 문' does not describe the goal\"). The three gate steps teach the specific gen_*_fence_gate concepts instead.",
+  "INTERACT_ENTITY has no verb for shearing, leashing, brushing or milking. With shears in hand a wolf is still \"쓰다듬으세요\" (pet), a sheep, rabbit or frog is \"먹이를 주세요\" (feed), whatever the HOLDING condition says. The shearing trail therefore collects the wool with ACQUIRE_ITEM under HOLDING shears and the wolf finale pets the wolf with shears in hand.",
+  "Only 15 creatures can be anchors (villager, trader, golems, cow, pig, sheep, chicken, horse, donkey, llama, cat, wolf, fox, armor stand). Rabbit, frog, goat, turtle, bee, mule and parrot cannot be 앞/옆/뒤 anchors, so the frog and rabbit trails get their form-dependent steps from fences, water and fence rings instead.",
+  "EQUIP is the player's four armour slots, so wolf armour is GIVE with method USE_WITH. It reads \"늑대에게 늑대 갑옷을 주세요\" (give wolf armour to a wolf), which says handing over, not putting on, and the verb 입히다 is not in the table. The same goes for the scute that repairs the armour.",
+  "coverage.py reads 쓰다듬으세요 (PET) as 쓰다 (write or use), and 쓰다듬다 is not a lexicon word. PET sentences therefore count 쓰다 as met and as unknown; the wolf-armour finale only stays under one unknown word because the cat trail pets twice before it on the learner path.",
+  "A SEQUENCE has no object, so the (verb, object) pair limit does not see its parts. GIVE carrot, wheat, salmon and cod and RIDE horse are at the limit of 3 already, which pushed the horse and cat finales into SEQUENCEs (apple then ride; fish then pet) and the donkey into the riding trail. That is legitimate -고 practice, but the pair metric no longer measures it.",
+  "Items without a concept (슬라임볼, 수박씨) are spoken from names.json and work in GIVE and HOLDING, but cannot appear in `teach`, so the step teaches only the animal and the hint cannot gloss the item. The slimeball (and melon or beetroot seeds) are never glossed.",
+  "A WAIT with NEAR_ENTITY puts the conditions in the order they are written in the JSON (\"개구리 세 마리 근처에서 밤에 십 초 동안…\" with NEAR first, \"밤에 늑대 세 마리 근처에서…\" with TIME first); the prefix order should be fixed in the sentence builder, not left to the author. I wrote TIME first everywhere.",
+  "translate.py check treats the German \"auf\" as a relation giveaway even inside separable verbs (aufstellen, aufhängen, reite auf), so hidden-form steps use platzieren, anbringen and reite es."
+ ],
+ "openIssues": [
+  "Reachability: the two wolf-armour trails need wolf armour, which is six armadillo scutes from an armadillo (savanna or badlands, brushed with a brush). Both parents are level 1, and the brief did not list them among the five unreachable advancements, so they stay at level 2. If ARCH decides the savanna trip is too far for week one or two, adv_husbandry_remove_wolf_armor and adv_husbandry_repair_wolf_armor are the candidates to move to level 3 (I did not change koreanLevel).",
+  "Reachability: the lead (끈) in the frog trail needs a slimeball (a swamp slime at night) and string; the mangrove-swamp pond needs a mangrove swamp near the start. Frogs live in swamps and mangrove swamps, rabbits in meadows, wolves in forests and taigas, donkeys on plains and in savannas.",
+  "Sensors: the wolf finale only checks an interaction with shears held, not that the armour came off; the repair finale waits ten seconds near a wolf because the sensor cannot see armour durability. MOUNT asks for 2000 ms in the saddle, and an untamed horse or donkey can throw the rider sooner; feeding it first (the apple, the hay) raises the temper.",
+  "The five advancements that needed things beyond level 2 are rebuilt as day-week animal trails with new titles, none moved: froglights is now 개구리 연못의 밤 (A Night at the Frog Pond), kill_axolotl_target is 양털 깎는 날 (Shearing Day), allay_deliver_cake_to_note_block is 동물들의 노래 (A Song for the Animals), feed_snifflet is 돼지 우리 (The Pig Pen) and plant_any_sniffer_seed is 토끼 밭 (The Rabbit Patch). Their ids and badges are kept, so the vanilla advancement no longer matches the trail; their lang titles are new.",
+  "송아지 (calf) is not in names.json; the official ko_kr has 새끼 돼지, 병아리, 망아지 and 새끼 늑대 but no baby cow. I used the standard word 송아지 in one finale; the pig finale uses 새끼 돼지.",
+  "물고기 as a watched or fed entity (wave 8) is not used: WATCH cod is at the pair limit, and the cat trail feeds a fish inside a SEQUENCE instead.",
+  "BATCH-014 slack: the verb-object pairs at exactly 3 that I touch are CRAFT note_block, GIVE apple and HANG white_banner. duplicateSignatures went from 8 to 6 (none of mine), unknownOverOneShare from 0.052206 to 0.051534."
+ ]
+}

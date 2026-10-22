@@ -6,10 +6,12 @@
  "tier": 3,
  "order": 156,
  "concepts": [
-  "gen_mule",
-  "gen_pale_oak_sapling",
-  "gen_exposed_cut_copper",
-  "gen_scrape_pottery_sherd"
+  "fence",
+  "horse",
+  "gen_spruce_fence_gate",
+  "gen_magenta_banner",
+  "sugar",
+  "apple"
  ],
  "requires": {
   "minWordsKnown": 30,
@@ -23,60 +25,114 @@
   {
    "id": "s1",
    "teach": [
-    "gen_mule"
+    "fence",
+    "horse"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:mule",
-    "dwellMs": 800
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:oak_fence",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:horse",
+     "count": 2
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_pale_oak_sapling"
+    "gen_spruce_fence_gate",
+    "fence"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_sapling",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:spruce_fence_gate",
+    "relation": "NEXT_TO",
+    "pattern": "RING",
+    "material": "minecraft:oak_fence"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "gen_exposed_cut_copper"
+    "gen_magenta_banner",
+    "horse"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:exposed_cut_copper",
-    "count": 6
+    "type": "PLACE_REL",
+    "block": "minecraft:magenta_banner",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:horse",
+    "count": 1
    }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "sugar",
+    "horse"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:sugar",
+    "entity": "minecraft:horse",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_scrape_pottery_sherd"
+    "apple",
+    "ride",
+    "horse"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:scrape_pottery_sherd",
-    "count": 3
-   },
-   "conditions": []
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "GIVE",
+      "item": "minecraft:apple",
+      "entity": "minecraft:horse",
+      "count": 1
+     },
+     {
+      "type": "MOUNT",
+      "entity": "minecraft:horse",
+      "dwellMs": 2000
+     }
+    ],
+    "ordered": true,
+    "connector": "AND"
+   }
   },
-  "textKo": "긁개 도자기 조각을 세 개 모았어요."
+  "textKo": "말을 타고 달렸어요. 말은 빨라요."
  },
  "reward": {
   "badge": "pferderennen",
   "words": [
-   "horse",
-   "saddle",
    "fence",
-   "carrot"
+   "horse",
+   "gen_spruce_fence_gate",
+   "gen_magenta_banner"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.go_sequence",
+  "L2.eun_neun_topic"
+ ]
 }

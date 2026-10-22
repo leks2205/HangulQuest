@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 275,
  "concepts": [
-  "gen_green_banner",
-  "gen_deepslate_redstone_ore",
-  "gen_wandering_trader"
+  "wolf_armor",
+  "wolf",
+  "adv_item_armadillo_scute"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,23 +21,46 @@
   {
    "id": "s1",
    "teach": [
-    "gen_green_banner"
+    "wolf_armor"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:green_banner",
+    "type": "CRAFT",
+    "item": "minecraft:wolf_armor",
     "count": 1
    }
   },
   {
    "id": "s2",
    "teach": [
-    "gen_deepslate_redstone_ore"
+    "wolf_armor",
+    "wolf"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate_redstone_ore",
-    "count": 1
+    "type": "GIVE",
+    "item": "minecraft:wolf_armor",
+    "entity": "minecraft:wolf",
+    "count": 1,
+    "method": "USE_WITH"
+   },
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "OPEN"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_armadillo_scute",
+    "wolf"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:armadillo_scute",
+    "entity": "minecraft:wolf",
+    "count": 1,
+    "method": "USE_WITH"
    }
   }
  ],
@@ -45,23 +68,27 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_wandering_trader"
+    "wolf"
    ],
    "goal": {
     "type": "INTERACT_ENTITY",
-    "entity": "minecraft:wandering_trader"
-   },
-   "conditions": []
+    "entity": "minecraft:wolf"
+   }
   },
-  "textKo": "떠돌이 상인과 이야기했어요."
+  "textKo": "늑대 갑옷이 새것처럼 됐어요."
  },
  "reward": {
   "badge": "adv_husbandry_repair_wolf_armor",
   "words": [
    "wolf_armor",
-   "adv_item_armadillo_scute",
-   "wolf"
+   "wolf",
+   "adv_item_armadillo_scute"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 2,
+ "grammar": [
+  "L2.seyo",
+  "L2.ege",
+  "L2.eseo_activity"
+ ]
 }
