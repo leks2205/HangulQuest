@@ -1,0 +1,644 @@
+{
+ "batch": "BATCH-027",
+ "brief": "content/briefs/BATCH-027.md",
+ "chapter": "small poems IV: a mood in four steps (level 5; every trail is level 5 by tree depth 13 to 15)",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 47,
+  "formDependentShareOwn": 0.7833
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w9_01",
+   "title": "빛나는 서약",
+   "order": 1091,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "밤에 종을 바라봤어요. 종은 소리를 내요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:golden_helmet:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 왕관을 만들어야 해요.",
+     "hintKo": "낮에 왕관을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지는 동안 기다려야 해요.",
+     "hintKo": "저녁에 잠깐 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:torch:HOLD+INTERACT_ENTITY:minecraft:villager:TALK",
+     "formDependent": true,
+     "clueKo": "횃불을 들고 있는 동안 주민과 이야기해야 해요.",
+     "hintKo": "횃불을 들고 주민과 이야기해요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:bell:WATCH|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 종을 일 초 동안 바라봐야 해요.",
+     "hintKo": "밤에 종을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w9_02",
+   "title": "별의 왕관",
+   "order": 1092,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "북쪽을 보고 랜턴을 놓았어요. 랜턴은 밤에도 밝아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:map:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 지도를 만들어야 해요.",
+     "hintKo": "낮에 지도를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤인 동안 기다려야 해요.",
+     "hintKo": "밤에 잠깐 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "WALK",
+     "signature": "WALK:NORTH:GO|HOLDING:minecraft:compass,TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 나침반을 들고 북쪽으로 이십 블록 가야 해요.",
+     "hintKo": "새벽에 나침반을 들고 북쪽으로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:lantern:PLACE|FACING:NORTH",
+     "formDependent": false,
+     "clueKo": "북쪽을 보고 랜턴을 놓아야 해요.",
+     "hintKo": "북쪽을 보고 랜턴을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w9_03",
+   "title": "왕관의 항로",
+   "order": 1093,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "주민에게 종이를 팔았어요. 에메랄드는 돈이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:emerald:COLLECT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 에메랄드를 세 개 모아야 해요.",
+     "hintKo": "낮에 에메랄드를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오는 동안 기다려야 해요.",
+     "hintKo": "비가 올 때 잠깐 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:emerald:HOLD+TRADE:minecraft:bread:BUY",
+     "formDependent": true,
+     "clueKo": "에메랄드를 들고 있는 동안 주민에게서 빵을 세 개 사야 해요.",
+     "hintKo": "에메랄드를 들고 주민에게서 빵을 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:paper:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 종이를 다섯 장 팔아야 해요.",
+     "hintKo": "주민에게 종이를 팔아요."
+    }
+   ]
+  },
+  {
+   "id": "w9_04",
+   "title": "왕관의 성벽",
+   "order": 1094,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "철 골렘을 바라봤어요. 철 골렘은 마을을 지켜요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:WALL/3:minecraft:stone_bricks:STACK|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 석재 벽돌로 벽을 쌓아야 해요.",
+     "hintKo": "낮에 석재 벽돌로 벽을 쌓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:shield:HOLD+DEFEAT_ENTITY:minecraft:zombie:DEFEAT",
+     "formDependent": true,
+     "clueKo": "방패를 들고 있는 동안 좀비를 두 마리 물리쳐야 해요.",
+     "hintKo": "방패를 들고 좀비를 물리쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:stone_bricks:BREAK@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 석재 벽돌을 부수지 마세요.",
+     "hintKo": "밤에 석재 벽돌을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:iron_golem:WATCH",
+     "formDependent": false,
+     "clueKo": "철 골렘을 일 초 동안 바라봐야 해요.",
+     "hintKo": "철 골렘을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w9_05",
+   "title": "영원의 시간",
+   "order": 1095,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "낮에 주민에게 시계를 줬어요. 시계는 시간을 보여 줘요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:clock:WATCH|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 시계를 일 초 동안 바라봐야 해요.",
+     "hintKo": "맑을 때 시계를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨는 동안 기다려야 해요.",
+     "hintKo": "새벽에 잠깐 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:LIE_DOWN:minecraft:red_bed:LIE@Time[phase=DUSK]",
+     "formDependent": true,
+     "clueKo": "해가 져도 침대에 눕지 마세요.",
+     "hintKo": "저녁에 침대에 눕지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:clock>minecraft:villager:GIVE|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 주민에게 시계를 줘야 해요.",
+     "hintKo": "낮에 주민 앞에 시계를 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w9_06",
+   "title": "어둠의 왕관",
+   "order": 1096,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "영혼 랜턴을 바라봤어요. 영혼 불꽃은 파란색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:soul_lantern:ON_TOP_OF:minecraft:black_wool:PLACE|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 검은 양털 위에 영혼 랜턴을 놓아야 해요.",
+     "hintKo": "저녁에 검은색 양털 위에 영혼 랜턴을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:PLACE_BLOCK:minecraft:torch:PLACE@Time[phase=DUSK]",
+     "formDependent": true,
+     "clueKo": "해가 져도 횃불을 놓지 마세요.",
+     "hintKo": "저녁에 횃불을 놓지 마세요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:soul_torch:CRAFT|HOLDING:minecraft:soul_sand,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 영혼 모래를 들고 영혼 횃불을 만들어야 해요.",
+     "hintKo": "밤에 영혼 모래를 들고 영혼 횃불을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:soul_lantern:WATCH",
+     "formDependent": false,
+     "clueKo": "영혼 랜턴을 일 초 동안 바라봐야 해요.",
+     "hintKo": "영혼 랜턴을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w9_07",
+   "title": "왕관의 공방",
+   "order": 1097,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "철 주괴를 들고 가위를 만들었어요. 가위는 양털을 깎아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:grindstone:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 숫돌을 만들어야 해요.",
+     "hintKo": "비가 올 때 숫돌을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_pickaxe:HOLD+BREAK_BLOCK:minecraft:copper_ore:MINE",
+     "formDependent": true,
+     "clueKo": "철 곡괭이를 들고 있는 동안 구리 광석을 두 개 캐야 해요.",
+     "hintKo": "철 곡괭이를 들고 구리 광석을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:grindstone:OPEN|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 숫돌을 열어야 해요.",
+     "hintKo": "밤에 숫돌을 열어요."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:shears:CRAFT|HOLDING:minecraft:iron_ingot",
+     "formDependent": false,
+     "clueKo": "철 주괴를 들고 가위를 만들어야 해요.",
+     "hintKo": "철 주괴를 들고 가위를 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w9_08",
+   "title": "왕관의 유산",
+   "order": 1098,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "독서대를 사용했어요. 독서대 위에 책을 놓아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:lectern:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 독서대를 만들어야 해요.",
+     "hintKo": "비가 올 때 독서대를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:bookshelf:NEXT_TO:minecraft:red_wool:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 빨간 양털 옆에 책장을 두 개 놓아야 해요.",
+     "hintKo": "밤에 빨간색 양털 옆에 책장을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:book:HOLD+INTERACT_ENTITY:minecraft:villager:TALK",
+     "formDependent": true,
+     "clueKo": "책을 들고 있는 동안 주민과 이야기해야 해요.",
+     "hintKo": "책을 들고 주민과 이야기해요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:lectern:OPERATE",
+     "formDependent": false,
+     "clueKo": "독서대를 사용해야 해요.",
+     "hintKo": "독서대를 사용해요."
+    }
+   ]
+  },
+  {
+   "id": "w10_01",
+   "title": "땅 아래의 빛",
+   "order": 1101,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "발광석을 바라봤어요. 발광석은 빛을 내요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:REACH_BIOME:minecraft:plains:GO>BREAK_BLOCK:minecraft:dirt:DIG|IN_BIOME:minecraft:plains,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 흙을 네 개 파러 평원으로 가야 해요.",
+     "hintKo": "낮에 흙을 파러 평원으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:torch:HOLD+BREAK_BLOCK:minecraft:gravel:DIG",
+     "formDependent": true,
+     "clueKo": "횃불을 들고 있는 동안 자갈을 세 개 파야 해요.",
+     "hintKo": "횃불을 들고 자갈을 파요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:glowstone:ON_TOP_OF:minecraft:blue_wool:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 파란 양털 위에 발광석을 놓아야 해요.",
+     "hintKo": "밤에 파란색 양털 위에 발광석을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:glowstone:WATCH",
+     "formDependent": false,
+     "clueKo": "발광석을 일 초 동안 바라봐야 해요.",
+     "hintKo": "발광석을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w10_02",
+   "title": "사막의 대상단",
+   "order": 1102,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "금 원석을 녹여서 금 주괴를 세 개 만들었어요. 금은 노란색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:WEST:GO|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 서쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "낮에 서쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:raw_gold>minecraft:chest:PUT_IN|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 상자 안에 금 원석을 여섯 개 넣어야 해요.",
+     "hintKo": "비가 올 때 상자 안에 금 원석을 넣어요."
+    },
+    {
+     "id": "s3",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:apple:BUY|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 주민에게서 사과를 두 개 사야 해요.",
+     "hintKo": "저녁에 주민에게서 사과를 사요."
+    },
+    {
+     "id": "finale",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:gold_ingot:MELT",
+     "formDependent": false,
+     "clueKo": "금 원석을 녹여서 금 주괴를 세 개 만들어야 해요.",
+     "hintKo": "화로에서 금 원석을 녹여요."
+    }
+   ]
+  },
+  {
+   "id": "w10_03",
+   "title": "잊힌 사원",
+   "order": 1103,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "돌 압력판을 놓았어요. 돌은 단단해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 동쪽으로 이십오 블록 가야 해요.",
+     "hintKo": "새벽에 동쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:chiseled_sandstone:MINE|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 조각된 사암을 두 개 캐야 해요.",
+     "hintKo": "맑을 때 조각된 사암을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:USE_BLOCK:minecraft:oak_fence_gate:OPEN@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 울타리 문을 열지 마세요.",
+     "hintKo": "밤에 울타리 문을 열지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:stone_pressure_plate:PLACE",
+     "formDependent": false,
+     "clueKo": "돌 압력판을 놓아야 해요.",
+     "hintKo": "돌 압력판을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w10_04",
+   "title": "뼈의 수호자",
+   "order": 1104,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "뼈 블록을 두 개 쌓았어요. 뼈 블록은 하얀색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:bow:HOLD+DEFEAT_ENTITY:minecraft:skeleton:DEFEAT",
+     "formDependent": true,
+     "clueKo": "활을 들고 있는 동안 스켈레톤을 한 마리 물리쳐야 해요.",
+     "hintKo": "활을 들고 스켈레톤을 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:bone:COLLECT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 뼈를 여섯 개 모아야 해요.",
+     "hintKo": "밤에 뼈를 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:bone_block:CRAFT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 뼈 블록을 만들어야 해요.",
+     "hintKo": "비가 올 때 뼈 블록을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:bone_block:STACK",
+     "formDependent": false,
+     "clueKo": "뼈 블록을 두 개 쌓아야 해요.",
+     "hintKo": "뼈 블록을 쌓아요."
+    }
+   ]
+  },
+  {
+   "id": "w10_05",
+   "title": "사막의 파수꾼",
+   "order": 1105,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "선인장을 바라봤어요. 선인장에는 가시가 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:cactus:PLANT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 선인장을 세 개 심어야 해요.",
+     "hintKo": "낮에 선인장을 심어요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:cactus:BREAK@Time[phase=DUSK]",
+     "formDependent": true,
+     "clueKo": "해가 져도 선인장을 부수지 마세요.",
+     "hintKo": "저녁에 선인장을 부수지 마세요."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑은 동안 기다려야 해요.",
+     "hintKo": "맑을 때 잠깐 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:cactus:WATCH",
+     "formDependent": false,
+     "clueKo": "선인장을 일 초 동안 바라봐야 해요.",
+     "hintKo": "선인장을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w10_06",
+   "title": "도공의 손",
+   "order": 1106,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "장식된 도자기를 바라봤어요. 장식된 도자기는 벽돌로 만들어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:clay_ball:COLLECT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 점토를 여덟 개 모아야 해요.",
+     "hintKo": "비가 올 때 점토를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:brick:BAKE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 점토를 구워서 벽돌을 네 개 만들어야 해요.",
+     "hintKo": "밤에 점토를 구워요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:decorated_pot:CRAFT|HOLDING:minecraft:brick",
+     "formDependent": false,
+     "clueKo": "벽돌을 들고 장식된 도자기를 만들어야 해요.",
+     "hintKo": "벽돌을 들고 장식된 도자기를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:decorated_pot:WATCH",
+     "formDependent": false,
+     "clueKo": "장식된 도자기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "장식된 도자기를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w10_07",
+   "title": "별빛과 모래",
+   "order": 1107,
+   "koreanLevel": 5,
+   "grammar": [],
+   "finaleKo": "동쪽을 보고 낮까지 기다렸어요. 해는 동쪽에서 떠요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "WALK",
+     "signature": "WALK:SOUTH:GO|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 남쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "저녁에 남쪽으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:blue_bed:NEXT_TO:minecraft:yellow_wool:PLACE",
+     "formDependent": true,
+     "clueKo": "노란 양털 옆에 침대를 놓아야 해요.",
+     "hintKo": "노란색 양털 옆에 침대를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "LIE_DOWN",
+     "signature": "LIE_DOWN:minecraft:blue_bed:LIE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 침대에 누워야 해요.",
+     "hintKo": "밤에 침대에 누워요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|FACING:EAST",
+     "formDependent": false,
+     "clueKo": "동쪽을 보고 낮까지 기다려야 해요.",
+     "hintKo": "동쪽을 보고 낮까지 기다려요."
+    }
+   ]
+  }
+ ]
+}

@@ -1,15 +1,16 @@
 {
  "schema": 1,
  "id": "w10_01",
- "titleKo": "모래 아래의 빛",
- "topic": "사막",
+ "titleKo": "땅 아래의 빛",
+ "topic": "빛",
  "tier": 2,
  "order": 1101,
  "concepts": [
-  "gen_crimson_planks",
-  "gen_oxidized_copper_door",
-  "chiseled_stone_bricks",
-  "gen_blue_carpet"
+  "dirt",
+  "gen_plains",
+  "torch",
+  "gravel",
+  "gen_glowstone"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,63 +23,101 @@
   {
    "id": "s1",
    "teach": [
-    "gen_crimson_planks"
+    "dirt",
+    "gen_plains"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:crimson_planks",
-    "count": 12
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "REACH_BIOME",
+      "biome": "minecraft:plains",
+      "dwellMs": 1000
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:dirt",
+      "count": 4,
+      "verb": "DIG"
+     }
+    ],
+    "ordered": true,
+    "connector": "EUREO"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:plains"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oxidized_copper_door"
+    "torch",
+    "gravel"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_copper_door",
-    "count": 8
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:gravel",
+     "count": 3,
+     "verb": "DIG"
+    }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "chiseled_stone_bricks"
+    "gen_glowstone"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:chiseled_stone_bricks",
-    "dwellMs": 1000
+    "type": "PLACE_REL",
+    "block": "minecraft:glowstone",
+    "relation": "ON_TOP_OF",
+    "anchor": "minecraft:blue_wool",
+    "count": 1
    },
-   "hint": {
-    "ko": "조각된 석재 벽돌은 유적의 벽에 있어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_blue_carpet"
+    "gen_glowstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_carpet",
-    "count": 4
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:glowstone",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "파란색 양탄자를 네 장 깔았어요."
+  "textKo": "발광석을 바라봤어요. 발광석은 빛을 내요."
  },
  "reward": {
   "badge": "w10_01",
   "words": [
-   "sand",
-   "sandstone",
-   "chiseled_stone_bricks",
-   "torch"
+   "dirt",
+   "gen_plains",
+   "torch",
+   "gravel",
+   "gen_glowstone"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

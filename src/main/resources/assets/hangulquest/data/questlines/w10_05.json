@@ -6,10 +6,8 @@
  "tier": 2,
  "order": 1105,
  "concepts": [
-  "gen_dark_oak_leaves",
-  "gen_oak_button",
-  "gen_dead_brain_coral_block",
-  "gen_oxidized_cut_copper"
+  "gen_cactus",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -22,60 +20,79 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dark_oak_leaves"
+    "gen_cactus"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:dark_oak_leaves",
-    "count": 16
-   }
+    "type": "PLACE_BLOCK",
+    "block": "minecraft:cactus",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_button"
+    "gen_cactus"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_button",
-    "count": 8
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:cactus",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_dead_brain_coral_block"
+    "wait"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dead_brain_coral_block",
-    "count": 3
-   }
+    "type": "WAIT",
+    "seconds": 15
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_oxidized_cut_copper"
+    "gen_cactus"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oxidized_cut_copper",
-    "count": 2
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:cactus",
+    "dwellMs": 1000
    },
    "conditions": []
   },
-  "textKo": "산화된 깎인 구리를 두 개 놓았어요."
+  "textKo": "선인장을 바라봤어요. 선인장에는 가시가 있어요."
  },
  "reward": {
   "badge": "w10_05",
   "words": [
-   "sandstone",
-   "stone_bricks",
-   "height",
-   "bell"
+   "gen_cactus",
+   "wait"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

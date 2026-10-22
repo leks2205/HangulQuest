@@ -7,8 +7,10 @@
  "order": 1091,
  "concepts": [
   "crown",
-  "ritual",
-  "gen_mangrove_roots"
+  "wait",
+  "torch",
+  "villager",
+  "bell"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -24,63 +26,80 @@
     "crown"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:golden_helmet",
     "count": 1
-   },
-   "clue": {
-    "ko": "금으로 왕관을 만들어요."
-   },
-   "hint": {
-    "ko": "왕관은 금 주괴 다섯 개로 만들어요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "ritual"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:candle",
-    "count": 4
-   },
-   "clue": {
-    "ko": "밤에 의식을 위해 초를 네 개 놓아요."
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "wait"
    ],
-   "hint": {
-    "ko": "초는 실과 벌집 조각으로 만들어요."
-   }
+   "goal": {
+    "type": "WAIT",
+    "seconds": 10
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DUSK"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "torch",
+    "villager"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:torch",
+    "inner": {
+     "type": "INTERACT_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_mangrove_roots"
+    "bell"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:mangrove_roots",
-    "count": 3
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:bell",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "맹그로브나무 뿌리를 세 개 심었어요."
+  "textKo": "밤에 종을 바라봤어요. 종은 소리를 내요."
  },
  "reward": {
   "badge": "w9_01",
   "words": [
-   "bell",
    "crown",
-   "ritual"
+   "wait",
+   "torch",
+   "villager",
+   "bell"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }
