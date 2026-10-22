@@ -453,7 +453,7 @@ class GeneratorWaveNineTest {
 		// the registry names keep the wood where no word stands for the kind
 		assertEquals("가문비나무 울타리를 쳐요.", SentenceBuilder.normal(ring, null, List.of(), 1, false, REGISTRY));
 		// a colour is what the material is: the carpet row stays red
-		assertEquals("빨간색 양탄자 세 장을 나란히 놓아요.", SentenceBuilder.normal(new Goal.BuildPattern(Pattern.ROW,
+		assertEquals("빨간색 양탄자 세 장을 나란히 깔아요.", SentenceBuilder.normal(new Goal.BuildPattern(Pattern.ROW,
 				"minecraft:red_carpet", 3), null, List.of(), 1, false, NAMES));
 		// and a block no kind covers keeps its name
 		assertEquals("화강암 기둥 위에 횃불을 놓으세요.", SentenceBuilder.normal(new Goal.PlaceOnPattern("minecraft:torch",

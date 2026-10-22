@@ -1,14 +1,16 @@
 {
  "schema": 1,
  "id": "adv_adventure_shoot_arrow",
- "titleKo": "정조준",
+ "titleKo": "첫 화살",
  "topic": "adventure",
  "tier": 2,
  "order": 225,
  "concepts": [
-  "gen_deepslate",
-  "gen_redstone_lamp",
-  "gen_wither_skeleton"
+  "string",
+  "bow",
+  "arrow",
+  "hay_block",
+  "skeleton"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +23,102 @@
   {
    "id": "s1",
    "teach": [
-    "gen_deepslate"
+    "string"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:deepslate",
-    "count": 1
-   }
+    "item": "minecraft:string",
+    "count": 3
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_redstone_lamp"
+    "bow",
+    "arrow"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:redstone_lamp",
-    "count": 8
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:bow",
+      "count": 1
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:arrow",
+      "count": 8
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "hay_block"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:hay_block",
+     "count": 1
+    },
+    "windowSeconds": 20,
+    "during": {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_wither_skeleton"
+    "skeleton"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:wither_skeleton",
+    "entity": "minecraft:skeleton",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    },
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   ]
   },
-  "textKo": "위더 스켈레톤을 물리쳤어요."
+  "textKo": "활을 들고 밤에 스켈레톤을 물리쳤어요. 이제 활로 사냥할 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_shoot_arrow",
   "words": [
+   "string",
    "bow",
-   "arrow",
-   "zombie"
+   "arrow"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.eun_hue",
+  "L3.jima",
+  "L2.go_state",
+  "L3.past",
+  "L3.su_itda",
+  "L3.euro_instrument"
+ ]
 }

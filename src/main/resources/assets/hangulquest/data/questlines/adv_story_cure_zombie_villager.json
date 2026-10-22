@@ -1,13 +1,12 @@
 {
  "schema": 1,
  "id": "adv_story_cure_zombie_villager",
- "titleKo": "좀비 의사",
+ "titleKo": "좀비 주민 돕기",
  "topic": "story",
  "tier": 2,
  "order": 310,
  "concepts": [
-  "adv_item_chiseled_bookshelf",
-  "gen_red_bundle",
+  "gen_zombie_villager",
   "golden_apple"
  ],
  "requires": {
@@ -21,23 +20,58 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_chiseled_bookshelf"
+    "gen_zombie_villager"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:chiseled_bookshelf"
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:zombie_villager",
+    "dwellMs": 800
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_red_bundle"
+    "golden_apple"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_bundle",
+    "type": "CRAFT",
+    "item": "minecraft:golden_apple",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "golden_apple"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "CONSUME_ITEM",
+     "item": "minecraft:golden_apple",
+     "count": 1
+    },
+    "windowSeconds": 20
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "golden_apple"
+   ],
+   "goal": {
+    "type": "WAIT",
+    "seconds": 10
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:golden_apple"
+    }
+   ]
   }
  ],
  "finale": {
@@ -47,24 +81,30 @@
     "golden_apple"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "GIVE",
     "item": "minecraft:golden_apple",
+    "entity": "minecraft:zombie_villager",
     "count": 1
    },
-   "conditions": [],
-   "hint": {
-    "ko": "황금 사과는 사과와 금 주괴 여덟 개로 만들어요."
-   }
+   "conditions": []
   },
-  "textKo": "좀비 의사 — 약화 물약과 황금 사과로 주민을 살렸어요."
+  "textKo": "좀비 주민에게 황금 사과를 줬어요. 나중에 주민을 구할 수 있어요."
  },
  "reward": {
   "badge": "adv_story_cure_zombie_villager",
   "words": [
-   "brewing_stand",
-   "adv_item_potion",
+   "gen_zombie_villager",
    "golden_apple"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.jima",
+  "L2.ege",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

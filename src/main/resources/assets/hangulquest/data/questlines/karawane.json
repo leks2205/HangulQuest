@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "karawane",
  "titleKo": "대상단",
+ "topic": "동물",
  "tier": 4,
  "order": 532,
  "concepts": [
-  "gen_sniffer",
-  "gen_polished_diorite_stairs",
   "adv_item_lead",
-  "gen_jungle_slab"
+  "horse",
+  "bread",
+  "pumpkin"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -23,66 +24,77 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sniffer"
-   ],
-   "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:sniffer",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_polished_diorite_stairs"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:polished_diorite_stairs",
-    "count": 4
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
     "adv_item_lead"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:lead",
-    "count": 3
-   }
+    "count": 2
+   },
+   "conditions": []
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "horse"
+   ],
+   "goal": {
+    "type": "INTERACT_ENTITY",
+    "entity": "minecraft:horse"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:lead"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "bread"
+   ],
+   "goal": {
+    "type": "GIVE",
+    "item": "minecraft:bread",
+    "entity": "minecraft:horse",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_slab"
+    "pumpkin"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_slab",
-    "count": 3
+    "type": "TRADE",
+    "item": "minecraft:pumpkin",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 6
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "DAY"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "낮에 정글나무 반 블록을 세 개 놓았어요."
+  "textKo": "주민에게 호박을 팔았어요. 내일 마을 밖으로 갈 거예요."
  },
  "reward": {
   "badge": "karawane",
   "words": [
+   "adv_item_lead",
    "horse",
-   "emerald",
-   "bread",
-   "bell"
+   "bread"
   ]
  },
  "koreanLevel": 3,
- "topic": "동물"
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.euro_instrument",
+  "L2.ege",
+  "L3.future_geoyeyo",
+  "L3.past"
+ ]
 }

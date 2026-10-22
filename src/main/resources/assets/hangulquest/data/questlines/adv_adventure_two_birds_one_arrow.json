@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_two_birds_one_arrow",
- "titleKo": "일전쌍조",
+ "titleKo": "차례로 두 마리",
  "topic": "adventure",
  "tier": 2,
  "order": 239,
  "concepts": [
-  "gen_black_banner",
-  "gen_repeater",
-  "gen_shulker"
+  "spider",
+  "skeleton",
+  "gen_grindstone",
+  "adv_item_crossbow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +22,102 @@
   {
    "id": "s1",
    "teach": [
-    "gen_black_banner"
+    "spider"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:black_banner",
-    "count": 1
-   }
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:spider",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_repeater"
+    "skeleton"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:repeater",
-    "count": 8
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:spider",
+      "count": 1
+     },
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:skeleton",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_grindstone"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:grindstone",
+    "relation": "IN_FRONT_OF",
+    "anchor": "#minecraft:doors",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_shulker"
+    "adv_item_crossbow"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:shulker",
+    "entity": "minecraft:creeper",
     "count": 2
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:crossbow"
+    }
+   ]
   },
-  "textKo": "셜커를 두 마리 물리쳤어요."
+  "textKo": "쇠뇌로 크리퍼를 두 마리 물리쳤어요. 쇠뇌는 화살을 쏴요."
  },
  "reward": {
   "badge": "adv_adventure_two_birds_one_arrow",
   "words": [
-   "adv_item_crossbow",
-   "arrow",
-   "skeleton"
+   "spider",
+   "skeleton",
+   "gen_grindstone"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.eun_hue",
+  "L2.go_state",
+  "L1.loc_ap_e",
+  "L1.obj_eul",
+  "L3.past",
+  "L3.euro_instrument"
+ ]
 }

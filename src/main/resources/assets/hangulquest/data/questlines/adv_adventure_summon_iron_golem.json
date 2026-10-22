@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_summon_iron_golem",
- "titleKo": "도우미 고용",
+ "titleKo": "마을 지킴이",
  "topic": "adventure",
  "tier": 2,
  "order": 232,
  "concepts": [
+  "iron_golem",
   "iron_block",
-  "carved_pumpkin",
-  "iron_golem"
+  "carved_pumpkin"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,54 +21,82 @@
   {
    "id": "s1",
    "teach": [
+    "iron_golem"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:iron_golem",
+    "dwellMs": 800
+   },
+   "conditions": [
+    {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
     "iron_block"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:iron_block",
-    "count": 4
+    "count": 3
    },
-   "hint": {
-    "ko": "철 블록은 철 주괴 아홉 개로 만들어요."
-   }
+   "conditions": []
   },
   {
-   "id": "s2",
+   "id": "s3",
    "teach": [
-    "carved_pumpkin"
+    "iron_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:carved_pumpkin",
-    "count": 1
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:iron_block",
+    "size": 3
    },
-   "hint": {
-    "ko": "호박은 가위로 조각해요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "iron_golem"
+    "carved_pumpkin"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:iron_golem",
-    "dwellMs": 600
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:carved_pumpkin",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:iron_block"
    },
    "conditions": []
   },
-  "textKo": "도우미 고용 — 철 블록과 호박으로 철 골렘을 만들어요."
+  "textKo": "철 블록 기둥 위에 조각된 호박을 놓았어요. 나중에 철 골렘을 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_summon_iron_golem",
   "words": [
+   "iron_golem",
    "iron_block",
-   "carved_pumpkin",
-   "iron_golem"
+   "carved_pumpkin"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.jima",
+  "L2.seyo",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L3.su_itda",
+  "L3.past"
+ ]
 }

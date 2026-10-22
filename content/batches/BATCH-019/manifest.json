@@ -1,0 +1,957 @@
+{
+ "batch": "BATCH-019",
+ "brief": "content/briefs/BATCH-019.md",
+ "chapter": "bow, crossbow and trident: the hunter (level 3; every trail is level 3 by tree depth)",
+ "note": "Built on phase0 at 704f55f (the BATCH-016/017 review). `before` is the phase0 baseline, `after` the rebaselined values.",
+ "summary": {
+  "trails": 15,
+  "steps": 59,
+  "formDependentSteps": 28,
+  "formDependentShareOwn": 0.4746,
+  "goalTypes": {
+   "SEQUENCE": 10,
+   "LOOK_AT_ENTITY": 4,
+   "AVOID": 9,
+   "DEFEAT_ENTITY": 8,
+   "HOLD_WHILE": 1,
+   "ACQUIRE_ITEM": 6,
+   "BUILD_PATTERN": 2,
+   "PLACE_ON_PATTERN": 2,
+   "PLACE_REL": 5,
+   "LOOK_AT_BLOCK": 2,
+   "EQUIP": 1,
+   "REACH_BIOME": 2,
+   "FALL": 1,
+   "TAKE_OUT": 1,
+   "REACH_HEIGHT": 1,
+   "CRAFT": 1,
+   "WAIT": 1,
+   "GIVE": 2
+  }
+ },
+ "metrics": {
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.965782,
+   "after": 0.971311
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.984632,
+   "after": 0.988715
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.80767,
+   "after": 0.793326
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.047198,
+   "after": 0.046838
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 4.0,
+   "after": 4.0
+  },
+  "coverage.recycling.targetMetShare": {
+   "before": 0.165094,
+   "after": 0.165094
+  },
+  "coverage.recycling.seenShare": {
+   "before": 0.75,
+   "after": 0.754717
+  },
+  "variety.bareShare.3": {
+   "before": 0.5,
+   "after": 0.427481
+  },
+  "variety.boredomIndex": {
+   "before": 0.03778,
+   "after": 0.032806
+  },
+  "variety.distinctTypes.3": {
+   "before": 26.0,
+   "after": 28
+  },
+  "variety.duplicateSignatures": {
+   "before": 3.0,
+   "after": 3
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.1,
+   "after": 0.167939
+  },
+  "variety.noveltyShare": {
+   "before": 0.664286,
+   "after": 0.685714
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 79.0,
+   "after": 73
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.284211,
+   "after": 0.24173
+  },
+  "variety.verbObjectMax": {
+   "before": 7.0,
+   "after": 7
+  },
+  "variety.verbObjectPairsOver3": {
+   "before": 12.0,
+   "after": 12
+  }
+ },
+ "trails": [
+  {
+   "id": "wolfpfad",
+   "title": "늑대의 길",
+   "titleEn": "The Wolf Trail",
+   "order": 166,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.ege",
+    "L3.jima",
+    "L3.past"
+   ],
+   "finaleKo": "늑대에게 돼지고기를 줬어요. 늑대는 고기를 좋아해요. 늑대는 빨리 달려요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:wolf:WATCH|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 늑대를 일 초 동안 바라보세요.",
+     "hintKo": "밤에 늑대를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:cooked_beef>minecraft:wolf:GIVE|IN_BIOME:minecraft:forest",
+     "formDependent": true,
+     "clueKo": "숲에서 늑대에게 소고기를 주세요.",
+     "hintKo": "숲에서 늑대에게 소고기를 줘요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK",
+     "formDependent": true,
+     "clueKo": "늑대 근처에서 침대를 부수지 마세요.",
+     "hintKo": "늑대 근처에서 침대를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "GIVE",
+     "signature": "GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE",
+     "formDependent": true,
+     "clueKo": "늑대에게 돼지고기를 주세요.",
+     "hintKo": "늑대에게 돼지고기를 줘요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_arbalistic",
+   "title": "쇠뇌 사냥",
+   "titleEn": "Hunting with the Crossbow",
+   "order": 201,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L2.seyo",
+    "L1.loc.an",
+    "L2.num_sino",
+    "L2.go_state",
+    "L3.jima",
+    "L3.past",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "쇠뇌로 좀비를 한 마리 물리쳤어요. 이제 쇠뇌로 사냥할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:arrow:CRAFT>PUT_IN:minecraft:arrow>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "화살을 여덟 개 만든 후에 상자 안에 화살을 여덟 개 넣으세요.",
+     "hintKo": "화살을 만든 후에 상자 안에 화살을 넣어요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:zombie:WATCH|HOLDING:minecraft:crossbow",
+     "formDependent": false,
+     "clueKo": "쇠뇌를 들고 좀비를 일 초 동안 바라보세요.",
+     "hintKo": "쇠뇌를 들고 좀비를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:oak_fence:BREAK",
+     "formDependent": true,
+     "clueKo": "쇠뇌를 들고 울타리를 부수지 마세요.",
+     "hintKo": "쇠뇌를 들고 울타리를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:zombie:DEFEAT|HOLDING:minecraft:crossbow",
+     "formDependent": false,
+     "clueKo": "쇠뇌를 들고 좀비를 한 마리 물리치세요.",
+     "hintKo": "쇠뇌를 들고 좀비를 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_blowback",
+   "title": "방패로 막기",
+   "titleEn": "Blocking with the Shield",
+   "order": 203,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.go_state",
+    "L2.seyo",
+    "L3.jima",
+    "L1.eul_reul",
+    "L3.eun_hue",
+    "L2.num_sino",
+    "L3.past"
+   ],
+   "finaleKo": "방패를 들고 밤을 기다린 후에 스켈레톤을 바라봤어요. 방패가 화살을 막아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:shield:HOLD+IN_BIOME",
+     "formDependent": false,
+     "clueKo": "방패를 들고 숲에서 걸으세요.",
+     "hintKo": "방패를 들고 숲에서 걸어요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:USE_BLOCK:minecraft:oak_door:OPEN",
+     "formDependent": true,
+     "clueKo": "밤에 문을 열지 마세요.",
+     "hintKo": "밤에 문을 열지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:WAIT::WAIT>LOOK_AT_ENTITY:minecraft:skeleton:WATCH|HOLDING:minecraft:shield",
+     "formDependent": true,
+     "clueKo": "방패를 들고 밤까지 기다린 후에 스켈레톤을 일 초 동안 바라보세요.",
+     "hintKo": "방패를 들고 밤까지 기다린 후에 스켈레톤을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_bullseye",
+   "title": "과녁 세우기",
+   "titleEn": "Setting Up the Target",
+   "order": 205,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L1.loc_yeop_e",
+    "L2.num_sino",
+    "L2.go_state",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "활을 들고 과녁을 바라봤어요. 이제 화살을 쏠 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:target:CRAFT",
+     "formDependent": false,
+     "clueKo": "과녁을 만드세요.",
+     "hintKo": "과녁을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:hay_block:STACK",
+     "formDependent": false,
+     "clueKo": "건초 더미 세 개로 기둥을 쌓으세요.",
+     "hintKo": "건초 더미로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:target:ON_TOP_OF:PILLAR/minecraft:hay_block:PLACE",
+     "formDependent": true,
+     "clueKo": "건초 더미 기둥 위에 과녁을 놓으세요.",
+     "hintKo": "건초 더미 기둥 위에 과녁을 놓아요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:redstone_lamp:NEXT_TO:minecraft:target:PLACE",
+     "formDependent": true,
+     "clueKo": "과녁 옆에 레드스톤 조명을 놓으세요.",
+     "hintKo": "과녁 옆에 레드스톤 조명을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:target:WATCH|HOLDING:minecraft:bow",
+     "formDependent": false,
+     "clueKo": "활을 들고 과녁을 일 초 동안 바라보세요.",
+     "hintKo": "활을 들고 과녁을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_kill_all_mobs",
+   "title": "몬스터 사냥",
+   "titleEn": "Monster Hunt",
+   "order": 213,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.gi_jeone",
+    "L2.num_sino",
+    "L2.go_state",
+    "L3.past"
+   ],
+   "finaleKo": "검을 들고 밤에 좀비를 바라봤어요. 좀비는 밤에 나타나요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:iron_sword:CRAFT",
+     "formDependent": false,
+     "clueKo": "철 검을 만드세요.",
+     "hintKo": "철 검을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:iron_helmet:WEAR_HEAD",
+     "formDependent": false,
+     "clueKo": "철 투구를 쓰세요.",
+     "hintKo": "철 투구를 써요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:zombie:DEFEAT>DEFEAT_ENTITY:minecraft:spider:DEFEAT",
+     "formDependent": true,
+     "clueKo": "거미를 한 마리 물리치기 전에 좀비를 한 마리 물리치세요.",
+     "hintKo": "거미를 물리치기 전에 좀비를 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:zombie:WATCH|HOLDING:minecraft:iron_sword,TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 철 검을 들고 좀비를 일 초 동안 바라보세요.",
+     "hintKo": "밤에 철 검을 들고 좀비를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_kill_mob_near_sculk_catalyst",
+   "title": "숲의 밤사냥",
+   "titleEn": "Night Hunt in the Forest",
+   "order": 214,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L3.jima",
+    "L1.e_place",
+    "L2.go_state",
+    "L3.past"
+   ],
+   "finaleKo": "숲에서 밤에 돼지를 물리쳤어요. 사냥꾼은 밤에 자지 않아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:forest:GO|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 숲으로 가세요.",
+     "hintKo": "밤에 숲으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:campfire:CRAFT>WAIT::WAIT",
+     "formDependent": true,
+     "clueKo": "모닥불을 만든 후에 밤까지 기다리세요.",
+     "hintKo": "모닥불을 만든 후에 밤까지 기다려요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:LIE_DOWN:minecraft:red_bed:LIE",
+     "formDependent": true,
+     "clueKo": "밤에 침대에 눕지 마세요.",
+     "hintKo": "밤에 침대에 눕지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:pig:DEFEAT|HOLDING:minecraft:bow,IN_BIOME:minecraft:forest,TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 숲에서 활을 들고 돼지를 한 마리 물리치세요.",
+     "hintKo": "밤에 숲에서 활을 들고 돼지를 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_lighten_up",
+   "title": "사냥꾼의 불빛",
+   "titleEn": "The Hunter's Light",
+   "order": 215,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.jima",
+    "L2.num_sino",
+    "L3.past"
+   ],
+   "finaleKo": "밤에 레드스톤 횃불을 바라봤어요. 횃불은 밤에 밝아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:redstone_torch:OBTAIN",
+     "formDependent": false,
+     "clueKo": "레드스톤 횃불을 구하세요.",
+     "hintKo": "레드스톤 횃불을 구해요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:redstone_torch:ON_TOP_OF:#minecraft:fences:PLACE",
+     "formDependent": true,
+     "clueKo": "울타리 위에 레드스톤 횃불을 놓으세요.",
+     "hintKo": "울타리 위에 레드스톤 횃불을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:torch:BREAK",
+     "formDependent": true,
+     "clueKo": "밤에 횃불을 부수지 마세요.",
+     "hintKo": "밤에 횃불을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:redstone_torch:WATCH|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 레드스톤 횃불을 일 초 동안 바라보세요.",
+     "hintKo": "밤에 레드스톤 횃불을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_overoverkill",
+   "title": "철 도끼의 힘",
+   "titleEn": "The Power of the Iron Axe",
+   "order": 219,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.eseo_activity",
+    "L2.euro_direction",
+    "L3.jima",
+    "L2.go_state",
+    "L3.past",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "도끼로 양을 두 마리 물리쳤어요. 이제 도끼로 사냥할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:iron_axe:CRAFT",
+     "formDependent": false,
+     "clueKo": "철 도끼를 만드세요.",
+     "hintKo": "철 도끼를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "FALL",
+     "signature": "FALL:minecraft:water:JUMP_DOWN",
+     "formDependent": false,
+     "clueKo": "높은 곳에서 물로 뛰어내리세요.",
+     "hintKo": "높은 곳에서 물로 뛰어내려요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:oak_door:BREAK",
+     "formDependent": true,
+     "clueKo": "철 도끼를 들고 문을 부수지 마세요.",
+     "hintKo": "철 도끼를 들고 문을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_axe",
+     "formDependent": false,
+     "clueKo": "철 도끼를 들고 양을 두 마리 물리치세요.",
+     "hintKo": "철 도끼를 들고 양을 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_revaulting",
+   "title": "사냥꾼의 저녁",
+   "titleEn": "The Hunter's Supper",
+   "order": 222,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L3.eun_hue",
+    "L1.loc.an",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L2.eseo_activity",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "밤에 상자에서 소고기를 꺼냈어요. 모닥불 옆에서 먹을 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:cow:DEFEAT|HOLDING:minecraft:iron_sword",
+     "formDependent": false,
+     "clueKo": "철 검을 들고 소를 한 마리 물리치세요.",
+     "hintKo": "철 검을 들고 소를 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:SMELT:minecraft:cooked_beef:BAKE>PUT_IN:minecraft:cooked_beef>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "소고기를 두 개 구운 후에 상자 안에 소고기를 두 개 넣으세요.",
+     "hintKo": "소고기를 구운 후에 상자 안에 소고기를 넣어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:campfire:NEXT_TO:minecraft:chest:KINDLE",
+     "formDependent": true,
+     "clueKo": "상자 옆에 모닥불을 피우세요.",
+     "hintKo": "상자 옆에 모닥불을 피워요."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "signature": "TAKE_OUT:minecraft:cooked_beef<minecraft:chest:TAKE_OUT|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 상자에서 소고기를 꺼내세요.",
+     "hintKo": "밤에 상자에서 소고기를 꺼내요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_shoot_arrow",
+   "title": "첫 화살",
+   "titleEn": "The First Arrow",
+   "order": 225,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.eun_hue",
+    "L3.jima",
+    "L2.go_state",
+    "L3.past",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "활을 들고 밤에 스켈레톤을 물리쳤어요. 이제 활로 사냥할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:string:COLLECT",
+     "formDependent": false,
+     "clueKo": "실을 세 개 모으세요.",
+     "hintKo": "실을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:bow:CRAFT>ACQUIRE_ITEM:minecraft:arrow:COLLECT",
+     "formDependent": true,
+     "clueKo": "활을 만든 후에 화살을 여덟 개 모으세요.",
+     "hintKo": "활을 만든 후에 화살을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:hay_block:BREAK",
+     "formDependent": true,
+     "clueKo": "활을 들고 건초 더미를 부수지 마세요.",
+     "hintKo": "활을 들고 건초 더미를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow,TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 활을 들고 스켈레톤을 한 마리 물리치세요.",
+     "hintKo": "밤에 활을 들고 스켈레톤을 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_sniper_duel",
+   "title": "산 위의 활",
+   "titleEn": "The Bow on the Mountain",
+   "order": 227,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.loc_yeop_e",
+    "L2.go_sequence",
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.past"
+   ],
+   "finaleKo": "크리퍼를 바라본 후에 물리쳤어요. 크리퍼는 가까이에서 터져요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|HOLDING:minecraft:bow",
+     "formDependent": false,
+     "clueKo": "활을 들고 높이 120블록 위로 올라가세요.",
+     "hintKo": "활을 들고 산 위로 올라가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:WALL/3:minecraft:cobblestone:STACK",
+     "formDependent": false,
+     "clueKo": "조약돌로 벽을 쌓으세요.",
+     "hintKo": "조약돌로 벽을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:fletching_table:NEXT_TO:WALL/minecraft:cobblestone:PLACE",
+     "formDependent": true,
+     "clueKo": "조약돌 벽 옆에 화살 작업대를 놓으세요.",
+     "hintKo": "조약돌 벽 옆에 화살 작업대를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:LOOK_AT_ENTITY:minecraft:creeper:WATCH>DEFEAT_ENTITY:minecraft:creeper:DEFEAT|HOLDING:minecraft:bow",
+     "formDependent": true,
+     "clueKo": "활을 들고 크리퍼를 일 초 동안 바라본 후에 크리퍼를 한 마리 물리치세요.",
+     "hintKo": "활을 들고 크리퍼를 일 초 동안 바라본 후에 크리퍼를 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_spear_many_mobs",
+   "title": "창 사냥",
+   "titleEn": "The Spear Hunt",
+   "order": 228,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.eun_hue",
+    "L3.jima",
+    "L2.go_state",
+    "L3.past",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "창으로 양을 세 마리 물리쳤어요. 고기는 모닥불에서 요리할 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_spear:CRAFT",
+     "formDependent": false,
+     "clueKo": "철 창을 만드세요.",
+     "hintKo": "철 창을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:cow:DEFEAT>ACQUIRE_ITEM:minecraft:leather:COLLECT",
+     "formDependent": true,
+     "clueKo": "소를 두 마리 물리친 후에 가죽을 두 개 모으세요.",
+     "hintKo": "소를 물리친 후에 가죽을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:chest:BREAK",
+     "formDependent": true,
+     "clueKo": "철 창을 들고 상자를 부수지 마세요.",
+     "hintKo": "철 창을 들고 상자를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:sheep:DEFEAT|HOLDING:minecraft:iron_spear",
+     "formDependent": false,
+     "clueKo": "철 창을 들고 양을 세 마리 물리치세요.",
+     "hintKo": "철 창을 들고 양을 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_throw_trident",
+   "title": "물가의 사냥",
+   "titleEn": "Hunting by the Water",
+   "order": 233,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L3.eun_hue",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.go_state",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "검을 들고 드라운드를 물리쳤어요. 가끔 삼지창이 나와요. 삼지창은 던질 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:river:GO",
+     "formDependent": false,
+     "clueKo": "강으로 가세요.",
+     "hintKo": "강으로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:WAIT::WAIT>LOOK_AT_ENTITY:minecraft:drowned:WATCH|IN_BIOME:minecraft:river",
+     "formDependent": true,
+     "clueKo": "강에서 밤까지 기다린 후에 드라운드를 일 초 동안 바라보세요.",
+     "hintKo": "강에서 밤까지 기다린 후에 드라운드를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:drowned:DEFEAT|HOLDING:minecraft:iron_sword",
+     "formDependent": false,
+     "clueKo": "철 검을 들고 드라운드를 한 마리 물리치세요.",
+     "hintKo": "철 검을 들고 드라운드를 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_two_birds_one_arrow",
+   "title": "차례로 두 마리",
+   "titleEn": "Two in a Row",
+   "order": 239,
+   "koreanLevel": 3,
+   "depth": 7,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.eun_hue",
+    "L2.go_state",
+    "L1.loc_ap_e",
+    "L1.obj_eul",
+    "L3.past",
+    "L3.euro_instrument"
+   ],
+   "finaleKo": "쇠뇌로 크리퍼를 두 마리 물리쳤어요. 쇠뇌는 화살을 쏴요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:spider:WATCH|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 거미를 일 초 동안 바라보세요.",
+     "hintKo": "밤에 거미를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:spider:DEFEAT>DEFEAT_ENTITY:minecraft:skeleton:DEFEAT|HOLDING:minecraft:bow",
+     "formDependent": true,
+     "clueKo": "활을 들고 거미를 한 마리 물리친 후에 스켈레톤을 한 마리 물리치세요.",
+     "hintKo": "활을 들고 거미를 물리친 후에 스켈레톤을 물리쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:grindstone:IN_FRONT_OF:#minecraft:doors:PLACE",
+     "formDependent": true,
+     "clueKo": "문 앞에 숫돌을 놓으세요.",
+     "hintKo": "문 앞에 숫돌을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:creeper:DEFEAT|HOLDING:minecraft:crossbow",
+     "formDependent": false,
+     "clueKo": "쇠뇌를 들고 크리퍼를 두 마리 물리치세요.",
+     "hintKo": "쇠뇌를 들고 크리퍼를 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_adventure_very_very_frightening",
+   "title": "피뢰침",
+   "titleEn": "The Lightning Rod",
+   "order": 242,
+   "koreanLevel": 3,
+   "depth": 8,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.jima",
+    "L3.past"
+   ],
+   "finaleKo": "피뢰침 옆에서 밤을 기다렸어요. 번개가 하늘에서 쳐요. 피뢰침이 번개를 받아요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:lightning_rod:CRAFT",
+     "formDependent": false,
+     "clueKo": "피뢰침을 만드세요.",
+     "hintKo": "피뢰침을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:lightning_rod:ON_TOP_OF:#minecraft:planks:STAND",
+     "formDependent": true,
+     "clueKo": "판자 위에 피뢰침을 세우세요.",
+     "hintKo": "판자 위에 피뢰침을 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:lightning_rod:BREAK",
+     "formDependent": true,
+     "clueKo": "피뢰침을 부수지 마세요.",
+     "hintKo": "피뢰침을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:lightning_rod",
+     "formDependent": false,
+     "clueKo": "피뢰침 근처에서 밤까지 기다리세요.",
+     "hintKo": "피뢰침 근처에서 밤까지 기다려요."
+    }
+   ]
+  }
+ ],
+ "proposedForLevel4Plus": [
+  {
+   "id": "adv_adventure_revaulting",
+   "reason": "The vanilla advancement (open an ominous vault with an ominous trial key) needs trial chambers and an ominous trial. Rebuilt as the hunter's supper (a cow, a steak, a campfire). The real vault trail belongs to level 5 or 6."
+  },
+  {
+   "id": "adv_adventure_lighten_up",
+   "reason": "The vanilla advancement (a copper bulb, lit with an axe) sits in trial chambers. Rebuilt as the hunter's light (a redstone torch on a fence, torches left alone at night). A copper-bulb trail can follow at level 5."
+  },
+  {
+   "id": "adv_adventure_overoverkill",
+   "reason": "The vanilla advancement (a mace smash of 100 damage) needs a heavy core from an ominous vault. Rebuilt around the iron axe. A mace trail belongs to level 5 or 6."
+  },
+  {
+   "id": "adv_adventure_blowback",
+   "reason": "The vanilla advancement (deflect a breeze's wind charge) needs a trial chamber. Rebuilt as a shield trail. A breeze trail belongs to level 5 or 6."
+  },
+  {
+   "id": "adv_adventure_kill_mob_near_sculk_catalyst",
+   "reason": "The vanilla advancement needs a sculk catalyst (deep dark or a silk-touch pickaxe). Rebuilt as a night hunt in the forest. A sculk trail belongs to level 5 or 6, after the ancient city."
+  },
+  {
+   "id": "adv_adventure_very_very_frightening",
+   "reason": "The vanilla advancement (channeling lightning on a villager) needs an enchanted trident and a thunderstorm. Rebuilt as the lightning rod. A channeling trail belongs to level 6."
+  },
+  {
+   "id": "adv_adventure_kill_all_mobs",
+   "reason": "The vanilla advancement (every hostile mob) is an end-game sweep. Rebuilt as a first monster hunt with a sword. The full sweep belongs to level 6."
+  },
+  {
+   "id": "adv_adventure_throw_trident",
+   "reason": "A trident is a rare drop and cannot be required. Rebuilt as hunting a drowned at a river. The real \"throw a trident\" trail needs a THROW goal and belongs to level 4 or 5."
+  }
+ ],
+ "generatorWeaknesses": [
+  "No SHOOT goal. Every hunt is a DEFEAT_ENTITY / LOOK_AT_ENTITY with a HOLDING bow, crossbow, shield, axe or spear, so no step can check that an arrow was shot or that it hit. A SHOOT goal would need: the weapon (bow, crossbow, trident), the projectile (arrow, trident), a target (an entity, or a block such as the target block), the hit (the sensor must see the projectile owner and the hit entity or block), an optional minimum distance (멀리), a count, and for \"two with one arrow\" a pierce count. A THROW goal needs the same for the trident.",
+  "AVOID cannot take an entity action. AVOID with DEFEAT_ENTITY (주민을 물리치지 마세요) loads and plays, but ObtainabilityTest.everyGoalTargetIsARealVanillaId looks the entity up as a block or item and fails. All AVOID steps here use BREAK_BLOCK, USE_BLOCK and LIE_DOWN.",
+  "The AVOID signature leaves out `during`, so two AVOID steps on the same action and block are duplicates however different their condition is (a chest opened near a wolf equals a chest opened near a piglin).",
+  "EQUIP on a slot tag (#minecraft:head_armor) is not playable in PlaytestTest (\"did not advance\"); a concrete helmet works.",
+  "DEFEAT_ENTITY with count 1 prints \"한 마리\", which adds the numeral 하나 to the unknown words of a level-3 sentence. A singular without a counter would be easier on the unknown-word ratchet.",
+  "The (verb, object) pair ratchet leaves nearly no room for a hunter chapter: PLACE torch is at its cap of 7, KINDLE campfire at 6, and every mob may appear only three times in all the trails. Hunt trails had to spread over twelve mobs and animals.",
+  "REACH_HEIGHT above 100 blocks always prints the hint 산 위로 올라가요, so a condition that already says 산에서 would double it.",
+  "A held tool is the only link between the tool and the hunt. HOLD_WHILE and HOLDING cannot say \"with the bow\" for a hit (활로 맞히다), so (으)로 for the instrument (L3.euro_instrument) appears only in authored finales.",
+  "cooked_beef is 스테이크 in the vanilla ko_kr names, but the curated concept (and the generator) say 소고기. The finales follow the generator.",
+  "The trident (drowned drop) and the wolf taming (bone) cannot be required reliably: the first is a rare drop, the second can fail. The wolf trail feeds meat instead of taming with a bone."
+ ]
+}

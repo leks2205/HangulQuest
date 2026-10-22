@@ -6936,6 +6936,7 @@
   "items": [
    "minecraft:redstone_lamp"
   ],
+  "descKo": "레드스톤 신호가 오면 빛나요.",
   "aliases": []
  },
  {
@@ -6984,6 +6985,7 @@
   "tier": 1,
   "items": [],
   "entity": "minecraft:drowned",
+  "descKo": "물속에서 나와요. 좀비와 비슷해요.",
   "aliases": []
  },
  {
@@ -11792,6 +11794,7 @@
   "tier": 1,
   "items": [],
   "biome": "minecraft:river",
+  "descKo": "물이 흘러요.",
   "aliases": []
  },
  {
@@ -12060,6 +12063,7 @@
   "items": [
    "minecraft:fletching_table"
   ],
+  "descKo": "화살을 만들 때 써요.",
   "aliases": []
  },
  {
@@ -15187,6 +15191,16 @@
    "minecraft:lapis_lazuli"
   ],
   "descKo": "파란색 보석이에요.",
+  "aliases": []
+ },
+ {
+  "id": "gen_zombie_villager",
+  "ko": "좀비 주민",
+  "category": "ANIMALS",
+  "tier": 3,
+  "items": [],
+  "entity": "minecraft:zombie_villager",
+  "descKo": "좀비가 된 주민이에요.",
   "aliases": []
  }
 ]
