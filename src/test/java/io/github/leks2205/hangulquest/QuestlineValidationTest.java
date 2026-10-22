@@ -130,23 +130,9 @@ class QuestlineValidationTest {
 
 	@Test
 	void everyConditionAppearsInTheKoreanClue() {
-		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
-		SentenceBuilder.Namer namer = new SentenceBuilder.Namer() {
-			@Override
-			public String biome(String id) {
-				return catalog.byBiomeId(id).map(word -> word.ko).orElse(null);
-			}
-
-			@Override
-			public String entity(String id) {
-				return catalog.byEntityId(id).map(word -> word.ko).orElse(null);
-			}
-
-			@Override
-			public String block(String id) {
-				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
-			}
-		};
+		// the registry names stand behind the concepts, as in the game: a held item without a concept is still spoken
+		Catalog catalog = KoreanFixtures.catalog();
+		SentenceBuilder.Namer namer = KoreanFixtures.namer(catalog);
 		for (Questline trail : QuestLoader.loadAll()) {
 			for (var step : trail.allSteps()) {
 				if (step.conditions().isEmpty()) {
@@ -285,6 +271,7 @@ class QuestlineValidationTest {
 			case Goal.Swim g -> List.of("수영");
 			case Goal.Trade g -> List.of("사", "팔");
 			case Goal.Equip g -> List.of("쓰", "입", "신", "벗");
+			case Goal.Fall g -> List.of("뛰어내");
 		};
 		if (verbs.stream().anyMatch(ko::contains)) {
 			return true;

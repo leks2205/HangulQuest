@@ -201,7 +201,7 @@ final class KoreanFixtures {
 		// the nouns the clue says besides the first (a new player knows none of the others)
 		SentenceBuilder.Namer clueNamer = io.github.leks2205.hangulquest.quest.ClueWords.namer(
 				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer(catalog), step),
-				io.github.leks2205.hangulquest.quest.ClueWords.extras(step, catalog, id -> false));
+				io.github.leks2205.hangulquest.quest.ClueWords.extras(step, catalog, id -> false, namer(catalog)));
 		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(), clueNamer);
 	}
 
@@ -239,6 +239,7 @@ final class KoreanFixtures {
 			case Goal.Transit g -> null;
 			case Goal.Wait g -> null;
 			case Goal.Swim g -> null;
+			case Goal.Fall g -> g.landing();
 			case Goal.Equip g -> g.item();
 		};
 	}

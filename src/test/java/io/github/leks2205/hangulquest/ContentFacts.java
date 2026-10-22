@@ -314,6 +314,7 @@ final class ContentFacts {
 			}
 			case Goal.Swim g -> {
 			}
+			case Goal.Fall g -> add(into, "landing", g.landing());
 		}
 	}
 

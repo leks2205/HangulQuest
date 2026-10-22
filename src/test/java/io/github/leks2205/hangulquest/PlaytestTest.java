@@ -129,6 +129,33 @@ class PlaytestTest {
 		}
 	}
 
+	@Test
+	void aHeldItemWhileAWaitOrAnAcquireCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String inner : List.of("{\"type\": \"WAIT\", \"seconds\": 8}",
+				"{\"type\": \"ACQUIRE_ITEM\", \"item\": \"minecraft:bread\", \"count\": 1}",
+				"{\"type\": \"WAIT\", \"seconds\": 5, \"until\": \"NIGHT\"}")) {
+			Questline trail = probe("hold_inner", """
+					{"type": "HOLD_WHILE", "item": "minecraft:spyglass", "inner": %s}
+					""".formatted(inner));
+			try {
+				assertEquals("completed in 2 steps", play(trail, catalog), inner);
+			} catch (AssertionError failed) {
+				throw new AssertionError(inner + ": " + failed.getMessage(), failed);
+			}
+		}
+	}
+
+	@Test
+	void aJumpFromAHeightCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String fall : List.of("{\"type\": \"FALL\", \"blocks\": 10}",
+				"{\"type\": \"FALL\", \"blocks\": 6, \"landing\": \"minecraft:powder_snow\"}",
+				"{\"type\": \"FALL\", \"blocks\": 6, \"landing\": \"minecraft:water\"}")) {
+			assertEquals("completed in 2 steps", play(probe("fall", fall), catalog), fall);
+		}
+	}
+
 	private String play(Questline trail, Catalog catalog) {
 		Path dir = tempDir.resolve(trail.id() + "-" + Math.abs(trail.id().hashCode()));
 		ProgressStore store = new ProgressStore(dir, LoggerFactory.getLogger("playtest"));
@@ -145,10 +172,14 @@ class PlaytestTest {
 			assertTrue(step != null, trail.id() + " lost its active step");
 			Observation obs = observation(step, now);
 			if (step.goal() instanceof Goal.AcquireItem
+					|| step.goal() instanceof Goal.HoldWhile hold && hold.innerGoal() instanceof Goal.AcquireItem
 					|| step.goal() instanceof Goal.Sequence sequence && sequence.parts().get(0) instanceof Goal.AcquireItem) {
 				// Items already held do not count: the first tick of the step takes the baseline.
 				Observation baseline = new Observation();
 				baseline.now = now;
+				if (step.goal() instanceof Goal.HoldWhile hold) {
+					baseline.mainHand = hold.item(); // the inner goal only runs while the item is held
+				}
 				engine.tick(baseline, new Feedback(engine));
 			}
 			boolean advanced = false;
@@ -193,6 +224,9 @@ class PlaytestTest {
 	private static int ticksFor(Goal goal) {
 		return switch (goal) {
 			case Goal.HoldWhile g when g.innerCondition() != null -> g.seconds() * 20 + 20;
+			// the inner goal has its own rhythm (a wait lasts its seconds), driven while the item is in the hand
+			case Goal.HoldWhile g when g.innerGoal() != null -> ticksFor(g.innerGoal());
+			case Goal.Fall g -> 60;
 			case Goal.Avoid g -> g.windowSeconds() * 20 + 20;
 			case Goal.Wait g -> g.seconds() * 20 + 40;
 			case Goal.Hear g -> (int) (g.dwellMs() / 50) + 40;
@@ -209,6 +243,15 @@ class PlaytestTest {
 	private static void moveWithGoal(Observation obs, Goal goal, int tick) {
 		switch (goal) {
 			case Goal.Swim g -> obs.position = new Vec3(tick, 64.0, 0.0);
+			case Goal.HoldWhile g when g.innerGoal() != null -> moveWithGoal(obs, g.innerGoal(), tick);
+			case Goal.Fall g -> {
+				// ten ticks in the air with the distance growing, then the ground: the game resets the distance
+				boolean air = tick < 10;
+				obs.onGround = !air;
+				obs.fallDistance = air ? (tick + 1) * (g.blocks() + 2.0F) / 10.0F : 0.0F;
+				obs.landedOn = g.landing() == null ? "minecraft:grass_block" : g.landing();
+				obs.inWater = !air && "minecraft:water".equals(g.landing());
+			}
 			case Goal.Transit g -> obs.canSeeSky = g.direction().equals("IN") == tick < 30; // first the other side
 			case Goal.Equip g -> {
 				// putting on: the slot is seen bare first, the change that follows is the player's
@@ -392,6 +435,8 @@ class PlaytestTest {
 				}
 			}
 			case Goal.Mount g -> obs.vehicle = g.entity();
+			case Goal.Fall g -> {
+			}
 			case Goal.Swim g -> obs.inWater = true;
 			case Goal.Trade g -> obs.addTraded(new io.github.leks2205.hangulquest.sense.TradeFact(g.entity(),
 					g.direction().equals("BUY") ? g.item() : "minecraft:emerald", Math.max(1, g.count()),

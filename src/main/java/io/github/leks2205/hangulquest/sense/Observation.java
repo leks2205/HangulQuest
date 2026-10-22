@@ -83,6 +83,11 @@ public final class Observation {
 	public long mainHandHeldMs;
 	public long offHandHeldMs;
 	public boolean inWater;
+	/** Blocks the player has fallen since leaving the ground; 0 on the ground and after a landing (the game resets it). */
+	public float fallDistance;
+	public boolean onGround = true;
+	/** The block the player is in (water, powder snow) or, in the air, standing on; null when there is none. */
+	public String landedOn;
 	public boolean canSeeSky;
 	/** A block that stops movement within {@value SkyExposure#ROOF_RANGE} blocks above the head. */
 	public boolean roofed;

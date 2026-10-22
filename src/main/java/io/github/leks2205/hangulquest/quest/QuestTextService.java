@@ -106,7 +106,7 @@ final class QuestTextService {
 
 	/** The step's namer plus the extra nouns the clue may say ({@link ClueWords}). */
 	private SentenceBuilder.Namer clueNamer(QuestStep step) {
-		return ClueWords.namer(namerFor(step), ClueWords.extras(step, catalog, learn::isKnown));
+		return ClueWords.namer(namerFor(step), ClueWords.extras(step, catalog, learn::isKnown, namerFor(step)));
 	}
 
 	Word firstWord(QuestStep step) {
@@ -156,7 +156,7 @@ final class QuestTextService {
 		int level = effectiveLevel(koreanLevel);
 		SentenceBuilder.Namer clueNamer = clueNamer(step);
 		// what the player knows can change which nouns the clue says, so the key holds them
-		List<Word> extras = ClueWords.extras(step, catalog, learn::isKnown);
+		List<Word> extras = ClueWords.extras(step, catalog, learn::isKnown, namerFor(step));
 		String cacheKey = level + extras.stream().map(word -> word.id).toList().toString();
 		Map<String, String> byLevel = clues.computeIfAbsent(step, key -> new java.util.HashMap<>());
 		String cached = byLevel.get(cacheKey);

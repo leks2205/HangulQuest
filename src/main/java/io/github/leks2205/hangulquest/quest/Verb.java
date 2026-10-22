@@ -104,7 +104,10 @@ public enum Verb {
 	TAKE_OFF("벗다", "ausziehen"),
 
 	// Wave 8: writing on a sign.
-	WRITE("쓰다", "schreiben");
+	WRITE("쓰다", "schreiben"),
+
+	// Wave 9: jumping down from a height.
+	JUMP_DOWN("뛰어내리다", "hinunterspringen");
 
 
 	/** How the target noun is marked in front of the verb. */

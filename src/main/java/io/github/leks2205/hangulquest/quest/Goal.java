@@ -131,6 +131,13 @@ public sealed interface Goal {
 	record Mount(String entity, long dwellMs) implements Goal {
 	}
 
+	/**
+	 * Jump from a height: fall at least {@code blocks} blocks and land without losing health (a soft block or
+	 * water), or, when {@code landing} names a soft block (powder snow, hay, slime, water), land on that block.
+	 */
+	record Fall(int blocks, String landing) implements Goal {
+	}
+
 	/** Swim {@code blocks} blocks in water. */
 	record Swim(int blocks) implements Goal {
 	}

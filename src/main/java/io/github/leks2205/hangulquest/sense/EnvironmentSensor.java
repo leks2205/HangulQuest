@@ -433,6 +433,12 @@ public final class EnvironmentSensor {
 	 */
 	private void readSky(Observation obs, LocalPlayer player, ClientLevel level) {
 		obs.inWater = player.isInWater();
+		obs.onGround = player.onGround();
+		obs.fallDistance = (float) player.fallDistance;
+		// a falling player is the landing the tick it stops: the block it is in (water, powder snow), else the one below
+		BlockPos feet = player.blockPosition();
+		var inside = level.getBlockState(feet);
+		obs.landedOn = !inside.isAir() ? blockId(inside) : blockId(level.getBlockState(feet.below()));
 		if (skyPos == null || !skyPos.equals(obs.blockPos) || tick - skyAt >= 10) {
 			skyPos = obs.blockPos;
 			skyAt = tick;
