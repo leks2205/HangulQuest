@@ -7,8 +7,9 @@
  "order": 1092,
  "concepts": [
   "map",
-  "gate",
-  "gen_composter"
+  "wait",
+  "go",
+  "lantern"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -24,57 +25,84 @@
     "map"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
+    "type": "CRAFT",
     "item": "minecraft:map",
     "count": 1
    },
-   "clue": {
-    "ko": "별을 따라가려고 지도를 만들어요."
-   },
-   "hint": {
-    "ko": "지도는 종이와 나침반으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gate"
+    "wait"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:oak_fence_gate",
-    "count": 2
+    "type": "WAIT",
+    "seconds": 15
    },
-   "clue": {
-    "ko": "별의 궁정에 울타리 문을 두 개 달아요."
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "go"
+   ],
+   "goal": {
+    "type": "WALK",
+    "direction": "NORTH",
+    "blocks": 20
    },
-   "hint": {
-    "ko": "울타리 문은 나무 판자와 막대기로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:compass"
+    },
+    {
+     "type": "TIME",
+     "phase": "DAWN"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_composter"
+    "lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:composter",
+    "block": "minecraft:lantern",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "FACING",
+     "direction": "NORTH"
+    }
+   ]
   },
-  "textKo": "퇴비통을 놓았어요."
+  "textKo": "북쪽을 보고 랜턴을 놓았어요. 랜턴은 밤에도 밝아요."
  },
  "reward": {
   "badge": "w9_02",
   "words": [
-   "beacon",
-   "gate",
-   "map"
+   "map",
+   "wait",
+   "go",
+   "lantern"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

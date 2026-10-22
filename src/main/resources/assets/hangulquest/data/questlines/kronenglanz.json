@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "kronenglanz",
- "titleKo": "왕관의 빛남",
+ "titleKo": "빛나는 왕관",
  "topic": "산",
  "tier": 5,
  "order": 73,
  "concepts": [
   "gen_copper_block",
-  "gen_horn_coral_fan",
-  "gen_stripped_pale_oak_wood"
+  "gen_glowstone",
+  "adv_item_copper_bulb",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -33,17 +34,47 @@
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:copper_block",
     "count": 4
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_horn_coral_fan"
+    "gen_copper_block"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:copper_block",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_glowstone",
+    "gen_copper_block"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:glowstone",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:copper_block",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "adv_item_copper_bulb"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:horn_coral_fan",
-    "count": 3
+    "block": "minecraft:copper_bulb",
+    "count": 2
    },
    "conditions": [
     {
@@ -57,29 +88,45 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stripped_pale_oak_wood"
+    "wait",
+    "gen_glowstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stripped_pale_oak_wood",
-    "count": 2
+    "type": "WAIT",
+    "seconds": 10
    },
    "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:glowstone"
+    },
     {
      "type": "TIME",
      "phase": "NIGHT"
     }
    ]
   },
-  "textKo": "밤에 껍질 벗긴 창백한 참나무를 두 개 놓았어요."
+  "textKo": "밤에 발광석 근처에서 십 초 동안 기다렸어요. 발광석은 밝게 빛나요."
  },
  "reward": {
   "badge": "kronenglanz",
   "words": [
-   "diamond",
-   "torch",
-   "bed"
+   "gen_copper_block",
+   "gen_glowstone",
+   "adv_item_copper_bulb",
+   "wait"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L4.myeon",
+  "L5.neun_dongan"
+ ]
 }

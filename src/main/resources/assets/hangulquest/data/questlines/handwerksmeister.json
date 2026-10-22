@@ -6,9 +6,8 @@
  "tier": 3,
  "order": 119,
  "concepts": [
-  "gen_pale_oak_shelf",
-  "gen_oak_stairs",
-  "gen_spruce_leaves",
+  "gen_stonecutter",
+  "gen_grindstone",
   "anvil"
  ],
  "requires": {
@@ -23,59 +22,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_pale_oak_shelf"
+    "gen_stonecutter"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:pale_oak_shelf",
+    "type": "CRAFT",
+    "item": "minecraft:stonecutter",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_oak_stairs"
+    "gen_grindstone"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:oak_stairs",
-    "count": 3
-   }
+    "type": "CRAFT",
+    "item": "minecraft:grindstone",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_leaves"
+    "anvil",
+    "gen_grindstone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_leaves",
-    "count": 3
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:anvil",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:grindstone",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
+    "gen_stonecutter",
     "anvil"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:anvil",
+    "type": "PLACE_REL",
+    "block": "minecraft:stonecutter",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:anvil",
     "count": 1
    },
    "conditions": []
   },
-  "textKo": "모루를 놓아 작업장을 만들어요."
+  "textKo": "모루 옆에 석재 절단기를 놓았어요. 모루는 도구를 고쳐요."
  },
  "reward": {
   "badge": "handwerksmeister",
   "words": [
-   "crafting_table",
-   "diamond",
+   "gen_stonecutter",
+   "gen_grindstone",
    "anvil"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L1.loc_yeop_e",
+  "L1.obj_eul"
+ ]
 }

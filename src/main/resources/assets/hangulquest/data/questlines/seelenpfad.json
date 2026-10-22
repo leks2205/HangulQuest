@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 120,
  "concepts": [
-  "gen_purple_terracotta",
-  "gen_dead_bubble_coral_block",
-  "gen_acacia_sign",
-  "gen_gray_concrete_powder"
+  "soul_lantern",
+  "soul_sand",
+  "gen_soul_sand_valley",
+  "gen_soul_campfire"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -23,33 +23,11 @@
   {
    "id": "s1",
    "teach": [
-    "gen_purple_terracotta"
+    "soul_lantern"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:purple_terracotta",
-    "count": 4
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_dead_bubble_coral_block"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:dead_bubble_coral_block",
-    "count": 3
-   }
-  },
-  {
-   "id": "s3",
-   "teach": [
-    "gen_acacia_sign"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:acacia_sign",
+    "type": "CRAFT",
+    "item": "minecraft:soul_lantern",
     "count": 1
    },
    "conditions": [
@@ -58,36 +36,75 @@
      "phase": "NIGHT"
     }
    ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "soul_lantern",
+    "soul_sand"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:soul_lantern",
+    "inner": {
+     "type": "LOOK_AT_BLOCK",
+     "block": "minecraft:soul_sand",
+     "dwellMs": 600
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_soul_sand_valley"
+   ],
+   "goal": {
+    "type": "REACH_BIOME",
+    "biome": "minecraft:soul_sand_valley",
+    "dwellMs": 1000
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_concrete_powder"
+    "gen_soul_campfire",
+    "soul_lantern"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:gray_concrete_powder",
-    "count": 4
+    "block": "minecraft:soul_campfire",
+    "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "HOLDING",
+     "item": "minecraft:soul_lantern"
     }
    ]
   },
-  "textKo": "밤에 회색 콘크리트 가루를 네 개 놓았어요."
+  "textKo": "영혼 랜턴을 들고 영혼 모닥불을 피웠어요. 영혼 불은 파란색이에요."
  },
  "reward": {
   "badge": "seelenpfad",
   "words": [
-   "soul_sand",
    "soul_lantern",
-   "bed",
-   "soul_torch"
+   "soul_sand",
+   "gen_soul_sand_valley",
+   "gen_soul_campfire"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.eul_reul",
+  "L4.myeon",
+  "L2.go_state",
+  "L5.neun_dongan",
+  "L2.num_sino",
+  "L1.euro_direction"
+ ]
 }

@@ -6,10 +6,11 @@
  "tier": 3,
  "order": 121,
  "concepts": [
+  "gen_copper_ore",
+  "gen_copper_block",
+  "gen_copper_chest",
   "gen_green_stained_glass",
-  "gen_cinnabar",
-  "gen_breeze",
-  "gen_melon"
+  "gen_snow_golem"
  ],
  "requires": {
   "minWordsKnown": 70,
@@ -23,60 +24,92 @@
   {
    "id": "s1",
    "teach": [
-    "gen_green_stained_glass"
+    "gen_copper_ore",
+    "gen_copper_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_stained_glass",
-    "count": 4
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:copper_ore",
+      "count": 3
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:copper_block",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "EOSEO"
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cinnabar"
+    "gen_copper_chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cinnabar",
+    "type": "CRAFT",
+    "item": "minecraft:copper_chest",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_breeze"
+    "gen_green_stained_glass"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:breeze",
-    "dwellMs": 800
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:green_stained_glass",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:copper_block",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_melon"
+    "gen_snow_golem"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:melon",
-    "count": 8
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:snow_golem",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
-  "textKo": "수박을 여덟 개 모았어요."
+  "textKo": "낮에 눈 골렘을 바라봤어요. 눈 골렘은 눈으로 만들어요."
  },
  "reward": {
   "badge": "golemwerkstatt",
   "words": [
-   "iron_block",
-   "carved_pumpkin",
-   "iron_golem",
-   "iron"
+   "gen_copper_ore",
+   "gen_copper_block",
+   "gen_copper_chest",
+   "gen_green_stained_glass"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L4.eoseo",
+  "L1.eul_reul",
+  "L4.eoya_haeyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L2.num_sino",
+  "L4.myeon"
+ ]
 }

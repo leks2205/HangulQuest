@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1093,
  "concepts": [
-  "gen_acacia_sapling",
-  "villager",
-  "gen_poplar_sapling"
+  "emerald",
+  "wait",
+  "bread",
+  "paper"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -21,53 +22,82 @@
   {
    "id": "s1",
    "teach": [
-    "gen_acacia_sapling"
+    "emerald"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:acacia_sapling",
-    "count": 6
-   }
+    "item": "minecraft:emerald",
+    "count": 3
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "DAY"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "villager"
+    "wait"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:villager"
+    "type": "WAIT",
+    "seconds": 12
    },
-   "clue": {
-    "ko": "궁정의 주민과 이야기해요."
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "emerald",
+    "bread"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:emerald",
+    "inner": {
+     "type": "TRADE",
+     "item": "minecraft:bread",
+     "entity": "minecraft:villager",
+     "direction": "BUY",
+     "count": 3
+    }
    },
-   "hint": {
-    "ko": "주민은 마을에서 만나요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_poplar_sapling"
+    "paper"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:poplar_sapling",
-    "count": 1
+    "type": "TRADE",
+    "item": "minecraft:paper",
+    "entity": "minecraft:villager",
+    "direction": "SELL",
+    "count": 5
    },
    "conditions": []
   },
-  "textKo": "포플러나무 묘목을 심었어요."
+  "textKo": "주민에게 종이를 팔았어요. 주민에게 에메랄드는 돈이에요."
  },
  "reward": {
   "badge": "w9_03",
   "words": [
    "emerald",
-   "gold_block",
-   "villager"
+   "wait",
+   "bread",
+   "paper"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

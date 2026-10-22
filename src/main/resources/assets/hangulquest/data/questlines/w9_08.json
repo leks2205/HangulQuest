@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 1098,
  "concepts": [
-  "bookshelf",
   "lectern",
-  "gen_waxed_weathered_cut_copper_stairs"
+  "bookshelf",
+  "book",
+  "villager"
  ],
  "requires": {
   "minWordsKnown": 100,
@@ -21,22 +22,59 @@
   {
    "id": "s1",
    "teach": [
-    "bookshelf"
+    "lectern"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bookshelf",
-    "count": 4
+    "type": "CRAFT",
+    "item": "minecraft:lectern",
+    "count": 1
    },
-   "clue": {
-    "ko": "왕관의 기록을 위해 책장을 네 개 놓아요."
-   },
-   "hint": {
-    "ko": "책장은 나무 판자와 책으로 만들어요."
-   }
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
+   "teach": [
+    "bookshelf"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:bookshelf",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:red_wool",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "book",
+    "villager"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:book",
+    "inner": {
+     "type": "INTERACT_ENTITY",
+     "entity": "minecraft:villager"
+    }
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "lectern"
    ],
@@ -44,36 +82,19 @@
     "type": "USE_BLOCK",
     "block": "minecraft:lectern"
    },
-   "clue": {
-    "ko": "유산을 남기려고 독서대를 사용해요."
-   },
-   "hint": {
-    "ko": "독서대는 나무 반 블록과 책장으로 만들어요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_waxed_weathered_cut_copper_stairs"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_weathered_cut_copper_stairs",
-    "count": 3
-   },
    "conditions": []
   },
-  "textKo": "밀랍칠한 녹슨 깎인 구리 계단을 세 개 만들었어요."
+  "textKo": "독서대를 사용했어요. 독서대 위에 책을 놓아요."
  },
  "reward": {
   "badge": "w9_08",
   "words": [
+   "lectern",
    "bookshelf",
-   "item_frame",
-   "lectern"
+   "book",
+   "villager"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }

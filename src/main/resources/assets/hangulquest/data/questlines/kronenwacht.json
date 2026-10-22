@@ -6,9 +6,12 @@
  "tier": 5,
  "order": 71,
  "concepts": [
-  "gen_drowned",
-  "gen_polished_blackstone_pressure_plate",
-  "gen_magma_cube"
+  "gen_barrel",
+  "bed",
+  "shield",
+  "skeleton",
+  "villager",
+  "witch"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -31,22 +34,14 @@
   {
    "id": "s1",
    "teach": [
-    "gen_drowned"
+    "gen_barrel",
+    "bed"
    ],
    "goal": {
-    "type": "LOOK_AT_ENTITY",
-    "entity": "minecraft:drowned",
-    "dwellMs": 800
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_polished_blackstone_pressure_plate"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:polished_blackstone_pressure_plate",
+    "type": "PLACE_REL",
+    "block": "minecraft:barrel",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:blue_bed",
     "count": 1
    },
    "conditions": [
@@ -55,30 +50,86 @@
      "phase": "NIGHT"
     }
    ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "shield",
+    "skeleton"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:shield",
+    "inner": {
+     "type": "LOOK_AT_ENTITY",
+     "entity": "minecraft:skeleton",
+     "dwellMs": 800
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "villager"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:villager",
+     "count": 1
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_magma_cube"
+    "witch"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:magma_cube",
+    "entity": "minecraft:witch",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
-  "textKo": "마그마 큐브를 물리쳤어요."
+  "textKo": "비가 올 때 마녀를 물리쳤어요. 마녀는 물약을 던져요."
  },
  "reward": {
   "badge": "kronenwacht",
   "words": [
-   "goat",
-   "campfire",
-   "zombie"
+   "gen_barrel",
+   "bed",
+   "shield",
+   "skeleton"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": [
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L4.eoya_haeyo",
+  "L4.myeon",
+  "L5.adn_adj_eun",
+  "L2.go_state",
+  "L5.neun_dongan",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L3.jima",
+  "L5.eodo"
+ ]
 }

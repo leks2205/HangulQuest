@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 1104,
  "concepts": [
-  "gen_weathered_copper_bars",
-  "gen_bamboo_fence_gate",
-  "gen_cobbled_deepslate",
+  "bow",
+  "skeleton",
+  "bone",
   "gen_bone_block"
  ],
  "requires": {
@@ -22,35 +22,53 @@
   {
    "id": "s1",
    "teach": [
-    "gen_weathered_copper_bars"
+    "bow",
+    "skeleton"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:weathered_copper_bars",
-    "count": 4
-   }
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:skeleton",
+     "count": 1
+    }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_bamboo_fence_gate"
+    "bone"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:bamboo_fence_gate",
-    "count": 2
-   }
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:bone",
+    "count": 6
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "gen_cobbled_deepslate"
+    "gen_bone_block"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:cobbled_deepslate",
+    "type": "CRAFT",
+    "item": "minecraft:bone_block",
     "count": 1
-   }
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   }
  ],
  "finale": {
@@ -66,16 +84,17 @@
    },
    "conditions": []
   },
-  "textKo": "뼈 블록을 두 개 쌓았어요."
+  "textKo": "뼈 블록을 두 개 쌓았어요. 뼈 블록은 하얀색이에요."
  },
  "reward": {
   "badge": "w10_04",
   "words": [
-   "bone",
+   "bow",
    "skeleton",
-   "zombie",
-   "candle"
+   "bone",
+   "gen_bone_block"
   ]
  },
- "koreanLevel": 5
+ "koreanLevel": 5,
+ "grammar": []
 }
