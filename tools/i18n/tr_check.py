@@ -66,6 +66,10 @@ def giveaway(text: str, code: str, order: bool, words: dict | None = None) -> st
     normal = unicodedata.normalize("NFC", text)
     if language_part(code) == "tr":
         normal = normal.replace("İ", "i")  # Python lowers İ to i plus a combining dot, which no entry has
+    # Condition phrases (underground, under water, in your hand) say where the player is, not where the hidden
+    # relation puts the thing: blank them out before looking for relation words.
+    for phrase in sorted(config.get("conditions", []), key=len, reverse=True):
+        normal = _pattern(phrase, substring).sub(" ", normal)
     # Longest first, so the message names the whole phrase ("encima de", not "encima").
     for entry in sorted(config.get("order" if order else "relation", []), key=len, reverse=True):
         found = _pattern(entry, substring).search(normal)

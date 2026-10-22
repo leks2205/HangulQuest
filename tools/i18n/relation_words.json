@@ -1,23 +1,28 @@
 {
 	"de": {
 		"relation": ["auf", "über", "oben", "drauf", "darauf", "obendrauf", "darüber", "unter", "unten", "darunter", "neben", "daneben", "nahe", "in der Nähe", "vor", "davor", "vorne", "hinter", "dahinter", "hinten", "ins", "in den", "in die", "in das", "hinein", "drin", "drinnen", "darin", "innen", "außen", "draußen", "außerhalb", "zwischen", "dazwischen", "herum"],
-		"order": ["zuerst", "erst", "dann", "danach", "vorher", "bevor", "nachdem", "anschließend", "als Erstes", "als Nächstes", "zum Schluss"]
+		"order": ["zuerst", "erst", "dann", "danach", "vorher", "bevor", "nachdem", "anschließend", "als Erstes", "als Nächstes", "zum Schluss"],
+		"conditions": ["unter der Erde", "unter Wasser", "im Regen", "in der Hand", "in der Tiefe", "unter einem Dach", "unter dem Dach"]
 	},
 	"es": {
 		"relation": ["encima", "arriba", "sobre", "debajo", "abajo", "bajo", "junto", "al lado", "a un lado", "al costado", "pegado", "pegada", "cerca", "cerquita", "próximo", "delante", "enfrente", "frente a", "al frente", "detrás", "atrás", "tras", "a espaldas de", "al fondo", "dentro", "adentro", "interior", "fuera", "afuera", "exterior", "entre", "en medio", "en el medio", "alrededor", "adyacente", "contiguo", "en lo alto", "en la cima", "en el suelo", "en el piso"],
-		"order": ["primero", "primer", "primera", "luego", "después", "antes", "a continuación", "seguidamente", "posteriormente", "tras", "entonces", "acto seguido", "por último"]
+		"order": ["primero", "primer", "primera", "luego", "después", "antes", "a continuación", "seguidamente", "posteriormente", "tras", "entonces", "acto seguido", "por último"],
+		"conditions": ["bajo tierra", "bajo el agua", "bajo la lluvia", "en la mano", "en las manos", "en tu mano", "bajo techo", "bajo un techo", "bajo el techo"]
 	},
 	"pt": {
 		"relation": ["em cima", "por cima", "acima", "sobre", "embaixo", "em baixo", "debaixo", "por baixo", "abaixo", "sob", "ao lado", "lado a lado", "junto", "perto", "próximo", "rente", "colado", "ao pé de", "ao redor", "em volta", "em torno", "em frente", "frente a", "à frente", "na frente", "diante", "atrás", "por trás", "detrás", "dentro", "interior", "fora", "exterior", "no meio", "entre", "adjacente", "no chão", "no topo"],
-		"order": ["primeiro", "primeira", "depois", "antes", "em seguida", "a seguir", "então", "após", "posteriormente", "por fim", "por último"]
+		"order": ["primeiro", "primeira", "depois", "antes", "em seguida", "a seguir", "então", "após", "posteriormente", "por fim", "por último"],
+		"conditions": ["debaixo da terra", "embaixo da terra", "debaixo d'água", "embaixo d'água", "debaixo da água", "sob a chuva", "na chuva", "na mão", "nas mãos", "sob um teto", "sob o teto", "debaixo de um teto"]
 	},
 	"fr": {
 		"relation": ["sur", "dessus", "sous", "dessous", "en haut", "en bas", "là-haut", "au sol", "par terre", "à côté", "côte à côte", "près", "proche", "proximité", "contre", "collé", "au pied de", "devant", "en face", "face à", "derrière", "arrière", "intérieur", "dedans", "dehors", "extérieur", "hors", "entre", "parmi", "milieu", "autour", "adjacent"],
-		"order": ["d'abord", "ensuite", "puis", "avant", "après", "premièrement", "deuxièmement", "premier", "première", "deuxième", "au début", "par la suite", "à la suite"]
+		"order": ["d'abord", "ensuite", "puis", "avant", "après", "premièrement", "deuxièmement", "premier", "première", "deuxième", "au début", "par la suite", "à la suite"],
+		"conditions": ["sous terre", "sous l'eau", "sous la pluie", "en main", "dans la main", "dans ta main", "dans votre main", "sous un toit", "sous le toit", "à l'abri"]
 	},
 	"id": {
 		"relation": ["atas", "bawah", "samping", "sebelah", "dekat", "depan", "belakang", "di dalam", "ke dalam", "dari dalam", "bagian dalam", "sisi dalam", "luar", "antara", "di tengah", "sekitar", "sekeliling", "berdampingan", "bersebelahan", "berhadapan", "di lantai", "di tanah", "atasnya", "bawahnya", "sampingnya", "sebelahnya", "depannya", "belakangnya", "dalamnya", "luarnya", "dekatnya"],
-		"order": ["pertama", "lalu", "kemudian", "setelah", "sebelum", "sesudah", "selanjutnya", "berikutnya", "mula-mula", "dahulu", "dulu", "habis itu", "abis itu", "lantas", "usai", "sebelumnya", "sesudahnya"]
+		"order": ["pertama", "lalu", "kemudian", "setelah", "sebelum", "sesudah", "selanjutnya", "berikutnya", "mula-mula", "dahulu", "dulu", "habis itu", "abis itu", "lantas", "usai", "sebelumnya", "sesudahnya"],
+		"conditions": ["di bawah tanah", "di dalam air", "di bawah air", "di bawah hujan", "saat hujan", "di tangan", "di bawah atap"]
 	},
 	"vi": {
 		"relation": ["trên", "dưới", "cạnh", "kế bên", "kề", "sát bên", "gần", "đối diện", "lân cận", "phía trước", "đằng trước", "trước mặt", "ở trước", "ngay trước", "phía sau", "đằng sau", "sau lưng", "ở sau", "ngay sau", "bên trong", "phía trong", "ở trong", "ngoài", "giữa", "quanh", "mặt đất"],
@@ -43,7 +48,7 @@
 	},
 	"tr": {
 		"relation": ["üstünde", "üstüne", "üstünden", "üstündeki", "üzerinde", "üzerine", "üzerinden", "üzerindeki", "üstte", "üstü", "tepesinde", "yukarıda", "altında", "altına", "altından", "altındaki", "altta", "aşağıda", "yanında", "yanına", "yanından", "yanındaki", "yanda", "yan yana", "yanyana", "bitişiğinde", "bitişiğine", "bitişik", "önünde", "önüne", "önünden", "önündeki", "önde", "karşısında", "karşısına", "arkasında", "arkasına", "arkasından", "arkasındaki", "arkada", "içinde", "içine", "içinden", "içindeki", "içeride", "içeri", "içeriye", "dışında", "dışına", "dışından", "dışındaki", "dışarıda", "dışarı", "dışarıya", "arasında", "arasına", "arasından", "arasındaki", "aralarında", "ortasında", "ortasına", "ortada", "yakınında", "yakınına", "yakınlarında", "yakınındaki", "yakın", "civarında", "etrafında", "etrafına", "etrafta", "çevresinde", "çevresine", "çevrede"],
-		"order": ["önce", "ilk", "i\u0307lk", "ilkin", "i\u0307lkin", "evvela", "sonra", "ardından", "ardı sıra", "sonrasında", "sonrası", "öncesinde", "öncesi", "önceden", "sonradan", "birinci", "ikinci", "i\u0307kinci"]
+		"order": ["önce", "ilk", "i̇lk", "ilkin", "i̇lkin", "evvela", "sonra", "ardından", "ardı sıra", "sonrasında", "sonrası", "öncesinde", "öncesi", "önceden", "sonradan", "birinci", "ikinci", "i̇kinci"]
 	},
 	"tl": {
 		"relation": ["ibabaw", "itaas", "taas", "ilalim", "ibaba", "sa baba", "tabi", "katabi", "gilid", "malapit", "kalapit", "sa may", "harap", "harapan", "sa tapat", "katapat", "unahan", "likod", "likuran", "loob", "labas", "pagitan", "gitna", "palibot", "paligid", "tuktok", "sa lupa", "sa sahig"],

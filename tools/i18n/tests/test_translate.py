@@ -618,6 +618,12 @@ class RulesTest(unittest.TestCase):
             for text in groups["giveOrder"]:
                 self.assertIsNotNone(tr_check.giveaway(text, code, True), text)
 
+    def test_condition_phrases_are_not_giveaways(self):
+        # "underground" or "in your hand" says where the player is, not where the hidden relation puts the thing
+        self.assertIsNone(tr_check.giveaway("Bajo tierra, coloca un farol — lee el coreano para ver dónde", "es_es", False))
+        self.assertIsNone(tr_check.giveaway("Platziere in der Tiefe eine Werkbank", "de_de", False))
+        self.assertEqual(tr_check.giveaway("Coloca un farol bajo la mesa", "es_es", False), "bajo")
+
     def test_turkish_capital_dotted_i_matches(self):
         self.assertIsNotNone(tr_check.giveaway("İlk olarak meşaleyi koy.", "tr_tr", True))
 
