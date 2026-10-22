@@ -157,6 +157,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 		return hud;
 	}
 
+	/** The rebindable hint key; it also closes the window on top. */
+	public KeyMapping hintKey() {
+		return keyHint;
+	}
+
 	/** The rebindable key that opens the quiz screen. */
 	public KeyMapping answerKey() {
 		return keyAnswer;
@@ -399,7 +404,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		QuestEngine.TrackView next = views.get((index + 1) % views.size());
 		if (quests.focus(next.id())) {
-			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()), true);
+			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()), true,
+					"focus");
 		}
 	}
 
@@ -413,12 +419,17 @@ public final class HangulQuestClient implements ClientModInitializer {
 			return;
 		}
 		while (keyHint.consumeClick()) {
-			if (hud.dismissRuleCard()) {
-				continue;
-			}
-			QuestEngine.HintView view = quests.hint(obs, hud);
-			if (view != null) {
-				hud.showHint(view, obs.now);
+			// With a window open the key only closes it; it is a hint request when none is open.
+			boolean closed = hud.pressHintKey(() -> {
+				QuestEngine.HintView view = quests.hint(obs, hud);
+				if (view != null) {
+					hud.showHint(view, obs.now);
+				}
+			});
+			if (closed) {
+				while (keyHint.consumeClick()) {
+					// one press closes one window: presses piled up in the same tick are dropped
+				}
 			}
 		}
 		while (keyReview.consumeClick()) {
@@ -583,6 +594,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 			}
 			QuestEngine builtQuests = new QuestEngine(trails, builtCatalog, builtLearn, LOG);
 			builtQuests.setAutoPick(() -> config.autoPickQuests);
+			builtQuests.setTranslations(() -> config.questTranslations);
+			builtQuests.setPopupsExpire(() -> config.autoCloseWindows);
 			io.github.leks2205.hangulquest.story.ChapterSet chapters = content.library().chapters();
 			builtQuests.setChapters(trail -> chapters.ofTrail(trail)
 							.map(io.github.leks2205.hangulquest.story.ChapterSet.Chapter::id).orElse(null),

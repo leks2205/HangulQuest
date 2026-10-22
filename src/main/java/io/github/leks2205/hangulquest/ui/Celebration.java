@@ -12,8 +12,10 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Completion feedback in three sizes: a small flash for a quest step, a medium
+ * Completion feedback in three sizes: a small card for a quest step, a medium
  * one for a sidequest, and a large animated card for finishing a whole trail.
+ * One instance is one card, shown as a {@link HudWindows} window: it stays until the hint key closes it
+ * (the {@code duration} below is the old timeout, used when windows close automatically).
  * Particles are spawned on the client only; the server never sees them.
  */
 public final class Celebration {
@@ -38,6 +40,7 @@ public final class Celebration {
 	private String lineDe = "";
 	private String badge = "";
 	private String iconItem = "";
+	/** When the card first appeared; 0 while it still waits in the queue. */
 	private long start;
 	private long nextBurst;
 
@@ -65,8 +68,6 @@ public final class Celebration {
 		this.lineDe = lineDe == null ? "" : lineDe;
 		this.badge = badge == null ? "" : badge;
 		this.iconItem = iconItem == null ? "" : iconItem;
-		this.start = System.currentTimeMillis();
-		this.nextBurst = this.start;
 		this.title = KoText.ko(this.titleKo);
 		this.line = this.lineKo.isBlank() ? null : KoText.ko(this.lineKo);
 		this.line2 = this.line2Ko.isBlank() ? null : KoText.ko(this.line2Ko);
@@ -89,51 +90,58 @@ public final class Celebration {
 		line2Height = Draw.linesHeight(font, line2Lines, 3);
 	}
 
+	/** The card came on screen now: the animation and the particle bursts start here. */
+	public void begin(long now) {
+		this.start = now;
+		this.nextBurst = now;
+	}
+
 	/** Extra bursts for the big celebration while it is on screen. */
 	public void tickParticles(Minecraft mc, long now) {
-		if (kind == Kind.TRAIL && now < start + 2200L && now >= nextBurst) {
+		if (kind == Kind.TRAIL && start > 0 && now < start + 2200L && now >= nextBurst) {
 			nextBurst = now + 220L;
 			particles(mc, Kind.TRAIL, 14);
 		}
-	}
-
-	public void clear() {
-		kind = null;
-	}
-
-	public boolean active(long now) {
-		return kind != null && now - start < kind.duration;
 	}
 
 	public Kind kind() {
 		return kind;
 	}
 
-	public void draw(GuiGraphicsExtractor graphics, Font font, int guiWidth, int guiHeight, long now) {
-		if (kind == null) {
-			return;
-		}
-		long elapsed = now - start;
-		if (elapsed < 0 || elapsed >= kind.duration) {
-			kind = null;
-			return;
-		}
-		float fadeIn = Math.min(1.0F, elapsed / 160.0F);
-		float fadeOut = Math.min(1.0F, (kind.duration - elapsed) / 450.0F);
-		float alpha = Math.max(0.0F, Math.min(1.0F, Math.min(fadeIn, fadeOut)));
-		int slide = (int) ((1.0F - fadeIn) * 6.0F);
+	/** The size of the card; {@code extra} is room for the window footer below it. */
+	public record Box(int width, int height, int extra) {
+	}
 
+	public Box measure(Font font, int guiWidth, int extra) {
 		int width = Math.min(kind == Kind.TRAIL ? 380 : 320, guiWidth - 16);
 		int textX = iconItem == null || iconItem.isBlank() ? 10 : 32;
-		int textWidth = width - textX - 10;
-		layout(font, textWidth);
+		layout(font, width - textX - 10);
 		int germanHeight = german == null ? 0 : font.lineHeight + 1;
 		int height = 12 + titleHeight + (line == null ? 0 : 6 + lineHeight)
 				+ (line2 == null ? 0 : 5 + line2Height)
-				+ (german == null ? 0 : 5 + germanHeight) + 10;
+				+ (german == null ? 0 : 5 + germanHeight) + 10 + extra;
+		return new Box(width, height, extra);
+	}
 
-		int x = (guiWidth - width) / 2;
-		int y = (guiHeight - height) / 2 - (kind == Kind.TRAIL ? 0 : 12) + slide;
+	/**
+	 * Draws the card at ({@code x}, {@code y}). It fades in and then stays; with {@code timed} it also
+	 * fades out over its last moments, for windows that close by themselves.
+	 */
+	public void draw(GuiGraphicsExtractor graphics, Font font, int x, int y, Box box, long now, boolean timed) {
+		if (kind == null) {
+			return;
+		}
+		long elapsed = Math.max(0, now - (start == 0 ? now : start));
+		float fadeIn = Math.min(1.0F, elapsed / 160.0F);
+		float fadeOut = timed ? Math.min(1.0F, (kind.duration - elapsed) / 450.0F) : 1.0F;
+		float alpha = Math.max(0.0F, Math.min(1.0F, Math.min(fadeIn, fadeOut)));
+		y += (int) ((1.0F - fadeIn) * 6.0F);
+
+		int width = box.width();
+		int height = box.height();
+		int textX = iconItem == null || iconItem.isBlank() ? 10 : 32;
+		int textWidth = width - textX - 10;
+		int germanHeight = german == null ? 0 : font.lineHeight + 1;
 
 		int border = withAlpha(kind == Kind.TRAIL ? pulse(now) : Draw.GOLD, alpha);
 		int background = withAlpha(0xE6151518, Math.min(1.0F, alpha + 0.15F));
@@ -163,7 +171,7 @@ public final class Celebration {
 			cursor += germanHeight + 2;
 		}
 		if (badgeText != null && kind == Kind.TRAIL) {
-			Draw.truncated(graphics, font, badgeText, x + 10, y + height - 11,
+			Draw.truncated(graphics, font, badgeText, x + 10, y + height - 11 - box.extra(),
 					width - 20, withAlpha(Draw.GOLD, alpha));
 		}
 	}

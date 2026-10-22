@@ -93,6 +93,11 @@ public final class SettingsTab extends JournalTab {
 		yy += 18;
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.typed_cards"), hq.config().typedCards,
 				value -> hq.config().typedCards = value);
+		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.auto_close_windows"), hq.config().autoCloseWindows,
+				value -> hq.config().autoCloseWindows = value);
+		// the import summary sits on the toggle's row, which leaves the page bottom free for the last button
+		String luteInfo = I18n.t("hangulquest.ui.settings.lute_info", luteInfo());
+		Draw.label(g, host.font(), luteInfo, x + width - host.font().width(luteInfo), yy, Ink.INK_FAINT);
 		yy = host.toggle(g, x, yy, width, I18n.t("hangulquest.ui.settings.lute_import"), hq.config().luteImport,
 				value -> hq.config().luteImport = value);
 		yy += 6;
@@ -101,7 +106,6 @@ public final class SettingsTab extends JournalTab {
 		host.button(g, x, yy, 150, 18, I18n.t("hangulquest.ui.settings.export"), false, exportResearch);
 		Draw.truncated(g, host.font(), Component.literal(I18n.t("hangulquest.ui.settings.export_hint")), x + 156, yy + 5,
 				Math.max(20, width - 156), Ink.INK_FAINT);
-		Draw.label(g, host.font(), I18n.t("hangulquest.ui.settings.lute_info", luteInfo()), x, y + height - 10, Ink.INK_FAINT);
 	}
 
 	/** Saves the learning settings and hands them to the running scheduler. */

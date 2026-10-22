@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.quest;
 
 import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.sense.Observation;
+import io.github.leks2205.hangulquest.util.I18n;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -114,13 +115,14 @@ final class NextQuestPolicy {
 
 	/**
 	 * The options of the open popup, empty when there is none. Other trails being active does not close
-	 * it: it ends when the player picks, checks another trail, every option is done, or the time is up.
+	 * it: it ends when the player picks, checks another trail, every option is done, or, only while windows close
+	 * by themselves, the time is up.
 	 */
 	List<Questline> pending(long now) {
 		if (pending.isEmpty()) {
 			return pending;
 		}
-		if (now > pendingUntil || pending.stream().allMatch(trail -> isCompleted(trail.id()))) {
+		if ((now > pendingUntil && engine.popupsExpire()) || pending.stream().allMatch(trail -> isCompleted(trail.id()))) {
 			pending = List.of();
 		}
 		return pending;
@@ -353,8 +355,27 @@ final class NextQuestPolicy {
 			if (wasFocused && reason == QuestEngine.Feedback.AutoReason.FOLLOW_UP) {
 				engine.focus(tracked.get(0).id());
 			}
-			feedback.autoTracked(List.copyOf(tracked), reason);
+			announce(List.copyOf(tracked), reason, feedback);
 		}
+	}
+
+	/** The window that tells the player what the game tracked: "다음 퀘스트: ..." for a follow-up or a refill. */
+	private void announce(List<Questline> picked, QuestEngine.Feedback.AutoReason reason, QuestEngine.Feedback feedback) {
+		boolean gloss = engine.translations();
+		String key = (reason == QuestEngine.Feedback.AutoReason.START ? "start:" : "next:") + picked.get(0).id();
+		if (reason == QuestEngine.Feedback.AutoReason.START) {
+			String[] counters = {"한", "두", "세", "네"};
+			int count = picked.size();
+			String ko = "퀘스트 " + (count <= counters.length ? counters[count - 1] : String.valueOf(count)) + " 개를 골랐어요.";
+			feedback.notice(key, ko, gloss ? I18n.t("hangulquest.ui.quest.auto_started", count) : "",
+					String.join(" · ", picked.stream().map(Questline::titleKo).toList()),
+					gloss ? String.join(" · ", picked.stream().map(Questline::title).toList()) : "");
+		} else {
+			Questline first = picked.get(0);
+			feedback.notice(key, "다음 퀘스트: " + first.titleKo(),
+					gloss ? I18n.t("hangulquest.ui.quest.next_quest", first.title()) : "", "", "");
+		}
+		feedback.autoTracked(picked, reason);
 	}
 
 	/** A tracked trail is finished: the picker's turn. */

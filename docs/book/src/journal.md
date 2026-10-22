@@ -83,6 +83,7 @@ Parent trails are listed before their children, and the list scrolls.
 | HUD-Karten | step, sidequest and trail cards |
 | Tooltips | word tooltips on items |
 | Auto-Quiz | the ambient quiz that appears while you stand still |
+| Auto-close windows | HUD windows (hint, rule cards, banners, the quiz prompt) close by themselves after a few seconds instead of waiting for the hint key |
 | Ton | celebration sounds |
 | Deutsch in Quests | add the German line to quest text, cards and celebrations |
 | Lute-Import | read `vocab/lute-vocab.csv` at start-up |

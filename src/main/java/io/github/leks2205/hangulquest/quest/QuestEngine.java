@@ -68,23 +68,10 @@ public final class QuestEngine {
 		}
 
 		/**
-		 * The game tracked these trails by itself ("pick quests automatically"), best first. The default is a plain
-		 * banner; the HUD's window API replaces it with the "다음 퀘스트: ..." window.
+		 * The game tracked these trails by itself ("pick quests automatically"), best first. The announcement
+		 * window is already queued through {@link #notice}; this tells the listener what was picked and why.
 		 */
-		// TODO(UX-A): announce with the HUD window API ("다음 퀘스트: <title>") instead of the plain banner.
 		default void autoTracked(java.util.List<Questline> picked, AutoReason reason) {
-			if (picked.isEmpty()) {
-				return;
-			}
-			if (reason == AutoReason.START) {
-				String[] counters = {"한", "두", "세", "네"};
-				int count = picked.size();
-				String ko = "퀘스트 " + (count <= counters.length ? counters[count - 1] : String.valueOf(count)) + " 개를 골랐어요.";
-				banner(ko, I18n.t("hangulquest.ui.quest.auto_started", count), true);
-			} else {
-				Questline first = picked.get(0);
-				banner("다음 퀘스트: " + first.titleKo(), I18n.t("hangulquest.ui.quest.next_quest", first.title()), true);
-			}
 		}
 
 		/**
@@ -92,6 +79,15 @@ public final class QuestEngine {
 		 * {@link TrackView#situational()}), so the slot can never spam the screen.
 		 */
 		default void situationalChanged(Questline trail) {
+		}
+
+		/**
+		 * An announcement window (a new quest started, say) that stays until the player closes it with the hint
+		 * key. {@code key} keeps the same announcement from being queued twice. The texts are shown as given, so
+		 * pass an empty string for a line that should not be there (translations only when they are switched on).
+		 */
+		default void notice(String key, String titleKo, String titleText, String bodyKo, String bodyText) {
+			banner(titleKo, titleText, true);
 		}
 	}
 
@@ -143,6 +139,8 @@ public final class QuestEngine {
 	private Observation lastObs;
 	/** "Pick quests automatically"; off until the game switches it on, so the bare engine tracks only what it is told to. */
 	private BooleanSupplier autoPick = () -> false;
+	private BooleanSupplier translations = () -> false;
+	private BooleanSupplier popupsExpire = () -> true;
 	private Map<String, TrailVisibility.State> visibility = Map.of();
 	private Object visibilityTrails;
 	private int visibilityCompleted = -1;
@@ -294,6 +292,28 @@ public final class QuestEngine {
 	 */
 	public void setAutoPick(BooleanSupplier autoPick) {
 		this.autoPick = autoPick == null ? () -> false : autoPick;
+	}
+
+	/** Whether quest texts carry a translation line (the "show translations" setting); off for a bare engine. */
+	public void setTranslations(BooleanSupplier translations) {
+		this.translations = translations == null ? () -> false : translations;
+	}
+
+	boolean translations() {
+		return translations.getAsBoolean();
+	}
+
+	/**
+	 * Whether the "pick the next quest" popup runs out after its offer time. The game passes
+	 * {@code autoCloseWindows}: windows that wait for the hint key must not expire in the engine either.
+	 * A bare engine lets it expire.
+	 */
+	public void setPopupsExpire(BooleanSupplier popupsExpire) {
+		this.popupsExpire = popupsExpire == null ? () -> true : popupsExpire;
+	}
+
+	boolean popupsExpire() {
+		return popupsExpire.getAsBoolean();
 	}
 
 	boolean autoPick() {

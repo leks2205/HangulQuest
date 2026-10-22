@@ -2,6 +2,7 @@ package io.github.leks2205.hangulquest.gametest;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
+import io.github.leks2205.hangulquest.ui.HudWindows;
 import io.github.leks2205.hangulquest.ui.JournalScreen;
 import io.github.leks2205.hangulquest.ui.WelcomeScreen;
 import io.github.leks2205.hangulquest.ui.quiz.QuizScreen;
@@ -47,6 +48,40 @@ public final class HangulQuestClientGameTest implements FabricClientGameTest {
 		context.waitTicks(5);
 		context.takeScreenshot(shot("02b-card", shots));
 		closeScreen(context);
+
+		// A HUD window stays until the hint key closes it, and that press is not a hint.
+		context.runOnClient(mc -> {
+			HangulQuestClient.get().hud().windows().clear();
+			HangulQuestClient.get().hud().banner("창문", "window", true);
+		});
+		context.waitTicks(5);
+		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top() != null),
+				"a banner should be on screen");
+		context.waitTicks(120); // well past the old 3.5 s timeout
+		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().isOpen()),
+				"the banner should stay until the hint key is pressed");
+		context.takeScreenshot(shot("02c-window", shots));
+		context.getInput().pressKey(InputConstants.KEY_H);
+		context.waitTicks(5);
+		check(context.computeOnClient(mc -> !HangulQuestClient.get().hud().windows().isOpen()),
+				"the hint key should close the window");
+		check(context.computeOnClient(mc -> !HangulQuestClient.get().quests().hintUsed()),
+				"closing a window must not count as a hint");
+		// with nothing open the same key is a hint, and its panel is a window too
+		check(context.computeOnClient(mc -> HangulQuestClient.get().quests().focusedId() != null),
+				"a quest should be in focus for the hint check");
+		context.getInput().pressKey(InputConstants.KEY_H);
+		context.waitTicks(5);
+		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top() != null
+						&& HangulQuestClient.get().hud().windows().top().kind() == HudWindows.Kind.HINT),
+				"the hint key with no window open should show the hint panel");
+		context.takeScreenshot(shot("02d-hint", shots));
+		context.getInput().pressKey(InputConstants.KEY_H);
+		context.waitTicks(5);
+		check(context.computeOnClient(mc -> HangulQuestClient.get().hud().windows().top() == null
+						|| HangulQuestClient.get().hud().windows().top().kind() != HudWindows.Kind.HINT),
+				"the hint key should close the hint panel without asking for another hint");
+		context.runOnClient(mc -> HangulQuestClient.get().hud().windows().clear());
 
 		// Progress made in this session ...
 		context.runOnClient(mc -> HangulQuestClient.get().learn().markKnown(WORD, true, System.currentTimeMillis()));

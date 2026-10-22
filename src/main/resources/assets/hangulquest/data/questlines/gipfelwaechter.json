@@ -2,13 +2,15 @@
  "schema": 1,
  "id": "gipfelwaechter",
  "titleKo": "봉우리의 수호자",
+ "topic": "산",
  "tier": 4,
  "order": 450,
  "concepts": [
-  "gen_swamp",
-  "gen_glowstone_dust",
-  "netherrack",
-  "gen_white_candle"
+  "climb",
+  "mountain",
+  "planks",
+  "gen_copper_torch",
+  "wait"
  ],
  "requires": {
   "minWordsKnown": 18,
@@ -23,34 +25,64 @@
   {
    "id": "s1",
    "teach": [
-    "gen_swamp"
+    "climb",
+    "mountain"
    ],
    "goal": {
-    "type": "REACH_BIOME",
-    "biome": "minecraft:swamp",
-    "dwellMs": 1000
-   }
+    "type": "REACH_HEIGHT",
+    "minY": 110,
+    "maxY": 320
+   },
+   "conditions": [
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_glowstone_dust"
+    "planks"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:glowstone_dust",
-    "count": 2
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks",
+    "size": 4
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "#minecraft:is_mountain"
+    }
+   ]
   },
   {
    "id": "s3",
    "teach": [
-    "netherrack"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:netherrack",
-    "count": 1
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:gray_banner",
+    "relation": "NEXT_TO",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks"
+   }
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_copper_torch",
+    "planks"
+   ],
+   "goal": {
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:copper_torch",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:cherry_planks"
    },
    "conditions": [
     {
@@ -64,11 +96,11 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_white_candle"
+    "wait"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:white_candle"
+    "type": "WAIT",
+    "seconds": 10
    },
    "conditions": [
     {
@@ -76,21 +108,26 @@
      "phase": "NIGHT"
     },
     {
-     "type": "IN_BIOME",
-     "biome": "#minecraft:is_mountain"
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:copper_torch"
     }
    ]
   },
-  "textKo": "밤에 산에서 하얀색 초에 불을 붙였어요."
+  "textKo": "밤에 구리 횃불 근처에서 10초 동안 기다렸어요."
  },
  "reward": {
   "badge": "gipfelwaechter",
   "words": [
-   "climb",
-   "diamond",
-   "torch"
+   "mountain",
+   "planks",
+   "gen_copper_torch"
   ]
  },
  "koreanLevel": 2,
- "topic": "산"
+ "grammar": [
+  "L2.seyo",
+  "L2.euro_material",
+  "L2.eseo_activity",
+  "L2.num_sino"
+ ]
 }
