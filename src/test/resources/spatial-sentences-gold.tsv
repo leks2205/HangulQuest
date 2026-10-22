@@ -47,6 +47,7 @@ ceremony	1	0	{"type":"BUILD_PATTERN","pattern":"PILLAR","material":"minecraft:co
 ceremony	1	0	{"type":"BUILD_PATTERN","pattern":"ROW","material":"minecraft:stone","size":3}	돌 세 개를 나란히 놓았어요.	L1.num_native;L1.counter_gae;L3.past;L1.obj_eul
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"PYRAMID","material":"minecraft:stone"}	돌 피라미드 위에 횃불을 놓아요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"ON_TOP_OF","pattern":"PILLAR","material":"minecraft:cobblestone"}	조약돌 기둥 위에 횃불을 놓아요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
+clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:white_banner","relation":"ON_TOP_OF","pattern":"PILLAR","material":"minecraft:cobblestone"}	조약돌 기둥 위에 하얀색 현수막을 세워요.	L1.loc_wi_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"INSIDE","pattern":"RING","material":"minecraft:cobblestone"}	조약돌 담 안에 횃불을 놓아요.	L1.loc_an_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"OUTSIDE","pattern":"RING","material":"minecraft:stone"}	돌담 밖에 횃불을 놓아요.	L1.loc_bak_e;L1.obj_eul;L1.eoyo
 clue	1	0	{"type":"PLACE_ON_PATTERN","block":"minecraft:torch","relation":"NEXT_TO","pattern":"PILLAR","material":"minecraft:stone"}	돌기둥 옆에 횃불을 놓아요.	L1.loc_yeop_e;L1.obj_eul;L1.eoyo

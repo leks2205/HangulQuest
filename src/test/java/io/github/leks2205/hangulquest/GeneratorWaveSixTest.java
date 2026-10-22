@@ -579,9 +579,12 @@ class GeneratorWaveSixTest {
 					"minecraft:quartz_pillar", "minecraft:purpur_pillar")) {
 				assertEquals(Verb.STAND, table.choose(type, id, 1, Verb.PLACE), type + " " + id);
 			}
-			for (String id : List.of("minecraft:item_frame", "minecraft:painting", "minecraft:white_banner")) {
+			for (String id : List.of("minecraft:item_frame", "minecraft:painting")) {
 				assertEquals(Verb.HANG, table.choose(type, id, 1, Verb.PLACE), type + " " + id);
 			}
+			// a banner on a wall is hung; one on top of a built structure stands on it
+			assertEquals(type.equals("PLACE_ON_PATTERN") ? Verb.STAND : Verb.HANG,
+					table.choose(type, "minecraft:white_banner", 1, Verb.PLACE), type + " banner");
 			for (String id : List.of("minecraft:rail", "minecraft:powered_rail", "minecraft:white_carpet")) {
 				assertEquals(Verb.SPREAD, table.choose(type, id, 1, Verb.PLACE), type + " " + id);
 			}
