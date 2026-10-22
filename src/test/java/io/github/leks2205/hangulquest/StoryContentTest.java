@@ -60,9 +60,10 @@ class StoryContentTest {
 	}
 
 	@Test
-	void thereIsAStoryForEachOfTheFourFirstChapters() {
+	void thereIsAStoryForEachOfTheFirstSevenChapters() {
 		Set<String> chapters = stories.stream().map(Story::chapter).collect(Collectors.toSet());
-		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals")), chapters.toString());
+		assertTrue(chapters.containsAll(Set.of("house", "fire_light", "field", "animals", "colors", "market", "meals")),
+				chapters.toString());
 		assertEquals(stories.size(), stories.stream().map(Story::id).distinct().count(), "story ids are unique");
 	}
 
@@ -74,6 +75,12 @@ class StoryContentTest {
 	}
 
 	@Test
+	void theGradedStoriesReachLevelsOneToSix() {
+		Set<Integer> levels = stories.stream().map(Story::level).collect(Collectors.toSet());
+		assertTrue(levels.containsAll(Set.of(1, 2, 3, 4, 5, 6)), levels.toString());
+	}
+
+	@Test
 	void eachStoryIsEightyToFourHundredSyllablesAtALevelOfTheLadder() {
 		for (Story story : stories) {
 			assertTrue(story.syllables() >= 80 && story.syllables() <= 400, story.id() + " has " + story.syllables());
@@ -82,18 +89,7 @@ class StoryContentTest {
 	}
 
 	@Test
-	void theLaterStoriesReachTheirLevelAndNoMore() {
-		for (Story story : stories) {
-			if (story.level() < 3) {
-				continue;
-			}
-			int highest = story.grammar().stream().mapToInt(id -> GrammarBook.shared().get(id).level()).max().orElse(0);
-			assertEquals(story.level(), highest, story.id() + " should use grammar of its own level");
-		}
-	}
-
-	@Test
-	void aStoryUsesNoGrammarAboveItsLevel() {
+	void aStoryUsesNoGrammarAboveItsLevelAndEachOfLevelThreeUpShowsOneOfItsOwn() {
 		GrammarBook book = GrammarBook.shared();
 		for (Story story : stories) {
 			int highest = 0;
@@ -102,6 +98,29 @@ class StoryContentTest {
 				highest = Math.max(highest, book.get(id).level());
 			}
 			assertTrue(highest <= story.level(), story.id() + " is level " + story.level() + " but uses level " + highest);
+			if (story.level() >= 3) {
+				assertEquals(story.level(), highest, story.id() + " should use a construction of its own level");
+			}
+		}
+	}
+
+	@Test
+	void theTextOfALevelThreeUpStoryShowsAConstructionOfItsOwnLevel() {
+		// The list can claim a rule the text never uses: read the rules off the text itself.
+		StoryVocabulary everything = vocabulary(id -> true);
+		GrammarBook book = GrammarBook.shared();
+		for (Story story : stories) {
+			if (story.level() < 3) {
+				continue;
+			}
+			int highest = 0;
+			for (StoryText.Token token : tokens(story, everything)) {
+				if (token.breakdown() != null && !token.breakdown().grammar().isEmpty()
+						&& book.get(token.breakdown().grammar()) != null) {
+					highest = Math.max(highest, book.get(token.breakdown().grammar()).level());
+				}
+			}
+			assertEquals(story.level(), highest, story.id() + ": the text shows no construction of level " + story.level());
 		}
 	}
 

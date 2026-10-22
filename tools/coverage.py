@@ -339,7 +339,7 @@ def day_of(index: int) -> int:
     return index // TRAILS_PER_DAY
 
 
-def simulate(trails: list[dict], lexicon: Lexicon, include_demo: bool = False) -> dict:
+def simulate(trails: list[dict], lexicon: Lexicon, include_demo: bool = False, on_trail=None) -> dict:
     path = variety.learner_path(trails, include_demo)
     cache: dict[str, tuple[list[str], int, int]] = {}
 
@@ -411,6 +411,8 @@ def simulate(trails: list[dict], lexicon: Lexicon, include_demo: bool = False) -
                 events[word].append(day)
                 roles[word].update(word_roles)
                 first_at.setdefault(word, (trail["id"], trail["level"]))
+        if on_trail is not None:
+            on_trail(trail_index, trail, encounters)
     placed = sum(c[1] for c in cache.values())
     seen = sum(c[2] for c in cache.values())
     return {"path": path, "encounters": encounters, "events": events, "roles": roles, "first": first_at,

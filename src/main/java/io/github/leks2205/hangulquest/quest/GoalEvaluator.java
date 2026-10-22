@@ -69,6 +69,13 @@ public final class GoalEvaluator {
 		public int conditionSlips;
 		public int conditionSlipsReported;
 		/**
+		 * The act of the step happened with the wrong colour although the clue names the colour (빨간 침대): a slip
+		 * against the colour adjective, kept apart from the other two kinds for the same reason. Never saved; the
+		 * engine reports and clears it.
+		 */
+		public int colourSlips;
+		public int colourSlipsReported;
+		/**
 		 * Blocks the player placed to finish earlier steps of the trail, by step id, as x, y, z. This is the
 		 * memory behind the anchor {@code "@s2"}. It outlives {@link #clear()} (it is per trail, not per
 		 * step) and is saved with the trail's progress.
@@ -97,6 +104,8 @@ public final class GoalEvaluator {
 			formErrorsReported = 0;
 			conditionSlips = 0;
 			conditionSlipsReported = 0;
+			colourSlips = 0;
+			colourSlipsReported = 0;
 			scratch();
 		}
 
@@ -135,6 +144,8 @@ public final class GoalEvaluator {
 			formErrorsReported = 0;
 			conditionSlips = 0;
 			conditionSlipsReported = 0;
+			colourSlips = 0;
+			colourSlipsReported = 0;
 			scratch();
 		}
 	}
@@ -276,7 +287,28 @@ public final class GoalEvaluator {
 		if (nightLatch && !done && tracker.count == before && clauseBroken(goal, conditions, obs, tracker)) {
 			tracker.conditionSlips++; // done by day, where the night is what counts
 		}
+		if (!done && tracker.count == before && colourWrong(goal, obs, tracker)) {
+			tracker.colourSlips++;
+		}
 		return done;
+	}
+
+	/**
+	 * The act happened this tick with a bed, wool or carpet of another colour than the one the clue names. Told by
+	 * running the goal once more as if the clue had left the colour out: if that counts, the colour was the only
+	 * thing wrong. Events only, like {@link #clauseBroken}.
+	 */
+	private static boolean colourWrong(Goal goal, Observation obs, Tracker tracker) {
+		if (tracker.accepted.exact().isEmpty() || !io.github.leks2205.hangulquest.quest.goal.Clauses.isEvent(goal)) {
+			return false;
+		}
+		Tracker probe = new Tracker();
+		probe.accepted = tracker.accepted.withExact(java.util.Set.of());
+		probe.roofedPlacement = tracker.roofedPlacement;
+		probe.refBlocks = tracker.refBlocks;
+		probe.resetFor(goal);
+		GoalTypes.of(goal).evaluate(goal, obs, probe, false);
+		return probe.count > 0;
 	}
 
 	/**

@@ -258,6 +258,31 @@ final class QuestTextService {
 						namerFor(step), key));
 	}
 
+	/**
+	 * The Korean finale line as this player reads it. A stored finale that the generator wrote (it equals the ceremony
+	 * of the trail's level) is written again at the level the player's clues were read at, so it never names a colour
+	 * those clues left out; an authored one is shown as it is.
+	 */
+	String finaleKo(Questline trail) {
+		String stored = trail.finaleKo();
+		QuestStep finale = trail.finale();
+		int level = effectiveLevel(trail.koreanLevel());
+		if (finale == null || finale.goal() == null || stored == null || level >= trail.koreanLevel()) {
+			return stored;
+		}
+		if (!stored.equals(ceremony(finale, trail.koreanLevel()))) {
+			return stored;
+		}
+		return ceremony(finale, level);
+	}
+
+	/** The generated ceremony line of a step; every noun picked as the clue picks it, for a player who knows none. */
+	private String ceremony(QuestStep step, int level) {
+		SentenceBuilder.Namer clueNamer = ClueWords.namer(namerFor(step),
+				ClueWords.extras(step, catalog, id -> false, namerFor(step)));
+		return SentenceBuilder.ceremony(step.goal(), firstWord(step), verbWord(step), step.conditions(), clueNamer, level);
+	}
+
 	/** The finale line of a finished trail in the interface language. */
 	String finaleText(Questline trail) {
 		return trail.finale(Lang.current());

@@ -90,14 +90,28 @@ class PlaytestTest {
 
 	/** A one-step trail around the goal, for the goals no shipped trail uses (yet). */
 	private static Questline probe(String id, String goalJson) {
+		return probe(id, goalJson, "[]");
+	}
+
+	private static Questline probe(String id, String goalJson, String conditionsJson) {
 		String json = """
 				{"schema": 1, "id": "%s", "titleKo": "시험", "topic": "시험", "tier": 2, "order": 1, "koreanLevel": 3,
 				 "concepts": ["stone"], "requires": {"minWordsKnown": 0, "dimension": "minecraft:overworld"},
-				 "steps": [{"id": "s1", "teach": ["stone"], "goal": %s}],
+				 "steps": [{"id": "s1", "teach": ["stone"], "goal": %s, "conditions": %s}],
 				 "finale": {"step": {"id": "finale", "teach": ["stone"],
 				   "goal": {"type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 1}}, "textKo": "끝"}}
-				""".formatted(id, goalJson);
+				""".formatted(id, goalJson, conditionsJson);
 		return QuestLoader.parse(com.google.gson.JsonParser.parseString(json).getAsJsonObject());
+	}
+
+	@Test
+	void aStepNearABlockTheGoalDoesNotLookAtCanBePlayed() {
+		// the goal looks at stone, the condition is about soul sand somewhere within reach: both must hold at once
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		Questline trail = probe("near_soul_sand", """
+				{"type": "LOOK_AT_BLOCK", "block": "minecraft:stone", "dwellMs": 1000}""", """
+				[{"type": "NEAR_BLOCK", "block": "minecraft:soul_sand", "radius": 5}]""");
+		assertEquals("completed in 2 steps", play(trail, catalog));
 	}
 
 	@Test
@@ -454,7 +468,12 @@ class PlaytestTest {
 				}
 				obs.position = new Vec3(0.0, 64.0, 0.0);
 			}
-			case Condition.NearBlock n -> obs.lookedBlock = n.block();
+			case Condition.NearBlock n -> {
+				java.util.Map<String, Double> scan = new java.util.HashMap<>(obs.nearestBlock);
+				scan.put(n.block(), 0.0); // the sensor scan: a goal may look at another block
+				obs.nearestBlock = scan;
+				obs.lookedBlock = n.block();
+			}
 			case Condition.Holding h -> obs.mainHand = h.item();
 			case Condition.Sky s -> {
 				obs.canSeeSky = s.state() == Condition.SkyState.OPEN;

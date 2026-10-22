@@ -53,6 +53,14 @@ public final class QuestEngine {
 		default void trailCompleted(Questline trail) {
 		}
 
+		/**
+		 * Same, with the finale line as this player reads it: a generated finale follows the level of the clues the
+		 * player read, so it never names a colour they were not told. Defaults to the one without the line.
+		 */
+		default void trailCompleted(Questline trail, String finaleKo) {
+			trailCompleted(trail);
+		}
+
 		/** Several follow-up trails are possible; the player picks one. */
 		default void chooseNext(java.util.List<Questline> options) {
 		}
