@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1767** |
+| Steps (incl. finales) | **1776** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,56 +21,56 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_REL` | 229 |  |
-| `CRAFT` | 203 |  |
-| `ACQUIRE_ITEM` | 157 | collect an item |
-| `PLACE_ON_PATTERN` | 112 |  |
-| `BUILD_PATTERN` | 111 |  |
-| `PLACE_BLOCK` | 88 | place a block |
-| `SEQUENCE` | 86 |  |
-| `LOOK_AT_ENTITY` | 73 | look at a mob |
+| `PLACE_REL` | 232 |  |
+| `CRAFT` | 208 |  |
+| `ACQUIRE_ITEM` | 145 | collect an item |
+| `BUILD_PATTERN` | 113 |  |
+| `PLACE_ON_PATTERN` | 113 |  |
+| `SEQUENCE` | 88 |  |
+| `LOOK_AT_ENTITY` | 74 | look at a mob |
+| `PLACE_BLOCK` | 72 | place a block |
 | `GIVE` | 65 |  |
+| `LOOK_AT_BLOCK` | 63 | look at a block |
 | `BREAK_BLOCK` | 60 | break a block |
-| `LOOK_AT_BLOCK` | 58 | look at a block |
-| `REACH_BIOME` | 56 | reach a biome |
-| `AVOID` | 53 |  |
-| `HOLD_WHILE` | 50 |  |
+| `REACH_BIOME` | 57 | reach a biome |
+| `AVOID` | 55 |  |
+| `HOLD_WHILE` | 54 |  |
 | `USE_BLOCK` | 49 | use a block |
 | `CONSUME_ITEM` | 42 | eat or drink an item |
 | `PUT_IN` | 36 |  |
-| `WAIT` | 31 |  |
-| `REACH_HEIGHT` | 30 | reach an altitude |
+| `WAIT` | 34 |  |
+| `REACH_HEIGHT` | 31 | reach an altitude |
+| `SMELT` | 29 |  |
 | `DEFEAT_ENTITY` | 28 | defeat a mob |
-| `SMELT` | 28 |  |
 | `TRADE` | 23 |  |
-| `WALK` | 16 |  |
+| `WALK` | 19 |  |
 | `INTERACT_ENTITY` | 15 | interact with a mob |
 | `BREED` | 10 |  |
+| `SWIM` | 10 |  |
 | `MOUNT` | 9 |  |
-| `SWIM` | 9 |  |
+| `SHOOT` | 8 |  |
 | `TAKE_OUT` | 7 |  |
-| `SHOOT` | 7 |  |
 | `LIE_DOWN` | 6 |  |
 | `EQUIP` | 6 |  |
 | `FALL` | 5 |  |
 | `HEAR` | 4 |  |
+| `REACH_DIMENSION` | 3 | reach a dimension |
 | `TRANSIT` | 3 |  |
-| `REACH_DIMENSION` | 2 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 322 | a time of day |
-| `HOLDING` | 114 |  |
-| `IN_BIOME` | 69 | a biome |
-| `WEATHER` | 66 | the weather |
+| `TIME` | 332 | a time of day |
+| `HOLDING` | 126 |  |
+| `WEATHER` | 71 | the weather |
+| `IN_BIOME` | 71 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `IN_DIMENSION` | 41 | a dimension |
+| `IN_DIMENSION` | 42 | a dimension |
 | `Y_RANGE` | 37 | an altitude band |
 | `NEAR_BLOCK` | 27 | a block nearby |
 | `SKY` | 26 |  |
-| `NEAR_ENTITY` | 20 | a mob nearby |
+| `NEAR_ENTITY` | 21 | a mob nearby |
+| `FACING` | 14 |  |
 | `IN_WATER` | 12 |  |
-| `FACING` | 8 |  |
 
 ## Levels
 
@@ -554,7 +554,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---|---|---:|---|
 | `weltenschoepfer` | 세계의 창조자 | Der Weltenschöpfer | 4 | `letzte_reise`, `weltbaum`, `golemwerkstatt` |
 | `ewige_krone` | 영원의 왕관 | Die ewige Krone | 4 | `weltwaechter`, `letzte_reise`, `kronenrat`, `unsterblichkeit` |
-| `adv_end_root` | 엔드 | Das Ende | 3 | `letzte_reise` |
+| `adv_end_root` | 엔드 | Das Ende | 4 | `letzte_reise` |
 | `w11_01` | 별을 심는 밤 | Die Nacht, in der Sterne wachsen | 4 | `letzte_reise` |
 | `w11_02` | 달빛 항해 | Fahrt im Mondlicht | 4 | `weltwaechter` |
 | `w11_03` | 영원의 모래시계 | Die Sanduhr der Ewigkeit | 4 | `letzte_reise` |
@@ -579,7 +579,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `adv_end_kill_dragon` | 엔드 해방 | Befreie das Ende | 3 | `adv_end_root` |
+| `adv_end_kill_dragon` | 엔드 해방 | Befreie das Ende | 4 | `adv_end_root` |
 | `purpurwerk` | 보랏빛 천의 길 | Der Purpurstoff | 4 | `rotwerk`, `blauwerk` |
 | `orangewerk` | 주황빛 천의 길 | Der Orangestoff | 4 | `rotwerk`, `gelbwerk` |
 
@@ -587,24 +587,24 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `adv_end_dragon_breath` | 양치질이 필요해 보이는걸 | Du brauchst ein Pfefferminz | 3 | `adv_end_kill_dragon` |
-| `adv_end_dragon_egg` | 그다음 세대 | Die nächste Generation | 3 | `adv_end_kill_dragon` |
-| `adv_end_enter_end_gateway` | 머나먼 휴양지 | Im Transit | 3 | `adv_end_kill_dragon` |
-| `adv_end_respawn_dragon` | 끝 아녔어? | Das Ende … Schon wieder … | 3 | `adv_end_kill_dragon` |
+| `adv_end_dragon_breath` | 양치질이 필요해 보이는걸 | Du brauchst ein Pfefferminz | 4 | `adv_end_kill_dragon` |
+| `adv_end_dragon_egg` | 그다음 세대 | Die nächste Generation | 4 | `adv_end_kill_dragon` |
+| `adv_end_enter_end_gateway` | 머나먼 휴양지 | Im Transit | 4 | `adv_end_kill_dragon` |
+| `adv_end_respawn_dragon` | 끝 아녔어? | Das Ende … Schon wieder … | 4 | `adv_end_kill_dragon` |
 | `regenbogenfahne` | 무지개 깃발의 길 | Die Regenbogenfahne | 4 | `purpurwerk`, `orangewerk` |
 
 ### Level 21 · TOPIK 6 · 1 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `adv_end_find_end_city` | 게임의 끝에서 만난 도시 | Die Stadt am Ende des Spiels | 3 | `adv_end_enter_end_gateway` |
+| `adv_end_find_end_city` | 게임의 끝에서 만난 도시 | Die Stadt am Ende des Spiels | 4 | `adv_end_enter_end_gateway` |
 
 ### Level 22 · TOPIK 6 · 2 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `adv_end_elytra` | 불가능은 없다 | Hinterm Horizont geht’s weiter | 3 | `adv_end_find_end_city` |
-| `adv_end_levitate` | 위쪽 공기 좋은데? | Schöne Aussicht von hier oben | 3 | `adv_end_find_end_city` |
+| `adv_end_elytra` | 불가능은 없다 | Hinterm Horizont geht’s weiter | 4 | `adv_end_find_end_city` |
+| `adv_end_levitate` | 위쪽 공기 좋은데? | Schöne Aussicht von hier oben | 4 | `adv_end_find_end_city` |
 
 ## Reading the tree
 

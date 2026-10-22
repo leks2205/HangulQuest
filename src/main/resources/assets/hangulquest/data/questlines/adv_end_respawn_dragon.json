@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 254,
  "concepts": [
+  "ghast",
   "adv_item_ghast_tear",
-  "adv_item_end_crystal",
-  "adv_item_crying_obsidian"
+  "adv_item_ender_eye",
+  "adv_item_end_crystal"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,50 +22,68 @@
   {
    "id": "s1",
    "teach": [
+    "ghast"
+   ],
+   "goal": {
+    "type": "HOLD_WHILE",
+    "item": "minecraft:bow",
+    "inner": {
+     "type": "DEFEAT_ENTITY",
+     "entity": "minecraft:ghast",
+     "count": 1
+    }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s2",
+   "teach": [
     "adv_item_ghast_tear"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:ghast_tear",
-    "count": 1
-   }
+    "count": 4
+   },
+   "conditions": []
   },
   {
-   "id": "s2",
+   "id": "s3",
    "teach": [
-    "adv_item_end_crystal"
+    "adv_item_ender_eye"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:end_crystal",
+    "item": "minecraft:ender_eye",
     "count": 4
    },
-   "hint": {
-    "ko": "유리와 엔더의 눈, 가스트 눈물로 만들어요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_crying_obsidian"
+    "adv_item_end_crystal"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:crying_obsidian",
+    "type": "CRAFT",
+    "item": "minecraft:end_crystal",
     "count": 4
    },
    "conditions": []
   },
-  "textKo": "끝 아녔어? — 엔드 수정 네 개로 드래곤을 다시 불러요."
+  "textKo": "엔드 수정을 네 개 만들었어요. 엔드 수정으로 드래곤을 다시 불러요."
  },
  "reward": {
   "badge": "adv_end_respawn_dragon",
   "words": [
+   "ghast",
    "adv_item_ghast_tear",
+   "adv_item_ender_eye",
    "adv_item_end_crystal"
   ]
  },
- "koreanLevel": 6
+ "koreanLevel": 6,
+ "grammar": []
 }

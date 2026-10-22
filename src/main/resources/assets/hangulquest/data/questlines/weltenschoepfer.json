@@ -9,7 +9,7 @@
   "gen_windswept_hills",
   "dirt",
   "gen_quartz_block",
-  "sea_lantern"
+  "amethyst_block"
  ],
  "requires": {
   "minWordsKnown": 50,
@@ -99,12 +99,12 @@
   "step": {
    "id": "finale",
    "teach": [
-    "sea_lantern",
+    "amethyst_block",
     "gen_quartz_block"
    ],
    "goal": {
     "type": "PLACE_ON_PATTERN",
-    "block": "minecraft:sea_lantern",
+    "block": "minecraft:amethyst_block",
     "relation": "ON_TOP_OF",
     "pattern": "PYRAMID",
     "material": "minecraft:quartz_block",
@@ -117,7 +117,7 @@
     }
    ]
   },
-  "textKo": "밤에 석영 블록 피라미드 위에 바다 랜턴을 놓았어요. 바다 랜턴은 빛을 내요."
+  "textKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓았어요. 자수정 블록은 반짝여요."
  },
  "reward": {
   "badge": "weltenschoepfer",
@@ -125,7 +125,7 @@
    "gen_windswept_hills",
    "dirt",
    "gen_quartz_block",
-   "sea_lantern"
+   "amethyst_block"
   ]
  },
  "koreanLevel": 6,

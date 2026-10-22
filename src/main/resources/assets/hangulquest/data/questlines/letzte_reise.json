@@ -6,7 +6,8 @@
  "tier": 4,
  "order": 80,
  "concepts": [
-  "adv_item_ender_eye",
+  "enderman",
+  "ender_pearl",
   "adv_dimension_the_end",
   "bow",
   "adv_item_end_crystal",
@@ -25,24 +26,24 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_ender_eye"
+    "enderman"
    ],
    "goal": {
-    "type": "CRAFT",
-    "item": "minecraft:ender_eye",
+    "type": "DEFEAT_ENTITY",
+    "entity": "minecraft:enderman",
     "count": 1
    },
    "conditions": [
     {
-     "type": "TIME",
-     "phase": "NIGHT"
+     "type": "WEATHER",
+     "weather": "CLEAR"
     }
    ]
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_ender_eye",
+    "ender_pearl",
     "adv_dimension_the_end"
    ],
    "goal": {
@@ -52,7 +53,7 @@
    "conditions": [
     {
      "type": "HOLDING",
-     "item": "minecraft:ender_eye"
+     "item": "minecraft:ender_pearl"
     }
    ]
   },
@@ -94,10 +95,10 @@
  "reward": {
   "badge": "letzte_reise",
   "words": [
-   "adv_item_ender_eye",
+   "enderman",
+   "ender_pearl",
    "adv_dimension_the_end",
-   "bow",
-   "adv_item_end_crystal"
+   "bow"
   ]
  },
  "koreanLevel": 6,

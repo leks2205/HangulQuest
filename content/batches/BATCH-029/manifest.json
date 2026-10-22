@@ -1,0 +1,644 @@
+{
+ "batch": "BATCH-029",
+ "brief": "content/briefs/BATCH-029.md",
+ "chapter": "the End game (level 6; every trail is level 6 by tree depth 17 to 22)",
+ "summary": {
+  "trails": 15,
+  "steps": 60,
+  "formDependentSteps": 28,
+  "formDependentShareOwn": 0.4667
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "regenbogenfahne",
+   "title": "무지개 깃발의 길",
+   "order": 1135,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "판자 기둥 위에 초록색 현수막을 걸었어요. 무지개는 일곱 가지 색이에요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:green_dye:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 초록색 염료를 두 개 만들어야 해요.",
+     "hintKo": "낮에 초록색 염료를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:white_banner:CRAFT|HOLDING:minecraft:white_wool",
+     "formDependent": false,
+     "clueKo": "양털을 들고 하얀색 현수막을 만들어야 해요.",
+     "hintKo": "양털을 들고 하얀색 현수막을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:cherry_planks:STACK",
+     "formDependent": false,
+     "clueKo": "벚나무 판자 세 개로 기둥을 쌓아야 해요.",
+     "hintKo": "벚나무 판자로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:green_banner:ON_TOP_OF:PILLAR/minecraft:cherry_planks:HANG",
+     "formDependent": true,
+     "clueKo": "판자 기둥 위에 초록색 현수막을 걸어야 해요.",
+     "hintKo": "판자 기둥 위에 초록색 현수막을 걸어요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_root",
+   "title": "엔드",
+   "order": 255,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드로 갔어요. 엔드에는 엔더맨이 많아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:enderman:DEFEAT|WEATHER:RAIN",
+     "formDependent": true,
+     "clueKo": "비가 오면 엔더맨을 한 마리 물리쳐야 해요.",
+     "hintKo": "비가 올 때 엔더맨을 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:ender_pearl:COLLECT>CRAFT:minecraft:ender_eye:CRAFT",
+     "formDependent": true,
+     "clueKo": "엔더 진주를 두 개 모은 후에 엔더의 눈을 만들어야 해요.",
+     "hintKo": "엔더 진주를 모은 후에 엔더의 눈을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:LOOK_AT_ENTITY:minecraft:enderman:WATCH",
+     "formDependent": true,
+     "clueKo": "엔더맨을 일 초 동안 바라보지 마세요.",
+     "hintKo": "엔더맨을 일 초 동안 바라보지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_DIMENSION",
+     "signature": "REACH_DIMENSION:minecraft:the_end:GO|HOLDING:minecraft:ender_eye",
+     "formDependent": false,
+     "clueKo": "엔더의 눈을 들고 엔드로 가야 해요.",
+     "hintKo": "엔더의 눈을 들고 엔드로 가요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_kill_dragon",
+   "title": "엔드 해방",
+   "order": 252,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔더 드래곤을 물리쳤어요. 엔더 드래곤은 엔드에 살아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:bow:CRAFT>CRAFT:minecraft:arrow:CRAFT",
+     "formDependent": true,
+     "clueKo": "활을 만든 후에 화살을 열여섯 개 만들어야 해요.",
+     "hintKo": "활을 만든 후에 화살을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_sword:HOLD+DEFEAT_ENTITY:minecraft:enderman:DEFEAT",
+     "formDependent": true,
+     "clueKo": "철 검을 들고 있는 동안 엔더맨을 두 마리 물리쳐야 해요.",
+     "hintKo": "철 검을 들고 엔더맨을 물리쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "SHOOT",
+     "signature": "SHOOT:minecraft:bow:minecraft:ender_dragon:HIT",
+     "formDependent": false,
+     "clueKo": "활로 엔더 드래곤을 맞혀야 해요.",
+     "hintKo": "활로 엔더 드래곤을 맞혀요."
+    },
+    {
+     "id": "finale",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:ender_dragon:DEFEAT",
+     "formDependent": false,
+     "clueKo": "엔더 드래곤을 한 마리 물리쳐야 해요.",
+     "hintKo": "엔더 드래곤을 물리쳐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_dragon_breath",
+   "title": "양치질이 필요해 보이는걸",
+   "order": 247,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "드래곤의 숨결을 구했어요. 드래곤의 숨결은 유리병에 담을 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:glass_bottle:CRAFT|HOLDING:minecraft:glass,TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 유리를 들고 유리병을 세 개 만들어야 해요.",
+     "hintKo": "낮에 유리를 들고 유리병을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:ender_dragon:WATCH|HOLDING:minecraft:glass_bottle",
+     "formDependent": false,
+     "clueKo": "유리병을 들고 엔더 드래곤을 일 초 동안 바라봐야 해요.",
+     "hintKo": "유리병을 들고 엔더 드래곤을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "signature": "WAIT:10:WAIT|NEAR_ENTITY:minecraft:ender_dragon",
+     "formDependent": false,
+     "clueKo": "엔더 드래곤 근처에서 십 초 동안 기다려야 해요.",
+     "hintKo": "엔더 드래곤 근처에서 잠깐 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:dragon_breath:OBTAIN",
+     "formDependent": false,
+     "clueKo": "드래곤의 숨결을 구해야 해요.",
+     "hintKo": "드래곤의 숨결을 구해요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_dragon_egg",
+   "title": "그다음 세대",
+   "order": 248,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "드래곤 알을 구했어요. 드래곤 알은 드래곤을 물리치면 생겨요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:piston:CRAFT|TIME:DAY",
+     "formDependent": true,
+     "clueKo": "낮이 되면 피스톤을 만들어야 해요.",
+     "hintKo": "낮에 피스톤을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:piston:PLACE|FACING:NORTH",
+     "formDependent": false,
+     "clueKo": "북쪽을 보고 피스톤을 놓아야 해요.",
+     "hintKo": "북쪽을 보고 피스톤을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:dragon_egg:WATCH|HOLDING:minecraft:iron_pickaxe",
+     "formDependent": false,
+     "clueKo": "철 곡괭이를 들고 드래곤 알을 일 초 동안 바라봐야 해요.",
+     "hintKo": "철 곡괭이를 들고 드래곤 알을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:dragon_egg:OBTAIN",
+     "formDependent": false,
+     "clueKo": "드래곤 알을 구해야 해요.",
+     "hintKo": "드래곤 알을 구해요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_elytra",
+   "title": "불가능은 없다",
+   "order": 249,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "겉날개를 구했어요. 겉날개를 입으면 하늘을 날 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:shield:HOLD+DEFEAT_ENTITY:minecraft:shulker:DEFEAT",
+     "formDependent": true,
+     "clueKo": "방패를 들고 있는 동안 셜커를 한 마리 물리쳐야 해요.",
+     "hintKo": "방패를 들고 셜커를 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:brewing_stand:WATCH|IN_BIOME:minecraft:end_highlands",
+     "formDependent": false,
+     "clueKo": "엔드 고지에서 양조기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "엔드 고지에서 양조기를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:firework_rocket:CRAFT|HOLDING:minecraft:paper",
+     "formDependent": false,
+     "clueKo": "종이를 들고 폭죽 로켓을 세 개 만들어야 해요.",
+     "hintKo": "종이를 들고 폭죽 로켓을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:elytra:OBTAIN",
+     "formDependent": false,
+     "clueKo": "겉날개를 구해야 해요.",
+     "hintKo": "겉날개를 구해요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_enter_end_gateway",
+   "title": "머나먼 휴양지",
+   "order": 250,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드 중지로 갔어요. 엔드 관문은 멀리 있는 섬으로 이어져요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ender_pearl:COLLECT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 엔더 진주를 네 개 모아야 해요.",
+     "hintKo": "밤에 엔더 진주를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|HOLDING:minecraft:ender_pearl",
+     "formDependent": false,
+     "clueKo": "엔더 진주를 들고 동쪽으로 삼십 블록 가야 해요.",
+     "hintKo": "엔더 진주를 들고 동쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:end_stone:WATCH|FACING:NORTH",
+     "formDependent": false,
+     "clueKo": "북쪽을 보고 엔드 돌을 일 초 동안 바라봐야 해요.",
+     "hintKo": "북쪽을 보고 엔드 돌을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:end_midlands:GO",
+     "formDependent": false,
+     "clueKo": "엔드 중지로 가야 해요.",
+     "hintKo": "엔드 중지로 가요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_find_end_city",
+   "title": "게임의 끝에서 만난 도시",
+   "order": 251,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "퍼퍼 기둥을 바라봤어요. 퍼퍼 기둥은 엔드 도시에서 찾을 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:end_highlands:GO|HOLDING:minecraft:ender_pearl",
+     "formDependent": false,
+     "clueKo": "엔더 진주를 들고 엔드 고지로 가야 해요.",
+     "hintKo": "엔더 진주를 들고 엔드 고지로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:iron_pickaxe:HOLD+BREAK_BLOCK:minecraft:purpur_block:BREAK",
+     "formDependent": true,
+     "clueKo": "철 곡괭이를 들고 있는 동안 퍼퍼 블록을 두 개 부숴야 해요.",
+     "hintKo": "철 곡괭이를 들고 퍼퍼 블록을 부숴요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:end_rod:WATCH|FACING:SOUTH",
+     "formDependent": false,
+     "clueKo": "남쪽을 보고 엔드 막대기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "남쪽을 보고 엔드 막대기를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:purpur_pillar:WATCH",
+     "formDependent": false,
+     "clueKo": "퍼퍼 기둥을 일 초 동안 바라봐야 해요.",
+     "hintKo": "퍼퍼 기둥을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_levitate",
+   "title": "위쪽 공기 좋은데?",
+   "order": 253,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드에서 높은 곳으로 올라갔어요. 높이 올라갈수록 땅이 멀어져요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:shulker:WATCH|HOLDING:minecraft:shield",
+     "formDependent": false,
+     "clueKo": "방패를 들고 셜커를 일 초 동안 바라봐야 해요.",
+     "hintKo": "방패를 들고 셜커를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:shulker_shell:COLLECT",
+     "formDependent": false,
+     "clueKo": "셜커 껍데기를 두 개 모아야 해요.",
+     "hintKo": "셜커 껍데기를 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/4:minecraft:purpur_block:STACK",
+     "formDependent": false,
+     "clueKo": "퍼퍼 블록 네 개로 기둥을 쌓아야 해요.",
+     "hintKo": "퍼퍼 블록으로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:h100|IN_DIMENSION:minecraft:the_end",
+     "formDependent": false,
+     "clueKo": "엔드에서 높이 백 블록 이상으로 올라가야 해요.",
+     "hintKo": "엔드에서 높은 곳으로 올라가요."
+    }
+   ]
+  },
+  {
+   "id": "adv_end_respawn_dragon",
+   "title": "끝 아녔어?",
+   "order": 254,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드 수정을 네 개 만들었어요. 엔드 수정으로 드래곤을 다시 불러요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "HOLD_WHILE",
+     "signature": "HOLD_WHILE:minecraft:bow:HOLD+DEFEAT_ENTITY:minecraft:ghast:DEFEAT",
+     "formDependent": true,
+     "clueKo": "활을 들고 있는 동안 가스트를 한 마리 물리쳐야 해요.",
+     "hintKo": "활을 들고 가스트를 물리쳐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ghast_tear:COLLECT",
+     "formDependent": false,
+     "clueKo": "가스트 눈물을 네 개 모아야 해요.",
+     "hintKo": "가스트 눈물을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ender_eye:COLLECT",
+     "formDependent": false,
+     "clueKo": "엔더의 눈을 네 개 모아야 해요.",
+     "hintKo": "엔더의 눈을 모아요."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:end_crystal:CRAFT",
+     "formDependent": false,
+     "clueKo": "엔드 수정을 네 개 만들어야 해요.",
+     "hintKo": "엔드 수정을 만들어요."
+    }
+   ]
+  },
+  {
+   "id": "w11_01",
+   "title": "별을 심는 밤",
+   "order": 1111,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔드 막대기를 바라봤어요. 엔드 막대기는 빛을 내요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:sea_lantern:PLACE|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 바다 랜턴을 두 개 놓아야 해요.",
+     "hintKo": "저녁에 바다 랜턴을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:end_rod:STAND|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 엔드 막대기를 네 개 세워야 해요.",
+     "hintKo": "맑을 때 엔드 막대기를 세워요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:end_rod:BREAK@Time[phase=NIGHT]",
+     "formDependent": true,
+     "clueKo": "밤이 되어도 엔드 막대기를 부수지 마세요.",
+     "hintKo": "밤에 엔드 막대기를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:end_rod:WATCH",
+     "formDependent": false,
+     "clueKo": "엔드 막대기를 일 초 동안 바라봐야 해요.",
+     "hintKo": "엔드 막대기를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w11_02",
+   "title": "달빛 항해",
+   "order": 1112,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "서쪽을 보고 낮까지 기다렸어요. 달은 서쪽으로 져요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:clock:CRAFT|HOLDING:minecraft:redstone,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 레드스톤을 들고 시계를 만들어야 해요.",
+     "hintKo": "밤에 레드스톤을 들고 시계를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SWIM",
+     "signature": "SWIM::SWIM|IN_BIOME:#minecraft:is_ocean,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 바다에서 이십 블록 수영해야 해요.",
+     "hintKo": "밤에 바다에서 수영해요."
+    },
+    {
+     "id": "s3",
+     "goal": "WALK",
+     "signature": "WALK:SOUTH:GO|HOLDING:minecraft:map,TIME:DAWN",
+     "formDependent": true,
+     "clueKo": "해가 뜨면 지도를 들고 남쪽으로 이십오 블록 가야 해요.",
+     "hintKo": "새벽에 지도를 들고 남쪽으로 가요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT:5:until DAY:WAIT|FACING:WEST",
+     "formDependent": false,
+     "clueKo": "서쪽을 보고 낮까지 기다려야 해요.",
+     "hintKo": "서쪽을 보고 낮까지 기다려요."
+    }
+   ]
+  },
+  {
+   "id": "w11_03",
+   "title": "영원의 모래시계",
+   "order": 1113,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "시계를 바라봤어요. 시계는 하루의 낮과 밤을 알려 줘요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:glass:BAKE|TIME:DUSK",
+     "formDependent": true,
+     "clueKo": "해가 지면 모래를 녹여서 유리를 네 개 만들어야 해요.",
+     "hintKo": "저녁에 화로에서 유리를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:sand:ON_TOP_OF:minecraft:glass:PLACE",
+     "formDependent": true,
+     "clueKo": "유리 위에 모래를 놓아야 해요.",
+     "hintKo": "유리 위에 모래를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "WAIT",
+     "signature": "WAIT:20:WAIT|WEATHER:THUNDER",
+     "formDependent": true,
+     "clueKo": "천둥이 치는 동안 기다려야 해요.",
+     "hintKo": "천둥이 칠 때 잠깐 기다려요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:clock:WATCH",
+     "formDependent": false,
+     "clueKo": "시계를 일 초 동안 바라봐야 해요.",
+     "hintKo": "시계를 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w11_04",
+   "title": "별의 지도",
+   "order": 1114,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "북쪽을 보고 자석석을 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:amethyst_shard:COLLECT|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 자수정 조각을 두 개 모아야 해요.",
+     "hintKo": "밤에 자수정 조각을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "WALK",
+     "signature": "WALK:EAST:GO|HOLDING:minecraft:compass,TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 나침반을 들고 동쪽으로 삼십오 블록 가야 해요.",
+     "hintKo": "밤에 나침반을 들고 동쪽으로 가요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:map:OBTAIN|WEATHER:CLEAR",
+     "formDependent": true,
+     "clueKo": "날씨가 맑으면 지도를 구해야 해요.",
+     "hintKo": "맑을 때 지도를 구해요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:lodestone:WATCH|FACING:NORTH",
+     "formDependent": false,
+     "clueKo": "북쪽을 보고 자석석을 일 초 동안 바라봐야 해요.",
+     "hintKo": "북쪽을 보고 자석석을 일 초 동안 바라봐요."
+    }
+   ]
+  },
+  {
+   "id": "w11_05",
+   "title": "은하의 제단",
+   "order": 1115,
+   "koreanLevel": 6,
+   "grammar": [],
+   "finaleKo": "엔더 상자를 바라봤어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:end_stone:PLACE|TIME:NIGHT",
+     "formDependent": true,
+     "clueKo": "밤이 되면 엔드 돌을 여덟 개 놓아야 해요.",
+     "hintKo": "밤에 엔드 돌을 놓아요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:purpur_block:ON_TOP_OF:minecraft:obsidian:PLACE",
+     "formDependent": true,
+     "clueKo": "흑요석 위에 퍼퍼 블록을 놓아야 해요.",
+     "hintKo": "흑요석 위에 퍼퍼 블록을 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:redstone_torch:NEXT_TO:minecraft:purpur_block:PLACE|FACING:EAST",
+     "formDependent": true,
+     "clueKo": "동쪽을 보고 퍼퍼 블록 옆에 레드스톤 횃불을 놓아야 해요.",
+     "hintKo": "동쪽을 보고 퍼퍼 블록 옆에 레드스톤 횃불을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:ender_chest:WATCH",
+     "formDependent": false,
+     "clueKo": "엔더 상자를 일 초 동안 바라봐야 해요.",
+     "hintKo": "엔더 상자를 일 초 동안 바라봐요."
+    }
+   ]
+  }
+ ]
+}

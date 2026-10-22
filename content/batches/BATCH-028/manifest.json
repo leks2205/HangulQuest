@@ -8,12 +8,13 @@
   "formDependentSteps": 49,
   "formDependentShareOwn": 0.8167,
   "goalTypes": {
-   "CRAFT": 16,
+   "CRAFT": 15,
    "HOLD_WHILE": 3,
    "BUILD_PATTERN": 2,
    "PLACE_ON_PATTERN": 2,
    "PUT_IN": 1,
    "CONSUME_ITEM": 3,
+   "DEFEAT_ENTITY": 1,
    "REACH_DIMENSION": 1,
    "SHOOT": 1,
    "PLACE_BLOCK": 6,
@@ -135,19 +136,19 @@
    "steps": [
     {
      "id": "s1",
-     "goal": "CRAFT",
-     "signature": "CRAFT:minecraft:ender_eye:CRAFT|TIME:NIGHT",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:enderman:DEFEAT|WEATHER:CLEAR",
      "formDependent": true,
-     "clueKo": "밤이 되면 엔더의 눈을 만들어야 해요.",
-     "hintKo": "밤에 엔더의 눈을 만들어요."
+     "clueKo": "날씨가 맑으면 엔더맨을 한 마리 물리쳐야 해요.",
+     "hintKo": "맑을 때 엔더맨을 물리쳐요."
     },
     {
      "id": "s2",
      "goal": "REACH_DIMENSION",
-     "signature": "REACH_DIMENSION:minecraft:the_end:GO|HOLDING:minecraft:ender_eye",
+     "signature": "REACH_DIMENSION:minecraft:the_end:GO|HOLDING:minecraft:ender_pearl",
      "formDependent": false,
-     "clueKo": "엔더의 눈을 들고 엔드로 가야 해요.",
-     "hintKo": "엔더의 눈을 들고 엔드로 가요."
+     "clueKo": "엔더 진주를 들고 엔드로 가야 해요.",
+     "hintKo": "엔더 진주를 들고 엔드로 가요."
     },
     {
      "id": "s3",
@@ -174,7 +175,7 @@
    "order": 81,
    "koreanLevel": 6,
    "grammar": [],
-   "finaleKo": "밤에 석영 블록 피라미드 위에 바다 랜턴을 놓았어요. 바다 랜턴은 빛을 내요.",
+   "finaleKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓았어요. 자수정 블록은 반짝여요.",
    "finaleSource": "authored",
    "steps": [
     {
@@ -204,10 +205,10 @@
     {
      "id": "finale",
      "goal": "PLACE_ON_PATTERN",
-     "signature": "PLACE_ON_PATTERN:minecraft:sea_lantern:ON_TOP_OF:PYRAMID/minecraft:quartz_block:PLACE|TIME:NIGHT",
+     "signature": "PLACE_ON_PATTERN:minecraft:amethyst_block:ON_TOP_OF:PYRAMID/minecraft:quartz_block:PLACE|TIME:NIGHT",
      "formDependent": true,
-     "clueKo": "밤이 되면 석영 블록 피라미드 위에 바다 랜턴을 놓아야 해요.",
-     "hintKo": "밤에 석영 블록 피라미드 위에 바다 랜턴을 놓아요."
+     "clueKo": "밤이 되면 석영 블록 피라미드 위에 자수정 블록을 놓아야 해요.",
+     "hintKo": "밤에 석영 블록 피라미드 위에 자수정 블록을 놓아요."
     }
    ],
    "formDependentSteps": 4

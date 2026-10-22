@@ -6,8 +6,8 @@ Brief: `content/briefs/BATCH-028.md` on top of `L456-PLAN.md`, BATCH-016 to BATC
 |---|---|---|
 | w10_08 | 5 | A lantern by day, gravel dug while holding it (-는 동안), a pillar of cut sandstone, a jack o'lantern on top at night. |
 | kronenfeier | 6 | Cookies by day, cookies in a barrel in the rain, berries at dusk, a cake at night. |
-| letzte_reise | 6 | An eye of ender at night, the End with it in hand, an end crystal shot with a bow, the dragon egg placed. |
-| weltenschoepfer | 6 | Dirt dug in the windswept hills (-(으)러 가다), a quartz pyramid in clear weather, no breaking it in the rain (-아/어도), a sea lantern on top. |
+| letzte_reise | 6 | An enderman defeated in clear weather, the End with an ender pearl in hand, an end crystal shot with a bow, the dragon egg placed. |
+| weltenschoepfer | 6 | Dirt dug in the windswept hills (-(으)러 가다), a quartz pyramid in clear weather, no breaking it in the rain (-아/어도), an amethyst block on top. |
 | kronenklang | 6 | The jagged peaks by day, a jukebox at night, a parrot in clear weather, a bell heard at sunrise. |
 | weltwaechter | 6 | A shield at night, two witches defeated with an iron sword (-는 동안), an iron golem at night, height 100 with the shield (flavour: -(으)ㄹ수록). |
 | ewige_krone | 6 | Gold smelted at dusk, a piglin watched with a gold ingot, a gold block in clear weather, the golden helmet put on at night. |
@@ -25,13 +25,13 @@ Constructions: -(으)면 on time and weather in 40 clues, -는 동안 (HOLD_WHIL
 Colour chain: dye, wool, banner and glass, bed or carpet in one colour per trail, in the order rot, blau, gelb, purpur, orange (the links to `regenbogenfahne` are unchanged). The mixing is told, not checked: purple and orange dye are crafted with blue and yellow dye, and the finale says the colour comes from mixing.
 
 Rules this batch settled:
-- **Pairs are nearly used up.** Most (verb, object) pairs of craft, place and eat sit at three already. The trails therefore use fresh objects: cookies, a barrel, a jukebox, a parrot, a sea lantern on quartz, a piglin, ice and honey beside wool. An ACQUIRE of a craftable item speaks 만들다 and counts as the CRAFT pair, so it is no way round.
+- **Pairs are nearly used up.** Most (verb, object) pairs of craft, place and eat sit at three already. The trails therefore use fresh objects: cookies, a barrel, a jukebox, a parrot, an amethyst block on quartz, a piglin, ice and honey beside wool. An ACQUIRE of a craftable item speaks 만들다 and counts as the CRAFT pair, so it is no way round.
 - **Hints and colour compounds.** A hint prints the exact coloured name. A compound like 빨간색 양털 has to be met three times in clues, or stand in the clue of the same step. The step therefore teaches the wool first (`gen_red_wool`, `gen_yellow_wool`), which keeps the noun in clue and hint; blue wool is known already and keeps the adjective.
 - **`red_dye` is named 염료** in a held or `with` position (the generic dye concept owns the item). Purple and orange dye are crafted with the other dye only (`with`), which names blue and yellow correctly.
 - New concepts (insert only): `gen_red_dye`, `gen_yellow_stained_glass` (with lexicon tags and EN/DE glosses).
 - `letzte_reise` ends on placing the egg only; the finale does not claim the End.
 
-Slack: `unknownOverOneShare` 0.050286 to 0.050085 (every sentence of the batch has at most one unknown word), `hintFullyKnownShare` rises (no hint of the batch has a missing word), no new duplicate signature, no pair over three. Many pairs sit at exactly three now (CRAFT copper block, PLACE sea lantern, WATCH iron golem, WEAR_HEAD golden helmet, EAT cake).
+Slack: `unknownOverOneShare` 0.050286 to 0.050085 (every sentence of the batch has at most one unknown word), `hintFullyKnownShare` rises (no hint of the batch has a missing word), no new duplicate signature, no pair over three. Many pairs sit at exactly three now (CRAFT copper block, WATCH iron golem, WEAR_HEAD golden helmet, REACH_DIMENSION with a held item); BATCH-029 had used the eye of ender, the sea lantern and the end rod meanwhile, so those were swapped after the merge.
 
 Depth: every trail is already at the level its depth gives; none is rebuilt at another level.
 
