@@ -1,14 +1,14 @@
 {
  "schema": 1,
  "id": "adv_adventure_throw_trident",
- "titleKo": "준비하시고... 쏘세요!",
+ "titleKo": "물가의 사냥",
  "topic": "adventure",
  "tier": 2,
  "order": 233,
  "concepts": [
-  "adv_item_trident",
-  "gen_zoglin",
-  "gen_breeze"
+  "gen_river",
+  "gen_drowned",
+  "sword"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +21,82 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_trident"
+    "gen_river"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:trident",
-    "count": 1
+    "type": "REACH_BIOME",
+    "biome": "minecraft:river",
+    "dwellMs": 1000
    },
-   "hint": {
-    "ko": "익사자가 가끔 삼지창을 떨어뜨려요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_zoglin"
+    "gen_drowned"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:zoglin",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "WAIT",
+      "seconds": 5,
+      "until": "NIGHT"
+     },
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:drowned",
+      "dwellMs": 1000
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:river"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_breeze"
+    "sword"
    ],
    "goal": {
     "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:breeze",
-    "count": 2
+    "entity": "minecraft:drowned",
+    "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_sword"
+    }
+   ]
   },
-  "textKo": "브리즈를 두 마리 물리쳤어요."
+  "textKo": "검을 들고 드라운드를 물리쳤어요. 가끔 삼지창이 나와요. 삼지창은 던질 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_throw_trident",
   "words": [
-   "adv_item_trident",
-   "creeper",
-   "zombie"
+   "gen_river",
+   "gen_drowned",
+   "sword"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.euro_direction",
+  "L3.eun_hue",
+  "L1.eul_reul",
+  "L2.num_sino",
+  "L2.go_state",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

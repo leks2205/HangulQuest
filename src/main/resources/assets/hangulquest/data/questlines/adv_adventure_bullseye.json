@@ -1,12 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_bullseye",
- "titleKo": "명중",
+ "titleKo": "과녁 세우기",
  "topic": "adventure",
  "tier": 2,
  "order": 205,
  "concepts": [
-  "adv_item_target"
+  "adv_item_target",
+  "hay_block",
+  "gen_redstone_lamp",
+  "bow"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -26,42 +29,92 @@
     "item": "minecraft:target",
     "count": 1
    },
-   "hint": {
-    "ko": "건초 더미 하나와 레드스톤 네 개로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
+    "hay_block"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block",
+    "size": 3
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
     "adv_item_target"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
+    "type": "PLACE_ON_PATTERN",
     "block": "minecraft:target",
+    "relation": "ON_TOP_OF",
+    "pattern": "PILLAR",
+    "material": "minecraft:hay_block"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "gen_redstone_lamp"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:redstone_lamp",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:target",
     "count": 1
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "adv_item_target"
+    "bow"
    ],
    "goal": {
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:target",
     "dwellMs": 600
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:bow"
+    }
+   ]
   },
-  "textKo": "명중 — 멀리서 과녁 한가운데를 겨눴어요."
+  "textKo": "활을 들고 과녁을 바라봤어요. 이제 화살을 쏠 수 있어요."
  },
  "reward": {
   "badge": "adv_adventure_bullseye",
   "words": [
-   "adv_item_target"
+   "adv_item_target",
+   "hay_block",
+   "gen_redstone_lamp"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.euro_material",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L1.loc_wi_e",
+  "L2.go_sequence",
+  "L1.loc_yeop_e",
+  "L2.num_sino",
+  "L2.go_state",
+  "L3.past",
+  "L3.su_itda"
+ ]
 }

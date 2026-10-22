@@ -1,14 +1,13 @@
 {
  "schema": 1,
  "id": "adv_adventure_very_very_frightening",
- "titleKo": "동에 번쩍 서에 번쩍",
+ "titleKo": "피뢰침",
  "topic": "adventure",
  "tier": 2,
  "order": 242,
  "concepts": [
-  "gen_dead_bubble_coral_block",
-  "gen_end_stone_brick_wall",
-  "gen_piglin"
+  "lightning_rod",
+  "planks"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,48 +20,80 @@
   {
    "id": "s1",
    "teach": [
-    "gen_dead_bubble_coral_block"
+    "lightning_rod"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:dead_bubble_coral_block",
+    "item": "minecraft:lightning_rod",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_end_stone_brick_wall"
+    "planks"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:end_stone_brick_wall",
+    "type": "PLACE_REL",
+    "block": "minecraft:lightning_rod",
+    "relation": "ON_TOP_OF",
+    "anchor": "#minecraft:planks",
     "count": 1
-   }
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "lightning_rod"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:lightning_rod",
+     "count": 1
+    },
+    "windowSeconds": 15
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_piglin"
+    "lightning_rod"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:piglin",
-    "count": 1
+    "type": "WAIT",
+    "seconds": 10,
+    "until": "NIGHT"
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:lightning_rod"
+    }
+   ]
   },
-  "textKo": "피글린을 물리쳤어요."
+  "textKo": "피뢰침 옆에서 밤을 기다렸어요. 번개가 하늘에서 쳐요. 피뢰침이 번개를 받아요."
  },
  "reward": {
   "badge": "adv_adventure_very_very_frightening",
   "words": [
-   "adv_item_trident",
    "lightning_rod",
-   "zombie"
+   "planks"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.loc_wi_e",
+  "L1.obj_eul",
+  "L3.jima",
+  "L3.past"
+ ]
 }

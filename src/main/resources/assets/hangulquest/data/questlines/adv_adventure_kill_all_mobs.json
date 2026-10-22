@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_adventure_kill_all_mobs",
- "titleKo": "몬스터 도감",
+ "titleKo": "몬스터 사냥",
  "topic": "adventure",
  "tier": 2,
  "order": 213,
  "concepts": [
-  "adv_item_diamond_sword",
-  "enderman",
-  "gen_guardian"
+  "sword",
+  "adv2_item_iron_helmet",
+  "spider",
+  "zombie"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,51 +22,90 @@
   {
    "id": "s1",
    "teach": [
-    "adv_item_diamond_sword"
+    "sword"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:diamond_sword",
+    "item": "minecraft:iron_sword",
     "count": 1
    },
-   "hint": {
-    "ko": "다이아몬드 두 개와 막대기 하나로 만들어요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "enderman"
+    "adv2_item_iron_helmet"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:enderman",
-    "count": 1
-   }
+    "type": "EQUIP",
+    "item": "minecraft:iron_helmet"
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "spider"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:zombie",
+      "count": 1
+     },
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:spider",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_guardian"
+    "zombie"
    ],
    "goal": {
-    "type": "DEFEAT_ENTITY",
-    "entity": "minecraft:guardian",
-    "count": 1
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:zombie",
+    "dwellMs": 1000
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_sword"
+    },
+    {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   ]
   },
-  "textKo": "가디언을 물리쳤어요."
+  "textKo": "검을 들고 밤에 좀비를 바라봤어요. 좀비는 밤에 나타나요."
  },
  "reward": {
   "badge": "adv_adventure_kill_all_mobs",
   "words": [
-   "adv_item_diamond_sword",
-   "enderman",
-   "witch"
+   "sword",
+   "adv2_item_iron_helmet",
+   "spider"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L3.gi_jeone",
+  "L2.num_sino",
+  "L2.go_state",
+  "L3.past"
+ ]
 }
