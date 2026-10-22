@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 316,
  "concepts": [
-  "gen_sandstone_slab",
-  "gen_spider_eye",
+  "lava",
   "obsidian",
-  "gen_pale_oak_log"
+  "stone"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -22,37 +21,56 @@
   {
    "id": "s1",
    "teach": [
-    "gen_sandstone_slab"
+    "lava"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:sandstone_slab",
-    "count": 1
-   }
+    "type": "LOOK_AT_BLOCK",
+    "block": "minecraft:lava",
+    "dwellMs": 600
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:water_bucket"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_spider_eye"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:spider_eye",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "PLACE_REL",
+      "block": "minecraft:water",
+      "relation": "NEXT_TO",
+      "anchor": "minecraft:lava",
+      "count": 1
+     },
+     {
+      "type": "LOOK_AT_BLOCK",
+      "block": "minecraft:obsidian",
+      "dwellMs": 600
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    }
   },
   {
    "id": "s3",
    "teach": [
-    "obsidian"
+    "stone"
    ],
    "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:obsidian",
-    "dwellMs": 600
-   },
-   "hint": {
-    "ko": "흑요석은 다이아몬드 곡괭이로만 캘 수 있어요."
+    "type": "PLACE_REL",
+    "block": "minecraft:stone",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:water",
+    "count": 1
    }
   }
  ],
@@ -60,24 +78,33 @@
   "step": {
    "id": "finale",
    "teach": [
-    "gen_pale_oak_log"
+    "obsidian"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:pale_oak_log",
-    "count": 1
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:obsidian",
+    "count": 1,
+    "verb": "MINE"
    },
-   "conditions": []
+   "conditions": [],
+   "clue": {
+    "ko": "다이아몬드 곡괭이로 흑요석을 캐세요."
+   }
   },
-  "textKo": "창백한 참나무 원목을 구했어요."
+  "textKo": "다이아몬드 곡괭이로 흑요석을 캤어요. 이제 네더에 갈 수 있어요."
  },
  "reward": {
   "badge": "adv_story_form_obsidian",
   "words": [
    "lava",
-   "water",
-   "obsidian"
+   "obsidian",
+   "stone"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.eun_hue",
+  "L3.euro_instrument",
+  "L3.su_itda"
+ ]
 }

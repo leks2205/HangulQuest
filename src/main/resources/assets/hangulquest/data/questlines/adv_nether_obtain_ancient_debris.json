@@ -6,9 +6,10 @@
  "tier": 2,
  "order": 301,
  "concepts": [
-  "gen_brown_concrete",
-  "adv_item_ancient_debris",
-  "gen_magenta_glazed_terracotta"
+  "adv_dimension_the_nether",
+  "lava",
+  "pickaxe",
+  "adv_item_ancient_debris"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,47 +22,97 @@
   {
    "id": "s1",
    "teach": [
-    "gen_brown_concrete"
+    "adv_dimension_the_nether"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_concrete",
-    "count": 3
-   }
+    "type": "REACH_HEIGHT",
+    "minY": -64,
+    "maxY": 20
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   },
   {
    "id": "s2",
+   "teach": [
+    "lava"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:stone",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:lava",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:diamond_pickaxe",
+    "count": 1
+   }
+  },
+  {
+   "id": "s4",
    "teach": [
     "adv_item_ancient_debris"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
     "block": "minecraft:ancient_debris",
-    "count": 1
-   }
+    "count": 1,
+    "verb": "MINE"
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_magenta_glazed_terracotta"
+    "adv_item_ancient_debris"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:magenta_glazed_terracotta",
-    "count": 1
+    "type": "SMELT",
+    "output": "minecraft:netherite_scrap",
+    "count": 1,
+    "input": "minecraft:ancient_debris"
    },
    "conditions": []
   },
-  "textKo": "자홍색 유광 테라코타를 구했어요."
+  "textKo": "화로에서 고대 잔해를 구웠어요. 이제 네더라이트를 만들 거예요."
  },
  "reward": {
   "badge": "adv_nether_obtain_ancient_debris",
   "words": [
-   "height",
+   "adv_dimension_the_nether",
+   "lava",
+   "pickaxe",
    "adv_item_ancient_debris"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L1.loc_yeop_e",
+  "L3.future_geoyeyo"
+ ]
 }

@@ -1,0 +1,543 @@
+{
+ "batch": "BATCH-016",
+ "brief": "content/briefs/BATCH-016.md",
+ "chapter": "the Nether I, crossing over (first level-3 batch)",
+ "note": "Built on phase0 at 4cfaff0 and merged with phase0 three times (the i18n checker fixes, generator wave 9, then BATCH-015). `metrics` shows the baseline at the start, phase0 at the last merge, and after this batch.",
+ "summary": {
+  "trails": 15,
+  "steps": 61,
+  "bareSteps": 2,
+  "formDependentSteps": 22,
+  "formDependentShareOwn": 0.3607,
+  "goalTypes": {
+   "PLACE_REL": 8,
+   "SEQUENCE": 7,
+   "BREAK_BLOCK": 7,
+   "LOOK_AT_BLOCK": 6,
+   "CRAFT": 5,
+   "AVOID": 4,
+   "LOOK_AT_ENTITY": 4,
+   "BUILD_PATTERN": 3,
+   "HOLD_WHILE": 3,
+   "ACQUIRE_ITEM": 3,
+   "PLACE_ON_PATTERN": 2,
+   "REACH_HEIGHT": 2,
+   "DEFEAT_ENTITY": 2,
+   "MOUNT": 2,
+   "GIVE": 1,
+   "SMELT": 1,
+   "TAKE_OUT": 1
+  }
+ },
+ "metrics": {
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.050273,
+   "phase0AtMerge": 0.049014,
+   "after": 0.04745
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.844337,
+   "phase0AtMerge": 0.832038,
+   "after": 0.818505
+  },
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.942459,
+   "phase0AtMerge": 0.946204,
+   "after": 0.957888
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.971304,
+   "phase0AtMerge": 0.974178,
+   "after": 0.980769
+  },
+  "coverage.recycling.medianEncounters": {
+   "before": 4.0,
+   "phase0AtMerge": 4.0,
+   "after": 4.0
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.0,
+   "phase0AtMerge": 0.0,
+   "after": 0.056848
+  },
+  "variety.bareShare.3": {
+   "before": 0.694524,
+   "phase0AtMerge": 0.694524,
+   "after": 0.583979
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.391931,
+   "phase0AtMerge": 0.391931,
+   "after": 0.333333
+  },
+  "variety.distinctTypes.3": {
+   "before": 11.0,
+   "phase0AtMerge": 11.0,
+   "after": 23.0
+  },
+  "variety.duplicateSignatures": {
+   "before": 5.0,
+   "phase0AtMerge": 3.0,
+   "after": 3.0
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 95.0,
+   "phase0AtMerge": 92.0,
+   "after": 86.0
+  },
+  "variety.noveltyShare": {
+   "before": 0.614286,
+   "phase0AtMerge": 0.619048,
+   "after": 0.640476
+  },
+  "variety.boredomIndex": {
+   "before": 0.049091,
+   "phase0AtMerge": 0.046053,
+   "after": 0.043323
+  },
+  "variety.bareShare.2": {
+   "before": 0.102752,
+   "phase0AtMerge": 0.061728,
+   "after": 0.018519
+  },
+  "variety.formDependentShare.2": {
+   "before": 0.379817,
+   "phase0AtMerge": 0.395062,
+   "after": 0.414815
+  },
+  "variety.topTypeShare.2": {
+   "before": 0.188991,
+   "phase0AtMerge": 0.19224,
+   "after": 0.201852
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_nether_root",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.gi_jeone",
+    "L2.euro_material",
+    "L3.past"
+   ],
+   "project": "Build the first obsidian pillar and flint and steel, top the pillar, then put a gold block in a chest and cross to the Nether.",
+   "clues": [
+    "흑요석 네 개로 기둥을 쌓으세요.",
+    "부싯돌과 부시를 만드세요.",
+    "흑요석 기둥 위에 흑요석을 놓으세요.",
+    "네더로 가기 전에 상자 안에 금 블록을 넣으세요."
+   ]
+  },
+  {
+   "id": "adv_nether_distract_piglin",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 3,
+   "grammar": [
+    "L2.ege",
+    "L3.jima_seyo",
+    "L3.eun_hue",
+    "L3.past"
+   ],
+   "project": "Craft gold, pay a piglin, leave the gold blocks alone near it, and open the chest only after paying.",
+   "clues": [
+    "금 주괴를 만드세요.",
+    "피글린에게 금 주괴를 주세요.",
+    "피글린 근처에서 금 블록을 부수지 마세요.",
+    "네더에서 피글린에게 금 주괴를 준 후에 상자를 여세요."
+   ]
+  },
+  {
+   "id": "adv_nether_fast_travel",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.jima_seyo",
+    "L3.eun_hue",
+    "L3.past"
+   ],
+   "project": "Raise an obsidian pillar in the Nether, walk with a compass, keep off the bed, and go Overworld then Nether.",
+   "clues": [
+    "네더에서 흑요석 네 개로 기둥을 쌓으세요.",
+    "네더에서 나침반을 들고 흑요석 근처에서 걸으세요.",
+    "네더에서 침대에 눕지 마세요.",
+    "오버월드로 간 후에 네더로 가세요."
+   ]
+  },
+  {
+   "id": "adv_nether_find_bastion",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.gi_jeone",
+    "L3.jima_seyo",
+    "L3.past"
+   ],
+   "project": "Study and mine polished blackstone bricks, look at the piglin before the gold, and leave the chest shut near piglins.",
+   "clues": [
+    "네더에서 윤나는 흑암 벽돌을 일 초 동안 바라보세요.",
+    "네더에서 윤나는 흑암 벽돌을 세 개 캐세요.",
+    "금 블록을 일 초 동안 바라보기 전에 피글린을 일 초 동안 바라보세요.",
+    "피글린 근처에서 상자를 열지 마세요."
+   ]
+  },
+  {
+   "id": "adv_nether_find_fortress",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 1,
+   "grammar": [
+    "L1.loc_yeop_e",
+    "L3.past"
+   ],
+   "project": "Look at and mine Nether bricks, set cobblestone beside them, and look at a blaze.",
+   "clues": [
+    "네더에서 네더 벽돌을 일 초 동안 바라보세요.",
+    "네더에서 네더 벽돌을 세 개 캐세요.",
+    "네더에서 네더 벽돌 옆에 조약돌을 놓으세요.",
+    "네더에서 블레이즈를 일 초 동안 바라보세요."
+   ]
+  },
+  {
+   "id": "adv_nether_obtain_ancient_debris",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 5,
+   "formDependentSteps": 1,
+   "grammar": [
+    "L1.loc_yeop_e",
+    "L3.future_geoyeyo"
+   ],
+   "project": "Dig down, wall off the lava, craft a diamond pickaxe, mine ancient debris and smelt netherite scrap.",
+   "clues": [
+    "네더에서 높이 20 이하로 내려가세요.",
+    "네더에서 용암 옆에 돌을 놓으세요.",
+    "다이아몬드 곡괭이를 만드세요.",
+    "네더에서 고대 잔해를 캐세요.",
+    "화로에서 고대 잔해를 녹이세요."
+   ]
+  },
+  {
+   "id": "adv_nether_obtain_crying_obsidian",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.eun_hue",
+    "L1.loc_yeop_e",
+    "L3.su_itda"
+   ],
+   "project": "Look at and mine crying obsidian, place it beside plain obsidian, mine it and then craft a respawn anchor.",
+   "clues": [
+    "네더에서 우는 흑요석을 일 초 동안 바라보세요.",
+    "네더에서 우는 흑요석을 두 개 캐세요.",
+    "네더에서 흑요석 옆에 우는 흑요석을 놓으세요.",
+    "우는 흑요석을 캔 후에 리스폰 정박기를 만드세요."
+   ]
+  },
+  {
+   "id": "adv_nether_return_to_sender",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 0,
+   "grammar": [
+    "L2.seyo",
+    "L3.past"
+   ],
+   "project": "Craft blaze powder and a fire charge, look at a ghast, and defeat it.",
+   "clues": [
+    "화약을 구하세요.",
+    "화염구를 만드세요.",
+    "네더에서 가스트를 일 초 동안 바라보세요.",
+    "네더에서 가스트를 한 마리 물리치세요."
+   ]
+  },
+  {
+   "id": "adv_nether_ride_strider",
+   "level": 3,
+   "levelBefore": 2,
+   "steps": 4,
+   "formDependentSteps": 0,
+   "grammar": [
+    "L2.eseo_activity",
+    "L3.su_itda"
+   ],
+   "project": "Take a saddle from a chest, look at a strider, craft the warped fungus on a stick, ride the strider.",
+   "clues": [
+    "상자에서 안장을 꺼내세요.",
+    "네더에서 스트라이더를 일 초 동안 바라보세요.",
+    "뒤틀린 균 낚싯대를 만드세요.",
+    "네더에서 스트라이더를 타세요."
+   ]
+  },
+  {
+   "id": "adv_story_enter_the_nether",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.eun_hue",
+    "L3.su_itda",
+    "L2.go_held"
+   ],
+   "project": "Wall of obsidian, flint and steel in hand, a second layer on top, look at the obsidian and cross.",
+   "clues": [
+    "흑요석으로 벽을 쌓으세요.",
+    "부싯돌과 부시를 들고 흑요석을 일 초 동안 바라보세요.",
+    "흑요석 벽 위에 흑요석을 놓으세요.",
+    "흑요석을 일 초 동안 바라본 후에 네더로 가세요."
+   ]
+  },
+  {
+   "id": "adv_story_form_obsidian",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L3.eun_hue",
+    "L3.euro_instrument",
+    "L3.su_itda"
+   ],
+   "project": "Look at lava with a water bucket in hand, pour water by the lava and look at the obsidian, place stone by water, mine the obsidian with a diamond pickaxe.",
+   "clues": [
+    "양동이를 들고 용암을 일 초 동안 바라보세요.",
+    "용암 옆에 물을 놓은 후에 흑요석을 일 초 동안 바라보세요.",
+    "물 옆에 돌을 놓으세요.",
+    "다이아몬드 곡괭이로 흑요석을 캐세요."
+   ]
+  },
+  {
+   "id": "adv_nether_explore_nether",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 4,
+   "formDependentSteps": 2,
+   "grammar": [
+    "L1.loc_yeop_e",
+    "L1.loc_wi_e",
+    "L3.past"
+   ],
+   "project": "Mine netherrack, dirt beside it, dig soul sand, gravel on top of it.",
+   "clues": [
+    "네더에서 네더랙을 세 개 캐세요.",
+    "네더에서 네더랙 옆에 흙을 놓으세요.",
+    "네더에서 영혼 모래를 세 개 파세요.",
+    "네더에서 영혼 모래 위에 자갈을 놓으세요."
+   ]
+  },
+  {
+   "id": "adv_nether_obtain_blaze_rod",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 4,
+   "formDependentSteps": 1,
+   "grammar": [
+    "L3.jima_seyo",
+    "L3.su_itda",
+    "L3.euro_instrument"
+   ],
+   "project": "Collect arrows with a bow in hand, defeat a blaze, leave water alone, collect two blaze rods.",
+   "clues": [
+    "활을 들고 화살을 여섯 개 모으세요.",
+    "네더에서 블레이즈를 한 마리 물리치세요.",
+    "네더에서 물을 놓지 마세요.",
+    "네더에서 블레이즈 막대기를 두 개 모으세요."
+   ]
+  },
+  {
+   "id": "adv_nether_ride_strider_in_overworld_lava",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 3,
+   "formDependentSteps": 1,
+   "grammar": [
+    "L1.loc_wi_e",
+    "L3.past"
+   ],
+   "project": "Bridge lava with stone, look at a strider, ride it in the Overworld.",
+   "clues": [
+    "오버월드에서 용암 위에 돌을 놓으세요.",
+    "오버월드에서 스트라이더를 일 초 동안 바라보세요.",
+    "오버월드에서 스트라이더를 타세요."
+   ]
+  },
+  {
+   "id": "vulkanpfad",
+   "level": 3,
+   "levelBefore": 3,
+   "steps": 5,
+   "formDependentSteps": 1,
+   "grammar": [
+    "L2.euro_direction",
+    "L2.go_held",
+    "L3.past"
+   ],
+   "project": "Climb to 85, look at magma, bricks beside it, a torch walk at night, lava at night.",
+   "clues": [
+    "높이 85블록 위로 올라가세요.",
+    "마그마 블록을 일 초 동안 바라보세요.",
+    "마그마 블록 옆에 벽돌을 놓으세요.",
+    "횃불을 들고 밤에 걸으세요.",
+    "밤에 용암을 일 초 동안 바라보세요."
+   ]
+  }
+ ],
+ "finales": [
+  {
+   "id": "trail.adv_nether_root.finale",
+   "ko": "상자에 금 블록을 넣은 후에 네더로 갔어요. 네더는 아주 뜨거워요."
+  },
+  {
+   "id": "trail.adv_nether_distract_piglin.finale",
+   "ko": "네더에서 피글린에게 금 주괴를 준 후에 상자를 열었어요. 피글린은 화를 내지 않았어요."
+  },
+  {
+   "id": "trail.adv_nether_fast_travel.finale",
+   "ko": "오버월드로 간 후에 네더로 갔어요. 네더에서는 한 걸음이 여덟 걸음이에요."
+  },
+  {
+   "id": "trail.adv_nether_find_bastion.finale",
+   "ko": "네더의 피글린 근처에서 상자를 열지 않았어요. 모두 조용했어요."
+  },
+  {
+   "id": "trail.adv_nether_find_fortress.finale",
+   "ko": "네더 요새에서 블레이즈를 봤어요. 블레이즈는 불을 쏴요."
+  },
+  {
+   "id": "trail.adv_nether_obtain_ancient_debris.finale",
+   "ko": "화로에서 고대 잔해를 구웠어요. 이제 네더라이트를 만들 거예요."
+  },
+  {
+   "id": "trail.adv_nether_obtain_crying_obsidian.finale",
+   "ko": "우는 흑요석을 캔 후에 리스폰 정박기를 만들었어요. 이제 네더에서 다시 시작할 수 있어요."
+  },
+  {
+   "id": "trail.adv_nether_return_to_sender.finale",
+   "ko": "네더에서 가스트의 화염구를 되돌려 보냈어요. 가스트를 물리쳤어요."
+  },
+  {
+   "id": "trail.adv_nether_ride_strider.finale",
+   "ko": "네더에서 스트라이더를 탔어요. 이제 용암 위를 지나갈 수 있어요."
+  },
+  {
+   "id": "trail.adv_story_enter_the_nether.finale",
+   "ko": "불을 붙인 후에 차원문으로 네더에 들어갔어요. 이제 네더를 걸을 수 있어요."
+  },
+  {
+   "id": "trail.adv_story_form_obsidian.finale",
+   "ko": "다이아몬드 곡괭이로 흑요석을 캤어요. 이제 네더에 갈 수 있어요."
+  },
+  {
+   "id": "trail.adv_nether_explore_nether.finale",
+   "ko": "네더에서 영혼 모래 위에 자갈을 놓았어요. 네더는 뜨거워요. 하지만 멋졌어요."
+  },
+  {
+   "id": "trail.adv_nether_obtain_blaze_rod.finale",
+   "ko": "네더에서 블레이즈 막대기를 두 개 모았어요. 막대기로 블레이즈 가루를 만들 수 있어요."
+  },
+  {
+   "id": "trail.adv_nether_ride_strider_in_overworld_lava.finale",
+   "ko": "오버월드의 용암 위에서 스트라이더를 탔어요. 스트라이더는 용암 속에서도 편해요."
+  },
+  {
+   "id": "trail.vulkanpfad.finale",
+   "ko": "산 위에서 밤에 용암을 바라봤어요. 용암은 밤에 더 밝아요."
+  }
+ ],
+ "newWordsWithDescKo": {
+  "gen_piglin": "네더에 살아요. 금을 좋아해요.",
+  "gen_blaze": "불을 쏘는 몬스터예요. 네더 요새에 있어요.",
+  "gen_strider": "네더에 살아요. 용암 위를 걸어요."
+ },
+ "levelMoves": [
+  {
+   "id": "adv_nether_root",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_distract_piglin",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_fast_travel",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_find_bastion",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_find_fortress",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_obtain_ancient_debris",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_obtain_crying_obsidian",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_return_to_sender",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "id": "adv_nether_ride_strider",
+   "from": 2,
+   "to": 3
+  }
+ ],
+ "proposedForHigherLevel": [],
+ "editsOutsideTheBatchFiles": [
+  "src/main/resources/assets/hangulquest/data/concepts.json: descKo for gen_piglin, gen_blaze, gen_strider (three lines)",
+  "src/test/resources/content-baseline.json: adv_nether_obtain_ancient_debris leaves reachabilityDebt",
+  "src/test/resources/legacy-authored-finales.txt: adv_nether_explore_nether and adv_nether_find_bastion removed (their finales are now in korean-lines.tsv)",
+  "content/metrics-baseline.json, content/korean/*, content/translations/de_de-status.json, docs/book/src/quest-tree.md: regenerated"
+ ],
+ "generatorWeaknesses": [
+  "RESOLVED by the lead's decision: adv_nether_root additionally requires adv_story_lava_bucket (depth 6), which puts the root at depth 7 and the eight children at 8 (level 3), their children at 9. QuestlineValidationTest then fails only for BATCH-017 trails that sit below them and are still level 3 in their files: adv_nether_brew_potion (depth 10, level 4), adv_nether_summon_wither (10, level 4), adv_nether_all_potions (11, level 4), adv_nether_create_beacon (11, level 4). adv_nether_all_effects and adv_nether_create_full_beacon (12) were already level 4. No level 1-2 trail changed depth or level.",
+  "A trail with conditions needs a teach word that describes its own goal: the validator refuses the dimension word (네더) on a BUILD_PATTERN, HOLD_WHILE or AVOID, and a word that describes only a condition. A Nether step therefore has to name its object (흑요석, 나침반, 침대) in teach even when the new word of the sentence is the place.",
+  "QuestlineValidationTest.everyConditionAppearsInTheKoreanClue wants '네더에서' in the spoken clue of every IN_DIMENSION nether step. NEAR_ENTITY and IN_DIMENSION together print '네더의 피글린 근처에서' (the level-3 genitive), which fails that test, so no step combines the two.",
+  "Seconds are spoken in words now (일 초 동안), and an ordered SEQUENCE of two LOOK_AT parts repeats the phrase: '금 블록을 일 초 동안 바라보기 전에 피글린을 일 초 동안 바라보세요.' A dwell phrase should be dropped inside a SEQUENCE clause.",
+  "Hints are not level 1 for the level-3 constructions: Several hints keep -(으)세요 (AVOID, PLACE_ON_PATTERN, MINE and DEFEAT hints do; LOOK, CRAFT and PUT_IN hints drop to -아/어요). docs/questlines.md says hints always stay at level 1.",
+  "LOOK_AT_BLOCK on minecraft:nether_portal is refused as unobtainable (ObtainabilityTest), so a portal cannot be a look target. The lighting of a portal has no goal of its own: enter_the_nether can only hold the flint and steel and look at the obsidian.",
+  "An authored finale on a trail with step conditions has to speak every condition (finaleTextsSpeakTheirConditions), including the dimension, so a Nether finale must start with 네더에서 even when the narration reads better without it.",
+  "WaveQaTest still lists vulkanpfad (BATCH_9 set) and calls step.teach().get(0) on every step, so every step of a listed trail needs a taught word that the clue mentions. A step without a teach entry throws ArrayIndexOutOfBoundsException.",
+  "A concept with `covers` swallows the variant: teach `brick` (벽돌) on minecraft:stone_bricks is refused ('does not describe the goal'), so the vulkan step uses plain bricks.",
+  "DEFEAT_ENTITY has no condition for the weapon: 화염구를 들고 가스트를 물리치세요 would name the fire charge as a second new word, so the ghast step does not ask for it (the finale line says the fireball was sent back).",
+  "No goal for the lighting of a portal, pouring water onto lava, riding a strider with a rod in hand, or bartering (the piglin gets GIVE with USE_WITH, which a right-click on a piglin with a gold ingot satisfies). PLACE_REL with water should work for the pour because any right-click diffs the 5x5x5 region around the clicked block (not tried in the game).",
+  "The grammar ids are L1.loc_yeop_e and L2.go_held; the generator reports aliases (L2.go_state, L3.jima) in steps.json, so a trail's `grammar` list cannot be copied from steps.json."
+ ],
+ "openIssues": [
+  "Gates stop at QuestlineValidationTest for the four BATCH-017 trails listed in the first generatorWeakness (level 3 in the file, level 4 by depth). BATCH-017 has to set them to level 4; nothing else fails.",
+  "Reachability in a first trip: obsidian needs a diamond pickaxe, the gold in adv_nether_root and adv_nether_distract_piglin is a gold block and an ingot (gold ore is deep or in badlands), a saddle comes from a chest in a fortress (adv_nether_ride_strider takes it out of any chest), and the strider in the Overworld (adv_nether_ride_strider_in_overworld_lava) has to be brought through a portal.",
+  "adv_nether_obtain_ancient_debris asks for the descent to Y 20 or below in the Nether and a stone beside lava; the sensor does not check that the lava is the lava of the debris level.",
+  "adv_nether_return_to_sender defeats the ghast but does not check that the fireball was reflected, and the fire charge is only crafted: the finale line says the fireball was sent back.",
+  "adv_story_form_obsidian s2 (a SEQUENCE whose first part is PLACE_REL water beside lava) is satisfied by any water placed next to lava; obsidian forming from the same click may also be read as a placement.",
+  "adv_story_enter_the_nether finale is a 'look at the obsidian, then reach the Nether' sequence; the portal itself is invisible to the goals. A goal for lighting a portal (USE_BLOCK change LIT on obsidian with flint and steel) would let the trail say 불을 붙이다.",
+  "No trail is proposed for level 4 or above. adv_nether_obtain_ancient_debris and adv_nether_obtain_crying_obsidian are the hardest (netherite scrap, respawn anchor) but stay inside the level-3 Nether the plan allows.",
+  "Vocabulary is tight: Nether trails come late on the learner path only when they are level 3 (path index 249 to 290), and the root trail introduces 흑요석, 부싯돌과 부시 and 네더 at one new word per sentence. If the lead moves the nine back before the smithy trails, the unknown-word budget breaks."
+ ]
+}

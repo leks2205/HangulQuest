@@ -6,8 +6,9 @@
  "tier": 2,
  "order": 296,
  "concepts": [
-  "gen_yellow_wool",
-  "adv_block_polished_blackstone_bricks"
+  "adv_block_polished_blackstone_bricks",
+  "gen_piglin",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,17 +21,6 @@
   {
    "id": "s1",
    "teach": [
-    "gen_yellow_wool"
-   ],
-   "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:yellow_wool",
-    "count": 2
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
     "adv_block_polished_blackstone_bricks"
    ],
    "goal": {
@@ -38,8 +28,52 @@
     "block": "minecraft:polished_blackstone_bricks",
     "dwellMs": 600
    },
-   "hint": {
-    "ko": "검은 벽돌을 천천히 바라봐요."
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "adv_block_polished_blackstone_bricks"
+   ],
+   "goal": {
+    "type": "BREAK_BLOCK",
+    "block": "minecraft:polished_blackstone_bricks",
+    "count": 3,
+    "verb": "MINE"
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_piglin"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "LOOK_AT_ENTITY",
+      "entity": "minecraft:piglin",
+      "dwellMs": 800
+     },
+     {
+      "type": "LOOK_AT_BLOCK",
+      "block": "minecraft:gold_block",
+      "dwellMs": 600
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
    }
   }
  ],
@@ -47,26 +81,36 @@
   "step": {
    "id": "finale",
    "teach": [
-    "adv_block_polished_blackstone_bricks"
+    "chest"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:polished_blackstone_bricks",
-    "count": 1
+    "type": "AVOID",
+    "action": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:chest"
+    },
+    "windowSeconds": 10,
+    "during": {
+     "type": "NEAR_ENTITY",
+     "entity": "minecraft:piglin"
+    }
    },
-   "conditions": [],
-   "hint": {
-    "ko": "곡괭이로 검은 벽돌을 캐요."
-   }
+   "conditions": []
   },
-  "textKo": "보루를 찾았어요! 피글린의 보물이 가득해요."
+  "textKo": "네더의 피글린 근처에서 상자를 열지 않았어요. 모두 조용했어요."
  },
  "reward": {
   "badge": "adv_nether_find_bastion",
   "words": [
-   "adv_dimension_the_nether",
-   "adv_block_polished_blackstone_bricks"
+   "adv_block_polished_blackstone_bricks",
+   "gen_piglin",
+   "chest"
   ]
  },
- "koreanLevel": 2
+ "koreanLevel": 3,
+ "grammar": [
+  "L3.gi_jeone",
+  "L3.jima_seyo",
+  "L3.past"
+ ]
 }
