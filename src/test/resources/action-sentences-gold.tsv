@@ -99,7 +99,8 @@ transit.in	1	-	{"type":"TRANSIT","direction":"IN"}	-	안으로 들어가요.	L1.
 transit.out.house	1	house	{"type":"TRANSIT","direction":"OUT"}	-	집 밖으로 나가요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
 transit.out.comeout	1	house+come_out	{"type":"TRANSIT","direction":"OUT"}	-	집에서 나와요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
 height.down	1	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	아래로 내려가요.	L1.eoyo
-height.down.l2	2	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	높이 40 이하로 내려가세요.	L2.seyo
+height.down.l2	2	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	높이 40블록 이하로 내려가세요.	L2.seyo
+height.down.hold.l2	2	-	{"type":"HOLD_WHILE","item":"minecraft:ender_eye","inner":{"type":"REACH_HEIGHT","minY":-64,"maxY":40}}	-	엔더의 눈을 들고 높이 40블록 이하로 내려가세요.	L2.go_state,L2.seyo
 takeout.apple	1	-	{"type":"TAKE_OUT","item":"minecraft:apple","container":"minecraft:chest","count":1}	-	상자에서 사과를 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 takeout.bread.three	1	-	{"type":"TAKE_OUT","item":"minecraft:bread","container":"minecraft:chest","count":3}	-	상자에서 빵을 세 개 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellMs":3000}	-	주크박스 근처에서 노래를 들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
