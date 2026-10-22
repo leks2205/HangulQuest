@@ -28,8 +28,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `PLACE_ON_PATTERN` | 114 |  |
 | `SEQUENCE` | 88 |  |
 | `LOOK_AT_ENTITY` | 74 | look at a mob |
+| `GIVE` | 66 |  |
 | `LOOK_AT_BLOCK` | 66 | look at a block |
-| `GIVE` | 65 |  |
 | `BREAK_BLOCK` | 59 | break a block |
 | `HOLD_WHILE` | 57 |  |
 | `REACH_BIOME` | 57 | reach a biome |
@@ -44,7 +44,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `DEFEAT_ENTITY` | 27 | defeat a mob |
 | `TRADE` | 24 |  |
 | `WALK` | 20 |  |
-| `INTERACT_ENTITY` | 15 | interact with a mob |
+| `INTERACT_ENTITY` | 14 | interact with a mob |
 | `BREED` | 10 |  |
 | `SWIM` | 10 |  |
 | `SHOOT` | 9 |  |

@@ -43,8 +43,11 @@
     "iron_golem"
    ],
    "goal": {
-    "type": "INTERACT_ENTITY",
-    "entity": "minecraft:iron_golem"
+    "type": "GIVE",
+    "item": "minecraft:iron_ingot",
+    "entity": "minecraft:iron_golem",
+    "count": 1,
+    "method": "USE_WITH"
    },
    "conditions": [
     {
