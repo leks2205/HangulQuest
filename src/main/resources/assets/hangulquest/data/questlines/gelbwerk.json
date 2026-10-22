@@ -8,8 +8,8 @@
  "concepts": [
   "gen_yellow_dye",
   "dandelion",
+  "gen_yellow_wool",
   "honey_block",
-  "wool",
   "gen_yellow_banner",
   "gen_yellow_stained_glass"
  ],
@@ -46,8 +46,8 @@
   {
    "id": "s2",
    "teach": [
-    "honey_block",
-    "wool"
+    "gen_yellow_wool",
+    "honey_block"
    ],
    "goal": {
     "type": "PLACE_REL",
@@ -96,8 +96,8 @@
   "words": [
    "gen_yellow_dye",
    "dandelion",
-   "honey_block",
-   "wool"
+   "gen_yellow_wool",
+   "honey_block"
   ]
  },
  "koreanLevel": 6,

@@ -7,8 +7,8 @@
  "order": 1130,
  "concepts": [
   "gen_red_dye",
+  "gen_red_wool",
   "brick",
-  "wool",
   "gen_red_banner",
   "gen_red_carpet"
  ],
@@ -40,8 +40,8 @@
   {
    "id": "s2",
    "teach": [
-    "brick",
-    "wool"
+    "gen_red_wool",
+    "brick"
    ],
    "goal": {
     "type": "PLACE_REL",
@@ -94,8 +94,8 @@
   "badge": "rotwerk",
   "words": [
    "gen_red_dye",
+   "gen_red_wool",
    "brick",
-   "wool",
    "gen_red_banner"
   ]
  },

@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1760** |
+| Steps (incl. finales) | **1767** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,50 +21,50 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `PLACE_REL` | 224 |  |
-| `CRAFT` | 187 |  |
-| `ACQUIRE_ITEM` | 164 | collect an item |
-| `PLACE_BLOCK` | 111 | place a block |
-| `PLACE_ON_PATTERN` | 110 |  |
-| `BUILD_PATTERN` | 109 |  |
-| `SEQUENCE` | 85 |  |
-| `LOOK_AT_ENTITY` | 71 | look at a mob |
+| `PLACE_REL` | 229 |  |
+| `CRAFT` | 203 |  |
+| `ACQUIRE_ITEM` | 157 | collect an item |
+| `PLACE_ON_PATTERN` | 112 |  |
+| `BUILD_PATTERN` | 111 |  |
+| `PLACE_BLOCK` | 88 | place a block |
+| `SEQUENCE` | 86 |  |
+| `LOOK_AT_ENTITY` | 73 | look at a mob |
 | `GIVE` | 65 |  |
-| `LOOK_AT_BLOCK` | 62 | look at a block |
 | `BREAK_BLOCK` | 60 | break a block |
-| `REACH_BIOME` | 57 | reach a biome |
-| `AVOID` | 51 |  |
-| `USE_BLOCK` | 51 | use a block |
-| `HOLD_WHILE` | 47 |  |
-| `CONSUME_ITEM` | 41 | eat or drink an item |
-| `PUT_IN` | 35 |  |
-| `WAIT` | 30 |  |
-| `DEFEAT_ENTITY` | 29 | defeat a mob |
-| `REACH_HEIGHT` | 29 | reach an altitude |
-| `SMELT` | 27 |  |
-| `TRADE` | 22 |  |
+| `LOOK_AT_BLOCK` | 58 | look at a block |
+| `REACH_BIOME` | 56 | reach a biome |
+| `AVOID` | 53 |  |
+| `HOLD_WHILE` | 50 |  |
+| `USE_BLOCK` | 49 | use a block |
+| `CONSUME_ITEM` | 42 | eat or drink an item |
+| `PUT_IN` | 36 |  |
+| `WAIT` | 31 |  |
+| `REACH_HEIGHT` | 30 | reach an altitude |
+| `DEFEAT_ENTITY` | 28 | defeat a mob |
+| `SMELT` | 28 |  |
+| `TRADE` | 23 |  |
+| `WALK` | 16 |  |
 | `INTERACT_ENTITY` | 15 | interact with a mob |
-| `WALK` | 15 |  |
 | `BREED` | 10 |  |
 | `MOUNT` | 9 |  |
 | `SWIM` | 9 |  |
 | `TAKE_OUT` | 7 |  |
-| `SHOOT` | 6 |  |
-| `LIE_DOWN` | 5 |  |
-| `EQUIP` | 5 |  |
+| `SHOOT` | 7 |  |
+| `LIE_DOWN` | 6 |  |
+| `EQUIP` | 6 |  |
 | `FALL` | 5 |  |
-| `HEAR` | 3 |  |
+| `HEAR` | 4 |  |
 | `TRANSIT` | 3 |  |
-| `REACH_DIMENSION` | 1 | reach a dimension |
+| `REACH_DIMENSION` | 2 | reach a dimension |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 309 | a time of day |
-| `HOLDING` | 108 |  |
-| `IN_BIOME` | 71 | a biome |
-| `WEATHER` | 57 | the weather |
+| `TIME` | 322 | a time of day |
+| `HOLDING` | 114 |  |
+| `IN_BIOME` | 69 | a biome |
+| `WEATHER` | 66 | the weather |
 | `PLAYER_REL` | 49 |  |
-| `IN_DIMENSION` | 40 | a dimension |
+| `IN_DIMENSION` | 41 | a dimension |
 | `Y_RANGE` | 37 | an altitude band |
 | `NEAR_BLOCK` | 27 | a block nearby |
 | `SKY` | 26 |  |
@@ -535,7 +535,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `kronenfeier` | 왕관의 잔치 | Das Kronenfest | 3 | `kronenglanz`, `weltbaum`, `runenpfad`, `fischergilde` |
+| `kronenfeier` | 왕관의 잔치 | Das Kronenfest | 4 | `kronenglanz`, `weltbaum`, `runenpfad`, `fischergilde` |
 | `kronenklang` | 왕관의 소리 | Der Kronenklang | 4 | `kronenglanz`, `weltbaum`, `pyramidenpfad`, `drachenhort`, `schattenpfad`, `richterpfad`, `wolfpfad`, `wuestenstadt` |
 | `schicksalspfad` | 운명의 길 | Der Schicksalspfad | 4 | `richterpfad`, `kronenrat` |
 | `weltenrichter` | 세계 심판 | Der Weltenrichter | 4 | `richterpfad`, `kronenrat` |
@@ -552,7 +552,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `weltenschoepfer` | 세계의 창조자 | Der Weltenschöpfer | 3 | `letzte_reise`, `weltbaum`, `golemwerkstatt` |
+| `weltenschoepfer` | 세계의 창조자 | Der Weltenschöpfer | 4 | `letzte_reise`, `weltbaum`, `golemwerkstatt` |
 | `ewige_krone` | 영원의 왕관 | Die ewige Krone | 4 | `weltwaechter`, `letzte_reise`, `kronenrat`, `unsterblichkeit` |
 | `adv_end_root` | 엔드 | Das Ende | 3 | `letzte_reise` |
 | `w11_01` | 별을 심는 밤 | Die Nacht, in der Sterne wachsen | 4 | `letzte_reise` |
@@ -571,17 +571,17 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w12_06` | 끝의 노래 | Das Lied vom Ende | 4 | `weltwaechter` |
 | `w12_07` | 전설의 대장간 | Die Schmiede der Legende | 4 | `letzte_reise` |
 | `w12_08` | 세계의 왕관 | Die Krone der Welt | 4 | `weltwaechter` |
-| `rotwerk` | 붉은 실의 길 | Der rote Faden | 3 | `weltwaechter` |
-| `blauwerk` | 푸른 실의 길 | Der blaue Faden | 3 | `unsterblichkeit` |
-| `gelbwerk` | 노란 실의 길 | Der gelbe Faden | 3 | `letzte_reise` |
+| `rotwerk` | 붉은 실의 길 | Der rote Faden | 4 | `weltwaechter` |
+| `blauwerk` | 푸른 실의 길 | Der blaue Faden | 4 | `unsterblichkeit` |
+| `gelbwerk` | 노란 실의 길 | Der gelbe Faden | 4 | `letzte_reise` |
 
 ### Level 19 · TOPIK 6 · 3 trails
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
 | `adv_end_kill_dragon` | 엔드 해방 | Befreie das Ende | 3 | `adv_end_root` |
-| `purpurwerk` | 보랏빛 천의 길 | Der Purpurstoff | 3 | `rotwerk`, `blauwerk` |
-| `orangewerk` | 주황빛 천의 길 | Der Orangestoff | 3 | `rotwerk`, `gelbwerk` |
+| `purpurwerk` | 보랏빛 천의 길 | Der Purpurstoff | 4 | `rotwerk`, `blauwerk` |
+| `orangewerk` | 주황빛 천의 길 | Der Orangestoff | 4 | `rotwerk`, `gelbwerk` |
 
 ### Level 20 · TOPIK 6 · 5 trails
 
