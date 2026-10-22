@@ -8,6 +8,10 @@ MIT; weights MIT), and compute the character error rate against the text after s
 are normalised. Clips above the threshold, clips with an implausible length, and clips whose
 pronunciation form disagrees are listed in <out>/audio-blocklist.json, and build_pack.py leaves them out.
 
+With texts.jsonl only the entries of those texts are checked (clips of texts that no longer exist are
+ignored). A clip that an earlier qa-report.json already checked (same voice, id, file hash and size) is not
+transcribed again; --fresh checks everything.
+
 Pronunciation check: content/korean/pronunciation-review.tsv holds the standard pronunciation of every
 concept (written by PronunciationReviewTest from quest/grammar/Pronunciation, columns id, ko, pron, ...).
 Where it differs from the spelling ("[종노]"), the transcript may match either the spelling or that form.
@@ -28,7 +32,7 @@ from pathlib import Path
 
 import numpy as np
 
-from common import MODELS, OUT, REPO, cer, normalise, read_jsonl
+from common import MODELS, OUT, REPO, cer, normalise, read_jsonl, sha1
 
 os.environ.setdefault("HF_HOME", str(MODELS))
 
@@ -114,7 +118,8 @@ def stats(values):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("texts", nargs="?", help="unused except to check ids; the manifest holds the texts")
+    ap.add_argument("texts", nargs="?", help="only check these texts (JSONL from select_texts.py); default: the whole manifest")
+    ap.add_argument("--fresh", action="store_true", help="ignore the earlier report and transcribe every clip")
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--threshold", type=float, default=0.15)
     ap.add_argument("--model", default="large-v3")
@@ -124,6 +129,12 @@ def main():
     out = Path(args.out)
     manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
     prons = pron_forms()
+    wanted = {r["id"]: sha1(r["ko"]) for r in read_jsonl(args.texts)} if args.texts else None
+    earlier = {}
+    report_path = out / "qa-report.json"
+    if report_path.exists() and not args.fresh:
+        for row in json.loads(report_path.read_text(encoding="utf-8")).get("clips", []):
+            earlier[(row["voice"], row["id"], row["hash"])] = row
 
     from faster_whisper import WhisperModel
     device = "cuda" if args.device.startswith("cuda") else "cpu"
@@ -136,7 +147,15 @@ def main():
     for voice, vdata in manifest["voices"].items():
         for cid, entry in vdata["entries"].items():
             ogg = out / voice / f"{entry['hash']}.ogg"
-            if not ogg.exists():
+            if not ogg.exists() or (wanted is not None and wanted.get(cid) != entry.get("text_sha1")):
+                continue
+            size = ogg.stat().st_size
+            old = earlier.get((voice, cid, entry["hash"]))
+            # a report without sizes (first run) is trusted only for clips it passed: a flagged clip may have been redone
+            if old and old.get("bytes", None if old.get("flag") else size) == size:
+                report.append(old)
+                if old.get("flag"):
+                    block.append({"voice": voice, "id": cid, "hash": entry["hash"], "reason": old["flag"]})
                 continue
             audio = decode(ogg)
             seconds = len(audio) / 16000 - 1.0
@@ -146,7 +165,7 @@ def main():
             ko = entry["ko"]
             score = cer(ko, heard)
             row = {"voice": voice, "id": cid, "hash": entry["hash"], "ko": ko, "asr": heard,
-                   "cer": round(score, 4), "seconds": round(seconds, 2)}
+                   "cer": round(score, 4), "seconds": round(seconds, 2), "bytes": size}
             reasons = []
             concept = cid[5:] if cid.startswith("word.") else None
             if concept in prons:
