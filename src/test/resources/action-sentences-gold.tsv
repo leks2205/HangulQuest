@@ -45,12 +45,12 @@ give.word.villager	1	villager	{"type":"GIVE","item":"minecraft:bread","entity":"
 give.word.bread	1	bread	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	-	주민에게 빵을 줘요.	L1.eoyo,L2.ege,L1.eul_reul
 give.drop.cow	1	-	{"type":"GIVE","item":"minecraft:wheat","entity":"minecraft:cow","method":"DROP_NEAR"}	-	소 앞에 밀을 떨어뜨려요.	L1.eoyo,L1.eul_reul,L1.loc.ap
 give.villager.l5	5	bread	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	-	주민에게 빵을 줘야 해요.	L4.eoya_haeyo,L2.ege,L1.eul_reul
-putin.chest	1	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc.an
-putin.three.l2	2	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest","count":3}	-	상자 안에 사과를 세 개 넣으세요.	L2.seyo,L1.eul_reul,L1.loc.an
-putin.barrel	1	-	{"type":"PUT_IN","item":"minecraft:bread","container":"minecraft:barrel"}	-	통 안에 빵을 넣어요.	L1.eoyo,L1.eul_reul,L1.loc.an
-putin.diamond.l3	3	-	{"type":"PUT_IN","item":"minecraft:diamond","container":"minecraft:chest"}	-	상자 안에 다이아몬드를 넣으세요.	L2.seyo,L1.eul_reul,L1.loc.an
-putin.word.chest	1	chest	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc.an
-putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어야 해요.	L4.eoya_haeyo,L1.eul_reul,L1.loc.an
+putin.chest	1	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc_an_e
+putin.three.l2	2	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest","count":3}	-	상자 안에 사과를 세 개 넣으세요.	L2.seyo,L1.eul_reul,L1.loc_an_e
+putin.barrel	1	-	{"type":"PUT_IN","item":"minecraft:bread","container":"minecraft:barrel"}	-	통 안에 빵을 넣어요.	L1.eoyo,L1.eul_reul,L1.loc_an_e
+putin.diamond.l3	3	-	{"type":"PUT_IN","item":"minecraft:diamond","container":"minecraft:chest"}	-	상자 안에 다이아몬드를 넣으세요.	L2.seyo,L1.eul_reul,L1.loc_an_e
+putin.word.chest	1	chest	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어요.	L1.eoyo,L1.eul_reul,L1.loc_an_e
+putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}	-	상자 안에 사과를 넣어야 해요.	L4.eoya_haeyo,L1.eul_reul,L1.loc_an_e
 seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 드세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
 seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.then	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베고 나서 참나무 판자를 만들어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
@@ -59,7 +59,7 @@ seq.after.stone	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"BRE
 seq.any.two	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	횃불을 놓고 참나무 문을 열어요.	L1.eoyo,L2.go_and,L1.eul_reul
 seq.any.three	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"BREAK_BLOCK","block":"minecraft:dirt"},{"type":"PLACE_BLOCK","block":"minecraft:torch"}]}	-	돌을 캐고 흙을 파고 횃불을 놓아요.	L1.eoyo,L2.go_and,L1.eul_reul
 seq.after.smelt	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"SMELT","output":"minecraft:iron_ingot"},{"type":"CRAFT","item":"minecraft:iron_pickaxe"}]}	-	화로에서 철 주괴를 만든 후에 철 곡괭이를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
-seq.before.give	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"},{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}]}	-	상자 안에 사과를 넣기 전에 주민에게 빵을 줘요.	L1.eoyo,L3.gi_jeone,L2.ege,L1.eul_reul,L1.loc.an
+seq.before.give	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"},{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}]}	-	상자 안에 사과를 넣기 전에 주민에게 빵을 줘요.	L1.eoyo,L3.gi_jeone,L2.ege,L1.eul_reul,L1.loc_an_e
 seq.before.l4	4	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 먹어야 해요.	L4.eoya_haeyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
 seq.then.bake	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"SMELT","input":"minecraft:beef","output":"minecraft:cooked_beef"},{"type":"CONSUME_ITEM","item":"minecraft:cooked_beef"}]}	-	익히지 않은 소고기를 굽고 나서 스테이크를 먹어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
 avoid.bed.night	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity

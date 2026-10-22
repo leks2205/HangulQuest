@@ -595,4 +595,27 @@ class GeneratorWaveTenTest {
 		}
 		assertEquals(java.util.Set.of(), unknown);
 	}
+
+	// ------------------------------------------------------------ the linter knows TNT and counts up to 99
+
+	private static int lint(java.nio.file.Path dir, String... lines) throws java.io.IOException {
+		java.nio.file.Path tsv = dir.resolve("lines.tsv");
+		java.nio.file.Files.writeString(tsv, "id\tlevel\tsource\tko\tgoal\n" + String.join("\n", lines) + "\n");
+		return QuestScaffoldTest.python("tools/lint_korean.py", tsv.toString(), "--fail-on", "error").exit();
+	}
+
+	@org.junit.jupiter.api.io.TempDir
+	java.nio.file.Path scratch;
+
+	@Test
+	void theLinterAcceptsTntAndNativeCountsUpToNinetyNine() throws java.io.IOException {
+		org.junit.jupiter.api.Assumptions.assumeTrue(QuestScaffoldTest.python("-c", "pass").exit() == 0);
+		assertEquals(0, lint(scratch, "trail.x.s1.clue\t3\tgenerated:clue/Avoid/BREAK\t사막에서 TNT를 부수지 마세요.\t"));
+		assertEquals(1, lint(scratch, "trail.x.s1.clue\t3\tgenerated:clue/Avoid/BREAK\t사막에서 minecraft:tnt를 부수지 마세요.\t"),
+				"a registry id is still a leak");
+		assertEquals(1, lint(scratch, "trail.x.s1.clue\t3\tgenerated:clue/Avoid/BREAK\t사막에서 TNTX를 부수지 마세요.\t"),
+				"only TNT is the exception");
+		assertEquals(0, lint(scratch, "trail.x.s1.clue\t6\tgenerated:clue/AcquireItem/COLLECT\t돌을 서른두 개 모아요.\tAcquireItem minecraft:stone x32"));
+		assertEquals(0, lint(scratch, "trail.x.s1.clue\t6\tgenerated:clue/AcquireItem/COLLECT\t돌을 예순네 개 모아요.\tAcquireItem minecraft:stone x64"));
+	}
 }
