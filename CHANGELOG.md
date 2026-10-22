@@ -6,7 +6,12 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.2)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.3)
+
+**New in rc.3:** the second level-3 batch: the first diamond, the jewellers' guild, amethyst and the crystal smithy,
+the mine with rails and a minecart, the respawn anchor, wither skeletons and the bastion. The first four level-4
+trails arrive with it (brewing, a stronger potion, a beacon base, the skull tower), using the level-4 ending
+-아/어야 해요.
 
 **New in rc.2:** the first level-3 batch. The way into the Nether is rebuilt: obsidian, the portal, piglins and
 gold, the fortress and blaze rods, the bastion, striders, crying obsidian and ancient debris. Level 3 brings

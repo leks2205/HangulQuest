@@ -1,13 +1,13 @@
 {
  "schema": 1,
  "id": "adv_nether_all_potions",
- "titleKo": "뿅가는 폭탄주",
+ "titleKo": "더 강한 물약",
  "topic": "nether",
  "tier": 2,
  "order": 288,
  "concepts": [
-  "brewing_stand",
-  "nether_wart"
+  "gen_blaze_powder",
+  "adv_item_potion"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -20,55 +20,70 @@
   {
    "id": "s1",
    "teach": [
-    "brewing_stand"
+    "gen_blaze_powder"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brewing_stand",
-    "count": 1
+    "type": "CRAFT",
+    "item": "minecraft:blaze_powder",
+    "count": 2
    },
-   "hint": {
-    "ko": "양조기를 만들어요. 블레이즈 막대기가 필요해요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "nether_wart"
+    "gen_blaze_powder"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:nether_wart",
-    "count": 3
+    "type": "PUT_IN",
+    "item": "minecraft:blaze_powder",
+    "container": "minecraft:brewing_stand",
+    "count": 1
    },
-   "hint": {
-    "ko": "네더 사마귀를 모아요. 요새의 계단에서 자라요."
-   }
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "brewing_stand"
+    "adv_item_potion"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:brewing_stand"
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "TAKE_OUT",
+      "item": "minecraft:potion",
+      "container": "minecraft:brewing_stand",
+      "count": 1
+     },
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:potion",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "양조기를 사용해요."
-   }
+   "conditions": []
   },
-  "textKo": "모든 물약을 다 만들었어요! 이건 진짜 폭탄주예요."
+  "textKo": "더 강한 물약을 마셨어요. 이제 다른 물약도 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_all_potions",
   "words": [
-   "brewing_stand",
-   "nether_wart"
+   "gen_blaze_powder",
+   "adv_item_potion"
   ]
  },
- "koreanLevel": 4
+ "koreanLevel": 4,
+ "grammar": [
+  "L4.eoya_haeyo",
+  "L1.loc.an",
+  "L3.eun_hue",
+  "L2.eseo_activity",
+  "L3.su_itda"
+ ]
 }

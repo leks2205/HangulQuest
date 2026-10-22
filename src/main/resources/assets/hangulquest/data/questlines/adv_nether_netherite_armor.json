@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "id": "adv_nether_netherite_armor",
- "titleKo": "잔해로 날 감싸줘",
+ "titleKo": "네더라이트 투구",
  "topic": "nether",
  "tier": 2,
  "order": 300,
  "concepts": [
-  "gen_conduit",
-  "adv_item_netherite_helmet",
-  "adv_block_netherite_chestplate"
+  "adv_item_ancient_debris",
+  "gen_netherite_ingot",
+  "gen_smithing_table",
+  "adv_item_netherite_helmet"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,16 +22,45 @@
   {
    "id": "s1",
    "teach": [
-    "gen_conduit"
+    "adv_item_ancient_debris"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:conduit",
+    "item": "minecraft:ancient_debris",
     "count": 4
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s2",
+   "teach": [
+    "gen_netherite_ingot"
+   ],
+   "goal": {
+    "type": "CRAFT",
+    "item": "minecraft:netherite_ingot",
+    "count": 1
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_smithing_table"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:smithing_table",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:chest",
+    "count": 1
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
    "teach": [
     "adv_item_netherite_helmet"
    ],
@@ -39,33 +69,23 @@
     "item": "minecraft:netherite_helmet",
     "count": 1
    },
-   "hint": {
-    "ko": "네더라이트 투구는 대장장이 작업대에서 다이아몬드 투구와 네더라이트 주괴로 업그레이드해요."
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "adv_block_netherite_chestplate"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:netherite_chestplate",
-    "count": 1
-   },
    "conditions": []
   },
-  "textKo": "잔해로 날 감싸줘 — 고대 잔해로 네더라이트 갑옷을 만들었어요."
+  "textKo": "네더라이트 투구를 얻었어요. 이제 더 튼튼한 갑옷을 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_netherite_armor",
   "words": [
    "adv_item_ancient_debris",
-   "adv_item_netherite_helmet",
-   "adv_block_netherite_chestplate"
+   "gen_netherite_ingot",
+   "adv_item_netherite_helmet"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.su_itda"
+ ]
 }

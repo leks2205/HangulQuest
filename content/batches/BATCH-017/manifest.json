@@ -1,0 +1,876 @@
+{
+ "batch": "BATCH-017",
+ "brief": "content/briefs/BATCH-017.md",
+ "chapter": "the Nether II, brewing, beacons and treasure (level 3; four trails level 4 by tree depth)",
+ "note": "Built on phase0 at the brief, merged with phase0 (BATCH-016 landed) before the final gates. `before` is the phase0 baseline after BATCH-016, `after` the rebaselined values.",
+ "summary": {
+  "trails": 15,
+  "steps": 59,
+  "formDependentSteps": 22,
+  "formDependentShareOwn": 0.3729,
+  "goalTypes": {
+   "CRAFT": 9,
+   "PLACE_REL": 7,
+   "PUT_IN": 3,
+   "SEQUENCE": 9,
+   "TAKE_OUT": 1,
+   "ACQUIRE_ITEM": 8,
+   "USE_BLOCK": 2,
+   "BUILD_PATTERN": 3,
+   "PLACE_ON_PATTERN": 2,
+   "WAIT": 1,
+   "LOOK_AT_ENTITY": 2,
+   "AVOID": 2,
+   "DEFEAT_ENTITY": 1,
+   "EQUIP": 1,
+   "BREAK_BLOCK": 3,
+   "LOOK_AT_BLOCK": 2,
+   "TRADE": 2,
+   "SMELT": 1
+  }
+ },
+ "metrics": {
+  "coverage.sentences.hintFullyKnownShare": {
+   "before": 0.957888,
+   "after": 0.965782
+  },
+  "coverage.sentences.hintWordCoverage": {
+   "before": 0.980769,
+   "after": 0.984642
+  },
+  "coverage.sentences.meanUnknown": {
+   "before": 0.818505,
+   "after": 0.80767
+  },
+  "coverage.sentences.unknownOverOneShare": {
+   "before": 0.04745,
+   "after": 0.046608
+  },
+  "variety.bareShare.3": {
+   "before": 0.573333,
+   "after": 0.5
+  },
+  "variety.bareShare.4": {
+   "before": 0.796992,
+   "after": 0.70073
+  },
+  "variety.boredomIndex": {
+   "before": 0.043323,
+   "after": 0.03778
+  },
+  "variety.distinctTypes.3": {
+   "before": 23.0,
+   "after": 26.0
+  },
+  "variety.distinctTypes.4": {
+   "before": 8.0,
+   "after": 17.0
+  },
+  "variety.formDependentShare.3": {
+   "before": 0.058667,
+   "after": 0.1
+  },
+  "variety.formDependentShare.4": {
+   "before": 0.0,
+   "after": 0.043796
+  },
+  "variety.noveltyShare": {
+   "before": 0.638095,
+   "after": 0.664286
+  },
+  "variety.objectOnlyRepeats": {
+   "before": 86.0,
+   "after": 79.0
+  },
+  "variety.topTypeShare.3": {
+   "before": 0.32,
+   "after": 0.284211
+  },
+  "variety.topTypeShare.4": {
+   "before": 0.488722,
+   "after": 0.459854
+  }
+ },
+ "trails": [
+  {
+   "id": "adv_nether_brew_potion",
+   "title": "유리병과 양조기",
+   "titleEn": "Local Brewery",
+   "order": 289,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L1.loc.an",
+    "L3.eun_hue",
+    "L2.eseo_activity",
+    "L3.su_itda"
+   ],
+   "finaleKo": "물약을 만들었어요. 이제 물약을 마실 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:brewing_stand:CRAFT",
+     "formDependent": false,
+     "clueKo": "양조기를 만들어야 해요.",
+     "hintKo": "양조기를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:brewing_stand:NEXT_TO:minecraft:crafting_table:PLACE",
+     "formDependent": true,
+     "clueKo": "제작대 옆에 양조기를 놓아야 해요.",
+     "hintKo": "제작대 옆에 양조기를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:glass_bottle>minecraft:brewing_stand:PUT_IN",
+     "formDependent": false,
+     "clueKo": "양조기 안에 유리병을 넣어야 해요.",
+     "hintKo": "양조기 안에 유리병을 넣어요."
+    },
+    {
+     "id": "s4",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:nether_wart:OBTAIN>PUT_IN:minecraft:nether_wart>minecraft:brewing_stand:PUT_IN",
+     "formDependent": true,
+     "clueKo": "네더 사마귀를 구한 후에 양조기 안에 네더 사마귀를 넣어야 해요.",
+     "hintKo": "네더 사마귀를 구한 후에 양조기 안에 네더 사마귀를 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "TAKE_OUT",
+     "signature": "TAKE_OUT:minecraft:potion<minecraft:brewing_stand:TAKE_OUT",
+     "formDependent": false,
+     "clueKo": "양조기에서 물약을 꺼내야 해요.",
+     "hintKo": "양조기에서 물약을 꺼내요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_nether_all_potions",
+   "title": "더 강한 물약",
+   "titleEn": "A Stronger Potion",
+   "order": 288,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L1.loc.an",
+    "L3.eun_hue",
+    "L2.eseo_activity",
+    "L3.su_itda"
+   ],
+   "finaleKo": "더 강한 물약을 마셨어요. 이제 다른 물약도 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:blaze_powder:CRAFT",
+     "formDependent": false,
+     "clueKo": "블레이즈 가루를 두 개 만들어야 해요.",
+     "hintKo": "블레이즈 가루를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:blaze_powder>minecraft:brewing_stand:PUT_IN",
+     "formDependent": false,
+     "clueKo": "양조기 안에 블레이즈 가루를 넣어야 해요.",
+     "hintKo": "양조기 안에 블레이즈 가루를 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:TAKE_OUT:minecraft:potion<minecraft:brewing_stand:TAKE_OUT>CONSUME_ITEM:minecraft:potion:DRINK",
+     "formDependent": true,
+     "clueKo": "양조기에서 물약을 꺼낸 후에 물약을 마셔야 해요.",
+     "hintKo": "양조기에서 물약을 꺼낸 후에 물약을 마셔요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_charge_respawn_anchor",
+   "title": "목숨 충전",
+   "titleEn": "Not Quite \"Nine\" Lives",
+   "order": 290,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.su_itda"
+   ],
+   "finaleKo": "리스폰 정박기를 채웠어요. 이제 네더에서 다시 살아날 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:crying_obsidian:COLLECT",
+     "formDependent": false,
+     "clueKo": "우는 흑요석을 여섯 개 모으세요.",
+     "hintKo": "우는 흑요석을 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:glowstone:COLLECT",
+     "formDependent": false,
+     "clueKo": "발광석을 네 개 모으세요.",
+     "hintKo": "발광석을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:respawn_anchor:CRAFT",
+     "formDependent": false,
+     "clueKo": "리스폰 정박기를 만드세요.",
+     "hintKo": "리스폰 정박기를 만들어요."
+    },
+    {
+     "id": "s4",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:respawn_anchor:NEXT_TO:#minecraft:beds:PLACE",
+     "formDependent": true,
+     "clueKo": "침대 옆에 리스폰 정박기를 놓으세요.",
+     "hintKo": "침대 옆에 리스폰 정박기를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:respawn_anchor:CHARGE",
+     "formDependent": false,
+     "clueKo": "리스폰 정박기를 충전하세요.",
+     "hintKo": "리스폰 정박기를 충전해요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_create_beacon",
+   "title": "신호기 받침",
+   "titleEn": "Bring Home the Beacon",
+   "order": 291,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.loc_an_e",
+    "L3.su_itda"
+   ],
+   "finaleKo": "랜턴이 밤에 빛나요. 나중에 여기에 신호기를 놓을 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_block:CRAFT",
+     "formDependent": false,
+     "clueKo": "철 블록을 여덟 개 만들어야 해요.",
+     "hintKo": "철 블록을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:RING/3:minecraft:iron_block:STACK",
+     "formDependent": false,
+     "clueKo": "철 블록으로 담을 쌓아야 해요.",
+     "hintKo": "철 블록으로 담을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:soul_lantern:INSIDE:RING/minecraft:iron_block:PLACE",
+     "formDependent": true,
+     "clueKo": "철 블록 담 안에 영혼 랜턴을 놓아야 해요.",
+     "hintKo": "철 블록 담 안에 영혼 랜턴을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "WAIT",
+     "signature": "WAIT::WAIT|NEAR_BLOCK:minecraft:soul_lantern",
+     "formDependent": false,
+     "clueKo": "영혼 랜턴 근처에서 밤까지 기다려야 해요.",
+     "hintKo": "영혼 랜턴 근처에서 밤까지 기다려요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_get_wither_skull",
+   "title": "으스스한 스켈레톤",
+   "titleEn": "Spooky Scary Skeleton",
+   "order": 298,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.num_sino",
+    "L3.eun_hue",
+    "L3.su_itda"
+   ],
+   "finaleKo": "위더 스켈레톤 해골을 구했어요. 이제 위더를 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:wither_skeleton:WATCH|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 위더 스켈레톤을 일 초 동안 바라보세요.",
+     "hintKo": "네더에서 위더 스켈레톤을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:DEFEAT_ENTITY:minecraft:wither_skeleton:DEFEAT>ACQUIRE_ITEM:minecraft:bone:COLLECT",
+     "formDependent": true,
+     "clueKo": "위더 스켈레톤을 두 마리 물리친 후에 뼈를 세 개 모으세요.",
+     "hintKo": "위더 스켈레톤을 물리친 후에 뼈를 모아요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:wither_skeleton_skull:OBTAIN",
+     "formDependent": false,
+     "clueKo": "위더 스켈레톤 해골을 구하세요.",
+     "hintKo": "위더 스켈레톤 해골을 구해요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_summon_wither",
+   "title": "해골 탑",
+   "titleEn": "Withering Heights",
+   "order": 308,
+   "koreanLevel": 4,
+   "grammar": [
+    "L4.eoya_haeyo",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L1.loc_wi_e",
+    "L3.jima"
+   ],
+   "finaleKo": "해골은 하나면 충분해요. 위더는 아직 일러요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:soul_sand:COLLECT",
+     "formDependent": false,
+     "clueKo": "영혼 모래를 다섯 개 모아야 해요.",
+     "hintKo": "영혼 모래를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:CROSS/3:minecraft:soul_sand:CRAFT",
+     "formDependent": false,
+     "clueKo": "영혼 모래로 십자 모양을 만들어야 해요.",
+     "hintKo": "영혼 모래로 십자 모양을 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:wither_skeleton_skull:ON_TOP_OF:CROSS/minecraft:soul_sand:PLACE",
+     "formDependent": true,
+     "clueKo": "영혼 모래 십자 모양 위에 위더 스켈레톤 해골을 놓아야 해요.",
+     "hintKo": "영혼 모래 십자 모양 위에 위더 스켈레톤 해골을 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "AVOID",
+     "signature": "AVOID:PLACE_BLOCK:minecraft:wither_skeleton_skull:PLACE",
+     "formDependent": true,
+     "clueKo": "위더 스켈레톤 해골을 놓지 마세요.",
+     "hintKo": "위더 스켈레톤 해골을 놓지 마세요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "adv_nether_uneasy_alliance",
+   "title": "가스트 눈물 사냥",
+   "titleEn": "Hunting for Ghast Tears",
+   "order": 309,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.num_sino",
+    "L2.go_state",
+    "L3.eun_hue",
+    "L1.loc.an",
+    "L3.su_itda"
+   ],
+   "finaleKo": "가스트 눈물을 상자에 넣었어요. 나중에 물약을 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:ghast:WATCH|IN_DIMENSION:minecraft:the_nether,Y_RANGE:32..128",
+     "formDependent": false,
+     "clueKo": "네더에서 높이 32블록 위에서 가스트를 일 초 동안 바라보세요.",
+     "hintKo": "네더에서 높이 32블록 위에서 가스트를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "DEFEAT_ENTITY",
+     "signature": "DEFEAT_ENTITY:minecraft:ghast:DEFEAT|HOLDING:minecraft:bow",
+     "formDependent": false,
+     "clueKo": "활을 들고 가스트를 한 마리 물리치세요.",
+     "hintKo": "활을 들고 가스트를 물리쳐요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:ghast_tear:OBTAIN>PUT_IN:minecraft:ghast_tear>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "가스트 눈물을 구한 후에 상자 안에 가스트 눈물을 넣으세요.",
+     "hintKo": "가스트 눈물을 구한 후에 상자 안에 가스트 눈물을 넣어요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_loot_bastion",
+   "title": "돼지와 전쟁",
+   "titleEn": "War Pigs",
+   "order": 299,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L3.jima"
+   ],
+   "finaleKo": "네더의 보루에서 상자를 열었어요. 금이 있어요. 피글린은 돼지처럼 생겼어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "EQUIP",
+     "signature": "EQUIP:minecraft:golden_helmet:WEAR_HEAD",
+     "formDependent": false,
+     "clueKo": "금 투구를 쓰세요.",
+     "hintKo": "금 투구를 써요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:gilded_blackstone:MINE|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 황금이 박힌 흑암을 세 개 캐세요.",
+     "hintKo": "네더에서 황금이 박힌 흑암을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:USE_BLOCK:minecraft:barrel:OPEN",
+     "formDependent": true,
+     "clueKo": "피글린 근처에서 통을 열지 마세요.",
+     "hintKo": "피글린 근처에서 통을 열지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "USE_BLOCK",
+     "signature": "USE_BLOCK:minecraft:chest:OPEN|IN_DIMENSION:minecraft:the_nether",
+     "formDependent": false,
+     "clueKo": "네더에서 상자를 여세요.",
+     "hintKo": "네더에서 상자를 열어요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_nether_netherite_armor",
+   "title": "네더라이트 투구",
+   "titleEn": "Cover Me in Debris",
+   "order": 300,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.su_itda"
+   ],
+   "finaleKo": "네더라이트 투구를 얻었어요. 이제 더 튼튼한 갑옷을 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:ancient_debris:COLLECT",
+     "formDependent": false,
+     "clueKo": "고대 잔해를 네 개 모으세요.",
+     "hintKo": "고대 잔해를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:netherite_ingot:CRAFT",
+     "formDependent": false,
+     "clueKo": "네더라이트 주괴를 만드세요.",
+     "hintKo": "네더라이트 주괴를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:smithing_table:NEXT_TO:minecraft:chest:PLACE",
+     "formDependent": true,
+     "clueKo": "상자 옆에 대장장이 작업대를 놓으세요.",
+     "hintKo": "상자 옆에 대장장이 작업대를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:netherite_helmet:CRAFT",
+     "formDependent": false,
+     "clueKo": "네더라이트 투구를 만드세요.",
+     "hintKo": "네더라이트 투구를 만들어요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "adv_story_mine_diamond",
+   "title": "다이아몬드다!",
+   "titleEn": "Diamonds!",
+   "order": 319,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.num_sino",
+    "L3.gi_jeone",
+    "L3.su_itda"
+   ],
+   "finaleKo": "다이아몬드를 캤어요. 이제 다이아몬드 곡괭이를 만들 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:deepslate:MINE|Y_RANGE:-64..16",
+     "formDependent": false,
+     "clueKo": "땅속에서 심층암을 여덟 개 캐세요.",
+     "hintKo": "땅속에서 심층암을 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:diamond_ore:WATCH|Y_RANGE:-64..16",
+     "formDependent": false,
+     "clueKo": "땅속에서 다이아몬드를 일 초 동안 바라보세요.",
+     "hintKo": "땅속에서 다이아몬드를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:iron_pickaxe:CRAFT>BREAK_BLOCK:minecraft:diamond_ore:MINE",
+     "formDependent": true,
+     "clueKo": "다이아몬드를 캐기 전에 철 곡괭이를 만드세요.",
+     "hintKo": "다이아몬드를 캐기 전에 철 곡괭이를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:diamond:OBTAIN|Y_RANGE:-64..16",
+     "formDependent": false,
+     "clueKo": "땅속에서 다이아몬드를 구하세요.",
+     "hintKo": "땅속에서 다이아몬드를 구해요."
+    }
+   ],
+   "formDependentSteps": 1
+  },
+  {
+   "id": "kristallhoehle",
+   "title": "수정 동굴",
+   "titleEn": "Crystal Cave",
+   "order": 530,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.num_sino",
+    "L3.eun_hue",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.su_itda"
+   ],
+   "finaleKo": "자수정 블록 위에 차광 유리를 놓았어요. 이제 동굴에서 빛을 볼 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:amethyst_block:WATCH|Y_RANGE:-64..30",
+     "formDependent": false,
+     "clueKo": "땅속에서 자수정 블록을 일 초 동안 바라보세요.",
+     "hintKo": "땅속에서 자수정 블록을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:amethyst_cluster:BREAK",
+     "formDependent": false,
+     "clueKo": "자수정 군집을 두 개 부수세요.",
+     "hintKo": "자수정 군집을 부숴요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:tinted_glass:CRAFT>PLACE_BLOCK:minecraft:tinted_glass:PLACE",
+     "formDependent": true,
+     "clueKo": "차광 유리를 만든 후에 차광 유리를 놓으세요.",
+     "hintKo": "차광 유리를 만든 후에 차광 유리를 놓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:tinted_glass:ON_TOP_OF:minecraft:amethyst_block:PLACE|Y_RANGE:-64..30",
+     "formDependent": true,
+     "clueKo": "땅속에서 자수정 블록 위에 차광 유리를 놓으세요.",
+     "hintKo": "땅속에서 자수정 블록 위에 차광 유리를 놓아요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "kristallschmiede",
+   "title": "수정 대장간",
+   "titleEn": "The Crystal Forge",
+   "order": 543,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.eun_hue",
+    "L1.loc.an"
+   ],
+   "finaleKo": "다이아몬드 도끼를 상자에 넣었어요. 대장간이 완성됐어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:diamond_axe:CRAFT",
+     "formDependent": false,
+     "clueKo": "다이아몬드 도끼를 만드세요.",
+     "hintKo": "다이아몬드 도끼를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:anvil:NEXT_TO:minecraft:furnace:PLACE",
+     "formDependent": true,
+     "clueKo": "화로 옆에 모루를 놓으세요.",
+     "hintKo": "화로 옆에 모루를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:diamond_sword:CRAFT>PUT_IN:minecraft:diamond_sword>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "다이아몬드 검을 만든 후에 상자 안에 다이아몬드 검을 넣으세요.",
+     "hintKo": "다이아몬드 검을 만든 후에 상자 안에 다이아몬드 검을 넣어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PUT_IN",
+     "signature": "PUT_IN:minecraft:diamond_axe>minecraft:chest:PUT_IN",
+     "formDependent": false,
+     "clueKo": "상자 안에 다이아몬드 도끼를 넣으세요.",
+     "hintKo": "상자 안에 다이아몬드 도끼를 넣어요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "schmuckpfad",
+   "title": "보석의 길",
+   "titleEn": "The Jewel Path",
+   "order": 104,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.eun_hue",
+    "L1.loc.an"
+   ],
+   "finaleKo": "에메랄드를 상자에 넣었어요. 보석이 반짝여요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:gold_ingot:COLLECT",
+     "formDependent": false,
+     "clueKo": "금 주괴를 다섯 개 모으세요.",
+     "hintKo": "금 주괴를 모아요."
+    },
+    {
+     "id": "s2",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:golden_helmet:CRAFT",
+     "formDependent": false,
+     "clueKo": "금 투구를 만드세요.",
+     "hintKo": "금 투구를 만들어요."
+    },
+    {
+     "id": "s3",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:item_frame:NEXT_TO:minecraft:anvil:HANG",
+     "formDependent": true,
+     "clueKo": "모루 옆에 아이템 액자를 거세요.",
+     "hintKo": "모루 옆에 아이템 액자를 걸어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:emerald:COLLECT>PUT_IN:minecraft:emerald>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "에메랄드를 두 개 모은 후에 상자 안에 에메랄드를 두 개 넣으세요.",
+     "hintKo": "에메랄드를 모은 후에 상자 안에 에메랄드를 넣어요."
+    }
+   ],
+   "formDependentSteps": 2
+  },
+  {
+   "id": "schmuckgilde",
+   "title": "보석 길드의 길",
+   "titleEn": "The Jewellers' Guild",
+   "order": 170,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.ege",
+    "L2.ege_source",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.su_itda"
+   ],
+   "finaleKo": "통 위에 자수정 블록을 놓았어요. 이제 길드에서 보석을 살 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:gold_ingot:SELL",
+     "formDependent": true,
+     "clueKo": "주민에게 금 주괴를 세 개 파세요.",
+     "hintKo": "주민에게 금 주괴를 팔아요."
+    },
+    {
+     "id": "s2",
+     "goal": "TRADE",
+     "signature": "TRADE:minecraft:lapis_lazuli:BUY",
+     "formDependent": true,
+     "clueKo": "주민에게서 청금석을 세 개 사세요.",
+     "hintKo": "주민에게서 청금석을 사요."
+    },
+    {
+     "id": "s3",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:amethyst_block:CRAFT",
+     "formDependent": false,
+     "clueKo": "자수정 블록을 만드세요.",
+     "hintKo": "자수정 블록을 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:amethyst_block:ON_TOP_OF:minecraft:barrel:PLACE",
+     "formDependent": true,
+     "clueKo": "통 위에 자수정 블록을 놓으세요.",
+     "hintKo": "통 위에 자수정 블록을 놓아요."
+    }
+   ],
+   "formDependentSteps": 3
+  },
+  {
+   "id": "bergwerk",
+   "title": "광산의 길",
+   "titleEn": "The Mine Path",
+   "order": 520,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.eseo_activity",
+    "L3.eun_hue",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L2.euro_material",
+    "L3.su_itda"
+   ],
+   "finaleKo": "광산 수레를 만들었어요. 이제 레일 위를 달릴 수 있어요.",
+   "finaleSource": "authored",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:iron_ingot:CRAFT",
+     "formDependent": false,
+     "clueKo": "화로에서 철 주괴를 여섯 개 만드세요.",
+     "hintKo": "화로에서 철 주괴를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:rail:CRAFT>BUILD_PATTERN:ROW/4:minecraft:rail:PLACE",
+     "formDependent": true,
+     "clueKo": "레일을 열여섯 개 만든 후에 레일 네 개를 나란히 놓으세요.",
+     "hintKo": "레일을 만든 후에 레일을 나란히 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/4:minecraft:dark_oak_log:STACK",
+     "formDependent": false,
+     "clueKo": "통나무 네 개로 기둥을 쌓으세요.",
+     "hintKo": "통나무로 기둥을 쌓아요."
+    },
+    {
+     "id": "finale",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:minecart:CRAFT|Y_RANGE:-64..40",
+     "formDependent": false,
+     "clueKo": "땅속에서 광산 수레를 만드세요.",
+     "hintKo": "땅속에서 광산 수레를 만들어요."
+    }
+   ],
+   "formDependentSteps": 1
+  }
+ ],
+ "proposedForLevel4Plus": [
+  {
+   "id": "adv_nether_all_potions",
+   "reason": "The advancement (all potions) needs every potion effect: end-game. Rebuilt as a first stronger potion (title changed)."
+  },
+  {
+   "id": "adv_nether_create_beacon",
+   "reason": "A beacon needs a nether star from the Wither. Rebuilt as the iron-block base with a soul lantern (title changed); the real beacon is level 5-6."
+  },
+  {
+   "id": "adv_nether_summon_wither",
+   "reason": "Summoning the Wither is a boss fight. Rebuilt as a soul sand cross with one skull (do not place more); the real summon is level 5-6."
+  },
+  {
+   "id": "adv_nether_netherite_armor",
+   "reason": "Full netherite armour is end-game. Rebuilt as the first netherite ingot and a smithing table, ending with the helmet."
+  },
+  {
+   "id": "adv_nether_uneasy_alliance",
+   "reason": "Bringing a ghast to the Overworld is level 4+. Rebuilt as hunting a ghast tear."
+  }
+ ]
+}

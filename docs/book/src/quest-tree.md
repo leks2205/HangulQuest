@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1696** |
+| Steps (incl. finales) | **1705** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,49 +21,49 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 314 | collect an item |
-| `PLACE_BLOCK` | 303 | place a block |
-| `PLACE_REL` | 165 |  |
-| `CRAFT` | 126 |  |
-| `PLACE_ON_PATTERN` | 83 |  |
-| `BUILD_PATTERN` | 74 |  |
-| `BREAK_BLOCK` | 73 | break a block |
-| `LOOK_AT_ENTITY` | 64 | look at a mob |
+| `ACQUIRE_ITEM` | 294 | collect an item |
+| `PLACE_BLOCK` | 292 | place a block |
+| `PLACE_REL` | 172 |  |
+| `CRAFT` | 135 |  |
+| `PLACE_ON_PATTERN` | 85 |  |
+| `BUILD_PATTERN` | 77 |  |
+| `BREAK_BLOCK` | 69 | break a block |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
 | `REACH_BIOME` | 59 | reach a biome |
-| `USE_BLOCK` | 59 | use a block |
+| `USE_BLOCK` | 58 | use a block |
 | `GIVE` | 56 |  |
-| `LOOK_AT_BLOCK` | 46 | look at a block |
+| `LOOK_AT_BLOCK` | 47 | look at a block |
 | `CONSUME_ITEM` | 45 | eat or drink an item |
-| `DEFEAT_ENTITY` | 33 | defeat a mob |
+| `DEFEAT_ENTITY` | 34 | defeat a mob |
+| `PUT_IN` | 32 |  |
 | `HOLD_WHILE` | 29 |  |
-| `PUT_IN` | 29 |  |
-| `SMELT` | 21 |  |
+| `SEQUENCE` | 28 |  |
+| `SMELT` | 22 |  |
 | `INTERACT_ENTITY` | 19 | interact with a mob |
-| `SEQUENCE` | 19 |  |
 | `REACH_HEIGHT` | 16 | reach an altitude |
-| `WAIT` | 14 |  |
+| `WAIT` | 15 |  |
+| `TRADE` | 9 |  |
 | `BREED` | 9 |  |
-| `TRADE` | 7 |  |
+| `TAKE_OUT` | 6 |  |
 | `MOUNT` | 6 |  |
 | `SWIM` | 6 |  |
-| `TAKE_OUT` | 5 |  |
+| `AVOID` | 6 |  |
 | `LIE_DOWN` | 4 |  |
-| `AVOID` | 4 |  |
 | `HEAR` | 3 |  |
 | `TRANSIT` | 3 |  |
+| `EQUIP` | 2 |  |
 | `REACH_DIMENSION` | 1 | reach a dimension |
-| `EQUIP` | 1 |  |
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 250 | a time of day |
+| `TIME` | 248 | a time of day |
 | `IN_BIOME` | 54 | a biome |
 | `PLAYER_REL` | 49 |  |
-| `HOLDING` | 45 |  |
-| `IN_DIMENSION` | 32 | a dimension |
+| `HOLDING` | 46 |  |
+| `IN_DIMENSION` | 36 | a dimension |
+| `Y_RANGE` | 25 | an altitude band |
 | `SKY` | 20 |  |
-| `Y_RANGE` | 19 | an altitude band |
-| `NEAR_BLOCK` | 18 | a block nearby |
+| `NEAR_BLOCK` | 19 | a block nearby |
 | `WEATHER` | 17 | the weather |
 | `NEAR_ENTITY` | 14 | a mob nearby |
 | `IN_WATER` | 7 |  |
@@ -321,7 +321,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 |---|---|---|---:|---|
 | `gartenwacht` | 정원의 수호 | Die Gartenwacht | 3 | `gartenfest`, `nachtwache` |
 | `eiskrone` | 북극 여우 | Der Polarfuchs | 4 | `schneesturm` |
-| `schmuckpfad` | 보석의 길 | Der Schmuckpfad | 4 | `handelsstrasse`, `schmelzofen` |
+| `schmuckpfad` | 보석의 길 | Der Juwelenpfad | 4 | `handelsstrasse`, `schmelzofen` |
 | `vogelpfad` | 새의 길 | Der Vogelpfad | 4 | `gartenfest` |
 | `wolfpfad` | 늑대의 길 | Der Wolfspfad | 4 | `gartenfest`, `schmiedefeuer` |
 | `adv_adventure_adventuring_time` | 모험의 시간 | Abenteuerzeit | 3 | `adv_adventure_sleep_in_bed` |
@@ -350,9 +350,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_nether_root` | 네더 | Nether | 4 | `abenteuerpfad`, `adv_story_lava_bucket` |
 | `adv_story_deflect_arrow` | 저희는 그런 것 받지 않습니다 | Heute nicht, danke | 3 | `adv_story_obtain_armor` |
 | `adv_story_form_obsidian` | 아이스 버킷 챌린지 | Ice Bucket Challenge | 4 | `adv_story_lava_bucket` |
-| `adv_story_mine_diamond` | 다이아몬드다! | Diamanten! | 3 | `adv_story_iron_tools` |
+| `adv_story_mine_diamond` | 다이아몬드다! | Diamanten! | 4 | `adv_story_iron_tools` |
 | `weltreise` | 세계 여행의 길 | Die Weltreise | 4 | `kuestenfest`, `sternenhaus`, `gipfelwaechter`, `kartenpfad` |
-| `bergwerk` | 광산의 길 | Das Bergwerk | 4 | `tiefenpfad`, `gletscherpfad` |
+| `bergwerk` | 광산의 길 | Der Bergwerkspfad | 4 | `tiefenpfad`, `gletscherpfad` |
 | `festtafel` | 잔칫상 | Die Festtafel | 4 | `gartenfest`, `kochkunst` |
 | `observatorium` | 별의 축제 | Das Sternenfest | 4 | `sternwarte`, `gipfelwaechter` |
 | `weltmarkt` | 세계 시장 | Der Weltmarkt | 4 | `handelsstrasse`, `schmiedepfad`, `briefpfad` |
@@ -369,7 +369,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `dschungelpfad` | 정글의 길 | Der Dschungelpfad | 4 | `gartenwacht`, `tiefseehafen`, `bambuspfad` |
 | `handelsgilde` | 상인 길드의 길 | Der Handelsgildenpfad | 4 | `weltmarkt`, `gartenfest` |
 | `postpfad` | 우편의 길 | Der Postpfad | 4 | `weltmarkt`, `gartenfest` |
-| `schmuckgilde` | 보석 길드의 길 | Der Schmuckgildenpfad | 4 | `gartenfest`, `weltmarkt` |
+| `schmuckgilde` | 보석 길드의 길 | Der Weg der Juwelierzunft | 4 | `gartenfest`, `weltmarkt` |
 | `fischergilde` | 어부 길드의 길 | Der Fischergildenpfad | 4 | `gartenfest`, `weltmarkt` |
 | `adv_adventure_bullseye` | 명중 | Volltreffer! | 3 | `adv_adventure_shoot_arrow` |
 | `adv_adventure_revaulting` | 불길에 뛰어드는 나 | Panzerknacker | 3 | `adv_adventure_under_lock_and_key` |
@@ -420,14 +420,14 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `vulkanpfad` | 화산의 길 | Der Vulkanpfad | 5 | `tempelpfad`, `eiswand` |
 | `wolkenstadt` | 구름 도시의 길 | Die Wolkenstadt | 4 | `gartenfest`, `handelsgilde` |
 | `wuestenstadt` | 사막 도시의 길 | Die Wüstenstadt | 4 | `karawane`, `handelsgilde` |
-| `adv_nether_charge_respawn_anchor` | 목숨 충전 | Nicht ganz „sieben“ Leben | 3 | `adv_nether_obtain_crying_obsidian` |
+| `adv_nether_charge_respawn_anchor` | 목숨 충전 | Neun Leben, fast | 5 | `adv_nether_obtain_crying_obsidian` |
 | `adv_nether_explore_nether` | 화끈한 관광 명소 | Heißbegehrte Reiseziele | 4 | `adv_nether_ride_strider` |
-| `adv_nether_get_wither_skull` | 으스스한 스켈레톤 | Nicht den Kopf verlieren | 3 | `adv_nether_find_fortress` |
-| `adv_nether_loot_bastion` | 돼지와 전쟁 | Kampfschweine | 3 | `adv_nether_find_bastion` |
-| `adv_nether_netherite_armor` | 잔해로 날 감싸줘 | Bedeck mich mit Schrott | 3 | `adv_nether_obtain_ancient_debris` |
+| `adv_nether_get_wither_skull` | 으스스한 스켈레톤 | Gruseliges Skelett | 3 | `adv_nether_find_fortress` |
+| `adv_nether_loot_bastion` | 돼지와 전쟁 | Krieg der Schweine | 4 | `adv_nether_find_bastion` |
+| `adv_nether_netherite_armor` | 네더라이트 투구 | Der erste Netheritschatz | 4 | `adv_nether_obtain_ancient_debris` |
 | `adv_nether_obtain_blaze_rod` | 포화 속으로 | Spiel mit dem Feuer | 4 | `adv_nether_find_fortress` |
 | `adv_nether_ride_strider_in_overworld_lava` | 고향 같은 편안함 | Ganz wie zu Hause | 3 | `adv_nether_ride_strider` |
-| `adv_nether_uneasy_alliance` | 쉽지 않은 동행 | Unheilvolle Allianz | 3 | `adv_nether_return_to_sender` |
+| `adv_nether_uneasy_alliance` | 가스트 눈물 사냥 | Auf Tränenjagd | 3 | `adv_nether_return_to_sender` |
 | `adv_story_cure_zombie_villager` | 좀비 의사 | Zombiearzt | 3 | `adv_story_enter_the_nether` |
 | `adv_story_follow_ender_eye` | 스무고개 | Das fliegende Auge | 4 | `adv_story_enter_the_nether` |
 | `koenigspfad` | 왕의 길 | Der Königspfad | 4 | `riesenfest`, `karawane`, `weltmarkt` |
@@ -441,8 +441,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `ewiges_eis` | 영원한 얼음 | Das ewige Eis | 3 | `polarlicht`, `kristallschmiede` |
 | `pyramidenpfad` | 피라미드의 길 | Der Pyramidenpfad | 4 | `piratenpfad`, `tempelpfad` |
 | `bibliothekpfad` | 도서관의 길 | Der Bibliothekspfad | 4 | `piratenpfad`, `vogelpfad` |
-| `adv_nether_brew_potion` | 물약 양조장 | Alchemie | 3 | `adv_nether_obtain_blaze_rod` |
-| `adv_nether_summon_wither` | 시들어 버린 언덕 | Umwitherte Höhen | 3 | `adv_nether_get_wither_skull` |
+| `adv_nether_brew_potion` | 유리병과 양조기 | Alchemie | 5 | `adv_nether_obtain_blaze_rod` |
+| `adv_nether_summon_wither` | 해골 탑 | Der Schädelturm | 4 | `adv_nether_get_wither_skull` |
 | `adv_story_enter_the_end` | 이걸로 끝이야? | Das Ende? | 3 | `adv_story_follow_ender_eye` |
 | `wolkenpfad` | 구름의 길 | Der Wolkenpfad | 4 | `weltwunder`, `observatorium`, `weltreise`, `windpfad` |
 | `unendlichereise` | 끝없는 여행 | Die Unendliche Reise | 4 | `koenigspfad`, `weltwunder`, `grossesmeer`, `piratenpfad` |
@@ -454,8 +454,8 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `leuchtturmpfad` | 등대의 길 | Der Leuchtturmpfad | 4 | `pyramidenpfad`, `tiefseehafen` |
 | `drachenhort` | 용의 보물 | Der Drachenhort | 4 | `bibliothekpfad`, `pyramidenpfad` |
 | `tempelwaechter` | 신전의 수호자 | Der Tempelwächter | 4 | `pyramidenpfad`, `bibliothekpfad` |
-| `adv_nether_all_potions` | 뿅가는 폭탄주 | Eine gefährliche Mischung | 3 | `adv_nether_brew_potion` |
-| `adv_nether_create_beacon` | 신호기 꾸리기 | Den Nachbarn heimleuchten | 3 | `adv_nether_summon_wither` |
+| `adv_nether_all_potions` | 더 강한 물약 | Ein stärkerer Trank | 3 | `adv_nether_brew_potion` |
+| `adv_nether_create_beacon` | 신호기 받침 | Der Sockel für das Leuchtfeuer | 4 | `adv_nether_summon_wither` |
 | `reisekrone` | 여행의 왕관 | Die Reisekrone | 4 | `koenigspfad`, `unendlichereise`, `wolkenpfad`, `kristallschmiede`, `hafenwacht` |
 | `w7_01` | 불의 문 | Das Feuertor | 3 | `unendlichereise` |
 | `w7_03` | 모루의 길 | Der Ambosspfad | 3 | `ewiges_eis` |
