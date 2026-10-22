@@ -54,8 +54,8 @@ The reference clip hash is part of the cache key, so changing a voice re-renders
 - Short single words are the weak spot (the model sometimes lengthens or clips a syllable). `render.py` renders
   a clip again (up to 3 tries) when its length is implausible, and `qa.py` checks every clip with an ASR round trip.
 - No native has listened yet. The pack stays optional and marked synthetic until natives review the 5% sample.
-- Not handled yet: liaison and nasalisation checks need the bracket pronunciation forms of WP4.4. `qa.py` already
-  reads a `pron` field from `concepts.json` / `lexicon-tags.json` and uses it when present.
+- Liaison and nasalisation: `qa.py` reads the bracket forms of `content/korean/pronunciation-review.tsv` (written by
+  `PronunciationReviewTest` from the pronunciation generator) and accepts a transcript that matches either form.
 
 ## Pilot result (first 300 words + 100 quest sentences, 4 voices)
 

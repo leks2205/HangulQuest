@@ -95,4 +95,84 @@ class AudioServiceTest {
 		AudioService audio = new AudioService(backend, () -> true);
 		assertFalse(audio.playWord("stone"));
 	}
+
+	// ------------------------------------------------------------------ the HUD's ambient plays
+
+	/** A clock the test moves by hand. */
+	private static final class Clock implements java.util.function.LongSupplier {
+		long now = 1_000_000L;
+
+		@Override
+		public long getAsLong() {
+			return now;
+		}
+	}
+
+	@Test
+	void ambientPlaysAreThrottledToOncePerTenSeconds() {
+		FakeBackend backend = new FakeBackend("word.stone", "word.dirt");
+		Clock clock = new Clock();
+		AudioService audio = new AudioService(backend, () -> true, clock);
+		assertTrue(audio.playAmbient("stone"));
+		clock.now += AudioService.AMBIENT_GAP_MS - 1;
+		assertFalse(audio.playAmbient("dirt"), "one millisecond early");
+		assertFalse(audio.playAmbient("stone"));
+		clock.now += 1;
+		assertTrue(audio.playAmbient("dirt"));
+		assertEquals(List.of("word.stone", "word.dirt"), backend.played);
+		clock.now += 5_000;
+		assertFalse(audio.playAmbient("stone"), "the gap starts again at every clip");
+		assertEquals(2, backend.played.size());
+	}
+
+	@Test
+	void aSilentAmbientCallDoesNotUseUpTheGap() {
+		FakeBackend backend = new FakeBackend("word.stone");
+		Clock clock = new Clock();
+		boolean[] on = {false};
+		AudioService audio = new AudioService(backend, () -> on[0], clock);
+		assertFalse(audio.playAmbient("stone"), "setting off");
+		on[0] = true;
+		assertFalse(audio.playAmbient("dirt"), "no recording for dirt");
+		assertTrue(audio.playAmbient("stone"), "neither call may have started the gap");
+		assertEquals(List.of("word.stone"), backend.played);
+	}
+
+	@Test
+	void ambientIsSilentWithoutThePackAndWithTheSettingOff() {
+		FakeBackend empty = new FakeBackend();
+		Clock clock = new Clock();
+		assertFalse(new AudioService(empty, () -> true, clock).playAmbient("stone"));
+		FakeBackend backend = new FakeBackend("word.stone");
+		assertFalse(new AudioService(backend, () -> false, clock).playAmbient("stone"));
+		assertTrue(empty.played.isEmpty() && backend.played.isEmpty());
+	}
+
+	@Test
+	void playingByHandIsNotThrottledAndDoesNotBlockTheAmbient() {
+		FakeBackend backend = new FakeBackend("word.stone", "word.dirt");
+		Clock clock = new Clock();
+		AudioService audio = new AudioService(backend, () -> true, clock);
+		assertTrue(audio.playWord("stone"));
+		assertTrue(audio.playWord("stone"));
+		assertTrue(audio.playAmbient("dirt"));
+		assertEquals(3, backend.played.size());
+	}
+
+	@Test
+	void hasWordAsksThePackAndTheSetting() {
+		FakeBackend backend = new FakeBackend("word.stone");
+		boolean[] on = {true};
+		AudioService audio = new AudioService(backend, () -> on[0]);
+		assertTrue(audio.hasWord("stone"));
+		assertFalse(audio.hasWord("dirt"));
+		assertFalse(audio.hasWord(null));
+		assertFalse(audio.hasWord("A b"));
+		on[0] = false;
+		assertFalse(audio.hasWord("stone"));
+		backend.throwing = true;
+		on[0] = true;
+		assertFalse(audio.hasWord("stone"));
+		assertTrue(backend.played.isEmpty());
+	}
 }

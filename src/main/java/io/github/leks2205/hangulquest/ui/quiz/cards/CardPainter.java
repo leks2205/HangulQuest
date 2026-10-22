@@ -18,6 +18,8 @@ public final class CardPainter {
 	public static final int CONFIRM = -1;
 	/** Hit action for the row of placed tiles (takes the last one back). */
 	public static final int UNDO = -2;
+	/** Hit action for the "listen" button on the feedback. */
+	public static final int LISTEN = -3;
 
 	private static final int ROW = 18;
 	private static final int TILE_W = 26;
@@ -34,21 +36,24 @@ public final class CardPainter {
 	private CardPainter() {
 	}
 
-	/** Draws the card centred on the screen. {@code hits} is cleared and refilled. */
+	/**
+	 * Draws the card centred on the screen. {@code hits} is cleared and refilled. {@code listen}: the word has a
+	 * recording, so the feedback offers the "listen" button and key.
+	 */
 	public static void paint(GuiGraphicsExtractor g, Font font, CardView view, int screenWidth, int screenHeight,
-							 int mouseX, int mouseY, List<Hit> hits) {
+							 int mouseX, int mouseY, List<Hit> hits, boolean listen) {
 		hits.clear();
 		int width = Math.min(340, screenWidth - 12);
-		int height = run(null, font, view, 0, 0, width, 0, 0, null);
+		int height = run(null, font, view, 0, 0, width, 0, 0, null, listen);
 		int x = (screenWidth - width) / 2;
 		int y = Math.max(4, (screenHeight - height) / 2);
 		Draw.panel(g, x, y, width, height, 0);
-		run(g, font, view, x, y, width, mouseX, mouseY, hits);
+		run(g, font, view, x, y, width, mouseX, mouseY, hits, listen);
 	}
 
 	/** Lays the card out from the top; draws when {@code g} is not null. Returns the panel height. */
 	private static int run(GuiGraphicsExtractor g, Font font, CardView view, int x, int y, int width, int mx, int my,
-						   List<Hit> hits) {
+						   List<Hit> hits, boolean listen) {
 		int inner = width - 16;
 		boolean draw = g != null;
 		if (draw) {
@@ -100,11 +105,13 @@ public final class CardPainter {
 		}
 
 		if (view.feedback() != null) {
-			cursor = feedback(g, font, view.feedback(), x, cursor, width);
+			cursor = feedback(g, font, view.feedback(), x, cursor, width, listen, mx, my, hits);
 		}
 
 		if (draw) {
-			Draw.truncated(g, font, Component.literal(view.keys()), x + 8, cursor + 2, inner, Draw.DIM);
+			String keys = listen && view.feedback() != null
+					? view.keys() + "  " + I18n.t("hangulquest.ui.audio.keys", "L") : view.keys();
+			Draw.truncated(g, font, Component.literal(keys), x + 8, cursor + 2, inner, Draw.DIM);
 		}
 		return cursor + 14 - y;
 	}
@@ -204,18 +211,28 @@ public final class CardPainter {
 		return cursor + rowCount * (TILE_H + 6) + 2;
 	}
 
-	private static int feedback(GuiGraphicsExtractor g, Font font, FeedbackCard card, int x, int cursor, int width) {
+	private static int feedback(GuiGraphicsExtractor g, Font font, FeedbackCard card, int x, int cursor, int width,
+								boolean listen, int mx, int my, List<Hit> hits) {
 		int inner = width - 16;
 		if (g != null) {
 			g.fill(x + 8, cursor, x + width - 8, cursor + 1, Draw.BORDER);
 		}
 		cursor += 5;
+		int line = card.pron() == null ? 11 : 22;
 		if (g != null) {
+			// the word, its pronunciation under it when that differs, then the gloss
+			int textWidth = inner - 22 - (listen ? listenWidth(font) + 6 : 0);
 			Draw.itemIcon(g, card.icon(), x + 8, cursor);
 			Draw.korean(g, font, card.ko(), x + 30, cursor, Draw.WHITE);
-			Draw.truncated(g, font, Component.literal(card.gloss()), x + 30, cursor + 11, inner - 22, Draw.GRAY);
+			if (card.pron() != null) {
+				Draw.korean(g, font, card.pron(), x + 30, cursor + 11, Draw.DIM);
+			}
+			Draw.truncated(g, font, Component.literal(card.gloss()), x + 30, cursor + line, textWidth, Draw.GRAY);
+			if (listen) {
+				hits.add(listenButton(g, font, x + width - 8, cursor, mx, my));
+			}
 		}
-		cursor += 24;
+		cursor += line + 13;
 		if (card.yours() != null) {
 			if (g != null) {
 				Draw.truncated(g, font, Component.literal(I18n.t("hangulquest.ui.card.yours", card.yours())), x + 8,
@@ -238,6 +255,17 @@ public final class CardPainter {
 			}
 		}
 		return cursor + 4;
+	}
+
+	/** The "listen" button with its right edge at {@code right}; returns where it can be clicked. */
+	static Hit listenButton(GuiGraphicsExtractor g, Font font, int right, int y, int mx, int my) {
+		int w = listenWidth(font);
+		button(g, font, I18n.t("hangulquest.ui.audio.listen"), right - w, y, w, 14, mx, my);
+		return new Hit(right - w, y, w, 14, LISTEN);
+	}
+
+	private static int listenWidth(Font font) {
+		return Math.max(40, font.width(I18n.t("hangulquest.ui.audio.listen")) + 12);
 	}
 
 	private static void button(GuiGraphicsExtractor g, Font font, String label, int x, int y, int w, int h, int mx,
