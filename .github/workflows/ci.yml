@@ -131,6 +131,11 @@ jobs:
       - name: Check that shipped English and German text lives in the lang files
         run: python3 tools/i18n/extract_content.py --check
 
+      - name: Translation tools and shipped translations
+        run: |
+          python3 -m unittest discover -s tools/i18n/tests
+          python3 tools/i18n/translate.py check
+
       - name: Check the generated quest tree report
         run: python3 tools/quest_tree.py --check
 

@@ -6,6 +6,21 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+### Added
+
+- **A translation pipeline in the repository** (`tools/i18n/translate.py`). English is the source and Korean is
+  never translated. `export` writes packets of rows (English, the Korean line next to it, kind, placeholders, a
+  length limit for labels, and a glossary of the official Minecraft names read from a local game install);
+  `import` checks every translated row (placeholders, Hangul, untranslated English, length, and for clues that hide
+  where or what, the per-language relation words in `relation_words.json`) and writes `lang/<code>.json` and
+  `lang/content/<code>.json` in English key order. `content/translations/<code>-status.json` tracks each key as
+  `machine`, `proofread` or `community-approved`, and a key whose English changes is `stale`;
+  `export --changed-only` translates only what is missing or stale. `proofread-export` and `proofread-import`
+  take a second pass. A **Translation correction** issue form, a CONTRIBUTING section, a translation page per
+  language on the review site, `LangCompletenessTest` (coverage per language, both files for every listed
+  language, no extra keys, matching placeholders, drawable characters) and `LangPickerTest` (the settings button
+  steps through every language in `languages.json`, each by its own name).
+
 ### Changed
 
 - **The grammar ladder is data and teaches.** Each Korean level now has one instruction ending, set in `data/ladder.json`: `-아/어요`, `-(으)세요`, `-아/어야 해요` (the old "must" ladder, the double negative and the resigned `-(으)ㄹ 수밖에 없어요` are gone as instructions). A player reads at most one level above the grammar they have met; a new construction shows a two-line rule card once; the journal has a grammar book; the review quiz has grammar cloze cards. What the player has met is derived from the review log, so saved progress is unchanged.

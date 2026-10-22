@@ -74,6 +74,22 @@ public final class Lang {
 		return shipped == null ? EN : of(shipped);
 	}
 
+	/** What the settings button steps through: Auto, then every language of the index in its order. */
+	public static java.util.List<String> choices() {
+		java.util.List<String> choices = new java.util.ArrayList<>();
+		choices.add(AUTO);
+		for (I18n.Language language : I18n.languages()) {
+			choices.add(language.code());
+		}
+		return choices;
+	}
+
+	/** The choice after this one, wrapping round; a value that is not a choice (any more) gives Auto. */
+	public static String next(String current) {
+		java.util.List<String> choices = choices();
+		return choices.get((choices.indexOf(current) + 1) % choices.size());
+	}
+
 	/** Config value to store for a user-supplied one: {@code AUTO} or the code of a shipped language. */
 	public static String normalise(String name) {
 		return isAuto(name) ? AUTO : parse(name).code();

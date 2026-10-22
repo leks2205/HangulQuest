@@ -15,8 +15,6 @@ import net.minecraft.network.chat.Component;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 /** The switches, the interface language and the (double-click) progress reset. */
 public final class SettingsTab extends JournalTab {
@@ -24,13 +22,7 @@ public final class SettingsTab extends JournalTab {
 
 	/** Steps through Auto and every language the mod ships text for. */
 	private final Runnable switchLanguage = () -> {
-		List<String> choices = new ArrayList<>();
-		choices.add(Lang.AUTO);
-		for (I18n.Language language : I18n.languages()) {
-			choices.add(language.code());
-		}
-		int at = choices.indexOf(host.hq().config().language);
-		String next = choices.get((at + 1) % choices.size());
+		String next = Lang.next(host.hq().config().language);
 		host.hq().config().language = next;
 		Lang.set(next);
 		host.hq().saveConfig();
