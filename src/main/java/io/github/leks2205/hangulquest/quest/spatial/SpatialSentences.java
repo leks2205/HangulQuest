@@ -187,8 +187,12 @@ public final class SpatialSentences {
 				grammar.add(EURO_MATERIAL);
 			}
 			case RING -> {
-				head = KoGrammar.euro(material) + " " + KoGrammar.eul(Pattern.RING.ko());
-				grammar.add(EURO_MATERIAL);
+				if (Pattern.ringOfFences(goal.material())) {
+					head = KoGrammar.eul(material); // 울타리를 쳐요: the fence is what is put up, not what it is made of
+				} else {
+					head = KoGrammar.euro(material) + " " + KoGrammar.eul(Pattern.RING.ko());
+					grammar.add(EURO_MATERIAL);
+				}
 			}
 			case WALL, CROSS, STAIRS -> {
 				// 돌로 벽을 쌓아요, 돌로 십자 모양을 만들어요, 흙으로 계단을 만들어요: the size is left to the status line.
@@ -226,10 +230,13 @@ public final class SpatialSentences {
 											 int level, boolean finale, boolean past, SentenceBuilder.Namer namer) {
 		List<String> grammar = new ArrayList<>(goal.relation().grammarIds(Role.TARGET));
 		if (builtHere(goal, material, level, past, namer)) {
-			Verb building = buildVerb(goal.pattern());
-			String built = KoGrammar.euro(material) + " " + KoGrammar.eul(goal.pattern().ko()) + " "
-					+ building.stem() + "고 ";
-			grammar.add(EURO_MATERIAL);
+			boolean fence = goal.pattern() == Pattern.RING && Pattern.ringOfFences(goal.material());
+			Verb building = fence ? Verb.FENCE : buildVerb(goal.pattern());
+			String built = fence ? KoGrammar.eul(material) + " " + building.stem() + "고 "
+					: KoGrammar.euro(material) + " " + KoGrammar.eul(goal.pattern().ko()) + " " + building.stem() + "고 ";
+			if (!fence) {
+				grammar.add(EURO_MATERIAL);
+			}
 			grammar.add(GO_SEQUENCE);
 			String head = built + SentenceBuilder.relationPhrase("그", goal.relation(), Role.TARGET) + " "
 					+ SentenceBuilder.objectPhrase(obj, verb);
@@ -265,7 +272,7 @@ public final class SpatialSentences {
 		return pattern == Pattern.CROSS || pattern == Pattern.STAIRS ? Verb.CRAFT : Verb.STACK;
 	}
 
-	/** The structure as a noun phrase: "조약돌 기둥", "조약돌 피라미드", "조약돌 울타리", "조약돌 세 개" (a row). */
+	/** The structure as a noun phrase: "조약돌 기둥", "조약돌 피라미드", "조약돌 담", "조약돌 세 개" (a row). */
 	public static String patternNoun(Pattern pattern, String material) {
 		return patternNoun(pattern, material, null);
 	}
@@ -280,6 +287,9 @@ public final class SpatialSentences {
 		String stuff = material == null || material.isBlank() ? "" : material + " ";
 		if (pattern == Pattern.ROW) {
 			return stuff + SentenceBuilder.counter(pattern.defaultSize(), counter(materialId, material));
+		}
+		if (pattern == Pattern.RING && materialId != null && Pattern.ringOfFences(materialId)) {
+			return stuff.isBlank() ? "울타리" : stuff.strip(); // a ring of fences is the fence, not a "fence fence"
 		}
 		return stuff + pattern.ko();
 	}

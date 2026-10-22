@@ -305,6 +305,9 @@ class PlaytestTest {
 			}
 			case Goal.Mount g -> obs.vehicle = g.entity();
 			case Goal.Swim g -> obs.inWater = true;
+			case Goal.Trade g -> obs.addTraded(new io.github.leks2205.hangulquest.sense.TradeFact(g.entity(),
+					g.direction().equals("BUY") ? g.item() : "minecraft:emerald", Math.max(1, g.count()),
+					g.direction().equals("SELL") ? g.item() : "minecraft:emerald", Math.max(1, g.count())));
 			case Goal.Transit g -> {
 			}
 			case Goal.Breed g -> {

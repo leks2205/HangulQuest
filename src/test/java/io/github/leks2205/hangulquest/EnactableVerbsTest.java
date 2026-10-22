@@ -583,7 +583,7 @@ class EnactableVerbsTest {
 		assertEquals(List.of(), problems(chicken, "cook"));
 		// iron is not food: it stays 만들어요 in the furnace even when the step teaches cooking
 		Goal iron = new Goal.Smelt("minecraft:raw_iron", "minecraft:iron_ingot", 1);
-		assertEquals("화로에서 철을 만들어요.", clueTeaching(iron, null, "cook"));
+		assertEquals("화로에서 철 원석을 녹여요.", clueTeaching(iron, null, "cook"));
 		assertFalse(problems(iron, "cook").isEmpty(), "요리하다 does not describe an ingot");
 	}
 

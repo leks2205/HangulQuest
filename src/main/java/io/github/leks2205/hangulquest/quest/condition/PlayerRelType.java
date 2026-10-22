@@ -11,7 +11,9 @@ import io.github.leks2205.hangulquest.quest.goal.GoalType;
 import io.github.leks2205.hangulquest.quest.goal.Matching;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
+import io.github.leks2205.hangulquest.quest.spatial.SpatialSentences;
 import io.github.leks2205.hangulquest.sense.EntityFact;
 import io.github.leks2205.hangulquest.sense.Observation;
 import net.minecraft.world.phys.Vec3;
@@ -40,7 +42,7 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 	public List<Field> fields() {
 		return List.of(Field.choice("relation", true, null,
 						Arrays.stream(Relation.values()).map(Enum::name).toArray(String[]::new)),
-				Field.resource("anchor"),
+				Field.anchor("anchor", true, "A block, an entity, or a block tag such as #minecraft:logs."),
 				Field.choice("kind", false, "What the anchor is, when its id could be an item and an entity (chicken).",
 						"block", "item", "entity"));
 	}
@@ -174,7 +176,8 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 
 	@Override
 	public void validate(Condition.PlayerRel condition, ValidationContext context) {
-		if (ValidationContext.badId(condition.anchor())) {
+		if (BlockSpec.isTag(condition.anchor()) ? !BlockSpec.valid(condition.anchor())
+				: ValidationContext.badId(condition.anchor())) {
 			context.problem("bad anchor " + condition.anchor());
 		}
 		switch (condition.relation()) {
@@ -212,6 +215,11 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 	static String anchorName(Condition.PlayerRel condition, SentenceBuilder.Namer namer) {
 		String id = condition.anchor();
 		String name;
+		if (BlockSpec.isTag(id)) {
+			// a tag is spoken with the word the step teaches for it, else its everyday word (통나무)
+			String tag = SpatialSentences.anchorNoun(id, namer);
+			return tag == null || tag.isBlank() ? "그것" : tag;
+		}
 		if ("entity".equals(condition.kind())) {
 			name = namer.entity(id);
 		} else if (condition.kind() != null) {

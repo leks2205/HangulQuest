@@ -126,6 +126,13 @@ public sealed interface Goal {
 	}
 
 	/**
+	 * Trade with a merchant: {@code BUY} gets {@code count} of {@code item} out of the result slot (사요),
+	 * {@code SELL} pays with it (팔아요). {@code entity} is the merchant (a villager when it is not written).
+	 */
+	record Trade(String item, String entity, String direction, int count) implements Goal {
+	}
+
+	/**
 	 * Hold an item in either hand while {@code innerGoal} happens, or, with {@code innerCondition},
 	 * while walking for {@code seconds} under that condition. Exactly one of the two is set.
 	 */

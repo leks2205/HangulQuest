@@ -49,7 +49,7 @@ class AuthoredClueConditionsTest {
 		QuestStep step = step("밤에 조용히 횃불을 놓아요.", NIGHT);
 		assertEquals("밤에 조용히 횃불을 놓아요.", text.clueKo(step, 1));
 		// the generated sentence would be a different one
-		assertEquals("밤에 횃불을 밝혀요.", SentenceBuilder.normal(step.goal(), text.firstWord(step), step.conditions(), 1,
+		assertEquals("밤에 횃불을 놓아요.", SentenceBuilder.normal(step.goal(), text.firstWord(step), step.conditions(), 1,
 				false, text.namer()));
 	}
 
@@ -90,7 +90,7 @@ class AuthoredClueConditionsTest {
 	@Test
 	void aStepWithoutAuthoredTextStillGetsTheGeneratedClue() {
 		QuestStep step = step(null, NIGHT);
-		assertEquals("밤에 횃불을 밝혀요.", text.clueKo(step, 1));
+		assertEquals("밤에 횃불을 놓아요.", text.clueKo(step, 1));
 		assertFalse(text.grammarIds(step, 1).isEmpty());
 		// an authored clue carries no generated grammar points
 		assertTrue(text.grammarIds(step("밤에 횃불을 놓아요.", NIGHT), 1).isEmpty());

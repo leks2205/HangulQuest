@@ -211,6 +211,25 @@ class QuestlineValidationTest {
 		}
 	}
 
+	/** What a clue may use to place something: the verbs of the table for every placing goal, plus 설치 and 두. */
+	private static List<String> placing() {
+		List<String> stems = new java.util.ArrayList<>(List.of("설치", "두"));
+		for (String type : List.of("PLACE_BLOCK", "PLACE_REL", "PLACE_ON_PATTERN", "BUILD_PATTERN")) {
+			for (io.github.leks2205.hangulquest.quest.Verb verb : io.github.leks2205.hangulquest.quest.VerbTable
+					.shared().verbsFor(type)) {
+				stems.add(verb.stem());
+			}
+		}
+		stems.add(io.github.leks2205.hangulquest.quest.Verb.PLACE.stem());
+		return stems;
+	}
+
+	private static List<String> concat(List<String> a, List<String> b) {
+		List<String> out = new java.util.ArrayList<>(a);
+		out.addAll(b);
+		return out;
+	}
+
 	@Test
 	void authoredCluesNameTheAction() {
 		for (Questline trail : QuestLoader.loadAll()) {
@@ -220,7 +239,7 @@ class QuestlineValidationTest {
 					continue;
 				}
 				var verbs = switch (step.goal()) {
-					case Goal.PlaceBlock g -> List.of("놓", "설치", "세우", "두", "피우", "심", "깔", "걸", "달", "밝", "쌓", "치");
+					case Goal.PlaceBlock g -> placing();
 					case Goal.UseBlock g -> List.of("사용", "자", "열", "울", "먹", "마시", "대", "누르", "눌러", "당기", "당겨", "써", "닫", "쳐");
 					case Goal.AcquireItem g -> List.of("모", "얻", "구", "챙", "만들", "가지", "가져", "캐", "잡", "담");
 					case Goal.ConsumeItem g -> List.of("먹", "마시");
@@ -232,9 +251,9 @@ class QuestlineValidationTest {
 					case Goal.ReachHeight g -> List.of("올라", "내려", "가");
 					case Goal.DefeatEntity g -> List.of("물리", "죽", "잡");
 					case Goal.InteractEntity g -> List.of("이야기", "대화", "말", "만나");
-					case Goal.PlaceRel g -> List.of("놓", "심", "걸", "깔");
-					case Goal.BuildPattern g -> List.of("쌓", "놓");
-					case Goal.PlaceOnPattern g -> List.of("놓", "심", "걸", "깔");
+					case Goal.PlaceRel g -> placing();
+					case Goal.BuildPattern g -> concat(placing(), List.of("만들"));
+					case Goal.PlaceOnPattern g -> placing();
 					case Goal.Craft g -> List.of("만들");
 					case Goal.Smelt g -> List.of("만들", "구", "녹");
 					case Goal.Give g -> List.of("주", "떨어뜨");
@@ -250,6 +269,7 @@ class QuestlineValidationTest {
 					case Goal.Breed g -> List.of("키워", "키우");
 					case Goal.Mount g -> List.of("타", "앉");
 					case Goal.Swim g -> List.of("수영");
+					case Goal.Trade g -> List.of("사", "팔");
 				};
 				boolean namesAction = verbs.stream().anyMatch(ko::contains);
 				assertTrue(namesAction, trail.id() + "/" + step.id()
@@ -270,8 +290,10 @@ class QuestlineValidationTest {
 					continue;
 				}
 				String word = catalog.byConceptId(step.teach().get(0)).map(w -> w.ko).orElse("");
-				assertTrue(word.isBlank() || ko.contains(word), trail.id() + "/" + step.id()
-						+ " clue omits the taught word " + word + ": " + ko);
+				// a verb is in the clue as a conjugated form (올라가요 for 올라가다)
+				assertTrue(word.isBlank() || ko.contains(word)
+						|| word.endsWith("다") && io.github.leks2205.hangulquest.quest.grammar.Conjugator.contains(ko, word),
+						trail.id() + "/" + step.id() + " clue omits the taught word " + word + ": " + ko);
 			}
 		}
 	}

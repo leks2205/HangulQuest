@@ -71,7 +71,7 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 	@Override
 	public boolean evaluate(Goal.Smelt goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
 		for (CraftFact fact : obs.crafted) {
-			if (SCREENS.contains(fact.station()) && Matching.matchesBlock(goal.output(), fact.item())) {
+			if (SCREENS.contains(fact.station()) && Matching.accepts(tracker, goal.output(), fact.item())) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}
@@ -88,10 +88,37 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		return goal.count();
 	}
 
-	/** 구워요 for food and ceramics, 만들어요 (in the furnace) for the rest. */
+	/**
+	 * 구워요 for food, ceramics, glass and stone, 녹여요 for ingots, 만들어요 (in the furnace) for the rest.
+	 * Glass, stone and ingots are only baked or melted when the goal says what goes in: "조약돌을 구워요" needs
+	 * the cobblestone, without it the product is made.
+	 */
 	@Override
 	public Verb verb(Goal.Smelt goal, VerbTable table) {
-		return table.choose(id(), goal.output(), goal.count(), Verb.CRAFT);
+		Verb chosen = table.choose(id(), goal.output(), goal.count(), Verb.CRAFT);
+		boolean needsInput = chosen == Verb.MELT
+				|| chosen == Verb.BAKE && table.inFamily("kilned", goal.output()) && !table.inFamily("bakeables", goal.output());
+		return needsInput && goal.input() == null ? Verb.CRAFT : chosen;
+	}
+
+	/**
+	 * True when the sentence names the furnace and what goes into it: 화로에서 조약돌을 구워요, 철광석을 녹여요.
+	 * A step that teaches the word of the product keeps saying the product (화로에서 돌을 만들어요), because the
+	 * clue has to contain the word it teaches.
+	 */
+	private static boolean fromInput(Goal.Smelt goal, SentenceContext c, String input) {
+		return !input.isEmpty() && !c.wordNames(ObjectKind.ITEM, goal.output()) && kilnVerb(goal, c);
+	}
+
+	/** Baking stone or glass, melting an ore: the verbs that name what goes into the furnace. */
+	private static boolean kilnVerb(Goal.Smelt goal, SentenceContext c) {
+		return c.verb() == Verb.MELT || c.verb() == Verb.BAKE
+				&& !VerbTable.shared().inFamily("bakeables", goal.output());
+	}
+
+	/** The product is named and made in the furnace: the step teaches its word, or the goal has no input. */
+	private static boolean makesProduct(Goal.Smelt goal, SentenceContext c) {
+		return kilnVerb(goal, c) && !fromInput(goal, c, inputName(goal, c));
 	}
 
 	/** A food can also be cooked (요리해요) when the step teaches 요리하다; the baking stays the default. */
@@ -114,9 +141,18 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 			return SentenceBuilder.phrase(made, c.verb(), c.level(), c.finale()); // 닭고기를 요리해요
 		}
 		if (c.level() >= CHAIN_LEVEL && !input.isEmpty()) {
-			Verb how = c.verb() == Verb.BAKE || c.verb() == Verb.COOK ? c.verb() : Verb.MELT;
+			// sand is melted into glass, a cobblestone baked into stone (the plain sentence says 구워요 for both)
+			boolean glass = "minecraft:glass".equals(goal.output());
+			Verb how = (c.verb() == Verb.BAKE || c.verb() == Verb.COOK) && !glass ? c.verb() : Verb.MELT;
 			return SentenceBuilder.phrase(KoGrammar.eul(input) + " " + how.eoyo() + "서 " + made, Verb.CRAFT,
 					c.level(), c.finale());
+		}
+		if (fromInput(goal, c, input)) {
+			return SentenceBuilder.phrase(KoGrammar.eseo(furnace(c)) + " " + counted(goal, c, input, c.withCounts()),
+					c.verb(), c.level(), c.finale());
+		}
+		if (makesProduct(goal, c)) {
+			return SentenceBuilder.phrase(KoGrammar.eseo(furnace(c)) + " " + made, Verb.CRAFT, c.level(), c.finale());
 		}
 		if (c.verb() == Verb.BAKE) {
 			// Food is baked from what it was ("익히지 않은 소고기를 구워요"); without an input the product is named.
@@ -134,6 +170,14 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 
 	@Override
 	public String ceremony(Goal.Smelt goal, SentenceContext c) {
+		if (fromInput(goal, c, inputName(goal, c))) {
+			return KoGrammar.eseo(furnace(c)) + " " + counted(goal, c, inputName(goal, c), true) + " "
+					+ c.verb().past();
+		}
+		if (makesProduct(goal, c)) {
+			return KoGrammar.eseo(furnace(c)) + " " + counted(goal, c, outputName(goal, c), true) + " "
+					+ Verb.CRAFT.past();
+		}
 		if (c.verb() == Verb.COOK) {
 			return counted(goal, c, outputName(goal, c), true) + " " + c.verb().past();
 		}
@@ -150,7 +194,7 @@ final class SmeltType implements GoalType<Goal.Smelt> {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
 		if (c.level() >= CHAIN_LEVEL && !inputName(goal, c).isEmpty()) {
 			ids.add("L4.aseo");
-		} else if (c.verb() != Verb.BAKE && c.verb() != Verb.COOK) {
+		} else if (kilnVerb(goal, c) || c.verb() != Verb.BAKE && c.verb() != Verb.COOK) {
 			ids.add("L2.eseo_activity");
 		}
 		return ids;

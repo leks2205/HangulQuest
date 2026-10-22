@@ -63,6 +63,14 @@ public final class SentenceBuilder {
 			return false;
 		}
 
+		/**
+		 * The hand-made concept that names exactly this item (눈 블록 for the snow block), or null when only a
+		 * generated name or none does. A word that merely covers or resembles the item does not name it then.
+		 */
+		default String owner(String id) {
+			return null;
+		}
+
 		/** Name of an item (for acquire and consume goals); defaults to the block lookup. */
 		default String item(String id) {
 			return block(id);
@@ -110,6 +118,21 @@ public final class SentenceBuilder {
 	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
 		return prefix(goal, conditions, word, namer, 1)
 				+ core(goal, word, verbWord, conditions, false, 1, false, namer);
+	}
+
+	/**
+	 * The hint of a step that teaches several nouns: every noun after the first names the ids it stands for
+	 * too (the anchor, the recipient, the container), so the hint says all of them without an authored text.
+	 */
+	public static String hint(Goal goal, Word word, Word verbWord, List<Word> more, List<Condition> conditions,
+							  Namer namer) {
+		Namer all = namer;
+		for (Word extra : more) {
+			if (extra != null && extra != word && !isVerbWord(extra)) {
+				all = SentenceContext.taught(extra, all);
+			}
+		}
+		return hint(goal, word, verbWord, conditions, all);
 	}
 
 	public static long seconds(long dwellMs) {
@@ -179,7 +202,7 @@ public final class SentenceBuilder {
 	private static Word withoutPicture(Word word) {
 		return new Word(word.id, word.ko, word.de, word.untranslated ? "" : word.en, word.deShort, word.category,
 				word.tier, word.conceptId, null, word.entityId, word.biomeId, word.descKo, word.origin,
-				word.phrase, word.grammar, word.referents, word.glosses);
+				word.phrase, word.grammar, word.referents, word.glosses, word.covers);
 	}
 
 	// ---- Grammar points: which constructions a generated sentence teaches.
@@ -270,8 +293,10 @@ public final class SentenceBuilder {
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
 			ObjectKind kind = type.objectKind();
 			String id = type.object(goal);
-			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY;
-			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id)) {
+			// A biome is typed too: a step that teaches 개구리 on a swamp still says 늪.
+			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY
+					|| kind == ObjectKind.BIOME;
+			if (!typed || id == null || SentenceContext.wordCovers(word, kind, id, namer)) {
 				return word.ko;
 			}
 			String registry = type.objectName(goal, namer);

@@ -295,7 +295,8 @@ class GeneratorLimitsTest {
 		assertEquals("snow_block", CATALOG.byItemId("minecraft:snow_block").orElseThrow().conceptId);
 		Concept snow = ConceptLoader.load().stream().filter(c -> c.id.equals("snow")).findFirst().orElseThrow();
 		assertEquals(List.of("minecraft:snow"), snow.items, "the layer");
-		assertTrue(snow.covers.contains("minecraft:snow_block"), "the word 눈 still covers the block");
+		assertTrue(snow.accepts.contains("minecraft:snow_block"), "the word 눈 still accepts the block");
+		assertFalse(snow.covers.contains("minecraft:snow_block"), "but never names it");
 	}
 
 	@Test

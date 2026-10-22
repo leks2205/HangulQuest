@@ -35,6 +35,11 @@ public final class Concept {
 	 * word the name of those items in tooltips: their own vanilla names stay.
 	 */
 	public List<String> covers = new ArrayList<>();
+	/**
+	 * Items a goal teaching this word accepts and the validator takes as covered, but that the word does not
+	 * name: 눈 accepts the snow block, which keeps its own word 눈 블록 in every sentence.
+	 */
+	public List<String> accepts = new ArrayList<>();
 	public String entity;
 	public String biome;
 	public String sentenceKo;
@@ -90,7 +95,7 @@ public final class Concept {
 		// A blank English gloss stays blank here; Word marks it as untranslated instead of
 		// passing the German text off as English.
 		return new Word("concept:" + id, ko, de, en, de, categoryEnum(), tier, id, iconItem(), entity, biome,
-				descKo, Origin.CURATED, false, grammar, referents, glosses);
+				descKo, Origin.CURATED, false, grammar, referents, glosses, covers);
 	}
 
 	public boolean isValid() {

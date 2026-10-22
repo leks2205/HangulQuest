@@ -83,7 +83,11 @@ public enum Verb {
 	SWIM("수영하다", "schwimmen", Frame.LOC),
 	TAKE_OUT("꺼내다", "herausnehmen"),
 	HEAR("듣다", "hören"),
-	RAISE("키우다", "aufziehen");
+	RAISE("키우다", "aufziehen"),
+	/** A ring of fence blocks is fenced: 울타리를 쳐요. */
+	FENCE("치다", "umzäunen"),
+	BUY("사다", "kaufen"),
+	SELL("팔다", "verkaufen");
 
 
 	/** How the target noun is marked in front of the verb. */

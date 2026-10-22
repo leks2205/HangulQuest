@@ -22,7 +22,7 @@ smelt.steak	1	-	{"type":"SMELT","output":"minecraft:cooked_beef"}	-	스테이크
 smelt.ingot.three	1	-	{"type":"SMELT","output":"minecraft:iron_ingot","count":3}	-	화로에서 철 주괴를 세 개 만들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 smelt.glass.l4	4	-	{"type":"SMELT","input":"minecraft:sand","output":"minecraft:glass"}	-	모래를 녹여서 유리를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L4.aseo
 smelt.steak.l4	4	-	{"type":"SMELT","input":"minecraft:beef","output":"minecraft:cooked_beef"}	-	익히지 않은 소고기를 구워서 스테이크를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L4.aseo
-smelt.glass.l3	3	-	{"type":"SMELT","input":"minecraft:sand","output":"minecraft:glass"}	-	화로에서 유리를 만드세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
+smelt.glass.l3	3	-	{"type":"SMELT","input":"minecraft:sand","output":"minecraft:glass"}	-	화로에서 모래를 구우세요.	L2.seyo,L1.eul_reul,L2.eseo_activity
 smelt.beef.from	1	-	{"type":"SMELT","input":"minecraft:beef","output":"minecraft:cooked_beef"}	-	익히지 않은 소고기를 구워요.	L1.eoyo,L1.eul_reul
 hold.biome	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"REACH_BIOME","biome":"minecraft:forest"}}	-	횃불을 들고 숲으로 가요.	L2.go_state,L1.eoyo,L1.euro_direction
 hold.night	1	-	{"type":"HOLD_WHILE","item":"minecraft:torch","inner":{"type":"TIME","phase":"NIGHT"}}	-	횃불을 들고 밤에 걸어요.	L2.go_state,L1.eoyo
@@ -54,10 +54,10 @@ putin.chest.l4	4	-	{"type":"PUT_IN","item":"minecraft:apple","container":"minecr
 seq.before	3	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 먹으세요.	L2.seyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
 seq.after	1	bed	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	빵을 먹은 후에 침대에서 자요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.then	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"BREAK_BLOCK","block":"minecraft:oak_log"},{"type":"CRAFT","item":"minecraft:oak_planks"}]}	-	참나무 원목을 베고 나서 참나무 판자를 만들어요.	L1.eoyo,L3.go_naseo,L1.eul_reul
-seq.before.door	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	참나무 문을 열기 전에 횃불을 밝혀요.	L1.eoyo,L3.gi_jeone,L1.eul_reul
+seq.before.door	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	참나무 문을 열기 전에 횃불을 놓아요.	L1.eoyo,L3.gi_jeone,L1.eul_reul
 seq.after.stone	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone","count":3},{"type":"CRAFT","item":"minecraft:furnace"}]}	-	돌을 세 개 캔 후에 화로를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul
-seq.any.two	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	횃불을 밝히고 참나무 문을 열어요.	L1.eoyo,L2.go_and,L1.eul_reul
-seq.any.three	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"BREAK_BLOCK","block":"minecraft:dirt"},{"type":"PLACE_BLOCK","block":"minecraft:torch"}]}	-	돌을 캐고 흙을 파고 횃불을 밝혀요.	L1.eoyo,L2.go_and,L1.eul_reul
+seq.any.two	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"PLACE_BLOCK","block":"minecraft:torch"},{"type":"USE_BLOCK","block":"minecraft:oak_door"}]}	-	횃불을 놓고 참나무 문을 열어요.	L1.eoyo,L2.go_and,L1.eul_reul
+seq.any.three	1	-	{"type":"SEQUENCE","ordered":false,"parts":[{"type":"BREAK_BLOCK","block":"minecraft:stone"},{"type":"BREAK_BLOCK","block":"minecraft:dirt"},{"type":"PLACE_BLOCK","block":"minecraft:torch"}]}	-	돌을 캐고 흙을 파고 횃불을 놓아요.	L1.eoyo,L2.go_and,L1.eul_reul
 seq.after.smelt	1	-	{"type":"SEQUENCE","connector":"AFTER","parts":[{"type":"SMELT","output":"minecraft:iron_ingot"},{"type":"CRAFT","item":"minecraft:iron_pickaxe"}]}	-	화로에서 철 주괴를 만든 후에 철 곡괭이를 만들어요.	L1.eoyo,L3.eun_hue,L1.eul_reul,L2.eseo_activity
 seq.before.give	1	-	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"},{"type":"PUT_IN","item":"minecraft:apple","container":"minecraft:chest"}]}	-	상자 안에 사과를 넣기 전에 주민에게 빵을 줘요.	L1.eoyo,L3.gi_jeone,L2.ege,L1.eul_reul,L1.loc.an
 seq.before.l4	4	bed	{"type":"SEQUENCE","connector":"BEFORE","parts":[{"type":"CONSUME_ITEM","item":"minecraft:bread"},{"type":"USE_BLOCK","block":"minecraft:red_bed"}]}	-	침대에서 자기 전에 빵을 먹어야 해요.	L4.eoya_haeyo,L3.gi_jeone,L1.eul_reul,L2.eseo_activity
@@ -65,7 +65,7 @@ seq.then.bake	1	-	{"type":"SEQUENCE","connector":"THEN","parts":[{"type":"SMELT"
 avoid.bed.night	3	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"windowSeconds":60,"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
 avoid.log	3	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:oak_log"}}	-	참나무 원목을 베지 마세요.	L3.jima,L1.eul_reul
 avoid.bread	3	-	{"type":"AVOID","action":{"type":"CONSUME_ITEM","item":"minecraft:bread"}}	-	빵을 먹지 마세요.	L3.jima,L1.eul_reul
-avoid.torch.night	3	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 횃불을 밝히지 마세요.	L3.jima,L1.eul_reul
+avoid.torch.night	3	-	{"type":"AVOID","action":{"type":"PLACE_BLOCK","block":"minecraft:torch"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 횃불을 놓지 마세요.	L3.jima,L1.eul_reul
 avoid.zombie	3	-	{"type":"AVOID","action":{"type":"DEFEAT_ENTITY","entity":"minecraft:zombie"}}	-	좀비를 물리치지 마세요.	L3.jima,L1.eul_reul
 avoid.stone.water	4	-	{"type":"AVOID","action":{"type":"BREAK_BLOCK","block":"minecraft:stone"},"during":{"type":"IN_WATER"}}	-	물속에서 돌을 캐지 마세요.	L3.jima,L1.eul_reul,L2.eseo_activity
 avoid.bed.hint	1	bed	{"type":"AVOID","action":{"type":"USE_BLOCK","block":"minecraft:red_bed"},"during":{"type":"TIME","phase":"NIGHT"}}	-	밤에 침대에서 자지 마세요.	L3.jima,L2.eseo_activity
@@ -86,7 +86,7 @@ cond.rel.top	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"PLAY
 cond.rel.near	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"PLAYER_REL","relation":"NEAR","anchor":"minecraft:cow"}]	소 근처에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.rel.outside	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"PLAYER_REL","relation":"OUTSIDE","anchor":"minecraft:oak_door"}]	참나무 문 밖에서 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.night.holding	1	-	{"type":"CONSUME_ITEM","item":"minecraft:bread"}	[{"type":"TIME","phase":"NIGHT"},{"type":"HOLDING","item":"minecraft:torch"}]	밤에 횃불을 들고 빵을 먹어요.	L1.eoyo,L1.eul_reul,L2.go_state
-cond.rel.torch	1	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"PLAYER_REL","relation":"UNDER","anchor":"minecraft:oak_log"}]	참나무 원목 아래에서 횃불을 밝혀요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+cond.rel.torch	1	-	{"type":"PLACE_BLOCK","block":"minecraft:torch"}	[{"type":"PLAYER_REL","relation":"UNDER","anchor":"minecraft:oak_log"}]	참나무 원목 아래에서 횃불을 놓아요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 cond.give.water	1	-	{"type":"GIVE","item":"minecraft:bread","entity":"minecraft:villager"}	[{"type":"IN_WATER"}]	물속에서 주민에게 빵을 줘요.	L1.eoyo,L2.ege,L1.eul_reul,L2.eseo_activity
 use.door.open	1	door	{"type":"USE_BLOCK","block":"minecraft:oak_door","change":"OPEN"}	-	문을 열어요.	L1.eoyo,L1.eul_reul
 use.door.close	1	door	{"type":"USE_BLOCK","block":"minecraft:oak_door","change":"CLOSE"}	-	문을 닫아요.	L1.eoyo,L1.eul_reul
@@ -115,3 +115,10 @@ mount.boat.ride	1	boat+ride	{"type":"MOUNT","entity":"minecraft:oak_boat","dwell
 mount.horse	1	horse	{"type":"MOUNT","entity":"minecraft:horse","dwellMs":1500}	-	말을 타요.	L1.eoyo,L1.eul_reul
 breed.cow	1	cow	{"type":"BREED","entity":"minecraft:cow","count":1}	-	소를 키워요.	L1.eoyo,L1.eul_reul
 breed.cow.two	1	cow	{"type":"BREED","entity":"minecraft:cow","count":2}	-	소를 두 마리 키워요.	L1.eoyo,L1.eul_reul
+smelt.stone	1	-	{"type":"SMELT","input":"minecraft:cobblestone","output":"minecraft:stone"}	-	화로에서 조약돌을 구워요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+smelt.stone.word	1	stone	{"type":"SMELT","input":"minecraft:cobblestone","output":"minecraft:stone"}	-	화로에서 돌을 만들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+smelt.glass.input	1	-	{"type":"SMELT","input":"minecraft:sand","output":"minecraft:glass"}	-	화로에서 모래를 구워요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+smelt.ore	1	-	{"type":"SMELT","input":"minecraft:iron_ore","output":"minecraft:iron_ingot"}	-	화로에서 철 광석을 녹여요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+smelt.raw.three	1	-	{"type":"SMELT","input":"minecraft:raw_gold","output":"minecraft:gold_ingot","count":3}	-	화로에서 금 원석을 세 개 녹여요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
+smelt.raw.l4	4	-	{"type":"SMELT","input":"minecraft:raw_copper","output":"minecraft:copper_ingot"}	-	구리 원석을 녹여서 구리 주괴를 만들어야 해요.	L4.eoya_haeyo,L1.eul_reul,L4.aseo
+smelt.cook.word	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken"}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul

@@ -45,6 +45,11 @@ public final class StepNamer implements SentenceBuilder.Namer {
 	}
 
 	@Override
+	public String owner(String id) {
+		return base.owner(id);
+	}
+
+	@Override
 	public Placed placedBy(String stepId) {
 		for (QuestStep earlier : step.earlier()) {
 			if (earlier.id().equals(stepId)) {

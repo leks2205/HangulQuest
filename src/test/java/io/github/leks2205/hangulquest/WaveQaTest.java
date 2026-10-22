@@ -169,23 +169,41 @@ class WaveQaTest {
 	@Test
 	void multiWordHintsExplainTheExtraNouns() {
 		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		SentenceBuilder.Namer namer = KoreanFixtures.namer(KoreanFixtures.catalog());
+		int generated = 0;
 		for (Questline trail : QuestLoader.loadAll()) {
 			for (var step : trail.allSteps()) {
 				if (step.teach().size() < 2) {
 					continue;
 				}
-				assertFalse(step.hintKo() == null || step.hintKo().isBlank(),
-						trail.id() + "/" + step.id() + " teaches several words but has no hint");
+				List<Word> words = new java.util.ArrayList<>();
 				for (String concept : step.teach()) {
 					var word = catalog.byConceptId(concept).orElse(null);
-					if (word == null || "ACTIONS".equals(word.category) || word.ko.endsWith("다")) {
-						continue; // verbs are conjugated in the hint, not repeated as a dictionary form
+					if (word != null && !"ACTIONS".equals(word.category.name()) && !word.ko.endsWith("다")) {
+						words.add(word); // verbs are conjugated in the hint, not repeated as a dictionary form
 					}
-					assertTrue(step.hintKo().contains(word.ko), trail.id() + "/" + step.id()
-							+ " hint omits " + word.ko + ": " + step.hintKo());
 				}
+				boolean authored = step.hintKo() != null && !step.hintKo().isBlank();
+				String hint = authored ? step.hintKo() : SentenceBuilder.hint(step.goal(),
+						words.isEmpty() ? null : words.get(0), null, words, step.conditions(), namer);
+				generated += authored ? 0 : 1;
+				for (Word word : words) {
+					// a generated hint can only name a noun the goal has a place for
+					boolean placed = authored || step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.ReachHeight
+							|| io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(step.goal()).covers(step.goal(),
+							catalog.concept(word.conceptId).orElseThrow())
+							&& io.github.leks2205.hangulquest.quest.goal.GoalTypes.of(step.goal()).mentions(step.goal())
+							.stream().anyMatch(m -> io.github.leks2205.hangulquest.quest.goal.GoalType.covers(m,
+									catalog.concept(word.conceptId).orElseThrow()));
+					if (placed) {
+						assertTrue(hint.contains(word.ko), trail.id() + "/" + step.id() + " hint omits " + word.ko
+								+ ": " + hint);
+					}
+				}
+				assertFalse(hint.isBlank(), trail.id() + "/" + step.id() + " has no hint");
 			}
 		}
+		System.out.println("multi-word steps with a generated hint: " + generated);
 	}
 
 }

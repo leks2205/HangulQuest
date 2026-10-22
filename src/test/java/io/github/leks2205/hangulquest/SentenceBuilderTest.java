@@ -61,7 +61,7 @@ class SentenceBuilderTest {
 
 	@Test
 	void conditionsBecomePrefixes() {
-		assertEquals("밤에 횃불을 밝혀요.",
+		assertEquals("밤에 횃불을 놓아요.",
 				SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:torch", 1), word("횃불"),
 						List.of(new Condition.Time(Condition.Phase.NIGHT))));
 	}
@@ -112,10 +112,10 @@ class SentenceBuilderTest {
 		assertEquals("밤에 해변에서 모닥불을 피워요.", SentenceBuilder.normal(placeCampfire, campfire,
 				List.of(new Condition.Time(Condition.Phase.NIGHT),
 						new Condition.InBiome("minecraft:beach")), 1, false, names));
-		assertEquals("네더에서 횃불을 밝혀요.", SentenceBuilder.normal(
+		assertEquals("네더에서 횃불을 놓아요.", SentenceBuilder.normal(
 				new Goal.PlaceBlock("minecraft:torch", 1), word("횃불"),
 				List.of(new Condition.InDimension("minecraft:the_nether")), 1, false, names));
-		assertEquals("엔드에서 횃불을 밝혀요.", SentenceBuilder.normal(
+		assertEquals("엔드에서 횃불을 놓아요.", SentenceBuilder.normal(
 				new Goal.PlaceBlock("minecraft:torch", 1), word("횃불"),
 				List.of(new Condition.InDimension("minecraft:the_end")), 1, false, names));
 		assertEquals("높이 0 이하에서 돌을 세 개 캐요.", SentenceBuilder.normal(
@@ -133,10 +133,10 @@ class SentenceBuilderTest {
 	void unknownBiomeAndDimensionStayHonest() {
 		String biome = SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:torch", 1), word("횃불"),
 				List.of(new Condition.InBiome("minecraft:unknown")));
-		assertEquals("그 생물 군계에서 횃불을 밝혀요.", biome);
+		assertEquals("그 생물 군계에서 횃불을 놓아요.", biome);
 		String dimension = SentenceBuilder.normal(new Goal.PlaceBlock("minecraft:torch", 1), word("횃불"),
 				List.of(new Condition.InDimension("minecraft:somewhere")));
-		assertEquals("다른 차원에서 횃불을 밝혀요.", dimension);
+		assertEquals("다른 차원에서 횃불을 놓아요.", dimension);
 		assertFalse((biome + dimension).contains("지형"));
 	}
 
@@ -278,7 +278,7 @@ class SentenceBuilderTest {
 		assertEquals("현수막을 걸어요.", clue(new Goal.PlaceBlock("minecraft:black_banner", 1), "현수막"));
 		assertEquals("표지판을 세워요.", clue(new Goal.PlaceBlock("minecraft:oak_sign", 1), "표지판"));
 		assertEquals("문을 달아요.", clue(new Goal.PlaceBlock("minecraft:oak_door", 1), "문"));
-		assertEquals("횃불을 밝혀요.", clue(new Goal.PlaceBlock("minecraft:torch", 1), "횃불"));
+		assertEquals("횃불을 놓아요.", clue(new Goal.PlaceBlock("minecraft:torch", 1), "횃불"));
 		assertEquals("모닥불을 피워요.", clue(new Goal.PlaceBlock("minecraft:campfire", 1), "모닥불"));
 		assertEquals("거미줄을 쳐요.", clue(new Goal.PlaceBlock("minecraft:cobweb", 1), "거미줄"));
 		assertEquals("석재 벽돌을 네 개 쌓아요.", clue(new Goal.PlaceBlock("minecraft:stone_bricks", 4), "석재 벽돌"));
@@ -327,7 +327,7 @@ class SentenceBuilderTest {
 	void ceremonySentencesAreShortPastTense() {
 		SentenceBuilder.Namer none = SentenceBuilder.Namer.NONE;
 		Condition.Time night = new Condition.Time(Condition.Phase.NIGHT);
-		assertEquals("밤에 횃불을 밝혔어요.", SentenceBuilder.ceremony(new Goal.PlaceBlock("minecraft:torch", 1),
+		assertEquals("밤에 횃불을 놓았어요.", SentenceBuilder.ceremony(new Goal.PlaceBlock("minecraft:torch", 1),
 				word("횃불"), List.of(night), none));
 		assertEquals("밤에 검은색 현수막을 걸었어요.", SentenceBuilder.ceremony(
 				new Goal.PlaceBlock("minecraft:black_banner", 1), word("검은색 현수막"), List.of(night), none));

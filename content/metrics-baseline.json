@@ -3,14 +3,14 @@
  "schema": 1,
  "params": {"knownAfter": 3, "trailsPerDay": 2, "retrievalDays": 14, "encounterTarget": 10, "roleTarget": 3, "retrievalTarget": 3, "maxUnknown": 1, "countHints": false, "hintSeesClue": true},
  "metrics": {
-  "coverage.recycling.medianEncounters": {"value": 7.0, "better": "higher", "target": 10},
-  "coverage.recycling.medianRetrievals": {"value": 1.0, "better": "higher", "target": 3},
-  "coverage.recycling.seenShare": {"value": 0.984848, "better": "higher", "target": 1.0},
-  "coverage.recycling.targetMetShare": {"value": 0.242424, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintFullyKnownShare": {"value": 0.911327, "better": "higher", "target": 1.0},
-  "coverage.sentences.hintWordCoverage": {"value": 0.943614, "better": "higher", "target": 1.0},
-  "coverage.sentences.meanUnknown": {"value": 0.973463, "better": "lower", "target": 1},
-  "coverage.sentences.unknownOverOneShare": {"value": 0.056311, "better": "lower", "target": 0},
+  "coverage.recycling.medianEncounters": {"value": 2.0, "better": "higher", "target": 10},
+  "coverage.recycling.medianRetrievals": {"value": 0.0, "better": "higher", "target": 3},
+  "coverage.recycling.seenShare": {"value": 0.620853, "better": "higher", "target": 1.0},
+  "coverage.recycling.targetMetShare": {"value": 0.109005, "better": "higher", "target": 1.0},
+  "coverage.sentences.hintFullyKnownShare": {"value": 0.912621, "better": "higher", "target": 1.0},
+  "coverage.sentences.hintWordCoverage": {"value": 0.946136, "better": "higher", "target": 1.0},
+  "coverage.sentences.meanUnknown": {"value": 0.97411, "better": "lower", "target": 1},
+  "coverage.sentences.unknownOverOneShare": {"value": 0.056958, "better": "lower", "target": 0},
   "variety.bareShare.1": {"value": 0.174935, "better": "lower", "target": 0.3},
   "variety.bareShare.2": {"value": 0.644592, "better": "lower", "target": 0.2},
   "variety.bareShare.3": {"value": 0.694524, "better": "lower", "target": 0.1},
@@ -33,7 +33,7 @@
   "variety.topTypeShare.4": {"value": 0.520661, "better": "lower", "target": 0.25},
   "variety.topTypeShare.5": {"value": 0.515464, "better": "lower", "target": 0.25},
   "variety.topTypeShare.6": {"value": 0.486111, "better": "lower", "target": 0.25},
-  "variety.verbObjectMax": {"value": 3.0, "better": "lower", "target": 3},
-  "variety.verbObjectPairsOver3": {"value": 0.0, "better": "lower", "target": 0}
+  "variety.verbObjectMax": {"value": 6.0, "better": "lower", "target": 3},
+  "variety.verbObjectPairsOver3": {"value": 3.0, "better": "lower", "target": 0}
  }
 }

@@ -93,6 +93,9 @@ final class BuildPatternType implements GoalType<Goal.BuildPattern> {
 		if (goal.pattern() == Pattern.CROSS || goal.pattern() == Pattern.STAIRS) {
 			return Verb.CRAFT;
 		}
+		if (Pattern.ringOfFences(goal.material()) && goal.pattern() == Pattern.RING) {
+			return Verb.FENCE;
+		}
 		return table.choose(id(), goal.material(), 1, Verb.STACK);
 	}
 

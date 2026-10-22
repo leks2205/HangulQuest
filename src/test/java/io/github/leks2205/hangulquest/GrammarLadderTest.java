@@ -173,7 +173,7 @@ class GrammarLadderTest {
 		assertEquals(3, learn.grammar().steps("L1.eoyo"));
 		assertEquals(3, learn.grammar().steps("L1.obj_eul"), "the alias L1.eul_reul counts for L1.obj_eul");
 		assertEquals("finale", engine.currentStep().id());
-		assertEquals("횃불을 밝히세요.", engine.clueKo(engine.currentStep()), "the new construction: -(으)세요");
+		assertEquals("횃불을 놓으세요.", engine.clueKo(engine.currentStep()), "the new construction: -(으)세요");
 	}
 
 	@Test

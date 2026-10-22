@@ -51,6 +51,11 @@ final class QuestTextService {
 			public String block(String id) {
 				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
 			}
+
+			@Override
+			public String owner(String id) {
+				return catalog.byItemId(id).filter(Word::curated).map(word -> word.conceptId).orElse(null);
+			}
 		};
 	}
 
@@ -183,10 +188,11 @@ final class QuestTextService {
 			return clueKo(step, koreanLevel);
 		}
 		if (word != firstWord(step)) {
-			return SentenceBuilder.hint(step.goal(), word, verbWord(step), step.conditions(), namerFor(step));
+			return SentenceBuilder.hint(step.goal(), word, verbWord(step), words(step), step.conditions(),
+					namerFor(step));
 		}
-		return hints.computeIfAbsent(step,
-				key -> SentenceBuilder.hint(key.goal(), word, verbWord(key), key.conditions(), namerFor(key)));
+		return hints.computeIfAbsent(step, key -> SentenceBuilder.hint(key.goal(), word, verbWord(key), words(key),
+				key.conditions(), namerFor(key)));
 	}
 
 	/** The finale line of a finished trail in the interface language. */

@@ -94,7 +94,7 @@ public final class AdaptiveTrailGenerator {
 				null, null, null, null, null);
 		return new Questline("adaptive", "복습의 길", "Der Wiederholungspfad", 1, concepts,
 				Questline.Requires.none(), steps, finale,
-				"밤이 왔어요. 횃불을 밝혔어요. 오늘의 복습을 마쳤어요!",
+				"밤이 왔어요. 횃불을 놓았어요. 오늘의 복습을 마쳤어요!",
 				"Die Nacht ist da. Ein Licht entzündet: die Wiederholung ist geschafft.",
 				"adaptive", 900, 2, true)
 				.withEnglish("The review path",

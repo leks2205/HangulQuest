@@ -80,7 +80,7 @@ class GeneratorFixesTest {
 		List<String> leaks = new ArrayList<>();
 		for (Word word : CATALOG.trailWords()) {
 			String icon = word.iconItem;
-			if (icon == null || word.referents.contains(icon)) {
+			if (icon == null || word.referents.contains(icon) || word.covers.contains(icon)) {
 				continue;
 			}
 			if (SentenceContext.wordNames(word, ObjectKind.ITEM, icon)
@@ -102,7 +102,7 @@ class GeneratorFixesTest {
 	void chickenCodAndSalmonAreTheAnimalsNotTheMeat() {
 		Condition.PlayerRel chicken = new Condition.PlayerRel(Relation.NEXT_TO, "minecraft:chicken");
 		Goal torch = new Goal.PlaceBlock("minecraft:torch", 1);
-		assertEquals("닭 옆에서 횃불을 밝혀요.", clue(torch, "torch", chicken));
+		assertEquals("닭 옆에서 횃불을 놓아요.", clue(torch, "torch", chicken));
 		for (String id : new String[]{"cod", "salmon"}) {
 			String entity = KoreanFixtures.koNames().get("entity.minecraft." + id);
 			String item = KoreanFixtures.koNames().get("item.minecraft." + id);
@@ -117,7 +117,7 @@ class GeneratorFixesTest {
 		assertFalse(raw.startsWith("닭 옆에서"), raw);
 		assertEquals(raw, clue(torch, "torch", new Condition.PlayerRel(Relation.NEXT_TO, "minecraft:chicken", "block")));
 		// a block stays a block
-		assertEquals("통나무 옆에서 횃불을 밝혀요.", clue(torch, "torch",
+		assertEquals("통나무 옆에서 횃불을 놓아요.", clue(torch, "torch",
 				new Condition.PlayerRel(Relation.NEXT_TO, "minecraft:oak_log")));
 	}
 
@@ -352,7 +352,7 @@ class GeneratorFixesTest {
 		assertEquals("종이를 세 장 만들어요.", clue(new Goal.Craft("minecraft:paper", 3, null, List.of()), "paper"));
 		assertEquals("책을 세 권 만들어요.", clue(new Goal.Craft("minecraft:book", 3, null, List.of()), "book"));
 		assertEquals("꽃을 세 송이 심어요.", clue(new Goal.PlaceBlock("minecraft:poppy", 3), "flower"));
-		assertEquals("횃불을 세 개 밝혀요.", clue(new Goal.PlaceBlock("minecraft:torch", 3), "torch"));
+		assertEquals("횃불을 세 개 놓아요.", clue(new Goal.PlaceBlock("minecraft:torch", 3), "torch"));
 		assertEquals("우유를 두 잔 마셔요.", clue(new Goal.ConsumeItem("minecraft:milk_bucket", 2), "milk"));
 		assertEquals("연어를 두 마리 모아요.", clue(new Goal.AcquireItem("minecraft:salmon", 2), "salmon"));
 	}

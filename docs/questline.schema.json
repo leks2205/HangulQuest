@@ -823,6 +823,38 @@
             "type"
           ],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "TRADE"
+            },
+            "item": {
+              "$ref": "#/definitions/resourceId"
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId",
+              "description": "The merchant; a villager when left out."
+            },
+            "direction": {
+              "enum": [
+                "BUY",
+                "SELL"
+              ],
+              "description": "BUY gets the item from the merchant, SELL pays with it."
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "item",
+            "direction",
+            "count"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -1027,7 +1059,9 @@
               ]
             },
             "anchor": {
-              "$ref": "#/definitions/resourceId"
+              "type": "string",
+              "pattern": "^(#?[a-z0-9_.-]+:[a-z0-9_./-]+|@[A-Za-z0-9_-]+)$",
+              "description": "A block, an entity, or a block tag such as #minecraft:logs."
             },
             "kind": {
               "enum": [

@@ -73,7 +73,7 @@ class PlacedAnchorTest {
 				step("finale", new Goal.PlaceBlock(CHEST, 1)), "끝", "Ende", null, 1, level, false);
 	}
 
-	/** A torch beside a chest: placed with 놓다, like most blocks (a bare torch is 밝히다). */
+	/** A torch beside a chest: placed with 놓다, like most blocks. */
 	private static Goal torchFirst() {
 		return new Goal.PlaceRel(TORCH, Relation.NEXT_TO, CHEST, 1);
 	}
@@ -174,10 +174,13 @@ class PlacedAnchorTest {
 	}
 
 	@Test
-	void aBareTorchPlacementIsTheLightingVerb() {
-		// the verb table says 밝히다 for a torch placed on its own, and the earlier-step phrase follows it
+	void aTorchIsPlacedAndOnlyAFireIsKindled() {
+		// the verb table says 놓다 for a torch, 피우다 for a campfire; the earlier-step phrase follows it
 		Questline trail = trail(5, placeTorch(), chestBesideIt());
-		assertEquals("아까 밝힌 횃불 옆에 상자를 놓아야 해요.", say(trail, "s2", 5));
+		assertEquals("아까 놓은 횃불 옆에 상자를 놓아야 해요.", say(trail, "s2", 5));
+		Goal campfire = new Goal.PlaceBlock("minecraft:campfire", 1);
+		Goal beside = new Goal.PlaceRel(CHEST, Relation.NEXT_TO, "@s1", 1);
+		assertEquals("아까 피운 모닥불 옆에 상자를 놓아야 해요.", say(trail(5, campfire, beside), "s2", 5));
 	}
 
 	@Test

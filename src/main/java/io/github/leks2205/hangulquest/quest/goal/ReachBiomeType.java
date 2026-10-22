@@ -55,9 +55,9 @@ final class ReachBiomeType implements GoalType<Goal.ReachBiome> {
 	@Override
 	public boolean evaluate(Goal.ReachBiome goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		boolean matches = obs.biomeIs(goal.biome());
+		boolean matches = tracker.accepted.anyBiome(goal.biome(), obs::biomeIs);
 		if (!matches && nightLatch) {
-			matches = biomeAtNightMatches(obs, goal.biome());
+			matches = tracker.accepted.anyBiome(goal.biome(), biome -> biomeAtNightMatches(obs, biome));
 		}
 		return Matching.dwell(tracker, goal.biome(), matches ? goal.biome() : null, goal.dwellMs());
 	}

@@ -15,7 +15,7 @@ import java.util.Locale;
 public enum Pattern {
 	PILLAR("기둥", 2, 4, 3),
 	PYRAMID("피라미드", 3, 3, 3),
-	RING("울타리", 3, 3, 3),
+	RING("담", 3, 3, 3),
 	ROW("줄", 2, 4, 3),
 	/** Size 2 is 2 wide and 2 high, size 3 is 3x2, size 4 is 4x3; it can stand along x or z. */
 	WALL("벽", 2, 4, 3),
@@ -43,7 +43,10 @@ public enum Pattern {
 		this.defaultSize = defaultSize;
 	}
 
-	/** The Korean noun: 기둥, 피라미드, 울타리 (a ring of blocks around an empty cell), 벽, 십자 모양, 계단. */
+	/**
+	 * The Korean noun: 기둥, 피라미드, 담 (a ring of blocks around an empty cell: the wall that closes off a
+	 * yard), 벽, 십자 모양, 계단. A ring of fence blocks is a 울타리 instead, see {@link #ringOfFences}.
+	 */
 	public String ko() {
 		return ko;
 	}
@@ -81,6 +84,12 @@ public enum Pattern {
 	/** The height of a wall of this size: 2x2, 3x2, 4x3. */
 	private static int wallHeight(int size) {
 		return size >= 4 ? 3 : 2;
+	}
+
+	/** Only fence blocks make a 울타리; a ring of any other material is a 담. */
+	public static boolean ringOfFences(String materialSpec) {
+		String id = BlockSpec.representative(materialSpec);
+		return id != null && io.github.leks2205.hangulquest.quest.goal.Matching.blockFamily(id).equals("fence");
 	}
 
 	/** True when something can stand inside it. */

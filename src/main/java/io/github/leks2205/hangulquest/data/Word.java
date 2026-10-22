@@ -37,6 +37,11 @@ public final class Word {
 	public final String iconItem;
 	/** Item ids the word really names; the icon is in here only if it is one of them. */
 	public final List<String> referents;
+	/**
+	 * Further ids a goal teaching this word accepts and the sentence names with the word (any sapling for 묘목,
+	 * the lush caves for 동굴): the {@code covers} of the concept. They are not tooltips: those keep the vanilla name.
+	 */
+	public final List<String> covers;
 	public final String entityId;
 	public final String biomeId;
 	public final String descKo;
@@ -70,6 +75,14 @@ public final class Word {
 				String conceptId, String iconItem, String entityId, String biomeId,
 				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents,
 				Map<String, String> glosses) {
+		this(id, ko, de, en, deShort, category, tier, conceptId, iconItem, entityId, biomeId, descKo, origin, phrase,
+				grammar, referents, glosses, List.of());
+	}
+
+	public Word(String id, String ko, String de, String en, String deShort, Category category, int tier,
+				String conceptId, String iconItem, String entityId, String biomeId,
+				String descKo, Origin origin, boolean phrase, String grammar, List<String> referents,
+				Map<String, String> glosses, List<String> covers) {
 		this.id = id;
 		this.ko = ko;
 		this.de = de == null ? "" : de;
@@ -81,6 +94,7 @@ public final class Word {
 		this.conceptId = conceptId;
 		this.iconItem = iconItem;
 		this.referents = referents == null ? List.of() : List.copyOf(referents);
+		this.covers = covers == null ? List.of() : List.copyOf(covers);
 		this.entityId = entityId;
 		this.biomeId = biomeId;
 		this.descKo = descKo;
@@ -117,6 +131,12 @@ public final class Word {
 	/** Like {@link #gloss(Lang)}, but with the long German text where the German gloss is shown. */
 	public String glossFull(Lang lang) {
 		return lang == Lang.DE && !de.isBlank() && !glosses.containsKey(lang.code()) ? de : gloss(lang);
+	}
+
+	/** True for a hand-made concept; the words made for every vanilla item (gen_, adv_) are not. */
+	public boolean curated() {
+		return conceptId != null && !conceptId.startsWith("gen_") && !conceptId.startsWith("adv_")
+				&& !conceptId.startsWith("adv2_");
 	}
 
 	public boolean hasDescKo() {

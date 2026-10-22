@@ -160,7 +160,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요) | right-click on that block; with `change` the sensor compares the block's `open` state before and after the click |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
 | `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
-| `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
+| `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`; a ring is a 담, and only fence blocks make a 울타리: `울타리를 쳐요`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
 | `PLACE_ON_PATTERN` | `block`, `relation`, `pattern`, `material` | a placement of `block` in that relation to a structure built from `material` |
 | `CRAFT` | `item`, `count`, optional `station`, optional `with` (ingredient ids, wording only) | taking the result out of a crafting screen |
 | `SMELT` | optional `input` (wording, level 4+), `output`, `count` | taking the result out of a furnace, blast furnace or smoker |
@@ -170,6 +170,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `HOLD_WHILE` | `item`, `inner` (a goal, or a condition plus `seconds`) | `inner` only counts with the item in a hand; with a condition: walking with it |
 | `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`) | the parts in order; an event before its turn does not count. Trail level 3 or higher |
 | `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
+| `TRADE` | `item`, optional `entity` (a villager), `direction` (`BUY`/`SELL`), `count` | the result slot of the merchant screen: a buy counts what arrived (주민에게 빵을 사요), a sell what was paid (주민에게 밀을 팔아요) |
 | `TRANSIT` | `direction` (`IN`/`OUT`) | the sky above the player flips and stays flipped for a second: 집 안으로 들어가요 / 집 밖으로 나가요. The player has to be on the other side first. The place noun is spoken only for 집, 방 and 동굴 |
 | `HEAR` | `source` (`minecraft:jukebox` or `minecraft:note_block`), `radius` (2–16), `dwellMs` | a jukebox with a disc in it within `radius` blocks for `dwellMs` (the sensor scans the block entities around the player twice a second, only while such a step is tracked), or a struck note block |
 | `LIE_DOWN` | `block` (a bed), `dwellMs` | the sleeping pose in that bed for `dwellMs`; the night does not have to pass (a night condition is excused once the server skipped it, as for 자요) |
@@ -226,7 +227,14 @@ A step may teach the word for any role of its goal or conditions (the object, an
 container, the held item, a material). When the first taught word has several referents (물고기 = cod, salmon,
 tropical fish) and covers an id of the goal, any of them completes the step; a word with one referent never
 widens the goal. The covers of a concept (`concepts.json`) count as much as its items: a step that teaches 묘목
-accepts any sapling as its goal, not only the oak one.
+accepts any sapling as its goal, not only the oak one, and the sentence says 묘목 for it too. A cover is spoken
+with the word unless the word only describes (`"grammar": "DESCRIPTOR"`, the colours: 빨간색 양털 stays 빨간색
+양털) or the item has a hand-made word of its own and the word only resembles it (눈 does not name the snow block;
+`"accepts"` lists ids that a goal takes but the word never names). A word for one flower names that flower
+only: with 해바라기 taught, "민들레 옆에 해바라기를 심어요". The covers of a biome concept are biomes: 동굴
+covers the lush caves, so a `REACH_BIOME` on any of them counts and reads 동굴로 들어가요. A step that teaches a
+word of the biome's kind still says the biome: 개구리 on a swamp reads 늪으로 가요. The hint of a step with
+several nouns names every noun the goal has a place for, so it needs no authored hint.
 
 ## Rules
 

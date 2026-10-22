@@ -89,6 +89,11 @@ final class KoreanFixtures {
 			public String block(String id) {
 				return catalog.byItemId(id).map(word -> word.ko).orElse(null);
 			}
+
+			@Override
+			public String owner(String id) {
+				return catalog.byItemId(id).filter(Word::curated).map(word -> word.conceptId).orElse(null);
+			}
 		};
 	}
 
@@ -173,10 +178,27 @@ final class KoreanFixtures {
 	 * teaches names what it stands for (우유, not 우유 양동이); every other noun is its registry name.
 	 */
 	static String ceremony(io.github.leks2205.hangulquest.quest.Questline trail) {
-		io.github.leks2205.hangulquest.quest.QuestStep step = trail.finale();
-		Word word = step.teach().isEmpty() ? null : sharedCatalog().byConceptId(step.teach().get(0)).orElse(null);
-		return SentenceBuilder.ceremony(step.goal(), word, step.conditions(),
-				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(registryNamer(), step));
+		return ceremony(trail.finale());
+	}
+
+	/**
+	 * Same for one step. Every noun is picked the way the clue picks it (the taught word, the tag word, the word
+	 * of the concept that owns the item), so the finale never says 참나무 원목 where the clue says 통나무; a verb
+	 * the step teaches (요리하다) is spoken in the past too.
+	 */
+	static String ceremony(io.github.leks2205.hangulquest.quest.QuestStep step) {
+		Catalog catalog = sharedCatalog();
+		Word word = step.teach().isEmpty() ? null : catalog.byConceptId(step.teach().get(0)).orElse(null);
+		Word verb = null;
+		for (String concept : step.teach()) {
+			Word candidate = catalog.byConceptId(concept).orElse(null);
+			if (candidate != null && candidate.category == Category.ACTIONS && candidate.ko.endsWith("다")) {
+				verb = candidate;
+				break;
+			}
+		}
+		return SentenceBuilder.ceremony(step.goal(), word, verb, step.conditions(),
+				io.github.leks2205.hangulquest.quest.spatial.StepNamer.of(namer(catalog), step));
 	}
 
 	/** The registry id a goal points at, or null for height goals. */
@@ -208,6 +230,7 @@ final class KoreanFixtures {
 			case Goal.Hear g -> g.source();
 			case Goal.LieDown g -> g.block();
 			case Goal.Breed g -> g.entity();
+			case Goal.Trade g -> g.item();
 			case Goal.Mount g -> g.entity();
 			case Goal.Transit g -> null;
 			case Goal.Wait g -> null;
@@ -229,6 +252,7 @@ final class KoreanFixtures {
 			case Goal.Give g -> g.count();
 			case Goal.PutIn g -> g.count();
 			case Goal.TakeOut g -> g.count();
+			case Goal.Trade g -> g.count();
 			default -> 0;
 		};
 		String suffix = switch (goal) {

@@ -44,6 +44,14 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   water condition reads "바다에서 수영해요". The sensor sees door states, the vehicle, a playing jukebox, taken-out
   items and baby animals (`sense/README.md`). An authored clue that says its condition in its own words keeps its
   text. Progress files are unchanged.
+- **Generator limits from the third to the fifth content batch.** A step that teaches a word of another kind on
+  a biome says the biome (개구리 on a swamp: 늪으로 가요), biome words have covers (동굴: the lush caves) and a
+  word speaks every id it covers (묘목 for any sapling) except where the item has a word of its own (눈 블록 is
+  never 눈); a ring of blocks is a 담 and only fences make a 울타리 (울타리를 쳐요); a torch is placed (놓아요), a
+  candle switched on (켜요), a campfire kindled (피워요); stone, glass and ores in the furnace name their input
+  (화로에서 조약돌을 구워요, 철을 녹여요); a covered fish accepts the cooked form of every fish; `PLAYER_REL` takes
+  a tag; water can be looked at; a verb may be the first taught word; the hint of a multi-word step names every
+  noun; a new `TRADE` goal (사요, 팔아요). The finale fixture picks nouns the way the clue does.
 - **Books tab: graded stories, chapters and culture notes.** The journal has a new Books tab (책장). Four short
   stories (집, 불과 빛, 밭, 동물; 80 to 200 syllables, level 1 to 2 grammar) open when their trails are done and at
   least 98% of their words are known to the player; a locked story lists the words to learn first. Hovering or

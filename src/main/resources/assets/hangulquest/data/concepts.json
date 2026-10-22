@@ -263,7 +263,7 @@
   "items": [
    "minecraft:snow"
   ],
-  "covers": [
+  "accepts": [
    "minecraft:snow_block"
   ],
   "sentenceKo": "눈이 와요.",
@@ -1108,6 +1108,12 @@
   "items": [],
   "icon": "minecraft:oak_sapling",
   "biome": "minecraft:forest",
+  "covers": [
+   "minecraft:birch_forest",
+   "minecraft:dark_forest",
+   "minecraft:flower_forest",
+   "minecraft:windswept_forest"
+  ],
   "sentenceKo": "숲에 가요.",
   "descKo": "나무가 많아요.",
   "aliases": [
@@ -1192,6 +1198,9 @@
   "items": [],
   "icon": "minecraft:torch",
   "biome": "minecraft:dripstone_caves",
+  "covers": [
+   "minecraft:lush_caves"
+  ],
   "sentenceKo": "동굴에 가요.",
   "descKo": "어두워요. 돌이 많아요.",
   "aliases": [
@@ -2213,6 +2222,10 @@
   "items": [],
   "icon": "minecraft:jungle_log",
   "biome": "minecraft:jungle",
+  "covers": [
+   "minecraft:bamboo_jungle",
+   "minecraft:sparse_jungle"
+  ],
   "sentenceKo": "정글에 가요.",
   "descKo": "덥고 나무가 많은 곳이에요.",
   "aliases": [
@@ -2577,6 +2590,24 @@
   "tier": 1,
   "items": [
    "minecraft:candle"
+  ],
+  "covers": [
+   "minecraft:white_candle",
+   "minecraft:orange_candle",
+   "minecraft:magenta_candle",
+   "minecraft:light_blue_candle",
+   "minecraft:yellow_candle",
+   "minecraft:lime_candle",
+   "minecraft:pink_candle",
+   "minecraft:gray_candle",
+   "minecraft:light_gray_candle",
+   "minecraft:cyan_candle",
+   "minecraft:purple_candle",
+   "minecraft:blue_candle",
+   "minecraft:brown_candle",
+   "minecraft:green_candle",
+   "minecraft:red_candle",
+   "minecraft:black_candle"
   ],
   "sentenceKo": "초를 놓아요.",
   "descKo": "작은 불빛이에요.",
@@ -4361,7 +4392,7 @@
   "items": [],
   "icon": "minecraft:iron_boots",
   "sentenceKo": "발에 장화를 신어요.",
-  "descKo": "걸을 때 써요.",
+  "descKo": "몸의 맨 아래예요. 신발을 신어요.",
   "aliases": [
    "발"
   ]
@@ -4452,7 +4483,7 @@
   "items": [],
   "icon": "minecraft:name_tag",
   "sentenceKo": "이름표에 이름을 써요.",
-  "descKo": "나를 부르는 말이에요.",
+  "descKo": "사람을 부르는 말이에요.",
   "aliases": [
    "이름"
   ]
@@ -4465,7 +4496,7 @@
   "items": [],
   "icon": "minecraft:written_book",
   "sentenceKo": "주민의 이야기를 들어요.",
-  "descKo": "재미있는 글이에요.",
+  "descKo": "있었던 일이나 지어낸 일을 말이나 글로 전해요.",
   "aliases": [
    "이야기"
   ]
@@ -4491,7 +4522,7 @@
   "items": [],
   "icon": "minecraft:jukebox",
   "sentenceKo": "노래를 불러요.",
-  "descKo": "목소리로 소리를 내요.",
+  "descKo": "목소리로 부르는 음악이에요.",
   "aliases": [
    "노래"
   ]
@@ -4551,7 +4582,7 @@
    "minecraft:cauldron"
   ],
   "sentenceKo": "냄비에 물을 넣어요.",
-  "descKo": "음식을 익혀요.",
+  "descKo": "음식을 끓일 때 쓰는 그릇이에요.",
   "aliases": [
    "냄비"
   ]
@@ -4636,7 +4667,7 @@
   "items": [],
   "icon": "minecraft:bone",
   "sentenceKo": "강아지에게 뼈를 줘요.",
-  "descKo": "사람과 같이 사는 작은 동물이에요.",
+  "descKo": "어린 개예요.",
   "aliases": [
    "강아지"
   ]
@@ -4649,8 +4680,7 @@
   "items": [],
   "icon": "minecraft:rose_bush",
   "covers": [
-   "minecraft:rose_bush",
-   "minecraft:poppy"
+   "minecraft:rose_bush"
   ],
   "sentenceKo": "장미를 꺾어요.",
   "descKo": "빨간 꽃이에요. 가시가 있어요.",
@@ -4877,7 +4907,7 @@
   "tier": 1,
   "items": [],
   "icon": "minecraft:clock",
-  "sentenceKo": "오늘은 낮이에요.",
+  "sentenceKo": "오늘은 비가 와요.",
   "descKo": "지금 이 날이에요.",
   "aliases": [
    "오늘"
@@ -4943,7 +4973,7 @@
   "items": [],
   "icon": "minecraft:clock",
   "sentenceKo": "하루가 지나요.",
-  "descKo": "해가 뜨고 지는 때까지예요.",
+  "descKo": "낮과 밤을 합한 시간이에요.",
   "aliases": [
    "하루"
   ]
@@ -5021,7 +5051,7 @@
   "items": [],
   "icon": "minecraft:oak_door",
   "sentenceKo": "문 뒤에 서요.",
-  "descKo": "앞이 아닌 쪽이에요.",
+  "descKo": "앞의 반대쪽이에요.",
   "aliases": [
    "뒤"
   ]
@@ -5164,7 +5194,7 @@
   "items": [],
   "icon": "minecraft:cobblestone",
   "sentenceKo": "돌 하나를 놓아요.",
-  "descKo": "둘보다 적어요.",
+  "descKo": "둘보다 하나 적어요.",
   "aliases": [
    "하나",
    "한"
@@ -5178,7 +5208,7 @@
   "items": [],
   "icon": "minecraft:cobblestone",
   "sentenceKo": "돌 두 개를 놓아요.",
-  "descKo": "하나와 하나예요.",
+  "descKo": "하나보다 하나 많아요.",
   "aliases": [
    "둘",
    "두"
@@ -5568,7 +5598,7 @@
   "items": [],
   "icon": "minecraft:emerald",
   "sentenceKo": "친구에게 빵을 줘요.",
-  "descKo": "내 것을 다른 사람에게 줘요.",
+  "descKo": "다른 사람이 내 물건을 가지게 해요.",
   "aliases": [
    "주다"
   ]
@@ -5633,7 +5663,7 @@
   "items": [],
   "icon": "minecraft:oak_door",
   "sentenceKo": "친구가 와요.",
-  "descKo": "내가 있는 곳으로 가까이 와요.",
+  "descKo": "내가 있는 곳으로 가까이 움직여요.",
   "aliases": [
    "오다"
   ]
@@ -5945,7 +5975,7 @@
   "items": [],
   "icon": "minecraft:leather_chestplate",
   "sentenceKo": "투구를 벗어요.",
-  "descKo": "입은 것을 빼요.",
+  "descKo": "입거나 쓴 것을 몸에서 떼어 내요.",
   "aliases": [
    "벗다"
   ]
@@ -6036,7 +6066,7 @@
   "items": [],
   "icon": "minecraft:saddle",
   "sentenceKo": "말이 달려요.",
-  "descKo": "아주 빨리 걸어요.",
+  "descKo": "아주 빨리 가요.",
   "aliases": [
    "달리다"
   ]

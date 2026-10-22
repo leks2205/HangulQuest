@@ -246,6 +246,7 @@ public final class EnvironmentSensor {
 		events.drainInto(obs);
 		boolean wantFarLook = previous != null && previous.farEntityLookWanted;
 		boolean wantMusic = previous != null && previous.musicScanWanted;
+		boolean wantFluid = previous != null && previous.fluidLookWanted;
 		previous = obs;
 
 		LocalPlayer player = mc.player;
@@ -300,6 +301,9 @@ public final class EnvironmentSensor {
 			setLookedEntity(obs, resolve(entityHit.getEntity()));
 		} else if (mc.crosshairPickEntity != null) {
 			setLookedEntity(obs, resolve(mc.crosshairPickEntity));
+		}
+		if (wantFluid) {
+			lookThroughFluid(obs, player, level);
 		}
 		if (obs.lookedEntity == null && wantFarLook && !obs.spectator) {
 			Entity far = farPick(player, level);
@@ -473,6 +477,24 @@ public final class EnvironmentSensor {
 	private static void setLookedEntity(Observation obs, Entity entity) {
 		obs.lookedEntity = entityId(entity);
 		obs.lookedEntityUuid = entity.getUUID().toString();
+	}
+
+	/**
+	 * The vanilla block pick passes through water and lava, so a pond is seen as its floor. While a step looks
+	 * at a fluid, a second ray that stops at fluid sources says what is really in front.
+	 */
+	private void lookThroughFluid(Observation obs, LocalPlayer player, ClientLevel level) {
+		Vec3 from = player.getEyePosition();
+		Vec3 to = from.add(player.getViewVector(1.0F).scale(player.blockInteractionRange()));
+		BlockHitResult hit = level.clip(new ClipContext(from, to, ClipContext.Block.OUTLINE,
+				ClipContext.Fluid.SOURCE_ONLY, player));
+		if (hit.getType() == HitResult.Type.BLOCK) {
+			BlockState state = level.getBlockState(hit.getBlockPos());
+			if (!state.getFluidState().isEmpty()) {
+				obs.lookedBlock = blockId(state);
+				obs.lookedBlockPos = hit.getBlockPos();
+			}
+		}
 	}
 
 	/**

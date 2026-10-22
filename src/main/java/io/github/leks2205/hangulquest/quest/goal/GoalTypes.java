@@ -45,7 +45,8 @@ public final class GoalTypes {
 			new WaitType(),
 			new BreedType(),
 			new MountType(),
-			new SwimType());
+			new SwimType(),
+			new TradeType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

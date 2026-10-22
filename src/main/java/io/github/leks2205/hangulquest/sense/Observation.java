@@ -89,6 +89,8 @@ public final class Observation {
 	public List<CraftFact> crafted = List.of();
 	public List<GiveFact> gave = List.of();
 	public List<ContainerPutFact> putIn = List.of();
+	/** Trades made on a merchant screen this tick. */
+	public List<TradeFact> traded = List.of();
 	/** Items the player moved out of an open container this tick. */
 	public List<ContainerTakeFact> takenOut = List.of();
 	/** Doors, trapdoors and fence gates the player opened this tick (the id of the block clicked). */
@@ -104,6 +106,8 @@ public final class Observation {
 	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
 	 */
 	public boolean musicScanWanted;
+	/** Set while a tracked step looks at water or lava, which the vanilla crosshair pick passes through. */
+	public boolean fluidLookWanted;
 	/** Position and facing of the entities counted in {@link #nearbyEntities} (items and orbs excluded). */
 	public List<EntityFact> nearbyEntityPositions = List.of();
 
@@ -141,6 +145,11 @@ public final class Observation {
 	public void addPutIn(ContainerPutFact fact) {
 		putIn = grow(putIn);
 		putIn.add(fact);
+	}
+
+	public void addTraded(TradeFact fact) {
+		traded = grow(traded);
+		traded.add(fact);
 	}
 
 	public void addTakenOut(ContainerTakeFact fact) {

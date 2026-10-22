@@ -517,7 +517,7 @@ class SpatialGoalsTest {
 					step.id().equals("finale"), namer));
 		}
 		assertEquals(List.of("조약돌 세 개로 기둥을 쌓아요.", "조약돌 기둥 위에 횃불을 놓아요.", "문 옆에 횃불을 놓아요.",
-				"조약돌로 울타리를 쌓아요.", "밤에 조약돌 울타리 안에 횃불을 놓아요."), spoken);
+				"조약돌로 담을 쌓아요.", "밤에 조약돌 담 안에 횃불을 놓아요."), spoken);
 		assertEquals(KoreanFixtures.ceremony(trail), trail.finaleKo(), "the finale line is the generated ceremony");
 		for (QuestStep step : trail.allSteps()) {
 			assertNull(SpatialRules.leak(step.clueEn()), step.id());

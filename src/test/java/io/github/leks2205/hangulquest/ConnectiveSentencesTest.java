@@ -124,7 +124,7 @@ class ConnectiveSentencesTest {
 		assertEquals("돌로 기둥을 쌓고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.PILLAR, STONE), 3));
 		assertEquals("돌로 피라미드를 쌓고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.PYRAMID, STONE), 3));
 		assertEquals("돌로 벽을 쌓고 그 옆에 횃불을 놓으세요.", say(onPattern(Relation.NEXT_TO, Pattern.WALL, STONE), 3));
-		assertEquals("돌로 울타리를 쌓고 그 안에 횃불을 놓으세요.", say(onPattern(Relation.INSIDE, Pattern.RING, STONE), 3));
+		assertEquals("돌로 담을 쌓고 그 안에 횃불을 놓으세요.", say(onPattern(Relation.INSIDE, Pattern.RING, STONE), 3));
 		assertEquals("돌로 십자 모양을 만들고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.CROSS, STONE), 3));
 		assertEquals("돌로 계단을 만들고 그 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.STAIRS, STONE), 3));
 	}
@@ -142,7 +142,7 @@ class ConnectiveSentencesTest {
 	@Test
 	void relationsAndShapesThatDoNotReadAsOneSentenceStayPlain() {
 		assertEquals("돌 기둥 아래에 횃불을 놓으세요.", say(onPattern(Relation.UNDER, Pattern.PILLAR, STONE), 3));
-		assertEquals("돌 울타리 밖에 횃불을 놓으세요.", say(onPattern(Relation.OUTSIDE, Pattern.RING, STONE), 3));
+		assertEquals("돌 담 밖에 횃불을 놓으세요.", say(onPattern(Relation.OUTSIDE, Pattern.RING, STONE), 3));
 		assertEquals("돌 피라미드 근처에 횃불을 놓으세요.", say(onPattern(Relation.NEAR, Pattern.PYRAMID, STONE), 3));
 		assertEquals("돌 세 개 위에 횃불을 놓으세요.", say(onPattern(Relation.ON_TOP_OF, Pattern.ROW, STONE), 3));
 	}

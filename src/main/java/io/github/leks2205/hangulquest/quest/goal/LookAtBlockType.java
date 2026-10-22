@@ -71,6 +71,12 @@ final class LookAtBlockType implements GoalType<Goal.LookAtBlock> {
 		return goal.dwellMs();
 	}
 
+	/** Water and lava are looked at through their own ray: the crosshair pick passes through them. */
+	@Override
+	public boolean needsFluidLook(Goal.LookAtBlock goal) {
+		return "minecraft:water".equals(goal.block()) || "minecraft:lava".equals(goal.block());
+	}
+
 	@Override
 	public Verb verb(Goal.LookAtBlock goal, VerbTable table) {
 		return Verb.WATCH;

@@ -38,32 +38,60 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 	 * never names the cod.
 	 */
 	public boolean wordNames(ObjectKind kind, String id) {
-		return wordNames(word, kind, id);
+		return wordNames(word, kind, id, namer);
 	}
 
 	public static boolean wordNames(Word word, ObjectKind kind, String id) {
+		return wordNames(word, kind, id, SentenceBuilder.Namer.NONE);
+	}
+
+	/**
+	 * Same, with the namer that knows the items some other hand-made word owns: 눈 names the snow layer and
+	 * covers the snow block, but the block has its own word (눈 블록) and is never shortened to 눈.
+	 */
+	public static boolean wordNames(Word word, ObjectKind kind, String id, SentenceBuilder.Namer namer) {
 		if (word == null || id == null || word.ko == null || word.ko.isBlank()) {
 			return false;
 		}
 		return switch (kind) {
-			case BLOCK, ITEM -> namesBlock(word, id);
+			case BLOCK, ITEM -> namesBlock(word, id, namer);
 			case ENTITY -> id.equals(word.entityId);
+			case BIOME -> id.equals(word.biomeId) || word.covers.contains(id);
 			default -> false;
 		};
 	}
 
-	private static boolean namesBlock(Word word, String spec) {
+	private static boolean namesBlock(Word word, String spec, SentenceBuilder.Namer namer) {
 		String id = BlockSpec.representative(spec);
 		if (id == null) {
 			return false;
 		}
+		String owner = namer.owner(id);
+		boolean ownedByOther = owner != null && !owner.equals(word.conceptId);
 		for (String referent : word.referents) {
-			if (referent.equals(id) || Matching.matchesBlock(id, referent)) {
+			if (referent.equals(id) || !ownedByOther && sameKind(id, referent)) {
 				return true;
+			}
+		}
+		// A word that stands for a whole kind names every member (묘목: any sapling), unless it only describes
+		// (빨간색) or the member has a word of its own.
+		if (!"DESCRIPTOR".equals(word.grammar)) {
+			for (String cover : word.covers) {
+				if (cover.equals(id) || !ownedByOther && sameKind(id, cover)) {
+					return true;
+				}
 			}
 		}
 		Set<String> families = word.conceptId == null ? null : FAMILY_WORDS.get(word.conceptId);
 		return families != null && families.contains(Matching.blockFamily(id));
+	}
+
+	/**
+	 * Two ids of one family are one kind of thing (any door, any bed), except flowers: a word for the
+	 * sunflower names no dandelion. A word for all flowers lists them as covers instead.
+	 */
+	private static boolean sameKind(String id, String other) {
+		return !"flower".equals(Matching.blockFamily(id)) && Matching.matchesBlock(id, other);
 	}
 
 	/**
@@ -79,12 +107,16 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 	 * that says nothing about any id (a bare test word, an abstract concept) is taken to cover it.
 	 */
 	public static boolean wordCovers(Word word, ObjectKind kind, String id) {
+		return wordCovers(word, kind, id, SentenceBuilder.Namer.NONE);
+	}
+
+	public static boolean wordCovers(Word word, ObjectKind kind, String id, SentenceBuilder.Namer namer) {
 		if (word == null) {
 			return false;
 		}
 		boolean identity = !word.referents.isEmpty() || word.iconItem != null || word.entityId != null
-				|| word.biomeId != null;
-		return !identity || wordNames(word, kind, id) || wordPictures(word, id);
+				|| word.biomeId != null || !word.covers.isEmpty();
+		return !identity || wordNames(word, kind, id, namer) || wordPictures(word, id);
 	}
 
 	/** The Korean name of an id: the taught word when it names it, else the registry name, else "". */
@@ -127,17 +159,22 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 
 			@Override
 			public String entity(String id) {
-				return wordNames(word, ObjectKind.ENTITY, id) ? word.ko : base.entity(id);
+				return wordNames(word, ObjectKind.ENTITY, id, base) ? word.ko : base.entity(id);
 			}
 
 			@Override
 			public String block(String id) {
-				return wordNames(word, ObjectKind.BLOCK, id) ? word.ko : base.block(id);
+				return wordNames(word, ObjectKind.BLOCK, id, base) ? word.ko : base.block(id);
 			}
 
 			@Override
 			public String item(String id) {
-				return wordNames(word, ObjectKind.ITEM, id) ? word.ko : base.item(id);
+				return wordNames(word, ObjectKind.ITEM, id, base) ? word.ko : base.item(id);
+			}
+
+			@Override
+			public String owner(String id) {
+				return base.owner(id);
 			}
 
 			@Override

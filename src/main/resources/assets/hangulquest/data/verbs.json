@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "comment": "Which Korean verb fits which object. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
+ "comment": "Which Korean verb fits which object. 밝히다 (LIGHT) is not chosen for any block: a torch is placed (놓다), a candle is switched on (켜다), a campfire or a fire is kindled (피우다). Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
  "families": {
   "ores": ["*_ore", "ancient_debris"],
   "natural_stone": ["stone", "cobblestone", "deepslate", "cobbled_deepslate", "granite", "diorite", "andesite", "tuff", "calcite", "basalt", "smooth_basalt", "blackstone", "netherrack", "end_stone", "obsidian", "crying_obsidian", "sandstone", "red_sandstone", "sulfur", "cinnabar", "magma_block", "prismarine", "dripstone_block", "pointed_dripstone"],
@@ -19,7 +19,8 @@
   "found_only": ["chainmail_*"],
   "cave_biomes": ["dripstone_caves", "lush_caves", "deep_dark"],
   "torches": ["torch", "soul_torch", "redstone_torch"],
-  "campfires": ["campfire", "soul_campfire"],
+  "campfires": ["campfire", "soul_campfire", "fire"],
+  "candles": ["candle", "*_candle"],
   "cobwebs": ["cobweb"],
   "piles": ["snow", "scaffolding"],
   "stackable_blocks": ["*_bricks", "bricks", "*_planks", "*_concrete", "*_terracotta", "*_wool", "cobblestone", "stone", "deepslate", "*_block", "hay_block"],
@@ -37,6 +38,8 @@
   "pets": ["cat", "wolf"],
   "touchables": ["iron_golem", "snow_golem", "copper_golem"],
   "item_takers": ["allay"],
+  "kilned": ["stone", "smooth_stone", "deepslate", "glass", "smooth_sandstone", "smooth_red_sandstone", "smooth_quartz", "smooth_basalt"],
+  "melted": ["iron_ingot", "gold_ingot", "copper_ingot", "netherite_scrap"],
   "bakeables": ["cooked_*", "baked_potato", "dried_kelp", "charcoal", "brick", "nether_brick", "terracotta", "*_glazed_terracotta"]
  },
  "rules": {
@@ -56,10 +59,11 @@
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
+   {"family": "candles", "verb": "SWITCH_ON"},
    {"family": "standing", "verb": "STAND"},
    {"family": "attachables", "verb": "HANG_DOOR"},
-   {"family": "torches", "verb": "LIGHT"},
    {"family": "campfires", "verb": "KINDLE"},
+   {"family": "torches", "verb": "PLACE"},
    {"family": "cobwebs", "verb": "WEAVE"},
    {"family": "piles", "verb": "STACK"},
    {"family": "stackable_blocks", "minCount": 2, "verb": "STACK"},
@@ -99,6 +103,8 @@
   "REACH_BIOME": [{"family": "cave_biomes", "verb": "ENTER"}, {"verb": "GO"}],
   "REACH_DIMENSION": [{"verb": "GO"}],
   "PLACE_REL": [
+   {"family": "candles", "verb": "SWITCH_ON"},
+   {"family": "campfires", "verb": "KINDLE"},
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
@@ -106,6 +112,8 @@
    {"verb": "PLACE"}
   ],
   "PLACE_ON_PATTERN": [
+   {"family": "candles", "verb": "SWITCH_ON"},
+   {"family": "campfires", "verb": "KINDLE"},
    {"family": "plantables", "verb": "PLANT"},
    {"family": "carpets_and_rails", "verb": "SPREAD"},
    {"family": "hangables", "verb": "HANG"},
@@ -115,6 +123,8 @@
   "BUILD_PATTERN": [{"verb": "STACK"}],
   "SMELT": [
    {"family": "bakeables", "verb": "BAKE"},
+   {"family": "kilned", "verb": "BAKE"},
+   {"family": "melted", "verb": "MELT"},
    {"verb": "CRAFT"}
   ]
  }

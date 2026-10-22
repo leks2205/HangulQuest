@@ -194,6 +194,9 @@ public final class GoalEvaluator {
 		if (type.needsFarEntityLook()) {
 			obs.farEntityLookWanted = true;
 		}
+		if (type.needsFluidLook(goal)) {
+			obs.fluidLookWanted = true;
+		}
 		if (type.needsMusicScan(goal)) {
 			obs.musicScanWanted = true;
 		}

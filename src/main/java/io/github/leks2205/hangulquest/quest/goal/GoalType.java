@@ -75,6 +75,14 @@ public interface GoalType<G extends Goal> {
 		return false;
 	}
 
+	/**
+	 * Whether the sensor must look through the crosshair for water or lava, which the vanilla pick passes
+	 * through (so looking at a pond picks the sand under it).
+	 */
+	default boolean needsFluidLook(G goal) {
+		return false;
+	}
+
 	/** Whether the sensor must scan the surroundings for a playing jukebox while this goal is tracked. */
 	default boolean needsMusicScan(G goal) {
 		return false;
@@ -212,13 +220,14 @@ public interface GoalType<G extends Goal> {
 			case BLOCK, ITEM -> {
 				String plain = io.github.leks2205.hangulquest.quest.spatial.BlockSpec.representative(id);
 				// the word names its items and covers the others (any sapling for 묘목)
-				boolean referent = Stream.concat(concept.items == null ? Stream.empty() : concept.items.stream(),
-								concept.covers == null ? Stream.empty() : concept.covers.stream())
+				boolean referent = Stream.of(concept.items, concept.covers, concept.accepts)
+						.flatMap(list -> list == null ? Stream.<String>empty() : list.stream())
 						.anyMatch(item -> item.equals(id) || plain != null && Matching.matchesBlock(plain, item));
 				yield referent || id.equals(concept.icon);
 			}
 			case ENTITY -> id.equals(concept.entity);
-			case BIOME -> id == null || id.startsWith("#") || id.equals(concept.biome);
+			case BIOME -> id == null || id.startsWith("#") || id.equals(concept.biome)
+					|| concept.biome != null && concept.covers != null && concept.covers.contains(id);
 			default -> true;
 		};
 	}

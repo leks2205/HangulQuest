@@ -276,6 +276,10 @@ final class ContentFacts {
 			case Goal.Hear g -> add(into, "object", g.source());
 			case Goal.LieDown g -> add(into, "object", g.block());
 			case Goal.Breed g -> add(into, "object", g.entity());
+			case Goal.Trade g -> {
+				add(into, "object", g.item());
+				add(into, "recipient", g.entity());
+			}
 			case Goal.Mount g -> add(into, "object", g.entity());
 			case Goal.HoldWhile g -> {
 				add(into, "tool", g.item());

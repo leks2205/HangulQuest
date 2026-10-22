@@ -185,6 +185,8 @@ final class ScreenSensor {
 			fillPlayerTally(player, scratchPlayer, station == Station.MERCHANT ? menu : null);
 			for (ResultTakeTracker.Taken taken : takes.poll(scratchPlayer, obs.now, closing)) {
 				if (taken.station() == Station.MERCHANT) {
+					obs.addTraded(new TradeFact(merchantType, taken.item(), taken.count(), taken.paidItem(),
+							taken.paidCount()));
 					if (taken.paidItem() != null && taken.paidCount() > 0) {
 						obs.addGave(new GiveFact(taken.paidItem(), taken.paidCount(), merchantType, merchantUuid,
 								GiveFact.Method.TRADE));

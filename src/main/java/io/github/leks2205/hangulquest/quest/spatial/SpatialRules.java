@@ -21,11 +21,12 @@ public final class SpatialRules {
 	private static final java.util.regex.Pattern EN_RELATION = java.util.regex.Pattern.compile(
 			"\\b(on top|atop|on|above|over|under|underneath|beneath|below|next to|beside|besides|adjacent|"
 					+ "in front|behind|inside|outside|between|near|nearby|around|within)\\b",
-			java.util.regex.Pattern.CASE_INSENSITIVE);
+			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
 	private static final java.util.regex.Pattern DE_RELATION = java.util.regex.Pattern.compile(
 			"\\b(oben|auf|über|unter|unterhalb|darunter|darüber|neben|daneben|vor|davor|hinter|dahinter|"
 					+ "innerhalb|innen|drinnen|außerhalb|draußen|zwischen|dazwischen|nahe|nähe|bei)\\b",
-			java.util.regex.Pattern.CASE_INSENSITIVE);
+			// \\b is ASCII-only without UNICODE_CHARACTER_CLASS: "tagsüber" would hold "über"
+			java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CHARACTER_CLASS);
 
 	/** Materials of the Nether and the End; they are out of reach for a beginner. */
 	private static final String[] FAR_AWAY = {"nether", "soul_", "basalt", "blackstone", "crimson", "warped",

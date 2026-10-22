@@ -68,6 +68,34 @@ public final class Conjugator {
 		return Lexicon.SHARED.isAdjective(dictionary);
 	}
 
+	/**
+	 * Whether the text holds a conjugated form of the verb or adjective (reverse analysis for a clue that
+	 * teaches a verb: 올라가요, 올라갔어요 and 올라가세요 hold 올라가다). A word of the text is the form itself, or
+	 * starts with a form of three syllables or more, so 사람 is no 사다 and 올라가요. keeps its full stop.
+	 */
+	public static boolean contains(String text, String dictionary) {
+		if (text == null || dictionary == null || !dictionary.endsWith("다")) {
+			return false;
+		}
+		if (text.contains(dictionary)) {
+			return true;
+		}
+		java.util.Set<String> forms;
+		try {
+			forms = of(dictionary).forms();
+		} catch (RuntimeException unknown) {
+			return false;
+		}
+		for (String token : text.split("[\\s.,!?]+")) {
+			for (String form : forms) {
+				if (token.equals(form) || form.length() >= 3 && token.startsWith(form)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public static Word of(String dictionary) {
 		return new Word(dictionary, classify(dictionary), isAdjective(dictionary));
 	}
@@ -323,6 +351,19 @@ public final class Conjugator {
 		public String pastStem() {
 			String eo = eo();
 			return initOf(eo) + withJong(lastOf(eo), 'ㅆ');
+		}
+
+		/** The inflected forms a clue can hold for this word: 가요, 갔어요, 가세요, 가고, 갈, 가면, 가서, 가지 마세요 ... */
+		public java.util.Set<String> forms() {
+			java.util.Set<String> forms = new java.util.LinkedHashSet<>();
+			for (String form : new String[] {stem(), eo(), eoyo(), past(), seyo(), go(), future(), myeon(), aseo(),
+					eun(), neun(), ge(), goseo(), eureo(), jiman(), nikka(), ado(), neunde(), eoyaHaeyo(), giJeone(),
+					jiAnko(), jimaseyo()}) {
+				if (form != null && !form.isBlank()) {
+					forms.add(form.strip());
+				}
+			}
+			return forms;
 		}
 
 		// ----------------------------------------------------------------------- internals
