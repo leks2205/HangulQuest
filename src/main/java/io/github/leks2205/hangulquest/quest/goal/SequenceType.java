@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.data.Concept;
+import io.github.leks2205.hangulquest.data.Word;
+import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
@@ -325,6 +327,7 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 	 */
 	private static String joined(Goal.Sequence goal, SentenceContext c, boolean past) {
 		List<Goal> parts = goal.parts();
+		c = withoutRenamingPicture(parts, c);
 		Clauses.Link link = link(goal);
 		int finite = finiteIndex(goal);
 		StringBuilder text = new StringBuilder();
@@ -339,6 +342,9 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 			text.append(clause).append(' ');
 		}
 		Goal main = parts.get(finite);
+		if (parts.size() == 2) {
+			dropRepeatedDwell(parts.get(1 - finite), main, text);
+		}
 		String last = past ? Clauses.ceremony(main, c) : Clauses.sentence(main, c, c.level());
 		if (parts.size() == 2) {
 			last = withoutRepeatedObject(parts.get(1 - finite), main, text.toString(), last);
@@ -362,9 +368,56 @@ final class SequenceType implements GoalType<Goal.Sequence> {
 		}
 		String clauseRest = clause.substring(objectPhrase.length()).strip();
 		String lastRest = last.substring(objectPhrase.length());
-		// what is left of each sentence is the verb alone: a count or a second noun stays in the sentence
-		return clauseRest.isEmpty() || clauseRest.contains(" ") || lastRest.isBlank() || lastRest.contains(" ") ? last
+		// what is left of each sentence is the verb alone (with its connective: 만든 후에, 쓰기 전에, 놓고 나서); a
+		// count or a second noun stays in the sentence
+		return clauseRest.isEmpty() || !verbAlone(clauseRest) || lastRest.isBlank() || lastRest.contains(" ") ? last
 				: lastRest;
+	}
+
+	/** One verb, with the 전에 / 후에 / 나서 of its connective. */
+	private static boolean verbAlone(String rest) {
+		String[] words = rest.split(" ");
+		return words.length == 1 || words.length == 2 && List.of("전에", "후에", "나서").contains(words[1]);
+	}
+
+	/**
+	 * Two looks of the same length say the seconds once: "금 블록을 바라보기 전에 피글린을 일 초 동안 바라보세요", not
+	 * "금 블록을 일 초 동안 바라보기 전에 피글린을 일 초 동안 …".
+	 */
+	private static void dropRepeatedDwell(Goal clausePart, Goal main, StringBuilder clause) {
+		long dwell = dwellOf(main);
+		if (dwell > 0 && dwell == dwellOf(clausePart)) {
+			String phrase = " " + SentenceBuilder.secondsPhrase(dwell);
+			int at = clause.indexOf(phrase);
+			if (at >= 0) {
+				clause.delete(at, at + phrase.length());
+			}
+		}
+	}
+
+	private static long dwellOf(Goal part) {
+		return switch (part) {
+			case Goal.LookAtBlock look -> look.dwellMs();
+			case Goal.LookAtEntity look -> look.dwellMs();
+			default -> 0L;
+		};
+	}
+
+	/**
+	 * A word drawn with an item (the pearl on the enderman) names the item only in a step of its own. Where another
+	 * part of the sequence is the very thing the word names, the picture renames nothing: the pearl keeps its name.
+	 */
+	private static SentenceContext withoutRenamingPicture(List<Goal> parts, SentenceContext c) {
+		Word word = c.word();
+		if (word == null || word.iconItem == null) {
+			return c;
+		}
+		boolean named = parts.stream().anyMatch(part -> {
+			GoalType<Goal> type = GoalTypes.of(part);
+			return type.object(part) != null && SentenceContext.wordNames(word, type.objectKind(part), type.object(part),
+					c.namer());
+		});
+		return named ? c.withWord(SentenceBuilder.withoutPicture(word)) : c;
 	}
 
 	/** The words up to the first object marker 을/를 ("가죽 장화를 "), or null when the text does not open with one. */

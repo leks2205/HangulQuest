@@ -56,9 +56,7 @@ class ObtainabilityTest {
 				if (target == null || target.startsWith("#")) {
 					continue;
 				}
-				if (step.goal() instanceof Goal.ReachBiome || step.goal() instanceof Goal.ReachDimension
-						|| step.goal() instanceof Goal.LookAtEntity || step.goal() instanceof Goal.DefeatEntity
-						|| step.goal() instanceof Goal.InteractEntity) {
+				if (isEntityOrPlace(step.goal())) {
 					continue;
 				}
 				if (unobtainable(path(target))) {
@@ -69,6 +67,48 @@ class ObtainabilityTest {
 		}
 		assertTrue(bad.isEmpty(), "goals that point at creative-only or unobtainable things:\n"
 				+ String.join("\n", bad));
+	}
+
+	/** Whether the goal points at an entity, a biome or a dimension: an AVOID is what its action is. */
+	static boolean isEntityOrPlace(Goal goal) {
+		return switch (goal) {
+			case Goal.Avoid avoid -> avoid.action() != null && isEntityOrPlace(avoid.action());
+			case Goal.ReachBiome g -> true;
+			case Goal.ReachDimension g -> true;
+			case Goal.LookAtEntity g -> true;
+			case Goal.DefeatEntity g -> true;
+			case Goal.InteractEntity g -> true;
+			case Goal.Shoot g -> g.entity() != null;
+			default -> false;
+		};
+	}
+
+	/** Whether the path is a name the game knows for what this goal points at: a creature for an entity goal, else an item or block. */
+	static boolean known(Goal goal, String p, java.util.Map<String, ?> names) {
+		return switch (goal) {
+			case Goal.Avoid avoid -> avoid.action() == null || known(avoid.action(), p, names);
+			case Goal.ReachBiome g -> names.containsKey("biome.minecraft." + p);
+			case Goal.LookAtEntity g -> names.containsKey("entity.minecraft." + p);
+			case Goal.DefeatEntity g -> names.containsKey("entity.minecraft." + p);
+			case Goal.InteractEntity g -> names.containsKey("entity.minecraft." + p);
+			case Goal.Breed g -> names.containsKey("entity.minecraft." + p);
+			case Goal.Mount g -> names.containsKey("entity.minecraft." + p);
+			case Goal.Shoot g -> names.containsKey((g.entity() != null ? "entity.minecraft." : "block.minecraft.") + p);
+			default -> names.containsKey("block.minecraft." + p) || names.containsKey("item.minecraft." + p);
+		};
+	}
+
+	@Test
+	void anAvoidedEntityActionIsLookedUpAsAnEntity() {
+		var names = KoreanFixtures.koNames();
+		for (Goal action : List.of(new Goal.DefeatEntity("minecraft:villager", 1),
+				new Goal.LookAtEntity("minecraft:villager", 1000L), new Goal.InteractEntity("minecraft:villager"))) {
+			Goal avoid = new Goal.Avoid(action, 60, null);
+			assertTrue(known(avoid, "villager", names), avoid.toString());
+			assertFalse(known(avoid, "no_such_mob", names), avoid.toString());
+			assertTrue(isEntityOrPlace(avoid), avoid.toString());
+		}
+		assertFalse(isEntityOrPlace(new Goal.Avoid(new Goal.BreakBlock("minecraft:hay_block", 1, null), 60, null)));
 	}
 
 	@Test
@@ -85,16 +125,7 @@ class ObtainabilityTest {
 				if (NO_VANILLA_NAME_IN_TABLE.contains(p)) {
 					continue;
 				}
-				boolean known = switch (step.goal()) {
-					case Goal.ReachBiome g -> names.containsKey("biome.minecraft." + p);
-					case Goal.LookAtEntity g -> names.containsKey("entity.minecraft." + p);
-					case Goal.DefeatEntity g -> names.containsKey("entity.minecraft." + p);
-					case Goal.InteractEntity g -> names.containsKey("entity.minecraft." + p);
-					case Goal.Breed g -> names.containsKey("entity.minecraft." + p);
-					case Goal.Mount g -> names.containsKey("entity.minecraft." + p);
-					default -> names.containsKey("block.minecraft." + p) || names.containsKey("item.minecraft." + p);
-				};
-				if (!known) {
+				if (!known(step.goal(), p, names)) {
 					bad.add(trail.id() + "/" + step.id() + ": " + target);
 				}
 			}

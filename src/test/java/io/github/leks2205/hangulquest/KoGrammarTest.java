@@ -68,14 +68,26 @@ class KoGrammarTest {
 	}
 
 	@Test
-	void nativeNumeralsUpToTwenty() {
+	void nativeNumeralsUpToNinetyNine() {
 		String[] expected = {"한", "두", "세", "네", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열한", "열두",
 				"열세", "열네", "열다섯", "열여섯", "열일곱", "열여덟", "열아홉", "스무"};
 		for (int n = 1; n <= 20; n++) {
 			assertEquals(expected[n - 1], KoGrammar.nativeNumeral(n), "n=" + n);
 		}
 		assertThrows(IllegalArgumentException.class, () -> KoGrammar.nativeNumeral(0));
-		assertThrows(IllegalArgumentException.class, () -> KoGrammar.nativeNumeral(21));
+		assertThrows(IllegalArgumentException.class, () -> KoGrammar.nativeNumeral(100));
+		// beyond twenty: the tens never change, 스무 is only 20, and 1 to 4 shorten before a counter
+		String[] tens = {"스물", "서른", "마흔", "쉰", "예순", "일흔", "여든", "아흔"};
+		for (int ten = 0; ten < tens.length; ten++) {
+			for (int one = 0; one <= 9; one++) {
+				int n = (ten + 2) * 10 + one;
+				if (n == 20) {
+					continue;
+				}
+				String expectedOne = one == 0 ? "" : expected[one - 1].equals("열") ? "" : expected[one - 1];
+				assertEquals(tens[ten] + expectedOne, KoGrammar.nativeNumeral(n), "n=" + n);
+			}
+		}
 	}
 
 	@Test
@@ -83,8 +95,11 @@ class KoGrammarTest {
 		assertEquals("한 개", KoGrammar.counter(1, "개"));
 		assertEquals("세 마리", KoGrammar.counter(3, "마리"));
 		assertEquals("스무 개", KoGrammar.counter(20, "개"));
-		assertEquals("21개", KoGrammar.counter(21, "개"));
-		assertEquals("64개", KoGrammar.counter(64, "개"));
+		assertEquals("스물한 개", KoGrammar.counter(21, "개"));
+		assertEquals("스물네 장", KoGrammar.counter(24, "장"));
+		assertEquals("예순네 개", KoGrammar.counter(64, "개"));
+		assertEquals("아흔아홉 마리", KoGrammar.counter(99, "마리"));
+		assertEquals("100개", KoGrammar.counter(100, "개"));
 		// Sino-Korean counters stay with digits.
 		assertEquals("3블록", KoGrammar.counter(3, "블록"));
 		assertEquals("한 개", KoGrammar.counter(0, "개"));

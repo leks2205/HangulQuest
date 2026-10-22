@@ -30,6 +30,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.Item;
@@ -94,6 +95,7 @@ public final class EnvironmentSensor {
 	private final Minecraft mc = Minecraft.getInstance();
 	private final EventBuffer events = new EventBuffer();
 	private final DeathTracker deaths = new DeathTracker();
+	private final ProjectileTracker shotTracker = new ProjectileTracker();
 	private final DeathTracker.World deathWorld = this::findForDeath;
 
 	/** A young item entity near the player, held until every creature near them has been scanned. */
@@ -156,6 +158,7 @@ public final class EnvironmentSensor {
 	public void reset() {
 		events.clear();
 		deaths.clear();
+		shotTracker.clear();
 		consumption.clear();
 		lastInventory = new HashMap<>();
 		scratchInventory.clear();
@@ -267,6 +270,7 @@ public final class EnvironmentSensor {
 		events.drainInto(obs);
 		boolean wantFarLook = previous != null && previous.farEntityLookWanted;
 		boolean wantMusic = previous != null && previous.musicScanWanted;
+		boolean wantShots = previous != null && previous.shotScanWanted || !shotTracker.idle();
 		boolean wantFluid = previous != null && previous.fluidLookWanted;
 		Map<String, Integer> wantNear = previous == null ? Map.of() : previous.nearBlocksWanted;
 		previous = obs;
@@ -300,6 +304,7 @@ public final class EnvironmentSensor {
 		readHands(obs, player);
 		readArmor(obs, player);
 		readSky(obs, player, level);
+		obs.yaw = player.getYRot();
 		Entity vehicle = player.getVehicle();
 		obs.vehicle = vehicle == null ? null : entityId(resolve(vehicle));
 		if (!toggles.idle()) {
@@ -343,6 +348,9 @@ public final class EnvironmentSensor {
 		scanEntities(obs, player, level, night);
 		if (deaths.rangedActive(obs.now)) {
 			followProjectiles(player, level, obs.now);
+		}
+		if (wantShots) {
+			followShots(obs, player, level);
 		}
 		updateInventory(obs, player, night);
 		boolean asleep = player.isSleeping() || player.getSleepTimer() > 0
@@ -709,6 +717,58 @@ public final class EnvironmentSensor {
 				deaths.attacked(resolve(victim).getId(), now);
 			}
 		}
+	}
+
+	/**
+	 * Hands the projectiles of the player and the creatures near them to the {@link ProjectileTracker}, which says
+	 * what each one struck once it has landed or vanished. Only runs while a step shoots or throws.
+	 */
+	private void followShots(Observation obs, LocalPlayer player, ClientLevel level) {
+		AABB area = player.getBoundingBox().inflate(PROJECTILE_SCAN);
+		List<ProjectileTracker.Flying> flying = new ArrayList<>();
+		for (Entity shot : level.getEntities(player, area,
+				candidate -> candidate instanceof Projectile projectile && projectile.getOwner() == player)) {
+			Vec3 motion = shot.getDeltaMovement();
+			flying.add(new ProjectileTracker.Flying(shot.getId(), entityId(shot), shot.getX(), shot.getY(), shot.getZ(),
+					motion.x, motion.y, motion.z));
+		}
+		List<ProjectileTracker.Body> bodies = new ArrayList<>();
+		if (!flying.isEmpty() || !shotTracker.idle()) {
+			for (Entity near : level.getEntities(player, area,
+					candidate -> candidate instanceof LivingEntity && candidate != player && !(candidate instanceof EnderDragonPart))) {
+				LivingEntity living = (LivingEntity) near;
+				bodies.add(new ProjectileTracker.Body(living.getId(), living.getUUID().toString(), entityId(living),
+						living.getX(), living.getY(), living.getZ(), living.getBbWidth() / 2.0, living.hurtTime > 0));
+			}
+		}
+		String held = rangedInHands(player);
+		for (ShotFact fact : shotTracker.update(obs.now, flying, bodies, held,
+				(x, y, z) -> poweredTarget(level, x, y, z))) {
+			obs.addShot(fact);
+		}
+	}
+
+	/** The bow or crossbow in a hand, which the next arrow was shot from; null when neither is held. */
+	private static String rangedInHands(LocalPlayer player) {
+		for (InteractionHand hand : InteractionHand.values()) {
+			String id = itemId(player.getItemInHand(hand));
+			if (id.equals("minecraft:bow") || id.equals("minecraft:crossbow")) {
+				return id;
+			}
+		}
+		return null;
+	}
+
+	/** A target block within a block of the point that shows a signal (it was hit just now), else null. */
+	private static String poweredTarget(ClientLevel level, double x, double y, double z) {
+		BlockPos center = BlockPos.containing(x, y, z);
+		for (BlockPos pos : BlockPos.betweenClosed(center.offset(-1, -1, -1), center.offset(1, 1, 1))) {
+			BlockState state = level.getBlockState(pos);
+			if (state.is(Blocks.TARGET) && state.getValue(BlockStateProperties.POWER) > 0) {
+				return "minecraft:target";
+			}
+		}
+		return null;
 	}
 
 	private void updateInventory(Observation obs, LocalPlayer player, boolean night) {

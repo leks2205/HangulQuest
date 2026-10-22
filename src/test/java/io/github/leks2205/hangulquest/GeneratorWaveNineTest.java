@@ -162,8 +162,8 @@ class GeneratorWaveNineTest {
 	@Test
 	void i5_aFallThatCostsNothingNamesTheHeightFromLevelTwo() {
 		assertEquals("높은 곳에서 안 다치고 뛰어내려요.", clue(FALL_UNHURT, 1));
-		assertEquals("10블록 높이에서 안 다치고 뛰어내리세요.", clue(FALL_UNHURT, 2));
-		assertEquals("10블록 높이에서 다치지 않고 뛰어내리세요.", clue(FALL_UNHURT, 3));
+		assertEquals("십 블록 높이에서 안 다치고 뛰어내리세요.", clue(FALL_UNHURT, 2));
+		assertEquals("십 블록 높이에서 다치지 않고 뛰어내리세요.", clue(FALL_UNHURT, 3));
 		assertEquals("높은 곳에서 안 다치고 뛰어내려요.", SentenceBuilder.hint(FALL_UNHURT, null, List.of(), REGISTRY));
 		assertEquals("높은 곳에서 안 다치고 뛰어내렸어요.", SentenceBuilder.ceremony(FALL_UNHURT, null, List.of(), REGISTRY));
 	}

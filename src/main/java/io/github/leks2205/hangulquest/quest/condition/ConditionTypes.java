@@ -24,7 +24,9 @@ public final class ConditionTypes {
 			new HoldingType(),
 			new SkyType(),
 			new InWaterType(),
-			new PlayerRelType());
+			new PlayerRelType(),
+			// Wave 10: the way the player looks.
+			new FacingType());
 
 	private static final Map<String, ConditionType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, ConditionType<?>> BY_CLASS = new HashMap<>();

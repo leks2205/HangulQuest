@@ -65,7 +65,14 @@ public final class TextClean {
 		return false;
 	}
 
+	/**
+	 * The one proper noun Korean Minecraft writes in Latin letters: names.json has no Hangul entry for the block,
+	 * and the mod spells it the way the game does. It is the only exception to the Hangul-only rule.
+	 */
+	private static final String LATIN_PROPER_NOUN = "TNT";
+
 	public static boolean isHangulOnly(String text) {
+		text = text.replace(LATIN_PROPER_NOUN, "");
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 			if (Character.isWhitespace(c)) {

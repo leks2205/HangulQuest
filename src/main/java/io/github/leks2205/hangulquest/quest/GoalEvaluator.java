@@ -205,6 +205,9 @@ public final class GoalEvaluator {
 		if (type.needsMusicScan(goal)) {
 			obs.musicScanWanted = true;
 		}
+		if (type.needsShotScan(goal)) {
+			obs.shotScanWanted = true;
+		}
 		for (Condition condition : conditions) {
 			if (condition instanceof Condition.NearBlock near && near.radius() >= 0) {
 				obs.nearBlocksWanted.merge(near.block(), (int) Math.ceil(near.radius()), Math::max);

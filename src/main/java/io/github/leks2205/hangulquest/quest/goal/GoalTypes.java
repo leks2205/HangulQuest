@@ -50,7 +50,10 @@ public final class GoalTypes {
 			// Wave 6: wearing armour.
 			new EquipType(),
 			// Wave 9: jumping from a height.
-			new FallType());
+			new FallType(),
+			// Wave 10: shooting and throwing, going in a compass direction.
+			new ShootType(),
+			new WalkType());
 
 	private static final Map<String, GoalType<?>> BY_ID = new HashMap<>();
 	private static final Map<Class<?>, GoalType<?>> BY_CLASS = new HashMap<>();

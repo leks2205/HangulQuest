@@ -104,7 +104,7 @@ final class PutInType implements GoalType<Goal.PutIn> {
 	@Override
 	public List<String> grammarIds(Goal.PutIn goal, SentenceContext c) {
 		List<String> ids = new ArrayList<>(GoalType.super.grammarIds(goal, c));
-		ids.add("L1.loc.an");
+		ids.add("L1.loc_an_e");
 		return ids;
 	}
 

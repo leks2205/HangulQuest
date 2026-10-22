@@ -87,7 +87,7 @@ condition. An authored clue wins also on a step with conditions: it is shown as 
 phrase it does not contain is put in front of it, so no condition can be missing from the text. A clue that
 says the condition in its own words does not get the phrase again: 밤에 / 한밤에 / 밤이 for `TIME` night, 비가 for
 rain, 물속 for `IN_WATER` (a forms list per condition, kept to words that cannot mean anything else: 밤 alone is
-also a chestnut). `REACH_HEIGHT` below the ground uses „내려가다" (descend) instead of climbing.
+also a chestnut). `FACING` (`direction`) says „북쪽을 보고" in front of the action; it is true while the yaw of the player is within 45 degrees of the direction. Heights and distances in blocks are spelled in Sino-Korean from level 2 („높이 백 블록 위로", „물에서 이십 블록 수영하세요"; digits only above 100 unless round hundreds); counts with a native counter go up to 99 („스물네 개"). `AVOID` may forbid an action on a creature („주민을 물리치지 마세요"). `REACH_HEIGHT` below the ground uses „내려가다" (descend) instead of climbing.
 
 ## Anatomy of a file
 
@@ -186,7 +186,9 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `WAIT` | `seconds`, optional `until` (`NIGHT`/`DAY`) | staying within three blocks of the spot where the wait began; walking away starts over. With `until` also that part of the day. A place to wait near is a condition (`NEAR_BLOCK`) |
 | `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind, and within 4 blocks of two of the animals fed |
 | `MOUNT` | `entity`, `dwellMs` | the vehicle state of the player: a boat or minecart is sat in (앉아요), an animal is ridden (타요); every boat is one boat |
-| `FALL` | `blocks` (4–250), optional `landing` (a soft block: powder snow, hay, slime, honey, water) | the distance fallen since the feet left the ground (the longest value before the game resets it on the landing). With `landing` the player has to land on or in that block; without it the health must not drop (read 0.3 s after the landing, when the damage has arrived). 높은 곳에서 가루눈 위로 뛰어내리세요; 10블록 높이에서 안 다치고 뛰어내리세요 |
+| `FALL` | `blocks` (4–250), optional `landing` (a soft block: powder snow, hay, slime, honey, water) | the distance fallen since the feet left the ground (the longest value before the game resets it on the landing). With `landing` the player has to land on or in that block; without it the health must not drop (read 0.3 s after the landing, when the damage has arrived). 높은 곳에서 가루눈 위로 뛰어내리세요; 십 블록 높이에서 안 다치고 뛰어내리세요 |
+| `SHOOT` | `weapon` (bow, crossbow, trident, snowball, egg), optional `entity` or `block` (only `minecraft:target`), `count`, `minDistance`, `pierce` | every projectile of the player is followed to its end. A creature is struck when it shows the hurt animation after the projectile passed, or (snowball, egg, arrow) when the projectile vanishes beside it; a target block when it shows power. `pierce` 2 or more: one projectile must strike that many. Without a target the shot itself counts. 활로 과녁을 맞히세요; 쇠뇌로 좀비를 맞히세요; 삼지창을 던지세요; 멀리서 활로 과녁을 맞히세요 (이십 블록 이상 떨어진 곳에서 from level 2) |
+| `WALK` | `direction` (NORTH, SOUTH, EAST, WEST), `blocks` | blocks moved along the direction (north is -Z) from the change of position between ticks; a step back takes from it, a jump of more than eight blocks is no walk. 북쪽으로 이십 블록 가세요 |
 | `SWIM` | `blocks` | blocks covered while the player is in water (a jump of more than eight blocks between two ticks is not swimming) |
 
 **Tiers.** One word stands for a tool or an armour piece in every material (곡괭이, 도끼, 삽, 괭이, 검; 투구, 갑옷, 바지,

@@ -6,7 +6,18 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
-## [3.0.0] — unreleased (release candidate 3.0.0-rc.6)
+## [3.0.0] — unreleased (release candidate 3.0.0-rc.7)
+
+**New in rc.7: new kinds of quests, ready for level 4.**
+- **Shooting and throwing:** hit a target block or a creature with a bow, crossbow, trident, snowball or egg
+  (활로 과녁을 맞히세요), some from far away or with one arrow through two mobs.
+- **Compass directions:** walk north, south, east or west (북쪽으로 이십 블록 가세요), or face a direction while doing
+  something.
+- **"Don't" works on creatures too:** 주민을 물리치지 마세요.
+- **More natural numbers:** heights and distances use Sino-Korean numbers (높이 백 블록), and counts up to 99 use native
+  numbers (스물네 개).
+- Sequences no longer repeat the same object twice, and swimming in the ocean reads 바다에서 수영하세요.
+- Six flavour lines from the last two batches now state plain facts.
 
 **New in rc.6: level 3 is complete.**
 - All 108 level-3 trails are rebuilt, and nearly half of their steps now depend on the Korean form.

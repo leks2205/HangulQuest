@@ -32,7 +32,23 @@ public final class Tiers {
 	private static final Map<String, String> LEATHER = Map.of(
 			"helmet", "가죽 모자", "chestplate", "가죽 조끼", "leggings", "가죽 바지", "boots", "가죽 장화");
 
+	private static final java.util.Set<String> ARMOUR = java.util.Set.of("helmet", "chestplate", "leggings", "boots");
+
+	/** Set while a hint is built: there a taught general word for armour stands in for the exact piece. */
+	private static final ThreadLocal<Boolean> HINT = ThreadLocal.withInitial(() -> false);
+
 	private Tiers() {
+	}
+
+	/** Runs the hint builder with the general armour words allowed to stand for the exact pieces. */
+	public static <T> T forHint(java.util.function.Supplier<T> hint) {
+		boolean before = HINT.get();
+		HINT.set(true);
+		try {
+			return hint.get();
+		} finally {
+			HINT.set(before);
+		}
 	}
 
 	/** The materials, as the registry spells them in item ids: wooden, stone, iron ... */
@@ -97,6 +113,9 @@ public final class Tiers {
 		String[] parts = split(id);
 		if (parts == null || name == null || !GENERAL.get(parts[1]).equals(name)) {
 			return name;
+		}
+		if (HINT.get() && ARMOUR.contains(parts[1])) {
+			return name; // the hint keeps the word the player was taught: 신발, not 철 부츠
 		}
 		return official(parts[0], parts[1]);
 	}

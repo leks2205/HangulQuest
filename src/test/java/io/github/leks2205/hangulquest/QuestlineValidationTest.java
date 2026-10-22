@@ -272,6 +272,8 @@ class QuestlineValidationTest {
 			case Goal.Trade g -> List.of("사", "팔");
 			case Goal.Equip g -> List.of("쓰", "입", "신", "벗");
 			case Goal.Fall g -> List.of("뛰어내");
+			case Goal.Shoot g -> List.of("쏘", "쏴", "맞", "던지", "던져");
+			case Goal.Walk g -> List.of("가", "걷");
 		};
 		if (verbs.stream().anyMatch(ko::contains)) {
 			return true;

@@ -133,7 +133,10 @@ class ActionSentenceGoldTest {
 				assertTrue(hint.endsWith("지 마세요."), row.id() + " hint lost the 'not': " + hint);
 			}
 			boolean saysHow = GoalTypes.of(row.goal()).forHint(row.goal()) != row.goal();
-			if (!(row.goal() instanceof Goal.Smelt) && !saysHow) {
+			if (row.goal() instanceof Goal.Equip && row.word() != null && !row.word().equals("-")) {
+				// the hint says the general word that was taught (투구, 신발) where the clue names the exact piece
+				assertTrue(hint.contains(word(row.word()).ko), row.id() + " hint omits the taught word: " + hint);
+			} else if (!(row.goal() instanceof Goal.Smelt) && !saysHow) {
 				// Counts go away in the hint, nothing else changes at level 1.
 				assertEquals(clue.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""), hint.replaceAll(" (한|두|세|네|다섯) (개|마리)", ""),
 						row.id());
