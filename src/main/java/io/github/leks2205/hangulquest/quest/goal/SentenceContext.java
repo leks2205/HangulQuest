@@ -19,9 +19,16 @@ import java.util.Set;
  * @param finale     whether the sentence ends a trail
  * @param word       the word the step teaches, or null; it names the thing it stands for
  * @param namer      names for the other nouns of the sentence (the recipient, the container ...)
+ * @param conditions the conditions of the step, for the few goals that adapt their words to the place they name
  */
 public record SentenceContext(String obj, Verb verb, boolean withCounts, int level, boolean finale,
-							  Word word, SentenceBuilder.Namer namer) {
+							  Word word, SentenceBuilder.Namer namer,
+							  java.util.List<io.github.leks2205.hangulquest.quest.Condition> conditions) {
+	public SentenceContext(String obj, Verb verb, boolean withCounts, int level, boolean finale,
+						   Word word, SentenceBuilder.Namer namer) {
+		this(obj, verb, withCounts, level, finale, word, namer, java.util.List.of());
+	}
+
 	/**
 	 * Words that stand for a whole family of blocks although they own none as a referent: 나무 is every log.
 	 * Concept id to block families (see {@link Matching#blockFamily}).
@@ -149,9 +156,14 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 		return id != null && word != null && wordCovers(word, kind, id) ? Tiers.qualify(id, word.ko) : name(kind, id);
 	}
 
+	/** The same context with another taught word. */
+	public SentenceContext withWord(Word other) {
+		return new SentenceContext(obj, verb, withCounts, level, finale, other, namer, conditions);
+	}
+
 	/** The same sentence context for another goal of the same step (a part of a sequence). */
 	public SentenceContext forPart(String partObj, Verb partVerb, int partLevel) {
-		return new SentenceContext(partObj, partVerb, withCounts, partLevel, finale, word, namer);
+		return new SentenceContext(partObj, partVerb, withCounts, partLevel, finale, word, namer, conditions);
 	}
 
 	/**

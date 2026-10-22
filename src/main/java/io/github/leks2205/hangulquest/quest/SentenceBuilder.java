@@ -132,8 +132,8 @@ public final class SentenceBuilder {
 
 	public static String hint(Goal goal, Word word, Word verbWord, List<Condition> conditions, Namer namer) {
 		Goal shown = GoalTypes.of(goal).forHint(goal);
-		return attach(prefix(shown, conditions, word, namer, 1), core(shown, word, verbWord, conditions, false, 1, false,
-				namer), 1);
+		return Tiers.forHint(() -> attach(prefix(shown, conditions, word, namer, 1),
+				core(shown, word, verbWord, conditions, false, 1, false, namer), 1));
 	}
 
 	/**
@@ -183,7 +183,8 @@ public final class SentenceBuilder {
 										   Namer namer, boolean withCounts, int level, boolean finale) {
 		Word named = word == null || isVerbWord(word) ? null : word;
 		return new SentenceContext(objectName(goal, word, namer), verbOf(goal, verbWord, conditions),
-				withCounts, level, finale, named, SentenceContext.taught(named, namer));
+				withCounts, level, finale, named, SentenceContext.taught(named, namer),
+				conditions == null ? List.of() : conditions);
 	}
 
 	/**
@@ -235,7 +236,7 @@ public final class SentenceBuilder {
 		return attach(prefix(goal, conditions, said, namer, 1), body, 1) + ".";
 	}
 
-	private static Word withoutPicture(Word word) {
+	public static Word withoutPicture(Word word) {
 		return new Word(word.id, word.ko, word.de, word.untranslated ? "" : word.en, word.deShort, word.category,
 				word.tier, word.conceptId, null, word.entityId, word.biomeId, word.descKo, word.origin,
 				word.phrase, word.grammar, word.referents, word.glosses, word.covers);
@@ -329,7 +330,7 @@ public final class SentenceBuilder {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		// A verb concept (보다, 걷다, 짓다) can be taught by a step but is never the object of one.
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
-			ObjectKind kind = type.objectKind();
+			ObjectKind kind = type.objectKind(goal);
 			String id = type.object(goal);
 			// A biome is typed too: a step that teaches 개구리 on a swamp still says 늪.
 			boolean typed = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY

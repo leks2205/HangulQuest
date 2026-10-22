@@ -5,6 +5,7 @@ import io.github.leks2205.hangulquest.data.Catalog;
 import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.sense.Observation;
@@ -69,7 +70,7 @@ final class YRangeType implements ConditionType<Condition.YRange> {
 		if (y.minY() <= 0) {
 			return "땅속에서";
 		}
-		return "높이 " + y.minY() + "블록 위에서";
+		return "높이 " + KoGrammar.blocks(y.minY()) + " 위에서";
 	}
 
 	@Override

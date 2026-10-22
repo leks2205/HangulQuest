@@ -101,7 +101,7 @@ public final class SpatialWorlds {
 	private static PlacementFact onPattern(Goal.PlaceOnPattern g, boolean night) {
 		World world = new World();
 		Pattern pattern = g.pattern();
-		int size = pattern.defaultSize();
+		int size = g.size(); // the size the goal asks for, not the usual one
 		List<Pattern.Cell> cells = pattern.cells(size, 0);
 		Pattern.Cell at = switch (g.relation()) {
 			case ON_TOP_OF -> pattern.top(size, 0).get(0);
@@ -117,7 +117,7 @@ public final class SpatialWorlds {
 		}
 		world.put(X, Y, Z, BlockSpec.representative(g.block()));
 		return verified(world.placed(new BlockPos(X, Y, Z), night, new Vec3(X + 0.5, Y, Z + 0.5)),
-				new Anchor.Built(pattern, g.material()), g.relation());
+				new Anchor.Built(pattern, g.material(), size), g.relation());
 	}
 
 	private static PlacementFact verified(PlacementFact fact, Anchor anchor, Relation relation) {

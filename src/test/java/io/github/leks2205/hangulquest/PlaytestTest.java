@@ -10,6 +10,8 @@ import io.github.leks2205.hangulquest.quest.QuestEngine;
 import io.github.leks2205.hangulquest.quest.QuestStep;
 import io.github.leks2205.hangulquest.quest.goal.Matching;
 import io.github.leks2205.hangulquest.quest.Questline;
+import io.github.leks2205.hangulquest.quest.spatial.BlockSpec;
+import io.github.leks2205.hangulquest.sense.ShotFact;
 import io.github.leks2205.hangulquest.quest.spatial.SpatialWorlds;
 import io.github.leks2205.hangulquest.quest.QuestLoader;
 import io.github.leks2205.hangulquest.quest.spatial.Relation;
@@ -158,6 +160,76 @@ class PlaytestTest {
 		}
 	}
 
+	@Test
+	void aShotAThrowAWalkAndAFacingCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String goal : List.of(
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:bow\", \"block\": \"minecraft:target\"}",
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:crossbow\", \"entity\": \"minecraft:zombie\", \"count\": 3}",
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:crossbow\", \"entity\": \"minecraft:zombie\", \"pierce\": 2}",
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:bow\", \"entity\": \"minecraft:zombie\", \"minDistance\": 20}",
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:trident\"}",
+				"{\"type\": \"SHOOT\", \"weapon\": \"minecraft:snowball\", \"count\": 4}",
+				"{\"type\": \"WALK\", \"direction\": \"NORTH\", \"blocks\": 20}",
+				"{\"type\": \"WALK\", \"direction\": \"SOUTH\", \"blocks\": 20}",
+				"{\"type\": \"WALK\", \"direction\": \"EAST\", \"blocks\": 20}",
+				"{\"type\": \"WALK\", \"direction\": \"WEST\", \"blocks\": 20}")) {
+			assertEquals("completed in 2 steps", play(probe("shoot", goal), catalog), goal);
+		}
+		Questline facing = QuestLoader.parse(com.google.gson.JsonParser.parseString("""
+				{"schema": 1, "id": "facing", "titleKo": "시험", "topic": "시험", "tier": 2, "order": 1, "koreanLevel": 3,
+				 "concepts": ["stone"], "requires": {"minWordsKnown": 0, "dimension": "minecraft:overworld"},
+				 "steps": [{"id": "s1", "teach": ["stone"], "goal": {"type": "PLACE_BLOCK", "block": "minecraft:torch", "count": 1},
+				            "conditions": [{"type": "FACING", "direction": "EAST"}]}],
+				 "finale": {"step": {"id": "finale", "teach": ["stone"],
+				   "goal": {"type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 1}}, "textKo": "끝"}}
+				""").getAsJsonObject());
+		assertEquals("completed in 2 steps", play(facing, catalog));
+	}
+
+	@Test
+	void anAvoidOnACreatureAndAnEquipOnASlotTagCanBePlayed() {
+		Catalog catalog = Catalog.ofConcepts(ConceptLoader.load());
+		for (String goal : List.of(
+				"{\"type\": \"AVOID\", \"action\": {\"type\": \"DEFEAT_ENTITY\", \"entity\": \"minecraft:villager\"}, \"windowSeconds\": 5}",
+				"{\"type\": \"EQUIP\", \"item\": \"#minecraft:head_armor\"}",
+				"{\"type\": \"EQUIP\", \"item\": \"#minecraft:chest_armor\"}",
+				"{\"type\": \"EQUIP\", \"item\": \"#minecraft:foot_armor\", \"change\": \"OFF\"}")) {
+			try {
+				assertEquals("completed in 2 steps", play(probe("avoid_equip", goal), catalog), goal);
+			} catch (AssertionError failed) {
+				throw new AssertionError(goal + ": " + failed.getMessage(), failed);
+			}
+		}
+	}
+
+	@Test
+	void aPatternIsBuiltAtTheSizeTheGoalAsksFor() {
+		int built = 0;
+		int other = 0;
+		for (io.github.leks2205.hangulquest.quest.spatial.Pattern pattern : io.github.leks2205.hangulquest.quest.spatial.Pattern.values()) {
+			for (int size = pattern.minSize(); size <= pattern.maxSize(); size++) {
+				for (Relation relation : List.of(Relation.ON_TOP_OF, Relation.NEXT_TO, Relation.UNDER)) {
+					Goal.PlaceOnPattern goal = new Goal.PlaceOnPattern("minecraft:torch", relation, pattern,
+							"minecraft:stone", size);
+					io.github.leks2205.hangulquest.sense.PlacementFact fact;
+					try {
+						fact = SpatialWorlds.placementFor(goal, false); // refuses a fixture that does not hold
+					} catch (AssertionError tooBig) {
+						continue; // the structure does not fit the 7x7x7 view of a placement: nothing to build
+					}
+					// the structure stands at the asked size, not at the usual one
+					assertEquals(pattern.cells(size, 0).size(), fact.around().count("minecraft:stone"), goal.toString());
+					built++;
+					if (size != pattern.defaultSize()) {
+						other++;
+					}
+				}
+			}
+		}
+		assertTrue(built > 10 && other > 5, "built " + built + ", of another size " + other);
+	}
+
 	private String play(Questline trail, Catalog catalog) {
 		Path dir = tempDir.resolve(trail.id() + "-" + Math.abs(trail.id().hashCode()));
 		ProgressStore store = new ProgressStore(dir, LoggerFactory.getLogger("playtest"));
@@ -245,6 +317,31 @@ class PlaytestTest {
 	private static void moveWithGoal(Observation obs, Goal goal, int tick) {
 		switch (goal) {
 			case Goal.Swim g -> obs.position = new Vec3(tick, 64.0, 0.0);
+			case Goal.Walk g -> {
+				// one block a tick along the direction
+				obs.position = switch (g.direction()) {
+					case "NORTH" -> new Vec3(0.0, 64.0, -tick);
+					case "SOUTH" -> new Vec3(0.0, 64.0, tick);
+					case "EAST" -> new Vec3(tick, 64.0, 0.0);
+					default -> new Vec3(-tick, 64.0, 0.0);
+				};
+			}
+			case Goal.Shoot g -> {
+				obs.shots = List.of();
+				if (tick == 0) {
+					int shots = Math.max(1, g.count());
+					for (int shot = 0; shot < shots; shot++) {
+						List<ShotFact.Hit> hits = new ArrayList<>();
+						for (int victim = 0; victim < Math.max(1, g.pierce()); victim++) {
+							if (g.entity() != null) {
+								hits.add(new ShotFact.Hit(g.entity(), new UUID(9L, shot * 10L + victim).toString(),
+										g.minDistance() + 5.0));
+							}
+						}
+						obs.addShot(new ShotFact(g.weapon(), hits, g.block(), g.minDistance() + 5.0));
+					}
+				}
+			}
 			case Goal.HoldWhile g when g.innerGoal() != null -> moveWithGoal(obs, g.innerGoal(), tick);
 			case Goal.Fall g -> {
 				// ten ticks in the air with the distance growing, then the ground: the game resets the distance
@@ -256,14 +353,10 @@ class PlaytestTest {
 			}
 			case Goal.Transit g -> obs.canSeeSky = g.direction().equals("IN") == tick < 30; // first the other side
 			case Goal.Equip g -> {
-				// putting on: the slot is seen bare first, the change that follows is the player's
-				if (!"OFF".equals(g.change())) {
-					if (tick < 2) {
-						obs.worn = java.util.Map.of();
-					} else {
-						applyGoal(obs, g);
-					}
-				}
+				// putting on: the slot is seen bare first, the change that follows is the player's;
+				// taking off: the piece is worn first
+				boolean off = "OFF".equals(g.change());
+				wearing(obs, g, tick < 2 ? off : !off);
 			}
 			case Goal.Breed g -> {
 				// fed at the start, a baby of the kind in the sight from the fifth tick on
@@ -347,6 +440,7 @@ class PlaytestTest {
 			}
 			case Condition.InWater w -> obs.inWater = true;
 			case Condition.PlayerRel r -> standNextTo(obs, r.relation(), r.anchor());
+			case Condition.Facing f -> obs.yaw = io.github.leks2205.hangulquest.quest.goal.Directions.yaw(f.direction());
 		}
 	}
 
@@ -440,6 +534,11 @@ class PlaytestTest {
 			case Goal.Fall g -> {
 			}
 			case Goal.Swim g -> obs.inWater = true;
+			case Goal.Shoot g -> {
+				// the shots come in moveWithGoal, once
+			}
+			case Goal.Walk g -> {
+			}
 			case Goal.Trade g -> obs.addTraded(new io.github.leks2205.hangulquest.sense.TradeFact(g.entity(),
 					g.direction().equals("BUY") ? g.item() : "minecraft:emerald", Math.max(1, g.count()),
 					g.direction().equals("SELL") ? g.item() : "minecraft:emerald", Math.max(1, g.count())));
@@ -448,9 +547,7 @@ class PlaytestTest {
 			case Goal.Breed g -> {
 			}
 			// the armour is on in this observation; moveWithGoal shows the slot bare first
-			case Goal.Equip g -> obs.worn = "OFF".equals(g.change()) ? java.util.Map.of()
-					: java.util.Map.of(g.item().contains("helmet") ? "head" : g.item().contains("chestplate") ? "chest"
-					: g.item().contains("leggings") ? "legs" : "feet", g.item());
+			case Goal.Equip g -> wearing(obs, g, !"OFF".equals(g.change()));
 			case Goal.HoldWhile g -> {
 				obs.mainHand = g.item();
 				obs.idle = false;
@@ -470,6 +567,14 @@ class PlaytestTest {
 				}
 			}
 		}
+	}
+
+	/** The armour slot is worn (on) or bare; a slot tag (#minecraft:head_armor) is worn as the piece it stands for. */
+	private static void wearing(Observation obs, Goal.Equip goal, boolean on) {
+		String piece = BlockSpec.representative(goal.item());
+		obs.worn = !on ? java.util.Map.of()
+				: java.util.Map.of(piece.contains("helmet") ? "head" : piece.contains("chestplate") ? "chest"
+				: piece.contains("leggings") ? "legs" : "feet", piece);
 	}
 
 	/** One placement, with the blocks around it that make the spatial goal true. */

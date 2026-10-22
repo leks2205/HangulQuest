@@ -157,7 +157,7 @@ final class FallType implements GoalType<Goal.Fall> {
 		if (goal.landing() != null) {
 			return "높은 곳에서 " + landing(goal, c);
 		}
-		String from = withCounts && level >= 2 ? goal.blocks() + "블록 높이에서" : "높은 곳에서";
+		String from = withCounts && level >= 2 ? KoGrammar.blocks(goal.blocks()) + " 높이에서" : "높은 곳에서";
 		return from + " " + (level >= 3 ? "다치지 않고" : "안 다치고");
 	}
 

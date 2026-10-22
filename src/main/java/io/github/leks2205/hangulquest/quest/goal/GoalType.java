@@ -88,6 +88,11 @@ public interface GoalType<G extends Goal> {
 		return false;
 	}
 
+	/** Whether the sensor must follow the projectiles of the player while this goal is tracked. */
+	default boolean needsShotScan(G goal) {
+		return false;
+	}
+
 	/** True when the status line and the HUD show a counter for this goal. */
 	default boolean countable() {
 		return false;
@@ -165,7 +170,7 @@ public interface GoalType<G extends Goal> {
 	 * ending of the level and the marker of the object; types add what is special about them.
 	 */
 	default List<String> grammarIds(G goal, SentenceContext context) {
-		return SentenceBuilder.baseGrammar(context.verb(), context.level(), objectKind());
+		return SentenceBuilder.baseGrammar(context.verb(), context.level(), objectKind(goal));
 	}
 
 	/**
@@ -181,7 +186,7 @@ public interface GoalType<G extends Goal> {
 	/** The Korean name of the object, or null when there is none. */
 	default String objectName(G goal, SentenceBuilder.Namer namer) {
 		String object = object(goal);
-		return switch (objectKind()) {
+		return switch (objectKind(goal)) {
 			case BLOCK -> SpatialSentences.blockName(object, namer);
 			case ITEM -> BlockSpec.isTag(object) ? SpatialSentences.blockName(object, namer) : namer.item(object);
 			case ENTITY -> namer.entity(object);
@@ -208,6 +213,11 @@ public interface GoalType<G extends Goal> {
 
 	ObjectKind objectKind();
 
+	/** The kind of the object of this goal; a type whose target is a block or a creature by the goal says which. */
+	default ObjectKind objectKind(G goal) {
+		return objectKind();
+	}
+
 	/**
 	 * Type, object and verb as one string: two steps with the same signature ask for the same task.
 	 * Types with more than one target or sub-goal (give, put in, sequences) put all of them in.
@@ -224,12 +234,12 @@ public interface GoalType<G extends Goal> {
 	/** Everything the goal points at; the default is its object. Types with more roles add them. */
 	default List<Mention> mentions(G goal) {
 		String object = object(goal);
-		return object == null ? List.of() : List.of(new Mention(objectKind(), object));
+		return object == null ? List.of() : List.of(new Mention(objectKind(goal), object));
 	}
 
 	/** Whether the taught word names something the goal involves, in any role. */
 	default boolean covers(G goal, Concept concept) {
-		ObjectKind kind = objectKind();
+		ObjectKind kind = objectKind(goal);
 		if (kind == ObjectKind.NONE || kind == ObjectKind.DIMENSION || kind == ObjectKind.BIOME && object(goal) == null) {
 			return true; // a height or a dimension has no object the word could miss
 		}
@@ -271,7 +281,7 @@ public interface GoalType<G extends Goal> {
 						+ ") does not describe the goal " + describe(goal));
 			}
 		}
-		String noun = objectKind().noun();
+		String noun = objectKind(goal).noun();
 		boolean tag = tagObject() && BlockSpec.isTag(object(goal));
 		if (tag && !BlockSpec.valid(object(goal))) {
 			context.problem("unknown tag " + object(goal));
@@ -317,7 +327,7 @@ public interface GoalType<G extends Goal> {
 	}
 
 	private String describe(G goal) {
-		ObjectKind kind = objectKind();
+		ObjectKind kind = objectKind(goal);
 		boolean named = kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM || kind == ObjectKind.ENTITY;
 		return named && object(goal) != null ? object(goal) : goal.getClass().getSimpleName();
 	}

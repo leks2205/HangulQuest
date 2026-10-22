@@ -59,7 +59,7 @@ public final class Clauses {
 	/** The sentence context of a part of the step: its own object name and verb at the given level. */
 	public static SentenceContext contextFor(Goal part, SentenceContext c, int level) {
 		GoalType<Goal> type = GoalTypes.of(part);
-		ObjectKind kind = type.objectKind();
+		ObjectKind kind = type.objectKind(part);
 		String obj = switch (kind) {
 			case BLOCK, ITEM, ENTITY -> c.nameOfObject(kind, type.object(part));
 			case NONE -> "";
@@ -144,7 +144,7 @@ public final class Clauses {
 
 	/** "Don't" has no count: not "한 마리 물리치지 마세요" but "물리치지 마세요". */
 	private static SentenceContext withoutCounts(SentenceContext c) {
-		return new SentenceContext(c.obj(), c.verb(), false, c.level(), c.finale(), c.word(), c.namer());
+		return new SentenceContext(c.obj(), c.verb(), false, c.level(), c.finale(), c.word(), c.namer(), c.conditions());
 	}
 
 	/** True for goals that can be a part, an inner goal or an avoided action: simple, and cuttable at the verb. */

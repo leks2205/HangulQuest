@@ -117,6 +117,10 @@ public enum Verb {
 	DRESS("입히다", "anlegen", Frame.DAT),
 	DYE("염색하다", "färben"),
 
+	// Wave 10: shooting and hitting what is shot at (맞히다, not 맞추다).
+	SHOOT("쏘다", "schießen"),
+	HIT("맞히다", "treffen"),
+
 	// Water and lava from a bucket are poured (ㅅ-irregular: 부어요, 부으세요).
 	POUR("붓다", "gießen");
 

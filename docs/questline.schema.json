@@ -905,6 +905,77 @@
             "type"
           ],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SHOOT"
+            },
+            "weapon": {
+              "enum": [
+                "minecraft:bow",
+                "minecraft:crossbow",
+                "minecraft:trident",
+                "minecraft:snowball",
+                "minecraft:egg"
+              ],
+              "description": "The item in the hand the projectile leaves from."
+            },
+            "entity": {
+              "$ref": "#/definitions/resourceId",
+              "description": "A creature the projectile must strike."
+            },
+            "block": {
+              "$ref": "#/definitions/resourceId",
+              "description": "A block the projectile must strike (minecraft:target)."
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "minDistance": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "pierce": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "required": [
+            "type",
+            "weapon"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "WALK"
+            },
+            "direction": {
+              "enum": [
+                "NORTH",
+                "SOUTH",
+                "EAST",
+                "WEST"
+              ],
+              "description": "A compass direction; north is -Z."
+            },
+            "blocks": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "type",
+            "direction"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -1131,6 +1202,27 @@
             "type",
             "relation",
             "anchor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "FACING"
+            },
+            "direction": {
+              "enum": [
+                "NORTH",
+                "SOUTH",
+                "EAST",
+                "WEST"
+              ],
+              "description": "A compass direction; north is -Z."
+            }
+          },
+          "required": [
+            "type",
+            "direction"
           ],
           "additionalProperties": false
         }

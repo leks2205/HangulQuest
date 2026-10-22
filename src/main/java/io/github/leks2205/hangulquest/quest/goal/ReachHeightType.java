@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.quest.Field;
 import io.github.leks2205.hangulquest.quest.Goal;
 import io.github.leks2205.hangulquest.quest.GoalEvaluator;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.QuestStatus;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.Verb;
@@ -76,7 +77,7 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		}
 		if (goal.minY() > 0) {
 			// Level 1 has no numbers for a height: climb a hill or a mountain.
-			String where = c.level() <= 1 ? summit(goal.minY()) : "높이 " + goal.minY() + "블록 위로";
+			String where = c.level() <= 1 ? summit(goal.minY(), c.conditions()) : "높이 " + KoGrammar.blocks(goal.minY()) + " 위로";
 			return SentenceBuilder.phrase(where, c.verb(), c.level(), c.finale());
 		}
 		return SentenceBuilder.phrase("땅 위로", Verb.CLIMB, c.level(), c.finale());
@@ -84,7 +85,11 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 
 	@Override
 	public String ceremony(Goal.ReachHeight goal, SentenceContext c) {
-		return descends(goal) ? down(goal, c.level()) + " " + Verb.DESCEND.past() : ceremony(goal, c.obj(), c.verb());
+		if (descends(goal)) {
+			return down(goal, c.level()) + " " + Verb.DESCEND.past();
+		}
+		return goal.minY() > 0 ? summit(goal.minY(), c.conditions()) + " " + Verb.CLIMB.past()
+				: ceremony(goal, c.obj(), c.verb());
 	}
 
 	@Override
@@ -100,7 +105,19 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 
 	/** "아래로" on the first level, the height from level 2 on ("높이 0블록 이하로"). */
 	private static String down(Goal.ReachHeight goal, int level) {
-		return level <= 1 ? "아래로" : "높이 " + goal.maxY() + "블록 이하로";
+		return level <= 1 ? "아래로" : "높이 " + KoGrammar.blocks(goal.maxY()) + " 이하로";
+	}
+
+	/**
+	 * The summit as the place of the step allows: a biome or another dimension in the conditions already names
+	 * where the climb happens, so the hill or the mountain is dropped ("높은 곳으로"); the Nether has no 산.
+	 */
+	static String summit(int minY, java.util.List<io.github.leks2205.hangulquest.quest.Condition> conditions) {
+		boolean placed = conditions != null && conditions.stream().anyMatch(condition ->
+				condition instanceof io.github.leks2205.hangulquest.quest.Condition.InBiome
+						|| condition instanceof io.github.leks2205.hangulquest.quest.Condition.InDimension dimension
+						&& !"minecraft:overworld".equals(dimension.dimension()));
+		return placed ? "높은 곳으로" : summit(minY);
 	}
 
 	/** "언덕 위로" above sea level, "산 위로" from the height of real mountains (Y 100 and up). */

@@ -171,7 +171,8 @@ final class AvoidType implements GoalType<Goal.Avoid> {
 	@Override
 	public String taskSignature(Goal.Avoid goal) {
 		Goal action = goal.action();
-		return id() + ":" + (action == null ? "" : GoalTypes.of(action).taskSignature(action));
+		return id() + ":" + (action == null ? "" : GoalTypes.of(action).taskSignature(action))
+				+ (goal.during() == null ? "" : "@" + goal.during());
 	}
 
 	@Override

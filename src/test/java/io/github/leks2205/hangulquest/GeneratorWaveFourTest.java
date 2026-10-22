@@ -250,28 +250,28 @@ class GeneratorWaveFourTest {
 	@Test
 	void i4_aHeightBeforeAPlaceBecomesItsModifier() {
 		// levels 1-2 have no 의: the height stands in front of the bed as a noun
-		assertEquals("높이 90블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH));
-		assertEquals("밤에 높이 90블록 위 침대에서 자요.", clue(BED, "bed", 1, NIGHT, HIGH));
-		assertEquals("밤에 높이 90블록 위 침대에서 자세요.", clue(BED, "bed", 2, NIGHT, HIGH));
+		assertEquals("높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH));
+		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, NIGHT, HIGH));
+		assertEquals("밤에 높이 구십 블록 위 침대에서 자세요.", clue(BED, "bed", 2, NIGHT, HIGH));
 		// from level 3 with 의
-		assertEquals("밤에 높이 90블록 위의 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
+		assertEquals("밤에 높이 구십 블록 위의 침대에서 자세요.", clue(BED, "bed", 3, NIGHT, HIGH));
 		// the height first in the list still ends up next to the place
-		assertEquals("밤에 높이 90블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH, NIGHT));
+		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.", clue(BED, "bed", 1, HIGH, NIGHT));
 		// the hint and the finale line say it the same way
-		assertEquals("밤에 높이 90블록 위 침대에서 자요.",
+		assertEquals("밤에 높이 구십 블록 위 침대에서 자요.",
 				SentenceBuilder.hint(BED, word("bed"), List.of(NIGHT, HIGH), NAMER));
-		assertEquals("밤에 높이 90블록 위 침대에서 잤어요.",
+		assertEquals("밤에 높이 구십 블록 위 침대에서 잤어요.",
 				SentenceBuilder.ceremony(BED, word("bed"), List.of(NIGHT, HIGH), NAMER));
 	}
 
 	@Test
 	void i4_nothingIsMergedWhenThereIsNoPlaceToMergeWith() {
 		Goal bread = new Goal.ConsumeItem("minecraft:bread", 1);
-		assertEquals("높이 90블록 위에서 빵을 먹어요.", clue(bread, "bread", 1, HIGH));
+		assertEquals("높이 구십 블록 위에서 빵을 먹어요.", clue(bread, "bread", 1, HIGH));
 		// 밖에서 and 물속에서 are no places a noun can modify
 		Goal torch = new Goal.HoldWhile("minecraft:torch", null, new Condition.Sky(Condition.SkyState.OPEN), 10);
 		assertFalse(clue(torch, "torch", 1, HIGH).contains("위 밖"), clue(torch, "torch", 1, HIGH));
-		assertEquals("높이 90블록 위에서 밖에서 빵을 먹어요.",
+		assertEquals("높이 구십 블록 위에서 밖에서 빵을 먹어요.",
 				clue(bread, "bread", 1, HIGH, new Condition.Sky(Condition.SkyState.OPEN)));
 	}
 
@@ -286,13 +286,13 @@ class GeneratorWaveFourTest {
 	@Test
 	void i4_anAuthoredClueGetsTheHeightAsAModifierToo() {
 		List<Condition> high = List.of(HIGH);
-		assertEquals("높이 90블록 위 침대에서 자요.", SentenceBuilder.authored(BED, "침대에서 자요.", high, word("bed"), NAMER, 1));
-		assertEquals("높이 90블록 위의 침대에서 자세요.", SentenceBuilder.authored(BED, "침대에서 자세요.", high, word("bed"), NAMER, 3));
+		assertEquals("높이 구십 블록 위 침대에서 자요.", SentenceBuilder.authored(BED, "침대에서 자요.", high, word("bed"), NAMER, 1));
+		assertEquals("높이 구십 블록 위의 침대에서 자세요.", SentenceBuilder.authored(BED, "침대에서 자세요.", high, word("bed"), NAMER, 3));
 		// a clue that says it already is left alone
-		assertEquals("높이 90블록 위 침대에서 자요.",
-				SentenceBuilder.authored(BED, "높이 90블록 위 침대에서 자요.", high, word("bed"), NAMER, 1));
-		assertEquals("높이 90블록 위의 침대에서 자요.",
-				SentenceBuilder.authored(BED, "높이 90블록 위의 침대에서 자요.", high, word("bed"), NAMER, 3));
+		assertEquals("높이 구십 블록 위 침대에서 자요.",
+				SentenceBuilder.authored(BED, "높이 구십 블록 위 침대에서 자요.", high, word("bed"), NAMER, 1));
+		assertEquals("높이 구십 블록 위의 침대에서 자요.",
+				SentenceBuilder.authored(BED, "높이 구십 블록 위의 침대에서 자요.", high, word("bed"), NAMER, 3));
 	}
 
 	// ------------------------------------------------------------------ 5. a kind word for two items

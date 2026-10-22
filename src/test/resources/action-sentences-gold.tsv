@@ -99,8 +99,8 @@ transit.in	1	-	{"type":"TRANSIT","direction":"IN"}	-	안으로 들어가요.	L1.
 transit.out.house	1	house	{"type":"TRANSIT","direction":"OUT"}	-	집 밖으로 나가요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
 transit.out.comeout	1	house+come_out	{"type":"TRANSIT","direction":"OUT"}	-	집에서 나와요.	L1.eoyo,L1.loc_bak_e,L1.euro_direction
 height.down	1	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	아래로 내려가요.	L1.eoyo
-height.down.l2	2	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	높이 40블록 이하로 내려가세요.	L2.seyo
-height.down.hold.l2	2	-	{"type":"HOLD_WHILE","item":"minecraft:ender_eye","inner":{"type":"REACH_HEIGHT","minY":-64,"maxY":40}}	-	엔더의 눈을 들고 높이 40블록 이하로 내려가세요.	L2.go_state,L2.seyo
+height.down.l2	2	go_down	{"type":"REACH_HEIGHT","minY":-64,"maxY":40}	-	높이 사십 블록 이하로 내려가세요.	L2.seyo
+height.down.hold.l2	2	-	{"type":"HOLD_WHILE","item":"minecraft:ender_eye","inner":{"type":"REACH_HEIGHT","minY":-64,"maxY":40}}	-	엔더의 눈을 들고 높이 사십 블록 이하로 내려가세요.	L2.go_state,L2.seyo
 takeout.apple	1	-	{"type":"TAKE_OUT","item":"minecraft:apple","container":"minecraft:chest","count":1}	-	상자에서 사과를 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 takeout.bread.three	1	-	{"type":"TAKE_OUT","item":"minecraft:bread","container":"minecraft:chest","count":3}	-	상자에서 빵을 세 개 꺼내요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
 hear.jukebox	1	-	{"type":"HEAR","source":"minecraft:jukebox","radius":10,"dwellMs":3000}	-	주크박스 근처에서 노래를 들어요.	L1.eoyo,L1.eul_reul,L2.eseo_activity
@@ -113,7 +113,7 @@ cook.chicken.baked	1	chicken_meat	{"type":"SMELT","input":"minecraft:chicken","o
 cook.chicken	1	chicken_meat+cook	{"type":"SMELT","input":"minecraft:chicken","output":"minecraft:cooked_chicken","count":1}	-	닭고기를 요리해요.	L1.eoyo,L1.eul_reul
 swim.sea	1	ocean	{"type":"REACH_BIOME","biome":"#minecraft:is_ocean","dwellMs":1000}	[{"type":"IN_WATER"}]	바다에서 수영해요.	L1.eoyo,L2.eseo_activity
 swim.distance	1	swim	{"type":"SWIM","blocks":20}	-	물에서 수영해요.	L1.eoyo,L2.eseo_activity
-swim.distance.l2	2	swim	{"type":"SWIM","blocks":20}	-	물에서 20블록 수영하세요.	L2.seyo,L2.eseo_activity
+swim.distance.l2	2	swim	{"type":"SWIM","blocks":20}	-	물에서 이십 블록 수영하세요.	L2.seyo,L2.eseo_activity
 mount.boat	1	boat	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배에 앉아요.	L1.eoyo,L1.e_place
 mount.boat.ride	1	boat+ride	{"type":"MOUNT","entity":"minecraft:oak_boat","dwellMs":1500}	-	배를 타요.	L1.eoyo,L1.eul_reul
 mount.horse	1	horse	{"type":"MOUNT","entity":"minecraft:horse","dwellMs":1500}	-	말을 타요.	L1.eoyo,L1.eul_reul
@@ -169,8 +169,8 @@ w9.order.all	2	-	{"type":"WAIT","seconds":10}	[{"type":"HOLDING","item":"minecra
 w9.look.sino	1	-	{"type":"LOOK_AT_BLOCK","block":"minecraft:stone","dwellMs":3000}	-	돌을 삼 초 동안 바라봐요.	L1.eoyo,L1.eul_reul
 w9.fall.snow	2	-	{"type":"FALL","blocks":6,"landing":"minecraft:powder_snow"}	-	높은 곳에서 가루눈 위로 뛰어내리세요.	L2.seyo,L2.eseo_activity,L2.euro_direction
 w9.fall.water	1	-	{"type":"FALL","blocks":6,"landing":"minecraft:water"}	-	높은 곳에서 물로 뛰어내려요.	L1.eoyo,L2.eseo_activity,L2.euro_direction
-w9.fall.unhurt	2	-	{"type":"FALL","blocks":10}	-	10블록 높이에서 안 다치고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L1.neg_an
-w9.fall.unhurt.l3	3	-	{"type":"FALL","blocks":10}	-	10블록 높이에서 다치지 않고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L3.ji_anayo
+w9.fall.unhurt	2	-	{"type":"FALL","blocks":10}	-	십 블록 높이에서 안 다치고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L1.neg_an
+w9.fall.unhurt.l3	3	-	{"type":"FALL","blocks":10}	-	십 블록 높이에서 다치지 않고 뛰어내리세요.	L2.seyo,L2.eseo_activity,L3.ji_anayo
 w9.shear.sheep	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:sheep"}	[{"type":"HOLDING","item":"minecraft:shears"}]	가위로 양털을 깎으세요.	L2.seyo,L1.eul_reul,L3.euro_instrument
 w9.leash.cow	1	-	{"type":"INTERACT_ENTITY","entity":"minecraft:cow"}	[{"type":"HOLDING","item":"minecraft:lead"}]	끈으로 소를 묶어요.	L1.eoyo,L1.eul_reul,L3.euro_instrument
 w9.brush.armadillo	2	-	{"type":"INTERACT_ENTITY","entity":"minecraft:armadillo"}	[{"type":"HOLDING","item":"minecraft:brush"}]	솔로 아르마딜로를 닦으세요.	L2.seyo,L1.eul_reul,L3.euro_instrument

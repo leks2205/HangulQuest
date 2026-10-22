@@ -159,7 +159,7 @@ WORDS: dict[str, dict] = {
     "스튜": w(L),
     "주크박스": w(L),
     "레버": w(L),
-    "티엔티": w(L, note="TNT"),
+    "TNT": w(L, note="TNT"),
     "레깅스": w(L),
     "맹그로브": w(L),
     "잭오랜턴": w(L),
