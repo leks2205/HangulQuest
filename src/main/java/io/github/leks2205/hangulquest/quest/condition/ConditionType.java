@@ -31,6 +31,11 @@ public interface ConditionType<C extends Condition> {
 	/** Whether the condition holds right now. */
 	boolean met(C condition, Observation obs);
 
+	/** Same, for a step whose clue may name the colour of a block or item: then only that colour counts. */
+	default boolean met(C condition, Observation obs, io.github.leks2205.hangulquest.quest.goal.Accepted accepted) {
+		return met(condition, obs);
+	}
+
 	/** The phrase in front of the goal sentence ("밤에 "), with its trailing space; may be empty. */
 	String prefix(C condition, SentenceBuilder.Namer namer);
 

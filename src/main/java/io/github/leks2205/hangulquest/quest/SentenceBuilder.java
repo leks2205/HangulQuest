@@ -571,7 +571,7 @@ public final class SentenceBuilder {
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
 		List<String> phrases = new java.util.ArrayList<>();
 		List<String> places = new java.util.ArrayList<>();
-		for (Said said : Colours.at(level, () -> said(goal, conditions, taught, level))) {
+		for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 			phrases.add(said.phrase());
 			places.add(said.place());
 		}
@@ -649,7 +649,7 @@ public final class SentenceBuilder {
 		List<String> phrases = new java.util.ArrayList<>();
 		if (conditions != null) {
 			Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-			for (Said said : Colours.at(level, () -> said(goal, conditions, taught, level))) {
+			for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 				String phrase = said.phrase().trim();
 				if (!phrase.isEmpty()) {
 					phrases.add(phrase);
@@ -681,7 +681,7 @@ public final class SentenceBuilder {
 			return missing;
 		}
 		Namer taught = SentenceContext.taught(word == null || isVerbWord(word) ? null : word, namer);
-		for (Said said : Colours.at(level, () -> said(goal, conditions, taught, level))) {
+		for (Said said : Colours.ifUnset(level, () -> said(goal, conditions, taught, level))) {
 			ConditionType<Condition> conditionType = ConditionTypes.of(said.condition());
 			String phrase = said.phrase().trim();
 			if (phrase.isEmpty() || clue.contains(phrase)) {

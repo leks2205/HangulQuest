@@ -144,8 +144,8 @@ trail.village_errands_demo.s2.clue	주민에게 빵을 주세요.	clue, generate
 trail.village_errands_demo.s2.hint	주민 앞에 빵을 놓아요.	hint, generated; Give minecraft:bread x1
 trail.village_errands_demo.s3.clue	상자 안에 사과를 넣으세요.	clue, generated; PutIn minecraft:apple x1
 trail.village_errands_demo.s3.hint	상자 안에 사과를 넣어요.	hint, generated; PutIn minecraft:apple x1
-trail.village_errands_demo.s4.clue	침대에서 자기 전에 빵을 드세요.	clue, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
-trail.village_errands_demo.s4.hint	침대에서 자기 전에 빵을 먹어요.	hint, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
+trail.village_errands_demo.s4.clue	빨간색 침대에서 자기 전에 빵을 드세요.	clue, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
+trail.village_errands_demo.s4.hint	빨간색 침대에서 자기 전에 빵을 먹어요.	hint, generated; Sequence [ConsumeItem minecraft:bread x1 > UseBlock minecraft:red_bed ]
 trail.village_errands_demo.finale.clue	횃불을 들고 밤에 걸으세요.	clue, generated; HoldWhile minecraft:torch 
 trail.village_errands_demo.finale.hint	횃불을 들고 밤에 걸어요.	hint, generated; HoldWhile minecraft:torch 
 trail.village_errands_demo.finale	횃불을 들고 밤에 걸었어요.	finale, generated; HoldWhile minecraft:torch 

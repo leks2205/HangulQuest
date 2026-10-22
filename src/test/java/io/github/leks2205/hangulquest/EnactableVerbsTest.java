@@ -455,7 +455,7 @@ class EnactableVerbsTest {
 	void lyingDownIsInBedWithoutWaitingForTheNight() {
 		Goal lie = new Goal.LieDown("minecraft:red_bed", 2000);
 		assertEquals("침대에 누워요.", clue(lie, "bed"));
-		assertEquals("빨간색 침대에 누웠어요.", ceremony(lie, "bed"));
+		assertEquals("침대에 누웠어요.", ceremony(lie, "bed"));
 		assertEquals(Verb.LIE, SentenceBuilder.verbFor(lie));
 		assertEquals(List.of(), problems(lie, "bed"));
 		assertEquals(List.of(), problems(lie, "lie_down"));

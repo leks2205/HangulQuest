@@ -44,8 +44,8 @@ trail.adv_adventure_kill_mob_near_sculk_catalyst.s1.clue	밤에 숲으로 가세
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s1.hint	밤에 숲으로 가요.	hint, generated; REACH_BIOME:minecraft:forest:GO|TIME:NIGHT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s2.clue	모닥불을 만든 후에 밤까지 기다리세요.	clue, generated; SEQUENCE:CRAFT:minecraft:campfire:CRAFT>WAIT::WAIT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.s2.hint	모닥불을 만든 후에 밤까지 기다려요.	hint, generated; SEQUENCE:CRAFT:minecraft:campfire:CRAFT>WAIT::WAIT
-trail.adv_adventure_kill_mob_near_sculk_catalyst.s3.clue	밤에 침대에 눕지 마세요.	clue, generated; AVOID:LIE_DOWN:minecraft:red_bed:LIE
-trail.adv_adventure_kill_mob_near_sculk_catalyst.s3.hint	밤에 침대에 눕지 마세요.	hint, generated; AVOID:LIE_DOWN:minecraft:red_bed:LIE
+trail.adv_adventure_kill_mob_near_sculk_catalyst.s3.clue	밤에 빨간색 침대에 눕지 마세요.	clue, generated; AVOID:LIE_DOWN:minecraft:red_bed:LIE
+trail.adv_adventure_kill_mob_near_sculk_catalyst.s3.hint	밤에 빨간색 침대에 눕지 마세요.	hint, generated; AVOID:LIE_DOWN:minecraft:red_bed:LIE
 trail.adv_adventure_kill_mob_near_sculk_catalyst.finale.clue	밤에 숲에서 활을 들고 돼지를 한 마리 물리치세요.	clue, generated; DEFEAT_ENTITY:minecraft:pig:DEFEAT|HOLDING:minecraft:bow,IN_BIOME:minecraft:forest,TIME:NIGHT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.finale.hint	밤에 숲에서 활을 들고 돼지를 물리쳐요.	hint, generated; DEFEAT_ENTITY:minecraft:pig:DEFEAT|HOLDING:minecraft:bow,IN_BIOME:minecraft:forest,TIME:NIGHT
 trail.adv_adventure_kill_mob_near_sculk_catalyst.finale	숲에서 밤에 돼지를 물리쳤어요. 사냥꾼은 밤에 자지 않아요.	finale, authored; DEFEAT_ENTITY:minecraft:pig:DEFEAT|HOLDING:minecraft:bow,IN_BIOME:minecraft:forest,TIME:NIGHT
@@ -142,8 +142,8 @@ trail.wolfpfad.s1.clue	밤에 늑대를 일 초 동안 바라보세요.	clue, ge
 trail.wolfpfad.s1.hint	밤에 늑대를 일 초 동안 바라봐요.	hint, generated; LOOK_AT_ENTITY:minecraft:wolf:WATCH|TIME:NIGHT
 trail.wolfpfad.s2.clue	숲에서 늑대에게 소고기를 주세요.	clue, generated; GIVE:minecraft:cooked_beef>minecraft:wolf:GIVE|IN_BIOME:minecraft:forest
 trail.wolfpfad.s2.hint	숲에서 늑대에게 소고기를 줘요.	hint, generated; GIVE:minecraft:cooked_beef>minecraft:wolf:GIVE|IN_BIOME:minecraft:forest
-trail.wolfpfad.s3.clue	늑대 근처에서 침대를 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK
-trail.wolfpfad.s3.hint	늑대 근처에서 침대를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK
+trail.wolfpfad.s3.clue	늑대 근처에서 빨간색 침대를 부수지 마세요.	clue, generated; AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK
+trail.wolfpfad.s3.hint	늑대 근처에서 빨간색 침대를 부수지 마세요.	hint, generated; AVOID:BREAK_BLOCK:minecraft:red_bed:BREAK
 trail.wolfpfad.finale.clue	늑대에게 돼지고기를 주세요.	clue, generated; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE
 trail.wolfpfad.finale.hint	늑대에게 돼지고기를 줘요.	hint, generated; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE
 trail.wolfpfad.finale	늑대에게 돼지고기를 줬어요. 늑대는 고기를 좋아해요.	finale, authored; GIVE:minecraft:cooked_porkchop>minecraft:wolf:GIVE

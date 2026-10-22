@@ -88,7 +88,7 @@ final class KoreanFixtures {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.exact(id, word.ko)).orElse(null);
 			}
 
 			@Override

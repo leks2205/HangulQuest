@@ -194,7 +194,7 @@ public record SentenceContext(String obj, Verb verb, boolean withCounts, int lev
 	 * covers keeps its full name (영혼 랜턴, 영혼 모닥불), unless the word is drawn with that very item.
 	 */
 	public static String stand(Word word, ObjectKind kind, String id, SentenceBuilder.Namer base) {
-		String general = Tiers.qualify(id, word.ko);
+		String general = Tiers.exact(id, word.ko);
 		SentenceBuilder.Namer registryNamer = base.untaught();
 		String registry = kind == ObjectKind.ITEM ? registryNamer.item(id) : registryNamer.block(id);
 		if (registry == null || registry.equals(word.ko) || !registry.endsWith(word.ko) || !general.equals(word.ko)) {

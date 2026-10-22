@@ -53,7 +53,7 @@ final class QuestTextService {
 
 			@Override
 			public String block(String id) {
-				return catalog.byItemId(id).map(word -> Tiers.qualify(id, word.ko)).orElse(null);
+				return catalog.byItemId(id).map(word -> Tiers.exact(id, word.ko)).orElse(null);
 			}
 
 			@Override
@@ -196,6 +196,16 @@ final class QuestTextService {
 						|| mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.ITEM;
 				if (thing && Colours.isColoured(mention.id()) && !ids.contains(mention.id())) {
 					ids.add(mention.id());
+				}
+			}
+			for (Condition condition : key.conditions()) {
+				for (io.github.leks2205.hangulquest.quest.goal.GoalType.Mention mention
+						: io.github.leks2205.hangulquest.quest.condition.ConditionTypes.of(condition).mentions(condition)) {
+					boolean thing = mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.BLOCK
+							|| mention.kind() == io.github.leks2205.hangulquest.quest.goal.ObjectKind.ITEM;
+					if (thing && Colours.isColoured(mention.id()) && !ids.contains(mention.id())) {
+						ids.add(mention.id());
+					}
 				}
 			}
 			return ids;

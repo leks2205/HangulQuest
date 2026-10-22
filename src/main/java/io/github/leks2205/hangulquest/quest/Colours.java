@@ -79,6 +79,24 @@ public final class Colours {
 		return dye(id) != null;
 	}
 
+	/** A dye: its colour is what it is, so every sentence names it, whatever the level. */
+	public static boolean isDye(String id) {
+		return id != null && id.endsWith("_dye") && isColoured(id);
+	}
+
+	/**
+	 * The name with the colour in front when the name leaves it out: always for a dye (염료 is the red dye here),
+	 * for the other coloured blocks and items wherever a sentence says the colour ({@link #kept}).
+	 */
+	public static String withColour(String id, String name) {
+		String dye = dye(id);
+		if (dye == null || name == null || name.isBlank() || !isDye(id) && !kept()) {
+			return name;
+		}
+		String noun = NOUNS.get(dye);
+		return name.contains(noun) ? name : noun + " " + name;
+	}
+
 	/** Whether the sentence names the colour of this coloured id, as the noun (빨간색) or the adjective (빨간). */
 	public static boolean saysColourOf(String sentence, String id) {
 		String dye = dye(id);
@@ -105,6 +123,11 @@ public final class Colours {
 				READ_AT.set(before);
 			}
 		}
+	}
+
+	/** Same, but a scope that is already open (a hint built inside its clue's level) stays in force. */
+	public static <T> T ifUnset(int level, java.util.function.Supplier<T> sentence) {
+		return READ_AT.get() != null ? sentence.get() : at(level, sentence);
 	}
 
 	/** Whether a taught general word keeps the colour of the block it stands for in the sentence under construction. */

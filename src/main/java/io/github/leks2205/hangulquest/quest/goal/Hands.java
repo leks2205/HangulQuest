@@ -10,8 +10,17 @@ public final class Hands {
 
 	/** Same, for a step whose clue may name the colour of the item: then only that very item counts. */
 	public static boolean holds(GoalEvaluator.Tracker tracker, Observation obs, String item) {
-		return item != null && !item.isBlank()
-				&& (Matching.matches(tracker, item, obs.mainHand) || Matching.matches(tracker, item, obs.offHand));
+		return holds(tracker.accepted, obs, item);
+	}
+
+	public static boolean holds(Accepted accepted, Observation obs, String item) {
+		if (item == null || item.isBlank()) {
+			return false;
+		}
+		if (accepted.isExact(item)) {
+			return item.equals(obs.mainHand) || item.equals(obs.offHand);
+		}
+		return holds(obs, item);
 	}
 
 	/** True when the item (or one of its block family, like torch and wall torch) is in either hand. */

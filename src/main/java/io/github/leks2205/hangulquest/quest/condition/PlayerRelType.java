@@ -8,6 +8,7 @@ import io.github.leks2205.hangulquest.quest.JsonFields;
 import io.github.leks2205.hangulquest.quest.KoGrammar;
 import io.github.leks2205.hangulquest.quest.SentenceBuilder;
 import io.github.leks2205.hangulquest.quest.goal.GoalType;
+import io.github.leks2205.hangulquest.quest.goal.Accepted;
 import io.github.leks2205.hangulquest.quest.goal.Matching;
 import io.github.leks2205.hangulquest.quest.goal.ObjectKind;
 import io.github.leks2205.hangulquest.quest.goal.ValidationContext;
@@ -74,11 +75,17 @@ final class PlayerRelType implements ConditionType<Condition.PlayerRel> {
 
 	@Override
 	public boolean met(Condition.PlayerRel condition, Observation obs) {
+		return met(condition, obs, Accepted.NONE);
+	}
+
+	@Override
+	public boolean met(Condition.PlayerRel condition, Observation obs, Accepted accepted) {
 		EntityFact entity = nearestEntity(condition.anchor(), obs);
 		if (entity != null && holds(condition.relation(), obs.position, entity.position().add(0, 0.9, 0), entity, 0.9)) {
 			return true;
 		}
-		if (obs.lookedBlockPos != null && Matching.matchesBlock(condition.anchor(), obs.lookedBlock)) {
+		if (obs.lookedBlockPos != null && (accepted.isExact(condition.anchor())
+				? condition.anchor().equals(obs.lookedBlock) : Matching.matchesBlock(condition.anchor(), obs.lookedBlock))) {
 			Vec3 center = new Vec3(obs.lookedBlockPos.getX() + 0.5, obs.lookedBlockPos.getY() + 0.5,
 					obs.lookedBlockPos.getZ() + 0.5);
 			return holds(condition.relation(), obs.position, center, null, 0.5);
