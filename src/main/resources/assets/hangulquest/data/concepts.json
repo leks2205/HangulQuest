@@ -1759,6 +1759,11 @@
    "minecraft:salmon",
    "minecraft:tropical_fish"
   ],
+  "entities": [
+   "minecraft:cod",
+   "minecraft:salmon",
+   "minecraft:tropical_fish"
+  ],
   "sentenceKo": "물고기를 잡아요.",
   "descKo": "물에 살아요. 먹을 수 있어요.",
   "aliases": [
@@ -1789,6 +1794,19 @@
   "descKo": "나와 가까운 사람이에요.",
   "aliases": [
    "친구"
+  ]
+ },
+ {
+  "id": "family",
+  "ko": "가족",
+  "category": "MISC",
+  "tier": 1,
+  "items": [],
+  "icon": "minecraft:player_head",
+  "sentenceKo": "가족과 같이 살아요.",
+  "descKo": "엄마, 아빠, 동생이 가족이에요.",
+  "aliases": [
+   "가족"
   ]
  },
  {
@@ -2821,6 +2839,55 @@
   "descKo": "창문에 쓰는 얇은 유리예요.",
   "aliases": [
    "유리판"
+  ]
+ },
+ {
+  "id": "window",
+  "ko": "창문",
+  "category": "BLOCKS",
+  "tier": 2,
+  "items": [],
+  "icon": "minecraft:glass_pane",
+  "covers": [
+   "minecraft:glass_pane",
+   "minecraft:white_stained_glass_pane",
+   "minecraft:orange_stained_glass_pane",
+   "minecraft:magenta_stained_glass_pane",
+   "minecraft:light_blue_stained_glass_pane",
+   "minecraft:yellow_stained_glass_pane",
+   "minecraft:lime_stained_glass_pane",
+   "minecraft:pink_stained_glass_pane",
+   "minecraft:gray_stained_glass_pane",
+   "minecraft:light_gray_stained_glass_pane",
+   "minecraft:cyan_stained_glass_pane",
+   "minecraft:purple_stained_glass_pane",
+   "minecraft:blue_stained_glass_pane",
+   "minecraft:brown_stained_glass_pane",
+   "minecraft:green_stained_glass_pane",
+   "minecraft:red_stained_glass_pane",
+   "minecraft:black_stained_glass_pane",
+   "minecraft:glass",
+   "minecraft:white_stained_glass",
+   "minecraft:orange_stained_glass",
+   "minecraft:magenta_stained_glass",
+   "minecraft:light_blue_stained_glass",
+   "minecraft:yellow_stained_glass",
+   "minecraft:lime_stained_glass",
+   "minecraft:pink_stained_glass",
+   "minecraft:gray_stained_glass",
+   "minecraft:light_gray_stained_glass",
+   "minecraft:cyan_stained_glass",
+   "minecraft:purple_stained_glass",
+   "minecraft:blue_stained_glass",
+   "minecraft:brown_stained_glass",
+   "minecraft:green_stained_glass",
+   "minecraft:red_stained_glass",
+   "minecraft:black_stained_glass"
+  ],
+  "sentenceKo": "창문으로 밖을 봐요.",
+  "descKo": "빛이 들어와요. 밖을 볼 수 있어요.",
+  "aliases": [
+   "창문"
   ]
  },
  {
@@ -4748,6 +4815,9 @@
   "tier": 1,
   "items": [],
   "icon": "minecraft:name_tag",
+  "accepts": [
+   "minecraft:oak_sign"
+  ],
   "sentenceKo": "이름표에 이름을 써요.",
   "descKo": "사람을 부르는 말이에요.",
   "aliases": [

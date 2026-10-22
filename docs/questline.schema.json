@@ -298,9 +298,10 @@
               "enum": [
                 "OPEN",
                 "CLOSE",
-                "LIT"
+                "LIT",
+                "WRITE"
               ],
-              "description": "Open or close a door, trapdoor or fence gate, or light a candle or campfire (LIT): the block must really change state. Without it any use of the block counts, except that a candle has to be lit."
+              "description": "Open or close a door, trapdoor or fence gate, or light a candle or campfire (LIT): the block must really change state. WRITE is writing on a sign (the edit screen closed with text). Without it any use of the block counts, except that a candle has to be lit and a sign has to be written on."
             }
           },
           "required": [
@@ -992,6 +993,11 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 64
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
             }
           },
           "required": [

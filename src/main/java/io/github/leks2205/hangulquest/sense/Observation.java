@@ -101,6 +101,8 @@ public final class Observation {
 	public List<String> closedBlocks = List.of();
 	/** Candles and campfires the player lit this tick (the {@code lit} state flipped on after a click). */
 	public List<String> litBlocks = List.of();
+	/** Signs the player closed the edit screen of with text on them this tick (the block id of each). */
+	public List<String> signsWritten = List.of();
 	/** The same for the ones the player put out. */
 	public List<String> snuffedBlocks = List.of();
 	/**
@@ -112,6 +114,8 @@ public final class Observation {
 	public String vehicle;
 	/** Distance to the nearest jukebox that is playing a disc; -1 when none is near or no scan was asked for. */
 	public double jukeboxDistance = -1;
+	/** Distance to the nearest bell that is ringing (it shakes for a few seconds); -1 when none is near or no scan was asked for. */
+	public double bellDistance = -1;
 	/**
 	 * Set by the goal evaluator while a tracked step listens for a jukebox, so the sensor only scans the
 	 * surroundings for one when it is worth it. Read on the following tick, like {@link #farEntityLookWanted}.
@@ -188,6 +192,11 @@ public final class Observation {
 	public void addLit(String block) {
 		litBlocks = grow(litBlocks);
 		litBlocks.add(block);
+	}
+
+	public void addSignWritten(String block) {
+		signsWritten = grow(signsWritten);
+		signsWritten.add(block);
 	}
 
 	public void addSnuffed(String block) {

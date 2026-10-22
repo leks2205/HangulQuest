@@ -50,8 +50,17 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 		if (first.biome != null && !all.contains(first.biome)) {
 			all.add(0, first.biome); // a biome word covers its own biome and the ones it lists
 		}
+		java.util.Map<String, List<String>> extra = new java.util.HashMap<>();
+		List<String> creatures = first.entities == null ? List.of() : first.entities;
+		if (!creatures.isEmpty()) { // 물고기 for a cod, a salmon or a tropical fish: any of them is the creature
+			for (GoalType.Mention mention : GoalTypes.of(step.goal()).mentions(step.goal())) {
+				if (mention.kind() == ObjectKind.ENTITY && creatures.contains(mention.id())) {
+					extra.put(mention.id(), List.copyOf(creatures));
+				}
+			}
+		}
 		if (all.size() < 2) {
-			return NONE;
+			return extra.isEmpty() ? NONE : new Accepted(Set.of(), List.of(), java.util.Map.copyOf(extra));
 		}
 		Set<String> from = new LinkedHashSet<>();
 		for (GoalType.Mention mention : GoalTypes.of(step.goal()).mentions(step.goal())) {
@@ -75,7 +84,6 @@ public record Accepted(Set<String> from, List<String> items, java.util.Map<Strin
 				}
 			}
 		}
-		java.util.Map<String, List<String>> extra = new java.util.HashMap<>();
 		if (step.goal() instanceof io.github.leks2205.hangulquest.quest.Goal.Smelt smelt && smelt.input() != null
 				&& from.contains(smelt.input())) {
 			// 물고기 for a cod in the furnace: the cooked form of every fish the word covers is the product

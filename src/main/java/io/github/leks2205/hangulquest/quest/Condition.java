@@ -19,7 +19,11 @@ public sealed interface Condition {
 	record YRange(int minY, int maxY) implements Condition {
 	}
 
-	record NearEntity(String entity, double radius) implements Condition {
+	/** {@code count} creatures of the kind within {@code radius} blocks (1: one is enough): 주민 두 명 근처에서. */
+	record NearEntity(String entity, double radius, int count) implements Condition {
+		public NearEntity(String entity, double radius) {
+			this(entity, radius, 1);
+		}
 	}
 
 	record NearBlock(String block, double radius) implements Condition {

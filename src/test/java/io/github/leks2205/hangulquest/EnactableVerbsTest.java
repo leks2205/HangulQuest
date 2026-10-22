@@ -404,7 +404,8 @@ class EnactableVerbsTest {
 		assertEquals(List.of(), problems(jukebox, "jukebox"));
 		assertEquals(List.of(), problems(jukebox, "hear"));
 		assertEquals(List.of(), problems(note, "note_block"));
-		assertFalse(problems(new Goal.Hear("minecraft:bell", 10, 3000), "bell").isEmpty());
+		assertEquals(List.of(), problems(new Goal.Hear("minecraft:bell", 10, 3000), "bell"));
+		assertFalse(problems(new Goal.Hear("minecraft:chest", 10, 3000), "chest").isEmpty());
 		assertFalse(problems(new Goal.Hear("minecraft:jukebox", 40, 3000), "jukebox").isEmpty());
 	}
 
@@ -505,8 +506,8 @@ class EnactableVerbsTest {
 		Goal ten = new Goal.Wait(10, null);
 		Goal night = new Goal.Wait(5, "NIGHT");
 		assertEquals("잠깐 기다려요.", clue(brief, null));
-		assertEquals("10초 동안 기다리세요.", clue(ten, null, 2));
-		assertEquals("10초 동안 기다렸어요.", ceremony(ten, null));
+		assertEquals("십 초 동안 기다리세요.", clue(ten, null, 2));
+		assertEquals("십 초 동안 기다렸어요.", ceremony(ten, null));
 		assertEquals("밤까지 기다려요.", clue(night, null));
 		assertEquals("낮까지 기다려요.", clue(new Goal.Wait(5, "DAY"), null));
 		assertEquals("밤까지 기다렸어요.", ceremony(night, null));

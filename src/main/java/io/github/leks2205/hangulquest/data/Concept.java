@@ -41,6 +41,11 @@ public final class Concept {
 	 */
 	public List<String> accepts = new ArrayList<>();
 	public String entity;
+	/**
+	 * Further creatures a goal teaching this word accepts and the sentence names with the word: 물고기 is the cod, the
+	 * salmon and the tropical fish. Like {@code covers}, this does not rename them in tooltips.
+	 */
+	public List<String> entities = new ArrayList<>();
 	public String biome;
 	public String sentenceKo;
 	public String sentenceDe;
@@ -95,7 +100,7 @@ public final class Concept {
 		// A blank English gloss stays blank here; Word marks it as untranslated instead of
 		// passing the German text off as English.
 		return new Word("concept:" + id, ko, de, en, de, categoryEnum(), tier, id, iconItem(), entity, biome,
-				descKo, Origin.CURATED, false, grammar, referents, glosses, covers);
+				descKo, Origin.CURATED, false, grammar, referents, glosses, covers, entities);
 	}
 
 	public boolean isValid() {

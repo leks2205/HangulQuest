@@ -158,4 +158,28 @@ public final class KoGrammar {
 		}
 		return n == 10 ? "열" : "열" + ONES[n - 10];
 	}
+
+	private static final String[] SINO_DIGITS = {"", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
+
+	/**
+	 * Sino-Korean numeral, the one that goes with units like 초 and 분: 10 → 십, 30 → 삼십, 11 → 십일, 120 → 백이십.
+	 * Valid for 1..999; 십, 백 stand alone for 10 and 100 (not 일십).
+	 */
+	public static String sino(int n) {
+		if (n < 1 || n > 999) {
+			throw new IllegalArgumentException("Sino-Korean numerals are only built for 1..999, got " + n);
+		}
+		StringBuilder out = new StringBuilder();
+		int hundreds = n / 100;
+		int tens = n / 10 % 10;
+		int ones = n % 10;
+		if (hundreds > 0) {
+			out.append(hundreds > 1 ? SINO_DIGITS[hundreds] : "").append('백');
+		}
+		if (tens > 0) {
+			out.append(tens > 1 ? SINO_DIGITS[tens] : "").append('십');
+		}
+		out.append(SINO_DIGITS[ones]);
+		return out.toString();
+	}
 }

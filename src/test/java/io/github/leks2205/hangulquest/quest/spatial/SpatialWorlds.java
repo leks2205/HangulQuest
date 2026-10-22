@@ -1,11 +1,13 @@
 package io.github.leks2205.hangulquest.quest.spatial;
 
 import io.github.leks2205.hangulquest.quest.Goal;
+import io.github.leks2205.hangulquest.sense.EntityFact;
 import io.github.leks2205.hangulquest.sense.PlacementFact;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import java.util.UUID;
 
 /** Builds a world in which a spatial goal is just satisfied, and the placement that satisfies it. */
 public final class SpatialWorlds {
@@ -26,8 +28,34 @@ public final class SpatialWorlds {
 		};
 	}
 
+	/**
+	 * The creatures a goal needs next to its placement: a creature anchor stands two blocks west of the block
+	 * and looks along the way the relation asks (east for 앞, west for 뒤). Empty for every block anchor.
+	 */
+	public static List<EntityFact> entitiesFor(Goal goal) {
+		if (!(goal instanceof Goal.PlaceRel g) || !BlockSpec.isEntityAnchor(g.anchor())) {
+			return List.of();
+		}
+		// yaw 0 looks south (+z), -90 east (+x), 90 west (-x)
+		float yaw = switch (g.relation()) {
+			case IN_FRONT_OF -> -90.0F;
+			case BEHIND -> 90.0F;
+			default -> 0.0F; // 옆 and 근처: it looks at neither the block nor away from it
+		};
+		double distance = g.relation() == Relation.NEAR ? 4.0 : 2.0;
+		return List.of(new EntityFact(g.anchor(), new UUID(8L, 1L), X + 0.5 - distance, Y, Z + 0.5, yaw, 0.0F));
+	}
+
 	private static PlacementFact placeRel(Goal.PlaceRel g, boolean night) {
 		World world = new World();
+		if (BlockSpec.isEntityAnchor(g.anchor())) {
+			world.put(X, Y, Z, BlockSpec.representative(g.block()));
+			PlacementFact fact = world.placed(new BlockPos(X, Y, Z), night, new Vec3(X + 0.5, Y, Z + 0.5));
+			if (!Relations.holding(new Anchor.Entity(g.anchor()), fact, entitiesFor(g)).contains(g.relation())) {
+				throw new AssertionError("fixture does not satisfy " + g.relation() + " for " + g.anchor());
+			}
+			return fact;
+		}
 		String anchor = BlockSpec.representative(g.anchor());
 		Vec3 player = new Vec3(X + 0.5, Y, Z + 0.5);
 		switch (g.relation()) {

@@ -46,6 +46,7 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.JukeboxBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.entity.BellBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -122,6 +123,7 @@ public final class EnvironmentSensor {
 	private final ToggleTracker lights = new ToggleTracker();
 	private long musicAt;
 	private double musicDistance = -1;
+	private double bellDistance = -1;
 	private long nearBlockAt;
 	private BlockPos nearBlockFrom;
 	private Map<String, Integer> nearBlockWanted = Map.of();
@@ -168,6 +170,7 @@ public final class EnvironmentSensor {
 		lights.clear();
 		musicAt = 0L;
 		musicDistance = -1;
+		bellDistance = -1;
 		nearBlockAt = 0L;
 		nearBlockFrom = null;
 		nearBlockWanted = Map.of();
@@ -463,13 +466,16 @@ public final class EnvironmentSensor {
 
 	/**
 	 * Distance to the nearest jukebox with a disc in it. A jukebox holds its disc in the block state
-	 * ({@code has_record}) and drops it when the song is over, so the state says "playing". The scan reads
+	 * ({@code has_record}) and drops it when the song is over, so the state says "playing". A bell shakes for
+	 * about two and a half seconds after it was rung, by whoever rang it; the client keeps that in the block
+	 * entity ({@code shaking}), which is how a ringing bell near the player is heard. The scan reads
 	 * the block entities of the chunks around the player, twice a second, and only while a step listens.
 	 */
 	private void readMusic(Observation obs, LocalPlayer player, ClientLevel level) {
 		if (obs.now - musicAt >= 500L) {
 			musicAt = obs.now;
 			musicDistance = -1;
+			bellDistance = -1;
 			int chunkX = obs.blockPos.getX() >> 4;
 			int chunkZ = obs.blockPos.getZ() >> 4;
 			for (int dx = -1; dx <= 1; dx++) {
@@ -481,12 +487,18 @@ public final class EnvironmentSensor {
 							double distance = Math.sqrt(player.distanceToSqr(at.getX() + 0.5, at.getY() + 0.5,
 									at.getZ() + 0.5));
 							musicDistance = musicDistance < 0 ? distance : Math.min(musicDistance, distance);
+						} else if (entity instanceof BellBlockEntity bell && bell.shaking) {
+							BlockPos at = entity.getBlockPos();
+							double distance = Math.sqrt(player.distanceToSqr(at.getX() + 0.5, at.getY() + 0.5,
+									at.getZ() + 0.5));
+							bellDistance = bellDistance < 0 ? distance : Math.min(bellDistance, distance);
 						}
 					}
 				}
 			}
 		}
 		obs.jukeboxDistance = musicDistance;
+		obs.bellDistance = bellDistance;
 	}
 
 	/**

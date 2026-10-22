@@ -33,7 +33,7 @@ class GrammarDataTest {
 	/** Goal types (first part of a hook, before ':') that Phase T and the existing goals provide. */
 	private static final Set<String> GOAL_TYPES = Set.of("PLACE_REL", "BUILD_PATTERN", "CRAFT", "SMELT", "GIVE", "FEED",
 			"HOLD_WHILE", "SEQUENCE", "AVOID", "RIDE", "BREED", "USE_ON", "USE_BLOCK", "CONSUME_ITEM", "ACQUIRE_ITEM",
-			"PLACE_BLOCK", "BREAK_BLOCK", "DEFEAT", "REACH_BIOME", "PUT_IN", "LIGHT_LEVEL", "INTERACT_ENTITY");
+			"PLACE_BLOCK", "BREAK_BLOCK", "DEFEAT", "REACH_BIOME", "PUT_IN", "LIGHT_LEVEL", "INTERACT_ENTITY", "TRADE", "NEAR_ENTITY");
 
 	/**
 	 * Surface forms that only exist from a given level on, as rough regular expressions. They catch

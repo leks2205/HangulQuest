@@ -163,6 +163,7 @@ final class PlaceOnPatternType implements GoalType<Goal.PlaceOnPattern> {
 			context.problem("bad material " + goal.material());
 			return;
 		}
+		SpatialRules.checkTagWord(goal.material(), context);
 		if (!Relations.supported(goal.relation(), anchor(goal))) {
 			context.problem(goal.relation() + " does not fit a " + goal.pattern());
 		}

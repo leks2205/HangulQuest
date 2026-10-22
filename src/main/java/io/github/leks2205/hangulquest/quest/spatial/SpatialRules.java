@@ -48,6 +48,16 @@ public final class SpatialRules {
 		};
 	}
 
+	/**
+	 * A tag the clue has to say needs a word of its own (문 for the doors, 표지판 for the signs), or the sentence
+	 * names one block of it, or "그것". The word is a curated concept whose blocks all lie in the tag.
+	 */
+	public static void checkTagWord(String spec, ValidationContext context) {
+		if (BlockSpec.isTag(spec) && BlockSpec.valid(spec) && BlockSpec.tagWord(spec, context.catalog().concepts()) == null) {
+			context.problem("the tag " + spec + " has no word of its own: add a concept that covers its blocks");
+		}
+	}
+
 	/** The relation-revealing word in a translation, whichever relation it names, or null when it is clean. */
 	public static String leak(String translation) {
 		return RelationWords.leak(translation, null, List.of());

@@ -17,14 +17,16 @@ import java.util.List;
 
 /**
  * Listen to music: stand within some blocks of a jukebox that is playing a disc ("주크박스 근처에서 노래를
- * 들어요"), or strike a note block ("소리 블록의 소리를 들어요"). A jukebox holds its disc in its block
- * state while the song plays, so the sensor can see it from the client (it scans the nearby block entities
- * twice a second, and only while a step like this is tracked). The sound itself is not heard by the mod:
- * the player has to be near enough, which is what the radius is for.
+ * 들어요"), or strike a note block ("소리 블록의 소리를 들어요"), or hear a bell ring ("종소리를 들어요"). A jukebox
+ * holds its disc in its block state while the song plays, and a bell shakes while it rings, so the sensor can
+ * see both from the client (it scans the nearby block entities twice a second, and only while a step like
+ * this is tracked). The sound itself is not heard by the mod: the player has to be near enough, which is what
+ * the radius is for. A bell counts whoever rang it.
  */
 final class HearType implements GoalType<Goal.Hear> {
 	static final String JUKEBOX = "minecraft:jukebox";
 	static final String NOTE_BLOCK = "minecraft:note_block";
+	static final String BELL = "minecraft:bell";
 	private static final int DEFAULT_RADIUS = 10;
 	private static final long DEFAULT_DWELL_MS = 3000L;
 
@@ -69,13 +71,20 @@ final class HearType implements GoalType<Goal.Hear> {
 		return JUKEBOX.equals(goal.source());
 	}
 
+	private static boolean bell(Goal.Hear goal) {
+		return BELL.equals(goal.source());
+	}
+
 	@Override
 	public boolean needsMusicScan(Goal.Hear goal) {
-		return jukebox(goal);
+		return jukebox(goal) || bell(goal);
 	}
 
 	@Override
 	public boolean evaluate(Goal.Hear goal, Observation obs, GoalEvaluator.Tracker tracker, boolean nightLatch) {
+		if (bell(goal)) { // a ring is over in a few seconds: hearing it once is enough
+			return obs.bellDistance >= 0 && obs.bellDistance <= goal.radius();
+		}
 		if (!jukebox(goal)) {
 			for (String used : obs.usedBlocks) {
 				if (Matching.matchesBlock(goal.source(), used)) {
@@ -113,9 +122,12 @@ final class HearType implements GoalType<Goal.Hear> {
 		return what(goal, c) + " " + c.verb().past();
 	}
 
-	/** "주크박스 근처에서 노래를" or "소리 블록의 소리를". */
+	/** "주크박스 근처에서 노래를", "소리 블록의 소리를" or "종소리를". */
 	private static String what(Goal.Hear goal, SentenceContext c) {
 		String name = c.name(ObjectKind.BLOCK, goal.source());
+		if (bell(goal)) {
+			return KoGrammar.eul((name.isEmpty() ? "종" : name) + "소리");
+		}
 		if (jukebox(goal)) {
 			return KoGrammar.eseo((name.isEmpty() ? "주크박스" : name) + " 근처") + " " + KoGrammar.eul("노래");
 		}
@@ -134,6 +146,9 @@ final class HearType implements GoalType<Goal.Hear> {
 	@Override
 	public String status(Goal.Hear goal, Observation obs, GoalEvaluator.Tracker tracker, Catalog catalog,
 						 String word) {
+		if (bell(goal)) {
+			return obs.bellDistance >= 0 ? "" : "종소리가 안 들려요";
+		}
 		if (!jukebox(goal)) {
 			return "";
 		}
@@ -153,8 +168,9 @@ final class HearType implements GoalType<Goal.Hear> {
 	@Override
 	public void validate(Goal.Hear goal, ValidationContext context) {
 		GoalType.super.validate(goal, context);
-		if (!jukebox(goal) && !NOTE_BLOCK.equals(goal.source())) {
-			context.problem("a Hear goal listens to " + JUKEBOX + " or " + NOTE_BLOCK + ", not " + goal.source());
+		if (!jukebox(goal) && !bell(goal) && !NOTE_BLOCK.equals(goal.source())) {
+			context.problem("a Hear goal listens to " + JUKEBOX + ", " + NOTE_BLOCK + " or " + BELL + ", not "
+					+ goal.source());
 		}
 		if (goal.radius() < 2 || goal.radius() > 16) {
 			context.problem("radius must be 2..16");

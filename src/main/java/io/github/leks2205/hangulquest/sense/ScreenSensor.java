@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.AbstractSignEditScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,6 +27,9 @@ import net.minecraft.world.inventory.SmokerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.StonecutterMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.SignBlockEntity;
+import net.minecraft.world.level.block.entity.SignTextSlot;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,12 +40,15 @@ import java.util.UUID;
  * Watches the container screens that matter for crafting, trading and putting items away. It hooks
  * Fabric's per-screen mouse and key events (no mixins): a snapshot before and after each click on
  * a screen with a result slot feeds {@link ResultTakeTracker}, and while a chest-like screen is
- * open a per-tick tally feeds {@link ContainerDiff}. With no such screen open, a tick costs one
- * field read.
+ * open a per-tick tally feeds {@link ContainerDiff}. The sign edit screen is watched too: when it closes
+ * and the sign has text on it, that is a sign written on. With no such screen open, a tick costs two
+ * field reads.
  */
 final class ScreenSensor {
 	/** A block or entity clicked this recently is taken to be what opened the next screen. */
 	private static final long OPENER_WINDOW_MS = 5_000L;
+	/** How long the sign is looked at after its screen closed: the text comes back from the server. */
+	private static final long SIGN_ANSWER_MS = 3_000L;
 
 	private final Minecraft mc = Minecraft.getInstance();
 	private final ResultTakeTracker takes = new ResultTakeTracker();
@@ -66,12 +73,22 @@ final class ScreenSensor {
 	private String openerBlock;
 	private BlockPos openerPos;
 	private long openerBlockAt;
+	// The sign edit screen: the sign that was clicked just before it opened, and when the screen went away.
+	private AbstractSignEditScreen signScreen;
+	private String signBlock;
+	private BlockPos signPos;
+	private long signClosedAt;
+
 	private String openerEntityType;
 	private UUID openerEntityUuid;
 	private long openerEntityAt;
 
 	void register() {
 		ScreenEvents.AFTER_INIT.register((client, screen, width, height) -> {
+			if (screen instanceof AbstractSignEditScreen signEdit) {
+				signOpened(signEdit);
+				return;
+			}
 			if (!(screen instanceof AbstractContainerScreen<?> containerScreen)) {
 				return;
 			}
@@ -105,6 +122,48 @@ final class ScreenSensor {
 		openerEntityType = type;
 		openerEntityUuid = uuid;
 		openerEntityAt = now;
+	}
+
+	private void signOpened(AbstractSignEditScreen screen) {
+		if (signScreen == screen) {
+			return; // a resize re-runs init on the same screen
+		}
+		signScreen = screen;
+		signClosedAt = 0L;
+		boolean fresh = System.currentTimeMillis() - openerBlockAt <= OPENER_WINDOW_MS;
+		signBlock = fresh ? openerBlock : null;
+		signPos = fresh ? openerPos : null;
+	}
+
+	/**
+	 * The edit screen of a sign is gone: the client's copy of the sign has the text the player typed once the
+	 * server has answered, so it is looked at for a few seconds. Any text on it is a sign written on.
+	 */
+	private void signTick(Observation obs) {
+		if (mc.gui.screen() == signScreen) {
+			return;
+		}
+		if (signClosedAt == 0L) {
+			signClosedAt = obs.now;
+		}
+		BlockEntity entity = signPos == null || mc.level == null ? null : mc.level.getBlockEntity(signPos);
+		if (entity instanceof SignBlockEntity sign && hasText(sign) && signBlock != null) {
+			obs.addSignWritten(signBlock);
+		} else if (obs.now - signClosedAt <= SIGN_ANSWER_MS) {
+			return;
+		}
+		signScreen = null;
+		signBlock = null;
+		signPos = null;
+	}
+
+	private static boolean hasText(SignBlockEntity sign) {
+		for (SignTextSlot slot : SignTextSlot.values()) {
+			if (sign.getText(slot).hasMessage(false)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void opened(AbstractContainerScreen<?> screen, Station kind, boolean storage) {
@@ -166,6 +225,9 @@ final class ScreenSensor {
 
 	/** Called once per sensor tick; adds whatever finished since the last one. */
 	void tick(Observation obs, LocalPlayer player) {
+		if (signScreen != null) {
+			signTick(obs);
+		}
 		if (watched == null) {
 			return;
 		}
@@ -206,6 +268,9 @@ final class ScreenSensor {
 	}
 
 	void reset() {
+		signScreen = null;
+		signBlock = null;
+		signPos = null;
 		takes.clear();
 		diff.clear();
 		watched = null;

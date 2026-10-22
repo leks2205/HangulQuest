@@ -8,6 +8,13 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ### Added
 
+- **Generator wave 8** (what the harbour and village batches found). Writing on a sign is a goal (`USE_BLOCK`, `WRITE`: the
+  edit screen closed with text), a ringing bell can be heard (`HEAR` on `minecraft:bell`), a trade has a direction (the
+  particle 에게서 / 에게 decides it, the wrong way round is a slip), `NEAR_ENTITY` can count people and animals (주민 두 명,
+  소 세 마리), 물고기 names the cod, salmon and tropical fish, 배 names every boat and raft, tags for signs, candles,
+  carpets and windows are spoken with their word, 모래와 물 사이에 works for plants on a shore, seconds are spoken as
+  십 초, and the words 가족 and 창문 exist. The playtest drives creature anchors and sequences.
+
 - **A translation pipeline in the repository** (`tools/i18n/translate.py`). English is the source and Korean is
   never translated. `export` writes packets of rows (English, the Korean line next to it, kind, placeholders, a
   length limit for labels, and a glossary of the official Minecraft names read from a local game install);

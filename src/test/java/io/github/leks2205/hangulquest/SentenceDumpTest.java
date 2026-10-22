@@ -275,30 +275,77 @@ class SentenceDumpTest {
 		}
 	}
 
-	/** Most finales are written by the ceremony generator; the rest may be authored, so this is a share, not a count. */
-	static final double MIN_GENERATED_FINALES = 0.70;
-
-	@Test
-	void mostFinalesAreGeneratedAndTheRestAreFree() {
-		// Finale text in the JSON is produced by SentenceBuilder.ceremony (tools/apply_ceremony_finales.py
-		// writes it): if the generator or the verb table changes, rerun the tool so they agree. A finale
-		// that differs from the generator is authored, and that is allowed as long as most are generated.
-		int generated = 0;
-		List<Questline> trails = QuestLoader.loadAll();
-		List<String> stale = new ArrayList<>();
-		for (Questline trail : trails) {
-			String ceremony = KoreanFixtures.ceremony(trail);
-			if (ceremony.equals(trail.finaleKo())) {
-				generated++;
-			} else if (trail.finaleKo().contains("라는 길의 의식")) {
-				stale.add(trail.id() + ": " + trail.finaleKo() + " != " + ceremony);
+	/** The finale lines of the batches' dual review, {@code trail.<id>.finale} to the Korean text that was reviewed. */
+	static Map<String, String> reviewedFinales() throws IOException {
+		Map<String, String> reviewed = new HashMap<>();
+		try (var batches = Files.newDirectoryStream(Path.of("content", "batches"))) {
+			for (Path batch : batches) {
+				Path lines = batch.resolve("korean-lines.tsv");
+				if (!Files.isRegularFile(lines)) {
+					continue;
+				}
+				for (String line : Files.readAllLines(lines, StandardCharsets.UTF_8)) {
+					String[] cells = line.split("\t");
+					if (cells.length >= 2 && cells[0].endsWith(".finale")) {
+						reviewed.put(cells[0], cells[1]);
+					}
+				}
 			}
 		}
-		assertTrue(stale.isEmpty(), "finale text still uses the old template instead of the ceremony sentence:\n"
-				+ String.join("\n", stale));
-		assertTrue(generated >= MIN_GENERATED_FINALES * trails.size(), "at least "
-				+ (int) (MIN_GENERATED_FINALES * 100) + "% of the finales are written by the ceremony generator, got "
-				+ generated + " of " + trails.size());
+		return reviewed;
+	}
+
+	/** Trails whose finale was written by hand before the batch review existed; the list only shrinks. */
+	static Set<String> legacyAuthoredFinales() throws IOException {
+		Set<String> ids = new HashSet<>();
+		try (var stream = SentenceDumpTest.class.getResourceAsStream("/legacy-authored-finales.txt")) {
+			assertTrue(stream != null, "legacy-authored-finales.txt is missing");
+			for (String line : new String(stream.readAllBytes(), StandardCharsets.UTF_8).split("\\R")) {
+				if (!line.isBlank() && !line.startsWith("#")) {
+					ids.add(line.trim());
+				}
+			}
+		}
+		return ids;
+	}
+
+	/**
+	 * Finale text in the JSON is produced by SentenceBuilder.ceremony (tools/apply_ceremony_finales.py writes
+	 * it): if the generator or the verb table changes, rerun the tool so they agree. A finale that differs from
+	 * the generator is authored, and that is allowed when it went through the dual review of its batch (it is a
+	 * line of that batch's korean-lines.tsv, as it stands) or when it is a "Title - sentence" finale. No finale
+	 * may be the old broken template.
+	 */
+	@Test
+	void anAuthoredFinaleWentThroughAReviewOrCarriesATitle() throws IOException {
+		Map<String, String> reviewed = reviewedFinales();
+		Set<String> legacy = legacyAuthoredFinales();
+		List<String> broken = new ArrayList<>();
+		List<String> unreviewed = new ArrayList<>();
+		for (Questline trail : QuestLoader.loadAll()) {
+			String finale = trail.finaleKo();
+			if (finale.contains("라는 길의 의식")) {
+				broken.add(trail.id() + ": " + finale + " != " + KoreanFixtures.ceremony(trail));
+			} else if (!finale.equals(KoreanFixtures.ceremony(trail))
+					&& !finale.equals(reviewed.get("trail." + trail.id() + ".finale"))
+					&& !finale.contains(" \u2014 ") && !legacy.contains(trail.id())) {
+				unreviewed.add(trail.id() + ": " + finale);
+			}
+		}
+		assertTrue(broken.isEmpty(), "finale text still uses the old template instead of the ceremony sentence:\n"
+				+ String.join("\n", broken));
+		assertTrue(unreviewed.isEmpty(), "authored finales that neither the generator, a batch review "
+				+ "(korean-lines.tsv) nor a \"Title \u2014 sentence\" form stands behind:\n" + String.join("\n", unreviewed));
+	}
+
+	@Test
+	void theLegacyFinaleListNamesRealTrailsAndNothingNew() throws IOException {
+		Set<String> ids = new HashSet<>();
+		QuestLoader.loadAll().forEach(trail -> ids.add(trail.id()));
+		Set<String> legacy = legacyAuthoredFinales();
+		assertTrue(ids.containsAll(legacy), "legacy finales of trails that do not exist: " + legacy.stream()
+				.filter(id -> !ids.contains(id)).toList());
+		assertTrue(legacy.size() <= 41, "the legacy list may only shrink, it has " + legacy.size());
 	}
 
 	@Test

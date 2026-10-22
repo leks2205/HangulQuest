@@ -54,7 +54,8 @@ final class LookAtEntityType implements GoalType<Goal.LookAtEntity> {
 	@Override
 	public boolean evaluate(Goal.LookAtEntity goal, Observation obs, GoalEvaluator.Tracker tracker,
 							boolean nightLatch) {
-		return Matching.dwell(tracker, goal.entity(), obs.lookedEntity, goal.dwellMs());
+		String seen = Matching.sameEntity(tracker, goal.entity(), obs.lookedEntity) ? goal.entity() : null;
+		return Matching.dwell(tracker, goal.entity(), seen, goal.dwellMs());
 	}
 
 	@Override

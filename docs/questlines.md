@@ -79,7 +79,7 @@ The template is `_template.json`.
 
 `conditions` always end up in the Korean text: `TIME` (밤에/낮에/새벽에/저녁에), `WEATHER`, `Y_RANGE`
 („땅 아래에서", „120블록보다 높은 곳에서"; before a place of the goal's own it modifies it: „높이 90블록 위 침대에서", from level 3 „…위의 침대에서"), `IN_BIOME` („해변에서"), `IN_DIMENSION` („지옥에서",
-„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"; `NEAR_BLOCK` is a proximity check, a block of that kind within the
+„엔더에서"), `NEAR_ENTITY`/`NEAR_BLOCK` („좀비 근처에서"; `NEAR_ENTITY` takes an optional `count`, „주민 두 명 근처에서", „소 세 마리 근처에서" with 명 for people and 마리 for animals; `NEAR_BLOCK` is a proximity check, a block of that kind within the
 radius, not the block in the crosshair), `SKY` („밖에서" on levels 1 to 4, „하늘이 보이는 곳에서" from level 5;
 `ROOFED` says „지붕 아래에서" of the player, but with a `PLACE_BLOCK` goal it checks the roof over the placed block
 and says „지붕 아래에 통을 놓아요"). A step without an authored clue uses the generated sentence, which speaks every
@@ -162,7 +162,7 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `REACH_BIOME` | `biome` (id or `#tag`), `dwellMs` | the biome you are standing in |
 | `REACH_DIMENSION` | `dimension` | dimension |
 | `REACH_HEIGHT` | `minY`, `maxY` (a ceiling below sea level, `maxY` under 63, asks for a descent: 아래로 내려가요; from level 2 `높이 40 이하로 내려가세요`) | player altitude |
-| `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요; `LIT`: a candle or campfire that really catches fire, 켜요 / 피워요; a candle without `change` means `LIT`) | right-click on that block; with `change` the sensor compares the block's `open` (or `lit`) state before and after the click |
+| `USE_BLOCK` | `block`, optional `change` (`OPEN`/`CLOSE`: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요; `LIT`: a candle or campfire that really catches fire, 켜요 / 피워요; a candle without `change` means `LIT`; `WRITE`: a sign whose edit screen is closed with text on it, 표지판에 글을 써요, or 표지판에 이름을 써요 when the step teaches 이름; a sign without `change` means `WRITE`) | right-click on that block; with `change` the sensor compares the block's `open` (or `lit`) state before and after the click; for `WRITE` it watches the sign edit screen and the client copy of the sign |
 | `INTERACT_ENTITY` | `entity` | interaction with the mob |
 | `PLACE_REL` | `block`, `relation` (`ON_TOP_OF`/`UNDER`/`NEXT_TO`/`IN_FRONT_OF`/`BEHIND`/`INSIDE`/`OUTSIDE`/`BETWEEN`/`NEAR`), `anchor`, `count`, optional `anchor2` | a placement of `block` in that relation to `anchor` (a block, family or `#tag`, or `"@s2"`, see below); a right block in the wrong relation is a near miss, never progress |
 | `BUILD_PATTERN` | `pattern` (`PILLAR`/`PYRAMID`/`RING`/`ROW`/`WALL`/`CROSS`/`STAIRS`; a ring is a 담, and only fence blocks make a 울타리: `울타리를 쳐요`), `material`, `size` | the placement that completes the shape out of `material` (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps) |
@@ -176,9 +176,9 @@ This is the shipped shape. The matching lang entries are `hangulquest.trail.stei
 | `HOLD_WHILE` | `item`, `inner` (a goal, or a condition plus `seconds`) | `inner` only counts with the item in a hand; with a condition: walking with it |
 | `SEQUENCE` | `parts` (2–3 goals), `ordered`, optional `connector` (`BEFORE`/`AFTER`/`THEN`/`AND`) | the parts in order; an event before its turn does not count. Trail level 3 or higher; at level 2 only the plain -고: parts in any order, or `"ordered": true` with `"connector": "AND"` (문을 닫고 횃불을 놓으세요), where the order is checked and the step counts as form-dependent |
 | `AVOID` | `action` (a goal), `windowSeconds`, optional `during` (a condition) | the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher |
-| `TRADE` | `item`, optional `entity` (a villager), `direction` (`BUY`/`SELL`), `count` | the result slot of the merchant screen: a buy counts what arrived and is said with the source marker (주민에게서 빵을 사요), a sell what was paid (주민에게 밀을 팔아요) |
+| `TRADE` | `item`, optional `entity` (a villager), `direction` (`BUY`/`SELL`), `count` | the result slot of the merchant screen: a buy counts what arrived and is said with the source marker (주민에게서 빵을 사요), a sell what was paid (주민에게 밀을 팔아요). The particle decides the direction, so the step is form-dependent (L2.ege) and a trade the wrong way round (selling what was to be bought) is a slip with a hint in the status line |
 | `TRANSIT` | `direction` (`IN`/`OUT`) | the sky above the player flips and stays flipped for a second: 집 안으로 들어가요 / 집 밖으로 나가요. The player has to be on the other side first. The place noun is spoken only for 집, 방 and 동굴 |
-| `HEAR` | `source` (`minecraft:jukebox` or `minecraft:note_block`), `radius` (2–16), `dwellMs` | a jukebox with a disc in it within `radius` blocks for `dwellMs` (the sensor scans the block entities around the player twice a second, only while such a step is tracked), or a struck note block |
+| `HEAR` | `source` (`minecraft:jukebox`, `minecraft:note_block` or `minecraft:bell`), `radius` (2–16), `dwellMs` | a jukebox with a disc in it within `radius` blocks for `dwellMs` (the sensor scans the block entities around the player twice a second, only while such a step is tracked), a struck note block, or a bell ringing within `radius` (by anyone; 종소리를 들어요) |
 | `LIE_DOWN` | `block` (a bed), `dwellMs` | the sleeping pose in that bed for `dwellMs`; the night does not have to pass (a night condition is excused once the server skipped it, as for 자요) |
 | `WAIT` | `seconds`, optional `until` (`NIGHT`/`DAY`) | staying within three blocks of the spot where the wait began; walking away starts over. With `until` also that part of the day. A place to wait near is a condition (`NEAR_BLOCK`) |
 | `BREED` | `entity`, `count` | a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind, and within 4 blocks of two of the animals fed |
@@ -198,11 +198,11 @@ sentence, and the English and German clue must not give it away. A relation goal
 is a right outcome for the location noun (`L1.loc_yeop_e` for `NEXT_TO`, `L2.loc_sai_e` for `BETWEEN`, ...),
 and a right block in the wrong relation is a wrong one (at most three per step). `BETWEEN` has one anchor
 (`두 횃불 사이에`) or two different ones: `"anchor": "minecraft:chest", "anchor2": "minecraft:furnace"` says
-`상자와 화로 사이에` (와/과 by the final sound; the pair is one task whichever way round it is written).
+`상자와 화로 사이에` (와/과 by the final sound; the pair is one task whichever way round it is written). With water or lava as one of the two (`모래와 물 사이에 사탕수수를 심어요`) a plant counts that stands on the other block with the fluid next to it, on the shore.
 Blocks with a front can be the anchor of 앞 and 뒤: doors, chests, furnaces, beds, stairs, barrels, workstations, signs, banners, pumpkins, bells; a pillar, a wall or a fence cannot. So can a creature that faces a way (`minecraft:villager`, an iron golem, a cow, a wolf ...: 주민 앞에 횃불을 놓아요; 앞, 뒤, 옆 and 근처 only). 밖 is a deciding form (a block put outside when 안 was asked is a slip), 근처 is not. Fluids are anchors too (`minecraft:water` is 물, `minecraft:lava` is 용암: `물 옆에 횃불을 놓아요`). A tag
-(`#minecraft:doors`, `logs`, `planks`, `wool`, `fences`, `beds`, `torches`, `chests`, `flowers`, `saplings`,
-`leaves`; for `EQUIP` also `head_armor`, `chest_armor`, `leg_armor`, `foot_armor`) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 묘목, 나뭇잎): the
-curated concept whose items and covers are the largest set inside the tag. The finale line uses the same word
+(`#minecraft:doors`, `logs`, `planks`, `wool`, `fences`, `beds`, `torches`, `chests`, `flowers`, `signs`, `candles`, `wool_carpets`, `windows`, `saplings`,
+`leaves`; for `EQUIP` also `head_armor`, `chest_armor`, `leg_armor`, `foot_armor`) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 표지판, 초, 양탄자, 창문, 묘목, 나뭇잎): the
+curated concept whose items and covers are the largest set inside the tag; a tag without such a word is a validator error, never "그것". The finale line uses the same word
 as the clue, and a word the step teaches (나무 for the logs) wins in both.
 
 **The block of an earlier step.** `"anchor": "@s2"` points at the block that finished step `s2` of the same

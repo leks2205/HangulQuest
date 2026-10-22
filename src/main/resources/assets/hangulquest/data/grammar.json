@@ -1657,7 +1657,7 @@
      "uses": ["L2.ege", "L2.eseo_activity", "L1.obj_eul", "L1.eoyo"]
     }
    ],
-   "formDependentHooks": ["GIVE", "FEED"],
+   "formDependentHooks": ["GIVE", "FEED", "TRADE"],
    "teachingNotes": [
     "Living receivers take 에게 (한테 in speech, L3); things take 에: 식물에 물을 줘요.", "Marking the receiver with 에서 or 을/를.",
     "The thing given keeps 을/를: 밀을 (object), 소에게 (receiver)."
@@ -2363,7 +2363,7 @@
      "uses": ["L2.counter_more", "L1.num_native", "L1.obj_eul", "L1.eoyo"]
     }
    ],
-   "formDependentHooks": ["BREED:count", "ACQUIRE_ITEM:count", "PLACE_BLOCK:count"],
+   "formDependentHooks": ["BREED:count", "ACQUIRE_ITEM:count", "PLACE_BLOCK:count", "NEAR_ENTITY:count"],
    "teachingNotes": [
     
     "Using 개 for everything is understood, but natives say 책 세 권, 꽃 세 송이, 나무 세 그루.",

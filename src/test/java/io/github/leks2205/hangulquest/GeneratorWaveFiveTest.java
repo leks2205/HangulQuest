@@ -90,7 +90,7 @@ class GeneratorWaveFiveTest {
 		// a step can teach it for a sign of any wood, standing or hanging
 		assertEquals(List.of(), problems(new Goal.UseBlock("minecraft:birch_sign"), "sign"));
 		assertEquals(List.of(), problems(new Goal.UseBlock("minecraft:cherry_hanging_sign"), "sign"));
-		assertEquals("표지판을 사용해요.", SentenceBuilder.normal(new Goal.UseBlock("minecraft:spruce_sign"), sign,
+		assertEquals("표지판에 글을 써요.", SentenceBuilder.normal(new Goal.UseBlock("minecraft:spruce_sign"), sign,
 				List.of(), 1, false, KoreanFixtures.namer(CATALOG)));
 	}
 
