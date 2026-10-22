@@ -196,6 +196,13 @@ class SoundForge(unittest.TestCase):
         for name in held | set(data["trainingVoices"]):
             self.assertIn(name, cfg["voices"])
 
+    def test_every_dialogue_persona_names_a_voice_of_the_pack(self):
+        cfg = common.load_voices()
+        self.assertIn("elder", cfg["personas"])
+        for name, persona in cfg["personas"].items():
+            self.assertIn(persona["voice"], cfg["voices"], name)
+            self.assertFalse(cfg["voices"][persona["voice"]].get("hvpt_only"), name)
+
     def test_forms_belong_to_their_contrast(self):
         data = hvpt_texts.load()
         forms = {c["id"]: {f["key"] for f in c["forms"]} for c in data["contrasts"]}

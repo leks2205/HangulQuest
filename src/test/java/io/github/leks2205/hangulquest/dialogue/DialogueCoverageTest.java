@@ -98,7 +98,7 @@ class DialogueCoverageTest {
 
 	@Test
 	void verbsTakeTheirEndingsFromTheStem() {
-		for (String form : List.of("먹어요.", "먹자!", "먹습니다.")) {
+		for (String form : List.of("먹어요.", "먹자!", "먹습니다.", "먹습니까?")) {
 			assertEquals("concept:eat", analyze(form, "concept:eat").get(0).id(), form);
 		}
 		assertEquals("concept:talk", analyze("이야기해요.", "concept:talk").get(0).id(), "하다 verbs contract to 해");

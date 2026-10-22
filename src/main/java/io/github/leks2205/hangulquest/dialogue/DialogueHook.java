@@ -81,7 +81,7 @@ public final class DialogueHook {
 					.map(professionKey -> professionKey.identifier().toString()).orElse(null);
 		}
 		boolean baby = entity instanceof net.minecraft.world.entity.LivingEntity living && living.isBaby();
-		return new DialogueTrigger.Target(key.toString(), profession, baby);
+		return new DialogueTrigger.Target(key.toString(), profession, baby, entity.getUUID().hashCode());
 	}
 
 	private static void onTick(Minecraft mc) {

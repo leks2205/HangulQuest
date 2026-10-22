@@ -1,0 +1,46 @@
+{
+	"schema": 1,
+	"id": "maps",
+	"level": 3,
+	"trigger": {"entity": "minecraft:villager", "profession": "minecraft:cartographer", "baby": false},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "cartographer",
+			"ko": "안녕하세요! 지도가 있어요.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:map"]}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "cartographer",
+			"ko": "어디로 가요?",
+			"choices": [
+				{"ko": "바다로 가요.", "next": "sea"},
+				{"ko": "숲으로 가요.", "next": "forest"}
+			]
+		},
+		"sea": {
+			"speaker": "cartographer",
+			"ko": "바다 속에 큰 건물이 있어요.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:ocean"]}
+			],
+			"next": "bye"
+		},
+		"forest": {
+			"speaker": "cartographer",
+			"ko": "숲 속에 큰 건물이 있어요.",
+			"effects": [
+				{"type": "exposeWords", "words": ["concept:forest"]}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "cartographer",
+			"ko": "잘 가요! 또 만나요!",
+			"end": true
+		}
+	}
+}

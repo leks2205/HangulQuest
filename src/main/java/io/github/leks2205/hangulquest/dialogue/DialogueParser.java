@@ -48,10 +48,11 @@ public final class DialogueParser {
 		if (triggerJson == null || JsonFields.string(triggerJson, "entity", "").isBlank()) {
 			problems.add(fileId + ": trigger.entity is missing");
 		}
-		Dialogue.Trigger trigger = triggerJson == null ? new Dialogue.Trigger("", null, null)
+		Dialogue.Trigger trigger = triggerJson == null ? new Dialogue.Trigger("", null, null, List.of())
 				: new Dialogue.Trigger(JsonFields.string(triggerJson, "entity", ""),
 						JsonFields.string(triggerJson, "profession", null),
-						triggerJson.has("baby") ? triggerJson.get("baby").getAsBoolean() : null);
+						triggerJson.has("baby") ? triggerJson.get("baby").getAsBoolean() : null,
+						JsonFields.strings(triggerJson, "professions"));
 
 		Map<String, Dialogue.Node> nodes = new LinkedHashMap<>();
 		if (!root.has("nodes") || !root.get("nodes").isJsonObject()) {
