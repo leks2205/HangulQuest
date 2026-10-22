@@ -7,9 +7,9 @@
  "order": 1065,
  "concepts": [
   "mushroom",
-  "gen_brown_glazed_terracotta",
-  "gen_nether_sprouts",
-  "gen_gray_shulker_box"
+  "leaves",
+  "bowl",
+  "gen_mushroom_stew"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -25,59 +25,86 @@
     "mushroom"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:red_mushroom",
-    "count": 2
+    "type": "ACQUIRE_ITEM",
+    "item": "minecraft:brown_mushroom",
+    "count": 3
    },
-   "hint": {
-    "ko": "빨간 버섯은 어두운 곳에서 자라요."
-   }
+   "conditions": [
+    {
+     "type": "SKY",
+     "state": "ROOFED"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_glazed_terracotta"
+    "leaves"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:brown_glazed_terracotta",
-    "count": 3
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:red_mushroom",
+    "relation": "UNDER",
+    "anchor": "#minecraft:leaves",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_nether_sprouts"
+    "bowl"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:nether_sprouts",
+    "type": "CRAFT",
+    "item": "minecraft:bowl",
     "count": 2
-   }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_gray_shulker_box"
+    "gen_mushroom_stew"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:gray_shulker_box",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:mushroom_stew",
+      "count": 1
+     },
+     {
+      "type": "CONSUME_ITEM",
+      "item": "minecraft:mushroom_stew",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "회색 셜커 상자를 만들었어요."
+  "textKo": "버섯 스튜를 만든 후에 먹었어요. 스튜는 뜨거워요."
  },
  "reward": {
   "badge": "w6_05",
   "words": [
    "mushroom",
-   "mushroom_block",
+   "leaves",
    "bowl"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.eseo_activity",
+  "L1.loc_arae_e",
+  "L1.obj_eul",
+  "L3.eun_hue"
+ ]
 }

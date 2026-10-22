@@ -7,7 +7,7 @@ This page is generated from the content itself, so the numbers below are what th
 | | |
 |---|---|
 | Questlines | **422** |
-| Steps (incl. finales) | **1733** |
+| Steps (incl. finales) | **1735** |
 | Tree levels | **22** |
 | Roots | 39 |
 | Merges (more than one parent) | 130 |
@@ -21,30 +21,30 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Goal | Steps | What the player does |
 |---|---:|---|
-| `ACQUIRE_ITEM` | 235 | collect an item |
-| `PLACE_BLOCK` | 232 | place a block |
-| `PLACE_REL` | 193 |  |
-| `CRAFT` | 147 |  |
-| `PLACE_ON_PATTERN` | 99 |  |
-| `BUILD_PATTERN` | 93 |  |
-| `BREAK_BLOCK` | 72 | break a block |
-| `LOOK_AT_ENTITY` | 67 | look at a mob |
-| `SEQUENCE` | 62 |  |
-| `GIVE` | 62 |  |
-| `REACH_BIOME` | 57 | reach a biome |
-| `USE_BLOCK` | 53 | use a block |
-| `LOOK_AT_BLOCK` | 50 | look at a block |
+| `ACQUIRE_ITEM` | 214 | collect an item |
+| `PLACE_BLOCK` | 207 | place a block |
+| `PLACE_REL` | 204 |  |
+| `CRAFT` | 152 |  |
+| `PLACE_ON_PATTERN` | 105 |  |
+| `BUILD_PATTERN` | 99 |  |
+| `SEQUENCE` | 72 |  |
+| `LOOK_AT_ENTITY` | 66 | look at a mob |
+| `GIVE` | 64 |  |
+| `BREAK_BLOCK` | 64 | break a block |
+| `REACH_BIOME` | 59 | reach a biome |
+| `LOOK_AT_BLOCK` | 51 | look at a block |
+| `USE_BLOCK` | 50 | use a block |
 | `CONSUME_ITEM` | 43 | eat or drink an item |
+| `AVOID` | 41 |  |
 | `HOLD_WHILE` | 34 |  |
-| `PUT_IN` | 32 |  |
-| `AVOID` | 29 |  |
+| `PUT_IN` | 33 |  |
 | `DEFEAT_ENTITY` | 25 | defeat a mob |
-| `SMELT` | 23 |  |
-| `REACH_HEIGHT` | 22 | reach an altitude |
+| `REACH_HEIGHT` | 25 | reach an altitude |
+| `SMELT` | 24 |  |
 | `WAIT` | 20 |  |
 | `TRADE` | 19 |  |
-| `INTERACT_ENTITY` | 18 | interact with a mob |
-| `BREED` | 9 |  |
+| `INTERACT_ENTITY` | 17 | interact with a mob |
+| `BREED` | 10 |  |
 | `TAKE_OUT` | 7 |  |
 | `MOUNT` | 7 |  |
 | `SWIM` | 7 |  |
@@ -56,17 +56,17 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Condition | Steps | Must hold while the goal happens |
 |---|---:|---|
-| `TIME` | 254 | a time of day |
-| `HOLDING` | 77 |  |
-| `IN_BIOME` | 63 | a biome |
+| `TIME` | 261 | a time of day |
+| `HOLDING` | 85 |  |
+| `IN_BIOME` | 65 | a biome |
 | `PLAYER_REL` | 49 |  |
 | `IN_DIMENSION` | 38 | a dimension |
-| `Y_RANGE` | 27 | an altitude band |
+| `Y_RANGE` | 33 | an altitude band |
+| `SKY` | 24 |  |
+| `WEATHER` | 23 | the weather |
 | `NEAR_BLOCK` | 23 | a block nearby |
-| `SKY` | 22 |  |
-| `NEAR_ENTITY` | 19 | a mob nearby |
-| `WEATHER` | 18 | the weather |
-| `IN_WATER` | 7 |  |
+| `NEAR_ENTITY` | 20 | a mob nearby |
+| `IN_WATER` | 9 |  |
 
 ## Levels
 
@@ -319,7 +319,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 3 | `gartenfest`, `nachtwache` |
+| `gartenwacht` | 정원의 수호 | Die Gartenwacht | 4 | `gartenfest`, `nachtwache` |
 | `eiskrone` | 얼음 왕관 | Die Eiskrone | 5 | `schneesturm` |
 | `schmuckpfad` | 보석의 길 | Der Juwelenpfad | 4 | `handelsstrasse`, `schmelzofen` |
 | `vogelpfad` | 새의 길 | Der Vogelpfad | 4 | `gartenfest` |
@@ -344,7 +344,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `adv_adventure_trim_with_all_exclusive_armor_patterns` | 구리 장비 | Kupferausrüstung | 3 | `adv_adventure_trim_with_any_armor_pattern` |
 | `adv_adventure_two_birds_one_arrow` | 차례로 두 마리 | Zwei nacheinander | 4 | `adv_adventure_ol_betsy` |
 | `adv_adventure_under_lock_and_key` | 철 문과 버튼 | Eisentür und Knopf | 4 | `adv_adventure_minecraft_trials_edition` |
-| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 가죽 장화로 눈 위를 | In Lederstiefeln über den Schnee | 4 | `adv_adventure_sleep_in_bed` |
+| `adv_adventure_walk_on_powder_snow_with_leather_boots` | 가죽 장화와 가루눈 | Lederstiefel und Pulverschnee | 4 | `adv_adventure_sleep_in_bed` |
 | `adv_adventure_who_needs_rockets` | 로켓 없이 뛰어내리기 | Springen ohne Rakete | 4 | `adv_adventure_minecraft_trials_edition` |
 | `adv_adventure_whos_the_pillager_now` | 이제 누가 약탈자지? | Wer ist jetzt der Plünderer? | 3 | `adv_adventure_ol_betsy` |
 | `adv_nether_root` | 네더 | Nether | 4 | `abenteuerpfad`, `adv_story_lava_bucket` |
@@ -364,7 +364,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 
 | Trail | Korean title | German title | Steps | Parents |
 |---|---|---|---:|---|
-| `frostwacht` | 철 갑옷의 길 | Suit Up | 4 | `eiskrone` |
+| `frostwacht` | 눈 속의 탑 | Der Turm im Schnee | 4 | `eiskrone` |
 | `tempelpfad` | 사막 신전의 길 | Der Wüstentempel | 4 | `weltbaum`, `weltreise` |
 | `dschungelpfad` | 정글의 길 | Der Dschungelpfad | 4 | `gartenwacht`, `tiefseehafen`, `bambuspfad` |
 | `handelsgilde` | 상인 길드의 길 | Der Handelsgildenpfad | 4 | `weltmarkt`, `gartenfest` |
@@ -393,7 +393,7 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `himmelswarte` | 하늘 관측소 | Die Himmelswarte | 4 | `observatorium`, `sternenhaus` |
 | `grossesmeer` | 큰 바다 | Das Große Meer | 4 | `tiefseehafen`, `ozeanfahrt` |
 | `hafenwacht` | 조선소의 길 | Der Werftpfad | 4 | `tiefseehafen`, `kuestenwacht` |
-| `w5_01` | 광부의 등불 | Die Grubenlampe | 3 | `bergwerk` |
+| `w5_01` | 광부의 등불 | Die Grubenlampe | 4 | `bergwerk` |
 | `w5_02` | 쇠를 두드리는 손 | Hände, die Eisen schmieden | 4 | `schmuckpfad` |
 | `w5_03` | 깊은 돌의 노래 | Das Lied des tiefen Steins | 4 | `eiskrone` |
 | `w5_04` | 용광로의 불빛 | Das Feuer im Schmelzofen | 4 | `festtafel` |
@@ -407,9 +407,9 @@ Every goal is checked on the client. Counts are per step, finales included.
 | `w6_03` | 붉은 여우의 숲 | Der Wald des roten Fuchses | 4 | `wolfpfad` |
 | `w6_04` | 꿀벌의 숲 | Der Wald der Bienen | 4 | `vogelpfad` |
 | `w6_05` | 버섯 그늘 | Im Schatten der Pilze | 4 | `bergwerk` |
-| `w6_06` | 숲의 전망대 | Die Waldkanzel | 4 | `observatorium` |
+| `w6_06` | 숲의 전망대 | Der Aussichtspunkt im Wald | 4 | `observatorium` |
 | `w6_07` | 정글의 약초 | Kräuter im Dschungel | 4 | `weltreise` |
-| `w6_08` | 약초 건조대 | Der Kräutertrockenrahmen | 4 | `festtafel` |
+| `w6_08` | 밀 건조대 | Das Weizentrockengestell | 4 | `festtafel` |
 
 ### Level 9 · TOPIK 3 · 18 trails
 

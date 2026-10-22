@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1052,
  "concepts": [
-  "gen_rib_armor_trim_smithing_template",
-  "gen_blue_orchid",
-  "gen_spruce_hanging_sign",
-  "gen_peony"
+  "pickaxe",
+  "gen_blast_furnace",
+  "iron_chestplate"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,60 +21,100 @@
   {
    "id": "s1",
    "teach": [
-    "gen_rib_armor_trim_smithing_template"
+    "pickaxe"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:rib_armor_trim_smithing_template",
-    "count": 6
-   }
+    "type": "CRAFT",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1
+   },
+   "conditions": [
+    {
+     "type": "HOLDING",
+     "item": "minecraft:iron_ingot"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "gen_blue_orchid"
+    "gen_blast_furnace"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:blue_orchid",
+    "type": "PLACE_REL",
+    "block": "minecraft:blast_furnace",
+    "relation": "IN_FRONT_OF",
+    "anchor": "minecraft:furnace",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_spruce_hanging_sign"
+    "gen_blast_furnace"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:spruce_hanging_sign",
-    "count": 2
-   }
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:blast_furnace",
+     "count": 1
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "NEAR_BLOCK",
+     "block": "minecraft:furnace"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_peony"
+    "iron_chestplate"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:peony",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:iron_chestplate",
+      "count": 1
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:iron_chestplate",
+      "container": "minecraft:chest",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "모란을 구했어요."
+  "textKo": "철 흉갑을 만든 후에 상자 안에 넣었어요. 철은 무거워요."
  },
  "reward": {
   "badge": "w5_02",
   "words": [
-   "iron",
-   "anvil",
-   "iron_block",
-   "iron_chestplate"
+   "pickaxe",
+   "gen_blast_furnace"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L2.go_state",
+  "L1.loc_ap_e",
+  "L1.obj_eul",
+  "L3.jima",
+  "L3.eun_hue",
+  "L1.loc.an",
+  "L3.past"
+ ]
 }

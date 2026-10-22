@@ -6,10 +6,9 @@
  "tier": 2,
  "order": 1062,
  "concepts": [
-  "gen_waxed_chiseled_copper",
-  "dandelion",
-  "mushroom",
-  "gen_soul_soil"
+  "glass_bottle",
+  "flower",
+  "dye"
  ],
  "requires": {
   "minWordsKnown": 60,
@@ -22,66 +21,102 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_chiseled_copper"
+    "glass_bottle"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:waxed_chiseled_copper",
-    "count": 3
-   }
+    "type": "PUT_IN",
+    "item": "minecraft:glass_bottle",
+    "container": "minecraft:barrel",
+    "count": 2
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "RAIN"
+    }
+   ]
   },
   {
    "id": "s2",
    "teach": [
-    "dandelion"
+    "flower"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:dandelion",
-    "count": 2
+    "type": "PLACE_REL",
+    "block": "minecraft:lily_of_the_valley",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:fences",
+    "count": 1
    },
-   "hint": {
-    "ko": "민들레는 노란 꽃이에요."
-   }
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "mushroom"
+    "flower"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:red_mushroom",
-    "count": 2
+    "type": "AVOID",
+    "action": {
+     "type": "BREAK_BLOCK",
+     "block": "minecraft:dandelion",
+     "count": 1
+    },
+    "windowSeconds": 30
    },
-   "hint": {
-    "ko": "버섯은 그늘진 곳에서 자라요."
-   }
+   "conditions": [
+    {
+     "type": "IN_BIOME",
+     "biome": "minecraft:flower_forest"
+    }
+   ]
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_soul_soil"
+    "flower",
+    "dye"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:soul_soil",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:dandelion",
+      "count": 2
+     },
+     {
+      "type": "CRAFT",
+      "item": "minecraft:yellow_dye",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "영혼 흙을 놓았어요."
+  "textKo": "꽃을 두 송이 꺾은 후에 염료를 두 개 만들었어요. 꽃은 색이 많아요."
  },
  "reward": {
   "badge": "w6_02",
   "words": [
+   "glass_bottle",
    "flower",
-   "dandelion",
-   "mushroom",
-   "flower_pot"
+   "dye"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.loc.an",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.jima",
+  "L3.eun_hue",
+  "L1.euro_direction"
+ ]
 }

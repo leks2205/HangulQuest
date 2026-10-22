@@ -1,0 +1,626 @@
+{
+ "batch": "BATCH-022",
+ "brief": "content/briefs/BATCH-022.md",
+ "chapter": "small poems I and the watchtowers (level 3; every trail is level 3 by tree depth)",
+ "summary": {
+  "trails": 12,
+  "steps": 48,
+  "formDependentSteps": 22,
+  "formDependentShareOwn": 0.458
+ },
+ "proposals": [],
+ "trails": [
+  {
+   "id": "w5_01",
+   "title": "광부의 등불",
+   "order": 1051,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.loc_yeop_e",
+    "L3.past"
+   ],
+   "finaleKo": "높이 0 이하에서 레일 옆에 영혼 랜턴을 놓았어요. 광산은 어두워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:torch:CRAFT|HOLDING:minecraft:coal",
+     "formDependent": false,
+     "clueKo": "석탄을 들고 횃불을 네 개 만드세요.",
+     "hintKo": "석탄을 들고 횃불을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:ROW/3:minecraft:rail:SPREAD",
+     "formDependent": false,
+     "clueKo": "레일 세 개를 나란히 까세요.",
+     "hintKo": "레일을 나란히 깔아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:rail:BREAK",
+     "formDependent": true,
+     "clueKo": "높이 0 이하에서 레일을 부수지 마세요.",
+     "hintKo": "높이 0 이하에서 레일을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:soul_lantern:NEXT_TO:ROW/minecraft:rail:PLACE|Y_RANGE:-64..0",
+     "formDependent": true,
+     "clueKo": "높이 0 이하에서 레일 세 개 옆에 영혼 랜턴을 놓으세요.",
+     "hintKo": "높이 0 이하에서 레일 세 개 옆에 영혼 랜턴을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_02",
+   "title": "쇠를 두드리는 손",
+   "order": 1052,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L1.loc_ap_e",
+    "L1.obj_eul",
+    "L3.jima",
+    "L3.eun_hue",
+    "L1.loc.an",
+    "L3.past"
+   ],
+   "finaleKo": "철 흉갑을 만든 후에 상자 안에 넣었어요. 철은 무거워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:iron_pickaxe:CRAFT|HOLDING:minecraft:iron_ingot",
+     "formDependent": false,
+     "clueKo": "철 주괴를 들고 철 곡괭이를 만드세요.",
+     "hintKo": "철 주괴를 들고 철 곡괭이를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:blast_furnace:IN_FRONT_OF:minecraft:furnace:PLACE",
+     "formDependent": true,
+     "clueKo": "화로 앞에 용광로를 놓으세요.",
+     "hintKo": "화로 앞에 용광로를 놓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:blast_furnace:BREAK",
+     "formDependent": true,
+     "clueKo": "화로 근처에서 용광로를 부수지 마세요.",
+     "hintKo": "화로 근처에서 용광로를 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:CRAFT:minecraft:iron_chestplate:CRAFT>PUT_IN:minecraft:iron_chestplate>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "철 흉갑을 만든 후에 상자 안에 철 흉갑을 넣으세요.",
+     "hintKo": "철 흉갑을 만든 후에 상자 안에 철 흉갑을 넣어요."
+    }
+   ]
+  },
+  {
+   "id": "w5_03",
+   "title": "깊은 돌의 노래",
+   "order": 1053,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L2.go_state",
+    "L1.eul_reul",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "높이 0 이하에서 심층암 위에 주크박스를 놓았어요. 동굴은 깊어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::DESCEND:down|HOLDING:minecraft:lantern",
+     "formDependent": false,
+     "clueKo": "랜턴을 들고 높이 0블록 이하로 내려가세요.",
+     "hintKo": "랜턴을 들고 아래로 내려가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:deepslate:MINE|TIME:NIGHT",
+     "formDependent": false,
+     "clueKo": "밤에 심층암을 여덟 개 캐세요.",
+     "hintKo": "밤에 심층암을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:diamond:COLLECT|Y_RANGE:-64..16",
+     "formDependent": false,
+     "clueKo": "땅속에서 다이아몬드를 두 개 모으세요.",
+     "hintKo": "다이아몬드는 아주 깊은 곳에 있어요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:jukebox:ON_TOP_OF:minecraft:deepslate:PLACE|Y_RANGE:-64..0",
+     "formDependent": true,
+     "clueKo": "높이 0 이하에서 심층암 위에 주크박스를 놓으세요.",
+     "hintKo": "높이 0 이하에서 심층암 위에 주크박스를 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_04",
+   "title": "용광로의 불빛",
+   "order": 1054,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L3.jima",
+    "L2.eseo_activity",
+    "L3.gi_jeone",
+    "L1.loc.an",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "화로에서 철 주괴를 꺼내기 전에 화로 안에 석탄을 네 개 넣었어요. 화로에서는 철을 녹일 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:furnace:CRAFT|HOLDING:minecraft:cobblestone",
+     "formDependent": false,
+     "clueKo": "조약돌을 들고 화로를 만드세요.",
+     "hintKo": "조약돌을 들고 화로를 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:furnace:BREAK",
+     "formDependent": true,
+     "clueKo": "밤에 화로를 부수지 마세요.",
+     "hintKo": "밤에 화로를 부수지 마세요."
+    },
+    {
+     "id": "s3",
+     "goal": "SMELT",
+     "signature": "SMELT:minecraft:iron_ingot:CRAFT|TIME:DUSK",
+     "formDependent": false,
+     "clueKo": "저녁에 화로에서 철 주괴를 세 개 만드세요.",
+     "hintKo": "저녁에 화로에서 철 주괴를 만들어요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:PUT_IN:minecraft:coal>minecraft:furnace:PUT_IN>TAKE_OUT:minecraft:iron_ingot<minecraft:furnace:TAKE_OUT",
+     "formDependent": true,
+     "clueKo": "화로에서 철 주괴를 꺼내기 전에 화로 안에 석탄을 네 개 넣으세요.",
+     "hintKo": "화로에서 철 주괴를 꺼내기 전에 화로 안에 석탄을 넣어요."
+    }
+   ]
+  },
+  {
+   "id": "w5_05",
+   "title": "동굴의 숨결",
+   "order": 1055,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L3.jima",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "땅속에서 돌 위에 영혼 횃불을 놓았어요. 동굴은 어두워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:bat:WATCH|Y_RANGE:-64..50",
+     "formDependent": false,
+     "clueKo": "땅속에서 박쥐를 일 초 동안 바라보세요.",
+     "hintKo": "땅속에서 박쥐를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:iron_ore:MINE|Y_RANGE:-64..0",
+     "formDependent": false,
+     "clueKo": "높이 0 이하에서 철 광석을 세 개 캐세요.",
+     "hintKo": "높이 0 이하에서 철 광석을 캐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:moss_block:BREAK",
+     "formDependent": true,
+     "clueKo": "땅속에서 이끼 블록을 부수지 마세요.",
+     "hintKo": "땅속에서 이끼 블록을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:soul_torch:ON_TOP_OF:minecraft:stone:PLACE|Y_RANGE:-64..50",
+     "formDependent": true,
+     "clueKo": "땅속에서 돌 위에 영혼 횃불을 놓으세요.",
+     "hintKo": "땅속에서 돌 위에 영혼 횃불을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_06",
+   "title": "땅속의 보석",
+   "order": 1056,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L2.num_sino",
+    "L1.loc_wi_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "높이 0 이하에서 돌 위에 자수정 블록을 놓았어요. 보석은 예뻐요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:deepslate_gold_ore:MINE|HOLDING:minecraft:iron_pickaxe",
+     "formDependent": false,
+     "clueKo": "철 곡괭이를 들고 금을 세 개 캐세요.",
+     "hintKo": "금은 철 곡괭이로 캐요."
+    },
+    {
+     "id": "s2",
+     "goal": "ACQUIRE_ITEM",
+     "signature": "ACQUIRE_ITEM:minecraft:amethyst_shard:COLLECT|Y_RANGE:-64..50",
+     "formDependent": false,
+     "clueKo": "땅속에서 자수정 조각을 네 개 모으세요.",
+     "hintKo": "땅속에서 자수정 조각을 모아요."
+    },
+    {
+     "id": "s3",
+     "goal": "LOOK_AT_BLOCK",
+     "signature": "LOOK_AT_BLOCK:minecraft:amethyst_block:WATCH|Y_RANGE:-64..0",
+     "formDependent": false,
+     "clueKo": "높이 0 이하에서 자수정 블록을 일 초 동안 바라보세요.",
+     "hintKo": "높이 0 이하에서 자수정 블록을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:amethyst_block:ON_TOP_OF:minecraft:stone:PLACE|Y_RANGE:-64..0",
+     "formDependent": true,
+     "clueKo": "높이 0 이하에서 돌 위에 자수정 블록을 놓으세요.",
+     "hintKo": "높이 0 이하에서 돌 위에 자수정 블록을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_07",
+   "title": "물속의 자갈",
+   "order": 1057,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.eseo_activity",
+    "L2.num_sino",
+    "L3.jima",
+    "L3.gi_jeone",
+    "L1.loc.an",
+    "L3.past",
+    "L3.su_itda"
+   ],
+   "finaleKo": "상자 안에 부싯돌을 두 개 넣기 전에 부싯돌을 두 개 모았어요. 부싯돌과 부시로 불을 피울 수 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:gravel:DIG|IN_WATER",
+     "formDependent": false,
+     "clueKo": "물속에서 자갈을 여덟 개 파세요.",
+     "hintKo": "자갈은 삽으로 파요."
+    },
+    {
+     "id": "s2",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:squid:WATCH|IN_WATER",
+     "formDependent": false,
+     "clueKo": "물속에서 오징어를 일 초 동안 바라보세요.",
+     "hintKo": "물속에서 오징어를 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:mud:DIG",
+     "formDependent": true,
+     "clueKo": "물속에서 진흙을 파지 마세요.",
+     "hintKo": "물속에서 진흙을 파지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:flint:COLLECT>PUT_IN:minecraft:flint>minecraft:chest:PUT_IN",
+     "formDependent": true,
+     "clueKo": "상자 안에 부싯돌을 두 개 넣기 전에 부싯돌을 두 개 모으세요.",
+     "hintKo": "상자 안에 부싯돌을 넣기 전에 부싯돌을 모아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_08",
+   "title": "뿌리 아래의 돌",
+   "order": 1058,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L3.jima",
+    "L1.loc_yeop_e",
+    "L1.obj_eul",
+    "L3.past"
+   ],
+   "finaleKo": "통나무 옆에 석재 벽돌을 놓았어요. 뿌리는 땅속에 있어요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "BREAK_BLOCK",
+     "signature": "BREAK_BLOCK:minecraft:dirt:DIG",
+     "formDependent": false,
+     "clueKo": "흙을 여덟 개 파세요.",
+     "hintKo": "흙은 삽으로 파요."
+    },
+    {
+     "id": "s2",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:acacia_sapling:PLANT|WEATHER:CLEAR",
+     "formDependent": false,
+     "clueKo": "맑을 때 아카시아나무 묘목을 세 그루 심으세요.",
+     "hintKo": "맑을 때 아카시아나무 묘목을 심어요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:oak_log:CHOP",
+     "formDependent": true,
+     "clueKo": "숲에서 통나무를 베지 마세요.",
+     "hintKo": "숲에서 통나무를 베지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_REL",
+     "signature": "PLACE_REL:minecraft:stone_bricks:NEXT_TO:minecraft:oak_log:PLACE",
+     "formDependent": true,
+     "clueKo": "통나무 옆에 석재 벽돌을 놓으세요.",
+     "hintKo": "통나무 옆에 석재 벽돌을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "w5_09",
+   "title": "돌 정원의 벽돌",
+   "order": 1059,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.go_state",
+    "L2.euro_material",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.loc_an_e",
+    "L2.go_sequence",
+    "L3.past"
+   ],
+   "finaleKo": "판자 담 안에 석재 벽돌을 놓았어요. 정원은 조용해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "CRAFT",
+     "signature": "CRAFT:minecraft:stone_bricks:CRAFT|HOLDING:minecraft:stone",
+     "formDependent": false,
+     "clueKo": "돌을 들고 석재 벽돌을 네 개 만드세요.",
+     "hintKo": "돌을 들고 석재 벽돌을 만들어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:RING/3:minecraft:jungle_planks:STACK",
+     "formDependent": false,
+     "clueKo": "판자로 담을 쌓으세요.",
+     "hintKo": "판자로 담을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:poppy:PICK",
+     "formDependent": true,
+     "clueKo": "낮에 꽃을 따지 마세요.",
+     "hintKo": "낮에 꽃을 따지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:stone_bricks:INSIDE:RING/minecraft:jungle_planks:PLACE",
+     "formDependent": true,
+     "clueKo": "판자 담 안에 석재 벽돌을 놓으세요.",
+     "hintKo": "판자 담 안에 석재 벽돌을 놓아요."
+    }
+   ]
+  },
+  {
+   "id": "frostwacht",
+   "title": "눈 속의 탑",
+   "order": 90,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.euro_direction",
+    "L2.euro_material",
+    "L1.num_native",
+    "L1.counter_gae",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.eul_reul",
+    "L1.loc_wi_e",
+    "L2.go_sequence",
+    "L3.past"
+   ],
+   "finaleKo": "통나무 기둥 위에 종을 달았어요. 눈은 차가워요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "REACH_BIOME",
+     "signature": "REACH_BIOME:minecraft:snowy_taiga:GO|TIME:DUSK",
+     "formDependent": false,
+     "clueKo": "저녁에 눈 덮인 타이가로 가세요.",
+     "hintKo": "저녁에 눈 덮인 타이가로 가요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:PILLAR/3:minecraft:birch_log:STACK",
+     "formDependent": false,
+     "clueKo": "통나무 세 개로 기둥을 쌓으세요.",
+     "hintKo": "통나무로 기둥을 쌓아요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:BREAK_BLOCK:minecraft:campfire:BREAK",
+     "formDependent": true,
+     "clueKo": "눈 덮인 타이가에서 모닥불을 부수지 마세요.",
+     "hintKo": "눈 덮인 타이가에서 모닥불을 부수지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:bell:ON_TOP_OF:PILLAR/minecraft:birch_log:HANG_DOOR",
+     "formDependent": true,
+     "clueKo": "자작나무 원목 기둥 위에 종을 다세요.",
+     "hintKo": "자작나무 원목 기둥 위에 종을 달아요."
+    }
+   ]
+  },
+  {
+   "id": "gartenwacht",
+   "title": "정원의 수호",
+   "order": 84,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L1.obj_eul",
+    "L3.jima",
+    "L1.loc_an_e",
+    "L2.go_sequence",
+    "L3.past"
+   ],
+   "finaleKo": "울타리 안에 벚나무 표지판을 세웠어요. 정원은 조용해요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "PLACE_BLOCK",
+     "signature": "PLACE_BLOCK:minecraft:sunflower:PLANT|TIME:DAY",
+     "formDependent": false,
+     "clueKo": "낮에 해바라기를 세 송이 심으세요.",
+     "hintKo": "낮에 해바라기를 심어요."
+    },
+    {
+     "id": "s2",
+     "goal": "BUILD_PATTERN",
+     "signature": "BUILD_PATTERN:RING/3:minecraft:spruce_fence:FENCE|WEATHER:CLEAR",
+     "formDependent": false,
+     "clueKo": "맑을 때 가문비나무 울타리를 치세요.",
+     "hintKo": "맑을 때 가문비나무 울타리를 쳐요."
+    },
+    {
+     "id": "s3",
+     "goal": "AVOID",
+     "signature": "AVOID:USE_BLOCK:minecraft:birch_fence_gate:OPEN",
+     "formDependent": true,
+     "clueKo": "밤에 자작나무 울타리 문을 열지 마세요.",
+     "hintKo": "밤에 자작나무 울타리 문을 열지 마세요."
+    },
+    {
+     "id": "finale",
+     "goal": "PLACE_ON_PATTERN",
+     "signature": "PLACE_ON_PATTERN:minecraft:cherry_sign:INSIDE:RING/minecraft:spruce_fence:STAND",
+     "formDependent": true,
+     "clueKo": "울타리 안에 벚나무 표지판을 세우세요.",
+     "hintKo": "울타리 안에 벚나무 표지판을 세워요."
+    }
+   ]
+  },
+  {
+   "id": "vogelpfad",
+   "title": "새의 길",
+   "order": 105,
+   "koreanLevel": 3,
+   "grammar": [
+    "L2.seyo",
+    "L1.eul_reul",
+    "L2.num_sino",
+    "L2.eseo_activity",
+    "L2.go_state",
+    "L3.eun_hue",
+    "L3.past"
+   ],
+   "finaleKo": "달걀을 세 개 모은 후에 깃털을 세 개 모았어요. 새는 하늘에 살아요.",
+   "steps": [
+    {
+     "id": "s1",
+     "goal": "LOOK_AT_ENTITY",
+     "signature": "LOOK_AT_ENTITY:minecraft:chicken:WATCH|SKY:OPEN",
+     "formDependent": false,
+     "clueKo": "밖에서 닭을 일 초 동안 바라보세요.",
+     "hintKo": "밖에서 닭을 일 초 동안 바라봐요."
+    },
+    {
+     "id": "s2",
+     "goal": "BREED",
+     "signature": "BREED:minecraft:chicken:RAISE|HOLDING:minecraft:melon_seeds",
+     "formDependent": false,
+     "clueKo": "수박씨를 들고 닭을 키우세요.",
+     "hintKo": "수박씨를 들고 닭을 키워요."
+    },
+    {
+     "id": "s3",
+     "goal": "REACH_HEIGHT",
+     "signature": "REACH_HEIGHT::CLIMB:100+|TIME:DUSK",
+     "formDependent": false,
+     "clueKo": "저녁에 높이 100블록 위로 올라가세요.",
+     "hintKo": "저녁에 산 위로 올라가요."
+    },
+    {
+     "id": "finale",
+     "goal": "SEQUENCE",
+     "signature": "SEQUENCE:ACQUIRE_ITEM:minecraft:egg:COLLECT>ACQUIRE_ITEM:minecraft:feather:COLLECT",
+     "formDependent": true,
+     "clueKo": "달걀을 세 개 모은 후에 깃털을 세 개 모으세요.",
+     "hintKo": "달걀을 모은 후에 깃털을 모아요."
+    }
+   ]
+  }
+ ]
+}

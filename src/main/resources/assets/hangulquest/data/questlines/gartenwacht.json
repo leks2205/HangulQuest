@@ -2,13 +2,14 @@
  "schema": 1,
  "id": "gartenwacht",
  "titleKo": "정원의 수호",
- "topic": "마을",
+ "topic": "정원",
  "tier": 3,
  "order": 84,
  "concepts": [
-  "gen_waxed_oxidized_copper_bars",
-  "gen_cherry_slab",
-  "gen_grindstone"
+  "sunflower",
+  "gen_spruce_fence",
+  "gen_birch_fence_gate",
+  "gen_cherry_sign"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -22,58 +23,93 @@
   {
    "id": "s1",
    "teach": [
-    "gen_waxed_oxidized_copper_bars"
-   ],
-   "goal": {
-    "type": "LOOK_AT_BLOCK",
-    "block": "minecraft:waxed_oxidized_copper_bars",
-    "dwellMs": 600
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_cherry_slab"
+    "sunflower"
    ],
    "goal": {
     "type": "PLACE_BLOCK",
-    "block": "minecraft:cherry_slab",
-    "count": 1
+    "block": "minecraft:sunflower",
+    "count": 3
    },
    "conditions": [
     {
      "type": "TIME",
-     "phase": "NIGHT"
+     "phase": "DAY"
     }
    ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "gen_spruce_fence"
+   ],
+   "goal": {
+    "type": "BUILD_PATTERN",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
+   },
+   "conditions": [
+    {
+     "type": "WEATHER",
+     "weather": "CLEAR"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "gen_birch_fence_gate"
+   ],
+   "goal": {
+    "type": "AVOID",
+    "action": {
+     "type": "USE_BLOCK",
+     "block": "minecraft:birch_fence_gate",
+     "change": "OPEN"
+    },
+    "windowSeconds": 30,
+    "during": {
+     "type": "TIME",
+     "phase": "NIGHT"
+    }
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_grindstone"
+    "gen_cherry_sign"
    ],
    "goal": {
-    "type": "USE_BLOCK",
-    "block": "minecraft:grindstone"
+    "type": "PLACE_ON_PATTERN",
+    "block": "minecraft:cherry_sign",
+    "relation": "INSIDE",
+    "pattern": "RING",
+    "material": "minecraft:spruce_fence",
+    "size": 3
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 숫돌을 열었어요."
+  "textKo": "울타리 안에 벚나무 표지판을 세웠어요. 정원은 조용해요."
  },
  "reward": {
   "badge": "gartenwacht",
   "words": [
-   "flower",
-   "campfire",
-   "bed"
+   "sunflower",
+   "gen_spruce_fence",
+   "gen_birch_fence_gate"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.eul_reul",
+  "L1.obj_eul",
+  "L3.jima",
+  "L1.loc_an_e",
+  "L2.go_sequence",
+  "L3.past"
+ ]
 }
