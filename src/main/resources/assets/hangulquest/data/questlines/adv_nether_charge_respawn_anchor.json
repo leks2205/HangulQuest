@@ -7,7 +7,9 @@
  "order": 290,
  "concepts": [
   "adv_item_crying_obsidian",
-  "adv_item_respawn_anchor"
+  "gen_glowstone",
+  "adv_item_respawn_anchor",
+  "bed"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -25,25 +27,47 @@
    "goal": {
     "type": "ACQUIRE_ITEM",
     "item": "minecraft:crying_obsidian",
-    "count": 3
+    "count": 6
    },
-   "hint": {
-    "ko": "우는 흑요석을 캐요. 다이아몬드 곡괭이가 필요해요."
-   }
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "adv_item_respawn_anchor"
+    "gen_glowstone"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
+    "item": "minecraft:glowstone",
+    "count": 4
+   },
+   "conditions": []
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "adv_item_respawn_anchor"
+   ],
+   "goal": {
+    "type": "CRAFT",
     "item": "minecraft:respawn_anchor",
     "count": 1
    },
-   "hint": {
-    "ko": "우는 흑요석 여섯 개와 발광석 세 개로 만들어요."
-   }
+   "conditions": []
+  },
+  {
+   "id": "s4",
+   "teach": [
+    "bed"
+   ],
+   "goal": {
+    "type": "PLACE_REL",
+    "block": "minecraft:respawn_anchor",
+    "relation": "NEXT_TO",
+    "anchor": "#minecraft:beds",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
@@ -56,19 +80,23 @@
     "type": "USE_BLOCK",
     "block": "minecraft:respawn_anchor"
    },
-   "conditions": [],
-   "hint": {
-    "ko": "리스폰 정박기에 발광석을 사용해요."
-   }
+   "conditions": []
   },
-  "textKo": "정박기를 가득 채웠어요! 네더에서도 다시 살아날 수 있어요."
+  "textKo": "리스폰 정박기를 채웠어요. 이제 네더에서 다시 살아날 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_charge_respawn_anchor",
   "words": [
    "adv_item_crying_obsidian",
+   "gen_glowstone",
    "adv_item_respawn_anchor"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.su_itda"
+ ]
 }

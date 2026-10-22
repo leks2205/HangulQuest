@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 319,
  "concepts": [
-  "gen_tuff_slab",
+  "gen_deepslate",
   "diamond",
-  "gen_exposed_copper_chain"
+  "pickaxe"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,13 +21,20 @@
   {
    "id": "s1",
    "teach": [
-    "gen_tuff_slab"
+    "gen_deepslate"
    ],
    "goal": {
     "type": "BREAK_BLOCK",
-    "block": "minecraft:tuff_slab",
-    "count": 24
-   }
+    "block": "minecraft:deepslate",
+    "count": 8
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ]
   },
   {
    "id": "s2",
@@ -38,30 +45,73 @@
     "type": "LOOK_AT_BLOCK",
     "block": "minecraft:diamond_ore",
     "dwellMs": 600
-   }
+   },
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "teach": [
+    "pickaxe"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:iron_pickaxe",
+      "count": 1
+     },
+     {
+      "type": "BREAK_BLOCK",
+      "block": "minecraft:diamond_ore",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "BEFORE"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_exposed_copper_chain"
+    "diamond"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:exposed_copper_chain",
+    "item": "minecraft:diamond",
     "count": 1
    },
-   "conditions": []
+   "conditions": [
+    {
+     "type": "Y_RANGE",
+     "minY": -64,
+     "maxY": 16
+    }
+   ]
   },
-  "textKo": "약간 녹슨 구리 사슬을 구했어요."
+  "textKo": "다이아몬드를 캤어요. 이제 다이아몬드 곡괭이를 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_story_mine_diamond",
   "words": [
-   "stone",
-   "diamond"
+   "diamond",
+   "pickaxe"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.num_sino",
+  "L3.gi_jeone",
+  "L3.su_itda"
+ ]
 }

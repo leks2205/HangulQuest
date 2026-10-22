@@ -6,10 +6,10 @@
  "tier": 3,
  "order": 104,
  "concepts": [
-  "gen_jungle_pyramid_map",
-  "gen_brown_bed",
-  "gen_andesite_stairs",
-  "gen_stone_brick_slab"
+  "gold_ingot",
+  "helmet",
+  "gen_item_frame",
+  "emerald"
  ],
  "requires": {
   "minWordsKnown": 40,
@@ -23,60 +23,84 @@
   {
    "id": "s1",
    "teach": [
-    "gen_jungle_pyramid_map"
+    "gold_ingot"
    ],
    "goal": {
     "type": "ACQUIRE_ITEM",
-    "item": "minecraft:jungle_pyramid_map",
-    "count": 3
-   }
+    "item": "minecraft:gold_ingot",
+    "count": 5
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_brown_bed"
+    "helmet"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:brown_bed",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:golden_helmet",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_andesite_stairs"
+    "gen_item_frame"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:andesite_stairs",
-    "count": 2
-   }
+    "type": "PLACE_REL",
+    "block": "minecraft:item_frame",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:anvil",
+    "count": 1
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_stone_brick_slab"
+    "emerald"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:stone_brick_slab",
-    "count": 1
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:emerald",
+      "count": 2
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:emerald",
+      "container": "minecraft:chest",
+      "count": 2
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
    },
    "conditions": []
   },
-  "textKo": "석재 벽돌 반 블록을 놓았어요."
+  "textKo": "에메랄드를 상자에 넣었어요. 보석이 반짝여요."
  },
  "reward": {
   "badge": "schmuckpfad",
   "words": [
-   "gold",
-   "emerald",
-   "crafting_table",
-   "chest"
+   "gold_ingot",
+   "helmet",
+   "emerald"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.eun_hue",
+  "L1.loc.an"
+ ]
 }

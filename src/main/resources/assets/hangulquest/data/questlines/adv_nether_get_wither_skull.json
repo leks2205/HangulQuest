@@ -6,9 +6,9 @@
  "tier": 2,
  "order": 298,
  "concepts": [
-  "adv_item_wither_skeleton_skull",
-  "gen_arms_up_pottery_sherd",
-  "gen_birch_leaves"
+  "gen_wither_skeleton",
+  "bone",
+  "adv_item_wither_skeleton_skull"
  ],
  "requires": {
   "minWordsKnown": 20,
@@ -21,6 +21,49 @@
   {
    "id": "s1",
    "teach": [
+    "gen_wither_skeleton"
+   ],
+   "goal": {
+    "type": "LOOK_AT_ENTITY",
+    "entity": "minecraft:wither_skeleton",
+    "dwellMs": 1000
+   },
+   "conditions": [
+    {
+     "type": "IN_DIMENSION",
+     "dimension": "minecraft:the_nether"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "teach": [
+    "bone"
+   ],
+   "goal": {
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "DEFEAT_ENTITY",
+      "entity": "minecraft:wither_skeleton",
+      "count": 2
+     },
+     {
+      "type": "ACQUIRE_ITEM",
+      "item": "minecraft:bone",
+      "count": 3
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
+  }
+ ],
+ "finale": {
+  "step": {
+   "id": "finale",
+   "teach": [
     "adv_item_wither_skeleton_skull"
    ],
    "goal": {
@@ -28,42 +71,22 @@
     "item": "minecraft:wither_skeleton_skull",
     "count": 1
    },
-   "hint": {
-    "ko": "위더 스켈레톤은 네더 요새에서만 나와요. 강한 검이 필요해요."
-   }
-  },
-  {
-   "id": "s2",
-   "teach": [
-    "gen_arms_up_pottery_sherd"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:arms_up_pottery_sherd",
-    "count": 2
-   }
-  }
- ],
- "finale": {
-  "step": {
-   "id": "finale",
-   "teach": [
-    "gen_birch_leaves"
-   ],
-   "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:birch_leaves",
-    "count": 3
-   },
    "conditions": []
   },
-  "textKo": "자작나무 잎을 세 개 모았어요."
+  "textKo": "위더 스켈레톤 해골을 구했어요. 이제 위더를 만들 수 있어요."
  },
  "reward": {
   "badge": "adv_nether_get_wither_skull",
   "words": [
+   "gen_wither_skeleton",
    "adv_item_wither_skeleton_skull"
   ]
  },
- "koreanLevel": 3
+ "koreanLevel": 3,
+ "grammar": [
+  "L2.seyo",
+  "L2.num_sino",
+  "L3.eun_hue",
+  "L3.su_itda"
+ ]
 }

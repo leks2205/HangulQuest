@@ -5,10 +5,10 @@
  "tier": 5,
  "order": 543,
  "concepts": [
-  "gen_rose_bush",
-  "gen_cut_red_sandstone_slab",
-  "gen_waxed_weathered_copper_grate",
-  "gen_jungle_door"
+  "gen_diamond_axe",
+  "anvil",
+  "adv_item_diamond_sword",
+  "chest"
  ],
  "requires": {
   "minWordsKnown": 15,
@@ -24,65 +24,86 @@
   {
    "id": "s1",
    "teach": [
-    "gen_rose_bush"
+    "gen_diamond_axe"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:rose_bush",
-    "count": 2
-   }
+    "type": "CRAFT",
+    "item": "minecraft:diamond_axe",
+    "count": 1
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_cut_red_sandstone_slab"
+    "anvil"
    ],
    "goal": {
-    "type": "ACQUIRE_ITEM",
-    "item": "minecraft:cut_red_sandstone_slab",
+    "type": "PLACE_REL",
+    "block": "minecraft:anvil",
+    "relation": "NEXT_TO",
+    "anchor": "minecraft:furnace",
     "count": 1
-   }
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "gen_waxed_weathered_copper_grate"
+    "adv_item_diamond_sword"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:waxed_weathered_copper_grate",
-    "count": 1
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:diamond_sword",
+      "count": 1
+     },
+     {
+      "type": "PUT_IN",
+      "item": "minecraft:diamond_sword",
+      "container": "minecraft:chest",
+      "count": 1
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_jungle_door"
+    "chest"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:jungle_door",
+    "type": "PUT_IN",
+    "item": "minecraft:diamond_axe",
+    "container": "minecraft:chest",
     "count": 1
    },
-   "conditions": [
-    {
-     "type": "TIME",
-     "phase": "NIGHT"
-    }
-   ]
+   "conditions": []
   },
-  "textKo": "밤에 정글나무 문을 달았어요."
+  "textKo": "다이아몬드 도끼를 상자에 넣었어요. 대장간이 완성됐어요."
  },
  "reward": {
   "badge": "kristallschmiede",
   "words": [
-   "diamond",
-   "pickaxe",
-   "furnace"
+   "gen_diamond_axe",
+   "anvil",
+   "adv_item_diamond_sword"
   ]
  },
  "koreanLevel": 3,
- "topic": "돌"
+ "topic": "돌",
+ "grammar": [
+  "L2.seyo",
+  "L1.loc_yeop_e",
+  "L1.obj_eul",
+  "L3.eun_hue",
+  "L1.loc.an"
+ ]
 }

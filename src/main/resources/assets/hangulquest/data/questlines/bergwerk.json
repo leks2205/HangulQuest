@@ -5,10 +5,10 @@
  "tier": 3,
  "order": 520,
  "concepts": [
-  "gen_chiseled_deepslate",
-  "gen_piston",
-  "ice",
-  "gen_green_concrete_slab"
+  "iron_ingot",
+  "gen_rail",
+  "log",
+  "gen_minecart"
  ],
  "requires": {
   "minWordsKnown": 12,
@@ -22,67 +22,93 @@
   {
    "id": "s1",
    "teach": [
-    "gen_chiseled_deepslate"
+    "iron_ingot"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:chiseled_deepslate",
-    "count": 3
-   }
+    "type": "SMELT",
+    "output": "minecraft:iron_ingot",
+    "count": 6
+   },
+   "conditions": []
   },
   {
    "id": "s2",
    "teach": [
-    "gen_piston"
+    "gen_rail"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:piston",
-    "count": 4
-   }
+    "type": "SEQUENCE",
+    "parts": [
+     {
+      "type": "CRAFT",
+      "item": "minecraft:rail",
+      "count": 16
+     },
+     {
+      "type": "BUILD_PATTERN",
+      "pattern": "ROW",
+      "material": "minecraft:rail",
+      "size": 4
+     }
+    ],
+    "ordered": true,
+    "connector": "AFTER"
+   },
+   "conditions": []
   },
   {
    "id": "s3",
    "teach": [
-    "ice"
+    "log"
    ],
    "goal": {
-    "type": "BREAK_BLOCK",
-    "block": "minecraft:ice",
-    "count": 3
-   }
+    "type": "BUILD_PATTERN",
+    "pattern": "PILLAR",
+    "material": "minecraft:dark_oak_log",
+    "size": 4
+   },
+   "conditions": []
   }
  ],
  "finale": {
   "step": {
    "id": "finale",
    "teach": [
-    "gen_green_concrete_slab"
+    "gen_minecart"
    ],
    "goal": {
-    "type": "PLACE_BLOCK",
-    "block": "minecraft:green_concrete_slab",
+    "type": "CRAFT",
+    "item": "minecraft:minecart",
     "count": 1
    },
    "conditions": [
     {
      "type": "Y_RANGE",
      "minY": -64,
-     "maxY": 0
+     "maxY": 40
     }
    ]
   },
-  "textKo": "높이 0 이하에서 초록색 콘크리트 반 블록을 놓았어요."
+  "textKo": "광산 수레를 만들었어요. 이제 레일 위를 달릴 수 있어요."
  },
  "reward": {
   "badge": "bergwerk",
   "words": [
-   "iron",
-   "coal",
-   "ice",
-   "torch"
+   "iron_ingot",
+   "gen_rail",
+   "gen_minecart"
   ]
  },
  "koreanLevel": 3,
- "topic": "돌"
+ "topic": "돌",
+ "grammar": [
+  "L2.seyo",
+  "L2.eseo_activity",
+  "L3.eun_hue",
+  "L1.num_native",
+  "L1.counter_gae",
+  "L1.obj_eul",
+  "L2.euro_material",
+  "L3.su_itda"
+ ]
 }
