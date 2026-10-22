@@ -77,7 +77,7 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		}
 		if (goal.minY() > 0) {
 			// Level 1 has no numbers for a height: climb a hill or a mountain.
-			String where = c.level() <= 1 ? summit(goal.minY(), c.conditions()) : "높이 " + KoGrammar.blocks(goal.minY()) + " 위로";
+			String where = c.level() <= 1 ? summit(goal.minY(), c.conditions()) : "높이 " + KoGrammar.blocks(goal.minY()) + " 이상으로";
 			return SentenceBuilder.phrase(where, c.verb(), c.level(), c.finale());
 		}
 		return SentenceBuilder.phrase("땅 위로", Verb.CLIMB, c.level(), c.finale());
@@ -103,9 +103,9 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		return "땅 위로 " + Verb.CLIMB.past();
 	}
 
-	/** "아래로" on the first level, the height from level 2 on ("높이 0블록 이하로"). */
+	/** "아래로" on the first level, the height from level 2 on ("높이 0 이하로"). */
 	private static String down(Goal.ReachHeight goal, int level) {
-		return level <= 1 ? "아래로" : "높이 " + KoGrammar.blocks(goal.maxY()) + " 이하로";
+		return level <= 1 ? "아래로" : "높이 " + (goal.maxY() <= 0 ? goal.maxY() + "" : KoGrammar.blocks(goal.maxY())) + " 이하로";
 	}
 
 	/**
@@ -153,7 +153,7 @@ final class ReachHeightType implements GoalType<Goal.ReachHeight> {
 		if (y <= 0) {
 			return "ground";
 		}
-		return y >= 100 ? "100+" : y >= 90 ? "90" : y >= 80 ? "80" : "hill";
+		return y >= 100 ? "h" + (y / 50 * 50) : y >= 90 ? "90" : y >= 80 ? "80" : "hill";
 	}
 
 	@Override

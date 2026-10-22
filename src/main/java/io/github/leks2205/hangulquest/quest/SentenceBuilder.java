@@ -190,7 +190,7 @@ public final class SentenceBuilder {
 	private static SentenceContext context(Goal goal, Word word, Word verbWord, List<Condition> conditions,
 										   Namer namer, boolean withCounts, int level, boolean finale) {
 		Word named = word == null || isVerbWord(word) ? null : word;
-		return new SentenceContext(objectName(goal, word, namer), verbOf(goal, verbWord, conditions),
+		return new SentenceContext(objectName(goal, word, namer, level), verbOf(goal, verbWord, conditions),
 				withCounts, level, finale, named, SentenceContext.taught(named, namer),
 				conditions == null ? List.of() : conditions);
 	}
@@ -373,7 +373,7 @@ public final class SentenceBuilder {
 	 * drawn with it), else the registry name. A word that covers another role of the goal (the anchor, the
 	 * recipient) is spoken in that role by the goal type.
 	 */
-	private static String objectName(Goal goal, Word word, Namer namer) {
+	private static String objectName(Goal goal, Word word, Namer namer, int level) {
 		GoalType<Goal> type = GoalTypes.of(goal);
 		// A verb concept (보다, 걷다, 짓다) can be taught by a step but is never the object of one.
 		if (word != null && word.ko != null && !word.ko.isBlank() && !isVerbWord(word)) {
@@ -388,7 +388,8 @@ public final class SentenceBuilder {
 					String named = type.objectName(goal, SentenceContext.taught(word, namer));
 					return named == null || named.isBlank() ? word.ko : named;
 				}
-				return Tiers.qualify(id, word.ko);
+				return typed && (kind == ObjectKind.BLOCK || kind == ObjectKind.ITEM) && id != null
+						? SentenceContext.stand(word, kind, id, namer) : Tiers.qualify(id, word.ko);
 			}
 			String registry = type.objectName(goal, namer);
 			return registry == null || registry.isBlank() ? word.ko : registry;

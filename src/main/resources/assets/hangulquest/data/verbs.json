@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "comment": "Which Korean verb fits which object. 밝히다 (LIGHT) is not chosen for any block: a torch is placed (놓다), a candle is switched on (켜다), a campfire or a fire is kindled (피우다). USE_BLOCK: a block with a screen is opened (열다), the rest has its own verb (jukebox 틀다, respawn anchor 충전하다, hive 수확하다, composter 채우다, grass 갈다), and what is left (a lectern, a lodestone, a target) is operated (사용하다); 쓰다 is no default any more because it reads as write or wear. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
+ "comment": "Which Korean verb fits which object. 밝히다 (LIGHT) is not chosen for any block: a torch is placed (놓다), a candle is switched on (켜다), a campfire or a fire is kindled (피우다). USE_BLOCK: a block that holds things or is the usual crafting and enchanting screen is opened (열다: chest, furnace, crafting table, enchanting table), a workstation that does its work on what you bring (anvil, grindstone, stonecutter, loom, smithing and cartography table, beacon) is used (사용하다), the rest has its own verb (jukebox 틀다, respawn anchor 충전하다, hive 수확하다, composter 채우다, grass 갈다), and what is left (a lectern, a lodestone, a beacon, a target) is operated (사용하다); 쓰다 is no default any more because it reads as write or wear. Families group registry ids (patterns: exact, *suffix, prefix*, *part*) the way vanilla tags do, so the table can be tested without a loaded registry. Rules are tried top to bottom per goal type; the first rule whose family matches (and whose count window fits) wins; a rule without a family is the default. Verb names are the constants of quest/Verb.java.",
  "families": {
   "ores": ["*_ore", "ancient_debris"],
   "natural_stone": ["stone", "cobblestone", "deepslate", "cobbled_deepslate", "granite", "diorite", "andesite", "tuff", "calcite", "basalt", "smooth_basalt", "blackstone", "netherrack", "end_stone", "obsidian", "crying_obsidian", "sandstone", "red_sandstone", "sulfur", "cinnabar", "magma_block", "prismarine", "dripstone_block", "pointed_dripstone"],
@@ -16,7 +16,7 @@
   "hangables": ["*_banner", "*_wall_banner", "painting", "item_frame", "glow_item_frame"],
   "hung_signs": ["*_hanging_sign"],
   "standing": ["*_sign", "lightning_rod", "end_rod", "armor_stand", "quartz_pillar", "purpur_pillar", "*_golem_statue", "*_fence", "*_wall", "candle", "*_candle"],
-  "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "*_bulb", "spore_blossom"],
+  "attachables": ["*_door", "*_trapdoor", "*_fence_gate", "bell", "spore_blossom"],
   "found_only": ["chainmail_*"],
   "cave_biomes": ["dripstone_caves", "lush_caves", "deep_dark"],
   "torches": ["torch", "soul_torch", "redstone_torch"],
@@ -31,7 +31,7 @@
   "throwables": ["wind_charge", "ender_pearl", "snowball", "egg", "fire_charge"],
   "pressables": ["*_button"],
   "pullables": ["lever"],
-  "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand", "crafting_table", "smithing_table", "cartography_table", "enchanting_table", "anvil", "chipped_anvil", "damaged_anvil", "stonecutter", "grindstone", "loom", "fletching_table", "beacon"],
+  "openables": ["*_door", "*_trapdoor", "*_fence_gate", "chest", "trapped_chest", "ender_chest", "*_chest", "barrel", "shulker_box", "*_shulker_box", "furnace", "blast_furnace", "smoker", "hopper", "dropper", "dispenser", "crafter", "brewing_stand", "crafting_table", "enchanting_table"],
   "jukeboxes": ["jukebox"],
   "anchors": ["respawn_anchor"],
   "bulbs": ["copper_bulb", "*_copper_bulb"],
@@ -42,6 +42,7 @@
   "notes": ["note_block"],
   "beds": ["*_bed"],
   "traders": ["villager", "wandering_trader"],
+  "friendly": ["villager", "wandering_trader", "iron_golem", "snow_golem", "copper_golem", "cow", "mooshroom", "sheep", "pig", "chicken", "horse", "donkey", "mule", "llama", "cat", "wolf", "bee", "allay", "axolotl", "bat", "camel", "fox", "frog", "parrot", "rabbit", "turtle", "panda", "goat", "dolphin", "strider", "happy_ghast"],
   "mounts": ["horse", "donkey", "mule", "camel", "strider", "skeleton_horse", "zombie_horse"],
   "pets": ["cat", "wolf"],
   "touchables": ["iron_golem", "snow_golem", "copper_golem"],
@@ -120,6 +121,7 @@
   "LOOK_AT_BLOCK": [{"verb": "WATCH"}],
   "LOOK_AT_ENTITY": [{"verb": "WATCH"}],
   "DEFEAT_ENTITY": [{"verb": "DEFEAT"}],
+  "AVOID_DEFEAT_ENTITY": [{"family": "friendly", "verb": "HARM"}, {"verb": "DEFEAT"}],
   "REACH_BIOME": [{"family": "cave_biomes", "verb": "ENTER"}, {"verb": "GO"}],
   "REACH_DIMENSION": [{"verb": "GO"}],
   "PLACE_REL": [

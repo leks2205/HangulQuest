@@ -74,7 +74,7 @@ public final class Observation {
 
 	// Observation v2: facts for spatial and give/craft tasks. All transient, never persisted. The lists
 	// start as a shared empty list so a quiet tick allocates nothing; use the add methods to fill them.
-	/** Blocks the player placed this tick, each with a 7x7x7 snapshot of its surroundings. */
+	/** Blocks the player placed this tick, each with a 13x13x13 snapshot of its surroundings. */
 	public List<PlacementFact> placements = List.of();
 	/** Item ids in the hands; null when empty. */
 	public String mainHand;

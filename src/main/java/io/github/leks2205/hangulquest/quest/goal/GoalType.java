@@ -113,6 +113,11 @@ public interface GoalType<G extends Goal> {
 	/** The verb of the sentence; an explicit verb on the goal wins over the table. */
 	Verb verb(G goal, VerbTable table);
 
+	/** The verb when the goal is the action of an AVOID ("do not ..."): 주민을 해치지 마세요, not 물리치지. */
+	default Verb avoidedVerb(G goal, VerbTable table) {
+		return verb(goal, table);
+	}
+
 	/** The verb under the conditions of the step: swimming in a sea says 수영해요 where the plain goal says 가요. */
 	default Verb verb(G goal, VerbTable table, List<io.github.leks2205.hangulquest.quest.Condition> conditions) {
 		return verb(goal, table);

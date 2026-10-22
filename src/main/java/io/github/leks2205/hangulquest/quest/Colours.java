@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * A step that teaches the colour word, or a name that holds it (하얀색 색유리), keeps the noun, since the clue must say
  * what the step teaches.
  */
-final class Colours {
+public final class Colours {
 	/** The level of -(으)ㄴ before a noun. */
 	static final int LEVEL = 5;
 
@@ -33,6 +33,17 @@ final class Colours {
 	private static final Pattern COLOUR = Pattern.compile("(?<![가-힣])(빨간색|파란색|노란색|하얀색|검은색) (?=[가-힣])");
 
 	private Colours() {
+	}
+
+	private static final Pattern LEADING = Pattern.compile("^([가-힣]+색) (?=[가-힣])");
+
+	/** The colour noun a registry name opens with ("파란색" in "파란색 침대", "회백색" in "회백색 양털"), or null. */
+	public static String leadingColour(String registryName) {
+		if (registryName == null) {
+			return null;
+		}
+		Matcher match = LEADING.matcher(registryName);
+		return match.find() ? match.group(1) : null;
 	}
 
 	/** The sentence with its colour nouns spoken as adjectives from level 5; the colour the step teaches stays. */
