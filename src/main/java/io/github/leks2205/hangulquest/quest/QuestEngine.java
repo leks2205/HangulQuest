@@ -382,7 +382,7 @@ public final class QuestEngine {
 				|| !visibilityTracked.equals(tracked)) {
 			visibility = TrailVisibility.of(graph,
 					id -> data.quests.completed != null && data.quests.completed.containsKey(id),
-					registry::isTracked, this::unlocked, words);
+					registry::isTracked, this::unlocked);
 			visibilityTrails = graph;
 			visibilityCompleted = completed;
 			visibilityWords = words;
