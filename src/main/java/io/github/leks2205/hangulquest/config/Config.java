@@ -33,14 +33,13 @@ public final class Config {
 	public boolean tooltips = true;
 	public boolean autoQuiz = true;
 	public int quizIntervalMinutes = 7;
-	/** How long an ambient word card stays when windows close automatically; it only counts with {@link #autoCloseWindows}. */
+	/** How long the word card from the word key stays in the corner. */
 	public int cardDurationMs = 4500;
 	/**
 	 * Off: every HUD window (hint, cards, banners, quiz prompt) stays until the hint key closes it.
 	 * On: windows close after their old timeouts.
 	 */
 	public boolean autoCloseWindows = false;
-	public boolean lookAtCards = true;
 	public boolean mobCards = true;
 	public boolean biomeCards = true;
 	public boolean timeCards = true;

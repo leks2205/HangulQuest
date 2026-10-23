@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
- * The queue behind every overlay window the mod draws on the HUD (hint, rule card, culture note, word card,
+ * The queue behind every overlay window the mod draws on the HUD (hint, rule card, culture note,
  * banners and toasts, review prompt, next-quest popup, celebrations). Real screens are not part of it.
  * No Minecraft types in here, so the rules are unit tested.
  *
@@ -36,7 +36,7 @@ public final class HudWindows {
 	public static final int MAX_WAITING = 8;
 
 	public enum Kind {
-		HINT, RULE_CARD, CULTURE, WORD_CARD, NOTICE, REVIEW_PROMPT, NEXT_QUEST, CELEBRATION, QUIZ_RESULT
+		HINT, RULE_CARD, CULTURE, NOTICE, REVIEW_PROMPT, NEXT_QUEST, CELEBRATION, QUIZ_RESULT
 	}
 
 	/** Why a window went away. */

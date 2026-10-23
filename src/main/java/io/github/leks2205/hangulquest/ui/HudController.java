@@ -77,6 +77,9 @@ public final class HudController implements QuestEngine.Feedback {
 	private final QuestLogView questLog = new QuestLogView();
 	private boolean questLogDrawn;
 	private long lastHintAt;
+	/** The word card in the bottom-right corner. It is not a window: only the word key shows it, and the hint key never closes it. */
+	private WordCard wordCard;
+	private long wordCardUntil;
 
 	// What the windows carry. The texts are built once when the window is made.
 	private record Notice(Component title, Component titleText, Component body, Component bodyText) {
@@ -112,6 +115,7 @@ public final class HudController implements QuestEngine.Feedback {
 		pendingOpen = false;
 		windows.clear();
 		nextChoices = List.of();
+		wordCard = null;
 	}
 
 	/** The windows on the HUD. Show one with {@code windows().show(HudWindows.Window.of(...))}; see {@link HudWindows}. */
@@ -353,7 +357,7 @@ public final class HudController implements QuestEngine.Feedback {
 				.priority(2).autoCloseMs(2 * BANNER_MS));
 	}
 
-	@Override
+	/** The word key: shows the word card in the bottom-right corner for a while and says the word. */
 	public void wordCard(Word word) {
 		if (word == null) {
 			return;
@@ -362,11 +366,10 @@ public final class HudController implements QuestEngine.Feedback {
 		WordCard card = new WordCard(word, KoText.ko(word.ko), Component.literal(glossOf(word)),
 				bracket == null ? null : KoText.ko(bracket));
 		if (hq.audio() != null) {
-			hq.audio().playAmbient(word.conceptId); // at most once per 10 s, silent without the voice pack
+			hq.audio().playWord(word.conceptId); // the player asked for it; silent without the voice pack
 		}
-		// A newer card replaces an older one that still waits: what you looked at a minute ago is stale.
-		windows.show(HudWindows.Window.of(HudWindows.Kind.WORD_CARD, "word:" + word.id, card)
-				.group("word").autoCloseMs(Math.max(1000, hq.config().cardDurationMs)));
+		wordCard = card;
+		wordCardUntil = System.currentTimeMillis() + Math.max(1000, hq.config().cardDurationMs);
 	}
 
 	@Override
@@ -472,14 +475,7 @@ public final class HudController implements QuestEngine.Feedback {
 		lastHintAt = now;
 		hintLayout = null;
 		String key = "hint:" + view.clueKo() + "|" + view.simplifiedKo();
-		if (windows.show(HudWindows.Window.of(HudWindows.Kind.HINT, key, view).priority(2).autoCloseMs(HINT_MS))
-				&& view.word() != null) {
-			// The hint shows that word itself, and the hint service made its word card a moment ago, before this
-			// panel: a card for it that the player has not seen yet would only get in front of the hint.
-			String wordKey = "word:" + view.word().id;
-			HudWindows.Window top = windows.top();
-			windows.removeWhere(window -> window.key().equals(wordKey) && !(window == top && window.shown()));
-		}
+		windows.show(HudWindows.Window.of(HudWindows.Kind.HINT, key, view).priority(2).autoCloseMs(HINT_MS));
 	}
 
 	/** Shows the rule card of a construction the focused step uses for the first time, once. */
@@ -599,6 +595,9 @@ public final class HudController implements QuestEngine.Feedback {
 		} else if (hq.quests() != null && hq.quests().sidequestActive()) {
 			drawSideQuest(graphics);
 		}
+		if (wordCard != null && now < wordCardUntil) {
+			drawWordCard(graphics, wordCard);
+		}
 	}
 
 	/** Dev self-test helper: start a quiz for a known word. */
@@ -692,7 +691,6 @@ public final class HudController implements QuestEngine.Feedback {
 			case HINT -> drawHint(graphics, (QuestEngine.HintView) content, chrome);
 			case RULE_CARD -> drawRuleCard(graphics, (RuleCard) content, chrome);
 			case CULTURE -> CultureHook.draw(graphics, mc, (CultureCards.Card) content, chrome, logArea());
-			case WORD_CARD -> drawWordCard(graphics, (WordCard) content, chrome);
 			case NOTICE -> drawNotice(graphics, (Notice) content, chrome);
 			case REVIEW_PROMPT -> drawQuizPrompt(graphics, now, chrome);
 			case NEXT_QUEST -> drawNextChoices(graphics, chrome);
@@ -908,7 +906,7 @@ public final class HudController implements QuestEngine.Feedback {
 		return key == null ? "" : "[" + key.getTranslatedKeyMessage().getString() + "]";
 	}
 
-	private void drawWordCard(GuiGraphicsExtractor graphics, WordCard card, WindowChrome.Info chrome) {
+	private void drawWordCard(GuiGraphicsExtractor graphics, WordCard card) {
 		var font = mc.font;
 		Word word = card.word();
 		Component korean = card.ko();
@@ -921,7 +919,7 @@ public final class HudController implements QuestEngine.Feedback {
 		textWidth = Math.min(textWidth, 220);
 		int width = Math.max(WindowChrome.MIN_WIDTH, 28 + textWidth + 7);
 		int body = 6 + font.lineHeight * (pron ? 3 : 2) + 5;
-		int height = body + WindowChrome.footerHeight(font);
+		int height = body;
 		int screenWidth = mc.getWindow().getGuiScaledWidth();
 		int screenHeight = mc.getWindow().getGuiScaledHeight();
 		width = widthFor(Math.min(width, screenWidth - 12));
@@ -937,7 +935,6 @@ public final class HudController implements QuestEngine.Feedback {
 			line += font.lineHeight + 1;
 		}
 		Draw.truncated(graphics, font, german, x + 27, line, width - 33, Draw.GRAY);
-		WindowChrome.footer(graphics, font, x, y, width, height, chrome);
 	}
 
 	/** A banner, achievement or streak toast, or a quest announcement: a Korean title with optional lines. */

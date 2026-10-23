@@ -124,9 +124,6 @@ class AutoTrackFixtureTest {
 			public void banner(String ko, String de, boolean success) {
 			}
 
-			@Override
-			public void wordCard(io.github.leks2205.hangulquest.data.Word word) {
-			}
 
 			@Override
 			public void sound(boolean success) {

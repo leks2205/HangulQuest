@@ -476,7 +476,6 @@ class QuestEngineTest {
 
 	private static final class Recorder implements QuestEngine.Feedback {
 		final List<String> banners = new ArrayList<>();
-		final List<String> cards = new ArrayList<>();
 		final List<List<Questline>> choices = new ArrayList<>();
 		int steps;
 		int sides;
@@ -485,11 +484,6 @@ class QuestEngineTest {
 		@Override
 		public void banner(String ko, String de, boolean success) {
 			banners.add(ko);
-		}
-
-		@Override
-		public void wordCard(Word word) {
-			cards.add(word.ko);
 		}
 
 		@Override
