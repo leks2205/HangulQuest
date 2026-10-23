@@ -257,9 +257,6 @@ class QuestLogTest {
 		public void banner(String ko, String de, boolean success) {
 		}
 
-		@Override
-		public void wordCard(Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {

@@ -50,9 +50,6 @@ class ColourStrictTest {
 	private int serial;
 
 	private static final class Quiet implements QuestEngine.Feedback {
-		@Override
-		public void wordCard(Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {

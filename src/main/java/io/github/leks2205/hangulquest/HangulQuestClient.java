@@ -58,9 +58,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /** Client entrypoint and service container. Everything is local: no packets, no server side. */
@@ -96,13 +94,9 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private KeyMapping keyHud;
 	private KeyMapping keyFocus;
 	private KeyMapping keyAnswer;
+	private KeyMapping keyWord;
 
 	private Observation lastObservation = new Observation();
-	private final Map<String, Long> wordCooldowns = new HashMap<>();
-	private Map<String, Integer> lastInventory = new HashMap<>();
-	private String lastLooked;
-	private long lookedSince;
-	private long lastAmbientAt;
 	private boolean pendingAutoStart;
 	private boolean welcomeChecked;
 	private long lastTouch;
@@ -157,7 +151,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		return hud;
 	}
 
-	/** The rebindable hint key; it also closes the window on top. */
+	/** The rebindable hint key; it also closes the window on top (never the word card). */
 	public KeyMapping hintKey() {
 		return keyHint;
 	}
@@ -202,7 +196,6 @@ public final class HangulQuestClient implements ClientModInitializer {
 
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
 			pendingAutoStart = true;
-			lastInventory = new HashMap<>();
 			if (hud != null) {
 				hud.onWorldJoin();
 			}
@@ -251,6 +244,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 		// R: vanilla leaves it unbound (G is "quick actions", O "friends", P "social interactions").
 		keyAnswer = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.hangulquest.answer", InputConstants.Type.KEYBOARD, InputConstants.KEY_R, category));
+		keyWord = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+				"key.hangulquest.word", InputConstants.Type.KEYBOARD, InputConstants.KEY_G, category));
 	}
 
 	private void onTick(Minecraft client) {
@@ -288,7 +283,6 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 		quests.tick(obs, hud);
 		hud.tick(obs);
-		ambientCards(obs);
 		handleKeys(obs);
 		store.tick(now);
 		if (SELFTEST) {
@@ -441,67 +435,46 @@ public final class HangulQuestClient implements ClientModInitializer {
 		while (keyAnswer.consumeClick()) {
 			hud.openAnswer();
 		}
+		while (keyWord.consumeClick()) {
+			showWord(obs);
+		}
 		while (keyHud.consumeClick()) {
 			config.hudCards = !config.hudCards;
 			saveConfig();
 		}
 	}
 
-	private void ambientCards(Observation obs) {
-		if (!config.hudCards || !config.lookAtCards || obs.dead) {
+	/**
+	 * The word key: the word card in the bottom-right corner, spoken. It names what the crosshair is on, else the
+	 * item in the hand, else the word the focused step teaches. Nothing else shows that card or says the word.
+	 */
+	private void showWord(Observation obs) {
+		if (!config.hudCards || obs.dead) {
 			return;
 		}
-		long now = obs.now;
-		if (now - lastAmbientAt < 4000L) {
-			return;
+		Word word = wordFor(obs.lookedBlock, catalog::byItemId);
+		if (word == null) {
+			word = wordFor(obs.lookedEntity, catalog::byEntityId);
 		}
-		if (obs.lookedBlock != null && !obs.lookedBlock.isBlank()) {
-			if (obs.lookedBlock.equals(lastLooked)) {
-				if (now - lookedSince >= 700L) {
-					debugLog("ambient dwell on {} (word={})", obs.lookedBlock,
-							catalog.byItemId(obs.lookedBlock).map(word -> word.id).orElse("-"));
-					catalog.byItemId(obs.lookedBlock).ifPresent(word -> ambientWord(word, now));
-					lookedSince = now;
-				}
-			} else {
-				lastLooked = obs.lookedBlock;
-				lookedSince = now;
-			}
-		} else if (lastLooked != null) {
-			lastLooked = null;
+		if (word == null) {
+			word = wordFor(obs.mainHand, catalog::byItemId);
 		}
-
-		if (!obs.creative && obs.inventory != null && !obs.inventory.isEmpty()) {
-			for (Map.Entry<String, Integer> entry : obs.inventory.entrySet()) {
-				int previous = lastInventory.getOrDefault(entry.getKey(), 0);
-				if (entry.getValue() > previous) {
-					final int gained = entry.getValue() - previous;
-					if (gained > 0) {
-						catalog.byItemId(entry.getKey()).ifPresent(word -> ambientWord(word, now));
-					}
-					break;
-				}
-			}
+		if (word == null) {
+			word = quests.hintWord();
 		}
-		lastInventory = obs.inventory == null ? Map.of() : new HashMap<>(obs.inventory);
-	}
-
-	private void ambientWord(Word word, long now) {
 		if (word == null || word.phrase) {
 			return;
 		}
-		Long until = wordCooldowns.get(word.id);
-		if (until != null && until > now) {
-			return;
-		}
-		wordCooldowns.put(word.id, now + 120_000L);
-		learn.introduce(word, now);
-		debugLog("ambient card {}", word.id);
+		learn.introduce(word, obs.now);
+		debugLog("word card {}", word.id);
 		hud.wordCard(word);
-		lastAmbientAt = now;
 		for (var achievement : learn.checkAchievements()) {
 			hud.banner(achievement.ko(), achievement.label(), true);
 		}
+	}
+
+	private static Word wordFor(String id, java.util.function.Function<String, Optional<Word>> lookup) {
+		return id == null || id.isBlank() ? null : lookup.apply(id).orElse(null);
 	}
 
 	private void addTooltip(ItemStack stack, Item.TooltipContext context, TooltipFlag flag, List<Component> lines) {

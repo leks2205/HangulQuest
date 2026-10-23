@@ -37,8 +37,6 @@ public final class QuestEngine {
 	public interface Feedback {
 		void banner(String ko, String de, boolean success);
 
-		void wordCard(Word word);
-
 		void sound(boolean success);
 
 		/** Small celebration after a step; the next clue is passed along for display. */
@@ -420,8 +418,9 @@ public final class QuestEngine {
 		return hints.answerSidequest(index, feedback);
 	}
 
-	public void hintWordCard(Feedback feedback) {
-		hints.hintWordCard(feedback);
+	/** The word the focused step teaches, for the word key; null when there is none or the step hides it. */
+	public Word hintWord() {
+		return hints.hintWord();
 	}
 
 	public boolean hintUsed() {

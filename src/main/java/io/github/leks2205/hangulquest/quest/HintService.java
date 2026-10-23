@@ -56,7 +56,7 @@ final class HintService {
 		if (track.sideQuest == null && !known && word != null && !track.hintUsed) {
 			track.sideQuest = SideQuest.start(word, catalog);
 			track.hintUsed = true;
-			feedback.wordCard(word);
+			// No word card and no voice: those belong to the word key, not to the key that closes windows.
 			// The hint shows the word: an encounter in its own context.
 			learn.expose(word, obs.now, StepCompletion.context(track, step, "hint"));
 			persistence.persist(registry, obs.now);
@@ -92,15 +92,16 @@ final class HintService {
 		return correct;
 	}
 
-	void hintWordCard(QuestEngine.Feedback feedback) {
+	Word hintWord() {
 		Track track = registry.focused();
 		if (track == null) {
-			return;
+			return null;
 		}
-		Word word = text.firstWord(track.step());
-		if (word != null) {
-			feedback.wordCard(word);
+		QuestStep step = track.step();
+		if (step == null || step.reverse()) {
+			return null; // a reverse step keeps its word hidden
 		}
+		return track.sideQuest != null ? track.sideQuest.word() : text.firstWord(step);
 	}
 
 	boolean hintUsed() {

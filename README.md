@@ -122,7 +122,7 @@ Everything happens on your own client. The mod never talks to a server, so it wo
     <td><img src="docs/screenshots/celebration-trail.webp" alt="Trail completed celebration" /></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/wordcard.webp" alt="Word card while looking at a block" /></td>
+    <td><img src="docs/screenshots/wordcard.webp" alt="Word card from the G key" /></td>
     <td><img src="docs/screenshots/journal-quest-log.webp" alt="Quest tab with the Im Log checkbox" /></td>
   </tr>
 </table>
@@ -157,6 +157,7 @@ All keys can be changed in **Options → Controls → Key Binds → 한글 탐�
 | `H` | Close the top window, or show the hint (and start the sidequest if the word is new) |
 | `J` | Review due words now |
 | `R` | Answer a waiting review prompt |
+| `G` | Show the word for what you look at or hold (else the quest's word) in the corner, and say it |
 | `F8` | Toggle the HUD |
 | `V` | Cycle the highlighted quest in the log |
 | `1`–`4`, `1`–`5` | Answer in a quiz or sidequest, pick the next trail |

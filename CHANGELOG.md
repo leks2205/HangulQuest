@@ -6,6 +6,15 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+## [3.0.1] — 2026-10-23
+
+### Changed
+
+- **The word card has its own key.** The vocabulary card in the bottom-right corner and its spoken word now come
+  only from `G` (*Show word*, rebindable): the block or mob under the crosshair, else the held item, else the word
+  of the focused step. Looking at blocks, picking up items and the hint key no longer pop it up or say the word, and
+  the card is not one of the windows `H` closes; it fades on its own.
+
 ## [3.0.0] — 2026-10-23
 
 **Hangul Quest 3.0 is a new course, not an update of the old one.** Every trail from level 1 to level 6 was
@@ -171,6 +180,7 @@ text-to-speech model and checked by a speech-recognition round trip. They are **
   credit without recall.
 - German text no longer leaks into the English interface.
 
+[3.0.1]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.1
 [3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0
 
 ### Since the last release candidate

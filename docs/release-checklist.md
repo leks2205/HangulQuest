@@ -69,8 +69,11 @@ Use a new Minecraft profile or an empty `config/hangulquest/` so you see what a 
 
 - [ ] Finish a step: the step banner stays. Wait 10 seconds. It is still there. Press the hint key once: it closes, and
       the step is not marked as helped (the hint is still available, no sidequest started).
-- [ ] Trigger two windows at once (a banner and a word card). One press closes the top one only; a "+N" badge shows
+- [ ] Trigger two windows at once (two banners). One press closes the top one only; a "+N" badge shows
       the rest; the second press closes the next.
+- [ ] The word card in the bottom-right corner never appears on its own (not when looking at a block, picking up an
+      item or pressing `H`) and `H` never closes it. `G` shows it for the block or mob under the crosshair, else the
+      held item, else the quest's word, and says the word with the voice pack loaded.
 - [ ] A hint window, a rule card, a culture note and the quiz prompt also stay, show their key, and do not cover the
       crosshair or the hotbar.
 - [ ] With nothing open, the hint key is a hint: simpler Korean, the word explained, a sidequest.

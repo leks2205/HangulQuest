@@ -249,7 +249,7 @@ class ReverseStepTest {
 		assertNull(hint.word(), "no picture of the word");
 		assertFalse(hint.sidequestStarted());
 		assertFalse(engine.sidequestActive());
-		assertEquals(0, recorder.wordCards);
+		assertNull(engine.hintWord(), "the word key does not give it away either");
 		assertEquals("돌을 캐요.", hint.simplifiedKo());
 	}
 
@@ -264,7 +264,7 @@ class ReverseStepTest {
 
 		assertEquals("돌", hint.word().ko);
 		assertTrue(hint.sidequestStarted());
-		assertEquals(1, recorder.wordCards);
+		assertEquals("돌", engine.hintWord().ko, "the word key shows it");
 	}
 
 	// ------------------------------------------------------------------ grading
@@ -324,7 +324,6 @@ class ReverseStepTest {
 
 	private static final class Recorder implements QuestEngine.Feedback {
 		int steps;
-		int wordCards;
 		String nextClueKo;
 		String nextClueDe;
 		final List<String> banners = new ArrayList<>();
@@ -332,11 +331,6 @@ class ReverseStepTest {
 		@Override
 		public void banner(String ko, String de, boolean success) {
 			banners.add(ko + "|" + de);
-		}
-
-		@Override
-		public void wordCard(Word word) {
-			wordCards++;
 		}
 
 		@Override

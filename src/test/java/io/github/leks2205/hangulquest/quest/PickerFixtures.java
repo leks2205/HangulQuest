@@ -101,9 +101,6 @@ final class PickerFixtures {
 			banners.add(ko);
 		}
 
-		@Override
-		public void wordCard(io.github.leks2205.hangulquest.data.Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {

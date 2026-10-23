@@ -43,9 +43,6 @@ class GeneratorWaveThirteenTest {
 	private int serial;
 
 	private static final class Quiet implements QuestEngine.Feedback {
-		@Override
-		public void wordCard(Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {
@@ -144,9 +141,6 @@ class GeneratorWaveThirteenTest {
 	private static final class Captured implements QuestEngine.Feedback {
 		String finale;
 
-		@Override
-		public void wordCard(Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {

@@ -636,9 +636,6 @@ class PlaytestTest {
 			this.engine = engine;
 		}
 
-		@Override
-		public void wordCard(io.github.leks2205.hangulquest.data.Word word) {
-		}
 
 		@Override
 		public void sound(boolean success) {
