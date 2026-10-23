@@ -206,7 +206,7 @@ public final class WordsTab extends JournalTab {
 		if (d.listen()) {
 			String label = I18n.t("hangulquest.ui.audio.listen");
 			int w = Math.max(40, host.font().width(label) + 12);
-			host.button(g, x + width - w, y, w, 14, label, false, () -> host.hq().audio().playWord(word.conceptId));
+			host.button(g, x + width - w, y, w, 14, label, false, () -> host.hq().audio().playWord(word.audioId()));
 		}
 		int yy;
 		if (d.showDe()) {
@@ -280,7 +280,7 @@ public final class WordsTab extends JournalTab {
 		MorphemeFamilies.Panel panel = MorphemeFamilies.of(word, LexiconTags.shared(), host.hq().catalog().all(),
 				other -> learn != null && learn.introduced(other.id));
 		Pronunciation.Result pron = Pronunciation.of(word.ko, word.conceptId, LexiconTags.shared());
-		boolean listen = host.hq().audio() != null && host.hq().audio().hasWord(word.conceptId);
+		boolean listen = host.hq().audio() != null && host.hq().audio().hasWord(word.audioId());
 		detail = new Detail(selectedWordId, host.epoch(), showDe, language(), reviews, word,
 				Component.literal(word.glossFull(Lang.current())), sentence,
 				word.hasDescKo() ? KoText.ko(word.descKo) : null, metrics,

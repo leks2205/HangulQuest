@@ -366,7 +366,7 @@ public final class HudController implements QuestEngine.Feedback {
 		WordCard card = new WordCard(word, KoText.ko(word.ko), Component.literal(glossOf(word)),
 				bracket == null ? null : KoText.ko(bracket));
 		if (hq.audio() != null) {
-			hq.audio().playWord(word.conceptId); // the player asked for it; silent without the voice pack
+			hq.audio().playWord(word.audioId()); // the player asked for it; silent without the voice pack
 		}
 		wordCard = card;
 		wordCardUntil = System.currentTimeMillis() + Math.max(1000, hq.config().cardDurationMs);
