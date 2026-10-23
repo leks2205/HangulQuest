@@ -72,8 +72,9 @@ Use a new Minecraft profile or an empty `config/hangulquest/` so you see what a 
 - [ ] Trigger two windows at once (two banners). One press closes the top one only; a "+N" badge shows
       the rest; the second press closes the next.
 - [ ] The word card in the bottom-right corner never appears on its own (not when looking at a block, picking up an
-      item or pressing `H`) and `H` never closes it. `G` shows it for the block or mob under the crosshair, else the
-      held item, else the quest's word, and says the word with the voice pack loaded.
+      item or pressing `H`) and `H` never closes it. `G` shows it for the block or mob the view meets (also far away and
+      while falling), with only sky in view for the held item, never for anything else; it says the word with the
+      voice pack loaded.
 - [ ] A hint window, a rule card, a culture note and the quiz prompt also stay, show their key, and do not cover the
       crosshair or the hotbar.
 - [ ] With nothing open, the hint key is a hint: simpler Korean, the word explained, a sidequest.

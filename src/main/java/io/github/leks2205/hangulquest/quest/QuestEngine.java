@@ -429,11 +429,6 @@ public final class QuestEngine {
 		return hints.answerSidequest(index, feedback);
 	}
 
-	/** The word the focused step teaches, for the word key; null when there is none or the step hides it. */
-	public Word hintWord() {
-		return hints.hintWord();
-	}
-
 	public boolean hintUsed() {
 		return hints.hintUsed();
 	}

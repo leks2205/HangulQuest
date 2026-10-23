@@ -157,7 +157,7 @@ All keys can be changed in **Options → Controls → Key Binds → 한글 탐�
 | `H` | Close the top window, or show the hint (and start the sidequest if the word is new) |
 | `J` | Review due words now |
 | `R` | Answer a waiting review prompt |
-| `G` | Show the word for what you look at or hold (else the quest's word) in the corner, and say it |
+| `G` | Show the word for the block or mob you look at (up to 128 blocks away; with nothing in sight, the item you hold) in the corner, and say it |
 | `F8` | Toggle the HUD |
 | `V` | Cycle the highlighted quest in the log |
 | `1`–`4`, `1`–`5` | Answer in a quiz or sidequest, pick the next trail |
