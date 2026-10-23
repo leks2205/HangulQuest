@@ -92,18 +92,6 @@ final class HintService {
 		return correct;
 	}
 
-	Word hintWord() {
-		Track track = registry.focused();
-		if (track == null) {
-			return null;
-		}
-		QuestStep step = track.step();
-		if (step == null || step.reverse()) {
-			return null; // a reverse step keeps its word hidden
-		}
-		return track.sideQuest != null ? track.sideQuest.word() : text.firstWord(step);
-	}
-
 	boolean hintUsed() {
 		Track track = registry.focused();
 		return track != null && track.hintUsed;

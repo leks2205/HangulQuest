@@ -249,7 +249,6 @@ class ReverseStepTest {
 		assertNull(hint.word(), "no picture of the word");
 		assertFalse(hint.sidequestStarted());
 		assertFalse(engine.sidequestActive());
-		assertNull(engine.hintWord(), "the word key does not give it away either");
 		assertEquals("돌을 캐요.", hint.simplifiedKo());
 	}
 
@@ -264,7 +263,6 @@ class ReverseStepTest {
 
 		assertEquals("돌", hint.word().ko);
 		assertTrue(hint.sidequestStarted());
-		assertEquals("돌", engine.hintWord().ko, "the word key shows it");
 	}
 
 	// ------------------------------------------------------------------ grading

@@ -6,6 +6,7 @@ import io.github.leks2205.hangulquest.data.Concept;
 import io.github.leks2205.hangulquest.data.Origin;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.learn.LearningService;
+import io.github.leks2205.hangulquest.learn.ProgressData;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.quest.Condition;
 import io.github.leks2205.hangulquest.quest.Goal;
@@ -601,6 +602,40 @@ class QuestEngineTest {
 		assertEquals("torches", engine.activeTrail().id(), "an untracked quest must not take over");
 		assertFalse(engine.isTracked("coal"));
 		assertEquals(1, engine.trackedCount());
+	}
+
+	@Test
+	void resetForgetsEveryStartedQuestAndWritesNothingBack() {
+		Path dir = tempDir.resolve("reset");
+		ProgressStore store = new ProgressStore(dir, LOG);
+		Catalog catalog = Catalog.ofConcepts(List.of(concept("stone", "돌", "Stein"),
+				concept("torch", "횃불", "Fackel")));
+		LearningService learn = new LearningService(store.data(), store, catalog);
+		Questline stones = simpleTrail("stones", "minecraft:stone", 2, 10);
+		Questline ores = simpleTrail("ores", "minecraft:coal_ore", 2, 20);
+		QuestEngine engine = new QuestEngine(List.of(stones, ores), catalog, learn, LOG);
+		Recorder recorder = new Recorder();
+		Observation start = night();
+		start.now = 1_000L;
+		engine.startTrail("stones", start, recorder);
+		engine.tick(obsFor(1_100L, "minecraft:stone"), recorder);
+		engine.startTrail("ores", start, recorder);
+		assertEquals(2, engine.trackedCount());
+
+		// what the Reset progress button does
+		store.data().quests = new ProgressData.QuestData();
+		engine.reset();
+		engine.tick(obsFor(1_200L, "minecraft:coal_ore"), recorder);
+		store.flush();
+
+		assertEquals(0, engine.trackedCount());
+		assertNull(engine.activeTrail());
+		ProgressStore reloaded = new ProgressStore(dir, LOG);
+		QuestEngine second = new QuestEngine(List.of(stones, ores), catalog,
+				new LearningService(reloaded.data(), reloaded, catalog), LOG);
+		assertNull(second.activeTrail(), "no quest comes back from the save");
+		assertEquals(0, second.trackedCount());
+		assertTrue(reloaded.data().quests.saved.isEmpty());
 	}
 
 	@Test

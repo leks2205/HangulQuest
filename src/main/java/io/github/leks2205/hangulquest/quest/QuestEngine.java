@@ -399,6 +399,17 @@ public final class QuestEngine {
 	}
 
 	/** Takes the focused trail out of the log (the journal's "Abbrechen"); its progress is kept. */
+	/**
+	 * After "Reset progress", once the caller has emptied {@code data.quests}: forgets every started trail
+	 * (tracked or not), the open next-quest choice and the rule card, so nothing is written back.
+	 */
+	public void reset() {
+		registry.clear();
+		next.reset();
+		ruleCardStep = null;
+		persistence.restore(registry);
+	}
+
 	public void abandon() {
 		if (registry.focusedId() != null) {
 			setTracked(registry.focusedId(), false);
@@ -416,11 +427,6 @@ public final class QuestEngine {
 
 	public boolean answerSidequest(int index, Feedback feedback) {
 		return hints.answerSidequest(index, feedback);
-	}
-
-	/** The word the focused step teaches, for the word key; null when there is none or the step hides it. */
-	public Word hintWord() {
-		return hints.hintWord();
 	}
 
 	public boolean hintUsed() {

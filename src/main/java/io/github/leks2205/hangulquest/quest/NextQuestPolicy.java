@@ -132,6 +132,13 @@ final class NextQuestPolicy {
 		pending = List.of();
 	}
 
+	/** After a progress reset: no open choice, and the log is filled again at once. */
+	void reset() {
+		pending = List.of();
+		pendingUntil = 0;
+		lastFill = Long.MIN_VALUE / 2;
+	}
+
 	// ----------------------------------------------------------------- policy
 
 	// ------------------------------------------------------------ automatic picks

@@ -6,6 +6,20 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+## [3.0.2] — 2026-10-23
+
+### Fixed
+
+- **Reset progress also ends the started quests.** The quests in the log (and the ones set aside) used to come back
+  after a reset, because only the highlighted quest was dropped. Now every started quest is forgotten, the open
+  next-quest choice closes and new starter quests are picked.
+- **`G` names what you look at, also far away.** It looked only as far as your arm reaches and otherwise showed the
+  word of the quest step, so a distant village, ice a few blocks off or anything seen while falling came out as the
+  quest's word (campfire, glass). It now follows your view up to 128 blocks to the first block or mob; with only sky
+  in view it names the item in your hand, and something without a word shows nothing.
+- **`G` says more words.** A block that only has its plain game name (a birch log, a spruce fence) is named with the
+  voiced word for its kind (통나무, 울타리), as the oak log already was.
+
 ## [3.0.1] — 2026-10-23
 
 ### Changed
@@ -180,6 +194,7 @@ text-to-speech model and checked by a speech-recognition round trip. They are **
   credit without recall.
 - German text no longer leaks into the English interface.
 
+[3.0.2]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.2
 [3.0.1]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.1
 [3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0
 

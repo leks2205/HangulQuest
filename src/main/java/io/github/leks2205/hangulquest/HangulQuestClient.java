@@ -95,6 +95,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private KeyMapping keyFocus;
 	private KeyMapping keyAnswer;
 	private KeyMapping keyWord;
+	/** How far the word key looks: a village across a valley, not only what is in arm's reach. */
+	private static final double WORD_RANGE = 128.0;
 
 	private Observation lastObservation = new Observation();
 	private boolean pendingAutoStart;
@@ -445,23 +447,35 @@ public final class HangulQuestClient implements ClientModInitializer {
 	}
 
 	/**
-	 * The word key: the word card in the bottom-right corner, spoken. It names what the crosshair is on, else the
-	 * item in the hand, else the word the focused step teaches. Nothing else shows that card or says the word.
+	 * The word key: the word card in the bottom-right corner, spoken. It names the mob or block the view ray meets
+	 * (up to {@link #WORD_RANGE} blocks), or with nothing in sight the item in the hand. Something without a word
+	 * shows nothing: never a word for something else. Nothing but this key shows that card or says the word.
 	 */
 	private void showWord(Observation obs) {
 		if (!config.hudCards || obs.dead) {
 			return;
 		}
-		Word word = wordFor(obs.lookedBlock, catalog::byItemId);
-		if (word == null) {
-			word = wordFor(obs.lookedEntity, catalog::byEntityId);
-		}
-		if (word == null) {
+		EnvironmentSensor.Aimed aimed = sensor.aimedAt(WORD_RANGE);
+		Word word;
+		if (aimed == null) {
 			word = wordFor(obs.mainHand, catalog::byItemId);
+		} else if (aimed.entityId() != null) {
+			word = wordFor(aimed.entityId(), catalog::byEntityId);
+		} else {
+			word = wordFor(aimed.blockId(), catalog::byItemId);
+			if (word == null) {
+				word = wordFor(aimed.itemId(), catalog::byItemId);
+			}
+			if (word == null || word.conceptId == null) {
+				// only the bare game name (never voiced): the word for its kind says it, 통나무 for a birch log
+				Word kind = wordFor(aimed.blockId(), catalog::byCoveredId);
+				if (kind == null) {
+					kind = wordFor(aimed.itemId(), catalog::byCoveredId);
+				}
+				word = kind == null ? word : kind;
+			}
 		}
-		if (word == null) {
-			word = quests.hintWord();
-		}
+		debugLog("word key aimed={} word={}", aimed, word == null ? "-" : word.id);
 		if (word == null || word.phrase) {
 			return;
 		}
@@ -653,6 +667,15 @@ public final class HangulQuestClient implements ClientModInitializer {
 			hud.banner("퀘스트 " + count + "개를 다시 읽었어요.",
 					io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.quest.reloaded", count), true);
 		}
+	}
+
+	/** "Reset progress" emptied the save: the quest engine and the HUD forget what they hold, and new quests start. */
+	public void afterProgressReset() {
+		quests.reset();
+		if (hud != null) {
+			hud.onWorldJoin();
+		}
+		pendingAutoStart = true;
 	}
 
 	public Path questlineDir() {

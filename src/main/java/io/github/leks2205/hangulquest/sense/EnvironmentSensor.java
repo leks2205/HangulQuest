@@ -34,6 +34,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -652,6 +653,43 @@ public final class EnvironmentSensor {
 			return null;
 		}
 		return resolve(entityHit.getEntity());
+	}
+
+	/** What the word key points at: a mob, or a block with the item it drops as (a wall torch is a torch). */
+	public record Aimed(String entityId, String blockId, String itemId) {
+	}
+
+	/**
+	 * The nearest mob or block on the view ray, up to {@code range} blocks; a water or lava source stops it.
+	 * Null when the ray meets nothing (the sky, or beyond the loaded world). Unlike the crosshair pick this
+	 * reaches past arm's length, so a village on the horizon is named for what it is.
+	 */
+	public Aimed aimedAt(double range) {
+		LocalPlayer player = mc.player;
+		ClientLevel level = mc.level;
+		if (player == null || level == null) {
+			return null;
+		}
+		Vec3 from = player.getEyePosition();
+		Vec3 look = player.getViewVector(1.0F);
+		Vec3 to = from.add(look.scale(range));
+		BlockHitResult blockHit = level.clip(new ClipContext(from, to, ClipContext.Block.OUTLINE,
+				ClipContext.Fluid.SOURCE_ONLY, player));
+		boolean blockMissed = blockHit.getType() == HitResult.Type.MISS;
+		double blockSq = blockMissed ? Double.MAX_VALUE : from.distanceToSqr(blockHit.getLocation());
+		AABB sweep = player.getBoundingBox().expandTowards(look.scale(range)).inflate(1.0);
+		EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(player, from, to, sweep,
+				candidate -> !candidate.isSpectator() && candidate.isPickable(), range * range);
+		if (entityHit != null && from.distanceToSqr(entityHit.getLocation()) < blockSq) {
+			return new Aimed(entityId(resolve(entityHit.getEntity())), null, null);
+		}
+		if (blockMissed) {
+			return null;
+		}
+		BlockState state = level.getBlockState(blockHit.getBlockPos());
+		Item item = state.getBlock().asItem();
+		Identifier itemKey = item == Items.AIR ? null : BuiltInRegistries.ITEM.getKey(item);
+		return new Aimed(null, blockId(state), itemKey == null ? null : itemKey.toString());
 	}
 
 	/** Dragon parts are separate entities; everything about them is credited to the dragon. */

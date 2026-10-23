@@ -126,12 +126,12 @@ public final class SettingsTab extends JournalTab {
 		long now = System.currentTimeMillis();
 		if (now < confirmResetUntil) {
 			hq.learn().store().backup("pre-reset");
-			hq.quests().abandon();
 			hq.learn().data().words.clear();
 			hq.learn().data().days.clear();
 			hq.learn().data().achievements.clear();
 			hq.learn().data().totals = new ProgressData.Totals();
 			hq.learn().data().quests = new ProgressData.QuestData();
+			hq.afterProgressReset();
 			hq.learn().markDirty();
 			hq.learn().store().flush();
 			host.changed();
