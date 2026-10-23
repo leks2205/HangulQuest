@@ -6,6 +6,12 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Reset progress also ends the started quests.** The quests in the log (and the ones set aside) used to come back
+  after a reset, because only the highlighted quest was dropped. Now every started quest is forgotten, the open
+  next-quest choice closes and new starter quests are picked.
+
 ## [3.0.1] — 2026-10-23
 
 ### Changed

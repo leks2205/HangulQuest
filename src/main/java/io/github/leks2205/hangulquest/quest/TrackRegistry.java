@@ -50,6 +50,15 @@ final class TrackRegistry {
 		return tracks.containsKey(trailId);
 	}
 
+	/** Forgets every started trail, the log and the focus. */
+	void clear() {
+		tracks.clear();
+		trackedIds.clear();
+		autoIds.clear();
+		situationalId = null;
+		focusedId = null;
+	}
+
 	void put(Track track) {
 		tracks.put(track.trail.id(), track);
 	}

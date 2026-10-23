@@ -399,6 +399,17 @@ public final class QuestEngine {
 	}
 
 	/** Takes the focused trail out of the log (the journal's "Abbrechen"); its progress is kept. */
+	/**
+	 * After "Reset progress", once the caller has emptied {@code data.quests}: forgets every started trail
+	 * (tracked or not), the open next-quest choice and the rule card, so nothing is written back.
+	 */
+	public void reset() {
+		registry.clear();
+		next.reset();
+		ruleCardStep = null;
+		persistence.restore(registry);
+	}
+
 	public void abandon() {
 		if (registry.focusedId() != null) {
 			setTracked(registry.focusedId(), false);

@@ -655,6 +655,15 @@ public final class HangulQuestClient implements ClientModInitializer {
 		}
 	}
 
+	/** "Reset progress" emptied the save: the quest engine and the HUD forget what they hold, and new quests start. */
+	public void afterProgressReset() {
+		quests.reset();
+		if (hud != null) {
+			hud.onWorldJoin();
+		}
+		pendingAutoStart = true;
+	}
+
 	public Path questlineDir() {
 		return questlineDir;
 	}
