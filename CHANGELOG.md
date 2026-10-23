@@ -6,6 +6,14 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
 
 ## [Unreleased]
 
+## [3.0.3] — 2026-10-23
+
+### Added
+
+- **Every block, item and mob has a voice.** Words that only have their name from the game (andesite, birch
+  stairs, a glow squid …) now play a clip as well, with Hangul Quest Voices 1.1.0 or later (768 new words, event
+  `word.mc_<id>` and `word.mc_entity_<id>`). With an older pack they stay silent, as before.
+
 ## [3.0.2] — 2026-10-23
 
 ### Fixed
@@ -194,6 +202,7 @@ text-to-speech model and checked by a speech-recognition round trip. They are **
   credit without recall.
 - German text no longer leaks into the English interface.
 
+[3.0.3]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.3
 [3.0.2]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.2
 [3.0.1]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.1
 [3.0.0]: https://github.com/leks2205/HangulQuest/releases/tag/v3.0.0

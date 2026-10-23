@@ -154,6 +154,19 @@ public final class Word {
 		return descKo != null && !descKo.isBlank();
 	}
 
+	/**
+	 * The voice pack event after {@code word.}: the concept, or for a word that only has the game's name
+	 * {@code mc_<item>} / {@code mc_entity_<entity>} (vanilla ids only). Null when no clip can exist.
+	 */
+	public String audioId() {
+		if (conceptId != null) {
+			return conceptId;
+		}
+		String prefix = id == null ? null : id.startsWith("mc:item:minecraft:") ? "mc_"
+				: id.startsWith("mc:entity:minecraft:") ? "mc_entity_" : null;
+		return prefix == null ? null : prefix + id.substring(id.lastIndexOf(':') + 1);
+	}
+
 	/** Icon stack id: what the interface draws, not necessarily what the word names. */
 	public String iconId() {
 		return iconItem;

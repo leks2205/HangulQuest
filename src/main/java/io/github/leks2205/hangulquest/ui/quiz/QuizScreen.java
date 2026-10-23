@@ -54,7 +54,7 @@ public final class QuizScreen extends Screen {
 		this.view = hud.quizView();
 		this.card = view == null ? null : view.card();
 		var word = card == null || card.info() == null ? null : card.info().word();
-		this.cardAudio = new CardAudio(hq == null ? null : hq.audio(), word == null ? null : word.conceptId);
+		this.cardAudio = new CardAudio(hq == null ? null : hq.audio(), word == null ? null : word.audioId());
 	}
 
 	@Override
