@@ -363,6 +363,24 @@ class DialogueContentTest {
 	}
 
 	@Test
+	void everyLineStaysWithinTheGrammarOfItsLevel() {
+		List<String> problems = new ArrayList<>();
+		for (Dialogue dialogue : dialogues) {
+			for (String line : koreanLines(dialogue)) {
+				problems.addAll(io.github.leks2205.hangulquest.dialogue.LineLevels.problems(dialogue.id(), line,
+						dialogue.level()));
+			}
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			for (RequestFixtures.Spoken line : RequestFixtures.lines(request)) {
+				problems.addAll(io.github.leks2205.hangulquest.dialogue.LineLevels.problems(request.id() + "." + line.node(),
+						line.ko(), request.level()));
+			}
+		}
+		assertTrue(problems.isEmpty(), String.join("\n", problems));
+	}
+
+	@Test
 	void everyKoreanLineIsPlainHangulWithPunctuation() {
 		for (Dialogue dialogue : dialogues) {
 			for (String line : koreanLines(dialogue)) {
