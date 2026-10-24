@@ -13,7 +13,7 @@ import java.util.TreeSet;
 /** The ordered chain of {@link ProgressMigration}s, run on the raw tree before it is bound. */
 public final class ProgressMigrations {
 	private static final ProgressMigrations STANDARD = new ProgressMigrations(
-			List.of(new V1ToV2(), new V2ToV3(), new V3ToV4()));
+			List.of(new V1ToV2(), new V2ToV3(), new V3ToV4(), new V4ToV5()));
 
 	private final List<ProgressMigration> chain;
 
