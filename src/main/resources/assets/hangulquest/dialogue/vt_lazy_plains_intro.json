@@ -1,0 +1,44 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_plains_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["LAZY"], "regions": ["PLAINS"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "음, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "여기는 밀이 많아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wheat"]}],
+			"next": "nap"
+		},
+		"nap": {
+			"speaker": "villager",
+			"ko": "저는 낮잠이 좋아요. 낮잠이 좋아요?",
+			"choices": [
+				{"ko": "네, 좋아요!", "next": "bye_yes"},
+				{"ko": "아니요, 안 좋아요.", "next": "bye_no"}
+			]
+		},
+		"bye_yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 그럼 또 봐요.",
+			"end": true
+		},
+		"bye_no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 그럼 또 봐요.",
+			"end": true
+		}
+	}
+}

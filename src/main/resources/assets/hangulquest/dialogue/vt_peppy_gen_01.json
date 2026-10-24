@@ -1,0 +1,40 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_01",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["PEPPY"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "우와! 안녕하세요!",
+			"next": "flower"
+		},
+		"flower": {
+			"speaker": "villager",
+			"ko": "저는 꽃이 정말 좋아요!",
+			"effects": [{"type": "exposeWords", "words": ["concept:flower"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꽃이 좋아요?",
+			"choices": [
+				{"ko": "네, 정말 좋아요!", "next": "friends"},
+				{"ko": "아니요, 나무가 좋아요.", "next": "tree"}
+			]
+		},
+		"friends": {
+			"speaker": "villager",
+			"ko": "우와, 진짜요? 우리 친구예요!",
+			"ko_banmal": "우와, 진짜? 우리 친구야!",
+			"end": true
+		},
+		"tree": {
+			"speaker": "villager",
+			"ko": "나무요? 나무도 좋아요!",
+			"ko_banmal": "나무? 나무도 좋아!",
+			"end": true
+		}
+	}
+}

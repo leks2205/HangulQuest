@@ -26,6 +26,8 @@ import java.util.TreeMap;
 public final class DialogueResources {
 	/** Folders searched in every namespace. */
 	public static final List<String> FOLDERS = List.of("dialogue", "hangulquest/dialogue");
+	/** Folders of the villager requests, searched like the dialogue folders. */
+	public static final List<String> REQUEST_FOLDERS = List.of("requests", "hangulquest/requests");
 	private static final String OWN = "hangulquest";
 	private static final Identifier LEXICON = Identifier.fromNamespaceAndPath(OWN, "dialogue/_lexicon.json");
 	private static final Identifier GRAMMAR = Identifier.fromNamespaceAndPath(OWN, "data/grammar.json");
@@ -35,9 +37,18 @@ public final class DialogueResources {
 
 	/** Dialogue file id (the name without .json) to bytes. The mod's own namespace wins over a pack's. */
 	public static Map<String, byte[]> read(ResourceManager manager, Logger log) {
+		return read(manager, FOLDERS, log);
+	}
+
+	/** Request file id to bytes, read like the dialogues. */
+	public static Map<String, byte[]> readRequests(ResourceManager manager, Logger log) {
+		return read(manager, REQUEST_FOLDERS, log);
+	}
+
+	private static Map<String, byte[]> read(ResourceManager manager, List<String> folders, Logger log) {
 		Map<String, byte[]> files = new TreeMap<>();
 		Set<String> seen = new LinkedHashSet<>();
-		for (String folder : FOLDERS) {
+		for (String folder : folders) {
 			Map<Identifier, Resource> listed = manager.listResources(folder, id -> isDialogueFile(id.getPath()));
 			List<Map.Entry<Identifier, Resource>> ordered = listed.entrySet().stream()
 					.sorted(Comparator.comparing((Map.Entry<Identifier, Resource> entry) ->
@@ -52,7 +63,7 @@ public final class DialogueResources {
 				try (InputStream stream = entry.getValue().open()) {
 					files.put(id, stream.readAllBytes());
 				} catch (Exception unreadable) {
-					log.warn("dialogue resource {} could not be read: {}", entry.getKey(), unreadable.toString());
+					log.warn("resource {} could not be read: {}", entry.getKey(), unreadable.toString());
 				}
 			}
 		}

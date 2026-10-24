@@ -19,7 +19,7 @@
 		{"id": "give", "forms": ["주", "줘"], "known": true, "en": "to give (for someone)", "de": "geben (für jemanden)"},
 		{"id": "thanks", "forms": ["고마워", "감사"], "known": true, "en": "thanks", "de": "Dank"},
 		{"id": "go", "forms": ["가"], "known": true, "en": "to go", "de": "gehen"},
-		{"id": "come", "forms": ["오"], "known": true, "en": "to come", "de": "kommen"},
+		{"id": "come", "forms": ["오", "와"], "known": true, "en": "to come", "de": "kommen"},
 		{"id": "welcome", "forms": ["어서"], "known": true, "en": "quickly, welcome", "de": "schnell, willkommen"},
 		{"id": "yes_polite", "forms": ["네"], "known": true, "en": "yes", "de": "ja"},
 		{"id": "yes_casual", "forms": ["응"], "known": true, "en": "yes (casual)", "de": "ja (locker)"},
@@ -51,6 +51,21 @@
 		{"id": "special", "forms": ["특별한"], "known": false, "en": "special", "de": "besonders"},
 		{"id": "sleep_formal", "forms": ["주무십시오"], "known": false, "en": "please sleep (formal)", "de": "schlafen Sie (förmlich)"},
 		{"id": "building", "forms": ["건물"], "known": false, "en": "building", "de": "Gebäude"},
-		{"id": "field", "forms": ["밭"], "known": false, "en": "field", "de": "Feld"}
+		{"id": "field", "forms": ["밭"], "known": false, "en": "field", "de": "Feld"},
+		{"id": "um", "forms": ["음"], "known": true, "en": "um", "de": "hm"},
+		{"id": "hm", "forms": ["흠"], "known": true, "en": "hm", "de": "hm"},
+		{"id": "wow", "forms": ["우와"], "known": true, "en": "wow", "de": "wow"},
+		{"id": "hey", "forms": ["어이"], "known": true, "en": "hey", "de": "he"},
+		{"id": "here", "forms": ["여기"], "known": true, "en": "here", "de": "hier"},
+		{"id": "really", "forms": ["정말", "진짜"], "known": true, "en": "really", "de": "wirklich"},
+		{"id": "sorry", "forms": ["미안해", "미안합"], "known": true, "en": "sorry", "de": "Entschuldigung"},
+		{"id": "speech", "forms": ["말"], "known": true, "en": "speech, words", "de": "Sprache, Worte"},
+		{"id": "shall_we", "forms": ["할까요", "할까"], "known": true, "en": "shall we (do it)?", "de": "sollen wir?"},
+		{"id": "nap", "forms": ["낮잠"], "known": false, "en": "nap", "de": "Mittagsschlaf"},
+		{"id": "yet", "forms": ["아직"], "known": false, "en": "(not) yet, still", "de": "noch (nicht)"},
+		{"id": "now_from", "forms": ["이제"], "known": false, "en": "now, from now on", "de": "jetzt, von nun an"},
+		{"id": "comfortably", "forms": ["편하게"], "known": false, "en": "comfortably (말 편하게: talk casually)", "de": "bequem (말 편하게: locker reden)"},
+		{"id": "wait", "forms": ["기다려", "기다리"], "known": false, "en": "to wait", "de": "warten"},
+		{"id": "show", "forms": ["보여"], "known": false, "en": "to show", "de": "zeigen"}
 	]
 }

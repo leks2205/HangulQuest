@@ -8,6 +8,8 @@ import io.github.leks2205.hangulquest.data.ConceptLoader;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.dialogue.Dialogue;
 import io.github.leks2205.hangulquest.dialogue.DialogueFixtures;
+import io.github.leks2205.hangulquest.villager.Request;
+import io.github.leks2205.hangulquest.villager.RequestFixtures;
 import io.github.leks2205.hangulquest.learn.LearningService;
 import io.github.leks2205.hangulquest.learn.ProgressStore;
 import io.github.leks2205.hangulquest.learn.research.Pseudowords;
@@ -193,8 +195,16 @@ class SentenceDumpTest {
 			String file = "dialogue/" + dialogue.id() + ".json";
 			for (Dialogue.Node node : DialogueFixtures.sorted(dialogue).values()) {
 				String id = "dialogue." + dialogue.id() + "." + node.id();
-				rows.add(new Row(id, dialogue.level(), "authored:" + file + "#nodes." + node.id() + ".ko", node.ko(),
-						"Dialogue " + node.speaker().id() + " " + node.speechLevel().id()));
+				if (!node.selfIntro()) {
+					// the self-introduction is built from the villager's name (VillagerNames.selfIntro)
+					rows.add(new Row(id, dialogue.level(), "authored:" + file + "#nodes." + node.id() + ".ko", node.ko(),
+							"Dialogue " + node.speaker().id() + " " + node.speechLevel().id()));
+				}
+				if (node.koBanmal() != null) {
+					rows.add(new Row(id + ".banmal", dialogue.level(),
+							"authored:" + file + "#nodes." + node.id() + ".ko_banmal", node.koBanmal(),
+							"Dialogue " + node.speaker().id() + " banmal"));
+				}
 				for (int i = 0; i < node.choices().size(); i++) {
 					Dialogue.Choice choice = node.choices().get(i);
 					String grade = choice.correct() == null ? "ungraded" : choice.correct() ? "right" : "wrong";
@@ -202,6 +212,14 @@ class SentenceDumpTest {
 							"authored:" + file + "#nodes." + node.id() + ".choices[" + i + "].ko", choice.ko(),
 							"Dialogue player " + choice.speechLevel().id() + " " + grade));
 				}
+			}
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			String file = "requests/" + request.id() + ".json";
+			for (RequestFixtures.Spoken line : RequestFixtures.lines(request)) {
+				rows.add(new Row("dialogue." + request.id() + "." + line.node(), request.level(),
+						"authored:" + file + "#" + line.pointer(), line.ko(),
+						"Dialogue " + line.speaker() + " " + line.level() + (line.speaker().equals("player") ? " ungraded" : "")));
 			}
 		}
 		return rows;
