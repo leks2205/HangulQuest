@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_05",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "파이팅! 안녕하세요!",
+			"ko_banmal": "파이팅! 안녕!",
+			"next": "notice"
+		},
+		"notice": {
+			"speaker": "villager",
+			"ko": "오, 요즘 말이 정말 많이 늘었잖아요!",
+			"ko_banmal": "오, 요즘 말이 진짜 많이 늘었잖아!",
+			"next": "secret"
+		},
+		"secret": {
+			"speaker": "villager",
+			"ko": "운동도 말도 매일 조금씩 하면 늘거든요.",
+			"ko_banmal": "운동도 말도 매일 조금씩 하면 늘거든.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "요즘 얼마나 자주 연습해요?",
+			"ko_banmal": "요즘 얼마나 자주 연습해?",
+			"choices": [
+				{
+					"ko": "매일 해요!",
+					"next": "daily"
+				},
+				{
+					"ko": "가끔 해요.",
+					"next": "sometimes"
+				}
+			]
+		},
+		"daily": {
+			"speaker": "villager",
+			"ko": "역시! 매일 하면 이렇게 되잖아요! 최고예요!",
+			"ko_banmal": "역시! 매일 하면 이렇게 되잖아! 최고야!",
+			"next": "end"
+		},
+		"sometimes": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 천천히 해도 계속하면 늘어요!",
+			"ko_banmal": "괜찮아! 천천히 해도 계속하면 늘어!",
+			"next": "end"
+		},
+		"end": {
+			"speaker": "villager",
+			"ko": "저도 매일 달리면서 응원할게요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "나도 매일 달리면서 응원할게! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

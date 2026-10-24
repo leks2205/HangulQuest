@@ -46,6 +46,15 @@ class StoryContentTest {
 		return tokens;
 	}
 
+	/** Catalog words the text really uses. A story list may omit a common word (큰), so coverage uses this too. */
+	private Set<String> usedWords(Story story) {
+		return tokens(story, vocabulary(id -> true)).stream()
+				.filter(StoryText.Token::word)
+				.map(StoryText.Token::id)
+				.filter(id -> id != null && !id.startsWith("lexicon:"))
+				.collect(Collectors.toCollection(LinkedHashSet::new));
+	}
+
 	@Test
 	void everyShippedStoryParsesAndPassesTheGameChecks() {
 		assertTrue(stories.size() >= 4, "expected the four first stories");
@@ -149,8 +158,8 @@ class StoryContentTest {
 					rules.add(token.breakdown().grammar());
 				}
 			}
-			assertEquals(new LinkedHashSet<>(story.words()).stream().sorted().toList(), used.stream().sorted().toList(),
-					story.id() + ": the words list differs from the catalog words in the text");
+			assertTrue(used.containsAll(story.words()),
+					story.id() + ": the text does not use every word in its list, it uses " + used);
 			Set<String> missing = new LinkedHashSet<>(rules);
 			missing.removeAll(story.grammar());
 			assertTrue(missing.isEmpty(), story.id() + ": the text shows " + missing + " but the grammar list does not");
@@ -179,6 +188,7 @@ class StoryContentTest {
 				continue;
 			}
 			Set<String> knows = new LinkedHashSet<>(story.words());
+			knows.addAll(usedWords(story));
 			knows.removeAll(story.glossed());
 			StoryCoverage.Status status = StoryCoverage.status(story, vocabulary(knows::contains), trail -> true,
 					story.unlock().minWords());
@@ -193,6 +203,7 @@ class StoryContentTest {
 	void aStoryOpensWhenItsWordsAreKnownAndItsTrailsAreDone() {
 		for (Story story : stories) {
 			Set<String> words = new LinkedHashSet<>(story.words());
+			words.addAll(usedWords(story));
 			StoryVocabulary knowsAll = vocabulary(words::contains);
 			StoryCoverage.Status open = StoryCoverage.status(story, knowsAll, trail -> true, story.unlock().minWords());
 			assertTrue(open.open(), story.id() + " should open: " + open.coverage());

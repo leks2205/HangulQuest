@@ -1,0 +1,78 @@
+{
+	"schema": 1,
+	"id": "vt_jock_ms6",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 6,
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오오! 왔어요? 기다렸어요!",
+			"ko_banmal": "오오! 왔어? 기다렸어!",
+			"next": "run"
+		},
+		"run": {
+			"speaker": "villager",
+			"ko": "어제 처음으로 마을을 열 바퀴 달렸어요!",
+			"ko_banmal": "어제 처음으로 마을을 열 바퀴 달렸어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:village"
+					]
+				}
+			],
+			"next": "why"
+		},
+		"why": {
+			"speaker": "villager",
+			"ko": "힘들 때 친구 생각을 했어요. 그래서 힘이 났어요!",
+			"ko_banmal": "힘들 때 친구 생각을 했어. 그래서 힘이 났어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "다음에는 같이 달릴 거예요?",
+			"ko_banmal": "다음에는 같이 달릴 거야?",
+			"choices": [
+				{
+					"ko": "네, 같이 달릴 거예요!",
+					"next": "yes"
+				},
+				{
+					"ko": "저는 응원할 거예요!",
+					"next": "cheer"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "와! 약속이에요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "와! 약속이야! 하나, 둘! 하나, 둘!",
+			"end": true
+		},
+		"cheer": {
+			"speaker": "villager",
+			"ko": "하하! 응원도 큰 힘이에요! 고마워요!",
+			"ko_banmal": "하하! 응원도 큰 힘이야! 고마워!",
+			"end": true
+		}
+	}
+}

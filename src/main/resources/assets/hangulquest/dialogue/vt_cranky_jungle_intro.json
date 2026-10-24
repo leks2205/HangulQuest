@@ -1,0 +1,44 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_jungle_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["JUNGLE"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "rain"
+		},
+		"rain": {
+			"speaker": "villager",
+			"ko": "여기는 비가 많이 와요. 그래서 무릎이 아파요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:rain"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "비 좋아해요?",
+			"choices": [
+				{"ko": "네, 좋아해요.", "next": "like"},
+				{"ko": "아니요, 싫어요.", "next": "dislike"}
+			]
+		},
+		"like": {
+			"speaker": "villager",
+			"ko": "흠. 그럼 여기가 딱 맞아요.",
+			"end": true
+		},
+		"dislike": {
+			"speaker": "villager",
+			"ko": "흠. 저도 싫어요.",
+			"end": true
+		}
+	}
+}

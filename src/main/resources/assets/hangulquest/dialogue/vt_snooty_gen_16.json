@@ -1,0 +1,94 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_16",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"profession": "minecraft:cleric"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오십시오. 저는 성직자입니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 금을 삽니다. 금 주괴가 있습니까?",
+			"choices": [
+				{
+					"ko": "네, 금 주괴가 있어요.",
+					"next": "trade"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "cave"
+				}
+			],
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gold"
+					]
+				}
+			]
+		},
+		"trade": {
+			"speaker": "villager",
+			"ko": "좋습니다. 금 주괴 세 개에 에메랄드 한 개입니다.",
+			"next": "shine",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			]
+		},
+		"shine": {
+			"speaker": "villager",
+			"ko": "금빛이 곱습니다.",
+			"next": "bye"
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "그럼 금을 찾으십시오. 금은 동굴에 있습니다.",
+			"next": "dark",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave",
+						"concept:find"
+					]
+				}
+			]
+		},
+		"dark": {
+			"speaker": "villager",
+			"ko": "동굴은 어둡습니다. 그리고 습합니다. 횃불을 챙기십시오.",
+			"next": "bye",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:torch"
+					]
+				}
+			]
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "그럼 안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

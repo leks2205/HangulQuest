@@ -1,0 +1,42 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_ms6",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "milestone", "friendship": 6, "personalities": ["CRANKY"]},
+	"start": "again",
+	"nodes": {
+		"again": {
+			"speaker": "villager",
+			"ko": "흠. 또 왔어요?",
+			"next": "yesterday"
+		},
+		"yesterday": {
+			"speaker": "villager",
+			"ko": "어제는 안 왔어요. 그래서 조용했어요.",
+			"next": "bored"
+		},
+		"bored": {
+			"speaker": "villager",
+			"ko": "그런데 좀 심심했어요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "아니, 아니에요. 오늘은 바빠요?",
+			"choices": [
+				{"ko": "아니요, 시간 있어요.", "next": "free"},
+				{"ko": "네, 좀 바빠요.", "next": "busy"}
+			]
+		},
+		"free": {
+			"speaker": "villager",
+			"ko": "흠. 그럼 여기 앉으세요. 같이 쉬어요.",
+			"end": true
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "흠. 그럼 가세요. 내일은 꼭 오세요. 나 원 참.",
+			"end": true
+		}
+	}
+}

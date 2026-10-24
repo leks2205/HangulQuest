@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_jock_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "이얍! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "climb"
+		},
+		"climb": {
+			"speaker": "villager",
+			"ko": "저는 매일 정글나무에 올라가요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_jungle_wood"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "나무에 같이 올라가요?",
+			"choices": [
+				{
+					"ko": "네, 올라가요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 너무 높아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "하하! 덩굴을 꽉 잡아요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_vine"
+					]
+				}
+			],
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 그럼 아래에서 응원해 줘요!",
+			"end": true
+		}
+	}
+}

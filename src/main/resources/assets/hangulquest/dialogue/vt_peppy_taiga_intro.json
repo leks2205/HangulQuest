@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_taiga_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"TAIGA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "와아! 안녕하세요! 반가워요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "berry"
+		},
+		"berry": {
+			"speaker": "villager",
+			"ko": "여기는 달콤한 열매가 많아요! 정말 맛있어요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sweet_berries"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "달콤한 열매 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 안 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "꺄! 저도요! 그런데 덤불은 따가워요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 여우는 정말 좋아해요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fox"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

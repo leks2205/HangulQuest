@@ -1,0 +1,90 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_13",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:fisherman",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 저는 어부예요.",
+			"next": "morning"
+		},
+		"morning": {
+			"speaker": "villager",
+			"ko": "아침에 강에서 물고기를 잡아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낚싯대가 있어요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fishing_rod"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 낚싯대가 있어요.",
+					"next": "has"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "lacks"
+				}
+			]
+		},
+		"has": {
+			"speaker": "villager",
+			"ko": "좋아요! 물고기를 잡으세요. 저는 생선을 요리해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cook"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"lacks": {
+			"speaker": "villager",
+			"ko": "낚싯대는 막대기 세 개와 실 두 개가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:stick",
+						"concept:string"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "물 옆에서 조심하세요. 또 만나요!",
+			"end": true
+		}
+	}
+}

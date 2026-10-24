@@ -1,0 +1,114 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나 엄청 빨라!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 달리기 좋아해?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 좋아해.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "go"
+				},
+				{
+					"ko": "네, 저도 좋아합니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"go": {
+			"speaker": "child",
+			"ko": "좋아! 하나, 둘! 하나, 둘! 출발!",
+			"next": "tired"
+		},
+		"tired": {
+			"speaker": "child",
+			"ko": "헉헉! 배고파! 나는 사과가 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"next": "ask_more"
+		},
+		"ask_more": {
+			"speaker": "child",
+			"ko": "너는 뭐가 있어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 빵이 있어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "bread"
+				},
+				{
+					"ko": "나는 달콤한 열매가 있어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "berry"
+				},
+				{
+					"ko": "저는 빵이 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"bread": {
+			"speaker": "child",
+			"ko": "좋아! 같이 먹자! 우리 이제 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:friend"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"berry": {
+			"speaker": "child",
+			"ko": "우와, 달콤한 열매! 같이 먹자! 우리 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sweet_berries",
+						"concept:friend"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "내일 또 시합하자! 안녕!",
+			"end": true
+		}
+	}
+}

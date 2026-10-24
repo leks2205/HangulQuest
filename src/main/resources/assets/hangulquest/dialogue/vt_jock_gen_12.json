@@ -1,0 +1,84 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_12",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:librarian",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오오! 어서 오세요! 저는 사서예요!",
+			"ko_banmal": "오오! 어서 와! 나는 사서야!",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "책이 더 필요해요! 책은 머리 운동이에요!",
+			"ko_banmal": "책이 더 필요해! 책은 머리 운동이야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:book"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "책을 한 권 가져오세요.",
+			"ko_banmal": "책을 한 권 가져와.",
+			"choices": [
+				{
+					"ko": "네, 가져와요!",
+					"next": "yes"
+				},
+				{
+					"ko": "지금은 없어요.",
+					"next": "none"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "와, 고마워요! 그 책을 빨리 보고 싶어요! 오늘도 머리 운동을 해요!",
+			"ko_banmal": "와, 고마워! 그 책을 빨리 보고 싶어! 오늘도 머리 운동을 해!",
+			"next": "special"
+		},
+		"none": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 여기 특별한 책도 있어요!",
+			"ko_banmal": "괜찮아! 여기 특별한 책도 있어!",
+			"next": "special"
+		},
+		"special": {
+			"speaker": "villager",
+			"ko": "마법이 부여된 책은 에메랄드와 책이 필요해요!",
+			"ko_banmal": "마법이 부여된 책은 에메랄드와 책이 필요해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "책을 많이 읽으세요! 머리도 근육이에요! 하하!",
+			"ko_banmal": "책 많이 읽어! 머리도 근육이야! 하하!",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_92",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "baby": true, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "noisy",
+	"nodes": {
+		"noisy": {
+			"speaker": "child",
+			"ko": "흥. 술래잡기는 너무 시끄러워.",
+			"next": "cat_bed"
+		},
+		"cat_bed": {
+			"speaker": "child",
+			"ko": "어제 고양이가 내 침대에서 잤어.",
+			"effects": [{"type": "exposeWords", "words": ["concept:cat", "concept:bed"]}],
+			"next": "quiet"
+		},
+		"quiet": {
+			"speaker": "child",
+			"ko": "고양이는 조용해. 그리고 따뜻해.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너는 무슨 동물이 좋아?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{"ko": "나는 늑대가 좋아.", "speechLevel": "banmal", "correct": true, "next": "wolf"},
+				{"ko": "나도 고양이가 좋아.", "speechLevel": "banmal", "correct": true, "next": "cat"},
+				{"ko": "저는 늑대가 좋아요.", "speechLevel": "haeyo", "correct": false}
+			]
+		},
+		"wolf": {
+			"speaker": "child",
+			"ko": "늑대? 늑대는 뼈를 좋아해. 나는 뼈 없어.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wolf", "concept:bone"]}],
+			"next": "bye"
+		},
+		"cat": {
+			"speaker": "child",
+			"ko": "진짜? 그럼 내일 같이 고양이 보자.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "흥. 그럼 잘 가. 또 놀자.",
+			"end": true
+		}
+	}
+}

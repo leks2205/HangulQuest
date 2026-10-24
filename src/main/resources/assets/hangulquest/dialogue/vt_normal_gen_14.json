@@ -1,0 +1,92 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_14",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"professions": [
+			"minecraft:weaponsmith",
+			"minecraft:toolsmith"
+		],
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 저는 대장장이예요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "뭐가 필요해요?",
+			"choices": [
+				{
+					"ko": "검이 필요해요.",
+					"next": "sword"
+				},
+				{
+					"ko": "곡괭이가 필요해요.",
+					"next": "pickaxe"
+				}
+			]
+		},
+		"sword": {
+			"speaker": "villager",
+			"ko": "검은 철 주괴 두 개와 막대기 한 개가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sword",
+						"concept:iron",
+						"concept:stick"
+					]
+				}
+			],
+			"next": "sword_care"
+		},
+		"sword_care": {
+			"speaker": "villager",
+			"ko": "좀비는 무서워요. 꼭 조심하세요.",
+			"next": "bye"
+		},
+		"pickaxe": {
+			"speaker": "villager",
+			"ko": "곡괭이는 철 주괴 세 개와 막대기 두 개가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:pickaxe",
+						"concept:iron",
+						"concept:stick"
+					]
+				}
+			],
+			"next": "pick_care"
+		},
+		"pick_care": {
+			"speaker": "villager",
+			"ko": "동굴은 어두워요. 횃불도 가지고 가세요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "잘 가요! 또 만나요!",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "저는 에메랄드가 좋습니다. 빛이 맑습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "에메랄드가 있습니까?",
+			"choices": [
+				{
+					"ko": "네, 있어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "호호, 나쁘지 않습니다. 또 뵙겠습니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠, 아쉽습니다. 안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_smug_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오, 안녕하세요. 반가워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "sunflower"
+		},
+		"sunflower": {
+			"speaker": "villager",
+			"ko": "평원은 해바라기가 많아요. 참 아름다워요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sunflower"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꽃이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 잘 몰라요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 좋아요. 우리는 친구예요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 내일 같이 꽃을 봐요.",
+			"end": true
+		}
+	}
+}

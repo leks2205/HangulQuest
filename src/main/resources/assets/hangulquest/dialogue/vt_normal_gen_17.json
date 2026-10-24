@@ -1,0 +1,100 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_17",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 여기는 우리 마을이에요.",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				},
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:village"
+					]
+				}
+			],
+			"next": "ask_name"
+		},
+		"ask_name": {
+			"speaker": "villager",
+			"ko": "이름이 뭐예요?",
+			"typed": {
+				"free": true
+			},
+			"next": "nice"
+		},
+		"nice": {
+			"speaker": "villager",
+			"ko": "만나서 반가워요! 이름이 참 예뻐요.",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "점심에 빵과 사과가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:apple"
+					]
+				}
+			],
+			"typed": {
+				"expected": [
+					"사과"
+				],
+				"word": "concept:apple"
+			},
+			"next": "errand"
+		},
+		"errand": {
+			"speaker": "villager",
+			"ko": "사과를 한 개 구해 주세요.",
+			"effects": [
+				{
+					"type": "startTrail",
+					"trail": "essenspfad"
+				},
+				{
+					"type": "exposeGrammar",
+					"point": "L2.seyo"
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 구해요!",
+					"next": "thanks"
+				},
+				{
+					"ko": "미안해요, 조금 바빠요.",
+					"next": "later"
+				}
+			]
+		},
+		"thanks": {
+			"speaker": "villager",
+			"ko": "고마워요! 다행이에요.",
+			"end": true
+		},
+		"later": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 내일도 좋아요.",
+			"end": true
+		}
+	}
+}

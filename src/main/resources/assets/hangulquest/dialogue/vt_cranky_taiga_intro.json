@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_taiga_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["TAIGA"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "berries"
+		},
+		"berries": {
+			"speaker": "villager",
+			"ko": "여기는 달콤한 열매가 많아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:sweet_berries"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "덤불은 따가워요. 손 괜찮아요?",
+			"choices": [
+				{"ko": "네, 괜찮아요.", "next": "fine"},
+				{"ko": "아니요, 아파요.", "next": "hurt"}
+			]
+		},
+		"fine": {
+			"speaker": "villager",
+			"ko": "흠. 좋아요. 열매는 맛있어요.",
+			"end": true
+		},
+		"hurt": {
+			"speaker": "villager",
+			"ko": "어허. 모닥불 옆에 앉아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:campfire"]}],
+			"end": true
+		}
+	}
+}

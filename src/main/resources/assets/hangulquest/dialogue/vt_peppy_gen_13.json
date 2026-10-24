@@ -1,0 +1,97 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_13",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"profession": "minecraft:fisherman",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "와아! 안녕하세요! 저는 어부예요!",
+			"ko_banmal": "와아! 안녕! 나는 어부야!",
+			"next": "yesterday"
+		},
+		"yesterday": {
+			"speaker": "villager",
+			"ko": "어제 물고기를 세 마리 잡았어요! 그래서 노래를 불렀어요!",
+			"ko_banmal": "어제 물고기를 세 마리 잡았어! 그래서 노래를 불렀어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낚싯대가 있어요?",
+			"ko_banmal": "낚싯대 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fishing_rod"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 낚싯대가 있어요.",
+					"next": "has"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "lacks"
+				}
+			]
+		},
+		"has": {
+			"speaker": "villager",
+			"ko": "좋아요! 물에서 물고기를 잡아요! 같이 잡아요!",
+			"ko_banmal": "좋아! 물에서 물고기를 잡아! 같이 잡자!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"lacks": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 막대기와 실이 필요해요! 그럼 만들어요!",
+			"ko_banmal": "괜찮아! 막대기와 실이 필요해! 그럼 만들어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:stick",
+						"concept:string"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "잘 가요! 또 만나요! 다음에는 물고기 노래를 들려줄 거예요!",
+			"ko_banmal": "잘 가! 또 만나! 다음에는 물고기 노래를 들려줄 거야!",
+			"end": true
+		}
+	}
+}

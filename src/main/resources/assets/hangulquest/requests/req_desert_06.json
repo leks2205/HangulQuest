@@ -1,0 +1,34 @@
+{
+	"schema": 1,
+	"id": "req_desert_06",
+	"level": 3,
+	"kind": "SHOW",
+	"regions": ["DESERT"],
+	"personalities": ["LAZY", "CRANKY", "NORMAL"],
+	"show": {"item": "minecraft:rabbit_stew", "count": 1},
+	"words": ["concept:gen_rabbit_stew", "concept:rabbit"],
+	"answers": {"yes": "네, 만들어 볼 거예요!", "no": "아니요, 너무 어려워요."},
+	"lines": {
+		"LAZY": {
+			"offer": {"ko": "하암, 토끼 스튜가 먹고 싶네요. 한번 보여 줄래요?", "ko_banmal": "하암, 토끼 스튜가 먹고 싶네. 한번 보여 줄래?"},
+			"accept": "헤헤, 좋아요. 누워서 기다려요. 천천히, 천천히.",
+			"decline": "음, 괜찮아요. 꿈에서 먹을까요?",
+			"reminder": "음, 스튜는 아직 없죠?",
+			"thanks": {"ko": "우와, 정말 맛있겠네요! 보기만 해도 배불러요.", "ko_banmal": "우와, 정말 맛있겠네! 보기만 해도 배불러."}
+		},
+		"CRANKY": {
+			"offer": "흠. 토끼 스튜는 만들기 어려워요. 정말 만들 수 있어요? 보여 주세요.",
+			"accept": "흠. 그럼 어디 봐요.",
+			"decline": "흠. 역시 어렵죠. 괜찮아요.",
+			"reminder": "흠. 스튜는 아직이에요?",
+			"thanks": "흠. 제대로 만들었네요. 나 원 참."
+		},
+		"NORMAL": {
+			"offer": "어머, 토끼 스튜를 만들어 보고 싶어요. 한번 보여 줄래요?",
+			"accept": "고마워요! 책에 잘 적을 거예요.",
+			"decline": "괜찮아요. 오늘은 버섯 스튜를 끓일까요?",
+			"reminder": "어머, 토끼 스튜는 아직이에요?",
+			"thanks": "어머나, 당근도 버섯도 들어 있네요! 다행이에요."
+		}
+	}
+}

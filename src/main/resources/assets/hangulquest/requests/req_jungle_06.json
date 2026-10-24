@@ -1,0 +1,60 @@
+{
+	"schema": 1,
+	"id": "req_jungle_06",
+	"level": 5,
+	"kind": "SHOW",
+	"regions": [
+		"JUNGLE"
+	],
+	"show": {
+		"item": "minecraft:music_disc_13",
+		"count": 1
+	},
+	"words": [
+		"concept:gen_music_disc_13"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"personalities": [
+		"PEPPY",
+		"SMUG",
+		"LAZY"
+	],
+	"lines": {
+		"PEPPY": {
+			"offer": {
+				"ko": "꺄! 음악이 정말 좋아요! 음반을 보여 주세요! 빨리 보여 주세요!",
+				"ko_banmal": "꺄! 음악이 정말 좋아! 음반을 보여 줘! 빨리 보여 줘!"
+			},
+			"accept": "우와, 고마워요! 음반이 최고예요!",
+			"decline": "괜찮아요! 또 봐요!",
+			"reminder": "음반이 안 보여요?",
+			"thanks": {
+				"ko": "꺄, 음반이에요! 진짜진짜 최고예요!",
+				"ko_banmal": "꺄, 음반이야! 진짜진짜 최고야!"
+			}
+		},
+		"SMUG": {
+			"offer": "오, 음악이 있는 마을은 정말 좋아요. 음반을 보여 주세요.",
+			"accept": "좋아요. 음반을 기다려요.",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "음반이 안 보여요?",
+			"thanks": "후후, 정말 좋은 음반이에요. 고마워요. 완벽해요."
+		},
+		"LAZY": {
+			"offer": {
+				"ko": "하암, 음악이 좋아요. 음반을 보여 주세요. 천천히, 천천히.",
+				"ko_banmal": "하암, 음악이 좋아. 음반을 보여 줘. 천천히, 천천히."
+			},
+			"accept": "좋아요. 천천히 기다려요.",
+			"decline": "괜찮아요. 그럼 또 봐요.",
+			"reminder": "음, 음반이 안 보여요.",
+			"thanks": {
+				"ko": "우와, 음반이에요. 정말 고마워요.",
+				"ko_banmal": "우와, 음반이야. 정말 고마워."
+			}
+		}
+	}
+}

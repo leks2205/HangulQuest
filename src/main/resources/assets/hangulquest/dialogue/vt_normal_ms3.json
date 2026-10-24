@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_normal_ms3",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 3,
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 정말 반가워요.",
+			"next": "friend"
+		},
+		"friend": {
+			"speaker": "villager",
+			"ko": "우리 이제 친구예요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "내일도 와요?",
+			"choices": [
+				{
+					"ko": "네, 내일 또 와요!",
+					"next": "yes"
+				},
+				{
+					"ko": "음, 조금 바빠요.",
+					"next": "busy"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와, 다행이에요! 내일은 빵을 구워요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread"
+					]
+				}
+			],
+			"end": true
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 언제든지 와요.",
+			"end": true
+		}
+	}
+}

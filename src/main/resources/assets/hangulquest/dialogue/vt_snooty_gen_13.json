@@ -1,0 +1,87 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_13",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"profession": "minecraft:fisherman"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까. 저는 어부입니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낚싯대가 있습니까?",
+			"choices": [
+				{
+					"ko": "네, 낚싯대가 있어요.",
+					"next": "has"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "lacks"
+				}
+			],
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fishing_rod"
+					]
+				}
+			]
+		},
+		"has": {
+			"speaker": "villager",
+			"ko": "좋습니다. 물에서 물고기를 잡습니다.",
+			"next": "smell",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			]
+		},
+		"lacks": {
+			"speaker": "villager",
+			"ko": "막대기와 실이 필요합니다. 제작대에서 만드십시오.",
+			"next": "smell",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:stick",
+						"concept:string"
+					]
+				}
+			]
+		},
+		"smell": {
+			"speaker": "villager",
+			"ko": "솔직히 물고기는 별로입니다.",
+			"next": "treasure"
+		},
+		"treasure": {
+			"speaker": "villager",
+			"ko": "저는 보물을 기다립니다. 가끔 보물도 나옵니다.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "그럼 안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

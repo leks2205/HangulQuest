@@ -1,0 +1,79 @@
+{
+	"schema": 1,
+	"id": "vt_jock_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "이얍! 안녕하세요!",
+			"ko_banmal": "이얍! 안녕!",
+			"next": "golem"
+		},
+		"golem": {
+			"speaker": "villager",
+			"ko": "밀밭 옆에 철 골렘이 있어요! 정말 커요!",
+			"ko_banmal": "밀밭 옆에 철 골렘이 있어! 진짜 커!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:iron_golem",
+						"concept:wheat"
+					]
+				}
+			],
+			"next": "race"
+		},
+		"race": {
+			"speaker": "villager",
+			"ko": "저는 매일 철 골렘과 같이 달려요!",
+			"ko_banmal": "나는 매일 철 골렘과 같이 달려!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "철 골렘은 빨라요? 느려요?",
+			"ko_banmal": "철 골렘은 빨라? 느려?",
+			"choices": [
+				{
+					"ko": "빨라요!",
+					"next": "fast"
+				},
+				{
+					"ko": "느려요!",
+					"next": "slow"
+				}
+			]
+		},
+		"fast": {
+			"speaker": "villager",
+			"ko": "하하, 아니요! 정말 느려요! 그래서 매일 제가 이겨요!",
+			"ko_banmal": "하하, 아니야! 진짜 느려! 그래서 매일 내가 이겨!",
+			"next": "strong"
+		},
+		"slow": {
+			"speaker": "villager",
+			"ko": "맞아요! 그래서 매일 제가 이겨요!",
+			"ko_banmal": "맞아! 그래서 매일 내가 이겨!",
+			"next": "strong"
+		},
+		"strong": {
+			"speaker": "villager",
+			"ko": "그런데 힘은 철 골렘이 최고예요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "그런데 힘은 철 골렘이 최고야! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

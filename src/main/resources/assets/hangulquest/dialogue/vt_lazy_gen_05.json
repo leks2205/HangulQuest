@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_05",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "run",
+	"nodes": {
+		"run": {
+			"speaker": "villager",
+			"ko": "아유, 또 뛰어가요? 천천히, 천천히.",
+			"ko_banmal": "아유, 또 뛰어가? 천천히, 천천히.",
+			"next": "fire"
+		},
+		"fire": {
+			"speaker": "villager",
+			"ko": "있잖아요, 저는 매일 모닥불 옆에서 쉬거든요.",
+			"ko_banmal": "있잖아, 나는 매일 모닥불 옆에서 쉬거든.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:campfire"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "오늘은 좀 쉴 수 있어요?",
+			"ko_banmal": "오늘은 좀 쉴 수 있어?",
+			"choices": [
+				{
+					"ko": "네, 오늘은 괜찮아요.",
+					"next": "free"
+				},
+				{
+					"ko": "아니요, 오늘도 바빠요.",
+					"next": "busy"
+				}
+			]
+		},
+		"free": {
+			"speaker": "villager",
+			"ko": "좋네요. 같이 모닥불에 감자를 구워요. 정말 맛있어요.",
+			"ko_banmal": "좋네. 같이 모닥불에 감자를 굽자. 정말 맛있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:potato"
+					]
+				}
+			],
+			"next": "sleepy"
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "바쁘면 더 쉬어야 해요. 그게 제 비밀이거든요.",
+			"ko_banmal": "바쁘면 더 쉬어야 해. 그게 내 비밀이거든.",
+			"next": "sleepy"
+		},
+		"sleepy": {
+			"speaker": "villager",
+			"ko": "감자를 먹으면 잠이 솔솔 와요. 헤헤.",
+			"ko_banmal": "감자를 먹으면 잠이 솔솔 와. 헤헤.",
+			"end": true
+		}
+	}
+}

@@ -295,6 +295,37 @@ class SentenceDumpTest {
 		}
 	}
 
+	/**
+	 * The dump follows the shipped content instead of a fixed number of conversations: every dialogue and request
+	 * file brings all of its lines, and no file is silently missing from the Korean lint.
+	 */
+	@Test
+	void everyDialogueFileContributesAllOfItsLines() {
+		List<Row> rows = dialogueRows();
+		for (Dialogue dialogue : DialogueFixtures.shipped()) {
+			long expected = 0;
+			for (Dialogue.Node node : dialogue.nodes().values()) {
+				if (!node.selfIntro()) {
+					expected++;
+				}
+				if (node.koBanmal() != null) {
+					expected++;
+				}
+				expected += node.choices().size();
+			}
+			long actual = rows.stream()
+					.filter(row -> row.id().startsWith("dialogue." + dialogue.id() + ".")).count();
+			assertTrue(expected > 0, dialogue.id() + " contributes no line");
+			assertEquals(expected, actual, dialogue.id() + " does not contribute all of its lines");
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			long expected = RequestFixtures.lines(request).size();
+			long actual = rows.stream()
+					.filter(row -> row.id().startsWith("dialogue." + request.id() + ".")).count();
+			assertEquals(expected, actual, request.id() + " does not contribute all of its lines");
+		}
+	}
+
 	/** The finale lines of the batches' dual review, {@code trail.<id>.finale} to the Korean text that was reviewed. */
 	static Map<String, String> reviewedFinales() throws IOException {
 		Map<String, String> reviewed = new HashMap<>();

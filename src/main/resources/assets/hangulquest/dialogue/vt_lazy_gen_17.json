@@ -1,0 +1,94 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_17",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요. 저는 여기 주민이에요.",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "ask_name"
+		},
+		"ask_name": {
+			"speaker": "villager",
+			"ko": "이름이 뭐예요?",
+			"typed": {
+				"free": true
+			},
+			"next": "nice"
+		},
+		"nice": {
+			"speaker": "villager",
+			"ko": "만나서 반가워요! 헤헤.",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "음, 빵과 사과가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:apple"
+					]
+				}
+			],
+			"typed": {
+				"expected": [
+					"사과"
+				],
+				"word": "concept:apple"
+			},
+			"next": "errand"
+		},
+		"errand": {
+			"speaker": "villager",
+			"ko": "사과를 한 개 구해 주세요.",
+			"effects": [
+				{
+					"type": "startTrail",
+					"trail": "essenspfad"
+				},
+				{
+					"type": "exposeGrammar",
+					"point": "L2.seyo"
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 미안해요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "고마워요! 안녕히 가세요. 천천히, 천천히.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 안녕히 가세요. 저는 낮잠 자요.",
+			"end": true
+		}
+	}
+}

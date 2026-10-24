@@ -1,0 +1,82 @@
+{
+	"schema": 1,
+	"id": "vt_normal_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 저기 꿀벌을 봐요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bee"
+					]
+				}
+			],
+			"next": "busy"
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "꿀벌이 민들레 위에 있어요. 아주 바빠요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:dandelion"
+					]
+				}
+			],
+			"next": "honey"
+		},
+		"honey": {
+			"speaker": "villager",
+			"ko": "꿀벌은 꿀을 만들어요. 저는 꿀이 좋아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:honey"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꿀벌이 무서워요?",
+			"choices": [
+				{
+					"ko": "네, 조금 무서워요.",
+					"next": "scared"
+				},
+				{
+					"ko": "아니요, 귀여워요.",
+					"next": "cute"
+				}
+			]
+		},
+		"scared": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 꿀벌은 먼저 안 쏴요.",
+			"end": true
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "저도요! 꿀벌은 우리 친구예요.",
+			"end": true
+		}
+	}
+}

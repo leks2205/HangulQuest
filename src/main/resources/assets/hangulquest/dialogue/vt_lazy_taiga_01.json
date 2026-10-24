@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_taiga_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"TAIGA"
+		]
+	},
+	"start": "fox",
+	"nodes": {
+		"fox": {
+			"speaker": "villager",
+			"ko": "음, 저기 여우가 자요.",
+			"ko_banmal": "음, 저기 여우가 자.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fox"
+					]
+				}
+			],
+			"next": "night"
+		},
+		"night": {
+			"speaker": "villager",
+			"ko": "여우는 낮에 자고 밤에 나와요.",
+			"ko_banmal": "여우는 낮에 자고 밤에 나와.",
+			"next": "me"
+		},
+		"me": {
+			"speaker": "villager",
+			"ko": "저는 하루 종일 자요. 헤헤.",
+			"ko_banmal": "나는 하루 종일 자. 헤헤.",
+			"next": "berries"
+		},
+		"berries": {
+			"speaker": "villager",
+			"ko": "그런데 여우가 제 달콤한 열매를 먹어요.",
+			"ko_banmal": "그런데 여우가 내 달콤한 열매를 먹어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sweet_berries"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "여우 좋아해요?",
+			"ko_banmal": "여우 좋아해?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "cute"
+				},
+				{
+					"ko": "아니요, 열매 도둑이에요.",
+					"next": "thief"
+				}
+			]
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "헤헤, 맞아요. 그래서 열매를 나눠 먹어요.",
+			"ko_banmal": "헤헤, 맞아. 그래서 열매를 나눠 먹어.",
+			"end": true
+		},
+		"thief": {
+			"speaker": "villager",
+			"ko": "헤헤, 괜찮아요. 저도 열매 도둑이에요.",
+			"ko_banmal": "헤헤, 괜찮아. 나도 열매 도둑이야.",
+			"end": true
+		}
+	}
+}

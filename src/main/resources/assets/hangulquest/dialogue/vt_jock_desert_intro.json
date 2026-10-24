@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_jock_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오오! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "sand"
+		},
+		"sand": {
+			"speaker": "villager",
+			"ko": "저는 뜨거운 모래 위에서 달려요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sand"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "더운 날씨 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 너무 더워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "하하! 저도요! 땀이 최고예요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 물을 많이 마셔요! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,100 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_13",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"profession": "minecraft:fisherman"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요. 저는 어부예요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낚싯대가 있어요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fishing_rod"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 낚싯대가 있어요.",
+					"next": "has"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "lacks"
+				}
+			]
+		},
+		"has": {
+			"speaker": "villager",
+			"ko": "좋아요! 물에서 물고기를 잡아요.",
+			"ko_banmal": "좋아! 물에서 물고기를 잡아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			],
+			"next": "nap"
+		},
+		"lacks": {
+			"speaker": "villager",
+			"ko": "막대기 세 개와 실 두 개가 필요해요.",
+			"ko_banmal": "막대기 세 개와 실 두 개가 필요해.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:stick",
+						"concept:string"
+					]
+				}
+			],
+			"next": "craft"
+		},
+		"craft": {
+			"speaker": "villager",
+			"ko": "제작대에서 만드세요. 쉬워요.",
+			"ko_banmal": "제작대에서 만들어. 쉬워.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:crafting_table"
+					]
+				}
+			],
+			"next": "nap"
+		},
+		"nap": {
+			"speaker": "villager",
+			"ko": "저는 물 옆에 앉아 있어요. 그리고 자요. 헤헤.",
+			"ko_banmal": "나는 물 옆에 앉아 있어. 그리고 자. 헤헤.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "또 만나요. 천천히, 천천히.",
+			"ko_banmal": "또 만나. 천천히, 천천히.",
+			"end": true
+		}
+	}
+}

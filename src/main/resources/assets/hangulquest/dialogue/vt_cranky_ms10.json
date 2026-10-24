@@ -1,0 +1,57 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_ms10",
+	"level": 3,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "milestone", "friendship": 10, "personalities": ["CRANKY"]},
+	"start": "sit",
+	"nodes": {
+		"sit": {
+			"speaker": "villager",
+			"ko": "흠, 왔네요. 여기 앉아요.",
+			"next": "why"
+		},
+		"why": {
+			"speaker": "villager",
+			"ko": "제가 왜 밤마다 문 앞에 횃불을 놓는지 알아요?",
+			"effects": [{"type": "exposeWords", "words": ["concept:torch"]}],
+			"choices": [
+				{"ko": "좀비 때문이에요?", "next": "zombie"},
+				{"ko": "잘 모르겠어요.", "next": "dunno"}
+			]
+		},
+		"zombie": {
+			"speaker": "villager",
+			"ko": "그것도 맞아요. 그런데 다른 이유도 있어요.",
+			"next": "reason"
+		},
+		"dunno": {
+			"speaker": "villager",
+			"ko": "흠, 그럴 줄 알았어요.",
+			"next": "reason"
+		},
+		"reason": {
+			"speaker": "villager",
+			"ko": "늦게 와도 이 집은 잘 보이죠. 그래서 놓아요.",
+			"next": "heart"
+		},
+		"heart": {
+			"speaker": "villager",
+			"ko": "크흠, 이런 말은 잘 안 해요. 그래도 와 줘서 고마워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:friend"]}],
+			"choices": [
+				{"ko": "저도 고마워요.", "next": "thanks"},
+				{"ko": "내일 또 와요.", "next": "tomorrow"}
+			]
+		},
+		"thanks": {
+			"speaker": "villager",
+			"ko": "흠. 나 원 참. 얼굴이 뜨겁네요. 바람 때문이에요.",
+			"end": true
+		},
+		"tomorrow": {
+			"speaker": "villager",
+			"ko": "흠. 오늘 밤에도 횃불은 있어요. 너무 늦게 오지 마세요.",
+			"end": true
+		}
+	}
+}

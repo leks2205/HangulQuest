@@ -1,0 +1,92 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_15",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"profession": "minecraft:cartographer",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "짠! 안녕하세요! 여기 지도가 많아요!",
+			"ko_banmal": "짠! 안녕! 여기 지도가 많아!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:map"
+					]
+				}
+			],
+			"next": "dream"
+		},
+		"dream": {
+			"speaker": "villager",
+			"ko": "저는 지도에 있는 곳에서 다 노래하고 싶어요. 그게 제 꿈이에요!",
+			"ko_banmal": "나는 지도에 있는 곳에서 다 노래하고 싶어. 그게 내 꿈이야!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "어디로 가요?",
+			"ko_banmal": "어디로 가?",
+			"choices": [
+				{
+					"ko": "바다로 가요.",
+					"next": "sea"
+				},
+				{
+					"ko": "숲으로 가요.",
+					"next": "forest"
+				}
+			]
+		},
+		"sea": {
+			"speaker": "villager",
+			"ko": "바다 아래에 큰 건물이 있어요. 그런데 물속이라서 노래를 못 하겠네요!",
+			"ko_banmal": "바다 아래에 큰 건물이 있어. 그런데 물속이라서 노래를 못 하겠네!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:ocean"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"forest": {
+			"speaker": "villager",
+			"ko": "어두운 숲에 아주 큰 건물이 있어요. 넓어서 무대로 좋겠어요!",
+			"ko_banmal": "어두운 숲에 아주 큰 건물이 있어. 넓어서 무대로 좋겠어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:forest"
+					]
+				}
+			],
+			"next": "danger"
+		},
+		"danger": {
+			"speaker": "villager",
+			"ko": "그런데 거기에는 무서운 몹이 살아요. 조심하세요!",
+			"ko_banmal": "그런데 거기에는 무서운 몹이 살아. 조심해!",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "잘 가요! 또 만나요! 지도를 꼭 가져가세요!",
+			"ko_banmal": "잘 가! 또 만나! 지도를 꼭 가져가!",
+			"end": true
+		}
+	}
+}

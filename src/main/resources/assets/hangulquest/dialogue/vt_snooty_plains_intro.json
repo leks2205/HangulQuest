@@ -1,0 +1,66 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "여기는 해바라기가 아주 큽니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sunflower"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꽃을 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 별로예요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "호호, 저도 좋아합니다. 나쁘지 않습니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠, 아쉽습니다. 그래도 꽃은 좋습니다.",
+			"end": true
+		}
+	}
+}

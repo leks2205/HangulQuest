@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머어머! 안녕하세요! 반가워요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "frog"
+		},
+		"frog": {
+			"speaker": "villager",
+			"ko": "늪에 개구리가 많아요! 개구리가 개굴개굴 노래해요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog",
+						"concept:gen_swamp"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리 노래 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 시끄러워요.",
+					"next": "noisy"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "꺄! 저도요! 개구리는 제 친구예요!",
+			"end": true
+		},
+		"noisy": {
+			"speaker": "villager",
+			"ko": "헤헤, 맞아요! 그런데 저도 시끄러워요!",
+			"end": true
+		}
+	}
+}

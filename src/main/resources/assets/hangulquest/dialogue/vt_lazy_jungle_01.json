@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_jungle_01",
+	"level": 5,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "panda",
+	"nodes": {
+		"panda": {
+			"speaker": "villager",
+			"ko": "하아암, 어제 대나무 숲에서 판다를 봤는데요.",
+			"ko_banmal": "하아암, 어제 대나무 숲에서 판다를 봤는데.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_panda"
+					]
+				}
+			],
+			"next": "lying"
+		},
+		"lying": {
+			"speaker": "villager",
+			"ko": "하루 종일 누워서 대나무만 먹고 있더라고요.",
+			"ko_banmal": "하루 종일 누워서 대나무만 먹고 있더라.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bamboo"
+					]
+				}
+			],
+			"next": "hear"
+		},
+		"hear": {
+			"speaker": "villager",
+			"ko": "판다 중에도 느긋한 판다가 있대요.",
+			"ko_banmal": "판다 중에도 느긋한 판다가 있대.",
+			"next": "me"
+		},
+		"me": {
+			"speaker": "villager",
+			"ko": "그 판다를 보니까 저랑 똑같더라고요. 헤헤.",
+			"ko_banmal": "그 판다를 보니까 나랑 똑같더라. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "판다를 본 적 있어요?",
+			"ko_banmal": "판다를 본 적 있어?",
+			"choices": [
+				{
+					"ko": "네, 대나무 숲에서 봤어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 아직 못 봤어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "그럼 알죠? 판다가 먹는 걸 보면 저도 배고파요.",
+			"ko_banmal": "그럼 알지? 판다가 먹는 걸 보면 나도 배고파.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "대나무 숲에 가 보세요. 서두를 필요는 없어요. 천천히, 천천히.",
+			"ko_banmal": "대나무 숲에 가 봐. 서두를 필요는 없어. 천천히, 천천히.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,70 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hungry",
+	"nodes": {
+		"hungry": {
+			"speaker": "villager",
+			"ko": "음, 배고파요.",
+			"ko_banmal": "음, 배고파.",
+			"next": "clock"
+		},
+		"clock": {
+			"speaker": "villager",
+			"ko": "제 배가 시계예요. 헤헤.",
+			"ko_banmal": "내 배가 시계야. 헤헤.",
+			"next": "time"
+		},
+		"time": {
+			"speaker": "villager",
+			"ko": "지금 빵 시간이에요.",
+			"ko_banmal": "지금 빵 시간이야.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:time"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "빵 있어요?",
+			"ko_banmal": "빵 있어?",
+			"choices": [
+				{
+					"ko": "네, 있어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와! 그럼 같이 먹어요.",
+			"ko_banmal": "우와! 그럼 같이 먹자.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 그럼 낮잠 시간이에요. 하암.",
+			"ko_banmal": "괜찮아. 그럼 낮잠 시간이야. 하암.",
+			"end": true
+		}
+	}
+}

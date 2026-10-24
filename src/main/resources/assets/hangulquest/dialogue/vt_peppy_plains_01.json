@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "bell",
+	"nodes": {
+		"bell": {
+			"speaker": "villager",
+			"ko": "꺄! 종 소리예요! 댕댕댕!",
+			"ko_banmal": "꺄! 종 소리야! 댕댕댕!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bell"
+					]
+				}
+			],
+			"next": "stage"
+		},
+		"stage": {
+			"speaker": "villager",
+			"ko": "종 앞은 제 무대예요!",
+			"ko_banmal": "종 앞은 내 무대야!",
+			"next": "every"
+		},
+		"every": {
+			"speaker": "villager",
+			"ko": "저는 매일 여기에서 노래해요!",
+			"ko_banmal": "나는 매일 여기에서 노래해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:song"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "오늘 같이 노래하고 싶어요?",
+			"ko_banmal": "오늘 같이 노래하고 싶어?",
+			"choices": [
+				{
+					"ko": "네, 노래하고 싶어요!",
+					"next": "sing"
+				},
+				{
+					"ko": "아니요, 듣고 싶어요.",
+					"next": "listen"
+				}
+			]
+		},
+		"sing": {
+			"speaker": "villager",
+			"ko": "와아! 우리는 평원 최고의 가수예요!",
+			"ko_banmal": "와아! 우리는 평원 최고의 가수야!",
+			"end": true
+		},
+		"listen": {
+			"speaker": "villager",
+			"ko": "좋아요! 손님은 여기 앉아요! 맨 앞자리예요!",
+			"ko_banmal": "좋아! 손님은 여기 앉아! 맨 앞자리야!",
+			"end": true
+		}
+	}
+}

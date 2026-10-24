@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_savanna_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "horse",
+	"nodes": {
+		"horse": {
+			"speaker": "villager",
+			"ko": "흐아암, 오늘 아침에 말을 봤어요.",
+			"ko_banmal": "흐아암, 오늘 아침에 말을 봤어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:horse"
+					]
+				}
+			],
+			"next": "run"
+		},
+		"run": {
+			"speaker": "villager",
+			"ko": "말이 계속 달렸어요. 정말 빨랐어요.",
+			"ko_banmal": "말이 계속 달렸어. 정말 빨랐어.",
+			"next": "tired"
+		},
+		"tired": {
+			"speaker": "villager",
+			"ko": "저는 보기만 했어요. 그런데 너무 피곤해요.",
+			"ko_banmal": "나는 보기만 했어. 그런데 너무 피곤해.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "말을 타 봤어요?",
+			"ko_banmal": "말을 타 봤어?",
+			"choices": [
+				{
+					"ko": "네, 타 봤어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 아직 안 해 봤어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와! 저는 말 위에서 잠이 와요. 헤헤.",
+			"ko_banmal": "우와! 나는 말 위에서 잠이 와. 헤헤.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 저도 아직이에요. 말이 너무 빨라요.",
+			"ko_banmal": "괜찮아. 나도 아직이야. 말이 너무 빨라.",
+			"end": true
+		}
+	}
+}

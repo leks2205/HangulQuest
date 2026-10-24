@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "사막에는 비가 안 옵니다. 물이 귀합니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:desert",
+						"concept:rain"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "사막을 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 너무 더워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "호호, 저도 좋아합니다. 밤은 시원합니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠, 그래도 밤은 시원합니다.",
+			"end": true
+		}
+	}
+}

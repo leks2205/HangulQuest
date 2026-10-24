@@ -1,0 +1,87 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_13",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"profession": "minecraft:fisherman"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "후후, 안녕하세요. 저는 어부예요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낚싯대가 있어요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fishing_rod"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 낚싯대가 있어요.",
+					"next": "has"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "lacks"
+				}
+			]
+		},
+		"has": {
+			"speaker": "villager",
+			"ko": "좋아요! 물에서 물고기를 잡아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fish",
+						"concept:catch"
+					]
+				}
+			],
+			"next": "story"
+		},
+		"lacks": {
+			"speaker": "villager",
+			"ko": "막대기 세 개와 실 두 개가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:stick",
+						"concept:string"
+					]
+				}
+			],
+			"next": "story"
+		},
+		"story": {
+			"speaker": "villager",
+			"ko": "저는 어제 수련잎을 건졌어요.",
+			"next": "story2"
+		},
+		"story2": {
+			"speaker": "villager",
+			"ko": "물고기는 아니에요. 그래도 예뻐요.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "그럼 또 만나요. 좋은 하루 보내세요.",
+			"end": true
+		}
+	}
+}

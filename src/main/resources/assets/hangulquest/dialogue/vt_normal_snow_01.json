@@ -1,0 +1,100 @@
+{
+	"schema": 1,
+	"id": "vt_normal_snow_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오세요! 오늘도 눈이 많이 와요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow"
+					]
+				}
+			],
+			"next": "golem"
+		},
+		"golem": {
+			"speaker": "villager",
+			"ko": "그래서 저는 눈 골렘을 만들어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_snow_golem"
+					]
+				}
+			],
+			"next": "body"
+		},
+		"body": {
+			"speaker": "villager",
+			"ko": "눈 골렘은 눈 블록 두 개가 필요해요.",
+			"next": "head"
+		},
+		"head": {
+			"speaker": "villager",
+			"ko": "머리는 조각된 호박이에요.",
+			"next": "throw"
+		},
+		"throw": {
+			"speaker": "villager",
+			"ko": "눈 골렘은 좀비에게 눈덩이를 던져요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snowball"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈 골렘을 만들고 싶어요?",
+			"choices": [
+				{
+					"ko": "네, 만들고 싶어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 너무 추워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 그럼 눈을 많이 모으세요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "어머, 그럼 화로 옆에 앉으세요. 따뜻해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:furnace"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

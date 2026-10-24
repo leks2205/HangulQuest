@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_jock_savanna_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "으랏차! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "horse"
+		},
+		"horse": {
+			"speaker": "villager",
+			"ko": "저는 아침에 말과 같이 달려요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:horse"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "말은 정말 빨라요! 말 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 조금 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "하하! 그럼 내일 같이 달려요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 말은 착해요! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

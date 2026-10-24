@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 여기는 물이 많아요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "mud"
+		},
+		"mud": {
+			"speaker": "villager",
+			"ko": "여기는 진흙이 많아요. 보트를 타요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_mud",
+						"concept:boat"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리 소리가 들려요?",
+			"choices": [
+				{
+					"ko": "네, 들려요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 조용해요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "나도 좋아해요. 개구리는 귀여워요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 진흙을 조심해요.",
+			"end": true
+		}
+	}
+}

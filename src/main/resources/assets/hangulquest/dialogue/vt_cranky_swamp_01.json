@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_swamp_01",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["SWAMP"]},
+	"start": "bricks",
+	"nodes": {
+		"bricks": {
+			"speaker": "villager",
+			"ko": "흠. 어제 진흙 벽돌을 만들었어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:gen_mud"]}],
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "먼저 진흙에 밀을 섞었어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wheat"]}],
+			"next": "strong"
+		},
+		"strong": {
+			"speaker": "villager",
+			"ko": "그건 불에 안 타요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "집은 뭐로 지었어요?",
+			"choices": [
+				{"ko": "나무로 지었어요.", "next": "wood"},
+				{"ko": "흙으로 지었어요.", "next": "dirt"}
+			]
+		},
+		"wood": {
+			"speaker": "villager",
+			"ko": "흠. 나무도 괜찮아요. 하지만 불을 조심하세요.",
+			"end": true
+		},
+		"dirt": {
+			"speaker": "villager",
+			"ko": "에잉. 흙은 약해요. 다음에는 벽돌로 지으세요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:dirt"]}],
+			"end": true
+		}
+	}
+}

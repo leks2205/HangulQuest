@@ -1,0 +1,97 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "어, 안녕! 이것 봐.",
+			"next": "golem"
+		},
+		"golem": {
+			"speaker": "child",
+			"ko": "철 골렘이 손에 꽃을 들고 있어. 양귀비야.",
+			"next": "blue",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:flower"
+					]
+				}
+			]
+		},
+		"blue": {
+			"speaker": "child",
+			"ko": "그런데 나는 파란색 꽃이 더 좋아. 양귀비는 너무 빨개.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:blue"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너는 무슨 꽃이 좋아?",
+			"choices": [
+				{
+					"ko": "나는 민들레가 좋아.",
+					"next": "dandelion",
+					"speechLevel": "banmal",
+					"correct": true
+				},
+				{
+					"ko": "나는 은방울꽃이 좋아.",
+					"next": "lily",
+					"speechLevel": "banmal",
+					"correct": true
+				},
+				{
+					"ko": "저는 민들레가 좋습니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			],
+			"grammar": "L6.banmal"
+		},
+		"dandelion": {
+			"speaker": "child",
+			"ko": "민들레? 흥, 노란색도 나쁘지 않아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:dandelion"
+					]
+				}
+			],
+			"end": true
+		},
+		"lily": {
+			"speaker": "child",
+			"ko": "은방울꽃? 흥, 하얀색도 나쁘지 않아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_lily_of_the_valley"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

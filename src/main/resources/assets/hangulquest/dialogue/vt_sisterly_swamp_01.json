@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_swamp_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "참, 개구리 소리가 크네요.",
+			"ko_banmal": "참, 개구리 소리가 크네.",
+			"next": "frog"
+		},
+		"frog": {
+			"speaker": "villager",
+			"ko": "개구리는 작은 슬라임을 먹어요.",
+			"ko_banmal": "개구리는 작은 슬라임을 먹어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog",
+						"concept:slime"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 반딧불이 덤불을 봤어요?",
+			"ko_banmal": "밤에 반딧불이 덤불을 봤어?",
+			"choices": [
+				{
+					"ko": "네, 봤어요. 정말 예뻐요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 아직 못 봤어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "예쁘지요? 나는 그 빛이 좋아요.",
+			"ko_banmal": "예쁘지? 나는 그 빛이 좋아.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "아쉽네요. 밤에 같이 가요. 슬라임을 조심해요.",
+			"ko_banmal": "아쉽네. 밤에 같이 가. 슬라임을 조심해.",
+			"end": true
+		}
+	}
+}

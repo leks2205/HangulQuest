@@ -1,0 +1,107 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_17",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "이얍! 안녕하세요! 저는 달리기 선수예요!",
+			"ko_banmal": "이얍! 안녕! 나는 달리기 선수야!",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "ask_name"
+		},
+		"ask_name": {
+			"speaker": "villager",
+			"ko": "이름이 뭐예요?",
+			"ko_banmal": "이름이 뭐야?",
+			"typed": {
+				"free": true
+			},
+			"next": "nice"
+		},
+		"nice": {
+			"speaker": "villager",
+			"ko": "만나서 반가워요! 오늘 기분 어때요?",
+			"ko_banmal": "만나서 반가워! 오늘 기분 어때?",
+			"choices": [
+				{
+					"ko": "좋아요!",
+					"next": "great"
+				},
+				{
+					"ko": "조금 피곤해요.",
+					"next": "tired"
+				}
+			]
+		},
+		"great": {
+			"speaker": "villager",
+			"ko": "하하! 저도 최고예요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "하하! 나도 최고야! 하나, 둘! 하나, 둘!",
+			"next": "need"
+		},
+		"tired": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 그럼 맛있는 걸 먹어요! 힘이 나요!",
+			"ko_banmal": "괜찮아! 그럼 맛있는 걸 먹어! 힘이 나!",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "운동 후에 빵과 사과가 필요해요!",
+			"ko_banmal": "운동 후에 빵과 사과가 필요해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:apple"
+					]
+				}
+			],
+			"typed": {
+				"expected": [
+					"사과"
+				],
+				"word": "concept:apple"
+			},
+			"next": "errand"
+		},
+		"errand": {
+			"speaker": "villager",
+			"ko": "사과를 한 개 가져와요!",
+			"ko_banmal": "사과를 한 개 가져와!",
+			"effects": [
+				{
+					"type": "startTrail",
+					"trail": "essenspfad"
+				},
+				{
+					"type": "exposeGrammar",
+					"point": "L2.seyo"
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "고마워요! 잘 가요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "고마워! 잘 가! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

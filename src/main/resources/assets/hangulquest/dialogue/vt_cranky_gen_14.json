@@ -1,0 +1,40 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_14",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "professions": ["minecraft:weaponsmith", "minecraft:toolsmith"], "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 저는 철로 튼튼한 도구를 만들어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:iron"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "뭐가 필요해요?",
+			"choices": [
+				{"ko": "검이 필요해요.", "next": "sword"},
+				{"ko": "곡괭이가 필요해요.", "next": "pickaxe"}
+			]
+		},
+		"sword": {
+			"speaker": "villager",
+			"ko": "검은 철 주괴 두 개와 막대기 한 개가 필요해요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:sword", "concept:iron", "concept:stick"]}],
+			"next": "care"
+		},
+		"pickaxe": {
+			"speaker": "villager",
+			"ko": "곡괭이는 철 주괴 세 개와 막대기 두 개가 필요해요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:pickaxe", "concept:iron", "concept:stick"]}],
+			"next": "care"
+		},
+		"care": {
+			"speaker": "villager",
+			"ko": "그리고 도구는 버리지 마세요. 나 원 참.",
+			"end": true
+		}
+	}
+}

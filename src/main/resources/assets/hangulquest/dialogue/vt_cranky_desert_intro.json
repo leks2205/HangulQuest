@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_desert_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["DESERT"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "cactus"
+		},
+		"cactus": {
+			"speaker": "villager",
+			"ko": "여기는 선인장이 많아요. 선인장은 따가워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:gen_cactus"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "물 있어요?",
+			"choices": [
+				{"ko": "네, 있어요.", "next": "yes"},
+				{"ko": "아니요, 없어요.", "next": "no"}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "흠. 좋아요. 사막은 더워요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "에잉. 우물에 물이 있어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:water"]}],
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,83 @@
+{
+	"schema": 1,
+	"id": "vt_normal_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오세요! 오늘 밤은 조심하세요.",
+			"next": "husk"
+		},
+		"husk": {
+			"speaker": "villager",
+			"ko": "사막에 허스크가 있어요. 허스크는 해 아래에서 안 타요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_husk",
+						"concept:sun"
+					]
+				}
+			],
+			"next": "door"
+		},
+		"door": {
+			"speaker": "villager",
+			"ko": "그래서 저는 밤에 문을 꼭 닫아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:door"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 밖에 나가요?",
+			"choices": [
+				{
+					"ko": "네, 가끔 나가요.",
+					"next": "out"
+				},
+				{
+					"ko": "아니요, 집에 있어요.",
+					"next": "home"
+				}
+			]
+		},
+		"out": {
+			"speaker": "villager",
+			"ko": "어머, 그럼 검을 꼭 챙기세요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sword"
+					]
+				}
+			],
+			"end": true
+		},
+		"home": {
+			"speaker": "villager",
+			"ko": "다행이에요! 저도 밤에 집에서 책을 읽어요.",
+			"end": true
+		}
+	}
+}

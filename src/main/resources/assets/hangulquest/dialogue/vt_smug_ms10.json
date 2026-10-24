@@ -1,0 +1,66 @@
+{
+	"schema": 1,
+	"id": "vt_smug_ms10",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"personalities": [
+			"SMUG"
+		],
+		"friendship": 10
+	},
+	"start": "serious",
+	"nodes": {
+		"serious": {
+			"speaker": "villager",
+			"ko": "오, 왔네요. 오늘은 조금 진지한 이야기를 할까요?",
+			"next": "words"
+		},
+		"words": {
+			"speaker": "villager",
+			"ko": "저는 늘 멋진 말을 하지요.",
+			"next": "lonely"
+		},
+		"lonely": {
+			"speaker": "villager",
+			"ko": "그런데 저도 조금 외로웠어요.",
+			"next": "listened"
+		},
+		"listened": {
+			"speaker": "villager",
+			"ko": "제 시를 다 들어 준 친구는 처음이에요.",
+			"next": "true_words"
+		},
+		"true_words": {
+			"speaker": "villager",
+			"ko": "고마워요. 이건 꾸민 말이 아니에요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "앞으로도 제 친구가 되어 줄래요?",
+			"choices": [
+				{
+					"ko": "네, 물론이에요.",
+					"next": "perfect"
+				},
+				{
+					"ko": "우리는 벌써 친구예요.",
+					"next": "poem"
+				}
+			]
+		},
+		"perfect": {
+			"speaker": "villager",
+			"ko": "후후, 고마워요. 오늘은 정말 완벽해요.",
+			"end": true
+		},
+		"poem": {
+			"speaker": "villager",
+			"ko": "아아, 그 말이 참 좋아요.",
+			"end": true
+		}
+	}
+}

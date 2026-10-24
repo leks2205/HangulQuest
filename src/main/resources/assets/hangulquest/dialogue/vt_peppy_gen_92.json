@@ -1,0 +1,103 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "와아! 안녕! 나 오늘 고양이 봤어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cat"
+					]
+				}
+			],
+			"next": "cat"
+		},
+		"cat": {
+			"speaker": "child",
+			"ko": "내가 노래했어. 고양이가 야옹했어!",
+			"next": "dance"
+		},
+		"dance": {
+			"speaker": "child",
+			"ko": "그래서 같이 춤췄어! 빙글빙글!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 나랑 놀 거야?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 같이 놀자!",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "animal"
+				},
+				{
+					"ko": "네, 같이 놀아요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"animal": {
+			"speaker": "child",
+			"ko": "좋아! 닭이 좋아, 양이 좋아?",
+			"choices": [
+				{
+					"ko": "닭이 좋아요.",
+					"next": "chicken"
+				},
+				{
+					"ko": "양이 좋아요.",
+					"next": "sheep"
+				}
+			]
+		},
+		"chicken": {
+			"speaker": "child",
+			"ko": "꼬꼬댁! 닭은 노래를 잘해! 우리 같이 노래하자!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:chicken"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"sheep": {
+			"speaker": "child",
+			"ko": "양은 폭신폭신해! 분홍색 양도 있어! 진짜야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sheep",
+						"concept:pink"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "또 놀자! 안녕!",
+			"end": true
+		}
+	}
+}

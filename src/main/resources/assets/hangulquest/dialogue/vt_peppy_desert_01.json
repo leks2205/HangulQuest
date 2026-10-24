@@ -1,0 +1,95 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "look",
+	"nodes": {
+		"look": {
+			"speaker": "villager",
+			"ko": "어머어머! 이것 좀 보세요!",
+			"ko_banmal": "어머어머! 이것 좀 봐!",
+			"next": "dye"
+		},
+		"dye": {
+			"speaker": "villager",
+			"ko": "어제 선인장으로 초록색 염료를 만들었어요!",
+			"ko_banmal": "어제 선인장으로 초록색 염료를 만들었어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus",
+						"concept:gen_green_dye"
+					]
+				}
+			],
+			"next": "dress"
+		},
+		"dress": {
+			"speaker": "villager",
+			"ko": "그리고 초록색 옷을 만들었어요!",
+			"ko_banmal": "그리고 초록색 옷을 만들었어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:clothes"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "어때요? 예뻐요?",
+			"ko_banmal": "어때? 예뻐?",
+			"choices": [
+				{
+					"ko": "네, 정말 예뻐요!",
+					"next": "pretty"
+				},
+				{
+					"ko": "음, 선인장 같아요.",
+					"next": "cactus"
+				}
+			]
+		},
+		"pretty": {
+			"speaker": "villager",
+			"ko": "꺄! 고마워요! 낙타도 좋아했어요!",
+			"ko_banmal": "꺄! 고마워! 낙타도 좋아했어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_camel"
+					]
+				}
+			],
+			"end": true
+		},
+		"cactus": {
+			"speaker": "villager",
+			"ko": "선인장 같아요? 와아, 그게 바로 사막 패션이에요!",
+			"ko_banmal": "선인장 같아? 와아, 그게 바로 사막 패션이야!",
+			"next": "safe"
+		},
+		"safe": {
+			"speaker": "villager",
+			"ko": "걱정 마세요! 이 옷은 안 따가워요!",
+			"ko_banmal": "걱정 마! 이 옷은 안 따가워!",
+			"end": true
+		}
+	}
+}

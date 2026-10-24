@@ -1,0 +1,71 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_savanna_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 조용히 오십시오. 저기 아르마딜로가 있습니다.",
+			"next": "shy",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_armadillo"
+					]
+				}
+			]
+		},
+		"shy": {
+			"speaker": "villager",
+			"ko": "아르마딜로는 겁이 많습니다.",
+			"next": "run"
+		},
+		"run": {
+			"speaker": "villager",
+			"ko": "누군가 옆에서 뜁니다. 그럼 몸을 동그랗게 맙니다.",
+			"next": "me"
+		},
+		"me": {
+			"speaker": "villager",
+			"ko": "저는 뛰지 않습니다. 그래서 아르마딜로가 저를 좋아합니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "자주 뜁니까?",
+			"choices": [
+				{
+					"ko": "네, 자주 뛰어요.",
+					"next": "runner"
+				},
+				{
+					"ko": "아니요, 천천히 걸어요.",
+					"next": "walker"
+				}
+			]
+		},
+		"runner": {
+			"speaker": "villager",
+			"ko": "흠, 그래서 아르마딜로가 숨습니다. 천천히 걸으십시오.",
+			"end": true
+		},
+		"walker": {
+			"speaker": "villager",
+			"ko": "호호, 품위가 있습니다.",
+			"end": true
+		}
+	}
+}

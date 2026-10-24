@@ -1,0 +1,39 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_plains_01",
+	"level": 2,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["PLAINS"]},
+	"start": "ring",
+	"nodes": {
+		"ring": {
+			"speaker": "villager",
+			"ko": "흠. 오늘 누가 종을 쳤어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:bell"]}],
+			"next": "inside"
+		},
+		"inside": {
+			"speaker": "villager",
+			"ko": "그래서 모두 집에 들어갔어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:house"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "종을 쳤어요?",
+			"choices": [
+				{"ko": "네, 제가 쳤어요.", "next": "yes"},
+				{"ko": "아니요, 안 쳤어요.", "next": "no"}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "어허. 종은 장난감이 아니에요. 나 원 참.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠. 그럼 누구예요? 거참, 이상해요.",
+			"end": true
+		}
+	}
+}

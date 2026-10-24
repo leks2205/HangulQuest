@@ -1,0 +1,47 @@
+{
+	"schema": 1,
+	"id": "req_savanna_06",
+	"level": 3,
+	"kind": "DO",
+	"regions": [
+		"SAVANNA"
+	],
+	"personalities": [
+		"PEPPY",
+		"NORMAL"
+	],
+	"goal": {
+		"type": "LOOK_AT_ENTITY",
+		"entity": "minecraft:armadillo",
+		"dwellMs": 600
+	},
+	"words": [
+		"concept:gen_armadillo"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"lines": {
+		"PEPPY": {
+			"offer": {
+				"ko": "꺄! 아르마딜로가 정말 귀여워요! 봐 주세요!",
+				"ko_banmal": "꺄! 아르마딜로가 정말 귀여워! 봐 줘!"
+			},
+			"accept": "우와, 좋아요! 아르마딜로를 봐 주세요! 진짜 귀여워요!",
+			"decline": "괜찮아요! 또 봐요!",
+			"reminder": "아르마딜로가 안 보여요? 진짜요?",
+			"thanks": {
+				"ko": "꺄, 아르마딜로가 정말 귀여워요! 고마워요!",
+				"ko_banmal": "꺄, 아르마딜로가 정말 귀여워! 고마워!"
+			}
+		},
+		"NORMAL": {
+			"offer": "어머, 아르마딜로가 작아요. 정말 귀여워요. 봐 주세요.",
+			"accept": "좋아요. 아르마딜로를 봐 주세요.",
+			"decline": "괜찮아요. 또 봐요!",
+			"reminder": "아르마딜로가 안 보여요?",
+			"thanks": "어머, 아르마딜로가 정말 귀여워요. 다행이에요."
+		}
+	}
+}

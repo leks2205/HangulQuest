@@ -1,0 +1,95 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_11",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:farmer",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 저는 농부예요.",
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "밭에 밀이 많아요. 다행이에요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "당근과 감자도 있어요. 뭐가 필요해요?",
+			"choices": [
+				{
+					"ko": "당근이 필요해요.",
+					"next": "carrot"
+				},
+				{
+					"ko": "감자가 필요해요.",
+					"next": "potato"
+				}
+			]
+		},
+		"carrot": {
+			"speaker": "villager",
+			"ko": "당근은 밭에 심어요. 물 옆에서 잘 자라요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carrot",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "rabbit"
+		},
+		"potato": {
+			"speaker": "villager",
+			"ko": "감자도 밭에 심어요. 감자도 물이 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:potato",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "rabbit"
+		},
+		"rabbit": {
+			"speaker": "villager",
+			"ko": "그런데 밤에 토끼가 와요. 토끼는 당근을 좋아해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rabbit"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 토끼도 친구예요. 잘 가요!",
+			"end": true
+		}
+	}
+}
