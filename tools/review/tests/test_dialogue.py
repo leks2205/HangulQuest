@@ -55,10 +55,13 @@ class DialogueRecordTest(unittest.TestCase):
 
     def test_the_shipped_files_are_where_the_records_say(self):
         import json
-        for name in ("greetings", "child", "library"):
-            path = DATA_DIR.parent / "dialogue" / f"{name}.json"
-            self.assertTrue(path.is_file(), name)
-            self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["id"], name)
+        # The villager conversations of 3.1 replaced the nine old ones; any shipped dialogue or request file
+        # must carry its own name as its id.
+        shipped = [f for f in sorted((DATA_DIR.parent / "dialogue").glob("*.json")) if not f.name.startswith("_")]
+        shipped += sorted((DATA_DIR.parent / "requests").glob("*.json"))
+        self.assertGreater(len(shipped), 100)
+        for path in shipped:
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["id"], path.stem, path.name)
 
 
 class DialogueContentPathTest(unittest.TestCase):
