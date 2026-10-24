@@ -9,8 +9,7 @@ Sentences: authored quest sentences from build/reports/korean/sentences.tsv
 --all takes every concept and every sentence that passes the filter instead of a sample. With --manifest it
 also reports how many of them already have a clip in every voice, and --missing-out writes just the others.
 
---all takes every concept and every sentence that passes the filter instead of a sample. With --manifest it
-also tells how many of them already have a clip in every voice, and --missing-out writes only the others.
+Villager lines have their own tool, dialogue_texts.py.
 
 Ids become sound event names, so they stay in [a-z0-9_.]:
   word.<conceptId>          one event per word, a voice is picked by the game at random
@@ -21,7 +20,7 @@ import csv
 import json
 from pathlib import Path
 
-from common import DATA, OUT, REPO, WORK, sha1
+from common import DATA, OUT, REPO, WORK, default_voices, load_voices, sha1
 
 BAND_ORDER = {"초급": 0, "중급": 1, "고급": 2, None: 3}
 
@@ -62,15 +61,20 @@ def pick_sentences(count, tsv):
     return [{"id": "sentence." + sha1(ko)[:10], "ko": ko} for _, ko in pool[::step][:count]]
 
 
-def missing(rows, manifest):
-    """Rows without a clip for the same text in every voice of the manifest (a changed text counts as missing)."""
-    voices = manifest.get("voices", {})
-    if not voices:
+def missing(rows, manifest, voices=None):
+    """Rows without a clip for the same text in every voice they need (a changed text counts as missing).
+
+    A villager line names its voices; any other row needs every voice of the list given, or else every voice
+    of the manifest."""
+    rendered = manifest.get("voices", {})
+    if not rendered:
         return list(rows)
+    plain = list(voices or rendered)
     out = []
     for r in rows:
         want = sha1(r["ko"])
-        if any(v.get("entries", {}).get(r["id"], {}).get("text_sha1") != want for v in voices.values()):
+        need = r.get("voices", plain)
+        if any(rendered.get(v, {}).get("entries", {}).get(r["id"], {}).get("text_sha1") != want for v in need):
             out.append(r)
     return out
 
@@ -103,7 +107,7 @@ def main():
     print(f"{len(rows)} texts ({len(words)} words, {len(sentences)} sentences) -> {args.out}")
     manifest_path = Path(args.manifest)
     if manifest_path.exists():
-        todo = missing(rows, json.loads(manifest_path.read_text(encoding="utf-8")))
+        todo = missing(rows, json.loads(manifest_path.read_text(encoding="utf-8")), default_voices(load_voices()))
         n_words = sum(r["id"].startswith("word.") for r in todo)
         print(f"{len(todo)} without a clip yet ({n_words} words, {len(todo) - n_words} sentences)")
         if args.missing_out:
