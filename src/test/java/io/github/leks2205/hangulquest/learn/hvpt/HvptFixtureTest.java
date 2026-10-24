@@ -49,7 +49,7 @@ class HvptFixtureTest {
 	@Test
 	void theRecordLoads() throws IOException {
 		ProgressData data = new ProgressStore(install("v4-hvpt.json"), LOG).data();
-		assertEquals(4, data.version, "no schema bump");
+		assertEquals(io.github.leks2205.hangulquest.learn.ProgressData.CURRENT_VERSION, data.version, "the record needed no bump of its own");
 		assertEquals(2, data.hvpt.sessions.size());
 		ProgressData.HvptSession train = data.hvpt.sessions.get("1792400000000");
 		assertEquals("TRAIN", train.phase);

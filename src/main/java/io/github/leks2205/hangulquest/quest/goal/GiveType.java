@@ -85,7 +85,8 @@ final class GiveType implements GoalType<Goal.Give> {
 			boolean way = counts(goal, fact);
 			boolean item = specific(goal) ? goal.item().equals(fact.item())
 					: Matching.accepts(tracker, goal.item(), fact.item());
-			if (way && goal.entity().equals(fact.targetType()) && item) {
+			boolean whom = tracker.onlyEntity == null || tracker.onlyEntity.equals(fact.targetUuid());
+			if (way && whom && goal.entity().equals(fact.targetType()) && item) {
 				tracker.count += Math.max(1, fact.count());
 			}
 		}

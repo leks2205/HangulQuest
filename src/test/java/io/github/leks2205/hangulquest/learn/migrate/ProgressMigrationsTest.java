@@ -75,11 +75,25 @@ class ProgressMigrationsTest {
 	}
 
 	@Test
+	void aV4TreeGainsTheRequestsAndKeepsWhatItHas() {
+		JsonObject tree = JsonParser.parseString("{\"version\":4,\"meta\":{\"schemaHistory\":[2,3,4]},"
+				+ "\"requests\":{\"finished\":{\"req_plains_01\":2}}}").getAsJsonObject();
+		assertTrue(ProgressMigrations.standard().run(tree));
+		assertEquals(5, tree.get("version").getAsInt());
+		assertEquals("[]", tree.getAsJsonObject("requests").get("open").toString());
+		assertEquals(2, tree.getAsJsonObject("requests").getAsJsonObject("finished").get("req_plains_01").getAsInt());
+		assertEquals("[2,3,4,5]", tree.getAsJsonObject("meta").get("schemaHistory").toString());
+		String once = tree.toString();
+		new V4ToV5().apply(tree);
+		assertEquals(once, tree.toString(), "running it again changes nothing");
+	}
+
+	@Test
 	void aV2TreeGainsTheV3Fields() throws IOException {
 		JsonObject tree = fixture("v2.1.0");
 		assertTrue(ProgressMigrations.standard().run(tree));
-		assertEquals(4, tree.get("version").getAsInt());
-		assertEquals("[2,3,4]", tree.getAsJsonObject("meta").get("schemaHistory").toString());
+		assertEquals(5, tree.get("version").getAsInt());
+		assertEquals("[2,3,4,5]", tree.getAsJsonObject("meta").get("schemaHistory").toString());
 		assertEquals(32, tree.getAsJsonObject("meta").get("installSalt").getAsString().length());
 		assertEquals(0, tree.getAsJsonObject("totals").get("sidequestsCompleted").getAsInt());
 		assertEquals(0, tree.getAsJsonObject("totals").get("questStepsCompleted").getAsInt());

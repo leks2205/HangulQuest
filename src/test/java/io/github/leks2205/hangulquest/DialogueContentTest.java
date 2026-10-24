@@ -13,6 +13,8 @@ import io.github.leks2205.hangulquest.dialogue.DialogueValidator;
 import io.github.leks2205.hangulquest.dialogue.SpeechLevel;
 import io.github.leks2205.hangulquest.dialogue.Speaker;
 import io.github.leks2205.hangulquest.util.Lang;
+import io.github.leks2205.hangulquest.villager.Request;
+import io.github.leks2205.hangulquest.villager.RequestFixtures;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -42,7 +44,12 @@ class DialogueContentTest {
 	private List<String> koreanLines(Dialogue dialogue) {
 		List<String> lines = new ArrayList<>();
 		for (Dialogue.Node node : dialogue.nodes().values()) {
-			lines.add(node.ko());
+			if (!node.selfIntro()) {
+				lines.add(node.ko());
+			}
+			if (node.koBanmal() != null) {
+				lines.add(node.koBanmal());
+			}
 			node.choices().forEach(choice -> lines.add(choice.ko()));
 		}
 		return lines;
@@ -137,10 +144,11 @@ class DialogueContentTest {
 		int shown = 0;
 		for (Dialogue dialogue : dialogues) {
 			for (Dialogue.Node node : dialogue.nodes().values()) {
-				assertEquals(node.speaker().level(), node.speechLevel(), dialogue.id() + "." + node.id());
+				assertEquals(DialogueValidator.expectedLevel(dialogue, node), node.speechLevel(),
+						dialogue.id() + "." + node.id());
 				var levels = SpeechLevel.ofLine(node.ko());
 				assertTrue(levels.size() <= 1, dialogue.id() + "." + node.id() + " mixes " + levels);
-				if (levels.contains(node.speaker().level())) {
+				if (levels.contains(node.speechLevel())) {
 					shown++;
 				}
 			}
@@ -220,16 +228,33 @@ class DialogueContentTest {
 		int expected = 0;
 		for (Dialogue dialogue : dialogues) {
 			for (Dialogue.Node node : dialogue.nodes().values()) {
-				expected++;
 				String id = "dialogue." + dialogue.id() + "." + node.id();
-				if (!node.ko().equals(registered.get(id))) {
-					wrong.add(id);
+				if (!node.selfIntro()) {
+					expected++;
+					if (!node.ko().equals(registered.get(id))) {
+						wrong.add(id);
+					}
+				}
+				if (node.koBanmal() != null) {
+					expected++;
+					if (!node.koBanmal().equals(registered.get(id + ".banmal"))) {
+						wrong.add(id + ".banmal");
+					}
 				}
 				for (int i = 0; i < node.choices().size(); i++) {
 					expected++;
 					if (!node.choices().get(i).ko().equals(registered.get(id + ".c" + (i + 1)))) {
 						wrong.add(id + ".c" + (i + 1));
 					}
+				}
+			}
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			for (RequestFixtures.Spoken line : RequestFixtures.lines(request)) {
+				expected++;
+				String id = "dialogue." + request.id() + "." + line.node();
+				if (!line.ko().equals(registered.get(id))) {
+					wrong.add(id);
 				}
 			}
 		}
@@ -277,6 +302,11 @@ class DialogueContentTest {
 					known.add(dialogue.choiceKey(node.id(), i));
 					known.add(dialogue.choiceNoteKey(node.id(), i));
 				}
+			}
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			for (RequestFixtures.Spoken line : RequestFixtures.lines(request)) {
+				known.add(Dialogue.KEY_PREFIX + request.id() + "." + line.node().replace(".banmal", ""));
 			}
 		}
 		for (String key : english.keySet()) {
@@ -330,6 +360,24 @@ class DialogueContentTest {
 			}
 		}
 		assertTrue(unknown >= 8, "expected a few new words to gloss, got " + unknown);
+	}
+
+	@Test
+	void everyLineStaysWithinTheGrammarOfItsLevel() {
+		List<String> problems = new ArrayList<>();
+		for (Dialogue dialogue : dialogues) {
+			for (String line : koreanLines(dialogue)) {
+				problems.addAll(io.github.leks2205.hangulquest.dialogue.LineLevels.problems(dialogue.id(), line,
+						dialogue.level()));
+			}
+		}
+		for (Request request : RequestFixtures.shipped()) {
+			for (RequestFixtures.Spoken line : RequestFixtures.lines(request)) {
+				problems.addAll(io.github.leks2205.hangulquest.dialogue.LineLevels.problems(request.id() + "." + line.node(),
+						line.ko(), request.level()));
+			}
+		}
+		assertTrue(problems.isEmpty(), String.join("\n", problems));
 	}
 
 	@Test

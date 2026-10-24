@@ -16,4 +16,16 @@ public interface DialogueSink {
 
 	/** Starts the trail; false when it is unknown, finished, locked or the quest log is full. */
 	boolean startTrail(String trailId);
+
+	/** The player agreed to talk 반말 with this villager. */
+	default void acceptBanmal() {
+	}
+
+	/** The player took on the villager's request. */
+	default void acceptRequest(String requestId) {
+	}
+
+	/** The player said no to the villager's request. */
+	default void declineRequest(String requestId) {
+	}
 }

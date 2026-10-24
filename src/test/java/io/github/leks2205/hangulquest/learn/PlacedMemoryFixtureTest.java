@@ -49,7 +49,7 @@ class PlacedMemoryFixtureTest {
 	@Test
 	void theSpotsOfEarlierStepsLoad() throws IOException {
 		ProgressData data = new ProgressStore(install("v4-placed.json"), LOG).data();
-		assertEquals(4, data.version, "no version bump: v4 stays the current schema");
+		assertEquals(ProgressData.CURRENT_VERSION, data.version, "the spots needed no bump of their own");
 		assertEquals(List.of("s1"), List.copyOf(data.quests.active.placed.keySet()));
 		assertArrayEquals(new int[]{100, 64, 100}, data.quests.active.placed.get("s1"));
 		ProgressData.Active saved = data.quests.saved.get("rotwerk");

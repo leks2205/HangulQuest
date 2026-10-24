@@ -131,6 +131,9 @@ public final class SettingsTab extends JournalTab {
 			hq.learn().data().achievements.clear();
 			hq.learn().data().totals = new ProgressData.Totals();
 			hq.learn().data().quests = new ProgressData.QuestData();
+			if (hq.requests() != null) {
+				hq.requests().reset();
+			}
 			hq.afterProgressReset();
 			hq.learn().markDirty();
 			hq.learn().store().flush();

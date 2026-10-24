@@ -87,6 +87,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 	private final LoadBackoff loadBackoff = new LoadBackoff();
 	private HudController hud;
 	private AudioService audio;
+	private io.github.leks2205.hangulquest.villager.Requests requests;
 	private EnvironmentSensor sensor;
 	private KeyMapping keyJournal;
 	private KeyMapping keyHint;
@@ -147,6 +148,11 @@ public final class HangulQuestClient implements ClientModInitializer {
 
 	public AudioService audio() {
 		return audio;
+	}
+
+	/** The villager requests the player has taken on; null before the content is loaded. */
+	public io.github.leks2205.hangulquest.villager.Requests requests() {
+		return requests;
 	}
 
 	public HudController hud() {
@@ -284,6 +290,8 @@ public final class HangulQuestClient implements ClientModInitializer {
 			quests.autoStart(obs, hud);
 		}
 		quests.tick(obs, hud);
+		requests.tick(obs, (open, request) -> hud.banner(open.name + "의 부탁",
+				io.github.leks2205.hangulquest.util.I18n.t("hangulquest.ui.request.done", open.name), true));
 		hud.tick(obs);
 		handleKeys(obs);
 		store.tick(now);
@@ -398,10 +406,14 @@ public final class HangulQuestClient implements ClientModInitializer {
 				break;
 			}
 		}
-		QuestEngine.TrackView next = views.get((index + 1) % views.size());
-		if (quests.focus(next.id())) {
-			hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()), true,
-					"focus");
+		// Request rows cannot take the focus (the hint key works on trails): skip them.
+		for (int step = 1; step < views.size(); step++) {
+			QuestEngine.TrackView next = views.get((index + step) % views.size());
+			if (quests.focus(next.id())) {
+				hud.banner(next.titleKo(), io.github.leks2205.hangulquest.util.I18n.pick(next.titleEn(), next.titleDe()),
+						true, "focus");
+				return;
+			}
 		}
 	}
 
@@ -602,9 +614,31 @@ public final class HangulQuestClient implements ClientModInitializer {
 				store.data().vocab.luteImport = info;
 				store.markDirty();
 			}
+			var builtRequests = new io.github.leks2205.hangulquest.villager.Requests(store.data(),
+					content.dialogues().requests(), builtLearn::markDirty,
+					item -> builtCatalog.byItemId(item).map(word -> word.ko).orElse(null));
+			builtRequests.attach(new io.github.leks2205.hangulquest.villager.Requests.Log() {
+				@Override
+				public boolean makeRoom(long now) {
+					return builtQuests.makeRoomForExtra(now);
+				}
+
+				@Override
+				public String clue(io.github.leks2205.hangulquest.quest.QuestStep step, int koreanLevel) {
+					return builtQuests.clueOf(step, koreanLevel);
+				}
+
+				@Override
+				public String status(io.github.leks2205.hangulquest.quest.QuestStep step,
+									 io.github.leks2205.hangulquest.quest.GoalEvaluator.Tracker tracker) {
+					return builtQuests.statusOf(step, tracker);
+				}
+			});
+			builtQuests.setExtra(builtRequests);
 			catalog = builtCatalog;
 			learn = builtLearn;
 			quests = builtQuests;
+			requests = builtRequests;
 			DialogueHook.publish(content.dialogues());
 			LibraryHook.publish(content.library());
 			contentFailed = false;

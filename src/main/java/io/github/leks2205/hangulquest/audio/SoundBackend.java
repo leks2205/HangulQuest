@@ -9,4 +9,8 @@ public interface SoundBackend {
 	boolean hasAny(String prefix);
 
 	void play(String event, float volume);
+
+	/** Stops the sound {@link #play} started last, if it still plays (a spoken line that was cut short). */
+	default void stopLast() {
+	}
 }

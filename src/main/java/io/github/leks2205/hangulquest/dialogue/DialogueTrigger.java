@@ -48,8 +48,9 @@ public final class DialogueTrigger {
 		return tied.isEmpty() ? Optional.empty() : Optional.of(tied.get(Math.floorMod(target.seed(), tied.size())));
 	}
 
+	/** A conversation written for personalities, regions or a kind is chosen by the villager selector, never here. */
 	static boolean matches(Dialogue.Trigger trigger, Target target) {
-		if (!trigger.entity().equals(target.entityType())) {
+		if (trigger.villagerOnly() || !trigger.entity().equals(target.entityType())) {
 			return false;
 		}
 		if (!trigger.allows(target.profession())) {

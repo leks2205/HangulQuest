@@ -48,6 +48,7 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 	private static final int QUEST_TAB = 4;
 	private static final int GRAMMAR_TAB = 5;
 	private static final int BOOKS_TAB = 6;
+	private static final int VILLAGERS_TAB = 7;
 
 	/** Words the profile "already knows", so the dictionary, stories and cards have something to show. */
 	private static final List<String> KNOWN = List.of("stone", "cobblestone", "coal", "torch", "forest", "house", "build",
@@ -198,6 +199,19 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 		context.takeScreenshot(shot("dialogue", shots));
 		closeScreen(context);
 
+		// a villager saying its name, and the Villagers page
+		context.runOnClient(StoreScreenshotsGameTest::openVillagerIntro);
+		context.waitForScreen(DialogueScreen.class);
+		context.waitTicks(4);
+		context.getInput().pressKey(InputConstants.KEY_SPACE);
+		context.waitTicks(8);
+		context.takeScreenshot(shot("dialogue-villager-intro", shots));
+		closeScreen(context);
+		context.runOnClient(mc -> stageVillagers());
+		openJournal(context, VILLAGERS_TAB);
+		context.takeScreenshot(shot("journal-villagers", shots));
+		closeScreen(context);
+
 		// the same journal in German
 		context.runOnClient(mc -> Lang.set(Lang.DE.code()));
 		openJournal(context, QUEST_TAB);
@@ -278,6 +292,38 @@ public final class StoreScreenshotsGameTest implements FabricClientGameTest {
 			mc.setScreenAndShow(new DialogueScreen(session, "Minsu", vocabulary));
 		} catch (ReflectiveOperationException broken) {
 			throw new AssertionError(broken);
+		}
+	}
+
+	/** The LAZY plains introduction, as a villager named 민준 says it (on its second node: the self-introduction). */
+	private static void openVillagerIntro(net.minecraft.client.Minecraft mc) {
+		var hq = HangulQuestClient.get();
+		DialogueContent content = DialogueHook.content();
+		Dialogue dialogue = content.set().get("vt_lazy_plains_intro");
+		var learn = hq.learn();
+		DialogueSession session = new DialogueSession(dialogue, new io.github.leks2205.hangulquest.dialogue.GameDialogueSink(
+				learn, hq.catalog(), id -> false, System::currentTimeMillis, dialogue.id()));
+		var vocabulary = DialogueCoverage.vocabulary(hq.catalog(), content.lexicon(),
+				id -> learn.isKnown(id) || learn.introduced(id), Lang.current());
+		mc.setScreenAndShow(new DialogueScreen(session, "민준", vocabulary, new DialogueScreen.Voice("v_lazy", "민준",
+				() -> false, io.github.leks2205.hangulquest.dialogue.SpeechLevel.HAEYO), hq.audio()));
+	}
+
+	/** Four villagers met in different villages, one a close friend, one with an open request. */
+	private static void stageVillagers() {
+		var hq = HangulQuestClient.get();
+		var villagers = DialogueHook.villagers();
+		var regions = io.github.leks2205.hangulquest.villager.Region.values();
+		for (int i = 0; i < 4; i++) {
+			var profile = villagers.meet(new java.util.UUID(0x51A9E000L + i, 0x7E57L * (i + 1)), regions[i % regions.length],
+					false, i == 1 ? "minecraft:librarian" : "minecraft:farmer", System.currentTimeMillis() + i).profile();
+			profile.friendship = new int[] {2, 7, 0, 4}[i];
+		}
+		villagers.save();
+		var request = hq.requests().set().get("req_plains_01");
+		if (request != null) {
+			hq.requests().accept(request, new java.util.UUID(0x51A9E000L, 0x7E57L).toString(),
+					villagers.get(new java.util.UUID(0x51A9E000L, 0x7E57L)).name, System.currentTimeMillis());
 		}
 	}
 
