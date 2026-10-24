@@ -33,6 +33,8 @@ final class TrackRegistry {
 	/** The checked trail in the situational slot (also in {@link #autoIds}), or null. */
 	private String situationalId;
 	private String focusedId;
+	/** Quest log entries that are not trails (the villager requests in the log); each takes a regular slot. */
+	private java.util.function.IntSupplier extra = () -> 0;
 
 	Collection<Track> all() {
 		return tracks.values();
@@ -88,15 +90,30 @@ final class TrackRegistry {
 		return situationalId;
 	}
 
-	/** Checked trails that fill a slot: all but the review trail. */
+	/** Counts the quest log entries that are not trails; they take regular slots and are never dropped here. */
+	void extra(java.util.function.IntSupplier extra) {
+		this.extra = extra == null ? () -> 0 : extra;
+	}
+
+	/** Checked trails that fill a slot (all but the review trail), and the entries that are not trails. */
 	int slotCount() {
-		int count = 0;
+		int count = extra.getAsInt();
 		for (String id : trackedIds) {
 			if (inSlot(id)) {
 				count++;
 			}
 		}
 		return count;
+	}
+
+	/** The oldest checked trail the game picked that fills a slot, or null. */
+	String oldestAuto() {
+		for (String id : trackedIds) {
+			if (autoIds.contains(id) && inSlot(id)) {
+				return id;
+			}
+		}
+		return null;
 	}
 
 	/** Slots in use by trails that are not the situational one. */

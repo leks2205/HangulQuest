@@ -5,18 +5,25 @@ package io.github.leks2205.hangulquest.villager;
  * and kept. Conversations and requests can be written for a region.
  */
 public enum Region {
-	PLAINS("minecraft:plains"),
-	DESERT("minecraft:desert"),
-	SAVANNA("minecraft:savanna"),
-	SNOW("minecraft:snow"),
-	TAIGA("minecraft:taiga"),
-	JUNGLE("minecraft:jungle"),
-	SWAMP("minecraft:swamp");
+	PLAINS("minecraft:plains", "평원"),
+	DESERT("minecraft:desert", "사막"),
+	SAVANNA("minecraft:savanna", "사바나"),
+	SNOW("minecraft:snow", "눈"),
+	TAIGA("minecraft:taiga", "타이가"),
+	JUNGLE("minecraft:jungle", "정글"),
+	SWAMP("minecraft:swamp", "늪");
 
 	private final String villagerType;
+	private final String ko;
 
-	Region(String villagerType) {
+	Region(String villagerType, String ko) {
 		this.villagerType = villagerType;
+		this.ko = ko;
+	}
+
+	/** The Korean name the journal shows: the vanilla biome name (눈 for the snowy villages). */
+	public String ko() {
+		return ko;
 	}
 
 	/** The registry id of the vanilla villager type. */
