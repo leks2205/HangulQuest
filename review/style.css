@@ -1,0 +1,133 @@
+/* Review site: plain CSS, light and dark, readable on a phone. No fonts or scripts from anywhere else. */
+:root {
+	--bg: #f7f7f4;
+	--card: #ffffff;
+	--text: #1c1f1a;
+	--muted: #5b6157;
+	--line: #d9dcd3;
+	--accent: #1f6f3a;
+	--accent-text: #ffffff;
+	--fix: #9a3412;
+	--page: #1e4e8c;
+	--unreviewed: #e6e7e2;
+	--lint-ok: #dbe9f7;
+	--ai-checked: #e3e0f5;
+	--native-approved: #d3efd9;
+	--native-flagged: #f8d9d3;
+	--needs: #fde9b8;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #14171a;
+		--card: #1d2125;
+		--text: #e8eae6;
+		--muted: #a2a99f;
+		--line: #333a40;
+		--accent: #4cae6a;
+		--accent-text: #0c1a10;
+		--fix: #f0a070;
+		--page: #7fb0ee;
+		--unreviewed: #2b3035;
+		--lint-ok: #1f3347;
+		--ai-checked: #2c2a47;
+		--native-approved: #1d4128;
+		--native-flagged: #4a2620;
+		--needs: #4a3b13;
+	}
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: 1rem/1.55 system-ui, -apple-system, "Segoe UI", "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+
+header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
+
+header { padding-top: .75rem; }
+.brand { margin: 0 0 .25rem; font-weight: 700; }
+.brand a { color: inherit; text-decoration: none; }
+.brand span { color: var(--muted); font-weight: 400; }
+
+nav { display: flex; flex-wrap: wrap; gap: .25rem .5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+nav a { padding: .35rem .6rem; border-radius: .4rem; color: var(--text); text-decoration: none; min-height: 2.25rem; }
+nav a span { color: var(--muted); font-size: .85em; }
+nav a[aria-current] { background: var(--line); font-weight: 600; }
+
+h1 { font-size: 1.5rem; line-height: 1.3; margin: 1.25rem 0 .5rem; }
+h1 span { display: block; font-size: 1rem; font-weight: 400; color: var(--muted); }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 .5rem; }
+a { color: var(--page); }
+code { font-size: .85em; word-break: break-all; }
+
+.list { padding-left: 1.2rem; }
+.list li { margin: .35rem 0; }
+.stats, .pager { color: var(--muted); }
+.steps { padding-left: 1.4rem; font-size: 1.1rem; }
+
+.line {
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: .6rem;
+	padding: .9rem 1rem;
+	margin: 1rem 0;
+}
+
+.line p { margin: .35rem 0; }
+.ko { font-size: 1.7rem; line-height: 1.4; font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
+.en { font-size: 1.05rem; }
+.task { color: var(--muted); font-size: .92rem; }
+.meta { font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: center; }
+.id { font-size: .75rem; color: var(--muted); }
+
+.badge {
+	display: inline-block;
+	padding: .1rem .55rem;
+	border-radius: 1rem;
+	font-size: .8rem;
+	color: var(--text);
+	border: 1px solid var(--line);
+	background: var(--unreviewed);
+}
+.s-lint-ok { background: var(--lint-ok); }
+.s-ai-checked { background: var(--ai-checked); }
+.s-native-approved { background: var(--native-approved); }
+.s-native-flagged { background: var(--native-flagged); }
+.s-needs { background: var(--needs); }
+
+.ai { margin: .4rem 0; font-size: .9rem; }
+.ai summary { cursor: pointer; color: var(--muted); }
+
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; }
+.btn {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 2.9rem;
+	padding: .35rem 1.1rem;
+	border-radius: .5rem;
+	background: var(--accent);
+	color: var(--accent-text);
+	font-weight: 700;
+	line-height: 1.25;
+	text-decoration: none;
+}
+.btn small { font-weight: 400; font-size: .78rem; opacity: .9; }
+.btn.fix { background: transparent; color: var(--fix); border: 2px solid var(--fix); }
+.btn.page { background: var(--page); color: var(--accent-text); }
+.batch { margin: 1rem 0; }
+.cta { margin: 1.25rem 0; }
+
+table.status { border-collapse: collapse; }
+table.status td, table.status th { padding: .3rem .8rem .3rem 0; text-align: left; }
+
+footer { margin-top: 2rem; padding-bottom: 2rem; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
+
+@media (max-width: 30rem) {
+	.ko { font-size: 1.5rem; }
+	.btn { width: 100%; }
+}
