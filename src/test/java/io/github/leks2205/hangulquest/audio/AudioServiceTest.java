@@ -38,6 +38,35 @@ class AudioServiceTest {
 		public void play(String event, float volume) {
 			played.add(event);
 		}
+
+		@Override
+		public void stopLast() {
+			played.add("stop");
+		}
+	}
+
+	@Test
+	void conversationLinesHaveOneEventPerLineAndVoice() {
+		assertEquals("line.vt_lazy_plains_intro.wheat.v_lazy",
+				AudioService.lineEvent("vt_lazy_plains_intro", "wheat", false, "v_lazy"));
+		assertEquals("line.vt_peppy_gen_01.friends_banmal.v_peppy",
+				AudioService.lineEvent("vt_peppy_gen_01", "friends", true, "v_peppy"));
+		assertEquals("line.req_plains_01.lazy_offer.v_lazy", AudioService.lineEvent("req_plains_01", "lazy_offer", false, "v_lazy"));
+		assertEquals("line.name.minjun.v_lazy", AudioService.selfIntroEvent("minjun", "v_lazy"));
+	}
+
+	@Test
+	void aLineCutsOffTheOneBeforeAndIsSilentWithoutARecording() {
+		FakeBackend backend = new FakeBackend("line.a.b.v_lazy", "word.stone");
+		AudioService audio = new AudioService(backend, () -> true);
+		assertTrue(audio.playLine("line.a.b.v_lazy"));
+		assertEquals(List.of("stop", "line.a.b.v_lazy"), backend.played);
+		assertFalse(audio.playLine("line.a.c.v_lazy"), "no recording: nothing, no warning");
+		assertFalse(new AudioService(new FakeBackend(), () -> true).playLine("line.a.b.v_lazy"), "no pack");
+		assertFalse(new AudioService(backend, () -> false).playLine("line.a.b.v_lazy"), "sound off");
+		assertFalse(audio.playLine("line.A b"), "not an event name");
+		audio.stopLine();
+		assertEquals("stop", backend.played.getLast());
 	}
 
 	@Test

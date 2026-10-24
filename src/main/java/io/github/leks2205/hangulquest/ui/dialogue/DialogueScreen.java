@@ -2,15 +2,18 @@ package io.github.leks2205.hangulquest.ui.dialogue;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import io.github.leks2205.hangulquest.HangulQuestClient;
+import io.github.leks2205.hangulquest.audio.AudioService;
 import io.github.leks2205.hangulquest.data.Word;
 import io.github.leks2205.hangulquest.dialogue.Dialogue;
 import io.github.leks2205.hangulquest.dialogue.DialogueCoverage;
 import io.github.leks2205.hangulquest.dialogue.DialogueSession;
+import io.github.leks2205.hangulquest.dialogue.SpeechLevel;
 import io.github.leks2205.hangulquest.ui.Draw;
 import io.github.leks2205.hangulquest.ui.KoText;
 import io.github.leks2205.hangulquest.ui.widget.HangulTextField;
 import io.github.leks2205.hangulquest.ui.widget.TypedAnswerPanel;
 import io.github.leks2205.hangulquest.util.I18n;
+import io.github.leks2205.hangulquest.villager.VillagerNames;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.CharacterEvent;
@@ -24,6 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BooleanSupplier;
 
 /**
  * A conversation with an NPC, shown as a panel at the bottom of the screen. The line is set word by
@@ -44,8 +48,26 @@ public final class DialogueScreen extends Screen {
 	private record Analysed(List<DialogueCoverage.Token> tokens, List<String> texts) {
 	}
 
+	/**
+	 * Who speaks and how it sounds: the voice id of the recorded lines, the villager's name (for the self-introduction),
+	 * whether it talks 반말 with the player now, and the speech level of its self-introduction. {@link #NONE} for an NPC
+	 * without a voice.
+	 */
+	public record Voice(String voiceId, String name, BooleanSupplier banmal, SpeechLevel introLevel) {
+		public static final Voice NONE = new Voice(null, null, () -> false, SpeechLevel.HAEYO);
+
+		boolean talksBanmal() {
+			return banmal != null && banmal.getAsBoolean();
+		}
+	}
+
 	private final DialogueSession session;
 	private final String npcName;
+	private final Voice voice;
+	private final AudioService audio;
+	/** Whether the line on screen has a recording; then R and the play mark speak it again. */
+	private boolean spoken;
+	private int[] replayArea;
 	private final DialogueCoverage.Vocabulary vocabulary;
 	private final Dialogue.Node first;
 	private final Map<String, Analysed> analysed = new HashMap<>();
@@ -62,9 +84,20 @@ public final class DialogueScreen extends Screen {
 	 * @param vocabulary what the player knows, for the underlined words
 	 */
 	public DialogueScreen(DialogueSession session, String npcName, DialogueCoverage.Vocabulary vocabulary) {
+		this(session, npcName, vocabulary, Voice.NONE, null);
+	}
+
+	/**
+	 * @param voice how the NPC sounds; each line is spoken when it is shown, if the voice pack has it
+	 * @param audio the sound service; null for a silent conversation
+	 */
+	public DialogueScreen(DialogueSession session, String npcName, DialogueCoverage.Vocabulary vocabulary, Voice voice,
+						  AudioService audio) {
 		super(Component.literal("한글 탐험"));
 		this.session = session;
 		this.npcName = npcName;
+		this.voice = voice == null ? Voice.NONE : voice;
+		this.audio = audio;
 		this.vocabulary = vocabulary;
 		this.first = session.node();
 		freeField.setPlaceholder(I18n.t("hangulquest.ui.dialogue.placeholder"));
@@ -85,6 +118,10 @@ public final class DialogueScreen extends Screen {
 			return true;
 		}
 		boolean enter = event.key() == InputConstants.KEY_RETURN || event.key() == InputConstants.KEY_NUMPADENTER;
+		if (event.key() == InputConstants.KEY_R && node.kind() != Dialogue.Kind.TYPED) {
+			speak(node);
+			return true;
+		}
 		switch (node.kind()) {
 			case LINE, END -> {
 				if (enter || event.key() == InputConstants.KEY_SPACE) {
@@ -138,6 +175,12 @@ public final class DialogueScreen extends Screen {
 	public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
 		Dialogue.Node node = session.node();
 		if (node != null && event.button() == InputConstants.MOUSE_BUTTON_LEFT) {
+			int[] area = replayArea;
+			if (spoken && area != null && event.x() >= area[0] && event.x() < area[0] + area[2]
+					&& event.y() >= area[1] && event.y() < area[1] + area[3]) {
+				speak(node);
+				return true;
+			}
 			if (node.kind() == Dialogue.Kind.LINE || node.kind() == Dialogue.Kind.END) {
 				advance();
 				return true;
@@ -161,6 +204,45 @@ public final class DialogueScreen extends Screen {
 		if (session.finished()) {
 			onClose();
 		}
+	}
+
+	@Override
+	public void removed() {
+		if (audio != null) {
+			audio.stopLine();
+		}
+		super.removed();
+	}
+
+	/** The text of a node as this NPC says it: its own name in the self-introduction, 반말 once it talks 반말. */
+	private String textOf(Dialogue.Node node) {
+		if (node.selfIntro()) {
+			return voice.name() == null ? "" : VillagerNames.selfIntro(voice.name(), voice.introLevel());
+		}
+		return node.text(voice.talksBanmal());
+	}
+
+	/** Whether the line on screen is the 반말 version. */
+	private boolean banmalShown(Dialogue.Node node) {
+		return !node.selfIntro() && voice.talksBanmal() && node.koBanmal() != null && !node.koBanmal().isBlank();
+	}
+
+	/** The sound of a line in this NPC's voice, or null when it has none. */
+	private String eventOf(Dialogue.Node node) {
+		if (voice.voiceId() == null) {
+			return null;
+		}
+		if (node.selfIntro()) {
+			VillagerNames.Name name = VillagerNames.byKo(voice.name());
+			return name == null ? null : AudioService.selfIntroEvent(name.id(), voice.voiceId());
+		}
+		return AudioService.lineEvent(session.dialogue().id(), node.id(), banmalShown(node), voice.voiceId());
+	}
+
+	/** Speaks the line (again); silent without the voice pack. */
+	private void speak(Dialogue.Node node) {
+		String event = eventOf(node);
+		spoken = audio != null && event != null && audio.playLine(event);
 	}
 
 	private void choose(int index) {
@@ -187,6 +269,7 @@ public final class DialogueScreen extends Screen {
 		shown = node;
 		tried.clear();
 		typedPanel = null;
+		speak(node);
 		if (node.kind() == Dialogue.Kind.TYPED && !node.typed().free()) {
 			Dialogue.Typed typed = node.typed();
 			String icon = null;
@@ -199,8 +282,14 @@ public final class DialogueScreen extends Screen {
 	}
 
 	private Analysed analyse(Dialogue.Node node) {
-		return analysed.computeIfAbsent(node.id(), id -> {
-			List<DialogueCoverage.Token> tokens = DialogueCoverage.analyze(node.ko(), vocabulary);
+		String text = textOf(node);
+		return analysed.computeIfAbsent(node.id() + (banmalShown(node) ? "/banmal" : ""), id -> {
+			List<DialogueCoverage.Token> tokens = DialogueCoverage.analyze(text, vocabulary);
+			if (node.selfIntro() && voice.name() != null) {
+				// The villager's own name is no word to learn.
+				tokens = tokens.stream().map(token -> token.text().contains(voice.name())
+						? new DialogueCoverage.Token(token.text(), DialogueCoverage.State.KNOWN, null, null) : token).toList();
+			}
 			return new Analysed(tokens, tokens.stream().map(DialogueCoverage.Token::text).toList());
 		});
 	}
@@ -219,7 +308,8 @@ public final class DialogueScreen extends Screen {
 		Analysed line = analyse(node);
 		DialogueLayout.Flow flow = DialogueLayout.flow(line.texts(), text -> this.font.width(KoText.ko(text)), inner,
 				this.font.width(" "), LINE);
-		Component gloss = HangulTextField.styled(I18n.t(dialogue.lineKey(node.id())));
+		Component gloss = HangulTextField.styled(node.selfIntro() && voice.name() != null
+				? I18n.t(dialogue.lineKey(node.id()), voice.name()) : I18n.t(dialogue.lineKey(node.id())));
 		int glossHeight = Draw.wrappedHeight(this.font, gloss, inner, 3);
 		Component noteText = note.isEmpty() ? null : HangulTextField.styled(note);
 		int noteHeight = noteText == null ? 0 : Draw.wrappedHeight(this.font, noteText, inner, 3) + 4;
@@ -268,7 +358,16 @@ public final class DialogueScreen extends Screen {
 				? npcName + " · " + node.speaker().ko() : node.speaker().ko();
 		Draw.korean(graphics, this.font, who, x, y, Draw.GOLD);
 		int after = x + this.font.width(KoText.ko(who)) + 6;
-		Draw.label(graphics, this.font, I18n.t("hangulquest.ui.dialogue.speaker." + node.speaker().id()), after, y, Draw.DIM);
+		String role = I18n.t("hangulquest.ui.dialogue.speaker." + node.speaker().id());
+		Draw.label(graphics, this.font, role, after, y, Draw.DIM);
+		if (spoken) {
+			// The play mark: a click (or R) speaks the line again.
+			int markX = after + this.font.width(role) + 8;
+			Draw.label(graphics, this.font, "▶", markX, y, Draw.GOLD);
+			replayArea = new int[] {markX - 2, y - 2, this.font.width("▶") + 4, LINE};
+		} else {
+			replayArea = null;
+		}
 	}
 
 	private void drawLine(GuiGraphicsExtractor graphics, Analysed line, DialogueLayout.Flow flow, int x, int y,
@@ -337,10 +436,11 @@ public final class DialogueScreen extends Screen {
 	}
 
 	private String footer(Dialogue.Node node) {
-		return switch (node.kind()) {
+		String keys = switch (node.kind()) {
 			case CHOICE -> I18n.t("hangulquest.ui.dialogue.keys_choice", "1–" + node.choices().size());
 			case TYPED -> I18n.t("hangulquest.ui.dialogue.keys_free", HangulTextField.keyName(freeField.input().toggleKey()));
 			default -> I18n.t("hangulquest.ui.dialogue.keys_line");
 		};
+		return spoken && node.kind() != Dialogue.Kind.TYPED ? keys + " · " + I18n.t("hangulquest.ui.dialogue.replay") : keys;
 	}
 }

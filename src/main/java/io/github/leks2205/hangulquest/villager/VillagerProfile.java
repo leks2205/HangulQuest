@@ -50,6 +50,22 @@ public final class VillagerProfile {
 		this.voice = voice;
 	}
 
+	/** An independent copy, to try out a conversation without changing the profile. */
+	public VillagerProfile copy() {
+		VillagerProfile copy = new VillagerProfile(uuid, name, gender, personality, voice);
+		copy.region = region;
+		copy.friendship = friendship;
+		copy.firstMet = firstMet;
+		copy.lastTalkDay = lastTalkDay;
+		copy.seen.addAll(seen);
+		copy.banmal = banmal;
+		copy.requestDay = requestDay;
+		copy.reminderDay = reminderDay;
+		copy.profession = profession;
+		copy.baby = baby;
+		return copy;
+	}
+
 	/** The voice it speaks with now: a child voice of its gender while it is a baby, its own adult voice after. */
 	public String currentVoice() {
 		return baby ? gender.childVoice() : voice;

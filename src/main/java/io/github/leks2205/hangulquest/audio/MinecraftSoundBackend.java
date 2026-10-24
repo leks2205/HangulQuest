@@ -16,6 +16,7 @@ public final class MinecraftSoundBackend implements SoundBackend {
 	private static final String NAMESPACE = "hangulquest";
 
 	private final Minecraft mc;
+	private SoundInstance last;
 
 	public MinecraftSoundBackend(Minecraft mc) {
 		this.mc = mc;
@@ -41,8 +42,17 @@ public final class MinecraftSoundBackend implements SoundBackend {
 	public void play(String event, float volume) {
 		Identifier id = Identifier.tryBuild(NAMESPACE, event);
 		if (id != null) {
-			mc.getSoundManager().play(new SimpleSoundInstance(id, SoundSource.VOICE, volume, 1.0F, RandomSource.create(),
-					false, 0, SoundInstance.Attenuation.NONE, 0.0, 0.0, 0.0, true));
+			last = new SimpleSoundInstance(id, SoundSource.VOICE, volume, 1.0F, RandomSource.create(),
+					false, 0, SoundInstance.Attenuation.NONE, 0.0, 0.0, 0.0, true);
+			mc.getSoundManager().play(last);
+		}
+	}
+
+	@Override
+	public void stopLast() {
+		if (last != null) {
+			mc.getSoundManager().stop(last);
+			last = null;
 		}
 	}
 }

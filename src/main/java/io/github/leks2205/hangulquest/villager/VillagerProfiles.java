@@ -122,6 +122,35 @@ public final class VillagerProfiles {
 		return new Meeting(made, true);
 	}
 
+	/**
+	 * What {@link #meet} would give, without keeping or saving anything: a copy of the known profile with the meeting
+	 * applied, or the profile a new villager would get.
+	 */
+	public VillagerProfile preview(UUID villager, Region region, boolean baby, String profession, long now) {
+		VillagerProfile known = profiles.get(villager.toString());
+		VillagerProfile copy;
+		if (known != null) {
+			copy = known.copy();
+			if (copy.region == null) {
+				copy.region = region;
+			}
+		} else {
+			Gender gender = genderOf(villager);
+			Personality personality = personalityOf(villager, gender);
+			Set<String> taken = new HashSet<>();
+			profiles.values().forEach(profile -> taken.add(profile.name));
+			copy = new VillagerProfile(villager.toString(), VillagerNames.pick(villager, gender, taken).ko(), gender,
+					personality, personality.voice());
+			copy.region = region;
+			copy.firstMet = now;
+		}
+		copy.baby = baby;
+		if (profession != null) {
+			copy.profession = profession;
+		}
+		return copy;
+	}
+
 	/** Forgets the oldest villagers that are neither close friends nor waiting for a request, down to the cap. */
 	private void evict(String keep) {
 		for (Iterator<VillagerProfile> oldest = profiles.values().iterator();

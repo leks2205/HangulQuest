@@ -165,6 +165,7 @@ public final class Requests implements QuestEngine.Extra {
 		open.name = name;
 		open.acceptedAt = now;
 		open.tracked = log.makeRoom(now);
+		trackers.remove(villager);
 		data.open.add(open);
 		dirty.run();
 		return open;
@@ -208,6 +209,14 @@ public final class Requests implements QuestEngine.Extra {
 		trackers.remove(villager);
 		dirty.run();
 		return true;
+	}
+
+	/** "Reset progress": every open request ends and nothing counts as handed in any more. */
+	public void reset() {
+		data.open.clear();
+		data.finished.clear();
+		trackers.clear();
+		dirty.run();
 	}
 
 	/** Puts a request into the quest log or takes it out; false when the log has no room for it. */
