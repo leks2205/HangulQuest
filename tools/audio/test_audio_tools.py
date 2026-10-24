@@ -287,39 +287,47 @@ class VillagerVoices(unittest.TestCase):
 
 
 class DialogueLines(unittest.TestCase):
+    """Fixtures in the shapes of the 3.1 engine (data/voices.json, villager-names.json, requests/*.json)."""
+
     def repo(self, tmp, engine=True):
         root = Path(tmp)
         a = root / dialogue_texts.ASSETS
         write_json(a / "dialogue/_lexicon.json", {"words": []})
         write_json(a / "dialogue/farm.json", {"id": "farm", "trigger": {"profession": "minecraft:farmer", "baby": False},
-                                              "nodes": {"hello": {"speaker": "farmer", "ko": "안녕하세요!", "ko_banmal": "안녕!",
+                                              "nodes": {"hello": {"speaker": "farmer", "ko": "안녕하세요!",
                                                                   "choices": [{"ko": "네.", "next": "bye"}]},
-                                                        "bye": {"speaker": "farmer", "ko": "잘 가요.",
-                                                                "LAZY": {"ko": "음… 잘 가요."}}}})
+                                                        "bye": {"speaker": "farmer", "ko": "잘 가요.", "end": True}}})
         write_json(a / "dialogue/child.json", {"id": "child", "trigger": {"baby": True},
                                                "nodes": {"hi": {"speaker": "child", "ko": "안녕!"}}})
         write_json(a / "dialogue/elder.json", {"id": "elder", "trigger": {"profession": "minecraft:none"},
                                                "nodes": {"hi": {"speaker": "elder", "ko": "안녕하십니까?"}}})
-        write_json(a / "dialogue/lazy_plains_intro.json", {"id": "lazy_plains_intro",
-                                                           "trigger": {"personality": "LAZY", "region": "PLAINS"},
-                                                           "nodes": {"hi": {"speaker": "villager", "ko": "밀밭이 좋아요.",
-                                                                            "ko_banmal": "밀밭이 좋아."}}})
-        write_json(a / "dialogue/snooty_talk.json", {"id": "snooty_talk", "personalities": ["SNOOTY"],
-                                                     "nodes": {"hi": {"speaker": "villager", "ko": "좋습니다.",
-                                                                      "ko_banmal": "좋아."}}})
+        write_json(a / "dialogue/vt_lazy_plains_intro.json", {
+            "id": "vt_lazy_plains_intro", "trigger": {"kind": "intro", "personalities": ["LAZY"], "regions": ["PLAINS"]},
+            "nodes": {"hi": {"speaker": "villager", "ko": "밀밭이 좋아요.", "ko_banmal": "밀밭이 좋아."},
+                      "name": {"speaker": "villager", "selfIntro": True}}})
+        write_json(a / "dialogue/vt_talk.json", {
+            "id": "vt_talk", "trigger": {"personalities": ["SNOOTY", "PEPPY"]},
+            "nodes": {"hi": {"speaker": "villager", "ko": "좋아요.", "ko_banmal": "좋아."}}})
         if engine:
-            write_json(a / "requests/bread.json", {
-                "id": "bread", "level": 1, "regions": ["PLAINS"], "kind": "GIVE",
-                "goal": {"type": "give", "item": "minecraft:bread", "ko": "빵"},
-                "offer": {"ko": "빵이 있어요?", "variants": {"JOCK": {"ko": "빵 있어요? 배고파요!"}}},
-                "thanks": {"ko": "고마워요."}})
-            write_json(a / "data/villager-names.json", {"male": ["민준", {"ko": "하늘", "roman": "haneul"}],
-                                                        "female": ["지우"]})
+            write_json(a / "requests/req_plains_01.json", {
+                "id": "req_plains_01", "level": 1, "kind": "GIVE", "regions": ["PLAINS"],
+                "goal": {"type": "GIVE", "item": "minecraft:bread"}, "answers": {"yes": "네, 좋아요!", "no": "아니요."},
+                "lines": {"LAZY": {"offer": {"ko": "음, 빵이 필요해요.", "ko_banmal": "음, 나 빵이 필요해."},
+                                   "thanks": "고마워요."},
+                          "SNOOTY": {"offer": "빵이 있습니까?"}}})
+            write_json(a / "data/villager-names.json", {"names": [
+                {"ko": "민준", "gender": "male", "id": "minjun",
+                 "lines": {"haeyo": "저는 민준이에요.", "hapsyo": "저는 민준입니다.", "banmal": "나는 민준이야."}},
+                {"ko": "지우", "gender": "female", "id": "jiu"}]})
+            write_json(a / "data/voices.json", {
+                "personalities": {p: {"voice": v, "register": "hapsyo" if p == "SNOOTY" else "haeyo"}
+                                  for p, v in zip(dialogue_texts.PERSONALITIES, ADULTS)},
+                "children": {"male": "v_child_m", "female": "v_child_f", "register": "banmal"},
+                "events": {k: v + " (remark)" for k, v in dialogue_texts.EVENTS.items()}})
         return root
 
-    def collect(self, tmp, **kw):
-        rows, problems = dialogue_texts.collect(self.repo(tmp, **kw.pop("engine", {}) or {}), log=lambda *a, **k: None,
-                                                **kw)
+    def collect(self, tmp, engine=True):
+        rows, problems = dialogue_texts.collect(self.repo(tmp, engine), log=lambda *a, **k: None)
         self.assertEqual(problems, [])
         return {r["id"]: r for r in rows}
 
@@ -329,34 +337,25 @@ class DialogueLines(unittest.TestCase):
     def test_shared_lines_go_to_all_eight_adult_voices(self):
         with tempfile.TemporaryDirectory() as tmp:
             rows = self.collect(tmp)
-            self.assertEqual([i for i in self.ids(rows, "line.farm.hello.") if ".banmal." not in i],
-                             sorted(f"line.farm.hello.{v}" for v in ADULTS))
+            self.assertEqual(self.ids(rows, "line.farm.hello."), sorted(f"line.farm.hello.{v}" for v in ADULTS))
             self.assertEqual(rows["line.farm.hello.v_jock"]["voices"], ["v_jock"])
 
-    def test_player_choices_are_not_voiced(self):
+    def test_player_choices_and_answers_are_not_voiced(self):
         with tempfile.TemporaryDirectory() as tmp:
-            self.assertFalse([r for r in self.collect(tmp).values() if r["ko"] == "네."])
+            self.assertFalse([r for r in self.collect(tmp).values() if r["ko"] in ("네.", "네, 좋아요!")])
 
-    def test_a_personality_variant_replaces_the_shared_line_in_its_voice(self):
+    def test_personality_dialogue_only_in_its_voices(self):
         with tempfile.TemporaryDirectory() as tmp:
             rows = self.collect(tmp)
-            self.assertEqual(rows["line.farm.bye.v_lazy"]["ko"], "음… 잘 가요.")
-            self.assertEqual(rows["line.farm.bye.v_jock"]["ko"], "잘 가요.")
-            self.assertEqual(len(self.ids(rows, "line.farm.bye.")), 8)
-
-    def test_personality_dialogue_only_in_that_voice(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            rows = self.collect(tmp)
-            self.assertEqual(self.ids(rows, "line.lazy_plains_intro.hi."), ["line.lazy_plains_intro.hi.banmal.v_lazy",
-                                                                            "line.lazy_plains_intro.hi.v_lazy"])
-            self.assertEqual(rows["line.lazy_plains_intro.hi.banmal.v_lazy"]["ko"], "밀밭이 좋아.")
+            self.assertEqual(self.ids(rows, "line.vt_lazy_plains_intro."),
+                             ["line.vt_lazy_plains_intro.hi.v_lazy", "line.vt_lazy_plains_intro.hi_banmal.v_lazy"])
+            self.assertEqual(rows["line.vt_lazy_plains_intro.hi_banmal.v_lazy"]["ko"], "밀밭이 좋아.")
 
     def test_banmal_only_for_the_personalities_that_switch(self):
         with tempfile.TemporaryDirectory() as tmp:
             rows = self.collect(tmp)
-            self.assertEqual(self.ids(rows, "line.farm.hello.banmal."),
-                             sorted(f"line.farm.hello.banmal.{v}" for v in ("v_lazy", "v_jock", "v_peppy", "v_sisterly")))
-            self.assertEqual(self.ids(rows, "line.snooty_talk."), ["line.snooty_talk.hi.v_snooty"])
+            self.assertEqual(self.ids(rows, "line.vt_talk."), ["line.vt_talk.hi.v_peppy", "line.vt_talk.hi.v_snooty",
+                                                                "line.vt_talk.hi_banmal.v_peppy"])
 
     def test_babies_speak_in_both_child_voices_and_personas_in_theirs(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -364,14 +363,13 @@ class DialogueLines(unittest.TestCase):
             self.assertEqual(self.ids(rows, "line.child."), ["line.child.hi.v_child_f", "line.child.hi.v_child_m"])
             self.assertEqual(self.ids(rows, "line.elder."), ["line.elder.hi.male1"])
 
-    def test_request_lines(self):
+    def test_request_lines_per_personality(self):
         with tempfile.TemporaryDirectory() as tmp:
             rows = self.collect(tmp)
-            self.assertEqual(len(self.ids(rows, "line.req_bread.offer.")), 8)
-            self.assertEqual(rows["line.req_bread.offer.v_jock"]["ko"], "빵 있어요? 배고파요!")
-            self.assertEqual(rows["line.req_bread.offer.v_smug"]["ko"], "빵이 있어요?")
-            self.assertEqual(len(self.ids(rows, "line.req_bread.thanks.")), 8)
-            self.assertFalse(self.ids(rows, "line.req_bread.goal"))
+            self.assertEqual(self.ids(rows, "line.req_plains_01."), [
+                "line.req_plains_01.lazy_offer.v_lazy", "line.req_plains_01.lazy_offer_banmal.v_lazy",
+                "line.req_plains_01.lazy_thanks.v_lazy", "line.req_plains_01.snooty_offer.v_snooty"])
+            self.assertEqual(rows["line.req_plains_01.lazy_offer_banmal.v_lazy"]["ko"], "음, 나 빵이 필요해.")
 
     def test_self_introductions_per_name_and_voice_of_that_gender(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -380,24 +378,36 @@ class DialogueLines(unittest.TestCase):
                              sorted(f"line.name.minjun.{v}" for v in ("v_lazy", "v_jock", "v_cranky", "v_smug", "v_child_m")))
             self.assertEqual(rows["line.name.minjun.v_lazy"]["ko"], "저는 민준이에요.")
             self.assertEqual(rows["line.name.minjun.v_child_m"]["ko"], "나는 민준이야.")
+            # without lines in the file the tool writes them in the voice's register
             self.assertEqual(rows["line.name.jiu.v_normal"]["ko"], "저는 지우예요.")
             self.assertEqual(rows["line.name.jiu.v_snooty"]["ko"], "저는 지우입니다.")
             self.assertEqual(rows["line.name.jiu.v_child_f"]["ko"], "나는 지우야.")
-            self.assertIn("line.name.haneul.v_smug", rows)
             self.assertNotIn("line.name.jiu.v_lazy", rows)
 
     def test_event_ids_are_safe_and_unique(self):
         with tempfile.TemporaryDirectory() as tmp:
             for cid, row in self.collect(tmp).items():
-                self.assertRegex(cid, r"^line\.[a-z0-9_]+\.[a-z0-9_]+(\.banmal)?\.[a-z0-9_]+$")
+                self.assertRegex(cid, r"^line\.[a-z0-9_]+\.[a-z0-9_]+\.[a-z0-9_]+$")
                 self.assertTrue(cid.endswith("." + row["voices"][0]))
+
+    def test_other_event_names_in_the_engine_stop_the_tool(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self.repo(tmp)
+            path = root / dialogue_texts.ASSETS / "data/voices.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+            data["events"]["banmal"] = "hangulquest:line.<dialogueId>.<nodeId>.banmal.<voiceId>"
+            write_json(path, data)
+            with self.assertRaisesRegex(dialogue_texts.ContentError, "differently"):
+                dialogue_texts.collect(root, log=lambda *a, **k: None)
 
     def test_without_engine_data_it_says_so_and_strict_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
             notes = []
             rows, _ = dialogue_texts.collect(self.repo(tmp, engine=False), log=lambda m, **k: notes.append(m))
             self.assertTrue(any("villager-names.json not found" in n for n in notes))
+            self.assertTrue(any("voices.json not found" in n for n in notes))
             self.assertFalse([r for r in rows if r["id"].startswith(("line.name.", "line.req_"))])
+            self.assertIn("line.vt_lazy_plains_intro.hi.v_lazy", {r["id"] for r in rows})
             with self.assertRaises(dialogue_texts.ContentError):
                 dialogue_texts.collect(Path(tmp), strict=True, log=lambda *a, **k: None)
 
@@ -406,14 +416,16 @@ class DialogueLines(unittest.TestCase):
             with self.assertRaisesRegex(dialogue_texts.ContentError, "checkout"):
                 dialogue_texts.collect(Path(tmp), log=lambda *a, **k: None)
 
-    def test_engine_voice_table_overrides_and_unknown_voices_fail(self):
+    def test_engine_speakers_override_and_unknown_voices_fail(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = self.repo(tmp)
-            write_json(root / dialogue_texts.ASSETS / "data/voices.json",
-                       {"personalities": {"LAZY": {"voice": "v_lazy"}}, "speakers": {"elder": "v_cranky"}})
-            rows = self.collect(tmp)
-            self.assertEqual(self.ids(rows, "line.elder."), ["line.elder.hi.v_cranky"])
-            write_json(root / dialogue_texts.ASSETS / "data/voices.json", {"LAZY": "v_sleepy"})
+            path = root / dialogue_texts.ASSETS / "data/voices.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+            write_json(path, {**data, "speakers": {"elder": "v_cranky"}})
+            self.assertEqual(self.ids({r["id"]: r for r in dialogue_texts.collect(root, log=lambda *a, **k: None)[0]},
+                                      "line.elder."), ["line.elder.hi.v_cranky"])
+            data["personalities"]["LAZY"]["voice"] = "v_sleepy"
+            write_json(path, data)
             with self.assertRaisesRegex(dialogue_texts.ContentError, "v_sleepy"):
                 dialogue_texts.collect(root, log=lambda *a, **k: None)
 
@@ -425,7 +437,7 @@ class DialogueLines(unittest.TestCase):
             _, problems = dialogue_texts.collect(root, log=lambda *a, **k: None)
             self.assertTrue(any("placeholder" in p for p in problems))
 
-    def test_romanisation(self):
+    def test_romanisation_for_names_without_an_id(self):
         for ko, roman in (("민준", "minjun"), ("서연", "seoyeon"), ("하늘", "haneul"), ("지우", "jiu"),
                           ("예린", "yerin"), ("다은", "daeun"), ("별라", "byeolla")):
             self.assertEqual(dialogue_texts.romanise(ko), roman)

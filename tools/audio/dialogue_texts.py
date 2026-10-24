@@ -4,25 +4,28 @@
   dialogue_texts.py [--repo <checkout>] [--out <file>] [--strict]
 
 Reads assets/hangulquest/dialogue/*.json, assets/hangulquest/requests/*.json, data/voices.json (personality ->
-voice) and data/villager-names.json (the name pools) of the checkout. The last two come with the 3.1 engine; without
-them the voices come from tools/audio/voices.json and no self-introductions are written (a clear message says so;
---strict makes that an error).
+voice, registers, event names) and data/villager-names.json (names and their self-introduction lines) of the
+checkout. The last two come with the 3.1 engine; without them the voices come from tools/audio/voices.json and no
+self-introductions are written (a clear message says so; --strict makes that an error).
 
-Event ids (PLAN "Audio"; they become hangulquest:<id> sound events, one clip each):
-  line.<dialogueId>.<nodeId>.<voice>            an NPC line
-  line.<dialogueId>.<nodeId>.banmal.<voice>     its ko_banmal variant (villagers who switched to 반말)
-  line.req_<requestId>.<nodeId>.<voice>         a request line (offer, accept, decline, reminder, thanks, ...)
-  line.name.<nameRomanised>.<voice>             the self-introduction "저는 {name}이에요/예요."
+Event ids (data/voices.json "events"; they become hangulquest:<id> sound events, one clip each):
+  line.<dialogueId>.<nodeId>.<voice>                  an NPC line
+  line.<dialogueId>.<nodeId>_banmal.<voice>           its ko_banmal text (villagers who switched to 반말)
+  line.<requestId>.<personality>_<part>.<voice>       a request line (requestId starts with req_; part is offer,
+                                                      accept, decline, reminder or thanks), ..._<part>_banmal. too
+  line.name.<nameId>.<voice>                          the self-introduction (villager-names.json lines.<register>)
+If the engine's "events" say anything else, the tool stops instead of writing names the game never plays.
 
 Which voices say a line:
   - the speaker is a child, or the dialogue is for babies          -> both child voices
-  - the speaker has a fixed persona voice (elder, trader, golem, librarian; voices.json "personas")
+  - the speaker has a fixed persona voice (elder, trader, golem, librarian; tools/audio/voices.json "personas")
                                                                    -> that voice
-  - the dialogue/request/variant is for some personalities         -> their voices
+  - the dialogue is for some personalities (trigger.personalities) -> their voices
   - anything else (shared, e.g. the profession dialogues)          -> all 8 adult personality voices
-  - ko_banmal variants only in the voices of the personalities that can switch to 반말 (LAZY, JOCK, PEPPY, SISTERLY)
-  - a per-personality variant replaces the shared line in that personality's voice
-Player choices are not voiced. A line with a {placeholder} cannot be rendered ahead and is reported.
+  - ko_banmal only in the voices of the personalities that can switch to 반말 (LAZY, JOCK, PEPPY, SISTERLY)
+  - request lines are per personality -> that personality's voice
+  - a name: the 4 adult voices of its gender and the child voice of its gender, in each voice's register
+Player choices and answers are not voiced. A line with a {placeholder} cannot be rendered ahead and is reported.
 """
 import argparse
 import json
@@ -37,11 +40,15 @@ PERSONALITIES = ("LAZY", "JOCK", "CRANKY", "SMUG", "NORMAL", "PEPPY", "SNOOTY", 
 MALE = ("LAZY", "JOCK", "CRANKY", "SMUG")
 BANMAL_OK = ("LAZY", "JOCK", "PEPPY", "SISTERLY")
 CHILD_SPEAKERS = ("child",)
-# containers that hold lines but are not a line's name
-STRUCTURAL = {"nodes", "lines", "variants", "byPersonality", "personalities", "dialogue", "dialogues", "default",
-              "text", "speech"}
-# never lines: what the player says or types, goals, effects, trigger
-NOT_LINES = {"choices", "typed", "effects", "goal", "trigger", "words", "options", "player"}
+REQUEST_PARTS = ("offer", "accept", "decline", "reminder", "thanks")
+BANMAL = "_banmal"
+# what this tool writes; the engine's data/voices.json "events" must say the same
+EVENTS = {
+    "line": "hangulquest:line.<dialogueId>.<nodeId>.<voiceId>",
+    "banmal": "hangulquest:line.<dialogueId>.<nodeId>_banmal.<voiceId>",
+    "request": "hangulquest:line.<requestId>.<personality>_<part>.<voiceId>",
+    "selfIntro": "hangulquest:line.name.<nameId>.<voiceId>",
+}
 SAFE = re.compile(r"[a-z0-9_]+")
 
 
@@ -52,12 +59,13 @@ class ContentError(Exception):
 # ---------------------------------------------------------------- voices
 
 class VoiceTable:
-    """personality -> voice, child voices by gender, speaker -> fixed voice."""
+    """personality -> voice, child voices by gender, speaker -> fixed voice, voice -> register."""
 
-    def __init__(self, personality, child, persona):
+    def __init__(self, personality, child, persona, register=None):
         self.personality = personality
         self.child = child
         self.persona = persona
+        self.register = register or {}
 
     @property
     def adults(self):
@@ -74,6 +82,13 @@ class VoiceTable:
         pers = MALE if gender == "male" else tuple(p for p in PERSONALITIES if p not in MALE)
         return self.of(pers) + ([self.child[gender]] if gender in self.child else [])
 
+    def register_of(self, voice):
+        if voice in self.register:
+            return self.register[voice]
+        if voice in self.children:
+            return "banmal"
+        return "hapsyo" if voice == self.personality.get("SNOOTY") else "haeyo"
+
     def all(self):
         return set(self.adults) | set(self.children) | set(self.persona.values())
 
@@ -89,39 +104,32 @@ def table_from_tools(cfg):
     return VoiceTable(personality, child, persona)
 
 
-def _voice_of(value):
-    if isinstance(value, str):
-        return value
-    if isinstance(value, dict):
-        return value.get("voice") or value.get("id")
-    return None
-
-
 def table_from_engine(data, fallback):
-    """data/voices.json of the engine. Accepts personality ids as keys anywhere at the top or one level down
-    ({"personalities": {"LAZY": "v_lazy"}} or {"LAZY": {"voice": "v_lazy"}}), child voices under "child"/"children"/
-    "baby" keyed male/female/boy/girl, fixed speakers under "speakers"/"personas". What it leaves out comes from
-    tools/audio/voices.json."""
-    personality, child, persona = dict(fallback.personality), dict(fallback.child), dict(fallback.persona)
-    scopes = [data] + [v for v in data.values() if isinstance(v, dict)]
-    for scope in scopes:
-        for key, value in scope.items():
-            if key.upper() in PERSONALITIES and _voice_of(value):
-                personality[key.upper()] = _voice_of(value)
-    for key in ("child", "children", "baby", "babies"):
-        block = data.get(key)
-        if isinstance(block, dict):
-            for g, names in (("male", ("male", "boy", "m")), ("female", ("female", "girl", "f"))):
-                for n in names:
-                    if _voice_of(block.get(n)):
-                        child[g] = _voice_of(block[n])
-    for key in ("speakers", "personas"):
-        block = data.get(key)
-        if isinstance(block, dict):
-            for name, value in block.items():
-                if _voice_of(value):
-                    persona[name] = _voice_of(value)
-    return VoiceTable(personality, child, persona)
+    """data/voices.json of the engine: {"personalities": {"LAZY": {"voice", "gender", "register"}}, "children":
+    {"male", "female", "register"}, "speakers"?: {"elder": "male1"}}. Fixed speakers it leaves out come from
+    tools/audio/voices.json "personas"."""
+    events = data.get("events")
+    if events:
+        # a template may carry a remark after it: "hangulquest:line.<...>.<voiceId> (requestId starts with req_)"
+        changed = {k: v for k, v in events.items() if k in EVENTS and v.split()[0] != EVENTS[k]}
+        if changed or set(EVENTS) - set(events):
+            raise ContentError(f"data/voices.json names the sound events differently from this tool: {changed or events}")
+    personality, register = {}, {}
+    for pid, entry in data.get("personalities", {}).items():
+        pid = pid.upper()
+        if pid not in PERSONALITIES or not isinstance(entry, dict) or "voice" not in entry:
+            raise ContentError(f"data/voices.json: personality {pid} needs a voice")
+        personality[pid] = entry["voice"]
+        if entry.get("register"):
+            register[entry["voice"]] = entry["register"]
+    kids = data.get("children", {})
+    child = {g: kids[g] for g in ("male", "female") if isinstance(kids.get(g), str)}
+    for v in child.values():
+        if kids.get("register"):
+            register[v] = kids["register"]
+    persona = dict(fallback.persona)
+    persona.update({k: v if isinstance(v, str) else v["voice"] for k, v in data.get("speakers", {}).items()})
+    return VoiceTable(personality or dict(fallback.personality), child or dict(fallback.child), persona, register)
 
 
 # ---------------------------------------------------------------- names
@@ -135,7 +143,7 @@ _FINAL = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k", "m", "l", "l", "l", "
 
 def romanise(name: str) -> str:
     """Revised Romanization, syllable by syllable without sound changes (how given names are usually written):
-    민준 -> minjun, 서연 -> seoyeon, 하늘 -> haneul. Only [a-z]."""
+    민준 -> minjun, 서연 -> seoyeon, 하늘 -> haneul. Only used when a name comes without an id."""
     out, prev_final = [], ""
     for ch in name:
         code = ord(ch) - 0xAC00
@@ -143,8 +151,8 @@ def romanise(name: str) -> str:
             raise ContentError(f"name {name!r} is not plain Hangul")
         initial, vowel, final = code // 588, (code % 588) // 28, code % 28
         ini = _INITIAL[initial]
-        if ini == "r" and (not out or prev_final == "l"):
-            ini = "l" if out else "r"
+        if ini == "r" and out and prev_final == "l":
+            ini = "l"
         out.append(ini + _VOWEL[vowel] + _FINAL[final])
         prev_final = _FINAL[final]
     return "".join(out)
@@ -155,7 +163,8 @@ def has_batchim(name: str) -> bool:
 
 
 def self_intro(name: str, register: str) -> str:
-    """The one line with a name. 해요체 이에요/예요, 합쇼체 입니다 (SNOOTY), 반말 이야/야 (children)."""
+    """The one line with a name, when villager-names.json does not spell it out: 해요체 이에요/예요, 합쇼체 입니다,
+    반말 이야/야."""
     if register == "hapsyo":
         return f"저는 {name}입니다."
     if register == "banmal":
@@ -163,52 +172,31 @@ def self_intro(name: str, register: str) -> str:
     return f"저는 {name}{'이에요' if has_batchim(name) else '예요'}."
 
 
-def name_pools(data):
-    """data/villager-names.json -> {"male": [(ko, roman)], "female": [...]}. Accepts {"male": [...], "female": [...]}
-    at the top or under "pools"/"names"; entries are strings or {"ko"/"name", "roman"/"romanised"/"id"}."""
-    pools = data
-    for key in ("pools", "names"):
-        if isinstance(data.get(key), dict):
-            pools = data[key]
-    out = {}
-    for gender in ("male", "female"):
-        rows = []
-        for entry in pools.get(gender, []):
-            if isinstance(entry, str):
-                ko, roman = entry, None
-            else:
-                ko = entry.get("ko") or entry.get("name")
-                roman = entry.get("roman") or entry.get("romanised") or entry.get("romanized") or entry.get("id")
-            roman = (roman or romanise(ko)).lower()
-            if not SAFE.fullmatch(roman):
-                raise ContentError(f"name {ko}: romanisation {roman!r} is not [a-z0-9_]")
-            rows.append((ko, roman))
-        out[gender] = rows
-    if not out["male"] and not out["female"]:
-        raise ContentError("villager-names.json has no male/female pools")
-    return out
-
-
-def name_rows(pools, table):
+def name_rows(data, table):
+    """villager-names.json {"names": [{"ko", "gender", "id", "lines": {"haeyo", "hapsyo", "banmal"}}]}."""
     rows = []
-    for gender, names in pools.items():
-        for ko, roman in names:
-            for voice in table.by_gender(gender):
-                register = "banmal" if voice in table.children else (
-                    "hapsyo" if voice == table.personality.get("SNOOTY") else "haeyo")
-                rows.append({"id": f"line.name.{roman}.{voice}", "ko": self_intro(ko, register), "voices": [voice],
-                             "rule": "name"})
+    for entry in data.get("names", []):
+        ko, gender = entry["ko"], entry.get("gender")
+        if gender not in ("male", "female"):
+            raise ContentError(f"name {ko}: gender must be male or female")
+        nid = entry.get("id") or romanise(ko)
+        if not SAFE.fullmatch(nid):
+            raise ContentError(f"name {ko}: id {nid!r} is not [a-z0-9_]")
+        for voice in table.by_gender(gender):
+            register = table.register_of(voice)
+            text = entry.get("lines", {}).get(register) or self_intro(ko, register)
+            rows.append({"id": f"line.name.{nid}.{voice}", "ko": text, "voices": [voice], "rule": "name"})
+    if not rows:
+        raise ContentError("villager-names.json has no names")
     return rows
 
 
 # ---------------------------------------------------------------- lines
 
-def personalities_of(obj):
-    """The personality filter of a dialogue, trigger, request or variant, as a set (empty = no filter)."""
+def personalities_of(doc):
+    """The personality filter of a dialogue (trigger.personalities, or "personality"), as a set; empty = shared."""
     found = set()
-    for holder in (obj, obj.get("trigger") if isinstance(obj.get("trigger"), dict) else None):
-        if not holder:
-            continue
+    for holder in (doc, doc.get("trigger") or {}):
         for key in ("personality", "personalities"):
             value = holder.get(key)
             if isinstance(value, str):
@@ -217,75 +205,71 @@ def personalities_of(obj):
                 found |= {str(p).upper() for p in value}
     unknown = found - set(PERSONALITIES)
     if unknown:
-        raise ContentError(f"unknown personality {sorted(unknown)}")
+        raise ContentError(f"{doc.get('id')}: unknown personality {sorted(unknown)}")
     return found
 
 
-def is_baby(obj):
-    trigger = obj.get("trigger") if isinstance(obj.get("trigger"), dict) else {}
-    return trigger.get("baby") is True or obj.get("baby") is True
-
-
-def walk_lines(node, path=(), personality=None):
-    """Yield (nodeId, personality or None, line dict) for every dict with a Korean "ko" string. The node id is the
-    nearest key on the path that is neither structural nor a personality id; a personality key on the path makes
-    the line that personality's variant."""
-    if isinstance(node, dict):
-        if isinstance(node.get("ko"), str) and path:
-            names = [k for k in path if k not in STRUCTURAL and k.upper() not in PERSONALITIES]
-            if names:
-                yield names[-1], personality, node
-        for key, value in node.items():
-            if key in NOT_LINES or not isinstance(value, (dict, list)):
-                continue
-            pers = key.upper() if key.upper() in PERSONALITIES else personality
-            yield from walk_lines(value, path + (key,), pers)
-    elif isinstance(node, list):
-        for value in node:
-            yield from walk_lines(value, path, personality)
-
-
-def voices_for(line, table, filt, baby, variant):
-    speaker = line.get("speaker")
+def voices_for(speaker, table, filt, baby):
     if baby or speaker in CHILD_SPEAKERS:
         return table.children, "child"
     if speaker in table.persona:
         return [table.persona[speaker]], "persona"
-    if variant:
-        return table.of({variant}), "personality"
     if filt:
         return table.of(filt), "personality"
     return table.adults, "shared"
 
 
-def doc_rows(prefix, doc, body, table, problems):
-    """Rows for one dialogue (prefix = its id) or request (prefix = req_<id>)."""
-    filt, baby = personalities_of(doc), is_baby(doc)
-    lines = list(walk_lines(body))
-    # a personality with its own variant of a node never hears the shared one
-    own = {}
-    for nid, pers, _ in lines:
-        if pers:
-            own.setdefault(nid, set()).add(pers)
+def line_rows(prefix, nid, ko, ko_banmal, voices, rule, table, problems):
+    """One row per voice for the line, and for its 반말 text one per voice that can switch."""
     rows = []
-    for nid, pers, line in lines:
-        if not SAFE.fullmatch(nid):
-            problems.append(f"{prefix}: node id {nid!r} is not [a-z0-9_]")
+    switch = table.of(BANMAL_OK)
+    for text, suffix, vs, r in ((ko, "", voices, rule),
+                                (ko_banmal, BANMAL, [v for v in voices if v in switch], rule + "+banmal")):
+        if not isinstance(text, str) or not text.strip():
             continue
-        voices, rule = voices_for(line, table, filt, baby, pers)
-        if not pers and rule in ("shared", "personality"):
-            skip = set(table.of(own.get(nid, set())))
-            voices = [v for v in voices if v not in skip]
-        for text, suffix, vs in ((line["ko"], "", voices),
-                                 (line.get("ko_banmal"), ".banmal", [v for v in voices if v in table.of(BANMAL_OK)])):
-            if not isinstance(text, str) or not text.strip():
+        if "{" in text:
+            problems.append(f"{prefix}.{nid}: placeholder in {text!r}, cannot be rendered ahead")
+            continue
+        for v in vs:
+            rows.append({"id": f"line.{prefix}.{nid}{suffix}.{v}", "ko": text.strip(), "voices": [v], "rule": r})
+    return rows
+
+
+def dialogue_rows(doc, table, problems):
+    did = doc["id"]
+    filt = personalities_of(doc)
+    baby = (doc.get("trigger") or {}).get("baby") is True
+    rows = []
+    for nid, node in doc.get("nodes", {}).items():
+        if not SAFE.fullmatch(nid):
+            problems.append(f"{did}: node id {nid!r} is not [a-z0-9_]")
+            continue
+        if not isinstance(node.get("ko"), str):
+            continue  # the self-introduction node (selfIntro) and the like: voiced from the name list
+        voices, rule = voices_for(node.get("speaker"), table, filt, baby)
+        rows += line_rows(did, nid, node["ko"], node.get("ko_banmal"), voices, rule, table, problems)
+    return rows
+
+
+def request_rows(doc, table, problems):
+    """{"id": "req_...", "lines": {"LAZY": {"offer": "..." | {"ko", "ko_banmal"}, ...}, ...}}; "answers" are the
+    player's."""
+    rid = doc["id"]
+    if not rid.startswith("req_") or not SAFE.fullmatch(rid):
+        problems.append(f"request id {rid!r} must be req_[a-z0-9_]+")
+        return []
+    rows = []
+    for pid, parts in doc.get("lines", {}).items():
+        if pid.upper() not in PERSONALITIES:
+            problems.append(f"{rid}: unknown personality {pid}")
+            continue
+        for part, line in parts.items():
+            if part not in REQUEST_PARTS:
+                problems.append(f"{rid}.{pid}: unknown part {part}")
                 continue
-            if "{" in text:
-                problems.append(f"{prefix}.{nid}: placeholder in {text!r}, cannot be rendered ahead")
-                continue
-            for v in vs:
-                rows.append({"id": f"line.{prefix}.{nid}{suffix}.{v}", "ko": text.strip(), "voices": [v],
-                             "rule": rule + ("+banmal" if suffix else "")})
+            ko, banmal = (line, None) if isinstance(line, str) else (line.get("ko"), line.get("ko_banmal"))
+            rows += line_rows(rid, f"{pid.lower()}_{part}", ko, banmal, table.of({pid.upper()}), "request",
+                              table, problems)
     return rows
 
 
@@ -319,26 +303,18 @@ def collect(repo, cfg=None, strict=False, log=print):
 
     rows = []
     for path in sorted((assets / "dialogue").glob("*.json")):
-        if path.name.startswith("_"):
-            continue
-        doc = load_json(path)
-        did = doc.get("id", path.stem)
-        rows += doc_rows(did, doc, doc.get("nodes", {}), table, problems)
+        if not path.name.startswith("_"):
+            rows += dialogue_rows({"id": path.stem, **load_json(path)}, table, problems)
     req_dir = assets / "requests"
     if req_dir.is_dir():
         for path in sorted(req_dir.glob("*.json")):
-            if path.name.startswith("_"):
-                continue
-            doc = load_json(path)
-            rid = doc.get("id", path.stem)
-            body = {k: v for k, v in doc.items() if k not in ("id", "level", "regions", "professions", "kind",
-                                                               "personalities", "personality", "schema")}
-            rows += doc_rows(f"req_{rid}", doc, body, table, problems)
+            if not path.name.startswith("_"):
+                rows += request_rows({"id": path.stem, **load_json(path)}, table, problems)
     else:
         notes.append(f"{req_dir.relative_to(repo)} not found: no request lines")
     names_file = assets / "data" / "villager-names.json"
     if names_file.exists():
-        rows += name_rows(name_pools(load_json(names_file)), table)
+        rows += name_rows(load_json(names_file), table)
     else:
         notes.append(f"{names_file.relative_to(repo)} not found (the 3.1 engine adds it): no self-introduction lines")
     for note in notes:

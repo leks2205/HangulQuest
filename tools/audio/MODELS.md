@@ -132,8 +132,9 @@ children > 230 Hz; CRANKY the lowest man, PEPPY the highest woman). Seeds and nu
 (`reference`). This model makes young men high: the word voices male1/male2 measure 176/208 Hz, and JOCK needed a
 fourth design text ("low-pitched coach") before a seed came in under 165 Hz.
 
-Lines: `dialogue_texts.py` writes one row per line and voice (`line.<dialogue>.<node>.<voice>`, `.banmal.` variants,
-`line.req_<request>.<node>.<voice>`, `line.name.<roman>.<voice>`) with a `voices` field; `render.py` renders a row
+Lines: `dialogue_texts.py` writes one row per line and voice with a `voices` field, under the event names the engine
+declares in `data/voices.json` "events" (`line.<dialogue>.<node>.<voice>`, `line.<dialogue>.<node>_banmal.<voice>`,
+`line.<req_id>.<personality>_<part>.<voice>`, `line.name.<nameId>.<voice>`; the tool stops if they change); `render.py` renders a row
 only in those voices, `qa.py` gates them like the rest (CER 0.15), `build_pack.py` packs each as an event with one
 clip. Pipeline:
 
