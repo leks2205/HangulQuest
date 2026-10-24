@@ -60,6 +60,19 @@ and the quest and word text (titles, clues, hints, finale lines, word glosses) i
 `src/main/resources/assets/hangulquest/lang/content/`. Both are flat key/value files, one per language;
 German may have gaps (it falls back to English), English may not.
 
+## Contributing villager conversations and requests
+
+Villager conversations (`assets/hangulquest/dialogue/`) and villager requests (`assets/hangulquest/requests/`) follow
+`content/briefs/VILLAGERS.md`: the JSON of every kind, the id scheme, the glosses and every rule a line must pass
+(speech level per personality, no names, at most one new word per line, grammar within the level). Draft them in a
+folder of your own and check it with
+
+```
+python3 tools/validate_dialogue_drafts.py <folder>
+```
+
+until it prints `DRAFTS OK`; then copy the files in and run `tools/gates.sh`.
+
 ## Fixing a translation
 
 English is the source language and Korean is never translated. Other languages are drafted by a machine
