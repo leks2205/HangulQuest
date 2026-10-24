@@ -4,7 +4,7 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
-## [Unreleased]
+## [3.1.0] — 2026-10-24
 
 ### Added
 
@@ -26,6 +26,12 @@ explicitly, because a mod for 26.3 is not a mod for anything else.
   region, profession, hearts and the open request (track, untrack, abandon).
 - **Villagers speak.** With a voice pack that has the lines, each conversation line is spoken in the villager's
   own voice (one per personality, two for children); `R` or the play mark repeats it. Without one it stays silent.
+- **Content.** 277 personality conversations (56 introductions, 112 small talk, 24 friendship talks, 4 반말 offers,
+  16 children's talks and the nine old profession talks rewritten for every personality) and 58 regional requests:
+  3,869 Korean lines, all with English and German glosses. The nine conversations without a personality (farm,
+  library, fishing, smithy, maps, cleric, greetings, child, elder) are gone.
+- **Voices 1.2.0.** Every conversation line has a clip in its villager's voice (eight adult voices and two children's
+  voices, Qwen3-TTS, Apache-2.0); `R` repeats it. The pack is optional, as before.
 - For content authors: `python3 tools/validate_dialogue_drafts.py <folder>` checks drafted conversations and requests
   before they are copied in (see `content/briefs/VILLAGERS.md`).
 
