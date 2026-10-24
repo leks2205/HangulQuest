@@ -48,8 +48,8 @@ def load_voices():
 
 
 def default_voices(cfg):
-    """The voices a plain render uses: everything except the held-out ones."""
-    return [name for name, voice in cfg["voices"].items() if not voice.get("hvpt_only")]
+    """The voices a plain render uses: the word voices (not the held-out ones, not the villager voices)."""
+    return [name for name, voice in cfg["voices"].items() if not voice.get("hvpt_only") and not voice.get("lines_only")]
 
 
 _PUNCT = re.compile(r"[\s​.,!?~…'\"“”‘’()\[\]{}:;·\-–—/]+")

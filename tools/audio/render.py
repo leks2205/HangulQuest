@@ -119,9 +119,14 @@ def make_reference(engine, cfg, name, voice):
     ref.parent.mkdir(parents=True, exist_ok=True)
     model = engine.load("design", cfg["model"]["repos"]["design"])
     engine.seed(voice["seed"])
-    wavs, sr = model.generate_voice_design(text=cfg["ref_text"], instruct=voice["design"], language=LANGUAGE)
+    wavs, sr = model.generate_voice_design(text=ref_text(cfg, voice), instruct=voice["design"], language=LANGUAGE)
     write_wav(ref, wavs[0], sr)
     return ref
+
+
+def ref_text(cfg, voice):
+    """The villager voices say a line in their own register; the word voices share one sentence."""
+    return voice.get("ref_text", cfg["ref_text"])
 
 
 def file_sha1(path: Path) -> str:
@@ -161,7 +166,7 @@ def render_voice(engine, cfg, name, voice, rows, out_dir, batch, salt=""):
             text=texts, speaker=[voice["speaker"]] * len(texts), language=[LANGUAGE] * len(texts))
     else:
         model = engine.load("base", repos["base"])
-        prompt = model.create_voice_clone_prompt(ref_audio=str(ref), ref_text=cfg["ref_text"])
+        prompt = model.create_voice_clone_prompt(ref_audio=str(ref), ref_text=ref_text(cfg, voice))
         generate = lambda texts: model.generate_voice_clone(
             text=texts, language=[LANGUAGE] * len(texts), voice_clone_prompt=prompt * len(texts))
 
