@@ -39,8 +39,8 @@ public final class DialogueHook {
 	private static volatile DialogueContent content = DialogueContent.EMPTY;
 	/** Set by the click, taken by the next tick; main thread only. */
 	private static Pending pending;
-	private static VillagerNames names;
-	private static Path namesDir;
+	private static io.github.leks2205.hangulquest.villager.VillagerProfiles profiles;
+	private static Path profilesDir;
 
 	private DialogueHook() {
 	}
@@ -118,10 +118,10 @@ public final class DialogueHook {
 
 	private static String nameOf(LearningService learn, UUID npc) {
 		Path dir = learn.store().file().toAbsolutePath().getParent();
-		if (names == null || !dir.equals(namesDir)) {
-			names = VillagerNames.open(dir, LOG);
-			namesDir = dir;
+		if (profiles == null || !dir.equals(profilesDir)) {
+			profiles = io.github.leks2205.hangulquest.villager.VillagerProfiles.open(dir, LOG);
+			profilesDir = dir;
 		}
-		return names.nameFor(npc);
+		return profiles.meet(npc, null, false, null, System.currentTimeMillis()).profile().name;
 	}
 }

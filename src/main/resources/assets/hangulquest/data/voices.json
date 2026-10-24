@@ -1,0 +1,89 @@
+{
+	"schema": 1,
+	"about": "Voice of every villager personality and of children, read by the game (VoiceTable) and the voice tooling. A personality-specific line renders only in its personality's voice; a shared line (a profession conversation) renders in every adult voice; a child conversation in both child voices. A villager who accepted banmal speaks the ko_banmal text in the same voice.",
+	"personalities": {
+		"LAZY": {
+			"voice": "v_lazy",
+			"gender": "male",
+			"register": "haeyo"
+		},
+		"JOCK": {
+			"voice": "v_jock",
+			"gender": "male",
+			"register": "haeyo"
+		},
+		"CRANKY": {
+			"voice": "v_cranky",
+			"gender": "male",
+			"register": "haeyo"
+		},
+		"SMUG": {
+			"voice": "v_smug",
+			"gender": "male",
+			"register": "haeyo"
+		},
+		"NORMAL": {
+			"voice": "v_normal",
+			"gender": "female",
+			"register": "haeyo"
+		},
+		"PEPPY": {
+			"voice": "v_peppy",
+			"gender": "female",
+			"register": "haeyo"
+		},
+		"SNOOTY": {
+			"voice": "v_snooty",
+			"gender": "female",
+			"register": "hapsyo"
+		},
+		"SISTERLY": {
+			"voice": "v_sisterly",
+			"gender": "female",
+			"register": "haeyo"
+		}
+	},
+	"children": {
+		"male": "v_child_m",
+		"female": "v_child_f",
+		"register": "banmal"
+	},
+	"voices": {
+		"v_lazy": {
+			"design": "young man, 20s, soft, slow, sleepy-cheerful, slightly nasal, relaxed"
+		},
+		"v_jock": {
+			"design": "young man, 20s, energetic, loud, bright, fast-ish but clear"
+		},
+		"v_cranky": {
+			"design": "man, 60s, low, gravelly, curt, slow"
+		},
+		"v_smug": {
+			"design": "man, 30s, smooth, mellow, confident, slightly theatrical"
+		},
+		"v_normal": {
+			"design": "woman, 30s, gentle, warm, calm"
+		},
+		"v_peppy": {
+			"design": "young woman, late teens or 20, high, bubbly, excited"
+		},
+		"v_snooty": {
+			"design": "woman, 30s, elegant, cool, precise, a little haughty"
+		},
+		"v_sisterly": {
+			"design": "woman, 30s, husky, confident, brisk, friendly"
+		},
+		"v_child_m": {
+			"design": "boy around 8 to 10"
+		},
+		"v_child_f": {
+			"design": "girl around 8 to 10"
+		}
+	},
+	"events": {
+		"line": "hangulquest:line.<dialogueId>.<nodeId>.<voiceId>",
+		"banmal": "hangulquest:line.<dialogueId>.<nodeId>_banmal.<voiceId>",
+		"request": "hangulquest:line.<requestId>.<personality>_<part>.<voiceId> (requestId starts with req_; part is offer, accept, decline, reminder or thanks)",
+		"selfIntro": "hangulquest:line.name.<nameId>.<voiceId> (text in villager-names.json, lines.<register>)"
+	}
+}
