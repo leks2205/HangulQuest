@@ -1,0 +1,81 @@
+{
+	"schema": 1,
+	"id": "vt_normal_ms6",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 6,
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오세요! 저는 매일 기다려요.",
+			"next": "pot"
+		},
+		"pot": {
+			"speaker": "villager",
+			"ko": "창문 옆에 화분이 하나 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:flower_pot"
+					]
+				}
+			],
+			"next": "yours"
+		},
+		"yours": {
+			"speaker": "villager",
+			"ko": "그 꽃은 친구가 준 꽃이에요. 매일 물을 줘요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:flower",
+						"concept:water"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "무슨 꽃이 좋아요?",
+			"choices": [
+				{
+					"ko": "민들레가 좋아요.",
+					"next": "dandelion"
+				},
+				{
+					"ko": "튤립이 좋아요.",
+					"next": "tulip"
+				}
+			]
+		},
+		"dandelion": {
+			"speaker": "villager",
+			"ko": "민들레요? 노란색이 참 예뻐요. 내일 심고 싶어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:dandelion"
+					]
+				}
+			],
+			"end": true
+		},
+		"tulip": {
+			"speaker": "villager",
+			"ko": "튤립이 좋아요? 좋아요! 빨간색 튤립을 같이 심어요.",
+			"end": true
+		}
+	}
+}

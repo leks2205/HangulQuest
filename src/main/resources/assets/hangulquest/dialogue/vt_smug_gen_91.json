@@ -1,0 +1,113 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나는 꽃이 정말 좋아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:flower"
+					]
+				}
+			],
+			"next": "pose"
+		},
+		"pose": {
+			"speaker": "child",
+			"ko": "봐, 머리에 민들레가 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:dandelion"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "나 멋있어?",
+			"choices": [
+				{
+					"ko": "응, 정말 멋있어!",
+					"next": "proud",
+					"speechLevel": "banmal"
+				},
+				{
+					"ko": "응, 조금 이상해.",
+					"next": "art",
+					"speechLevel": "banmal"
+				}
+			]
+		},
+		"proud": {
+			"speaker": "child",
+			"ko": "헤헤, 완벽해!",
+			"next": "apple"
+		},
+		"art": {
+			"speaker": "child",
+			"ko": "아니야, 이건 예술이야!",
+			"next": "apple"
+		},
+		"apple": {
+			"speaker": "child",
+			"ko": "나는 사과가 있어. 너는 뭐가 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "나는 빵이 있어.",
+					"next": "friends",
+					"speechLevel": "banmal",
+					"correct": true
+				},
+				{
+					"ko": "저는 빵이 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			],
+			"grammar": "L6.banmal"
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "좋아! 같이 먹자! 우리는 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend",
+						"concept:bread"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "잘 가! 또 봐!",
+			"end": true
+		}
+	}
+}

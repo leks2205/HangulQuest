@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_normal_savanna_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아, 안녕하세요! 어서 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "horse"
+		},
+		"horse": {
+			"speaker": "villager",
+			"ko": "여기는 말이 많아요. 말이 정말 빨라요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:horse"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "말을 타요?",
+			"choices": [
+				{
+					"ko": "네, 말을 타요.",
+					"next": "ride"
+				},
+				{
+					"ko": "아니요, 조금 무서워요.",
+					"next": "scared"
+				}
+			]
+		},
+		"ride": {
+			"speaker": "villager",
+			"ko": "우와, 멋져요! 저는 말이 조금 무서워요.",
+			"end": true
+		},
+		"scared": {
+			"speaker": "villager",
+			"ko": "저도요! 말은 너무 빨라요. 후유.",
+			"end": true
+		}
+	}
+}

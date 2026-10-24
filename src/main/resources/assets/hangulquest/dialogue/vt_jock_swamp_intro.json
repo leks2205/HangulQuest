@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_jock_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "으랏차! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "mud"
+		},
+		"mud": {
+			"speaker": "villager",
+			"ko": "늪은 진흙이 많아요! 달리기 힘들어요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_mud"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "그래서 개구리와 같이 뛰어요! 개구리 좋아요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 안 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "하하! 개구리 다리는 정말 튼튼해요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 그래도 개구리 점프는 최고예요!",
+			"end": true
+		}
+	}
+}

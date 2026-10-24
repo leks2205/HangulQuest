@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "꺄! 안녕하세요! 반가워요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "parrot"
+		},
+		"parrot": {
+			"speaker": "villager",
+			"ko": "주크박스 노래에 앵무새가 춤을 춰요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:parrot",
+						"concept:jukebox"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저도 앵무새와 같이 춤을 춰요! 같이 춰요?",
+			"choices": [
+				{
+					"ko": "네, 같이 춰요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 부끄러워요.",
+					"next": "shy"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "와아! 앵무새도 신나요! 진짜진짜 최고예요!",
+			"end": true
+		},
+		"shy": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 그럼 박수만 쳐요!",
+			"end": true
+		}
+	}
+}

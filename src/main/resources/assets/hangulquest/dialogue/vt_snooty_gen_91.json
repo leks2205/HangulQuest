@@ -1,0 +1,96 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "흥, 안녕. 나는 사과를 좋아해.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 사과를 좋아해?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 좋아해.",
+					"next": "yay",
+					"speechLevel": "banmal",
+					"correct": true
+				},
+				{
+					"ko": "네, 저도 좋아합니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"yay": {
+			"speaker": "child",
+			"ko": "흥, 그래? 나쁘지 않아.",
+			"next": "ask_more"
+		},
+		"ask_more": {
+			"speaker": "child",
+			"ko": "나는 빵이 있어. 너는 뭐가 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread"
+					]
+				}
+			],
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 사과가 있어.",
+					"next": "friends",
+					"speechLevel": "banmal",
+					"correct": true
+				},
+				{
+					"ko": "저는 사과가 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "좋아! 그럼 우리 친구야.",
+			"next": "bye",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			]
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "잘 가! 또 봐!",
+			"end": true
+		}
+	}
+}

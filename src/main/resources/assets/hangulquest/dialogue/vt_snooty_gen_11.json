@@ -1,0 +1,90 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_11",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"profession": "minecraft:farmer"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까. 저는 농부입니다.",
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "제 밭의 밀이 아주 좋습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "당근과 감자가 있습니다. 무엇이 필요하십니까?",
+			"choices": [
+				{
+					"ko": "당근이 필요해요.",
+					"next": "carrot"
+				},
+				{
+					"ko": "감자가 필요해요.",
+					"next": "potato"
+				}
+			]
+		},
+		"carrot": {
+			"speaker": "villager",
+			"ko": "당근은 밭에 심습니다. 주황색이 곱습니다.",
+			"next": "bye",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carrot",
+						"concept:plant"
+					]
+				}
+			]
+		},
+		"potato": {
+			"speaker": "villager",
+			"ko": "감자도 밭에 심습니다. 흙이 많이 묻습니다.",
+			"next": "bye",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:potato",
+						"concept:plant"
+					]
+				}
+			]
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "밭에 물이 필요합니다. 안녕히 가십시오.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:water"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"schema": 1,
+	"id": "req_jungle_03",
+	"level": 4,
+	"kind": "SHOW",
+	"regions": [
+		"JUNGLE"
+	],
+	"show": {
+		"item": "minecraft:cake",
+		"count": 1
+	},
+	"words": [
+		"concept:cake"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"personalities": [
+		"NORMAL",
+		"SNOOTY"
+	],
+	"lines": {
+		"NORMAL": {
+			"offer": "어머, 내일 마을에 사람이 많이 와요. 케이크를 만들 거예요. 좋은 케이크를 보여 주세요.",
+			"accept": "고마워요! 케이크를 기다려요.",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "케이크가 안 보여요?",
+			"thanks": "어머, 케이크예요! 정말 고마워요! 다행이에요."
+		},
+		"SNOOTY": {
+			"offer": "어머, 내일 마을에 사람이 많이 옵니다. 케이크를 만들겠습니다. 좋은 케이크를 보여 주십시오.",
+			"accept": "감사합니다. 케이크를 기다리겠습니다.",
+			"decline": "괜찮습니다.",
+			"reminder": "케이크는 아직 없습니까?",
+			"thanks": "어머, 좋은 케이크입니다. 감사합니다. 나쁘지 않습니다."
+		}
+	}
+}

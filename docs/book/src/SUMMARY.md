@@ -8,6 +8,7 @@
 - [Playing](playing.md)
 - [Hints and sidequests](hints.md)
 - [The journal](journal.md)
+- [Villagers](villagers.md)
 - [Vocabulary](vocabulary.md)
 - [Review, streak and achievements](review.md)
 - [Files and backups](files.md)

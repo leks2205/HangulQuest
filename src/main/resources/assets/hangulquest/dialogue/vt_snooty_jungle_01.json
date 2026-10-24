@@ -1,0 +1,79 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_jungle_01",
+	"level": 5,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 마침 잘 오셨습니다. 어젯밤에 정말 놀랐습니다.",
+			"next": "creeper"
+		},
+		"creeper": {
+			"speaker": "villager",
+			"ko": "창문 밖에서 크리퍼 소리가 들렸습니다. 문을 잠갔습니다.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:creeper"
+					]
+				}
+			],
+			"next": "parrot"
+		},
+		"parrot": {
+			"speaker": "villager",
+			"ko": "아침에 보니 앵무새만 있었습니다.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:parrot"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "이 새가 소리를 흉내 낸다는 것을 아십니까?",
+			"choices": [
+				{
+					"ko": "네, 알고 있었어요.",
+					"next": "knew"
+				},
+				{
+					"ko": "아니요, 처음 들었어요.",
+					"next": "new"
+				}
+			]
+		},
+		"knew": {
+			"speaker": "villager",
+			"ko": "호호, 역시 박식합니다. 다음에는 저에게 미리 알려 주십시오.",
+			"next": "manners"
+		},
+		"new": {
+			"speaker": "villager",
+			"ko": "어머, 그렇습니까? 그 새는 몬스터 소리를 흉내 냅니다.",
+			"next": "manners"
+		},
+		"manners": {
+			"speaker": "villager",
+			"ko": "하지만 한밤중에는 조용해야 합니다.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,70 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "꺄! 안녕하세요! 처음 봐요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "singer"
+		},
+		"singer": {
+			"speaker": "villager",
+			"ko": "저는 마을의 가수예요! 노래가 최고예요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:village",
+						"concept:song"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "제 노래 듣고 싶어요?",
+			"choices": [
+				{
+					"ko": "네, 듣고 싶어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 괜찮아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "랄라라! 어때요? 진짜진짜 최고예요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 내일 또 노래해요!",
+			"end": true
+		}
+	}
+}

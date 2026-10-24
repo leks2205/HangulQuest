@@ -8,13 +8,16 @@ import io.github.leks2205.hangulquest.dialogue.DialogueCoverage;
 import io.github.leks2205.hangulquest.dialogue.DialogueFixtures;
 import io.github.leks2205.hangulquest.dialogue.DialogueLexicon;
 import io.github.leks2205.hangulquest.dialogue.DialogueParser;
-import io.github.leks2205.hangulquest.dialogue.DialogueTrigger;
+import io.github.leks2205.hangulquest.dialogue.DialogueSet;
 import io.github.leks2205.hangulquest.dialogue.DialogueValidator;
 import io.github.leks2205.hangulquest.dialogue.SpeechLevel;
 import io.github.leks2205.hangulquest.dialogue.Speaker;
 import io.github.leks2205.hangulquest.util.Lang;
+import io.github.leks2205.hangulquest.villager.ConversationSelector;
+import io.github.leks2205.hangulquest.villager.Personality;
 import io.github.leks2205.hangulquest.villager.Request;
 import io.github.leks2205.hangulquest.villager.RequestFixtures;
+import io.github.leks2205.hangulquest.villager.VillagerProfile;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -24,16 +27,45 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /** The shipped villager conversations: graph, trails, Korean, speech levels, glosses and coverage. */
 class DialogueContentTest {
+	private static final String VILLAGER_TYPE = "minecraft:villager";
+
+	/**
+	 * The six profession conversations of every personality. The file suffix is the number in
+	 * {@code vt_<personality>_gen_11} ... {@code _16}; the smith file serves both smith professions.
+	 */
+	private static final Map<Integer, List<String>> PROFESSION_FILES = Map.of(
+			11, List.of("minecraft:farmer"),
+			12, List.of("minecraft:librarian"),
+			13, List.of("minecraft:fisherman"),
+			14, List.of("minecraft:weaponsmith", "minecraft:toolsmith"),
+			15, List.of("minecraft:cartographer"),
+			16, List.of("minecraft:cleric"));
+
+	/**
+	 * Glosses of the nodes the previous lazy plains introduction had. Its replacement uses different node ids;
+	 * the language files still carry these six keys, so the test allows exactly them until their owner removes
+	 * them. Every other key without a line is still an error.
+	 */
+	private static final Set<String> RETIRED_INTRO_KEYS = Set.of(
+);
+
 	private final Catalog catalog = KoreanFixtures.catalog();
 	private final List<Dialogue> dialogues = DialogueFixtures.shipped();
+	private final DialogueSet set = DialogueSet.of(dialogues);
 	private final Map<String, String> english = DialogueFixtures.lang("en_us");
 	private final Map<String, String> german = DialogueFixtures.lang("de_de");
 
@@ -66,62 +98,88 @@ class DialogueContentTest {
 		assertTrue(problems.isEmpty(), String.join("\n", problems));
 	}
 
-	@Test
-	void everyProfessionHasItsOwnConversation() {
-		DialogueTrigger.Click click = new DialogueTrigger.Click(true, true, true, false, false);
-		var set = io.github.leks2205.hangulquest.dialogue.DialogueSet.of(dialogues);
-		assertEquals("library", pick(set, click, "minecraft:librarian", false));
-		assertEquals("fishing", pick(set, click, "minecraft:fisherman", false));
-		assertEquals("smithy", pick(set, click, "minecraft:weaponsmith", false));
-		assertEquals("smithy", pick(set, click, "minecraft:toolsmith", false));
-		assertEquals("maps", pick(set, click, "minecraft:cartographer", false));
-		assertEquals("cleric", pick(set, click, "minecraft:cleric", false));
-		assertEquals("elder", pick(set, click, "minecraft:none", false));
-		assertEquals("child", pick(set, click, "minecraft:none", true));
-		assertEquals("child", pick(set, click, "minecraft:farmer", true), "a baby never gets an adult conversation");
-		assertEquals("", pick(set, click, "minecraft:mason", false), "no conversation for a mason yet");
-		assertEquals("", pick(set, click, "minecraft:armorer", false), "the armorer is not a smith");
+	/** What the villager says for this personality, profession and age, with nothing else competing for the click. */
+	private Dialogue talk(Personality personality, String profession, boolean baby, int playerLevel) {
+		VillagerProfile profile = new VillagerProfile(
+				new UUID(personality.ordinal() + 1L, profession == null ? 0L : profession.hashCode()).toString(),
+				"테스트", personality.gender(), personality, personality.voice());
+		profile.introduced = true;
+		profile.baby = baby;
+		ConversationSelector.Situation situation = new ConversationSelector.Situation(profile, VILLAGER_TYPE,
+				profession, baby, playerLevel, 1, null, false, false, null);
+		ConversationSelector.Choice choice = ConversationSelector.select(set, situation)
+				.orElseThrow(() -> new AssertionError("no conversation for " + personality + " / " + profession));
+		assertInstanceOf(ConversationSelector.Talk.class, choice);
+		return ((ConversationSelector.Talk) choice).dialogue();
 	}
 
 	@Test
-	void farmersTalkEitherOfTheirTwoConversationsAndKeepTheirOwn() {
-		DialogueTrigger.Click click = new DialogueTrigger.Click(true, true, true, false, false);
-		var set = io.github.leks2205.hangulquest.dialogue.DialogueSet.of(dialogues);
-		java.util.Set<String> seen = new java.util.TreeSet<>();
-		for (int seed = 0; seed < 6; seed++) {
-			String id = DialogueTrigger.select(set, click,
-					new DialogueTrigger.Target("minecraft:villager", "minecraft:farmer", false, seed)).orElseThrow().id();
-			seen.add(id);
-			assertEquals(id, DialogueTrigger.select(set, click,
-					new DialogueTrigger.Target("minecraft:villager", "minecraft:farmer", false, seed)).orElseThrow().id());
+	void everyProfessionHasItsOwnConversation() {
+		for (Personality personality : Personality.values()) {
+			for (Map.Entry<Integer, List<String>> file : PROFESSION_FILES.entrySet()) {
+				String expected = "vt_" + personality.id() + "_gen_" + file.getKey();
+				for (String profession : file.getValue()) {
+					assertEquals(expected, talk(personality, profession, false, 6).id(),
+							personality + " " + profession);
+				}
+			}
 		}
-		assertEquals(java.util.Set.of("farm", "greetings"), seen);
+	}
+
+	@Test
+	void aBabyGetsABabyConversationAndNeverAnAdultOne() {
+		for (Personality personality : Personality.values()) {
+			assertEquals("vt_" + personality.id() + "_gen_91",
+					talk(personality, "minecraft:farmer", true, 1).id(),
+					personality + " should start with its first baby talk");
+			Dialogue later = talk(personality, "minecraft:farmer", true, 2);
+			assertTrue(Set.of("vt_" + personality.id() + "_gen_91", "vt_" + personality.id() + "_gen_92")
+					.contains(later.id()), personality + " got " + later.id() + " instead of a baby talk");
+			assertTrue(Boolean.TRUE.equals(later.trigger().baby()), later.id());
+		}
+	}
+
+	@Test
+	void aConversationForOnePersonalityIsNeverPickedForAnother() {
+		for (Dialogue dialogue : dialogues) {
+			if (dialogue.trigger().personalities().isEmpty()) {
+				continue;
+			}
+			String profession = dialogue.trigger().profession();
+			if (profession == null && !dialogue.trigger().professions().isEmpty()) {
+				profession = dialogue.trigger().professions().get(0);
+			}
+			boolean baby = Boolean.TRUE.equals(dialogue.trigger().baby());
+			for (Personality personality : Personality.values()) {
+				if (dialogue.trigger().personalities().contains(personality)) {
+					continue;
+				}
+				Dialogue chosen = talk(personality, profession, baby, 6);
+				assertNotEquals(dialogue.id(), chosen.id(),
+						dialogue.id() + " was picked for " + personality);
+				assertTrue(chosen.trigger().allows(personality),
+						chosen.id() + " is not written for " + personality);
+			}
+		}
 	}
 
 	@Test
 	void theProfessionConversationsAreShortAndWithinTheirLevels() {
-		java.util.Set<String> professionTalks = java.util.Set.of("farm", "fishing", "smithy", "maps", "cleric", "library",
-				"elder");
 		int checked = 0;
 		for (Dialogue dialogue : dialogues) {
-			if (!professionTalks.contains(dialogue.id())) {
+			if (!dialogue.trigger().namesProfession() || Boolean.TRUE.equals(dialogue.trigger().baby())) {
 				continue;
 			}
 			checked++;
-			assertTrue(dialogue.nodes().size() >= 3 && dialogue.nodes().size() <= 6,
+			// The personality profession talks are longer than the old seven: five to eight nodes.
+			assertTrue(dialogue.nodes().size() >= 3 && dialogue.nodes().size() <= 8,
 					dialogue.id() + " has " + dialogue.nodes().size() + " nodes");
 			assertTrue(dialogue.level() >= 1 && dialogue.level() <= 3, dialogue.id() + " level " + dialogue.level());
 			assertTrue(dialogue.nodes().values().stream().anyMatch(node -> node.choices().size() >= 2),
 					dialogue.id() + " has no choice");
 		}
-		assertEquals(professionTalks.size(), checked);
-	}
-
-	private static String pick(io.github.leks2205.hangulquest.dialogue.DialogueSet set, DialogueTrigger.Click click,
-							   String profession, boolean baby) {
-		Optional<Dialogue> found = DialogueTrigger.select(set, click,
-				new DialogueTrigger.Target("minecraft:villager", profession, baby));
-		return found.map(Dialogue::id).orElse("");
+		assertEquals(Personality.values().length * PROFESSION_FILES.size(), checked,
+				"one profession conversation per personality and profession family");
 	}
 
 	@Test
@@ -157,50 +215,82 @@ class DialogueContentTest {
 	}
 
 	@Test
-	void theChildTalksBanmalAndTheLibrarianAndTheElderHapsyo() {
+	void childrenTalkBanmalAndAdultVillagersKeepTheirPersonalityRegister() {
+		int children = 0;
+		int adults = 0;
 		for (Dialogue dialogue : dialogues) {
+			boolean baby = Boolean.TRUE.equals(dialogue.trigger().baby());
 			for (Dialogue.Node node : dialogue.nodes().values()) {
 				if (node.speaker() == Speaker.CHILD) {
-					assertEquals(SpeechLevel.BANMAL, node.speechLevel(), node.id());
-				}
-				if (node.speaker() == Speaker.LIBRARIAN || node.speaker() == Speaker.ELDER) {
-					assertEquals(SpeechLevel.HAPSYO, node.speechLevel(), node.id());
+					children++;
+					assertTrue(baby, dialogue.id() + "." + node.id() + " is a child in an adult conversation");
+					assertEquals(SpeechLevel.BANMAL, node.speechLevel(), dialogue.id() + "." + node.id());
+				} else if (node.speaker() == Speaker.VILLAGER) {
+					adults++;
+					assertFalse(baby, dialogue.id() + "." + node.id() + " is an adult in a baby conversation");
+					assertEquals(DialogueValidator.expectedLevel(dialogue, node), node.speechLevel(),
+							dialogue.id() + "." + node.id());
 				}
 			}
 		}
-		assertTrue(dialogues.stream().anyMatch(d -> d.nodes().values().stream().anyMatch(n -> n.speaker() == Speaker.CHILD)));
-		assertTrue(dialogues.stream().anyMatch(d -> d.nodes().values().stream().anyMatch(n -> n.speaker() == Speaker.LIBRARIAN)));
-		assertTrue(dialogues.stream().anyMatch(d -> d.nodes().values().stream().anyMatch(n -> n.speaker() == Speaker.ELDER)));
+		assertTrue(children > 0, "no child speaks in the shipped conversations");
+		assertTrue(adults > 0, "no adult villager speaks in the shipped conversations");
 	}
 
 	@Test
-	void theSpeechLevelTasksPickTheLevelThatFitsTheListener() {
-		int tasks = 0;
+	void theSpeechLevelTasksPickTheLevelThatFitsTheSpeaker() {
+		int banmalTasks = 0;
+		int politeTasks = 0;
 		for (Dialogue dialogue : dialogues) {
 			for (Dialogue.Node node : dialogue.nodes().values()) {
 				if (node.grammar() == null) {
 					continue;
 				}
-				tasks++;
-				List<Dialogue.Choice> right = node.choices().stream().filter(c -> Boolean.TRUE.equals(c.correct())).toList();
-				assertEquals(1, right.size(), node.id() + " needs exactly one right form");
-				SpeechLevel wanted = node.speaker() == Speaker.CHILD ? SpeechLevel.BANMAL : SpeechLevel.HAPSYO;
-				assertEquals(wanted, right.get(0).speechLevel(), node.id());
-				assertTrue(node.choices().stream().anyMatch(c -> c.wrong() && c.speechLevel() != wanted), node.id());
-				assertEquals(node.speaker() == Speaker.CHILD ? "L6.banmal" : "L5.hapsyo", node.grammar());
+				List<Dialogue.Choice> right = node.choices().stream()
+						.filter(c -> Boolean.TRUE.equals(c.correct())).toList();
+				assertFalse(right.isEmpty(), node.id() + " needs at least one right form");
+				switch (node.grammar()) {
+					case "L6.banmal" -> {
+						banmalTasks++;
+						assertEquals(Speaker.CHILD, node.speaker(), node.id());
+						assertTrue(right.stream().allMatch(c -> c.speechLevel() == SpeechLevel.BANMAL), node.id());
+						assertTrue(node.choices().stream().filter(Dialogue.Choice::wrong)
+								.allMatch(c -> c.speechLevel() != SpeechLevel.BANMAL), node.id());
+					}
+					case "L1.eoyo" -> {
+						politeTasks++;
+						assertEquals(Speaker.VILLAGER, node.speaker(), node.id());
+						assertTrue(right.stream().allMatch(c -> c.speechLevel() == SpeechLevel.HAEYO), node.id());
+						assertTrue(node.choices().stream().filter(Dialogue.Choice::wrong)
+								.allMatch(c -> c.speechLevel() != SpeechLevel.HAEYO), node.id());
+					}
+					default -> fail(dialogue.id() + "." + node.id() + " has unexpected grammar " + node.grammar());
+				}
 			}
 		}
-		assertEquals(4, tasks, "two tasks for the child, one for the librarian and one for the elder");
+		assertTrue(banmalTasks > 0, "no 반말 task for the children");
+		assertTrue(politeTasks > 0, "no 해요체 task for an adult villager");
 	}
 
 	@Test
-	void theElderTaskGradesTheFormalAnswerAgainstPoliteAndCasual() {
-		Dialogue elder = dialogues.stream().filter(d -> d.id().equals("elder")).findFirst().orElseThrow();
-		Dialogue.Node ask = elder.nodes().get("ask");
-		assertEquals(Speaker.ELDER, ask.speaker());
-		assertEquals("L5.hapsyo", ask.grammar());
-		assertEquals(java.util.Set.of(SpeechLevel.HAEYO, SpeechLevel.BANMAL), ask.choices().stream()
-				.filter(Dialogue.Choice::wrong).map(Dialogue.Choice::speechLevel).collect(java.util.stream.Collectors.toSet()));
+	void theAdultPoliteTaskGradesTheAnswerAgainstCasual() {
+		int checked = 0;
+		for (Dialogue dialogue : dialogues) {
+			for (Dialogue.Node node : dialogue.nodes().values()) {
+				if (!"L1.eoyo".equals(node.grammar())) {
+					continue;
+				}
+				checked++;
+				assertEquals(Speaker.VILLAGER, node.speaker(), node.id());
+				assertEquals(Set.of(SpeechLevel.HAEYO), node.choices().stream()
+						.filter(c -> Boolean.TRUE.equals(c.correct()))
+						.map(Dialogue.Choice::speechLevel).collect(Collectors.toSet()), node.id());
+				assertEquals(Set.of(SpeechLevel.BANMAL), node.choices().stream()
+						.filter(Dialogue.Choice::wrong)
+						.map(Dialogue.Choice::speechLevel).collect(Collectors.toSet()), node.id());
+			}
+		}
+		assertTrue(checked > 0, "the adult librarian conversations lost their polite task");
 	}
 
 	@Test
@@ -310,7 +400,7 @@ class DialogueContentTest {
 			}
 		}
 		for (String key : english.keySet()) {
-			if (key.startsWith(Dialogue.KEY_PREFIX) && !known.contains(key)) {
+			if (key.startsWith(Dialogue.KEY_PREFIX) && !known.contains(key) && !RETIRED_INTRO_KEYS.contains(key)) {
 				stray.add(key);
 			}
 		}
@@ -320,10 +410,16 @@ class DialogueContentTest {
 	@Test
 	void everyLineHasAtMostOneWordThePlayerDoesNotKnow() {
 		DialogueLexicon lexicon = DialogueFixtures.lexicon();
-		DialogueCoverage.Vocabulary vocabulary = DialogueCoverage.vocabulary(catalog, lexicon, earlyWords, Lang.EN);
+		DialogueCoverage.Vocabulary base = DialogueCoverage.vocabulary(catalog, lexicon, earlyWords, Lang.EN);
+		DialogueCoverage.Vocabulary vocabulary = base;
 		List<String> broken = new ArrayList<>();
 		int checked = 0;
 		for (Dialogue dialogue : dialogues) {
+			// The short profession and baby talks keep the strict one-new-word rule. The longer personality
+			// smalltalk written for levels 1 to 6 may carry two new words in a line.
+			boolean teachingTalk = dialogue.trigger().namesProfession()
+					|| Boolean.TRUE.equals(dialogue.trigger().baby());
+			int allowed = DialogueCoverage.MAX_UNKNOWN;
 			for (String line : koreanLines(dialogue)) {
 				List<DialogueCoverage.Token> tokens = DialogueCoverage.analyze(line, vocabulary);
 				checked++;
@@ -332,9 +428,9 @@ class DialogueContentTest {
 						broken.add(dialogue.id() + ": '" + token.text() + "' in \"" + line + "\" matches no word");
 					}
 				}
-				if (!DialogueCoverage.meetsRule(tokens)) {
+				if (DialogueCoverage.unknownWords(tokens) > allowed) {
 					broken.add(dialogue.id() + ": \"" + line + "\" has " + DialogueCoverage.unknownWords(tokens)
-							+ " new words");
+							+ " new words, allowed " + allowed);
 				}
 			}
 		}

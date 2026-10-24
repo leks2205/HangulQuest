@@ -1,0 +1,92 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_gen_14",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"professions": [
+			"minecraft:weaponsmith",
+			"minecraft:toolsmith"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어서 오십시오. 저는 대장장이입니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "무엇이 필요하십니까?",
+			"choices": [
+				{
+					"ko": "검이 필요해요.",
+					"next": "sword"
+				},
+				{
+					"ko": "곡괭이가 필요해요.",
+					"next": "pickaxe"
+				}
+			]
+		},
+		"sword": {
+			"speaker": "villager",
+			"ko": "철 주괴 두 개와 막대기 한 개가 필요합니다.",
+			"next": "shine",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sword",
+						"concept:iron",
+						"concept:stick"
+					]
+				}
+			]
+		},
+		"pickaxe": {
+			"speaker": "villager",
+			"ko": "철 주괴 세 개와 막대기 두 개가 필요합니다.",
+			"next": "shine",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:pickaxe",
+						"concept:iron",
+						"concept:stick"
+					]
+				}
+			]
+		},
+		"shine": {
+			"speaker": "villager",
+			"ko": "제 철은 늘 반짝반짝합니다.",
+			"next": "diamond"
+		},
+		"diamond": {
+			"speaker": "villager",
+			"ko": "다이아몬드는 더 좋습니다. 그런데 비쌉니다.",
+			"next": "bye",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:diamond"
+					]
+				}
+			]
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "그럼 안녕히 가십시오.",
+			"end": true
+		}
+	}
+}

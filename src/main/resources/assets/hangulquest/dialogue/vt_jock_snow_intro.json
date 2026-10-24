@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_jock_snow_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하하! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "snow"
+		},
+		"snow": {
+			"speaker": "villager",
+			"ko": "여기는 눈이 많이 와요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈덩이 던지기 좋아요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snowball"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 추워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "하하! 눈덩이 던지기는 좋은 팔 운동이에요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요! 그럼 화로 옆에서 운동해요!",
+			"end": true
+		}
+	}
+}

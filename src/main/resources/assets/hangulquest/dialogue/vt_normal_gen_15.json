@@ -1,0 +1,85 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_15",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:cartographer",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머나, 오셨네요! 오늘 새 지도를 그렸어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:map"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "어디로 가세요?",
+			"choices": [
+				{
+					"ko": "바다로 가요.",
+					"next": "sea"
+				},
+				{
+					"ko": "숲으로 가요.",
+					"next": "forest"
+				}
+			]
+		},
+		"sea": {
+			"speaker": "villager",
+			"ko": "바다 아래에 큰 건물이 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:ocean"
+					]
+				}
+			],
+			"next": "guardian"
+		},
+		"guardian": {
+			"speaker": "villager",
+			"ko": "거기에 가디언이 살아요. 꼭 조심하세요!",
+			"next": "bye"
+		},
+		"forest": {
+			"speaker": "villager",
+			"ko": "어두운 숲에 큰 건물이 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:forest"
+					]
+				}
+			],
+			"next": "vindicator"
+		},
+		"vindicator": {
+			"speaker": "villager",
+			"ko": "거기에 변명자가 있어요. 꼭 조심하세요!",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "가기 전에 빵을 꼭 챙기세요. 또 만나요!",
+			"end": true
+		}
+	}
+}

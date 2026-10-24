@@ -1,0 +1,49 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_03",
+	"level": 3,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "golem",
+	"nodes": {
+		"golem": {
+			"speaker": "villager",
+			"ko": "흠, 마을의 철 골렘 봤어요?",
+			"effects": [{"type": "exposeWords", "words": ["concept:iron"]}],
+			"next": "quiet"
+		},
+		"quiet": {
+			"speaker": "villager",
+			"ko": "말도 없고 웃지도 않아요.",
+			"next": "flower"
+		},
+		"flower": {
+			"speaker": "villager",
+			"ko": "그런데 아까 아기 주민에게 꽃을 줬어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:flower", "concept:villager"]}],
+			"next": "cute"
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "흠, 좀 귀엽네요. 아니, 아무것도 아니에요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "왜 웃어요?",
+			"choices": [
+				{"ko": "철 골렘과 같아요.", "next": "alike"},
+				{"ko": "아니에요, 그냥요.", "next": "nothing"}
+			]
+		},
+		"alike": {
+			"speaker": "villager",
+			"ko": "에잉, 무슨 소리예요. 저는 꽃 같은 거 안 줘요.",
+			"end": true
+		},
+		"nothing": {
+			"speaker": "villager",
+			"ko": "흠. 그럼 됐어요. 어서 가 보세요.",
+			"end": true
+		}
+	}
+}

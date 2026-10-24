@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 낮에 뜨거워요. 밤에 추워요.",
+			"ko_banmal": "어이! 낮에 뜨거워. 밤에 추워.",
+			"next": "husk"
+		},
+		"husk": {
+			"speaker": "villager",
+			"ko": "밤에 허스크가 나와요. 햇빛에 안 죽어요.",
+			"ko_banmal": "밤에 허스크가 나와. 햇빛에 안 죽어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_husk",
+						"concept:sun"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 불을 피워요?",
+			"ko_banmal": "밤에 불을 피워?",
+			"choices": [
+				{
+					"ko": "네, 모닥불을 피워요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 침대에 있어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요. 모닥불은 따뜻해요. 나도 거기 앉을래요.",
+			"ko_banmal": "좋아. 모닥불은 따뜻해. 나도 거기 앉을래.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "침대도 좋아요. 밤에 문을 닫아요.",
+			"ko_banmal": "침대도 좋아. 밤에 문을 닫아.",
+			"end": true
+		}
+	}
+}

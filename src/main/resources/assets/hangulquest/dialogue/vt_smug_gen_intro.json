@@ -1,0 +1,70 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오, 안녕하세요. 반가워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "likes"
+		},
+		"likes": {
+			"speaker": "villager",
+			"ko": "저는 꽃과 노래를 좋아해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:flower",
+						"concept:song"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "노래가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 꽃이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 그럼 우리는 친구예요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "꽃도 좋아요. 장미 덤불은 정말 아름다워요.",
+			"end": true
+		}
+	}
+}

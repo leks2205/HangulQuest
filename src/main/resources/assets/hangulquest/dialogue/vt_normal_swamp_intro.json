@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_normal_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "frog"
+		},
+		"frog": {
+			"speaker": "villager",
+			"ko": "여기는 개구리가 많아요. 밤에 노래를 불러요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 조금 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "다행이에요! 개구리는 작은 슬라임을 먹어요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 개구리는 착해요.",
+			"end": true
+		}
+	}
+}

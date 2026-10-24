@@ -1,0 +1,94 @@
+{
+	"schema": 1,
+	"id": "vt_jock_snow_01",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "으쌰으쌰! 안녕하세요! 오늘도 눈이 많이 오네요!",
+			"ko_banmal": "으쌰으쌰! 안녕! 오늘도 눈이 많이 오네!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow"
+					]
+				}
+			],
+			"next": "run"
+		},
+		"run": {
+			"speaker": "villager",
+			"ko": "눈 위를 달리면 다리가 더 튼튼해지거든요!",
+			"ko_banmal": "눈 위를 달리면 다리가 더 튼튼해지거든!",
+			"next": "danger"
+		},
+		"danger": {
+			"speaker": "villager",
+			"ko": "그런데 가루눈은 조심해야 해요. 빠지면 정말 추워요!",
+			"ko_banmal": "그런데 가루눈은 조심해야 해. 빠지면 진짜 추워!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_powder_snow"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "가죽 장화 있어요?",
+			"ko_banmal": "가죽 장화 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:leather"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 있어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 그럼 가루눈 위도 걸을 수 있잖아요!",
+			"ko_banmal": "좋아! 그럼 가루눈 위도 걸을 수 있잖아!",
+			"next": "go"
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 꼭 만드세요! 가죽 네 개만 있으면 돼요!",
+			"ko_banmal": "그럼 꼭 만들어! 가죽 네 개만 있으면 돼!",
+			"next": "go"
+		},
+		"go": {
+			"speaker": "villager",
+			"ko": "저는 지금 바로 달리러 가요! 파이팅!",
+			"ko_banmal": "난 지금 바로 달리러 가! 파이팅!",
+			"end": true
+		}
+	}
+}

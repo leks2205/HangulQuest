@@ -1,0 +1,44 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_gen_05",
+	"level": 5,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["SISTERLY"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {"speaker": "villager", "ko": "어이! 밤하늘이 밝네요.", "ko_banmal": "어이! 밤하늘이 밝네.", "next": "past"},
+		"past": {
+			"speaker": "villager",
+			"ko": "어릴 때는 밤이 무서웠어요.",
+			"ko_banmal": "어릴 때는 밤이 무서웠어.",
+			"effects": [{"type": "exposeWords", "words": ["concept:night", "concept:sky"]}],
+			"next": "change"
+		},
+		"change": {
+			"speaker": "villager",
+			"ko": "지금은 오히려 밤이 좋더라고요.",
+			"ko_banmal": "지금은 오히려 밤이 좋더라고.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 무엇을 해요?",
+			"ko_banmal": "밤에 무엇을 해?",
+			"choices": [
+				{"ko": "산책을 해요.", "next": "walk"},
+				{"ko": "일찍 자요.", "next": "sleep"}
+			]
+		},
+		"walk": {
+			"speaker": "villager",
+			"ko": "좋아요. 횃불을 챙기면 더 안전해요.",
+			"ko_banmal": "좋아. 횃불을 챙기면 더 안전해.",
+			"end": true
+		},
+		"sleep": {
+			"speaker": "villager",
+			"ko": "그것도 좋아요. 잠은 최고예요.",
+			"ko_banmal": "그것도 좋아. 잠은 최고야.",
+			"end": true
+		}
+	}
+}

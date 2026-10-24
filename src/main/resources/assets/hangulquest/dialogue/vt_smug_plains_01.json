@@ -1,0 +1,58 @@
+{
+	"schema": 1,
+	"id": "vt_smug_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hush",
+	"nodes": {
+		"hush": {
+			"speaker": "villager",
+			"ko": "오, 쉿. 소리가 들려요?",
+			"next": "bees"
+		},
+		"bees": {
+			"speaker": "villager",
+			"ko": "꿀벌 소리예요. 윙윙, 윙윙.",
+			"next": "music"
+		},
+		"music": {
+			"speaker": "villager",
+			"ko": "저는 이 소리가 좋아요. 음악 같아요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꽃밭을 같이 봐요.",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 꿀벌이 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 좋아요. 해바라기 옆에서 봐요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 꿀벌은 꽃을 좋아해요.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,146 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나는 지금 닭에게 씨앗을 줘.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:chicken"
+					]
+				}
+			],
+			"next": "egg"
+		},
+		"egg": {
+			"speaker": "child",
+			"ko": "닭은 달걀을 줘. 나는 달걀을 모아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:egg"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "나는 빵이 있어. 너는 뭐가 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread"
+					]
+				}
+			],
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 사과가 있어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "share"
+				},
+				{
+					"ko": "저는 사과가 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"share": {
+			"speaker": "child",
+			"ko": "와아, 사과! 그럼 같이 먹자!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"next": "animal"
+		},
+		"animal": {
+			"speaker": "child",
+			"ko": "나는 동물이 좋아. 너는 무슨 동물을 보고 싶어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 양을 보고 싶어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "sheep"
+				},
+				{
+					"ko": "나는 소를 보고 싶어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "cow"
+				},
+				{
+					"ko": "저는 양을 보고 싶습니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"sheep": {
+			"speaker": "child",
+			"ko": "나도! 양털은 아주 부드러워.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sheep",
+						"concept:wool"
+					]
+				}
+			],
+			"next": "friends"
+		},
+		"cow": {
+			"speaker": "child",
+			"ko": "소는 우유를 줘. 나는 우유를 좋아해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cow",
+						"concept:milk"
+					]
+				}
+			],
+			"next": "friends"
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "우리 친구야! 잘 가, 또 봐!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"schema": 1,
+	"id": "vt_smug_swamp_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "clothes",
+	"nodes": {
+		"clothes": {
+			"speaker": "villager",
+			"ko": "아, 안녕하세요. 제 옷을 보지 마세요.",
+			"next": "slip"
+		},
+		"slip": {
+			"speaker": "villager",
+			"ko": "진흙에서 미끄러졌어요.",
+			"next": "study"
+		},
+		"study": {
+			"speaker": "villager",
+			"ko": "흠, 아니에요. 진흙을 연구했어요.",
+			"next": "soft"
+		},
+		"soft": {
+			"speaker": "villager",
+			"ko": "진흙은 부드러워요. 그래서 좋아요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "제 말이 맞아요?",
+			"choices": [
+				{
+					"ko": "네, 맞아요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 미끄러졌어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 고마워요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "아아, 그건 우리 비밀이에요.",
+			"end": true
+		}
+	}
+}

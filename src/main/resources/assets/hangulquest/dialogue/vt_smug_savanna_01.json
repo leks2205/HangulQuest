@@ -1,0 +1,53 @@
+{
+	"schema": 1,
+	"id": "vt_smug_savanna_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "look",
+	"nodes": {
+		"look": {
+			"speaker": "villager",
+			"ko": "오, 저기 아카시아나무 아래를 봐요.",
+			"next": "ball"
+		},
+		"ball": {
+			"speaker": "villager",
+			"ko": "아르마딜로가 있어요. 저를 보고 공처럼 말았어요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "제가 멋있어 보여요?",
+			"choices": [
+				{
+					"ko": "네, 아주 멋있어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 조금 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 그렇죠? 아르마딜로도 알았어요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "아아, 그럼 다음에 꽃을 들고 인사할까요?",
+			"end": true
+		}
+	}
+}

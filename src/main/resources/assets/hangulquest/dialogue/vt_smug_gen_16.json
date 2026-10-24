@@ -1,0 +1,91 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_16",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"profession": "minecraft:cleric"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "후후, 안녕하세요. 저는 성직자예요.",
+			"next": "sun"
+		},
+		"sun": {
+			"speaker": "villager",
+			"ko": "금은 해와 같은 색이에요. 그래서 저는 금을 사요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "혹시 금이 있어요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gold"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 금이 있어요.",
+					"next": "trade"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "cave"
+				}
+			]
+		},
+		"trade": {
+			"speaker": "villager",
+			"ko": "좋아요! 금 세 개에 에메랄드 한 개예요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "deal"
+		},
+		"deal": {
+			"speaker": "villager",
+			"ko": "후후, 좋은 거래예요.",
+			"next": "bye"
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "그럼 동굴에서 금을 찾아보세요. 어둡고 깊은 곳에 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave",
+						"concept:find"
+					]
+				}
+			],
+			"next": "torch"
+		},
+		"torch": {
+			"speaker": "villager",
+			"ko": "횃불을 꼭 챙기세요.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "안녕히 가세요. 오늘도 빛나요.",
+			"end": true
+		}
+	}
+}

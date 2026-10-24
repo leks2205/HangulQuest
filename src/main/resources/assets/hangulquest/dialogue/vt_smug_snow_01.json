@@ -1,0 +1,58 @@
+{
+	"schema": 1,
+	"id": "vt_smug_snow_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "look",
+	"nodes": {
+		"look": {
+			"speaker": "villager",
+			"ko": "오, 안녕하세요. 저기 봐요.",
+			"next": "golem"
+		},
+		"golem": {
+			"speaker": "villager",
+			"ko": "눈 골렘이에요. 제 친구예요.",
+			"next": "pumpkin"
+		},
+		"pumpkin": {
+			"speaker": "villager",
+			"ko": "머리가 조각된 호박이에요. 참 멋있어요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈 골렘이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 좀 이상해요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 맞아요. 우리 둘은 멋쟁이예요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "이상해요? 아아, 이건 예술이에요.",
+			"end": true
+		}
+	}
+}

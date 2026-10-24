@@ -1,0 +1,53 @@
+{
+	"schema": 1,
+	"id": "req_jungle_04",
+	"level": 3,
+	"kind": "DO",
+	"regions": [
+		"JUNGLE"
+	],
+	"goal": {
+		"type": "CRAFT",
+		"item": "minecraft:scaffolding",
+		"count": 3
+	},
+	"words": [
+		"concept:bamboo"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"personalities": [
+		"JOCK",
+		"SISTERLY"
+	],
+	"lines": {
+		"JOCK": {
+			"offer": {
+				"ko": "이얍! 나무 위에서 놀 거예요! 비계 세 개를 만들어 주세요!",
+				"ko_banmal": "이얍! 나무 위에서 놀 거야! 비계 세 개를 만들어 줘!"
+			},
+			"accept": "좋아요! 빨리 만들어 주세요!",
+			"decline": "괜찮아요! 또 봐요!",
+			"reminder": "비계 세 개를 안 만들었어요?",
+			"thanks": {
+				"ko": "와! 비계예요! 고마워요!",
+				"ko_banmal": "와! 비계야! 고마워!"
+			}
+		},
+		"SISTERLY": {
+			"offer": {
+				"ko": "어이! 나무 위에서 놀 거예요. 비계 세 개만 만들어 주세요.",
+				"ko_banmal": "어이! 나무 위에서 놀 거야. 비계 세 개만 만들어 줘."
+			},
+			"accept": "좋아요! 문제없어요!",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "비계 세 개를 안 만들었어요?",
+			"thanks": {
+				"ko": "오, 비계예요! 고마워요!",
+				"ko_banmal": "오, 비계야! 고마워!"
+			}
+		}
+	}
+}

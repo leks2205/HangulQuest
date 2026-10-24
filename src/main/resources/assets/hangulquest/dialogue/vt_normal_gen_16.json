@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_16",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:cleric",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머나, 안녕하세요! 저는 성직자예요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 금을 사요. 혹시 금이 있어요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gold"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 금이 있어요.",
+					"next": "trade"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "cave"
+				}
+			]
+		},
+		"trade": {
+			"speaker": "villager",
+			"ko": "좋아요! 금 주괴 세 개에 에메랄드 한 개예요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "shine"
+		},
+		"shine": {
+			"speaker": "villager",
+			"ko": "다행이에요. 금은 정말 반짝반짝하네요.",
+			"next": "bye"
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "그럼 금을 찾아 보세요. 금은 동굴에 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave",
+						"concept:find"
+					]
+				}
+			],
+			"next": "careful"
+		},
+		"careful": {
+			"speaker": "villager",
+			"ko": "동굴은 어두워요. 다치지 마세요!",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "안녕히 가세요! 꼭 다시 오세요.",
+			"end": true
+		}
+	}
+}

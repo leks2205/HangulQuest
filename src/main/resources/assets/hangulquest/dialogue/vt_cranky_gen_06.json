@@ -1,0 +1,50 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_06",
+	"level": 5,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "cat",
+	"nodes": {
+		"cat": {
+			"speaker": "villager",
+			"ko": "크흠, 요즘 고양이 한 마리가 제 침대에서 자더라고요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:cat", "concept:bed"]}],
+			"next": "chase"
+		},
+		"chase": {
+			"speaker": "villager",
+			"ko": "처음에는 쫓아냈는데, 다음 날 또 와 있더라고요.",
+			"next": "creeper"
+		},
+		"creeper": {
+			"speaker": "villager",
+			"ko": "그런데 크리퍼가 고양이를 무서워한대요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:creeper"]}],
+			"next": "useful"
+		},
+		"useful": {
+			"speaker": "villager",
+			"ko": "쓸모가 있으니까 그냥 두는 거예요. 귀여워서가 아니고요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "고양이 좋아해요?",
+			"choices": [
+				{"ko": "네, 정말 좋아해요.", "next": "catlike"},
+				{"ko": "저는 늑대가 더 좋아요.", "next": "wolf"}
+			]
+		},
+		"catlike": {
+			"speaker": "villager",
+			"ko": "흠, 그럼 나중에 보러 와요. 자고 있을 테니까 조용히 와야 해요.",
+			"end": true
+		},
+		"wolf": {
+			"speaker": "villager",
+			"ko": "늑대요? 흠, 크리퍼는 늑대를 안 무서워해요. 고양이가 낫죠.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wolf"]}],
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_swamp_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["SWAMP"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "frogs"
+		},
+		"frogs": {
+			"speaker": "villager",
+			"ko": "늪에는 개구리가 많아요. 정말 시끄러워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:frog"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리 좋아해요?",
+			"choices": [
+				{"ko": "네, 귀여워요.", "next": "cute"},
+				{"ko": "아니요, 안 좋아해요.", "next": "no"}
+			]
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "흠. 개구리는 작은 슬라임을 먹어요. 그건 좋아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:slime"]}],
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠. 저도 안 좋아해요. 너무 시끄러워요.",
+			"end": true
+		}
+	}
+}

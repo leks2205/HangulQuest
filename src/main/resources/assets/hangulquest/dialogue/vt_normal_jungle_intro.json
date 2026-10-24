@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_normal_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 오늘도 비가 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "cocoa"
+		},
+		"cocoa": {
+			"speaker": "villager",
+			"ko": "저는 코코아 콩으로 쿠키를 만들어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cookie"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "쿠키가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 앵무새가 좋아요.",
+					"next": "parrot"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "다행이에요! 쿠키는 밀도 들어가요.",
+			"end": true
+		},
+		"parrot": {
+			"speaker": "villager",
+			"ko": "어머, 앵무새에게 쿠키는 안 돼요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:parrot"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

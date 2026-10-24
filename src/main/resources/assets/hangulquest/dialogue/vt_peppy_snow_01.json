@@ -1,0 +1,89 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_snow_01",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "golem",
+	"nodes": {
+		"golem": {
+			"speaker": "villager",
+			"ko": "있잖아요! 저기 눈 골렘 봤어요?",
+			"ko_banmal": "있잖아! 저기 눈 골렘 봤어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_snow_golem"
+					]
+				}
+			],
+			"next": "hat"
+		},
+		"hat": {
+			"speaker": "villager",
+			"ko": "머리에 호박을 쓰고 있잖아요. 그게 진짜 멋지거든요!",
+			"ko_banmal": "머리에 호박을 쓰고 있잖아. 그게 진짜 멋지거든!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:pumpkin"
+					]
+				}
+			],
+			"next": "idea"
+		},
+		"idea": {
+			"speaker": "villager",
+			"ko": "저도 공연할 때 호박을 쓰면 어때요?",
+			"ko_banmal": "나도 공연할 때 호박을 쓰면 어때?",
+			"choices": [
+				{
+					"ko": "좋아요! 멋있어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "호박을 쓰면 앞이 잘 안 보여요.",
+					"next": "see"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "꺄아! 그럼 저는 이제 호박 가수예요! 진짜진짜 최고예요!",
+			"ko_banmal": "꺄아! 그럼 나는 이제 호박 가수야! 진짜진짜 최고야!",
+			"end": true
+		},
+		"see": {
+			"speaker": "villager",
+			"ko": "어머, 맞아요! 무대에서 넘어지면 안 되잖아요.",
+			"ko_banmal": "어머, 맞아! 무대에서 넘어지면 안 되잖아.",
+			"next": "cap"
+		},
+		"cap": {
+			"speaker": "villager",
+			"ko": "그럼 분홍색 가죽 모자를 쓸래요. 눈 위에서 반짝반짝하거든요!",
+			"ko_banmal": "그럼 분홍색 가죽 모자를 쓸래. 눈 위에서 반짝반짝하거든!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:pink",
+						"concept:leather"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "rain"
+		},
+		"rain": {
+			"speaker": "villager",
+			"ko": "여기는 비가 와요. 비 소리가 좋아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rain",
+						"concept:sound"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "비 좋아해요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 해가 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "헤헤, 그럼 같이 낮잠 자요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 해도 좋아요. 천천히, 천천히.",
+			"end": true
+		}
+	}
+}

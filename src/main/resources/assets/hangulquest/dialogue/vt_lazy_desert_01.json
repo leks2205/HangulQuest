@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hot",
+	"nodes": {
+		"hot": {
+			"speaker": "villager",
+			"ko": "음, 오늘도 해가 뜨거워요.",
+			"ko_banmal": "음, 오늘도 해가 뜨거워.",
+			"next": "camel"
+		},
+		"camel": {
+			"speaker": "villager",
+			"ko": "저기 낙타 보세요. 하루 종일 앉아 있어요.",
+			"ko_banmal": "저기 낙타 봐. 하루 종일 앉아 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_camel"
+					]
+				}
+			],
+			"next": "same"
+		},
+		"same": {
+			"speaker": "villager",
+			"ko": "낙타는 저랑 똑같아요. 헤헤.",
+			"ko_banmal": "낙타는 나랑 똑같아. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낙타 타고 싶어요?",
+			"ko_banmal": "낙타 타고 싶어?",
+			"choices": [
+				{
+					"ko": "네, 타고 싶어요!",
+					"next": "ride"
+				},
+				{
+					"ko": "아니요, 걷고 싶어요.",
+					"next": "walk"
+				}
+			]
+		},
+		"ride": {
+			"speaker": "villager",
+			"ko": "좋아요. 그런데 낙타는 지금 쉬어요. 헤헤.",
+			"ko_banmal": "좋아. 그런데 낙타는 지금 쉬어. 헤헤.",
+			"end": true
+		},
+		"walk": {
+			"speaker": "villager",
+			"ko": "걸어요? 우와. 그럼 천천히 가세요.",
+			"ko_banmal": "걸어? 우와. 그럼 천천히 가.",
+			"end": true
+		}
+	}
+}

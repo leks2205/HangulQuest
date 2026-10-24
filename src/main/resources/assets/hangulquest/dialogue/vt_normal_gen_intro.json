@@ -1,0 +1,69 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 어서 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "books"
+		},
+		"books": {
+			"speaker": "villager",
+			"ko": "저는 책이 좋아요. 집에 책이 많아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:book"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "책을 읽어요?",
+			"choices": [
+				{
+					"ko": "네, 자주 읽어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 잘 안 읽어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와, 다행이에요! 우리 같이 읽어요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 그럼 제가 이야기를 해요.",
+			"end": true
+		}
+	}
+}

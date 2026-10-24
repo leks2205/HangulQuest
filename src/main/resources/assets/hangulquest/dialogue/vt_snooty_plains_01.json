@@ -1,0 +1,74 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠, 안녕하십니까.",
+			"next": "chicken"
+		},
+		"chicken": {
+			"speaker": "villager",
+			"ko": "닭이 자꾸 제 집에 들어옵니다.",
+			"next": "carpet",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:chicken"
+					]
+				}
+			]
+		},
+		"carpet": {
+			"speaker": "villager",
+			"ko": "하얀색 양탄자 위에 올라갑니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carpet"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "닭을 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요.",
+					"next": "cute"
+				},
+				{
+					"ko": "아니요, 시끄러워요.",
+					"next": "noisy"
+				}
+			]
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "흠, 귀엽습니다. 그래도 양탄자는 안 됩니다.",
+			"end": true
+		},
+		"noisy": {
+			"speaker": "villager",
+			"ko": "맞습니다. 그래서 저는 문을 꼭 닫습니다.",
+			"end": true
+		}
+	}
+}

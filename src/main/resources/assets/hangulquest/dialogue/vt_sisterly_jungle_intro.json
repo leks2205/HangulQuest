@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아하하! 여기는 아주 더워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "tree"
+		},
+		"tree": {
+			"speaker": "villager",
+			"ko": "정글나무가 아주 높아요. 덩굴도 많아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_jungle_wood",
+						"concept:gen_vine"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "같이 나무에 올라가요?",
+			"choices": [
+				{
+					"ko": "네, 올라가요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 아래에서 기다려요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 사다리가 있어요. 안전해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "좋아요. 아래에 수박이 있어요. 시원해요.",
+			"end": true
+		}
+	}
+}

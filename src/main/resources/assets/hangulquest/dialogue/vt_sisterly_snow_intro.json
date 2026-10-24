@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_snow_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "야! 눈이 많이 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "cold"
+		},
+		"cold": {
+			"speaker": "villager",
+			"ko": "여기는 아주 추워요. 가죽 장화가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow",
+						"concept:leather"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "같이 눈 골렘을 만들어요?",
+			"choices": [
+				{
+					"ko": "네, 만들어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 모닥불이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 눈 블록 두 개를 쌓아요. 그다음 조각된 호박을 놓아요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "모닥불도 좋아요. 따뜻해요.",
+			"end": true
+		}
+	}
+}

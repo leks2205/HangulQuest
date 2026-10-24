@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "음, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "frog"
+		},
+		"frog": {
+			"speaker": "villager",
+			"ko": "밤에 개구리가 노래해요. 개굴개굴.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog",
+						"concept:night"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리 노래 좋아해요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 시끄러워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "헤헤, 저도요. 제 자장가예요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "맞아요, 조금 시끄러워요. 헤헤.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"schema": 1,
+	"id": "vt_smug_jungle_01",
+	"level": 5,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "strange",
+	"nodes": {
+		"strange": {
+			"speaker": "villager",
+			"ko": "후후, 어제 정말 신기한 일이 있었어요.",
+			"next": "jukebox"
+		},
+		"jukebox": {
+			"speaker": "villager",
+			"ko": "나무 옆에 주크박스를 놓았어요.",
+			"next": "parrot"
+		},
+		"parrot": {
+			"speaker": "villager",
+			"ko": "그리고 음반을 넣었는데, 앵무새가 바로 왔어요.",
+			"next": "dance"
+		},
+		"dance": {
+			"speaker": "villager",
+			"ko": "음악이 나오니까 앵무새가 춤을 췄어요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "앵무새가 춤추는 거 봤어요?",
+			"choices": [
+				{
+					"ko": "네, 정말 귀여워요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 아직 못 봤어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 그렇죠? 정말 좋은 관객이에요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 비가 그치면 꼭 보러 오세요.",
+			"end": true
+		}
+	}
+}

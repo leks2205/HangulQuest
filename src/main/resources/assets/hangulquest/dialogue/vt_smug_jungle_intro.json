@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_smug_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오, 안녕하세요. 정말 반가워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "cocoa"
+		},
+		"cocoa": {
+			"speaker": "villager",
+			"ko": "여기는 코코아 콩이 많아요. 코코아 콩은 쿠키의 재료예요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cocoa_beans"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "쿠키가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 수박이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 쿠키 하나, 노래 하나. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "오, 수박도 좋아요. 시원해요.",
+			"end": true
+		}
+	}
+}

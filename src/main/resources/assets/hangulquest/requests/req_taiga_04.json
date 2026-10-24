@@ -1,0 +1,40 @@
+{
+	"schema": 1,
+	"id": "req_taiga_04",
+	"level": 3,
+	"kind": "SHOW",
+	"regions": [
+		"TAIGA"
+	],
+	"personalities": [
+		"CRANKY",
+		"NORMAL"
+	],
+	"show": {
+		"item": "minecraft:brown_mushroom",
+		"count": 3
+	},
+	"words": [
+		"concept:mushroom"
+	],
+	"answers": {
+		"yes": "네, 지금 찾아요.",
+		"no": "아니요, 지금은 어려워요."
+	},
+	"lines": {
+		"CRANKY": {
+			"offer": "흠. 허리가 아파서 멀리 못 가요. 갈색 버섯을 세 개 보여 주세요.",
+			"accept": "흠, 고마워요. 여기서 기다리지요.",
+			"decline": "흠, 괜찮아요. 그럼 다음에 또 봐요.",
+			"reminder": "흠. 버섯을 아직 못 봤어요?",
+			"thanks": "흠. 좋은 버섯이에요. 스튜가 맛있겠어요. 거참."
+		},
+		"NORMAL": {
+			"offer": "어머, 오늘 저녁에 손님이 와요. 갈색 버섯을 세 개 보여 주세요.",
+			"accept": "다행이에요! 천천히 찾으세요.",
+			"decline": "네, 괜찮아요. 다음에 또 부탁해요.",
+			"reminder": "어머, 버섯을 아직 못 봤어요?",
+			"thanks": "어머나, 싱싱한 버섯이에요! 스튜가 맛있겠어요. 다행이에요."
+		}
+	}
+}

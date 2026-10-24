@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_smug_snow_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아아, 안녕하세요. 반가워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "ice"
+		},
+		"ice": {
+			"speaker": "villager",
+			"ko": "여기 얼음은 보석 같아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:ice"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 추워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 저도 눈이 좋아요. 눈은 참 예뻐요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 화로 옆에 앉아요. 따뜻해요.",
+			"end": true
+		}
+	}
+}

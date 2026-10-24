@@ -1,0 +1,47 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_17",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요. 여기는 조용한 마을이에요.",
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}, {"type": "exposeWords", "words": ["concept:village"]}],
+			"next": "ask_name"
+		},
+		"ask_name": {
+			"speaker": "villager",
+			"ko": "이름이 뭐예요?",
+			"typed": {"free": true},
+			"next": "nice"
+		},
+		"nice": {
+			"speaker": "villager",
+			"ko": "흠. 만나서 반가워요.",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "저는 아침에 빵과 사과를 먹어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:bread", "concept:apple"]}],
+			"typed": {"expected": ["사과"], "word": "concept:apple"},
+			"next": "errand"
+		},
+		"errand": {
+			"speaker": "villager",
+			"ko": "그런데 사과가 없어요. 사과를 한 개 구해 주세요.",
+			"effects": [
+				{"type": "startTrail", "trail": "essenspfad"},
+				{"type": "exposeGrammar", "point": "L2.seyo"}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "흠. 고마워요. 나 원 참.",
+			"end": true
+		}
+	}
+}

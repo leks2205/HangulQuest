@@ -1,0 +1,55 @@
+{
+	"schema": 1,
+	"id": "req_taiga_08",
+	"level": 6,
+	"kind": "DO",
+	"regions": [
+		"TAIGA"
+	],
+	"personalities": [
+		"JOCK",
+		"SISTERLY"
+	],
+	"goal": {
+		"type": "SMELT",
+		"input": "minecraft:salmon",
+		"output": "minecraft:cooked_salmon",
+		"count": 3
+	},
+	"words": [
+		"concept:salmon",
+		"concept:cook"
+	],
+	"answers": {
+		"yes": "네, 세 마리 구워 볼게요.",
+		"no": "아니요, 지금은 어려워요."
+	},
+	"lines": {
+		"JOCK": {
+			"offer": {
+				"ko": "크하하! 연어를 먹을수록 힘이 더 나요! 화로에 세 마리만 구워 주세요!",
+				"ko_banmal": "크하하! 연어를 먹을수록 힘이 더 나! 화로에 세 마리만 구워 줘!"
+			},
+			"accept": "좋아요! 하나, 둘! 기다릴게요!",
+			"decline": "괜찮아요! 연어가 없다면 내일 구워도 돼요!",
+			"reminder": "오오! 연어 세 마리, 아직 안 보이는데요?",
+			"thanks": {
+				"ko": "크하하! 이 냄새만 맡아도 힘이 솟는 것 같아요! 고마워요!",
+				"ko_banmal": "크하하! 이 냄새만 맡아도 힘이 솟는 것 같아! 고마워!"
+			}
+		},
+		"SISTERLY": {
+			"offer": {
+				"ko": "어이! 잔치에 쓸 연어가 없더라고요. 화로에 세 마리만 구워 주세요.",
+				"ko_banmal": "어이! 잔치에 쓸 연어가 없더라고. 화로에 세 마리만 구워 줘."
+			},
+			"accept": "좋아요! 문제없어요. 다치지 말고 천천히 하세요!",
+			"decline": "괜찮아요! 문제없어요. 그럼 오늘은 연어 없이 먹을 수밖에 없지요.",
+			"reminder": "어이, 연어 세 마리, 아직 멀었어요?",
+			"thanks": {
+				"ko": "푸하하! 노릇노릇하게 잘 구웠네요! 이 정도면 잔치도 문제없어요!",
+				"ko_banmal": "푸하하! 노릇노릇하게 잘 구웠네! 이 정도면 잔치도 문제없어!"
+			}
+		}
+	}
+}

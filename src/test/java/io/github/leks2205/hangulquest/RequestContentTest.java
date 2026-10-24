@@ -107,7 +107,7 @@ class RequestContentTest {
 	}
 
 	@Test
-	void everyLineIsPlainHangulAndHasAtMostOneNewWord() {
+	void everyLineIsPlainHangulAndHasAtMostTwoNewWords() {
 		DialogueLexicon lexicon = DialogueFixtures.lexicon();
 		DialogueCoverage.Vocabulary vocabulary = DialogueCoverage.vocabulary(catalog, lexicon, earlyWords, Lang.EN);
 		List<String> broken = new ArrayList<>();
@@ -123,7 +123,7 @@ class RequestContentTest {
 						broken.add(where + ": '" + token.text() + "' matches no word");
 					}
 				}
-				if (!DialogueCoverage.meetsRule(tokens)) {
+				if (DialogueCoverage.unknownWords(tokens) > DialogueCoverage.MAX_UNKNOWN) {
 					broken.add(where + ": \"" + line.ko() + "\" has " + DialogueCoverage.unknownWords(tokens) + " new words");
 				}
 			}

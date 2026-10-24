@@ -1,0 +1,60 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_03",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		]
+	},
+	"start": "made",
+	"nodes": {
+		"made": {
+			"speaker": "villager",
+			"ko": "오, 마침 잘 왔어요. 소리 블록을 만들었어요.",
+			"next": "gold"
+		},
+		"gold": {
+			"speaker": "villager",
+			"ko": "밑에 금 블록을 놓았어요. 종소리가 나요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "한번 들어 볼까요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "play"
+				},
+				{
+					"ko": "다른 소리도 있어요?",
+					"next": "other"
+				}
+			]
+		},
+		"play": {
+			"speaker": "villager",
+			"ko": "띵, 띵, 띵!",
+			"next": "clear"
+		},
+		"clear": {
+			"speaker": "villager",
+			"ko": "후후, 소리가 참 맑네요.",
+			"end": true
+		},
+		"other": {
+			"speaker": "villager",
+			"ko": "있어요. 양털 위의 소리 블록은 기타 소리가 나요.",
+			"next": "duet"
+		},
+		"duet": {
+			"speaker": "villager",
+			"ko": "내일은 같이 연주할까요?",
+			"end": true
+		}
+	}
+}

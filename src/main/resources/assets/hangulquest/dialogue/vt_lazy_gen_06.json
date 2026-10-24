@@ -1,0 +1,89 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_06",
+	"level": 5,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "heard",
+	"nodes": {
+		"heard": {
+			"speaker": "villager",
+			"ko": "하아암, 혹시 팬텀 이야기 들어 봤어요?",
+			"ko_banmal": "하아암, 혹시 팬텀 이야기 들어 봤어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_phantom"
+					]
+				}
+			],
+			"next": "days"
+		},
+		"days": {
+			"speaker": "villager",
+			"ko": "며칠 동안 잠을 안 자면 팬텀이 나온대요.",
+			"ko_banmal": "며칠 동안 잠을 안 자면 팬텀이 나온대.",
+			"next": "never"
+		},
+		"never": {
+			"speaker": "villager",
+			"ko": "그런데 저는 팬텀을 한 번도 본 적이 없어요.",
+			"ko_banmal": "그런데 나는 팬텀을 한 번도 본 적이 없어.",
+			"next": "why"
+		},
+		"why": {
+			"speaker": "villager",
+			"ko": "매일 밤 꼬박꼬박 잤거든요. 헤헤.",
+			"ko_banmal": "매일 밤 꼬박꼬박 잤거든. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 잠을 잘 자요?",
+			"ko_banmal": "밤에 잠을 잘 자?",
+			"choices": [
+				{
+					"ko": "네, 매일 잘 자요.",
+					"next": "sleeps"
+				},
+				{
+					"ko": "아니요, 밤에 일해요.",
+					"next": "works"
+				}
+			]
+		},
+		"sleeps": {
+			"speaker": "villager",
+			"ko": "그럼 우리는 팬텀 걱정이 없네요. 헤헤.",
+			"ko_banmal": "그럼 우리는 팬텀 걱정이 없네. 헤헤.",
+			"end": true
+		},
+		"works": {
+			"speaker": "villager",
+			"ko": "아유, 그러면 팬텀이 찾아올 텐데요.",
+			"ko_banmal": "아유, 그러면 팬텀이 찾아올 텐데.",
+			"next": "tip"
+		},
+		"tip": {
+			"speaker": "villager",
+			"ko": "오늘 밤은 꼭 침대에서 주무세요. 천천히, 천천히.",
+			"ko_banmal": "오늘 밤은 꼭 침대에서 자. 천천히, 천천히.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bed"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

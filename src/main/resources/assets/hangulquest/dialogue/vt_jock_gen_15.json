@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_15",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:cartographer",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오호! 어서 오세요! 제 지도를 보세요!",
+			"ko_banmal": "오호! 어서 와! 내 지도를 봐!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:map"
+					]
+				}
+			],
+			"next": "run"
+		},
+		"run": {
+			"speaker": "villager",
+			"ko": "저는 지도를 그리면서 매일 아주 멀리 달려요!",
+			"ko_banmal": "나는 지도를 그리면서 매일 아주 멀리 달려!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "어디로 가고 싶어요?",
+			"ko_banmal": "어디로 가고 싶어?",
+			"choices": [
+				{
+					"ko": "바다로 가고 싶어요.",
+					"next": "sea"
+				},
+				{
+					"ko": "숲으로 가고 싶어요.",
+					"next": "forest"
+				}
+			]
+		},
+		"sea": {
+			"speaker": "villager",
+			"ko": "바다 아래에 큰 건물이 있어요! 가디언을 조심하세요!",
+			"ko_banmal": "바다 아래에 큰 건물이 있어! 가디언 조심해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:ocean"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"forest": {
+			"speaker": "villager",
+			"ko": "숲에 큰 건물이 있어요! 정말 멀어요! 좋은 운동이 되죠!",
+			"ko_banmal": "숲에 큰 건물이 있어! 정말 멀어! 좋은 운동이 되지!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:forest"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "지도를 보고 열심히 달리세요! 또 만나요!",
+			"ko_banmal": "지도를 보고 열심히 달려! 또 만나!",
+			"end": true
+		}
+	}
+}

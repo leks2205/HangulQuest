@@ -1,0 +1,78 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_ms6",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 6,
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "헤헤, 안녕하세요.",
+			"ko_banmal": "헤헤, 안녕.",
+			"next": "nap"
+		},
+		"nap": {
+			"speaker": "villager",
+			"ko": "저는 요즘 조금만 자요.",
+			"ko_banmal": "나는 요즘 조금만 자.",
+			"next": "why"
+		},
+		"why": {
+			"speaker": "villager",
+			"ko": "친구를 빨리 만나고 싶어요. 그래서 일찍 일어나요.",
+			"ko_banmal": "친구를 빨리 만나고 싶어. 그래서 일찍 일어나.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "내일도 와요?",
+			"ko_banmal": "내일도 와?",
+			"choices": [
+				{
+					"ko": "네, 내일도 와요!",
+					"next": "yes"
+				},
+				{
+					"ko": "음, 바빠요. 미안해요.",
+					"next": "busy"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와! 그럼 내일은 쿠키를 만들어요. 같이 먹어요.",
+			"ko_banmal": "우와! 그럼 내일은 쿠키를 만들어. 같이 먹자.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cookie"
+					]
+				}
+			],
+			"end": true
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 저는 여기 있어요. 천천히 와요.",
+			"ko_banmal": "괜찮아. 나는 여기 있어. 천천히 와.",
+			"end": true
+		}
+	}
+}

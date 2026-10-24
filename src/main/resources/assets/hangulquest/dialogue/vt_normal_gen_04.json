@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_04",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머나, 해가 지네요.",
+			"next": "torch"
+		},
+		"torch": {
+			"speaker": "villager",
+			"ko": "밤에 좀비가 나와요. 그래서 꽃밭에 횃불을 놓았어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:zombie",
+						"concept:torch"
+					]
+				}
+			],
+			"next": "spawn"
+		},
+		"spawn": {
+			"speaker": "villager",
+			"ko": "횃불 옆에 좀비가 안 생겨요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 뭐 해요?",
+			"choices": [
+				{
+					"ko": "집에서 자요.",
+					"next": "sleep"
+				},
+				{
+					"ko": "동굴에서 석탄을 캐요.",
+					"next": "cave"
+				}
+			]
+		},
+		"sleep": {
+			"speaker": "villager",
+			"ko": "다행이에요. 잘 자요. 내일 또 만나요.",
+			"end": true
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "아이코, 조심하세요. 횃불이 꼭 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave"
+					]
+				}
+			],
+			"next": "wait"
+		},
+		"wait": {
+			"speaker": "villager",
+			"ko": "내일 꼭 다시 와요. 기다릴 거예요.",
+			"end": true
+		}
+	}
+}

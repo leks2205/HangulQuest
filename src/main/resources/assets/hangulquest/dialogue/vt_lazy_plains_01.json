@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "bee",
+	"nodes": {
+		"bee": {
+			"speaker": "villager",
+			"ko": "음, 저기 꿀벌이 있어요.",
+			"ko_banmal": "음, 저기 꿀벌이 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bee"
+					]
+				}
+			],
+			"next": "busy"
+		},
+		"busy": {
+			"speaker": "villager",
+			"ko": "꿀벌이 정말 바빠요.",
+			"ko_banmal": "꿀벌이 정말 바빠.",
+			"next": "me"
+		},
+		"me": {
+			"speaker": "villager",
+			"ko": "저는 안 바빠요. 헤헤.",
+			"ko_banmal": "나는 안 바빠. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꿀벌이 무서워요?",
+			"ko_banmal": "꿀벌이 무서워?",
+			"choices": [
+				{
+					"ko": "네, 조금 무서워요.",
+					"next": "scared"
+				},
+				{
+					"ko": "아니요, 귀여워요.",
+					"next": "cute"
+				}
+			]
+		},
+		"scared": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 가만히 있어요. 천천히, 천천히.",
+			"ko_banmal": "괜찮아. 가만히 있어. 천천히, 천천히.",
+			"end": true
+		},
+		"cute": {
+			"speaker": "villager",
+			"ko": "맞아요. 그리고 꿀도 줘요. 헤헤.",
+			"ko_banmal": "맞아. 그리고 꿀도 줘. 헤헤.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:honey"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

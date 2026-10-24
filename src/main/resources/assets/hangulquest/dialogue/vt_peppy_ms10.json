@@ -1,0 +1,76 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_ms10",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 10,
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "talk",
+	"nodes": {
+		"talk": {
+			"speaker": "villager",
+			"ko": "있잖아요, 오늘은 진짜 할 말이 있어요.",
+			"ko_banmal": "있잖아, 오늘은 진짜 할 말이 있어.",
+			"next": "before"
+		},
+		"before": {
+			"speaker": "villager",
+			"ko": "예전에 저는 혼자 노래했어요. 아무도 안 들었어요.",
+			"ko_banmal": "예전에 나는 혼자 노래했어. 아무도 안 들었어.",
+			"next": "you"
+		},
+		"you": {
+			"speaker": "villager",
+			"ko": "그런데 친구가 와서 늘 끝까지 들어 줬어요.",
+			"ko_banmal": "그런데 친구가 와서 늘 끝까지 들어 줬어.",
+			"next": "stage"
+		},
+		"stage": {
+			"speaker": "villager",
+			"ko": "그래서 이제 제 무대는 친구가 있는 곳이에요.",
+			"ko_banmal": "그래서 이제 내 무대는 친구가 있는 곳이야.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "제일 소중한 팬이에요. 아니, 제일 소중한 친구예요!",
+			"ko_banmal": "제일 소중한 팬이야. 아니, 제일 소중한 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "저도 같은 마음이에요.",
+					"next": "same"
+				},
+				{
+					"ko": "팬도 하고 친구도 해요!",
+					"next": "both"
+				}
+			]
+		},
+		"same": {
+			"speaker": "villager",
+			"ko": "꺄아! 눈물이 나네요! 그래도 웃을래요. 진짜진짜 최고예요!",
+			"ko_banmal": "꺄아! 눈물이 나네! 그래도 웃을래. 진짜진짜 최고야!",
+			"end": true
+		},
+		"both": {
+			"speaker": "villager",
+			"ko": "와아, 둘 다요? 그럼 저는 세상에서 제일 행복한 가수네요!",
+			"ko_banmal": "와아, 둘 다야? 그럼 나는 세상에서 제일 행복한 가수야!",
+			"end": true
+		}
+	}
+}

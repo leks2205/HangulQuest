@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_12",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:librarian",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오세요! 저는 사서예요.",
+			"next": "need"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "저는 책이 정말 좋아요. 그래서 책이 많이 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:book"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "책을 좋아하세요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "offer"
+				},
+				{
+					"ko": "아니요, 조금 어려워요.",
+					"next": "easy"
+				}
+			]
+		},
+		"offer": {
+			"speaker": "villager",
+			"ko": "그럼 이 책을 보세요. 아주 특별한 책이에요.",
+			"next": "price"
+		},
+		"price": {
+			"speaker": "villager",
+			"ko": "특별한 책은 에메랄드와 책이 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"easy": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 그럼 제가 책을 읽어 줘요.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "또 오세요. 책이 기다려요!",
+			"end": true
+		}
+	}
+}

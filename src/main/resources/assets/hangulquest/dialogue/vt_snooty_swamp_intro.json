@@ -1,0 +1,68 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "늪은 진흙이 많습니다. 저는 진흙이 싫습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_mud",
+						"concept:gen_swamp",
+						"concept:frog"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리를 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "흠, 귀엽습니다. 그런데 시끄럽습니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "호호, 개구리는 슬라임을 먹습니다.",
+			"end": true
+		}
+	}
+}

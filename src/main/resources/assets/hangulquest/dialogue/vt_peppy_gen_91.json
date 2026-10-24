@@ -1,0 +1,102 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나는 노래가 좋아! 랄라라!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:song"
+					]
+				}
+			],
+			"next": "apple"
+		},
+		"apple": {
+			"speaker": "child",
+			"ko": "그리고 사과도 정말 좋아!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 사과 좋아해?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 좋아해!",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "song"
+				},
+				{
+					"ko": "네, 저도 좋아합니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"song": {
+			"speaker": "child",
+			"ko": "와아! 그럼 우리 사과 노래 부르자! 사과, 사과, 빨간 사과!",
+			"next": "ask_more"
+		},
+		"ask_more": {
+			"speaker": "child",
+			"ko": "나는 사과가 하나 있어. 너는 뭐가 있어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 빵이 있어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "friends"
+				},
+				{
+					"ko": "저는 빵이 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "빵 노래도 부르자! 우리 이제 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend",
+						"concept:bread"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "잘 가! 또 놀자!",
+			"end": true
+		}
+	}
+}

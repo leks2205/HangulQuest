@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_jungle_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "정글은 비가 많이 옵니다. 나무가 아주 높습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rain",
+						"concept:jungle"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "비를 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 싫어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "흠, 그래도 나무는 좋습니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "호호, 저도 싫습니다. 우리는 생각이 같습니다.",
+			"end": true
+		}
+	}
+}

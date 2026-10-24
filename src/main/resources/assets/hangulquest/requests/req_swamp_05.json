@@ -1,0 +1,34 @@
+{
+	"schema": 1,
+	"id": "req_swamp_05",
+	"level": 3,
+	"kind": "SHOW",
+	"regions": ["SWAMP"],
+	"show": {"item": "minecraft:mushroom_stew", "count": 1},
+	"personalities": ["CRANKY", "NORMAL", "LAZY"],
+	"words": ["concept:mushroom"],
+	"answers": {"yes": "네, 좋아요!", "no": "아니요, 괜찮아요."},
+	"lines": {
+		"LAZY": {
+			"offer": {"ko": "음, 저는 버섯 스튜가 좋아요. 있어요?", "ko_banmal": "음, 나는 버섯 스튜가 좋아. 있어?"},
+			"accept": "좋아요. 보여 주세요. 천천히, 천천히.",
+			"decline": "괜찮아요. 다음에 보여 주세요.",
+			"reminder": "음, 스튜가 없어요?",
+			"thanks": {"ko": "음, 정말 따뜻해요. 고마워요.", "ko_banmal": "음, 정말 따뜻해. 고마워."}
+		},
+		"CRANKY": {
+			"offer": "흠. 버섯 스튜가 좋아요. 있어요?",
+			"accept": "흠. 보여 주세요.",
+			"decline": "흠. 괜찮아요.",
+			"reminder": "스튜가 없어요?",
+			"thanks": "흠. 따뜻해 보여요. 나 원 참."
+		},
+		"NORMAL": {
+			"offer": "어머, 저는 버섯 스튜가 좋아요. 있어요?",
+			"accept": "좋아요. 보여 주세요.",
+			"decline": "괜찮아요. 다음에 보여 주세요.",
+			"reminder": "스튜가 없어요?",
+			"thanks": "어머, 버섯이 많아요! 다행이에요."
+		}
+	}
+}
