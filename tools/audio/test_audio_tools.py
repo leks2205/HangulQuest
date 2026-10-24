@@ -40,6 +40,13 @@ class TextMetrics(unittest.TestCase):
         self.assertNotEqual(a, common.sha1("흙", "sohee", "m"))
         self.assertNotEqual(a, common.sha1("돌", "sohee", "m2"))
 
+    def test_hums_count_as_written(self):
+        self.assertEqual(common.cer("흠. 괜찮아요.", qa.hums_as_written("흠. 괜찮아요.", "흥, 괜찮아요.")), 0.0)
+        self.assertEqual(qa.hums_as_written("음, 안녕하세요.", "응? 안녕하세요."), "음? 안녕하세요.")
+        # a real 응 in the text stays a 응
+        self.assertEqual(qa.hums_as_written("응, 좋아!", "응, 좋아!"), "응, 좋아!")
+        self.assertEqual(qa.hums_as_written("좋아요.", "흥 좋아요."), "흥 좋아요.")
+
     def test_pronunciation_forms_come_from_the_review_table(self):
         with tempfile.TemporaryDirectory() as tmp:
             table = Path(tmp) / "pron.tsv"

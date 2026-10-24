@@ -85,6 +85,18 @@ def preload_cuda12():
 HALLUCINATION = re.compile(r"(자막.*|시청해\s*주셔서.*|구독.*좋아요.*|MBC\s*뉴스.*)", re.IGNORECASE)
 
 
+# Hums that Whisper spells as the neighbouring syllable (CRANKY's 흠. is heard as 흥, LAZY's 음 as 응).
+INTERJECTIONS = (("흠", "흥"), ("음", "응"))
+
+
+def hums_as_written(ko: str, heard: str) -> str:
+    """Where the text has a hum and the transcript only the look-alike, count it as the hum (not the other way)."""
+    for hum, heard_as in INTERJECTIONS:
+        if hum in ko and heard_as in heard and heard_as not in ko:
+            heard = heard.replace(heard_as, hum)
+    return heard
+
+
 def decode(path: Path, pad: float = 0.5) -> np.ndarray:
     """Ogg -> 16 kHz mono float32, padded with silence (Whisper dislikes clips that start on the first sample)."""
     raw = subprocess.run(
@@ -183,8 +195,8 @@ def main():
             seconds = len(audio) / 16000 - 1.0
             segments, _ = asr.transcribe(audio, language="ko", beam_size=5, temperature=0.0,
                                          condition_on_previous_text=False, vad_filter=False)
-            heard = spell_digits(HALLUCINATION.sub("", "".join(s.text for s in segments)))
             ko = entry["ko"]
+            heard = hums_as_written(ko, spell_digits(HALLUCINATION.sub("", "".join(s.text for s in segments))))
             score = cer(ko, heard)
             row = {"voice": voice, "id": cid, "hash": entry["hash"], "ko": ko, "asr": heard,
                    "cer": round(score, 4), "seconds": round(seconds, 2), "bytes": size}
