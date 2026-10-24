@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Write the progress fixture a release tag needs (release.yml refuses a tag without one) and list it in
 # ProgressCompatibilityTest. Usage: tools/new_fixture.sh v3.0.0-rc.2
-# The file is the synthetic v4 sample loaded and saved by the real ProgressStore, so it is what this build writes.
+# The file is the synthetic v5 sample loaded and saved by the real ProgressStore, so it is what this build writes.
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 tag=${1:?usage: tools/new_fixture.sh <tag, e.g. v3.0.0-rc.2>}
