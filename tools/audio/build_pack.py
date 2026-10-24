@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Build the optional "Hangul Quest Voices" resource pack from rendered clips.
 
-  build_pack.py [--out <render dir>] [--dist <folder>] [--texts texts.jsonl] [--words-only] [--blocklist extra.json ...]
-               [--hvpt <render dir>]
+  build_pack.py [--out <render dir>] [--dist <folder>] [--texts texts.jsonl [lines.jsonl ...]] [--words-only]
+               [--blocklist extra.json ...] [--hvpt <render dir>]
 
 Layout (resource pack format 97 for Minecraft 26.3):
   pack.mcmeta
   manifest.json                                      model, licences, voices, hashes, date
-  assets/hangulquest/sounds.json                     one event per text: word.<conceptId>, sentence.<hash>
+  assets/hangulquest/sounds.json                     one event per text: word.<conceptId>, sentence.<hash>,
+                                                     line.<dialogue>.<node>.<voice>
   assets/hangulquest/sounds/ko/<voice>/<id>.ogg
 
-The mod only plays "hangulquest:word.<conceptId>"; the game picks one of the listed voices at random.
+The mod plays "hangulquest:word.<conceptId>"; the game picks one of the listed voices at random.
+Villager lines (dialogue_texts.py) carry their voice in the id already, line.<dialogue>.<node>.<voice>: the mod
+picks the villager's voice, so each such event has exactly one clip.
 The sound forge stimuli (hvpt.<item>.<form>, see hvpt_texts.py) are different: the mod picks the voice itself,
 so every voice gets its own event, hvpt.<item>.<form>.<voice>, with exactly one clip. They may come from the
 same render dir or from a second one (--hvpt); both are added to the one pack. The pack manifest marks them
@@ -32,6 +35,8 @@ from common import DIST, OUT, load_voices, read_jsonl, sha1
 HVPT_PREFIX = "hvpt."
 PACK_FORMAT = 97  # resource_major in the 26.3 version.json
 NAME = "Hangul Quest Voices"
+PACK_VERSION = "1.2.0"
+LINE_PREFIX = "line."
 SAFE = re.compile(r"[a-z0-9_.]+")
 
 NOTICE = """Hangul Quest Voices
@@ -59,8 +64,22 @@ def load_blocklists(paths):
 
 
 def event_name(cid: str, voice: str) -> str:
-    """Sound forge stimuli get one event per voice (the mod chooses the voice); everything else shares one event."""
+    """Sound forge stimuli get one event per voice (the mod chooses the voice); villager lines name their voice
+    already; words share one event over all voices."""
     return f"{cid}.{voice}" if cid.startswith(HVPT_PREFIX) else cid
+
+
+def misplaced_line(cid: str, voice: str) -> bool:
+    """A villager line rendered in a voice its id does not name (a stray --voices run) is never packed."""
+    return cid.startswith(LINE_PREFIX) and not cid.endswith("." + voice)
+
+
+def current_texts(texts):
+    """id -> sha1(text) of one or more JSONL files, or None for no filter."""
+    if not texts:
+        return None
+    paths = [texts] if isinstance(texts, (str, Path)) else texts
+    return {r["id"]: sha1(r["ko"]) for p in paths for r in read_jsonl(p)}
 
 
 def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None, words_only=False, hvpt_dir: Path = None):
@@ -70,19 +89,19 @@ def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None, words_o
     blocked = load_blocklists([d / "audio-blocklist.json" for d in sources] + list(extra_blocklists))
 
     # --texts and --words-only filter the voices pack's own texts; sound forge stimuli have their own list (hvpt.json)
-    current = {r["id"]: sha1(r["ko"]) for r in read_jsonl(texts)} if texts else None
+    current = current_texts(texts)
     events, files, kept, kinds = {}, [], {}, {}
     for render_path, rendered in zip(sources, manifests):
         for voice, vdata in sorted(rendered["voices"].items()):
             kinds[voice] = vdata["kind"]
             for cid, entry in sorted(vdata["entries"].items()):
                 src = render_path / voice / f"{entry['hash']}.ogg"
-                if (voice, cid) in blocked or not src.exists() or not SAFE.fullmatch(cid):
+                if (voice, cid) in blocked or not src.exists() or not SAFE.fullmatch(cid) or misplaced_line(cid, voice):
                     continue
                 stimulus = cid.startswith(HVPT_PREFIX)
                 if not stimulus and current is not None and current.get(cid) != entry.get("text_sha1"):
                     continue
-                if not stimulus and words_only and not cid.startswith("word."):
+                if not stimulus and words_only and not cid.startswith(("word.", LINE_PREFIX)):
                     continue
                 events.setdefault(event_name(cid, voice), {"sounds": []})["sounds"].append(
                     {"name": f"hangulquest:ko/{voice}/{cid}"})
@@ -103,7 +122,11 @@ def build(render_dir: Path, dist: Path, extra_blocklists=(), texts=None, words_o
     pack_manifest["blocked"] = len(blocked)
     notice = NOTICE.format(model=manifest["model"], code=manifest["code_licence"], weights=manifest["weights_licence"],
                            urls="\n".join("  " + u for u in manifest["licence_urls"]), date=manifest["rendered"])
-    mcmeta = {"pack": {"description": f"{NAME}: spoken Korean for Hangul Quest (synthetic voices)",
+    pack_manifest["packVersion"] = PACK_VERSION
+    lines = sum(cid.startswith(LINE_PREFIX) for entries in kept.values() for cid in entries)
+    if lines:
+        pack_manifest["lines"] = {"clips": lines, "note": "villager lines, one event per line and voice"}
+    mcmeta = {"pack": {"description": f"{NAME} {PACK_VERSION}: spoken Korean for Hangul Quest (synthetic voices)",
                        "min_format": PACK_FORMAT, "max_format": PACK_FORMAT}}
 
     dist.mkdir(parents=True, exist_ok=True)
@@ -133,10 +156,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--dist", default=str(DIST))
-    ap.add_argument("--texts", help="JSONL of the current texts; clips of other texts are left out")
+    ap.add_argument("--texts", nargs="+", help="JSONL of the current texts (words, sentences, villager lines); "
+                                               "clips of other texts are left out")
     ap.add_argument("--blocklist", nargs="*", default=[])
     ap.add_argument("--words-only", action="store_true",
-                    help="leave sentence clips out (the mod plays only word.* events so far)")
+                    help="leave sentence clips out (the mod plays word.* and line.* events, not sentences)")
     ap.add_argument("--hvpt", default=None, help="a second render dir with the sound forge stimuli (hvpt.*)")
     args = ap.parse_args()
     build(Path(args.out), Path(args.dist), args.blocklist, args.texts, args.words_only,

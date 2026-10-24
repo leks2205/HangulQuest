@@ -8,6 +8,9 @@ MIT; weights MIT), and compute the character error rate against the text after s
 are normalised. Clips above the threshold, clips with an implausible length, and clips whose
 pronunciation form disagrees are listed in <out>/audio-blocklist.json, and build_pack.py leaves them out.
 
+Villager lines (dialogue_texts.py, line.<dialogue>.<node>.<voice>) go through the same gate; their ids name
+the voice, so each is checked once, in that voice.
+
 With texts.jsonl only the entries of those texts are checked (clips of texts that no longer exist are
 ignored). A clip that an earlier qa-report.json already checked (same voice, id, file hash and size) is not
 transcribed again; --fresh checks everything.
@@ -118,7 +121,8 @@ def stats(values):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("texts", nargs="?", help="only check these texts (JSONL from select_texts.py); default: the whole manifest")
+    ap.add_argument("texts", nargs="*", help="only check these texts (JSONL from select_texts.py or dialogue_texts.py); "
+                                             "default: the whole manifest")
     ap.add_argument("--fresh", action="store_true", help="ignore the earlier report and transcribe every clip")
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--threshold", type=float, default=0.15)
@@ -132,7 +136,7 @@ def main():
     out = Path(args.out)
     manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
     prons = pron_forms()
-    wanted = {r["id"]: sha1(r["ko"]) for r in read_jsonl(args.texts)} if args.texts else None
+    wanted = {r["id"]: sha1(r["ko"]) for p in args.texts for r in read_jsonl(p)} if args.texts else None
     earlier = {}
     report_path = out / "qa-report.json"
     if report_path.exists() and not args.fresh:
@@ -207,6 +211,7 @@ def main():
                "cer": stats([r["cer"] for r in report]),
                "cer_words": stats([r["cer"] for r in report if r["id"].startswith("word.")]),
                "cer_sentences": stats([r["cer"] for r in report if r["id"].startswith("sentence.")]),
+               "cer_lines": stats([r["cer"] for r in report if r["id"].startswith("line.")]),
                "by_voice": {v: stats([r["cer"] for r in report if r["voice"] == v]) for v in manifest["voices"]}}
     (out / "qa-report.json").write_text(
         json.dumps({"summary": summary, "clips": report}, ensure_ascii=False, indent=1), encoding="utf-8")

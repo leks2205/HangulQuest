@@ -118,3 +118,31 @@ Natural recordings: the set is synthetic. Record several native talkers per item
 event names (or add a `source` per clip to the manifest), and the mod needs no change. Keep two or more talkers
 out of training for the tests. A native review of the tense and aspirated forms is the first thing to ask for.
 
+
+## Villager voices (3.1, pack 1.2.0)
+
+Ten more clone voices, `lines_only` in `voices.json` (never in a word render, never in a `word.*` event): one per
+personality (`v_lazy`, `v_jock`, `v_cranky`, `v_smug`, `v_normal`, `v_peppy`, `v_snooty`, `v_sisterly`) and two
+children (`v_child_m`, `v_child_f`). Each has its own `ref_text` in its register (SNOOTY 합쇼체, children 반말), which
+is both the VoiceDesign text and the clone prompt text.
+
+`design_voices.py generate|measure|choose` tried seeds 7, 19, 31 and 43 per voice and kept a seed whose reference
+clip passes the ASR round trip (CER <= 0.05) and its pitch band (librosa pyin median F0: men < 165 Hz, women > 175 Hz,
+children > 230 Hz; CRANKY the lowest man, PEPPY the highest woman). Seeds and numbers are in `voices.json`
+(`reference`). This model makes young men high: the word voices male1/male2 measure 176/208 Hz, and JOCK needed a
+fourth design text ("low-pitched coach") before a seed came in under 165 Hz.
+
+Lines: `dialogue_texts.py` writes one row per line and voice (`line.<dialogue>.<node>.<voice>`, `.banmal.` variants,
+`line.req_<request>.<node>.<voice>`, `line.name.<roman>.<voice>`) with a `voices` field; `render.py` renders a row
+only in those voices, `qa.py` gates them like the rest (CER 0.15), `build_pack.py` packs each as an event with one
+clip. Pipeline:
+
+    dialogue_texts.py --repo <checkout> --out ~/hangulquest-audio/work/dialogue-texts.jsonl
+    render.py ~/hangulquest-audio/work/dialogue-texts.jsonl --device cuda:0 --batch 8
+    qa.py ~/hangulquest-audio/work/texts.jsonl ~/hangulquest-audio/work/dialogue-texts.jsonl --device cuda
+    render.py ~/hangulquest-audio/work/dialogue-texts.jsonl --device cuda:0 --redo ~/hangulquest-audio/out/audio-blocklist.json
+    build_pack.py --texts ~/hangulquest-audio/work/texts.jsonl ~/hangulquest-audio/work/dialogue-texts.jsonl \
+        --words-only --hvpt ~/hangulquest-audio/out-hvpt --dist <new folder>
+
+Speed (2026-10-24, RTX 5070, batch 8): 50 dialogue clips in 12 voices took 45.6 s of generation (109 s of audio,
+0.42x real time), 63 s wall with model loads; the ASR check 14 s.
