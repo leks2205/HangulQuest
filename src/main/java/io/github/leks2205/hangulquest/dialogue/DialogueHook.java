@@ -185,11 +185,13 @@ public final class DialogueHook {
 		VillagerProfile profile = known.meet(open.npc(), open.region(), open.baby(), open.profession(),
 				System.currentTimeMillis()).profile();
 		profile.talkedOn(open.day());
+		if (open.choice() instanceof ConversationSelector.HandIn handIn
+				&& !handIn(hq, requests, profile, handIn.request(), learning)) {
+			known.save();
+			return; // closed in the meantime: no thanks, no friendship
+		}
 		ConversationSelector.opened(profile, open.choice(), open.day());
 		Dialogue dialogue = dialogueOf(open.choice(), profile);
-		if (open.choice() instanceof ConversationSelector.HandIn handIn) {
-			handIn(hq, requests, profile, handIn.request(), learning);
-		}
 		known.save();
 		DialogueSink sink = new VillagerDialogueSink(learning, new VillagerDialogueSink.Villager() {
 			@Override
@@ -239,17 +241,18 @@ public final class DialogueHook {
 		};
 	}
 
-	/** Closes the request: counted, its words practised, friendship +2 (already added by the selector). */
-	private static void handIn(HangulQuestClient hq, Requests requests, VillagerProfile profile, Request request,
-							   DialogueSink learning) {
+	/** Closes the request: counted and its words practised (friendship +2 follows in the selector); false when it was gone. */
+	private static boolean handIn(HangulQuestClient hq, Requests requests, VillagerProfile profile, Request request,
+								  DialogueSink learning) {
 		if (requests.handIn(profile.uuid) == null) {
-			return;
+			return false;
 		}
 		for (String word : request.words()) {
 			learning.practiceWord(word, true);
 		}
 		hq.learn().markDirty();
 		hq.hud().banner(profile.name + "의 부탁", I18n.t("hangulquest.ui.request.finished"), true);
+		return true;
 	}
 
 	/** Starts a trail the player may start: it exists, is not finished, and its requirements are met. */

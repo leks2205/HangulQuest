@@ -200,6 +200,23 @@ class ConversationSelectorTest {
 	}
 
 	@Test
+	void anIntroductionOrMilestoneNeverComesBackHoweverMuchIsSaid() {
+		VillagerProfile profile = lazy();
+		profile.friendship = 3;
+		assertEquals("intro_lazy_plains", talk(adult(profile, 1, 1)));
+		assertEquals("ms_lazy_3", talk(adult(profile, 1, 1)));
+		for (int i = 0; i < 100; i++) {
+			profile.markSeen("filler_" + i);
+		}
+		List<String> later = new ArrayList<>();
+		for (int i = 0; i < 6; i++) {
+			later.add(talk(adult(profile, 1, 1)));
+		}
+		assertTrue(later.stream().noneMatch(id -> id.startsWith("intro") || id.startsWith("ms_")), later.toString());
+		assertTrue(profile.introduced);
+	}
+
+	@Test
 	void nothingFitsMeansNoConversation() {
 		VillagerProfile profile = lazy();
 		ConversationSelector.Situation trader = new ConversationSelector.Situation(profile, "minecraft:wandering_trader",

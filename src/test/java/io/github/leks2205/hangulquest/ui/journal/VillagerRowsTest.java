@@ -56,6 +56,24 @@ class VillagerRowsTest {
 	}
 
 	@Test
+	void anOpenRequestOfAVillagerWithoutProfileStillHasARow() {
+		ProgressData data = new ProgressData();
+		Request bread = new Request("req_plains_01", 1, Request.Kind.SHOW, List.of(Region.PLAINS), List.of(), List.of(),
+				null, "minecraft:bread", 1, List.of(), null, null, Map.of());
+		Requests requests = new Requests(data, RequestSet.of(List.of(bread)), () -> {
+		}, id -> null);
+		requests.accept(bread, new UUID(9, 9).toString(), "보라", 1L);
+		List<VillagerRows.Row> rows = VillagerRows.of(List.of(), requests);
+		assertEquals(1, rows.size());
+		assertNull(rows.get(0).profile());
+		assertEquals("보라", rows.get(0).name());
+		assertFalse(requests.ready(data.requests.open.get(0), "minecraft:bread", 1), "untracked: no log, so no hand-in");
+		data.requests.open.get(0).tracked = true;
+		assertTrue(requests.ready(data.requests.open.get(0), "minecraft:bread", 1));
+		assertFalse(requests.ready(data.requests.open.get(0), "minecraft:apple", 1));
+	}
+
+	@Test
 	void friendshipIsTenHearts() {
 		assertEquals("♥♥♥♡♡♡♡♡♡♡", VillagerRows.hearts(3));
 		assertEquals("♡".repeat(10), VillagerRows.hearts(0));

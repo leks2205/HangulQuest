@@ -65,6 +65,11 @@ public final class VillagersTab extends JournalTab {
 
 	private void drawRow(GuiGraphicsExtractor g, VillagerRows.Row row, Requests requests, int x, int y, int width) {
 		VillagerProfile profile = row.profile();
+		if (profile == null) {
+			Draw.korean(g, host.font(), row.name(), x, y, Ink.INK);
+			drawRequest(g, row, requests, row.request().villager, x, y, width);
+			return;
+		}
 		String who = profile.name + " · " + profile.personality.ko() + " 주민";
 		Draw.korean(g, host.font(), who, x, y, Ink.INK);
 		String hearts = VillagerRows.hearts(profile.friendship);
@@ -84,16 +89,19 @@ public final class VillagersTab extends JournalTab {
 			about.append(" · ").append(I18n.t("hangulquest.ui.villagers.banmal"));
 		}
 		Draw.truncated(g, host.font(), Component.literal(about.toString()), x + 8, y + 10, width - 8, Ink.INK_SOFT);
-		if (!row.hasRequest()) {
-			return;
+		if (row.hasRequest()) {
+			drawRequest(g, row, requests, profile.uuid, x, y, width);
 		}
+	}
+
+	private void drawRequest(GuiGraphicsExtractor g, VillagerRows.Row row, Requests requests, String villager, int x,
+							 int y, int width) {
 		int ry = y + ROW - 2;
 		String title = row.requestDef() == null ? I18n.t("hangulquest.ui.villagers.request_gone")
 				: I18n.t(row.requestDef().titleKey()) + (row.request().done ? " · " + I18n.t("hangulquest.ui.villagers.request_done") : "");
 		int buttons = 150;
 		Draw.truncated(g, host.font(), Component.literal(I18n.t("hangulquest.ui.villagers.request", title)), x + 8, ry + 3,
 				width - buttons - 12, Ink.ACCENT);
-		String villager = profile.uuid;
 		boolean tracked = row.request().tracked;
 		host.button(g, x + width - buttons, ry, 72, 14, I18n.t(tracked ? "hangulquest.ui.villagers.untrack"
 				: "hangulquest.ui.villagers.track"), tracked, () -> {

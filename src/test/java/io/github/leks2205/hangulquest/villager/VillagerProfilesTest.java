@@ -44,6 +44,8 @@ class VillagerProfilesTest {
 		made.friendship = 4;
 		made.markSeen("vt_lazy_gen_01");
 		made.banmal = true;
+		made.markOnce("vt_lazy_ms3");
+		made.introduced = true;
 		profiles.save();
 
 		VillagerProfile again = VillagerProfiles.open(dir, LOG).get(uuid(1));
@@ -57,6 +59,8 @@ class VillagerProfilesTest {
 		assertEquals(42L, again.firstMet);
 		assertTrue(again.hasSeen("vt_lazy_gen_01"));
 		assertTrue(again.banmal);
+		assertTrue(again.hasSeen("vt_lazy_ms3"));
+		assertTrue(again.introduced);
 		assertEquals("minecraft:mason", again.profession);
 		assertFalse(VillagerProfiles.open(dir, LOG).meet(uuid(1), Region.SNOW, false, null, 99L).fresh());
 		assertEquals(Region.DESERT, VillagerProfiles.open(dir, LOG).get(uuid(1)).region, "the region never changes");

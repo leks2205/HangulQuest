@@ -68,7 +68,7 @@ public final class ConversationSelector {
 		List<Dialogue> fitting = dialogues.all().stream().filter(dialogue -> fits(dialogue, s)).toList();
 
 		List<Dialogue> intros = of(fitting, ConversationKind.INTRO);
-		if (!intros.isEmpty() && intros.stream().noneMatch(intro -> profile.hasSeen(intro.id()))
+		if (!intros.isEmpty() && !profile.introduced && intros.stream().noneMatch(intro -> profile.hasSeen(intro.id()))
 				&& !introSeen(dialogues, profile)) {
 			return Optional.of(new Talk(mostSpecific(intros, profile)));
 		}
@@ -167,7 +167,16 @@ public final class ConversationSelector {
 	 */
 	public static void opened(VillagerProfile profile, Choice choice, long day) {
 		switch (choice) {
-			case Talk talk -> profile.markSeen(talk.dialogue().id());
+			case Talk talk -> {
+				switch (talk.kind()) {
+					case INTRO -> {
+						profile.introduced = true;
+						profile.markOnce(talk.dialogue().id());
+					}
+					case MILESTONE, BANMAL_OFFER -> profile.markOnce(talk.dialogue().id());
+					default -> profile.markSeen(talk.dialogue().id());
+				}
+			}
 			case Offer offer -> profile.requestDay = day;
 			case Reminder reminder -> profile.reminderDay = day;
 			case HandIn handIn -> {

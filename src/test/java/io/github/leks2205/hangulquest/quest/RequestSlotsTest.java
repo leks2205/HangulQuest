@@ -125,6 +125,29 @@ class RequestSlotsTest {
 	}
 
 	@Test
+	void theFocusedPickAndPicksWithProgressGoLast() {
+		assertTrue(engine.autoTrack("wood", false, 1_000L));
+		assertEquals("wood", engine.focusedId(), "the first pick takes the focus");
+		assertTrue(engine.autoTrack("food", false, 1_100L));
+		assertTrue(engine.autoTrack("pig", false, 1_200L));
+		assertTrue(engine.autoTrack("stone", true, 1_300L));
+		engine.demoProgress("food", 1);
+		assertTrue(accept("req_a", A).tracked);
+		assertTrue(engine.isTracked("wood"), "the focused trail stays");
+		assertTrue(engine.isTracked("food"), "a trail with progress stays while another can go");
+		assertFalse(engine.isTracked("pig"));
+		assertEquals("wood", engine.focusedId());
+	}
+
+	@Test
+	void aRequestWhoseFileIsGoneTakesNoSlot() {
+		accept("req_a", A);
+		learn.data().requests.open.get(0).id = "req_gone";
+		assertEquals(0, requests.trackedCount());
+		assertTrue(engine.trackedViews().isEmpty());
+	}
+
+	@Test
 	void whenThePlayerChoseEveryTrailTheRequestWaitsUntracked() {
 		for (String trail : List.of("wood", "food", "pig", "stone")) {
 			assertTrue(engine.setTracked(trail, true));

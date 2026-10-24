@@ -172,8 +172,8 @@ public final class Requests implements QuestEngine.Extra {
 	}
 
 	/**
-	 * True when the request can be handed in now: a SHOW request while the player holds enough of the item, the
-	 * others once their goal was met.
+	 * True when the request can be handed in now: a tracked SHOW request while the player holds enough of the item,
+	 * the others once their goal was met (which only happens while tracked).
 	 */
 	public boolean ready(ProgressData.OpenRequest open, String heldItem, int heldCount) {
 		Request request = request(open);
@@ -181,7 +181,7 @@ public final class Requests implements QuestEngine.Extra {
 			return false;
 		}
 		if (request.kind() == Request.Kind.SHOW) {
-			return request.showItem().equals(heldItem) && heldCount >= request.showCount();
+			return open.tracked && request.showItem().equals(heldItem) && heldCount >= request.showCount();
 		}
 		return open.done;
 	}
@@ -290,7 +290,8 @@ public final class Requests implements QuestEngine.Extra {
 	public int trackedCount() {
 		int count = 0;
 		for (ProgressData.OpenRequest open : data.open) {
-			if (open.tracked) {
+			// a request whose file is gone shows no row, so it takes no slot either
+			if (open.tracked && request(open) != null) {
 				count++;
 			}
 		}

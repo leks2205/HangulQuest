@@ -275,6 +275,15 @@ public final class VillagerProfiles {
 		profile.banmal = json.has("banmal") && json.get("banmal").isJsonPrimitive() && json.get("banmal").getAsBoolean();
 		profile.baby = json.has("baby") && json.get("baby").isJsonPrimitive() && json.get("baby").getAsBoolean();
 		profile.profession = string(json, "profession");
+		profile.introduced = json.has("introduced") && json.get("introduced").isJsonPrimitive()
+				&& json.get("introduced").getAsBoolean();
+		if (json.has("once") && json.get("once").isJsonArray()) {
+			for (JsonElement once : json.getAsJsonArray("once")) {
+				if (once.isJsonPrimitive()) {
+					profile.markOnce(once.getAsString());
+				}
+			}
+		}
 		if (json.has("seen") && json.get("seen").isJsonArray()) {
 			for (JsonElement seen : json.getAsJsonArray("seen")) {
 				if (seen.isJsonPrimitive()) {
@@ -303,6 +312,10 @@ public final class VillagerProfiles {
 		JsonArray seen = new JsonArray();
 		profile.seen.forEach(seen::add);
 		json.add("seen", seen);
+		JsonArray once = new JsonArray();
+		profile.once.forEach(once::add);
+		json.add("once", once);
+		json.addProperty("introduced", profile.introduced);
 		json.addProperty("banmal", profile.banmal);
 		json.addProperty("baby", profile.baby);
 		if (profile.profession != null) {

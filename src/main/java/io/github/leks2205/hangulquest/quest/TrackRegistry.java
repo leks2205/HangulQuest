@@ -106,11 +106,22 @@ final class TrackRegistry {
 		return count;
 	}
 
-	/** The oldest checked trail the game picked that fills a slot, or null. */
+	/**
+	 * The checked trail the game picked that may give up its slot, or null: the oldest one without progress that is
+	 * not focused, then the oldest one that is not focused, then the focused one.
+	 */
 	String oldestAuto() {
-		for (String id : trackedIds) {
-			if (autoIds.contains(id) && inSlot(id)) {
-				return id;
+		for (int pass = 0; pass < 3; pass++) {
+			for (String id : trackedIds) {
+				if (!autoIds.contains(id) || !inSlot(id)) {
+					continue;
+				}
+				Track track = tracks.get(id);
+				boolean focused = id.equals(focusedId);
+				boolean progress = track != null && track.hasProgress();
+				if (pass == 0 && !focused && !progress || pass == 1 && !focused || pass == 2) {
+					return id;
+				}
 			}
 		}
 		return null;

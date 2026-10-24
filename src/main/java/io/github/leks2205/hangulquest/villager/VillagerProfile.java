@@ -31,6 +31,13 @@ public final class VillagerProfile {
 	public long lastTalkDay = -1;
 	/** Conversation ids in the order they were last seen, the least recent first. */
 	public final List<String> seen = new ArrayList<>();
+	/**
+	 * Conversations that come only once (introduction, milestones, the 반말 offer): kept apart from {@link #seen} and
+	 * never trimmed, so they cannot come back.
+	 */
+	public final java.util.Set<String> once = new java.util.LinkedHashSet<>();
+	/** True once the villager has introduced itself (also when that conversation's file is gone later). */
+	public boolean introduced;
 	/** True once the player accepted the villager's offer to talk 반말. */
 	public boolean banmal;
 	/** The in-game day the villager last offered or was handed in a request; -1 before the first. */
@@ -58,6 +65,8 @@ public final class VillagerProfile {
 		copy.firstMet = firstMet;
 		copy.lastTalkDay = lastTalkDay;
 		copy.seen.addAll(seen);
+		copy.once.addAll(once);
+		copy.introduced = introduced;
 		copy.banmal = banmal;
 		copy.requestDay = requestDay;
 		copy.reminderDay = reminderDay;
@@ -72,7 +81,12 @@ public final class VillagerProfile {
 	}
 
 	public boolean hasSeen(String conversationId) {
-		return seen.contains(conversationId);
+		return seen.contains(conversationId) || once.contains(conversationId);
+	}
+
+	/** A conversation that never comes again: remembered for good. */
+	public void markOnce(String conversationId) {
+		once.add(conversationId);
 	}
 
 	/** Moves the conversation to the most recent end of {@link #seen}. */
