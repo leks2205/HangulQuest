@@ -1,5 +1,8 @@
 package io.github.leks2205.hangulquest.dialogue;
 
+import io.github.leks2205.hangulquest.villager.Personality;
+import io.github.leks2205.hangulquest.villager.VillagerNames;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -46,8 +49,150 @@ public final class DialogueValidator {
 		for (Dialogue.Node node : dialogue.nodes().values()) {
 			checkNode(dialogue, node, env, problems);
 		}
+		checkVillagerRules(dialogue, problems);
 		checkReachability(dialogue, problems);
 		return problems;
+	}
+
+	// ---------------------------------------------------------------- villager conversations
+
+	/** The friendship levels a milestone conversation can be written for. */
+	public static final Set<Integer> MILESTONES = Set.of(3, 6, 10);
+	private static final String VILLAGER = "minecraft:villager";
+
+	/**
+	 * Personality, region, kind and friendship: a villager conversation is for adult villagers spoken by
+	 * {@code villager} (or for babies spoken by {@code child}); SNOOTY is written apart because it talks 합쇼체;
+	 * every kind has its own shape.
+	 */
+	private static void checkVillagerRules(Dialogue dialogue, List<String> problems) {
+		Dialogue.Trigger trigger = dialogue.trigger();
+		String id = dialogue.id();
+		boolean baby = Boolean.TRUE.equals(trigger.baby());
+		if (trigger.villagerOnly() && !VILLAGER.equals(trigger.entity())) {
+			problems.add(id + ": personalities, regions, kind and friendship are for " + VILLAGER + " only");
+		}
+		if (!trigger.personalities().isEmpty() && DialogueParser.villagerLevel(trigger) == null) {
+			problems.add(id + ": SNOOTY speaks hapsyo and the others haeyo; write SNOOTY's conversations in their own file");
+		}
+		if (trigger.friendship() < 0 || trigger.friendship() > 10) {
+			problems.add(id + ": friendship must be 0 to 10");
+		}
+		if (trigger.villagerOnly()) {
+			for (Dialogue.Node node : dialogue.nodes().values()) {
+				Speaker wanted = baby ? Speaker.CHILD : Speaker.VILLAGER;
+				if (node.speaker() != wanted) {
+					problems.add(id + "." + node.id() + ": a villager conversation" + (baby ? " for babies" : "")
+							+ " is spoken by " + wanted.id() + ", not " + node.speaker().id());
+				}
+			}
+		}
+		List<Dialogue.Node> intros = dialogue.nodes().values().stream().filter(Dialogue.Node::selfIntro).toList();
+		boolean acceptsBanmal = dialogue.nodes().values().stream().flatMap(node -> node.choices().stream())
+				.flatMap(choice -> choice.effects().stream()).anyMatch(effect -> effect instanceof Dialogue.AcceptBanmal)
+				|| dialogue.nodes().values().stream().flatMap(node -> node.effects().stream())
+				.anyMatch(effect -> effect instanceof Dialogue.AcceptBanmal);
+		switch (trigger.kind()) {
+			case INTRO -> {
+				if (dialogue.level() != 1) {
+					problems.add(id + ": an intro is level 1");
+				}
+				if (!baby && trigger.personalities().isEmpty()) {
+					problems.add(id + ": an intro names the personalities it is for");
+				}
+				if (intros.size() != 1) {
+					problems.add(id + ": an intro has exactly one selfIntro node, not " + intros.size());
+				}
+			}
+			case MILESTONE -> {
+				if (!MILESTONES.contains(trigger.friendship())) {
+					problems.add(id + ": a milestone needs friendship 3, 6 or 10");
+				}
+				if (trigger.personalities().isEmpty()) {
+					problems.add(id + ": a milestone names the personalities it is for");
+				}
+			}
+			case BANMAL_OFFER -> {
+				if (trigger.personalities().isEmpty()
+						|| trigger.personalities().stream().anyMatch(personality -> !personality.mayOfferBanmal())) {
+					problems.add(id + ": only LAZY, JOCK, PEPPY and SISTERLY offer banmal, and the offer names them");
+				}
+				if (!acceptsBanmal) {
+					problems.add(id + ": a banmal offer needs a choice with the acceptBanmal effect");
+				}
+			}
+			case REQUEST -> problems.add(id + ": requests are written in requests/, not as a dialogue");
+			default -> {
+			}
+		}
+		if (trigger.kind() != ConversationKind.INTRO && !intros.isEmpty()) {
+			problems.add(id + ": selfIntro is only for intro conversations");
+		}
+		if (trigger.kind() != ConversationKind.BANMAL_OFFER && acceptsBanmal) {
+			problems.add(id + ": acceptBanmal is only for banmal_offer conversations");
+		}
+		boolean someoneSwitches = trigger.personalities().isEmpty()
+				|| trigger.personalities().stream().anyMatch(Personality::mayOfferBanmal);
+		for (Dialogue.Node node : dialogue.nodes().values()) {
+			String where = id + "." + node.id();
+			if (node.koBanmal() != null) {
+				if (node.speaker() != Speaker.VILLAGER) {
+					problems.add(where + ": ko_banmal is for villager lines only");
+				} else if (!someoneSwitches) {
+					problems.add(where + ": ko_banmal is never used: none of " + trigger.personalities() + " talks banmal");
+				}
+				if (node.koBanmal().isBlank() || node.koBanmal().equals(node.ko())) {
+					problems.add(where + ": ko_banmal must be the line in banmal, not empty or the same");
+				}
+				for (SpeechLevel shown : SpeechLevel.ofLine(node.koBanmal())) {
+					if (shown != SpeechLevel.BANMAL) {
+						problems.add(where + ": ko_banmal is " + shown.id() + ", it must be banmal");
+					}
+				}
+			}
+			if (node.selfIntro()) {
+				if (!node.ko().isBlank() || node.koBanmal() != null) {
+					problems.add(where + ": a selfIntro node has no ko: the game says the name");
+				}
+			}
+			for (String line : linesOf(node)) {
+				String name = nameIn(line);
+				if (name != null) {
+					problems.add(where + ": \"" + line + "\" says the name " + name
+							+ "; only the selfIntro line may (every line is recorded once for every villager)");
+				}
+			}
+		}
+	}
+
+	private static List<String> linesOf(Dialogue.Node node) {
+		List<String> lines = new ArrayList<>();
+		lines.add(node.ko());
+		if (node.koBanmal() != null) {
+			lines.add(node.koBanmal());
+		}
+		node.choices().forEach(choice -> lines.add(choice.ko()));
+		return lines;
+	}
+
+	/** What may follow a name in a sentence: particles, the copula and address forms. */
+	private static final Set<String> NAME_TAILS = Set.of("", "이", "가", "은", "는", "을", "를", "의", "에게", "한테",
+			"와", "과", "도", "만", "이에요", "예요", "이야", "야", "아", "입니다", "이랑", "랑", "씨", "님", "이가", "이는");
+
+	/** The villager name a line says, or null. A name counts as a word of its own, followed by at most a particle. */
+	public static String nameIn(String line) {
+		if (line == null) {
+			return null;
+		}
+		for (String eojeol : line.strip().split("\\s+")) {
+			String core = DialogueCoverage.strip(eojeol);
+			for (VillagerNames.Name name : VillagerNames.all()) {
+				if (core.startsWith(name.ko()) && NAME_TAILS.contains(core.substring(name.ko().length()))) {
+					return name.ko();
+				}
+			}
+		}
+		return null;
 	}
 
 	private static void checkNode(Dialogue dialogue, Dialogue.Node node, Env env, List<String> problems) {
@@ -55,7 +200,7 @@ public final class DialogueValidator {
 		if (!NAME.matcher(node.id()).matches()) {
 			problems.add(where + ": the node id may only use a-z, 0-9 and _");
 		}
-		if (node.ko().isBlank()) {
+		if (node.ko().isBlank() && !node.selfIntro()) {
 			problems.add(where + ": no Korean line");
 		}
 		boolean typed = node.typed() != null;
@@ -78,7 +223,7 @@ public final class DialogueValidator {
 		if (node.next() != null && !dialogue.nodes().containsKey(node.next())) {
 			problems.add(where + ": next \"" + node.next() + "\" does not exist");
 		}
-		checkSpeech(where, node, problems);
+		checkSpeech(dialogue, where, node, problems);
 		checkChoices(dialogue, node, where, env, problems);
 		checkEffects(where, node.effects(), env, problems);
 		if (node.typed() != null && node.typed().word() != null && env != null && env.wordExists() != null
@@ -106,17 +251,27 @@ public final class DialogueValidator {
 		}
 	}
 
-	/** The line keeps the level its speaker uses; a level the ending does not show is not an error. */
-	private static void checkSpeech(String where, Dialogue.Node node, List<String> problems) {
-		if (node.speechLevel() != node.speaker().level()) {
-			problems.add(where + ": " + node.speaker().id() + " speaks " + node.speaker().level().id()
-					+ ", not " + node.speechLevel().id());
+	/**
+	 * The line keeps the level its speaker uses (a villager in a personality conversation: that personality's
+	 * level); a level the ending does not show is not an error.
+	 */
+	private static void checkSpeech(Dialogue dialogue, String where, Dialogue.Node node, List<String> problems) {
+		SpeechLevel wanted = expectedLevel(dialogue, node);
+		if (node.speechLevel() != wanted) {
+			problems.add(where + ": " + node.speaker().id() + " speaks " + wanted.id() + ", not "
+					+ node.speechLevel().id());
 		}
 		for (SpeechLevel shown : SpeechLevel.ofLine(node.ko())) {
 			if (shown != node.speechLevel()) {
 				problems.add(where + ": the line is " + shown.id() + ", the node says " + node.speechLevel().id());
 			}
 		}
+	}
+
+	/** The level an NPC line must have: the speaker's, or for a villager the register of the dialogue's personalities. */
+	public static SpeechLevel expectedLevel(Dialogue dialogue, Dialogue.Node node) {
+		SpeechLevel register = DialogueParser.villagerLevel(dialogue.trigger());
+		return node.speaker() == Speaker.VILLAGER && register != null ? register : node.speaker().level();
 	}
 
 	private static void checkChoices(Dialogue dialogue, Dialogue.Node node, String where, Env env,
