@@ -108,6 +108,16 @@ Use a new Minecraft profile or an empty `config/hangulquest/` so you see what a 
 - [ ] The Grammar and Books tabs open. A locked story lists
       the words to learn first.
 - [ ] A villager (sneak and right-click) starts a Korean conversation. Esc leaves it.
+- [ ] Villagers: a new villager introduces itself with its name ("저는 …이에요"), the next talk is small talk; a second
+      villager has another name. Quit and come back: same name, personality, region and voice (Villagers tab).
+      A snooty villager speaks 합쇼체; a baby speaks 반말 with a child voice and keeps its name when it grows up.
+- [ ] Friendship: the first talk of an in-game day adds a heart in the Villagers tab, the second talk that day none.
+- [ ] Requests: a villager offers one (accept / decline); an accepted one is a row "<name>의 부탁" in the quest log.
+      GIVE: drop the item in front of that villager (another villager picking it up does not count), talk to it:
+      thanks, two hearts, the row is gone. SHOW: hold the item and talk to it. With four quests you chose in the log,
+      a new request waits untracked in the Villagers tab; untrack, track and abandon work there.
+- [ ] With the voice pack 1.2.0: each line is spoken in the villager's voice, `R` repeats it; without the pack the
+      conversation is silent and the log has no sound warnings.
 
 **Saving**
 

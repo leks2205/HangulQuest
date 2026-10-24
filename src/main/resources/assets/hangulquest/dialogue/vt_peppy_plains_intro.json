@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "꺄! 안녕하세요! 반가워요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "sunflower"
+		},
+		"sunflower": {
+			"speaker": "villager",
+			"ko": "평원에 해바라기가 많아요! 노란색이 정말 예뻐요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sunflower",
+						"concept:gen_plains"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 노래가 정말 좋아요! 노래 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 꽃이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "와아! 그럼 우리 같이 노래해요! 진짜진짜 최고예요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "꽃이요? 좋아요! 그럼 해바라기 앞에서 노래해요!",
+			"end": true
+		}
+	}
+}

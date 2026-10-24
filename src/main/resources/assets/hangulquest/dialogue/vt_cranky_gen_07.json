@@ -1,0 +1,55 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_07",
+	"level": 6,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "young",
+	"nodes": {
+		"young": {
+			"speaker": "villager",
+			"ko": "제가 젊었을 때는 밤에도 밖에서 좀비와 싸웠어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:zombie", "concept:fight"]}],
+			"next": "now"
+		},
+		"now": {
+			"speaker": "villager",
+			"ko": "그런데 나이를 먹을수록 일찍 자는 게 제일 좋더라고요.",
+			"next": "skip"
+		},
+		"skip": {
+			"speaker": "villager",
+			"ko": "다 같이 자면 밤이 빨리 지나가니까요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:sleep"]}],
+			"next": "runner"
+		},
+		"runner": {
+			"speaker": "villager",
+			"ko": "그런데 요즘 밤에 밖에서 누가 뛰어다니던데요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "혹시 밤에 밖에 나가요?",
+			"choices": [
+				{"ko": "네, 동굴에 자주 가요.", "next": "knew"},
+				{"ko": "아니요, 저는 아니에요.", "next": "who"}
+			]
+		},
+		"knew": {
+			"speaker": "villager",
+			"ko": "그럴 줄 알았어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:cave"]}],
+			"next": "armor"
+		},
+		"armor": {
+			"speaker": "villager",
+			"ko": "걱정해서 하는 말은 아니지만, 갑옷은 꼭 입고 나가요.",
+			"end": true
+		},
+		"who": {
+			"speaker": "villager",
+			"ko": "그래요? 그럼 누구였을까요. 거참, 오늘 밤에는 창문을 열어 봐야겠네요.",
+			"end": true
+		}
+	}
+}

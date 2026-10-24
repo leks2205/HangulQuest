@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_smug_swamp_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "후후, 안녕하세요. 어서 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "orchid"
+		},
+		"orchid": {
+			"speaker": "villager",
+			"ko": "늪에 파란색 난초가 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_blue_orchid"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 귀여워요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 좀 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 저도 좋아요. 개구리 노래는 아름다워요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 개구리는 작은 슬라임을 먹어요.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_taiga_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"TAIGA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이쿠! 손이 아파요.",
+			"ko_banmal": "어이쿠! 손이 아파.",
+			"next": "berry"
+		},
+		"berry": {
+			"speaker": "villager",
+			"ko": "달콤한 열매를 땄어요. 덤불에 많이 찔렸어요.",
+			"ko_banmal": "달콤한 열매를 땄어. 덤불에 많이 찔렸어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sweet_berries"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "여우가 열매를 먹었어요?",
+			"ko_banmal": "여우가 열매를 먹었어?",
+			"choices": [
+				{
+					"ko": "네, 봤어요. 여우가 빨라요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 못 봤어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "맞아요! 여우가 아주 빨라요. 아하하!",
+			"ko_banmal": "맞아! 여우가 아주 빨라. 아하하!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 다음에 같이 기다려요. 여우는 조용해요.",
+			"ko_banmal": "그럼 다음에 같이 기다려. 여우는 조용해.",
+			"end": true
+		}
+	}
+}

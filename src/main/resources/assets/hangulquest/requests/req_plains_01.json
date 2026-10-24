@@ -1,0 +1,68 @@
+{
+	"schema": 1,
+	"id": "req_plains_01",
+	"level": 1,
+	"kind": "GIVE",
+	"regions": ["PLAINS"],
+	"goal": {"type": "GIVE", "item": "minecraft:bread", "entity": "minecraft:villager", "method": "DROP_NEAR", "count": 1},
+	"words": ["concept:bread"],
+	"answers": {"yes": "네, 좋아요!", "no": "아니요, 미안해요."},
+	"lines": {
+		"LAZY": {
+			"offer": {"ko": "음, 빵이 필요해요.", "ko_banmal": "음, 나 빵이 필요해."},
+			"accept": "고마워요. 빵을 기다려요.",
+			"decline": "괜찮아요. 그럼 또 봐요.",
+			"reminder": "음, 빵이 아직 없어요.",
+			"thanks": {"ko": "빵이에요! 정말 고마워요.", "ko_banmal": "빵이야! 정말 고마워."}
+		},
+		"JOCK": {
+			"offer": "와! 저는 빵이 필요해요!",
+			"accept": "좋아요! 빵을 기다려요!",
+			"decline": "괜찮아요! 또 봐요!",
+			"reminder": "빵이 아직 없어요?",
+			"thanks": {"ko": "와! 빵이에요! 고마워요!", "ko_banmal": "와! 빵이야! 고마워!"}
+		},
+		"CRANKY": {
+			"offer": "흠. 빵이 필요해요.",
+			"accept": "흠, 고마워요.",
+			"decline": "흠. 괜찮아요.",
+			"reminder": "흠. 빵이 아직 없어요.",
+			"thanks": "흠. 좋은 빵이에요. 고마워요."
+		},
+		"SMUG": {
+			"offer": "안녕하세요. 좋은 빵이 필요해요.",
+			"accept": "정말 고마워요.",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "좋은 빵은 아직 없어요?",
+			"thanks": "정말 좋은 빵이에요. 고마워요."
+		},
+		"NORMAL": {
+			"offer": "안녕하세요! 빵이 필요해요.",
+			"accept": "고마워요! 빵을 기다려요.",
+			"decline": "괜찮아요. 또 봐요!",
+			"reminder": "빵이 아직 없어요?",
+			"thanks": "빵이에요! 정말 고마워요!"
+		},
+		"PEPPY": {
+			"offer": "우와! 빵이 필요해요! 진짜 필요해요!",
+			"accept": "우와, 고마워요!",
+			"decline": "괜찮아요! 또 봐요!",
+			"reminder": "빵은 아직 없어요?",
+			"thanks": {"ko": "우와, 빵이에요! 진짜 고마워요!", "ko_banmal": "우와, 빵이야! 진짜 고마워!"}
+		},
+		"SNOOTY": {
+			"offer": "안녕하십니까. 빵이 필요합니다.",
+			"accept": "감사합니다.",
+			"decline": "괜찮습니다.",
+			"reminder": "빵은 아직 없습니까?",
+			"thanks": "좋은 빵입니다. 감사합니다."
+		},
+		"SISTERLY": {
+			"offer": "어이! 빵이 필요해요.",
+			"accept": "좋아요! 고마워요.",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "빵이 아직 없어요?",
+			"thanks": {"ko": "빵이에요! 고마워요!", "ko_banmal": "빵이야! 고마워!"}
+		}
+	}
+}

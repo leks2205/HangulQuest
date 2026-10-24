@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_jock_desert_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오호! 안녕하세요! 오늘도 덥네요!",
+			"ko_banmal": "오호! 안녕! 오늘도 덥네!",
+			"next": "camel"
+		},
+		"camel": {
+			"speaker": "villager",
+			"ko": "어제 낙타와 달리기 시합을 했어요!",
+			"ko_banmal": "어제 낙타와 달리기 시합을 했어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_camel"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "제가 이겼을까요?",
+			"ko_banmal": "내가 이겼을까?",
+			"choices": [
+				{
+					"ko": "네, 이겼어요!",
+					"next": "won"
+				},
+				{
+					"ko": "아니요, 졌어요.",
+					"next": "lost"
+				}
+			]
+		},
+		"won": {
+			"speaker": "villager",
+			"ko": "맞아요! 그런데 낙타가 중간에 앉아서 쉬었어요.",
+			"ko_banmal": "맞아! 그런데 낙타가 중간에 앉아서 쉬었어.",
+			"next": "bored"
+		},
+		"lost": {
+			"speaker": "villager",
+			"ko": "하하, 아니요! 제가 이겼어요! 낙타가 중간에 앉아서 쉬었어요.",
+			"ko_banmal": "하하, 아니야! 내가 이겼어! 낙타가 중간에 앉아서 쉬었어.",
+			"next": "bored"
+		},
+		"bored": {
+			"speaker": "villager",
+			"ko": "이겨서 기뻤어요. 그런데 조금 심심했어요!",
+			"ko_banmal": "이겨서 기뻤어. 그런데 좀 심심했어!",
+			"next": "joke"
+		},
+		"joke": {
+			"speaker": "villager",
+			"ko": "다음에는 선인장과 달려 볼까요? 하하, 농담이에요!",
+			"ko_banmal": "다음에는 선인장과 달려 볼까? 하하, 농담이야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

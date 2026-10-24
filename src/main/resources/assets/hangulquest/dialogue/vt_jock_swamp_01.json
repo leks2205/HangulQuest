@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_jock_swamp_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "오오! 안녕하세요!",
+			"ko_banmal": "오오! 안녕!",
+			"next": "saw"
+		},
+		"saw": {
+			"speaker": "villager",
+			"ko": "어젯밤에 개구리를 봤어요!",
+			"ko_banmal": "어젯밤에 개구리를 봤어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog"
+					]
+				}
+			],
+			"next": "ate"
+		},
+		"ate": {
+			"speaker": "villager",
+			"ko": "개구리가 작은 슬라임을 먹었어요! 한 입에!",
+			"ko_banmal": "개구리가 작은 슬라임을 먹었어! 한 입에!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:slime"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "개구리는 왜 슬라임을 먹어요?",
+			"ko_banmal": "개구리는 왜 슬라임을 먹어?",
+			"choices": [
+				{
+					"ko": "배가 고파요!",
+					"next": "hungry"
+				},
+				{
+					"ko": "맛있어요!",
+					"next": "tasty"
+				}
+			]
+		},
+		"hungry": {
+			"speaker": "villager",
+			"ko": "맞아요! 그리고 개구리 다리 근육에 좋아요!",
+			"ko_banmal": "맞아! 그리고 개구리 다리 근육에 좋아!",
+			"next": "steak"
+		},
+		"tasty": {
+			"speaker": "villager",
+			"ko": "정말요? 슬라임은 맛없을 거예요! 하하!",
+			"ko_banmal": "진짜? 슬라임은 맛없을 거야! 하하!",
+			"next": "steak"
+		},
+		"steak": {
+			"speaker": "villager",
+			"ko": "저는 오늘 저녁에 스테이크를 먹을 거예요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "나는 오늘 저녁에 스테이크를 먹을 거야! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

@@ -55,7 +55,7 @@ class ProgressCompatibilityTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample", "v4-sample", "v4-placed", "v4-autotrack", "v3.0.3", "v3.0.2", "v3.0.1", "v3.0.0", "v3.0.0-rc.12", "v3.0.0-rc.11", "v3.0.0-rc.10", "v3.0.0-rc.9", "v3.0.0-rc.8", "v3.0.0-rc.7", "v3.0.0-rc.6", "v3.0.0-rc.5", "v3.0.0-rc.4", "v3.0.0-rc.3", "v3.0.0-rc.2", "v3.0.0-rc.1", "v4-hvpt"})
+	@ValueSource(strings = {"v1.0.0", "v1.1.0", "v1.1.1", "v1.2.0", "v1.3.0", "v1.3.1", "v2.0.0", "v2.0.1", "v2.1.0", "v3-sample", "v4-sample", "v4-placed", "v4-autotrack", "v3.1.0", "v3.0.3", "v3.0.2", "v3.0.1", "v3.0.0", "v3.0.0-rc.12", "v3.0.0-rc.11", "v3.0.0-rc.10", "v3.0.0-rc.9", "v3.0.0-rc.8", "v3.0.0-rc.7", "v3.0.0-rc.6", "v3.0.0-rc.5", "v3.0.0-rc.4", "v3.0.0-rc.3", "v3.0.0-rc.2", "v3.0.0-rc.1", "v4-hvpt", "v5-sample"})
 	void everyReleaseSurvivesLoadAndSave(String tag) throws IOException {
 		Path dir = install(tag + ".json");
 		JsonObject original = read(dir.resolve("progress.json"));
@@ -89,10 +89,11 @@ class ProgressCompatibilityTest {
 		original.addProperty("version", ProgressData.CURRENT_VERSION);
 		original.getAsJsonObject("meta").remove("schemaHistory"); // checked below, it grows with each migration
 		assertContains(original, saved, "$");
-		assertEquals(4, saved.get("version").getAsInt(), "every release ends up on the current schema");
+		assertEquals(ProgressData.CURRENT_VERSION, saved.get("version").getAsInt(), "every release ends up on the current schema");
 		JsonObject meta = saved.getAsJsonObject("meta");
 		assertFalse(meta.get("installSalt").getAsString().isBlank());
-		assertEquals(4, meta.getAsJsonArray("schemaHistory").asList().getLast().getAsInt());
+		assertEquals(ProgressData.CURRENT_VERSION, meta.getAsJsonArray("schemaHistory").asList().getLast().getAsInt());
+		assertTrue(saved.getAsJsonObject("requests").get("open").isJsonArray(), "v5 adds the villager requests");
 		assertTrue(saved.getAsJsonObject("totals").has("sidequestsCompleted"));
 		assertTrue(saved.getAsJsonObject("totals").has("questStepsCompleted"));
 
@@ -107,7 +108,7 @@ class ProgressCompatibilityTest {
 		Path dir = install("v3-sample.json");
 		ProgressStore store = new ProgressStore(dir, LOG);
 		assertEquals("9f3c1a7be2d44e60a1b8c5d07f26e913", store.data().meta.installSalt);
-		assertEquals(List.of(2, 3, 4), store.data().meta.schemaHistory);
+		assertEquals(List.of(2, 3, 4, 5), store.data().meta.schemaHistory);
 		assertEquals(4, store.data().totals.sidequestsCompleted);
 		assertEquals(11, store.data().totals.questStepsCompleted);
 		store.markDirty();
@@ -140,7 +141,7 @@ class ProgressCompatibilityTest {
 	}
 
 	@Test
-	void aV4FileIsLoadedAsItIsAndNeedsNoBackup() throws IOException {
+	void aV4FileKeepsItsCardsThroughTheRequestsMigration() throws IOException {
 		Path dir = install("v4-sample.json");
 		ProgressData data = new ProgressStore(dir, LOG).data();
 		CardState stone = data.words.get("concept:stone").fsrs;
@@ -158,10 +159,11 @@ class ProgressCompatibilityTest {
 		assertEquals(5, ledger.retrievals);
 		assertEquals(3, ledger.contexts.size());
 		assertEquals(List.of("2026-10-18", "2026-10-19"), ledger.recallDays);
-		assertEquals(List.of(2, 3, 4), data.meta.schemaHistory);
+		assertEquals(List.of(2, 3, 4, 5), data.meta.schemaHistory);
+		assertTrue(data.requests.open.isEmpty());
 		try (Stream<Path> files = Files.list(dir)) {
-			assertTrue(files.noneMatch(path -> path.getFileName().toString().contains("-backup-")),
-					"a current file needs no migration backup");
+			assertTrue(files.anyMatch(path -> path.getFileName().toString().startsWith("progress.v4-backup-")),
+					"a v4 file is backed up before it becomes v5");
 		}
 	}
 
@@ -208,16 +210,16 @@ class ProgressCompatibilityTest {
 	void aV1FileRecordsEveryVersionItWentThrough() throws IOException {
 		Path dir = install("schema-v1.json");
 		ProgressStore store = new ProgressStore(dir, LOG);
-		assertEquals(List.of(1, 2, 3, 4), store.data().meta.schemaHistory);
+		assertEquals(List.of(1, 2, 3, 4, 5), store.data().meta.schemaHistory);
 		store.flush();
-		assertEquals(List.of(1, 2, 3, 4), new ProgressStore(dir, LOG).data().meta.schemaHistory);
+		assertEquals(List.of(1, 2, 3, 4, 5), new ProgressStore(dir, LOG).data().meta.schemaHistory);
 	}
 
 	@Test
 	void aFreshInstallGetsASaltAndHistory() {
 		ProgressStore store = new ProgressStore(tempDir.resolve("fresh"), LOG);
-		assertEquals(4, store.data().version);
-		assertEquals(List.of(4), store.data().meta.schemaHistory);
+		assertEquals(ProgressData.CURRENT_VERSION, store.data().version);
+		assertEquals(List.of(ProgressData.CURRENT_VERSION), store.data().meta.schemaHistory);
 		assertFalse(store.data().meta.installSalt.isBlank());
 	}
 

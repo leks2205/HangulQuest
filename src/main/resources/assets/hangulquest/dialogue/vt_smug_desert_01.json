@@ -1,0 +1,58 @@
+{
+	"schema": 1,
+	"id": "vt_smug_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아아, 마침 잘 왔어요.",
+			"next": "bloom"
+		},
+		"bloom": {
+			"speaker": "villager",
+			"ko": "어제 선인장 꽃이 피었어요.",
+			"next": "pink"
+		},
+		"pink": {
+			"speaker": "villager",
+			"ko": "분홍색 꽃이에요. 정말 예뻐요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "보고 싶어요?",
+			"choices": [
+				{
+					"ko": "네, 보고 싶어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 선인장이 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 저 집 뒤에 있어요. 만지지는 마세요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "아아, 맞아요. 그래도 꽃은 정말 예뻐요.",
+			"end": true
+		}
+	}
+}

@@ -26,7 +26,7 @@ import java.nio.file.Path;
 public final class HangulQuestClientGameTest implements FabricClientGameTest {
 	private static final String WORD = "concept:stone";
 	/** The journal's last tab. */
-	private static final int SETTINGS_TAB = 7;
+	private static final int SETTINGS_TAB = 8;
 	private static final int STUDY_TAB = 2;
 
 	@Override

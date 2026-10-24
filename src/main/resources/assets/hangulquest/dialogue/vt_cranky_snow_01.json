@@ -1,0 +1,44 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_snow_01",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["SNOW"]},
+	"start": "snow",
+	"nodes": {
+		"snow": {
+			"speaker": "villager",
+			"ko": "흠. 오늘도 눈이 와요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:snow"]}],
+			"next": "shovel"
+		},
+		"shovel": {
+			"speaker": "villager",
+			"ko": "아침에 삽으로 눈을 치워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:shovel"]}],
+			"next": "back"
+		},
+		"back": {
+			"speaker": "villager",
+			"ko": "그래서 허리가 아파요. 나 원 참.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "가죽 장화 있어요?",
+			"choices": [
+				{"ko": "네, 있어요.", "next": "yes"},
+				{"ko": "아니요, 없어요.", "next": "no"}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "흠. 좋아요. 그럼 가루눈 위를 걸어요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "어허. 그럼 가루눈을 조심해요.",
+			"end": true
+		}
+	}
+}

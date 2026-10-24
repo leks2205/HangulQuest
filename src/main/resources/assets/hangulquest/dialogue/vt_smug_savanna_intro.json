@@ -1,0 +1,64 @@
+{
+	"schema": 1,
+	"id": "vt_smug_savanna_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "후후, 안녕하세요. 반가워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "acacia"
+		},
+		"acacia": {
+			"speaker": "villager",
+			"ko": "사바나는 아카시아나무가 많아요. 주황색이 참 예뻐요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "말이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "오, 저도요. 말은 참 우아해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 여기 말은 순해요.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_banmal",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "banmal_offer",
+		"friendship": 6,
+		"personalities": [
+			"SISTERLY"
+		]
+	},
+	"start": "friends",
+	"nodes": {
+		"friends": {
+			"speaker": "villager",
+			"ko": "야! 우리 이제 진짜 친구예요?",
+			"ko_banmal": "야! 우리 이제 진짜 친구야?",
+			"next": "offer"
+		},
+		"offer": {
+			"speaker": "villager",
+			"ko": "존댓말을 하면 좀 어색해요. 우리 반말로 해요!",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L6.banmal"
+				}
+			],
+			"choices": [
+				{
+					"ko": "응, 좋아!",
+					"speechLevel": "banmal",
+					"next": "yes",
+					"effects": [
+						{
+							"type": "acceptBanmal"
+						}
+					]
+				},
+				{
+					"ko": "아니요, 괜찮아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 우리 반말로 해요!",
+			"ko_banmal": "좋아! 우리 반말로 하자!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 그럼 이대로 해요.",
+			"ko_banmal": "괜찮아. 그럼 이대로 해.",
+			"end": true
+		}
+	}
+}

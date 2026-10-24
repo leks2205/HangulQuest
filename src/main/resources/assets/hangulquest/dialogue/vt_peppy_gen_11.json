@@ -1,0 +1,102 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_11",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"profession": "minecraft:farmer",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "꺄! 안녕하세요! 저는 농부예요!",
+			"ko_banmal": "꺄! 안녕! 나는 농부야!",
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "밭에 밀이 많아요! 노란색이 정말 예뻐요!",
+			"ko_banmal": "밭에 밀이 많아! 노란색이 정말 예뻐!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "당근과 감자도 있어요! 뭐가 좋아요?",
+			"ko_banmal": "당근과 감자도 있어! 뭐가 좋아?",
+			"choices": [
+				{
+					"ko": "당근이 좋아요!",
+					"next": "carrot"
+				},
+				{
+					"ko": "감자가 좋아요!",
+					"next": "potato"
+				}
+			]
+		},
+		"carrot": {
+			"speaker": "villager",
+			"ko": "저도요! 당근을 밭에 심어요. 당근은 잘 자라요!",
+			"ko_banmal": "나도! 당근을 밭에 심어. 당근은 잘 자라!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carrot",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "water"
+		},
+		"potato": {
+			"speaker": "villager",
+			"ko": "와아! 감자도 밭에 심어요. 감자도 잘 자라요!",
+			"ko_banmal": "와아! 감자도 밭에 심어. 감자도 잘 자라!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:potato",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "water"
+		},
+		"water": {
+			"speaker": "villager",
+			"ko": "밭에 물이 필요해요! 그리고 제 노래도 필요해요!",
+			"ko_banmal": "밭에 물이 필요해! 그리고 내 노래도 필요해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:water"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "랄라라! 잘 가요! 또 봐요!",
+			"ko_banmal": "랄라라! 잘 가! 또 봐!",
+			"end": true
+		}
+	}
+}

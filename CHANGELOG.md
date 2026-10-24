@@ -4,7 +4,43 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
-## [Unreleased]
+## [3.1.0] — 2026-10-24
+
+### Added
+
+- **Villagers have a personality.** Every villager you talk to gets one of eight personalities (inspired by
+  life-sim games: lazy, sporty, grumpy, suave, kind, peppy, snooty, big sister), a gender, a Korean name from its
+  gender's pool of 40 and the region of its village. All of it is kept, so a villager always has the same name and
+  voice, also as a grown-up child. Snooty villagers speak 합쇼체, the others 해요체, children 반말.
+- **Conversations follow the villager.** A villager introduces itself the first time, then picks small talk written
+  for its personality and region, the most fitting one you have not heard first, and never above your level.
+- **Friendship.** Talking once a day adds a heart, a finished request two (up to ten). At three, six and ten hearts a
+  villager has something new to say; a close lazy, sporty, peppy or big-sister villager may offer to switch to 반말
+  with a player at level 4 or more.
+- **Villager requests.** Villagers ask for small things outside the quest tree that depend on their region: show
+  them something you hold, drop something they pick up (bread, wheat, carrots …) or do something and come back.
+  An accepted request is a row of the quest log with the villager's name; it takes the place of the game's oldest
+  own pick when the log is full, and waits in the journal when every slot holds a quest you chose. Up to three at
+  once, one per villager; declining costs nothing and a request can be abandoned in the journal.
+- **Villagers page in the journal (주민).** Everyone you met, in the order you met them: name, personality,
+  region, profession, hearts and the open request (track, untrack, abandon).
+- **Villagers speak.** With a voice pack that has the lines, each conversation line is spoken in the villager's
+  own voice (one per personality, two for children); `R` or the play mark repeats it. Without one it stays silent.
+- **Content.** 277 personality conversations (56 introductions, 112 small talk, 24 friendship talks, 4 반말 offers,
+  16 children's talks and the nine old profession talks rewritten for every personality) and 58 regional requests:
+  3,869 Korean lines, all with English and German glosses. The nine conversations without a personality (farm,
+  library, fishing, smithy, maps, cleric, greetings, child, elder) are gone.
+- **Voices 1.2.0.** Every conversation line has a clip in its villager's voice (eight adult voices and two children's
+  voices, Qwen3-TTS, Apache-2.0); `R` repeats it. The pack is optional, as before.
+- For content authors: `python3 tools/validate_dialogue_drafts.py <folder>` checks drafted conversations and requests
+  before they are copied in (see `content/briefs/VILLAGERS.md`).
+
+### Changed
+
+- The progress file moves to schema v5 (the villager requests); the v4 file is backed up first. Villager names move
+  from `villager-names.json` to `villagers.json`, which now also keeps personality, region and friendship; the old
+  names are kept.
+- The journal has a ninth tab; Settings is now the last of nine.
 
 ## [3.0.3] — 2026-10-23
 

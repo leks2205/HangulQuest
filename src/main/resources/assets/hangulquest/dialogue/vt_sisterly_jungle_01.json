@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_jungle_01",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 여기는 비가 자주 와요.",
+			"ko_banmal": "어이! 여기는 비가 자주 와.",
+			"next": "cocoa"
+		},
+		"cocoa": {
+			"speaker": "villager",
+			"ko": "코코아 콩을 따서 쿠키를 만들어요.",
+			"ko_banmal": "코코아 콩을 따서 쿠키를 만들어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cocoa_beans",
+						"concept:cookie"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "쿠키 냄새가 좋아요?",
+			"ko_banmal": "쿠키 냄새가 좋아?",
+			"choices": [
+				{
+					"ko": "네, 아주 좋아요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 수박이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "그럼 같이 먹어요. 앵무새가 나무에 있어요.",
+			"ko_banmal": "그럼 같이 먹어. 앵무새가 나무에 있어.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "에이, 그럼 수박 조각을 먹어요. 시원해요.",
+			"ko_banmal": "에이, 그럼 수박 조각을 먹어. 시원해.",
+			"end": true
+		}
+	}
+}

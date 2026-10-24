@@ -1,0 +1,55 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		]
+	},
+	"start": "moon",
+	"nodes": {
+		"moon": {
+			"speaker": "villager",
+			"ko": "오, 오늘 밤은 보름달이에요.",
+			"next": "spyglass"
+		},
+		"spyglass": {
+			"speaker": "villager",
+			"ko": "저는 망원경으로 달을 봐요.",
+			"next": "beautiful"
+		},
+		"beautiful": {
+			"speaker": "villager",
+			"ko": "달이 정말 아름다워요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "망원경 있어요?",
+			"choices": [
+				{
+					"ko": "네, 있어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "오, 그럼 같이 달을 봐요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 오늘은 달이 아주 밝아요.",
+			"end": true
+		}
+	}
+}

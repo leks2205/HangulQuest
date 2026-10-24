@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.github.leks2205.hangulquest.quest.JsonFields;
+import io.github.leks2205.hangulquest.villager.Personality;
+import io.github.leks2205.hangulquest.villager.Region;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -49,17 +51,15 @@ public final class DialogueParser {
 			problems.add(fileId + ": trigger.entity is missing");
 		}
 		Dialogue.Trigger trigger = triggerJson == null ? new Dialogue.Trigger("", null, null, List.of())
-				: new Dialogue.Trigger(JsonFields.string(triggerJson, "entity", ""),
-						JsonFields.string(triggerJson, "profession", null),
-						triggerJson.has("baby") ? triggerJson.get("baby").getAsBoolean() : null,
-						JsonFields.strings(triggerJson, "professions"));
+				: trigger(fileId, triggerJson, problems);
+		SpeechLevel villagerLevel = villagerLevel(trigger);
 
 		Map<String, Dialogue.Node> nodes = new LinkedHashMap<>();
 		if (!root.has("nodes") || !root.get("nodes").isJsonObject()) {
 			problems.add(fileId + ": nodes are missing");
 		} else {
 			for (Map.Entry<String, JsonElement> entry : root.getAsJsonObject("nodes").entrySet()) {
-				Dialogue.Node node = node(fileId, entry.getKey(), entry.getValue(), problems);
+				Dialogue.Node node = node(fileId, entry.getKey(), entry.getValue(), villagerLevel, problems);
 				if (node != null) {
 					nodes.put(node.id(), node);
 				}
@@ -70,7 +70,55 @@ public final class DialogueParser {
 		return new Parsed(dialogue, problems);
 	}
 
-	private static Dialogue.Node node(String file, String id, JsonElement element, List<String> problems) {
+	private static Dialogue.Trigger trigger(String fileId, JsonObject json, List<String> problems) {
+		List<Personality> personalities = new ArrayList<>();
+		for (String name : JsonFields.strings(json, "personalities")) {
+			Personality personality = Personality.fromId(name);
+			if (personality == null) {
+				problems.add(fileId + ": unknown personality \"" + name + "\"");
+			} else {
+				personalities.add(personality);
+			}
+		}
+		List<Region> regions = new ArrayList<>();
+		for (String name : JsonFields.strings(json, "regions")) {
+			Region region = Region.fromId(name);
+			if (region == null) {
+				problems.add(fileId + ": unknown region \"" + name + "\"");
+			} else {
+				regions.add(region);
+			}
+		}
+		ConversationKind kind = ConversationKind.SMALLTALK;
+		if (json.has("kind")) {
+			kind = ConversationKind.fromId(JsonFields.string(json, "kind", ""));
+			if (kind == null) {
+				problems.add(fileId + ": unknown kind \"" + JsonFields.string(json, "kind", "") + "\"");
+				kind = ConversationKind.SMALLTALK;
+			}
+		}
+		return new Dialogue.Trigger(JsonFields.string(json, "entity", ""), JsonFields.string(json, "profession", null),
+				json.has("baby") ? json.get("baby").getAsBoolean() : null, JsonFields.strings(json, "professions"),
+				personalities, regions, kind, JsonFields.integer(json, "friendship", 0));
+	}
+
+	/**
+	 * The level a villager line of this dialogue has unless the node says otherwise: the register of its
+	 * personalities when they share one (합쇼체 for SNOOTY), else null (the speaker's own level).
+	 */
+	static SpeechLevel villagerLevel(Dialogue.Trigger trigger) {
+		SpeechLevel shared = null;
+		for (Personality personality : trigger.personalities()) {
+			if (shared != null && shared != personality.register()) {
+				return null;
+			}
+			shared = personality.register();
+		}
+		return shared;
+	}
+
+	private static Dialogue.Node node(String file, String id, JsonElement element, SpeechLevel villagerLevel,
+									  List<String> problems) {
 		String where = file + "." + id;
 		if (!element.isJsonObject()) {
 			problems.add(where + ": a node must be an object");
@@ -82,7 +130,7 @@ public final class DialogueParser {
 			problems.add(where + ": unknown speaker \"" + JsonFields.string(json, "speaker", "") + "\"");
 			return null;
 		}
-		SpeechLevel level = speaker.level();
+		SpeechLevel level = speaker == Speaker.VILLAGER && villagerLevel != null ? villagerLevel : speaker.level();
 		if (json.has("speechLevel")) {
 			level = SpeechLevel.fromId(JsonFields.string(json, "speechLevel", ""));
 			if (level == null) {
@@ -109,7 +157,8 @@ public final class DialogueParser {
 		}
 		return new Dialogue.Node(id, speaker, level, JsonFields.string(json, "ko", ""),
 				JsonFields.string(json, "next", null), choices, typed, effects(where, json, problems),
-				json.has("end") && json.get("end").getAsBoolean(), JsonFields.string(json, "grammar", null));
+				json.has("end") && json.get("end").getAsBoolean(), JsonFields.string(json, "grammar", null),
+				JsonFields.string(json, "ko_banmal", null), json.has("selfIntro") && json.get("selfIntro").getAsBoolean());
 	}
 
 	private static Dialogue.Choice choice(String where, JsonObject json, List<String> problems) {
@@ -148,6 +197,7 @@ public final class DialogueParser {
 					effects.add(new Dialogue.ExposeWords(ids));
 				}
 				case "exposeGrammar" -> effects.add(new Dialogue.ExposeGrammar(JsonFields.string(effect, "point", "")));
+				case "acceptBanmal" -> effects.add(new Dialogue.AcceptBanmal());
 				default -> problems.add(where + ": unknown effect type \"" + type + "\"");
 			}
 		}

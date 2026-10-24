@@ -1,0 +1,95 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_16",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"profession": "minecraft:cleric",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "와아! 안녕하세요! 저는 성직자예요!",
+			"ko_banmal": "와아! 안녕! 나는 성직자야!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 금을 사요. 반짝반짝해서 정말 좋아요! 금이 있어요?",
+			"ko_banmal": "나는 금을 사. 반짝반짝해서 정말 좋아! 금 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gold"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 금이 있어요.",
+					"next": "trade"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "cave"
+				}
+			]
+		},
+		"trade": {
+			"speaker": "villager",
+			"ko": "좋아요! 금 주괴 세 개에 에메랄드 한 개예요!",
+			"ko_banmal": "좋아! 금 주괴 세 개에 에메랄드 한 개야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "그럼 금을 찾아 봐요! 금은 동굴에 있어요.",
+			"ko_banmal": "그럼 금을 찾아 봐! 금은 동굴에 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave",
+						"concept:find"
+					]
+				}
+			],
+			"next": "torch"
+		},
+		"torch": {
+			"speaker": "villager",
+			"ko": "동굴은 어두워서 무서워요. 횃불을 꼭 가져가세요!",
+			"ko_banmal": "동굴은 어두워서 무서워. 횃불을 꼭 가져가!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:torch"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "안녕히 가세요! 반짝반짝한 하루 보내세요!",
+			"ko_banmal": "잘 가! 반짝반짝한 하루 보내!",
+			"end": true
+		}
+	}
+}

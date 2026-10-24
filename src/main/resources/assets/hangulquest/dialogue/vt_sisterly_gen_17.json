@@ -1,0 +1,101 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_gen_17",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 안녕하세요. 저는 이 마을 주민이에요.",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "ask_name",
+			"ko_banmal": "어이! 안녕. 나는 이 마을 주민이야."
+		},
+		"ask_name": {
+			"speaker": "villager",
+			"ko": "이름이 뭐예요?",
+			"typed": {
+				"free": true
+			},
+			"next": "nice",
+			"ko_banmal": "이름이 뭐야?"
+		},
+		"nice": {
+			"speaker": "villager",
+			"ko": "만나서 반가워요!",
+			"next": "need",
+			"ko_banmal": "만나서 반가워!"
+		},
+		"need": {
+			"speaker": "villager",
+			"ko": "빵과 사과가 필요해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread",
+						"concept:apple"
+					]
+				}
+			],
+			"typed": {
+				"expected": [
+					"사과"
+				],
+				"word": "concept:apple"
+			},
+			"next": "errand",
+			"ko_banmal": "빵과 사과가 필요해."
+		},
+		"errand": {
+			"speaker": "villager",
+			"ko": "사과를 한 개 구해 주세요.",
+			"effects": [
+				{
+					"type": "startTrail",
+					"trail": "essenspfad"
+				},
+				{
+					"type": "exposeGrammar",
+					"point": "L2.seyo"
+				}
+			],
+			"ko_banmal": "사과를 한 개 구해 줘.",
+			"choices": [
+				{
+					"ko": "네, 구해요.",
+					"next": "bye_yes"
+				},
+				{
+					"ko": "지금은 어려워요.",
+					"next": "bye_no"
+				}
+			]
+		},
+		"bye_yes": {
+			"speaker": "villager",
+			"ko": "고마워요! 안녕히 가세요.",
+			"end": true,
+			"ko_banmal": "고마워! 안녕히 가."
+		},
+		"bye_no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 다음에 또 와요.",
+			"end": true,
+			"ko_banmal": "괜찮아. 다음에 또 와."
+		}
+	}
+}

@@ -1,0 +1,112 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "하암, 안녕. 나 졸려.",
+			"next": "apple"
+		},
+		"apple": {
+			"speaker": "child",
+			"ko": "나는 사과 좋아해.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 사과 좋아해?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 좋아해.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "friends"
+				},
+				{
+					"ko": "네, 저도 좋아합니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "그럼 우리 친구야. 헤헤.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"next": "ask2"
+		},
+		"ask2": {
+			"speaker": "child",
+			"ko": "너는 뭐가 좋아?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "나는 빵이 좋아.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "bread"
+				},
+				{
+					"ko": "나는 낮잠이 좋아.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "nap"
+				},
+				{
+					"ko": "저는 낮잠이 좋아요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"bread": {
+			"speaker": "child",
+			"ko": "빵? 우와, 맛있어! 같이 먹자.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"nap": {
+			"speaker": "child",
+			"ko": "낮잠? 헤헤, 나도 좋아!",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "또 봐. 하암.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,120 @@
+{
+	"schema": 1,
+	"id": "vt_normal_gen_91",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나는 사과를 좋아해.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:apple"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 사과 좋아해?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 좋아해.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "yay"
+				},
+				{
+					"ko": "네, 저도 좋아합니다.",
+					"speechLevel": "hapsyo",
+					"correct": false
+				}
+			]
+		},
+		"yay": {
+			"speaker": "child",
+			"ko": "그래? 그럼 우리 같이 먹자!",
+			"next": "pet"
+		},
+		"pet": {
+			"speaker": "child",
+			"ko": "너는 고양이가 좋아, 강아지가 좋아?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "고양이가 좋아.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "cat"
+				},
+				{
+					"ko": "강아지가 좋아.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "dog"
+				},
+				{
+					"ko": "고양이가 좋아요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"cat": {
+			"speaker": "child",
+			"ko": "나도! 고양이는 생선을 좋아해.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cat"
+					]
+				}
+			],
+			"next": "friends"
+		},
+		"dog": {
+			"speaker": "child",
+			"ko": "늑대는 뼈를 좋아해. 나도 늑대가 좋아!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wolf"
+					]
+				}
+			],
+			"next": "friends"
+		},
+		"friends": {
+			"speaker": "child",
+			"ko": "좋아! 우리 친구야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "잘 가! 또 봐!",
+			"end": true
+		}
+	}
+}

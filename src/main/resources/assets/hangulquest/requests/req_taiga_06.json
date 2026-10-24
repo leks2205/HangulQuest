@@ -1,0 +1,44 @@
+{
+	"schema": 1,
+	"id": "req_taiga_06",
+	"level": 4,
+	"kind": "GIVE",
+	"regions": [
+		"TAIGA"
+	],
+	"personalities": [
+		"SNOOTY",
+		"SMUG"
+	],
+	"goal": {
+		"type": "GIVE",
+		"item": "minecraft:bone_meal",
+		"entity": "minecraft:villager",
+		"method": "DROP_NEAR",
+		"count": 3
+	},
+	"words": [
+		"concept:bone",
+		"concept:sapling"
+	],
+	"answers": {
+		"yes": "네, 세 개 구해 볼게요.",
+		"no": "아니요, 지금은 어려워요."
+	},
+	"lines": {
+		"SNOOTY": {
+			"offer": "어머, 제 정원의 묘목이 아주 작습니다. 뼛가루를 뿌리면 곧 자랍니다. 제 앞에 세 개를 놓아 주십시오.",
+			"accept": "감사합니다. 조용히 기다리겠습니다.",
+			"decline": "괜찮습니다. 다음에 다시 부탁합니다.",
+			"reminder": "뼛가루는 없습니까?",
+			"thanks": "어머, 좋은 뼛가루입니다. 정원이 곧 아름다워집니다. 나쁘지 않습니다."
+		},
+		"SMUG": {
+			"offer": "아아, 제 작은 정원의 묘목이 자라지 않거든요. 제 앞에 뼛가루 세 개를 놓아 주세요.",
+			"accept": "후후, 고마워요. 여기서 기다릴게요.",
+			"decline": "괜찮아요. 다음에 다시 부탁드려요.",
+			"reminder": "후후, 뼛가루는 없어요?",
+			"thanks": "아아, 이제 묘목이 자랄 수 있어요. 완벽해요."
+		}
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "field"
+		},
+		"field": {
+			"speaker": "villager",
+			"ko": "여기는 밀이 많아요. 빵도 많아요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat",
+						"concept:bread"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "같이 밀을 베어요?",
+			"choices": [
+				{
+					"ko": "네, 같이 해요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 배고파요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "아하하! 좋아요. 문제없어요!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "에이, 그럼 빵을 먹어요.",
+			"end": true
+		}
+	}
+}

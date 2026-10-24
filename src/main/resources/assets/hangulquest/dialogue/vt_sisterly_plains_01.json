@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_plains_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 오늘 바람이 좋아요.",
+			"ko_banmal": "어이! 오늘 바람이 좋아.",
+			"next": "bee"
+		},
+		"bee": {
+			"speaker": "villager",
+			"ko": "꽃에 꿀벌이 많아요. 아주 부지런해요.",
+			"ko_banmal": "꽃에 꿀벌이 많아. 아주 부지런해.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bee",
+						"concept:flower"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "꿀벌이 좋아요?",
+			"ko_banmal": "꿀벌이 좋아?",
+			"choices": [
+				{
+					"ko": "네, 좋아요. 꿀이 맛있어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 꿀벌이 무서워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "나도요. 꿀은 아주 달아요. 조금만 먹어요.",
+			"ko_banmal": "나도. 꿀은 아주 달아. 조금만 먹어.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "에이, 꿀벌은 착해요. 나는 안 무서워요.",
+			"ko_banmal": "에이, 꿀벌은 착해. 나는 안 무서워.",
+			"end": true
+		}
+	}
+}

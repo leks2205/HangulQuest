@@ -81,3 +81,15 @@ jar {
 		rename { "${it}_${project.name}" }
 	}
 }
+
+// Checks a folder of drafted villager conversations and requests before they are copied in. Authors run it through
+// `python3 tools/validate_dialogue_drafts.py <dir>`, which adds the Korean linter (content/briefs/VILLAGERS.md).
+tasks.register('validateDrafts', JavaExec) {
+	group = 'verification'
+	description = 'Checks drafted dialogue and request files: -Pdrafts=<folder>'
+	dependsOn 'testClasses'
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'io.github.leks2205.hangulquest.DraftValidator'
+	workingDir = projectDir
+	args = [project.findProperty('drafts') ?: '', layout.buildDirectory.file('reports/drafts/sentences.tsv').get().asFile.path]
+}

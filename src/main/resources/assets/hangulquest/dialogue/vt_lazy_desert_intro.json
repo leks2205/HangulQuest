@@ -1,0 +1,81 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "음, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "sun"
+		},
+		"sun": {
+			"speaker": "villager",
+			"ko": "여기는 비가 안 와요. 해가 정말 뜨거워요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rain",
+						"concept:sun"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 낮에 집 안에 있어요. 밖이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 밖이 좋아요!",
+					"next": "out"
+				},
+				{
+					"ko": "아니요, 저도 집이 좋아요.",
+					"next": "in"
+				}
+			]
+		},
+		"out": {
+			"speaker": "villager",
+			"ko": "우와. 그럼 선인장을 조심해요. 아파요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus"
+					]
+				}
+			],
+			"end": true
+		},
+		"in": {
+			"speaker": "villager",
+			"ko": "헤헤, 집 안이 시원해요. 천천히, 천천히.",
+			"end": true
+		}
+	}
+}

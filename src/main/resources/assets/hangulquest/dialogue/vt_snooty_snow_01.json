@@ -1,0 +1,83 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_snow_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 오늘도 눈이 옵니다.",
+			"next": "white"
+		},
+		"white": {
+			"speaker": "villager",
+			"ko": "눈은 깨끗합니다. 저는 하얀색이 좋습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow",
+						"concept:white"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈이 좋습니까?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 추워요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "호호, 저도 그렇습니다. 가루눈은 싫습니다.",
+			"next": "boots",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_powder_snow"
+					]
+				}
+			]
+		},
+		"boots": {
+			"speaker": "villager",
+			"ko": "가루눈에 빠집니다. 가죽 장화가 필요합니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠, 그럼 화로 옆이 좋습니다. 따뜻합니다.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:furnace"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

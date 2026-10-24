@@ -669,7 +669,9 @@ class RealRepositoryTest(unittest.TestCase):
         for content in (False, True):
             for key, text in core.read_bundle(repo, "en_us", content).items():
                 self.assertEqual(key in keys, core.translatable(text), key)
-        self.assertLess(total - len(rows), 20, "only Korean-only names and bare placeholders are left out")
+        intros = list((core.ROOT / "src/main/resources/assets/hangulquest/dialogue").glob("*_intro.json"))
+        self.assertLess(total - len(rows), len(intros) + 10,
+                        "one self-intro name line per conversation, plus Korean-only names and bare placeholders")
 
     def test_trail_text_has_its_korean_line_and_form_dependent_clues_are_marked(self):
         rows = core.source_rows(core.Repo(core.ROOT))

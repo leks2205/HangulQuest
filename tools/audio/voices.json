@@ -21,6 +21,18 @@
     "elder": {
       "voice": "male1",
       "about": "the dialogue elder (노인, 합쇼체): the steady, warm, medium-low voice fits best of the pack voices; a dedicated older-man voice would be a new clone voice with its own seed and has not been rendered"
+    },
+    "librarian": {
+      "voice": "female2",
+      "about": "the librarian (사서, 합쇼체) keeps one fixed voice whatever the villager's personality (PLAN 3.1): the calm teacher-like female2"
+    },
+    "trader": {
+      "voice": "male2",
+      "about": "the wandering trader (떠돌이 상인, 해요체): fixed voice, the brighter young male2 (not the elder's male1, they can meet in one village)"
+    },
+    "golem": {
+      "voice": "male1",
+      "about": "the iron golem as narrator (철 골렘): fixed voice, the steady male1; it never talks in the same conversation as the elder"
     }
   },
   "voices": {
@@ -43,6 +55,247 @@
       "kind": "clone",
       "seed": 37,
       "design": "A native Korean man in his twenties with a standard Seoul accent. Bright, friendly, slightly higher pitch, clear and unhurried pronunciation."
+    },
+    "v_lazy": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "LAZY",
+      "gender": "male",
+      "age": "adult",
+      "design": "A native Korean young man in his mid twenties with a standard Seoul accent. Soft, relaxed, slightly sleepy but cheerful voice, medium-low pitch, a little nasal, slow and easygoing pace, yet every syllable is clear and easy for language learners to follow.",
+      "ref_text": "음… 안녕하세요. 오늘은 날씨가 좋아서 낮잠 자기 딱 좋네요.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 108.2,
+        "f0_p10_hz": 89.8,
+        "f0_p90_hz": 125.7,
+        "seconds": 5.44,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "85729400cb2d"
+      }
+    },
+    "v_jock": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "JOCK",
+      "gender": "male",
+      "age": "adult",
+      "design": "A native Korean man in his late twenties with a standard Seoul accent. Low-pitched, deep and powerful masculine voice, like a cheerful young sports coach, confident and full of energy yet controlled, never shouting, steady brisk pace, every syllable precise and clear for language learners.",
+      "ref_text": "안녕하세요. 오늘도 같이 힘차게 운동하고 달려 봐요.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 152.1,
+        "f0_p10_hz": 120.0,
+        "f0_p90_hz": 194.0,
+        "seconds": 3.6,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "4050612818f2",
+        "designs_tried": 4,
+        "note": "the first three design texts (energetic/loud/bright) gave 210-390 Hz on every seed; the fourth asks for a low-pitched coach voice"
+      }
+    },
+    "v_cranky": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "CRANKY",
+      "gender": "male",
+      "age": "adult",
+      "design": "A native Korean man in his sixties with a standard Seoul accent. Low, deep, slightly gravelly older voice, curt and a bit grumpy but not angry, slow and deliberate pace, clear precise pronunciation that language learners can follow.",
+      "ref_text": "흠. 안녕하세요. 오늘은 조용히 따뜻한 차나 마시고 싶네요.",
+      "seed": 43,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 97.5,
+        "f0_p10_hz": 83.9,
+        "f0_p90_hz": 112.6,
+        "seconds": 5.28,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "2bb29943493b"
+      }
+    },
+    "v_smug": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "SMUG",
+      "gender": "male",
+      "age": "adult",
+      "design": "A native Korean man in his thirties with a standard Seoul accent. Smooth, mellow, confident and charming voice, medium-low pitch, refined and slightly theatrical, unhurried pace and very clear pronunciation for language learners.",
+      "ref_text": "안녕하세요. 오늘은 꽃향기가 정말 아름다운 날이네요.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 150.3,
+        "f0_p10_hz": 96.7,
+        "f0_p90_hz": 197.7,
+        "seconds": 5.28,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "370c572b27c0"
+      }
+    },
+    "v_normal": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "NORMAL",
+      "gender": "female",
+      "age": "adult",
+      "design": "A native Korean woman in her thirties with a standard Seoul accent. Gentle, warm, calm and kind voice, medium pitch, friendly and soothing, unhurried pace and clear precise pronunciation for language learners.",
+      "ref_text": "안녕하세요. 오늘은 맛있는 빵을 구워서 같이 먹어요.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 247.0,
+        "f0_p10_hz": 199.5,
+        "f0_p90_hz": 278.1,
+        "seconds": 5.28,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "2029d222018f"
+      }
+    },
+    "v_peppy": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "PEPPY",
+      "gender": "female",
+      "age": "adult",
+      "design": "A native Korean young woman around twenty years old with a standard Seoul accent. High-pitched, bubbly, bright and excited voice, cheerful and expressive, lively pace but every syllable clear for language learners.",
+      "ref_text": "우와, 안녕하세요! 오늘은 정말 신나는 날이에요!",
+      "seed": 19,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 445.3,
+        "f0_p10_hz": 328.2,
+        "f0_p90_hz": 555.9,
+        "seconds": 3.84,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "d35685fde362"
+      }
+    },
+    "v_snooty": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "SNOOTY",
+      "gender": "female",
+      "age": "adult",
+      "design": "A native Korean woman in her thirties with a standard Seoul accent. Elegant, cool and composed voice, polished and precise, a little haughty and reserved, medium pitch, measured pace and crisp, clear pronunciation for language learners.",
+      "ref_text": "안녕하십니까. 오늘은 반짝이는 보석을 보러 가겠습니다.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 235.9,
+        "f0_p10_hz": 164.9,
+        "f0_p90_hz": 274.1,
+        "seconds": 5.6,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "efec10890356"
+      }
+    },
+    "v_sisterly": {
+      "kind": "clone",
+      "lines_only": true,
+      "personality": "SISTERLY",
+      "gender": "female",
+      "age": "adult",
+      "design": "A native Korean woman in her thirties with a standard Seoul accent. Slightly husky, confident and brisk voice, medium pitch, direct and friendly like a caring big sister, clear pronunciation that language learners can follow.",
+      "ref_text": "안녕하세요. 걱정 마요, 이 마을은 제가 지킬게요.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 260.2,
+        "f0_p10_hz": 223.7,
+        "f0_p90_hz": 347.3,
+        "seconds": 4.0,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "348efe3e72d0"
+      }
+    },
+    "v_child_m": {
+      "kind": "clone",
+      "lines_only": true,
+      "gender": "male",
+      "age": "child",
+      "design": "A native Korean boy about nine years old with a standard Seoul accent. A child's high, bright and playful voice, cheerful and curious, speaking clearly and not too fast so language learners can understand every syllable.",
+      "ref_text": "안녕! 나는 오늘 친구들이랑 같이 놀 거야.",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 453.1,
+        "f0_p10_hz": 303.6,
+        "f0_p90_hz": 492.1,
+        "seconds": 3.44,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "55f1806780e7"
+      }
+    },
+    "v_child_f": {
+      "kind": "clone",
+      "lines_only": true,
+      "gender": "female",
+      "age": "child",
+      "design": "A native Korean girl about nine years old with a standard Seoul accent. A child's high, sweet and lively voice, cheerful and friendly, speaking clearly and not too fast so language learners can understand every syllable.",
+      "ref_text": "안녕! 오늘은 꽃밭에서 같이 놀자!",
+      "seed": 7,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 480.0,
+        "f0_p10_hz": 402.3,
+        "f0_p90_hz": 508.5,
+        "seconds": 2.96,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43
+        ],
+        "sha1": "9ab176f63902"
+      }
     }
-  }
+  },
+  "villager_voices_note": "v_* voices: designed with design_voices.py (VoiceDesign, seeds 7/19/31/43), reference CER by faster-whisper large-v3, median F0 by librosa pyin; lines_only keeps them out of word renders and word events"
 }

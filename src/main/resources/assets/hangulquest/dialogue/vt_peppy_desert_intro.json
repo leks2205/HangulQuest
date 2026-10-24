@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "와아! 손님이에요! 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "cactus"
+		},
+		"cactus": {
+			"speaker": "villager",
+			"ko": "사막에 선인장이 많아요! 선인장으로 초록색 염료를 만들어요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus",
+						"concept:gen_green_dye"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "초록색 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 분홍색이 좋아요.",
+					"next": "pink"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "꺄! 저도요! 진짜진짜 최고예요!",
+			"end": true
+		},
+		"pink": {
+			"speaker": "villager",
+			"ko": "분홍색이요? 우와, 저도 분홍색 정말 좋아요!",
+			"end": true
+		}
+	}
+}

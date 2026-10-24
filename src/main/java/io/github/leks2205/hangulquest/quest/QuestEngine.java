@@ -122,6 +122,18 @@ public final class QuestEngine {
 		}
 	}
 
+	/**
+	 * Entries of the quest log that are not trails: the villager requests the player tracks. Each takes a regular
+	 * slot; their rows follow the trails' rows.
+	 */
+	public interface Extra {
+		/** How many entries are in the log now. */
+		int trackedCount();
+
+		/** Their rows, in the order they were added. */
+		List<TrackView> views();
+	}
+
 	/** The rule card of a construction the player meets for the first time: example lines and the rule. */
 	public record RuleCardView(String id, String form, List<String> examplesKo, List<String> rule) {
 	}
@@ -143,6 +155,7 @@ public final class QuestEngine {
 	private final java.util.Map<QuestStep, Accepted> accepted = new java.util.IdentityHashMap<>();
 
 	private Observation lastObs;
+	private Extra extra;
 	/** "Pick quests automatically"; off until the game switches it on, so the bare engine tracks only what it is told to. */
 	private BooleanSupplier autoPick = () -> false;
 	private BooleanSupplier translations = () -> false;
@@ -492,7 +505,44 @@ public final class QuestEngine {
 	 * quest instead of bouncing between the first two.
 	 */
 	public List<TrackView> trackedViews() {
-		return QuestViews.of(registry, text, catalog, lastObs);
+		List<TrackView> views = QuestViews.of(registry, text, catalog, lastObs);
+		if (extra != null) {
+			views.addAll(extra.views());
+		}
+		return views;
+	}
+
+	/** Puts entries that are not trails into the quest log (the villager requests); null removes them. */
+	public void setExtra(Extra extra) {
+		this.extra = extra;
+		registry.extra(extra == null ? null : extra::trackedCount);
+	}
+
+	/**
+	 * Makes room in the quest log for one more entry that is not a trail. When the log is full, the oldest trail the
+	 * game picked is taken out (it keeps its progress); a trail the player chose never is. False when every slot holds
+	 * a trail the player chose: the entry then waits outside the log.
+	 */
+	public boolean makeRoomForExtra(long now) {
+		if (registry.slotCount() < MAX_TRACKED) {
+			return true;
+		}
+		String oldest = registry.oldestAuto();
+		if (oldest == null) {
+			return false;
+		}
+		tracking.untrackAuto(oldest, now);
+		return registry.slotCount() < MAX_TRACKED;
+	}
+
+	/** The clue the quest log shows for a step built in code (a request's goal), at the player's level. */
+	public String clueOf(QuestStep step, int koreanLevel) {
+		return text.clueKo(step, koreanLevel);
+	}
+
+	/** The status line of a goal's progress (what is missing), as the quest log shows it; empty before the first tick. */
+	public String statusOf(QuestStep step, GoalEvaluator.Tracker tracker) {
+		return lastObs == null || step == null ? "" : QuestStatus.text(step, lastObs, tracker, catalog);
 	}
 
 	public SideQuest sideQuest() {

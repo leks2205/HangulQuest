@@ -12,6 +12,7 @@ import io.github.leks2205.hangulquest.ui.journal.LibraryTab;
 import io.github.leks2205.hangulquest.ui.journal.QuestTab;
 import io.github.leks2205.hangulquest.ui.journal.SettingsTab;
 import io.github.leks2205.hangulquest.ui.journal.StudyTab;
+import io.github.leks2205.hangulquest.ui.journal.VillagersTab;
 import io.github.leks2205.hangulquest.ui.journal.WordsTab;
 import io.github.leks2205.hangulquest.util.I18n;
 import net.minecraft.client.gui.Font;
@@ -33,8 +34,10 @@ import java.util.function.Consumer;
 public final class JournalScreen extends Screen {
 	private static final String[] TABS = {"hangulquest.ui.journal.tab.info", "hangulquest.ui.journal.tab.words",
 			"hangulquest.ui.journal.tab.study", "hangulquest.ui.journal.tab.achievements", "hangulquest.ui.journal.tab.quests",
-			"hangulquest.ui.journal.tab.grammar", "hangulquest.ui.journal.tab.library", "hangulquest.ui.journal.tab.settings"};
-	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —", "— 7 —", "— 8 —"};
+			"hangulquest.ui.journal.tab.grammar", "hangulquest.ui.journal.tab.library", "hangulquest.ui.journal.tab.villagers",
+			"hangulquest.ui.journal.tab.settings"};
+	private static final String[] PAGE_LABELS = {"— 1 —", "— 2 —", "— 3 —", "— 4 —", "— 5 —", "— 6 —", "— 7 —", "— 8 —",
+			"— 9 —"};
 	private static final String[] SPINE = {"한", "글", "일", "지"};
 
 	private final HangulQuestClient hq = HangulQuestClient.get();
@@ -165,7 +168,8 @@ public final class JournalScreen extends Screen {
 		super(Component.literal("한글 탐험"));
 		tabs = new JournalTab[] {
 				new InfoTab(host), new WordsTab(host), new StudyTab(host),
-				new AchievementsTab(host), new QuestTab(host), new GrammarTab(host), new LibraryTab(host), new SettingsTab(host)};
+				new AchievementsTab(host), new QuestTab(host), new GrammarTab(host), new LibraryTab(host), new VillagersTab(host),
+				new SettingsTab(host)};
 		for (int i = 0; i < tabs.length; i++) {
 			int index = i;
 			tabClicks[i] = () -> {

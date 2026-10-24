@@ -5,10 +5,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Whole progress document (schema v4: learning + quests + vocabulary import info + install metadata). */
+/**
+ * Whole progress document (schema v5: learning + quests + villager requests + vocabulary import info + install
+ * metadata).
+ */
 public final class ProgressData {
 	/** Highest schema this build reads and writes; a file with a higher version is opened read-only. */
-	public static final int CURRENT_VERSION = 4;
+	public static final int CURRENT_VERSION = 5;
 
 	public int version = CURRENT_VERSION;
 	public Map<String, WordProgress> words = new LinkedHashMap<>();
@@ -23,6 +26,31 @@ public final class ProgressData {
 	 * it reads as "never played", and a build that does not know it keeps it.
 	 */
 	public HvptData hvpt = new HvptData();
+	/** Villager requests: the open ones and how often each was handed in (schema v5). */
+	public RequestData requests = new RequestData();
+
+	public static final class RequestData {
+		/** The open requests in the order they were accepted; at most one per villager and three in all. */
+		public List<OpenRequest> open = new ArrayList<>();
+		/** How often each request was handed in, by request id. */
+		public Map<String, Integer> finished = new LinkedHashMap<>();
+	}
+
+	public static final class OpenRequest {
+		/** The request id (requests/<id>.json). */
+		public String id;
+		/** The UUID of the villager who asked. */
+		public String villager;
+		/** The villager's name when it asked, for the quest log and the journal. */
+		public String name;
+		public long acceptedAt;
+		/** True while it is in the quest log (and its goal is checked against the world). */
+		public boolean tracked;
+		/** True once the goal is met; the player still has to talk to the villager. */
+		public boolean done;
+		/** Partial counter of the goal. */
+		public int progress;
+	}
 
 	public static final class Totals {
 		public int seen;

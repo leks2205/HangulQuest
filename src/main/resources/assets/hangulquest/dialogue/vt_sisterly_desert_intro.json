@@ -1,0 +1,74 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SISTERLY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아하하! 여기는 아주 뜨거워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "rain"
+		},
+		"rain": {
+			"speaker": "villager",
+			"ko": "사막에 비가 안 와요. 물이 아주 귀해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:desert",
+						"concept:rain",
+						"concept:water"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낙타를 타고 싶어요?",
+			"choices": [
+				{
+					"ko": "네, 타고 싶어요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 걷고 싶어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 낙타는 아주 커요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그래요? 모래는 뜨거워요. 조심해요.",
+			"end": true
+		}
+	}
+}

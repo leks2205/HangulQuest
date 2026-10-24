@@ -1,7 +1,12 @@
 package io.github.leks2205.hangulquest.story;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.github.leks2205.hangulquest.culture.CultureSet;
 import io.github.leks2205.hangulquest.dialogue.DialogueFixtures;
+import io.github.leks2205.hangulquest.dialogue.DialogueLexicon;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
@@ -10,7 +15,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 /** The shipped Library files as the tests see them: read from the source tree, like the other content tests. */
@@ -47,11 +54,59 @@ public final class StoryFixtures {
 		return stories;
 	}
 
-	/** The story word list with the conversation list, as the game reads them. */
+	/**
+	 * The story word list with the conversation list, as the game reads them. The conversation list only adds
+	 * words: a form that the story reader would otherwise resolve to a concept a story names keeps that concept.
+	 * Otherwise a conversation gloss that reuses, say, 밤에 or 나와요 would hide the concept id (and its
+	 * taught/known state) from the story tests and the coverage dump.
+	 */
 	public static StoryLexicon lexicon() {
 		try {
-			return StoryLexicon.parse(Files.readString(DIR.resolve("_lexicon.json"), StandardCharsets.UTF_8))
-					.with(DialogueFixtures.lexicon());
+			StoryLexicon story = StoryLexicon.parse(
+					Files.readString(DIR.resolve("_lexicon.json"), StandardCharsets.UTF_8));
+			StoryVocabulary storyWords = StoryVocabulary.of(
+					io.github.leks2205.hangulquest.data.Catalog.ofConcepts(
+							io.github.leks2205.hangulquest.data.ConceptLoader.load()),
+					story, id -> true, io.github.leks2205.hangulquest.util.Lang.EN);
+			List<Story> allStories = shipped();
+			JsonObject dialogue = JsonParser.parseString(Files.readString(DialogueFixtures.DIR.resolve("_lexicon.json"),
+					StandardCharsets.UTF_8)).getAsJsonObject();
+			JsonArray words = new JsonArray();
+			for (JsonElement element : dialogue.getAsJsonArray("words")) {
+				JsonObject entry = element.getAsJsonObject();
+				JsonArray forms = new JsonArray();
+				for (JsonElement form : entry.getAsJsonArray("forms")) {
+					String text = form.getAsString();
+					boolean shadowsAStoryWord = false;
+					for (Story each : allStories) {
+						Set<String> needed = new HashSet<>(each.words());
+						needed.addAll(each.glossed());
+						if (!String.join(" ", each.paragraphs()).contains(text)) {
+							continue;
+						}
+						if (StoryText.analyze(text, storyWords).stream()
+								.anyMatch(token -> token.id() != null && needed.contains(token.id())
+										|| token.breakdown() != null
+										&& each.grammar().contains(token.breakdown().grammar()))) {
+							shadowsAStoryWord = true;
+							break;
+						}
+					}
+					if (!shadowsAStoryWord) {
+						forms.add(text);
+					}
+				}
+				if (forms.size() == 0) {
+					continue;
+				}
+				JsonObject copy = entry.deepCopy();
+				copy.add("forms", forms);
+				words.add(copy);
+			}
+			JsonObject filtered = new JsonObject();
+			filtered.addProperty("schema", 1);
+			filtered.add("words", words);
+			return story.with(DialogueLexicon.parse(filtered.toString()));
 		} catch (IOException failed) {
 			throw new UncheckedIOException(failed);
 		}

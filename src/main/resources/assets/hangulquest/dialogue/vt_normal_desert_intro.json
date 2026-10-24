@@ -1,0 +1,81 @@
+{
+	"schema": 1,
+	"id": "vt_normal_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 오늘도 더워요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "rain"
+		},
+		"rain": {
+			"speaker": "villager",
+			"ko": "사막은 비가 안 와요. 그래서 물이 정말 귀해요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rain",
+						"concept:water"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "사막은 처음이에요?",
+			"choices": [
+				{
+					"ko": "네, 처음이에요.",
+					"next": "first"
+				},
+				{
+					"ko": "아니요, 자주 와요.",
+					"next": "often"
+				}
+			]
+		},
+		"first": {
+			"speaker": "villager",
+			"ko": "어머, 그럼 선인장을 조심해요. 정말 아파요!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus"
+					]
+				}
+			],
+			"end": true
+		},
+		"often": {
+			"speaker": "villager",
+			"ko": "우와, 다행이에요! 그럼 또 봐요.",
+			"end": true
+		}
+	}
+}

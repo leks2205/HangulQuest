@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "hay"
+		},
+		"hay": {
+			"speaker": "villager",
+			"ko": "헤헤, 건초 더미가 제 침대예요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:hay_block"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "낮잠 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 일이 많아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와, 우리 친구예요. 천천히, 천천히.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 천천히 해요, 천천히.",
+			"end": true
+		}
+	}
+}

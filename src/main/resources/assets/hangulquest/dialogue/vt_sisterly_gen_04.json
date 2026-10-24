@@ -1,0 +1,64 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_gen_04",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아하하! 진흙이 묻었죠?",
+			"ko_banmal": "아하하! 진흙이 묻었지?",
+			"next": "story"
+		},
+		"story": {
+			"speaker": "villager",
+			"ko": "동굴에서 거미와 싸웠거든요. 방패가 막아 줬어요.",
+			"ko_banmal": "동굴에서 거미와 싸웠거든. 방패가 막아 줬어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:shield",
+						"concept:spider"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "방패를 써 봤어요?",
+			"ko_banmal": "방패를 써 봤어?",
+			"choices": [
+				{
+					"ko": "네, 항상 써요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 아직 없어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요. 방패와 검을 같이 써요.",
+			"ko_banmal": "좋아. 방패와 검을 같이 써.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "그럼 방패를 만들어요. 철 주괴가 필요해요.",
+			"ko_banmal": "그럼 방패를 만들어. 철 주괴가 필요해.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"SISTERLY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나 오늘 넘어졌어.",
+			"next": "knee"
+		},
+		"knee": {
+			"speaker": "child",
+			"ko": "무릎이 아파. 그래도 안 울었어!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "같이 좀비 놀이 할래?",
+			"choices": [
+				{
+					"ko": "응, 재미있어!",
+					"speechLevel": "banmal",
+					"next": "yes"
+				},
+				{
+					"ko": "아니, 무서워.",
+					"speechLevel": "banmal",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "child",
+			"ko": "좋아! 나는 이 막대기로 싸워!",
+			"end": true
+		},
+		"no": {
+			"speaker": "child",
+			"ko": "에이, 그럼 숨바꼭질 하자!",
+			"end": true
+		}
+	}
+}

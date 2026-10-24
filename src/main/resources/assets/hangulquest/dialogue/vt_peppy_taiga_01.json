@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_taiga_01",
+	"level": 5,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"TAIGA"
+		]
+	},
+	"start": "listen",
+	"nodes": {
+		"listen": {
+			"speaker": "villager",
+			"ko": "어머어머, 세상에! 들어 봐요!",
+			"ko_banmal": "어머어머, 세상에! 들어 봐!",
+			"next": "berries"
+		},
+		"berries": {
+			"speaker": "villager",
+			"ko": "아침에 달콤한 열매를 잔뜩 따서 잠깐 땅에 내려놨거든요.",
+			"ko_banmal": "아침에 달콤한 열매를 잔뜩 따서 잠깐 땅에 내려놨거든.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:sweet_berries"
+					]
+				}
+			],
+			"next": "fox"
+		},
+		"fox": {
+			"speaker": "villager",
+			"ko": "그런데 다시 와 보니까 여우가 열매를 입에 물고 가더라고요!",
+			"ko_banmal": "그런데 다시 와 보니까 여우가 열매를 입에 물고 가더라!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fox"
+					]
+				}
+			],
+			"next": "tail"
+		},
+		"tail": {
+			"speaker": "villager",
+			"ko": "화가 나야 하는데, 주황색 꼬리가 너무 예뻐서 박수만 쳤어요.",
+			"ko_banmal": "화가 나야 하는데, 주황색 꼬리가 너무 예뻐서 박수만 쳤어.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "여우를 쫓아갈까요, 아니면 그냥 다시 딸까요?",
+			"ko_banmal": "여우를 쫓아갈까, 아니면 그냥 다시 딸까?",
+			"choices": [
+				{
+					"ko": "여우한테 그냥 줘요.",
+					"next": "give"
+				},
+				{
+					"ko": "같이 다시 따요.",
+					"next": "pick"
+				}
+			]
+		},
+		"give": {
+			"speaker": "villager",
+			"ko": "역시 마음이 따뜻하네요! 여우가 배부르다면 저도 행복해요.",
+			"ko_banmal": "역시 마음이 따뜻하네! 여우가 배부르다면 나도 행복해.",
+			"end": true
+		},
+		"pick": {
+			"speaker": "villager",
+			"ko": "좋아요! 그런데 덤불 속을 걸으면 따가우니까 천천히 가요!",
+			"ko_banmal": "좋아! 그런데 덤불 속을 걸으면 따가우니까 천천히 가자!",
+			"end": true
+		}
+	}
+}

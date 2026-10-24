@@ -1,0 +1,81 @@
+{
+	"schema": 1,
+	"id": "vt_normal_snow_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요! 오늘도 눈이 와요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow"
+					]
+				}
+			],
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "soup"
+		},
+		"soup": {
+			"speaker": "villager",
+			"ko": "화로 옆에 비트 수프가 있어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_beetroot",
+						"concept:furnace"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "비트 수프가 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 비트가 싫어요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와, 다행이에요! 그럼 내일 또 와요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "어머, 그럼 화로 옆에 앉아요. 따뜻해요.",
+			"end": true
+		}
+	}
+}

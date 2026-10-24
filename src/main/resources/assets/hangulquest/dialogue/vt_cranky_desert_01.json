@@ -1,0 +1,46 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_desert_01",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["DESERT"]},
+	"start": "hot",
+	"nodes": {
+		"hot": {
+			"speaker": "villager",
+			"ko": "흠. 낮에는 사막이 더워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:desert"]}],
+			"next": "night"
+		},
+		"night": {
+			"speaker": "villager",
+			"ko": "밤에는 추워요. 그리고 허스크가 와요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:gen_husk"]}],
+			"next": "sun"
+		},
+		"sun": {
+			"speaker": "villager",
+			"ko": "허스크는 해가 안 무서워요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:sun"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에 문을 잘 닫아요?",
+			"choices": [
+				{"ko": "네, 잘 닫아요.", "next": "good"},
+				{"ko": "아니요, 가끔 열어요.", "next": "bad"}
+			]
+		},
+		"good": {
+			"speaker": "villager",
+			"ko": "흠. 좋아요. 저는 문을 두 번 닫아요.",
+			"end": true
+		},
+		"bad": {
+			"speaker": "villager",
+			"ko": "어허. 밤에는 꼭 닫아요. 나 원 참.",
+			"effects": [{"type": "exposeWords", "words": ["concept:door"]}],
+			"end": true
+		}
+	}
+}

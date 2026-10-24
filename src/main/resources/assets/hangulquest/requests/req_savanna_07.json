@@ -1,0 +1,53 @@
+{
+	"schema": 1,
+	"id": "req_savanna_07",
+	"level": 5,
+	"kind": "DO",
+	"regions": [
+		"SAVANNA"
+	],
+	"personalities": [
+		"JOCK",
+		"SISTERLY"
+	],
+	"goal": {
+		"type": "MOUNT",
+		"entity": "minecraft:horse",
+		"dwellMs": 3000
+	},
+	"words": [
+		"concept:horse"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"lines": {
+		"JOCK": {
+			"offer": {
+				"ko": "으쌰으쌰! 말을 타고 달리면 정말 시원해요! 말을 타 보세요!",
+				"ko_banmal": "으쌰으쌰! 말을 타고 달리면 정말 시원해! 말을 타 봐!"
+			},
+			"accept": "좋아요! 말을 타고 잠깐 기다려 주세요! 하나, 둘!",
+			"decline": "괜찮아요! 또 봐요! 하나, 둘!",
+			"reminder": "말을 아직 안 탔어요? 하나, 둘!",
+			"thanks": {
+				"ko": "크하하! 정말 멋진 말이에요! 하나, 둘!",
+				"ko_banmal": "크하하! 정말 멋진 말이야! 하나, 둘!"
+			}
+		},
+		"SISTERLY": {
+			"offer": {
+				"ko": "어이! 사바나에서 말을 자주 봐요. 말을 타 봐요. 재미있어요!",
+				"ko_banmal": "어이! 사바나에서 말을 자주 봐. 말을 타 봐. 재미있어!"
+			},
+			"accept": "좋아요. 말을 타고 잠깐 기다려 주세요.",
+			"decline": "괜찮아요. 또 봐요.",
+			"reminder": "말을 아직 안 탔어요?",
+			"thanks": {
+				"ko": "푸하하! 잘 탔어요! 문제없어요!",
+				"ko_banmal": "푸하하! 잘 탔어! 문제없어!"
+			}
+		}
+	}
+}

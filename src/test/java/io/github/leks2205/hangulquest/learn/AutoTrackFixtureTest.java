@@ -58,7 +58,7 @@ class AutoTrackFixtureTest {
 	void theFieldsLoadAndNoVersionBumpIsNeeded() throws IOException {
 		ProgressData data = new ProgressStore(install("v4-autotrack.json"), LOG).data();
 
-		assertEquals(4, data.version);
+		assertEquals(ProgressData.CURRENT_VERSION, data.version, "the fields themselves needed no bump; v5 came with the requests");
 		assertEquals(List.of("druckerei", "wasserpfad", "rotwerk"), data.quests.tracked);
 		assertEquals(List.of("wasserpfad", "rotwerk"), data.quests.auto);
 		assertEquals("rotwerk", data.quests.situational);

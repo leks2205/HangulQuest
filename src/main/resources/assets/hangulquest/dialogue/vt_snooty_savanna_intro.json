@@ -1,0 +1,67 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_savanna_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"SAVANNA"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하십니까.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"next": "region"
+		},
+		"region": {
+			"speaker": "villager",
+			"ko": "여기는 아카시아나무가 많습니다. 색이 곱습니다.",
+			"next": "ask",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_acacia_log",
+						"concept:colour"
+					]
+				}
+			]
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "주황색을 좋아하십니까?",
+			"choices": [
+				{
+					"ko": "네, 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 파란색이 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "호호, 나쁘지 않습니다.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "흠, 파란색도 나쁘지 않습니다.",
+			"end": true
+		}
+	}
+}

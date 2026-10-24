@@ -119,9 +119,14 @@ def make_reference(engine, cfg, name, voice):
     ref.parent.mkdir(parents=True, exist_ok=True)
     model = engine.load("design", cfg["model"]["repos"]["design"])
     engine.seed(voice["seed"])
-    wavs, sr = model.generate_voice_design(text=cfg["ref_text"], instruct=voice["design"], language=LANGUAGE)
+    wavs, sr = model.generate_voice_design(text=ref_text(cfg, voice), instruct=voice["design"], language=LANGUAGE)
     write_wav(ref, wavs[0], sr)
     return ref
+
+
+def ref_text(cfg, voice):
+    """The villager voices say a line in their own register; the word voices share one sentence."""
+    return voice.get("ref_text", cfg["ref_text"])
 
 
 def file_sha1(path: Path) -> str:
@@ -161,7 +166,7 @@ def render_voice(engine, cfg, name, voice, rows, out_dir, batch, salt=""):
             text=texts, speaker=[voice["speaker"]] * len(texts), language=[LANGUAGE] * len(texts))
     else:
         model = engine.load("base", repos["base"])
-        prompt = model.create_voice_clone_prompt(ref_audio=str(ref), ref_text=cfg["ref_text"])
+        prompt = model.create_voice_clone_prompt(ref_audio=str(ref), ref_text=ref_text(cfg, voice))
         generate = lambda texts: model.generate_voice_clone(
             text=texts, language=[LANGUAGE] * len(texts), voice_clone_prompt=prompt * len(texts))
 
@@ -193,6 +198,22 @@ def render_voice(engine, cfg, name, voice, rows, out_dir, batch, salt=""):
     return entries, time.time() - started, retries
 
 
+def rows_for(name, rows, plain):
+    """A row with "voices" (a villager line) renders only in those; any other row in every voice of the run."""
+    return [r for r in rows if (name in r["voices"] if "voices" in r else plain)]
+
+
+def voices_to_render(cfg, rows, chosen=None):
+    """--voices, or the word voices; plus every voice a villager line asks for (also with --voices: the
+    line's voice set is part of the text, not a choice of the run)."""
+    names = list(chosen or default_voices(cfg))
+    for row in rows:
+        for v in row.get("voices", ()):
+            if v not in names and (chosen is None or v in chosen):
+                names.append(v)
+    return names
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("texts")
@@ -205,11 +226,18 @@ def main():
     args = ap.parse_args()
 
     cfg = load_voices()
-    names = args.voices or default_voices(cfg)
     rows = read_jsonl(args.texts)
     ids = [r["id"] for r in rows]
     if len(set(ids)) != len(ids) or any(not re.fullmatch(r"[a-z0-9_.]+", i) for i in ids):
         sys.exit("ids must be unique and match [a-z0-9_.]+ (they become sound event names)")
+    plain = args.voices or default_voices(cfg)
+    names = voices_to_render(cfg, rows, args.voices)
+    for name in names:
+        voice = cfg["voices"].get(name)
+        if voice is None:
+            sys.exit(f"unknown voice {name} (voices.json)")
+        if voice["kind"] == "clone" and "seed" not in voice:
+            sys.exit(f"voice {name} has no seed yet: design it first (design_voices.py choose --write)")
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -241,7 +269,10 @@ def main():
     # clone voices need the design model first, the custom voice needs its own; group by kind
     for name in sorted(names, key=lambda n: cfg["voices"][n]["kind"]):
         voice = cfg["voices"][name]
-        entries, seconds, retries = render_voice(engine, cfg, name, voice, rows, out_dir, args.batch, salt)
+        vrows = rows_for(name, rows, name in plain)
+        if not vrows:
+            continue
+        entries, seconds, retries = render_voice(engine, cfg, name, voice, vrows, out_dir, args.batch, salt)
         previous = manifest["voices"].get(name, {}).get("entries", {})
         previous.update(entries)
         manifest["voices"][name] = {"kind": voice["kind"], "about": voice.get("about", voice.get("design", "")),

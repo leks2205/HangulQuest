@@ -1,0 +1,100 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_snow_01",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "built",
+	"nodes": {
+		"built": {
+			"speaker": "villager",
+			"ko": "있잖아요, 어제 눈 골렘을 만들었어요.",
+			"ko_banmal": "있잖아, 어제 눈 골렘을 만들었어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_snow_golem"
+					]
+				}
+			],
+			"next": "blocks"
+		},
+		"blocks": {
+			"speaker": "villager",
+			"ko": "눈 블록을 두 개 쌓았어요.",
+			"ko_banmal": "눈 블록을 두 개 쌓았어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow_block"
+					]
+				}
+			],
+			"next": "pumpkin"
+		},
+		"pumpkin": {
+			"speaker": "villager",
+			"ko": "그리고 위에 조각된 호박을 놓았어요.",
+			"ko_banmal": "그리고 위에 조각된 호박을 놓았어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carved_pumpkin"
+					]
+				}
+			],
+			"next": "throw"
+		},
+		"throw": {
+			"speaker": "villager",
+			"ko": "눈 골렘이 몬스터에게 눈덩이를 던지거든요.",
+			"ko_banmal": "눈 골렘이 몬스터에게 눈덩이를 던지거든.",
+			"next": "sleep"
+		},
+		"sleep": {
+			"speaker": "villager",
+			"ko": "그래서 저는 밤에 푹 자요. 헤헤.",
+			"ko_banmal": "그래서 나는 밤에 푹 자. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "눈 골렘 만들어 봤어요?",
+			"ko_banmal": "눈 골렘 만들어 봤어?",
+			"choices": [
+				{
+					"ko": "네, 만들어 봤어요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 어렵지 않아요?",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "그럼 우리 둘 다 밤이 안 무섭네요. 헤헤.",
+			"ko_banmal": "그럼 우리 둘 다 밤이 안 무섭네. 헤헤.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "한 번만 만들면 돼요. 그리고 쉬면 되거든요. 헤헤.",
+			"ko_banmal": "한 번만 만들면 돼. 그리고 쉬면 되거든. 헤헤.",
+			"end": true
+		}
+	}
+}

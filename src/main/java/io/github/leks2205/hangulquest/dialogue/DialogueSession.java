@@ -93,6 +93,12 @@ public final class DialogueSession {
 				words.words().forEach(sink::exposeWord);
 			} else if (effect instanceof Dialogue.ExposeGrammar grammar) {
 				sink.exposeGrammar(grammar.point());
+			} else if (effect instanceof Dialogue.AcceptBanmal) {
+				sink.acceptBanmal();
+			} else if (effect instanceof Dialogue.AcceptRequest accept) {
+				sink.acceptRequest(accept.request());
+			} else if (effect instanceof Dialogue.DeclineRequest decline) {
+				sink.declineRequest(decline.request());
 			}
 		}
 	}

@@ -1,0 +1,45 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_plains_intro",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["PLAINS"]},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "흠. 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "여기는 밀이 많아요. 아침에는 빵을 먹어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wheat", "concept:bread"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "밤에는 일찍 자요?",
+			"choices": [
+				{"ko": "네, 일찍 자요.", "next": "early"},
+				{"ko": "아니요, 늦게 자요.", "next": "late"}
+			]
+		},
+		"early": {
+			"speaker": "villager",
+			"ko": "흠. 좋아요. 밤에는 좀비가 있어요.",
+			"end": true
+		},
+		"late": {
+			"speaker": "villager",
+			"ko": "어허, 안 돼요. 밤에는 좀비가 많아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:zombie"]}],
+			"end": true
+		}
+	}
+}

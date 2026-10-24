@@ -1,0 +1,79 @@
+{
+	"schema": 1,
+	"id": "vt_smug_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"SMUG"
+		]
+	},
+	"start": "sang",
+	"nodes": {
+		"sang": {
+			"speaker": "child",
+			"ko": "와아, 안녕! 고양이에게 노래를 불렀어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cat",
+						"concept:song"
+					]
+				}
+			],
+			"next": "slept"
+		},
+		"slept": {
+			"speaker": "child",
+			"ko": "그런데 고양이가 쿨쿨 잤어.",
+			"next": "great"
+		},
+		"great": {
+			"speaker": "child",
+			"ko": "내 노래가 너무 멋졌어. 헤헤.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너도 내 노래 듣고 싶어?",
+			"choices": [
+				{
+					"ko": "응, 듣고 싶어!",
+					"next": "sing",
+					"speechLevel": "banmal"
+				},
+				{
+					"ko": "아니, 나는 졸려.",
+					"next": "sleepy",
+					"speechLevel": "banmal"
+				}
+			]
+		},
+		"sing": {
+			"speaker": "child",
+			"ko": "랄랄라, 랄랄라! 나는 최고야!",
+			"next": "tomorrow"
+		},
+		"sleepy": {
+			"speaker": "child",
+			"ko": "졸려? 그럼 고양이 옆에서 자!",
+			"next": "tomorrow"
+		},
+		"tomorrow": {
+			"speaker": "child",
+			"ko": "내일은 닭에게 노래를 부를 거야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:chicken"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

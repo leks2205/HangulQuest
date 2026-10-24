@@ -1,0 +1,59 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_banmal",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "banmal_offer",
+		"friendship": 6,
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "close",
+	"nodes": {
+		"close": {
+			"speaker": "villager",
+			"ko": "헤헤, 우리 정말 친하잖아요.",
+			"next": "offer"
+		},
+		"offer": {
+			"speaker": "villager",
+			"ko": "말 편하게 할까요? 천천히, 천천히.",
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L6.banmal"
+				}
+			],
+			"choices": [
+				{
+					"ko": "응, 좋아!",
+					"speechLevel": "banmal",
+					"next": "yes",
+					"effects": [
+						{
+							"type": "acceptBanmal"
+						}
+					]
+				},
+				{
+					"ko": "아니요, 아직은 괜찮아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "좋아요! 이제 우리 진짜 친구예요. 헤헤.",
+			"ko_banmal": "좋아! 이제 우리 진짜 친구야. 헤헤.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 천천히 해요. 기다릴게요.",
+			"end": true
+		}
+	}
+}

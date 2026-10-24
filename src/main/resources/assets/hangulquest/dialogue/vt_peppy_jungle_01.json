@@ -1,0 +1,103 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_jungle_01",
+	"level": 6,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "dance",
+	"nodes": {
+		"dance": {
+			"speaker": "villager",
+			"ko": "꺄, 들어 봐요! 앵무새가 주크박스 앞에서 춤추는 거 본 적 있어요?",
+			"ko_banmal": "꺄, 들어 봐! 앵무새가 주크박스 앞에서 춤추는 거 본 적 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:parrot",
+						"concept:jukebox"
+					]
+				}
+			],
+			"next": "dream"
+		},
+		"dream": {
+			"speaker": "villager",
+			"ko": "앵무새를 전부 모아서 무대에 올리면 세상에서 제일 멋질 텐데요!",
+			"ko_banmal": "앵무새를 전부 모아서 무대에 올리면 세상에서 제일 멋질 텐데!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:jungle"
+					]
+				}
+			],
+			"next": "cookie"
+		},
+		"cookie": {
+			"speaker": "villager",
+			"ko": "그런데 앵무새한테 쿠키를 주면 안 돼요. 앵무새한테는 독이에요.",
+			"ko_banmal": "그런데 앵무새한테 쿠키를 주면 안 돼. 앵무새한테는 독이야.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cookie"
+					]
+				}
+			],
+			"next": "mine"
+		},
+		"mine": {
+			"speaker": "villager",
+			"ko": "그러니까 코코아 콩으로 구운 쿠키는 결국 제가 다 먹을 수밖에 없죠!",
+			"ko_banmal": "그러니까 코코아 콩으로 구운 쿠키는 결국 내가 다 먹을 수밖에 없지!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cocoa_beans"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "그럼 앵무새한테는 뭘 주면 좋을까요?",
+			"ko_banmal": "그럼 앵무새한테는 뭘 주면 좋을까?",
+			"choices": [
+				{
+					"ko": "씨앗을 주면 돼요.",
+					"next": "seeds"
+				},
+				{
+					"ko": "쿠키를 조금만 줘요.",
+					"next": "no"
+				}
+			]
+		},
+		"seeds": {
+			"speaker": "villager",
+			"ko": "역시! 씨앗이라면 풀숲에서 금방 구할 수 있으니까 다행이에요. 진짜진짜 최고예요!",
+			"ko_banmal": "역시! 씨앗이라면 풀숲에서 금방 구할 수 있으니까 다행이야. 진짜진짜 최고야!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "안 돼요! 한 조각이라도 큰일 난다고요! 쿠키는 제 몫이에요!",
+			"ko_banmal": "안 돼! 한 조각이라도 큰일 난다고! 쿠키는 내 몫이야!",
+			"end": true
+		}
+	}
+}

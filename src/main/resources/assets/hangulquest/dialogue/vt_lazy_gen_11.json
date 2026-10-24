@@ -1,0 +1,96 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_11",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		],
+		"profession": "minecraft:farmer"
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요. 밭에 밀이 많아요.",
+			"ko_banmal": "하암, 안녕. 밭에 밀이 많아.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat"
+					]
+				}
+			],
+			"next": "crops"
+		},
+		"crops": {
+			"speaker": "villager",
+			"ko": "당근도 있어요. 감자도 있어요.",
+			"ko_banmal": "당근도 있어. 감자도 있어.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "뭐가 좋아요?",
+			"ko_banmal": "뭐가 좋아?",
+			"choices": [
+				{
+					"ko": "당근이 좋아요.",
+					"next": "carrot"
+				},
+				{
+					"ko": "감자가 좋아요.",
+					"next": "potato"
+				}
+			]
+		},
+		"carrot": {
+			"speaker": "villager",
+			"ko": "당근을 밭에 심어요. 그리고 쉬어요. 헤헤.",
+			"ko_banmal": "당근을 밭에 심어. 그리고 쉬어. 헤헤.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:carrot",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "water"
+		},
+		"potato": {
+			"speaker": "villager",
+			"ko": "감자도 밭에 심어요. 그리고 자요. 헤헤.",
+			"ko_banmal": "감자도 밭에 심어. 그리고 자. 헤헤.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:potato",
+						"concept:plant"
+					]
+				}
+			],
+			"next": "water"
+		},
+		"water": {
+			"speaker": "villager",
+			"ko": "밭 옆에 물이 있어요. 그래서 잘 자라요. 천천히, 천천히.",
+			"ko_banmal": "밭 옆에 물이 있어. 그래서 잘 자라. 천천히, 천천히.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:water"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

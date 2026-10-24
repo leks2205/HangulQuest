@@ -1,0 +1,102 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_swamp_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "concert",
+	"nodes": {
+		"concert": {
+			"speaker": "villager",
+			"ko": "어젯밤에 늪에서 노래했어요!",
+			"ko_banmal": "어젯밤에 늪에서 노래했어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_swamp"
+					]
+				}
+			],
+			"next": "frogs"
+		},
+		"frogs": {
+			"speaker": "villager",
+			"ko": "개구리도 같이 노래했어요! 개굴개굴!",
+			"ko_banmal": "개구리도 같이 노래했어! 개굴개굴!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog"
+					]
+				}
+			],
+			"next": "bush"
+		},
+		"bush": {
+			"speaker": "villager",
+			"ko": "반딧불이 덤불도 반짝반짝했어요!",
+			"ko_banmal": "반딧불이 덤불도 반짝반짝했어!",
+			"next": "lights"
+		},
+		"lights": {
+			"speaker": "villager",
+			"ko": "꼭 무대 조명 같았어요!",
+			"ko_banmal": "꼭 무대 조명 같았어!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "다음에 같이 가요! 좋아요?",
+			"ko_banmal": "다음에 같이 가자! 좋아?",
+			"choices": [
+				{
+					"ko": "네, 좋아요!",
+					"next": "seat"
+				},
+				{
+					"ko": "밤은 무서워요.",
+					"next": "day"
+				}
+			]
+		},
+		"seat": {
+			"speaker": "villager",
+			"ko": "와아! 그럼 수련잎 옆이 손님 자리예요!",
+			"ko_banmal": "와아! 그럼 수련잎 옆이 손님 자리야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:lily_pad"
+					]
+				}
+			],
+			"end": true
+		},
+		"day": {
+			"speaker": "villager",
+			"ko": "맞아요, 밤에는 슬라임이 나와요. 그럼 낮에 노래해요!",
+			"ko_banmal": "맞아, 밤에는 슬라임이 나와. 그럼 낮에 노래하자!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:slime"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

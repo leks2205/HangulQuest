@@ -1,0 +1,50 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_04",
+	"level": 4,
+	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "young",
+	"nodes": {
+		"young": {
+			"speaker": "villager",
+			"ko": "요즘 젊은 사람은 집을 너무 빨리 지어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:house", "concept:build"]}],
+			"next": "dirt"
+		},
+		"dirt": {
+			"speaker": "villager",
+			"ko": "흙으로 지으면 크리퍼 한 마리에 다 날아가잖아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:dirt", "concept:creeper"]}],
+			"next": "me"
+		},
+		"me": {
+			"speaker": "villager",
+			"ko": "그래서 저는 조약돌로 천천히 벽을 쌓거든요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:cobblestone"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "집은 보통 뭐로 지어요?",
+			"choices": [
+				{"ko": "조약돌로 지어요.", "next": "cobble"},
+				{"ko": "흙으로 빨리 지어요.", "next": "fast"}
+			]
+		},
+		"cobble": {
+			"speaker": "villager",
+			"ko": "흠, 제법이네요.",
+			"next": "strong"
+		},
+		"strong": {
+			"speaker": "villager",
+			"ko": "조약돌은 크리퍼가 와도 조금만 부서지거든요.",
+			"end": true
+		},
+		"fast": {
+			"speaker": "villager",
+			"ko": "어허, 빨리 지으면 빨리 무너져요. 나 원 참.",
+			"end": true
+		}
+	}
+}

@@ -36,6 +36,23 @@ class DialogueRecordTest(unittest.TestCase):
         self.assertIn("wrong form", rec["context"]["goal"])
         self.assertIn("합쇼체", rec["context"]["goal"])
 
+    def test_a_banmal_version_shares_the_gloss_of_its_line(self):
+        rec = export_lines.dialogue_record(
+            row("dialogue.child.hello.banmal", "authored:dialogue/child.json#nodes.hello.ko_banmal",
+                "Dialogue villager banmal", "안녕! 나는 사과를 좋아해."), LANG, LANG_DE)
+        self.assertEqual(rec["en"], "Hi! I like apples.")
+        self.assertEqual(rec["source"]["pointer"], "/nodes/hello/ko_banmal")
+        self.assertIn("casually", rec["context"]["goal"])
+
+    def test_a_request_line_points_into_the_request_file(self):
+        rec = export_lines.dialogue_record(
+            row("dialogue.req_plains_01.lazy_offer", "authored:requests/req_plains_01.json#lines.LAZY.offer",
+                "Dialogue villager haeyo", "음, 빵이 필요해요."),
+            {"hangulquest.dialogue.req_plains_01.lazy_offer": "Um, I need bread."}, {})
+        self.assertEqual(rec["en"], "Um, I need bread.")
+        self.assertEqual(rec["source"], {"kind": "authored", "file": "requests/req_plains_01.json",
+                                         "pointer": "/lines/LAZY/offer"})
+
     def test_the_shipped_files_are_where_the_records_say(self):
         import json
         for name in ("greetings", "child", "library"):

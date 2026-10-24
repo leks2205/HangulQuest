@@ -1,0 +1,51 @@
+{
+	"schema": 1,
+	"id": "vt_smug_ms3",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"personalities": [
+			"SMUG"
+		],
+		"friendship": 3
+	},
+	"start": "again",
+	"nodes": {
+		"again": {
+			"speaker": "villager",
+			"ko": "오, 안녕하세요. 오늘도 반가워요.",
+			"next": "face"
+		},
+		"face": {
+			"speaker": "villager",
+			"ko": "얼굴이 참 밝아요. 완벽해요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "우리 이제 친구예요?",
+			"choices": [
+				{
+					"ko": "네, 친구예요!",
+					"next": "yes"
+				},
+				{
+					"ko": "음, 아직 아니에요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 기뻐요. 오늘 하늘이 더 파래요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 꽃도 천천히 피어요.",
+			"end": true
+		}
+	}
+}

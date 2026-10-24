@@ -1,0 +1,64 @@
+{
+	"schema": 1,
+	"id": "vt_smug_desert_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"SMUG"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "아아, 안녕하세요. 어서 와요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "stars"
+		},
+		"stars": {
+			"speaker": "villager",
+			"ko": "사막은 밤에 별이 많아요.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "별이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아해요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 저는 해가 좋아요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "후후, 그럼 오늘 밤에 같이 봐요. 완벽해요.",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "오, 낮에 해가 뜨거워요. 그래도 해는 좋아요.",
+			"end": true
+		}
+	}
+}

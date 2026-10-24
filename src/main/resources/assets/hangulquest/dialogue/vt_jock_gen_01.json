@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_01",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하하! 안녕하세요!",
+			"ko_banmal": "하하! 안녕!",
+			"next": "hungry"
+		},
+		"hungry": {
+			"speaker": "villager",
+			"ko": "아, 배고파요! 고기가 필요해요!",
+			"ko_banmal": "아, 배고파! 고기가 필요해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:meat"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "스테이크 좋아요?",
+			"ko_banmal": "스테이크 좋아?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 빵이 좋아요.",
+					"next": "bread"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "오오! 저도요! 스테이크는 힘이 나요!",
+			"ko_banmal": "오오! 나도! 스테이크는 힘이 나!",
+			"next": "end"
+		},
+		"bread": {
+			"speaker": "villager",
+			"ko": "빵도 좋아요! 빵도 힘이 나요!",
+			"ko_banmal": "빵도 좋아! 빵도 힘이 나!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bread"
+					]
+				}
+			],
+			"next": "end"
+		},
+		"end": {
+			"speaker": "villager",
+			"ko": "자, 같이 먹어요! 그리고 같이 달려요!",
+			"ko_banmal": "자, 같이 먹자! 그리고 같이 달리자!",
+			"end": true
+		}
+	}
+}

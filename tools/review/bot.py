@@ -40,7 +40,7 @@ from common import (DATA_DIR, LABELS_PATH, LINES_PATH, REVIEWERS_PATH, ROOT, STA
 
 MARKER = "<!-- hangulquest-review-bot -->"
 LOGIN = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
-SAFE_FILE = re.compile(r"^(?:questlines/[A-Za-z0-9_\-]+\.json|dialogue/[A-Za-z0-9_\-]+\.json"
+SAFE_FILE = re.compile(r"^(?:questlines/[A-Za-z0-9_\-]+\.json|dialogue/[A-Za-z0-9_\-]+\.json|requests/[A-Za-z0-9_\-]+\.json"
                        r"|stories/[a-z0-9_]+/[a-z0-9_]+\.json|concepts\.json|culture\.json|chapters\.json)$")
 WRITE_PERMISSIONS = ("admin", "maintain", "write")
 TRUST_AFTER = 30
@@ -172,8 +172,9 @@ def content_path(record: dict) -> Path:
     file = record["source"].get("file", "")
     if not SAFE_FILE.match(file):
         raise ValueError(f"unexpected content file {file!r}")
-    # Dialogue and story files sit next to the data folder (assets/hangulquest/dialogue, .../stories), the rest inside it.
-    base = DATA_DIR.parent if file.startswith(("dialogue/", "stories/")) else DATA_DIR
+    # Dialogue, request and story files sit next to the data folder (assets/hangulquest/dialogue, .../requests,
+    # .../stories), the rest inside it.
+    base = DATA_DIR.parent if file.startswith(("dialogue/", "requests/", "stories/")) else DATA_DIR
     path = (base / file).resolve()
     if base.resolve() not in path.parents:
         raise ValueError(f"content file outside the data directory: {file!r}")

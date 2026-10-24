@@ -1,0 +1,57 @@
+{
+	"schema": 1,
+	"id": "req_savanna_05",
+	"level": 3,
+	"kind": "GIVE",
+	"regions": [
+		"SAVANNA"
+	],
+	"personalities": [
+		"LAZY",
+		"NORMAL",
+		"CRANKY"
+	],
+	"goal": {
+		"type": "GIVE",
+		"item": "minecraft:carrot",
+		"entity": "minecraft:villager",
+		"method": "DROP_NEAR",
+		"count": 1
+	},
+	"words": [
+		"concept:carrot"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"lines": {
+		"LAZY": {
+			"offer": {
+				"ko": "하암, 마을 밭에 당근을 심을 거예요. 당근이 필요해요. 천천히, 천천히.",
+				"ko_banmal": "하암, 마을 밭에 당근을 심을 거야. 당근이 필요해. 천천히, 천천히."
+			},
+			"accept": "고마워요. 기다려요. 천천히, 천천히.",
+			"decline": "괜찮아요. 그럼 또 봐요. 천천히, 천천히.",
+			"reminder": "음, 당근이 아직 없어요. 천천히, 천천히.",
+			"thanks": {
+				"ko": "당근이에요! 고마워요. 밭에 심을 거예요. 천천히, 천천히.",
+				"ko_banmal": "당근이야! 고마워. 밭에 심을 거야. 천천히, 천천히."
+			}
+		},
+		"NORMAL": {
+			"offer": "어머, 마을 밭에 당근을 심을 거예요. 당근이 필요해요.",
+			"accept": "고마워요! 기다려요.",
+			"decline": "괜찮아요. 또 봐요!",
+			"reminder": "당근이 아직 없어요?",
+			"thanks": "당근이에요! 정말 고마워요. 밭에 심을 거예요."
+		},
+		"CRANKY": {
+			"offer": "흠. 마을 밭에 당근을 심을 거예요. 당근이 필요해요. 나 원 참.",
+			"accept": "흠, 고마워요. 기다려요.",
+			"decline": "흠. 괜찮아요.",
+			"reminder": "흠. 당근이 아직 없어요.",
+			"thanks": "흠. 좋은 당근이에요. 고마워요. 밭에 심을 거예요."
+		}
+	}
+}

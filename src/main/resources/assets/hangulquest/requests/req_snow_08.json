@@ -1,0 +1,63 @@
+{
+	"schema": 1,
+	"id": "req_snow_08",
+	"level": 6,
+	"kind": "GIVE",
+	"regions": [
+		"SNOW"
+	],
+	"goal": {
+		"type": "GIVE",
+		"item": "minecraft:beetroot",
+		"entity": "minecraft:villager",
+		"method": "DROP_NEAR",
+		"count": 6
+	},
+	"personalities": [
+		"CRANKY",
+		"NORMAL"
+	],
+	"words": [
+		"concept:gen_beetroot"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"lines": {
+		"CRANKY": {
+			"offer": {
+				"ko": "흠. 눈이 그치지 않더라고요. 비트가 여섯 개 필요해요. 국을 끓이고 싶어요."
+			},
+			"accept": {
+				"ko": "흠. 고마워요. 비트를 기다려요."
+			},
+			"decline": {
+				"ko": "흠. 괜찮아요."
+			},
+			"reminder": {
+				"ko": "흠. 비트가 아직 없어요."
+			},
+			"thanks": {
+				"ko": "흠. 거참, 좋은 비트예요. 국을 끓일 수 있어요."
+			}
+		},
+		"NORMAL": {
+			"offer": {
+				"ko": "어머, 눈이 많이 왔더라고요. 비트가 여섯 개 있으면 좋겠어요."
+			},
+			"accept": {
+				"ko": "고마워요! 비트를 기다려요."
+			},
+			"decline": {
+				"ko": "괜찮아요. 또 봐요!"
+			},
+			"reminder": {
+				"ko": "비트가 아직 없어요?"
+			},
+			"thanks": {
+				"ko": "어머, 싱싱한 비트예요! 따뜻한 국을 끓일 거예요. 다행이에요."
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"schema": 1,
+	"id": "req_plains_06",
+	"level": 3,
+	"kind": "DO",
+	"regions": ["PLAINS"],
+	"personalities": ["LAZY", "CRANKY", "NORMAL"],
+	"goal": {"type": "PLACE_BLOCK", "block": "minecraft:hay_block", "count": 1},
+	"words": ["concept:hay_block", "concept:place"],
+	"answers": {"yes": "네, 좋아요!", "no": "아니요, 미안해요."},
+	"lines": {
+		"LAZY": {
+			"offer": {"ko": "하암, 따뜻한 햇살 아래에서 잘 거예요. 건초 더미 한 개를 놓아 주세요.", "ko_banmal": "하암, 따뜻한 햇살 아래에서 잘 거야. 건초 더미 한 개를 놓아 줘."},
+			"accept": "천천히, 천천히. 푹신한 건초 더미를 기다려요.",
+			"decline": "음, 괜찮아요. 그냥 풀 위에서 잘 수 있어요.",
+			"reminder": "음, 건초 더미를 아직 안 놓았어요?",
+			"thanks": {"ko": "우와, 정말 푹신하네요! 지금부터 낮잠을 잘 수 있어요. 고마워요!", "ko_banmal": "우와, 정말 푹신하네! 지금부터 낮잠을 잘 수 있어. 고마워!"}
+		},
+		"CRANKY": {
+			"offer": "에헴. 밀이 많아서 자리가 없어요. 건초 더미 한 개를 놓아 주세요.",
+			"accept": "흠, 고마워요. 반듯하게 놓아 주세요.",
+			"decline": "나 원 참. 괜찮아요. 천천히 할 거예요.",
+			"reminder": "나 원 참. 건초 더미를 아직 안 놓았어요?",
+			"thanks": "흠. 아주 반듯하네요. 정말 잘 놓았어요. 고마워요."
+		},
+		"NORMAL": {
+			"offer": "저기요, 오늘 밀을 많이 거두었어요. 건초 더미 한 개를 놓아 주세요.",
+			"accept": "다행이에요. 예쁘게 놓아 주세요.",
+			"decline": "네, 괜찮아요. 다음에 같이 해요.",
+			"reminder": "어머, 건초 더미를 아직 안 놓았어요?",
+			"thanks": "다행이에요. 마을이 참 예뻐졌네요! 정말 고마워요."
+		}
+	}
+}

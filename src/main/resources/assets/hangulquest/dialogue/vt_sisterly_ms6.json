@@ -1,0 +1,70 @@
+{
+	"schema": 1,
+	"id": "vt_sisterly_ms6",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 6,
+		"personalities": [
+			"SISTERLY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어이! 마침 잘 왔어요.",
+			"ko_banmal": "어이! 마침 잘 왔어.",
+			"next": "truth"
+		},
+		"truth": {
+			"speaker": "villager",
+			"ko": "어제도 울타리를 혼자 고쳤어요. 조금 힘들었어요.",
+			"ko_banmal": "어제도 울타리를 혼자 고쳤어. 조금 힘들었어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:fence"
+					]
+				}
+			],
+			"next": "admit"
+		},
+		"admit": {
+			"speaker": "villager",
+			"ko": "나도 가끔 도움이 필요해요. 미안해요.",
+			"ko_banmal": "나도 가끔 도움이 필요해. 미안해.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "내일 같이 고쳐요?",
+			"ko_banmal": "내일 같이 고쳐?",
+			"choices": [
+				{
+					"ko": "네, 같이 고쳐요.",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 내일은 바빠요.",
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "고마워요. 이제 같이 해요. 문제없어요!",
+			"ko_banmal": "고마워. 이제 같이 해. 문제없어!",
+			"end": true
+		},
+		"no": {
+			"speaker": "villager",
+			"ko": "괜찮아요. 천천히 해요. 너무 무리하지 마세요.",
+			"ko_banmal": "괜찮아. 천천히 해. 너무 무리하지 마.",
+			"end": true
+		}
+	}
+}

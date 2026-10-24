@@ -1,0 +1,80 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_snow_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"LAZY"
+		],
+		"regions": [
+			"SNOW"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "하암, 안녕하세요.",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "snow"
+		},
+		"snow": {
+			"speaker": "villager",
+			"ko": "여기는 비가 안 와요. 눈이 와요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:snow"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "저는 화로 옆이 좋아요. 추워요?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:furnace"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 추워요.",
+					"next": "cold"
+				},
+				{
+					"ko": "아니요, 괜찮아요.",
+					"next": "fine"
+				}
+			]
+		},
+		"cold": {
+			"speaker": "villager",
+			"ko": "그럼 여기 앉아요. 따뜻해요.",
+			"end": true
+		},
+		"fine": {
+			"speaker": "villager",
+			"ko": "우와. 저는 정말 추워요. 헤헤.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"schema": 1,
+	"id": "vt_normal_plains_intro",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "intro",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"PLAINS"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 안녕하세요!",
+			"next": "name"
+		},
+		"name": {
+			"speaker": "villager",
+			"selfIntro": true,
+			"effects": [
+				{
+					"type": "exposeGrammar",
+					"point": "L1.copula_ieyo"
+				}
+			],
+			"next": "wheat"
+		},
+		"wheat": {
+			"speaker": "villager",
+			"ko": "평원은 밀이 많아요. 저는 매일 빵을 구워요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:wheat",
+						"concept:bread"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "빵이 좋아요?",
+			"choices": [
+				{
+					"ko": "네, 정말 좋아요!",
+					"next": "yes"
+				},
+				{
+					"ko": "아니요, 고기가 좋아요.",
+					"next": "meat"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "villager",
+			"ko": "우와, 다행이에요! 내일 같이 먹어요.",
+			"end": true
+		},
+		"meat": {
+			"speaker": "villager",
+			"ko": "아, 고기요? 그럼 내일은 고기를 구워요.",
+			"end": true
+		}
+	}
+}

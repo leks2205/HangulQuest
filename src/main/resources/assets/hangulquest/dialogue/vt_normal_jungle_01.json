@@ -1,0 +1,85 @@
+{
+	"schema": 1,
+	"id": "vt_normal_jungle_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"NORMAL"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머나, 마침 잘 오셨어요!",
+			"next": "music"
+		},
+		"music": {
+			"speaker": "villager",
+			"ko": "아까 음반을 들었어요. 그리고 쿠키를 구웠어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:jukebox",
+						"concept:cookie"
+					]
+				}
+			],
+			"next": "parrot"
+		},
+		"parrot": {
+			"speaker": "villager",
+			"ko": "그런데 집에 앵무새가 왔어요.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:parrot"
+					]
+				}
+			],
+			"next": "dance"
+		},
+		"dance": {
+			"speaker": "villager",
+			"ko": "주크박스 옆에서 춤을 췄어요!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "춤을 보고 싶어요?",
+			"choices": [
+				{
+					"ko": "네, 보고 싶어요!",
+					"next": "see"
+				},
+				{
+					"ko": "저는 쿠키가 더 좋아요.",
+					"next": "cookie"
+				}
+			]
+		},
+		"see": {
+			"speaker": "villager",
+			"ko": "그럼 저녁에 다시 오세요. 음반을 또 틀 거예요.",
+			"end": true
+		},
+		"cookie": {
+			"speaker": "villager",
+			"ko": "어머나, 쿠키는 앵무새에게 주지 마세요!",
+			"next": "share"
+		},
+		"share": {
+			"speaker": "villager",
+			"ko": "쿠키는 우리만 먹어요. 같이 먹을까요?",
+			"end": true
+		}
+	}
+}

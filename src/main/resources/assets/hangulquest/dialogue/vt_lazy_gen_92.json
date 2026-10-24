@@ -1,0 +1,87 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "안녕! 나 지금 고양이 옆에 누워 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cat"
+					]
+				}
+			],
+			"next": "sleepy"
+		},
+		"sleepy": {
+			"speaker": "child",
+			"ko": "고양이도 졸려. 나도 졸려. 헤헤.",
+			"next": "golem"
+		},
+		"golem": {
+			"speaker": "child",
+			"ko": "철 골렘이 가끔 꽃을 줘. 진짜야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:iron_golem",
+						"concept:flower"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너는 꽃 있어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 나도 꽃 있어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "flower"
+				},
+				{
+					"ko": "아니, 나는 없어.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "none"
+				},
+				{
+					"ko": "아니요, 저는 없어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"flower": {
+			"speaker": "child",
+			"ko": "우와, 우리 똑같아! 같이 놀자.",
+			"next": "bye"
+		},
+		"none": {
+			"speaker": "child",
+			"ko": "괜찮아. 여기 누워. 같이 기다리자.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "철 골렘은 천천히 와. 헤헤.",
+			"end": true
+		}
+	}
+}

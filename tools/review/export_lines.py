@@ -132,19 +132,25 @@ SPEECH_LEVELS = {"haeyo": "해요체 (haeyo)", "banmal": "반말 (banmal)", "hap
 
 
 def dialogue_record(row: dict, en: dict, de: dict) -> dict:
-    """A villager conversation line. Ids are dialogue.<file>.<node>[.c<N>]; the English and German
-    gloss are the lang keys hangulquest.<id>; the goal column is 'Dialogue <speaker> <level> [right|wrong|ungraded]'."""
+    """A villager conversation line. Ids are dialogue.<file>.<node>[.c<N>] (requests: dialogue.<request>.<node>, the
+    player's answers .yes and .no), the 반말 version of a line dialogue.<file>.<node>.banmal; the English and German
+    gloss are the lang keys hangulquest.<id> (a 반말 version shares the gloss of its line); the goal column is
+    'Dialogue <speaker> <level> [right|wrong|ungraded]'."""
     rid = row["id"]
     _, file, node, *reply = rid.split(".")
     _, speaker, level, *grade = row["goal"].split()
-    if reply:
+    banmal = reply == ["banmal"]
+    if banmal:
+        goal = (f"The {SPEECH_LEVELS[level]} version of a line of the {speaker}, said once the villager and the player "
+                f"talk casually.")
+    elif reply:
         goal = f"Reply the player can pick in speech level {SPEECH_LEVELS[level]}"
         goal += {"right": ": the right form here.", "wrong": ": the wrong form here (the lesson is the speech level).",
                  "ungraded": "."}[grade[0]]
     else:
         goal = f"Line of the {speaker} in a conversation, speech level {SPEECH_LEVELS[level]}."
     path = row["source"].partition(":")[2]
-    key = "hangulquest." + rid
+    key = "hangulquest." + (rid[:-len(".banmal")] if banmal else rid)
     return {
         "id": rid, "ko": row["ko"], "en": en.get(key, ""), "de": de.get(key, ""),
         "context": {"trail": "", "trailTitle": "", "topic": "", "step": node, "goal": goal,

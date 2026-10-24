@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_peppy_gen_03",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"PEPPY"
+		]
+	},
+	"start": "cake",
+	"nodes": {
+		"cake": {
+			"speaker": "villager",
+			"ko": "와아! 저는 케이크가 정말 좋아요!",
+			"ko_banmal": "와아! 나는 케이크가 정말 좋아!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cake"
+					]
+				}
+			],
+			"next": "party"
+		},
+		"party": {
+			"speaker": "villager",
+			"ko": "오늘 파티를 하고 싶어요!",
+			"ko_banmal": "오늘 파티를 하고 싶어!",
+			"next": "none"
+		},
+		"none": {
+			"speaker": "villager",
+			"ko": "그런데 케이크가 없어요.",
+			"ko_banmal": "그런데 케이크가 없어.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "쿠키는 있어요! 쿠키 파티 어때요?",
+			"ko_banmal": "쿠키는 있어! 쿠키 파티 어때?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cookie"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "좋아요! 쿠키 좋아요!",
+					"next": "cookie"
+				},
+				{
+					"ko": "케이크가 좋아요.",
+					"next": "tomorrow"
+				}
+			]
+		},
+		"cookie": {
+			"speaker": "villager",
+			"ko": "꺄! 쿠키 파티예요! 진짜진짜 최고예요!",
+			"ko_banmal": "꺄! 쿠키 파티야! 진짜진짜 최고야!",
+			"end": true
+		},
+		"tomorrow": {
+			"speaker": "villager",
+			"ko": "저도요! 그럼 내일은 케이크 파티예요!",
+			"ko_banmal": "나도! 그럼 내일은 케이크 파티야!",
+			"end": true
+		}
+	}
+}

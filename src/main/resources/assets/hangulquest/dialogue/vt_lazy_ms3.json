@@ -1,0 +1,70 @@
+{
+	"schema": 1,
+	"id": "vt_lazy_ms3",
+	"level": 1,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"friendship": 3,
+		"personalities": [
+			"LAZY"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어라, 안녕하세요. 헤헤.",
+			"ko_banmal": "어라, 안녕. 헤헤.",
+			"next": "often"
+		},
+		"often": {
+			"speaker": "villager",
+			"ko": "자주 와요. 저는 좋아요.",
+			"ko_banmal": "자주 와. 나는 좋아.",
+			"next": "spot"
+		},
+		"spot": {
+			"speaker": "villager",
+			"ko": "여기 잔디가 제 침대예요.",
+			"ko_banmal": "여기 잔디가 내 침대야.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "비밀이에요. 괜찮아요?",
+			"ko_banmal": "비밀이야. 괜찮아?",
+			"choices": [
+				{
+					"ko": "네, 비밀이에요!",
+					"next": "secret"
+				},
+				{
+					"ko": "저도 여기 좋아요.",
+					"next": "like"
+				}
+			]
+		},
+		"secret": {
+			"speaker": "villager",
+			"ko": "헤헤, 고마워요. 우리 친구예요.",
+			"ko_banmal": "헤헤, 고마워. 우리 친구야.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			],
+			"end": true
+		},
+		"like": {
+			"speaker": "villager",
+			"ko": "그럼 같이 누워요. 천천히, 천천히.",
+			"ko_banmal": "그럼 같이 눕자. 천천히, 천천히.",
+			"end": true
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"schema": 1,
+	"id": "vt_cranky_gen_11",
+	"level": 1,
+	"trigger": {"entity": "minecraft:villager", "profession": "minecraft:farmer", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"]},
+	"start": "field",
+	"nodes": {
+		"field": {
+			"speaker": "villager",
+			"ko": "흠. 제 밭에는 밀이 많아요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:wheat"]}],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "당근과 감자도 있어요. 뭐가 필요해요?",
+			"choices": [
+				{"ko": "당근이 필요해요.", "next": "carrot"},
+				{"ko": "감자가 필요해요.", "next": "potato"}
+			]
+		},
+		"carrot": {
+			"speaker": "villager",
+			"ko": "당근은 밭에 심어요. 그런데 토끼가 당근을 먹어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:carrot", "concept:plant"]}],
+			"next": "rabbit"
+		},
+		"rabbit": {
+			"speaker": "villager",
+			"ko": "에잉. 토끼는 정말 싫어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:rabbit"]}],
+			"next": "bye"
+		},
+		"potato": {
+			"speaker": "villager",
+			"ko": "감자도 밭에 심어요. 토끼는 감자를 안 먹어요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:potato", "concept:plant"]}],
+			"next": "good"
+		},
+		"good": {
+			"speaker": "villager",
+			"ko": "흠. 그래서 감자가 좋아요.",
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "밭에는 물이 필요해요. 그럼 또 와요.",
+			"effects": [{"type": "exposeWords", "words": ["concept:water"]}],
+			"end": true
+		}
+	}
+}

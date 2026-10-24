@@ -1,0 +1,74 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_desert_01",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"DESERT"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오십시오. 오늘도 덥습니다.",
+			"next": "deco"
+		},
+		"deco": {
+			"speaker": "villager",
+			"ko": "저는 테라코타로 집을 꾸밉니다.",
+			"next": "cactus",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_terracotta"
+					]
+				}
+			]
+		},
+		"cactus": {
+			"speaker": "villager",
+			"ko": "창문 옆에 선인장을 둡니다. 어떻습니까?",
+			"choices": [
+				{
+					"ko": "예뻐요. 만지고 싶어요.",
+					"next": "touch"
+				},
+				{
+					"ko": "따가워요. 싫어요.",
+					"next": "agree"
+				}
+			],
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_cactus"
+					]
+				}
+			]
+		},
+		"touch": {
+			"speaker": "villager",
+			"ko": "안 됩니다. 선인장은 따갑습니다. 만지지 마십시오.",
+			"next": "night"
+		},
+		"agree": {
+			"speaker": "villager",
+			"ko": "호호, 맞습니다. 저도 멀리서 봅니다.",
+			"next": "night"
+		},
+		"night": {
+			"speaker": "villager",
+			"ko": "밤에 허스크가 다닙니다. 문을 꼭 닫으십시오.",
+			"end": true
+		}
+	}
+}

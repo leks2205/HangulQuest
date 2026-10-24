@@ -1,0 +1,66 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_swamp_01",
+	"level": 4,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"SNOOTY"
+		],
+		"regions": [
+			"SWAMP"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 세상에. 개구리가 또 문 앞에 앉아 있습니다.",
+			"next": "color",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:frog"
+					]
+				}
+			]
+		},
+		"color": {
+			"speaker": "villager",
+			"ko": "늪 개구리는 주황색입니다. 제 취향은 아닙니다.",
+			"next": "white"
+		},
+		"white": {
+			"speaker": "villager",
+			"ko": "올챙이가 따뜻한 곳에서 자라면 하얀색 개구리가 됩니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "하얀색이 더 세련되지 않습니까?",
+			"choices": [
+				{
+					"ko": "네, 하얀색이 예뻐요.",
+					"next": "white_yes"
+				},
+				{
+					"ko": "아니요, 주황색도 예뻐요.",
+					"next": "orange"
+				}
+			]
+		},
+		"white_yes": {
+			"speaker": "villager",
+			"ko": "호호, 역시 안목이 있으십니다. 올챙이를 따뜻한 곳에 두고 싶습니다.",
+			"end": true
+		},
+		"orange": {
+			"speaker": "villager",
+			"ko": "흠, 주황색 개구리도 좋습니다.",
+			"end": true
+		}
+	}
+}

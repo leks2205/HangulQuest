@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_92",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": true,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "child",
+			"ko": "와아! 안녕! 나 오늘 닭을 쫓아갔어!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:chicken"
+					]
+				}
+			],
+			"next": "lost"
+		},
+		"lost": {
+			"speaker": "child",
+			"ko": "그런데 닭이 너무 빨랐어! 내가 졌어!",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "child",
+			"ko": "너는 닭을 이길 수 있어?",
+			"grammar": "L6.banmal",
+			"choices": [
+				{
+					"ko": "응, 이길 수 있어!",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "can"
+				},
+				{
+					"ko": "아니, 나도 못 이겨.",
+					"speechLevel": "banmal",
+					"correct": true,
+					"next": "cannot"
+				},
+				{
+					"ko": "네, 이길 수 있어요.",
+					"speechLevel": "haeyo",
+					"correct": false
+				}
+			]
+		},
+		"can": {
+			"speaker": "child",
+			"ko": "우와! 진짜? 그럼 내일 닭과 시합해 봐!",
+			"next": "dream"
+		},
+		"cannot": {
+			"speaker": "child",
+			"ko": "헤헤, 그럼 우리 둘 다 연습하자!",
+			"next": "dream"
+		},
+		"dream": {
+			"speaker": "child",
+			"ko": "나는 나중에 철 골렘을 이길 거야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:iron_golem"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "child",
+			"ko": "또 놀자! 안녕!",
+			"end": true
+		}
+	}
+}

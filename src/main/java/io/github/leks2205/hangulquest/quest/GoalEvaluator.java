@@ -81,6 +81,11 @@ public final class GoalEvaluator {
 		 * step) and is saved with the trail's progress.
 		 */
 		public final java.util.Map<String, int[]> placed = new java.util.LinkedHashMap<>();
+		/**
+		 * Only gifts to this entity count (a villager's request is handed to that villager); null for any of the
+		 * goal's type. Set by the owner, never saved, kept by {@link #clear()}.
+		 */
+		public java.util.UUID onlyEntity;
 		/** The block each earlier placing step of the trail placed, by step id; set by the engine, never saved. */
 		public java.util.Map<String, String> refBlocks = java.util.Map.of();
 

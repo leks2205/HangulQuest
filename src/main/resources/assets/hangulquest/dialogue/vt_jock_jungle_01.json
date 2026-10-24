@@ -1,0 +1,88 @@
+{
+	"schema": 1,
+	"id": "vt_jock_jungle_01",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"personalities": [
+			"JOCK"
+		],
+		"regions": [
+			"JUNGLE"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "이얍, 안녕하세요! 오늘도 비가 오네요!",
+			"ko_banmal": "이얍, 안녕! 오늘도 비가 오네!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:rain"
+					]
+				}
+			],
+			"next": "scaff"
+		},
+		"scaff": {
+			"speaker": "villager",
+			"ko": "저는 오늘 대나무 비계에서 운동했어요! 올라가고 내려가고, 또 올라가고!",
+			"ko_banmal": "나는 오늘 대나무 비계에서 운동했어! 올라가고 내려가고, 또 올라가고!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:bamboo"
+					]
+				}
+			],
+			"next": "panda"
+		},
+		"panda": {
+			"speaker": "villager",
+			"ko": "그런데 옆에서 판다가 저를 보고 있었어요. 하루 종일 대나무만 먹는데 정말 튼튼해요!",
+			"ko_banmal": "그런데 옆에서 판다가 나를 보고 있었어. 하루 종일 대나무만 먹는데 진짜 튼튼해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gen_panda"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "판다의 비밀이 뭘까요?",
+			"ko_banmal": "판다의 비밀이 뭘까?",
+			"choices": [
+				{
+					"ko": "대나무예요!",
+					"next": "bamboo"
+				},
+				{
+					"ko": "낮잠이에요!",
+					"next": "nap"
+				}
+			]
+		},
+		"bamboo": {
+			"speaker": "villager",
+			"ko": "하하, 맞아요! 그런데 저는 대나무를 못 먹어요. 너무 딱딱해요!",
+			"ko_banmal": "하하, 맞아! 그런데 나는 대나무를 못 먹어. 너무 딱딱해!",
+			"end": true
+		},
+		"nap": {
+			"speaker": "villager",
+			"ko": "아, 낮잠! 그건 제가 제일 못하는 운동이에요! 하하!",
+			"ko_banmal": "아, 낮잠! 그건 내가 제일 못하는 운동이야! 하하!",
+			"end": true
+		}
+	}
+}

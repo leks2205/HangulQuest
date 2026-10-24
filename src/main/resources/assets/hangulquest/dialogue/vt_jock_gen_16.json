@@ -1,0 +1,95 @@
+{
+	"schema": 1,
+	"id": "vt_jock_gen_16",
+	"level": 3,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "smalltalk",
+		"profession": "minecraft:cleric",
+		"personalities": [
+			"JOCK"
+		]
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "이얍! 안녕하세요! 저는 성직자예요!",
+			"ko_banmal": "이얍! 안녕! 나는 성직자야!",
+			"next": "train"
+		},
+		"train": {
+			"speaker": "villager",
+			"ko": "저는 몸과 마음을 같이 훈련해요!",
+			"ko_banmal": "나는 몸과 마음을 같이 훈련해!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:body"
+					]
+				}
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "그런데 저는 금을 사요. 금이 있어요?",
+			"ko_banmal": "그런데 나는 금을 사. 금 있어?",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:gold"
+					]
+				}
+			],
+			"choices": [
+				{
+					"ko": "네, 금이 있어요.",
+					"next": "trade"
+				},
+				{
+					"ko": "아니요, 없어요.",
+					"next": "cave"
+				}
+			]
+		},
+		"trade": {
+			"speaker": "villager",
+			"ko": "좋네요! 금 주괴 세 개에 에메랄드 한 개예요!",
+			"ko_banmal": "좋네! 금 주괴 세 개에 에메랄드 한 개야!",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:emerald"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"cave": {
+			"speaker": "villager",
+			"ko": "그럼 금을 찾으러 가요! 금은 동굴 깊은 곳에 있어요.",
+			"ko_banmal": "그럼 금을 찾으러 가! 금은 동굴 깊은 곳에 있어.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cave",
+						"concept:find"
+					]
+				}
+			],
+			"next": "bye"
+		},
+		"bye": {
+			"speaker": "villager",
+			"ko": "몸조심하고 또 와요! 하나, 둘! 하나, 둘!",
+			"ko_banmal": "몸조심하고 또 와! 하나, 둘! 하나, 둘!",
+			"end": true
+		}
+	}
+}

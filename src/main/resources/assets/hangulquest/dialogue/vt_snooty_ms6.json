@@ -1,0 +1,77 @@
+{
+	"schema": 1,
+	"id": "vt_snooty_ms6",
+	"level": 2,
+	"trigger": {
+		"entity": "minecraft:villager",
+		"baby": false,
+		"kind": "milestone",
+		"personalities": [
+			"SNOOTY"
+		],
+		"friendship": 6
+	},
+	"start": "hello",
+	"nodes": {
+		"hello": {
+			"speaker": "villager",
+			"ko": "어머, 어서 오십시오.",
+			"next": "few"
+		},
+		"few": {
+			"speaker": "villager",
+			"ko": "저는 친구가 많지 않습니다.",
+			"next": "mood",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:friend"
+					]
+				}
+			]
+		},
+		"mood": {
+			"speaker": "villager",
+			"ko": "그런데 요즘은 기분이 좋습니다.",
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "villager",
+			"ko": "이유를 아십니까?",
+			"choices": [
+				{
+					"ko": "날씨가 좋아요?",
+					"next": "weather"
+				},
+				{
+					"ko": "에메랄드가 많아요?",
+					"next": "emerald"
+				}
+			]
+		},
+		"weather": {
+			"speaker": "villager",
+			"ko": "아닙니다. 이유는 지금 제 앞에 있습니다.",
+			"next": "cake"
+		},
+		"emerald": {
+			"speaker": "villager",
+			"ko": "흠, 그것도 맞습니다. 그런데 진짜 이유는 지금 제 앞에 있습니다.",
+			"next": "cake"
+		},
+		"cake": {
+			"speaker": "villager",
+			"ko": "다음에 같이 케이크를 먹고 싶습니다. 꼭 오십시오.",
+			"effects": [
+				{
+					"type": "exposeWords",
+					"words": [
+						"concept:cake"
+					]
+				}
+			],
+			"end": true
+		}
+	}
+}

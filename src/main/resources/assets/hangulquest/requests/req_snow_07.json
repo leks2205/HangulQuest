@@ -1,0 +1,60 @@
+{
+	"schema": 1,
+	"id": "req_snow_07",
+	"level": 5,
+	"kind": "SHOW",
+	"regions": [
+		"SNOW"
+	],
+	"show": {
+		"item": "minecraft:blue_ice",
+		"count": 1
+	},
+	"personalities": [
+		"SNOOTY",
+		"SMUG"
+	],
+	"words": [
+		"concept:gen_blue_ice"
+	],
+	"answers": {
+		"yes": "네, 좋아요!",
+		"no": "아니요, 미안해요."
+	},
+	"lines": {
+		"SNOOTY": {
+			"offer": {
+				"ko": "어머, 푸른얼음은 아름답게 빛난다고 합니다. 하나만 보여 주십시오."
+			},
+			"accept": {
+				"ko": "좋습니다. 기다리겠습니다."
+			},
+			"decline": {
+				"ko": "괜찮습니다."
+			},
+			"reminder": {
+				"ko": "푸른얼음은 아직 없습니까?"
+			},
+			"thanks": {
+				"ko": "어머, 보석처럼 아름답습니다. 나쁘지 않습니다."
+			}
+		},
+		"SMUG": {
+			"offer": {
+				"ko": "오, 푸른얼음은 유리 같던데요. 한 개만 보여 주세요."
+			},
+			"accept": {
+				"ko": "후후, 좋아요. 기다려요."
+			},
+			"decline": {
+				"ko": "괜찮아요. 그럼 또 봐요."
+			},
+			"reminder": {
+				"ko": "푸른얼음은 아직 없어요?"
+			},
+			"thanks": {
+				"ko": "아아, 정말 아름다워요. 완벽해요."
+			}
+		}
+	}
+}

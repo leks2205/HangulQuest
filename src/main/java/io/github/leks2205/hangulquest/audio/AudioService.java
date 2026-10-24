@@ -15,6 +15,12 @@ public final class AudioService {
 	public static final String WORD_PREFIX = "word.";
 	/** The sound forge's stimuli: one event per item, form and voice, because the game picks the voice there. */
 	public static final String HVPT_PREFIX = "hvpt.";
+	/**
+	 * A spoken conversation line in one voice: {@code line.<dialogueId>.<nodeId>.<voiceId>}, its 반말 version
+	 * {@code line.<dialogueId>.<nodeId>_banmal.<voiceId>}, a villager's self-introduction
+	 * {@code line.name.<nameId>.<voiceId>}. One sound per event: the game picks the voice.
+	 */
+	public static final String LINE_PREFIX = "line.";
 	/** Concept ids are lower-case ASCII; anything else cannot be a sound event name. */
 	private static final Pattern SAFE_ID = Pattern.compile("[a-z0-9_]+");
 	private static final Pattern SAFE_EVENT = Pattern.compile("[a-z0-9_.]+");
@@ -87,6 +93,42 @@ public final class AudioService {
 			return true;
 		} catch (RuntimeException failed) {
 			return false;
+		}
+	}
+
+	/** The event of a conversation line in a voice; its 반말 version when {@code banmal}. */
+	public static String lineEvent(String dialogueId, String nodeId, boolean banmal, String voiceId) {
+		return LINE_PREFIX + dialogueId + "." + nodeId + (banmal ? "_banmal" : "") + "." + voiceId;
+	}
+
+	/** The event of a villager saying its name ("저는 민준이에요."), by the romanised id of the name. */
+	public static String selfIntroEvent(String nameId, String voiceId) {
+		return LINE_PREFIX + "name." + nameId + "." + voiceId;
+	}
+
+	/**
+	 * Speaks a conversation line, cutting off the line before; false (and silent) when the setting is off, no voice
+	 * pack is loaded or the pack has no recording of this line in this voice.
+	 */
+	public boolean playLine(String event) {
+		if (!hasSound(event)) {
+			return false;
+		}
+		try {
+			backend.stopLast();
+			backend.play(event, 1.0F);
+			return true;
+		} catch (RuntimeException failed) {
+			return false;
+		}
+	}
+
+	/** Stops the line that is being spoken (the conversation was closed). */
+	public void stopLine() {
+		try {
+			backend.stopLast();
+		} catch (RuntimeException failed) {
+			// nothing to stop
 		}
 	}
 
