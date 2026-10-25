@@ -111,7 +111,7 @@ class VillagerProfilesTest {
 		VillagerProfile grown = later.meet(uuid(11), Region.TAIGA, false, "minecraft:farmer", 99L).profile();
 		assertEquals(name, grown.name);
 		assertEquals(personality, grown.personality);
-		assertEquals(personality.voice(), grown.currentVoice());
+		assertEquals(personality.voice(Region.TAIGA), grown.currentVoice());
 	}
 
 	@Test
@@ -175,6 +175,19 @@ class VillagerProfilesTest {
 		VillagerProfiles profiles = VillagerProfiles.open(dir, LOG);
 		assertEquals(0, profiles.size());
 		assertNotNull(meet(profiles, 1));
+	}
+
+	@Test
+	void taigaAndSavannaVillagersSpeakTheirAccentsAndOtherRegionsDoNot() {
+		VillagerProfiles profiles = VillagerProfiles.open(dir, LOG);
+		VillagerProfile taiga = profiles.meet(uuid(31), Region.TAIGA, false, null, 5L).profile();
+		assertEquals(taiga.personality.voice() + "_busan", taiga.currentVoice());
+		VillagerProfile savanna = profiles.meet(uuid(32), Region.SAVANNA, false, null, 6L).profile();
+		assertEquals(savanna.personality.voice() + "_jeju", savanna.currentVoice());
+		VillagerProfile plains = profiles.meet(uuid(33), Region.PLAINS, false, null, 7L).profile();
+		assertEquals(plains.personality.voice(), plains.currentVoice());
+		// the stored voice stays the base id, so the accent is not baked into the save file
+		assertEquals(taiga.personality.voice(), taiga.voice);
 	}
 
 	@Test

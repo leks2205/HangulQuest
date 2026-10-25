@@ -31,6 +31,19 @@ public enum Region {
 		return villagerType;
 	}
 
+	/**
+	 * The suffix of the accent voice this region's villages speak, or null for the standard voices:
+	 * taiga villagers talk Busan (Gyeongsang), savanna villagers Jeju. The suffix is appended to the
+	 * personality's voice id, e.g. {@code v_cranky} becomes {@code v_cranky_busan}.
+	 */
+	public String accent() {
+		return switch (this) {
+			case TAIGA -> "busan";
+			case SAVANNA -> "jeju";
+			default -> null;
+		};
+	}
+
 	/** The lower-case id used in conversation ids and language keys. */
 	public String id() {
 		return name().toLowerCase(java.util.Locale.ROOT);

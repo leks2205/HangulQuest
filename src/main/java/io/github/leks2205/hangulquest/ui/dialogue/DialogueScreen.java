@@ -61,6 +61,15 @@ public final class DialogueScreen extends Screen {
 		}
 	}
 
+	/**
+	 * Whether the English/German gloss under a line is drawn: the same setting as the quest texts, off by default.
+	 * Without it the conversation shows Korean only; the hover gloss of a single word stays.
+	 */
+	private boolean showGloss() {
+		HangulQuestClient client = HangulQuestClient.get();
+		return client != null && client.config().questTranslations;
+	}
+
 	private final DialogueSession session;
 	private final String npcName;
 	private final Voice voice;
@@ -308,9 +317,10 @@ public final class DialogueScreen extends Screen {
 		Analysed line = analyse(node);
 		DialogueLayout.Flow flow = DialogueLayout.flow(line.texts(), text -> this.font.width(KoText.ko(text)), inner,
 				this.font.width(" "), LINE);
-		Component gloss = HangulTextField.styled(node.selfIntro() && voice.name() != null
-				? I18n.t(dialogue.lineKey(node.id()), voice.name()) : I18n.t(dialogue.lineKey(node.id())));
-		int glossHeight = Draw.wrappedHeight(this.font, gloss, inner, 3);
+		boolean glossShown = showGloss();
+		Component gloss = glossShown ? HangulTextField.styled(node.selfIntro() && voice.name() != null
+				? I18n.t(dialogue.lineKey(node.id()), voice.name()) : I18n.t(dialogue.lineKey(node.id()))) : null;
+		int glossHeight = gloss == null ? 0 : Draw.wrappedHeight(this.font, gloss, inner, 3);
 		Component noteText = note.isEmpty() ? null : HangulTextField.styled(note);
 		int noteHeight = noteText == null ? 0 : Draw.wrappedHeight(this.font, noteText, inner, 3) + 4;
 		int bodyHeight = switch (node.kind()) {
@@ -332,8 +342,10 @@ public final class DialogueScreen extends Screen {
 		cursor += LINE + 4;
 		drawLine(graphics, line, flow, x + PAD, cursor, mouseX, mouseY);
 		cursor += flow.height() + 4;
-		Draw.wrapped(graphics, this.font, gloss, x + PAD, cursor, inner, Draw.GRAY, 3);
-		cursor += glossHeight;
+		if (gloss != null) {
+			Draw.wrapped(graphics, this.font, gloss, x + PAD, cursor, inner, Draw.GRAY, 3);
+			cursor += glossHeight;
+		}
 		if (noteText != null) {
 			Draw.wrapped(graphics, this.font, noteText, x + PAD, cursor + 4, inner, noteRight ? Draw.GREEN : Draw.GOLD, 3);
 			cursor += noteHeight;
@@ -409,6 +421,7 @@ public final class DialogueScreen extends Screen {
 	private void drawChoices(GuiGraphicsExtractor graphics, Dialogue dialogue, Dialogue.Node node, int x, int y,
 							 int width, int mouseX, int mouseY) {
 		rows.clear();
+		boolean glosses = showGloss();
 		for (int i = 0; i < node.choices().size(); i++) {
 			Dialogue.Choice choice = node.choices().get(i);
 			int rowY = y + i * ROW;
@@ -420,8 +433,10 @@ public final class DialogueScreen extends Screen {
 			rows.add(new int[] {x + 4, rowY - 2, width - 8});
 			Draw.label(graphics, this.font, (i + 1) + ".", x + PAD, rowY, Draw.DIM);
 			Draw.korean(graphics, this.font, choice.ko(), x + 26, rowY, spent ? Draw.RED : Draw.WHITE);
-			Draw.truncated(graphics, this.font, HangulTextField.styled(I18n.t(dialogue.choiceKey(node.id(), i))), x + 26,
-					rowY + 11, width - 34, Draw.GRAY);
+			if (glosses) {
+				Draw.truncated(graphics, this.font, HangulTextField.styled(I18n.t(dialogue.choiceKey(node.id(), i))), x + 26,
+						rowY + 11, width - 34, Draw.GRAY);
+			}
 		}
 	}
 

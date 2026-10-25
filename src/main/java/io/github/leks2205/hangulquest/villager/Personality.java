@@ -51,6 +51,15 @@ public enum Personality {
 		return voice;
 	}
 
+	/**
+	 * The voice this personality speaks with in a region: the standard adult voice, or the region's accent
+	 * voice (see {@link Region#accent()}) in the taiga and savanna villages.
+	 */
+	public String voice(Region region) {
+		String accent = region == null ? null : region.accent();
+		return accent == null ? voice : voice + "_" + accent;
+	}
+
 	/** How this personality talks to the player: 합쇼체 for SNOOTY, 해요체 for everyone else. */
 	public SpeechLevel register() {
 		return register;

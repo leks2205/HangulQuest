@@ -75,9 +75,20 @@ public final class VillagerProfile {
 		return copy;
 	}
 
-	/** The voice it speaks with now: a child voice of its gender while it is a baby, its own adult voice after. */
+	/**
+	 * The voice it speaks with now: a child voice of its gender while it is a baby, its own adult voice after,
+	 * and in a taiga or savanna village that voice with the region's accent (see {@link Region#accent()}).
+	 * The stored voice stays the base id, so a villager that moves keeps its timbre and simply changes accent.
+	 */
 	public String currentVoice() {
-		return baby ? gender.childVoice() : voice;
+		if (baby) {
+			return gender.childVoice();
+		}
+		String accent = region == null ? null : region.accent();
+		if (accent == null || voice == null || voice.endsWith("_busan") || voice.endsWith("_jeju")) {
+			return voice;
+		}
+		return voice + "_" + accent;
 	}
 
 	public boolean hasSeen(String conversationId) {

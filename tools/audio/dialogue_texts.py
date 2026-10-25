@@ -42,6 +42,10 @@ BANMAL_OK = ("LAZY", "JOCK", "PEPPY", "SISTERLY")
 CHILD_SPEAKERS = ("child",)
 REQUEST_PARTS = ("offer", "accept", "decline", "reminder", "thanks")
 BANMAL = "_banmal"
+# Regions whose villages speak an accent: the suffix appended to the personality voice id. Mirrors
+# Region.accent() in the engine, so the event the game plays and the event rendered here are the same string.
+ACCENTS = {"TAIGA": "busan", "SAVANNA": "jeju"}
+
 # what this tool writes; the engine's data/voices.json "events" must say the same
 EVENTS = {
     "line": "hangulquest:line.<dialogueId>.<nodeId>.<voiceId>",
@@ -82,12 +86,24 @@ class VoiceTable:
         pers = MALE if gender == "male" else tuple(p for p in PERSONALITIES if p not in MALE)
         return self.of(pers) + ([self.child[gender]] if gender in self.child else [])
 
+    @staticmethod
+    def accented(voices, region):
+        """The region's accent voices for these voice ids; unchanged when the region has no accent."""
+        suffix = ACCENTS.get((region or "").upper())
+        if not suffix:
+            return list(voices)
+        return [v if v.endswith("_" + suffix) else f"{v}_{suffix}" for v in voices]
+
     def register_of(self, voice):
+        base = voice
+        for suffix in ACCENTS.values():
+            if base.endswith("_" + suffix):
+                base = base[: -len(suffix) - 1]
         if voice in self.register:
             return self.register[voice]
         if voice in self.children:
             return "banmal"
-        return "hapsyo" if voice == self.personality.get("SNOOTY") else "haeyo"
+        return "hapsyo" if base == self.personality.get("SNOOTY") else "haeyo"
 
     def all(self):
         return set(self.adults) | set(self.children) | set(self.persona.values())
@@ -209,22 +225,41 @@ def personalities_of(doc):
     return found
 
 
-def voices_for(speaker, table, filt, baby):
+def regions_of(doc):
+    """The regions a dialogue is written for (trigger.regions or trigger.region); empty = any region."""
+    trigger = doc.get("trigger") or {}
+    regions = trigger.get("regions") or ([trigger["region"]] if trigger.get("region") else [])
+    return [str(r).upper() for r in regions if r]
+
+
+def accent_of(doc):
+    """The single accent region a dialogue belongs to, or None when it is not region-locked or has none."""
+    regions = regions_of(doc)
+    accents = {r for r in regions if r in ACCENTS}
+    return accents.pop() if len(regions) == 1 and accents else None
+
+
+def voices_for(speaker, table, filt, baby, region=None):
     if baby or speaker in CHILD_SPEAKERS:
-        return table.children, "child"
+        return table.accented(table.children, region), "child"
     if speaker in table.persona:
-        return [table.persona[speaker]], "persona"
+        return table.accented([table.persona[speaker]], region), "persona"
     if filt:
-        return table.of(filt), "personality"
-    return table.adults, "shared"
+        return table.accented(table.of(filt), region), "personality"
+    return table.accented(table.adults, region), "shared"
 
 
 def line_rows(prefix, nid, ko, ko_banmal, voices, rule, table, problems):
     """One row per voice for the line, and for its 반말 text one per voice that can switch."""
     rows = []
     switch = table.of(BANMAL_OK)
+    def base(v):
+        for suffix in ACCENTS.values():
+            if v.endswith("_" + suffix):
+                return v[: -len(suffix) - 1]
+        return v
     for text, suffix, vs, r in ((ko, "", voices, rule),
-                                (ko_banmal, BANMAL, [v for v in voices if v in switch], rule + "+banmal")):
+                                (ko_banmal, BANMAL, [v for v in voices if base(v) in switch], rule + "+banmal")):
         if not isinstance(text, str) or not text.strip():
             continue
         if "{" in text:
@@ -246,7 +281,7 @@ def dialogue_rows(doc, table, problems):
             continue
         if not isinstance(node.get("ko"), str):
             continue  # the self-introduction node (selfIntro) and the like: voiced from the name list
-        voices, rule = voices_for(node.get("speaker"), table, filt, baby)
+        voices, rule = voices_for(node.get("speaker"), table, filt, baby, accent_of(doc))
         rows += line_rows(did, nid, node["ko"], node.get("ko_banmal"), voices, rule, table, problems)
     return rows
 
@@ -268,8 +303,8 @@ def request_rows(doc, table, problems):
                 problems.append(f"{rid}.{pid}: unknown part {part}")
                 continue
             ko, banmal = (line, None) if isinstance(line, str) else (line.get("ko"), line.get("ko_banmal"))
-            rows += line_rows(rid, f"{pid.lower()}_{part}", ko, banmal, table.of({pid.upper()}), "request",
-                              table, problems)
+            voices = table.accented(table.of({pid.upper()}), accent_of(doc))
+            rows += line_rows(rid, f"{pid.lower()}_{part}", ko, banmal, voices, "request", table, problems)
     return rows
 
 

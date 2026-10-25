@@ -62,23 +62,26 @@
       "personality": "LAZY",
       "gender": "male",
       "age": "adult",
-      "design": "A native Korean young man in his mid twenties with a standard Seoul accent. Soft, relaxed, slightly sleepy but cheerful voice, medium-low pitch, a little nasal, slow and easygoing pace, yet every syllable is clear and easy for language learners to follow.",
+      "design": "A native Korean man in his mid twenties with a standard Seoul accent. Relaxed, soft, slightly sleepy but friendly adult male voice, around 120 Hz, medium-low pitch, easygoing pace, every syllable clear for language learners.",
       "ref_text": "음… 안녕하세요. 오늘은 날씨가 좋아서 낮잠 자기 딱 좋네요.",
-      "seed": 7,
+      "seed": 67,
       "reference": {
-        "cer": 0.0,
-        "f0_median_hz": 108.2,
-        "f0_p10_hz": 89.8,
-        "f0_p90_hz": 125.7,
-        "seconds": 5.44,
+        "cer": 0.0435,
+        "f0_median_hz": 119.0,
+        "f0_p10_hz": 94.2,
+        "f0_p90_hz": 144.4,
+        "seconds": 6.24,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "85729400cb2d"
-      }
+        "sha1": "deca87606a49"
+      },
+      "target_f0": 120
     },
     "v_jock": {
       "kind": "clone",
@@ -86,25 +89,26 @@
       "personality": "JOCK",
       "gender": "male",
       "age": "adult",
-      "design": "A native Korean man in his late twenties with a standard Seoul accent. Low-pitched, deep and powerful masculine voice, like a cheerful young sports coach, confident and full of energy yet controlled, never shouting, steady brisk pace, every syllable precise and clear for language learners.",
+      "design": "A native Korean man in his late twenties with a standard Seoul accent. Deep, resonant, confident adult male voice around 110 Hz like a friendly sports coach, energetic but never shouting, brisk clear articulation.",
       "ref_text": "안녕하세요. 오늘도 같이 힘차게 운동하고 달려 봐요.",
       "seed": 7,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 152.1,
-        "f0_p10_hz": 120.0,
-        "f0_p90_hz": 194.0,
-        "seconds": 3.6,
+        "f0_median_hz": 130.9,
+        "f0_p10_hz": 95.6,
+        "f0_p90_hz": 175.4,
+        "seconds": 4.72,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "4050612818f2",
-        "designs_tried": 4,
-        "note": "the first three design texts (energetic/loud/bright) gave 210-390 Hz on every seed; the fourth asks for a low-pitched coach voice"
-      }
+        "sha1": "2b756a8090c3"
+      },
+      "target_f0": 110
     },
     "v_cranky": {
       "kind": "clone",
@@ -112,23 +116,26 @@
       "personality": "CRANKY",
       "gender": "male",
       "age": "adult",
-      "design": "A native Korean man in his sixties with a standard Seoul accent. Low, deep, slightly gravelly older voice, curt and a bit grumpy but not angry, slow and deliberate pace, clear precise pronunciation that language learners can follow.",
+      "design": "A native Korean man in his mid sixties with a standard Seoul accent. Low, slightly gravelly older male voice around 105 Hz, calm and a little grumpy but dignified, slow deliberate pace, very clear pronunciation.",
       "ref_text": "흠. 안녕하세요. 오늘은 조용히 따뜻한 차나 마시고 싶네요.",
-      "seed": 43,
+      "seed": 67,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 97.5,
-        "f0_p10_hz": 83.9,
-        "f0_p90_hz": 112.6,
-        "seconds": 5.28,
+        "f0_median_hz": 98.9,
+        "f0_p10_hz": 76.0,
+        "f0_p90_hz": 123.5,
+        "seconds": 6.16,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "2bb29943493b"
-      }
+        "sha1": "2487aaf4ca5c"
+      },
+      "target_f0": 105
     },
     "v_smug": {
       "kind": "clone",
@@ -136,23 +143,26 @@
       "personality": "SMUG",
       "gender": "male",
       "age": "adult",
-      "design": "A native Korean man in his thirties with a standard Seoul accent. Smooth, mellow, confident and charming voice, medium-low pitch, refined and slightly theatrical, unhurried pace and very clear pronunciation for language learners.",
+      "design": "A native Korean man in his mid thirties with a standard Seoul accent. Smooth, mellow male baritone around 130 Hz, confident, refined and slightly theatrical, unhurried and precise.",
       "ref_text": "안녕하세요. 오늘은 꽃향기가 정말 아름다운 날이네요.",
-      "seed": 7,
+      "seed": 55,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 150.3,
-        "f0_p10_hz": 96.7,
-        "f0_p90_hz": 197.7,
-        "seconds": 5.28,
+        "f0_median_hz": 131.6,
+        "f0_p10_hz": 106.3,
+        "f0_p90_hz": 170.6,
+        "seconds": 5.52,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "370c572b27c0"
-      }
+        "sha1": "02042e9e8fe2"
+      },
+      "target_f0": 130
     },
     "v_normal": {
       "kind": "clone",
@@ -160,23 +170,26 @@
       "personality": "NORMAL",
       "gender": "female",
       "age": "adult",
-      "design": "A native Korean woman in her thirties with a standard Seoul accent. Gentle, warm, calm and kind voice, medium pitch, friendly and soothing, unhurried pace and clear precise pronunciation for language learners.",
+      "design": "A native Korean woman in her late thirties with a standard Seoul accent. Warm, calm, kind adult female voice around 200 Hz, ordinary speaking pitch for a grown woman, unhurried and clear.",
       "ref_text": "안녕하세요. 오늘은 맛있는 빵을 구워서 같이 먹어요.",
-      "seed": 7,
+      "seed": 43,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 247.0,
-        "f0_p10_hz": 199.5,
-        "f0_p90_hz": 278.1,
-        "seconds": 5.28,
+        "f0_median_hz": 193.8,
+        "f0_p10_hz": 146.7,
+        "f0_p90_hz": 222.9,
+        "seconds": 4.88,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "2029d222018f"
-      }
+        "sha1": "d90ecf13dfc4"
+      },
+      "target_f0": 200
     },
     "v_peppy": {
       "kind": "clone",
@@ -184,23 +197,30 @@
       "personality": "PEPPY",
       "gender": "female",
       "age": "adult",
-      "design": "A native Korean young woman around twenty years old with a standard Seoul accent. High-pitched, bubbly, bright and excited voice, cheerful and expressive, lively pace but every syllable clear for language learners.",
-      "ref_text": "우와, 안녕하세요! 오늘은 정말 신나는 날이에요!",
-      "seed": 19,
+      "design": "A native Korean woman in her early thirties with a standard Seoul accent. Cheerful, friendly adult female voice at medium pitch around 215 Hz, the ordinary range of a grown woman, warm and lively in tone but with no girlish, cartoon or squeaky quality, clear and brisk.",
+      "ref_text": "안녕하세요. 오늘은 날씨가 좋아요. 우리 같이 이야기해요.",
+      "seed": 67,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 445.3,
-        "f0_p10_hz": 328.2,
-        "f0_p90_hz": 555.9,
-        "seconds": 3.84,
+        "f0_median_hz": 260.2,
+        "f0_p10_hz": 203.3,
+        "f0_p90_hz": 331.7,
+        "seconds": 7.12,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "d35685fde362"
-      }
+        "sha1": "191172e8b383"
+      },
+      "target_f0": 225,
+      "band_hz": [
+        200,
+        270
+      ]
     },
     "v_snooty": {
       "kind": "clone",
@@ -208,23 +228,26 @@
       "personality": "SNOOTY",
       "gender": "female",
       "age": "adult",
-      "design": "A native Korean woman in her thirties with a standard Seoul accent. Elegant, cool and composed voice, polished and precise, a little haughty and reserved, medium pitch, measured pace and crisp, clear pronunciation for language learners.",
+      "design": "A native Korean woman in her mid thirties with a standard Seoul accent. Composed, elegant adult female voice around 190 Hz, slightly haughty and cool, measured pace, crisp and precise.",
       "ref_text": "안녕하십니까. 오늘은 반짝이는 보석을 보러 가겠습니다.",
-      "seed": 7,
+      "seed": 55,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 235.9,
-        "f0_p10_hz": 164.9,
-        "f0_p90_hz": 274.1,
-        "seconds": 5.6,
+        "f0_median_hz": 194.9,
+        "f0_p10_hz": 143.5,
+        "f0_p90_hz": 220.1,
+        "seconds": 4.4,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "efec10890356"
-      }
+        "sha1": "b8247cfa787e"
+      },
+      "target_f0": 190
     },
     "v_sisterly": {
       "kind": "clone",
@@ -232,70 +255,520 @@
       "personality": "SISTERLY",
       "gender": "female",
       "age": "adult",
-      "design": "A native Korean woman in her thirties with a standard Seoul accent. Slightly husky, confident and brisk voice, medium pitch, direct and friendly like a caring big sister, clear pronunciation that language learners can follow.",
+      "design": "A native Korean woman in her late thirties with a standard Seoul accent. Slightly husky, warm, direct adult female voice around 180 Hz, confident like a caring big sister, brisk but clear.",
       "ref_text": "안녕하세요. 걱정 마요, 이 마을은 제가 지킬게요.",
       "seed": 7,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 260.2,
-        "f0_p10_hz": 223.7,
-        "f0_p90_hz": 347.3,
-        "seconds": 4.0,
+        "f0_median_hz": 211.4,
+        "f0_p10_hz": 182.9,
+        "f0_p90_hz": 271.0,
+        "seconds": 5.04,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "348efe3e72d0"
-      }
+        "sha1": "1f0d1d27e9ff"
+      },
+      "target_f0": 185
     },
     "v_child_m": {
       "kind": "clone",
       "lines_only": true,
       "gender": "male",
       "age": "child",
-      "design": "A native Korean boy about nine years old with a standard Seoul accent. A child's high, bright and playful voice, cheerful and curious, speaking clearly and not too fast so language learners can understand every syllable.",
+      "design": "A native Korean boy about nine years old with a standard Seoul accent. Bright, curious child voice around 300 Hz, clear and not too fast.",
       "ref_text": "안녕! 나는 오늘 친구들이랑 같이 놀 거야.",
-      "seed": 7,
+      "seed": 67,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 453.1,
-        "f0_p10_hz": 303.6,
-        "f0_p90_hz": 492.1,
-        "seconds": 3.44,
+        "f0_median_hz": 341.4,
+        "f0_p10_hz": 272.5,
+        "f0_p90_hz": 392.1,
+        "seconds": 2.96,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67
         ],
-        "sha1": "55f1806780e7"
-      }
+        "sha1": "306d72593f43"
+      },
+      "target_f0": 300
     },
     "v_child_f": {
       "kind": "clone",
       "lines_only": true,
       "gender": "female",
       "age": "child",
-      "design": "A native Korean girl about nine years old with a standard Seoul accent. A child's high, sweet and lively voice, cheerful and friendly, speaking clearly and not too fast so language learners can understand every syllable.",
+      "design": "A native Korean girl about nine years old with a standard Seoul accent. Lively, sweet child voice around 320 Hz, clear and not too fast.",
       "ref_text": "안녕! 오늘은 꽃밭에서 같이 놀자!",
-      "seed": 7,
+      "seed": 163,
       "reference": {
         "cer": 0.0,
-        "f0_median_hz": 480.0,
-        "f0_p10_hz": 402.3,
-        "f0_p90_hz": 508.5,
-        "seconds": 2.96,
+        "f0_median_hz": 353.4,
+        "f0_p10_hz": 298.6,
+        "f0_p90_hz": 445.8,
+        "seconds": 2.8,
         "seeds_tried": [
           7,
           19,
           31,
-          43
+          43,
+          55,
+          67,
+          79,
+          91,
+          103,
+          115,
+          127,
+          139,
+          151,
+          163
         ],
-        "sha1": "9ab176f63902"
+        "sha1": "462d96ebce07"
+      },
+      "target_f0": 320
+    },
+    "v_lazy_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 120,
+      "design": "A native Korean man in his mid twenties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Relaxed, soft, slightly sleepy but friendly adult male voice, around 120 Hz, medium-low pitch, easygoing pace, every syllable clear for language learners.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "seed": 31,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 123.5,
+        "f0_p10_hz": 86.8,
+        "f0_p90_hz": 147.1,
+        "seconds": 6.56,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "42e06453f779"
+      },
+      "max_cer": 0.7
+    },
+    "v_lazy_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 120,
+      "design": "A native Korean man in his mid twenties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Relaxed, soft, slightly sleepy but friendly adult male voice, around 120 Hz, medium-low pitch, easygoing pace, every syllable clear for language learners.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 7,
+      "reference": {
+        "cer": 0.2414,
+        "f0_median_hz": 133.9,
+        "f0_p10_hz": 99.2,
+        "f0_p90_hz": 192.4,
+        "seconds": 8.4,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "6b6eec3fcacc"
+      }
+    },
+    "v_jock_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 110,
+      "design": "A native Korean man in his late twenties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Deep, resonant, confident adult male voice around 110 Hz like a friendly sports coach, energetic but never shouting, brisk clear articulation.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "max_cer": 0.7,
+      "band_hz": [
+        100,
+        180
+      ],
+      "seed": 55,
+      "reference": {
+        "cer": 0.0769,
+        "f0_median_hz": 137.8,
+        "f0_p10_hz": 99.2,
+        "f0_p90_hz": 203.0,
+        "seconds": 6.16,
+        "seeds_tried": [
+          7,
+          19,
+          31,
+          43,
+          55,
+          67,
+          79,
+          91,
+          103,
+          115,
+          127
+        ],
+        "sha1": "85fb2d5c582c"
+      }
+    },
+    "v_jock_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 110,
+      "design": "A native Korean man in his late twenties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Deep, resonant, confident adult male voice around 110 Hz like a friendly sports coach, energetic but never shouting, brisk clear articulation.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "band_hz": [
+        100,
+        180
+      ],
+      "seed": 19,
+      "reference": {
+        "cer": 0.2414,
+        "f0_median_hz": 174.7,
+        "f0_p10_hz": 96.4,
+        "f0_p90_hz": 278.9,
+        "seconds": 7.28,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "08bf03ac5296"
+      }
+    },
+    "v_cranky_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 105,
+      "design": "A native Korean man in his mid sixties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Low, slightly gravelly older male voice around 105 Hz, calm and a little grumpy but dignified, slow deliberate pace, very clear pronunciation.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "seed": 19,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 111.3,
+        "f0_p10_hz": 86.8,
+        "f0_p90_hz": 190.5,
+        "seconds": 6.72,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "2ef3e4c43eea"
+      },
+      "max_cer": 0.7
+    },
+    "v_cranky_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 105,
+      "design": "A native Korean man in his mid sixties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Low, slightly gravelly older male voice around 105 Hz, calm and a little grumpy but dignified, slow deliberate pace, very clear pronunciation.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 19,
+      "reference": {
+        "cer": 0.2414,
+        "f0_median_hz": 108.8,
+        "f0_p10_hz": 83.7,
+        "f0_p90_hz": 209.1,
+        "seconds": 7.44,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "480aa061f63c"
+      }
+    },
+    "v_smug_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 130,
+      "design": "A native Korean man in his mid thirties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Smooth, mellow male baritone around 130 Hz, confident, refined and slightly theatrical, unhurried and precise.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "seed": 31,
+      "reference": {
+        "cer": 0.0385,
+        "f0_median_hz": 133.1,
+        "f0_p10_hz": 102.1,
+        "f0_p90_hz": 194.5,
+        "seconds": 6.96,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "e49796c1fc04"
+      },
+      "max_cer": 0.7
+    },
+    "v_smug_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "male",
+      "age": "adult",
+      "target_f0": 130,
+      "design": "A native Korean man in his mid thirties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Smooth, mellow male baritone around 130 Hz, confident, refined and slightly theatrical, unhurried and precise.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 31,
+      "reference": {
+        "cer": 0.1724,
+        "f0_median_hz": 109.4,
+        "f0_p10_hz": 72.7,
+        "f0_p90_hz": 177.7,
+        "seconds": 8.4,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "b5e464bb21b5"
+      }
+    },
+    "v_normal_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 200,
+      "design": "A native Korean woman in her late thirties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Warm, calm, kind adult female voice around 200 Hz, ordinary speaking pitch for a grown woman, unhurried and clear.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "seed": 31,
+      "reference": {
+        "cer": 0.0,
+        "f0_median_hz": 192.7,
+        "f0_p10_hz": 95.8,
+        "f0_p90_hz": 261.7,
+        "seconds": 9.76,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "0923850c5be3"
+      },
+      "max_cer": 0.7
+    },
+    "v_normal_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 200,
+      "design": "A native Korean woman in her late thirties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Warm, calm, kind adult female voice around 200 Hz, ordinary speaking pitch for a grown woman, unhurried and clear.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 31,
+      "reference": {
+        "cer": 0.2069,
+        "f0_median_hz": 200.1,
+        "f0_p10_hz": 158.4,
+        "f0_p90_hz": 277.3,
+        "seconds": 8.24,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "1aabca725fe1"
+      }
+    },
+    "v_peppy_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 225,
+      "design": "A native Korean woman in her early thirties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Cheerful, friendly adult female voice at medium pitch around 215 Hz, the ordinary range of a grown woman, warm and lively in tone but with no girlish, cartoon or squeaky quality, clear and brisk.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "max_cer": 0.7,
+      "band_hz": [
+        200,
+        290
+      ],
+      "seed": 7,
+      "reference": {
+        "cer": 0.0385,
+        "f0_median_hz": 274.1,
+        "f0_p10_hz": 224.7,
+        "f0_p90_hz": 385.4,
+        "seconds": 7.6,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "2798ec7e45da"
+      }
+    },
+    "v_peppy_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 225,
+      "design": "A native Korean woman in her early thirties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Cheerful, friendly adult female voice at medium pitch around 215 Hz, the ordinary range of a grown woman, warm and lively in tone but with no girlish, cartoon or squeaky quality, clear and brisk.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "band_hz": [
+        200,
+        290
+      ],
+      "seed": 7,
+      "reference": {
+        "cer": 0.1724,
+        "f0_median_hz": 269.4,
+        "f0_p10_hz": 192.3,
+        "f0_p90_hz": 363.8,
+        "seconds": 6.96,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "44a68760ecec"
+      }
+    },
+    "v_snooty_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 190,
+      "design": "A native Korean woman in her mid thirties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Composed, elegant adult female voice around 190 Hz, slightly haughty and cool, measured pace, crisp and precise.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "max_cer": 0.7,
+      "seed": 31,
+      "reference": {
+        "cer": 0.0769,
+        "f0_median_hz": 216.3,
+        "f0_p10_hz": 175.9,
+        "f0_p90_hz": 260.2,
+        "seconds": 7.12,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "c1be0da8cf3f",
+        "source": "ming-hybrid",
+        "hybrid_seed": "seed91",
+        "clone_band": 11188,
+        "clone_f0": 186
+      }
+    },
+    "v_snooty_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 190,
+      "design": "A native Korean woman in her mid thirties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Composed, elegant adult female voice around 190 Hz, slightly haughty and cool, measured pace, crisp and precise.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 31,
+      "reference": {
+        "cer": 0.2069,
+        "f0_median_hz": 215.1,
+        "f0_p10_hz": 187.2,
+        "f0_p90_hz": 274.1,
+        "seconds": 7.12,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "349146cd2d5e"
+      }
+    },
+    "v_sisterly_busan": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "busan",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 185,
+      "design": "A native Korean woman in her late thirties, Korean, with a strong, authentic Busan (Gyeongsang-do) accent: the southeastern sentence melody, open vowels, the endings carrying the Busan tune. Slightly husky, warm, direct adult female voice around 180 Hz, confident like a caring big sister, brisk but clear.",
+      "ref_text": "어이, 오늘은 날씨가 참 좋다 아이가. 밥은 묵었나? 우리 같이 좀 걷자.",
+      "max_cer": 0.7,
+      "seed": 31,
+      "reference": {
+        "cer": 0.1154,
+        "f0_median_hz": 228.5,
+        "f0_p10_hz": 183.9,
+        "f0_p90_hz": 272.8,
+        "seconds": 8.24,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "77a3cfef5a87",
+        "source": "ming-hybrid",
+        "hybrid_seed": "seed91",
+        "clone_band": 11428,
+        "clone_f0": 203
+      }
+    },
+    "v_sisterly_jeju": {
+      "kind": "clone",
+      "lines_only": true,
+      "accent": "jeju",
+      "gender": "female",
+      "age": "adult",
+      "target_f0": 185,
+      "design": "A native Korean woman in her late thirties, Korean, with an authentic Jeju island accent: the softer, drawn-out island melody and the Jeju endings. Slightly husky, warm, direct adult female voice around 180 Hz, confident like a caring big sister, brisk but clear.",
+      "ref_text": "혼저 옵서예. 오늘은 날씨가 참 좋수다. 밥은 먹었수과? 우리 같이 좀 걷주게.",
+      "max_cer": 0.7,
+      "seed": 7,
+      "reference": {
+        "cer": 0.1724,
+        "f0_median_hz": 233.2,
+        "f0_p10_hz": 67.1,
+        "f0_p90_hz": 369.3,
+        "seconds": 6.56,
+        "seeds_tried": [
+          7,
+          19,
+          31
+        ],
+        "sha1": "95fa4074d36d"
       }
     }
   },
-  "villager_voices_note": "v_* voices: designed with design_voices.py (VoiceDesign, seeds 7/19/31/43), reference CER by faster-whisper large-v3, median F0 by librosa pyin; lines_only keeps them out of word renders and word events"
+  "villager_voices_note": "v_* voices: designed with design_voices.py (VoiceDesign, seeds 7/19/31/43), reference CER by faster-whisper large-v3, median F0 by librosa pyin; lines_only keeps them out of word renders and word events",
+  "about_regions": "The taiga and savanna villages speak regional accents: v_<personality>_busan for taiga, v_<personality>_jeju for savanna. The game appends the suffix at speak time (Region.accent(), Personality.voice(Region))."
 }

@@ -46,7 +46,12 @@ public final class DialogueCoverage {
 	static final Set<String> TAILS = Set.of(
 			"", "이", "가", "은", "는", "을", "를", "도", "만", "의", "에", "에서", "에게", "에게는", "와", "과",
 			"로", "으로", "예요", "이에요", "야", "이야", "입니다", "요", "어요", "아요", "해요", "해", "세요",
-			"으세요", "습니까", "시겠습니까", "십시오", "겠습니다", "습니다", "합니다", "니다", "자");
+			"으세요", "습니까", "시겠습니까", "십시오", "겠습니다", "습니다", "합니다", "니다", "자",
+			// The regional dialects the taiga and savanna villages speak (Busan / Gyeongsang, Jeju). They attach
+			// to the same standard stems, so a dialect line stays measurable against the same vocabulary.
+			"어예", "아예", "하예", "지예", "네예", "거든예", "야예", "이라예",
+			"이소", "하이소", "마이소", "심더", "하냐", "오나", "하노",
+			"수다", "우다", "수과", "우꽈", "시우다", "크라", "하영", "혼저", "아이가");
 
 	private DialogueCoverage() {
 	}

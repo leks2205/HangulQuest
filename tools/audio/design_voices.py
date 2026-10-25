@@ -29,17 +29,27 @@ os.environ.setdefault("HF_HOME", str(MODELS))
 
 DESIGN = WORK / "design"
 MAX_CER = 0.05
-MALE_MAX_HZ = 165.0
-FEMALE_MIN_HZ = 175.0
-CHILD_MIN_HZ = 230.0
+# Adult speaking ranges. The upper bounds matter as much as the lower ones: the 3.1 pack had a woman at
+# 445 Hz because only a floor was checked and the caption asked for "high-pitched, bubbly".
+MALE_MIN_HZ = 95.0
+MALE_MAX_HZ = 155.0
+FEMALE_MIN_HZ = 170.0
+FEMALE_MAX_HZ = 245.0
+CHILD_MIN_HZ = 255.0
+CHILD_MAX_HZ = 420.0
 
 
 def in_band(voice, f0):
     if f0 is None:
         return False
     if voice.get("age") == "child":
-        return f0 > CHILD_MIN_HZ
-    return f0 < MALE_MAX_HZ if voice.get("gender") == "male" else f0 > FEMALE_MIN_HZ
+        return CHILD_MIN_HZ <= f0 <= CHILD_MAX_HZ
+    if voice.get("band_hz"):
+        low, high = voice["band_hz"]
+        return low <= f0 <= high
+    if voice.get("gender") == "male":
+        return MALE_MIN_HZ <= f0 <= MALE_MAX_HZ
+    return FEMALE_MIN_HZ <= f0 <= FEMALE_MAX_HZ
 
 
 def choose(voices, candidates):
@@ -50,16 +60,24 @@ def choose(voices, candidates):
     lowest CER and then the lowest pitch; PEPPY, of those above every other adult woman, the lowest CER and then
     the lowest pitch (the least shrill one that is still the highest). If no CRANKY/PEPPY candidate fits, the
     other men/women are picked again from the candidates above the lowest CRANKY / below the highest PEPPY."""
-    passing = {v: [c for c in candidates.get(v, []) if c["cer"] <= MAX_CER and in_band(voices[v], c["f0"])]
+    # An accent voice reads a dialect reference line; the ASR normalises it to standard Korean, so its CER is
+    # high by construction. Those voices are gated on the pitch band and the listening test instead.
+    limit = lambda v: voices[v].get("max_cer", MAX_CER)
+    passing = {v: [c for c in candidates.get(v, []) if c["cer"] <= limit(v) and in_band(voices[v], c["f0"])]
                for v in voices}
-    by_pers = {voices[v].get("personality"): v for v in voices}
+    # the extreme rules describe the base characters; an accent voice is a copy of one and takes part as ordinary
+    by_pers = {voices[v].get("personality"): v for v in voices if not voices[v].get("accent")}
     cranky, peppy = by_pers.get("CRANKY"), by_pers.get("PEPPY")
-    adult = lambda v, g: voices[v].get("age") != "child" and voices[v].get("gender") == g and v not in (cranky, peppy)
+    adult = lambda v, g: (voices[v].get("age") != "child" and voices[v].get("gender") == g
+                          and v not in (cranky, peppy) and not voices[v].get("accent"))
 
-    def best(pool):
+    def best(pool, voice=None):
+        target = (voice or {}).get("target_f0")
+        if target:
+            return min(pool, key=lambda c: (abs(c["f0"] - target), c["cer"]), default=None)
         return min(pool, key=lambda c: c["cer"], default=None)
 
-    chosen = {v: best(passing[v]) for v in voices if v not in (cranky, peppy)}
+    chosen = {v: best(passing[v], voices[v]) for v in voices if v not in (cranky, peppy)}
     for extreme, gender, below in ((cranky, "male", True), (peppy, "female", False)):
         if not extreme:
             continue
@@ -73,7 +91,7 @@ def choose(voices, candidates):
                 break
             edge = (min if below else max)(c["f0"] for c in passing[extreme])
             for v in others:
-                chosen[v] = best([c for c in passing[v] if (c["f0"] > edge if below else c["f0"] < edge)])
+                chosen[v] = best([c for c in passing[v] if (c["f0"] > edge if below else c["f0"] < edge)], voices[v])
         chosen[extreme] = pick
     return chosen
 
