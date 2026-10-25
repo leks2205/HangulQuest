@@ -4,6 +4,12 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [3.1.1] — 2026-10-25
+
+### Added
+
+- **Name tags for villagers you have met.** Once a villager has introduced itself, its name floats above its head like a name tag. Client side only: nothing is sent to the server or saved in the world, and a villager with a real name tag keeps that name.
+
 ## [3.1.0] — 2026-10-24
 
 ### Added
