@@ -232,6 +232,7 @@ public final class HangulQuestClient implements ClientModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 		ItemTooltipCallback.EVENT.register(this::addTooltip);
 		DialogueHook.register();
+		io.github.leks2205.hangulquest.villager.VillagerNameTags.register();
 		LibraryHook.register();
 
 		LOG.info("hangulquest ready (config {})", dir);
