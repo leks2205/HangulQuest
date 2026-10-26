@@ -92,7 +92,8 @@ class VoiceTable:
         suffix = ACCENTS.get((region or "").upper())
         if not suffix:
             return list(voices)
-        return [v if v.endswith("_" + suffix) else f"{v}_{suffix}" for v in voices]
+        # children have no accent recordings: they keep their child voice
+        return [v if v.startswith("v_child") or v.endswith("_" + suffix) else f"{v}_{suffix}" for v in voices]
 
     def register_of(self, voice):
         base = voice
