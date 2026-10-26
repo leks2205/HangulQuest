@@ -669,7 +669,8 @@ class RealRepositoryTest(unittest.TestCase):
         for content in (False, True):
             for key, text in core.read_bundle(repo, "en_us", content).items():
                 self.assertEqual(key in keys, core.translatable(text), key)
-        intros = list((core.ROOT / "src/main/resources/assets/hangulquest/dialogue").glob("*_intro.json"))
+        # a self-introduction exists per conversation and region set, so the regional variants count too
+        intros = list((core.ROOT / "src/main/resources/assets/hangulquest/dialogue").glob("*_intro*.json"))
         self.assertLess(total - len(rows), len(intros) + 10,
                         "one self-intro name line per conversation, plus Korean-only names and bare placeholders")
 

@@ -4,6 +4,30 @@ All notable changes to Hangul Quest. The format follows [Keep a Changelog](https
 and the project uses [semantic versioning](https://semver.org/). Minecraft versions are named
 explicitly, because a mod for 26.3 is not a mod for anything else.
 
+## [3.2.0] — 2026-10-25
+
+### Added
+
+- **Taiga and savanna villagers speak their region's dialect.** Taiga villagers talk Busan (Gyeongsang) Korean,
+  savanna villagers Jeju Korean — in every line they say, not only in the conversations written for their region:
+  the general and profession conversations got regional versions too, and the conversation picker prefers the
+  one that fits the village. Player answers stay in standard Korean, so the learner keeps practising the standard
+  form. The dialect covers the endings (-예, -우다, -심더, -수다, -이소 …) and the few words that differ (묵- for
+  먹-, 하영, 혼저, 아이가), not the vocabulary the lessons teach.
+- **Adult voices for every villager.** The eight personality voices and the two child voices were redesigned: the
+  old pack had a woman at 445 Hz because the voice descriptions asked for a "high-pitched, bubbly" delivery and
+  only a lower pitch bound was checked. Every voice now sits in the normal adult speaking range (men 99–132 Hz,
+  women 194–260 Hz, children 341/353 Hz) and is picked from several takes by measured pitch.
+- **Region accent voices.** Sixteen more voices carry the two dialects — one Busan and one Jeju voice per
+  personality (cranky 111/109 Hz, lazy 124/134, smug 133/109, jock 138/175, normal 193/200, snooty 216/215,
+  sisterly 229/233, peppy 274/269). A villager's voice follows the region it lives in and changes with it.
+
+### Changed
+
+- **Translations in conversations follow the setting.** The gloss under a villager's line and under the answer
+  choices is only drawn while "Übersetzungen in Quests" is on; it stays off by default, so a conversation is Korean
+  only. The gloss of a single word on hover stays as the learning aid.
+
 ## [3.1.1] — 2026-10-25
 
 ### Added

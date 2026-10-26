@@ -282,9 +282,10 @@ def _ending_class(sentence: str) -> str | None:
     s = sentence.strip().rstrip(".!?…~ ")
     if not s:
         return None
-    if re.search(r"(?:습니다|ㅂ니다|입니다|니다|습니까|니까)$", s):
+    # The Busan and Jeju dialects close 합쇼체 with -심더 / -수다 and 해요체 with -예 / -우다.
+    if re.search(r"(?:습니다|ㅂ니다|입니다|니다|습니까|니까|심더|니더|수다|수꽈|수과)$", s):
         return "합쇼체"
-    if re.search(r"요$", s):
+    if re.search(r"(?:요|예|우다|우꽈|우과)$", s):
         return "해요체"
     if re.search(r"[^니]다$", s) or re.search(r"[는ㄴ]다$", s):
         return "한다체"
