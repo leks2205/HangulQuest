@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_03_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 비가 와우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:rain"
+     ]
+    }
+   ],
+   "next": "read"
+  },
+  "read": {
+   "speaker": "villager",
+   "ko": "저는 비가 좋아우다. 집에서 책을 읽어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "sound"
+  },
+  "sound": {
+   "speaker": "villager",
+   "ko": "빗소리가 참 좋아우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "비가 좋아우다?",
+   "choices": [
+    {
+     "ko": "네, 좋아요.",
+     "next": "rain"
+    },
+    {
+     "ko": "아니요, 해가 좋아요.",
+     "next": "sun"
+    }
+   ]
+  },
+  "rain": {
+   "speaker": "villager",
+   "ko": "우와, 저도우다! 우리 같이 책을 읽어우다.",
+   "end": true
+  },
+  "sun": {
+   "speaker": "villager",
+   "ko": "해도 좋아우다! 꽃도 해를 좋아해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sun",
+      "concept:flower"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

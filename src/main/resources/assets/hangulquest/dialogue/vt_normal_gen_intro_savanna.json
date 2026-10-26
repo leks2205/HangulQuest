@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하시우다! 어서 와우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "books"
+  },
+  "books": {
+   "speaker": "villager",
+   "ko": "저는 책이 좋아우다. 집에 책이 많아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 읽어우다?",
+   "choices": [
+    {
+     "ko": "네, 자주 읽어요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 잘 안 읽어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "우와, 다행이우다! 우리 같이 읽어우다.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 그럼 제가 이야기를 해우다.",
+   "end": true
+  }
+ }
+}

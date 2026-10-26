@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_17_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하시우다! 여기는 우리 마을이우다.",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    },
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:village"
+     ]
+    }
+   ],
+   "next": "ask_name"
+  },
+  "ask_name": {
+   "speaker": "villager",
+   "ko": "이름이 뭐이우다?",
+   "typed": {
+    "free": true
+   },
+   "next": "nice"
+  },
+  "nice": {
+   "speaker": "villager",
+   "ko": "만나서 반가워우다! 이름이 참 예뻐우다.",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "점심에 빵과 사과가 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread",
+      "concept:apple"
+     ]
+    }
+   ],
+   "typed": {
+    "expected": [
+     "사과"
+    ],
+    "word": "concept:apple"
+   },
+   "next": "errand"
+  },
+  "errand": {
+   "speaker": "villager",
+   "ko": "사과를 한 개 구해 주시우다.",
+   "effects": [
+    {
+     "type": "startTrail",
+     "trail": "essenspfad"
+    },
+    {
+     "type": "exposeGrammar",
+     "point": "L2.seyo"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 구해요!",
+     "next": "thanks"
+    },
+    {
+     "ko": "미안해요, 조금 바빠요.",
+     "next": "later"
+    }
+   ]
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "고마워우다! 다행이우다.",
+   "end": true
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 내일도 좋아우다.",
+   "end": true
+  }
+ }
+}

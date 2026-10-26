@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "id": "vt_normal_ms3_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 3,
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하이소! 정말 반가워예.",
+   "next": "friend"
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "우리 이제 친구야예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "내일도 와예?",
+   "choices": [
+    {
+     "ko": "네, 내일 또 와요!",
+     "next": "yes"
+    },
+    {
+     "ko": "음, 조금 바빠요.",
+     "next": "busy"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "우와, 다행이라예! 내일은 빵을 구워예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread"
+     ]
+    }
+   ],
+   "end": true
+  },
+  "busy": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 언제든지 와예.",
+   "end": true
+  }
+ }
+}

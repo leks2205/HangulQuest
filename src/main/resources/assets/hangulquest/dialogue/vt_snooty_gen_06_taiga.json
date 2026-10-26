@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_06_taiga",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠, 하늘이 어둡심더. 곧 천둥이 칩니다.",
+   "next": "stay",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:thunder"
+     ]
+    }
+   ]
+  },
+  "stay": {
+   "speaker": "villager",
+   "ko": "천둥이 치는 날에는 밖에 나가지 않심더.",
+   "next": "witch"
+  },
+  "witch": {
+   "speaker": "villager",
+   "ko": "번개를 맞은 주민은 마녀가 됩니다.",
+   "next": "hat",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:witch"
+     ]
+    }
+   ]
+  },
+  "hat": {
+   "speaker": "villager",
+   "ko": "솔직히 마녀 모자가 싫심더. 제 취향이 아닙니다.",
+   "choices": [
+    {
+     "ko": "마녀 모자도 멋있어요.",
+     "next": "cool"
+    },
+    {
+     "ko": "저도 번개가 무서워요.",
+     "next": "scared"
+    }
+   ]
+  },
+  "cool": {
+   "speaker": "villager",
+   "ko": "어머, 그렇습니까? 나쁘지 않심더.",
+   "end": true
+  },
+  "scared": {
+   "speaker": "villager",
+   "ko": "그럼 집에 피뢰침을 두십시오. 구리 주괴로 만듭니다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:lightning_rod"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

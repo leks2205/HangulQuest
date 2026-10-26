@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_08_savanna",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "party",
+ "nodes": {
+  "party": {
+   "speaker": "villager",
+   "ko": "꺄, 들어 봐우다! 어제 종 앞에서 파티를 열었거든우다.",
+   "ko_banmal": "꺄, 들어 봐! 어제 종 앞에서 파티를 열었거든.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bell"
+     ]
+    }
+   ],
+   "next": "busy"
+  },
+  "busy": {
+   "speaker": "villager",
+   "ko": "그런데 다들 일하느라 바빠서 아무도 안 오더라고우다.",
+   "ko_banmal": "그런데 다들 일하느라 바빠서 아무도 안 오더라.",
+   "next": "golem"
+  },
+  "golem": {
+   "speaker": "villager",
+   "ko": "결국 철 골렘만 와서 제 노래를 끝까지 들어 줬어우다.",
+   "ko_banmal": "결국 철 골렘만 와서 내 노래를 끝까지 들어 줬어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron_golem"
+     ]
+    }
+   ],
+   "next": "poppy"
+  },
+  "poppy": {
+   "speaker": "villager",
+   "ko": "노래가 끝나니까 철 골렘이 양귀비를 내밀더라고우다! 정말 기뻤어우다!",
+   "ko_banmal": "노래가 끝나니까 철 골렘이 양귀비를 내밀더라! 정말 기뻤어!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "철 골렘은 제 팬일까요, 아니면 원래 친절한 걸까우다?",
+   "ko_banmal": "철 골렘은 내 팬일까, 아니면 원래 친절한 걸까?",
+   "choices": [
+    {
+     "ko": "진짜 팬이에요!",
+     "next": "fan"
+    },
+    {
+     "ko": "원래 친절해요.",
+     "next": "kind"
+    }
+   ]
+  },
+  "fan": {
+   "speaker": "villager",
+   "ko": "그렇죠? 다음 파티에는 철 골렘 자리를 맨 앞에 만들어야겠어우다!",
+   "ko_banmal": "그렇지? 다음 파티에는 철 골렘 자리를 맨 앞에 만들어야겠어!",
+   "end": true
+  },
+  "kind": {
+   "speaker": "villager",
+   "ko": "그래도 저는 팬이라고 믿을래우다! 꽃을 준 팬은 처음이거든우다!",
+   "ko_banmal": "그래도 나는 팬이라고 믿을래! 꽃을 준 팬은 처음이거든!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:flower"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

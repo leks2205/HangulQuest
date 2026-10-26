@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_04_taiga",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "saw",
+ "nodes": {
+  "saw": {
+   "speaker": "villager",
+   "ko": "어제 종 옆에서 멋진 걸 봤어예.",
+   "next": "golem"
+  },
+  "golem": {
+   "speaker": "villager",
+   "ko": "철 골렘이 아기 주민에게 꽃을 줬어예.",
+   "next": "gentleman"
+  },
+  "gentleman": {
+   "speaker": "villager",
+   "ko": "크고 무섭지만 참 신사야예.",
+   "next": "gift"
+  },
+  "gift": {
+   "speaker": "villager",
+   "ko": "저도 오늘 꽃을 하나 선물하고 싶어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "누구에게 주면 좋을까예?",
+   "choices": [
+    {
+     "ko": "아기 주민에게 주세요.",
+     "next": "child"
+    },
+    {
+     "ko": "철 골렘에게 주세요!",
+     "next": "golem_gift"
+    }
+   ]
+  },
+  "child": {
+   "speaker": "villager",
+   "ko": "좋은 생각이라예. 아이들은 꽃을 참 좋아해예.",
+   "end": true
+  },
+  "golem_gift": {
+   "speaker": "villager",
+   "ko": "후후, 좋아예. 골렘에게 참 좋은 꽃이라예.",
+   "end": true
+  }
+ }
+}

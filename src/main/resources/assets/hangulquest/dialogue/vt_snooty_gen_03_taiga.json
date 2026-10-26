@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_03_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠, 안녕하십니까.",
+   "next": "cat"
+  },
+  "cat": {
+   "speaker": "villager",
+   "ko": "요즘 고양이가 제 집에 옵니다.",
+   "next": "bed",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cat"
+     ]
+    }
+   ]
+  },
+  "bed": {
+   "speaker": "villager",
+   "ko": "그리고 제 침대 위에 앉심더.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "고양이를 좋아하십니까?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요.",
+     "next": "like"
+    },
+    {
+     "ko": "아니요, 늑대가 좋아요.",
+     "next": "wolf"
+    }
+   ]
+  },
+  "like": {
+   "speaker": "villager",
+   "ko": "흠, 저도 조금 좋아합니다. 비밀입니다.",
+   "end": true
+  },
+  "wolf": {
+   "speaker": "villager",
+   "ko": "흠, 늑대도 좋심더. 그래도 고양이가 더 우아합니다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wolf"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

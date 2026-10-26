@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_02_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "axe",
+ "nodes": {
+  "axe": {
+   "speaker": "villager",
+   "ko": "흠. 이 도끼는 아주 오래됐어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:axe"
+     ]
+    }
+   ],
+   "next": "keep"
+  },
+  "keep": {
+   "speaker": "villager",
+   "ko": "그래도 저는 도끼를 안 버려예.",
+   "next": "anvil"
+  },
+  "anvil": {
+   "speaker": "villager",
+   "ko": "모루에서 다시 고쳐예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "곡괭이는 자주 버려예?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:pickaxe"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 자주 버려요.",
+     "next": "waste"
+    },
+    {
+     "ko": "아니요, 저도 고쳐요.",
+     "next": "fix"
+    }
+   ]
+  },
+  "waste": {
+   "speaker": "villager",
+   "ko": "어허. 철이 아까워예. 다음에는 고치이소.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron"
+     ]
+    }
+   ],
+   "end": true
+  },
+  "fix": {
+   "speaker": "villager",
+   "ko": "흠. 좋아예. 도구를 아끼는 사람이 좋아예.",
+   "end": true
+  }
+ }
+}

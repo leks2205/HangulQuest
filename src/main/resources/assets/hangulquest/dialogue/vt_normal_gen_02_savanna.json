@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_02_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 어서 오시우다! 오늘은 케이크를 만들어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cake"
+     ]
+    }
+   ],
+   "next": "milk"
+  },
+  "milk": {
+   "speaker": "villager",
+   "ko": "케이크는 우유 세 양동이와 밀 세 개가 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:milk",
+      "concept:bucket"
+     ]
+    }
+   ],
+   "next": "sugar"
+  },
+  "sugar": {
+   "speaker": "villager",
+   "ko": "그리고 설탕 두 개와 달걀 한 개도 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sugar",
+      "concept:egg"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "케이크를 좋아하시우다?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 쿠키가 좋아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "다행이우다! 케이크는 일곱 조각이우다.",
+   "next": "share"
+  },
+  "share": {
+   "speaker": "villager",
+   "ko": "혼자 다 못 묵어우다. 같이 묵어우다!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "어머, 그럼 쿠키도 만들어우다. 쿠키는 쉬워우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cookie"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

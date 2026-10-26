@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_11_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "profession": "minecraft:farmer",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오, 안녕하이소. 저는 농부야예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat"
+     ]
+    }
+   ],
+   "next": "wheat"
+  },
+  "wheat": {
+   "speaker": "villager",
+   "ko": "제 밀밭은 바다 같아예. 정말 넓어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "당근과 감자가 있어예. 뭐가 좋아예?",
+   "choices": [
+    {
+     "ko": "당근이 좋아요.",
+     "next": "carrot"
+    },
+    {
+     "ko": "감자가 좋아요.",
+     "next": "potato"
+    }
+   ]
+  },
+  "carrot": {
+   "speaker": "villager",
+   "ko": "당근을 밭에 심어예. 주황색이 참 예뻐예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:carrot",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "potato": {
+   "speaker": "villager",
+   "ko": "감자도 밭에 심어예. 땅 밑에서 조용히 자라예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "밭에 물이 필요해예. 그럼 또 봐예.",
+   "end": true
+  }
+ }
+}

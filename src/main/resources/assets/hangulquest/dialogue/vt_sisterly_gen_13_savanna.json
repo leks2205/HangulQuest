@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_13_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:fisherman",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "야! 저는 어부이우다.",
+   "next": "ask",
+   "ko_banmal": "야! 나는 어부야."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "낚싯대가 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fishing_rod"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 낚싯대가 있어요.",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "lacks"
+    }
+   ],
+   "ko_banmal": "낚싯대가 있어?"
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "좋아우다! 물에서 물고기를 잡아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fish",
+      "concept:catch"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "좋아! 물에서 물고기를 잡아."
+  },
+  "lacks": {
+   "speaker": "villager",
+   "ko": "막대기와 실이 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:stick",
+      "concept:string"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "막대기와 실이 필요해."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "오늘은 물고기가 없어우다. 내일 또 와우다.",
+   "end": true,
+   "ko_banmal": "오늘은 물고기가 없어. 내일 또 와."
+  }
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_06_taiga",
+ "level": 6,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "크하하! 안녕하이소! 오늘 아주 재미있는 걸 봤어예.",
+   "ko_banmal": "크하하! 안녕! 오늘 진짜 재미있는 걸 봤어.",
+   "next": "saw"
+  },
+  "saw": {
+   "speaker": "villager",
+   "ko": "그 큰 철 골렘이 아기 주민에게 꽃을 주더라고예.",
+   "ko_banmal": "그 큰 철 골렘이 아기 주민에게 꽃을 주더라.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron_golem",
+      "concept:flower"
+     ]
+    }
+   ],
+   "next": "then"
+  },
+  "then": {
+   "speaker": "villager",
+   "ko": "저는 철 골렘이 싸움만 잘하는 줄 알았거든예.",
+   "ko_banmal": "나는 철 골렘이 싸움만 잘하는 줄 알았거든.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "진짜 강한 건 뭘까예?",
+   "ko_banmal": "진짜 강한 건 뭘까?",
+   "choices": [
+    {
+     "ko": "힘이 센 거예요.",
+     "next": "strong"
+    },
+    {
+     "ko": "착한 마음이에요.",
+     "next": "kind"
+    }
+   ]
+  },
+  "strong": {
+   "speaker": "villager",
+   "ko": "저도 그렇게 생각했어예. 그런데 오늘 생각이 바뀌더라고예.",
+   "ko_banmal": "나도 그렇게 생각했어. 그런데 오늘 생각이 바뀌더라.",
+   "next": "end"
+  },
+  "kind": {
+   "speaker": "villager",
+   "ko": "바로 그거예! 오늘 철 골렘을 보고 저도 그걸 배웠어예.",
+   "ko_banmal": "바로 그거야! 오늘 철 골렘을 보고 나도 그걸 배웠어.",
+   "next": "end"
+  },
+  "end": {
+   "speaker": "villager",
+   "ko": "제가 마음도 매일 훈련한다면, 저도 그렇게 멋진 주민이 될 수 있을 텐데예! 크하하!",
+   "ko_banmal": "내가 마음도 매일 훈련한다면, 나도 그렇게 멋진 주민이 될 수 있을 텐데! 크하하!",
+   "end": true
+  }
+ }
+}

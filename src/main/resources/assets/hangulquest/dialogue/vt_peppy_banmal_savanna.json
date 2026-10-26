@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_banmal_savanna",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "banmal_offer",
+  "friendship": 6,
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "friends",
+ "nodes": {
+  "friends": {
+   "speaker": "villager",
+   "ko": "꺄! 우리 진짜 단짝이잖아우다!",
+   "next": "offer"
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "있잖아요, 우리 말 편하게 할까우다?",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L6.banmal"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "응, 좋아!",
+     "speechLevel": "banmal",
+     "next": "yes",
+     "effects": [
+      {
+       "type": "acceptBanmal"
+      }
+     ]
+    },
+    {
+     "ko": "아니요, 지금이 좋아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "와아! 진짜 단짝 친구이우다! 진짜진짜 최고이우다!",
+   "ko_banmal": "와아! 진짜 단짝 친구야! 진짜진짜 최고야!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 그래도 우리는 단짝이우다. 마음이 바뀌면 말해 줘우다!",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_02_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "야! 울타리가 조금 부서졌어우다.",
+   "ko_banmal": "야! 울타리가 조금 부서졌어.",
+   "next": "fence"
+  },
+  "fence": {
+   "speaker": "villager",
+   "ko": "밤에 좀비가 와우다. 울타리를 고쳐우다.",
+   "ko_banmal": "밤에 좀비가 와. 울타리를 고쳐.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fence",
+      "concept:zombie"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "같이 고쳐우다?",
+   "ko_banmal": "같이 고쳐?",
+   "choices": [
+    {
+     "ko": "네, 제가 도와요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 저는 방패를 만들어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "고마워우다! 이제 같이 고쳐우다.",
+   "ko_banmal": "고마워! 이제 같이 고쳐.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "좋아우다. 밤에 집에 있어우다.",
+   "ko_banmal": "좋아. 밤에 집에 있어.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_05_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "room",
+ "nodes": {
+  "room": {
+   "speaker": "villager",
+   "ko": "후후, 제 방을 봤어예? 보라색 양탄자로 꾸몄어예.",
+   "next": "mix"
+  },
+  "mix": {
+   "speaker": "villager",
+   "ko": "빨간색과 파란색을 섞었어예.",
+   "next": "lapis"
+  },
+  "lapis": {
+   "speaker": "villager",
+   "ko": "파란색은 청금석으로 만들어예.",
+   "next": "jewel"
+  },
+  "jewel": {
+   "speaker": "villager",
+   "ko": "그래서 제 방은 보석 같아예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무슨 색이 좋아예?",
+   "choices": [
+    {
+     "ko": "저는 초록색이 좋아요.",
+     "next": "green"
+    },
+    {
+     "ko": "저는 검은색이 좋아요.",
+     "next": "black"
+    }
+   ]
+  },
+  "green": {
+   "speaker": "villager",
+   "ko": "오, 초록색! 에메랄드 색이라예. 멋진 선택이라예.",
+   "end": true
+  },
+  "black": {
+   "speaker": "villager",
+   "ko": "검은색도 멋있어예. 밤하늘 같은 색이라예.",
+   "end": true
+  }
+ }
+}

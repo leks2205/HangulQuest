@@ -1,74 +1,74 @@
 {
-	"schema": 1,
-	"id": "vt_sisterly_taiga_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"SISTERLY"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "어이! 숲이 조용해요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "spruce"
-		},
-		"spruce": {
-			"speaker": "villager",
-			"ko": "여기는 가문비나무가 많아요. 달콤한 열매도 있어요. 덤불에 가시가 많아요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_spruce_wood",
-						"concept:forest",
-						"concept:sweet_berries"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "달콤한 열매가 좋아요?",
-			"choices": [
-				{
-					"ko": "네, 정말 좋아요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 저는 모닥불이 좋아요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "좋아요. 천천히 먹어요. 가시가 있어요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "그럼 모닥불에 앉아요. 따뜻해요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_sisterly_taiga_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 숲이 조용해예.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "spruce"
+  },
+  "spruce": {
+   "speaker": "villager",
+   "ko": "여기는 가문비나무가 많아예. 달콤한 열매도 있어예. 덤불에 가시가 많아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_spruce_wood",
+      "concept:forest",
+      "concept:sweet_berries"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "달콤한 열매가 좋아예?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 저는 모닥불이 좋아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예. 천천히 묵어예. 가시가 있어예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "그럼 모닥불에 앉아예. 따뜻해예.",
+   "end": true
+  }
+ }
 }

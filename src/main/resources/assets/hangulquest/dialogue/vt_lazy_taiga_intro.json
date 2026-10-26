@@ -1,72 +1,72 @@
 {
-	"schema": 1,
-	"id": "vt_lazy_taiga_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"LAZY"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "음, 안녕하세요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "berry"
-		},
-		"berry": {
-			"speaker": "villager",
-			"ko": "달콤한 열매가 좋아요. 그런데 덤불이 따가워요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:sweet_berries"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "열매 좋아해요?",
-			"choices": [
-				{
-					"ko": "네, 좋아해요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 안 좋아해요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "그럼 같이 따요. 천천히, 천천히.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "괜찮아요. 제가 다 먹어요. 헤헤.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_lazy_taiga_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "음, 안녕하이소.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "berry"
+  },
+  "berry": {
+   "speaker": "villager",
+   "ko": "달콤한 열매가 좋아예. 그런데 덤불이 따가워예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sweet_berries"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "열매 좋아해예?",
+   "choices": [
+    {
+     "ko": "네, 좋아해요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 안 좋아해요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "그럼 같이 따예. 천천히, 천천히.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 제가 다 묵어예. 헤헤.",
+   "end": true
+  }
+ }
 }

@@ -1,43 +1,67 @@
 {
-	"schema": 1,
-	"id": "vt_cranky_taiga_01",
-	"level": 4,
-	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["TAIGA"]},
-	"start": "fox",
-	"nodes": {
-		"fox": {
-			"speaker": "villager",
-			"ko": "어허, 참. 여우가 또 달콤한 열매를 먹었어요.",
-			"effects": [{"type": "exposeWords", "words": ["concept:fox", "concept:sweet_berries"]}],
-			"next": "night"
-		},
-		"night": {
-			"speaker": "villager",
-			"ko": "여우는 낮에 자고 밤에 나오거든요.",
-			"next": "plan"
-		},
-		"plan": {
-			"speaker": "villager",
-			"ko": "그래서 밤에 덤불 옆에 앉아 있었지만, 제가 먼저 잠들었어요.",
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "웃지 마세요. 여우 좋아해요?",
-			"choices": [
-				{"ko": "네, 귀엽잖아요.", "next": "cute"},
-				{"ko": "아니요, 저도 싫어요.", "next": "hate"}
-			]
-		},
-		"cute": {
-			"speaker": "villager",
-			"ko": "흠. 자는 얼굴은 좀 귀엽지만, 열매는 안 돼요.",
-			"end": true
-		},
-		"hate": {
-			"speaker": "villager",
-			"ko": "그렇죠? 내일은 아침 일찍 다 딸 거예요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_cranky_taiga_01",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "fox",
+ "nodes": {
+  "fox": {
+   "speaker": "villager",
+   "ko": "어허, 참. 여우가 또 달콤한 열매를 묵었어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fox",
+      "concept:sweet_berries"
+     ]
+    }
+   ],
+   "next": "night"
+  },
+  "night": {
+   "speaker": "villager",
+   "ko": "여우는 낮에 자고 밤에 나오거든예.",
+   "next": "plan"
+  },
+  "plan": {
+   "speaker": "villager",
+   "ko": "그래서 밤에 덤불 옆에 앉아 있었지만, 제가 먼저 잠들었어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "웃지 마이소. 여우 좋아해예?",
+   "choices": [
+    {
+     "ko": "네, 귀엽잖아요.",
+     "next": "cute"
+    },
+    {
+     "ko": "아니요, 저도 싫어요.",
+     "next": "hate"
+    }
+   ]
+  },
+  "cute": {
+   "speaker": "villager",
+   "ko": "흠. 자는 얼굴은 좀 귀엽지만, 열매는 안 돼예.",
+   "end": true
+  },
+  "hate": {
+   "speaker": "villager",
+   "ko": "그렇죠? 내일은 아침 일찍 다 딸 거예.",
+   "end": true
+  }
+ }
 }

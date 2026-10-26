@@ -16,8 +16,11 @@ public enum SpeechLevel {
 	HAPSYO("hapsyo"),
 	PLAIN("plain");
 
-	private static final Pattern HAPSYO_END = Pattern.compile("(?:습니다|ㅂ니다|입니다|니다|습니까|니까|십시오)$");
-	private static final Pattern HAEYO_END = Pattern.compile("요$");
+	// The regional dialects end formally with -심더 (Busan) and -수다/-수꽈 (Jeju); both are the local 합쇼체.
+	private static final Pattern HAPSYO_END = Pattern.compile(
+			"(?:습니다|ㅂ니다|입니다|니다|습니까|니까|십시오|심더|니더|수다|수꽈|수과)$");
+	// -예 closes 해요체 in Busan, -우다/-우꽈 in Jeju. Checked before the plain -다 pattern below.
+	private static final Pattern HAEYO_END = Pattern.compile("(?:요|예|우다|우꽈|우과)$");
 	private static final Pattern PLAIN_END = Pattern.compile("[^니]다$|[는ㄴ]다$");
 	private static final Pattern BANMAL_END = Pattern.compile("(?:해|어|아|야|지|네|래|니|냐|자|라)$");
 	private static final Pattern SENTENCE_BREAK = Pattern.compile("(?<=[.!?])\\s*");

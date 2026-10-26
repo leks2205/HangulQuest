@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_03_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 비가 와예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:rain"
+     ]
+    }
+   ],
+   "next": "read"
+  },
+  "read": {
+   "speaker": "villager",
+   "ko": "저는 비가 좋아예. 집에서 책을 읽어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "sound"
+  },
+  "sound": {
+   "speaker": "villager",
+   "ko": "빗소리가 참 좋아예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "비가 좋아예?",
+   "choices": [
+    {
+     "ko": "네, 좋아요.",
+     "next": "rain"
+    },
+    {
+     "ko": "아니요, 해가 좋아요.",
+     "next": "sun"
+    }
+   ]
+  },
+  "rain": {
+   "speaker": "villager",
+   "ko": "우와, 저도예! 우리 같이 책을 읽어예.",
+   "end": true
+  },
+  "sun": {
+   "speaker": "villager",
+   "ko": "해도 좋아예! 꽃도 해를 좋아해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sun",
+      "concept:flower"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

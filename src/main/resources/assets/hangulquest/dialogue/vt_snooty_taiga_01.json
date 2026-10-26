@@ -1,74 +1,74 @@
 {
-	"schema": 1,
-	"id": "vt_snooty_taiga_01",
-	"level": 3,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"SNOOTY"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "어머, 마침 잘 오셨습니다.",
-			"next": "fox"
-		},
-		"fox": {
-			"speaker": "villager",
-			"ko": "어제 가문비나무 아래에서 여우를 보았습니다.",
-			"next": "mouth",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:fox"
-					]
-				}
-			]
-		},
-		"mouth": {
-			"speaker": "villager",
-			"ko": "입에 달콤한 열매를 물고 있었습니다.",
-			"next": "ask",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:sweet_berries"
-					]
-				}
-			]
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "여우를 보셨습니까?",
-			"choices": [
-				{
-					"ko": "네, 낮에 자고 있었어요.",
-					"next": "seen"
-				},
-				{
-					"ko": "아니요, 아직 못 봤어요.",
-					"next": "notyet"
-				}
-			]
-		},
-		"seen": {
-			"speaker": "villager",
-			"ko": "맞습니다. 여우는 낮에 자고 밤에 다닙니다. 우아한 생활입니다.",
-			"end": true
-		},
-		"notyet": {
-			"speaker": "villager",
-			"ko": "그럼 가문비나무 아래를 보십시오. 낮에 거기서 잡니다.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_snooty_taiga_01",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 마침 잘 오셨심더.",
+   "next": "fox"
+  },
+  "fox": {
+   "speaker": "villager",
+   "ko": "어제 가문비나무 아래에서 여우를 보았심더.",
+   "next": "mouth",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fox"
+     ]
+    }
+   ]
+  },
+  "mouth": {
+   "speaker": "villager",
+   "ko": "입에 달콤한 열매를 물고 있었심더.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sweet_berries"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "여우를 보셨습니까?",
+   "choices": [
+    {
+     "ko": "네, 낮에 자고 있었어요.",
+     "next": "seen"
+    },
+    {
+     "ko": "아니요, 아직 못 봤어요.",
+     "next": "notyet"
+    }
+   ]
+  },
+  "seen": {
+   "speaker": "villager",
+   "ko": "맞심더. 여우는 낮에 자고 밤에 다닙니다. 우아한 생활입니다.",
+   "end": true
+  },
+  "notyet": {
+   "speaker": "villager",
+   "ko": "그럼 가문비나무 아래를 보십시오. 낮에 거기서 잡니다.",
+   "end": true
+  }
+ }
 }

@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_01_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하십니까.",
+   "next": "gem"
+  },
+  "gem": {
+   "speaker": "villager",
+   "ko": "저는 보석을 좋아합니다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무엇을 좋아하십니까?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:diamond",
+      "concept:emerald"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "다이아몬드가 좋아요.",
+     "next": "diamond"
+    },
+    {
+     "ko": "에메랄드가 좋아요.",
+     "next": "emerald"
+    }
+   ]
+  },
+  "diamond": {
+   "speaker": "villager",
+   "ko": "호호, 다이아몬드는 단단합니다. 나쁘지 않심더.",
+   "end": true
+  },
+  "emerald": {
+   "speaker": "villager",
+   "ko": "어머, 저도 에메랄드가 좋심더. 주민은 에메랄드로 물건을 팝니다.",
+   "end": true
+  }
+ }
+}

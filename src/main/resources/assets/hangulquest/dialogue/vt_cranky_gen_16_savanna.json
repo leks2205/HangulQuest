@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_16_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "profession": "minecraft:cleric",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "guest",
+ "nodes": {
+  "guest": {
+   "speaker": "villager",
+   "ko": "흠, 또 시끄러운 손님이네우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저는 금을 사우다. 금 주괴 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gold"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 금이 있어요.",
+     "next": "trade"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "trade": {
+   "speaker": "villager",
+   "ko": "금 주괴 세 개에 에메랄드 한 개이우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "haggle"
+  },
+  "haggle": {
+   "speaker": "villager",
+   "ko": "흥정은 안 해우다. 나 원 참.",
+   "next": "bye"
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "그럼 동굴에서 금을 찾아우다. 금은 땅속에 있어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave",
+      "concept:find"
+     ]
+    }
+   ],
+   "next": "torch"
+  },
+  "torch": {
+   "speaker": "villager",
+   "ko": "동굴은 어두워우다. 횃불을 꼭 가져가시우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "흠. 그럼 안녕히 가시우다.",
+   "end": true
+  }
+ }
+}

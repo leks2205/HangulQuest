@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "vt_normal_ms10_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 10,
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 오셨네예. 잠깐 이야기할 수 있어예?",
+   "next": "worry"
+  },
+  "worry": {
+   "speaker": "villager",
+   "ko": "저는 걱정이 정말 많지예?",
+   "next": "night"
+  },
+  "night": {
+   "speaker": "villager",
+   "ko": "예전에는 밤에 좀비 소리를 듣고 잠을 못 잤어예.",
+   "next": "came"
+  },
+  "came": {
+   "speaker": "villager",
+   "ko": "그런데 우리 마을에 오셨어예. 그리고 마을이 밝아졌어예.",
+   "next": "now"
+  },
+  "now": {
+   "speaker": "villager",
+   "ko": "이제 밤이 하나도 안 무서워예. 정말 고마워예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "그래서 오늘은 꼭 이야기하고 싶었어예.",
+   "choices": [
+    {
+     "ko": "저도 고마워요.",
+     "next": "thanks"
+    },
+    {
+     "ko": "우리는 친구예요!",
+     "next": "friends"
+    }
+   ]
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "어머나, 제가 더 고마워예. 내일도 꼭 와예. 빵을 구울 거예.",
+   "end": true
+  },
+  "friends": {
+   "speaker": "villager",
+   "ko": "맞아예! 우리는 친구야예. 저는 그게 제일 행복해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

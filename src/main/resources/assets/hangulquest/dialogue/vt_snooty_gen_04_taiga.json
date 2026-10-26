@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_04_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 오셨습니까. 제 집을 보십시오.",
+   "next": "lantern"
+  },
+  "lantern": {
+   "speaker": "villager",
+   "ko": "어제 천장에 랜턴을 걸었심더.",
+   "next": "quartz",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:lantern"
+     ]
+    }
+   ]
+  },
+  "quartz": {
+   "speaker": "villager",
+   "ko": "벽은 석영 블록입니다. 바닥에는 보라색 양탄자가 있심더.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_quartz_block"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어떻습니까?",
+   "choices": [
+    {
+     "ko": "아주 예뻐요.",
+     "next": "pretty"
+    },
+    {
+     "ko": "조금 어두워요.",
+     "next": "dark"
+    }
+   ]
+  },
+  "pretty": {
+   "speaker": "villager",
+   "ko": "호호, 보는 눈이 있으십니다. 나쁘지 않심더.",
+   "end": true
+  },
+  "dark": {
+   "speaker": "villager",
+   "ko": "어머, 그렇습니까? 그럼 랜턴을 하나 더 걸겠심더.",
+   "end": true
+  }
+ }
+}

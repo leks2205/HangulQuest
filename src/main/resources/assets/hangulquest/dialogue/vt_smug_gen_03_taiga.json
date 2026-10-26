@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_03_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "made",
+ "nodes": {
+  "made": {
+   "speaker": "villager",
+   "ko": "오, 마침 잘 왔어예. 소리 블록을 만들었어예.",
+   "next": "gold"
+  },
+  "gold": {
+   "speaker": "villager",
+   "ko": "밑에 금 블록을 놓았어예. 종소리가 나예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "한번 들어 볼까예?",
+   "choices": [
+    {
+     "ko": "네, 좋아요!",
+     "next": "play"
+    },
+    {
+     "ko": "다른 소리도 있어요?",
+     "next": "other"
+    }
+   ]
+  },
+  "play": {
+   "speaker": "villager",
+   "ko": "띵, 띵, 띵!",
+   "next": "clear"
+  },
+  "clear": {
+   "speaker": "villager",
+   "ko": "후후, 소리가 참 맑네예.",
+   "end": true
+  },
+  "other": {
+   "speaker": "villager",
+   "ko": "있어예. 양털 위의 소리 블록은 기타 소리가 나예.",
+   "next": "duet"
+  },
+  "duet": {
+   "speaker": "villager",
+   "ko": "내일은 같이 연주할까예?",
+   "end": true
+  }
+ }
+}

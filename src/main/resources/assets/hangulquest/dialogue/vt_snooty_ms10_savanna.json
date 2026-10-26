@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_ms10_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "friendship": 10,
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 오셨습니까. 기다리고 있었수다.",
+   "next": "cold"
+  },
+  "cold": {
+   "speaker": "villager",
+   "ko": "처음에 저는 조금 차갑게 굴었수다.",
+   "next": "thanks"
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "그래도 매일 찾아와 주셨수다. 제 꽃도 칭찬해 주셨수다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "제 말버릇을 아십니까?",
+   "choices": [
+    {
+     "ko": "나쁘지 않아요?",
+     "next": "knows"
+    },
+    {
+     "ko": "음, 잘 모르겠어요.",
+     "next": "guess"
+    }
+   ]
+  },
+  "knows": {
+   "speaker": "villager",
+   "ko": "호호, 맞수다. 그런데 오늘은 그 말로는 부족합니다.",
+   "next": "honest"
+  },
+  "guess": {
+   "speaker": "villager",
+   "ko": "호호, 바로 그 말이수다. 그런데 오늘은 그 말로는 부족합니다.",
+   "next": "honest"
+  },
+  "honest": {
+   "speaker": "villager",
+   "ko": "솔직하게 말하겠수다. 저는 행복합니다. 정말 고맙수다.",
+   "end": true
+  }
+ }
+}

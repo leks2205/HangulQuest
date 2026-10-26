@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_14_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "professions": [
+   "minecraft:weaponsmith",
+   "minecraft:toolsmith"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 저는 대장장이이우다.",
+   "next": "ask",
+   "ko_banmal": "어이! 나는 대장장이야."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "뭐가 필요해우다?",
+   "choices": [
+    {
+     "ko": "검이 필요해요.",
+     "next": "sword"
+    },
+    {
+     "ko": "곡괭이가 필요해요.",
+     "next": "pickaxe"
+    }
+   ],
+   "ko_banmal": "뭐가 필요해?"
+  },
+  "sword": {
+   "speaker": "villager",
+   "ko": "철 주괴 두 개와 막대기 한 개가 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sword",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "철 주괴 두 개와 막대기 한 개가 필요해."
+  },
+  "pickaxe": {
+   "speaker": "villager",
+   "ko": "철 주괴 세 개와 막대기 두 개가 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:pickaxe",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "철 주괴 세 개와 막대기 두 개가 필요해."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "잘 가우다! 도구를 조심해우다!",
+   "end": true,
+   "ko_banmal": "잘 가! 도구를 조심해!"
+  }
+ }
+}

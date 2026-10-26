@@ -1,74 +1,74 @@
 {
-	"schema": 1,
-	"id": "vt_sisterly_savanna_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"SISTERLY"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "어이! 여기는 나무가 높아요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "tree"
-		},
-		"tree": {
-			"speaker": "villager",
-			"ko": "아카시아나무는 위가 넓어요. 수박이 아주 달아요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_savanna",
-						"concept:leaves",
-						"concept:melon"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "수박 조각 먹고 싶어요?",
-			"choices": [
-				{
-					"ko": "네, 먹고 싶어요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 저는 물을 마시고 싶어요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "자, 수박이 많아요. 많이 먹어요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "물도 좋아요. 아주 시원해요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_sisterly_savanna_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 여기는 나무가 높아우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "tree"
+  },
+  "tree": {
+   "speaker": "villager",
+   "ko": "아카시아나무는 위가 넓어우다. 수박이 아주 달아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_savanna",
+      "concept:leaves",
+      "concept:melon"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "수박 조각 묵고 싶어우다?",
+   "choices": [
+    {
+     "ko": "네, 먹고 싶어요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 저는 물을 마시고 싶어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "자, 수박이 많아우다. 하영 묵어우다.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "물도 좋아우다. 아주 시원해우다.",
+   "end": true
+  }
+ }
 }

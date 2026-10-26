@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠. 안녕하시우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "quiet"
+  },
+  "quiet": {
+   "speaker": "villager",
+   "ko": "저는 조용한 게 좋아우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "혹시 시끄러운 사람이우다?",
+   "choices": [
+    {
+     "ko": "아니요, 조용해요.",
+     "next": "bye_quiet"
+    },
+    {
+     "ko": "네, 조금 시끄러워요.",
+     "next": "bye_loud"
+    }
+   ]
+  },
+  "bye_quiet": {
+   "speaker": "villager",
+   "ko": "흠. 좋아우다. 그럼 또 와우다.",
+   "end": true
+  },
+  "bye_loud": {
+   "speaker": "villager",
+   "ko": "에잉. 그럼 조용히 와우다.",
+   "end": true
+  }
+ }
+}

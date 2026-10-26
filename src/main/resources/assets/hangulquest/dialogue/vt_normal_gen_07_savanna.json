@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_07_savanna",
+ "level": 6,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 오셨네우다. 오늘 아침에 신기한 일을 봤거든우다.",
+   "next": "golem"
+  },
+  "golem": {
+   "speaker": "villager",
+   "ko": "철 골렘이 아기 주민 앞으로 걸어오더라고우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron_golem"
+     ]
+    }
+   ],
+   "next": "flower"
+  },
+  "flower": {
+   "speaker": "villager",
+   "ko": "그러더니 큰 손으로 꽃을 한 송이 줬어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:flower"
+     ]
+    }
+   ],
+   "next": "smile"
+  },
+  "smile": {
+   "speaker": "villager",
+   "ko": "아이가 그 꽃을 받고 웃었어우다.",
+   "next": "think"
+  },
+  "think": {
+   "speaker": "villager",
+   "ko": "밖은 무서워도 속은 따뜻할 수 있구나 싶었어우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "철 골렘이 무서워우다?",
+   "choices": [
+    {
+     "ko": "네, 조금 무서워요.",
+     "next": "scared"
+    },
+    {
+     "ko": "아니요, 든든해요.",
+     "next": "safe"
+    }
+   ]
+  },
+  "scared": {
+   "speaker": "villager",
+   "ko": "그래도 좀비가 오면 제일 먼저 싸워 주는 게 철 골렘이우다.",
+   "end": true
+  },
+  "safe": {
+   "speaker": "villager",
+   "ko": "맞아우다. 철 골렘이 있으니까 밤이 하나도 안 무섭더라고우다.",
+   "end": true
+  }
+ }
+}

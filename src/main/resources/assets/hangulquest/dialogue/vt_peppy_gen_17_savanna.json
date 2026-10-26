@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_17_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "꺄! 안녕하시우다! 만나서 반가워우다! 저는 이 마을 가수이우다!",
+   "ko_banmal": "꺄! 안녕! 만나서 반가워! 나는 이 마을 가수야!",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "ask_name"
+  },
+  "ask_name": {
+   "speaker": "villager",
+   "ko": "이름이 뭐이우다?",
+   "ko_banmal": "이름이 뭐야?",
+   "typed": {
+    "free": true
+   },
+   "next": "song"
+  },
+  "song": {
+   "speaker": "villager",
+   "ko": "저는 노래가 정말 좋아우다! 노래 좋아우다?",
+   "ko_banmal": "나는 노래가 정말 좋아! 노래 좋아?",
+   "choices": [
+    {
+     "ko": "네, 좋아요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 안 좋아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "꺄! 그럼 우리 친구이우다!",
+   "ko_banmal": "꺄! 그럼 우리 친구야!",
+   "next": "need"
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 그래도 우리 친구이우다!",
+   "ko_banmal": "괜찮아! 그래도 우리 친구야!",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "오늘 파티를 해우다! 빵과 사과가 필요해우다!",
+   "ko_banmal": "오늘 파티를 해! 빵과 사과가 필요해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread",
+      "concept:apple"
+     ]
+    }
+   ],
+   "typed": {
+    "expected": [
+     "사과"
+    ],
+    "word": "concept:apple"
+   },
+   "next": "errand"
+  },
+  "errand": {
+   "speaker": "villager",
+   "ko": "사과를 한 개 구해 주시우다!",
+   "ko_banmal": "사과를 한 개 구해 줘!",
+   "effects": [
+    {
+     "type": "startTrail",
+     "trail": "essenspfad"
+    },
+    {
+     "type": "exposeGrammar",
+     "point": "L2.seyo"
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "고마워우다! 진짜진짜 최고이우다! 또 봐우다!",
+   "ko_banmal": "고마워! 진짜진짜 최고야! 또 봐!",
+   "end": true
+  }
+ }
+}

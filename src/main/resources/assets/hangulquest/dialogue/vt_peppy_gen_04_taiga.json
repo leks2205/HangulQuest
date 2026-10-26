@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_04_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머어머! 마침 잘 왔어예!",
+   "ko_banmal": "어머어머! 마침 잘 왔어!",
+   "next": "practice"
+  },
+  "practice": {
+   "speaker": "villager",
+   "ko": "어제 종이에 사인을 백 번 연습했어예!",
+   "ko_banmal": "어제 종이에 사인을 백 번 연습했어!",
+   "next": "dream",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:paper"
+     ]
+    }
+   ]
+  },
+  "dream": {
+   "speaker": "villager",
+   "ko": "저는 꼭 가수가 될 거예!",
+   "ko_banmal": "나는 꼭 가수가 될 거야!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "제 사인 받고 싶어예?",
+   "ko_banmal": "내 사인 받고 싶어?",
+   "choices": [
+    {
+     "ko": "네, 받고 싶어요!",
+     "next": "fan"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "later"
+    }
+   ]
+  },
+  "fan": {
+   "speaker": "villager",
+   "ko": "꺄! 그럼 첫 번째 팬이라예! 진짜진짜 최고야예!",
+   "ko_banmal": "꺄! 그럼 첫 번째 팬이야! 진짜진짜 최고야!",
+   "end": true
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아예! 내일은 사인이 더 예쁠 거예!",
+   "ko_banmal": "괜찮아! 내일은 사인이 더 예쁠 거야!",
+   "end": true
+  }
+ }
+}

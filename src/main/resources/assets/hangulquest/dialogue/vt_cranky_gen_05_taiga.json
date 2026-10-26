@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_05_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "face",
+ "nodes": {
+  "face": {
+   "speaker": "villager",
+   "ko": "흠, 얼굴이 안 좋네예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "오늘 뭐 좀 묵었어예?",
+   "choices": [
+    {
+     "ko": "아니요, 아직 안 먹었어요.",
+     "next": "notyet"
+    },
+    {
+     "ko": "네, 빵을 먹었어요.",
+     "next": "bread"
+    }
+   ]
+  },
+  "notyet": {
+   "speaker": "villager",
+   "ko": "어허, 그래서 얼굴이 하얗네예.",
+   "next": "stew"
+  },
+  "bread": {
+   "speaker": "villager",
+   "ko": "빵만 묵었어예? 그건 부족하죠.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread"
+     ]
+    }
+   ],
+   "next": "stew"
+  },
+  "stew": {
+   "speaker": "villager",
+   "ko": "버섯 스튜는 버섯 두 개와 그릇으로 만들어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:mushroom",
+      "concept:bowl"
+     ]
+    }
+   ],
+   "next": "worry"
+  },
+  "worry": {
+   "speaker": "villager",
+   "ko": "흠, 걱정하는 거 아니에예. 그냥 하는 말이라예.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_smug_ms6_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "personalities": [
+   "SMUG"
+  ],
+  "friendship": 6,
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "waited",
+ "nodes": {
+  "waited": {
+   "speaker": "villager",
+   "ko": "아아, 기다렸어예.",
+   "next": "orchid"
+  },
+  "orchid": {
+   "speaker": "villager",
+   "ko": "어제 파란색 난초를 화분에 심었어예.",
+   "next": "thought"
+  },
+  "thought": {
+   "speaker": "villager",
+   "ko": "그리고 친구가 생각났어예.",
+   "next": "here"
+  },
+  "here": {
+   "speaker": "villager",
+   "ko": "그 친구는 지금 제 앞에 있어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "그 난초를 보고 싶어예?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 오늘은 바빠요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "후후, 창가에 있어예. 이쪽으로 와예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 난초는 내일도 예뻐예.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_13_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "profession": "minecraft:fisherman",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "하하! 안녕하시우다! 저는 어부이우다!",
+   "ko_banmal": "하하! 안녕! 나는 어부야!",
+   "next": "arms"
+  },
+  "arms": {
+   "speaker": "villager",
+   "ko": "낚시는 좋은 팔 운동이우다!",
+   "ko_banmal": "낚시는 좋은 팔 운동이야!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "낚싯대가 있어우다?",
+   "ko_banmal": "낚싯대가 있어?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fishing_rod"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 있어요!",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "lacks"
+    }
+   ]
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "좋아우다! 물에서 물고기를 잡아우다! 저는 오늘 아침에 열 마리 잡았어우다!",
+   "ko_banmal": "좋아! 물에서 물고기를 잡아! 나는 오늘 아침에 열 마리 잡았어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fish",
+      "concept:catch"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "lacks": {
+   "speaker": "villager",
+   "ko": "그럼 만드시우다! 막대기와 실이 필요해우다!",
+   "ko_banmal": "그럼 만들어! 막대기와 실이 필요해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:stick",
+      "concept:string"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "물고기를 묵어우다! 힘이 나우다! 또 만나우다! 하나, 둘! 하나, 둘!",
+   "ko_banmal": "물고기를 묵어! 힘이 나! 또 만나! 하나, 둘! 하나, 둘!",
+   "end": true
+  }
+ }
+}

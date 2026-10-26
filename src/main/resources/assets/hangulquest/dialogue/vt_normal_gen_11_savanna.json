@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_11_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "profession": "minecraft:farmer",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하시우다! 저는 농부이우다.",
+   "next": "wheat"
+  },
+  "wheat": {
+   "speaker": "villager",
+   "ko": "밭에 밀이 많아우다. 다행이우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "당근과 감자도 있어우다. 뭐가 필요해우다?",
+   "choices": [
+    {
+     "ko": "당근이 필요해요.",
+     "next": "carrot"
+    },
+    {
+     "ko": "감자가 필요해요.",
+     "next": "potato"
+    }
+   ]
+  },
+  "carrot": {
+   "speaker": "villager",
+   "ko": "당근은 밭에 심어우다. 물 옆에서 잘 자라우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:carrot",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "rabbit"
+  },
+  "potato": {
+   "speaker": "villager",
+   "ko": "감자도 밭에 심어우다. 감자도 물이 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "rabbit"
+  },
+  "rabbit": {
+   "speaker": "villager",
+   "ko": "그런데 밤에 토끼가 와우다. 토끼는 당근을 좋아해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:rabbit"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 토끼도 친구이우다. 잘 가우다!",
+   "end": true
+  }
+ }
+}

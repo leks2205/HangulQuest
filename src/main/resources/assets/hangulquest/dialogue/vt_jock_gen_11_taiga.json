@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_11_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "profession": "minecraft:farmer",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "이얍! 안녕하이소! 저는 농부야예!",
+   "ko_banmal": "이얍! 안녕! 나는 농부야!",
+   "next": "field"
+  },
+  "field": {
+   "speaker": "villager",
+   "ko": "저는 매일 밭에서 운동해예! 밀도 많아예!",
+   "ko_banmal": "나는 매일 밭에서 운동해! 밀도 많아!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "당근과 감자가 있어예. 뭐가 좋아예?",
+   "ko_banmal": "당근과 감자가 있어. 뭐가 좋아?",
+   "choices": [
+    {
+     "ko": "당근이 좋아요!",
+     "next": "carrot"
+    },
+    {
+     "ko": "감자가 좋아요!",
+     "next": "potato"
+    }
+   ]
+  },
+  "carrot": {
+   "speaker": "villager",
+   "ko": "좋아예! 당근을 밭에 심어예! 앉아예! 일어나예!",
+   "ko_banmal": "좋아! 당근을 밭에 심자! 앉아! 일어나! 하나, 둘!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:carrot",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "potato": {
+   "speaker": "villager",
+   "ko": "좋아예! 감자도 밭에 심어예! 감자도 잘 자라예!",
+   "ko_banmal": "좋아! 감자도 밭에 심자! 감자도 잘 자라!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "밭에 물이 필요해예! 저는 양동이를 들어예. 그리고 달려예! 하나, 둘! 하나, 둘!",
+   "ko_banmal": "밭에 물이 필요해! 나는 양동이를 들어. 그리고 달려! 하나, 둘! 하나, 둘!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:water",
+      "concept:bucket"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

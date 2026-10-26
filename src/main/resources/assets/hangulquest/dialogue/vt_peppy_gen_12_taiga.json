@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_12_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "profession": "minecraft:librarian",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어서 오이소! 저는 사서야예! 책이 정말 좋아예!",
+   "ko_banmal": "어서 와! 나는 사서야! 책이 정말 좋아!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "노래책을 만들고 싶어예! 그런데 책이 더 필요해예.",
+   "ko_banmal": "노래책을 만들고 싶어! 그런데 책이 더 필요해.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 한 권 가져와 주이소!",
+   "ko_banmal": "책을 한 권 가져와 줘!",
+   "choices": [
+    {
+     "ko": "네, 가져올 거예요.",
+     "next": "offer"
+    },
+    {
+     "ko": "지금은 없어요.",
+     "next": "none"
+    }
+   ]
+  },
+  "none": {
+   "speaker": "villager",
+   "ko": "괜찮아예! 다음에 가져와 주이소!",
+   "ko_banmal": "괜찮아! 다음에 가져와 줘!",
+   "next": "offer"
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "특별한 책도 있어예! 반짝반짝해예! 보고 싶어예?",
+   "ko_banmal": "특별한 책도 있어! 반짝반짝해! 보고 싶어?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요!",
+     "next": "show"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "thanks"
+    }
+   ]
+  },
+  "show": {
+   "speaker": "villager",
+   "ko": "에메랄드와 책이 필요해예! 반짝반짝 특별한 책이라예!",
+   "ko_banmal": "에메랄드와 책이 필요해! 반짝반짝 특별한 책이야!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "thanks"
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "고마워예! 또 와예! 진짜진짜 최고야예!",
+   "ko_banmal": "고마워! 또 와! 진짜진짜 최고야!",
+   "end": true
+  }
+ }
+}

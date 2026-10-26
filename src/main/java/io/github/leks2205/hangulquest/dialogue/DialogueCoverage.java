@@ -44,14 +44,35 @@ public final class DialogueCoverage {
 
 	/** Particles, copulas and endings that may follow a stem. Closed on purpose: a new one is added when a line needs it. */
 	static final Set<String> TAILS = Set.of(
-			"", "이", "가", "은", "는", "을", "를", "도", "만", "의", "에", "에서", "에게", "에게는", "와", "과",
-			"로", "으로", "예요", "이에요", "야", "이야", "입니다", "요", "어요", "아요", "해요", "해", "세요",
-			"으세요", "습니까", "시겠습니까", "십시오", "겠습니다", "습니다", "합니다", "니다", "자",
-			// The regional dialects the taiga and savanna villages speak (Busan / Gyeongsang, Jeju). They attach
-			// to the same standard stems, so a dialect line stays measurable against the same vocabulary.
-			"어예", "아예", "하예", "지예", "네예", "거든예", "야예", "이라예",
-			"이소", "하이소", "마이소", "심더", "하냐", "오나", "하노",
-			"수다", "우다", "수과", "우꽈", "시우다", "크라", "하영", "혼저", "아이가");
+			"", "이", "가", "은", "는", "을",
+			"를", "도", "만", "의", "에", "에서",
+			"에게", "에게는", "와", "과", "로", "으로",
+			"예요", "이에요", "야", "이야", "입니다", "요",
+			"어요", "아요", "해요", "해", "세요", "으세요",
+			"습니까", "시겠습니까", "십시오", "겠습니다", "습니다", "합니다",
+			"니다", "자", "어예", "아예", "하예", "지예",
+			"네예", "거든예", "야예", "이라예", "이소", "하이소",
+			"마이소", "심더", "니더", "하냐", "오나", "하노",
+			"수다", "우다", "수과", "우꽈", "시우다", "크라",
+			"하영", "혼저", "아이가", "예", "는데예", "하우다", "으시이소", "으이소", "ㄹ수록", "을수록", "에우꽈", "에예", "에우다", "었어", "하십니꺼", "해예?", "해꽈", "해예", "해우다",
+			"어우다", "아우다", "네우다", "지우다", "거든우다", "는데우다",
+			"이우다", "하시우다", "으시우다", "하시우꽈", "수꽈", "이수다",
+			"하시이소");
+
+	/**
+	 * The dialect endings and the standard ending each replaces. A word that does not resolve as written is
+	 * analysed again with its dialect ending mapped back, so one entry covers every stem it attaches to
+	 * (묵을까예 -> 묵을까요 -> 묵- + 을까요) instead of listing each combination.
+	 */
+	private static final Map<String, String> DIALECT_TAILS = Map.ofEntries(
+			Map.entry("어예", "어요"), Map.entry("아예", "아요"), Map.entry("하예", "해요"),
+			Map.entry("까예", "까요"), Map.entry("예", "요"),
+			Map.entry("어우다", "어요"), Map.entry("아우다", "아요"), Map.entry("하우다", "해요"),
+			Map.entry("까우다", "까요"), Map.entry("우꽈", "요"), Map.entry("우다", "요"),
+			Map.entry("수다", "습니다"), Map.entry("심더", "습니다"), Map.entry("니더", "ㅂ니다"),
+			Map.entry("이우다", "이에요"), Map.entry("이라예", "이에요"), Map.entry("이수다", "입니다"),
+			Map.entry("하이소", "하세요"), Map.entry("으이소", "으세요"), Map.entry("이소", "세요"),
+			Map.entry("마이소", "마세요"), Map.entry("시우다", "세요"));
 
 	private DialogueCoverage() {
 	}
@@ -78,6 +99,25 @@ public final class DialogueCoverage {
 			Hit hit = vocabulary.find(core.substring(0, end));
 			if (hit != null) {
 				return new Token(eojeol, hit.known() ? State.KNOWN : State.UNKNOWN, hit.id(), hit.gloss());
+			}
+		}
+		// dialect endings: retry with the standard ending the word would have had
+		String best = null;
+		for (String dialect : DIALECT_TAILS.keySet()) {
+			if (core.endsWith(dialect) && (best == null || dialect.length() > best.length())) {
+				best = dialect;
+			}
+		}
+		if (best != null) {
+			String standard = core.substring(0, core.length() - best.length()) + DIALECT_TAILS.get(best);
+			for (int end = standard.length(); end >= 1; end--) {
+				if (!TAILS.contains(standard.substring(end))) {
+					continue;
+				}
+				Hit hit = vocabulary.find(standard.substring(0, end));
+				if (hit != null) {
+					return new Token(eojeol, hit.known() ? State.KNOWN : State.UNKNOWN, hit.id(), hit.gloss());
+				}
 			}
 		}
 		return new Token(eojeol, State.UNRESOLVED, null, null);

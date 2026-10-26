@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_01_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 반가워우다.",
+   "ko_banmal": "어이! 반가워.",
+   "next": "axe"
+  },
+  "axe": {
+   "speaker": "villager",
+   "ko": "도끼가 아주 날카로워우다.",
+   "ko_banmal": "도끼가 아주 날카로워.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:axe"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무슨 일을 해우다?",
+   "ko_banmal": "무슨 일을 해?",
+   "choices": [
+    {
+     "ko": "나무를 베어요.",
+     "next": "tree"
+    },
+    {
+     "ko": "돌을 캐요.",
+     "next": "stone"
+    }
+   ]
+  },
+  "tree": {
+   "speaker": "villager",
+   "ko": "좋아우다. 도끼를 조심해우다. 문제없어우다!",
+   "ko_banmal": "좋아. 도끼를 조심해. 문제없어!",
+   "end": true
+  },
+  "stone": {
+   "speaker": "villager",
+   "ko": "그럼 곡괭이가 필요해우다.",
+   "ko_banmal": "그럼 곡괭이가 필요해.",
+   "end": true
+  }
+ }
+}

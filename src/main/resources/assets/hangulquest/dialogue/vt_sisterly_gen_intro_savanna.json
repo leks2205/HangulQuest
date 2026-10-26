@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 처음 봐우다?",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "work"
+  },
+  "work": {
+   "speaker": "villager",
+   "ko": "저는 일을 좋아해우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "힘든 일 있어우다?",
+   "choices": [
+    {
+     "ko": "네, 있어요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아우다. 같이 해우다. 문제없어우다!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "좋아우다. 그럼 같이 쉬어우다.",
+   "end": true
+  }
+ }
+}

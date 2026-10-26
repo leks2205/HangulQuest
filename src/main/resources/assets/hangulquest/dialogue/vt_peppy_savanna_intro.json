@@ -1,81 +1,81 @@
 {
-	"schema": 1,
-	"id": "vt_peppy_savanna_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"PEPPY"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "우와! 안녕하세요! 여기는 사바나예요!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_savanna"
-					]
-				}
-			],
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "acacia"
-		},
-		"acacia": {
-			"speaker": "villager",
-			"ko": "아카시아나무 판자는 주황색이에요! 정말 예뻐요!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:orange",
-						"concept:planks"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "저는 주황색 옷을 입고 싶어요! 어때요?",
-			"choices": [
-				{
-					"ko": "좋아요! 예뻐요!",
-					"next": "yes"
-				},
-				{
-					"ko": "음, 분홍색이 좋아요.",
-					"next": "pink"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "꺄! 고마워요! 진짜진짜 최고예요!",
-			"end": true
-		},
-		"pink": {
-			"speaker": "villager",
-			"ko": "분홍색도 좋아요! 둘 다 입고 싶어요!",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_peppy_savanna_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "우와! 안녕하시우다! 여기는 사바나이우다!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_savanna"
+     ]
+    }
+   ],
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "acacia"
+  },
+  "acacia": {
+   "speaker": "villager",
+   "ko": "아카시아나무 판자는 주황색이우다! 정말 예뻐우다!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:orange",
+      "concept:planks"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저는 주황색 옷을 입고 싶어우다! 어때우다?",
+   "choices": [
+    {
+     "ko": "좋아요! 예뻐요!",
+     "next": "yes"
+    },
+    {
+     "ko": "음, 분홍색이 좋아요.",
+     "next": "pink"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "꺄! 고마워우다! 진짜진짜 최고이우다!",
+   "end": true
+  },
+  "pink": {
+   "speaker": "villager",
+   "ko": "분홍색도 좋아우다! 둘 다 입고 싶어우다!",
+   "end": true
+  }
+ }
 }

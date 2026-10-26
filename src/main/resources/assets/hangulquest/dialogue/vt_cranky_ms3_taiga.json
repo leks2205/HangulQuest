@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_ms3_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 3,
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "again",
+ "nodes": {
+  "again": {
+   "speaker": "villager",
+   "ko": "흠. 또 와예?",
+   "next": "friend"
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "흠, 좋은 친구야예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "next": "tomorrow"
+  },
+  "tomorrow": {
+   "speaker": "villager",
+   "ko": "내일 또 와예.",
+   "choices": [
+    {
+     "ko": "네, 좋아요!",
+     "next": "bye"
+    },
+    {
+     "ko": "네, 고마워요!",
+     "next": "bye"
+    }
+   ]
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "흠. 그럼 또 봐예.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_intro_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠. 안녕하이소.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "quiet"
+  },
+  "quiet": {
+   "speaker": "villager",
+   "ko": "저는 조용한 게 좋아예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "혹시 시끄러운 사람이라예?",
+   "choices": [
+    {
+     "ko": "아니요, 조용해요.",
+     "next": "bye_quiet"
+    },
+    {
+     "ko": "네, 조금 시끄러워요.",
+     "next": "bye_loud"
+    }
+   ]
+  },
+  "bye_quiet": {
+   "speaker": "villager",
+   "ko": "흠. 좋아예. 그럼 또 와예.",
+   "end": true
+  },
+  "bye_loud": {
+   "speaker": "villager",
+   "ko": "에잉. 그럼 조용히 와예.",
+   "end": true
+  }
+ }
+}

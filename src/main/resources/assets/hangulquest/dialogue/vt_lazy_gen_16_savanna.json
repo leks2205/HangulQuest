@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_16_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "profession": "minecraft:cleric",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "음, 안녕하시우다. 저는 성직자이우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저는 금 주괴를 사우다. 금 주괴 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gold"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 금 주괴가 있어요.",
+     "next": "trade"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "trade": {
+   "speaker": "villager",
+   "ko": "좋아우다! 금 주괴 세 개에 에메랄드 한 개이우다.",
+   "ko_banmal": "좋아! 금 주괴 세 개에 에메랄드 한 개야.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "그럼 금을 찾아 보시우다. 금은 동굴에 있어우다.",
+   "ko_banmal": "그럼 금을 찾아 봐. 금은 동굴에 있어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave",
+      "concept:find"
+     ]
+    }
+   ],
+   "next": "lazy"
+  },
+  "lazy": {
+   "speaker": "villager",
+   "ko": "저는 동굴에 안 가 봤어우다. 너무 어둡고 멀어우다.",
+   "ko_banmal": "나는 동굴에 안 가 봤어. 너무 어둡고 멀어.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "안녕히 가시우다. 혼저, 혼저.",
+   "end": true
+  }
+ }
+}

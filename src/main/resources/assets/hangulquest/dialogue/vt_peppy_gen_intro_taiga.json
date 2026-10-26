@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_intro_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "꺄! 안녕하이소! 처음 봐예!",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "singer"
+  },
+  "singer": {
+   "speaker": "villager",
+   "ko": "저는 마을의 가수야예! 노래가 최고야예!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:village",
+      "concept:song"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "제 노래 듣고 싶어예?",
+   "choices": [
+    {
+     "ko": "네, 듣고 싶어요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "랄라라! 어때예? 진짜진짜 최고야예!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예! 내일 또 노래해예!",
+   "end": true
+  }
+ }
+}

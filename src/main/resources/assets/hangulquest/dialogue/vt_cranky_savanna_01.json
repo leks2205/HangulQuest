@@ -1,43 +1,66 @@
 {
-	"schema": 1,
-	"id": "vt_cranky_savanna_01",
-	"level": 3,
-	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "smalltalk", "personalities": ["CRANKY"], "regions": ["SAVANNA"]},
-	"start": "look",
-	"nodes": {
-		"look": {
-			"speaker": "villager",
-			"ko": "흠, 저기 아르마딜로가 있네요.",
-			"effects": [{"type": "exposeWords", "words": ["concept:gen_armadillo"]}],
-			"next": "ball"
-		},
-		"ball": {
-			"speaker": "villager",
-			"ko": "누가 옆에서 뛰어서 몸을 말았네요.",
-			"next": "me"
-		},
-		"me": {
-			"speaker": "villager",
-			"ko": "아르마딜로는 시끄러운 걸 싫어해요. 저도 그래요.",
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "여기 앉아서 같이 조용히 기다릴까요?",
-			"choices": [
-				{"ko": "네, 같이 기다려요.", "next": "wait"},
-				{"ko": "아니요, 저는 바빠요.", "next": "busy"}
-			]
-		},
-		"wait": {
-			"speaker": "villager",
-			"ko": "흠, 보세요. 다시 나왔네요.",
-			"end": true
-		},
-		"busy": {
-			"speaker": "villager",
-			"ko": "그래요? 그럼 뛰지 말고 천천히 가세요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_cranky_savanna_01",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "look",
+ "nodes": {
+  "look": {
+   "speaker": "villager",
+   "ko": "흠, 저기 아르마딜로가 있네우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_armadillo"
+     ]
+    }
+   ],
+   "next": "ball"
+  },
+  "ball": {
+   "speaker": "villager",
+   "ko": "누가 옆에서 뛰어서 몸을 말았네우다.",
+   "next": "me"
+  },
+  "me": {
+   "speaker": "villager",
+   "ko": "아르마딜로는 시끄러운 걸 싫어해우다. 저도 그래우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "여기 앉아서 같이 조용히 기다릴까우다?",
+   "choices": [
+    {
+     "ko": "네, 같이 기다려요.",
+     "next": "wait"
+    },
+    {
+     "ko": "아니요, 저는 바빠요.",
+     "next": "busy"
+    }
+   ]
+  },
+  "wait": {
+   "speaker": "villager",
+   "ko": "흠, 보시우다. 다시 나왔네우다.",
+   "end": true
+  },
+  "busy": {
+   "speaker": "villager",
+   "ko": "그래우다? 그럼 뛰지 말고 혼저 가시우다.",
+   "end": true
+  }
+ }
 }

@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_05_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "blocks",
+ "nodes": {
+  "blocks": {
+   "speaker": "villager",
+   "ko": "짠! 소리 블록을 다섯 개 놓았어우다!",
+   "ko_banmal": "짠! 소리 블록을 다섯 개 놓았어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:note_block"
+     ]
+    }
+   ],
+   "next": "same"
+  },
+  "same": {
+   "speaker": "villager",
+   "ko": "그런데 소리가 다 똑같아서 노래가 안 돼우다.",
+   "ko_banmal": "그런데 소리가 다 똑같아서 노래가 안 돼.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어떻게 다른 소리를 만들까우다?",
+   "ko_banmal": "어떻게 다른 소리를 만들까?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sound"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "블록을 눌러 봐요.",
+     "next": "click"
+    },
+    {
+     "ko": "밑에 금 블록을 놓아요.",
+     "next": "gold"
+    }
+   ]
+  },
+  "click": {
+   "speaker": "villager",
+   "ko": "와아, 누를 때마다 소리가 높아지네우다! 도, 레, 미!",
+   "ko_banmal": "와아, 누를 때마다 소리가 높아지네! 도, 레, 미!",
+   "next": "done"
+  },
+  "gold": {
+   "speaker": "villager",
+   "ko": "꺄! 종소리가 나네우다! 반짝반짝한 소리이우다!",
+   "ko_banmal": "꺄! 종소리가 나네! 반짝반짝한 소리야!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gold"
+     ]
+    }
+   ],
+   "next": "done"
+  },
+  "done": {
+   "speaker": "villager",
+   "ko": "이제 제 노래를 만들 수 있어우다! 진짜진짜 최고이우다!",
+   "ko_banmal": "이제 내 노래를 만들 수 있어! 진짜진짜 최고야!",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_12_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "profession": "minecraft:librarian",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 어서 오시우다! 저는 사서이우다.",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "저는 책이 정말 좋아우다. 그래서 책이 하영 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 좋아하시우다?",
+   "choices": [
+    {
+     "ko": "네, 좋아해요.",
+     "next": "offer"
+    },
+    {
+     "ko": "아니요, 조금 어려워요.",
+     "next": "easy"
+    }
+   ]
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "그럼 이 책을 보시우다. 아주 특별한 책이우다.",
+   "next": "price"
+  },
+  "price": {
+   "speaker": "villager",
+   "ko": "특별한 책은 에메랄드와 책이 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "easy": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 그럼 제가 책을 읽어 줘우다.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "또 오시우다. 책이 기다려우다!",
+   "end": true
+  }
+ }
+}

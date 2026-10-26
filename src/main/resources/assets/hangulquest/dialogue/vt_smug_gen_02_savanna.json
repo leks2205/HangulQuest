@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_02_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "poem",
+ "nodes": {
+  "poem": {
+   "speaker": "villager",
+   "ko": "아아, 어제 시를 썼어우다.",
+   "next": "quill"
+  },
+  "quill": {
+   "speaker": "villager",
+   "ko": "책과 깃펜에 썼어우다.",
+   "next": "title"
+  },
+  "title": {
+   "speaker": "villager",
+   "ko": "제목은 장미와 달이우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "듣고 싶어우다?",
+   "choices": [
+    {
+     "ko": "네, 듣고 싶어요!",
+     "next": "line1"
+    },
+    {
+     "ko": "아니요, 지금은 바빠요.",
+     "next": "later"
+    }
+   ]
+  },
+  "line1": {
+   "speaker": "villager",
+   "ko": "후후, 들어 보시우다. 장미는 빨개우다.",
+   "next": "line2"
+  },
+  "line2": {
+   "speaker": "villager",
+   "ko": "달은 하얘우다. 오늘은 친구가 왔어우다.",
+   "next": "done"
+  },
+  "done": {
+   "speaker": "villager",
+   "ko": "후후, 완벽해우다.",
+   "end": true
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 시는 여기 있어우다.",
+   "end": true
+  }
+ }
+}

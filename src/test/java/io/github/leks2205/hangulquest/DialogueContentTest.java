@@ -178,8 +178,10 @@ class DialogueContentTest {
 			assertTrue(dialogue.nodes().values().stream().anyMatch(node -> node.choices().size() >= 2),
 					dialogue.id() + " has no choice");
 		}
-		assertEquals(Personality.values().length * PROFESSION_FILES.size(), checked,
-				"one profession conversation per personality and profession family");
+		// Every personality/family pair exists once per region set: the standard villages, the taiga (Busan) and
+		// the savanna (Jeju) dialect versions.
+		assertEquals(Personality.values().length * PROFESSION_FILES.size() * 3, checked,
+				"one profession conversation per personality, profession family and region set");
 	}
 
 	@Test

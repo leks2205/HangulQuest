@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_06_taiga",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "knock",
+ "nodes": {
+  "knock": {
+   "speaker": "villager",
+   "ko": "후후, 밤에 누가 제 문을 두드렸어예.",
+   "next": "fan"
+  },
+  "fan": {
+   "speaker": "villager",
+   "ko": "제 시를 들으러 온 줄 알았어예.",
+   "next": "zombie"
+  },
+  "zombie": {
+   "speaker": "villager",
+   "ko": "그런데 창문으로 보니까 좀비였어예.",
+   "next": "sunrise"
+  },
+  "sunrise": {
+   "speaker": "villager",
+   "ko": "해가 뜨니까 좀비가 불에 탔어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 자주 밖에 나가예?",
+   "choices": [
+    {
+     "ko": "네, 가끔 나가요.",
+     "next": "torch"
+    },
+    {
+     "ko": "아니요, 집에 있어요.",
+     "next": "sleep"
+    }
+   ]
+  },
+  "torch": {
+   "speaker": "villager",
+   "ko": "그럼 횃불을 꼭 챙기이소.",
+   "end": true
+  },
+  "sleep": {
+   "speaker": "villager",
+   "ko": "좋아예. 저도 오늘은 일찍 자야겠어예.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_17_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오, 안녕하이소! 저는 마을의 시인이라예.",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "ask_name"
+  },
+  "ask_name": {
+   "speaker": "villager",
+   "ko": "이름이 뭐야예?",
+   "typed": {
+    "free": true
+   },
+   "next": "nice"
+  },
+  "nice": {
+   "speaker": "villager",
+   "ko": "만나서 반가워예! 아름다운 이름이라예.",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "오늘은 빵과 사과가 필요해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread",
+      "concept:apple"
+     ]
+    }
+   ],
+   "typed": {
+    "expected": [
+     "사과"
+    ],
+    "word": "concept:apple"
+   },
+   "next": "errand"
+  },
+  "errand": {
+   "speaker": "villager",
+   "ko": "사과를 한 개 구해 주이소. 빨간 사과가 좋아예.",
+   "effects": [
+    {
+     "type": "startTrail",
+     "trail": "essenspfad"
+    },
+    {
+     "type": "exposeGrammar",
+     "point": "L2.seyo"
+    }
+   ],
+   "next": "leave"
+  },
+  "leave": {
+   "speaker": "villager",
+   "ko": "후후, 이제 가예?",
+   "choices": [
+    {
+     "ko": "네, 안녕히 계세요!",
+     "next": "bye"
+    },
+    {
+     "ko": "아니요, 조금 더 있어요.",
+     "next": "stay"
+    }
+   ]
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "네, 안녕히 가이소. 또 만나예!",
+   "end": true
+  },
+  "stay": {
+   "speaker": "villager",
+   "ko": "좋아예! 그럼 같이 꽃을 봐예.",
+   "end": true
+  }
+ }
+}

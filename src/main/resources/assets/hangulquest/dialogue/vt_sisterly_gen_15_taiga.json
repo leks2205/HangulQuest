@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_15_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:cartographer",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 지도가 많아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ],
+   "next": "ask",
+   "ko_banmal": "어이! 지도가 많아."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가예?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ],
+   "ko_banmal": "어디로 가?"
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 건물이 있어예. 아주 위험해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "바다 아래에 큰 건물이 있어. 아주 위험해."
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "숲에 큰 건물이 있어예. 나무가 많아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "숲에 큰 건물이 있어. 나무가 많아."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "지도를 잘 봐예. 길을 잃지 마이소.",
+   "end": true,
+   "ko_banmal": "지도를 잘 봐. 길을 잃지 마."
+  }
+ }
+}

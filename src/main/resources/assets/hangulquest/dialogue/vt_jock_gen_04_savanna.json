@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_04_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "으쌰으쌰! 안녕하시우다!",
+   "ko_banmal": "으쌰으쌰! 안녕!",
+   "next": "craft"
+  },
+  "craft": {
+   "speaker": "villager",
+   "ko": "어제 제작대에서 철 블록을 만들었어우다!",
+   "ko_banmal": "어제 제작대에서 철 블록을 만들었어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:crafting_table",
+      "concept:iron"
+     ]
+    }
+   ],
+   "next": "how"
+  },
+  "how": {
+   "speaker": "villager",
+   "ko": "철 주괴 아홉 개가 필요해서 조금 힘들었어우다.",
+   "ko_banmal": "철 주괴 아홉 개가 필요해서 좀 힘들었어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron_ingot"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "철 블록으로 뭘 할까우다?",
+   "ko_banmal": "철 블록으로 뭘 할까?",
+   "choices": [
+    {
+     "ko": "철 골렘을 만들어요?",
+     "next": "golem"
+    },
+    {
+     "ko": "집을 지어요?",
+     "next": "house"
+    }
+   ]
+  },
+  "golem": {
+   "speaker": "villager",
+   "ko": "하하, 아니우다! 철 골렘은 블록이 네 개 필요하죠!",
+   "ko_banmal": "하하, 아니야! 철 골렘은 블록이 네 개 필요하지!",
+   "next": "answer"
+  },
+  "house": {
+   "speaker": "villager",
+   "ko": "하하, 아니우다! 철 블록 집은 너무 비싸우다!",
+   "ko_banmal": "하하, 아니야! 철 블록 집은 너무 비싸!",
+   "next": "answer"
+  },
+  "answer": {
+   "speaker": "villager",
+   "ko": "이 블록을 들고 앉았다 일어났다 해우다! 정말 무거워서 좋아우다!",
+   "ko_banmal": "이 블록을 들고 앉았다 일어났다 해! 진짜 무거워서 좋아!",
+   "next": "end"
+  },
+  "end": {
+   "speaker": "villager",
+   "ko": "같이 해 볼까우다? 하나, 둘! 하나, 둘!",
+   "ko_banmal": "같이 해 볼까? 하나, 둘! 하나, 둘!",
+   "end": true
+  }
+ }
+}

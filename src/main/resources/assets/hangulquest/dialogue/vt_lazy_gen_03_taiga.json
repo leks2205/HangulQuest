@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_03_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "zombie",
+ "nodes": {
+  "zombie": {
+   "speaker": "villager",
+   "ko": "밤에 좀비가 나와예.",
+   "ko_banmal": "밤에 좀비가 나와.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:zombie",
+      "concept:night"
+     ]
+    }
+   ],
+   "next": "brave"
+  },
+  "brave": {
+   "speaker": "villager",
+   "ko": "그런데 저는 안 무서워예.",
+   "ko_banmal": "그런데 나는 안 무서워.",
+   "next": "bed"
+  },
+  "bed": {
+   "speaker": "villager",
+   "ko": "저는 밤에 침대에 있어예. 헤헤.",
+   "ko_banmal": "나는 밤에 침대에 있어. 헤헤.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bed"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤이 무서워예?",
+   "ko_banmal": "밤이 무서워?",
+   "choices": [
+    {
+     "ko": "네, 조금 무서워요.",
+     "next": "scared"
+    },
+    {
+     "ko": "아니요, 안 무서워요.",
+     "next": "fearless"
+    }
+   ]
+  },
+  "scared": {
+   "speaker": "villager",
+   "ko": "그럼 밤에 침대에 누워예. 정말 좋아예.",
+   "ko_banmal": "그럼 밤에 침대에 누워. 정말 좋아.",
+   "end": true
+  },
+  "fearless": {
+   "speaker": "villager",
+   "ko": "우와, 멋있어예! 저는 침대가 좋아예. 헤헤.",
+   "ko_banmal": "우와, 멋있어! 나는 침대가 좋아. 헤헤.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_07_taiga",
+ "level": 6,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "dream",
+ "nodes": {
+  "dream": {
+   "speaker": "villager",
+   "ko": "후후, 저에게는 오래된 꿈이 있어예.",
+   "next": "geode"
+  },
+  "geode": {
+   "speaker": "villager",
+   "ko": "깊은 동굴 속에 자수정 블록으로 된 방이 있다고 들었어예.",
+   "next": "sing"
+  },
+  "sing": {
+   "speaker": "villager",
+   "ko": "그 위를 걸으면 돌이 노래를 한다고 해예.",
+   "next": "village"
+  },
+  "village": {
+   "speaker": "villager",
+   "ko": "하지만 저는 마을을 떠날 수가 없어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "언젠가 거기에 가면 저에게 이야기해 줄래예?",
+   "choices": [
+    {
+     "ko": "네, 꼭 이야기해 줄게요.",
+     "next": "promise"
+    },
+    {
+     "ko": "저는 동굴이 좀 무서워요.",
+     "next": "scared"
+    }
+   ]
+  },
+  "promise": {
+   "speaker": "villager",
+   "ko": "아아, 약속이라예.",
+   "next": "vow"
+  },
+  "vow": {
+   "speaker": "villager",
+   "ko": "그날을 꿈꾸며 살게예.",
+   "end": true
+  },
+  "scared": {
+   "speaker": "villager",
+   "ko": "그렇다면 안 가도 돼예. 저는 기다릴게예.",
+   "end": true
+  }
+ }
+}

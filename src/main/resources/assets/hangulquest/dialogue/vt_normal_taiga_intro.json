@@ -1,80 +1,80 @@
 {
-	"schema": 1,
-	"id": "vt_normal_taiga_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"NORMAL"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "어머, 안녕하세요! 어서 와요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "berry"
-		},
-		"berry": {
-			"speaker": "villager",
-			"ko": "여기는 달콤한 열매가 많아요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:sweet_berries"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "달콤한 열매를 먹어요?",
-			"choices": [
-				{
-					"ko": "네, 맛있어요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 안 먹어요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "우와, 저도요! 덤불을 조심해요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "그럼 여우에게 줘요. 여우가 좋아해요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:fox"
-					]
-				}
-			],
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_normal_taiga_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하이소! 어서 와예.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "berry"
+  },
+  "berry": {
+   "speaker": "villager",
+   "ko": "여기는 달콤한 열매가 많아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sweet_berries"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "달콤한 열매를 묵어예?",
+   "choices": [
+    {
+     "ko": "네, 맛있어요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 안 먹어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "우와, 저도예! 덤불을 조심해예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "그럼 여우에게 줘예. 여우가 좋아해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fox"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
 }

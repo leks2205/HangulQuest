@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_12_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "profession": "minecraft:librarian",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어서 오십시오. 조용히 들어오십시오.",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "저는 사서이수다. 책이 더 필요합니다.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 한 권 가져와 주십시오.",
+   "choices": [
+    {
+     "ko": "네, 꼭 가져와요.",
+     "next": "polite"
+    },
+    {
+     "ko": "네, 알았어요.",
+     "next": "plain"
+    }
+   ]
+  },
+  "polite": {
+   "speaker": "villager",
+   "ko": "호호, 말씨가 곱수다. 나쁘지 않수다.",
+   "next": "offer"
+  },
+  "plain": {
+   "speaker": "villager",
+   "ko": "흠, 여기서는 조금 더 정중하게 말해 주십시오.",
+   "next": "offer"
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "특별한 책도 있수다. 보고 싶습니까?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요.",
+     "next": "show"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "thanks"
+    }
+   ]
+  },
+  "show": {
+   "speaker": "villager",
+   "ko": "에메랄드와 책이 필요합니다. 값은 조금 비쌉니다.",
+   "next": "thanks",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ]
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "책은 깨끗하게 다루십시오. 안녕히 가십시오.",
+   "end": true
+  }
+ }
+}

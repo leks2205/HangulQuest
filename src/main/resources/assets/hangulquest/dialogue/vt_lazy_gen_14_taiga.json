@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_14_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "professions": [
+   "minecraft:weaponsmith",
+   "minecraft:toolsmith"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "음, 안녕하이소. 저는 대장장이야예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "뭐가 필요해예? 천천히 말하이소.",
+   "choices": [
+    {
+     "ko": "검이 필요해요.",
+     "next": "sword"
+    },
+    {
+     "ko": "곡괭이가 필요해요.",
+     "next": "pickaxe"
+    }
+   ]
+  },
+  "sword": {
+   "speaker": "villager",
+   "ko": "철 주괴 두 개와 막대기 한 개가 필요해예.",
+   "ko_banmal": "철 주괴 두 개와 막대기 한 개가 필요해.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sword",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "craft"
+  },
+  "pickaxe": {
+   "speaker": "villager",
+   "ko": "철 주괴 세 개와 막대기 두 개가 필요해예.",
+   "ko_banmal": "철 주괴 세 개와 막대기 두 개가 필요해.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:pickaxe",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "craft"
+  },
+  "craft": {
+   "speaker": "villager",
+   "ko": "제작대에서 만드이소. 저는 그동안 쉬어예. 헤헤.",
+   "ko_banmal": "제작대에서 만들어. 나는 그동안 쉬어. 헤헤.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "잘 가예. 천천히, 천천히.",
+   "ko_banmal": "잘 가. 천천히, 천천히.",
+   "end": true
+  }
+ }
+}

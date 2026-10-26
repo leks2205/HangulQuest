@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_06_taiga",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 오셨네예. 지금 퇴비통에 씨앗을 넣고 있었어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_composter"
+     ]
+    }
+   ],
+   "next": "meal"
+  },
+  "meal": {
+   "speaker": "villager",
+   "ko": "씨앗을 많이 넣으면 뼛가루가 나오더라고예.",
+   "next": "grass"
+  },
+  "grass": {
+   "speaker": "villager",
+   "ko": "뼛가루를 잔디에 쓰니까 꽃이 많이 생기더라고예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:grass",
+      "concept:flower"
+     ]
+    }
+   ],
+   "next": "nothing"
+  },
+  "nothing": {
+   "speaker": "villager",
+   "ko": "남는 것이 하나도 없으니까 좋더라고예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "혹시 집에 퇴비통이 있어예?",
+   "choices": [
+    {
+     "ko": "네, 하나 있어요.",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "none"
+    }
+   ]
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "다행이라예. 씨앗을 모으면 꽃이 많이 필 거예.",
+   "end": true
+  },
+  "none": {
+   "speaker": "villager",
+   "ko": "어머, 그럼 하나 만드이소. 나무 반 블록 일곱 개만 있으면 돼예.",
+   "end": true
+  }
+ }
+}

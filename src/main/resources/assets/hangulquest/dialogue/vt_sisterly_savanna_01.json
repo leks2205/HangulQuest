@@ -1,66 +1,66 @@
 {
-	"schema": 1,
-	"id": "vt_sisterly_savanna_01",
-	"level": 2,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"SISTERLY"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "아하하! 오늘도 더워요.",
-			"ko_banmal": "아하하! 오늘도 더워.",
-			"next": "armadillo"
-		},
-		"armadillo": {
-			"speaker": "villager",
-			"ko": "아르마딜로는 아주 작아요. 몸이 둥글어요.",
-			"ko_banmal": "아르마딜로는 아주 작아. 몸이 둥글어.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_armadillo"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "아르마딜로를 봤어요?",
-			"ko_banmal": "아르마딜로를 봤어?",
-			"choices": [
-				{
-					"ko": "네, 봤어요. 귀여워요.",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 못 봤어요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "맞아요. 아주 귀여워요. 나도 좋아해요.",
-			"ko_banmal": "맞아. 아주 귀여워. 나도 좋아해.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "다음에 같이 찾아요. 라마 옆에 있어요.",
-			"ko_banmal": "다음에 같이 찾아. 라마 옆에 있어.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_sisterly_savanna_01",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "아하하! 오늘도 더워우다.",
+   "ko_banmal": "아하하! 오늘도 더워.",
+   "next": "armadillo"
+  },
+  "armadillo": {
+   "speaker": "villager",
+   "ko": "아르마딜로는 아주 작아우다. 몸이 둥글어우다.",
+   "ko_banmal": "아르마딜로는 아주 작아. 몸이 둥글어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_armadillo"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "아르마딜로를 봤어우다?",
+   "ko_banmal": "아르마딜로를 봤어?",
+   "choices": [
+    {
+     "ko": "네, 봤어요. 귀여워요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 못 봤어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "맞아우다. 아주 귀여워우다. 나도 좋아해우다.",
+   "ko_banmal": "맞아. 아주 귀여워. 나도 좋아해.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "다음에 같이 찾아우다. 라마 옆에 있어우다.",
+   "ko_banmal": "다음에 같이 찾아. 라마 옆에 있어.",
+   "end": true
+  }
+ }
 }

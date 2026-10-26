@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_04_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 해가 지네예.",
+   "next": "torch"
+  },
+  "torch": {
+   "speaker": "villager",
+   "ko": "밤에 좀비가 나와예. 그래서 꽃밭에 횃불을 놓았어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:zombie",
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "spawn"
+  },
+  "spawn": {
+   "speaker": "villager",
+   "ko": "횃불 옆에 좀비가 안 생겨예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 뭐 해예?",
+   "choices": [
+    {
+     "ko": "집에서 자요.",
+     "next": "sleep"
+    },
+    {
+     "ko": "동굴에서 석탄을 캐요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "sleep": {
+   "speaker": "villager",
+   "ko": "다행이라예. 잘 자예. 내일 또 만나예.",
+   "end": true
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "아이코, 조심하이소. 횃불이 꼭 필요해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave"
+     ]
+    }
+   ],
+   "next": "wait"
+  },
+  "wait": {
+   "speaker": "villager",
+   "ko": "내일 꼭 다시 와예. 기다릴 거예.",
+   "end": true
+  }
+ }
+}

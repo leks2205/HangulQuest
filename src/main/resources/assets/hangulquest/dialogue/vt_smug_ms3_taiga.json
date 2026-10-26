@@ -1,0 +1,54 @@
+{
+ "schema": 1,
+ "id": "vt_smug_ms3_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "personalities": [
+   "SMUG"
+  ],
+  "friendship": 3,
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "again",
+ "nodes": {
+  "again": {
+   "speaker": "villager",
+   "ko": "오, 안녕하이소. 오늘도 반가워예.",
+   "next": "face"
+  },
+  "face": {
+   "speaker": "villager",
+   "ko": "얼굴이 참 밝아예. 완벽해예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "우리 이제 친구야예?",
+   "choices": [
+    {
+     "ko": "네, 친구예요!",
+     "next": "yes"
+    },
+    {
+     "ko": "음, 아직 아니에요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "후후, 기뻐예. 오늘 하늘이 더 파래예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 꽃도 천천히 피어예.",
+   "end": true
+  }
+ }
+}

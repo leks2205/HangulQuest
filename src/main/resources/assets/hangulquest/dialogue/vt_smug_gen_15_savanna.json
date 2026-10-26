@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_15_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "profession": "minecraft:cartographer",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오, 어서 와우다. 새 지도를 그렸어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ],
+   "next": "corner"
+  },
+  "corner": {
+   "speaker": "villager",
+   "ko": "구석에 작은 숲도 그렸어우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가우다?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ]
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 건물이 있어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ],
+   "next": "guardian"
+  },
+  "guardian": {
+   "speaker": "villager",
+   "ko": "가디언이 있어우다. 조심하시우다.",
+   "next": "bye"
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "숲에 큰 건물이 있어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ],
+   "next": "mansion"
+  },
+  "mansion": {
+   "speaker": "villager",
+   "ko": "변명자와 소환사가 있어우다. 조심하시우다.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "그럼 잘 다녀와우다. 또 만나우다.",
+   "end": true
+  }
+ }
+}

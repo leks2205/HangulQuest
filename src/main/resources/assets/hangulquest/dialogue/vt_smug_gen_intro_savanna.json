@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오, 안녕하시우다. 반가워우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "likes"
+  },
+  "likes": {
+   "speaker": "villager",
+   "ko": "저는 꽃과 노래를 좋아해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:flower",
+      "concept:song"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "노래가 좋아우다?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 꽃이 좋아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "후후, 그럼 우리는 친구이우다. 완벽해우다.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "꽃도 좋아우다. 장미 덤불은 정말 아름다워우다.",
+   "end": true
+  }
+ }
+}

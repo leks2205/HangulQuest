@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_13_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:fisherman",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "야! 저는 어부야예.",
+   "next": "ask",
+   "ko_banmal": "야! 나는 어부야."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "낚싯대가 있어예?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fishing_rod"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 낚싯대가 있어요.",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "lacks"
+    }
+   ],
+   "ko_banmal": "낚싯대가 있어?"
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "좋아예! 물에서 물고기를 잡아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fish",
+      "concept:catch"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "좋아! 물에서 물고기를 잡아."
+  },
+  "lacks": {
+   "speaker": "villager",
+   "ko": "막대기와 실이 필요해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:stick",
+      "concept:string"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "막대기와 실이 필요해."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "오늘은 물고기가 없어예. 내일 또 와예.",
+   "end": true,
+   "ko_banmal": "오늘은 물고기가 없어. 내일 또 와."
+  }
+ }
+}

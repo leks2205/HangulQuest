@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_05_taiga",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 잘 오셨어예. 오늘은 책을 정리하고 있거든예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "room"
+  },
+  "room": {
+   "speaker": "villager",
+   "ko": "책이 너무 많아서 방이 작잖아예.",
+   "next": "shelf"
+  },
+  "shelf": {
+   "speaker": "villager",
+   "ko": "그래서 책장을 하나 더 만들 거예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bookshelf"
+     ]
+    }
+   ],
+   "next": "recipe"
+  },
+  "recipe": {
+   "speaker": "villager",
+   "ko": "판자 여섯 개와 책 세 권이 필요하거든예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어떤 책을 좋아해예?",
+   "choices": [
+    {
+     "ko": "요리책이 좋아요.",
+     "next": "cook"
+    },
+    {
+     "ko": "모험 이야기가 좋아요.",
+     "next": "adventure"
+    }
+   ]
+  },
+  "cook": {
+   "speaker": "villager",
+   "ko": "어머나, 저도예! 하지만 밤에 읽으면 배가 고프잖아예.",
+   "end": true
+  },
+  "adventure": {
+   "speaker": "villager",
+   "ko": "모험 이야기예? 읽으면 저도 멀리 가고 싶어지거든예.",
+   "end": true
+  }
+ }
+}

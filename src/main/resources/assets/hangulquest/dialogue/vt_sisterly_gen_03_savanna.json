@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_03_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 오늘 좀 피곤해 보여우다.",
+   "ko_banmal": "어이! 오늘 좀 피곤해 보여.",
+   "next": "night"
+  },
+  "night": {
+   "speaker": "villager",
+   "ko": "어제 모닥불 옆에서 늦게까지 있었어우다.",
+   "ko_banmal": "어제 모닥불 옆에서 늦게까지 있었어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:campfire",
+      "concept:night"
+     ]
+    }
+   ],
+   "next": "zombie"
+  },
+  "zombie": {
+   "speaker": "villager",
+   "ko": "좀비 소리가 들려서 횃불을 챙겼어우다.",
+   "ko_banmal": "좀비 소리가 들려서 횃불을 챙겼어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 잘 자우다?",
+   "ko_banmal": "밤에 잘 자?",
+   "choices": [
+    {
+     "ko": "네, 일찍 자요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 자주 깨요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아우다. 잠이 제일 좋아우다.",
+   "ko_banmal": "좋아. 잠이 제일 좋아.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "그럼 낮에 조금 자우다. 나도 그렇게 해우다.",
+   "ko_banmal": "그럼 낮에 조금 자. 나도 그렇게 해.",
+   "end": true
+  }
+ }
+}

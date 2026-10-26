@@ -1,63 +1,63 @@
 {
-	"schema": 1,
-	"id": "vt_smug_taiga_01",
-	"level": 4,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"SMUG"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "ouch",
-	"nodes": {
-		"ouch": {
-			"speaker": "villager",
-			"ko": "아아, 이런. 손이 조금 따가워요.",
-			"next": "jewels"
-		},
-		"jewels": {
-			"speaker": "villager",
-			"ko": "가문비나무 아래 덤불에 작은 보석이 있었어요.",
-			"next": "berries"
-		},
-		"berries": {
-			"speaker": "villager",
-			"ko": "그런데 그건 달콤한 열매였어요.",
-			"next": "thorns"
-		},
-		"thorns": {
-			"speaker": "villager",
-			"ko": "그 덤불은 참 예뻐요. 그런데 가시가 있어요.",
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "달콤한 열매를 먹어 봤어요?",
-			"choices": [
-				{
-					"ko": "네, 정말 맛있어요.",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 아직 안 먹었어요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "후후, 역시요. 여우도 이 맛을 알거든요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "그럼 꼭 먹어 보세요. 맛이 완벽해요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_smug_taiga_01",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "ouch",
+ "nodes": {
+  "ouch": {
+   "speaker": "villager",
+   "ko": "아아, 이런. 손이 조금 따가워예.",
+   "next": "jewels"
+  },
+  "jewels": {
+   "speaker": "villager",
+   "ko": "가문비나무 아래 덤불에 작은 보석이 있었어예.",
+   "next": "berries"
+  },
+  "berries": {
+   "speaker": "villager",
+   "ko": "그런데 그건 달콤한 열매였어예.",
+   "next": "thorns"
+  },
+  "thorns": {
+   "speaker": "villager",
+   "ko": "그 덤불은 참 예뻐예. 그런데 가시가 있어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "달콤한 열매를 묵어 봤어예?",
+   "choices": [
+    {
+     "ko": "네, 정말 맛있어요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 아직 안 먹었어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "후후, 역시예. 여우도 이 맛을 알거든예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "그럼 꼭 묵어 보이소. 맛이 완벽해예.",
+   "end": true
+  }
+ }
 }

@@ -1,80 +1,80 @@
 {
-	"schema": 1,
-	"id": "vt_lazy_savanna_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"LAZY"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "하암, 안녕하세요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "tree"
-		},
-		"tree": {
-			"speaker": "villager",
-			"ko": "아카시아나무 아래가 좋아요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_acacia_log"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "저기 아르마딜로 보여요?",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_armadillo"
-					]
-				}
-			],
-			"choices": [
-				{
-					"ko": "네, 보여요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 안 보여요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "헤헤, 제 낮잠 친구예요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "음, 나무 아래에 있어요. 천천히 봐요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_lazy_savanna_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "하암, 안녕하시우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "tree"
+  },
+  "tree": {
+   "speaker": "villager",
+   "ko": "아카시아나무 아래가 좋아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_acacia_log"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저기 아르마딜로 보여우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_armadillo"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 보여요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 안 보여요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "헤헤, 제 낮잠 친구이우다.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "음, 나무 아래에 있어우다. 혼저 봐우다.",
+   "end": true
+  }
+ }
 }

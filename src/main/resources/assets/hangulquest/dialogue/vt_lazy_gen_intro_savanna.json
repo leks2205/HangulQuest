@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "하암, 안녕하시우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "sleepy"
+  },
+  "sleepy": {
+   "speaker": "villager",
+   "ko": "저는 오늘도 졸려우다. 헤헤.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "빵 좋아해우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 좋아해요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 케이크가 좋아요.",
+     "next": "cake"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "우와, 저도우다. 같이 묵어우다.",
+   "end": true
+  },
+  "cake": {
+   "speaker": "villager",
+   "ko": "케이크우다? 우와, 저도 좋아해우다.",
+   "end": true
+  }
+ }
+}

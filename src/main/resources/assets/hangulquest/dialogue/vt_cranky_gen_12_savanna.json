@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_12_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "profession": "minecraft:librarian",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hush",
+ "nodes": {
+  "hush": {
+   "speaker": "villager",
+   "ko": "쉿. 여기서는 조용히 하시우다.",
+   "next": "books"
+  },
+  "books": {
+   "speaker": "villager",
+   "ko": "흠. 저는 책이 좋아우다. 책은 시끄럽지 않아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 한 권 가져와 주시우다.",
+   "grammar": "L1.eoyo",
+   "choices": [
+    {
+     "ko": "네, 알겠어요.",
+     "speechLevel": "haeyo",
+     "correct": true,
+     "next": "offer"
+    },
+    {
+     "ko": "응, 알았어.",
+     "speechLevel": "banmal",
+     "correct": false
+    }
+   ]
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "흠, 좋아우다. 특별한 책도 있어우다. 보고 싶어우다?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요.",
+     "next": "show"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "thanks"
+    }
+   ]
+  },
+  "show": {
+   "speaker": "villager",
+   "ko": "에메랄드와 책이 필요해우다. 공짜는 없어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "thanks"
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "흠. 그럼 조용히 가시우다.",
+   "end": true
+  }
+ }
+}

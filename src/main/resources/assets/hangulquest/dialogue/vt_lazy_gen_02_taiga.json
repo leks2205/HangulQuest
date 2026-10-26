@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_02_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "lie",
+ "nodes": {
+  "lie": {
+   "speaker": "villager",
+   "ko": "헤헤, 여기 잔디에 누워 보이소.",
+   "ko_banmal": "헤헤, 여기 잔디에 누워 봐.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:grass"
+     ]
+    }
+   ],
+   "next": "clouds"
+  },
+  "clouds": {
+   "speaker": "villager",
+   "ko": "하늘에 구름이 많아예.",
+   "ko_banmal": "하늘에 구름이 많아.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sky"
+     ]
+    }
+   ],
+   "next": "square"
+  },
+  "square": {
+   "speaker": "villager",
+   "ko": "다 네모야예. 헤헤.",
+   "ko_banmal": "다 네모야. 헤헤.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "구름이 뭐 같아예?",
+   "ko_banmal": "구름이 뭐 같아?",
+   "choices": [
+    {
+     "ko": "케이크 같아요!",
+     "next": "cake"
+    },
+    {
+     "ko": "양 같아요!",
+     "next": "sheep"
+    }
+   ]
+  },
+  "cake": {
+   "speaker": "villager",
+   "ko": "우와, 케이크예? 이제 배고파예.",
+   "ko_banmal": "우와, 케이크? 이제 배고파.",
+   "end": true
+  },
+  "sheep": {
+   "speaker": "villager",
+   "ko": "우와, 정말 양 같아예. 폭신폭신해예.",
+   "ko_banmal": "우와, 정말 양 같아. 폭신폭신해.",
+   "end": true
+  }
+ }
+}

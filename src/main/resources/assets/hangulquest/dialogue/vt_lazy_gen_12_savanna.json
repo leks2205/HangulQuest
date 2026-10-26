@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_12_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "profession": "minecraft:librarian",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "음, 어서 오시우다. 저는 사서이우다.",
+   "next": "book"
+  },
+  "book": {
+   "speaker": "villager",
+   "ko": "저는 책이 좋아우다. 침대에서 읽어우다. 헤헤.",
+   "ko_banmal": "나는 책이 좋아. 침대에서 읽어. 헤헤.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책 좋아해우다?",
+   "grammar": "L1.eoyo",
+   "choices": [
+    {
+     "ko": "네, 좋아해요.",
+     "speechLevel": "haeyo",
+     "correct": true,
+     "next": "offer"
+    },
+    {
+     "ko": "응, 좋아해.",
+     "speechLevel": "banmal",
+     "correct": false
+    }
+   ]
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "특별한 책도 있어우다. 보고 싶어우다?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요!",
+     "next": "show"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "thanks"
+    }
+   ]
+  },
+  "show": {
+   "speaker": "villager",
+   "ko": "에메랄드와 책이 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "thanks"
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "고마워우다. 혼저 읽으시우다. 혼저, 혼저.",
+   "ko_banmal": "고마워. 혼저 읽어. 혼저, 혼저.",
+   "end": true
+  }
+ }
+}

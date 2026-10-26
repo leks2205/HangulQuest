@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_03_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오오, 안녕하이소! 벌써 저녁이라예!",
+   "ko_banmal": "오오, 안녕! 벌써 저녁이야!",
+   "next": "night"
+  },
+  "night": {
+   "speaker": "villager",
+   "ko": "밤에는 밖에 좀비가 많아예. 그래서 밤에는 집에서 운동해예!",
+   "ko_banmal": "밤에는 밖에 좀비가 많아. 그래서 밤에는 집에서 운동해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:zombie",
+      "concept:night"
+     ]
+    }
+   ],
+   "next": "pushups"
+  },
+  "pushups": {
+   "speaker": "villager",
+   "ko": "어젯밤에는 팔굽혀펴기를 백 번 했어예!",
+   "ko_banmal": "어젯밤에는 팔굽혀펴기를 백 번 했어!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 뭐 해예?",
+   "ko_banmal": "밤에 뭐 해?",
+   "choices": [
+    {
+     "ko": "침대에서 자요.",
+     "next": "sleep"
+    },
+    {
+     "ko": "광산에 가요.",
+     "next": "mine"
+    }
+   ]
+  },
+  "sleep": {
+   "speaker": "villager",
+   "ko": "좋아예! 잘 자는 것도 운동이라예!",
+   "ko_banmal": "좋아! 잘 자는 것도 운동이야!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bed"
+     ]
+    }
+   ],
+   "next": "end"
+  },
+  "mine": {
+   "speaker": "villager",
+   "ko": "오오, 광산! 그럼 횃불이 많이 필요해예! 좀비를 조심하이소!",
+   "ko_banmal": "오오, 광산! 그럼 횃불이 많이 필요해! 좀비 조심해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "end"
+  },
+  "end": {
+   "speaker": "villager",
+   "ko": "내일 아침에 또 만나예! 내일은 같이 달릴 거예!",
+   "ko_banmal": "내일 아침에 또 만나! 내일은 같이 달릴 거야!",
+   "end": true
+  }
+ }
+}

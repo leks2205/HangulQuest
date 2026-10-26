@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_ms6_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 6,
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "waited",
+ "nodes": {
+  "waited": {
+   "speaker": "villager",
+   "ko": "어머어머! 기다렸어우다!",
+   "ko_banmal": "어머어머! 기다렸어!",
+   "next": "song"
+  },
+  "song": {
+   "speaker": "villager",
+   "ko": "어제 밤새 친구 노래를 만들었어우다!",
+   "ko_banmal": "어제 밤새 친구 노래를 만들었어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:song"
+     ]
+    }
+   ],
+   "next": "who"
+  },
+  "who": {
+   "speaker": "villager",
+   "ko": "노래 속 친구가 누구이우다? 바로 여기 있어우다!",
+   "ko_banmal": "노래 속 친구가 누구야? 바로 여기 있어!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "지금 불러 줄 거우다! 괜찮아우다?",
+   "ko_banmal": "지금 불러 줄 거야! 괜찮아?",
+   "choices": [
+    {
+     "ko": "네, 불러 주세요!",
+     "next": "sing"
+    },
+    {
+     "ko": "다음에 들어요.",
+     "next": "later"
+    }
+   ]
+  },
+  "sing": {
+   "speaker": "villager",
+   "ko": "랄라라! 고마워우다! 박수 소리가 정말 좋아우다!",
+   "ko_banmal": "랄라라! 고마워! 박수 소리가 정말 좋아!",
+   "next": "bye"
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 그럼 더 연습할 거우다!",
+   "ko_banmal": "괜찮아! 그럼 더 연습할 거야!",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "우리는 진짜 친구이우다! 진짜진짜 최고이우다!",
+   "ko_banmal": "우리는 진짜 친구야! 진짜진짜 최고야!",
+   "end": true
+  }
+ }
+}

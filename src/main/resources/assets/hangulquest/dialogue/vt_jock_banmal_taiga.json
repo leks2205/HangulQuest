@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "vt_jock_banmal_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "banmal_offer",
+  "friendship": 6,
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "friends",
+ "nodes": {
+  "friends": {
+   "speaker": "villager",
+   "ko": "와! 우리 진짜 친구야예!",
+   "next": "offer"
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "말 편하게 할까예?",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L6.banmal"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "응, 좋아!",
+     "speechLevel": "banmal",
+     "next": "yes",
+     "effects": [
+      {
+       "type": "acceptBanmal"
+      }
+     ]
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예! 이제 우리 친구야예!",
+   "ko_banmal": "좋아! 이제 우리 진짜 친구야!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예! 그럼 또 봐예!",
+   "end": true
+  }
+ }
+}

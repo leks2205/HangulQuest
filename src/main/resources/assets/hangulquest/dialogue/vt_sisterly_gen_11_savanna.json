@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_11_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:farmer",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 저는 농부이우다. 밀이 많아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat"
+     ]
+    }
+   ],
+   "next": "ask",
+   "ko_banmal": "어이! 나는 농부야. 밀이 많아."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "당근과 감자가 있어우다. 뭐가 필요해우다?",
+   "choices": [
+    {
+     "ko": "당근이 필요해요.",
+     "next": "carrot"
+    },
+    {
+     "ko": "감자가 필요해요.",
+     "next": "potato"
+    }
+   ],
+   "ko_banmal": "당근과 감자가 있어. 뭐가 필요해?"
+  },
+  "carrot": {
+   "speaker": "villager",
+   "ko": "당근을 밭에 심어우다. 당근은 잘 자라우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:carrot",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "당근을 밭에 심어. 당근은 잘 자라."
+  },
+  "potato": {
+   "speaker": "villager",
+   "ko": "감자도 밭에 심어우다. 감자도 잘 자라우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "감자도 밭에 심어. 감자도 잘 자라."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "밭에 물이 필요해우다. 잘 가우다!",
+   "end": true,
+   "ko_banmal": "밭에 물이 필요해. 잘 가!"
+  }
+ }
+}

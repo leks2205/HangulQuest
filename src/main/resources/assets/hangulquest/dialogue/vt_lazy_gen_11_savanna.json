@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_11_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "profession": "minecraft:farmer",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "하암, 안녕하시우다. 밭에 밀이 많아우다.",
+   "ko_banmal": "하암, 안녕. 밭에 밀이 많아.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat"
+     ]
+    }
+   ],
+   "next": "crops"
+  },
+  "crops": {
+   "speaker": "villager",
+   "ko": "당근도 있어우다. 감자도 있어우다.",
+   "ko_banmal": "당근도 있어. 감자도 있어.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "뭐가 좋아우다?",
+   "ko_banmal": "뭐가 좋아?",
+   "choices": [
+    {
+     "ko": "당근이 좋아요.",
+     "next": "carrot"
+    },
+    {
+     "ko": "감자가 좋아요.",
+     "next": "potato"
+    }
+   ]
+  },
+  "carrot": {
+   "speaker": "villager",
+   "ko": "당근을 밭에 심어우다. 그리고 쉬어우다. 헤헤.",
+   "ko_banmal": "당근을 밭에 심어. 그리고 쉬어. 헤헤.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:carrot",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "water"
+  },
+  "potato": {
+   "speaker": "villager",
+   "ko": "감자도 밭에 심어우다. 그리고 자우다. 헤헤.",
+   "ko_banmal": "감자도 밭에 심어. 그리고 자. 헤헤.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "water"
+  },
+  "water": {
+   "speaker": "villager",
+   "ko": "밭 옆에 물이 있어우다. 그래서 잘 자라우다. 혼저, 혼저.",
+   "ko_banmal": "밭 옆에 물이 있어. 그래서 잘 자라. 혼저, 혼저.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:water"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

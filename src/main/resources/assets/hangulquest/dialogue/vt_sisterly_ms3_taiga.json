@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_ms3_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 3,
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "again",
+ "nodes": {
+  "again": {
+   "speaker": "villager",
+   "ko": "어이! 우리 자주 만나예.",
+   "ko_banmal": "어이! 우리 자주 만나.",
+   "next": "friend"
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "이제 우리는 친구야예.",
+   "ko_banmal": "이제 우리는 친구야.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "힘든 일 있어예?",
+   "ko_banmal": "힘든 일 있어?",
+   "choices": [
+    {
+     "ko": "네, 조금 피곤해요.",
+     "next": "tired"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "fine"
+    }
+   ]
+  },
+  "tired": {
+   "speaker": "villager",
+   "ko": "그럼 여기 앉아예. 내가 도와예. 문제없어예!",
+   "ko_banmal": "그럼 여기 앉아. 내가 도와. 문제없어!",
+   "end": true
+  },
+  "fine": {
+   "speaker": "villager",
+   "ko": "좋아예. 그럼 물을 마셔예.",
+   "ko_banmal": "좋아. 그럼 물을 마셔.",
+   "end": true
+  }
+ }
+}

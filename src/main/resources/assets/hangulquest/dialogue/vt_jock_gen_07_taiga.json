@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_07_taiga",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "얼씨구! 오늘도 뛰어서 왔네예!",
+   "ko_banmal": "얼씨구! 오늘도 뛰어서 왔네!",
+   "next": "obs"
+  },
+  "obs": {
+   "speaker": "villager",
+   "ko": "멀리서 보니까 항상 뛰면서 점프도 하던데예!",
+   "ko_banmal": "멀리서 보니까 항상 뛰면서 점프도 하던데!",
+   "next": "wow"
+  },
+  "wow": {
+   "speaker": "villager",
+   "ko": "그렇게 달리는 사람은 처음 봤어예. 진짜 선수 같더라고예!",
+   "ko_banmal": "그렇게 달리는 사람은 처음 봤어. 진짜 선수 같더라!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어떻게 그렇게 빨라예? 비밀이 뭐야예?",
+   "ko_banmal": "어떻게 그렇게 빨라? 비밀이 뭐야?",
+   "choices": [
+    {
+     "ko": "빨리 가고 싶어요!",
+     "next": "fast"
+    },
+    {
+     "ko": "그냥 재미있어요!",
+     "next": "fun"
+    }
+   ]
+  },
+  "fast": {
+   "speaker": "villager",
+   "ko": "하하, 좋아예! 저도 빨리 가고 싶을 때는 항상 뛰어예!",
+   "ko_banmal": "하하, 좋아! 나도 빨리 가고 싶을 때는 항상 뛰어!",
+   "next": "end"
+  },
+  "fun": {
+   "speaker": "villager",
+   "ko": "바로 그거예! 재미있어서 하는 운동이 제일 오래가더라고예!",
+   "ko_banmal": "바로 그거야! 재미있어서 하는 운동이 제일 오래가더라!",
+   "next": "end"
+  },
+  "end": {
+   "speaker": "villager",
+   "ko": "다음에는 저와 같이 뛰어예! 누가 더 높게 뛰는지 시합해예!",
+   "ko_banmal": "다음에는 나와 같이 뛰자! 누가 더 높게 뛰는지 시합하자!",
+   "end": true
+  }
+ }
+}

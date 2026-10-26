@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_ms10_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 10,
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "자, 잠깐 앉아예.",
+   "ko_banmal": "자, 잠깐 앉아.",
+   "next": "memory"
+  },
+  "memory": {
+   "speaker": "villager",
+   "ko": "처음에 혼자가 편했어예.",
+   "ko_banmal": "처음에 혼자가 편했어.",
+   "next": "change"
+  },
+  "change": {
+   "speaker": "villager",
+   "ko": "그런데 이제는 다 같이 먹는 밥이 좋아예.",
+   "ko_banmal": "그런데 이제는 다 같이 먹는 밥이 좋아.",
+   "next": "heart"
+  },
+  "heart": {
+   "speaker": "villager",
+   "ko": "우리는 가족이라예. 무슨 일이 있어도 내가 도와예.",
+   "ko_banmal": "우리는 가족이야. 무슨 일이 있어도 내가 도와.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:family"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "나를 믿어예?",
+   "ko_banmal": "나를 믿어?",
+   "choices": [
+    {
+     "ko": "네, 믿어요.",
+     "next": "yes"
+    },
+    {
+     "ko": "당연하죠.",
+     "next": "of_course"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예. 우리는 가족이라예.",
+   "ko_banmal": "좋아. 우리는 가족이야.",
+   "end": true
+  },
+  "of_course": {
+   "speaker": "villager",
+   "ko": "아하하! 바로 그 말을 기다렸어예.",
+   "ko_banmal": "아하하! 바로 그 말을 기다렸어.",
+   "end": true
+  }
+ }
+}

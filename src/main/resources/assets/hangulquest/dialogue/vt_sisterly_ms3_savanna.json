@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_ms3_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 3,
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "again",
+ "nodes": {
+  "again": {
+   "speaker": "villager",
+   "ko": "어이! 우리 자주 만나우다.",
+   "ko_banmal": "어이! 우리 자주 만나.",
+   "next": "friend"
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "이제 우리는 친구이우다.",
+   "ko_banmal": "이제 우리는 친구야.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "힘든 일 있어우다?",
+   "ko_banmal": "힘든 일 있어?",
+   "choices": [
+    {
+     "ko": "네, 조금 피곤해요.",
+     "next": "tired"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "fine"
+    }
+   ]
+  },
+  "tired": {
+   "speaker": "villager",
+   "ko": "그럼 여기 앉아우다. 내가 도와우다. 문제없어우다!",
+   "ko_banmal": "그럼 여기 앉아. 내가 도와. 문제없어!",
+   "end": true
+  },
+  "fine": {
+   "speaker": "villager",
+   "ko": "좋아우다. 그럼 물을 마셔우다.",
+   "ko_banmal": "좋아. 그럼 물을 마셔.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_17_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하이소! 여기는 우리 마을이라예.",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    },
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:village"
+     ]
+    }
+   ],
+   "next": "ask_name"
+  },
+  "ask_name": {
+   "speaker": "villager",
+   "ko": "이름이 뭐야예?",
+   "typed": {
+    "free": true
+   },
+   "next": "nice"
+  },
+  "nice": {
+   "speaker": "villager",
+   "ko": "만나서 반가워예! 이름이 참 예뻐예.",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "점심에 빵과 사과가 필요해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread",
+      "concept:apple"
+     ]
+    }
+   ],
+   "typed": {
+    "expected": [
+     "사과"
+    ],
+    "word": "concept:apple"
+   },
+   "next": "errand"
+  },
+  "errand": {
+   "speaker": "villager",
+   "ko": "사과를 한 개 구해 주이소.",
+   "effects": [
+    {
+     "type": "startTrail",
+     "trail": "essenspfad"
+    },
+    {
+     "type": "exposeGrammar",
+     "point": "L2.seyo"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 구해요!",
+     "next": "thanks"
+    },
+    {
+     "ko": "미안해요, 조금 바빠요.",
+     "next": "later"
+    }
+   ]
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "고마워예! 다행이라예.",
+   "end": true
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 내일도 좋아예.",
+   "end": true
+  }
+ }
+}

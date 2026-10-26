@@ -1,72 +1,72 @@
 {
-	"schema": 1,
-	"id": "vt_smug_taiga_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"SMUG"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "후후, 안녕하세요. 어서 와요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "spruce"
-		},
-		"spruce": {
-			"speaker": "villager",
-			"ko": "가문비나무 숲은 향기가 좋아요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_spruce_wood"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "숲이 좋아요?",
-			"choices": [
-				{
-					"ko": "네, 좋아해요.",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 어두워요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "오, 좋아요. 그럼 천천히 걸어 보세요. 완벽해요.",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "괜찮아요. 저는 랜턴이 있어요. 숲도 밝아요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_smug_taiga_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "후후, 안녕하이소. 어서 와예.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "spruce"
+  },
+  "spruce": {
+   "speaker": "villager",
+   "ko": "가문비나무 숲은 향기가 좋아예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_spruce_wood"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "숲이 좋아예?",
+   "choices": [
+    {
+     "ko": "네, 좋아해요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 어두워요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "오, 좋아예. 그럼 천천히 걸어 보이소. 완벽해예.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 저는 랜턴이 있어예. 숲도 밝아예.",
+   "end": true
+  }
+ }
 }

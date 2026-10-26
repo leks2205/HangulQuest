@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_17_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 처음 뵙겠심더. 안녕하십니까.",
+   "next": "ask_name",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ]
+  },
+  "ask_name": {
+   "speaker": "villager",
+   "ko": "이름이 무엇입니까?",
+   "next": "nice"
+  },
+  "nice": {
+   "speaker": "villager",
+   "ko": "만나서 반갑심더. 저는 이 마을 주민입니다.",
+   "choices": [
+    {
+     "ko": "저도 반가워요.",
+     "next": "need"
+    },
+    {
+     "ko": "저는 여행자예요.",
+     "next": "traveller"
+    }
+   ]
+  },
+  "traveller": {
+   "speaker": "villager",
+   "ko": "어머, 여행자이십니까? 이 마을이 처음이십니까?",
+   "next": "need"
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "그런데 빵과 사과가 필요합니다.",
+   "next": "errand",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread",
+      "concept:apple"
+     ]
+    }
+   ]
+  },
+  "errand": {
+   "speaker": "villager",
+   "ko": "사과 한 개가 필요합니다. 빨간색이 좋심더.",
+   "effects": [
+    {
+     "type": "startTrail",
+     "trail": "essenspfad"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 제가 찾아요.",
+     "next": "bye"
+    },
+    {
+     "ko": "네, 좋아요.",
+     "next": "bye"
+    }
+   ]
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "감사합니다. 안녕히 가십시오.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_13_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "profession": "minecraft:fisherman",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "quiet",
+ "nodes": {
+  "quiet": {
+   "speaker": "villager",
+   "ko": "흠. 저는 아침마다 조용히 낚시를 해우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "낚싯대가 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fishing_rod"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 낚싯대가 있어요.",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "lacks"
+    }
+   ]
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "흠. 그럼 물에서 물고기를 잡으시우다. 말은 하지 마시우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fish",
+      "concept:catch"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "lacks": {
+   "speaker": "villager",
+   "ko": "막대기 세 개와 실 두 개로 만들어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:stick",
+      "concept:string"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "그리고 조용히 기다려우다. 그럼 또 봐우다.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_12_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:librarian",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 어서 와예. 저는 사서야예.",
+   "next": "need",
+   "ko_banmal": "어이! 어서 와. 나는 사서야."
+  },
+  "need": {
+   "speaker": "villager",
+   "ko": "책이 필요해예. 책을 한 권 가져와예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "ask",
+   "ko_banmal": "책이 필요해. 책을 한 권 가져와."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "책을 좋아해예?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 저는 그림이 좋아요.",
+     "next": "no"
+    }
+   ],
+   "ko_banmal": "책을 좋아해?"
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예. 여기 책이 많아예.",
+   "next": "special",
+   "ko_banmal": "좋아. 여기 책이 많아."
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "그래도 책을 한 번 읽어 봐예.",
+   "next": "special",
+   "ko_banmal": "그래도 책을 한 번 읽어 봐."
+  },
+  "special": {
+   "speaker": "villager",
+   "ko": "특별한 책도 있어예. 에메랄드와 책이 필요해예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "특별한 책도 있어. 에메랄드와 책이 필요해."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "좋아예. 조용히 읽어예.",
+   "end": true,
+   "ko_banmal": "좋아. 조용히 읽어."
+  }
+ }
+}

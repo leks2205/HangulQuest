@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_07_taiga",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "idea",
+ "nodes": {
+  "idea": {
+   "speaker": "villager",
+   "ko": "꺄아! 좋은 생각이 났어예!",
+   "ko_banmal": "꺄아! 좋은 생각이 났어!",
+   "next": "chime"
+  },
+  "chime": {
+   "speaker": "villager",
+   "ko": "자수정 블록 위를 걸으면 맑은 소리가 나거든예.",
+   "ko_banmal": "자수정 블록 위를 걸으면 맑은 소리가 나거든.",
+   "next": "stage"
+  },
+  "stage": {
+   "speaker": "villager",
+   "ko": "그 블록으로 무대를 만들면 걸을 때마다 노래가 되잖아예!",
+   "ko_banmal": "그 블록으로 무대를 만들면 걸을 때마다 노래가 되잖아!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어때예? 대박이죠?",
+   "ko_banmal": "어때? 대박이지?",
+   "choices": [
+    {
+     "ko": "대박이에요! 같이 만들어요!",
+     "next": "cave"
+    },
+    {
+     "ko": "다이아몬드 무대는 어때요?",
+     "next": "diamond"
+    }
+   ]
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "와아! 자수정은 땅 밑 동굴에 있잖아예. 횃불을 꼭 가져가예!",
+   "ko_banmal": "와아! 자수정은 땅 밑 동굴에 있잖아. 횃불을 꼭 가져가!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave",
+      "concept:torch"
+     ]
+    }
+   ],
+   "end": true
+  },
+  "diamond": {
+   "speaker": "villager",
+   "ko": "다이아몬드도 반짝반짝하지만 소리가 안 나잖아예! 그리고 너무 귀해예!",
+   "ko_banmal": "다이아몬드도 반짝반짝하지만 소리가 안 나잖아! 그리고 너무 귀해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:diamond"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

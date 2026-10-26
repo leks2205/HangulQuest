@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_04_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 해가 지네우다.",
+   "next": "torch"
+  },
+  "torch": {
+   "speaker": "villager",
+   "ko": "밤에 좀비가 나와우다. 그래서 꽃밭에 횃불을 놓았어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:zombie",
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "spawn"
+  },
+  "spawn": {
+   "speaker": "villager",
+   "ko": "횃불 옆에 좀비가 안 생겨우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 뭐 해우다?",
+   "choices": [
+    {
+     "ko": "집에서 자요.",
+     "next": "sleep"
+    },
+    {
+     "ko": "동굴에서 석탄을 캐요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "sleep": {
+   "speaker": "villager",
+   "ko": "다행이우다. 잘 자우다. 내일 또 만나우다.",
+   "end": true
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "아이코, 조심하시우다. 횃불이 꼭 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave"
+     ]
+    }
+   ],
+   "next": "wait"
+  },
+  "wait": {
+   "speaker": "villager",
+   "ko": "내일 꼭 다시 와우다. 기다릴 거우다.",
+   "end": true
+  }
+ }
+}

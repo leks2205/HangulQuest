@@ -1,0 +1,61 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_ms3_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 3,
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "again",
+ "nodes": {
+  "again": {
+   "speaker": "villager",
+   "ko": "꺄! 또 만나우다! 정말 반가워우다!",
+   "ko_banmal": "꺄! 또 만나! 정말 반가워!",
+   "next": "friend"
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "우리 이제 친구이우다! 맞아우다?",
+   "ko_banmal": "우리 이제 친구야! 맞지?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 친구예요!",
+     "next": "yes"
+    },
+    {
+     "ko": "음, 아직 몰라요.",
+     "next": "notyet"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "꺄! 진짜진짜 최고이우다! 친구 노래를 만들고 싶어우다!",
+   "ko_banmal": "꺄! 진짜진짜 최고야! 친구 노래를 만들고 싶어!",
+   "end": true
+  },
+  "notyet": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 내일 또 와우다! 그럼 친구이우다!",
+   "ko_banmal": "괜찮아! 내일 또 와! 그럼 친구야!",
+   "end": true
+  }
+ }
+}

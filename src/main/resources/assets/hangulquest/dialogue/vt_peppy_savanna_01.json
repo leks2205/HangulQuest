@@ -1,80 +1,80 @@
 {
-	"schema": 1,
-	"id": "vt_peppy_savanna_01",
-	"level": 3,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"PEPPY"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "ball",
-	"nodes": {
-		"ball": {
-			"speaker": "villager",
-			"ko": "세상에! 아르마딜로가 또 몸을 말았어요!",
-			"ko_banmal": "세상에! 아르마딜로가 또 몸을 말았어!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_armadillo"
-					]
-				}
-			],
-			"next": "why"
-		},
-		"why": {
-			"speaker": "villager",
-			"ko": "제가 너무 신나서 옆에서 막 뛰었어요.",
-			"ko_banmal": "내가 너무 신나서 옆에서 막 뛰었어.",
-			"next": "quiet"
-		},
-		"quiet": {
-			"speaker": "villager",
-			"ko": "아르마딜로는 조용한 친구네요.",
-			"ko_banmal": "아르마딜로는 조용한 친구네.",
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "그럼 천천히 걷고 작게 노래해 볼까요?",
-			"ko_banmal": "그럼 천천히 걷고 작게 노래해 볼까?",
-			"choices": [
-				{
-					"ko": "네, 작게 불러요.",
-					"next": "soft"
-				},
-				{
-					"ko": "아니요, 크게 불러요!",
-					"next": "loud"
-				}
-			]
-		},
-		"soft": {
-			"speaker": "villager",
-			"ko": "좋아요! 아주 작게 노래해요. 어때요? 이제 안 숨었죠?",
-			"ko_banmal": "좋아! 아주 작게 노래해. 어때? 이제 안 숨었지?",
-			"end": true
-		},
-		"loud": {
-			"speaker": "villager",
-			"ko": "꺄! 역시 제 팬이에요! 그럼 저기 라마 앞에서 크게 불러요!",
-			"ko_banmal": "꺄! 역시 내 팬이야! 그럼 저기 라마 앞에서 크게 부를래!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_llama"
-					]
-				}
-			],
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_peppy_savanna_01",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "ball",
+ "nodes": {
+  "ball": {
+   "speaker": "villager",
+   "ko": "세상에! 아르마딜로가 또 몸을 말았어우다!",
+   "ko_banmal": "세상에! 아르마딜로가 또 몸을 말았어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_armadillo"
+     ]
+    }
+   ],
+   "next": "why"
+  },
+  "why": {
+   "speaker": "villager",
+   "ko": "제가 너무 신나서 옆에서 막 뛰었어우다.",
+   "ko_banmal": "내가 너무 신나서 옆에서 막 뛰었어.",
+   "next": "quiet"
+  },
+  "quiet": {
+   "speaker": "villager",
+   "ko": "아르마딜로는 조용한 친구네우다.",
+   "ko_banmal": "아르마딜로는 조용한 친구네.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "그럼 혼저 걷고 작게 노래해 볼까우다?",
+   "ko_banmal": "그럼 혼저 걷고 작게 노래해 볼까?",
+   "choices": [
+    {
+     "ko": "네, 작게 불러요.",
+     "next": "soft"
+    },
+    {
+     "ko": "아니요, 크게 불러요!",
+     "next": "loud"
+    }
+   ]
+  },
+  "soft": {
+   "speaker": "villager",
+   "ko": "좋아우다! 아주 작게 노래해우다. 어때우다? 이제 안 숨었죠?",
+   "ko_banmal": "좋아! 아주 작게 노래해. 어때? 이제 안 숨었지?",
+   "end": true
+  },
+  "loud": {
+   "speaker": "villager",
+   "ko": "꺄! 역시 제 팬이우다! 그럼 저기 라마 앞에서 크게 불러우다!",
+   "ko_banmal": "꺄! 역시 내 팬이야! 그럼 저기 라마 앞에서 크게 부를래!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_llama"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
 }

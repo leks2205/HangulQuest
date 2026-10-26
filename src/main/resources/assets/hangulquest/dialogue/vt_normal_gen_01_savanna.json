@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_01_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하시우다! 저는 지금 청소해우다.",
+   "next": "sweep"
+  },
+  "sweep": {
+   "speaker": "villager",
+   "ko": "저는 매일 아침 방을 쓸어우다.",
+   "next": "window"
+  },
+  "window": {
+   "speaker": "villager",
+   "ko": "창문도 깨끗해우다. 방이 밝아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:window"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "집이 깨끗해우다?",
+   "choices": [
+    {
+     "ko": "네, 아주 깨끗해요!",
+     "next": "clean"
+    },
+    {
+     "ko": "아니요, 조금 더러워요.",
+     "next": "dirty"
+    }
+   ]
+  },
+  "clean": {
+   "speaker": "villager",
+   "ko": "우와, 다행이우다! 그럼 같이 쉬어우다.",
+   "end": true
+  },
+  "dirty": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 내일 같이 청소해우다.",
+   "end": true
+  }
+ }
+}

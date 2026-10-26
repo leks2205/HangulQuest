@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "vt_normal_ms6_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 6,
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 어서 오시우다! 저는 매일 기다려우다.",
+   "next": "pot"
+  },
+  "pot": {
+   "speaker": "villager",
+   "ko": "창문 옆에 화분이 하나 있어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:flower_pot"
+     ]
+    }
+   ],
+   "next": "yours"
+  },
+  "yours": {
+   "speaker": "villager",
+   "ko": "그 꽃은 친구가 준 꽃이우다. 매일 물을 줘우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:flower",
+      "concept:water"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무슨 꽃이 좋아우다?",
+   "choices": [
+    {
+     "ko": "민들레가 좋아요.",
+     "next": "dandelion"
+    },
+    {
+     "ko": "튤립이 좋아요.",
+     "next": "tulip"
+    }
+   ]
+  },
+  "dandelion": {
+   "speaker": "villager",
+   "ko": "민들레우다? 노란색이 참 예뻐우다. 내일 심고 싶어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:dandelion"
+     ]
+    }
+   ],
+   "end": true
+  },
+  "tulip": {
+   "speaker": "villager",
+   "ko": "튤립이 좋아우다? 좋아우다! 빨간색 튤립을 같이 심어우다.",
+   "end": true
+  }
+ }
+}

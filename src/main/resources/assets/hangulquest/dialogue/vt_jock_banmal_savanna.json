@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "vt_jock_banmal_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "banmal_offer",
+  "friendship": 6,
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "friends",
+ "nodes": {
+  "friends": {
+   "speaker": "villager",
+   "ko": "와! 우리 진짜 친구이우다!",
+   "next": "offer"
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "말 편하게 할까우다?",
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L6.banmal"
+    }
+   ],
+   "choices": [
+    {
+     "ko": "응, 좋아!",
+     "speechLevel": "banmal",
+     "next": "yes",
+     "effects": [
+      {
+       "type": "acceptBanmal"
+      }
+     ]
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아우다! 이제 우리 친구이우다!",
+   "ko_banmal": "좋아! 이제 우리 진짜 친구야!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 그럼 또 봐우다!",
+   "end": true
+  }
+ }
+}

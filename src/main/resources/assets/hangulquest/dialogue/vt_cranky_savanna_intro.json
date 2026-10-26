@@ -1,45 +1,80 @@
 {
-	"schema": 1,
-	"id": "vt_cranky_savanna_intro",
-	"level": 1,
-	"trigger": {"entity": "minecraft:villager", "baby": false, "kind": "intro", "personalities": ["CRANKY"], "regions": ["SAVANNA"]},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "흠. 안녕하세요.",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [{"type": "exposeGrammar", "point": "L1.copula_ieyo"}],
-			"next": "acacia"
-		},
-		"acacia": {
-			"speaker": "villager",
-			"ko": "여기는 아카시아나무가 많아요.",
-			"effects": [{"type": "exposeWords", "words": ["concept:gen_savanna"]}],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "오늘 더워요?",
-			"choices": [
-				{"ko": "네, 너무 더워요.", "next": "hot"},
-				{"ko": "아니요, 괜찮아요.", "next": "fine"}
-			]
-		},
-		"hot": {
-			"speaker": "villager",
-			"ko": "흠. 나무 아래에 가요. 시원해요.",
-			"effects": [{"type": "exposeWords", "words": ["concept:tree"]}],
-			"end": true
-		},
-		"fine": {
-			"speaker": "villager",
-			"ko": "흠. 그래도 물은 마셔요.",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_cranky_savanna_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠. 안녕하시우다.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "acacia"
+  },
+  "acacia": {
+   "speaker": "villager",
+   "ko": "여기는 아카시아나무가 많아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_savanna"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "오늘 더워우다?",
+   "choices": [
+    {
+     "ko": "네, 너무 더워요.",
+     "next": "hot"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "fine"
+    }
+   ]
+  },
+  "hot": {
+   "speaker": "villager",
+   "ko": "흠. 나무 아래에 가우다. 시원해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:tree"
+     ]
+    }
+   ],
+   "end": true
+  },
+  "fine": {
+   "speaker": "villager",
+   "ko": "흠. 그래도 물은 마셔우다.",
+   "end": true
+  }
+ }
 }

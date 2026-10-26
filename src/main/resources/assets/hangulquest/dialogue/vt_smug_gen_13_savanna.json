@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_13_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "profession": "minecraft:fisherman",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "후후, 안녕하시우다. 저는 어부이우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "낚싯대가 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fishing_rod"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 낚싯대가 있어요.",
+     "next": "has"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "lacks"
+    }
+   ]
+  },
+  "has": {
+   "speaker": "villager",
+   "ko": "좋아우다! 물에서 물고기를 잡아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fish",
+      "concept:catch"
+     ]
+    }
+   ],
+   "next": "story"
+  },
+  "lacks": {
+   "speaker": "villager",
+   "ko": "막대기 세 개와 실 두 개가 필요해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:stick",
+      "concept:string"
+     ]
+    }
+   ],
+   "next": "story"
+  },
+  "story": {
+   "speaker": "villager",
+   "ko": "저는 어제 수련잎을 건졌어우다.",
+   "next": "story2"
+  },
+  "story2": {
+   "speaker": "villager",
+   "ko": "물고기는 아니에우다. 그래도 예뻐우다.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "그럼 또 만나우다. 좋은 하루 보내시우다.",
+   "end": true
+  }
+ }
+}

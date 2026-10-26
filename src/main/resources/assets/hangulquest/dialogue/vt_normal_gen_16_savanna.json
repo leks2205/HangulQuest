@@ -1,0 +1,89 @@
+{
+ "schema": 1,
+ "id": "vt_normal_gen_16_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "profession": "minecraft:cleric",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 안녕하시우다! 저는 성직자이우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저는 금을 사우다. 혹시 금이 있어우다?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gold"
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "ko": "네, 금이 있어요.",
+     "next": "trade"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "trade": {
+   "speaker": "villager",
+   "ko": "좋아우다! 금 주괴 세 개에 에메랄드 한 개이우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "shine"
+  },
+  "shine": {
+   "speaker": "villager",
+   "ko": "다행이우다. 금은 정말 반짝반짝하네우다.",
+   "next": "bye"
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "그럼 금을 찾아 보시우다. 금은 동굴에 있어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cave",
+      "concept:find"
+     ]
+    }
+   ],
+   "next": "careful"
+  },
+  "careful": {
+   "speaker": "villager",
+   "ko": "동굴은 어두워우다. 다치지 마시우다!",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "안녕히 가시우다! 꼭 다시 오시우다.",
+   "end": true
+  }
+ }
+}

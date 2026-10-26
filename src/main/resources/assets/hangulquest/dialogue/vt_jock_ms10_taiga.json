@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "vt_jock_ms10_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 10,
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "아, 왔네예. 오늘은 조금 조용히 이야기하고 싶어예.",
+   "ko_banmal": "아, 왔네. 오늘은 좀 조용히 이야기하고 싶어.",
+   "next": "story"
+  },
+  "story": {
+   "speaker": "villager",
+   "ko": "사실 저는 예전에 달리기를 제일 못했어예.",
+   "ko_banmal": "사실 나는 예전에 달리기를 제일 못했어.",
+   "next": "laugh"
+  },
+  "laugh": {
+   "speaker": "villager",
+   "ko": "다른 주민들이 웃었어예. 그래서 혼자 매일 연습했어예.",
+   "ko_banmal": "다른 주민들이 웃었어. 그래서 혼자 매일 연습했어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:villager"
+     ]
+    }
+   ],
+   "next": "now"
+  },
+  "now": {
+   "speaker": "villager",
+   "ko": "그런데 요즘은 혼자가 아니라서 정말 좋아예.",
+   "ko_banmal": "그런데 요즘은 혼자가 아니라서 진짜 좋아.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "늘 와 줘서 고마워예. 앞으로도 같이 달려 줄 거죠?",
+   "ko_banmal": "늘 와 줘서 고마워. 앞으로도 같이 달려 줄 거지?",
+   "choices": [
+    {
+     "ko": "네, 물론이에요!",
+     "next": "yes"
+    },
+    {
+     "ko": "제가 더 빨리 달릴 거예요!",
+     "next": "rival"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "하하! 그 말이 제일 듣고 싶었어예! 하나, 둘! 하나, 둘!",
+   "ko_banmal": "하하! 그 말이 제일 듣고 싶었어! 하나, 둘! 하나, 둘!",
+   "end": true
+  },
+  "rival": {
+   "speaker": "villager",
+   "ko": "오호! 좋아예! 친구가 최고의 라이벌이라예!",
+   "ko_banmal": "오호! 좋아! 친구가 최고의 라이벌이야!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

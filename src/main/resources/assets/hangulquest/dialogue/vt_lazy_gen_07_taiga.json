@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_gen_07_taiga",
+ "level": 6,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "planted",
+ "nodes": {
+  "planted": {
+   "speaker": "villager",
+   "ko": "하아암, 며칠 전에 밀을 심었거든예.",
+   "ko_banmal": "하아암, 며칠 전에 밀을 심었거든.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wheat",
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "slow"
+  },
+  "slow": {
+   "speaker": "villager",
+   "ko": "매일 봐도 밀은 천천히 자라더라고예.",
+   "ko_banmal": "매일 봐도 밀은 천천히 자라더라.",
+   "next": "rush"
+  },
+  "rush": {
+   "speaker": "villager",
+   "ko": "서두른다고 밀이 더 빨리 자라는 것도 아니잖아예.",
+   "ko_banmal": "서두른다고 밀이 더 빨리 자라는 것도 아니잖아.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "안 그래예?",
+   "ko_banmal": "안 그래?",
+   "choices": [
+    {
+     "ko": "뼛가루를 쓰면 빨리 자라요.",
+     "next": "bone"
+    },
+    {
+     "ko": "맞아요. 기다려야 해요.",
+     "next": "agree"
+    }
+   ]
+  },
+  "bone": {
+   "speaker": "villager",
+   "ko": "헤헤, 그건 그렇네예. 그래도 기다린 빵이 더 맛있기 마련이라예.",
+   "ko_banmal": "헤헤, 그건 그렇네. 그래도 기다린 빵이 더 맛있기 마련이야.",
+   "end": true
+  },
+  "agree": {
+   "speaker": "villager",
+   "ko": "헤헤, 우리 말이 통하네예.",
+   "ko_banmal": "헤헤, 우리 말이 통하네.",
+   "next": "better"
+  },
+  "better": {
+   "speaker": "villager",
+   "ko": "기다릴수록 빵이 더 맛있어예. 천천히, 천천히.",
+   "ko_banmal": "기다릴수록 빵이 더 맛있어. 천천히, 천천히.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bread"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

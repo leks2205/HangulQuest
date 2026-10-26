@@ -1,0 +1,69 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_02_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 벌써 저녁이수다.",
+   "next": "early"
+  },
+  "early": {
+   "speaker": "villager",
+   "ko": "저는 일찍 잡니다. 잠은 중요합니다.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:bed"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "밤에 잘 주무십니까?",
+   "choices": [
+    {
+     "ko": "네, 침대에서 자요.",
+     "next": "good"
+    },
+    {
+     "ko": "아니요, 밤에 동굴에 가요.",
+     "next": "cave"
+    }
+   ]
+  },
+  "good": {
+   "speaker": "villager",
+   "ko": "호호, 좋수다. 나쁘지 않수다.",
+   "end": true
+  },
+  "cave": {
+   "speaker": "villager",
+   "ko": "어머, 침대에서 주무십시오. 팬텀이 옵니다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_phantom"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

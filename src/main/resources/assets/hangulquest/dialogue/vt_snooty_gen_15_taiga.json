@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_15_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "profession": "minecraft:cartographer",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 어서 오십시오. 지도가 있심더.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가십니까?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ]
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 유적이 있심더.",
+   "next": "sea2",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ]
+  },
+  "sea2": {
+   "speaker": "villager",
+   "ko": "벽은 프리즈머린입니다. 가디언을 조심하십시오.",
+   "next": "bye"
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "어두운 숲에 큰 집이 있심더. 그 집은 삼림 대저택입니다.",
+   "next": "forest2",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ]
+  },
+  "forest2": {
+   "speaker": "villager",
+   "ko": "집은 훌륭합니다. 그런데 변명자는 예의가 없심더.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "지도는 소중하게 다루십시오. 안녕히 가십시오.",
+   "end": true
+  }
+ }
+}

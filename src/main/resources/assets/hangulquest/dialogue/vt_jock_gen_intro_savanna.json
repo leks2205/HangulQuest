@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_intro_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "이얍! 안녕하시우다!",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "love"
+  },
+  "love": {
+   "speaker": "villager",
+   "ko": "저는 운동을 정말 좋아해우다!",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "운동 좋아해우다?",
+   "choices": [
+    {
+     "ko": "네, 좋아해요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 별로예요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "하하! 우리 같이 운동해우다! 하나, 둘! 하나, 둘!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 산책도 운동이우다!",
+   "end": true
+  }
+ }
+}

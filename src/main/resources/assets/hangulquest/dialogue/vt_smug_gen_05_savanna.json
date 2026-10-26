@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_05_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "room",
+ "nodes": {
+  "room": {
+   "speaker": "villager",
+   "ko": "후후, 제 방을 봤어우다? 보라색 양탄자로 꾸몄어우다.",
+   "next": "mix"
+  },
+  "mix": {
+   "speaker": "villager",
+   "ko": "빨간색과 파란색을 섞었어우다.",
+   "next": "lapis"
+  },
+  "lapis": {
+   "speaker": "villager",
+   "ko": "파란색은 청금석으로 만들어우다.",
+   "next": "jewel"
+  },
+  "jewel": {
+   "speaker": "villager",
+   "ko": "그래서 제 방은 보석 같아우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무슨 색이 좋아우다?",
+   "choices": [
+    {
+     "ko": "저는 초록색이 좋아요.",
+     "next": "green"
+    },
+    {
+     "ko": "저는 검은색이 좋아요.",
+     "next": "black"
+    }
+   ]
+  },
+  "green": {
+   "speaker": "villager",
+   "ko": "오, 초록색! 에메랄드 색이우다. 멋진 선택이우다.",
+   "end": true
+  },
+  "black": {
+   "speaker": "villager",
+   "ko": "검은색도 멋있어우다. 밤하늘 같은 색이우다.",
+   "end": true
+  }
+ }
+}

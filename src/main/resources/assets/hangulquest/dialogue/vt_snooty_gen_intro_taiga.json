@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "id": "vt_snooty_gen_intro_taiga",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "SNOOTY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머, 안녕하십니까.",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "next": "region"
+  },
+  "region": {
+   "speaker": "villager",
+   "ko": "저는 에메랄드가 좋심더. 빛이 맑심더.",
+   "next": "ask",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ]
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "에메랄드가 있습니까?",
+   "choices": [
+    {
+     "ko": "네, 있어요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "호호, 나쁘지 않심더. 또 뵙겠심더.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "흠, 아쉽심더. 안녕히 가십시오.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "vt_lazy_ms10_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "milestone",
+  "friendship": 10,
+  "personalities": [
+   "LAZY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "early",
+ "nodes": {
+  "early": {
+   "speaker": "villager",
+   "ko": "헤헤, 오늘은 일찍 일어났어우다.",
+   "ko_banmal": "헤헤, 오늘은 일찍 일어났어.",
+   "next": "waited"
+  },
+  "waited": {
+   "speaker": "villager",
+   "ko": "친구를 기다렸어우다.",
+   "ko_banmal": "친구를 기다렸어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:friend"
+     ]
+    }
+   ],
+   "next": "before"
+  },
+  "before": {
+   "speaker": "villager",
+   "ko": "전에는 빵과 낮잠만 좋았어우다.",
+   "ko_banmal": "전에는 빵과 낮잠만 좋았어.",
+   "next": "now"
+  },
+  "now": {
+   "speaker": "villager",
+   "ko": "그런데 지금은 친구가 제일 좋아우다.",
+   "ko_banmal": "그런데 지금은 친구가 제일 좋아.",
+   "next": "cake"
+  },
+  "cake": {
+   "speaker": "villager",
+   "ko": "정말이우다. 케이크도 두 번째이우다.",
+   "ko_banmal": "정말이야. 케이크도 두 번째야.",
+   "choices": [
+    {
+     "ko": "저도 정말 좋아요!",
+     "next": "happy"
+    },
+    {
+     "ko": "정말요? 믿을 수 없어요!",
+     "next": "doubt"
+    }
+   ]
+  },
+  "happy": {
+   "speaker": "villager",
+   "ko": "헤헤, 고마워우다. 우리 오래오래 같이 혼저 걸어우다.",
+   "ko_banmal": "헤헤, 고마워. 우리 오래오래 같이 혼저 걷자.",
+   "end": true
+  },
+  "doubt": {
+   "speaker": "villager",
+   "ko": "정말이우다. 오늘은 낮잠도 안 잤어우다. 헤헤.",
+   "ko_banmal": "정말이야. 오늘은 낮잠도 안 잤어. 헤헤.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_15_savanna",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "profession": "minecraft:cartographer",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 지도가 많아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ],
+   "next": "ask",
+   "ko_banmal": "어이! 지도가 많아."
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가우다?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ],
+   "ko_banmal": "어디로 가?"
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 건물이 있어우다. 아주 위험해우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "바다 아래에 큰 건물이 있어. 아주 위험해."
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "숲에 큰 건물이 있어우다. 나무가 많아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ],
+   "next": "bye",
+   "ko_banmal": "숲에 큰 건물이 있어. 나무가 많아."
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "지도를 잘 봐우다. 길을 잃지 마시우다.",
+   "end": true,
+   "ko_banmal": "지도를 잘 봐. 길을 잃지 마."
+  }
+ }
+}

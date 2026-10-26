@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "vt_jock_gen_02_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "이얍! 오늘 날씨가 정말 좋아우다!",
+   "ko_banmal": "이얍! 오늘 날씨가 진짜 좋아!",
+   "next": "sun"
+  },
+  "sun": {
+   "speaker": "villager",
+   "ko": "해가 밝아우다! 바람도 시원해우다!",
+   "ko_banmal": "해가 밝아! 바람도 시원해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sun",
+      "concept:wind"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "비가 좋아우다? 해가 좋아우다?",
+   "ko_banmal": "비가 좋아? 해가 좋아?",
+   "choices": [
+    {
+     "ko": "해가 좋아요!",
+     "next": "sunny"
+    },
+    {
+     "ko": "비가 좋아요!",
+     "next": "rainy"
+    }
+   ]
+  },
+  "sunny": {
+   "speaker": "villager",
+   "ko": "저도우다! 해 아래에서 달려우다!",
+   "ko_banmal": "나도! 해 아래에서 달려!",
+   "next": "end"
+  },
+  "rainy": {
+   "speaker": "villager",
+   "ko": "오오, 비도 좋아우다! 비가 와우다? 그럼 강에서 수영해우다!",
+   "ko_banmal": "오오, 비도 좋아! 비가 와? 그럼 강에서 수영해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:rain",
+      "concept:river"
+     ]
+    }
+   ],
+   "next": "end"
+  },
+  "end": {
+   "speaker": "villager",
+   "ko": "하나, 둘! 하나, 둘! 그럼 또 봐우다!",
+   "ko_banmal": "하나, 둘! 하나, 둘! 그럼 또 봐!",
+   "end": true
+  }
+ }
+}

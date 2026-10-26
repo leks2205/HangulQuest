@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_01_savanna",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "dark",
+ "nodes": {
+  "dark": {
+   "speaker": "villager",
+   "ko": "흠. 밤에는 밖이 어두워우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:night"
+     ]
+    }
+   ],
+   "next": "torch"
+  },
+  "torch": {
+   "speaker": "villager",
+   "ko": "저는 문 앞에 횃불을 놓아우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:torch"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "집에 횃불 있어우다?",
+   "choices": [
+    {
+     "ko": "네, 많아요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 없어요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "흠. 좋아우다. 그럼 잘 자우다.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "에잉. 횃불은 석탄과 막대기로 만들어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:coal",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "now"
+  },
+  "now": {
+   "speaker": "villager",
+   "ko": "오늘 만들어우다. 나 원 참.",
+   "end": true
+  }
+ }
+}

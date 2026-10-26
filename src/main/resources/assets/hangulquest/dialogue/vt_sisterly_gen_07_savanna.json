@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_07_savanna",
+ "level": 6,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "참 나, 오늘도 일이 많네우다.",
+   "ko_banmal": "참 나, 오늘도 일이 많네.",
+   "next": "reason"
+  },
+  "reason": {
+   "speaker": "villager",
+   "ko": "누군가 기다리면 힘들어도 못 쉬잖아우다.",
+   "ko_banmal": "누군가 기다리면 힘들어도 못 쉬잖아.",
+   "next": "confide"
+  },
+  "confide": {
+   "speaker": "villager",
+   "ko": "사실은 나도 가끔 쉬고 싶어우다. 그래도 다들 내 도움을 기다리니까우다.",
+   "ko_banmal": "사실은 나도 가끔 쉬고 싶어. 그래도 다들 내 도움을 기다려.",
+   "next": "harder"
+  },
+  "harder": {
+   "speaker": "villager",
+   "ko": "일이 힘들수록 다 같이 먹는 밥이 더 좋아우다.",
+   "ko_banmal": "일이 힘들수록 다 같이 먹는 밥이 더 좋아.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "무엇이 힘이 돼우다?",
+   "ko_banmal": "무엇이 힘이 돼?",
+   "choices": [
+    {
+     "ko": "친구가 힘이 돼요.",
+     "next": "friend"
+    },
+    {
+     "ko": "맛있는 빵이 힘이 돼요.",
+     "next": "bread"
+    }
+   ]
+  },
+  "friend": {
+   "speaker": "villager",
+   "ko": "그 말 들으니까 나도 힘이 나우다. 고마워우다.",
+   "ko_banmal": "그 말 들으니까 나도 힘이 나. 고마워.",
+   "end": true
+  },
+  "bread": {
+   "speaker": "villager",
+   "ko": "아하하, 솔직해서 좋아우다. 빵은 나도 좋아우다.",
+   "ko_banmal": "아하하, 솔직해서 좋아. 빵은 나도 좋아.",
+   "end": true
+  }
+ }
+}

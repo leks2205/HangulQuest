@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "vt_sisterly_gen_06_taiga",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SISTERLY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어이! 오늘도 배고파예.",
+   "ko_banmal": "어이! 오늘도 배고파.",
+   "next": "story"
+  },
+  "story": {
+   "speaker": "villager",
+   "ko": "감자를 구웠는데 내가 다 묵었어예.",
+   "ko_banmal": "감자를 구웠는데 내가 다 묵었어.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:potato",
+      "concept:furnace"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "요리를 잘해예?",
+   "ko_banmal": "요리를 잘해?",
+   "choices": [
+    {
+     "ko": "네, 자주 해요.",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 잘 못해요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예. 다음에 같이 해예. 나는 많이 묵어예.",
+   "ko_banmal": "좋아. 다음에 같이 해. 나는 많이 묵어.",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예. 나도 잘 못해예. 같이 연습해예.",
+   "ko_banmal": "괜찮아. 나도 잘 못해. 같이 연습해.",
+   "end": true
+  }
+ }
+}

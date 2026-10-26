@@ -1,109 +1,109 @@
 {
-	"schema": 1,
-	"id": "vt_normal_taiga_01",
-	"level": 4,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"NORMAL"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "어머나, 잘 오셨어요. 아침에 덤불을 보면 열매가 없거든요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:sweet_berries"
-					]
-				}
-			],
-			"next": "night"
-		},
-		"night": {
-			"speaker": "villager",
-			"ko": "그래서 어젯밤에 창문으로 밖을 봤어요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:window"
-					]
-				}
-			],
-			"next": "fox"
-		},
-		"fox": {
-			"speaker": "villager",
-			"ko": "여우가 덤불 옆에서 열매를 먹고 있었어요!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:fox"
-					]
-				}
-			],
-			"next": "cute"
-		},
-		"cute": {
-			"speaker": "villager",
-			"ko": "하지만 여우가 너무 귀여웠어요.",
-			"next": "plant"
-		},
-		"plant": {
-			"speaker": "villager",
-			"ko": "그래서 덤불을 하나 더 심을게요. 하나는 여우 거예요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:plant"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "여우가 좋아요, 늑대가 좋아요?",
-			"choices": [
-				{
-					"ko": "여우가 좋아요!",
-					"next": "foxes"
-				},
-				{
-					"ko": "저는 늑대가 좋아요.",
-					"next": "wolves"
-				}
-			]
-		},
-		"foxes": {
-			"speaker": "villager",
-			"ko": "그렇죠? 여우 두 마리에게 열매를 주면 아기 여우가 태어나요.",
-			"end": true
-		},
-		"wolves": {
-			"speaker": "villager",
-			"ko": "늑대도 멋있지요. 늑대는 뼈를 주면 친구가 되거든요.",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:wolf",
-						"concept:bone"
-					]
-				}
-			],
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_normal_taiga_01",
+ "level": 4,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "NORMAL"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "어머나, 잘 오셨어예. 아침에 덤불을 보면 열매가 없거든예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sweet_berries"
+     ]
+    }
+   ],
+   "next": "night"
+  },
+  "night": {
+   "speaker": "villager",
+   "ko": "그래서 어젯밤에 창문으로 밖을 봤어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:window"
+     ]
+    }
+   ],
+   "next": "fox"
+  },
+  "fox": {
+   "speaker": "villager",
+   "ko": "여우가 덤불 옆에서 열매를 묵고 있었어예!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:fox"
+     ]
+    }
+   ],
+   "next": "cute"
+  },
+  "cute": {
+   "speaker": "villager",
+   "ko": "하지만 여우가 너무 귀여웠어예.",
+   "next": "plant"
+  },
+  "plant": {
+   "speaker": "villager",
+   "ko": "그래서 덤불을 하나 더 심을게예. 하나는 여우 거예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:plant"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "여우가 좋아요, 늑대가 좋아예?",
+   "choices": [
+    {
+     "ko": "여우가 좋아요!",
+     "next": "foxes"
+    },
+    {
+     "ko": "저는 늑대가 좋아요.",
+     "next": "wolves"
+    }
+   ]
+  },
+  "foxes": {
+   "speaker": "villager",
+   "ko": "그렇죠? 여우 두 마리에게 열매를 주면 아기 여우가 태어나예.",
+   "end": true
+  },
+  "wolves": {
+   "speaker": "villager",
+   "ko": "늑대도 멋있지예. 늑대는 뼈를 주면 친구가 되거든예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wolf",
+      "concept:bone"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
 }

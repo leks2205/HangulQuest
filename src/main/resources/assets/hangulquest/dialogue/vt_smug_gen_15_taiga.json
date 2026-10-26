@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_15_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "profession": "minecraft:cartographer",
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오, 어서 와예. 새 지도를 그렸어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ],
+   "next": "corner"
+  },
+  "corner": {
+   "speaker": "villager",
+   "ko": "구석에 작은 숲도 그렸어예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가예?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ]
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 건물이 있어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ],
+   "next": "guardian"
+  },
+  "guardian": {
+   "speaker": "villager",
+   "ko": "가디언이 있어예. 조심하이소.",
+   "next": "bye"
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "숲에 큰 건물이 있어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ],
+   "next": "mansion"
+  },
+  "mansion": {
+   "speaker": "villager",
+   "ko": "변명자와 소환사가 있어예. 조심하이소.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "그럼 잘 다녀와예. 또 만나예.",
+   "end": true
+  }
+ }
+}

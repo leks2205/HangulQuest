@@ -1,72 +1,72 @@
 {
-	"schema": 1,
-	"id": "vt_jock_taiga_intro",
-	"level": 1,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "intro",
-		"personalities": [
-			"JOCK"
-		],
-		"regions": [
-			"TAIGA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "오오! 안녕하세요!",
-			"next": "name"
-		},
-		"name": {
-			"speaker": "villager",
-			"selfIntro": true,
-			"effects": [
-				{
-					"type": "exposeGrammar",
-					"point": "L1.copula_ieyo"
-				}
-			],
-			"next": "tree"
-		},
-		"tree": {
-			"speaker": "villager",
-			"ko": "여기는 가문비나무가 정말 높아요!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:gen_spruce_wood"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "저는 나무 사이를 달려요! 같이 달려요?",
-			"choices": [
-				{
-					"ko": "네, 같이 달려요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 다음에요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "좋아요! 덤불은 조심해요! 따가워요!",
-			"end": true
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "괜찮아요! 다음에 꼭 같이 달려요!",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_jock_taiga_intro",
+ "level": 1,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "intro",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "오오! 안녕하이소!",
+   "next": "name"
+  },
+  "name": {
+   "speaker": "villager",
+   "selfIntro": true,
+   "effects": [
+    {
+     "type": "exposeGrammar",
+     "point": "L1.copula_ieyo"
+    }
+   ],
+   "next": "tree"
+  },
+  "tree": {
+   "speaker": "villager",
+   "ko": "여기는 가문비나무가 정말 높아예!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:gen_spruce_wood"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "저는 나무 사이를 달려예! 같이 달려예?",
+   "choices": [
+    {
+     "ko": "네, 같이 달려요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 다음에요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "좋아예! 덤불은 조심해예! 따가워예!",
+   "end": true
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아예! 다음에 꼭 같이 달려예!",
+   "end": true
+  }
+ }
 }

@@ -1,78 +1,78 @@
 {
-	"schema": 1,
-	"id": "vt_jock_savanna_01",
-	"level": 2,
-	"trigger": {
-		"entity": "minecraft:villager",
-		"baby": false,
-		"kind": "smalltalk",
-		"personalities": [
-			"JOCK"
-		],
-		"regions": [
-			"SAVANNA"
-		]
-	},
-	"start": "hello",
-	"nodes": {
-		"hello": {
-			"speaker": "villager",
-			"ko": "으랏차! 안녕하세요!",
-			"ko_banmal": "으랏차! 안녕!",
-			"next": "hill"
-		},
-		"hill": {
-			"speaker": "villager",
-			"ko": "오늘 아침에 언덕을 열 번 올라갔어요!",
-			"ko_banmal": "오늘 아침에 언덕을 열 번 올라갔어!",
-			"next": "melon"
-		},
-		"melon": {
-			"speaker": "villager",
-			"ko": "수박 하나를 들고 올라갔어요!",
-			"ko_banmal": "수박 하나를 들고 올라갔어!",
-			"effects": [
-				{
-					"type": "exposeWords",
-					"words": [
-						"concept:melon"
-					]
-				}
-			],
-			"next": "ask"
-		},
-		"ask": {
-			"speaker": "villager",
-			"ko": "수박 좋아해요?",
-			"ko_banmal": "수박 좋아해?",
-			"choices": [
-				{
-					"ko": "네, 정말 좋아해요!",
-					"next": "yes"
-				},
-				{
-					"ko": "아니요, 별로예요.",
-					"next": "no"
-				}
-			]
-		},
-		"yes": {
-			"speaker": "villager",
-			"ko": "그럼 같이 먹어요! 운동 후에 수박 조각은 최고예요!",
-			"ko_banmal": "그럼 같이 먹자! 운동 후에 수박 조각은 최고야!",
-			"next": "rain"
-		},
-		"no": {
-			"speaker": "villager",
-			"ko": "괜찮아요! 그럼 수박은 다시 들고 내려갈 거예요!",
-			"ko_banmal": "괜찮아! 그럼 수박은 다시 들고 내려갈 거야!",
-			"next": "rain"
-		},
-		"rain": {
-			"speaker": "villager",
-			"ko": "여기는 비가 안 와요. 그래서 매일 훈련해요! 하나, 둘! 하나, 둘!",
-			"ko_banmal": "여기는 비가 안 와. 그래서 매일 훈련해! 하나, 둘! 하나, 둘!",
-			"end": true
-		}
-	}
+ "schema": 1,
+ "id": "vt_jock_savanna_01",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "JOCK"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "으랏차! 안녕하시우다!",
+   "ko_banmal": "으랏차! 안녕!",
+   "next": "hill"
+  },
+  "hill": {
+   "speaker": "villager",
+   "ko": "오늘 아침에 언덕을 열 번 올라갔어우다!",
+   "ko_banmal": "오늘 아침에 언덕을 열 번 올라갔어!",
+   "next": "melon"
+  },
+  "melon": {
+   "speaker": "villager",
+   "ko": "수박 하나를 들고 올라갔어우다!",
+   "ko_banmal": "수박 하나를 들고 올라갔어!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:melon"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "수박 좋아해우다?",
+   "ko_banmal": "수박 좋아해?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요!",
+     "next": "yes"
+    },
+    {
+     "ko": "아니요, 별로예요.",
+     "next": "no"
+    }
+   ]
+  },
+  "yes": {
+   "speaker": "villager",
+   "ko": "그럼 같이 묵어우다! 운동 후에 수박 조각은 최고이우다!",
+   "ko_banmal": "그럼 같이 먹자! 운동 후에 수박 조각은 최고야!",
+   "next": "rain"
+  },
+  "no": {
+   "speaker": "villager",
+   "ko": "괜찮아우다! 그럼 수박은 다시 들고 내려갈 거우다!",
+   "ko_banmal": "괜찮아! 그럼 수박은 다시 들고 내려갈 거야!",
+   "next": "rain"
+  },
+  "rain": {
+   "speaker": "villager",
+   "ko": "여기는 비가 안 와우다. 그래서 매일 훈련해우다! 하나, 둘! 하나, 둘!",
+   "ko_banmal": "여기는 비가 안 와. 그래서 매일 훈련해! 하나, 둘! 하나, 둘!",
+   "end": true
+  }
+ }
 }

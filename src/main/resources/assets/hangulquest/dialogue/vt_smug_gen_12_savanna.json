@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "vt_smug_gen_12_savanna",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "SMUG"
+  ],
+  "profession": "minecraft:librarian",
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "아아, 어서 와우다. 저는 사서이우다.",
+   "next": "sorted"
+  },
+  "sorted": {
+   "speaker": "villager",
+   "ko": "어제 책을 제목별로 정리했어우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:book"
+     ]
+    }
+   ],
+   "next": "stories"
+  },
+  "stories": {
+   "speaker": "villager",
+   "ko": "책마다 이야기가 있어우다. 정말 아름다워우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "그런데 책이 한 권 없어우다. 혹시 책을 한 권 가져와 줄래우다?",
+   "choices": [
+    {
+     "ko": "네, 가져올 거예요.",
+     "next": "offer"
+    },
+    {
+     "ko": "아니요, 지금은 어려워요.",
+     "next": "later"
+    }
+   ]
+  },
+  "offer": {
+   "speaker": "villager",
+   "ko": "후후, 특별한 책도 있어우다. 보고 싶어우다?",
+   "choices": [
+    {
+     "ko": "네, 보고 싶어요.",
+     "next": "show"
+    },
+    {
+     "ko": "아니요, 괜찮아요.",
+     "next": "later"
+    }
+   ]
+  },
+  "show": {
+   "speaker": "villager",
+   "ko": "에메랄드와 책이 필요해우다. 정말 아름다운 책이우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:emerald"
+     ]
+    }
+   ],
+   "next": "thanks"
+  },
+  "thanks": {
+   "speaker": "villager",
+   "ko": "후후, 그럼 혼저 와우다. 완벽해우다.",
+   "end": true
+  },
+  "later": {
+   "speaker": "villager",
+   "ko": "괜찮아우다. 다음에 또 봐우다.",
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_06_savanna",
+ "level": 5,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "SAVANNA"
+  ]
+ },
+ "start": "cat",
+ "nodes": {
+  "cat": {
+   "speaker": "villager",
+   "ko": "크흠, 요즘 고양이 한 마리가 제 침대에서 자더라고우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:cat",
+      "concept:bed"
+     ]
+    }
+   ],
+   "next": "chase"
+  },
+  "chase": {
+   "speaker": "villager",
+   "ko": "처음에는 쫓아냈는데, 다음 날 또 와 있더라고우다.",
+   "next": "creeper"
+  },
+  "creeper": {
+   "speaker": "villager",
+   "ko": "그런데 크리퍼가 고양이를 무서워한대우다.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:creeper"
+     ]
+    }
+   ],
+   "next": "useful"
+  },
+  "useful": {
+   "speaker": "villager",
+   "ko": "쓸모가 있으니까 그냥 두는 거우다. 귀여워서가 아니고우다.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "고양이 좋아해우다?",
+   "choices": [
+    {
+     "ko": "네, 정말 좋아해요.",
+     "next": "catlike"
+    },
+    {
+     "ko": "저는 늑대가 더 좋아요.",
+     "next": "wolf"
+    }
+   ]
+  },
+  "catlike": {
+   "speaker": "villager",
+   "ko": "흠, 그럼 나중에 보러 와우다. 자고 있을 테니까 조용히 와야 해우다.",
+   "end": true
+  },
+  "wolf": {
+   "speaker": "villager",
+   "ko": "늑대우다? 흠, 크리퍼는 늑대를 안 무서워해우다. 고양이가 낫죠.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:wolf"
+     ]
+    }
+   ],
+   "end": true
+  }
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "schema": 1,
+ "id": "vt_peppy_gen_14_taiga",
+ "level": 2,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "professions": [
+   "minecraft:weaponsmith",
+   "minecraft:toolsmith"
+  ],
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "PEPPY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "꺄! 안녕하이소! 저는 대장장이야예!",
+   "ko_banmal": "꺄! 안녕! 나는 대장장이야!",
+   "next": "shiny"
+  },
+  "shiny": {
+   "speaker": "villager",
+   "ko": "저는 반짝반짝한 철이 정말 좋아예!",
+   "ko_banmal": "나는 반짝반짝한 철이 정말 좋아!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:iron"
+     ]
+    }
+   ],
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "뭐가 필요해예?",
+   "ko_banmal": "뭐가 필요해?",
+   "choices": [
+    {
+     "ko": "검이 필요해요.",
+     "next": "sword"
+    },
+    {
+     "ko": "곡괭이가 필요해요.",
+     "next": "pickaxe"
+    }
+   ]
+  },
+  "sword": {
+   "speaker": "villager",
+   "ko": "철 주괴 두 개와 막대기 한 개가 필요해예!",
+   "ko_banmal": "철 주괴 두 개와 막대기 한 개가 필요해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:sword",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "table"
+  },
+  "pickaxe": {
+   "speaker": "villager",
+   "ko": "철 주괴 세 개와 막대기 두 개가 필요해예!",
+   "ko_banmal": "철 주괴 세 개와 막대기 두 개가 필요해!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:pickaxe",
+      "concept:iron",
+      "concept:stick"
+     ]
+    }
+   ],
+   "next": "table"
+  },
+  "table": {
+   "speaker": "villager",
+   "ko": "제작대에서 만들어예! 반짝반짝 예쁠 거예!",
+   "ko_banmal": "제작대에서 만들어! 반짝반짝 예쁠 거야!",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:crafting_table"
+     ]
+    }
+   ],
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "잘 가예! 또 만나예!",
+   "ko_banmal": "잘 가! 또 만나!",
+   "end": true
+  }
+ }
+}

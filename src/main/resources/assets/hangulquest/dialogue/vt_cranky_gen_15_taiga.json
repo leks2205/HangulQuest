@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "vt_cranky_gen_15_taiga",
+ "level": 3,
+ "trigger": {
+  "entity": "minecraft:villager",
+  "profession": "minecraft:cartographer",
+  "baby": false,
+  "kind": "smalltalk",
+  "personalities": [
+   "CRANKY"
+  ],
+  "regions": [
+   "TAIGA"
+  ]
+ },
+ "start": "hello",
+ "nodes": {
+  "hello": {
+   "speaker": "villager",
+   "ko": "흠, 지도가 필요해예?",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:map"
+     ]
+    }
+   ],
+   "next": "knees"
+  },
+  "knees": {
+   "speaker": "villager",
+   "ko": "무릎이 아파서 저는 멀리 못 가예. 그래도 길은 잘 알아예.",
+   "next": "ask"
+  },
+  "ask": {
+   "speaker": "villager",
+   "ko": "어디로 가예?",
+   "choices": [
+    {
+     "ko": "바다로 가요.",
+     "next": "sea"
+    },
+    {
+     "ko": "숲으로 가요.",
+     "next": "forest"
+    }
+   ]
+  },
+  "sea": {
+   "speaker": "villager",
+   "ko": "바다 아래에 큰 건물이 있어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:ocean"
+     ]
+    }
+   ],
+   "next": "sea_warn"
+  },
+  "sea_warn": {
+   "speaker": "villager",
+   "ko": "물이 깊고 차가워예. 조심하이소.",
+   "next": "bye"
+  },
+  "forest": {
+   "speaker": "villager",
+   "ko": "어두운 숲에 아주 큰 집이 있어예.",
+   "effects": [
+    {
+     "type": "exposeWords",
+     "words": [
+      "concept:forest"
+     ]
+    }
+   ],
+   "next": "forest_warn"
+  },
+  "forest_warn": {
+   "speaker": "villager",
+   "ko": "거기에는 일리저가 많아예. 조심하이소.",
+   "next": "bye"
+  },
+  "bye": {
+   "speaker": "villager",
+   "ko": "흠. 잘 다녀와예. 나 원 참.",
+   "end": true
+  }
+ }
+}
