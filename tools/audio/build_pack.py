@@ -35,7 +35,7 @@ from common import DIST, OUT, load_voices, read_jsonl, sha1
 HVPT_PREFIX = "hvpt."
 PACK_FORMAT = 97  # resource_major in the 26.3 version.json
 NAME = "Hangul Quest Voices"
-PACK_VERSION = "1.2.0"
+PACK_VERSION = "1.3.0"
 LINE_PREFIX = "line."
 SAFE = re.compile(r"[a-z0-9_.]+")
 
