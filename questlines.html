@@ -1,0 +1,505 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Authoring guide - Hangul Quest</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Korean by playing Minecraft. Quest trails, easier-Korean hints and a vocabulary that the world keeps asking you to use.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/hangulquest-8a0de3f0.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "light";
+            window.path_to_searchindex_js = "searchindex-7d04b488.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-28627460.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Hangul Quest</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/leks2205/HangulQuest" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/leks2205/HangulQuest/edit/main/docs/book/src/questlines.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="authoring-guide"><a class="header" href="#authoring-guide">Authoring guide</a></h1>
+<p>Everything below is the canonical guide from the repository, included here so the guide stays a single
+source of truth.</p>
+<h1 id="questlines--format-and-workflow"><a class="header" href="#questlines--format-and-workflow">Questlines — format and workflow</a></h1>
+<p>A questline is a small Schnitzeljagd: several clues that build on each other, then a ritual at the end.
+All of it lives in one JSON file under <code>src/main/resources/assets/hangulquest/data/questlines/</code>.</p>
+<p>Before you write one, read the <a href="questline-attributes.html">attribute reference</a>. It is mandatory: it
+lists what every trail must have, and the tests enforce the mechanical half of it.</p>
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick start</a></h2>
+<pre><code class="language-bash">python3 tools/new_questline.py steinpfad2 --words stone,cobblestone --tier 1 \
+  --title-ko "돌의 두 번째 길" --title-de "Der zweite Steinpfad"
+./gradlew test
+</code></pre>
+<p>The script writes the file and moves its English and German text into the lang files (see below). The
+mod finds questline files by listing the folder, so there is no index to maintain.</p>
+<h2 id="where-the-english-and-german-text-lives"><a class="header" href="#where-the-english-and-german-text-lives">Where the English and German text lives</a></h2>
+<p>A shipped questline file holds the Korean text and the structure, and nothing else. The English and
+German text (titles, clues, hints, the finale line) is in two flat files, one per language, so that a
+translator, Weblate or Crowdin only ever touches one file:</p>
+<pre><code>src/main/resources/assets/hangulquest/lang/content/en_us.json   English, the reference
+src/main/resources/assets/hangulquest/lang/content/de_de.json   German
+</code></pre>
+<p>The keys are built from the ids in the questline file:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Key</th><th>Text</th></tr>
+</thead>
+<tbody>
+<tr><td><code>hangulquest.trail.&lt;id&gt;.title</code></td><td>the trail’s title</td></tr>
+<tr><td><code>hangulquest.trail.&lt;id&gt;.step.&lt;stepId&gt;.clue</code></td><td>the translation of a step’s clue</td></tr>
+<tr><td><code>hangulquest.trail.&lt;id&gt;.step.&lt;stepId&gt;.hint</code></td><td>the translation of a step’s easy-Korean hint</td></tr>
+<tr><td><code>hangulquest.trail.&lt;id&gt;.finale</code></td><td>the line shown when the trail is finished</td></tr>
+<tr><td><code>hangulquest.word.&lt;conceptId&gt;.gloss</code></td><td>a word’s gloss (<code>concepts.json</code> has no English or German left)</td></tr>
+<tr><td><code>hangulquest.word.&lt;conceptId&gt;.sentence</code></td><td>the translation of the word’s example sentence</td></tr>
+</tbody>
+</table>
+</div>
+<p>The finale step is the step id <code>finale</code>: <code>hangulquest.trail.&lt;id&gt;.step.finale.clue</code>. A language file
+may lack any key; the game then shows the English text, never another language. English is complete
+(<code>ContentTextTest</code> fails otherwise), German is reported and may have gaps. Arguments, if a text ever
+needs one, are <code>%s</code> and must match English. A new language is a new <code>lang/content/&lt;code&gt;.json</code> next
+to the interface file <code>lang/&lt;code&gt;.json</code>.</p>
+<p><strong>Adding or changing text.</strong> Write English and German inline in the trail file while you work, then run</p>
+<pre><code class="language-bash">python3 tools/i18n/extract_content.py
+</code></pre>
+<p>It moves every inline <code>titleEn</code>/<code>titleDe</code>, <code>clue.en</code>/<code>de</code>, <code>hint.en</code>/<code>de</code>, <code>finale.textEn</code>/<code>textDe</code> and
+every concept gloss into the lang files and removes the fields from the JSON (nothing else in the file
+changes). <code>python3 tools/i18n/extract_content.py --check</code> fails while shipped files still carry inline
+text; CI runs it. To change an existing line, edit the lang file directly.</p>
+<p><strong>Files of your own.</strong> Questline files in <code>config/hangulquest/questlines/</code> and in resource packs may
+keep using the inline fields, and they should: they have no lang file. An inline field always wins over
+a key. A field with inline text (say <code>clue.en</code>) hides the keys for that field in every language, so
+a rewritten English clue is never shown next to the shipped German one; add <code>clue.de</code> as well to
+translate it. Without any inline text for a title, clue or hint the key of the same trail and step id is
+used, which is what a copy of a shipped file wants.</p>
+<h2 id="the-external-folder-no-restart"><a class="header" href="#the-external-folder-no-restart">The external folder (no restart)</a></h2>
+<p>Trails also live as individual JSON files in <code>config/hangulquest/questlines/</code>, copied out of the jar on
+first start. The mod re-reads that folder every two seconds:</p>
+<ul>
+<li>a new id appears in the journal immediately,</li>
+<li>a changed file replaces the loaded trail,</li>
+<li>the same id as a shipped trail is <strong>ignored</strong> unless the file sets <code>"override": true</code>,</li>
+<li>a broken file is logged and skipped, and the shipped version stays active.</li>
+</ul>
+<p>The template is <code>_template.json</code>.</p>
+<h2 id="conditions-are-spoken-in-the-sentence"><a class="header" href="#conditions-are-spoken-in-the-sentence">Conditions are spoken in the sentence</a></h2>
+<p><code>conditions</code> always end up in the Korean text: <code>TIME</code> (밤에/낮에/새벽에/저녁에), <code>WEATHER</code>, <code>Y_RANGE</code>
+(„땅 아래에서“, „120블록보다 높은 곳에서“; before a place of the goal’s own it modifies it: „높이 90블록 위 침대에서“, from level 3 „…위의 침대에서“), <code>IN_BIOME</code> („해변에서“), <code>IN_DIMENSION</code> („지옥에서“,
+„엔더에서“), <code>NEAR_ENTITY</code>/<code>NEAR_BLOCK</code> („좀비 근처에서“; <code>NEAR_ENTITY</code> takes an optional <code>count</code>, „주민 두 명 근처에서“, „소 세 마리 근처에서“ with 명 for people and 마리 for animals; <code>NEAR_BLOCK</code> is a proximity check, a block of that kind within the
+radius, not the block in the crosshair), <code>SKY</code> („밖에서“ on levels 1 to 4, „하늘이 보이는 곳에서“ from level 5;
+<code>ROOFED</code> says „지붕 아래에서“ of the player, but with a <code>PLACE_BLOCK</code> goal it checks the roof over the placed block
+and says „지붕 아래에 통을 놓아요“). A step without an authored clue uses the generated sentence, which speaks every
+condition. An authored clue wins also on a step with conditions: it is shown as written, and a condition
+phrase it does not contain is put in front of it, so no condition can be missing from the text. A clue that
+says the condition in its own words does not get the phrase again: 밤에 / 한밤에 / 밤이 for <code>TIME</code> night, 비가 for
+rain, 물속 for <code>IN_WATER</code> (a forms list per condition, kept to words that cannot mean anything else: 밤 alone is
+also a chestnut). <code>FACING</code> (<code>direction</code>) says „북쪽을 보고“ in front of the action; it is true while the yaw of the player is within 45 degrees of the direction. Heights and distances in blocks are spelled in Sino-Korean from level 2 („높이 백 블록 위로“, „물에서 이십 블록 수영하세요“; digits only above 100 unless round hundreds); counts with a native counter go up to 99 („스물네 개“). <code>AVOID</code> may forbid an action on a creature („주민을 물리치지 마세요“). <code>REACH_HEIGHT</code> below the ground uses „내려가다“ (descend) instead of climbing.</p>
+<h2 id="anatomy-of-a-file"><a class="header" href="#anatomy-of-a-file">Anatomy of a file</a></h2>
+<pre><code class="language-json">{
+  "schema": 1,
+  "id": "steinpfad",
+  "titleKo": "돌의 길",
+  "topic": "돌",
+  "tier": 1,
+  "order": 10,
+  "koreanLevel": 1,
+  "concepts": ["stone", "cobblestone", "coal", "torch"],
+  "requires": { "minWordsKnown": 0, "dimension": "minecraft:overworld",
+                "completed": ["holzpfad"] },
+  "steps": [
+    {
+      "id": "s1",
+      "teach": ["stone"],
+      "goal": { "type": "BREAK_BLOCK", "block": "minecraft:stone", "count": 3 },
+      "conditions": [],
+      "clue": { "ko": "단단하고 회색인 것을 세 개 캐요." },
+      "hint": { "ko": "돌을 캐요. 세 개요." }
+    }
+  ],
+  "finale": {
+    "step": {
+      "id": "finale",
+      "teach": ["torch"],
+      "goal": { "type": "PLACE_BLOCK", "block": "minecraft:torch", "count": 1 },
+      "conditions": [{ "type": "TIME", "phase": "NIGHT" }]
+    },
+    "textKo": "어두운 곳에서 빛을 만들었어요."
+  },
+  "reward": { "badge": "steinpfad", "words": ["stone", "torch"] }
+}
+</code></pre>
+<p>This is the shipped shape. The matching lang entries are <code>hangulquest.trail.steinpfad.title</code>,
+<code>...step.s1.clue</code>, <code>...step.s1.hint</code> and <code>...finale</code>. A file of your own adds the translations inline:
+<code>"titleEn"</code>, <code>"titleDe"</code>, <code>"clue": { "ko": …, "en": …, "de": … }</code>, the same for <code>hint</code>, and <code>"textEn"</code> and
+<code>"textDe"</code> next to <code>textKo</code> in the <code>finale</code>.</p>
+<ul>
+<li><code>clue</code> and <code>hint</code> are optional. Without them the Korean sentence is generated from the goal, with
+correct particles, counters and time prefixes. Authored sentences are for riddle flavour. Their
+English and German translations are lang keys (or inline fields in a file of your own).</li>
+<li><code>grammar</code> is optional: the constructions of <code>grammar.json</code> (or their ladder aliases) the trail is meant to practise,
+<code>["L2.seyo", "L2.eseo_activity"]</code>. The loader checks every id and drops the unknown ones with a problem; the list
+is dumped into <code>steps.json</code>.</li>
+<li><code>teach</code> names the words the step introduces; they must exist in <code>concepts.json</code>.</li>
+<li>The <code>finale</code> is the last step and is always required.</li>
+<li><code>requires.minWordsKnown</code> compares against <strong>discovered</strong> words, so the chain stays playable.</li>
+<li><code>koreanLevel</code> (1–6) drives the generated grammar and must equal <code>Topik.levelForDepth(depth)</code>
+(<code>depth &lt;= 3 → 1</code>, <code>&lt;= 6 → 2</code>, <code>&lt;= 9 → 3</code>, <code>&lt;= 12 → 4</code>, <code>&lt;= 15 → 5</code>, deeper <code>→ 6</code>). Hints always stay
+at level 1.</li>
+<li><code>order</code> sorts the journal and decides which trail starts automatically at world start (lower first;
+continuations sit above their parents).</li>
+<li><code>requires.completed</code> lists parent trail ids: the trail unlocks only when all of them are finished.
+Locked trails say what they are waiting for in the journal.</li>
+<li>Goals and conditions are strict about their fields: an unknown field (<code>{"type":"WEATHER","phase":"CLEAR"}</code>) or a
+missing required one makes the file unreadable, and the log names the trail and the step
+(<code>probe/s1 condition WEATHER: unknown field 'phase' ...</code>). The fields of each type are in the schema.</li>
+</ul>
+<h2 id="goal-types"><a class="header" href="#goal-types">Goal types</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Fields</th><th>Checked by</th></tr>
+</thead>
+<tbody>
+<tr><td><code>BREAK_BLOCK</code></td><td><code>block</code>, <code>count</code>, optional <code>verb</code> (any verb <code>verbs.json</code> uses for breaking: <code>MINE</code>, <code>DIG</code>, <code>CHOP</code>, <code>SNAP</code>, <code>HARVEST</code>, <code>PICK</code>, <code>PULL</code>, <code>SHATTER</code>, <code>BREAK</code>; the table picks one by default); <code>block</code> may also be a tag (<code>#minecraft:flowers</code>)</td><td>the player breaking that block</td></tr>
+<tr><td><code>PLACE_BLOCK</code></td><td><code>block</code>, <code>count</code></td><td>block change after a right-click</td></tr>
+<tr><td><code>ACQUIRE_ITEM</code></td><td><code>item</code>, <code>count</code></td><td>inventory gain since the step started</td></tr>
+<tr><td><code>CONSUME_ITEM</code></td><td><code>item</code>, <code>count</code></td><td>inventory drop after use</td></tr>
+<tr><td><code>LOOK_AT_BLOCK</code></td><td><code>block</code>, <code>dwellMs</code></td><td>looking at it for that long</td></tr>
+<tr><td><code>LOOK_AT_ENTITY</code></td><td><code>entity</code>, <code>dwellMs</code></td><td>looking at it for that long</td></tr>
+<tr><td><code>DEFEAT_ENTITY</code></td><td><code>entity</code>, <code>count</code></td><td>attack, then death within 5 s</td></tr>
+<tr><td><code>REACH_BIOME</code></td><td><code>biome</code> (id or <code>#tag</code>), <code>dwellMs</code></td><td>the biome you are standing in</td></tr>
+<tr><td><code>REACH_DIMENSION</code></td><td><code>dimension</code></td><td>dimension</td></tr>
+<tr><td><code>REACH_HEIGHT</code></td><td><code>minY</code>, <code>maxY</code> (a ceiling below sea level, <code>maxY</code> under 63, asks for a descent: 아래로 내려가요; from level 2 <code>높이 40블록 이하로 내려가세요</code>)</td><td>player altitude</td></tr>
+<tr><td><code>USE_BLOCK</code></td><td><code>block</code>, optional <code>change</code> (<code>OPEN</code>/<code>CLOSE</code>: a wooden door, trapdoor or fence gate that really changes state, 열어요 / 닫아요; <code>LIT</code>: a candle or campfire that really catches fire, 켜요 / 피워요; a candle without <code>change</code> means <code>LIT</code>; <code>WRITE</code>: a sign whose edit screen is closed with text on it, 표지판에 글을 써요, or 표지판에 이름을 써요 when the step teaches 이름; a sign without <code>change</code> means <code>WRITE</code>)</td><td>right-click on that block; with <code>change</code> the sensor compares the block’s <code>open</code> (or <code>lit</code>) state before and after the click; for <code>WRITE</code> it watches the sign edit screen and the client copy of the sign</td></tr>
+<tr><td><code>INTERACT_ENTITY</code></td><td><code>entity</code></td><td>interaction with the mob. The item in the hand decides the verb when a <code>HOLDING</code> condition names a tool that does something to that creature: shears on a sheep 가위로 양털을 깎아요, a lead 끈으로 소를 묶어요, a brush on an armadillo 솔로 아르마딜로를 닦아요, shears on a wolf in armour 가위로 늑대의 갑옷을 벗겨요. The tool phrase replaces 가위를 들고; any other item keeps feeding or petting</td></tr>
+<tr><td><code>PLACE_REL</code></td><td><code>block</code>, <code>relation</code> (<code>ON_TOP_OF</code>/<code>UNDER</code>/<code>NEXT_TO</code>/<code>IN_FRONT_OF</code>/<code>BEHIND</code>/<code>INSIDE</code>/<code>OUTSIDE</code>/<code>BETWEEN</code>/<code>NEAR</code>), <code>anchor</code>, <code>count</code>, optional <code>anchor2</code></td><td>a placement of <code>block</code> in that relation to <code>anchor</code> (a block, family or <code>#tag</code>, or <code>"@s2"</code>, see below); a right block in the wrong relation is a near miss, never progress</td></tr>
+<tr><td><code>BUILD_PATTERN</code></td><td><code>pattern</code> (<code>PILLAR</code>/<code>PYRAMID</code>/<code>RING</code>/<code>ROW</code>/<code>WALL</code>/<code>CROSS</code>/<code>STAIRS</code>; a ring is a 담, and only fence blocks make a 울타리: <code>울타리를 쳐요</code>), <code>material</code>, <code>size</code></td><td>the placement that completes the shape out of <code>material</code> (sizes: pillar and row 2–4, pyramid and ring 3, wall 2–4 = 2x2, 3x2, 4x3, cross 3 = a plus of five blocks, stairs 3–4 steps)</td></tr>
+<tr><td><code>PLACE_ON_PATTERN</code></td><td><code>block</code>, <code>relation</code>, <code>pattern</code>, <code>material</code>, optional <code>size</code> (the size of the structure; a row of four reads 자갈 네 개 옆에)</td><td>a placement of <code>block</code> in that relation to a structure built from <code>material</code></td></tr>
+<tr><td><code>CRAFT</code></td><td><code>item</code>, <code>count</code>, optional <code>station</code>, optional <code>with</code> (ingredient ids, wording only)</td><td>taking the result out of a crafting screen</td></tr>
+<tr><td><code>SMELT</code></td><td>optional <code>input</code> (wording, level 4+), <code>output</code>, <code>count</code></td><td>taking the result out of a furnace, blast furnace or smoker</td></tr>
+<tr><td><code>GIVE</code></td><td><code>item</code>, <code>entity</code>, optional <code>method</code> (<code>FEED</code>/<code>USE_WITH</code>/<code>DROP_NEAR</code>/<code>TRADE</code>), <code>count</code></td><td>the hand-over facts of the sensor. With <code>USE_WITH</code>, wolf armour on a wolf and horse armour on a horse are put on (늑대에게 갑옷을 입히세요) and dye on a sheep colours it (파란색 염료로 양을 염색하세요). A villager takes no item by right-click: without a <code>method</code> only a drop it picks up (the item entity is gone, nobody took it back, the villager is still near) or a <code>TRADE</code> counts, and the hint says <code>주민 앞에 빵을 놓아요</code>; a wandering trader only takes a <code>TRADE</code>. The validator refuses <code>FEED</code>/<code>USE_WITH</code> for both</td></tr>
+<tr><td><code>PUT_IN</code></td><td><code>item</code>, <code>container</code>, <code>count</code></td><td>items moved into that container block</td></tr>
+<tr><td><code>TAKE_OUT</code></td><td><code>item</code>, <code>container</code>, <code>count</code></td><td>items moved out of that container block (the container lost them and the player gained them; an item put in a moment before does not count)</td></tr>
+<tr><td><code>EQUIP</code></td><td><code>item</code> (a helmet, chestplate, leggings or boots, or the tag of a slot: <code>#minecraft:chest_armor</code>), optional <code>change</code> (<code>ON</code> the default, <code>OFF</code>)</td><td>the four armour slots of the player: on counts when the slot was seen without the piece and then has it, off the other way round (a piece already worn when the step begins has to come off first). 투구를 써요, 갑옷을 입어요, 바지를 입어요, 신발을 신어요; 벗어요 for <code>OFF</code></td></tr>
+<tr><td><code>HOLD_WHILE</code></td><td><code>item</code>, <code>inner</code> (a goal, or a condition plus <code>seconds</code>)</td><td><code>inner</code> only counts with the item in a hand; with a condition: walking with it</td></tr>
+<tr><td><code>SEQUENCE</code></td><td><code>parts</code> (2–3 goals), <code>ordered</code>, optional <code>connector</code> (<code>BEFORE</code>/<code>AFTER</code>/<code>THEN</code>/<code>AND</code>)</td><td>the parts in order; an event before its turn does not count. Trail level 3 or higher; at level 2 only the plain -고: parts in any order, or <code>"ordered": true</code> with <code>"connector": "AND"</code> (문을 닫고 횃불을 놓으세요), where the order is checked and the step counts as form-dependent</td></tr>
+<tr><td><code>AVOID</code></td><td><code>action</code> (a goal), <code>windowSeconds</code>, optional <code>during</code> (a condition)</td><td>the window runs out without the action; doing it restarts the window quietly. Trail level 3 or higher</td></tr>
+<tr><td><code>TRADE</code></td><td><code>item</code>, optional <code>entity</code> (a villager), <code>direction</code> (<code>BUY</code>/<code>SELL</code>), <code>count</code></td><td>the result slot of the merchant screen: a buy counts what arrived and is said with the source marker (주민에게서 빵을 사요), a sell what was paid (주민에게 밀을 팔아요). The particle decides the direction, so the step is form-dependent (L2.ege) and a trade the wrong way round (selling what was to be bought) is a slip with a hint in the status line</td></tr>
+<tr><td><code>TRANSIT</code></td><td><code>direction</code> (<code>IN</code>/<code>OUT</code>)</td><td>the sky above the player flips and stays flipped for a second: 집 안으로 들어가요 / 집 밖으로 나가요. The player has to be on the other side first. The place noun is spoken only for 집, 방 and 동굴</td></tr>
+<tr><td><code>HEAR</code></td><td><code>source</code> (<code>minecraft:jukebox</code>, <code>minecraft:note_block</code> or <code>minecraft:bell</code>), <code>radius</code> (2–16), <code>dwellMs</code></td><td>a jukebox with a disc in it within <code>radius</code> blocks for <code>dwellMs</code> (the sensor scans the block entities around the player twice a second, only while such a step is tracked), a struck note block, or a bell ringing within <code>radius</code> (by anyone; 종소리를 들어요)</td></tr>
+<tr><td><code>LIE_DOWN</code></td><td><code>block</code> (a bed), <code>dwellMs</code></td><td>the sleeping pose in that bed for <code>dwellMs</code>; the night does not have to pass (a night condition is excused once the server skipped it, as for 자요)</td></tr>
+<tr><td><code>WAIT</code></td><td><code>seconds</code>, optional <code>until</code> (<code>NIGHT</code>/<code>DAY</code>)</td><td>staying within three blocks of the spot where the wait began; walking away starts over. With <code>until</code> also that part of the day. A place to wait near is a condition (<code>NEAR_BLOCK</code>)</td></tr>
+<tr><td><code>BREED</code></td><td><code>entity</code>, <code>count</code></td><td>a baby of that kind (the synced young flag) that was not near before, within two minutes of the player feeding or using an item on an animal of the kind, and within 4 blocks of two of the animals fed</td></tr>
+<tr><td><code>MOUNT</code></td><td><code>entity</code>, <code>dwellMs</code></td><td>the vehicle state of the player: a boat or minecart is sat in (앉아요), an animal is ridden (타요); every boat is one boat</td></tr>
+<tr><td><code>FALL</code></td><td><code>blocks</code> (4–250), optional <code>landing</code> (a soft block: powder snow, hay, slime, honey, water)</td><td>the distance fallen since the feet left the ground (the longest value before the game resets it on the landing). With <code>landing</code> the player has to land on or in that block; without it the health must not drop (read 0.3 s after the landing, when the damage has arrived). 높은 곳에서 가루눈 위로 뛰어내리세요; 십 블록 높이에서 안 다치고 뛰어내리세요</td></tr>
+<tr><td><code>SHOOT</code></td><td><code>weapon</code> (bow, crossbow, trident, snowball, egg), optional <code>entity</code> or <code>block</code> (only <code>minecraft:target</code>), <code>count</code>, <code>minDistance</code>, <code>pierce</code></td><td>every projectile of the player is followed to its end. A creature is struck when it shows the hurt animation after the projectile passed, or (snowball, egg, arrow) when the projectile vanishes beside it; a target block when it shows power. <code>pierce</code> 2 or more: one projectile must strike that many. Without a target the shot itself counts. 활로 과녁을 맞히세요; 쇠뇌로 좀비를 맞히세요; 삼지창을 던지세요; 멀리서 활로 과녁을 맞히세요 (이십 블록 이상 떨어진 곳에서 from level 2)</td></tr>
+<tr><td><code>WALK</code></td><td><code>direction</code> (NORTH, SOUTH, EAST, WEST), <code>blocks</code></td><td>blocks moved along the direction (north is -Z) from the change of position between ticks; a step back takes from it, a jump of more than eight blocks is no walk. 북쪽으로 이십 블록 가세요</td></tr>
+<tr><td><code>SWIM</code></td><td><code>blocks</code></td><td>blocks covered while the player is in water (a jump of more than eight blocks between two ticks is not swimming)</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tiers.</strong> One word stands for a tool or an armour piece in every material (곡괭이, 도끼, 삽, 괭이, 검; 투구, 갑옷, 바지,
+신발), and a goal that asks for one material says it: with 곡괭이 taught, <code>iron_pickaxe</code> reads <code>철 곡괭이를 만드세요</code>
+(<code>quest/goal/Tiers</code>). The goal is exact then: a wooden pickaxe does not finish a step that says 철 곡괭이. The name
+printed is always the official one (<code>names.json</code>): <code>iron_chestplate</code> reads 철 흉갑 (not “철 갑옷”), the leggings 철 레깅스,
+the boots 철 부츠, and the leather set 가죽 모자, 가죽 조끼, 가죽 바지, 가죽 장화. The general word keeps the sentence
+when the goal is any piece of the slot: <code>EQUIP</code> on <code>#minecraft:chest_armor</code> (also <code>head_armor</code>, <code>leg_armor</code>,
+<code>foot_armor</code>) says 갑옷을 입으세요 and takes every material.</p>
+<p><strong>Relations and anchors.</strong> The Korean names the relation (<code>문 옆에</code>, <code>기둥 위에</code>) in every form of the
+sentence, and the English and German clue must not give it away. A relation goal is graded: finishing the step
+is a right outcome for the location noun (<code>L1.loc_yeop_e</code> for <code>NEXT_TO</code>, <code>L2.loc_sai_e</code> for <code>BETWEEN</code>, …),
+and a right block in the wrong relation is a wrong one (at most three per step). <code>BETWEEN</code> has one anchor
+(<code>두 횃불 사이에</code>) or two different ones: <code>"anchor": "minecraft:chest", "anchor2": "minecraft:furnace"</code> says
+<code>상자와 화로 사이에</code> (와/과 by the final sound; the pair is one task whichever way round it is written). With water or lava as one of the two (<code>모래와 물 사이에 사탕수수를 심어요</code>) a plant counts that stands on the other block with the fluid next to it, on the shore.
+Blocks with a front can be the anchor of 앞 and 뒤: doors, chests, furnaces, beds, stairs, barrels, workstations, signs, banners, pumpkins, bells; a pillar, a wall or a fence cannot. So can a creature that faces a way (<code>minecraft:villager</code>, an iron golem, a cow, a wolf …: 주민 앞에 횃불을 놓아요; 앞, 뒤, 옆 and 근처 only). 밖 is a deciding form (a block put outside when 안 was asked is a slip), 근처 is not. Fluids are anchors too (<code>minecraft:water</code> is 물, <code>minecraft:lava</code> is 용암: <code>물 옆에 횃불을 놓아요</code>). A tag
+(<code>#minecraft:doors</code>, <code>logs</code>, <code>planks</code>, <code>wool</code>, <code>fences</code>, <code>beds</code>, <code>torches</code>, <code>chests</code>, <code>flowers</code>, <code>signs</code>, <code>candles</code>, <code>wool_carpets</code>, <code>windows</code>, <code>saplings</code>,
+<code>leaves</code>; for <code>EQUIP</code> also <code>head_armor</code>, <code>chest_armor</code>, <code>leg_armor</code>, <code>foot_armor</code>) is spoken with its everyday word (문, 통나무, 판자, 양털, 울타리, 침대, 횃불, 상자, 꽃, 표지판, 초, 양탄자, 창문, 묘목, 나뭇잎): the
+curated concept whose items and covers are the largest set inside the tag; a tag without such a word is a validator error, never “그것”. The finale line uses the same word
+as the clue, and a word the step teaches (나무 for the logs) wins in both.</p>
+<p><strong>The block of an earlier step.</strong> <code>"anchor": "@s2"</code> points at the block that finished step <code>s2</code> of the same
+trail, which must be a <code>PLACE_BLOCK</code>, <code>PLACE_REL</code> or <code>PLACE_ON_PATTERN</code> step before this one. The sentence says
+<code>아까 놓은 횃불 옆에</code> (the verb of that step as a past -(으)ㄴ, so the trail needs <code>koreanLevel</code> 5 or higher).
+Only <code>ON_TOP_OF</code>, <code>UNDER</code>, <code>NEXT_TO</code> and <code>NEAR</code> fit a single spot. The engine remembers where the block stood
+and saves it with the trail (<code>placed</code> on the saved quest); if the memory is missing, any block of the kind that
+step placed will do.</p>
+<p><strong>Level 3 connectives.</strong> Where a task has two natural parts, a trail of level 3 says both with -고: a <code>CRAFT</code>
+with <code>with</code> ingredients reads <code>막대기와 석탄을 모으고 횃불을 만드세요</code>, and a <code>PLACE_ON_PATTERN</code> whose structure no
+earlier step of the trail built reads <code>돌로 기둥을 쌓고 그 위에 횃불을 놓으세요</code>. Other levels and the hint keep the
+single clause.</p>
+<p><code>SEQUENCE</code> and <code>AVOID</code> teach -기 전에 / -(으)ㄴ 후에 / -고 나서 and -지 마세요, so the English and German
+clue must not give the order or the “not” away („Do the two things in the order the Korean says“).
+<code>SEQUENCE</code> parts, the <code>HOLD_WHILE</code> inner goal and the <code>AVOID</code> action are simple goals (no nesting).
+Finishing a <code>GIVE</code> (에게), an ordered <code>SEQUENCE</code> (its connective) or an <code>AVOID</code> (-지 마세요) rightly is a right
+outcome for that construction; doing an ordered sequence out of order is a wrong one.</p>
+<p><strong>Verbs a step can teach.</strong> A step may teach a verb next to its nouns, or as its first word: the clue then
+contains a conjugated form of it (<code>올라가요</code> for 올라가다). When the goal can say that verb it uses it instead of its
+default: 요리하다 for a food in the furnace (<code>닭고기를 요리해요</code>, the default is <code>구워요</code>), 타다 for a boat that is
+sat in (<code>배를 타요</code>), 나오다 for leaving (<code>집에서 나와요</code>). A water biome with the <code>IN_WATER</code> condition reads
+<code>바다에서 수영해요</code>, not <code>물속에서 바다로 가요</code>: the sentence already says the water, so the condition’s phrase is left out.</p>
+<h2 id="conditions-gates"><a class="header" href="#conditions-gates">Conditions (gates)</a></h2>
+<p><code>TIME</code> (<code>DAY</code>/<code>NIGHT</code>/<code>DAWN</code>/<code>DUSK</code>), <code>WEATHER</code> (<code>CLEAR</code>/<code>RAIN</code>/<code>THUNDER</code>), <code>Y_RANGE</code>, <code>NEAR_ENTITY</code>,
+<code>NEAR_BLOCK</code>, <code>IN_DIMENSION</code>, <code>IN_BIOME</code>, <code>HOLDING</code> („횃불을 들고“), <code>SKY</code> (<code>OPEN</code>/<code>ROOFED</code>),
+<code>IN_WATER</code> („물속에서“), <code>PLAYER_REL</code> (<code>relation</code>, <code>anchor</code>, optional <code>kind</code> = <code>block</code>/<code>item</code>/<code>entity</code>:
+„나무 아래에서“; without a <code>kind</code> an entity name wins, so <code>minecraft:chicken</code> is the animal). A goal only counts
+while every condition holds.</p>
+<p>A step may teach the word for any role of its goal or conditions (the object, an anchor, the recipient, the
+container, the held item, a material). When the first taught word has several referents (물고기 = cod, salmon,
+tropical fish) and covers an id of the goal, any of them completes the step; a word with one referent never
+widens the goal. The covers of a concept (<code>concepts.json</code>) count as much as its items: a step that teaches 묘목
+accepts any sapling as its goal, not only the oak one, and the sentence says 묘목 for it too. A cover is spoken
+with the word unless the word only describes (<code>"grammar": "DESCRIPTOR"</code>, the colours: 빨간색 양털 stays 빨간색
+양털) or the item has a hand-made word of its own and the word only resembles it (눈 does not name the snow block;
+<code>"accepts"</code> lists ids that a goal takes but the word never names). A word for one flower names that flower
+only: with 해바라기 taught, “민들레 옆에 해바라기를 심어요”. The covers of a biome concept are biomes: 동굴
+covers the lush caves, so a <code>REACH_BIOME</code> on any of them counts and reads 동굴로 들어가요. A step that teaches a
+word of the biome’s kind still says the biome: 개구리 on a swamp reads 늪으로 가요. The hint of a step with
+several nouns names every noun the goal has a place for, so it needs no authored hint.</p>
+<h2 id="rules"><a class="header" href="#rules">Rules</a></h2>
+<ul>
+<li>Korean fields (<code>clue.ko</code>, <code>hint.ko</code>, <code>textKo</code>, <code>titleKo</code>, <code>topic</code>) are <strong>Hangul only</strong> — digits and
+punctuation are fine. The test fails otherwise.</li>
+<li>English and German text is a translation, not the quest: the player sees Korean first. Shipped trails
+need an English text for the title, every clue and hint and the finale (<code>ContentTextTest</code>); German
+is optional.</li>
+<li>Exactly one goal per step, the finale included.</li>
+<li>Step ids are unique within a trail.</li>
+<li><code>concepts</code> is the list of words shown under the trail in the journal.</li>
+<li>Never require a structure, a chest or a specific coordinate. The ritual finale is the guarantee that
+a trail can always be finished.</li>
+<li>Do not teach a word twice in the same step list unless the repetition is the point.</li>
+</ul>
+<h2 id="validating"><a class="header" href="#validating">Validating</a></h2>
+<pre><code class="language-bash">./gradlew test                      # content validation plus engine tests
+python3 tools/validate_schema.py    # shape only, against docs/questline.schema.json
+python3 tools/i18n/extract_content.py --check   # no English/German text left inline in shipped files
+</code></pre>
+<p><code>QuestlineValidationTest</code> loads every file, checks references, ids, Hangul and the finale, and fails on
+dead ends, missing parents, wrong Korean levels, unspoken conditions and clues that do not name the
+action. At runtime the loader skips a broken step with a log warning instead of crashing the game.</p>
+<p>The full attribute list — including what the journal must show for each state — is in the
+<a href="questline-attributes.html">attribute reference</a>.</p>
+<p>Once a trail is written, the <a href="questline-reference.html">attribute reference</a> is the checklist to run
+through before opening a pull request, and <a href="quest-tree.html">the quest tree</a> shows where it would fit.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="privacy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="questline-reference.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="privacy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="questline-reference.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

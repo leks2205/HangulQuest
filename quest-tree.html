@@ -1,0 +1,980 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The quest tree - Hangul Quest</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Korean by playing Minecraft. Quest trails, easier-Korean hints and a vocabulary that the world keeps asking you to use.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/hangulquest-8a0de3f0.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "light";
+            window.path_to_searchindex_js = "searchindex-7d04b488.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-28627460.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Hangul Quest</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/leks2205/HangulQuest" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/leks2205/HangulQuest/edit/main/docs/book/src/quest-tree.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="the-quest-tree"><a class="header" href="#the-quest-tree">The quest tree</a></h1>
+<!-- Generated by tools/quest_tree.py from the shipped questlines. Do not edit by hand. -->
+<p>This page is generated from the content itself, so the numbers below are what the mod actually loads. Every trail is one JSON file in <code>src/main/resources/assets/hangulquest/data/questlines/</code>.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Questlines</td><td><strong>422</strong></td></tr>
+<tr><td>Steps (incl. finales)</td><td><strong>1777</strong></td></tr>
+<tr><td>Tree levels</td><td><strong>22</strong></td></tr>
+<tr><td>Roots</td><td>39</td></tr>
+<tr><td>Merges (more than one parent)</td><td>130</td></tr>
+<tr><td>Vocabulary</td><td>hand-written concepts, generated entries for the rarer objects, vanilla names and the Lute import</td></tr>
+</tbody>
+</table>
+</div>
+<p>A trail’s <code>koreanLevel</code> (1 to 6) follows its depth in the tree and picks the instruction ending of <code>data/ladder.json</code>: level 1 speaks <code>-아/어요</code>, levels 2 and 3 <code>-(으)세요</code>, levels 4 to 6 <code>-아/어야 해요</code> (level 6 may use <code>-(으)ㄹ 수밖에 없어요</code> where a sentence states a forced conclusion).</p>
+<h2 id="goals-and-conditions"><a class="header" href="#goals-and-conditions">Goals and conditions</a></h2>
+<p>Every goal is checked on the client. Counts are per step, finales included.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Goal</th><th style="text-align: right">Steps</th><th>What the player does</th></tr>
+</thead>
+<tbody>
+<tr><td><code>PLACE_REL</code></td><td style="text-align: right">232</td><td></td></tr>
+<tr><td><code>CRAFT</code></td><td style="text-align: right">211</td><td></td></tr>
+<tr><td><code>ACQUIRE_ITEM</code></td><td style="text-align: right">137</td><td>collect an item</td></tr>
+<tr><td><code>BUILD_PATTERN</code></td><td style="text-align: right">114</td><td></td></tr>
+<tr><td><code>PLACE_ON_PATTERN</code></td><td style="text-align: right">114</td><td></td></tr>
+<tr><td><code>SEQUENCE</code></td><td style="text-align: right">88</td><td></td></tr>
+<tr><td><code>LOOK_AT_ENTITY</code></td><td style="text-align: right">74</td><td>look at a mob</td></tr>
+<tr><td><code>GIVE</code></td><td style="text-align: right">66</td><td></td></tr>
+<tr><td><code>LOOK_AT_BLOCK</code></td><td style="text-align: right">66</td><td>look at a block</td></tr>
+<tr><td><code>BREAK_BLOCK</code></td><td style="text-align: right">59</td><td>break a block</td></tr>
+<tr><td><code>HOLD_WHILE</code></td><td style="text-align: right">57</td><td></td></tr>
+<tr><td><code>AVOID</code></td><td style="text-align: right">57</td><td></td></tr>
+<tr><td><code>REACH_BIOME</code></td><td style="text-align: right">56</td><td>reach a biome</td></tr>
+<tr><td><code>PLACE_BLOCK</code></td><td style="text-align: right">55</td><td>place a block</td></tr>
+<tr><td><code>USE_BLOCK</code></td><td style="text-align: right">52</td><td>use a block</td></tr>
+<tr><td><code>CONSUME_ITEM</code></td><td style="text-align: right">42</td><td>eat or drink an item</td></tr>
+<tr><td><code>PUT_IN</code></td><td style="text-align: right">36</td><td></td></tr>
+<tr><td><code>WAIT</code></td><td style="text-align: right">36</td><td></td></tr>
+<tr><td><code>REACH_HEIGHT</code></td><td style="text-align: right">32</td><td>reach an altitude</td></tr>
+<tr><td><code>SMELT</code></td><td style="text-align: right">30</td><td></td></tr>
+<tr><td><code>DEFEAT_ENTITY</code></td><td style="text-align: right">27</td><td>defeat a mob</td></tr>
+<tr><td><code>TRADE</code></td><td style="text-align: right">24</td><td></td></tr>
+<tr><td><code>WALK</code></td><td style="text-align: right">20</td><td></td></tr>
+<tr><td><code>INTERACT_ENTITY</code></td><td style="text-align: right">14</td><td>interact with a mob</td></tr>
+<tr><td><code>BREED</code></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td><code>SWIM</code></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td><code>SHOOT</code></td><td style="text-align: right">9</td><td></td></tr>
+<tr><td><code>MOUNT</code></td><td style="text-align: right">9</td><td></td></tr>
+<tr><td><code>EQUIP</code></td><td style="text-align: right">7</td><td></td></tr>
+<tr><td><code>TAKE_OUT</code></td><td style="text-align: right">7</td><td></td></tr>
+<tr><td><code>LIE_DOWN</code></td><td style="text-align: right">6</td><td></td></tr>
+<tr><td><code>HEAR</code></td><td style="text-align: right">6</td><td></td></tr>
+<tr><td><code>FALL</code></td><td style="text-align: right">5</td><td></td></tr>
+<tr><td><code>REACH_DIMENSION</code></td><td style="text-align: right">3</td><td>reach a dimension</td></tr>
+<tr><td><code>TRANSIT</code></td><td style="text-align: right">3</td><td></td></tr>
+<tr><td><code>ENTER_GATEWAY</code></td><td style="text-align: right">1</td><td></td></tr>
+<tr><td><code>HAVE_EFFECT</code></td><td style="text-align: right">1</td><td></td></tr>
+<tr><td><code>PLACE_ENTITY</code></td><td style="text-align: right">1</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Condition</th><th style="text-align: right">Steps</th><th>Must hold while the goal happens</th></tr>
+</thead>
+<tbody>
+<tr><td><code>TIME</code></td><td style="text-align: right">341</td><td>a time of day</td></tr>
+<tr><td><code>HOLDING</code></td><td style="text-align: right">137</td><td></td></tr>
+<tr><td><code>WEATHER</code></td><td style="text-align: right">80</td><td>the weather</td></tr>
+<tr><td><code>IN_BIOME</code></td><td style="text-align: right">71</td><td>a biome</td></tr>
+<tr><td><code>PLAYER_REL</code></td><td style="text-align: right">49</td><td></td></tr>
+<tr><td><code>IN_DIMENSION</code></td><td style="text-align: right">45</td><td>a dimension</td></tr>
+<tr><td><code>Y_RANGE</code></td><td style="text-align: right">37</td><td>an altitude band</td></tr>
+<tr><td><code>NEAR_BLOCK</code></td><td style="text-align: right">27</td><td>a block nearby</td></tr>
+<tr><td><code>SKY</code></td><td style="text-align: right">27</td><td></td></tr>
+<tr><td><code>NEAR_ENTITY</code></td><td style="text-align: right">21</td><td>a mob nearby</td></tr>
+<tr><td><code>FACING</code></td><td style="text-align: right">15</td><td></td></tr>
+<tr><td><code>IN_WATER</code></td><td style="text-align: right">12</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="levels"><a class="header" href="#levels">Levels</a></h2>
+<h3 id="level-1--topik-1--39-trails"><a class="header" href="#level-1--topik-1--39-trails">Level 1 · TOPIK 1 · 39 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>steinpfad</code></td><td>돌과 불의 길</td><td>Stein und Feuer</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>holzpfad</code></td><td>나무 집과 문의 길</td><td>Baumhaus und Tür</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>essenspfad</code></td><td>사과와 달걀과 소의 길</td><td>Apfel, Ei und Kuh</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>feuerpfad</code></td><td>물과 불의 길</td><td>Wasser und Feuer</td><td style="text-align: right">5</td><td>—</td></tr>
+<tr><td><code>tierfreund</code></td><td>소와 우유의 길</td><td>Kuh und Milch</td><td style="text-align: right">5</td><td>—</td></tr>
+<tr><td><code>tierpfad</code></td><td>닭과 돼지와 달걀의 길</td><td>Huhn, Schwein und Ei</td><td style="text-align: right">5</td><td>—</td></tr>
+<tr><td><code>nachtpfad</code></td><td>해와 달의 길</td><td>Sonne und Mond</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>wasserpfad</code></td><td>물의 길</td><td>Der Wasserweg</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>bergpfad</code></td><td>산과 눈의 길</td><td>Berg und Schnee</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>dorfpfad</code></td><td>마을의 길</td><td>Das Dorf</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>wurzelpfad</code></td><td>나무와 묘목의 길</td><td>Baum und Setzling</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>musikpfad</code></td><td>소리 블록의 길</td><td>Der Notenblock</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>freundschaftspfad</code></td><td>친구의 길</td><td>Freunde</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>briefpfad</code></td><td>종이와 편지의 길</td><td>Papier und Brief</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>kerzenpfad</code></td><td>초와 밤의 길</td><td>Kerze und Nacht</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>kuerbispfad</code></td><td>호박 파이의 길</td><td>Kürbiskuchen</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>schneemannpfad</code></td><td>눈사람의 길</td><td>Der Schneemann</td><td style="text-align: right">5</td><td>—</td></tr>
+<tr><td><code>apfelpfad</code></td><td>사과나무의 길</td><td>Der Apfelbaum</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>regenbogenpfad</code></td><td>비와 해의 길</td><td>Regen und Sonne</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>blumentopf</code></td><td>화분의 길</td><td>Der Blumentopf</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>muschelpfad</code></td><td>모래성의 길</td><td>Die Sandburg</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>lighthouse_demo</code></td><td>등대</td><td>Der Leuchtturm (Demo)</td><td style="text-align: right">5</td><td>—</td></tr>
+<tr><td><code>w1_01</code></td><td>첫 촛불</td><td>Die erste Kerze</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_02</code></td><td>유리 속 햇살</td><td>Sonnenlicht im Glas</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_03</code></td><td>노란 꽃밭</td><td>Das gelbe Blumenbeet</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_04</code></td><td>달빛 산책</td><td>Ein Spaziergang im Mondlicht</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_05</code></td><td>물가의 불빛</td><td>Licht am Wasser</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_06</code></td><td>겨울 창가</td><td>Ein Winterfenster</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_07</code></td><td>나무 아래의 점심</td><td>Mittagessen unter dem Baum</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_08</code></td><td>작은 집의 아침</td><td>Morgen im kleinen Haus</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w1_09</code></td><td>작은 발견</td><td>Eine kleine Entdeckung</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_01</code></td><td>비 그친 하늘</td><td>Der Himmel nach dem Regen</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_02</code></td><td>첫눈 소리</td><td>Das Geräusch des ersten Schnees</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_03</code></td><td>해 질 녘 언덕</td><td>Der Hügel bei Sonnenuntergang</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_04</code></td><td>빗속의 불빛</td><td>Licht im Regen</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_05</code></td><td>계절의 문</td><td>Die Tür der Jahreszeiten</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_06</code></td><td>별이 뜨는 밤</td><td>Eine Sternennacht</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_07</code></td><td>겨울 아침</td><td>Ein Wintermorgen</td><td style="text-align: right">4</td><td>—</td></tr>
+<tr><td><code>w2_08</code></td><td>구름 위 탑</td><td>Der Turm über den Wolken</td><td style="text-align: right">4</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-2--topik-1--24-trails"><a class="header" href="#level-2--topik-1--24-trails">Level 2 · TOPIK 1 · 24 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>brotpfad</code></td><td>밀과 빵의 길</td><td>Weizen und Brot</td><td style="text-align: right">4</td><td><code>essenspfad</code></td></tr>
+<tr><td><code>haustierpfad</code></td><td>고양이의 집</td><td>Das Haus der Katze</td><td style="text-align: right">5</td><td><code>tierpfad</code>, <code>tierfreund</code></td></tr>
+<tr><td><code>hoehlenlicht</code></td><td>돌과 횃불의 길</td><td>Stein und Fackel</td><td style="text-align: right">4</td><td><code>steinpfad</code></td></tr>
+<tr><td><code>kraeuterpfad</code></td><td>꽃과 감자의 길</td><td>Blumen und Kartoffeln</td><td style="text-align: right">4</td><td><code>essenspfad</code></td></tr>
+<tr><td><code>wollpfad</code></td><td>양과 양털의 길</td><td>Schaf und Wolle</td><td style="text-align: right">4</td><td><code>tierpfad</code></td></tr>
+<tr><td><code>flusslicht</code></td><td>종이와 책의 길</td><td>Papier und Buch</td><td style="text-align: right">5</td><td><code>wasserpfad</code></td></tr>
+<tr><td><code>bienenpfad</code></td><td>꿀벌과 꽃의 길</td><td>Biene und Blume</td><td style="text-align: right">4</td><td><code>tierpfad</code></td></tr>
+<tr><td><code>redstonepfad</code></td><td>레드스톤의 길</td><td>Redstone</td><td style="text-align: right">4</td><td><code>steinpfad</code></td></tr>
+<tr><td><code>schneeballpfad</code></td><td>눈싸움의 길</td><td>Schneeballschlacht</td><td style="text-align: right">4</td><td><code>nachtpfad</code></td></tr>
+<tr><td><code>waldhaus</code></td><td>숲의 집</td><td>Das Waldhaus</td><td style="text-align: right">4</td><td><code>holzpfad</code>, <code>wurzelpfad</code></td></tr>
+<tr><td><code>glasfenster</code></td><td>유리창의 길</td><td>Glasfenster</td><td style="text-align: right">4</td><td><code>dorfpfad</code></td></tr>
+<tr><td><code>pilzpfad</code></td><td>버섯 스튜의 길</td><td>Pilzeintopf</td><td style="text-align: right">5</td><td><code>holzpfad</code></td></tr>
+<tr><td><code>teppichpfad</code></td><td>양탄자의 길</td><td>Der Teppich</td><td style="text-align: right">4</td><td><code>dorfpfad</code></td></tr>
+<tr><td><code>froschteich</code></td><td>개구리 연못</td><td>Froschteich</td><td style="text-align: right">4</td><td><code>wasserpfad</code></td></tr>
+<tr><td><code>farmpfad</code></td><td>농장의 길</td><td>Der Bauernhof</td><td style="text-align: right">4</td><td><code>tierpfad</code></td></tr>
+<tr><td><code>fuchsbau</code></td><td>토끼의 집</td><td>Der Kaninchenstall</td><td style="text-align: right">4</td><td><code>holzpfad</code></td></tr>
+<tr><td><code>schildkroete</code></td><td>거북의 길</td><td>Die Schildkröte</td><td style="text-align: right">4</td><td><code>wasserpfad</code></td></tr>
+<tr><td><code>sternenpfad</code></td><td>별의 길</td><td>Unter den Sternen</td><td style="text-align: right">4</td><td><code>nachtpfad</code></td></tr>
+<tr><td><code>vogelscheuche</code></td><td>허수아비의 길</td><td>Die Vogelscheuche</td><td style="text-align: right">4</td><td><code>dorfpfad</code></td></tr>
+<tr><td><code>fischerpfad</code></td><td>물고기의 길</td><td>Der Fischer</td><td style="text-align: right">4</td><td><code>wasserpfad</code></td></tr>
+<tr><td><code>gipfelpfad</code></td><td>꼭대기의 길</td><td>Der Gipfel</td><td style="text-align: right">4</td><td><code>bergpfad</code></td></tr>
+<tr><td><code>handelspfad</code></td><td>거래의 길</td><td>Der Handel</td><td style="text-align: right">4</td><td><code>dorfpfad</code></td></tr>
+<tr><td><code>adv_husbandry_root</code></td><td>농사</td><td>Landwirtschaft</td><td style="text-align: right">4</td><td><code>tierpfad</code></td></tr>
+<tr><td><code>adv_story_root</code></td><td>마인크래프트</td><td>Minecraft</td><td style="text-align: right">4</td><td><code>steinpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-3--topik-1--35-trails"><a class="header" href="#level-3--topik-1--35-trails">Level 3 · TOPIK 1 · 35 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>waldlicht</code></td><td>유리와 초의 길</td><td>Glas und Kerze</td><td style="text-align: right">4</td><td><code>hoehlenlicht</code>, <code>holzpfad</code></td></tr>
+<tr><td><code>feuerstelle</code></td><td>불과 빵의 길</td><td>Feuer und Brot</td><td style="text-align: right">4</td><td><code>brotpfad</code>, <code>feuerpfad</code></td></tr>
+<tr><td><code>bogenpfad</code></td><td>활의 길</td><td>Der Bogen</td><td style="text-align: right">4</td><td><code>waldhaus</code>, <code>tierpfad</code></td></tr>
+<tr><td><code>wetterpfad</code></td><td>비와 물고기의 길</td><td>Regen und Fisch</td><td style="text-align: right">4</td><td><code>gipfelpfad</code>, <code>wasserpfad</code></td></tr>
+<tr><td><code>blumenpfad</code></td><td>꽃과 토끼의 길</td><td>Blumen und Kaninchen</td><td style="text-align: right">4</td><td><code>dorfpfad</code>, <code>waldhaus</code></td></tr>
+<tr><td><code>steintiefe</code></td><td>돌과 철의 길</td><td>Stein und Eisen</td><td style="text-align: right">4</td><td><code>steinpfad</code>, <code>hoehlenlicht</code></td></tr>
+<tr><td><code>baeckerei</code></td><td>빵집과 케이크의 길</td><td>Bäckerei und Kuchen</td><td style="text-align: right">4</td><td><code>essenspfad</code>, <code>brotpfad</code>, <code>kraeuterpfad</code></td></tr>
+<tr><td><code>windpfad</code></td><td>바람의 길</td><td>Der Wind auf dem Berg</td><td style="text-align: right">4</td><td><code>gipfelpfad</code>, <code>nachtpfad</code></td></tr>
+<tr><td><code>inselpfad</code></td><td>섬의 길</td><td>Die Insel</td><td style="text-align: right">4</td><td><code>fischerpfad</code>, <code>gipfelpfad</code></td></tr>
+<tr><td><code>bambuspfad</code></td><td>대나무와 수박의 길</td><td>Bambus und Melone</td><td style="text-align: right">4</td><td><code>waldhaus</code>, <code>kraeuterpfad</code></td></tr>
+<tr><td><code>sonnenblume</code></td><td>해바라기의 길</td><td>Sonnenblumengarten</td><td style="text-align: right">4</td><td><code>kraeuterpfad</code>, <code>waldhaus</code></td></tr>
+<tr><td><code>lavapfad</code></td><td>용암의 길</td><td>Der Lavaweg</td><td style="text-align: right">4</td><td><code>gipfelpfad</code>, <code>nachtpfad</code></td></tr>
+<tr><td><code>blumenkranz</code></td><td>꽃밭의 길</td><td>Das Blumenbeet</td><td style="text-align: right">4</td><td><code>kraeuterpfad</code>, <code>waldhaus</code></td></tr>
+<tr><td><code>ziegenpfad</code></td><td>염소의 길</td><td>Die Ziege</td><td style="text-align: right">4</td><td><code>gipfelpfad</code>, <code>nachtpfad</code></td></tr>
+<tr><td><code>adv_husbandry_allay_deliver_item_to_player</code></td><td>작은 창고</td><td>Eine kleine Vorratskammer</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_breed_an_animal</code></td><td>아기는 어떻게 태어나?</td><td>Woher kommen die Babys?</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_fishy_business</code></td><td>강태공이 세월을 낚듯</td><td>Ein geduldiger Angler</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_make_a_sign_glow</code></td><td>밝은 말 고운 말</td><td>Helle Worte, freundliche Worte</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_obtain_sniffer_egg</code></td><td>닭장의 아침</td><td>Morgen im Hühnerstall</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_place_dried_ghast_in_water</code></td><td>들판의 말</td><td>Ein Pferd auf dem Feld</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_plant_seed</code></td><td>씨앗이 자라나는 곳</td><td>Wo die Samen wachsen</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_ride_a_boat_with_a_goat</code></td><td>염소 떴소</td><td>Was deine Ziege schwimmen lässt!</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_safely_harvest_honey</code></td><td>벌집을 내 집처럼</td><td>Bienen willkommen</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_silk_touch_nest</code></td><td>벌들의 정원</td><td>Der Garten der Bienen</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_tadpole_in_a_bucket</code></td><td>양동이에 올챙이 한 마리</td><td>Eine Kaulquappe im Eimer</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_tame_an_animal</code></td><td>인생의 동반자</td><td>Beste Freunde für immer</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_husbandry_uh_oh</code></td><td>농부와 거래</td><td>Handel mit dem Bauern</td><td style="text-align: right">4</td><td><code>adv_husbandry_root</code></td></tr>
+<tr><td><code>adv_story_mine_stone</code></td><td>석기 시대</td><td>Steinzeit</td><td style="text-align: right">4</td><td><code>adv_story_root</code></td></tr>
+<tr><td><code>dorfhaus</code></td><td>마을 집의 길</td><td>Das Dorfhaus</td><td style="text-align: right">5</td><td><code>waldhaus</code>, <code>glasfenster</code>, <code>teppichpfad</code></td></tr>
+<tr><td><code>weidepfad</code></td><td>목장의 길</td><td>Die Weide</td><td style="text-align: right">4</td><td><code>farmpfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>brandung</code></td><td>파도의 길</td><td>Die Brandung</td><td style="text-align: right">4</td><td><code>fischerpfad</code>, <code>flusslicht</code>, <code>froschteich</code>, <code>schildkroete</code></td></tr>
+<tr><td><code>nachtwache</code></td><td>별빛의 길</td><td>Die Nachtwache</td><td style="text-align: right">4</td><td><code>sternenpfad</code></td></tr>
+<tr><td><code>firstpfad</code></td><td>봉우리의 길</td><td>Der Gipfelgrat</td><td style="text-align: right">4</td><td><code>gipfelpfad</code></td></tr>
+<tr><td><code>marktpfad</code></td><td>시장의 길</td><td>Der Markt</td><td style="text-align: right">5</td><td><code>handelspfad</code></td></tr>
+<tr><td><code>gipfelblick</code></td><td>정상의 전망</td><td>Der Blick vom Gipfel</td><td style="text-align: right">4</td><td><code>gipfelpfad</code>, <code>sternenpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-4--topik-2--34-trails"><a class="header" href="#level-4--topik-2--34-trails">Level 4 · TOPIK 2 · 34 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>saatfeld</code></td><td>씨 뿌리는 밭의 길</td><td>Der Saatfeldpfad</td><td style="text-align: right">4</td><td><code>baeckerei</code></td></tr>
+<tr><td><code>wanderpfad</code></td><td>산길</td><td>Der Wanderpfad</td><td style="text-align: right">5</td><td><code>weidepfad</code>, <code>gipfelpfad</code></td></tr>
+<tr><td><code>nachthafen</code></td><td>밤 항구의 길</td><td>Der Nachthafen</td><td style="text-align: right">5</td><td><code>brandung</code>, <code>nachtpfad</code></td></tr>
+<tr><td><code>farbenpfad</code></td><td>색의 길</td><td>Der Farbenpfad</td><td style="text-align: right">5</td><td><code>weidepfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>glockenpfad</code></td><td>종의 길</td><td>Der Glockenpfad</td><td style="text-align: right">4</td><td><code>marktpfad</code></td></tr>
+<tr><td><code>milchpfad</code></td><td>우유의 길</td><td>Der Milchpfad</td><td style="text-align: right">4</td><td><code>weidepfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>gartenzaun</code></td><td>정원 울타리</td><td>Der Gartenzaun</td><td style="text-align: right">5</td><td><code>weidepfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>uhrmacher</code></td><td>시계공의 길</td><td>Der Uhrmacherpfad</td><td style="text-align: right">5</td><td><code>weidepfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>pferderennen</code></td><td>말 경주의 길</td><td>Der Pferderennpfad</td><td style="text-align: right">5</td><td><code>weidepfad</code>, <code>wollpfad</code></td></tr>
+<tr><td><code>abenteuerpfad</code></td><td>모험의 길</td><td>Der Abenteuerpfad</td><td style="text-align: right">6</td><td><code>steintiefe</code>, <code>gipfelpfad</code></td></tr>
+<tr><td><code>zuhausepfad</code></td><td>우리 집의 길</td><td>Der Zuhause-Pfad</td><td style="text-align: right">5</td><td><code>waldhaus</code>, <code>baeckerei</code></td></tr>
+<tr><td><code>adv_husbandry_allay_deliver_cake_to_note_block</code></td><td>동물들의 노래</td><td>Ein Lied für die Tiere</td><td style="text-align: right">5</td><td><code>adv_husbandry_allay_deliver_item_to_player</code></td></tr>
+<tr><td><code>adv_husbandry_balanced_diet</code></td><td>균형 잡힌 식단</td><td>Ausgewogene Ernährung</td><td style="text-align: right">4</td><td><code>adv_husbandry_plant_seed</code></td></tr>
+<tr><td><code>adv_husbandry_bred_all_animals</code></td><td>짝지어주기</td><td>Paarweise</td><td style="text-align: right">6</td><td><code>adv_husbandry_breed_an_animal</code></td></tr>
+<tr><td><code>adv_husbandry_complete_catalogue</code></td><td>집사 그 자체</td><td>Ein kompletter Katerlog</td><td style="text-align: right">4</td><td><code>adv_husbandry_tame_an_animal</code></td></tr>
+<tr><td><code>adv_husbandry_feed_snifflet</code></td><td>돼지우리</td><td>Der Schweinestall</td><td style="text-align: right">4</td><td><code>adv_husbandry_obtain_sniffer_egg</code></td></tr>
+<tr><td><code>adv_husbandry_leash_all_frog_variants</code></td><td>개구리 삼총사 출동!</td><td>Wenn die Kerle um die Häuser ziehen</td><td style="text-align: right">5</td><td><code>adv_husbandry_tadpole_in_a_bucket</code></td></tr>
+<tr><td><code>adv_husbandry_obtain_netherite_hoe</code></td><td>괭이의 길</td><td>Der Hackenpfad</td><td style="text-align: right">4</td><td><code>adv_husbandry_plant_seed</code></td></tr>
+<tr><td><code>adv_husbandry_remove_wolf_armor</code></td><td>탁월한 가위질</td><td>Schnipp‐schnapp!</td><td style="text-align: right">4</td><td><code>adv_husbandry_tame_an_animal</code></td></tr>
+<tr><td><code>adv_husbandry_repair_wolf_armor</code></td><td>새것처럼</td><td>So gut wie neu</td><td style="text-align: right">4</td><td><code>adv_husbandry_tame_an_animal</code></td></tr>
+<tr><td><code>adv_husbandry_tactical_fishing</code></td><td>이 대신 잇몸으로</td><td>Taktisches Fischen</td><td style="text-align: right">3</td><td><code>adv_husbandry_fishy_business</code></td></tr>
+<tr><td><code>adv_husbandry_wax_on</code></td><td>밀랍을 칠하자</td><td>Auftragen</td><td style="text-align: right">5</td><td><code>adv_husbandry_safely_harvest_honey</code></td></tr>
+<tr><td><code>adv_husbandry_whole_pack</code></td><td>외롭지 못한 늑대</td><td>Das ganze Rudel</td><td style="text-align: right">5</td><td><code>adv_husbandry_tame_an_animal</code></td></tr>
+<tr><td><code>schmelzpfad</code></td><td>화로의 길</td><td>Der Schmelzpfad</td><td style="text-align: right">4</td><td><code>steintiefe</code></td></tr>
+<tr><td><code>adv_story_upgrade_tools</code></td><td>더욱더 좋게</td><td>Technischer Fortschritt</td><td style="text-align: right">4</td><td><code>adv_story_mine_stone</code></td></tr>
+<tr><td><code>festmahl</code></td><td>잔치의 길</td><td>Das Festmahl</td><td style="text-align: right">5</td><td><code>baeckerei</code></td></tr>
+<tr><td><code>sternenhaus</code></td><td>별의 집</td><td>Das Sternenhaus</td><td style="text-align: right">5</td><td><code>nachtwache</code>, <code>dorfhaus</code></td></tr>
+<tr><td><code>gartenpfad</code></td><td>정원의 길</td><td>Der Gartenpfad</td><td style="text-align: right">5</td><td><code>dorfhaus</code>, <code>bienenpfad</code>, <code>kuerbispfad</code>, <code>pilzpfad</code>, <code>fuchsbau</code></td></tr>
+<tr><td><code>reitpfad</code></td><td>말타기의 길</td><td>Der Reitpfad</td><td style="text-align: right">5</td><td><code>weidepfad</code></td></tr>
+<tr><td><code>riffpfad</code></td><td>물결의 길</td><td>Der Riffpfad</td><td style="text-align: right">5</td><td><code>brandung</code></td></tr>
+<tr><td><code>mondpfad</code></td><td>달빛의 길</td><td>Der Mondpfad</td><td style="text-align: right">6</td><td><code>nachtwache</code></td></tr>
+<tr><td><code>eiswand</code></td><td>얼음벽의 길</td><td>Der Eiswall</td><td style="text-align: right">5</td><td><code>firstpfad</code>, <code>schneeballpfad</code>, <code>schneemannpfad</code>, <code>ziegenpfad</code></td></tr>
+<tr><td><code>alpental</code></td><td>알펜 계곡</td><td>Das Alpental</td><td style="text-align: right">5</td><td><code>weidepfad</code></td></tr>
+<tr><td><code>kuestenwacht</code></td><td>해안 초소</td><td>Die Küstenwacht</td><td style="text-align: right">4</td><td><code>brandung</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-5--topik-2--43-trails"><a class="header" href="#level-5--topik-2--43-trails">Level 5 · TOPIK 2 · 43 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>schmelzofen</code></td><td>용광로의 불</td><td>Das Schmelzfeuer</td><td style="text-align: right">4</td><td><code>schmelzpfad</code></td></tr>
+<tr><td><code>festungpfad</code></td><td>요새의 길</td><td>Der Festungspfad</td><td style="text-align: right">6</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>schatzkammer</code></td><td>보물방의 길</td><td>Die Schatzkammer</td><td style="text-align: right">5</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>druckerei</code></td><td>인쇄소의 길</td><td>Der Druckereipfad</td><td style="text-align: right">4</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>ziegelpfad</code></td><td>벽돌의 길</td><td>Der Ziegelpfad</td><td style="text-align: right">5</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>brauerei</code></td><td>지하 저장고의 길</td><td>Der Kellerpfad</td><td style="text-align: right">4</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>bienenzucht</code></td><td>양봉의 길</td><td>Der Bienenzuchtpfad</td><td style="text-align: right">4</td><td><code>alpental</code>, <code>gartenpfad</code></td></tr>
+<tr><td><code>adv_adventure_root</code></td><td>모험</td><td>Abenteuer</td><td style="text-align: right">5</td><td><code>abenteuerpfad</code></td></tr>
+<tr><td><code>adv_husbandry_axolotl_in_a_bucket</code></td><td>귀여운 포식자</td><td>Das niedlichste Raubtier</td><td style="text-align: right">4</td><td><code>adv_husbandry_tactical_fishing</code></td></tr>
+<tr><td><code>adv_husbandry_froglights</code></td><td>개구리 연못의 밤</td><td>Eine Nacht am Froschteich</td><td style="text-align: right">5</td><td><code>adv_husbandry_leash_all_frog_variants</code></td></tr>
+<tr><td><code>adv_husbandry_plant_any_sniffer_seed</code></td><td>토끼 밭</td><td>Das Kaninchenbeet</td><td style="text-align: right">6</td><td><code>adv_husbandry_feed_snifflet</code></td></tr>
+<tr><td><code>adv_husbandry_wax_off</code></td><td>밀랍을 벗기자</td><td>Polieren</td><td style="text-align: right">5</td><td><code>adv_husbandry_wax_on</code></td></tr>
+<tr><td><code>adv_story_smelt_iron</code></td><td>철이 철철 넘쳐</td><td>Metallurgie</td><td style="text-align: right">4</td><td><code>adv_story_upgrade_tools</code></td></tr>
+<tr><td><code>glueckspfad</code></td><td>보물의 길</td><td>Der Schatzpfad</td><td style="text-align: right">5</td><td><code>abenteuerpfad</code></td></tr>
+<tr><td><code>familienpfad</code></td><td>가족의 길</td><td>Der Familienpfad</td><td style="text-align: right">4</td><td><code>zuhausepfad</code>, <code>haustierpfad</code></td></tr>
+<tr><td><code>schmiedepfad</code></td><td>대장간의 길</td><td>Der Schmiedepfad</td><td style="text-align: right">4</td><td><code>schmelzpfad</code>, <code>waldhaus</code>, <code>handelspfad</code>, <code>feuerpfad</code>, <code>feuerstelle</code></td></tr>
+<tr><td><code>waldfest</code></td><td>숲의 잔치</td><td>Das Waldfest</td><td style="text-align: right">4</td><td><code>waldhaus</code>, <code>festmahl</code>, <code>farmpfad</code></td></tr>
+<tr><td><code>kuestenfest</code></td><td>바닷가 잔치</td><td>Das Küstenfest</td><td style="text-align: right">5</td><td><code>brandung</code>, <code>festmahl</code></td></tr>
+<tr><td><code>kohlenpfad</code></td><td>석탄의 길</td><td>Der Kohlenpfad</td><td style="text-align: right">4</td><td><code>schmelzpfad</code></td></tr>
+<tr><td><code>schmauspfad</code></td><td>산해진미의 길</td><td>Der Schlemmerpfad</td><td style="text-align: right">4</td><td><code>festmahl</code></td></tr>
+<tr><td><code>karawanepfad</code></td><td>상단의 길</td><td>Die Karawanenstraße</td><td style="text-align: right">4</td><td><code>marktpfad</code>, <code>glockenpfad</code></td></tr>
+<tr><td><code>steinbruch</code></td><td>채석장의 길</td><td>Der Steinbruch</td><td style="text-align: right">4</td><td><code>schmelzpfad</code></td></tr>
+<tr><td><code>pferdehof</code></td><td>말 목장의 길</td><td>Der Pferdehof</td><td style="text-align: right">4</td><td><code>reitpfad</code>, <code>weidepfad</code>, <code>bogenpfad</code></td></tr>
+<tr><td><code>meerestiefe</code></td><td>바다 깊은 길</td><td>Die Meerestiefe</td><td style="text-align: right">5</td><td><code>riffpfad</code>, <code>fischerpfad</code></td></tr>
+<tr><td><code>sternwarte</code></td><td>달빛 정원</td><td>Der Mondgarten</td><td style="text-align: right">5</td><td><code>mondpfad</code>, <code>nachtwache</code></td></tr>
+<tr><td><code>gletscherpfad</code></td><td>빙하의 길</td><td>Der Gletscherpfad</td><td style="text-align: right">5</td><td><code>eiswand</code>, <code>firstpfad</code></td></tr>
+<tr><td><code>w3_01</code></td><td>장터의 길</td><td>Der Marktweg</td><td style="text-align: right">4</td><td><code>schmelzpfad</code></td></tr>
+<tr><td><code>w3_02</code></td><td>이웃의 문</td><td>Die Tür des Nachbarn</td><td style="text-align: right">4</td><td><code>zuhausepfad</code></td></tr>
+<tr><td><code>w3_03</code></td><td>나그네의 주머니</td><td>Der Beutel des Wanderers</td><td style="text-align: right">4</td><td><code>abenteuerpfad</code></td></tr>
+<tr><td><code>w3_04</code></td><td>마을 잔치</td><td>Das Dorffest</td><td style="text-align: right">4</td><td><code>festmahl</code></td></tr>
+<tr><td><code>w3_05</code></td><td>마을의 밤</td><td>Die Nacht im Dorf</td><td style="text-align: right">4</td><td><code>sternenhaus</code></td></tr>
+<tr><td><code>w3_06</code></td><td>이웃의 밭</td><td>Der Acker des Nachbarn</td><td style="text-align: right">4</td><td><code>gartenpfad</code></td></tr>
+<tr><td><code>w3_07</code></td><td>말과 장터</td><td>Pferd und Markt</td><td style="text-align: right">4</td><td><code>reitpfad</code></td></tr>
+<tr><td><code>w3_08</code></td><td>항구의 손님</td><td>Der Gast am Hafen</td><td style="text-align: right">4</td><td><code>riffpfad</code></td></tr>
+<tr><td><code>w3_09</code></td><td>등불의 이웃</td><td>Die Laternen-Nachbarn</td><td style="text-align: right">4</td><td><code>mondpfad</code></td></tr>
+<tr><td><code>w4_01</code></td><td>산호초의 길</td><td>Der Korallenriffpfad</td><td style="text-align: right">4</td><td><code>riffpfad</code></td></tr>
+<tr><td><code>w4_02</code></td><td>등대 불빛</td><td>Das Leuchtturmlicht</td><td style="text-align: right">5</td><td><code>kuestenwacht</code></td></tr>
+<tr><td><code>w4_03</code></td><td>달빛 낚시</td><td>Das Mondlichtangeln</td><td style="text-align: right">5</td><td><code>mondpfad</code></td></tr>
+<tr><td><code>w4_04</code></td><td>부두의 배</td><td>Das Boot am Kai</td><td style="text-align: right">4</td><td><code>wanderpfad</code></td></tr>
+<tr><td><code>w4_05</code></td><td>밤바다 등불</td><td>Lichter am Nachtmeer</td><td style="text-align: right">5</td><td><code>nachthafen</code></td></tr>
+<tr><td><code>w4_06</code></td><td>산속 호수</td><td>Der Bergsee</td><td style="text-align: right">5</td><td><code>alpental</code></td></tr>
+<tr><td><code>w4_07</code></td><td>항구 시장</td><td>Der Hafenmarkt</td><td style="text-align: right">5</td><td><code>festmahl</code></td></tr>
+<tr><td><code>w4_08</code></td><td>모래 정원</td><td>Der Sandgarten</td><td style="text-align: right">5</td><td><code>gartenpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-6--topik-2--40-trails"><a class="header" href="#level-6--topik-2--40-trails">Level 6 · TOPIK 2 · 40 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>steinherz</code></td><td>돌심장</td><td>Das Steinherz</td><td style="text-align: right">4</td><td><code>steintiefe</code>, <code>schmelzofen</code></td></tr>
+<tr><td><code>schneesturm</code></td><td>눈보라의 길</td><td>Der Schneesturm</td><td style="text-align: right">6</td><td><code>eiswand</code>, <code>gletscherpfad</code></td></tr>
+<tr><td><code>kartenpfad</code></td><td>지도의 길</td><td>Der Kartenpfad</td><td style="text-align: right">5</td><td><code>handelspfad</code>, <code>karawanepfad</code></td></tr>
+<tr><td><code>alchemiepfad</code></td><td>꿀단지의 길</td><td>Der Honigtopfpfad</td><td style="text-align: right">4</td><td><code>schmelzofen</code>, <code>schmauspfad</code></td></tr>
+<tr><td><code>steinmetz</code></td><td>석공의 길</td><td>Der Steinmetzpfad</td><td style="text-align: right">5</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>gartenkunst</code></td><td>정원 예술의 길</td><td>Die Gartenkunst</td><td style="text-align: right">5</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>faerberei</code></td><td>염색의 길</td><td>Die Färberei</td><td style="text-align: right">5</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>gerberei</code></td><td>가죽 공방의 길</td><td>Die Gerberei</td><td style="text-align: right">5</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>obstgarten</code></td><td>과수원의 길</td><td>Der Obstgarten</td><td style="text-align: right">5</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>werkzeugpfad</code></td><td>도구의 길</td><td>Der Werkzeugpfad</td><td style="text-align: right">4</td><td><code>festungpfad</code>, <code>schatzkammer</code></td></tr>
+<tr><td><code>adv_adventure_avoid_vibration</code></td><td>소리 경보</td><td>Der leise Alarm</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_brush_armadillo</code></td><td>이게 인갑인갑다</td><td>Ist das nicht putzig?</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_crafters_crafting_crafters</code></td><td>제작기 제 자신 제작기</td><td>Werker, die Werker herstellen</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_fall_from_world_height</code></td><td>동굴과 절벽</td><td>Höhlen &amp; Klippen</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_heart_transplanter</code></td><td>망루</td><td>Der Wachturm</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_honey_block_slide</code></td><td>달콤함에 몸을 맡기다</td><td>Eine klebrige Angelegenheit</td><td style="text-align: right">6</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_kill_a_mob</code></td><td>몬스터 사냥꾼</td><td>Monsterjäger</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_lightning_rod_with_villager_no_fire</code></td><td>번개 멈춰!</td><td>Überspannungsschutz</td><td style="text-align: right">6</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_minecraft_trials_edition</code></td><td>훈련장</td><td>Der Übungsplatz</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_ol_betsy</code></td><td>부러진 화살</td><td>Ich habe die Knarre gesichert</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_read_power_of_chiseled_bookshelf</code></td><td>책의 힘</td><td>Die Macht der Bücher</td><td style="text-align: right">6</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_salvage_sherd</code></td><td>여행 준비</td><td>Reisevorbereitungen</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_sleep_in_bed</code></td><td>달콤한 꿈</td><td>Träum was Schönes</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_spyglass_at_parrot</code></td><td>새인가?</td><td>Ist es ein Vogel?</td><td style="text-align: right">6</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_trade</code></td><td>훌륭한 거래군요!</td><td>Was für ein Geschäft!</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_trim_with_any_armor_pattern</code></td><td>멋쟁이</td><td>Der Modefan</td><td style="text-align: right">4</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_use_lodestone</code></td><td>집으로 이끌려가네</td><td>Weißt du, wo die Leitstein’ stehen?</td><td style="text-align: right">6</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_adventure_voluntary_exile</code></td><td>자진 유배</td><td>Freiwilliges Exil</td><td style="text-align: right">5</td><td><code>adv_adventure_root</code></td></tr>
+<tr><td><code>adv_husbandry_kill_axolotl_target</code></td><td>양털 깎는 날</td><td>Schertag</td><td style="text-align: right">4</td><td><code>adv_husbandry_axolotl_in_a_bucket</code></td></tr>
+<tr><td><code>adv_story_iron_tools</code></td><td>이젠 철 좀 들어라</td><td>Zu viel Eisen im Blut</td><td style="text-align: right">4</td><td><code>adv_story_smelt_iron</code></td></tr>
+<tr><td><code>adv_story_lava_bucket</code></td><td>화끈한 화제</td><td>Heiße Sache</td><td style="text-align: right">4</td><td><code>adv_story_smelt_iron</code></td></tr>
+<tr><td><code>adv_story_obtain_armor</code></td><td>차려입기</td><td>Mach dich fein</td><td style="text-align: right">5</td><td><code>adv_story_smelt_iron</code></td></tr>
+<tr><td><code>gipfelwaechter</code></td><td>봉우리의 수호자</td><td>Der Gipfelwächter</td><td style="text-align: right">5</td><td><code>firstpfad</code>, <code>glueckspfad</code>, <code>gipfelblick</code></td></tr>
+<tr><td><code>tiefenpfad</code></td><td>깊은 광맥의 길</td><td>Der Tiefenpfad</td><td style="text-align: right">5</td><td><code>kohlenpfad</code>, <code>schmelzpfad</code></td></tr>
+<tr><td><code>gartenfest</code></td><td>정원 잔치</td><td>Das Gartenfest</td><td style="text-align: right">4</td><td><code>gartenpfad</code>, <code>waldfest</code>, <code>waldlicht</code>, <code>saatfeld</code>, <code>musikpfad</code>, <code>freundschaftspfad</code>, <code>blumenpfad</code>, <code>kerzenpfad</code>, <code>apfelpfad</code>, <code>sonnenblume</code>, <code>milchpfad</code>, <code>regenbogenpfad</code>, <code>gartenzaun</code>, <code>blumentopf</code>, <code>blumenkranz</code>, <code>uhrmacher</code>, <code>muschelpfad</code>, <code>vogelscheuche</code>, <code>pferderennen</code></td></tr>
+<tr><td><code>schmiedefeuer</code></td><td>대장간의 불</td><td>Das Schmiedefeuer</td><td style="text-align: right">5</td><td><code>schmiedepfad</code>, <code>kohlenpfad</code>, <code>steinbruch</code></td></tr>
+<tr><td><code>kochkunst</code></td><td>요리의 길</td><td>Die Kochkunst</td><td style="text-align: right">4</td><td><code>schmauspfad</code>, <code>festmahl</code></td></tr>
+<tr><td><code>handelsstrasse</code></td><td>무역로</td><td>Die Handelsstraße</td><td style="text-align: right">4</td><td><code>karawanepfad</code>, <code>marktpfad</code></td></tr>
+<tr><td><code>gestuet</code></td><td>마구간의 길</td><td>Das Gestüt</td><td style="text-align: right">4</td><td><code>pferdehof</code>, <code>waldfest</code></td></tr>
+<tr><td><code>ozeanfahrt</code></td><td>대양 항해</td><td>Die Ozeanfahrt</td><td style="text-align: right">4</td><td><code>meerestiefe</code>, <code>kuestenfest</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-7--topik-3--40-trails"><a class="header" href="#level-7--topik-3--40-trails">Level 7 · TOPIK 3 · 40 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>gartenwacht</code></td><td>정원의 수호</td><td>Die Gartenwacht</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>nachtwache</code></td></tr>
+<tr><td><code>eiskrone</code></td><td>얼음 왕관</td><td>Die Eiskrone</td><td style="text-align: right">5</td><td><code>schneesturm</code></td></tr>
+<tr><td><code>schmuckpfad</code></td><td>보석의 길</td><td>Der Juwelenpfad</td><td style="text-align: right">4</td><td><code>handelsstrasse</code>, <code>schmelzofen</code></td></tr>
+<tr><td><code>vogelpfad</code></td><td>새의 길</td><td>Der Vogelpfad</td><td style="text-align: right">4</td><td><code>gartenfest</code></td></tr>
+<tr><td><code>wolfpfad</code></td><td>늑대의 길</td><td>Der Wolfspfad</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>schmiedefeuer</code></td></tr>
+<tr><td><code>adv_adventure_adventuring_time</code></td><td>여행의 시작</td><td>Der Beginn einer Reise</td><td style="text-align: right">4</td><td><code>adv_adventure_sleep_in_bed</code></td></tr>
+<tr><td><code>adv_adventure_arbalistic</code></td><td>쇠뇌 사냥</td><td>Jagd mit der Armbrust</td><td style="text-align: right">4</td><td><code>adv_adventure_ol_betsy</code></td></tr>
+<tr><td><code>adv_adventure_blowback</code></td><td>방패로 막기</td><td>Mit dem Schild abwehren</td><td style="text-align: right">3</td><td><code>adv_adventure_minecraft_trials_edition</code></td></tr>
+<tr><td><code>adv_adventure_craft_decorated_pot_using_only_sherds</code></td><td>도자기 만들기</td><td>Einen Krug herstellen</td><td style="text-align: right">4</td><td><code>adv_adventure_salvage_sherd</code></td></tr>
+<tr><td><code>adv_adventure_hero_of_the_village</code></td><td>마을 지키기</td><td>Das Dorf verteidigen</td><td style="text-align: right">4</td><td><code>adv_adventure_voluntary_exile</code></td></tr>
+<tr><td><code>adv_adventure_kill_all_mobs</code></td><td>몬스터 사냥</td><td>Monsterjagd</td><td style="text-align: right">4</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_kill_mob_near_sculk_catalyst</code></td><td>숲의 밤 사냥</td><td>Nachtjagd im Wald</td><td style="text-align: right">4</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_lighten_up</code></td><td>사냥꾼의 불빛</td><td>Das Licht des Jägers</td><td style="text-align: right">4</td><td><code>adv_adventure_minecraft_trials_edition</code></td></tr>
+<tr><td><code>adv_adventure_overoverkill</code></td><td>철 도끼의 힘</td><td>Die Kraft der Eisenaxt</td><td style="text-align: right">4</td><td><code>adv_adventure_minecraft_trials_edition</code></td></tr>
+<tr><td><code>adv_adventure_play_jukebox_in_meadows</code></td><td>목초지의 음악</td><td>Musik auf der Alm</td><td style="text-align: right">4</td><td><code>adv_adventure_sleep_in_bed</code></td></tr>
+<tr><td><code>adv_adventure_shoot_arrow</code></td><td>첫 화살</td><td>Der erste Pfeil</td><td style="text-align: right">4</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_spear_many_mobs</code></td><td>창 사냥</td><td>Die Speerjagd</td><td style="text-align: right">4</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_spyglass_at_ghast</code></td><td>네더의 망원경</td><td>Das Fernrohr im Nether</td><td style="text-align: right">4</td><td><code>adv_adventure_spyglass_at_parrot</code></td></tr>
+<tr><td><code>adv_adventure_summon_iron_golem</code></td><td>마을 지킴이</td><td>Der Dorfwächter</td><td style="text-align: right">4</td><td><code>adv_adventure_trade</code></td></tr>
+<tr><td><code>adv_adventure_throw_trident</code></td><td>물가의 사냥</td><td>Jagd am Wasser</td><td style="text-align: right">3</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_totem_of_undying</code></td><td>불사의 토템</td><td>Das Totem der Unsterblichkeit</td><td style="text-align: right">4</td><td><code>adv_adventure_kill_a_mob</code></td></tr>
+<tr><td><code>adv_adventure_trade_at_world_height</code></td><td>높은 곳의 시장</td><td>Der Markt in der Höhe</td><td style="text-align: right">3</td><td><code>adv_adventure_trade</code></td></tr>
+<tr><td><code>adv_adventure_trim_with_all_exclusive_armor_patterns</code></td><td>구리 장비</td><td>Kupferausrüstung</td><td style="text-align: right">3</td><td><code>adv_adventure_trim_with_any_armor_pattern</code></td></tr>
+<tr><td><code>adv_adventure_two_birds_one_arrow</code></td><td>차례로 두 마리</td><td>Zwei nacheinander</td><td style="text-align: right">4</td><td><code>adv_adventure_ol_betsy</code></td></tr>
+<tr><td><code>adv_adventure_under_lock_and_key</code></td><td>철 문과 버튼</td><td>Eisentür und Knopf</td><td style="text-align: right">4</td><td><code>adv_adventure_minecraft_trials_edition</code></td></tr>
+<tr><td><code>adv_adventure_walk_on_powder_snow_with_leather_boots</code></td><td>가죽 장화와 가루눈</td><td>Lederstiefel und Pulverschnee</td><td style="text-align: right">4</td><td><code>adv_adventure_sleep_in_bed</code></td></tr>
+<tr><td><code>adv_adventure_who_needs_rockets</code></td><td>로켓 없이 뛰어내리기</td><td>Springen ohne Rakete</td><td style="text-align: right">4</td><td><code>adv_adventure_minecraft_trials_edition</code></td></tr>
+<tr><td><code>adv_adventure_whos_the_pillager_now</code></td><td>이제 누가 약탈자지?</td><td>Wer ist jetzt der Plünderer?</td><td style="text-align: right">3</td><td><code>adv_adventure_ol_betsy</code></td></tr>
+<tr><td><code>adv_nether_root</code></td><td>네더</td><td>Nether</td><td style="text-align: right">4</td><td><code>abenteuerpfad</code>, <code>adv_story_lava_bucket</code></td></tr>
+<tr><td><code>adv_story_deflect_arrow</code></td><td>방패와 화살</td><td>Schild und Pfeil</td><td style="text-align: right">3</td><td><code>adv_story_obtain_armor</code></td></tr>
+<tr><td><code>adv_story_form_obsidian</code></td><td>아이스 버킷 챌린지</td><td>Ice Bucket Challenge</td><td style="text-align: right">4</td><td><code>adv_story_lava_bucket</code></td></tr>
+<tr><td><code>adv_story_mine_diamond</code></td><td>다이아몬드다!</td><td>Diamanten!</td><td style="text-align: right">4</td><td><code>adv_story_iron_tools</code></td></tr>
+<tr><td><code>weltreise</code></td><td>세계 여행의 길</td><td>Die Weltreise</td><td style="text-align: right">4</td><td><code>kuestenfest</code>, <code>sternenhaus</code>, <code>gipfelwaechter</code>, <code>kartenpfad</code></td></tr>
+<tr><td><code>bergwerk</code></td><td>광산의 길</td><td>Der Bergwerkspfad</td><td style="text-align: right">4</td><td><code>tiefenpfad</code>, <code>gletscherpfad</code></td></tr>
+<tr><td><code>festtafel</code></td><td>잔칫상</td><td>Die Festtafel</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>kochkunst</code></td></tr>
+<tr><td><code>observatorium</code></td><td>별 관측소</td><td>Die Sternwarte</td><td style="text-align: right">4</td><td><code>sternwarte</code>, <code>gipfelwaechter</code></td></tr>
+<tr><td><code>weltmarkt</code></td><td>세계 시장</td><td>Der Weltmarkt</td><td style="text-align: right">4</td><td><code>handelsstrasse</code>, <code>schmiedepfad</code>, <code>briefpfad</code></td></tr>
+<tr><td><code>weltbaum</code></td><td>세계수</td><td>Der Weltbaum</td><td style="text-align: right">4</td><td><code>waldfest</code>, <code>gartenfest</code>, <code>alpental</code>, <code>familienpfad</code>, <code>alchemiepfad</code></td></tr>
+<tr><td><code>tiefseehafen</code></td><td>심해 항구</td><td>Der Tiefseehafen</td><td style="text-align: right">4</td><td><code>ozeanfahrt</code>, <code>meerestiefe</code>, <code>nachthafen</code>, <code>inselpfad</code></td></tr>
+<tr><td><code>village_errands_demo</code></td><td>마을 심부름</td><td>Dorf-Besorgungen</td><td style="text-align: right">5</td><td><code>handelsstrasse</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-8--topik-3--46-trails"><a class="header" href="#level-8--topik-3--46-trails">Level 8 · TOPIK 3 · 46 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>frostwacht</code></td><td>눈 속의 탑</td><td>Der Turm im Schnee</td><td style="text-align: right">4</td><td><code>eiskrone</code></td></tr>
+<tr><td><code>tempelpfad</code></td><td>사막 신전의 길</td><td>Der Wüstentempel</td><td style="text-align: right">4</td><td><code>weltbaum</code>, <code>weltreise</code></td></tr>
+<tr><td><code>dschungelpfad</code></td><td>정글의 길</td><td>Der Dschungelpfad</td><td style="text-align: right">4</td><td><code>gartenwacht</code>, <code>tiefseehafen</code>, <code>bambuspfad</code></td></tr>
+<tr><td><code>handelsgilde</code></td><td>상인 길드의 길</td><td>Der Handelsgildenpfad</td><td style="text-align: right">4</td><td><code>weltmarkt</code>, <code>gartenfest</code></td></tr>
+<tr><td><code>postpfad</code></td><td>우편의 길</td><td>Der Postpfad</td><td style="text-align: right">4</td><td><code>weltmarkt</code>, <code>gartenfest</code></td></tr>
+<tr><td><code>schmuckgilde</code></td><td>보석 길드의 길</td><td>Der Weg der Juwelierzunft</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>weltmarkt</code></td></tr>
+<tr><td><code>fischergilde</code></td><td>어부 길드의 길</td><td>Der Fischergildenpfad</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>weltmarkt</code></td></tr>
+<tr><td><code>adv_adventure_bullseye</code></td><td>과녁 세우기</td><td>Der Zielblock</td><td style="text-align: right">5</td><td><code>adv_adventure_shoot_arrow</code></td></tr>
+<tr><td><code>adv_adventure_revaulting</code></td><td>사냥꾼의 저녁</td><td>Das Abendessen des Jägers</td><td style="text-align: right">4</td><td><code>adv_adventure_under_lock_and_key</code></td></tr>
+<tr><td><code>adv_adventure_sniper_duel</code></td><td>산 위의 활</td><td>Der Bogen auf dem Berg</td><td style="text-align: right">4</td><td><code>adv_adventure_shoot_arrow</code></td></tr>
+<tr><td><code>adv_adventure_spyglass_at_dragon</code></td><td>산 위의 망원경</td><td>Das Fernrohr auf dem Berg</td><td style="text-align: right">4</td><td><code>adv_adventure_spyglass_at_ghast</code></td></tr>
+<tr><td><code>adv_adventure_very_very_frightening</code></td><td>피뢰침</td><td>Der Blitzableiter</td><td style="text-align: right">4</td><td><code>adv_adventure_throw_trident</code></td></tr>
+<tr><td><code>adv_nether_distract_piglin</code></td><td>반짝반짝 눈이 부셔</td><td>Oh, wie glänzend!</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_fast_travel</code></td><td>천 리 길도 한 걸음</td><td>Subraumtransport</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_find_bastion</code></td><td>그때가 좋았지</td><td>Das waren noch Zeiten …</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_find_fortress</code></td><td>끔찍한 요새</td><td>Eine schreckliche Festung</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_obtain_ancient_debris</code></td><td>깊이 파묻힌 잔해</td><td>Verborgen in den Tiefen</td><td style="text-align: right">5</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_obtain_crying_obsidian</code></td><td>누가 양파를 써나?</td><td>Wer schneidet hier Zwiebeln?</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_return_to_sender</code></td><td>전해지지 않은 러브레터</td><td>Zurück zum Absender</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_nether_ride_strider</code></td><td>두 발 달린 보트</td><td>Mach diesem „Boot“ Beine</td><td style="text-align: right">4</td><td><code>adv_nether_root</code></td></tr>
+<tr><td><code>adv_story_enchant_item</code></td><td>마법 부여대</td><td>Der Zaubertisch</td><td style="text-align: right">3</td><td><code>adv_story_mine_diamond</code></td></tr>
+<tr><td><code>adv_story_enter_the_nether</code></td><td>더 깊은 곳으로</td><td>Wir müssen noch tiefer</td><td style="text-align: right">4</td><td><code>adv_story_form_obsidian</code></td></tr>
+<tr><td><code>adv_story_shiny_gear</code></td><td>다이아몬드 장비</td><td>Diamantausrüstung</td><td style="text-align: right">4</td><td><code>adv_story_mine_diamond</code></td></tr>
+<tr><td><code>kristallhoehle</code></td><td>수정 동굴</td><td>Die Kristallhöhle</td><td style="text-align: right">4</td><td><code>bergwerk</code>, <code>glueckspfad</code>, <code>steinherz</code></td></tr>
+<tr><td><code>riesenfest</code></td><td>큰 잔치</td><td>Das Riesenfest</td><td style="text-align: right">4</td><td><code>festtafel</code>, <code>waldfest</code>, <code>kochkunst</code>, <code>farbenpfad</code>, <code>vogelpfad</code></td></tr>
+<tr><td><code>karawane</code></td><td>대상단</td><td>Die Karawane</td><td style="text-align: right">4</td><td><code>gestuet</code>, <code>weltmarkt</code>, <code>schmuckpfad</code></td></tr>
+<tr><td><code>himmelswarte</code></td><td>하늘 관측소</td><td>Die Himmelswarte</td><td style="text-align: right">4</td><td><code>observatorium</code>, <code>sternenhaus</code></td></tr>
+<tr><td><code>grossesmeer</code></td><td>큰 바다</td><td>Das Große Meer</td><td style="text-align: right">4</td><td><code>tiefseehafen</code>, <code>ozeanfahrt</code></td></tr>
+<tr><td><code>hafenwacht</code></td><td>조선소의 길</td><td>Der Werftpfad</td><td style="text-align: right">4</td><td><code>tiefseehafen</code>, <code>kuestenwacht</code></td></tr>
+<tr><td><code>w5_01</code></td><td>광부의 등불</td><td>Die Grubenlampe</td><td style="text-align: right">4</td><td><code>bergwerk</code></td></tr>
+<tr><td><code>w5_02</code></td><td>쇠를 두드리는 손</td><td>Hände, die Eisen schmieden</td><td style="text-align: right">4</td><td><code>schmuckpfad</code></td></tr>
+<tr><td><code>w5_03</code></td><td>깊은 돌의 노래</td><td>Das Lied des tiefen Steins</td><td style="text-align: right">4</td><td><code>eiskrone</code></td></tr>
+<tr><td><code>w5_04</code></td><td>화로의 불빛</td><td>Das Feuer im Ofen</td><td style="text-align: right">4</td><td><code>festtafel</code></td></tr>
+<tr><td><code>w5_05</code></td><td>동굴의 숨결</td><td>Der Atem der Höhle</td><td style="text-align: right">4</td><td><code>observatorium</code></td></tr>
+<tr><td><code>w5_06</code></td><td>땅속의 보석</td><td>Der Schatz in der Tiefe</td><td style="text-align: right">4</td><td><code>weltmarkt</code></td></tr>
+<tr><td><code>w5_07</code></td><td>물속의 자갈</td><td>Kies unter Wasser</td><td style="text-align: right">4</td><td><code>tiefseehafen</code></td></tr>
+<tr><td><code>w5_08</code></td><td>뿌리 아래의 돌</td><td>Der Stein unter den Wurzeln</td><td style="text-align: right">4</td><td><code>weltbaum</code></td></tr>
+<tr><td><code>w5_09</code></td><td>돌 정원의 벽돌</td><td>Ziegel im Steingarten</td><td style="text-align: right">4</td><td><code>gartenwacht</code></td></tr>
+<tr><td><code>w6_01</code></td><td>나이테의 비밀</td><td>Das Geheimnis der Jahresringe</td><td style="text-align: right">4</td><td><code>weltbaum</code></td></tr>
+<tr><td><code>w6_02</code></td><td>숲의 약초</td><td>Kräuter des Waldes</td><td style="text-align: right">4</td><td><code>gartenwacht</code></td></tr>
+<tr><td><code>w6_03</code></td><td>붉은 여우의 숲</td><td>Der Wald des roten Fuchses</td><td style="text-align: right">4</td><td><code>wolfpfad</code></td></tr>
+<tr><td><code>w6_04</code></td><td>꿀벌의 숲</td><td>Der Wald der Bienen</td><td style="text-align: right">4</td><td><code>vogelpfad</code></td></tr>
+<tr><td><code>w6_05</code></td><td>버섯 그늘</td><td>Im Schatten der Pilze</td><td style="text-align: right">4</td><td><code>bergwerk</code></td></tr>
+<tr><td><code>w6_06</code></td><td>숲의 전망대</td><td>Der Aussichtspunkt im Wald</td><td style="text-align: right">4</td><td><code>observatorium</code></td></tr>
+<tr><td><code>w6_07</code></td><td>정글의 약초</td><td>Kräuter im Dschungel</td><td style="text-align: right">4</td><td><code>weltreise</code></td></tr>
+<tr><td><code>w6_08</code></td><td>밀 건조대</td><td>Das Weizentrockengestell</td><td style="text-align: right">4</td><td><code>festtafel</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-9--topik-3--18-trails"><a class="header" href="#level-9--topik-3--18-trails">Level 9 · TOPIK 3 · 18 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>polarlicht</code></td><td>북쪽의 얼음</td><td>Das Eis im Norden</td><td style="text-align: right">5</td><td><code>frostwacht</code></td></tr>
+<tr><td><code>piratenpfad</code></td><td>해적의 길</td><td>Der Piratenpfad</td><td style="text-align: right">4</td><td><code>tempelpfad</code>, <code>tiefseehafen</code></td></tr>
+<tr><td><code>vulkanpfad</code></td><td>화산의 길</td><td>Der Vulkanpfad</td><td style="text-align: right">5</td><td><code>tempelpfad</code>, <code>eiswand</code></td></tr>
+<tr><td><code>wolkenstadt</code></td><td>구름 도시</td><td>Die Wolkenstadt</td><td style="text-align: right">4</td><td><code>gartenfest</code>, <code>handelsgilde</code></td></tr>
+<tr><td><code>wuestenstadt</code></td><td>사막 도시의 길</td><td>Die Wüstenstadt</td><td style="text-align: right">4</td><td><code>karawane</code>, <code>handelsgilde</code></td></tr>
+<tr><td><code>adv_nether_charge_respawn_anchor</code></td><td>목숨 충전</td><td>Neun Leben, fast</td><td style="text-align: right">5</td><td><code>adv_nether_obtain_crying_obsidian</code></td></tr>
+<tr><td><code>adv_nether_explore_nether</code></td><td>화끈한 관광 명소</td><td>Heißbegehrte Reiseziele</td><td style="text-align: right">4</td><td><code>adv_nether_ride_strider</code></td></tr>
+<tr><td><code>adv_nether_get_wither_skull</code></td><td>으스스한 스켈레톤</td><td>Gruseliges Skelett</td><td style="text-align: right">3</td><td><code>adv_nether_find_fortress</code></td></tr>
+<tr><td><code>adv_nether_loot_bastion</code></td><td>돼지와 전쟁</td><td>Krieg der Schweine</td><td style="text-align: right">4</td><td><code>adv_nether_find_bastion</code></td></tr>
+<tr><td><code>adv_nether_netherite_armor</code></td><td>네더라이트 투구</td><td>Der erste Netheritschatz</td><td style="text-align: right">4</td><td><code>adv_nether_obtain_ancient_debris</code></td></tr>
+<tr><td><code>adv_nether_obtain_blaze_rod</code></td><td>포화 속으로</td><td>Spiel mit dem Feuer</td><td style="text-align: right">4</td><td><code>adv_nether_find_fortress</code></td></tr>
+<tr><td><code>adv_nether_ride_strider_in_overworld_lava</code></td><td>고향 같은 편안함</td><td>Ganz wie zu Hause</td><td style="text-align: right">3</td><td><code>adv_nether_ride_strider</code></td></tr>
+<tr><td><code>adv_nether_uneasy_alliance</code></td><td>가스트 눈물 사냥</td><td>Auf Tränenjagd</td><td style="text-align: right">3</td><td><code>adv_nether_return_to_sender</code></td></tr>
+<tr><td><code>adv_story_cure_zombie_villager</code></td><td>좀비 주민 돕기</td><td>Dem Zombiedorfbewohner helfen</td><td style="text-align: right">5</td><td><code>adv_story_enter_the_nether</code></td></tr>
+<tr><td><code>adv_story_follow_ender_eye</code></td><td>엔더의 눈 만들기</td><td>Ein Enderauge herstellen</td><td style="text-align: right">5</td><td><code>adv_story_enter_the_nether</code></td></tr>
+<tr><td><code>koenigspfad</code></td><td>왕의 길</td><td>Der Königspfad</td><td style="text-align: right">4</td><td><code>riesenfest</code>, <code>karawane</code>, <code>weltmarkt</code></td></tr>
+<tr><td><code>weltwunder</code></td><td>세계의 불가사의</td><td>Das Weltwunder</td><td style="text-align: right">4</td><td><code>kristallhoehle</code>, <code>himmelswarte</code>, <code>weltbaum</code>, <code>wanderpfad</code>, <code>gartenwacht</code>, <code>wetterpfad</code>, <code>tempelpfad</code>, <code>dschungelpfad</code>, <code>lavapfad</code></td></tr>
+<tr><td><code>kristallschmiede</code></td><td>수정 대장간</td><td>Die Kristallschmiede</td><td style="text-align: right">4</td><td><code>kristallhoehle</code>, <code>schmiedefeuer</code>, <code>schmelzofen</code>, <code>redstonepfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-10--topik-4--8-trails"><a class="header" href="#level-10--topik-4--8-trails">Level 10 · TOPIK 4 · 8 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>ewiges_eis</code></td><td>영원한 얼음</td><td>Das ewige Eis</td><td style="text-align: right">5</td><td><code>polarlicht</code>, <code>kristallschmiede</code></td></tr>
+<tr><td><code>pyramidenpfad</code></td><td>피라미드의 길</td><td>Der Pyramidenpfad</td><td style="text-align: right">4</td><td><code>piratenpfad</code>, <code>tempelpfad</code></td></tr>
+<tr><td><code>bibliothekpfad</code></td><td>도서관의 길</td><td>Der Bibliothekspfad</td><td style="text-align: right">4</td><td><code>piratenpfad</code>, <code>vogelpfad</code></td></tr>
+<tr><td><code>adv_nether_brew_potion</code></td><td>물약 양조장</td><td>Alchemie</td><td style="text-align: right">5</td><td><code>adv_nether_obtain_blaze_rod</code></td></tr>
+<tr><td><code>adv_nether_summon_wither</code></td><td>해골 탑</td><td>Der Schädelturm</td><td style="text-align: right">4</td><td><code>adv_nether_get_wither_skull</code></td></tr>
+<tr><td><code>adv_story_enter_the_end</code></td><td>이걸로 끝이야?</td><td>Das Ende?</td><td style="text-align: right">4</td><td><code>adv_story_follow_ender_eye</code></td></tr>
+<tr><td><code>wolkenpfad</code></td><td>구름의 길</td><td>Der Wolkenpfad</td><td style="text-align: right">4</td><td><code>weltwunder</code>, <code>observatorium</code>, <code>weltreise</code>, <code>windpfad</code></td></tr>
+<tr><td><code>unendlichereise</code></td><td>끝없는 여행</td><td>Die Unendliche Reise</td><td style="text-align: right">4</td><td><code>koenigspfad</code>, <code>weltwunder</code>, <code>grossesmeer</code>, <code>piratenpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-11--topik-4--15-trails"><a class="header" href="#level-11--topik-4--15-trails">Level 11 · TOPIK 4 · 15 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>leuchtturmpfad</code></td><td>등대의 길</td><td>Der Leuchtturmpfad</td><td style="text-align: right">4</td><td><code>pyramidenpfad</code>, <code>tiefseehafen</code></td></tr>
+<tr><td><code>drachenhort</code></td><td>엔드 도시의 보물</td><td>Der Schatz der Endstadt</td><td style="text-align: right">5</td><td><code>bibliothekpfad</code>, <code>pyramidenpfad</code></td></tr>
+<tr><td><code>tempelwaechter</code></td><td>신전의 수호자</td><td>Der Tempelwächter</td><td style="text-align: right">5</td><td><code>pyramidenpfad</code>, <code>bibliothekpfad</code></td></tr>
+<tr><td><code>adv_nether_all_potions</code></td><td>더 강한 물약</td><td>Ein stärkerer Trank</td><td style="text-align: right">3</td><td><code>adv_nether_brew_potion</code></td></tr>
+<tr><td><code>adv_nether_create_beacon</code></td><td>철 블록과 영혼 랜턴</td><td>Eisenblöcke und Seelenlaterne</td><td style="text-align: right">4</td><td><code>adv_nether_summon_wither</code></td></tr>
+<tr><td><code>reisekrone</code></td><td>여행의 왕관</td><td>Die Reisekrone</td><td style="text-align: right">4</td><td><code>koenigspfad</code>, <code>unendlichereise</code>, <code>wolkenpfad</code>, <code>kristallschmiede</code>, <code>hafenwacht</code></td></tr>
+<tr><td><code>w7_01</code></td><td>불의 문</td><td>Das Feuertor</td><td style="text-align: right">4</td><td><code>unendlichereise</code></td></tr>
+<tr><td><code>w7_03</code></td><td>모루의 길</td><td>Der Ambosspfad</td><td style="text-align: right">4</td><td><code>ewiges_eis</code></td></tr>
+<tr><td><code>w7_06</code></td><td>마그마의 길</td><td>Der Magmaweg</td><td style="text-align: right">4</td><td><code>pyramidenpfad</code></td></tr>
+<tr><td><code>w7_08</code></td><td>붉은 벽돌</td><td>Rote Ziegel</td><td style="text-align: right">4</td><td><code>bibliothekpfad</code></td></tr>
+<tr><td><code>w7_09</code></td><td>천둥의 노래</td><td>Das Lied des Donners</td><td style="text-align: right">4</td><td><code>wolkenpfad</code></td></tr>
+<tr><td><code>w8_01</code></td><td>흑요석 문</td><td>Das Obsidiantor</td><td style="text-align: right">4</td><td><code>unendlichereise</code></td></tr>
+<tr><td><code>w8_02</code></td><td>엔더의 눈</td><td>Das Auge des Enders</td><td style="text-align: right">4</td><td><code>pyramidenpfad</code></td></tr>
+<tr><td><code>w8_03</code></td><td>양털 그림</td><td>Ein Bild aus Wolle</td><td style="text-align: right">4</td><td><code>bibliothekpfad</code></td></tr>
+<tr><td><code>w8_06</code></td><td>하늘의 끝</td><td>Das Ende des Himmels</td><td style="text-align: right">4</td><td><code>wolkenpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-12--topik-4--13-trails"><a class="header" href="#level-12--topik-4--13-trails">Level 12 · TOPIK 4 · 13 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>kronenlicht</code></td><td>왕관의 빛</td><td>Das Kronenlicht</td><td style="text-align: right">4</td><td><code>reisekrone</code>, <code>vulkanpfad</code>, <code>tempelwaechter</code>, <code>handelsgilde</code>, <code>gerberei</code>, <code>postpfad</code>, <code>werkzeugpfad</code></td></tr>
+<tr><td><code>sternenkarte</code></td><td>별자리 지도</td><td>Die Sternenkarte</td><td style="text-align: right">4</td><td><code>drachenhort</code>, <code>leuchtturmpfad</code></td></tr>
+<tr><td><code>handelsflotte</code></td><td>무역선의 길</td><td>Die Handelsflotte</td><td style="text-align: right">4</td><td><code>leuchtturmpfad</code>, <code>tempelwaechter</code></td></tr>
+<tr><td><code>adv_nether_all_effects</code></td><td>어쩌다 이 지경까지</td><td>Wie haben wir das geschafft?</td><td style="text-align: right">4</td><td><code>adv_nether_all_potions</code></td></tr>
+<tr><td><code>adv_nether_create_full_beacon</code></td><td>신호자</td><td>Leuchtturmwärter</td><td style="text-align: right">4</td><td><code>adv_nether_create_beacon</code></td></tr>
+<tr><td><code>w7_02</code></td><td>금빛 과녁</td><td>Das goldene Ziel</td><td style="text-align: right">4</td><td><code>drachenhort</code></td></tr>
+<tr><td><code>w7_04</code></td><td>화로의 온기</td><td>Die Wärme des Ofens</td><td style="text-align: right">4</td><td><code>reisekrone</code></td></tr>
+<tr><td><code>w7_05</code></td><td>영혼의 등불</td><td>Das Seelenlicht</td><td style="text-align: right">4</td><td><code>leuchtturmpfad</code></td></tr>
+<tr><td><code>w7_07</code></td><td>동쪽의 장미</td><td>Rosen im Osten</td><td style="text-align: right">4</td><td><code>tempelwaechter</code></td></tr>
+<tr><td><code>w8_04</code></td><td>작은 섬</td><td>Die kleine Insel</td><td style="text-align: right">4</td><td><code>reisekrone</code></td></tr>
+<tr><td><code>w8_05</code></td><td>알의 노래</td><td>Das Lied vom Ei</td><td style="text-align: right">4</td><td><code>drachenhort</code></td></tr>
+<tr><td><code>w8_07</code></td><td>엔더맨의 속삭임</td><td>Das Flüstern der Endermen</td><td style="text-align: right">4</td><td><code>tempelwaechter</code></td></tr>
+<tr><td><code>w8_08</code></td><td>별의 문</td><td>Das Sternentor</td><td style="text-align: right">4</td><td><code>leuchtturmpfad</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-13--topik-5--10-trails"><a class="header" href="#level-13--topik-5--10-trails">Level 13 · TOPIK 5 · 10 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>kronenwacht</code></td><td>왕관의 수호자</td><td>Der Kronenwächter</td><td style="text-align: right">4</td><td><code>kronenlicht</code>, <code>gipfelwaechter</code>, <code>ewiges_eis</code>, <code>leuchtturmpfad</code>, <code>sternenkarte</code>, <code>festungpfad</code>, <code>schatzkammer</code>, <code>druckerei</code>, <code>ziegelpfad</code>, <code>brauerei</code>, <code>bienenzucht</code></td></tr>
+<tr><td><code>zeitportal</code></td><td>시간의 문</td><td>Das Zeitportal</td><td style="text-align: right">4</td><td><code>sternenkarte</code>, <code>handelsflotte</code></td></tr>
+<tr><td><code>schattenpfad</code></td><td>그림자의 길</td><td>Der Schattenpfad</td><td style="text-align: right">5</td><td><code>sternenkarte</code>, <code>handelsflotte</code></td></tr>
+<tr><td><code>handwerksmeister</code></td><td>장인의 길</td><td>Der Handwerksmeister</td><td style="text-align: right">4</td><td><code>sternenkarte</code>, <code>leuchtturmpfad</code></td></tr>
+<tr><td><code>w9_01</code></td><td>빛나는 서약</td><td>Der leuchtende Schwur</td><td style="text-align: right">4</td><td><code>kronenlicht</code></td></tr>
+<tr><td><code>w9_02</code></td><td>별의 왕관</td><td>Die Krone der Sterne</td><td style="text-align: right">4</td><td><code>sternenkarte</code></td></tr>
+<tr><td><code>w9_03</code></td><td>왕관의 항로</td><td>Die Handelsroute der Krone</td><td style="text-align: right">4</td><td><code>handelsflotte</code></td></tr>
+<tr><td><code>w10_01</code></td><td>땅 아래의 빛</td><td>Licht unter der Erde</td><td style="text-align: right">4</td><td><code>kronenlicht</code></td></tr>
+<tr><td><code>w10_02</code></td><td>사막의 대상단</td><td>Die Wüstenkarawane</td><td style="text-align: right">4</td><td><code>handelsflotte</code></td></tr>
+<tr><td><code>w10_07</code></td><td>별빛과 모래</td><td>Sternenlicht und Sand</td><td style="text-align: right">4</td><td><code>sternenkarte</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-14--topik-5--11-trails"><a class="header" href="#level-14--topik-5--11-trails">Level 14 · TOPIK 5 · 11 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>kronenpfad</code></td><td>왕관의 길</td><td>Der Kronenpfad</td><td style="text-align: right">4</td><td><code>kronenwacht</code>, <code>wolkenpfad</code>, <code>bibliothekpfad</code>, <code>handelsflotte</code>, <code>handwerksmeister</code>, <code>steinmetz</code>, <code>faerberei</code>, <code>obstgarten</code></td></tr>
+<tr><td><code>seelenpfad</code></td><td>영혼의 길</td><td>Der Seelenpfad</td><td style="text-align: right">4</td><td><code>schattenpfad</code>, <code>handwerksmeister</code></td></tr>
+<tr><td><code>golemwerkstatt</code></td><td>골렘 공방</td><td>Die Golemwerkstatt</td><td style="text-align: right">4</td><td><code>schattenpfad</code>, <code>handwerksmeister</code></td></tr>
+<tr><td><code>w9_04</code></td><td>왕관의 성벽</td><td>Die Mauer der Krone</td><td style="text-align: right">4</td><td><code>kronenwacht</code></td></tr>
+<tr><td><code>w9_05</code></td><td>영원의 시간</td><td>Die Zeit der Ewigkeit</td><td style="text-align: right">4</td><td><code>zeitportal</code></td></tr>
+<tr><td><code>w9_06</code></td><td>어둠의 왕관</td><td>Die Krone der Finsternis</td><td style="text-align: right">4</td><td><code>schattenpfad</code></td></tr>
+<tr><td><code>w9_07</code></td><td>왕관의 공방</td><td>Die Werkstatt der Krone</td><td style="text-align: right">4</td><td><code>handwerksmeister</code></td></tr>
+<tr><td><code>w10_03</code></td><td>잊힌 사원</td><td>Der vergessene Tempel</td><td style="text-align: right">4</td><td><code>zeitportal</code></td></tr>
+<tr><td><code>w10_04</code></td><td>뼈의 수호자</td><td>Der Knochenwächter</td><td style="text-align: right">4</td><td><code>schattenpfad</code></td></tr>
+<tr><td><code>w10_05</code></td><td>사막의 파수꾼</td><td>Der Wächter der Wüste</td><td style="text-align: right">4</td><td><code>kronenwacht</code></td></tr>
+<tr><td><code>w10_06</code></td><td>도공의 손</td><td>Die Hände des Töpfers</td><td style="text-align: right">4</td><td><code>handwerksmeister</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-15--topik-5--6-trails"><a class="header" href="#level-15--topik-5--6-trails">Level 15 · TOPIK 5 · 6 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>kronenglanz</code></td><td>빛나는 왕관</td><td>Der Kronenglanz</td><td style="text-align: right">5</td><td><code>kronenpfad</code>, <code>kristallschmiede</code>, <code>zeitportal</code>, <code>seelenpfad</code>, <code>gartenkunst</code>, <code>wolkenstadt</code>, <code>schmuckgilde</code></td></tr>
+<tr><td><code>kronenrat</code></td><td>왕관 회의</td><td>Der Kronenrat</td><td style="text-align: right">5</td><td><code>seelenpfad</code>, <code>golemwerkstatt</code></td></tr>
+<tr><td><code>richterpfad</code></td><td>심판의 길</td><td>Der Richterpfad</td><td style="text-align: right">5</td><td><code>seelenpfad</code>, <code>golemwerkstatt</code></td></tr>
+<tr><td><code>runenpfad</code></td><td>룬의 길</td><td>Der Runenpfad</td><td style="text-align: right">4</td><td><code>handwerksmeister</code>, <code>seelenpfad</code></td></tr>
+<tr><td><code>w9_08</code></td><td>왕관의 유산</td><td>Das Erbe der Krone</td><td style="text-align: right">4</td><td><code>kronenpfad</code></td></tr>
+<tr><td><code>w10_08</code></td><td>모래 골렘의 등불</td><td>Die Laterne des Sandgolems</td><td style="text-align: right">4</td><td><code>golemwerkstatt</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-16--topik-6--4-trails"><a class="header" href="#level-16--topik-6--4-trails">Level 16 · TOPIK 6 · 4 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>kronenfeier</code></td><td>왕관의 잔치</td><td>Das Kronenfest</td><td style="text-align: right">4</td><td><code>kronenglanz</code>, <code>weltbaum</code>, <code>runenpfad</code>, <code>fischergilde</code></td></tr>
+<tr><td><code>kronenklang</code></td><td>왕관의 소리</td><td>Der Kronenklang</td><td style="text-align: right">4</td><td><code>kronenglanz</code>, <code>weltbaum</code>, <code>pyramidenpfad</code>, <code>drachenhort</code>, <code>schattenpfad</code>, <code>richterpfad</code>, <code>wolfpfad</code>, <code>wuestenstadt</code></td></tr>
+<tr><td><code>schicksalspfad</code></td><td>운명의 길</td><td>Der Schicksalspfad</td><td style="text-align: right">4</td><td><code>richterpfad</code>, <code>kronenrat</code></td></tr>
+<tr><td><code>weltenrichter</code></td><td>세계 심판</td><td>Der Weltenrichter</td><td style="text-align: right">4</td><td><code>richterpfad</code>, <code>kronenrat</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-17--topik-6--3-trails"><a class="header" href="#level-17--topik-6--3-trails">Level 17 · TOPIK 6 · 3 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>letzte_reise</code></td><td>엔드의 끝</td><td>Free the End</td><td style="text-align: right">4</td><td><code>kronenfeier</code>, <code>grossesmeer</code>, <code>schicksalspfad</code></td></tr>
+<tr><td><code>weltwaechter</code></td><td>세계의 수호자</td><td>Der Weltwächter</td><td style="text-align: right">4</td><td><code>kronenklang</code>, <code>gartenwacht</code>, <code>weltenrichter</code></td></tr>
+<tr><td><code>unsterblichkeit</code></td><td>불멸의 길</td><td>Der Unsterblichkeitspfad</td><td style="text-align: right">4</td><td><code>schicksalspfad</code>, <code>weltenrichter</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-18--topik-6--22-trails"><a class="header" href="#level-18--topik-6--22-trails">Level 18 · TOPIK 6 · 22 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>weltenschoepfer</code></td><td>세계의 창조자</td><td>Der Weltenschöpfer</td><td style="text-align: right">4</td><td><code>letzte_reise</code>, <code>weltbaum</code>, <code>golemwerkstatt</code></td></tr>
+<tr><td><code>ewige_krone</code></td><td>영원의 왕관</td><td>Die ewige Krone</td><td style="text-align: right">4</td><td><code>weltwaechter</code>, <code>letzte_reise</code>, <code>kronenrat</code>, <code>unsterblichkeit</code></td></tr>
+<tr><td><code>adv_end_root</code></td><td>엔드</td><td>Das Ende</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w11_01</code></td><td>별을 심는 밤</td><td>Die Nacht, in der Sterne wachsen</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w11_02</code></td><td>달빛 항해</td><td>Fahrt im Mondlicht</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w11_03</code></td><td>영원의 모래시계</td><td>Die Sanduhr der Ewigkeit</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w11_04</code></td><td>별의 지도</td><td>Die Karte der Sterne</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w11_05</code></td><td>은하의 제단</td><td>Der Altar der Galaxie</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w11_06</code></td><td>용의 별자리</td><td>Das Sternbild des Drachen</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w11_07</code></td><td>영원을 두른 왕관</td><td>Die Krone der Ewigkeit</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w11_08</code></td><td>우주의 노래</td><td>Das Lied des Kosmos</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w12_01</code></td><td>시간의 지도</td><td>Die Karte der Zeit</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w12_02</code></td><td>밤의 신화</td><td>Der Mythos der Nacht</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w12_03</code></td><td>잊힌 신전</td><td>Der vergessene Tempel</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w12_04</code></td><td>지옥의 문</td><td>Das Tor zur Hölle</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w12_05</code></td><td>영혼의 문</td><td>Das Tor der Seelen</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w12_06</code></td><td>끝의 노래</td><td>Das Lied vom Ende</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>w12_07</code></td><td>전설의 대장간</td><td>Die Schmiede der Legende</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+<tr><td><code>w12_08</code></td><td>세계의 왕관</td><td>Die Krone der Welt</td><td style="text-align: right">5</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>rotwerk</code></td><td>붉은 실의 길</td><td>Der rote Faden</td><td style="text-align: right">4</td><td><code>weltwaechter</code></td></tr>
+<tr><td><code>blauwerk</code></td><td>푸른 실의 길</td><td>Der blaue Faden</td><td style="text-align: right">4</td><td><code>unsterblichkeit</code></td></tr>
+<tr><td><code>gelbwerk</code></td><td>노란 실의 길</td><td>Der gelbe Faden</td><td style="text-align: right">4</td><td><code>letzte_reise</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-19--topik-6--3-trails"><a class="header" href="#level-19--topik-6--3-trails">Level 19 · TOPIK 6 · 3 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>adv_end_kill_dragon</code></td><td>엔드 해방</td><td>Befreie das Ende</td><td style="text-align: right">4</td><td><code>adv_end_root</code></td></tr>
+<tr><td><code>purpurwerk</code></td><td>보랏빛 천의 길</td><td>Der Purpurstoff</td><td style="text-align: right">4</td><td><code>rotwerk</code>, <code>blauwerk</code></td></tr>
+<tr><td><code>orangewerk</code></td><td>주황빛 천의 길</td><td>Der Orangestoff</td><td style="text-align: right">4</td><td><code>rotwerk</code>, <code>gelbwerk</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-20--topik-6--5-trails"><a class="header" href="#level-20--topik-6--5-trails">Level 20 · TOPIK 6 · 5 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>adv_end_dragon_breath</code></td><td>양치질이 필요해 보이는걸</td><td>Du brauchst ein Pfefferminz</td><td style="text-align: right">4</td><td><code>adv_end_kill_dragon</code></td></tr>
+<tr><td><code>adv_end_dragon_egg</code></td><td>그다음 세대</td><td>Die nächste Generation</td><td style="text-align: right">4</td><td><code>adv_end_kill_dragon</code></td></tr>
+<tr><td><code>adv_end_enter_end_gateway</code></td><td>머나먼 휴양지</td><td>Im Transit</td><td style="text-align: right">4</td><td><code>adv_end_kill_dragon</code></td></tr>
+<tr><td><code>adv_end_respawn_dragon</code></td><td>끝 아녔어?</td><td>Das Ende … Schon wieder …</td><td style="text-align: right">4</td><td><code>adv_end_kill_dragon</code></td></tr>
+<tr><td><code>regenbogenfahne</code></td><td>무지개 깃발의 길</td><td>Die Regenbogenfahne</td><td style="text-align: right">4</td><td><code>purpurwerk</code>, <code>orangewerk</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-21--topik-6--1-trails"><a class="header" href="#level-21--topik-6--1-trails">Level 21 · TOPIK 6 · 1 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>adv_end_find_end_city</code></td><td>게임의 끝에서 만난 도시</td><td>Die Stadt am Ende des Spiels</td><td style="text-align: right">4</td><td><code>adv_end_enter_end_gateway</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="level-22--topik-6--2-trails"><a class="header" href="#level-22--topik-6--2-trails">Level 22 · TOPIK 6 · 2 trails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trail</th><th>Korean title</th><th>German title</th><th style="text-align: right">Steps</th><th>Parents</th></tr>
+</thead>
+<tbody>
+<tr><td><code>adv_end_elytra</code></td><td>불가능은 없다</td><td>Hinterm Horizont geht’s weiter</td><td style="text-align: right">4</td><td><code>adv_end_find_end_city</code></td></tr>
+<tr><td><code>adv_end_levitate</code></td><td>위쪽 공기 좋은데?</td><td>Schöne Aussicht von hier oben</td><td style="text-align: right">4</td><td><code>adv_end_find_end_city</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="reading-the-tree"><a class="header" href="#reading-the-tree">Reading the tree</a></h2>
+<ul>
+<li><strong>Roots</strong> have no <code>requires.completed</code>. There are several so a new player can start in the branch that matches what they are doing anyway.</li>
+<li><strong>Merges</strong> (a trail with two or more parents) are the interesting nodes: they only unlock when every parent is finished, which is what turns a list of questlines into a tree.</li>
+<li><strong>Hints never leave level 1.</strong> A late trail speaks literary Korean; pressing <code>H</code> restates the same task in polite Korean, so the ladder never blocks you.</li>
+<li><strong>The ritual finale is the guarantee.</strong> Every trail ends with an action you can always perform — a torch at night, a campfire on a beach — never a structure or a coordinate.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="questline-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="contributing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="questline-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="contributing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
