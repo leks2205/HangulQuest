@@ -97,6 +97,27 @@ def hums_as_written(ko: str, heard: str) -> str:
     return heard
 
 
+# The dialect villages: an ASR transcribes dialect speech into standard orthography (먹었어요 for 묵었어예), which
+# would count as an error on every dialect line. Both sides are mapped back to the standard form before the CER,
+# so the gate keeps measuring pronunciation and not the writing system of the transcriber.
+DIALECT_BACK = (
+    ("아이가", ""), ("하이소", "하세요"), ("마이소", "마세요"), ("으이소", "으세요"), ("이소", "세요"),
+    ("하십니꺼", "하십니까"), ("심더", "습니다"), ("니더", "ㅂ니다"), ("이수다", "입니다"), ("수꽈", "습니까"),
+    ("수과", "습니까"), ("수다", "습니다"), ("하시우다", "하세요"), ("시우다", "세요"), ("이우다", "이에요"),
+    ("이라예", "이에요"), ("야예", "예요"), ("하우다", "해요"), ("어우다", "어요"), ("아우다", "아요"),
+    ("하예", "해요"), ("어예", "어요"), ("아예", "아요"), ("우꽈", "요"), ("우다", "요"), ("예", "요"),
+    ("묵었", "먹었"), ("묵어", "먹어"), ("묵고", "먹고"), ("묵을", "먹을"), ("묵으", "먹으"), ("묵지", "먹지"),
+    ("묵", "먹"), ("하영", "많이"), ("혼저", "천천히"),
+)
+
+
+def standard_form(text: str) -> str:
+    """Map dialect writing back to standard Korean, for the ASR round trip only."""
+    for dialect, standard in DIALECT_BACK:
+        text = text.replace(dialect, standard)
+    return text
+
+
 def decode(path: Path, pad: float = 0.5) -> np.ndarray:
     """Ogg -> 16 kHz mono float32, padded with silence (Whisper dislikes clips that start on the first sample)."""
     raw = subprocess.run(
@@ -197,13 +218,13 @@ def main():
                                          condition_on_previous_text=False, vad_filter=False)
             ko = entry["ko"]
             heard = hums_as_written(ko, spell_digits(HALLUCINATION.sub("", "".join(s.text for s in segments))))
-            score = cer(ko, heard)
+            score = cer(standard_form(ko), standard_form(heard))
             row = {"voice": voice, "id": cid, "hash": entry["hash"], "ko": ko, "asr": heard,
                    "cer": round(score, 4), "seconds": round(seconds, 2), "bytes": size}
             reasons = []
             concept = cid[5:] if cid.startswith("word.") else None
             if concept in prons:
-                spoken = cer(prons[concept], heard)
+                spoken = cer(prons[concept], standard_form(heard))
                 row["pron"] = prons[concept]
                 row["cer_pron"] = round(spoken, 4)
                 score = min(score, spoken)
